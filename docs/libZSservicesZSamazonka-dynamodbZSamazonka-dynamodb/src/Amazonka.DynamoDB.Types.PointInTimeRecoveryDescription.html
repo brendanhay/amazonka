@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus.html"><span class="hs-identifier">Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The description of the point in time settings applied to the table.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newPointInTimeRecoveryDescription' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679374679"><span id="local-6989586621679374680"></span></span><span class="hs-keyword">data</span><span> </span><span id="PointInTimeRecoveryDescription"><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PointInTimeRecoveryDescription%27"><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of point in time recovery:</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe PointInTimeRecoveryStatus
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-type">PointInTimeRecoveryStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Specifies the earliest point in time you can restore your table to. You</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">earliestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var hs-var">latestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679374671"><span id="local-6989586621679374673"><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+-&gt; PointInTimeRecoveryDescription -&gt; Bool
+(PointInTimeRecoveryDescription
+ -&gt; PointInTimeRecoveryDescription -&gt; Bool)
+-&gt; (PointInTimeRecoveryDescription
+    -&gt; PointInTimeRecoveryDescription -&gt; Bool)
+-&gt; Eq PointInTimeRecoveryDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PointInTimeRecoveryDescription
+-&gt; PointInTimeRecoveryDescription -&gt; Bool
+$c/= :: PointInTimeRecoveryDescription
+-&gt; PointInTimeRecoveryDescription -&gt; Bool
+== :: PointInTimeRecoveryDescription
+-&gt; PointInTimeRecoveryDescription -&gt; Bool
+$c== :: PointInTimeRecoveryDescription
+-&gt; PointInTimeRecoveryDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374662"><span id="local-6989586621679374664"><span id="local-6989586621679374666"><span id="local-6989586621679374668"><span class="annot"><span class="annottext">ReadPrec [PointInTimeRecoveryDescription]
+ReadPrec PointInTimeRecoveryDescription
+Int -&gt; ReadS PointInTimeRecoveryDescription
+ReadS [PointInTimeRecoveryDescription]
+(Int -&gt; ReadS PointInTimeRecoveryDescription)
+-&gt; ReadS [PointInTimeRecoveryDescription]
+-&gt; ReadPrec PointInTimeRecoveryDescription
+-&gt; ReadPrec [PointInTimeRecoveryDescription]
+-&gt; Read PointInTimeRecoveryDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PointInTimeRecoveryDescription]
+$creadListPrec :: ReadPrec [PointInTimeRecoveryDescription]
+readPrec :: ReadPrec PointInTimeRecoveryDescription
+$creadPrec :: ReadPrec PointInTimeRecoveryDescription
+readList :: ReadS [PointInTimeRecoveryDescription]
+$creadList :: ReadS [PointInTimeRecoveryDescription]
+readsPrec :: Int -&gt; ReadS PointInTimeRecoveryDescription
+$creadsPrec :: Int -&gt; ReadS PointInTimeRecoveryDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679374655"><span id="local-6989586621679374657"><span id="local-6989586621679374659"><span class="annot"><span class="annottext">Int -&gt; PointInTimeRecoveryDescription -&gt; ShowS
+[PointInTimeRecoveryDescription] -&gt; ShowS
+PointInTimeRecoveryDescription -&gt; String
+(Int -&gt; PointInTimeRecoveryDescription -&gt; ShowS)
+-&gt; (PointInTimeRecoveryDescription -&gt; String)
+-&gt; ([PointInTimeRecoveryDescription] -&gt; ShowS)
+-&gt; Show PointInTimeRecoveryDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PointInTimeRecoveryDescription] -&gt; ShowS
+$cshowList :: [PointInTimeRecoveryDescription] -&gt; ShowS
+show :: PointInTimeRecoveryDescription -&gt; String
+$cshow :: PointInTimeRecoveryDescription -&gt; String
+showsPrec :: Int -&gt; PointInTimeRecoveryDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; PointInTimeRecoveryDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ PointInTimeRecoveryDescription
+ -&gt; Rep PointInTimeRecoveryDescription x)
+-&gt; (forall x.
+    Rep PointInTimeRecoveryDescription x
+    -&gt; PointInTimeRecoveryDescription)
+-&gt; Generic PointInTimeRecoveryDescription
+forall x.
+Rep PointInTimeRecoveryDescription x
+-&gt; PointInTimeRecoveryDescription
+forall x.
+PointInTimeRecoveryDescription
+-&gt; Rep PointInTimeRecoveryDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep PointInTimeRecoveryDescription x
+-&gt; PointInTimeRecoveryDescription
+$cfrom :: forall x.
+PointInTimeRecoveryDescription
+-&gt; Rep PointInTimeRecoveryDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'PointInTimeRecoveryDescription' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'pointInTimeRecoveryStatus', 'pointInTimeRecoveryDescription_pointInTimeRecoveryStatus' - The current state of point in time recovery:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'earliestRestorableDateTime', 'pointInTimeRecoveryDescription_earliestRestorableDateTime' - Specifies the earliest point in time you can restore your table to. You</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'latestRestorableDateTime', 'pointInTimeRecoveryDescription_latestRestorableDateTime' - @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#newPointInTimeRecoveryDescription"><span class="hs-identifier hs-type">newPointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span>
+</span><span id="line-71"></span><span id="newPointInTimeRecoveryDescription"><span class="annot"><span class="annottext">newPointInTimeRecoveryDescription :: PointInTimeRecoveryDescription
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#newPointInTimeRecoveryDescription"><span class="hs-identifier hs-var hs-var">newPointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
+-&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">earliestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The current state of point in time recovery:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- -   @ENABLING@ - Point in time recovery is being enabled.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- -   @ENABLED@ - Point in time recovery is enabled.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- -   @DISABLED@ - Point in time recovery is disabled.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_pointInTimeRecoveryStatus"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryStatus.html#PointInTimeRecoveryStatus"><span class="hs-identifier hs-type">PointInTimeRecoveryStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="pointInTimeRecoveryDescription_pointInTimeRecoveryStatus"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_pointInTimeRecoveryStatus :: (Maybe PointInTimeRecoveryStatus
+ -&gt; f (Maybe PointInTimeRecoveryStatus))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_pointInTimeRecoveryStatus"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryDescription_pointInTimeRecoveryStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PointInTimeRecoveryDescription -&gt; Maybe PointInTimeRecoveryStatus)
+-&gt; (PointInTimeRecoveryDescription
+    -&gt; Maybe PointInTimeRecoveryStatus
+    -&gt; PointInTimeRecoveryDescription)
+-&gt; Lens
+     PointInTimeRecoveryDescription
+     PointInTimeRecoveryDescription
+     (Maybe PointInTimeRecoveryStatus)
+     (Maybe PointInTimeRecoveryStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374646"><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+pointInTimeRecoveryStatus :: Maybe PointInTimeRecoveryStatus
+$sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe PointInTimeRecoveryStatus
+</span><a href="#local-6989586621679374646"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+</span><a href="#local-6989586621679374646"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374645"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374644"><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+</span><a href="#local-6989586621679374644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pointInTimeRecoveryStatus:PointInTimeRecoveryDescription' :: Maybe PointInTimeRecoveryStatus
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3ApointInTimeRecoveryStatus%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">pointInTimeRecoveryStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+</span><a href="#local-6989586621679374644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Specifies the earliest point in time you can restore your table to. You</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- can restore your table to any point in time during the last 35 days.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_earliestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_earliestRestorableDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_earliestRestorableDateTime"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryDescription_earliestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PointInTimeRecoveryDescription -&gt; Maybe POSIX)
+-&gt; (PointInTimeRecoveryDescription
+    -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Lens
+     PointInTimeRecoveryDescription
+     PointInTimeRecoveryDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374642"><span class="annot"><span class="annottext">Maybe POSIX
+earliestRestorableDateTime :: Maybe POSIX
+$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679374642"><span class="hs-identifier hs-var hs-var">earliestRestorableDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374642"><span class="hs-identifier hs-var">earliestRestorableDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374641"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374641"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374640"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374640"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374641"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:earliestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AearliestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">earliestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374640"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PointInTimeRecoveryDescription
+ -&gt; f PointInTimeRecoveryDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | @LatestRestorableDateTime@ is typically 5 minutes before the current</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- time.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="hs-identifier hs-type">pointInTimeRecoveryDescription_latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="annot"><span class="annottext">pointInTimeRecoveryDescription_latestRestorableDateTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#pointInTimeRecoveryDescription_latestRestorableDateTime"><span class="hs-identifier hs-var hs-var">pointInTimeRecoveryDescription_latestRestorableDateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PointInTimeRecoveryDescription -&gt; Maybe POSIX)
+-&gt; (PointInTimeRecoveryDescription
+    -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Lens
+     PointInTimeRecoveryDescription
+     PointInTimeRecoveryDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679374635"><span class="annot"><span class="annottext">Maybe POSIX
+latestRestorableDateTime :: Maybe POSIX
+$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: PointInTimeRecoveryDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679374635"><span class="hs-identifier hs-var hs-var">latestRestorableDateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374635"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679374634"><span class="annot"><span class="annottext">s :: PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679374633"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PointInTimeRecoveryDescription
+</span><a href="#local-6989586621679374634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:latestRestorableDateTime:PointInTimeRecoveryDescription' :: Maybe POSIX
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#%24sel%3AlatestRestorableDateTime%3APointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">latestRestorableDateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679374633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; PointInTimeRecoveryDescription
+ -&gt; f PointInTimeRecoveryDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; PointInTimeRecoveryDescription
+-&gt; f PointInTimeRecoveryDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679374630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679374628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser PointInTimeRecoveryDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser PointInTimeRecoveryDescription)
+-&gt; Value
+-&gt; Parser PointInTimeRecoveryDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;PointInTimeRecoveryDescription&quot;</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679374625"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe PointInTimeRecoveryStatus
+-&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription
+</span><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription%27"><span class="hs-identifier hs-var">PointInTimeRecoveryDescription'</span></a></span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PointInTimeRecoveryStatus
+ -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Parser (Maybe PointInTimeRecoveryStatus)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PointInTimeRecoveryStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PointInTimeRecoveryStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EarliestRestorableDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; PointInTimeRecoveryDescription)
+-&gt; Parser (Maybe POSIX) -&gt; Parser PointInTimeRecoveryDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679374625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LatestRestorableDateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679374619"><span id="local-6989586621679374621"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679374616"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDB.Types.PointInTimeRecoveryDescription.html#PointInTimeRecoveryDescription"><span class="hs-identifier hs-type">PointInTimeRecoveryDescription</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

@@ -5,62 +5,62 @@
 @version 2.0
 
 
-module Network.AWS.Schemas.Types.CodeGenerationStatus
+module Amazonka.Schemas.Types.CodeGenerationStatus
 newtype CodeGenerationStatus
 CodeGenerationStatus' :: Text -> CodeGenerationStatus
 [fromCodeGenerationStatus] :: CodeGenerationStatus -> Text
 pattern CodeGenerationStatus_CREATE_COMPLETE :: CodeGenerationStatus
 pattern CodeGenerationStatus_CREATE_FAILED :: CodeGenerationStatus
 pattern CodeGenerationStatus_CREATE_IN_PROGRESS :: CodeGenerationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance GHC.Classes.Ord Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance GHC.Read.Read Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
-instance GHC.Show.Show Network.AWS.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.Text.ToText Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Amazonka.Data.Text.FromText Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance GHC.Generics.Generic Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance GHC.Classes.Ord Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance GHC.Classes.Eq Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance GHC.Read.Read Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
+instance GHC.Show.Show Amazonka.Schemas.Types.CodeGenerationStatus.CodeGenerationStatus
 
 
-module Network.AWS.Schemas.Types.DiscovererState
+module Amazonka.Schemas.Types.DiscovererState
 newtype DiscovererState
 DiscovererState' :: Text -> DiscovererState
 [fromDiscovererState] :: DiscovererState -> Text
 pattern DiscovererState_STARTED :: DiscovererState
 pattern DiscovererState_STOPPED :: DiscovererState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Network.AWS.Data.Text.ToText Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Network.AWS.Data.Text.FromText Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance GHC.Classes.Ord Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance GHC.Read.Read Network.AWS.Schemas.Types.DiscovererState.DiscovererState
-instance GHC.Show.Show Network.AWS.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.XML.ToXML Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.XML.FromXML Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.Log.ToLog Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.Text.ToText Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Amazonka.Data.Text.FromText Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance GHC.Generics.Generic Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance GHC.Classes.Ord Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance GHC.Classes.Eq Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance GHC.Read.Read Amazonka.Schemas.Types.DiscovererState.DiscovererState
+instance GHC.Show.Show Amazonka.Schemas.Types.DiscovererState.DiscovererState
 
 
-module Network.AWS.Schemas.Types.DiscovererSummary
+module Amazonka.Schemas.Types.DiscovererSummary
 
 -- | <i>See:</i> <a>newDiscovererSummary</a> smart constructor.
 data DiscovererSummary
@@ -132,16 +132,16 @@ discovererSummary_tags :: Lens' DiscovererSummary (Maybe (HashMap Text Text))
 
 -- | The ARN of the discoverer.
 discovererSummary_discovererArn :: Lens' DiscovererSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.DiscovererSummary.DiscovererSummary
-instance GHC.Show.Show Network.AWS.Schemas.Types.DiscovererSummary.DiscovererSummary
-instance GHC.Read.Read Network.AWS.Schemas.Types.DiscovererSummary.DiscovererSummary
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.DiscovererSummary.DiscovererSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.DiscovererSummary.DiscovererSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.DiscovererSummary.DiscovererSummary
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.DiscovererSummary.DiscovererSummary
+instance GHC.Generics.Generic Amazonka.Schemas.Types.DiscovererSummary.DiscovererSummary
+instance GHC.Show.Show Amazonka.Schemas.Types.DiscovererSummary.DiscovererSummary
+instance GHC.Read.Read Amazonka.Schemas.Types.DiscovererSummary.DiscovererSummary
+instance GHC.Classes.Eq Amazonka.Schemas.Types.DiscovererSummary.DiscovererSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.DiscovererSummary.DiscovererSummary
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.DiscovererSummary.DiscovererSummary
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.DiscovererSummary.DiscovererSummary
 
 
-module Network.AWS.Schemas.Types.RegistrySummary
+module Amazonka.Schemas.Types.RegistrySummary
 
 -- | <i>See:</i> <a>newRegistrySummary</a> smart constructor.
 data RegistrySummary
@@ -183,16 +183,16 @@ registrySummary_registryArn :: Lens' RegistrySummary (Maybe Text)
 
 -- | Tags associated with the registry.
 registrySummary_tags :: Lens' RegistrySummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.RegistrySummary.RegistrySummary
-instance GHC.Show.Show Network.AWS.Schemas.Types.RegistrySummary.RegistrySummary
-instance GHC.Read.Read Network.AWS.Schemas.Types.RegistrySummary.RegistrySummary
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.RegistrySummary.RegistrySummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.RegistrySummary.RegistrySummary
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.RegistrySummary.RegistrySummary
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.RegistrySummary.RegistrySummary
+instance GHC.Generics.Generic Amazonka.Schemas.Types.RegistrySummary.RegistrySummary
+instance GHC.Show.Show Amazonka.Schemas.Types.RegistrySummary.RegistrySummary
+instance GHC.Read.Read Amazonka.Schemas.Types.RegistrySummary.RegistrySummary
+instance GHC.Classes.Eq Amazonka.Schemas.Types.RegistrySummary.RegistrySummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.RegistrySummary.RegistrySummary
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.RegistrySummary.RegistrySummary
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.RegistrySummary.RegistrySummary
 
 
-module Network.AWS.Schemas.Types.SchemaSummary
+module Amazonka.Schemas.Types.SchemaSummary
 
 -- | A summary of schema details.
 --   
@@ -256,43 +256,43 @@ schemaSummary_tags :: Lens' SchemaSummary (Maybe (HashMap Text Text))
 
 -- | The number of versions available for the schema.
 schemaSummary_versionCount :: Lens' SchemaSummary (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.SchemaSummary.SchemaSummary
-instance GHC.Show.Show Network.AWS.Schemas.Types.SchemaSummary.SchemaSummary
-instance GHC.Read.Read Network.AWS.Schemas.Types.SchemaSummary.SchemaSummary
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.SchemaSummary.SchemaSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.SchemaSummary.SchemaSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.SchemaSummary.SchemaSummary
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.SchemaSummary.SchemaSummary
+instance GHC.Generics.Generic Amazonka.Schemas.Types.SchemaSummary.SchemaSummary
+instance GHC.Show.Show Amazonka.Schemas.Types.SchemaSummary.SchemaSummary
+instance GHC.Read.Read Amazonka.Schemas.Types.SchemaSummary.SchemaSummary
+instance GHC.Classes.Eq Amazonka.Schemas.Types.SchemaSummary.SchemaSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.SchemaSummary.SchemaSummary
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.SchemaSummary.SchemaSummary
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.SchemaSummary.SchemaSummary
 
 
-module Network.AWS.Schemas.Types.Type
+module Amazonka.Schemas.Types.Type
 newtype Type
 Type' :: Text -> Type
 [fromType] :: Type -> Text
 pattern Type_JSONSchemaDraft4 :: Type
 pattern Type_OpenApi3 :: Type
-instance Network.AWS.Data.XML.ToXML Network.AWS.Schemas.Types.Type.Type
-instance Network.AWS.Data.XML.FromXML Network.AWS.Schemas.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Schemas.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Schemas.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.Type.Type
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.Types.Type.Type
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Schemas.Types.Type.Type
-instance Network.AWS.Data.Log.ToLog Network.AWS.Schemas.Types.Type.Type
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Schemas.Types.Type.Type
-instance Network.AWS.Data.Text.ToText Network.AWS.Schemas.Types.Type.Type
-instance Network.AWS.Data.Text.FromText Network.AWS.Schemas.Types.Type.Type
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.Type.Type
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.Type.Type
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.Type.Type
-instance GHC.Classes.Ord Network.AWS.Schemas.Types.Type.Type
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.Type.Type
-instance GHC.Read.Read Network.AWS.Schemas.Types.Type.Type
-instance GHC.Show.Show Network.AWS.Schemas.Types.Type.Type
+instance Amazonka.Data.XML.ToXML Amazonka.Schemas.Types.Type.Type
+instance Amazonka.Data.XML.FromXML Amazonka.Schemas.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Schemas.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Schemas.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.Type.Type
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.Types.Type.Type
+instance Amazonka.Data.Headers.ToHeader Amazonka.Schemas.Types.Type.Type
+instance Amazonka.Data.Log.ToLog Amazonka.Schemas.Types.Type.Type
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Schemas.Types.Type.Type
+instance Amazonka.Data.Text.ToText Amazonka.Schemas.Types.Type.Type
+instance Amazonka.Data.Text.FromText Amazonka.Schemas.Types.Type.Type
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.Type.Type
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.Type.Type
+instance GHC.Generics.Generic Amazonka.Schemas.Types.Type.Type
+instance GHC.Classes.Ord Amazonka.Schemas.Types.Type.Type
+instance GHC.Classes.Eq Amazonka.Schemas.Types.Type.Type
+instance GHC.Read.Read Amazonka.Schemas.Types.Type.Type
+instance GHC.Show.Show Amazonka.Schemas.Types.Type.Type
 
 
-module Network.AWS.Schemas.Types.SearchSchemaVersionSummary
+module Amazonka.Schemas.Types.SearchSchemaVersionSummary
 
 -- | <i>See:</i> <a>newSearchSchemaVersionSummary</a> smart constructor.
 data SearchSchemaVersionSummary
@@ -336,16 +336,16 @@ searchSchemaVersionSummary_createdDate :: Lens' SearchSchemaVersionSummary (Mayb
 
 -- | The type of schema.
 searchSchemaVersionSummary_type :: Lens' SearchSchemaVersionSummary (Maybe Type)
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
-instance GHC.Show.Show Network.AWS.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
-instance GHC.Read.Read Network.AWS.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
+instance GHC.Generics.Generic Amazonka.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
+instance GHC.Show.Show Amazonka.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
+instance GHC.Read.Read Amazonka.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
+instance GHC.Classes.Eq Amazonka.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.SearchSchemaVersionSummary.SearchSchemaVersionSummary
 
 
-module Network.AWS.Schemas.Types.SearchSchemaSummary
+module Amazonka.Schemas.Types.SearchSchemaSummary
 
 -- | <i>See:</i> <a>newSearchSchemaSummary</a> smart constructor.
 data SearchSchemaSummary
@@ -397,16 +397,16 @@ searchSchemaSummary_schemaName :: Lens' SearchSchemaSummary (Maybe Text)
 
 -- | The ARN of the schema.
 searchSchemaSummary_schemaArn :: Lens' SearchSchemaSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
-instance GHC.Show.Show Network.AWS.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
-instance GHC.Read.Read Network.AWS.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
+instance GHC.Generics.Generic Amazonka.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
+instance GHC.Show.Show Amazonka.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
+instance GHC.Read.Read Amazonka.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
+instance GHC.Classes.Eq Amazonka.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.SearchSchemaSummary.SearchSchemaSummary
 
 
-module Network.AWS.Schemas.Types.SchemaVersionSummary
+module Amazonka.Schemas.Types.SchemaVersionSummary
 
 -- | <i>See:</i> <a>newSchemaVersionSummary</a> smart constructor.
 data SchemaVersionSummary
@@ -458,16 +458,16 @@ schemaVersionSummary_schemaArn :: Lens' SchemaVersionSummary (Maybe Text)
 
 -- | The type of schema.
 schemaVersionSummary_type :: Lens' SchemaVersionSummary (Maybe Type)
-instance GHC.Generics.Generic Network.AWS.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
-instance GHC.Show.Show Network.AWS.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
-instance GHC.Read.Read Network.AWS.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
-instance GHC.Classes.Eq Network.AWS.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
-instance Control.DeepSeq.NFData Network.AWS.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
+instance GHC.Generics.Generic Amazonka.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
+instance GHC.Show.Show Amazonka.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
+instance GHC.Read.Read Amazonka.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
+instance GHC.Classes.Eq Amazonka.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
+instance Control.DeepSeq.NFData Amazonka.Schemas.Types.SchemaVersionSummary.SchemaVersionSummary
 
 
-module Network.AWS.Schemas.Types
+module Amazonka.Schemas.Types
 
 -- | API version <tt>2019-12-02</tt> of the Amazon Schemas SDK
 --   configuration.
@@ -841,7 +841,7 @@ searchSchemaVersionSummary_type :: Lens' SearchSchemaVersionSummary (Maybe Type)
 
 
 -- | Add tags to a resource.
-module Network.AWS.Schemas.TagResource
+module Amazonka.Schemas.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -884,26 +884,26 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.Schemas.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Schemas.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.Schemas.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Schemas.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Schemas.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Schemas.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Schemas.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Schemas.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Schemas.TagResource.TagResource
+instance GHC.Read.Read Amazonka.Schemas.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Schemas.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Schemas.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Schemas.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Schemas.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Schemas.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Schemas.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Schemas.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.TagResource.TagResource
 
 
 -- | Stops the discoverer
-module Network.AWS.Schemas.StopDiscoverer
+module Amazonka.Schemas.StopDiscoverer
 
 -- | <i>See:</i> <a>newStopDiscoverer</a> smart constructor.
 data StopDiscoverer
@@ -969,26 +969,26 @@ stopDiscovererResponse_discovererId :: Lens' StopDiscovererResponse (Maybe Text)
 
 -- | The response's http status code.
 stopDiscovererResponse_httpStatus :: Lens' StopDiscovererResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance GHC.Show.Show Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance GHC.Read.Read Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance GHC.Classes.Eq Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance GHC.Generics.Generic Network.AWS.Schemas.StopDiscoverer.StopDiscovererResponse
-instance GHC.Show.Show Network.AWS.Schemas.StopDiscoverer.StopDiscovererResponse
-instance GHC.Read.Read Network.AWS.Schemas.StopDiscoverer.StopDiscovererResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.StopDiscoverer.StopDiscovererResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.StopDiscoverer.StopDiscovererResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.StopDiscoverer.StopDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance GHC.Show.Show Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance GHC.Read.Read Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance GHC.Classes.Eq Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.StopDiscoverer.StopDiscovererResponse
+instance GHC.Show.Show Amazonka.Schemas.StopDiscoverer.StopDiscovererResponse
+instance GHC.Read.Read Amazonka.Schemas.StopDiscoverer.StopDiscovererResponse
+instance GHC.Classes.Eq Amazonka.Schemas.StopDiscoverer.StopDiscovererResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.StopDiscoverer.StopDiscovererResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.StopDiscoverer.StopDiscoverer
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.StopDiscoverer.StopDiscoverer
 
 
 -- | Starts the discoverer
-module Network.AWS.Schemas.StartDiscoverer
+module Amazonka.Schemas.StartDiscoverer
 
 -- | <i>See:</i> <a>newStartDiscoverer</a> smart constructor.
 data StartDiscoverer
@@ -1055,28 +1055,28 @@ startDiscovererResponse_discovererId :: Lens' StartDiscovererResponse (Maybe Tex
 
 -- | The response's http status code.
 startDiscovererResponse_httpStatus :: Lens' StartDiscovererResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance GHC.Show.Show Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance GHC.Read.Read Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance GHC.Classes.Eq Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance GHC.Generics.Generic Network.AWS.Schemas.StartDiscoverer.StartDiscovererResponse
-instance GHC.Show.Show Network.AWS.Schemas.StartDiscoverer.StartDiscovererResponse
-instance GHC.Read.Read Network.AWS.Schemas.StartDiscoverer.StartDiscovererResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.StartDiscoverer.StartDiscovererResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.StartDiscoverer.StartDiscovererResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.StartDiscoverer.StartDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance GHC.Show.Show Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance GHC.Read.Read Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance GHC.Classes.Eq Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.StartDiscoverer.StartDiscovererResponse
+instance GHC.Show.Show Amazonka.Schemas.StartDiscoverer.StartDiscovererResponse
+instance GHC.Read.Read Amazonka.Schemas.StartDiscoverer.StartDiscovererResponse
+instance GHC.Classes.Eq Amazonka.Schemas.StartDiscoverer.StartDiscovererResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.StartDiscoverer.StartDiscovererResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.StartDiscoverer.StartDiscoverer
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.StartDiscoverer.StartDiscoverer
 
 
 -- | Search the schemas
 --   
 --   This operation returns paginated results.
-module Network.AWS.Schemas.SearchSchemas
+module Amazonka.Schemas.SearchSchemas
 
 -- | <i>See:</i> <a>newSearchSchemas</a> smart constructor.
 data SearchSchemas
@@ -1184,26 +1184,26 @@ searchSchemasResponse_nextToken :: Lens' SearchSchemasResponse (Maybe Text)
 
 -- | The response's http status code.
 searchSchemasResponse_httpStatus :: Lens' SearchSchemasResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance GHC.Show.Show Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance GHC.Read.Read Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance GHC.Classes.Eq Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance GHC.Generics.Generic Network.AWS.Schemas.SearchSchemas.SearchSchemasResponse
-instance GHC.Show.Show Network.AWS.Schemas.SearchSchemas.SearchSchemasResponse
-instance GHC.Read.Read Network.AWS.Schemas.SearchSchemas.SearchSchemasResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.SearchSchemas.SearchSchemasResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance Control.DeepSeq.NFData Network.AWS.Schemas.SearchSchemas.SearchSchemasResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance Control.DeepSeq.NFData Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.SearchSchemas.SearchSchemas
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.SearchSchemas.SearchSchemas
+instance GHC.Generics.Generic Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance GHC.Show.Show Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance GHC.Read.Read Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance GHC.Classes.Eq Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance GHC.Generics.Generic Amazonka.Schemas.SearchSchemas.SearchSchemasResponse
+instance GHC.Show.Show Amazonka.Schemas.SearchSchemas.SearchSchemasResponse
+instance GHC.Read.Read Amazonka.Schemas.SearchSchemas.SearchSchemasResponse
+instance GHC.Classes.Eq Amazonka.Schemas.SearchSchemas.SearchSchemasResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance Control.DeepSeq.NFData Amazonka.Schemas.SearchSchemas.SearchSchemasResponse
+instance Amazonka.Pager.AWSPager Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance Control.DeepSeq.NFData Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.SearchSchemas.SearchSchemas
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.SearchSchemas.SearchSchemas
 
 
 -- | The name of the policy.
-module Network.AWS.Schemas.PutResourcePolicy
+module Amazonka.Schemas.PutResourcePolicy
 
 -- | The name of the policy.
 --   
@@ -1290,26 +1290,26 @@ putResourcePolicyResponse_revisionId :: Lens' PutResourcePolicyResponse (Maybe T
 
 -- | The response's http status code.
 putResourcePolicyResponse_httpStatus :: Lens' PutResourcePolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance GHC.Show.Show Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance GHC.Read.Read Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance GHC.Classes.Eq Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance GHC.Generics.Generic Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicyResponse
-instance GHC.Show.Show Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicyResponse
-instance GHC.Read.Read Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicyResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.PutResourcePolicy.PutResourcePolicy
+instance GHC.Generics.Generic Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance GHC.Show.Show Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance GHC.Read.Read Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance GHC.Classes.Eq Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance GHC.Generics.Generic Amazonka.Schemas.PutResourcePolicy.PutResourcePolicyResponse
+instance GHC.Show.Show Amazonka.Schemas.PutResourcePolicy.PutResourcePolicyResponse
+instance GHC.Read.Read Amazonka.Schemas.PutResourcePolicy.PutResourcePolicyResponse
+instance GHC.Classes.Eq Amazonka.Schemas.PutResourcePolicy.PutResourcePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.Schemas.PutResourcePolicy.PutResourcePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.PutResourcePolicy.PutResourcePolicy
 
 
 -- | Put code binding URI
-module Network.AWS.Schemas.PutCodeBinding
+module Amazonka.Schemas.PutCodeBinding
 
 -- | <i>See:</i> <a>newPutCodeBinding</a> smart constructor.
 data PutCodeBinding
@@ -1425,26 +1425,26 @@ putCodeBindingResponse_lastModified :: Lens' PutCodeBindingResponse (Maybe UTCTi
 
 -- | The response's http status code.
 putCodeBindingResponse_httpStatus :: Lens' PutCodeBindingResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance GHC.Show.Show Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance GHC.Read.Read Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance GHC.Classes.Eq Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance GHC.Generics.Generic Network.AWS.Schemas.PutCodeBinding.PutCodeBindingResponse
-instance GHC.Show.Show Network.AWS.Schemas.PutCodeBinding.PutCodeBindingResponse
-instance GHC.Read.Read Network.AWS.Schemas.PutCodeBinding.PutCodeBindingResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.PutCodeBinding.PutCodeBindingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance Control.DeepSeq.NFData Network.AWS.Schemas.PutCodeBinding.PutCodeBindingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance Control.DeepSeq.NFData Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.PutCodeBinding.PutCodeBinding
+instance GHC.Generics.Generic Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance GHC.Show.Show Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance GHC.Read.Read Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance GHC.Classes.Eq Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance GHC.Generics.Generic Amazonka.Schemas.PutCodeBinding.PutCodeBindingResponse
+instance GHC.Show.Show Amazonka.Schemas.PutCodeBinding.PutCodeBindingResponse
+instance GHC.Read.Read Amazonka.Schemas.PutCodeBinding.PutCodeBindingResponse
+instance GHC.Classes.Eq Amazonka.Schemas.PutCodeBinding.PutCodeBindingResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance Control.DeepSeq.NFData Amazonka.Schemas.PutCodeBinding.PutCodeBindingResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance Control.DeepSeq.NFData Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.PutCodeBinding.PutCodeBinding
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.PutCodeBinding.PutCodeBinding
 
 
 -- | Get tags for resource.
-module Network.AWS.Schemas.ListTagsForResource
+module Amazonka.Schemas.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1499,27 +1499,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Schemas.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Schemas.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.Schemas.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Schemas.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Schemas.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.Schemas.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Schemas.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.ListTagsForResource.ListTagsForResource
 
 
 -- | List the schemas.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Schemas.ListSchemas
+module Amazonka.Schemas.ListSchemas
 
 -- | <i>See:</i> <a>newListSchemas</a> smart constructor.
 data ListSchemas
@@ -1626,28 +1626,28 @@ listSchemasResponse_nextToken :: Lens' ListSchemasResponse (Maybe Text)
 
 -- | The response's http status code.
 listSchemasResponse_httpStatus :: Lens' ListSchemasResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.ListSchemas.ListSchemas
-instance GHC.Show.Show Network.AWS.Schemas.ListSchemas.ListSchemas
-instance GHC.Read.Read Network.AWS.Schemas.ListSchemas.ListSchemas
-instance GHC.Classes.Eq Network.AWS.Schemas.ListSchemas.ListSchemas
-instance GHC.Generics.Generic Network.AWS.Schemas.ListSchemas.ListSchemasResponse
-instance GHC.Show.Show Network.AWS.Schemas.ListSchemas.ListSchemasResponse
-instance GHC.Read.Read Network.AWS.Schemas.ListSchemas.ListSchemasResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.ListSchemas.ListSchemasResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.ListSchemas.ListSchemas
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListSchemas.ListSchemasResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Schemas.ListSchemas.ListSchemas
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.ListSchemas.ListSchemas
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListSchemas.ListSchemas
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.ListSchemas.ListSchemas
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.ListSchemas.ListSchemas
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.ListSchemas.ListSchemas
+instance GHC.Generics.Generic Amazonka.Schemas.ListSchemas.ListSchemas
+instance GHC.Show.Show Amazonka.Schemas.ListSchemas.ListSchemas
+instance GHC.Read.Read Amazonka.Schemas.ListSchemas.ListSchemas
+instance GHC.Classes.Eq Amazonka.Schemas.ListSchemas.ListSchemas
+instance GHC.Generics.Generic Amazonka.Schemas.ListSchemas.ListSchemasResponse
+instance GHC.Show.Show Amazonka.Schemas.ListSchemas.ListSchemasResponse
+instance GHC.Read.Read Amazonka.Schemas.ListSchemas.ListSchemasResponse
+instance GHC.Classes.Eq Amazonka.Schemas.ListSchemas.ListSchemasResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.ListSchemas.ListSchemas
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListSchemas.ListSchemasResponse
+instance Amazonka.Pager.AWSPager Amazonka.Schemas.ListSchemas.ListSchemas
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.ListSchemas.ListSchemas
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListSchemas.ListSchemas
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.ListSchemas.ListSchemas
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.ListSchemas.ListSchemas
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.ListSchemas.ListSchemas
 
 
 -- | Provides a list of the schema versions and related information.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Schemas.ListSchemaVersions
+module Amazonka.Schemas.ListSchemaVersions
 
 -- | <i>See:</i> <a>newListSchemaVersions</a> smart constructor.
 data ListSchemaVersions
@@ -1753,28 +1753,28 @@ listSchemaVersionsResponse_nextToken :: Lens' ListSchemaVersionsResponse (Maybe 
 
 -- | The response's http status code.
 listSchemaVersionsResponse_httpStatus :: Lens' ListSchemaVersionsResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance GHC.Show.Show Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance GHC.Read.Read Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance GHC.Classes.Eq Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance GHC.Generics.Generic Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
-instance GHC.Show.Show Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
-instance GHC.Read.Read Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.ListSchemaVersions.ListSchemaVersions
+instance GHC.Generics.Generic Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance GHC.Show.Show Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance GHC.Read.Read Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance GHC.Classes.Eq Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance GHC.Generics.Generic Amazonka.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
+instance GHC.Show.Show Amazonka.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
+instance GHC.Read.Read Amazonka.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
+instance GHC.Classes.Eq Amazonka.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListSchemaVersions.ListSchemaVersionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.ListSchemaVersions.ListSchemaVersions
 
 
 -- | List the registries.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Schemas.ListRegistries
+module Amazonka.Schemas.ListRegistries
 
 -- | <i>See:</i> <a>newListRegistries</a> smart constructor.
 data ListRegistries
@@ -1886,28 +1886,28 @@ listRegistriesResponse_nextToken :: Lens' ListRegistriesResponse (Maybe Text)
 
 -- | The response's http status code.
 listRegistriesResponse_httpStatus :: Lens' ListRegistriesResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.ListRegistries.ListRegistries
-instance GHC.Show.Show Network.AWS.Schemas.ListRegistries.ListRegistries
-instance GHC.Read.Read Network.AWS.Schemas.ListRegistries.ListRegistries
-instance GHC.Classes.Eq Network.AWS.Schemas.ListRegistries.ListRegistries
-instance GHC.Generics.Generic Network.AWS.Schemas.ListRegistries.ListRegistriesResponse
-instance GHC.Show.Show Network.AWS.Schemas.ListRegistries.ListRegistriesResponse
-instance GHC.Read.Read Network.AWS.Schemas.ListRegistries.ListRegistriesResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.ListRegistries.ListRegistriesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.ListRegistries.ListRegistries
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListRegistries.ListRegistriesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Schemas.ListRegistries.ListRegistries
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.ListRegistries.ListRegistries
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListRegistries.ListRegistries
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.ListRegistries.ListRegistries
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.ListRegistries.ListRegistries
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.ListRegistries.ListRegistries
+instance GHC.Generics.Generic Amazonka.Schemas.ListRegistries.ListRegistries
+instance GHC.Show.Show Amazonka.Schemas.ListRegistries.ListRegistries
+instance GHC.Read.Read Amazonka.Schemas.ListRegistries.ListRegistries
+instance GHC.Classes.Eq Amazonka.Schemas.ListRegistries.ListRegistries
+instance GHC.Generics.Generic Amazonka.Schemas.ListRegistries.ListRegistriesResponse
+instance GHC.Show.Show Amazonka.Schemas.ListRegistries.ListRegistriesResponse
+instance GHC.Read.Read Amazonka.Schemas.ListRegistries.ListRegistriesResponse
+instance GHC.Classes.Eq Amazonka.Schemas.ListRegistries.ListRegistriesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.ListRegistries.ListRegistries
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListRegistries.ListRegistriesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Schemas.ListRegistries.ListRegistries
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.ListRegistries.ListRegistries
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListRegistries.ListRegistries
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.ListRegistries.ListRegistries
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.ListRegistries.ListRegistries
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.ListRegistries.ListRegistries
 
 
 -- | List the discoverers.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Schemas.ListDiscoverers
+module Amazonka.Schemas.ListDiscoverers
 
 -- | <i>See:</i> <a>newListDiscoverers</a> smart constructor.
 data ListDiscoverers
@@ -2020,26 +2020,26 @@ listDiscoverersResponse_nextToken :: Lens' ListDiscoverersResponse (Maybe Text)
 
 -- | The response's http status code.
 listDiscoverersResponse_httpStatus :: Lens' ListDiscoverersResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance GHC.Show.Show Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance GHC.Read.Read Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance GHC.Classes.Eq Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance GHC.Generics.Generic Network.AWS.Schemas.ListDiscoverers.ListDiscoverersResponse
-instance GHC.Show.Show Network.AWS.Schemas.ListDiscoverers.ListDiscoverersResponse
-instance GHC.Read.Read Network.AWS.Schemas.ListDiscoverers.ListDiscoverersResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.ListDiscoverers.ListDiscoverersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListDiscoverers.ListDiscoverersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.ListDiscoverers.ListDiscoverers
+instance GHC.Generics.Generic Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance GHC.Show.Show Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance GHC.Read.Read Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance GHC.Classes.Eq Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance GHC.Generics.Generic Amazonka.Schemas.ListDiscoverers.ListDiscoverersResponse
+instance GHC.Show.Show Amazonka.Schemas.ListDiscoverers.ListDiscoverersResponse
+instance GHC.Read.Read Amazonka.Schemas.ListDiscoverers.ListDiscoverersResponse
+instance GHC.Classes.Eq Amazonka.Schemas.ListDiscoverers.ListDiscoverersResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListDiscoverers.ListDiscoverersResponse
+instance Amazonka.Pager.AWSPager Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance Control.DeepSeq.NFData Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.ListDiscoverers.ListDiscoverers
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.ListDiscoverers.ListDiscoverers
 
 
 -- | Retrieves the resource-based policy attached to a given registry.
-module Network.AWS.Schemas.GetResourcePolicy
+module Amazonka.Schemas.GetResourcePolicy
 
 -- | <i>See:</i> <a>newGetResourcePolicy</a> smart constructor.
 data GetResourcePolicy
@@ -2105,25 +2105,25 @@ getResourcePolicyResponse_revisionId :: Lens' GetResourcePolicyResponse (Maybe T
 
 -- | The response's http status code.
 getResourcePolicyResponse_httpStatus :: Lens' GetResourcePolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance GHC.Show.Show Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance GHC.Read.Read Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance GHC.Classes.Eq Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance GHC.Generics.Generic Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicyResponse
-instance GHC.Show.Show Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicyResponse
-instance GHC.Read.Read Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicyResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.GetResourcePolicy.GetResourcePolicy
+instance GHC.Generics.Generic Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance GHC.Show.Show Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance GHC.Read.Read Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance GHC.Classes.Eq Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance GHC.Generics.Generic Amazonka.Schemas.GetResourcePolicy.GetResourcePolicyResponse
+instance GHC.Show.Show Amazonka.Schemas.GetResourcePolicy.GetResourcePolicyResponse
+instance GHC.Read.Read Amazonka.Schemas.GetResourcePolicy.GetResourcePolicyResponse
+instance GHC.Classes.Eq Amazonka.Schemas.GetResourcePolicy.GetResourcePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.Schemas.GetResourcePolicy.GetResourcePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.GetResourcePolicy.GetResourcePolicy
 
 
 -- | Get the discovered schema that was generated based on sampled events.
-module Network.AWS.Schemas.GetDiscoveredSchema
+module Amazonka.Schemas.GetDiscoveredSchema
 
 -- | <i>See:</i> <a>newGetDiscoveredSchema</a> smart constructor.
 data GetDiscoveredSchema
@@ -2197,26 +2197,26 @@ getDiscoveredSchemaResponse_content :: Lens' GetDiscoveredSchemaResponse (Maybe 
 
 -- | The response's http status code.
 getDiscoveredSchemaResponse_httpStatus :: Lens' GetDiscoveredSchemaResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance GHC.Show.Show Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance GHC.Read.Read Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance GHC.Classes.Eq Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance GHC.Generics.Generic Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
-instance GHC.Show.Show Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
-instance GHC.Read.Read Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance GHC.Generics.Generic Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance GHC.Show.Show Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance GHC.Read.Read Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance GHC.Classes.Eq Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance GHC.Generics.Generic Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
+instance GHC.Show.Show Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
+instance GHC.Read.Read Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
+instance GHC.Classes.Eq Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchemaResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.GetDiscoveredSchema.GetDiscoveredSchema
 
 
 -- | Get the code binding source URI.
-module Network.AWS.Schemas.GetCodeBindingSource
+module Amazonka.Schemas.GetCodeBindingSource
 
 -- | <i>See:</i> <a>newGetCodeBindingSource</a> smart constructor.
 data GetCodeBindingSource
@@ -2300,27 +2300,27 @@ getCodeBindingSourceResponse_body :: Lens' GetCodeBindingSourceResponse (Maybe B
 
 -- | The response's http status code.
 getCodeBindingSourceResponse_httpStatus :: Lens' GetCodeBindingSourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance GHC.Show.Show Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance GHC.Read.Read Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance GHC.Classes.Eq Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance GHC.Generics.Generic Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
-instance GHC.Show.Show Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
-instance GHC.Read.Read Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance GHC.Generics.Generic Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance GHC.Show.Show Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance GHC.Read.Read Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance GHC.Classes.Eq Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance GHC.Generics.Generic Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
+instance GHC.Show.Show Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
+instance GHC.Read.Read Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
+instance GHC.Classes.Eq Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance Control.DeepSeq.NFData Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance Control.DeepSeq.NFData Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.GetCodeBindingSource.GetCodeBindingSource
 
 
 -- | <ul>
 --   <li>- | Undocumented operation.</li>
 --   </ul>
-module Network.AWS.Schemas.ExportSchema
+module Amazonka.Schemas.ExportSchema
 
 -- | <i>See:</i> <a>newExportSchema</a> smart constructor.
 data ExportSchema
@@ -2429,25 +2429,25 @@ exportSchemaResponse_type :: Lens' ExportSchemaResponse (Maybe Text)
 
 -- | The response's http status code.
 exportSchemaResponse_httpStatus :: Lens' ExportSchemaResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.ExportSchema.ExportSchema
-instance GHC.Show.Show Network.AWS.Schemas.ExportSchema.ExportSchema
-instance GHC.Read.Read Network.AWS.Schemas.ExportSchema.ExportSchema
-instance GHC.Classes.Eq Network.AWS.Schemas.ExportSchema.ExportSchema
-instance GHC.Generics.Generic Network.AWS.Schemas.ExportSchema.ExportSchemaResponse
-instance GHC.Show.Show Network.AWS.Schemas.ExportSchema.ExportSchemaResponse
-instance GHC.Read.Read Network.AWS.Schemas.ExportSchema.ExportSchemaResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.ExportSchema.ExportSchemaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.ExportSchema.ExportSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ExportSchema.ExportSchemaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.ExportSchema.ExportSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.ExportSchema.ExportSchema
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.ExportSchema.ExportSchema
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.ExportSchema.ExportSchema
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.ExportSchema.ExportSchema
+instance GHC.Generics.Generic Amazonka.Schemas.ExportSchema.ExportSchema
+instance GHC.Show.Show Amazonka.Schemas.ExportSchema.ExportSchema
+instance GHC.Read.Read Amazonka.Schemas.ExportSchema.ExportSchema
+instance GHC.Classes.Eq Amazonka.Schemas.ExportSchema.ExportSchema
+instance GHC.Generics.Generic Amazonka.Schemas.ExportSchema.ExportSchemaResponse
+instance GHC.Show.Show Amazonka.Schemas.ExportSchema.ExportSchemaResponse
+instance GHC.Read.Read Amazonka.Schemas.ExportSchema.ExportSchemaResponse
+instance GHC.Classes.Eq Amazonka.Schemas.ExportSchema.ExportSchemaResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.ExportSchema.ExportSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.ExportSchema.ExportSchemaResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.ExportSchema.ExportSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.ExportSchema.ExportSchema
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.ExportSchema.ExportSchema
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.ExportSchema.ExportSchema
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.ExportSchema.ExportSchema
 
 
 -- | Retrieve the schema definition.
-module Network.AWS.Schemas.DescribeSchema
+module Amazonka.Schemas.DescribeSchema
 
 -- | <i>See:</i> <a>newDescribeSchema</a> smart constructor.
 data DescribeSchema
@@ -2601,25 +2601,25 @@ describeSchemaResponse_tags :: Lens' DescribeSchemaResponse (Maybe (HashMap Text
 
 -- | The response's http status code.
 describeSchemaResponse_httpStatus :: Lens' DescribeSchemaResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance GHC.Show.Show Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance GHC.Read.Read Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeSchema.DescribeSchemaResponse
-instance GHC.Show.Show Network.AWS.Schemas.DescribeSchema.DescribeSchemaResponse
-instance GHC.Read.Read Network.AWS.Schemas.DescribeSchema.DescribeSchemaResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeSchema.DescribeSchemaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeSchema.DescribeSchemaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DescribeSchema.DescribeSchema
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DescribeSchema.DescribeSchema
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance GHC.Show.Show Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance GHC.Read.Read Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeSchema.DescribeSchemaResponse
+instance GHC.Show.Show Amazonka.Schemas.DescribeSchema.DescribeSchemaResponse
+instance GHC.Read.Read Amazonka.Schemas.DescribeSchema.DescribeSchemaResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeSchema.DescribeSchemaResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeSchema.DescribeSchemaResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DescribeSchema.DescribeSchema
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DescribeSchema.DescribeSchema
 
 
 -- | Describes the registry.
-module Network.AWS.Schemas.DescribeRegistry
+module Amazonka.Schemas.DescribeRegistry
 
 -- | <i>See:</i> <a>newDescribeRegistry</a> smart constructor.
 data DescribeRegistry
@@ -2706,25 +2706,25 @@ describeRegistryResponse_tags :: Lens' DescribeRegistryResponse (Maybe (HashMap 
 
 -- | The response's http status code.
 describeRegistryResponse_httpStatus :: Lens' DescribeRegistryResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance GHC.Show.Show Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance GHC.Read.Read Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeRegistry.DescribeRegistryResponse
-instance GHC.Show.Show Network.AWS.Schemas.DescribeRegistry.DescribeRegistryResponse
-instance GHC.Read.Read Network.AWS.Schemas.DescribeRegistry.DescribeRegistryResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeRegistry.DescribeRegistryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeRegistry.DescribeRegistryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DescribeRegistry.DescribeRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance GHC.Show.Show Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance GHC.Read.Read Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeRegistry.DescribeRegistryResponse
+instance GHC.Show.Show Amazonka.Schemas.DescribeRegistry.DescribeRegistryResponse
+instance GHC.Read.Read Amazonka.Schemas.DescribeRegistry.DescribeRegistryResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeRegistry.DescribeRegistryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeRegistry.DescribeRegistryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DescribeRegistry.DescribeRegistry
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DescribeRegistry.DescribeRegistry
 
 
 -- | Describes the discoverer.
-module Network.AWS.Schemas.DescribeDiscoverer
+module Amazonka.Schemas.DescribeDiscoverer
 
 -- | <i>See:</i> <a>newDescribeDiscoverer</a> smart constructor.
 data DescribeDiscoverer
@@ -2844,25 +2844,25 @@ describeDiscovererResponse_discovererArn :: Lens' DescribeDiscovererResponse (Ma
 
 -- | The response's http status code.
 describeDiscovererResponse_httpStatus :: Lens' DescribeDiscovererResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance GHC.Show.Show Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance GHC.Read.Read Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
-instance GHC.Show.Show Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
-instance GHC.Read.Read Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance GHC.Show.Show Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance GHC.Read.Read Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
+instance GHC.Show.Show Amazonka.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
+instance GHC.Read.Read Amazonka.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeDiscoverer.DescribeDiscovererResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DescribeDiscoverer.DescribeDiscoverer
 
 
 -- | Describe the code binding URI.
-module Network.AWS.Schemas.DescribeCodeBinding
+module Amazonka.Schemas.DescribeCodeBinding
 
 -- | <i>See:</i> <a>newDescribeCodeBinding</a> smart constructor.
 data DescribeCodeBinding
@@ -2979,25 +2979,25 @@ describeCodeBindingResponse_lastModified :: Lens' DescribeCodeBindingResponse (M
 
 -- | The response's http status code.
 describeCodeBindingResponse_httpStatus :: Lens' DescribeCodeBindingResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance GHC.Show.Show Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance GHC.Read.Read Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance GHC.Generics.Generic Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
-instance GHC.Show.Show Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
-instance GHC.Read.Read Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance GHC.Show.Show Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance GHC.Read.Read Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance GHC.Generics.Generic Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
+instance GHC.Show.Show Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
+instance GHC.Read.Read Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBindingResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance Control.DeepSeq.NFData Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DescribeCodeBinding.DescribeCodeBinding
 
 
 -- | Delete the schema version definition
-module Network.AWS.Schemas.DeleteSchemaVersion
+module Amazonka.Schemas.DeleteSchemaVersion
 
 -- | <i>See:</i> <a>newDeleteSchemaVersion</a> smart constructor.
 data DeleteSchemaVersion
@@ -3051,25 +3051,25 @@ DeleteSchemaVersionResponse' :: DeleteSchemaVersionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteSchemaVersionResponse :: DeleteSchemaVersionResponse
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance GHC.Show.Show Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance GHC.Read.Read Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
-instance GHC.Show.Show Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
-instance GHC.Read.Read Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance GHC.Show.Show Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance GHC.Read.Read Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
+instance GHC.Show.Show Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
+instance GHC.Read.Read Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersionResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DeleteSchemaVersion.DeleteSchemaVersion
 
 
 -- | Delete a schema definition.
-module Network.AWS.Schemas.DeleteSchema
+module Amazonka.Schemas.DeleteSchema
 
 -- | <i>See:</i> <a>newDeleteSchema</a> smart constructor.
 data DeleteSchema
@@ -3113,25 +3113,25 @@ DeleteSchemaResponse' :: DeleteSchemaResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteSchemaResponse :: DeleteSchemaResponse
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance GHC.Show.Show Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance GHC.Read.Read Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteSchema.DeleteSchemaResponse
-instance GHC.Show.Show Network.AWS.Schemas.DeleteSchema.DeleteSchemaResponse
-instance GHC.Read.Read Network.AWS.Schemas.DeleteSchema.DeleteSchemaResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteSchema.DeleteSchemaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteSchema.DeleteSchemaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DeleteSchema.DeleteSchema
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DeleteSchema.DeleteSchema
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance GHC.Show.Show Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance GHC.Read.Read Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteSchema.DeleteSchemaResponse
+instance GHC.Show.Show Amazonka.Schemas.DeleteSchema.DeleteSchemaResponse
+instance GHC.Read.Read Amazonka.Schemas.DeleteSchema.DeleteSchemaResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteSchema.DeleteSchemaResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteSchema.DeleteSchemaResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DeleteSchema.DeleteSchema
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DeleteSchema.DeleteSchema
 
 
 -- | Delete the resource-based policy attached to the specified registry.
-module Network.AWS.Schemas.DeleteResourcePolicy
+module Amazonka.Schemas.DeleteResourcePolicy
 
 -- | <i>See:</i> <a>newDeleteResourcePolicy</a> smart constructor.
 data DeleteResourcePolicy
@@ -3166,25 +3166,25 @@ DeleteResourcePolicyResponse' :: DeleteResourcePolicyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteResourcePolicyResponse :: DeleteResourcePolicyResponse
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Show.Show Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Read.Read Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance GHC.Show.Show Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance GHC.Read.Read Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Show.Show Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Read.Read Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance GHC.Show.Show Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance GHC.Read.Read Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DeleteResourcePolicy.DeleteResourcePolicy
 
 
 -- | Deletes a Registry.
-module Network.AWS.Schemas.DeleteRegistry
+module Amazonka.Schemas.DeleteRegistry
 
 -- | <i>See:</i> <a>newDeleteRegistry</a> smart constructor.
 data DeleteRegistry
@@ -3219,25 +3219,25 @@ DeleteRegistryResponse' :: DeleteRegistryResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteRegistryResponse :: DeleteRegistryResponse
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance GHC.Show.Show Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance GHC.Read.Read Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteRegistry.DeleteRegistryResponse
-instance GHC.Show.Show Network.AWS.Schemas.DeleteRegistry.DeleteRegistryResponse
-instance GHC.Read.Read Network.AWS.Schemas.DeleteRegistry.DeleteRegistryResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteRegistry.DeleteRegistryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteRegistry.DeleteRegistryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DeleteRegistry.DeleteRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance GHC.Show.Show Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance GHC.Read.Read Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteRegistry.DeleteRegistryResponse
+instance GHC.Show.Show Amazonka.Schemas.DeleteRegistry.DeleteRegistryResponse
+instance GHC.Read.Read Amazonka.Schemas.DeleteRegistry.DeleteRegistryResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteRegistry.DeleteRegistryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteRegistry.DeleteRegistryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DeleteRegistry.DeleteRegistry
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DeleteRegistry.DeleteRegistry
 
 
 -- | Deletes a discoverer.
-module Network.AWS.Schemas.DeleteDiscoverer
+module Amazonka.Schemas.DeleteDiscoverer
 
 -- | <i>See:</i> <a>newDeleteDiscoverer</a> smart constructor.
 data DeleteDiscoverer
@@ -3272,27 +3272,27 @@ DeleteDiscovererResponse' :: DeleteDiscovererResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteDiscovererResponse :: DeleteDiscovererResponse
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance GHC.Show.Show Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance GHC.Read.Read Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance GHC.Generics.Generic Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
-instance GHC.Show.Show Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
-instance GHC.Read.Read Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance GHC.Show.Show Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance GHC.Read.Read Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
+instance GHC.Show.Show Amazonka.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
+instance GHC.Read.Read Amazonka.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
+instance GHC.Classes.Eq Amazonka.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteDiscoverer.DeleteDiscovererResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.DeleteDiscoverer.DeleteDiscoverer
 
 
 -- | Creates a schema definition.
 --   
 --   Inactive schemas will be deleted after two years.
-module Network.AWS.Schemas.CreateSchema
+module Amazonka.Schemas.CreateSchema
 
 -- | <i>See:</i> <a>newCreateSchema</a> smart constructor.
 data CreateSchema
@@ -3459,26 +3459,26 @@ createSchemaResponse_tags :: Lens' CreateSchemaResponse (Maybe (HashMap Text Tex
 
 -- | The response's http status code.
 createSchemaResponse_httpStatus :: Lens' CreateSchemaResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.CreateSchema.CreateSchema
-instance GHC.Show.Show Network.AWS.Schemas.CreateSchema.CreateSchema
-instance GHC.Read.Read Network.AWS.Schemas.CreateSchema.CreateSchema
-instance GHC.Classes.Eq Network.AWS.Schemas.CreateSchema.CreateSchema
-instance GHC.Generics.Generic Network.AWS.Schemas.CreateSchema.CreateSchemaResponse
-instance GHC.Show.Show Network.AWS.Schemas.CreateSchema.CreateSchemaResponse
-instance GHC.Read.Read Network.AWS.Schemas.CreateSchema.CreateSchemaResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.CreateSchema.CreateSchemaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.CreateSchema.CreateSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.CreateSchema.CreateSchemaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.CreateSchema.CreateSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.CreateSchema.CreateSchema
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.CreateSchema.CreateSchema
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.CreateSchema.CreateSchema
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.CreateSchema.CreateSchema
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.CreateSchema.CreateSchema
+instance GHC.Generics.Generic Amazonka.Schemas.CreateSchema.CreateSchema
+instance GHC.Show.Show Amazonka.Schemas.CreateSchema.CreateSchema
+instance GHC.Read.Read Amazonka.Schemas.CreateSchema.CreateSchema
+instance GHC.Classes.Eq Amazonka.Schemas.CreateSchema.CreateSchema
+instance GHC.Generics.Generic Amazonka.Schemas.CreateSchema.CreateSchemaResponse
+instance GHC.Show.Show Amazonka.Schemas.CreateSchema.CreateSchemaResponse
+instance GHC.Read.Read Amazonka.Schemas.CreateSchema.CreateSchemaResponse
+instance GHC.Classes.Eq Amazonka.Schemas.CreateSchema.CreateSchemaResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.CreateSchema.CreateSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.CreateSchema.CreateSchemaResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.CreateSchema.CreateSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.CreateSchema.CreateSchema
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.CreateSchema.CreateSchema
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.CreateSchema.CreateSchema
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.CreateSchema.CreateSchema
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.CreateSchema.CreateSchema
 
 
 -- | Creates a registry.
-module Network.AWS.Schemas.CreateRegistry
+module Amazonka.Schemas.CreateRegistry
 
 -- | <i>See:</i> <a>newCreateRegistry</a> smart constructor.
 data CreateRegistry
@@ -3582,26 +3582,26 @@ createRegistryResponse_tags :: Lens' CreateRegistryResponse (Maybe (HashMap Text
 
 -- | The response's http status code.
 createRegistryResponse_httpStatus :: Lens' CreateRegistryResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance GHC.Show.Show Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance GHC.Read.Read Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance GHC.Classes.Eq Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance GHC.Generics.Generic Network.AWS.Schemas.CreateRegistry.CreateRegistryResponse
-instance GHC.Show.Show Network.AWS.Schemas.CreateRegistry.CreateRegistryResponse
-instance GHC.Read.Read Network.AWS.Schemas.CreateRegistry.CreateRegistryResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.CreateRegistry.CreateRegistryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.CreateRegistry.CreateRegistryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.CreateRegistry.CreateRegistry
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.CreateRegistry.CreateRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance GHC.Show.Show Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance GHC.Read.Read Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance GHC.Classes.Eq Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.CreateRegistry.CreateRegistryResponse
+instance GHC.Show.Show Amazonka.Schemas.CreateRegistry.CreateRegistryResponse
+instance GHC.Read.Read Amazonka.Schemas.CreateRegistry.CreateRegistryResponse
+instance GHC.Classes.Eq Amazonka.Schemas.CreateRegistry.CreateRegistryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.CreateRegistry.CreateRegistryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.CreateRegistry.CreateRegistry
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.CreateRegistry.CreateRegistry
 
 
 -- | Creates a discoverer.
-module Network.AWS.Schemas.CreateDiscoverer
+module Amazonka.Schemas.CreateDiscoverer
 
 -- | <i>See:</i> <a>newCreateDiscoverer</a> smart constructor.
 data CreateDiscoverer
@@ -3751,26 +3751,26 @@ createDiscovererResponse_discovererArn :: Lens' CreateDiscovererResponse (Maybe 
 
 -- | The response's http status code.
 createDiscovererResponse_httpStatus :: Lens' CreateDiscovererResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance GHC.Show.Show Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance GHC.Read.Read Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance GHC.Classes.Eq Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance GHC.Generics.Generic Network.AWS.Schemas.CreateDiscoverer.CreateDiscovererResponse
-instance GHC.Show.Show Network.AWS.Schemas.CreateDiscoverer.CreateDiscovererResponse
-instance GHC.Read.Read Network.AWS.Schemas.CreateDiscoverer.CreateDiscovererResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.CreateDiscoverer.CreateDiscovererResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.CreateDiscoverer.CreateDiscovererResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.CreateDiscoverer.CreateDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance GHC.Show.Show Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance GHC.Read.Read Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance GHC.Classes.Eq Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.CreateDiscoverer.CreateDiscovererResponse
+instance GHC.Show.Show Amazonka.Schemas.CreateDiscoverer.CreateDiscovererResponse
+instance GHC.Read.Read Amazonka.Schemas.CreateDiscoverer.CreateDiscovererResponse
+instance GHC.Classes.Eq Amazonka.Schemas.CreateDiscoverer.CreateDiscovererResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.CreateDiscoverer.CreateDiscovererResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.CreateDiscoverer.CreateDiscoverer
 
 
 -- | Removes tags from a resource.
-module Network.AWS.Schemas.UntagResource
+module Amazonka.Schemas.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3814,25 +3814,25 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.Schemas.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Schemas.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.Schemas.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Schemas.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Schemas.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Schemas.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Schemas.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Schemas.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Schemas.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.Schemas.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Schemas.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Schemas.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Schemas.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Schemas.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Schemas.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Schemas.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Schemas.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.UntagResource.UntagResource
 
 
 -- | Updates the discoverer
-module Network.AWS.Schemas.UpdateDiscoverer
+module Amazonka.Schemas.UpdateDiscoverer
 
 -- | <i>See:</i> <a>newUpdateDiscoverer</a> smart constructor.
 data UpdateDiscoverer
@@ -3973,26 +3973,26 @@ updateDiscovererResponse_discovererArn :: Lens' UpdateDiscovererResponse (Maybe 
 
 -- | The response's http status code.
 updateDiscovererResponse_httpStatus :: Lens' UpdateDiscovererResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance GHC.Show.Show Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance GHC.Read.Read Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance GHC.Classes.Eq Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance GHC.Generics.Generic Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
-instance GHC.Show.Show Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
-instance GHC.Read.Read Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance GHC.Show.Show Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance GHC.Read.Read Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance GHC.Classes.Eq Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance GHC.Generics.Generic Amazonka.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
+instance GHC.Show.Show Amazonka.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
+instance GHC.Read.Read Amazonka.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
+instance GHC.Classes.Eq Amazonka.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.UpdateDiscoverer.UpdateDiscovererResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance Control.DeepSeq.NFData Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.UpdateDiscoverer.UpdateDiscoverer
 
 
 -- | Updates a registry.
-module Network.AWS.Schemas.UpdateRegistry
+module Amazonka.Schemas.UpdateRegistry
 
 -- | Updates the registry.
 --   
@@ -4090,28 +4090,28 @@ updateRegistryResponse_tags :: Lens' UpdateRegistryResponse (Maybe (HashMap Text
 
 -- | The response's http status code.
 updateRegistryResponse_httpStatus :: Lens' UpdateRegistryResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance GHC.Show.Show Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance GHC.Read.Read Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance GHC.Classes.Eq Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance GHC.Generics.Generic Network.AWS.Schemas.UpdateRegistry.UpdateRegistryResponse
-instance GHC.Show.Show Network.AWS.Schemas.UpdateRegistry.UpdateRegistryResponse
-instance GHC.Read.Read Network.AWS.Schemas.UpdateRegistry.UpdateRegistryResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.UpdateRegistry.UpdateRegistryResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UpdateRegistry.UpdateRegistryResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.UpdateRegistry.UpdateRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance GHC.Show.Show Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance GHC.Read.Read Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance GHC.Classes.Eq Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance GHC.Generics.Generic Amazonka.Schemas.UpdateRegistry.UpdateRegistryResponse
+instance GHC.Show.Show Amazonka.Schemas.UpdateRegistry.UpdateRegistryResponse
+instance GHC.Read.Read Amazonka.Schemas.UpdateRegistry.UpdateRegistryResponse
+instance GHC.Classes.Eq Amazonka.Schemas.UpdateRegistry.UpdateRegistryResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.UpdateRegistry.UpdateRegistryResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance Control.DeepSeq.NFData Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.UpdateRegistry.UpdateRegistry
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.UpdateRegistry.UpdateRegistry
 
 
 -- | Updates the schema definition
 --   
 --   Inactive schemas will be deleted after two years.
-module Network.AWS.Schemas.UpdateSchema
+module Amazonka.Schemas.UpdateSchema
 
 -- | <i>See:</i> <a>newUpdateSchema</a> smart constructor.
 data UpdateSchema
@@ -4278,25 +4278,25 @@ updateSchemaResponse_tags :: Lens' UpdateSchemaResponse (Maybe (HashMap Text Tex
 
 -- | The response's http status code.
 updateSchemaResponse_httpStatus :: Lens' UpdateSchemaResponse Int
-instance GHC.Generics.Generic Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance GHC.Show.Show Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance GHC.Read.Read Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance GHC.Classes.Eq Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance GHC.Generics.Generic Network.AWS.Schemas.UpdateSchema.UpdateSchemaResponse
-instance GHC.Show.Show Network.AWS.Schemas.UpdateSchema.UpdateSchemaResponse
-instance GHC.Read.Read Network.AWS.Schemas.UpdateSchema.UpdateSchemaResponse
-instance GHC.Classes.Eq Network.AWS.Schemas.UpdateSchema.UpdateSchemaResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UpdateSchema.UpdateSchemaResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance Control.DeepSeq.NFData Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance Network.AWS.Data.Path.ToPath Network.AWS.Schemas.UpdateSchema.UpdateSchema
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Schemas.UpdateSchema.UpdateSchema
+instance GHC.Generics.Generic Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance GHC.Show.Show Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance GHC.Read.Read Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance GHC.Classes.Eq Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance GHC.Generics.Generic Amazonka.Schemas.UpdateSchema.UpdateSchemaResponse
+instance GHC.Show.Show Amazonka.Schemas.UpdateSchema.UpdateSchemaResponse
+instance GHC.Read.Read Amazonka.Schemas.UpdateSchema.UpdateSchemaResponse
+instance GHC.Classes.Eq Amazonka.Schemas.UpdateSchema.UpdateSchemaResponse
+instance Amazonka.Types.AWSRequest Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.UpdateSchema.UpdateSchemaResponse
+instance Data.Hashable.Class.Hashable Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance Control.DeepSeq.NFData Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance Amazonka.Data.Path.ToPath Amazonka.Schemas.UpdateSchema.UpdateSchema
+instance Amazonka.Data.Query.ToQuery Amazonka.Schemas.UpdateSchema.UpdateSchema
 
 
-module Network.AWS.Schemas.Lens
+module Amazonka.Schemas.Lens
 
 -- | The description of the registry to update.
 updateRegistry_description :: Lens' UpdateRegistry (Maybe Text)
@@ -5014,7 +5014,7 @@ searchSchemaVersionSummary_createdDate :: Lens' SearchSchemaVersionSummary (Mayb
 searchSchemaVersionSummary_type :: Lens' SearchSchemaVersionSummary (Maybe Type)
 
 
-module Network.AWS.Schemas.Waiters
+module Amazonka.Schemas.Waiters
 
 -- | Polls <a>DescribeCodeBinding</a> every 2 seconds until a successful
 --   state is reached. An error is returned after 30 failed checks.
@@ -5025,7 +5025,7 @@ newCodeBindingExists :: Wait DescribeCodeBinding
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Amazon EventBridge Schema Registry
-module Network.AWS.Schemas
+module Amazonka.Schemas
 
 -- | API version <tt>2019-12-02</tt> of the Amazon Schemas SDK
 --   configuration.

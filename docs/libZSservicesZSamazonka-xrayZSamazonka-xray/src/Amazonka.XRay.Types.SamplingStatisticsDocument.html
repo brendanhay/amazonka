@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.XRay.Types.SamplingStatisticsDocument</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.XRay.Types.SamplingStatisticsDocument</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Request sampling results for a single rule from a service. Results are</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- for the last 10 seconds unless the service has been assigned a longer</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- reporting interval after a previous call to</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/xray/latest/api/API_GetSamplingTargets.html GetSamplingTargets&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newSamplingStatisticsDocument' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679254755"><span id="local-6989586621679254756"></span></span><span class="hs-keyword">data</span><span> </span><span id="SamplingStatisticsDocument"><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-var">SamplingStatisticsDocument</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SamplingStatisticsDocument%27"><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-var">SamplingStatisticsDocument'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of requests recorded with borrowed reservoir quota.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AborrowCount%3ASamplingStatisticsDocument%27"><span class="annot"><span class="annottext">SamplingStatisticsDocument -&gt; Maybe Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AborrowCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var hs-var">borrowCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the sampling rule.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AruleName%3ASamplingStatisticsDocument%27"><span class="annot"><span class="annottext">SamplingStatisticsDocument -&gt; Text
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AruleName%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the service in hexadecimal.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AclientID%3ASamplingStatisticsDocument%27"><span class="annot"><span class="annottext">SamplingStatisticsDocument -&gt; Text
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AclientID%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var hs-var">clientID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The current time.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Atimestamp%3ASamplingStatisticsDocument%27"><span class="annot"><span class="annottext">SamplingStatisticsDocument -&gt; POSIX
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3Atimestamp%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of requests that matched the rule.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArequestCount%3ASamplingStatisticsDocument%27"><span class="annot"><span class="annottext">SamplingStatisticsDocument -&gt; Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3ArequestCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var hs-var">requestCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The number of requests recorded.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AsampledCount%3ASamplingStatisticsDocument%27"><span class="annot"><span class="annottext">SamplingStatisticsDocument -&gt; Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AsampledCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var hs-var">sampledCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679254744"><span id="local-6989586621679254746"><span class="annot"><span class="annottext">SamplingStatisticsDocument -&gt; SamplingStatisticsDocument -&gt; Bool
+(SamplingStatisticsDocument -&gt; SamplingStatisticsDocument -&gt; Bool)
+-&gt; (SamplingStatisticsDocument
+    -&gt; SamplingStatisticsDocument -&gt; Bool)
+-&gt; Eq SamplingStatisticsDocument
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SamplingStatisticsDocument -&gt; SamplingStatisticsDocument -&gt; Bool
+$c/= :: SamplingStatisticsDocument -&gt; SamplingStatisticsDocument -&gt; Bool
+== :: SamplingStatisticsDocument -&gt; SamplingStatisticsDocument -&gt; Bool
+$c== :: SamplingStatisticsDocument -&gt; SamplingStatisticsDocument -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254735"><span id="local-6989586621679254737"><span id="local-6989586621679254739"><span id="local-6989586621679254741"><span class="annot"><span class="annottext">ReadPrec [SamplingStatisticsDocument]
+ReadPrec SamplingStatisticsDocument
+Int -&gt; ReadS SamplingStatisticsDocument
+ReadS [SamplingStatisticsDocument]
+(Int -&gt; ReadS SamplingStatisticsDocument)
+-&gt; ReadS [SamplingStatisticsDocument]
+-&gt; ReadPrec SamplingStatisticsDocument
+-&gt; ReadPrec [SamplingStatisticsDocument]
+-&gt; Read SamplingStatisticsDocument
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SamplingStatisticsDocument]
+$creadListPrec :: ReadPrec [SamplingStatisticsDocument]
+readPrec :: ReadPrec SamplingStatisticsDocument
+$creadPrec :: ReadPrec SamplingStatisticsDocument
+readList :: ReadS [SamplingStatisticsDocument]
+$creadList :: ReadS [SamplingStatisticsDocument]
+readsPrec :: Int -&gt; ReadS SamplingStatisticsDocument
+$creadsPrec :: Int -&gt; ReadS SamplingStatisticsDocument
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679254728"><span id="local-6989586621679254730"><span id="local-6989586621679254732"><span class="annot"><span class="annottext">Int -&gt; SamplingStatisticsDocument -&gt; ShowS
+[SamplingStatisticsDocument] -&gt; ShowS
+SamplingStatisticsDocument -&gt; String
+(Int -&gt; SamplingStatisticsDocument -&gt; ShowS)
+-&gt; (SamplingStatisticsDocument -&gt; String)
+-&gt; ([SamplingStatisticsDocument] -&gt; ShowS)
+-&gt; Show SamplingStatisticsDocument
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SamplingStatisticsDocument] -&gt; ShowS
+$cshowList :: [SamplingStatisticsDocument] -&gt; ShowS
+show :: SamplingStatisticsDocument -&gt; String
+$cshow :: SamplingStatisticsDocument -&gt; String
+showsPrec :: Int -&gt; SamplingStatisticsDocument -&gt; ShowS
+$cshowsPrec :: Int -&gt; SamplingStatisticsDocument -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SamplingStatisticsDocument -&gt; Rep SamplingStatisticsDocument x)
+-&gt; (forall x.
+    Rep SamplingStatisticsDocument x -&gt; SamplingStatisticsDocument)
+-&gt; Generic SamplingStatisticsDocument
+forall x.
+Rep SamplingStatisticsDocument x -&gt; SamplingStatisticsDocument
+forall x.
+SamplingStatisticsDocument -&gt; Rep SamplingStatisticsDocument x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SamplingStatisticsDocument x -&gt; SamplingStatisticsDocument
+$cfrom :: forall x.
+SamplingStatisticsDocument -&gt; Rep SamplingStatisticsDocument x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'SamplingStatisticsDocument' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'borrowCount', 'samplingStatisticsDocument_borrowCount' - The number of requests recorded with borrowed reservoir quota.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'ruleName', 'samplingStatisticsDocument_ruleName' - The name of the sampling rule.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'clientID', 'samplingStatisticsDocument_clientID' - A unique identifier for the service in hexadecimal.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'timestamp', 'samplingStatisticsDocument_timestamp' - The current time.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'requestCount', 'samplingStatisticsDocument_requestCount' - The number of requests that matched the rule.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'sampledCount', 'samplingStatisticsDocument_sampledCount' - The number of requests recorded.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#newSamplingStatisticsDocument"><span class="hs-identifier hs-type">newSamplingStatisticsDocument</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'ruleName'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'clientID'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'timestamp'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'requestCount'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'sampledCount'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span>
+</span><span id="line-79"></span><span id="newSamplingStatisticsDocument"><span class="annot"><span class="annottext">newSamplingStatisticsDocument :: Text
+-&gt; Text
+-&gt; UTCTime
+-&gt; Natural
+-&gt; Natural
+-&gt; SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#newSamplingStatisticsDocument"><span class="hs-identifier hs-var hs-var">newSamplingStatisticsDocument</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679254722"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254722"><span class="hs-identifier hs-var">pRuleName_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679254721"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254721"><span class="hs-identifier hs-var">pClientID_</span></a></span></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679254720"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679254720"><span class="hs-identifier hs-var">pTimestamp_</span></a></span></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679254719"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254719"><span class="hs-identifier hs-var">pRequestCount_</span></a></span></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679254718"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254718"><span class="hs-identifier hs-var">pSampledCount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">SamplingStatisticsDocument' :: Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; POSIX
+-&gt; Natural
+-&gt; Natural
+-&gt; SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:borrowCount:SamplingStatisticsDocument' :: Maybe Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AborrowCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">borrowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleName:SamplingStatisticsDocument' :: Text
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AruleName%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254722"><span class="hs-identifier hs-var">pRuleName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientID:SamplingStatisticsDocument' :: Text
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AclientID%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">clientID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254721"><span class="hs-identifier hs-var">pClientID_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:timestamp:SamplingStatisticsDocument' :: POSIX
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3Atimestamp%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679254720"><span class="hs-identifier hs-var">pTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:requestCount:SamplingStatisticsDocument' :: Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3ArequestCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">requestCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254719"><span class="hs-identifier hs-var">pRequestCount_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">$sel:sampledCount:SamplingStatisticsDocument' :: Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AsampledCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">sampledCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254718"><span class="hs-identifier hs-var">pSampledCount_</span></a></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The number of requests recorded with borrowed reservoir quota.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_borrowCount"><span class="hs-identifier hs-type">samplingStatisticsDocument_borrowCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="samplingStatisticsDocument_borrowCount"><span class="annot"><span class="annottext">samplingStatisticsDocument_borrowCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SamplingStatisticsDocument -&gt; f SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_borrowCount"><span class="hs-identifier hs-var hs-var">samplingStatisticsDocument_borrowCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingStatisticsDocument -&gt; Maybe Natural)
+-&gt; (SamplingStatisticsDocument
+    -&gt; Maybe Natural -&gt; SamplingStatisticsDocument)
+-&gt; Lens
+     SamplingStatisticsDocument
+     SamplingStatisticsDocument
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254712"><span class="annot"><span class="annottext">Maybe Natural
+borrowCount :: Maybe Natural
+$sel:borrowCount:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Maybe Natural
+</span><a href="#local-6989586621679254712"><span class="hs-identifier hs-var hs-var">borrowCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254712"><span class="hs-identifier hs-var">borrowCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254711"><span class="annot"><span class="annottext">s :: SamplingStatisticsDocument
+</span><a href="#local-6989586621679254711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254710"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingStatisticsDocument
+</span><a href="#local-6989586621679254711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:borrowCount:SamplingStatisticsDocument' :: Maybe Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AborrowCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">borrowCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The name of the sampling rule.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_ruleName"><span class="hs-identifier hs-type">samplingStatisticsDocument_ruleName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="samplingStatisticsDocument_ruleName"><span class="annot"><span class="annottext">samplingStatisticsDocument_ruleName :: (Text -&gt; f Text)
+-&gt; SamplingStatisticsDocument -&gt; f SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_ruleName"><span class="hs-identifier hs-var hs-var">samplingStatisticsDocument_ruleName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingStatisticsDocument -&gt; Text)
+-&gt; (SamplingStatisticsDocument
+    -&gt; Text -&gt; SamplingStatisticsDocument)
+-&gt; Lens
+     SamplingStatisticsDocument SamplingStatisticsDocument Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254708"><span class="annot"><span class="annottext">Text
+ruleName :: Text
+$sel:ruleName:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Text
+</span><a href="#local-6989586621679254708"><span class="hs-identifier hs-var hs-var">ruleName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254708"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254707"><span class="annot"><span class="annottext">s :: SamplingStatisticsDocument
+</span><a href="#local-6989586621679254707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254706"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingStatisticsDocument
+</span><a href="#local-6989586621679254707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleName:SamplingStatisticsDocument' :: Text
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AruleName%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">ruleName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A unique identifier for the service in hexadecimal.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_clientID"><span class="hs-identifier hs-type">samplingStatisticsDocument_clientID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="samplingStatisticsDocument_clientID"><span class="annot"><span class="annottext">samplingStatisticsDocument_clientID :: (Text -&gt; f Text)
+-&gt; SamplingStatisticsDocument -&gt; f SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_clientID"><span class="hs-identifier hs-var hs-var">samplingStatisticsDocument_clientID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingStatisticsDocument -&gt; Text)
+-&gt; (SamplingStatisticsDocument
+    -&gt; Text -&gt; SamplingStatisticsDocument)
+-&gt; Lens
+     SamplingStatisticsDocument SamplingStatisticsDocument Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254704"><span class="annot"><span class="annottext">Text
+clientID :: Text
+$sel:clientID:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Text
+</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var hs-var">clientID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254704"><span class="hs-identifier hs-var">clientID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254703"><span class="annot"><span class="annottext">s :: SamplingStatisticsDocument
+</span><a href="#local-6989586621679254703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254702"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingStatisticsDocument
+</span><a href="#local-6989586621679254703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientID:SamplingStatisticsDocument' :: Text
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AclientID%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">clientID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The current time.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_timestamp"><span class="hs-identifier hs-type">samplingStatisticsDocument_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-109"></span><span id="samplingStatisticsDocument_timestamp"><span class="annot"><span class="annottext">samplingStatisticsDocument_timestamp :: (UTCTime -&gt; f UTCTime)
+-&gt; SamplingStatisticsDocument -&gt; f SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_timestamp"><span class="hs-identifier hs-var hs-var">samplingStatisticsDocument_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingStatisticsDocument -&gt; POSIX)
+-&gt; (SamplingStatisticsDocument
+    -&gt; POSIX -&gt; SamplingStatisticsDocument)
+-&gt; Lens
+     SamplingStatisticsDocument SamplingStatisticsDocument POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254700"><span class="annot"><span class="annottext">POSIX
+timestamp :: POSIX
+$sel:timestamp:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; POSIX
+</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679254700"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254699"><span class="annot"><span class="annottext">s :: SamplingStatisticsDocument
+</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254698"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingStatisticsDocument
+</span><a href="#local-6989586621679254699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:SamplingStatisticsDocument' :: POSIX
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3Atimestamp%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679254698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; SamplingStatisticsDocument -&gt; f SamplingStatisticsDocument)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; SamplingStatisticsDocument
+-&gt; f SamplingStatisticsDocument
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The number of requests that matched the rule.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_requestCount"><span class="hs-identifier hs-type">samplingStatisticsDocument_requestCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-113"></span><span id="samplingStatisticsDocument_requestCount"><span class="annot"><span class="annottext">samplingStatisticsDocument_requestCount :: (Natural -&gt; f Natural)
+-&gt; SamplingStatisticsDocument -&gt; f SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_requestCount"><span class="hs-identifier hs-var hs-var">samplingStatisticsDocument_requestCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingStatisticsDocument -&gt; Natural)
+-&gt; (SamplingStatisticsDocument
+    -&gt; Natural -&gt; SamplingStatisticsDocument)
+-&gt; Lens
+     SamplingStatisticsDocument
+     SamplingStatisticsDocument
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254695"><span class="annot"><span class="annottext">Natural
+requestCount :: Natural
+$sel:requestCount:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Natural
+</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var hs-var">requestCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254695"><span class="hs-identifier hs-var">requestCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254694"><span class="annot"><span class="annottext">s :: SamplingStatisticsDocument
+</span><a href="#local-6989586621679254694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254693"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingStatisticsDocument
+</span><a href="#local-6989586621679254694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestCount:SamplingStatisticsDocument' :: Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3ArequestCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">requestCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The number of requests recorded.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_sampledCount"><span class="hs-identifier hs-type">samplingStatisticsDocument_sampledCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-117"></span><span id="samplingStatisticsDocument_sampledCount"><span class="annot"><span class="annottext">samplingStatisticsDocument_sampledCount :: (Natural -&gt; f Natural)
+-&gt; SamplingStatisticsDocument -&gt; f SamplingStatisticsDocument
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#samplingStatisticsDocument_sampledCount"><span class="hs-identifier hs-var hs-var">samplingStatisticsDocument_sampledCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SamplingStatisticsDocument -&gt; Natural)
+-&gt; (SamplingStatisticsDocument
+    -&gt; Natural -&gt; SamplingStatisticsDocument)
+-&gt; Lens
+     SamplingStatisticsDocument
+     SamplingStatisticsDocument
+     Natural
+     Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254691"><span class="annot"><span class="annottext">Natural
+sampledCount :: Natural
+$sel:sampledCount:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Natural
+</span><a href="#local-6989586621679254691"><span class="hs-identifier hs-var hs-var">sampledCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254691"><span class="hs-identifier hs-var">sampledCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679254690"><span class="annot"><span class="annottext">s :: SamplingStatisticsDocument
+</span><a href="#local-6989586621679254690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679254689"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SamplingStatisticsDocument
+</span><a href="#local-6989586621679254690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampledCount:SamplingStatisticsDocument' :: Natural
+</span><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#%24sel%3AsampledCount%3ASamplingStatisticsDocument%27"><span class="hs-identifier hs-var">sampledCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254685"><span id="local-6989586621679254687"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254682"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679254674"><span id="local-6989586621679254676"><span id="local-6989586621679254678"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument"><span class="hs-identifier hs-type">SamplingStatisticsDocument</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679254672"><span class="annot"><span class="annottext">toJSON :: SamplingStatisticsDocument -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.XRay.Types.SamplingStatisticsDocument.html#SamplingStatisticsDocument%27"><span class="hs-identifier hs-type">SamplingStatisticsDocument'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679254665"><span id="local-6989586621679254666"><span id="local-6989586621679254667"><span id="local-6989586621679254668"><span id="local-6989586621679254669"><span id="local-6989586621679254670"><span class="annot"><span class="annottext">Natural
+Maybe Natural
+Text
+POSIX
+sampledCount :: Natural
+requestCount :: Natural
+timestamp :: POSIX
+clientID :: Text
+ruleName :: Text
+borrowCount :: Maybe Natural
+$sel:sampledCount:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Natural
+$sel:requestCount:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Natural
+$sel:timestamp:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; POSIX
+$sel:clientID:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Text
+$sel:ruleName:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Text
+$sel:borrowCount:SamplingStatisticsDocument' :: SamplingStatisticsDocument -&gt; Maybe Natural
+</span><a href="#local-6989586621679254665"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BorrowCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679254670"><span class="hs-identifier hs-var">borrowCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuleName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254669"><span class="hs-identifier hs-var">ruleName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientID&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679254668"><span class="hs-identifier hs-var">clientID</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679254667"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254666"><span class="hs-identifier hs-var">requestCount</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SampledCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679254665"><span class="hs-identifier hs-var">sampledCount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span></pre></body></html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MGN.Types.DataReplicationErrorString</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MGN.Types.DataReplicationErrorString</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_AGENT_NOT_SEEN"><span class="hs-identifier">DataReplicationErrorString_AGENT_NOT_SEEN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER"><span class="hs-identifier">DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_NOT_CONVERGING"><span class="hs-identifier">DataReplicationErrorString_NOT_CONVERGING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_SNAPSHOTS_FAILURE"><span class="hs-identifier">DataReplicationErrorString_SNAPSHOTS_FAILURE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_UNSTABLE_NETWORK"><span class="hs-identifier">DataReplicationErrorString_UNSTABLE_NETWORK</span></a></span><span>
+</span><span id="line-37"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679223785"><span id="local-6989586621679223786"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DataReplicationErrorString"><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-var">DataReplicationErrorString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DataReplicationErrorString%27"><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-var">DataReplicationErrorString'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDataReplicationErrorString"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; Text
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#fromDataReplicationErrorString"><span class="hs-identifier hs-var hs-var">fromDataReplicationErrorString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223777"><span id="local-6989586621679223779"><span id="local-6989586621679223781"><span class="annot"><span class="annottext">Int -&gt; DataReplicationErrorString -&gt; ShowS
+[DataReplicationErrorString] -&gt; ShowS
+DataReplicationErrorString -&gt; String
+(Int -&gt; DataReplicationErrorString -&gt; ShowS)
+-&gt; (DataReplicationErrorString -&gt; String)
+-&gt; ([DataReplicationErrorString] -&gt; ShowS)
+-&gt; Show DataReplicationErrorString
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DataReplicationErrorString] -&gt; ShowS
+$cshowList :: [DataReplicationErrorString] -&gt; ShowS
+show :: DataReplicationErrorString -&gt; String
+$cshow :: DataReplicationErrorString -&gt; String
+showsPrec :: Int -&gt; DataReplicationErrorString -&gt; ShowS
+$cshowsPrec :: Int -&gt; DataReplicationErrorString -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679223768"><span id="local-6989586621679223770"><span id="local-6989586621679223772"><span id="local-6989586621679223774"><span class="annot"><span class="annottext">ReadPrec [DataReplicationErrorString]
+ReadPrec DataReplicationErrorString
+Int -&gt; ReadS DataReplicationErrorString
+ReadS [DataReplicationErrorString]
+(Int -&gt; ReadS DataReplicationErrorString)
+-&gt; ReadS [DataReplicationErrorString]
+-&gt; ReadPrec DataReplicationErrorString
+-&gt; ReadPrec [DataReplicationErrorString]
+-&gt; Read DataReplicationErrorString
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DataReplicationErrorString]
+$creadListPrec :: ReadPrec [DataReplicationErrorString]
+readPrec :: ReadPrec DataReplicationErrorString
+$creadPrec :: ReadPrec DataReplicationErrorString
+readList :: ReadS [DataReplicationErrorString]
+$creadList :: ReadS [DataReplicationErrorString]
+readsPrec :: Int -&gt; ReadS DataReplicationErrorString
+$creadsPrec :: Int -&gt; ReadS DataReplicationErrorString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679223763"><span id="local-6989586621679223765"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+(DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool)
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; Bool)
+-&gt; Eq DataReplicationErrorString
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+$c/= :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+== :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+$c== :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679223747"><span id="local-6989586621679223749"><span id="local-6989586621679223751"><span id="local-6989586621679223753"><span id="local-6989586621679223755"><span id="local-6989586621679223757"><span id="local-6989586621679223759"><span class="annot"><span class="annottext">Eq DataReplicationErrorString
+Eq DataReplicationErrorString
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; Ordering)
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; Bool)
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; Bool)
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; Bool)
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; Bool)
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; DataReplicationErrorString)
+-&gt; (DataReplicationErrorString
+    -&gt; DataReplicationErrorString -&gt; DataReplicationErrorString)
+-&gt; Ord DataReplicationErrorString
+DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; Ordering
+DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; DataReplicationErrorString
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; DataReplicationErrorString
+$cmin :: DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; DataReplicationErrorString
+max :: DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; DataReplicationErrorString
+$cmax :: DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; DataReplicationErrorString
+&gt;= :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+$c&gt;= :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+&gt; :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+$c&gt; :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+&lt;= :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+$c&lt;= :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+&lt; :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+$c&lt; :: DataReplicationErrorString -&gt; DataReplicationErrorString -&gt; Bool
+compare :: DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; Ordering
+$ccompare :: DataReplicationErrorString
+-&gt; DataReplicationErrorString -&gt; Ordering
+$cp1Ord :: Eq DataReplicationErrorString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ DataReplicationErrorString -&gt; Rep DataReplicationErrorString x)
+-&gt; (forall x.
+    Rep DataReplicationErrorString x -&gt; DataReplicationErrorString)
+-&gt; Generic DataReplicationErrorString
+forall x.
+Rep DataReplicationErrorString x -&gt; DataReplicationErrorString
+forall x.
+DataReplicationErrorString -&gt; Rep DataReplicationErrorString x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DataReplicationErrorString x -&gt; DataReplicationErrorString
+$cfrom :: forall x.
+DataReplicationErrorString -&gt; Rep DataReplicationErrorString x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223739"><span id="local-6989586621679223741"><span class="annot"><span class="annottext">Int -&gt; DataReplicationErrorString -&gt; Int
+DataReplicationErrorString -&gt; Int
+(Int -&gt; DataReplicationErrorString -&gt; Int)
+-&gt; (DataReplicationErrorString -&gt; Int)
+-&gt; Hashable DataReplicationErrorString
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DataReplicationErrorString -&gt; Int
+$chash :: DataReplicationErrorString -&gt; Int
+hashWithSalt :: Int -&gt; DataReplicationErrorString -&gt; Int
+$chashWithSalt :: Int -&gt; DataReplicationErrorString -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679223736"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; ()
+(DataReplicationErrorString -&gt; ())
+-&gt; NFData DataReplicationErrorString
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DataReplicationErrorString -&gt; ()
+$crnf :: DataReplicationErrorString -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679223733"><span class="annot"><span class="annottext">Text -&gt; Either String DataReplicationErrorString
+(Text -&gt; Either String DataReplicationErrorString)
+-&gt; FromText DataReplicationErrorString
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DataReplicationErrorString
+$cfromText :: Text -&gt; Either String DataReplicationErrorString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679223730"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; Text
+(DataReplicationErrorString -&gt; Text)
+-&gt; ToText DataReplicationErrorString
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DataReplicationErrorString -&gt; Text
+$ctoText :: DataReplicationErrorString -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679223727"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; ByteString
+(DataReplicationErrorString -&gt; ByteString)
+-&gt; ToByteString DataReplicationErrorString
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DataReplicationErrorString -&gt; ByteString
+$ctoBS :: DataReplicationErrorString -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679223724"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; ByteStringBuilder
+(DataReplicationErrorString -&gt; ByteStringBuilder)
+-&gt; ToLog DataReplicationErrorString
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DataReplicationErrorString -&gt; ByteStringBuilder
+$cbuild :: DataReplicationErrorString -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679223721"><span class="annot"><span class="annottext">HeaderName -&gt; DataReplicationErrorString -&gt; [Header]
+(HeaderName -&gt; DataReplicationErrorString -&gt; [Header])
+-&gt; ToHeader DataReplicationErrorString
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DataReplicationErrorString -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DataReplicationErrorString -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679223718"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; QueryString
+(DataReplicationErrorString -&gt; QueryString)
+-&gt; ToQuery DataReplicationErrorString
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DataReplicationErrorString -&gt; QueryString
+$ctoQuery :: DataReplicationErrorString -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679223713"><span id="local-6989586621679223715"><span class="annot"><span class="annottext">Value -&gt; Parser [DataReplicationErrorString]
+Value -&gt; Parser DataReplicationErrorString
+(Value -&gt; Parser DataReplicationErrorString)
+-&gt; (Value -&gt; Parser [DataReplicationErrorString])
+-&gt; FromJSON DataReplicationErrorString
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DataReplicationErrorString]
+$cparseJSONList :: Value -&gt; Parser [DataReplicationErrorString]
+parseJSON :: Value -&gt; Parser DataReplicationErrorString
+$cparseJSON :: Value -&gt; Parser DataReplicationErrorString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679223708"><span id="local-6989586621679223710"><span class="annot"><span class="annottext">FromJSONKeyFunction [DataReplicationErrorString]
+FromJSONKeyFunction DataReplicationErrorString
+FromJSONKeyFunction DataReplicationErrorString
+-&gt; FromJSONKeyFunction [DataReplicationErrorString]
+-&gt; FromJSONKey DataReplicationErrorString
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DataReplicationErrorString]
+$cfromJSONKeyList :: FromJSONKeyFunction [DataReplicationErrorString]
+fromJSONKey :: FromJSONKeyFunction DataReplicationErrorString
+$cfromJSONKey :: FromJSONKeyFunction DataReplicationErrorString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679223699"><span id="local-6989586621679223701"><span id="local-6989586621679223703"><span id="local-6989586621679223705"><span class="annot"><span class="annottext">[DataReplicationErrorString] -&gt; Encoding
+[DataReplicationErrorString] -&gt; Value
+DataReplicationErrorString -&gt; Encoding
+DataReplicationErrorString -&gt; Value
+(DataReplicationErrorString -&gt; Value)
+-&gt; (DataReplicationErrorString -&gt; Encoding)
+-&gt; ([DataReplicationErrorString] -&gt; Value)
+-&gt; ([DataReplicationErrorString] -&gt; Encoding)
+-&gt; ToJSON DataReplicationErrorString
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DataReplicationErrorString] -&gt; Encoding
+$ctoEncodingList :: [DataReplicationErrorString] -&gt; Encoding
+toJSONList :: [DataReplicationErrorString] -&gt; Value
+$ctoJSONList :: [DataReplicationErrorString] -&gt; Value
+toEncoding :: DataReplicationErrorString -&gt; Encoding
+$ctoEncoding :: DataReplicationErrorString -&gt; Encoding
+toJSON :: DataReplicationErrorString -&gt; Value
+$ctoJSON :: DataReplicationErrorString -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679223694"><span id="local-6989586621679223696"><span class="annot"><span class="annottext">ToJSONKeyFunction [DataReplicationErrorString]
+ToJSONKeyFunction DataReplicationErrorString
+ToJSONKeyFunction DataReplicationErrorString
+-&gt; ToJSONKeyFunction [DataReplicationErrorString]
+-&gt; ToJSONKey DataReplicationErrorString
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DataReplicationErrorString]
+$ctoJSONKeyList :: ToJSONKeyFunction [DataReplicationErrorString]
+toJSONKey :: ToJSONKeyFunction DataReplicationErrorString
+$ctoJSONKey :: ToJSONKeyFunction DataReplicationErrorString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679223691"><span class="annot"><span class="annottext">[Node] -&gt; Either String DataReplicationErrorString
+([Node] -&gt; Either String DataReplicationErrorString)
+-&gt; FromXML DataReplicationErrorString
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DataReplicationErrorString
+$cparseXML :: [Node] -&gt; Either String DataReplicationErrorString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679223688"><span class="annot"><span class="annottext">DataReplicationErrorString -&gt; XML
+(DataReplicationErrorString -&gt; XML)
+-&gt; ToXML DataReplicationErrorString
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DataReplicationErrorString -&gt; XML
+$ctoXML :: DataReplicationErrorString -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_AGENT_NOT_SEEN"><span class="hs-identifier hs-type">DataReplicationErrorString_AGENT_NOT_SEEN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_AGENT_NOT_SEEN"><span id="%24mDataReplicationErrorString_AGENT_NOT_SEEN"><span id="DataReplicationErrorString_AGENT_NOT_SEEN"><span class="annot"><span class="annottext">$bDataReplicationErrorString_AGENT_NOT_SEEN :: DataReplicationErrorString
+$mDataReplicationErrorString_AGENT_NOT_SEEN :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_AGENT_NOT_SEEN"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_AGENT_NOT_SEEN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AGENT_NOT_SEEN&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS"><span id="%24mDataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS"><span id="DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_ATTACH_STAGING_DISKS&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE"><span id="%24mDataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE"><span id="DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_AUTHENTICATE_WITH_SERVICE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER"><span id="%24mDataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER"><span id="DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_BOOT_REPLICATION_SERVER&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"><span id="%24mDataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"><span id="DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP"><span id="%24mDataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP"><span id="DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_CREATE_SECURITY_GROUP&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS"><span id="%24mDataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS"><span id="DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_CREATE_STAGING_DISKS&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"><span id="%24mDataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"><span id="DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER"><span id="%24mDataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER"><span id="DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_LAUNCH_REPLICATION_SERVER&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"><span id="%24mDataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"><span id="DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER"><span class="hs-identifier hs-type">DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER"><span id="%24mDataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER"><span id="DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER"><span class="annot"><span class="annottext">$bDataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER :: DataReplicationErrorString
+$mDataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED_TO_START_DATA_TRANSFER&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_NOT_CONVERGING"><span class="hs-identifier hs-type">DataReplicationErrorString_NOT_CONVERGING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_NOT_CONVERGING"><span id="%24mDataReplicationErrorString_NOT_CONVERGING"><span id="DataReplicationErrorString_NOT_CONVERGING"><span class="annot"><span class="annottext">$bDataReplicationErrorString_NOT_CONVERGING :: DataReplicationErrorString
+$mDataReplicationErrorString_NOT_CONVERGING :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_NOT_CONVERGING"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_NOT_CONVERGING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_CONVERGING&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_SNAPSHOTS_FAILURE"><span class="hs-identifier hs-type">DataReplicationErrorString_SNAPSHOTS_FAILURE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_SNAPSHOTS_FAILURE"><span id="%24mDataReplicationErrorString_SNAPSHOTS_FAILURE"><span id="DataReplicationErrorString_SNAPSHOTS_FAILURE"><span class="annot"><span class="annottext">$bDataReplicationErrorString_SNAPSHOTS_FAILURE :: DataReplicationErrorString
+$mDataReplicationErrorString_SNAPSHOTS_FAILURE :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_SNAPSHOTS_FAILURE"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_SNAPSHOTS_FAILURE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNAPSHOTS_FAILURE&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_UNSTABLE_NETWORK"><span class="hs-identifier hs-type">DataReplicationErrorString_UNSTABLE_NETWORK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString"><span class="hs-identifier hs-type">DataReplicationErrorString</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDataReplicationErrorString_UNSTABLE_NETWORK"><span id="%24mDataReplicationErrorString_UNSTABLE_NETWORK"><span id="DataReplicationErrorString_UNSTABLE_NETWORK"><span class="annot"><span class="annottext">$bDataReplicationErrorString_UNSTABLE_NETWORK :: DataReplicationErrorString
+$mDataReplicationErrorString_UNSTABLE_NETWORK :: forall r.
+DataReplicationErrorString -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#%24bDataReplicationErrorString_UNSTABLE_NETWORK"><span class="hs-identifier hs-var hs-var hs-var">DataReplicationErrorString_UNSTABLE_NETWORK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-identifier hs-type">DataReplicationErrorString'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNSTABLE_NETWORK&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_AGENT_NOT_SEEN"><span class="hs-pragma hs-type">DataReplicationErrorString_AGENT_NOT_SEEN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_ATTACH_STAGING_DISKS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_AUTHENTICATE_WITH_SERVICE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_BOOT_REPLICATION_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_CONNECT_AGENT_TO_REPLICATION_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_CREATE_SECURITY_GROUP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_CREATE_STAGING_DISKS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_DOWNLOAD_REPLICATION_SOFTWARE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_LAUNCH_REPLICATION_SERVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_PAIR_REPLICATION_SERVER_WITH_AGENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER"><span class="hs-pragma hs-type">DataReplicationErrorString_FAILED_TO_START_DATA_TRANSFER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_NOT_CONVERGING"><span class="hs-pragma hs-type">DataReplicationErrorString_NOT_CONVERGING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_SNAPSHOTS_FAILURE"><span class="hs-pragma hs-type">DataReplicationErrorString_SNAPSHOTS_FAILURE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString_UNSTABLE_NETWORK"><span class="hs-pragma hs-type">DataReplicationErrorString_UNSTABLE_NETWORK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.DataReplicationErrorString.html#DataReplicationErrorString%27"><span class="hs-pragma hs-type">DataReplicationErrorString'</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-131"></span></pre></body></html>

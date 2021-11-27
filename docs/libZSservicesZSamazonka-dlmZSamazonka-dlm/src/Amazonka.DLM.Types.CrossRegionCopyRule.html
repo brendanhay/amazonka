@@ -1,0 +1,588 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DLM.Types.CrossRegionCopyRule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DLM.Types.CrossRegionCopyRule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyDeprecateRule.html"><span class="hs-identifier">Amazonka.DLM.Types.CrossRegionCopyDeprecateRule</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRetainRule.html"><span class="hs-identifier">Amazonka.DLM.Types.CrossRegionCopyRetainRule</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Specifies a rule for cross-Region snapshot copies.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCrossRegionCopyRule' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679180096"><span id="local-6989586621679180097"></span></span><span class="hs-keyword">data</span><span> </span><span id="CrossRegionCopyRule"><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-var">CrossRegionCopyRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CrossRegionCopyRule%27"><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-var">CrossRegionCopyRule'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The AMI deprecation rule for cross-Region AMI copies created by the</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdeprecateRule%3ACrossRegionCopyRule%27"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; Maybe CrossRegionCopyDeprecateRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AdeprecateRule%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var hs-var">deprecateRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyDeprecateRule.html#CrossRegionCopyDeprecateRule"><span class="hs-identifier hs-type">CrossRegionCopyDeprecateRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Avoid using this parameter when creating new policies. Instead, use</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- __Target__ to specify a target Region or a target Outpost for snapshot</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- copies.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- For policies created before the __Target__ parameter was introduced,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- this parameter indicates the target Region for snapshot copies.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AtargetRegion%3ACrossRegionCopyRule%27"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AtargetRegion%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var hs-var">targetRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Indicates whether to copy all user-defined tags from the source snapshot</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- to the cross-Region snapshot copy.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AcopyTags%3ACrossRegionCopyRule%27"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; Maybe Bool
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AcopyTags%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var hs-var">copyTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the KMS key to use for EBS encryption.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- If this parameter is not specified, the default KMS key for the account</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- is used.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcmkArn%3ACrossRegionCopyRule%27"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AcmkArn%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var hs-var">cmkArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The retention rule that indicates how long snapshot copies are to be</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- retained in the destination Region.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AretainRule%3ACrossRegionCopyRule%27"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; Maybe CrossRegionCopyRetainRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AretainRule%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var hs-var">retainRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRetainRule.html#CrossRegionCopyRetainRule"><span class="hs-identifier hs-type">CrossRegionCopyRetainRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The target Region or the Amazon Resource Name (ARN) of the target</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- Outpost for the snapshot copies.</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Use this parameter instead of __TargetRegion__. Do not specify both.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Atarget%3ACrossRegionCopyRule%27"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3Atarget%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | To encrypt a copy of an unencrypted snapshot if encryption by default is</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- not enabled, enable encryption using this parameter. Copies of encrypted</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- snapshots are encrypted, even if this parameter is false or if</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- encryption by default is not enabled.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aencrypted%3ACrossRegionCopyRule%27"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; Bool
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3Aencrypted%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180084"><span id="local-6989586621679180086"><span class="annot"><span class="annottext">CrossRegionCopyRule -&gt; CrossRegionCopyRule -&gt; Bool
+(CrossRegionCopyRule -&gt; CrossRegionCopyRule -&gt; Bool)
+-&gt; (CrossRegionCopyRule -&gt; CrossRegionCopyRule -&gt; Bool)
+-&gt; Eq CrossRegionCopyRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CrossRegionCopyRule -&gt; CrossRegionCopyRule -&gt; Bool
+$c/= :: CrossRegionCopyRule -&gt; CrossRegionCopyRule -&gt; Bool
+== :: CrossRegionCopyRule -&gt; CrossRegionCopyRule -&gt; Bool
+$c== :: CrossRegionCopyRule -&gt; CrossRegionCopyRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180075"><span id="local-6989586621679180077"><span id="local-6989586621679180079"><span id="local-6989586621679180081"><span class="annot"><span class="annottext">ReadPrec [CrossRegionCopyRule]
+ReadPrec CrossRegionCopyRule
+Int -&gt; ReadS CrossRegionCopyRule
+ReadS [CrossRegionCopyRule]
+(Int -&gt; ReadS CrossRegionCopyRule)
+-&gt; ReadS [CrossRegionCopyRule]
+-&gt; ReadPrec CrossRegionCopyRule
+-&gt; ReadPrec [CrossRegionCopyRule]
+-&gt; Read CrossRegionCopyRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CrossRegionCopyRule]
+$creadListPrec :: ReadPrec [CrossRegionCopyRule]
+readPrec :: ReadPrec CrossRegionCopyRule
+$creadPrec :: ReadPrec CrossRegionCopyRule
+readList :: ReadS [CrossRegionCopyRule]
+$creadList :: ReadS [CrossRegionCopyRule]
+readsPrec :: Int -&gt; ReadS CrossRegionCopyRule
+$creadsPrec :: Int -&gt; ReadS CrossRegionCopyRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180068"><span id="local-6989586621679180070"><span id="local-6989586621679180072"><span class="annot"><span class="annottext">Int -&gt; CrossRegionCopyRule -&gt; ShowS
+[CrossRegionCopyRule] -&gt; ShowS
+CrossRegionCopyRule -&gt; String
+(Int -&gt; CrossRegionCopyRule -&gt; ShowS)
+-&gt; (CrossRegionCopyRule -&gt; String)
+-&gt; ([CrossRegionCopyRule] -&gt; ShowS)
+-&gt; Show CrossRegionCopyRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CrossRegionCopyRule] -&gt; ShowS
+$cshowList :: [CrossRegionCopyRule] -&gt; ShowS
+show :: CrossRegionCopyRule -&gt; String
+$cshow :: CrossRegionCopyRule -&gt; String
+showsPrec :: Int -&gt; CrossRegionCopyRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; CrossRegionCopyRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CrossRegionCopyRule -&gt; Rep CrossRegionCopyRule x)
+-&gt; (forall x. Rep CrossRegionCopyRule x -&gt; CrossRegionCopyRule)
+-&gt; Generic CrossRegionCopyRule
+forall x. Rep CrossRegionCopyRule x -&gt; CrossRegionCopyRule
+forall x. CrossRegionCopyRule -&gt; Rep CrossRegionCopyRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CrossRegionCopyRule x -&gt; CrossRegionCopyRule
+$cfrom :: forall x. CrossRegionCopyRule -&gt; Rep CrossRegionCopyRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'CrossRegionCopyRule' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'deprecateRule', 'crossRegionCopyRule_deprecateRule' - The AMI deprecation rule for cross-Region AMI copies created by the</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'targetRegion', 'crossRegionCopyRule_targetRegion' - Avoid using this parameter when creating new policies. Instead, use</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- __Target__ to specify a target Region or a target Outpost for snapshot</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- copies.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- For policies created before the __Target__ parameter was introduced,</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- this parameter indicates the target Region for snapshot copies.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'copyTags', 'crossRegionCopyRule_copyTags' - Indicates whether to copy all user-defined tags from the source snapshot</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- to the cross-Region snapshot copy.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'cmkArn', 'crossRegionCopyRule_cmkArn' - The Amazon Resource Name (ARN) of the KMS key to use for EBS encryption.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- If this parameter is not specified, the default KMS key for the account</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- is used.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'retainRule', 'crossRegionCopyRule_retainRule' - The retention rule that indicates how long snapshot copies are to be</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- retained in the destination Region.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'target', 'crossRegionCopyRule_target' - The target Region or the Amazon Resource Name (ARN) of the target</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Outpost for the snapshot copies.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use this parameter instead of __TargetRegion__. Do not specify both.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'encrypted', 'crossRegionCopyRule_encrypted' - To encrypt a copy of an unencrypted snapshot if encryption by default is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- not enabled, enable encryption using this parameter. Copies of encrypted</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- snapshots are encrypted, even if this parameter is false or if</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- encryption by default is not enabled.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#newCrossRegionCopyRule"><span class="hs-identifier hs-type">newCrossRegionCopyRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'encrypted'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span>
+</span><span id="line-106"></span><span id="newCrossRegionCopyRule"><span class="annot"><span class="annottext">newCrossRegionCopyRule :: Bool -&gt; CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#newCrossRegionCopyRule"><span class="hs-identifier hs-var hs-var">newCrossRegionCopyRule</span></a></span></span><span> </span><span id="local-6989586621679180062"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679180062"><span class="hs-identifier hs-var">pEncrypted_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>  </span><span class="annot"><span class="annottext">CrossRegionCopyRule' :: Maybe CrossRegionCopyDeprecateRule
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe CrossRegionCopyRetainRule
+-&gt; Maybe Text
+-&gt; Bool
+-&gt; CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deprecateRule:CrossRegionCopyRule' :: Maybe CrossRegionCopyDeprecateRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AdeprecateRule%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">deprecateRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyDeprecateRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetRegion:CrossRegionCopyRule' :: Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AtargetRegion%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">targetRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:copyTags:CrossRegionCopyRule' :: Maybe Bool
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AcopyTags%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">copyTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:cmkArn:CrossRegionCopyRule' :: Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AcmkArn%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">cmkArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:retainRule:CrossRegionCopyRule' :: Maybe CrossRegionCopyRetainRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AretainRule%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">retainRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyRetainRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:target:CrossRegionCopyRule' :: Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3Atarget%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:encrypted:CrossRegionCopyRule' :: Bool
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3Aencrypted%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679180062"><span class="hs-identifier hs-var">pEncrypted_</span></a></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The AMI deprecation rule for cross-Region AMI copies created by the</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- rule.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_deprecateRule"><span class="hs-identifier hs-type">crossRegionCopyRule_deprecateRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyDeprecateRule.html#CrossRegionCopyDeprecateRule"><span class="hs-identifier hs-type">CrossRegionCopyDeprecateRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="crossRegionCopyRule_deprecateRule"><span class="annot"><span class="annottext">crossRegionCopyRule_deprecateRule :: (Maybe CrossRegionCopyDeprecateRule
+ -&gt; f (Maybe CrossRegionCopyDeprecateRule))
+-&gt; CrossRegionCopyRule -&gt; f CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_deprecateRule"><span class="hs-identifier hs-var hs-var">crossRegionCopyRule_deprecateRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRule -&gt; Maybe CrossRegionCopyDeprecateRule)
+-&gt; (CrossRegionCopyRule
+    -&gt; Maybe CrossRegionCopyDeprecateRule -&gt; CrossRegionCopyRule)
+-&gt; Lens
+     CrossRegionCopyRule
+     CrossRegionCopyRule
+     (Maybe CrossRegionCopyDeprecateRule)
+     (Maybe CrossRegionCopyDeprecateRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180058"><span class="annot"><span class="annottext">Maybe CrossRegionCopyDeprecateRule
+deprecateRule :: Maybe CrossRegionCopyDeprecateRule
+$sel:deprecateRule:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe CrossRegionCopyDeprecateRule
+</span><a href="#local-6989586621679180058"><span class="hs-identifier hs-var hs-var">deprecateRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyDeprecateRule
+</span><a href="#local-6989586621679180058"><span class="hs-identifier hs-var">deprecateRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180057"><span class="annot"><span class="annottext">s :: CrossRegionCopyRule
+</span><a href="#local-6989586621679180057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180056"><span class="annot"><span class="annottext">Maybe CrossRegionCopyDeprecateRule
+</span><a href="#local-6989586621679180056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrossRegionCopyRule
+</span><a href="#local-6989586621679180057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deprecateRule:CrossRegionCopyRule' :: Maybe CrossRegionCopyDeprecateRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AdeprecateRule%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">deprecateRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyDeprecateRule
+</span><a href="#local-6989586621679180056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Avoid using this parameter when creating new policies. Instead, use</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- __Target__ to specify a target Region or a target Outpost for snapshot</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- copies.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- For policies created before the __Target__ parameter was introduced,</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- this parameter indicates the target Region for snapshot copies.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_targetRegion"><span class="hs-identifier hs-type">crossRegionCopyRule_targetRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="crossRegionCopyRule_targetRegion"><span class="annot"><span class="annottext">crossRegionCopyRule_targetRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CrossRegionCopyRule -&gt; f CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_targetRegion"><span class="hs-identifier hs-var hs-var">crossRegionCopyRule_targetRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRule -&gt; Maybe Text)
+-&gt; (CrossRegionCopyRule -&gt; Maybe Text -&gt; CrossRegionCopyRule)
+-&gt; Lens
+     CrossRegionCopyRule CrossRegionCopyRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180054"><span class="annot"><span class="annottext">Maybe Text
+targetRegion :: Maybe Text
+$sel:targetRegion:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Text
+</span><a href="#local-6989586621679180054"><span class="hs-identifier hs-var hs-var">targetRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180054"><span class="hs-identifier hs-var">targetRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180053"><span class="annot"><span class="annottext">s :: CrossRegionCopyRule
+</span><a href="#local-6989586621679180053"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180052"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180052"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrossRegionCopyRule
+</span><a href="#local-6989586621679180053"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetRegion:CrossRegionCopyRule' :: Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AtargetRegion%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">targetRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180052"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Indicates whether to copy all user-defined tags from the source snapshot</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- to the cross-Region snapshot copy.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_copyTags"><span class="hs-identifier hs-type">crossRegionCopyRule_copyTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span id="crossRegionCopyRule_copyTags"><span class="annot"><span class="annottext">crossRegionCopyRule_copyTags :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CrossRegionCopyRule -&gt; f CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_copyTags"><span class="hs-identifier hs-var hs-var">crossRegionCopyRule_copyTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRule -&gt; Maybe Bool)
+-&gt; (CrossRegionCopyRule -&gt; Maybe Bool -&gt; CrossRegionCopyRule)
+-&gt; Lens
+     CrossRegionCopyRule CrossRegionCopyRule (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180050"><span class="annot"><span class="annottext">Maybe Bool
+copyTags :: Maybe Bool
+$sel:copyTags:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Bool
+</span><a href="#local-6989586621679180050"><span class="hs-identifier hs-var hs-var">copyTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679180050"><span class="hs-identifier hs-var">copyTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180049"><span class="annot"><span class="annottext">s :: CrossRegionCopyRule
+</span><a href="#local-6989586621679180049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180048"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679180048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrossRegionCopyRule
+</span><a href="#local-6989586621679180049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:copyTags:CrossRegionCopyRule' :: Maybe Bool
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AcopyTags%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">copyTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679180048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the KMS key to use for EBS encryption.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- If this parameter is not specified, the default KMS key for the account</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- is used.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_cmkArn"><span class="hs-identifier hs-type">crossRegionCopyRule_cmkArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="crossRegionCopyRule_cmkArn"><span class="annot"><span class="annottext">crossRegionCopyRule_cmkArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CrossRegionCopyRule -&gt; f CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_cmkArn"><span class="hs-identifier hs-var hs-var">crossRegionCopyRule_cmkArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRule -&gt; Maybe Text)
+-&gt; (CrossRegionCopyRule -&gt; Maybe Text -&gt; CrossRegionCopyRule)
+-&gt; Lens
+     CrossRegionCopyRule CrossRegionCopyRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180046"><span class="annot"><span class="annottext">Maybe Text
+cmkArn :: Maybe Text
+$sel:cmkArn:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Text
+</span><a href="#local-6989586621679180046"><span class="hs-identifier hs-var hs-var">cmkArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180046"><span class="hs-identifier hs-var">cmkArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180045"><span class="annot"><span class="annottext">s :: CrossRegionCopyRule
+</span><a href="#local-6989586621679180045"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180044"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180044"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrossRegionCopyRule
+</span><a href="#local-6989586621679180045"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cmkArn:CrossRegionCopyRule' :: Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AcmkArn%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">cmkArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180044"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | The retention rule that indicates how long snapshot copies are to be</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- retained in the destination Region.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_retainRule"><span class="hs-identifier hs-type">crossRegionCopyRule_retainRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRetainRule.html#CrossRegionCopyRetainRule"><span class="hs-identifier hs-type">CrossRegionCopyRetainRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="crossRegionCopyRule_retainRule"><span class="annot"><span class="annottext">crossRegionCopyRule_retainRule :: (Maybe CrossRegionCopyRetainRule
+ -&gt; f (Maybe CrossRegionCopyRetainRule))
+-&gt; CrossRegionCopyRule -&gt; f CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_retainRule"><span class="hs-identifier hs-var hs-var">crossRegionCopyRule_retainRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRule -&gt; Maybe CrossRegionCopyRetainRule)
+-&gt; (CrossRegionCopyRule
+    -&gt; Maybe CrossRegionCopyRetainRule -&gt; CrossRegionCopyRule)
+-&gt; Lens
+     CrossRegionCopyRule
+     CrossRegionCopyRule
+     (Maybe CrossRegionCopyRetainRule)
+     (Maybe CrossRegionCopyRetainRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180042"><span class="annot"><span class="annottext">Maybe CrossRegionCopyRetainRule
+retainRule :: Maybe CrossRegionCopyRetainRule
+$sel:retainRule:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe CrossRegionCopyRetainRule
+</span><a href="#local-6989586621679180042"><span class="hs-identifier hs-var hs-var">retainRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyRetainRule
+</span><a href="#local-6989586621679180042"><span class="hs-identifier hs-var">retainRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180041"><span class="annot"><span class="annottext">s :: CrossRegionCopyRule
+</span><a href="#local-6989586621679180041"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180040"><span class="annot"><span class="annottext">Maybe CrossRegionCopyRetainRule
+</span><a href="#local-6989586621679180040"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrossRegionCopyRule
+</span><a href="#local-6989586621679180041"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retainRule:CrossRegionCopyRule' :: Maybe CrossRegionCopyRetainRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3AretainRule%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">retainRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyRetainRule
+</span><a href="#local-6989586621679180040"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The target Region or the Amazon Resource Name (ARN) of the target</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- Outpost for the snapshot copies.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Use this parameter instead of __TargetRegion__. Do not specify both.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_target"><span class="hs-identifier hs-type">crossRegionCopyRule_target</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="crossRegionCopyRule_target"><span class="annot"><span class="annottext">crossRegionCopyRule_target :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CrossRegionCopyRule -&gt; f CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_target"><span class="hs-identifier hs-var hs-var">crossRegionCopyRule_target</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRule -&gt; Maybe Text)
+-&gt; (CrossRegionCopyRule -&gt; Maybe Text -&gt; CrossRegionCopyRule)
+-&gt; Lens
+     CrossRegionCopyRule CrossRegionCopyRule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180038"><span class="annot"><span class="annottext">Maybe Text
+target :: Maybe Text
+$sel:target:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Text
+</span><a href="#local-6989586621679180038"><span class="hs-identifier hs-var hs-var">target</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180038"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180037"><span class="annot"><span class="annottext">s :: CrossRegionCopyRule
+</span><a href="#local-6989586621679180037"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180036"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180036"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrossRegionCopyRule
+</span><a href="#local-6989586621679180037"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:target:CrossRegionCopyRule' :: Maybe Text
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3Atarget%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">target</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180036"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | To encrypt a copy of an unencrypted snapshot if encryption by default is</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- not enabled, enable encryption using this parameter. Copies of encrypted</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- snapshots are encrypted, even if this parameter is false or if</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- encryption by default is not enabled.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_encrypted"><span class="hs-identifier hs-type">crossRegionCopyRule_encrypted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-160"></span><span id="crossRegionCopyRule_encrypted"><span class="annot"><span class="annottext">crossRegionCopyRule_encrypted :: (Bool -&gt; f Bool) -&gt; CrossRegionCopyRule -&gt; f CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#crossRegionCopyRule_encrypted"><span class="hs-identifier hs-var hs-var">crossRegionCopyRule_encrypted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRule -&gt; Bool)
+-&gt; (CrossRegionCopyRule -&gt; Bool -&gt; CrossRegionCopyRule)
+-&gt; Lens CrossRegionCopyRule CrossRegionCopyRule Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180034"><span class="annot"><span class="annottext">Bool
+encrypted :: Bool
+$sel:encrypted:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Bool
+</span><a href="#local-6989586621679180034"><span class="hs-identifier hs-var hs-var">encrypted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679180034"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180033"><span class="annot"><span class="annottext">s :: CrossRegionCopyRule
+</span><a href="#local-6989586621679180033"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180032"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679180032"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CrossRegionCopyRule
+</span><a href="#local-6989586621679180033"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encrypted:CrossRegionCopyRule' :: Bool
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#%24sel%3Aencrypted%3ACrossRegionCopyRule%27"><span class="hs-identifier hs-var">encrypted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679180032"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180029"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679180027"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CrossRegionCopyRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CrossRegionCopyRule)
+-&gt; Value
+-&gt; Parser CrossRegionCopyRule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-165"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CrossRegionCopyRule&quot;</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679180024"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyDeprecateRule
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe CrossRegionCopyRetainRule
+-&gt; Maybe Text
+-&gt; Bool
+-&gt; CrossRegionCopyRule
+</span><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-var">CrossRegionCopyRule'</span></a></span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CrossRegionCopyDeprecateRule
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe CrossRegionCopyRetainRule
+ -&gt; Maybe Text
+ -&gt; Bool
+ -&gt; CrossRegionCopyRule)
+-&gt; Parser (Maybe CrossRegionCopyDeprecateRule)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe CrossRegionCopyRetainRule
+      -&gt; Maybe Text
+      -&gt; Bool
+      -&gt; CrossRegionCopyRule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CrossRegionCopyDeprecateRule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeprecateRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe CrossRegionCopyRetainRule
+   -&gt; Maybe Text
+   -&gt; Bool
+   -&gt; CrossRegionCopyRule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe CrossRegionCopyRetainRule
+      -&gt; Maybe Text
+      -&gt; Bool
+      -&gt; CrossRegionCopyRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe CrossRegionCopyRetainRule
+   -&gt; Maybe Text
+   -&gt; Bool
+   -&gt; CrossRegionCopyRule)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CrossRegionCopyRetainRule
+      -&gt; Maybe Text
+      -&gt; Bool
+      -&gt; CrossRegionCopyRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CopyTags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CrossRegionCopyRetainRule
+   -&gt; Maybe Text
+   -&gt; Bool
+   -&gt; CrossRegionCopyRule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CrossRegionCopyRetainRule
+      -&gt; Maybe Text -&gt; Bool -&gt; CrossRegionCopyRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CmkArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CrossRegionCopyRetainRule
+   -&gt; Maybe Text -&gt; Bool -&gt; CrossRegionCopyRule)
+-&gt; Parser (Maybe CrossRegionCopyRetainRule)
+-&gt; Parser (Maybe Text -&gt; Bool -&gt; CrossRegionCopyRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CrossRegionCopyRetainRule)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetainRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Bool -&gt; CrossRegionCopyRule)
+-&gt; Parser (Maybe Text) -&gt; Parser (Bool -&gt; CrossRegionCopyRule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Target&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Bool -&gt; CrossRegionCopyRule)
+-&gt; Parser Bool -&gt; Parser CrossRegionCopyRule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679180024"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Bool
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Encrypted&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180017"><span id="local-6989586621679180019"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180014"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180006"><span id="local-6989586621679180008"><span id="local-6989586621679180010"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule"><span class="hs-identifier hs-type">CrossRegionCopyRule</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679180004"><span class="annot"><span class="annottext">toJSON :: CrossRegionCopyRule -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DLM.Types.CrossRegionCopyRule.html#CrossRegionCopyRule%27"><span class="hs-identifier hs-type">CrossRegionCopyRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679179996"><span id="local-6989586621679179997"><span id="local-6989586621679179998"><span id="local-6989586621679179999"><span id="local-6989586621679180000"><span id="local-6989586621679180001"><span id="local-6989586621679180002"><span class="annot"><span class="annottext">Bool
+Maybe Bool
+Maybe Text
+Maybe CrossRegionCopyRetainRule
+Maybe CrossRegionCopyDeprecateRule
+encrypted :: Bool
+target :: Maybe Text
+retainRule :: Maybe CrossRegionCopyRetainRule
+cmkArn :: Maybe Text
+copyTags :: Maybe Bool
+targetRegion :: Maybe Text
+deprecateRule :: Maybe CrossRegionCopyDeprecateRule
+$sel:encrypted:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Bool
+$sel:target:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Text
+$sel:retainRule:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe CrossRegionCopyRetainRule
+$sel:cmkArn:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Text
+$sel:copyTags:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Bool
+$sel:targetRegion:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe Text
+$sel:deprecateRule:CrossRegionCopyRule' :: CrossRegionCopyRule -&gt; Maybe CrossRegionCopyDeprecateRule
+</span><a href="#local-6989586621679179996"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeprecateRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CrossRegionCopyDeprecateRule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyDeprecateRule -&gt; Pair)
+-&gt; Maybe CrossRegionCopyDeprecateRule -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyDeprecateRule
+</span><a href="#local-6989586621679180002"><span class="hs-identifier hs-var">deprecateRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TargetRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679180001"><span class="hs-identifier hs-var">targetRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CopyTags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679180000"><span class="hs-identifier hs-var">copyTags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CmkArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179999"><span class="hs-identifier hs-var">cmkArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RetainRule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CrossRegionCopyRetainRule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CrossRegionCopyRetainRule -&gt; Pair)
+-&gt; Maybe CrossRegionCopyRetainRule -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CrossRegionCopyRetainRule
+</span><a href="#local-6989586621679179998"><span class="hs-identifier hs-var">retainRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Target&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679179997"><span class="hs-identifier hs-var">target</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Encrypted&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679179996"><span class="hs-identifier hs-var">encrypted</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span></pre></body></html>

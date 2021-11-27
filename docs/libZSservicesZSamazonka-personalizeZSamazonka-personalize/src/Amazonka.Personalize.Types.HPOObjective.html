@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Personalize.Types.HPOObjective</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Personalize.Types.HPOObjective</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The metric to optimize during hyperparameter optimization (HPO).</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Amazon Personalize doesn\'t support configuring the @hpoObjective@ at</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- this time.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newHPOObjective' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679270973"><span id="local-6989586621679270974"></span></span><span class="hs-keyword">data</span><span> </span><span id="HPOObjective"><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-var">HPOObjective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HPOObjective%27"><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-var">HPOObjective'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the metric.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AmetricName%3AHPOObjective%27"><span class="annot"><span class="annottext">HPOObjective -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3AmetricName%3AHPOObjective%27"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The type of the metric. Valid values are @Maximize@ and @Minimize@.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3AHPOObjective%27"><span class="annot"><span class="annottext">HPOObjective -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3Atype%27%3AHPOObjective%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A regular expression for finding the metric in the training job logs.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AmetricRegex%3AHPOObjective%27"><span class="annot"><span class="annottext">HPOObjective -&gt; Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3AmetricRegex%3AHPOObjective%27"><span class="hs-identifier hs-var hs-var">metricRegex</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679270965"><span id="local-6989586621679270967"><span class="annot"><span class="annottext">HPOObjective -&gt; HPOObjective -&gt; Bool
+(HPOObjective -&gt; HPOObjective -&gt; Bool)
+-&gt; (HPOObjective -&gt; HPOObjective -&gt; Bool) -&gt; Eq HPOObjective
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HPOObjective -&gt; HPOObjective -&gt; Bool
+$c/= :: HPOObjective -&gt; HPOObjective -&gt; Bool
+== :: HPOObjective -&gt; HPOObjective -&gt; Bool
+$c== :: HPOObjective -&gt; HPOObjective -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270956"><span id="local-6989586621679270958"><span id="local-6989586621679270960"><span id="local-6989586621679270962"><span class="annot"><span class="annottext">ReadPrec [HPOObjective]
+ReadPrec HPOObjective
+Int -&gt; ReadS HPOObjective
+ReadS [HPOObjective]
+(Int -&gt; ReadS HPOObjective)
+-&gt; ReadS [HPOObjective]
+-&gt; ReadPrec HPOObjective
+-&gt; ReadPrec [HPOObjective]
+-&gt; Read HPOObjective
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HPOObjective]
+$creadListPrec :: ReadPrec [HPOObjective]
+readPrec :: ReadPrec HPOObjective
+$creadPrec :: ReadPrec HPOObjective
+readList :: ReadS [HPOObjective]
+$creadList :: ReadS [HPOObjective]
+readsPrec :: Int -&gt; ReadS HPOObjective
+$creadsPrec :: Int -&gt; ReadS HPOObjective
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679270949"><span id="local-6989586621679270951"><span id="local-6989586621679270953"><span class="annot"><span class="annottext">Int -&gt; HPOObjective -&gt; ShowS
+[HPOObjective] -&gt; ShowS
+HPOObjective -&gt; String
+(Int -&gt; HPOObjective -&gt; ShowS)
+-&gt; (HPOObjective -&gt; String)
+-&gt; ([HPOObjective] -&gt; ShowS)
+-&gt; Show HPOObjective
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HPOObjective] -&gt; ShowS
+$cshowList :: [HPOObjective] -&gt; ShowS
+show :: HPOObjective -&gt; String
+$cshow :: HPOObjective -&gt; String
+showsPrec :: Int -&gt; HPOObjective -&gt; ShowS
+$cshowsPrec :: Int -&gt; HPOObjective -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HPOObjective -&gt; Rep HPOObjective x)
+-&gt; (forall x. Rep HPOObjective x -&gt; HPOObjective)
+-&gt; Generic HPOObjective
+forall x. Rep HPOObjective x -&gt; HPOObjective
+forall x. HPOObjective -&gt; Rep HPOObjective x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HPOObjective x -&gt; HPOObjective
+$cfrom :: forall x. HPOObjective -&gt; Rep HPOObjective x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'HPOObjective' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'metricName', 'hPOObjective_metricName' - The name of the metric.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'type'', 'hPOObjective_type' - The type of the metric. Valid values are @Maximize@ and @Minimize@.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'metricRegex', 'hPOObjective_metricRegex' - A regular expression for finding the metric in the training job logs.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#newHPOObjective"><span class="hs-identifier hs-type">newHPOObjective</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span><span>
+</span><span id="line-57"></span><span id="newHPOObjective"><span class="annot"><span class="annottext">newHPOObjective :: HPOObjective
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#newHPOObjective"><span class="hs-identifier hs-var hs-var">newHPOObjective</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">HPOObjective' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; HPOObjective
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:metricName:HPOObjective' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3AmetricName%3AHPOObjective%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':HPOObjective' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3Atype%27%3AHPOObjective%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricRegex:HPOObjective' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3AmetricRegex%3AHPOObjective%27"><span class="hs-identifier hs-var">metricRegex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The name of the metric.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#hPOObjective_metricName"><span class="hs-identifier hs-type">hPOObjective_metricName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="hPOObjective_metricName"><span class="annot"><span class="annottext">hPOObjective_metricName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HPOObjective -&gt; f HPOObjective
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#hPOObjective_metricName"><span class="hs-identifier hs-var hs-var">hPOObjective_metricName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HPOObjective -&gt; Maybe Text)
+-&gt; (HPOObjective -&gt; Maybe Text -&gt; HPOObjective)
+-&gt; Lens HPOObjective HPOObjective (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270940"><span class="annot"><span class="annottext">Maybe Text
+metricName :: Maybe Text
+$sel:metricName:HPOObjective' :: HPOObjective -&gt; Maybe Text
+</span><a href="#local-6989586621679270940"><span class="hs-identifier hs-var hs-var">metricName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270940"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270939"><span class="annot"><span class="annottext">s :: HPOObjective
+</span><a href="#local-6989586621679270939"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270938"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270938"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HPOObjective
+</span><a href="#local-6989586621679270939"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricName:HPOObjective' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3AmetricName%3AHPOObjective%27"><span class="hs-identifier hs-var">metricName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270938"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The type of the metric. Valid values are @Maximize@ and @Minimize@.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#hPOObjective_type"><span class="hs-identifier hs-type">hPOObjective_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="hPOObjective_type"><span class="annot"><span class="annottext">hPOObjective_type :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HPOObjective -&gt; f HPOObjective
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#hPOObjective_type"><span class="hs-identifier hs-var hs-var">hPOObjective_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HPOObjective -&gt; Maybe Text)
+-&gt; (HPOObjective -&gt; Maybe Text -&gt; HPOObjective)
+-&gt; Lens HPOObjective HPOObjective (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270936"><span class="annot"><span class="annottext">Maybe Text
+type' :: Maybe Text
+$sel:type':HPOObjective' :: HPOObjective -&gt; Maybe Text
+</span><a href="#local-6989586621679270936"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270936"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270935"><span class="annot"><span class="annottext">s :: HPOObjective
+</span><a href="#local-6989586621679270935"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270934"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270934"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HPOObjective
+</span><a href="#local-6989586621679270935"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':HPOObjective' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3Atype%27%3AHPOObjective%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270934"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | A regular expression for finding the metric in the training job logs.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#hPOObjective_metricRegex"><span class="hs-identifier hs-type">hPOObjective_metricRegex</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="hPOObjective_metricRegex"><span class="annot"><span class="annottext">hPOObjective_metricRegex :: (Maybe Text -&gt; f (Maybe Text)) -&gt; HPOObjective -&gt; f HPOObjective
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#hPOObjective_metricRegex"><span class="hs-identifier hs-var hs-var">hPOObjective_metricRegex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HPOObjective -&gt; Maybe Text)
+-&gt; (HPOObjective -&gt; Maybe Text -&gt; HPOObjective)
+-&gt; Lens HPOObjective HPOObjective (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270932"><span class="annot"><span class="annottext">Maybe Text
+metricRegex :: Maybe Text
+$sel:metricRegex:HPOObjective' :: HPOObjective -&gt; Maybe Text
+</span><a href="#local-6989586621679270932"><span class="hs-identifier hs-var hs-var">metricRegex</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270932"><span class="hs-identifier hs-var">metricRegex</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679270931"><span class="annot"><span class="annottext">s :: HPOObjective
+</span><a href="#local-6989586621679270931"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679270930"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270930"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HPOObjective
+</span><a href="#local-6989586621679270931"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricRegex:HPOObjective' :: Maybe Text
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#%24sel%3AmetricRegex%3AHPOObjective%27"><span class="hs-identifier hs-var">metricRegex</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270930"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270927"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679270925"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HPOObjective
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HPOObjective) -&gt; Value -&gt; Parser HPOObjective
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HPOObjective&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679270922"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270922"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; HPOObjective
+</span><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-var">HPOObjective'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; HPOObjective)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; HPOObjective)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; HPOObjective)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; HPOObjective)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; HPOObjective)
+-&gt; Parser (Maybe Text) -&gt; Parser HPOObjective
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679270922"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricRegex&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270916"><span id="local-6989586621679270918"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270913"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679270905"><span id="local-6989586621679270907"><span id="local-6989586621679270909"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective"><span class="hs-identifier hs-type">HPOObjective</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679270903"><span class="annot"><span class="annottext">toJSON :: HPOObjective -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Personalize.Types.HPOObjective.html#HPOObjective%27"><span class="hs-identifier hs-type">HPOObjective'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679270899"><span id="local-6989586621679270900"><span id="local-6989586621679270901"><span class="annot"><span class="annottext">Maybe Text
+metricRegex :: Maybe Text
+type' :: Maybe Text
+metricName :: Maybe Text
+$sel:metricRegex:HPOObjective' :: HPOObjective -&gt; Maybe Text
+$sel:type':HPOObjective' :: HPOObjective -&gt; Maybe Text
+$sel:metricName:HPOObjective' :: HPOObjective -&gt; Maybe Text
+</span><a href="#local-6989586621679270899"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270901"><span class="hs-identifier hs-var">metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270900"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;metricRegex&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679270899"><span class="hs-identifier hs-var">metricRegex</span></a></span><span>
+</span><span id="line-98"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span></pre></body></html>

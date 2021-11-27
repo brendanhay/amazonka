@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.ConnectorType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.ConnectorType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier">ConnectorType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Amplitude"><span class="hs-identifier">ConnectorType_Amplitude</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_CustomerProfiles"><span class="hs-identifier">ConnectorType_CustomerProfiles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Datadog"><span class="hs-identifier">ConnectorType_Datadog</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Dynatrace"><span class="hs-identifier">ConnectorType_Dynatrace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_EventBridge"><span class="hs-identifier">ConnectorType_EventBridge</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Googleanalytics"><span class="hs-identifier">ConnectorType_Googleanalytics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Honeycode"><span class="hs-identifier">ConnectorType_Honeycode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Infornexus"><span class="hs-identifier">ConnectorType_Infornexus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_LookoutMetrics"><span class="hs-identifier">ConnectorType_LookoutMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Marketo"><span class="hs-identifier">ConnectorType_Marketo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Redshift"><span class="hs-identifier">ConnectorType_Redshift</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_S3"><span class="hs-identifier">ConnectorType_S3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_SAPOData"><span class="hs-identifier">ConnectorType_SAPOData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Salesforce"><span class="hs-identifier">ConnectorType_Salesforce</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Servicenow"><span class="hs-identifier">ConnectorType_Servicenow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Singular"><span class="hs-identifier">ConnectorType_Singular</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Slack"><span class="hs-identifier">ConnectorType_Slack</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Snowflake"><span class="hs-identifier">ConnectorType_Snowflake</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Trendmicro"><span class="hs-identifier">ConnectorType_Trendmicro</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Upsolver"><span class="hs-identifier">ConnectorType_Upsolver</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Veeva"><span class="hs-identifier">ConnectorType_Veeva</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Zendesk"><span class="hs-identifier">ConnectorType_Zendesk</span></a></span><span>
+</span><span id="line-45"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span id="local-6989586621679312791"><span id="local-6989586621679312792"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectorType"><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-var">ConnectorType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorType%27"><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-var">ConnectorType'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectorType"><span class="annot"><span class="annottext">ConnectorType -&gt; Text
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#fromConnectorType"><span class="hs-identifier hs-var hs-var">fromConnectorType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679312783"><span id="local-6989586621679312785"><span id="local-6989586621679312787"><span class="annot"><span class="annottext">Int -&gt; ConnectorType -&gt; ShowS
+[ConnectorType] -&gt; ShowS
+ConnectorType -&gt; String
+(Int -&gt; ConnectorType -&gt; ShowS)
+-&gt; (ConnectorType -&gt; String)
+-&gt; ([ConnectorType] -&gt; ShowS)
+-&gt; Show ConnectorType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectorType] -&gt; ShowS
+$cshowList :: [ConnectorType] -&gt; ShowS
+show :: ConnectorType -&gt; String
+$cshow :: ConnectorType -&gt; String
+showsPrec :: Int -&gt; ConnectorType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectorType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679312774"><span id="local-6989586621679312776"><span id="local-6989586621679312778"><span id="local-6989586621679312780"><span class="annot"><span class="annottext">ReadPrec [ConnectorType]
+ReadPrec ConnectorType
+Int -&gt; ReadS ConnectorType
+ReadS [ConnectorType]
+(Int -&gt; ReadS ConnectorType)
+-&gt; ReadS [ConnectorType]
+-&gt; ReadPrec ConnectorType
+-&gt; ReadPrec [ConnectorType]
+-&gt; Read ConnectorType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectorType]
+$creadListPrec :: ReadPrec [ConnectorType]
+readPrec :: ReadPrec ConnectorType
+$creadPrec :: ReadPrec ConnectorType
+readList :: ReadS [ConnectorType]
+$creadList :: ReadS [ConnectorType]
+readsPrec :: Int -&gt; ReadS ConnectorType
+$creadsPrec :: Int -&gt; ReadS ConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679312769"><span id="local-6989586621679312771"><span class="annot"><span class="annottext">ConnectorType -&gt; ConnectorType -&gt; Bool
+(ConnectorType -&gt; ConnectorType -&gt; Bool)
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; Bool) -&gt; Eq ConnectorType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectorType -&gt; ConnectorType -&gt; Bool
+$c/= :: ConnectorType -&gt; ConnectorType -&gt; Bool
+== :: ConnectorType -&gt; ConnectorType -&gt; Bool
+$c== :: ConnectorType -&gt; ConnectorType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679312753"><span id="local-6989586621679312755"><span id="local-6989586621679312757"><span id="local-6989586621679312759"><span id="local-6989586621679312761"><span id="local-6989586621679312763"><span id="local-6989586621679312765"><span class="annot"><span class="annottext">Eq ConnectorType
+Eq ConnectorType
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; Ordering)
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; Bool)
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; Bool)
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; Bool)
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; Bool)
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; ConnectorType)
+-&gt; (ConnectorType -&gt; ConnectorType -&gt; ConnectorType)
+-&gt; Ord ConnectorType
+ConnectorType -&gt; ConnectorType -&gt; Bool
+ConnectorType -&gt; ConnectorType -&gt; Ordering
+ConnectorType -&gt; ConnectorType -&gt; ConnectorType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConnectorType -&gt; ConnectorType -&gt; ConnectorType
+$cmin :: ConnectorType -&gt; ConnectorType -&gt; ConnectorType
+max :: ConnectorType -&gt; ConnectorType -&gt; ConnectorType
+$cmax :: ConnectorType -&gt; ConnectorType -&gt; ConnectorType
+&gt;= :: ConnectorType -&gt; ConnectorType -&gt; Bool
+$c&gt;= :: ConnectorType -&gt; ConnectorType -&gt; Bool
+&gt; :: ConnectorType -&gt; ConnectorType -&gt; Bool
+$c&gt; :: ConnectorType -&gt; ConnectorType -&gt; Bool
+&lt;= :: ConnectorType -&gt; ConnectorType -&gt; Bool
+$c&lt;= :: ConnectorType -&gt; ConnectorType -&gt; Bool
+&lt; :: ConnectorType -&gt; ConnectorType -&gt; Bool
+$c&lt; :: ConnectorType -&gt; ConnectorType -&gt; Bool
+compare :: ConnectorType -&gt; ConnectorType -&gt; Ordering
+$ccompare :: ConnectorType -&gt; ConnectorType -&gt; Ordering
+$cp1Ord :: Eq ConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConnectorType -&gt; Rep ConnectorType x)
+-&gt; (forall x. Rep ConnectorType x -&gt; ConnectorType)
+-&gt; Generic ConnectorType
+forall x. Rep ConnectorType x -&gt; ConnectorType
+forall x. ConnectorType -&gt; Rep ConnectorType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectorType x -&gt; ConnectorType
+$cfrom :: forall x. ConnectorType -&gt; Rep ConnectorType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679312745"><span id="local-6989586621679312747"><span class="annot"><span class="annottext">Int -&gt; ConnectorType -&gt; Int
+ConnectorType -&gt; Int
+(Int -&gt; ConnectorType -&gt; Int)
+-&gt; (ConnectorType -&gt; Int) -&gt; Hashable ConnectorType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConnectorType -&gt; Int
+$chash :: ConnectorType -&gt; Int
+hashWithSalt :: Int -&gt; ConnectorType -&gt; Int
+$chashWithSalt :: Int -&gt; ConnectorType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679312742"><span class="annot"><span class="annottext">ConnectorType -&gt; ()
+(ConnectorType -&gt; ()) -&gt; NFData ConnectorType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConnectorType -&gt; ()
+$crnf :: ConnectorType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679312739"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectorType
+(Text -&gt; Either String ConnectorType) -&gt; FromText ConnectorType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConnectorType
+$cfromText :: Text -&gt; Either String ConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679312736"><span class="annot"><span class="annottext">ConnectorType -&gt; Text
+(ConnectorType -&gt; Text) -&gt; ToText ConnectorType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConnectorType -&gt; Text
+$ctoText :: ConnectorType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679312733"><span class="annot"><span class="annottext">ConnectorType -&gt; ByteString
+(ConnectorType -&gt; ByteString) -&gt; ToByteString ConnectorType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConnectorType -&gt; ByteString
+$ctoBS :: ConnectorType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679312730"><span class="annot"><span class="annottext">ConnectorType -&gt; ByteStringBuilder
+(ConnectorType -&gt; ByteStringBuilder) -&gt; ToLog ConnectorType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConnectorType -&gt; ByteStringBuilder
+$cbuild :: ConnectorType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679312727"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectorType -&gt; [Header]
+(HeaderName -&gt; ConnectorType -&gt; [Header]) -&gt; ToHeader ConnectorType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConnectorType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConnectorType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679312724"><span class="annot"><span class="annottext">ConnectorType -&gt; QueryString
+(ConnectorType -&gt; QueryString) -&gt; ToQuery ConnectorType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConnectorType -&gt; QueryString
+$ctoQuery :: ConnectorType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679312719"><span id="local-6989586621679312721"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectorType]
+Value -&gt; Parser ConnectorType
+(Value -&gt; Parser ConnectorType)
+-&gt; (Value -&gt; Parser [ConnectorType]) -&gt; FromJSON ConnectorType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConnectorType]
+$cparseJSONList :: Value -&gt; Parser [ConnectorType]
+parseJSON :: Value -&gt; Parser ConnectorType
+$cparseJSON :: Value -&gt; Parser ConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679312714"><span id="local-6989586621679312716"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectorType]
+FromJSONKeyFunction ConnectorType
+FromJSONKeyFunction ConnectorType
+-&gt; FromJSONKeyFunction [ConnectorType] -&gt; FromJSONKey ConnectorType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConnectorType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConnectorType]
+fromJSONKey :: FromJSONKeyFunction ConnectorType
+$cfromJSONKey :: FromJSONKeyFunction ConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679312705"><span id="local-6989586621679312707"><span id="local-6989586621679312709"><span id="local-6989586621679312711"><span class="annot"><span class="annottext">[ConnectorType] -&gt; Encoding
+[ConnectorType] -&gt; Value
+ConnectorType -&gt; Encoding
+ConnectorType -&gt; Value
+(ConnectorType -&gt; Value)
+-&gt; (ConnectorType -&gt; Encoding)
+-&gt; ([ConnectorType] -&gt; Value)
+-&gt; ([ConnectorType] -&gt; Encoding)
+-&gt; ToJSON ConnectorType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConnectorType] -&gt; Encoding
+$ctoEncodingList :: [ConnectorType] -&gt; Encoding
+toJSONList :: [ConnectorType] -&gt; Value
+$ctoJSONList :: [ConnectorType] -&gt; Value
+toEncoding :: ConnectorType -&gt; Encoding
+$ctoEncoding :: ConnectorType -&gt; Encoding
+toJSON :: ConnectorType -&gt; Value
+$ctoJSON :: ConnectorType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679312700"><span id="local-6989586621679312702"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectorType]
+ToJSONKeyFunction ConnectorType
+ToJSONKeyFunction ConnectorType
+-&gt; ToJSONKeyFunction [ConnectorType] -&gt; ToJSONKey ConnectorType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConnectorType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConnectorType]
+toJSONKey :: ToJSONKeyFunction ConnectorType
+$ctoJSONKey :: ToJSONKeyFunction ConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679312697"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectorType
+([Node] -&gt; Either String ConnectorType) -&gt; FromXML ConnectorType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConnectorType
+$cparseXML :: [Node] -&gt; Either String ConnectorType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679312694"><span class="annot"><span class="annottext">ConnectorType -&gt; XML
+(ConnectorType -&gt; XML) -&gt; ToXML ConnectorType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConnectorType -&gt; XML
+$ctoXML :: ConnectorType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Amplitude"><span class="hs-identifier hs-type">ConnectorType_Amplitude</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Amplitude"><span id="%24mConnectorType_Amplitude"><span id="ConnectorType_Amplitude"><span class="annot"><span class="annottext">$bConnectorType_Amplitude :: ConnectorType
+$mConnectorType_Amplitude :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Amplitude"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Amplitude</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Amplitude&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_CustomerProfiles"><span class="hs-identifier hs-type">ConnectorType_CustomerProfiles</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_CustomerProfiles"><span id="%24mConnectorType_CustomerProfiles"><span id="ConnectorType_CustomerProfiles"><span class="annot"><span class="annottext">$bConnectorType_CustomerProfiles :: ConnectorType
+$mConnectorType_CustomerProfiles :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_CustomerProfiles"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_CustomerProfiles</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CustomerProfiles&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Datadog"><span class="hs-identifier hs-type">ConnectorType_Datadog</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Datadog"><span id="%24mConnectorType_Datadog"><span id="ConnectorType_Datadog"><span class="annot"><span class="annottext">$bConnectorType_Datadog :: ConnectorType
+$mConnectorType_Datadog :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Datadog"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Datadog</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Datadog&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Dynatrace"><span class="hs-identifier hs-type">ConnectorType_Dynatrace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Dynatrace"><span id="%24mConnectorType_Dynatrace"><span id="ConnectorType_Dynatrace"><span class="annot"><span class="annottext">$bConnectorType_Dynatrace :: ConnectorType
+$mConnectorType_Dynatrace :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Dynatrace"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Dynatrace</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Dynatrace&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_EventBridge"><span class="hs-identifier hs-type">ConnectorType_EventBridge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_EventBridge"><span id="%24mConnectorType_EventBridge"><span id="ConnectorType_EventBridge"><span class="annot"><span class="annottext">$bConnectorType_EventBridge :: ConnectorType
+$mConnectorType_EventBridge :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_EventBridge"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_EventBridge</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EventBridge&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Googleanalytics"><span class="hs-identifier hs-type">ConnectorType_Googleanalytics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Googleanalytics"><span id="%24mConnectorType_Googleanalytics"><span id="ConnectorType_Googleanalytics"><span class="annot"><span class="annottext">$bConnectorType_Googleanalytics :: ConnectorType
+$mConnectorType_Googleanalytics :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Googleanalytics"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Googleanalytics</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Googleanalytics&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Honeycode"><span class="hs-identifier hs-type">ConnectorType_Honeycode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Honeycode"><span id="%24mConnectorType_Honeycode"><span id="ConnectorType_Honeycode"><span class="annot"><span class="annottext">$bConnectorType_Honeycode :: ConnectorType
+$mConnectorType_Honeycode :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Honeycode"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Honeycode</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Honeycode&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Infornexus"><span class="hs-identifier hs-type">ConnectorType_Infornexus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Infornexus"><span id="%24mConnectorType_Infornexus"><span id="ConnectorType_Infornexus"><span class="annot"><span class="annottext">$bConnectorType_Infornexus :: ConnectorType
+$mConnectorType_Infornexus :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Infornexus"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Infornexus</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Infornexus&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_LookoutMetrics"><span class="hs-identifier hs-type">ConnectorType_LookoutMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_LookoutMetrics"><span id="%24mConnectorType_LookoutMetrics"><span id="ConnectorType_LookoutMetrics"><span class="annot"><span class="annottext">$bConnectorType_LookoutMetrics :: ConnectorType
+$mConnectorType_LookoutMetrics :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_LookoutMetrics"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_LookoutMetrics</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LookoutMetrics&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Marketo"><span class="hs-identifier hs-type">ConnectorType_Marketo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Marketo"><span id="%24mConnectorType_Marketo"><span id="ConnectorType_Marketo"><span class="annot"><span class="annottext">$bConnectorType_Marketo :: ConnectorType
+$mConnectorType_Marketo :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Marketo"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Marketo</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Marketo&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Redshift"><span class="hs-identifier hs-type">ConnectorType_Redshift</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Redshift"><span id="%24mConnectorType_Redshift"><span id="ConnectorType_Redshift"><span class="annot"><span class="annottext">$bConnectorType_Redshift :: ConnectorType
+$mConnectorType_Redshift :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Redshift"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Redshift</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Redshift&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_S3"><span class="hs-identifier hs-type">ConnectorType_S3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_S3"><span id="%24mConnectorType_S3"><span id="ConnectorType_S3"><span class="annot"><span class="annottext">$bConnectorType_S3 :: ConnectorType
+$mConnectorType_S3 :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_S3"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_S3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_SAPOData"><span class="hs-identifier hs-type">ConnectorType_SAPOData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_SAPOData"><span id="%24mConnectorType_SAPOData"><span id="ConnectorType_SAPOData"><span class="annot"><span class="annottext">$bConnectorType_SAPOData :: ConnectorType
+$mConnectorType_SAPOData :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_SAPOData"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_SAPOData</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SAPOData&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Salesforce"><span class="hs-identifier hs-type">ConnectorType_Salesforce</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Salesforce"><span id="%24mConnectorType_Salesforce"><span id="ConnectorType_Salesforce"><span class="annot"><span class="annottext">$bConnectorType_Salesforce :: ConnectorType
+$mConnectorType_Salesforce :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Salesforce"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Salesforce</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Salesforce&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Servicenow"><span class="hs-identifier hs-type">ConnectorType_Servicenow</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Servicenow"><span id="%24mConnectorType_Servicenow"><span id="ConnectorType_Servicenow"><span class="annot"><span class="annottext">$bConnectorType_Servicenow :: ConnectorType
+$mConnectorType_Servicenow :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Servicenow"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Servicenow</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Servicenow&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Singular"><span class="hs-identifier hs-type">ConnectorType_Singular</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Singular"><span id="%24mConnectorType_Singular"><span id="ConnectorType_Singular"><span class="annot"><span class="annottext">$bConnectorType_Singular :: ConnectorType
+$mConnectorType_Singular :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Singular"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Singular</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Singular&quot;</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Slack"><span class="hs-identifier hs-type">ConnectorType_Slack</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Slack"><span id="%24mConnectorType_Slack"><span id="ConnectorType_Slack"><span class="annot"><span class="annottext">$bConnectorType_Slack :: ConnectorType
+$mConnectorType_Slack :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Slack"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Slack</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Slack&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Snowflake"><span class="hs-identifier hs-type">ConnectorType_Snowflake</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Snowflake"><span id="%24mConnectorType_Snowflake"><span id="ConnectorType_Snowflake"><span class="annot"><span class="annottext">$bConnectorType_Snowflake :: ConnectorType
+$mConnectorType_Snowflake :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Snowflake"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Snowflake</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Snowflake&quot;</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Trendmicro"><span class="hs-identifier hs-type">ConnectorType_Trendmicro</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Trendmicro"><span id="%24mConnectorType_Trendmicro"><span id="ConnectorType_Trendmicro"><span class="annot"><span class="annottext">$bConnectorType_Trendmicro :: ConnectorType
+$mConnectorType_Trendmicro :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Trendmicro"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Trendmicro</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Trendmicro&quot;</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Upsolver"><span class="hs-identifier hs-type">ConnectorType_Upsolver</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Upsolver"><span id="%24mConnectorType_Upsolver"><span id="ConnectorType_Upsolver"><span class="annot"><span class="annottext">$bConnectorType_Upsolver :: ConnectorType
+$mConnectorType_Upsolver :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Upsolver"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Upsolver</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Upsolver&quot;</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Veeva"><span class="hs-identifier hs-type">ConnectorType_Veeva</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Veeva"><span id="%24mConnectorType_Veeva"><span id="ConnectorType_Veeva"><span class="annot"><span class="annottext">$bConnectorType_Veeva :: ConnectorType
+$mConnectorType_Veeva :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Veeva"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Veeva</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Veeva&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Zendesk"><span class="hs-identifier hs-type">ConnectorType_Zendesk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType"><span class="hs-identifier hs-type">ConnectorType</span></a></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorType_Zendesk"><span id="%24mConnectorType_Zendesk"><span id="ConnectorType_Zendesk"><span class="annot"><span class="annottext">$bConnectorType_Zendesk :: ConnectorType
+$mConnectorType_Zendesk :: forall r. ConnectorType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.ConnectorType.html#%24bConnectorType_Zendesk"><span class="hs-identifier hs-var hs-var hs-var">ConnectorType_Zendesk</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-identifier hs-type">ConnectorType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Zendesk&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Amplitude"><span class="hs-pragma hs-type">ConnectorType_Amplitude</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_CustomerProfiles"><span class="hs-pragma hs-type">ConnectorType_CustomerProfiles</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Datadog"><span class="hs-pragma hs-type">ConnectorType_Datadog</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Dynatrace"><span class="hs-pragma hs-type">ConnectorType_Dynatrace</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_EventBridge"><span class="hs-pragma hs-type">ConnectorType_EventBridge</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Googleanalytics"><span class="hs-pragma hs-type">ConnectorType_Googleanalytics</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Honeycode"><span class="hs-pragma hs-type">ConnectorType_Honeycode</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Infornexus"><span class="hs-pragma hs-type">ConnectorType_Infornexus</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_LookoutMetrics"><span class="hs-pragma hs-type">ConnectorType_LookoutMetrics</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Marketo"><span class="hs-pragma hs-type">ConnectorType_Marketo</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Redshift"><span class="hs-pragma hs-type">ConnectorType_Redshift</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_S3"><span class="hs-pragma hs-type">ConnectorType_S3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_SAPOData"><span class="hs-pragma hs-type">ConnectorType_SAPOData</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Salesforce"><span class="hs-pragma hs-type">ConnectorType_Salesforce</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Servicenow"><span class="hs-pragma hs-type">ConnectorType_Servicenow</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Singular"><span class="hs-pragma hs-type">ConnectorType_Singular</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Slack"><span class="hs-pragma hs-type">ConnectorType_Slack</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Snowflake"><span class="hs-pragma hs-type">ConnectorType_Snowflake</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Trendmicro"><span class="hs-pragma hs-type">ConnectorType_Trendmicro</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Upsolver"><span class="hs-pragma hs-type">ConnectorType_Upsolver</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Veeva"><span class="hs-pragma hs-type">ConnectorType_Veeva</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType_Zendesk"><span class="hs-pragma hs-type">ConnectorType_Zendesk</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ConnectorType.html#ConnectorType%27"><span class="hs-pragma hs-type">ConnectorType'</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-171"></span></pre></body></html>

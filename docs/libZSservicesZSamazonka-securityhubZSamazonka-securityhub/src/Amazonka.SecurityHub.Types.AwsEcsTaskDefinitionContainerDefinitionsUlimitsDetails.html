@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A ulimit to set in the container.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679951391"><span id="local-6989586621679951392"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of the ulimit.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aname%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3Aname%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The hard limit for the ulimit type.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AhardLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3AhardLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var hs-var">hardLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The soft limit for the ulimit type.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsoftLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3AsoftLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var hs-var">softLimit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679951383"><span id="local-6989586621679951385"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Bool
+(AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Bool)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Bool)
+-&gt; Eq AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Bool
+$c/= :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Bool
+== :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Bool
+$c== :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951374"><span id="local-6989586621679951376"><span id="local-6989586621679951378"><span id="local-6989586621679951380"><span class="annot"><span class="annottext">ReadPrec [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+ReadPrec AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+Int -&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+ReadS [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+(Int
+ -&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; ReadS [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+-&gt; ReadPrec AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; ReadPrec
+     [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+-&gt; Read AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+$creadListPrec :: ReadPrec [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+readPrec :: ReadPrec AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+$creadPrec :: ReadPrec AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+readList :: ReadS [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+$creadList :: ReadS [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+readsPrec :: Int -&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+$creadsPrec :: Int -&gt; ReadS AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679951367"><span id="local-6989586621679951369"><span id="local-6989586621679951371"><span class="annot"><span class="annottext">Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; ShowS
+[AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails] -&gt; ShowS
+AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; String
+(Int
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; ShowS)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+    -&gt; String)
+-&gt; ([AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails]
+    -&gt; ShowS)
+-&gt; Show AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails] -&gt; ShowS
+$cshowList :: [AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails] -&gt; ShowS
+show :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; String
+$cshow :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; String
+showsPrec :: Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+ -&gt; Rep AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails x)
+-&gt; (forall x.
+    Rep AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails x
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Generic AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+forall x.
+Rep AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails x
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+forall x.
+AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; Rep AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails x
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+$cfrom :: forall x.
+AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; Rep AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'name', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name' - The type of the ulimit.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'hardLimit', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit' - The hard limit for the ulimit type.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'softLimit', 'awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit' - The soft limit for the ulimit type.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span>
+</span><span id="line-54"></span><span id="newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="annot"><span class="annottext">newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-var hs-var">newAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:name:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3Aname%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:hardLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3AhardLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">hardLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:softLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3AsoftLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">softLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The type of the ulimit.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+ -&gt; Maybe Text)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+    -&gt; Maybe Text
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951358"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679951358"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951358"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951357"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="#local-6989586621679951357"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951356"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951356"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="#local-6989586621679951357"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3Aname%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951356"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The hard limit for the ulimit type.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_hardLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+ -&gt; Maybe Int)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+    -&gt; Maybe Int
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951354"><span class="annot"><span class="annottext">Maybe Int
+hardLimit :: Maybe Int
+$sel:hardLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Maybe Int
+</span><a href="#local-6989586621679951354"><span class="hs-identifier hs-var hs-var">hardLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951354"><span class="hs-identifier hs-var">hardLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951353"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="#local-6989586621679951353"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951352"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951352"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="#local-6989586621679951353"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hardLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3AhardLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">hardLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951352"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The soft limit for the ulimit type.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsUlimitsDetails_softLimit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+ -&gt; Maybe Int)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+    -&gt; Maybe Int
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+     AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951350"><span class="annot"><span class="annottext">Maybe Int
+softLimit :: Maybe Int
+$sel:softLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Maybe Int
+</span><a href="#local-6989586621679951350"><span class="hs-identifier hs-var hs-var">softLimit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951350"><span class="hs-identifier hs-var">softLimit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679951349"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="#local-6989586621679951349"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679951348"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951348"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="#local-6989586621679951349"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:softLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#%24sel%3AsoftLimit%3AAwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">softLimit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951348"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679951345"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679951343"><span class="annot"><span class="annottext">parseJSON :: Value
+-&gt; Parser AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Value
+-&gt; Parser AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails&quot;</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679951340"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951340"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HardLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails)
+-&gt; Parser (Maybe Int)
+-&gt; Parser AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679951340"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SoftLimit&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679951334"><span id="local-6989586621679951336"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679951331"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679951323"><span id="local-6989586621679951325"><span id="local-6989586621679951327"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails</span></a></span></span></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679951321"><span class="annot"><span class="annottext">toJSON :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679951317"><span id="local-6989586621679951318"><span id="local-6989586621679951319"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+softLimit :: Maybe Int
+hardLimit :: Maybe Int
+name :: Maybe Text
+$sel:softLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Maybe Int
+$sel:hardLimit:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails -&gt; Maybe Int
+$sel:name:AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails' :: AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails
+-&gt; Maybe Text
+</span><a href="#local-6989586621679951317"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679951319"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HardLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951318"><span class="hs-identifier hs-var">hardLimit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SoftLimit&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679951317"><span class="hs-identifier hs-var">softLimit</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span></pre></body></html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.DevEndpointCustomLibraries</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.DevEndpointCustomLibraries</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Custom libraries to be loaded into a development endpoint.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newDevEndpointCustomLibraries' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679684894"><span id="local-6989586621679684895"></span></span><span class="hs-keyword">data</span><span> </span><span id="DevEndpointCustomLibraries"><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-var">DevEndpointCustomLibraries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DevEndpointCustomLibraries%27"><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries%27"><span class="hs-identifier hs-var">DevEndpointCustomLibraries'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The paths to one or more Python libraries in an Amazon Simple Storage</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@.</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- Multiple values must be complete paths separated by a comma.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- You can only use pure Python libraries with a @DevEndpoint@. Libraries</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- that rely on C extensions, such as the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- &lt;http://pandas.pydata.org/ pandas&gt; Python data analysis library, are not</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- currently supported.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AextraPythonLibsS3Path%3ADevEndpointCustomLibraries%27"><span class="annot"><span class="annottext">DevEndpointCustomLibraries -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#%24sel%3AextraPythonLibsS3Path%3ADevEndpointCustomLibraries%27"><span class="hs-identifier hs-var hs-var">extraPythonLibsS3Path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The path to one or more Java @.jar@ files in an S3 bucket that should be</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- loaded in your @DevEndpoint@.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- You can only use pure Java\/Scala libraries with a @DevEndpoint@.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AextraJarsS3Path%3ADevEndpointCustomLibraries%27"><span class="annot"><span class="annottext">DevEndpointCustomLibraries -&gt; Maybe Text
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#%24sel%3AextraJarsS3Path%3ADevEndpointCustomLibraries%27"><span class="hs-identifier hs-var hs-var">extraJarsS3Path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679684887"><span id="local-6989586621679684889"><span class="annot"><span class="annottext">DevEndpointCustomLibraries -&gt; DevEndpointCustomLibraries -&gt; Bool
+(DevEndpointCustomLibraries -&gt; DevEndpointCustomLibraries -&gt; Bool)
+-&gt; (DevEndpointCustomLibraries
+    -&gt; DevEndpointCustomLibraries -&gt; Bool)
+-&gt; Eq DevEndpointCustomLibraries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DevEndpointCustomLibraries -&gt; DevEndpointCustomLibraries -&gt; Bool
+$c/= :: DevEndpointCustomLibraries -&gt; DevEndpointCustomLibraries -&gt; Bool
+== :: DevEndpointCustomLibraries -&gt; DevEndpointCustomLibraries -&gt; Bool
+$c== :: DevEndpointCustomLibraries -&gt; DevEndpointCustomLibraries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684878"><span id="local-6989586621679684880"><span id="local-6989586621679684882"><span id="local-6989586621679684884"><span class="annot"><span class="annottext">ReadPrec [DevEndpointCustomLibraries]
+ReadPrec DevEndpointCustomLibraries
+Int -&gt; ReadS DevEndpointCustomLibraries
+ReadS [DevEndpointCustomLibraries]
+(Int -&gt; ReadS DevEndpointCustomLibraries)
+-&gt; ReadS [DevEndpointCustomLibraries]
+-&gt; ReadPrec DevEndpointCustomLibraries
+-&gt; ReadPrec [DevEndpointCustomLibraries]
+-&gt; Read DevEndpointCustomLibraries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DevEndpointCustomLibraries]
+$creadListPrec :: ReadPrec [DevEndpointCustomLibraries]
+readPrec :: ReadPrec DevEndpointCustomLibraries
+$creadPrec :: ReadPrec DevEndpointCustomLibraries
+readList :: ReadS [DevEndpointCustomLibraries]
+$creadList :: ReadS [DevEndpointCustomLibraries]
+readsPrec :: Int -&gt; ReadS DevEndpointCustomLibraries
+$creadsPrec :: Int -&gt; ReadS DevEndpointCustomLibraries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679684871"><span id="local-6989586621679684873"><span id="local-6989586621679684875"><span class="annot"><span class="annottext">Int -&gt; DevEndpointCustomLibraries -&gt; ShowS
+[DevEndpointCustomLibraries] -&gt; ShowS
+DevEndpointCustomLibraries -&gt; String
+(Int -&gt; DevEndpointCustomLibraries -&gt; ShowS)
+-&gt; (DevEndpointCustomLibraries -&gt; String)
+-&gt; ([DevEndpointCustomLibraries] -&gt; ShowS)
+-&gt; Show DevEndpointCustomLibraries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DevEndpointCustomLibraries] -&gt; ShowS
+$cshowList :: [DevEndpointCustomLibraries] -&gt; ShowS
+show :: DevEndpointCustomLibraries -&gt; String
+$cshow :: DevEndpointCustomLibraries -&gt; String
+showsPrec :: Int -&gt; DevEndpointCustomLibraries -&gt; ShowS
+$cshowsPrec :: Int -&gt; DevEndpointCustomLibraries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DevEndpointCustomLibraries -&gt; Rep DevEndpointCustomLibraries x)
+-&gt; (forall x.
+    Rep DevEndpointCustomLibraries x -&gt; DevEndpointCustomLibraries)
+-&gt; Generic DevEndpointCustomLibraries
+forall x.
+Rep DevEndpointCustomLibraries x -&gt; DevEndpointCustomLibraries
+forall x.
+DevEndpointCustomLibraries -&gt; Rep DevEndpointCustomLibraries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DevEndpointCustomLibraries x -&gt; DevEndpointCustomLibraries
+$cfrom :: forall x.
+DevEndpointCustomLibraries -&gt; Rep DevEndpointCustomLibraries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'DevEndpointCustomLibraries' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'extraPythonLibsS3Path', 'devEndpointCustomLibraries_extraPythonLibsS3Path' - The paths to one or more Python libraries in an Amazon Simple Storage</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Multiple values must be complete paths separated by a comma.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- You can only use pure Python libraries with a @DevEndpoint@. Libraries</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- that rely on C extensions, such as the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- &lt;http://pandas.pydata.org/ pandas&gt; Python data analysis library, are not</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- currently supported.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'extraJarsS3Path', 'devEndpointCustomLibraries_extraJarsS3Path' - The path to one or more Java @.jar@ files in an S3 bucket that should be</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- loaded in your @DevEndpoint@.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- You can only use pure Java\/Scala libraries with a @DevEndpoint@.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#newDevEndpointCustomLibraries"><span class="hs-identifier hs-type">newDevEndpointCustomLibraries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span><span>
+</span><span id="line-70"></span><span id="newDevEndpointCustomLibraries"><span class="annot"><span class="annottext">newDevEndpointCustomLibraries :: DevEndpointCustomLibraries
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#newDevEndpointCustomLibraries"><span class="hs-identifier hs-var hs-var">newDevEndpointCustomLibraries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DevEndpointCustomLibraries' :: Maybe Text -&gt; Maybe Text -&gt; DevEndpointCustomLibraries
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries%27"><span class="hs-identifier hs-type">DevEndpointCustomLibraries'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:extraPythonLibsS3Path:DevEndpointCustomLibraries' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#%24sel%3AextraPythonLibsS3Path%3ADevEndpointCustomLibraries%27"><span class="hs-identifier hs-var">extraPythonLibsS3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:extraJarsS3Path:DevEndpointCustomLibraries' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#%24sel%3AextraJarsS3Path%3ADevEndpointCustomLibraries%27"><span class="hs-identifier hs-var">extraJarsS3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The paths to one or more Python libraries in an Amazon Simple Storage</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Service (Amazon S3) bucket that should be loaded in your @DevEndpoint@.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Multiple values must be complete paths separated by a comma.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- You can only use pure Python libraries with a @DevEndpoint@. Libraries</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- that rely on C extensions, such as the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;http://pandas.pydata.org/ pandas&gt; Python data analysis library, are not</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- currently supported.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#devEndpointCustomLibraries_extraPythonLibsS3Path"><span class="hs-identifier hs-type">devEndpointCustomLibraries_extraPythonLibsS3Path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="devEndpointCustomLibraries_extraPythonLibsS3Path"><span class="annot"><span class="annottext">devEndpointCustomLibraries_extraPythonLibsS3Path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DevEndpointCustomLibraries -&gt; f DevEndpointCustomLibraries
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#devEndpointCustomLibraries_extraPythonLibsS3Path"><span class="hs-identifier hs-var hs-var">devEndpointCustomLibraries_extraPythonLibsS3Path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DevEndpointCustomLibraries -&gt; Maybe Text)
+-&gt; (DevEndpointCustomLibraries
+    -&gt; Maybe Text -&gt; DevEndpointCustomLibraries)
+-&gt; Lens
+     DevEndpointCustomLibraries
+     DevEndpointCustomLibraries
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries%27"><span class="hs-identifier hs-type">DevEndpointCustomLibraries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684862"><span class="annot"><span class="annottext">Maybe Text
+extraPythonLibsS3Path :: Maybe Text
+$sel:extraPythonLibsS3Path:DevEndpointCustomLibraries' :: DevEndpointCustomLibraries -&gt; Maybe Text
+</span><a href="#local-6989586621679684862"><span class="hs-identifier hs-var hs-var">extraPythonLibsS3Path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684862"><span class="hs-identifier hs-var">extraPythonLibsS3Path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684861"><span class="annot"><span class="annottext">s :: DevEndpointCustomLibraries
+</span><a href="#local-6989586621679684861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries%27"><span class="hs-identifier hs-type">DevEndpointCustomLibraries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684860"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DevEndpointCustomLibraries
+</span><a href="#local-6989586621679684861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extraPythonLibsS3Path:DevEndpointCustomLibraries' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#%24sel%3AextraPythonLibsS3Path%3ADevEndpointCustomLibraries%27"><span class="hs-identifier hs-var">extraPythonLibsS3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The path to one or more Java @.jar@ files in an S3 bucket that should be</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- loaded in your @DevEndpoint@.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- You can only use pure Java\/Scala libraries with a @DevEndpoint@.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#devEndpointCustomLibraries_extraJarsS3Path"><span class="hs-identifier hs-type">devEndpointCustomLibraries_extraJarsS3Path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="devEndpointCustomLibraries_extraJarsS3Path"><span class="annot"><span class="annottext">devEndpointCustomLibraries_extraJarsS3Path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DevEndpointCustomLibraries -&gt; f DevEndpointCustomLibraries
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#devEndpointCustomLibraries_extraJarsS3Path"><span class="hs-identifier hs-var hs-var">devEndpointCustomLibraries_extraJarsS3Path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DevEndpointCustomLibraries -&gt; Maybe Text)
+-&gt; (DevEndpointCustomLibraries
+    -&gt; Maybe Text -&gt; DevEndpointCustomLibraries)
+-&gt; Lens
+     DevEndpointCustomLibraries
+     DevEndpointCustomLibraries
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries%27"><span class="hs-identifier hs-type">DevEndpointCustomLibraries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684858"><span class="annot"><span class="annottext">Maybe Text
+extraJarsS3Path :: Maybe Text
+$sel:extraJarsS3Path:DevEndpointCustomLibraries' :: DevEndpointCustomLibraries -&gt; Maybe Text
+</span><a href="#local-6989586621679684858"><span class="hs-identifier hs-var hs-var">extraJarsS3Path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684858"><span class="hs-identifier hs-var">extraJarsS3Path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679684857"><span class="annot"><span class="annottext">s :: DevEndpointCustomLibraries
+</span><a href="#local-6989586621679684857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries%27"><span class="hs-identifier hs-type">DevEndpointCustomLibraries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679684856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DevEndpointCustomLibraries
+</span><a href="#local-6989586621679684857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:extraJarsS3Path:DevEndpointCustomLibraries' :: Maybe Text
+</span><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#%24sel%3AextraJarsS3Path%3ADevEndpointCustomLibraries%27"><span class="hs-identifier hs-var">extraJarsS3Path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684852"><span id="local-6989586621679684854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679684841"><span id="local-6989586621679684843"><span id="local-6989586621679684845"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries"><span class="hs-identifier hs-type">DevEndpointCustomLibraries</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679684839"><span class="annot"><span class="annottext">toJSON :: DevEndpointCustomLibraries -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.DevEndpointCustomLibraries.html#DevEndpointCustomLibraries%27"><span class="hs-identifier hs-type">DevEndpointCustomLibraries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679684836"><span id="local-6989586621679684837"><span class="annot"><span class="annottext">Maybe Text
+extraJarsS3Path :: Maybe Text
+extraPythonLibsS3Path :: Maybe Text
+$sel:extraJarsS3Path:DevEndpointCustomLibraries' :: DevEndpointCustomLibraries -&gt; Maybe Text
+$sel:extraPythonLibsS3Path:DevEndpointCustomLibraries' :: DevEndpointCustomLibraries -&gt; Maybe Text
+</span><a href="#local-6989586621679684836"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExtraPythonLibsS3Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684837"><span class="hs-identifier hs-var">extraPythonLibsS3Path</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExtraJarsS3Path&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679684836"><span class="hs-identifier hs-var">extraJarsS3Path</span></a></span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span></pre></body></html>

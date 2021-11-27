@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Comprehend.DescribePiiEntitiesDetectionJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the properties associated with a PII entities detection job. For</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- example, you can use this operation to get the job status.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Comprehend.DescribePiiEntitiesDetectionJob</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier">DescribePiiEntitiesDetectionJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#newDescribePiiEntitiesDetectionJob"><span class="hs-identifier">newDescribePiiEntitiesDetectionJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJob_jobId"><span class="hs-identifier">describePiiEntitiesDetectionJob_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier">DescribePiiEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#newDescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier">newDescribePiiEntitiesDetectionJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties"><span class="hs-identifier">describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJobResponse_httpStatus"><span class="hs-identifier">describePiiEntitiesDetectionJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.html"><span class="hs-identifier">Amazonka.Comprehend.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDescribePiiEntitiesDetectionJob' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679362221"><span id="local-6989586621679362222"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePiiEntitiesDetectionJob"><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-var">DescribePiiEntitiesDetectionJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePiiEntitiesDetectionJob%27"><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-var">DescribePiiEntitiesDetectionJob'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier that Amazon Comprehend generated for the job. The</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- operation returns this identifier in its response.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AjobId%3ADescribePiiEntitiesDetectionJob%27"><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJob -&gt; Text
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3AjobId%3ADescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362215"><span id="local-6989586621679362217"><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJob
+-&gt; DescribePiiEntitiesDetectionJob -&gt; Bool
+(DescribePiiEntitiesDetectionJob
+ -&gt; DescribePiiEntitiesDetectionJob -&gt; Bool)
+-&gt; (DescribePiiEntitiesDetectionJob
+    -&gt; DescribePiiEntitiesDetectionJob -&gt; Bool)
+-&gt; Eq DescribePiiEntitiesDetectionJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePiiEntitiesDetectionJob
+-&gt; DescribePiiEntitiesDetectionJob -&gt; Bool
+$c/= :: DescribePiiEntitiesDetectionJob
+-&gt; DescribePiiEntitiesDetectionJob -&gt; Bool
+== :: DescribePiiEntitiesDetectionJob
+-&gt; DescribePiiEntitiesDetectionJob -&gt; Bool
+$c== :: DescribePiiEntitiesDetectionJob
+-&gt; DescribePiiEntitiesDetectionJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362206"><span id="local-6989586621679362208"><span id="local-6989586621679362210"><span id="local-6989586621679362212"><span class="annot"><span class="annottext">ReadPrec [DescribePiiEntitiesDetectionJob]
+ReadPrec DescribePiiEntitiesDetectionJob
+Int -&gt; ReadS DescribePiiEntitiesDetectionJob
+ReadS [DescribePiiEntitiesDetectionJob]
+(Int -&gt; ReadS DescribePiiEntitiesDetectionJob)
+-&gt; ReadS [DescribePiiEntitiesDetectionJob]
+-&gt; ReadPrec DescribePiiEntitiesDetectionJob
+-&gt; ReadPrec [DescribePiiEntitiesDetectionJob]
+-&gt; Read DescribePiiEntitiesDetectionJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePiiEntitiesDetectionJob]
+$creadListPrec :: ReadPrec [DescribePiiEntitiesDetectionJob]
+readPrec :: ReadPrec DescribePiiEntitiesDetectionJob
+$creadPrec :: ReadPrec DescribePiiEntitiesDetectionJob
+readList :: ReadS [DescribePiiEntitiesDetectionJob]
+$creadList :: ReadS [DescribePiiEntitiesDetectionJob]
+readsPrec :: Int -&gt; ReadS DescribePiiEntitiesDetectionJob
+$creadsPrec :: Int -&gt; ReadS DescribePiiEntitiesDetectionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362199"><span id="local-6989586621679362201"><span id="local-6989586621679362203"><span class="annot"><span class="annottext">Int -&gt; DescribePiiEntitiesDetectionJob -&gt; ShowS
+[DescribePiiEntitiesDetectionJob] -&gt; ShowS
+DescribePiiEntitiesDetectionJob -&gt; String
+(Int -&gt; DescribePiiEntitiesDetectionJob -&gt; ShowS)
+-&gt; (DescribePiiEntitiesDetectionJob -&gt; String)
+-&gt; ([DescribePiiEntitiesDetectionJob] -&gt; ShowS)
+-&gt; Show DescribePiiEntitiesDetectionJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePiiEntitiesDetectionJob] -&gt; ShowS
+$cshowList :: [DescribePiiEntitiesDetectionJob] -&gt; ShowS
+show :: DescribePiiEntitiesDetectionJob -&gt; String
+$cshow :: DescribePiiEntitiesDetectionJob -&gt; String
+showsPrec :: Int -&gt; DescribePiiEntitiesDetectionJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePiiEntitiesDetectionJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePiiEntitiesDetectionJob
+ -&gt; Rep DescribePiiEntitiesDetectionJob x)
+-&gt; (forall x.
+    Rep DescribePiiEntitiesDetectionJob x
+    -&gt; DescribePiiEntitiesDetectionJob)
+-&gt; Generic DescribePiiEntitiesDetectionJob
+forall x.
+Rep DescribePiiEntitiesDetectionJob x
+-&gt; DescribePiiEntitiesDetectionJob
+forall x.
+DescribePiiEntitiesDetectionJob
+-&gt; Rep DescribePiiEntitiesDetectionJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePiiEntitiesDetectionJob x
+-&gt; DescribePiiEntitiesDetectionJob
+$cfrom :: forall x.
+DescribePiiEntitiesDetectionJob
+-&gt; Rep DescribePiiEntitiesDetectionJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DescribePiiEntitiesDetectionJob' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'jobId', 'describePiiEntitiesDetectionJob_jobId' - The identifier that Amazon Comprehend generated for the job. The</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- operation returns this identifier in its response.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#newDescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">newDescribePiiEntitiesDetectionJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'jobId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span>
+</span><span id="line-72"></span><span id="newDescribePiiEntitiesDetectionJob"><span class="annot"><span class="annottext">newDescribePiiEntitiesDetectionJob :: Text -&gt; DescribePiiEntitiesDetectionJob
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#newDescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-var hs-var">newDescribePiiEntitiesDetectionJob</span></a></span></span><span> </span><span id="local-6989586621679362194"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362194"><span class="hs-identifier hs-var">pJobId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJob' :: Text -&gt; DescribePiiEntitiesDetectionJob
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribePiiEntitiesDetectionJob' :: Text
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3AjobId%3ADescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362194"><span class="hs-identifier hs-var">pJobId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The identifier that Amazon Comprehend generated for the job. The</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- operation returns this identifier in its response.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJob_jobId"><span class="hs-identifier hs-type">describePiiEntitiesDetectionJob_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span id="describePiiEntitiesDetectionJob_jobId"><span class="annot"><span class="annottext">describePiiEntitiesDetectionJob_jobId :: (Text -&gt; f Text)
+-&gt; DescribePiiEntitiesDetectionJob
+-&gt; f DescribePiiEntitiesDetectionJob
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJob_jobId"><span class="hs-identifier hs-var hs-var">describePiiEntitiesDetectionJob_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePiiEntitiesDetectionJob -&gt; Text)
+-&gt; (DescribePiiEntitiesDetectionJob
+    -&gt; Text -&gt; DescribePiiEntitiesDetectionJob)
+-&gt; Lens
+     DescribePiiEntitiesDetectionJob
+     DescribePiiEntitiesDetectionJob
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362191"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribePiiEntitiesDetectionJob' :: DescribePiiEntitiesDetectionJob -&gt; Text
+</span><a href="#local-6989586621679362191"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362191"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362190"><span class="annot"><span class="annottext">s :: DescribePiiEntitiesDetectionJob
+</span><a href="#local-6989586621679362190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJob
+</span><a href="#local-6989586621679362190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:DescribePiiEntitiesDetectionJob' :: Text
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3AjobId%3ADescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679362185"><span class="annot"><span class="annottext">request :: DescribePiiEntitiesDetectionJob
+-&gt; Request DescribePiiEntitiesDetectionJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribePiiEntitiesDetectionJob
+-&gt; Request DescribePiiEntitiesDetectionJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Comprehend.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679362181"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribePiiEntitiesDetectionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribePiiEntitiesDetectionJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribePiiEntitiesDetectionJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribePiiEntitiesDetectionJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DescribePiiEntitiesDetectionJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679362178"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362178"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679362177"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679362177"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679362176"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679362176"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionJobProperties
+-&gt; Int -&gt; DescribePiiEntitiesDetectionJobResponse
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">DescribePiiEntitiesDetectionJobResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PiiEntitiesDetectionJobProperties
+ -&gt; Int -&gt; DescribePiiEntitiesDetectionJobResponse)
+-&gt; Either String (Maybe PiiEntitiesDetectionJobProperties)
+-&gt; Either String (Int -&gt; DescribePiiEntitiesDetectionJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679362176"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe PiiEntitiesDetectionJobProperties)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PiiEntitiesDetectionJobProperties&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribePiiEntitiesDetectionJobResponse)
+-&gt; Either String Int
+-&gt; Either String DescribePiiEntitiesDetectionJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362178"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679362168"><span id="local-6989586621679362170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679362165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679362161"><span class="annot"><span class="annottext">toHeaders :: DescribePiiEntitiesDetectionJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DescribePiiEntitiesDetectionJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Comprehend_20171127.DescribePiiEntitiesDetectionJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-117"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-118"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679362151"><span id="local-6989586621679362153"><span id="local-6989586621679362155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679362149"><span class="annot"><span class="annottext">toJSON :: DescribePiiEntitiesDetectionJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362147"><span class="annot"><span class="annottext">Text
+jobId :: Text
+$sel:jobId:DescribePiiEntitiesDetectionJob' :: DescribePiiEntitiesDetectionJob -&gt; Text
+</span><a href="#local-6989586621679362147"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679362147"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679362141"><span class="annot"><span class="annottext">toPath :: DescribePiiEntitiesDetectionJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribePiiEntitiesDetectionJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJob"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679362137"><span class="annot"><span class="annottext">toQuery :: DescribePiiEntitiesDetectionJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribePiiEntitiesDetectionJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | /See:/ 'newDescribePiiEntitiesDetectionJobResponse' smart constructor.</span><span>
+</span><span id="line-136"></span><span id="local-6989586621679362134"><span id="local-6989586621679362135"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribePiiEntitiesDetectionJobResponse"><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-var">DescribePiiEntitiesDetectionJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribePiiEntitiesDetectionJobResponse%27"><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">DescribePiiEntitiesDetectionJobResponse'</span></a></span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3ApiiEntitiesDetectionJobProperties%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJobResponse
+-&gt; Maybe PiiEntitiesDetectionJobProperties
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3ApiiEntitiesDetectionJobProperties%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">piiEntitiesDetectionJobProperties</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.PiiEntitiesDetectionJobProperties.html#PiiEntitiesDetectionJobProperties"><span class="hs-identifier hs-type">PiiEntitiesDetectionJobProperties</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJobResponse -&gt; Int
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3AhttpStatus%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-141"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679362128"><span id="local-6989586621679362130"><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJobResponse
+-&gt; DescribePiiEntitiesDetectionJobResponse -&gt; Bool
+(DescribePiiEntitiesDetectionJobResponse
+ -&gt; DescribePiiEntitiesDetectionJobResponse -&gt; Bool)
+-&gt; (DescribePiiEntitiesDetectionJobResponse
+    -&gt; DescribePiiEntitiesDetectionJobResponse -&gt; Bool)
+-&gt; Eq DescribePiiEntitiesDetectionJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribePiiEntitiesDetectionJobResponse
+-&gt; DescribePiiEntitiesDetectionJobResponse -&gt; Bool
+$c/= :: DescribePiiEntitiesDetectionJobResponse
+-&gt; DescribePiiEntitiesDetectionJobResponse -&gt; Bool
+== :: DescribePiiEntitiesDetectionJobResponse
+-&gt; DescribePiiEntitiesDetectionJobResponse -&gt; Bool
+$c== :: DescribePiiEntitiesDetectionJobResponse
+-&gt; DescribePiiEntitiesDetectionJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362120"><span id="local-6989586621679362122"><span id="local-6989586621679362124"><span id="local-6989586621679362126"><span class="annot"><span class="annottext">ReadPrec [DescribePiiEntitiesDetectionJobResponse]
+ReadPrec DescribePiiEntitiesDetectionJobResponse
+Int -&gt; ReadS DescribePiiEntitiesDetectionJobResponse
+ReadS [DescribePiiEntitiesDetectionJobResponse]
+(Int -&gt; ReadS DescribePiiEntitiesDetectionJobResponse)
+-&gt; ReadS [DescribePiiEntitiesDetectionJobResponse]
+-&gt; ReadPrec DescribePiiEntitiesDetectionJobResponse
+-&gt; ReadPrec [DescribePiiEntitiesDetectionJobResponse]
+-&gt; Read DescribePiiEntitiesDetectionJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribePiiEntitiesDetectionJobResponse]
+$creadListPrec :: ReadPrec [DescribePiiEntitiesDetectionJobResponse]
+readPrec :: ReadPrec DescribePiiEntitiesDetectionJobResponse
+$creadPrec :: ReadPrec DescribePiiEntitiesDetectionJobResponse
+readList :: ReadS [DescribePiiEntitiesDetectionJobResponse]
+$creadList :: ReadS [DescribePiiEntitiesDetectionJobResponse]
+readsPrec :: Int -&gt; ReadS DescribePiiEntitiesDetectionJobResponse
+$creadsPrec :: Int -&gt; ReadS DescribePiiEntitiesDetectionJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679362114"><span id="local-6989586621679362116"><span id="local-6989586621679362118"><span class="annot"><span class="annottext">Int -&gt; DescribePiiEntitiesDetectionJobResponse -&gt; ShowS
+[DescribePiiEntitiesDetectionJobResponse] -&gt; ShowS
+DescribePiiEntitiesDetectionJobResponse -&gt; String
+(Int -&gt; DescribePiiEntitiesDetectionJobResponse -&gt; ShowS)
+-&gt; (DescribePiiEntitiesDetectionJobResponse -&gt; String)
+-&gt; ([DescribePiiEntitiesDetectionJobResponse] -&gt; ShowS)
+-&gt; Show DescribePiiEntitiesDetectionJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribePiiEntitiesDetectionJobResponse] -&gt; ShowS
+$cshowList :: [DescribePiiEntitiesDetectionJobResponse] -&gt; ShowS
+show :: DescribePiiEntitiesDetectionJobResponse -&gt; String
+$cshow :: DescribePiiEntitiesDetectionJobResponse -&gt; String
+showsPrec :: Int -&gt; DescribePiiEntitiesDetectionJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribePiiEntitiesDetectionJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribePiiEntitiesDetectionJobResponse
+ -&gt; Rep DescribePiiEntitiesDetectionJobResponse x)
+-&gt; (forall x.
+    Rep DescribePiiEntitiesDetectionJobResponse x
+    -&gt; DescribePiiEntitiesDetectionJobResponse)
+-&gt; Generic DescribePiiEntitiesDetectionJobResponse
+forall x.
+Rep DescribePiiEntitiesDetectionJobResponse x
+-&gt; DescribePiiEntitiesDetectionJobResponse
+forall x.
+DescribePiiEntitiesDetectionJobResponse
+-&gt; Rep DescribePiiEntitiesDetectionJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribePiiEntitiesDetectionJobResponse x
+-&gt; DescribePiiEntitiesDetectionJobResponse
+$cfrom :: forall x.
+DescribePiiEntitiesDetectionJobResponse
+-&gt; Rep DescribePiiEntitiesDetectionJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Create a value of 'DescribePiiEntitiesDetectionJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'piiEntitiesDetectionJobProperties', 'describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties' - Undocumented member.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'describePiiEntitiesDetectionJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#newDescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">newDescribePiiEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse</span></a></span><span>
+</span><span id="line-158"></span><span id="newDescribePiiEntitiesDetectionJobResponse"><span class="annot"><span class="annottext">newDescribePiiEntitiesDetectionJobResponse :: Int -&gt; DescribePiiEntitiesDetectionJobResponse
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#newDescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-var hs-var">newDescribePiiEntitiesDetectionJobResponse</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679362111"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJobResponse' :: Maybe PiiEntitiesDetectionJobProperties
+-&gt; Int -&gt; DescribePiiEntitiesDetectionJobResponse
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse'</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:piiEntitiesDetectionJobProperties:DescribePiiEntitiesDetectionJobResponse' :: Maybe PiiEntitiesDetectionJobProperties
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3ApiiEntitiesDetectionJobProperties%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">piiEntitiesDetectionJobProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionJobProperties
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePiiEntitiesDetectionJobResponse' :: Int
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3AhttpStatus%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362111"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties"><span class="hs-identifier hs-type">describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.Types.PiiEntitiesDetectionJobProperties.html#PiiEntitiesDetectionJobProperties"><span class="hs-identifier hs-type">PiiEntitiesDetectionJobProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties"><span class="annot"><span class="annottext">describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties :: (Maybe PiiEntitiesDetectionJobProperties
+ -&gt; f (Maybe PiiEntitiesDetectionJobProperties))
+-&gt; DescribePiiEntitiesDetectionJobResponse
+-&gt; f DescribePiiEntitiesDetectionJobResponse
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties"><span class="hs-identifier hs-var hs-var">describePiiEntitiesDetectionJobResponse_piiEntitiesDetectionJobProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePiiEntitiesDetectionJobResponse
+ -&gt; Maybe PiiEntitiesDetectionJobProperties)
+-&gt; (DescribePiiEntitiesDetectionJobResponse
+    -&gt; Maybe PiiEntitiesDetectionJobProperties
+    -&gt; DescribePiiEntitiesDetectionJobResponse)
+-&gt; Lens
+     DescribePiiEntitiesDetectionJobResponse
+     DescribePiiEntitiesDetectionJobResponse
+     (Maybe PiiEntitiesDetectionJobProperties)
+     (Maybe PiiEntitiesDetectionJobProperties)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362110"><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionJobProperties
+piiEntitiesDetectionJobProperties :: Maybe PiiEntitiesDetectionJobProperties
+$sel:piiEntitiesDetectionJobProperties:DescribePiiEntitiesDetectionJobResponse' :: DescribePiiEntitiesDetectionJobResponse
+-&gt; Maybe PiiEntitiesDetectionJobProperties
+</span><a href="#local-6989586621679362110"><span class="hs-identifier hs-var hs-var">piiEntitiesDetectionJobProperties</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionJobProperties
+</span><a href="#local-6989586621679362110"><span class="hs-identifier hs-var">piiEntitiesDetectionJobProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362109"><span class="annot"><span class="annottext">s :: DescribePiiEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679362109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362108"><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionJobProperties
+</span><a href="#local-6989586621679362108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679362109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:piiEntitiesDetectionJobProperties:DescribePiiEntitiesDetectionJobResponse' :: Maybe PiiEntitiesDetectionJobProperties
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3ApiiEntitiesDetectionJobProperties%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">piiEntitiesDetectionJobProperties</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PiiEntitiesDetectionJobProperties
+</span><a href="#local-6989586621679362108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJobResponse_httpStatus"><span class="hs-identifier hs-type">describePiiEntitiesDetectionJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span id="describePiiEntitiesDetectionJobResponse_httpStatus"><span class="annot"><span class="annottext">describePiiEntitiesDetectionJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribePiiEntitiesDetectionJobResponse
+-&gt; f DescribePiiEntitiesDetectionJobResponse
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#describePiiEntitiesDetectionJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describePiiEntitiesDetectionJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribePiiEntitiesDetectionJobResponse -&gt; Int)
+-&gt; (DescribePiiEntitiesDetectionJobResponse
+    -&gt; Int -&gt; DescribePiiEntitiesDetectionJobResponse)
+-&gt; Lens
+     DescribePiiEntitiesDetectionJobResponse
+     DescribePiiEntitiesDetectionJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679362107"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribePiiEntitiesDetectionJobResponse' :: DescribePiiEntitiesDetectionJobResponse -&gt; Int
+</span><a href="#local-6989586621679362107"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362107"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679362106"><span class="annot"><span class="annottext">s :: DescribePiiEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679362106"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679362105"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362105"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribePiiEntitiesDetectionJobResponse
+</span><a href="#local-6989586621679362106"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribePiiEntitiesDetectionJobResponse' :: Int
+</span><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#%24sel%3AhttpStatus%3ADescribePiiEntitiesDetectionJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679362105"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679362103"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.Comprehend.DescribePiiEntitiesDetectionJob.html#DescribePiiEntitiesDetectionJobResponse"><span class="hs-identifier hs-type">DescribePiiEntitiesDetectionJobResponse</span></a></span></span><span>
+</span><span id="line-177"></span></pre></body></html>

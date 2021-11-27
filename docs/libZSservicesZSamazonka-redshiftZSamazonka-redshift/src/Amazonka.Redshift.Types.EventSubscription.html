@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.Types.EventSubscription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.Types.EventSubscription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Internal.html"><span class="hs-identifier">Amazonka.Redshift.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.Tag.html"><span class="hs-identifier">Amazonka.Redshift.Types.Tag</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes event subscriptions.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEventSubscription' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679500371"><span id="local-6989586621679500372"></span></span><span class="hs-keyword">data</span><span> </span><span id="EventSubscription"><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-var">EventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EventSubscription%27"><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-var">EventSubscription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the Amazon Redshift event notification subscription.</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   Can be one of the following: active | no-permission |</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--     topic-not-exist</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   The status \&quot;no-permission\&quot; indicates that Amazon Redshift no</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     longer has permission to post to the Amazon SNS topic. The status</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     \&quot;topic-not-exist\&quot; indicates that the topic was deleted after the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     subscription was created.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Astatus%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Astatus%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account associated with the Amazon Redshift</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- event notification subscription.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AcustomerAwsId%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AcustomerAwsId%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">customerAwsId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon Redshift event notification subscription.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcustSubscriptionId%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AcustSubscriptionId%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">custSubscriptionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AsnsTopicArn%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsnsTopicArn%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A boolean value indicating whether the subscription is enabled; @true@</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- indicates that the subscription is enabled.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Aenabled%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe Bool
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Aenabled%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The source type of the events returned by the Amazon Redshift event</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- notification, such as cluster, cluster-snapshot,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- cluster-parameter-group, cluster-security-group, or scheduled-action.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AsourceType%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsourceType%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The event severity specified in the Amazon Redshift event notification</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- subscription.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Values: ERROR, INFO</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Aseverity%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Aseverity%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The date and time the Amazon Redshift event notification subscription</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- was created.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AsubscriptionCreationTime%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe ISO8601
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsubscriptionCreationTime%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">subscriptionCreationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The list of Amazon Redshift event categories specified in the event</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Values: Configuration, Management, Monitoring, Security, Pending</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AeventCategoriesList%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AeventCategoriesList%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">eventCategoriesList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The list of tags for the event subscription.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Atags%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe [Tag]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Atags%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | A list of the sources that publish events to the Amazon Redshift event</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AsourceIdsList%3AEventSubscription%27"><span class="annot"><span class="annottext">EventSubscription -&gt; Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsourceIdsList%3AEventSubscription%27"><span class="hs-identifier hs-var hs-var">sourceIdsList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679500355"><span id="local-6989586621679500357"><span class="annot"><span class="annottext">EventSubscription -&gt; EventSubscription -&gt; Bool
+(EventSubscription -&gt; EventSubscription -&gt; Bool)
+-&gt; (EventSubscription -&gt; EventSubscription -&gt; Bool)
+-&gt; Eq EventSubscription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EventSubscription -&gt; EventSubscription -&gt; Bool
+$c/= :: EventSubscription -&gt; EventSubscription -&gt; Bool
+== :: EventSubscription -&gt; EventSubscription -&gt; Bool
+$c== :: EventSubscription -&gt; EventSubscription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679500346"><span id="local-6989586621679500348"><span id="local-6989586621679500350"><span id="local-6989586621679500352"><span class="annot"><span class="annottext">ReadPrec [EventSubscription]
+ReadPrec EventSubscription
+Int -&gt; ReadS EventSubscription
+ReadS [EventSubscription]
+(Int -&gt; ReadS EventSubscription)
+-&gt; ReadS [EventSubscription]
+-&gt; ReadPrec EventSubscription
+-&gt; ReadPrec [EventSubscription]
+-&gt; Read EventSubscription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EventSubscription]
+$creadListPrec :: ReadPrec [EventSubscription]
+readPrec :: ReadPrec EventSubscription
+$creadPrec :: ReadPrec EventSubscription
+readList :: ReadS [EventSubscription]
+$creadList :: ReadS [EventSubscription]
+readsPrec :: Int -&gt; ReadS EventSubscription
+$creadsPrec :: Int -&gt; ReadS EventSubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679500339"><span id="local-6989586621679500341"><span id="local-6989586621679500343"><span class="annot"><span class="annottext">Int -&gt; EventSubscription -&gt; ShowS
+[EventSubscription] -&gt; ShowS
+EventSubscription -&gt; String
+(Int -&gt; EventSubscription -&gt; ShowS)
+-&gt; (EventSubscription -&gt; String)
+-&gt; ([EventSubscription] -&gt; ShowS)
+-&gt; Show EventSubscription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EventSubscription] -&gt; ShowS
+$cshowList :: [EventSubscription] -&gt; ShowS
+show :: EventSubscription -&gt; String
+$cshow :: EventSubscription -&gt; String
+showsPrec :: Int -&gt; EventSubscription -&gt; ShowS
+$cshowsPrec :: Int -&gt; EventSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EventSubscription -&gt; Rep EventSubscription x)
+-&gt; (forall x. Rep EventSubscription x -&gt; EventSubscription)
+-&gt; Generic EventSubscription
+forall x. Rep EventSubscription x -&gt; EventSubscription
+forall x. EventSubscription -&gt; Rep EventSubscription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EventSubscription x -&gt; EventSubscription
+$cfrom :: forall x. EventSubscription -&gt; Rep EventSubscription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'EventSubscription' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'status', 'eventSubscription_status' - The status of the Amazon Redshift event notification subscription.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   Can be one of the following: active | no-permission |</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--     topic-not-exist</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- -   The status \&quot;no-permission\&quot; indicates that Amazon Redshift no</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     longer has permission to post to the Amazon SNS topic. The status</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--     \&quot;topic-not-exist\&quot; indicates that the topic was deleted after the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--     subscription was created.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'customerAwsId', 'eventSubscription_customerAwsId' - The Amazon Web Services account associated with the Amazon Redshift</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- event notification subscription.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'custSubscriptionId', 'eventSubscription_custSubscriptionId' - The name of the Amazon Redshift event notification subscription.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'snsTopicArn', 'eventSubscription_snsTopicArn' - The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'enabled', 'eventSubscription_enabled' - A boolean value indicating whether the subscription is enabled; @true@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- indicates that the subscription is enabled.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'sourceType', 'eventSubscription_sourceType' - The source type of the events returned by the Amazon Redshift event</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- notification, such as cluster, cluster-snapshot,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- cluster-parameter-group, cluster-security-group, or scheduled-action.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'severity', 'eventSubscription_severity' - The event severity specified in the Amazon Redshift event notification</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- subscription.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Values: ERROR, INFO</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'subscriptionCreationTime', 'eventSubscription_subscriptionCreationTime' - The date and time the Amazon Redshift event notification subscription</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- was created.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'eventCategoriesList', 'eventSubscription_eventCategoriesList' - The list of Amazon Redshift event categories specified in the event</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Values: Configuration, Management, Monitoring, Security, Pending</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'tags', 'eventSubscription_tags' - The list of tags for the event subscription.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'sourceIdsList', 'eventSubscription_sourceIdsList' - A list of the sources that publish events to the Amazon Redshift event</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#newEventSubscription"><span class="hs-identifier hs-type">newEventSubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span>
+</span><span id="line-134"></span><span id="newEventSubscription"><span class="annot"><span class="annottext">newEventSubscription :: EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#newEventSubscription"><span class="hs-identifier hs-var hs-var">newEventSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="annottext">EventSubscription' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe [Text]
+-&gt; Maybe [Tag]
+-&gt; Maybe [Text]
+-&gt; EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Astatus%3AEventSubscription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:customerAwsId:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AcustomerAwsId%3AEventSubscription%27"><span class="hs-identifier hs-var">customerAwsId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:custSubscriptionId:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AcustSubscriptionId%3AEventSubscription%27"><span class="hs-identifier hs-var">custSubscriptionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:snsTopicArn:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsnsTopicArn%3AEventSubscription%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:enabled:EventSubscription' :: Maybe Bool
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Aenabled%3AEventSubscription%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceType:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsourceType%3AEventSubscription%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:severity:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Aseverity%3AEventSubscription%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscriptionCreationTime:EventSubscription' :: Maybe ISO8601
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsubscriptionCreationTime%3AEventSubscription%27"><span class="hs-identifier hs-var">subscriptionCreationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventCategoriesList:EventSubscription' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AeventCategoriesList%3AEventSubscription%27"><span class="hs-identifier hs-var">eventCategoriesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:EventSubscription' :: Maybe [Tag]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Atags%3AEventSubscription%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceIdsList:EventSubscription' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsourceIdsList%3AEventSubscription%27"><span class="hs-identifier hs-var">sourceIdsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The status of the Amazon Redshift event notification subscription.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- Constraints:</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   Can be one of the following: active | no-permission |</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     topic-not-exist</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- -   The status \&quot;no-permission\&quot; indicates that Amazon Redshift no</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     longer has permission to post to the Amazon SNS topic. The status</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     \&quot;topic-not-exist\&quot; indicates that the topic was deleted after the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     subscription was created.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_status"><span class="hs-identifier hs-type">eventSubscription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="eventSubscription_status"><span class="annot"><span class="annottext">eventSubscription_status :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_status"><span class="hs-identifier hs-var hs-var">eventSubscription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe Text)
+-&gt; (EventSubscription -&gt; Maybe Text -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500330"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:EventSubscription' :: EventSubscription -&gt; Maybe Text
+</span><a href="#local-6989586621679500330"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500330"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500329"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500329"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500328"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500328"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500329"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Astatus%3AEventSubscription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500328"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The Amazon Web Services account associated with the Amazon Redshift</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- event notification subscription.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_customerAwsId"><span class="hs-identifier hs-type">eventSubscription_customerAwsId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="eventSubscription_customerAwsId"><span class="annot"><span class="annottext">eventSubscription_customerAwsId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_customerAwsId"><span class="hs-identifier hs-var hs-var">eventSubscription_customerAwsId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe Text)
+-&gt; (EventSubscription -&gt; Maybe Text -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500326"><span class="annot"><span class="annottext">Maybe Text
+customerAwsId :: Maybe Text
+$sel:customerAwsId:EventSubscription' :: EventSubscription -&gt; Maybe Text
+</span><a href="#local-6989586621679500326"><span class="hs-identifier hs-var hs-var">customerAwsId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500326"><span class="hs-identifier hs-var">customerAwsId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500325"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500325"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500324"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500324"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500325"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerAwsId:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AcustomerAwsId%3AEventSubscription%27"><span class="hs-identifier hs-var">customerAwsId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500324"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The name of the Amazon Redshift event notification subscription.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_custSubscriptionId"><span class="hs-identifier hs-type">eventSubscription_custSubscriptionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="eventSubscription_custSubscriptionId"><span class="annot"><span class="annottext">eventSubscription_custSubscriptionId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_custSubscriptionId"><span class="hs-identifier hs-var hs-var">eventSubscription_custSubscriptionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe Text)
+-&gt; (EventSubscription -&gt; Maybe Text -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500322"><span class="annot"><span class="annottext">Maybe Text
+custSubscriptionId :: Maybe Text
+$sel:custSubscriptionId:EventSubscription' :: EventSubscription -&gt; Maybe Text
+</span><a href="#local-6989586621679500322"><span class="hs-identifier hs-var hs-var">custSubscriptionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500322"><span class="hs-identifier hs-var">custSubscriptionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500321"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:custSubscriptionId:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AcustSubscriptionId%3AEventSubscription%27"><span class="hs-identifier hs-var">custSubscriptionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_snsTopicArn"><span class="hs-identifier hs-type">eventSubscription_snsTopicArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="eventSubscription_snsTopicArn"><span class="annot"><span class="annottext">eventSubscription_snsTopicArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_snsTopicArn"><span class="hs-identifier hs-var hs-var">eventSubscription_snsTopicArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe Text)
+-&gt; (EventSubscription -&gt; Maybe Text -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500318"><span class="annot"><span class="annottext">Maybe Text
+snsTopicArn :: Maybe Text
+$sel:snsTopicArn:EventSubscription' :: EventSubscription -&gt; Maybe Text
+</span><a href="#local-6989586621679500318"><span class="hs-identifier hs-var hs-var">snsTopicArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500318"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500317"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500316"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snsTopicArn:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsnsTopicArn%3AEventSubscription%27"><span class="hs-identifier hs-var">snsTopicArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | A boolean value indicating whether the subscription is enabled; @true@</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- indicates that the subscription is enabled.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_enabled"><span class="hs-identifier hs-type">eventSubscription_enabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="eventSubscription_enabled"><span class="annot"><span class="annottext">eventSubscription_enabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_enabled"><span class="hs-identifier hs-var hs-var">eventSubscription_enabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe Bool)
+-&gt; (EventSubscription -&gt; Maybe Bool -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500314"><span class="annot"><span class="annottext">Maybe Bool
+enabled :: Maybe Bool
+$sel:enabled:EventSubscription' :: EventSubscription -&gt; Maybe Bool
+</span><a href="#local-6989586621679500314"><span class="hs-identifier hs-var hs-var">enabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679500314"><span class="hs-identifier hs-var">enabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500313"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500312"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679500312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enabled:EventSubscription' :: Maybe Bool
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Aenabled%3AEventSubscription%27"><span class="hs-identifier hs-var">enabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679500312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The source type of the events returned by the Amazon Redshift event</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- notification, such as cluster, cluster-snapshot,</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- cluster-parameter-group, cluster-security-group, or scheduled-action.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_sourceType"><span class="hs-identifier hs-type">eventSubscription_sourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="eventSubscription_sourceType"><span class="annot"><span class="annottext">eventSubscription_sourceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_sourceType"><span class="hs-identifier hs-var hs-var">eventSubscription_sourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe Text)
+-&gt; (EventSubscription -&gt; Maybe Text -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500310"><span class="annot"><span class="annottext">Maybe Text
+sourceType :: Maybe Text
+$sel:sourceType:EventSubscription' :: EventSubscription -&gt; Maybe Text
+</span><a href="#local-6989586621679500310"><span class="hs-identifier hs-var hs-var">sourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500310"><span class="hs-identifier hs-var">sourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500309"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceType:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsourceType%3AEventSubscription%27"><span class="hs-identifier hs-var">sourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The event severity specified in the Amazon Redshift event notification</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- subscription.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Values: ERROR, INFO</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_severity"><span class="hs-identifier hs-type">eventSubscription_severity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="eventSubscription_severity"><span class="annot"><span class="annottext">eventSubscription_severity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_severity"><span class="hs-identifier hs-var hs-var">eventSubscription_severity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe Text)
+-&gt; (EventSubscription -&gt; Maybe Text -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500306"><span class="annot"><span class="annottext">Maybe Text
+severity :: Maybe Text
+$sel:severity:EventSubscription' :: EventSubscription -&gt; Maybe Text
+</span><a href="#local-6989586621679500306"><span class="hs-identifier hs-var hs-var">severity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500306"><span class="hs-identifier hs-var">severity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500305"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500304"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:severity:EventSubscription' :: Maybe Text
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Aseverity%3AEventSubscription%27"><span class="hs-identifier hs-var">severity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679500304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The date and time the Amazon Redshift event notification subscription</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- was created.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_subscriptionCreationTime"><span class="hs-identifier hs-type">eventSubscription_subscriptionCreationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="eventSubscription_subscriptionCreationTime"><span class="annot"><span class="annottext">eventSubscription_subscriptionCreationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_subscriptionCreationTime"><span class="hs-identifier hs-var hs-var">eventSubscription_subscriptionCreationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe ISO8601)
+-&gt; (EventSubscription -&gt; Maybe ISO8601 -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500302"><span class="annot"><span class="annottext">Maybe ISO8601
+subscriptionCreationTime :: Maybe ISO8601
+$sel:subscriptionCreationTime:EventSubscription' :: EventSubscription -&gt; Maybe ISO8601
+</span><a href="#local-6989586621679500302"><span class="hs-identifier hs-var hs-var">subscriptionCreationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679500302"><span class="hs-identifier hs-var">subscriptionCreationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500301"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500300"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679500300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionCreationTime:EventSubscription' :: Maybe ISO8601
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsubscriptionCreationTime%3AEventSubscription%27"><span class="hs-identifier hs-var">subscriptionCreationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621679500300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; EventSubscription -&gt; f EventSubscription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; EventSubscription
+-&gt; f EventSubscription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The list of Amazon Redshift event categories specified in the event</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Values: Configuration, Management, Monitoring, Security, Pending</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_eventCategoriesList"><span class="hs-identifier hs-type">eventSubscription_eventCategoriesList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="eventSubscription_eventCategoriesList"><span class="annot"><span class="annottext">eventSubscription_eventCategoriesList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_eventCategoriesList"><span class="hs-identifier hs-var hs-var">eventSubscription_eventCategoriesList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe [Text])
+-&gt; (EventSubscription -&gt; Maybe [Text] -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500295"><span class="annot"><span class="annottext">Maybe [Text]
+eventCategoriesList :: Maybe [Text]
+$sel:eventCategoriesList:EventSubscription' :: EventSubscription -&gt; Maybe [Text]
+</span><a href="#local-6989586621679500295"><span class="hs-identifier hs-var hs-var">eventCategoriesList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679500295"><span class="hs-identifier hs-var">eventCategoriesList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500294"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500293"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679500293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventCategoriesList:EventSubscription' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AeventCategoriesList%3AEventSubscription%27"><span class="hs-identifier hs-var">eventCategoriesList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679500293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; EventSubscription -&gt; f EventSubscription)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; EventSubscription
+-&gt; f EventSubscription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The list of tags for the event subscription.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_tags"><span class="hs-identifier hs-type">eventSubscription_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Redshift.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="eventSubscription_tags"><span class="annot"><span class="annottext">eventSubscription_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_tags"><span class="hs-identifier hs-var hs-var">eventSubscription_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe [Tag])
+-&gt; (EventSubscription -&gt; Maybe [Tag] -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500290"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:EventSubscription' :: EventSubscription -&gt; Maybe [Tag]
+</span><a href="#local-6989586621679500290"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679500290"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500289"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500288"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679500288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:EventSubscription' :: Maybe [Tag]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3Atags%3AEventSubscription%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621679500288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; EventSubscription -&gt; f EventSubscription)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; EventSubscription
+-&gt; f EventSubscription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | A list of the sources that publish events to the Amazon Redshift event</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- notification subscription.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_sourceIdsList"><span class="hs-identifier hs-type">eventSubscription_sourceIdsList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="eventSubscription_sourceIdsList"><span class="annot"><span class="annottext">eventSubscription_sourceIdsList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; EventSubscription -&gt; f EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#eventSubscription_sourceIdsList"><span class="hs-identifier hs-var hs-var">eventSubscription_sourceIdsList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EventSubscription -&gt; Maybe [Text])
+-&gt; (EventSubscription -&gt; Maybe [Text] -&gt; EventSubscription)
+-&gt; Lens
+     EventSubscription EventSubscription (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679500286"><span class="annot"><span class="annottext">Maybe [Text]
+sourceIdsList :: Maybe [Text]
+$sel:sourceIdsList:EventSubscription' :: EventSubscription -&gt; Maybe [Text]
+</span><a href="#local-6989586621679500286"><span class="hs-identifier hs-var hs-var">sourceIdsList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679500286"><span class="hs-identifier hs-var">sourceIdsList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679500285"><span class="annot"><span class="annottext">s :: EventSubscription
+</span><a href="#local-6989586621679500285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-type">EventSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679500284"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679500284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EventSubscription
+</span><a href="#local-6989586621679500285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdsList:EventSubscription' :: Maybe [Text]
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#%24sel%3AsourceIdsList%3AEventSubscription%27"><span class="hs-identifier hs-var">sourceIdsList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679500284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; EventSubscription -&gt; f EventSubscription)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; EventSubscription
+-&gt; f EventSubscription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-217"></span><span>  </span><span id="local-6989586621679500281"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String EventSubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679500279"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe [Text]
+-&gt; Maybe [Tag]
+-&gt; Maybe [Text]
+-&gt; EventSubscription
+</span><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription%27"><span class="hs-identifier hs-var">EventSubscription'</span></a></span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Tag]
+ -&gt; Maybe [Text]
+ -&gt; EventSubscription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; EventSubscription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerAwsId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; EventSubscription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustSubscriptionId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; EventSubscription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SnsTopicArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; EventSubscription)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Enabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; EventSubscription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; EventSubscription)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Tag]
+      -&gt; Maybe [Text]
+      -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Severity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Tag]
+   -&gt; Maybe [Text]
+   -&gt; EventSubscription)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe [Text] -&gt; Maybe [Tag] -&gt; Maybe [Text] -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubscriptionCreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text] -&gt; Maybe [Tag] -&gt; Maybe [Text] -&gt; EventSubscription)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe [Tag] -&gt; Maybe [Text] -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventCategoriesList&quot;</span></span><span>
+</span><span id="line-228"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-229"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventCategory&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Tag] -&gt; Maybe [Text] -&gt; EventSubscription)
+-&gt; Either String (Maybe [Tag])
+-&gt; Either String (Maybe [Text] -&gt; EventSubscription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-232"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Tag]))
+-&gt; Either String (Maybe [Tag])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Tag])
+-&gt; [Node] -&gt; Either String (Maybe [Tag])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Tag]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; EventSubscription)
+-&gt; Either String (Maybe [Text]) -&gt; Either String EventSubscription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679500279"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceIdsList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-235"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679500270"><span id="local-6989586621679500272"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span></span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679500267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.EventSubscription.html#EventSubscription"><span class="hs-identifier hs-type">EventSubscription</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

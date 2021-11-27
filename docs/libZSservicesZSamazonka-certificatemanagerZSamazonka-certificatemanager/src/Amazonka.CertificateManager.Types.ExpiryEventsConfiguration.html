@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CertificateManager.Types.ExpiryEventsConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CertificateManager.Types.ExpiryEventsConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Object containing expiration events options associated with an Amazon</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Web Services account.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newExpiryEventsConfiguration' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679187552"><span id="local-6989586621679187553"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExpiryEventsConfiguration"><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-var">ExpiryEventsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExpiryEventsConfiguration%27"><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration%27"><span class="hs-identifier hs-var">ExpiryEventsConfiguration'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the number of days prior to certificate expiration when ACM</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- starts generating @EventBridge@ events. ACM sends one event per day per</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- certificate until the certificate expires. By default, accounts receive</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- events starting 45 days before certificate expiration.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdaysBeforeExpiry%3AExpiryEventsConfiguration%27"><span class="annot"><span class="annottext">ExpiryEventsConfiguration -&gt; Maybe Natural
+</span><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#%24sel%3AdaysBeforeExpiry%3AExpiryEventsConfiguration%27"><span class="hs-identifier hs-var hs-var">daysBeforeExpiry</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679187546"><span id="local-6989586621679187548"><span class="annot"><span class="annottext">ExpiryEventsConfiguration -&gt; ExpiryEventsConfiguration -&gt; Bool
+(ExpiryEventsConfiguration -&gt; ExpiryEventsConfiguration -&gt; Bool)
+-&gt; (ExpiryEventsConfiguration -&gt; ExpiryEventsConfiguration -&gt; Bool)
+-&gt; Eq ExpiryEventsConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExpiryEventsConfiguration -&gt; ExpiryEventsConfiguration -&gt; Bool
+$c/= :: ExpiryEventsConfiguration -&gt; ExpiryEventsConfiguration -&gt; Bool
+== :: ExpiryEventsConfiguration -&gt; ExpiryEventsConfiguration -&gt; Bool
+$c== :: ExpiryEventsConfiguration -&gt; ExpiryEventsConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187537"><span id="local-6989586621679187539"><span id="local-6989586621679187541"><span id="local-6989586621679187543"><span class="annot"><span class="annottext">ReadPrec [ExpiryEventsConfiguration]
+ReadPrec ExpiryEventsConfiguration
+Int -&gt; ReadS ExpiryEventsConfiguration
+ReadS [ExpiryEventsConfiguration]
+(Int -&gt; ReadS ExpiryEventsConfiguration)
+-&gt; ReadS [ExpiryEventsConfiguration]
+-&gt; ReadPrec ExpiryEventsConfiguration
+-&gt; ReadPrec [ExpiryEventsConfiguration]
+-&gt; Read ExpiryEventsConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExpiryEventsConfiguration]
+$creadListPrec :: ReadPrec [ExpiryEventsConfiguration]
+readPrec :: ReadPrec ExpiryEventsConfiguration
+$creadPrec :: ReadPrec ExpiryEventsConfiguration
+readList :: ReadS [ExpiryEventsConfiguration]
+$creadList :: ReadS [ExpiryEventsConfiguration]
+readsPrec :: Int -&gt; ReadS ExpiryEventsConfiguration
+$creadsPrec :: Int -&gt; ReadS ExpiryEventsConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679187530"><span id="local-6989586621679187532"><span id="local-6989586621679187534"><span class="annot"><span class="annottext">Int -&gt; ExpiryEventsConfiguration -&gt; ShowS
+[ExpiryEventsConfiguration] -&gt; ShowS
+ExpiryEventsConfiguration -&gt; String
+(Int -&gt; ExpiryEventsConfiguration -&gt; ShowS)
+-&gt; (ExpiryEventsConfiguration -&gt; String)
+-&gt; ([ExpiryEventsConfiguration] -&gt; ShowS)
+-&gt; Show ExpiryEventsConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExpiryEventsConfiguration] -&gt; ShowS
+$cshowList :: [ExpiryEventsConfiguration] -&gt; ShowS
+show :: ExpiryEventsConfiguration -&gt; String
+$cshow :: ExpiryEventsConfiguration -&gt; String
+showsPrec :: Int -&gt; ExpiryEventsConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExpiryEventsConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ExpiryEventsConfiguration -&gt; Rep ExpiryEventsConfiguration x)
+-&gt; (forall x.
+    Rep ExpiryEventsConfiguration x -&gt; ExpiryEventsConfiguration)
+-&gt; Generic ExpiryEventsConfiguration
+forall x.
+Rep ExpiryEventsConfiguration x -&gt; ExpiryEventsConfiguration
+forall x.
+ExpiryEventsConfiguration -&gt; Rep ExpiryEventsConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ExpiryEventsConfiguration x -&gt; ExpiryEventsConfiguration
+$cfrom :: forall x.
+ExpiryEventsConfiguration -&gt; Rep ExpiryEventsConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ExpiryEventsConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'daysBeforeExpiry', 'expiryEventsConfiguration_daysBeforeExpiry' - Specifies the number of days prior to certificate expiration when ACM</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- starts generating @EventBridge@ events. ACM sends one event per day per</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- certificate until the certificate expires. By default, accounts receive</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- events starting 45 days before certificate expiration.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#newExpiryEventsConfiguration"><span class="hs-identifier hs-type">newExpiryEventsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-type">ExpiryEventsConfiguration</span></a></span><span>
+</span><span id="line-53"></span><span id="newExpiryEventsConfiguration"><span class="annot"><span class="annottext">newExpiryEventsConfiguration :: ExpiryEventsConfiguration
+</span><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#newExpiryEventsConfiguration"><span class="hs-identifier hs-var hs-var">newExpiryEventsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="annottext">ExpiryEventsConfiguration' :: Maybe Natural -&gt; ExpiryEventsConfiguration
+</span><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration%27"><span class="hs-identifier hs-type">ExpiryEventsConfiguration'</span></a></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:daysBeforeExpiry:ExpiryEventsConfiguration' :: Maybe Natural
+</span><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#%24sel%3AdaysBeforeExpiry%3AExpiryEventsConfiguration%27"><span class="hs-identifier hs-var">daysBeforeExpiry</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | Specifies the number of days prior to certificate expiration when ACM</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- starts generating @EventBridge@ events. ACM sends one event per day per</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- certificate until the certificate expires. By default, accounts receive</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- events starting 45 days before certificate expiration.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#expiryEventsConfiguration_daysBeforeExpiry"><span class="hs-identifier hs-type">expiryEventsConfiguration_daysBeforeExpiry</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-type">ExpiryEventsConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="expiryEventsConfiguration_daysBeforeExpiry"><span class="annot"><span class="annottext">expiryEventsConfiguration_daysBeforeExpiry :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ExpiryEventsConfiguration -&gt; f ExpiryEventsConfiguration
+</span><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#expiryEventsConfiguration_daysBeforeExpiry"><span class="hs-identifier hs-var hs-var">expiryEventsConfiguration_daysBeforeExpiry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExpiryEventsConfiguration -&gt; Maybe Natural)
+-&gt; (ExpiryEventsConfiguration
+    -&gt; Maybe Natural -&gt; ExpiryEventsConfiguration)
+-&gt; Lens
+     ExpiryEventsConfiguration
+     ExpiryEventsConfiguration
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration%27"><span class="hs-identifier hs-type">ExpiryEventsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187521"><span class="annot"><span class="annottext">Maybe Natural
+daysBeforeExpiry :: Maybe Natural
+$sel:daysBeforeExpiry:ExpiryEventsConfiguration' :: ExpiryEventsConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679187521"><span class="hs-identifier hs-var hs-var">daysBeforeExpiry</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679187521"><span class="hs-identifier hs-var">daysBeforeExpiry</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679187520"><span class="annot"><span class="annottext">s :: ExpiryEventsConfiguration
+</span><a href="#local-6989586621679187520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration%27"><span class="hs-identifier hs-type">ExpiryEventsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679187519"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679187519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExpiryEventsConfiguration
+</span><a href="#local-6989586621679187520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:daysBeforeExpiry:ExpiryEventsConfiguration' :: Maybe Natural
+</span><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#%24sel%3AdaysBeforeExpiry%3AExpiryEventsConfiguration%27"><span class="hs-identifier hs-var">daysBeforeExpiry</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679187519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-type">ExpiryEventsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187516"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-type">ExpiryEventsConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679187514"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExpiryEventsConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ExpiryEventsConfiguration)
+-&gt; Value
+-&gt; Parser ExpiryEventsConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExpiryEventsConfiguration&quot;</span></span><span>
+</span><span id="line-70"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679187511"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187511"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; ExpiryEventsConfiguration
+</span><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration%27"><span class="hs-identifier hs-var">ExpiryEventsConfiguration'</span></a></span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; ExpiryEventsConfiguration)
+-&gt; Parser (Maybe Natural) -&gt; Parser ExpiryEventsConfiguration
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679187511"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DaysBeforeExpiry&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187505"><span id="local-6989586621679187507"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-type">ExpiryEventsConfiguration</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187502"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-type">ExpiryEventsConfiguration</span></a></span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679187494"><span id="local-6989586621679187496"><span id="local-6989586621679187498"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration"><span class="hs-identifier hs-type">ExpiryEventsConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679187492"><span class="annot"><span class="annottext">toJSON :: ExpiryEventsConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CertificateManager.Types.ExpiryEventsConfiguration.html#ExpiryEventsConfiguration%27"><span class="hs-identifier hs-type">ExpiryEventsConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679187490"><span class="annot"><span class="annottext">Maybe Natural
+daysBeforeExpiry :: Maybe Natural
+$sel:daysBeforeExpiry:ExpiryEventsConfiguration' :: ExpiryEventsConfiguration -&gt; Maybe Natural
+</span><a href="#local-6989586621679187490"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-83"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DaysBeforeExpiry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679187490"><span class="hs-identifier hs-var">daysBeforeExpiry</span></a></span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span></pre></body></html>

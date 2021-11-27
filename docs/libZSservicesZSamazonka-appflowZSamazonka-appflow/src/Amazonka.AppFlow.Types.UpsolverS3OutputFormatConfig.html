@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.AggregationConfig.html"><span class="hs-identifier">Amazonka.AppFlow.Types.AggregationConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.FileType.html"><span class="hs-identifier">Amazonka.AppFlow.Types.FileType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrefixConfig.html"><span class="hs-identifier">Amazonka.AppFlow.Types.PrefixConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The configuration that determines how Amazon AppFlow formats the flow</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- output data when Upsolver is used as the destination.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newUpsolverS3OutputFormatConfig' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679327060"><span id="local-6989586621679327061"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpsolverS3OutputFormatConfig"><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-var">UpsolverS3OutputFormatConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpsolverS3OutputFormatConfig%27"><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">UpsolverS3OutputFormatConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates the file type that Amazon AppFlow places in the Upsolver</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AfileType%3AUpsolverS3OutputFormatConfig%27"><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig -&gt; Maybe FileType
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AfileType%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var hs-var">fileType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.FileType.html#FileType"><span class="hs-identifier hs-type">FileType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AaggregationConfig%3AUpsolverS3OutputFormatConfig%27"><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig -&gt; Maybe AggregationConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AaggregationConfig%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var hs-var">aggregationConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.AggregationConfig.html#AggregationConfig"><span class="hs-identifier hs-type">AggregationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AprefixConfig%3AUpsolverS3OutputFormatConfig%27"><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig -&gt; PrefixConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AprefixConfig%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var hs-var">prefixConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrefixConfig.html#PrefixConfig"><span class="hs-identifier hs-type">PrefixConfig</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679327052"><span id="local-6989586621679327054"><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+-&gt; UpsolverS3OutputFormatConfig -&gt; Bool
+(UpsolverS3OutputFormatConfig
+ -&gt; UpsolverS3OutputFormatConfig -&gt; Bool)
+-&gt; (UpsolverS3OutputFormatConfig
+    -&gt; UpsolverS3OutputFormatConfig -&gt; Bool)
+-&gt; Eq UpsolverS3OutputFormatConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpsolverS3OutputFormatConfig
+-&gt; UpsolverS3OutputFormatConfig -&gt; Bool
+$c/= :: UpsolverS3OutputFormatConfig
+-&gt; UpsolverS3OutputFormatConfig -&gt; Bool
+== :: UpsolverS3OutputFormatConfig
+-&gt; UpsolverS3OutputFormatConfig -&gt; Bool
+$c== :: UpsolverS3OutputFormatConfig
+-&gt; UpsolverS3OutputFormatConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327043"><span id="local-6989586621679327045"><span id="local-6989586621679327047"><span id="local-6989586621679327049"><span class="annot"><span class="annottext">ReadPrec [UpsolverS3OutputFormatConfig]
+ReadPrec UpsolverS3OutputFormatConfig
+Int -&gt; ReadS UpsolverS3OutputFormatConfig
+ReadS [UpsolverS3OutputFormatConfig]
+(Int -&gt; ReadS UpsolverS3OutputFormatConfig)
+-&gt; ReadS [UpsolverS3OutputFormatConfig]
+-&gt; ReadPrec UpsolverS3OutputFormatConfig
+-&gt; ReadPrec [UpsolverS3OutputFormatConfig]
+-&gt; Read UpsolverS3OutputFormatConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpsolverS3OutputFormatConfig]
+$creadListPrec :: ReadPrec [UpsolverS3OutputFormatConfig]
+readPrec :: ReadPrec UpsolverS3OutputFormatConfig
+$creadPrec :: ReadPrec UpsolverS3OutputFormatConfig
+readList :: ReadS [UpsolverS3OutputFormatConfig]
+$creadList :: ReadS [UpsolverS3OutputFormatConfig]
+readsPrec :: Int -&gt; ReadS UpsolverS3OutputFormatConfig
+$creadsPrec :: Int -&gt; ReadS UpsolverS3OutputFormatConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679327036"><span id="local-6989586621679327038"><span id="local-6989586621679327040"><span class="annot"><span class="annottext">Int -&gt; UpsolverS3OutputFormatConfig -&gt; ShowS
+[UpsolverS3OutputFormatConfig] -&gt; ShowS
+UpsolverS3OutputFormatConfig -&gt; String
+(Int -&gt; UpsolverS3OutputFormatConfig -&gt; ShowS)
+-&gt; (UpsolverS3OutputFormatConfig -&gt; String)
+-&gt; ([UpsolverS3OutputFormatConfig] -&gt; ShowS)
+-&gt; Show UpsolverS3OutputFormatConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpsolverS3OutputFormatConfig] -&gt; ShowS
+$cshowList :: [UpsolverS3OutputFormatConfig] -&gt; ShowS
+show :: UpsolverS3OutputFormatConfig -&gt; String
+$cshow :: UpsolverS3OutputFormatConfig -&gt; String
+showsPrec :: Int -&gt; UpsolverS3OutputFormatConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpsolverS3OutputFormatConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpsolverS3OutputFormatConfig -&gt; Rep UpsolverS3OutputFormatConfig x)
+-&gt; (forall x.
+    Rep UpsolverS3OutputFormatConfig x -&gt; UpsolverS3OutputFormatConfig)
+-&gt; Generic UpsolverS3OutputFormatConfig
+forall x.
+Rep UpsolverS3OutputFormatConfig x -&gt; UpsolverS3OutputFormatConfig
+forall x.
+UpsolverS3OutputFormatConfig -&gt; Rep UpsolverS3OutputFormatConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpsolverS3OutputFormatConfig x -&gt; UpsolverS3OutputFormatConfig
+$cfrom :: forall x.
+UpsolverS3OutputFormatConfig -&gt; Rep UpsolverS3OutputFormatConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'UpsolverS3OutputFormatConfig' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'fileType', 'upsolverS3OutputFormatConfig_fileType' - Indicates the file type that Amazon AppFlow places in the Upsolver</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Amazon S3 bucket.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'aggregationConfig', 'upsolverS3OutputFormatConfig_aggregationConfig' - Undocumented member.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'prefixConfig', 'upsolverS3OutputFormatConfig_prefixConfig' - Undocumented member.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#newUpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">newUpsolverS3OutputFormatConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'prefixConfig'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrefixConfig.html#PrefixConfig"><span class="hs-identifier hs-type">PrefixConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span>
+</span><span id="line-60"></span><span id="newUpsolverS3OutputFormatConfig"><span class="annot"><span class="annottext">newUpsolverS3OutputFormatConfig :: PrefixConfig -&gt; UpsolverS3OutputFormatConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#newUpsolverS3OutputFormatConfig"><span class="hs-identifier hs-var hs-var">newUpsolverS3OutputFormatConfig</span></a></span></span><span> </span><span id="local-6989586621679327030"><span class="annot"><span class="annottext">PrefixConfig
+</span><a href="#local-6989586621679327030"><span class="hs-identifier hs-var">pPrefixConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig' :: Maybe FileType
+-&gt; Maybe AggregationConfig
+-&gt; PrefixConfig
+-&gt; UpsolverS3OutputFormatConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fileType:UpsolverS3OutputFormatConfig' :: Maybe FileType
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AfileType%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">fileType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe FileType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:aggregationConfig:UpsolverS3OutputFormatConfig' :: Maybe AggregationConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AaggregationConfig%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">aggregationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregationConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:prefixConfig:UpsolverS3OutputFormatConfig' :: PrefixConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AprefixConfig%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">prefixConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrefixConfig
+</span><a href="#local-6989586621679327030"><span class="hs-identifier hs-var">pPrefixConfig_</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Indicates the file type that Amazon AppFlow places in the Upsolver</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Amazon S3 bucket.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#upsolverS3OutputFormatConfig_fileType"><span class="hs-identifier hs-type">upsolverS3OutputFormatConfig_fileType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.FileType.html#FileType"><span class="hs-identifier hs-type">FileType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="upsolverS3OutputFormatConfig_fileType"><span class="annot"><span class="annottext">upsolverS3OutputFormatConfig_fileType :: (Maybe FileType -&gt; f (Maybe FileType))
+-&gt; UpsolverS3OutputFormatConfig -&gt; f UpsolverS3OutputFormatConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#upsolverS3OutputFormatConfig_fileType"><span class="hs-identifier hs-var hs-var">upsolverS3OutputFormatConfig_fileType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsolverS3OutputFormatConfig -&gt; Maybe FileType)
+-&gt; (UpsolverS3OutputFormatConfig
+    -&gt; Maybe FileType -&gt; UpsolverS3OutputFormatConfig)
+-&gt; Lens
+     UpsolverS3OutputFormatConfig
+     UpsolverS3OutputFormatConfig
+     (Maybe FileType)
+     (Maybe FileType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327026"><span class="annot"><span class="annottext">Maybe FileType
+fileType :: Maybe FileType
+$sel:fileType:UpsolverS3OutputFormatConfig' :: UpsolverS3OutputFormatConfig -&gt; Maybe FileType
+</span><a href="#local-6989586621679327026"><span class="hs-identifier hs-var hs-var">fileType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FileType
+</span><a href="#local-6989586621679327026"><span class="hs-identifier hs-var">fileType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327025"><span class="annot"><span class="annottext">s :: UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327025"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327024"><span class="annot"><span class="annottext">Maybe FileType
+</span><a href="#local-6989586621679327024"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327025"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fileType:UpsolverS3OutputFormatConfig' :: Maybe FileType
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AfileType%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">fileType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FileType
+</span><a href="#local-6989586621679327024"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#upsolverS3OutputFormatConfig_aggregationConfig"><span class="hs-identifier hs-type">upsolverS3OutputFormatConfig_aggregationConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.AggregationConfig.html#AggregationConfig"><span class="hs-identifier hs-type">AggregationConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="upsolverS3OutputFormatConfig_aggregationConfig"><span class="annot"><span class="annottext">upsolverS3OutputFormatConfig_aggregationConfig :: (Maybe AggregationConfig -&gt; f (Maybe AggregationConfig))
+-&gt; UpsolverS3OutputFormatConfig -&gt; f UpsolverS3OutputFormatConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#upsolverS3OutputFormatConfig_aggregationConfig"><span class="hs-identifier hs-var hs-var">upsolverS3OutputFormatConfig_aggregationConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsolverS3OutputFormatConfig -&gt; Maybe AggregationConfig)
+-&gt; (UpsolverS3OutputFormatConfig
+    -&gt; Maybe AggregationConfig -&gt; UpsolverS3OutputFormatConfig)
+-&gt; Lens
+     UpsolverS3OutputFormatConfig
+     UpsolverS3OutputFormatConfig
+     (Maybe AggregationConfig)
+     (Maybe AggregationConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327022"><span class="annot"><span class="annottext">Maybe AggregationConfig
+aggregationConfig :: Maybe AggregationConfig
+$sel:aggregationConfig:UpsolverS3OutputFormatConfig' :: UpsolverS3OutputFormatConfig -&gt; Maybe AggregationConfig
+</span><a href="#local-6989586621679327022"><span class="hs-identifier hs-var hs-var">aggregationConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AggregationConfig
+</span><a href="#local-6989586621679327022"><span class="hs-identifier hs-var">aggregationConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327021"><span class="annot"><span class="annottext">s :: UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327021"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327020"><span class="annot"><span class="annottext">Maybe AggregationConfig
+</span><a href="#local-6989586621679327020"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327021"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aggregationConfig:UpsolverS3OutputFormatConfig' :: Maybe AggregationConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AaggregationConfig%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">aggregationConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AggregationConfig
+</span><a href="#local-6989586621679327020"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#upsolverS3OutputFormatConfig_prefixConfig"><span class="hs-identifier hs-type">upsolverS3OutputFormatConfig_prefixConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.PrefixConfig.html#PrefixConfig"><span class="hs-identifier hs-type">PrefixConfig</span></a></span><span>
+</span><span id="line-79"></span><span id="upsolverS3OutputFormatConfig_prefixConfig"><span class="annot"><span class="annottext">upsolverS3OutputFormatConfig_prefixConfig :: (PrefixConfig -&gt; f PrefixConfig)
+-&gt; UpsolverS3OutputFormatConfig -&gt; f UpsolverS3OutputFormatConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#upsolverS3OutputFormatConfig_prefixConfig"><span class="hs-identifier hs-var hs-var">upsolverS3OutputFormatConfig_prefixConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpsolverS3OutputFormatConfig -&gt; PrefixConfig)
+-&gt; (UpsolverS3OutputFormatConfig
+    -&gt; PrefixConfig -&gt; UpsolverS3OutputFormatConfig)
+-&gt; Lens
+     UpsolverS3OutputFormatConfig
+     UpsolverS3OutputFormatConfig
+     PrefixConfig
+     PrefixConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679327018"><span class="annot"><span class="annottext">PrefixConfig
+prefixConfig :: PrefixConfig
+$sel:prefixConfig:UpsolverS3OutputFormatConfig' :: UpsolverS3OutputFormatConfig -&gt; PrefixConfig
+</span><a href="#local-6989586621679327018"><span class="hs-identifier hs-var hs-var">prefixConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PrefixConfig
+</span><a href="#local-6989586621679327018"><span class="hs-identifier hs-var">prefixConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679327017"><span class="annot"><span class="annottext">s :: UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327017"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679327016"><span class="annot"><span class="annottext">PrefixConfig
+</span><a href="#local-6989586621679327016"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpsolverS3OutputFormatConfig
+</span><a href="#local-6989586621679327017"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:prefixConfig:UpsolverS3OutputFormatConfig' :: PrefixConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#%24sel%3AprefixConfig%3AUpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">prefixConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PrefixConfig
+</span><a href="#local-6989586621679327016"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679327013"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679327011"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser UpsolverS3OutputFormatConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser UpsolverS3OutputFormatConfig)
+-&gt; Value
+-&gt; Parser UpsolverS3OutputFormatConfig
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;UpsolverS3OutputFormatConfig&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679327008"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327008"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe FileType
+-&gt; Maybe AggregationConfig
+-&gt; PrefixConfig
+-&gt; UpsolverS3OutputFormatConfig
+</span><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-var">UpsolverS3OutputFormatConfig'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FileType
+ -&gt; Maybe AggregationConfig
+ -&gt; PrefixConfig
+ -&gt; UpsolverS3OutputFormatConfig)
+-&gt; Parser (Maybe FileType)
+-&gt; Parser
+     (Maybe AggregationConfig
+      -&gt; PrefixConfig -&gt; UpsolverS3OutputFormatConfig)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe FileType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fileType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AggregationConfig
+   -&gt; PrefixConfig -&gt; UpsolverS3OutputFormatConfig)
+-&gt; Parser (Maybe AggregationConfig)
+-&gt; Parser (PrefixConfig -&gt; UpsolverS3OutputFormatConfig)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AggregationConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;aggregationConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (PrefixConfig -&gt; UpsolverS3OutputFormatConfig)
+-&gt; Parser PrefixConfig -&gt; Parser UpsolverS3OutputFormatConfig
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679327008"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser PrefixConfig
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefixConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679327001"><span id="local-6989586621679327003"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326998"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679326990"><span id="local-6989586621679326992"><span id="local-6989586621679326994"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679326988"><span class="annot"><span class="annottext">toJSON :: UpsolverS3OutputFormatConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.UpsolverS3OutputFormatConfig.html#UpsolverS3OutputFormatConfig%27"><span class="hs-identifier hs-type">UpsolverS3OutputFormatConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679326984"><span id="local-6989586621679326985"><span id="local-6989586621679326986"><span class="annot"><span class="annottext">Maybe AggregationConfig
+Maybe FileType
+PrefixConfig
+prefixConfig :: PrefixConfig
+aggregationConfig :: Maybe AggregationConfig
+fileType :: Maybe FileType
+$sel:prefixConfig:UpsolverS3OutputFormatConfig' :: UpsolverS3OutputFormatConfig -&gt; PrefixConfig
+$sel:aggregationConfig:UpsolverS3OutputFormatConfig' :: UpsolverS3OutputFormatConfig -&gt; Maybe AggregationConfig
+$sel:fileType:UpsolverS3OutputFormatConfig' :: UpsolverS3OutputFormatConfig -&gt; Maybe FileType
+</span><a href="#local-6989586621679326984"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-102"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fileType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FileType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(FileType -&gt; Pair) -&gt; Maybe FileType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FileType
+</span><a href="#local-6989586621679326986"><span class="hs-identifier hs-var">fileType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;aggregationConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AggregationConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">(AggregationConfig -&gt; Pair)
+-&gt; Maybe AggregationConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AggregationConfig
+</span><a href="#local-6989586621679326985"><span class="hs-identifier hs-var">aggregationConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;prefixConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PrefixConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PrefixConfig
+</span><a href="#local-6989586621679326984"><span class="hs-identifier hs-var">prefixConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span></pre></body></html>

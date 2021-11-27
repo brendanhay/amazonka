@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MQ.Types.AuthenticationStrategy
+module Amazonka.MQ.Types.AuthenticationStrategy
 
 -- | Optional. The authentication strategy used to secure the broker. The
 --   default is SIMPLE.
@@ -14,28 +14,28 @@ AuthenticationStrategy' :: Text -> AuthenticationStrategy
 [fromAuthenticationStrategy] :: AuthenticationStrategy -> Text
 pattern AuthenticationStrategy_LDAP :: AuthenticationStrategy
 pattern AuthenticationStrategy_SIMPLE :: AuthenticationStrategy
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance GHC.Generics.Generic Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance GHC.Classes.Ord Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance GHC.Classes.Eq Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance GHC.Read.Read Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
-instance GHC.Show.Show Network.AWS.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance GHC.Generics.Generic Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance GHC.Classes.Ord Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance GHC.Classes.Eq Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance GHC.Read.Read Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
+instance GHC.Show.Show Amazonka.MQ.Types.AuthenticationStrategy.AuthenticationStrategy
 
 
-module Network.AWS.MQ.Types.AvailabilityZone
+module Amazonka.MQ.Types.AvailabilityZone
 
 -- | Name of the availability zone.
 --   
@@ -61,16 +61,16 @@ newAvailabilityZone :: AvailabilityZone
 
 -- | Id for the availability zone.
 availabilityZone_name :: Lens' AvailabilityZone (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MQ.Types.AvailabilityZone.AvailabilityZone
-instance GHC.Show.Show Network.AWS.MQ.Types.AvailabilityZone.AvailabilityZone
-instance GHC.Read.Read Network.AWS.MQ.Types.AvailabilityZone.AvailabilityZone
-instance GHC.Classes.Eq Network.AWS.MQ.Types.AvailabilityZone.AvailabilityZone
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.AvailabilityZone.AvailabilityZone
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.AvailabilityZone.AvailabilityZone
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Generics.Generic Amazonka.MQ.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Show.Show Amazonka.MQ.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Read.Read Amazonka.MQ.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Classes.Eq Amazonka.MQ.Types.AvailabilityZone.AvailabilityZone
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.AvailabilityZone.AvailabilityZone
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.AvailabilityZone.AvailabilityZone
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.AvailabilityZone.AvailabilityZone
 
 
-module Network.AWS.MQ.Types.BrokerInstance
+module Amazonka.MQ.Types.BrokerInstance
 
 -- | Returns information about all brokers.
 --   
@@ -117,16 +117,16 @@ brokerInstance_consoleURL :: Lens' BrokerInstance (Maybe Text)
 
 -- | The broker's wire-level protocol endpoints.
 brokerInstance_endpoints :: Lens' BrokerInstance (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.MQ.Types.BrokerInstance.BrokerInstance
-instance GHC.Show.Show Network.AWS.MQ.Types.BrokerInstance.BrokerInstance
-instance GHC.Read.Read Network.AWS.MQ.Types.BrokerInstance.BrokerInstance
-instance GHC.Classes.Eq Network.AWS.MQ.Types.BrokerInstance.BrokerInstance
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.BrokerInstance.BrokerInstance
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.BrokerInstance.BrokerInstance
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.BrokerInstance.BrokerInstance
+instance GHC.Generics.Generic Amazonka.MQ.Types.BrokerInstance.BrokerInstance
+instance GHC.Show.Show Amazonka.MQ.Types.BrokerInstance.BrokerInstance
+instance GHC.Read.Read Amazonka.MQ.Types.BrokerInstance.BrokerInstance
+instance GHC.Classes.Eq Amazonka.MQ.Types.BrokerInstance.BrokerInstance
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.BrokerInstance.BrokerInstance
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.BrokerInstance.BrokerInstance
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.BrokerInstance.BrokerInstance
 
 
-module Network.AWS.MQ.Types.BrokerState
+module Amazonka.MQ.Types.BrokerState
 
 -- | The broker's status.
 newtype BrokerState
@@ -137,28 +137,28 @@ pattern BrokerState_CREATION_IN_PROGRESS :: BrokerState
 pattern BrokerState_DELETION_IN_PROGRESS :: BrokerState
 pattern BrokerState_REBOOT_IN_PROGRESS :: BrokerState
 pattern BrokerState_RUNNING :: BrokerState
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.BrokerState.BrokerState
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.BrokerState.BrokerState
-instance GHC.Generics.Generic Network.AWS.MQ.Types.BrokerState.BrokerState
-instance GHC.Classes.Ord Network.AWS.MQ.Types.BrokerState.BrokerState
-instance GHC.Classes.Eq Network.AWS.MQ.Types.BrokerState.BrokerState
-instance GHC.Read.Read Network.AWS.MQ.Types.BrokerState.BrokerState
-instance GHC.Show.Show Network.AWS.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.BrokerState.BrokerState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.BrokerState.BrokerState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.BrokerState.BrokerState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.BrokerState.BrokerState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.BrokerState.BrokerState
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.BrokerState.BrokerState
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.BrokerState.BrokerState
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.BrokerState.BrokerState
+instance GHC.Generics.Generic Amazonka.MQ.Types.BrokerState.BrokerState
+instance GHC.Classes.Ord Amazonka.MQ.Types.BrokerState.BrokerState
+instance GHC.Classes.Eq Amazonka.MQ.Types.BrokerState.BrokerState
+instance GHC.Read.Read Amazonka.MQ.Types.BrokerState.BrokerState
+instance GHC.Show.Show Amazonka.MQ.Types.BrokerState.BrokerState
 
 
-module Network.AWS.MQ.Types.BrokerStorageType
+module Amazonka.MQ.Types.BrokerStorageType
 
 -- | The broker's storage type.
 --   
@@ -168,28 +168,28 @@ BrokerStorageType' :: Text -> BrokerStorageType
 [fromBrokerStorageType] :: BrokerStorageType -> Text
 pattern BrokerStorageType_EBS :: BrokerStorageType
 pattern BrokerStorageType_EFS :: BrokerStorageType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance GHC.Generics.Generic Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance GHC.Classes.Ord Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance GHC.Classes.Eq Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance GHC.Read.Read Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
-instance GHC.Show.Show Network.AWS.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance GHC.Generics.Generic Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance GHC.Classes.Ord Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance GHC.Classes.Eq Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance GHC.Read.Read Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
+instance GHC.Show.Show Amazonka.MQ.Types.BrokerStorageType.BrokerStorageType
 
 
-module Network.AWS.MQ.Types.ChangeType
+module Amazonka.MQ.Types.ChangeType
 
 -- | The type of change pending for the ActiveMQ user.
 newtype ChangeType
@@ -198,28 +198,28 @@ ChangeType' :: Text -> ChangeType
 pattern ChangeType_CREATE :: ChangeType
 pattern ChangeType_DELETE :: ChangeType
 pattern ChangeType_UPDATE :: ChangeType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.ChangeType.ChangeType
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.ChangeType.ChangeType
-instance GHC.Generics.Generic Network.AWS.MQ.Types.ChangeType.ChangeType
-instance GHC.Classes.Ord Network.AWS.MQ.Types.ChangeType.ChangeType
-instance GHC.Classes.Eq Network.AWS.MQ.Types.ChangeType.ChangeType
-instance GHC.Read.Read Network.AWS.MQ.Types.ChangeType.ChangeType
-instance GHC.Show.Show Network.AWS.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.ChangeType.ChangeType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.ChangeType.ChangeType
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.ChangeType.ChangeType
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.ChangeType.ChangeType
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.ChangeType.ChangeType
+instance GHC.Generics.Generic Amazonka.MQ.Types.ChangeType.ChangeType
+instance GHC.Classes.Ord Amazonka.MQ.Types.ChangeType.ChangeType
+instance GHC.Classes.Eq Amazonka.MQ.Types.ChangeType.ChangeType
+instance GHC.Read.Read Amazonka.MQ.Types.ChangeType.ChangeType
+instance GHC.Show.Show Amazonka.MQ.Types.ChangeType.ChangeType
 
 
-module Network.AWS.MQ.Types.ConfigurationId
+module Amazonka.MQ.Types.ConfigurationId
 
 -- | A list of information about the configuration.
 --   
@@ -258,17 +258,17 @@ configurationId_revision :: Lens' ConfigurationId (Maybe Int)
 -- | Required. The unique ID that Amazon MQ generates for the
 --   configuration.
 configurationId_id :: Lens' ConfigurationId Text
-instance GHC.Generics.Generic Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
-instance GHC.Show.Show Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
-instance GHC.Read.Read Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
-instance GHC.Classes.Eq Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.ConfigurationId.ConfigurationId
+instance GHC.Generics.Generic Amazonka.MQ.Types.ConfigurationId.ConfigurationId
+instance GHC.Show.Show Amazonka.MQ.Types.ConfigurationId.ConfigurationId
+instance GHC.Read.Read Amazonka.MQ.Types.ConfigurationId.ConfigurationId
+instance GHC.Classes.Eq Amazonka.MQ.Types.ConfigurationId.ConfigurationId
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.ConfigurationId.ConfigurationId
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.ConfigurationId.ConfigurationId
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.ConfigurationId.ConfigurationId
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.ConfigurationId.ConfigurationId
 
 
-module Network.AWS.MQ.Types.ConfigurationRevision
+module Amazonka.MQ.Types.ConfigurationRevision
 
 -- | Returns information about the specified configuration revision.
 --   
@@ -315,16 +315,16 @@ configurationRevision_revision :: Lens' ConfigurationRevision Int
 
 -- | Required. The date and time of the configuration revision.
 configurationRevision_created :: Lens' ConfigurationRevision UTCTime
-instance GHC.Generics.Generic Network.AWS.MQ.Types.ConfigurationRevision.ConfigurationRevision
-instance GHC.Show.Show Network.AWS.MQ.Types.ConfigurationRevision.ConfigurationRevision
-instance GHC.Read.Read Network.AWS.MQ.Types.ConfigurationRevision.ConfigurationRevision
-instance GHC.Classes.Eq Network.AWS.MQ.Types.ConfigurationRevision.ConfigurationRevision
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.ConfigurationRevision.ConfigurationRevision
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.ConfigurationRevision.ConfigurationRevision
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.ConfigurationRevision.ConfigurationRevision
+instance GHC.Generics.Generic Amazonka.MQ.Types.ConfigurationRevision.ConfigurationRevision
+instance GHC.Show.Show Amazonka.MQ.Types.ConfigurationRevision.ConfigurationRevision
+instance GHC.Read.Read Amazonka.MQ.Types.ConfigurationRevision.ConfigurationRevision
+instance GHC.Classes.Eq Amazonka.MQ.Types.ConfigurationRevision.ConfigurationRevision
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.ConfigurationRevision.ConfigurationRevision
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.ConfigurationRevision.ConfigurationRevision
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.ConfigurationRevision.ConfigurationRevision
 
 
-module Network.AWS.MQ.Types.Configurations
+module Amazonka.MQ.Types.Configurations
 
 -- | Broker configuration information
 --   
@@ -368,16 +368,16 @@ configurations_history :: Lens' Configurations (Maybe [ConfigurationId])
 
 -- | The broker's current configuration.
 configurations_current :: Lens' Configurations (Maybe ConfigurationId)
-instance GHC.Generics.Generic Network.AWS.MQ.Types.Configurations.Configurations
-instance GHC.Show.Show Network.AWS.MQ.Types.Configurations.Configurations
-instance GHC.Read.Read Network.AWS.MQ.Types.Configurations.Configurations
-instance GHC.Classes.Eq Network.AWS.MQ.Types.Configurations.Configurations
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.Configurations.Configurations
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.Configurations.Configurations
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.Configurations.Configurations
+instance GHC.Generics.Generic Amazonka.MQ.Types.Configurations.Configurations
+instance GHC.Show.Show Amazonka.MQ.Types.Configurations.Configurations
+instance GHC.Read.Read Amazonka.MQ.Types.Configurations.Configurations
+instance GHC.Classes.Eq Amazonka.MQ.Types.Configurations.Configurations
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.Configurations.Configurations
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.Configurations.Configurations
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.Configurations.Configurations
 
 
-module Network.AWS.MQ.Types.DayOfWeek
+module Amazonka.MQ.Types.DayOfWeek
 newtype DayOfWeek
 DayOfWeek' :: Text -> DayOfWeek
 [fromDayOfWeek] :: DayOfWeek -> Text
@@ -388,28 +388,28 @@ pattern DayOfWeek_SUNDAY :: DayOfWeek
 pattern DayOfWeek_THURSDAY :: DayOfWeek
 pattern DayOfWeek_TUESDAY :: DayOfWeek
 pattern DayOfWeek_WEDNESDAY :: DayOfWeek
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance GHC.Generics.Generic Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance GHC.Classes.Ord Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance GHC.Classes.Eq Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance GHC.Read.Read Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
-instance GHC.Show.Show Network.AWS.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance GHC.Generics.Generic Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance GHC.Classes.Ord Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance GHC.Classes.Eq Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance GHC.Read.Read Amazonka.MQ.Types.DayOfWeek.DayOfWeek
+instance GHC.Show.Show Amazonka.MQ.Types.DayOfWeek.DayOfWeek
 
 
-module Network.AWS.MQ.Types.DeploymentMode
+module Amazonka.MQ.Types.DeploymentMode
 
 -- | The broker's deployment mode.
 newtype DeploymentMode
@@ -418,28 +418,28 @@ DeploymentMode' :: Text -> DeploymentMode
 pattern DeploymentMode_ACTIVE_STANDBY_MULTI_AZ :: DeploymentMode
 pattern DeploymentMode_CLUSTER_MULTI_AZ :: DeploymentMode
 pattern DeploymentMode_SINGLE_INSTANCE :: DeploymentMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance GHC.Generics.Generic Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance GHC.Classes.Ord Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance GHC.Classes.Eq Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance GHC.Read.Read Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
-instance GHC.Show.Show Network.AWS.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance GHC.Generics.Generic Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance GHC.Classes.Ord Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance GHC.Classes.Eq Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance GHC.Read.Read Amazonka.MQ.Types.DeploymentMode.DeploymentMode
+instance GHC.Show.Show Amazonka.MQ.Types.DeploymentMode.DeploymentMode
 
 
-module Network.AWS.MQ.Types.EncryptionOptions
+module Amazonka.MQ.Types.EncryptionOptions
 
 -- | Does not apply to RabbitMQ brokers.
 --   
@@ -489,17 +489,17 @@ encryptionOptions_kmsKeyId :: Lens' EncryptionOptions (Maybe Text)
 --   (KMS). Set to true by default, if no value is provided, for example,
 --   for RabbitMQ brokers.
 encryptionOptions_useAwsOwnedKey :: Lens' EncryptionOptions Bool
-instance GHC.Generics.Generic Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
-instance GHC.Show.Show Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
-instance GHC.Read.Read Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
-instance GHC.Classes.Eq Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.EncryptionOptions.EncryptionOptions
+instance GHC.Generics.Generic Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
+instance GHC.Show.Show Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
+instance GHC.Read.Read Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
+instance GHC.Classes.Eq Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.EncryptionOptions.EncryptionOptions
 
 
-module Network.AWS.MQ.Types.EngineType
+module Amazonka.MQ.Types.EngineType
 
 -- | The type of broker engine. Amazon MQ supports ActiveMQ and RabbitMQ.
 newtype EngineType
@@ -507,28 +507,28 @@ EngineType' :: Text -> EngineType
 [fromEngineType] :: EngineType -> Text
 pattern EngineType_ACTIVEMQ :: EngineType
 pattern EngineType_RABBITMQ :: EngineType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.EngineType.EngineType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.EngineType.EngineType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.EngineType.EngineType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.EngineType.EngineType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.EngineType.EngineType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.EngineType.EngineType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.EngineType.EngineType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.EngineType.EngineType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.EngineType.EngineType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.EngineType.EngineType
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.EngineType.EngineType
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.EngineType.EngineType
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.EngineType.EngineType
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.EngineType.EngineType
-instance GHC.Generics.Generic Network.AWS.MQ.Types.EngineType.EngineType
-instance GHC.Classes.Ord Network.AWS.MQ.Types.EngineType.EngineType
-instance GHC.Classes.Eq Network.AWS.MQ.Types.EngineType.EngineType
-instance GHC.Read.Read Network.AWS.MQ.Types.EngineType.EngineType
-instance GHC.Show.Show Network.AWS.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.EngineType.EngineType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.EngineType.EngineType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.EngineType.EngineType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.EngineType.EngineType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.EngineType.EngineType
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.EngineType.EngineType
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.EngineType.EngineType
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.EngineType.EngineType
+instance GHC.Generics.Generic Amazonka.MQ.Types.EngineType.EngineType
+instance GHC.Classes.Ord Amazonka.MQ.Types.EngineType.EngineType
+instance GHC.Classes.Eq Amazonka.MQ.Types.EngineType.EngineType
+instance GHC.Read.Read Amazonka.MQ.Types.EngineType.EngineType
+instance GHC.Show.Show Amazonka.MQ.Types.EngineType.EngineType
 
 
-module Network.AWS.MQ.Types.Configuration
+module Amazonka.MQ.Types.Configuration
 
 -- | Returns information about all configurations.
 --   
@@ -656,16 +656,16 @@ configuration_name :: Lens' Configuration Text
 
 -- | Required. The date and time of the configuration revision.
 configuration_created :: Lens' Configuration UTCTime
-instance GHC.Generics.Generic Network.AWS.MQ.Types.Configuration.Configuration
-instance GHC.Show.Show Network.AWS.MQ.Types.Configuration.Configuration
-instance GHC.Read.Read Network.AWS.MQ.Types.Configuration.Configuration
-instance GHC.Classes.Eq Network.AWS.MQ.Types.Configuration.Configuration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.Configuration.Configuration
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.Configuration.Configuration
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.Configuration.Configuration
+instance GHC.Generics.Generic Amazonka.MQ.Types.Configuration.Configuration
+instance GHC.Show.Show Amazonka.MQ.Types.Configuration.Configuration
+instance GHC.Read.Read Amazonka.MQ.Types.Configuration.Configuration
+instance GHC.Classes.Eq Amazonka.MQ.Types.Configuration.Configuration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.Configuration.Configuration
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.Configuration.Configuration
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.Configuration.Configuration
 
 
-module Network.AWS.MQ.Types.BrokerSummary
+module Amazonka.MQ.Types.BrokerSummary
 
 -- | Returns information about all brokers.
 --   
@@ -763,16 +763,16 @@ brokerSummary_deploymentMode :: Lens' BrokerSummary DeploymentMode
 
 -- | The type of broker engine.
 brokerSummary_engineType :: Lens' BrokerSummary EngineType
-instance GHC.Generics.Generic Network.AWS.MQ.Types.BrokerSummary.BrokerSummary
-instance GHC.Show.Show Network.AWS.MQ.Types.BrokerSummary.BrokerSummary
-instance GHC.Read.Read Network.AWS.MQ.Types.BrokerSummary.BrokerSummary
-instance GHC.Classes.Eq Network.AWS.MQ.Types.BrokerSummary.BrokerSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.BrokerSummary.BrokerSummary
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.BrokerSummary.BrokerSummary
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.BrokerSummary.BrokerSummary
+instance GHC.Generics.Generic Amazonka.MQ.Types.BrokerSummary.BrokerSummary
+instance GHC.Show.Show Amazonka.MQ.Types.BrokerSummary.BrokerSummary
+instance GHC.Read.Read Amazonka.MQ.Types.BrokerSummary.BrokerSummary
+instance GHC.Classes.Eq Amazonka.MQ.Types.BrokerSummary.BrokerSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.BrokerSummary.BrokerSummary
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.BrokerSummary.BrokerSummary
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.BrokerSummary.BrokerSummary
 
 
-module Network.AWS.MQ.Types.BrokerInstanceOption
+module Amazonka.MQ.Types.BrokerInstanceOption
 
 -- | Option for host instance type.
 --   
@@ -847,16 +847,16 @@ brokerInstanceOption_hostInstanceType :: Lens' BrokerInstanceOption (Maybe Text)
 
 -- | The broker's storage type.
 brokerInstanceOption_storageType :: Lens' BrokerInstanceOption (Maybe BrokerStorageType)
-instance GHC.Generics.Generic Network.AWS.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
-instance GHC.Show.Show Network.AWS.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
-instance GHC.Read.Read Network.AWS.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
-instance GHC.Classes.Eq Network.AWS.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
+instance GHC.Generics.Generic Amazonka.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
+instance GHC.Show.Show Amazonka.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
+instance GHC.Read.Read Amazonka.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
+instance GHC.Classes.Eq Amazonka.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.BrokerInstanceOption.BrokerInstanceOption
 
 
-module Network.AWS.MQ.Types.EngineVersion
+module Amazonka.MQ.Types.EngineVersion
 
 -- | Id of the engine version.
 --   
@@ -882,16 +882,16 @@ newEngineVersion :: EngineVersion
 
 -- | Id for the version.
 engineVersion_name :: Lens' EngineVersion (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MQ.Types.EngineVersion.EngineVersion
-instance GHC.Show.Show Network.AWS.MQ.Types.EngineVersion.EngineVersion
-instance GHC.Read.Read Network.AWS.MQ.Types.EngineVersion.EngineVersion
-instance GHC.Classes.Eq Network.AWS.MQ.Types.EngineVersion.EngineVersion
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.EngineVersion.EngineVersion
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.EngineVersion.EngineVersion
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.EngineVersion.EngineVersion
+instance GHC.Generics.Generic Amazonka.MQ.Types.EngineVersion.EngineVersion
+instance GHC.Show.Show Amazonka.MQ.Types.EngineVersion.EngineVersion
+instance GHC.Read.Read Amazonka.MQ.Types.EngineVersion.EngineVersion
+instance GHC.Classes.Eq Amazonka.MQ.Types.EngineVersion.EngineVersion
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.EngineVersion.EngineVersion
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.EngineVersion.EngineVersion
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.EngineVersion.EngineVersion
 
 
-module Network.AWS.MQ.Types.BrokerEngineType
+module Amazonka.MQ.Types.BrokerEngineType
 
 -- | Types of broker engines.
 --   
@@ -926,16 +926,16 @@ brokerEngineType_engineVersions :: Lens' BrokerEngineType (Maybe [EngineVersion]
 
 -- | The broker's engine type.
 brokerEngineType_engineType :: Lens' BrokerEngineType (Maybe EngineType)
-instance GHC.Generics.Generic Network.AWS.MQ.Types.BrokerEngineType.BrokerEngineType
-instance GHC.Show.Show Network.AWS.MQ.Types.BrokerEngineType.BrokerEngineType
-instance GHC.Read.Read Network.AWS.MQ.Types.BrokerEngineType.BrokerEngineType
-instance GHC.Classes.Eq Network.AWS.MQ.Types.BrokerEngineType.BrokerEngineType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.BrokerEngineType.BrokerEngineType
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.BrokerEngineType.BrokerEngineType
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.BrokerEngineType.BrokerEngineType
+instance GHC.Generics.Generic Amazonka.MQ.Types.BrokerEngineType.BrokerEngineType
+instance GHC.Show.Show Amazonka.MQ.Types.BrokerEngineType.BrokerEngineType
+instance GHC.Read.Read Amazonka.MQ.Types.BrokerEngineType.BrokerEngineType
+instance GHC.Classes.Eq Amazonka.MQ.Types.BrokerEngineType.BrokerEngineType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.BrokerEngineType.BrokerEngineType
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.BrokerEngineType.BrokerEngineType
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.BrokerEngineType.BrokerEngineType
 
 
-module Network.AWS.MQ.Types.LdapServerMetadataInput
+module Amazonka.MQ.Types.LdapServerMetadataInput
 
 -- | Optional. The metadata of the LDAP server used to authenticate and
 --   authorize connections to the broker.
@@ -1147,16 +1147,16 @@ ldapServerMetadataInput_roleBase :: Lens' LdapServerMetadataInput Text
 --   server that has access to initiate a connection. For example,
 --   cn=admin,dc=corp, dc=example, dc=com.
 ldapServerMetadataInput_serviceAccountPassword :: Lens' LdapServerMetadataInput Text
-instance GHC.Generics.Generic Network.AWS.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
-instance GHC.Show.Show Network.AWS.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
-instance GHC.Read.Read Network.AWS.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
-instance GHC.Classes.Eq Network.AWS.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
+instance GHC.Generics.Generic Amazonka.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
+instance GHC.Show.Show Amazonka.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
+instance GHC.Read.Read Amazonka.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
+instance GHC.Classes.Eq Amazonka.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.LdapServerMetadataInput.LdapServerMetadataInput
 
 
-module Network.AWS.MQ.Types.LdapServerMetadataOutput
+module Amazonka.MQ.Types.LdapServerMetadataOutput
 
 -- | Optional. The metadata of the LDAP server used to authenticate and
 --   authorize connections to the broker.
@@ -1350,16 +1350,16 @@ ldapServerMetadataOutput_serviceAccountUsername :: Lens' LdapServerMetadataOutpu
 --   (DIT) to search for roles or groups. For example, ou=group, ou=corp,
 --   dc=corp, dc=example, dc=com.
 ldapServerMetadataOutput_roleBase :: Lens' LdapServerMetadataOutput Text
-instance GHC.Generics.Generic Network.AWS.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
-instance GHC.Show.Show Network.AWS.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
-instance GHC.Read.Read Network.AWS.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
-instance GHC.Classes.Eq Network.AWS.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
+instance GHC.Generics.Generic Amazonka.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
+instance GHC.Show.Show Amazonka.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
+instance GHC.Read.Read Amazonka.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
+instance GHC.Classes.Eq Amazonka.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.LdapServerMetadataOutput.LdapServerMetadataOutput
 
 
-module Network.AWS.MQ.Types.Logs
+module Amazonka.MQ.Types.Logs
 
 -- | The list of information about logs to be enabled for the specified
 --   broker.
@@ -1399,17 +1399,17 @@ logs_audit :: Lens' Logs (Maybe Bool)
 
 -- | Enables general logging.
 logs_general :: Lens' Logs (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.MQ.Types.Logs.Logs
-instance GHC.Show.Show Network.AWS.MQ.Types.Logs.Logs
-instance GHC.Read.Read Network.AWS.MQ.Types.Logs.Logs
-instance GHC.Classes.Eq Network.AWS.MQ.Types.Logs.Logs
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.Logs.Logs
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.Logs.Logs
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.Logs.Logs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.Logs.Logs
+instance GHC.Generics.Generic Amazonka.MQ.Types.Logs.Logs
+instance GHC.Show.Show Amazonka.MQ.Types.Logs.Logs
+instance GHC.Read.Read Amazonka.MQ.Types.Logs.Logs
+instance GHC.Classes.Eq Amazonka.MQ.Types.Logs.Logs
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.Logs.Logs
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.Logs.Logs
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.Logs.Logs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.Logs.Logs
 
 
-module Network.AWS.MQ.Types.PendingLogs
+module Amazonka.MQ.Types.PendingLogs
 
 -- | The list of information about logs to be enabled for the specified
 --   broker.
@@ -1447,16 +1447,16 @@ pendingLogs_audit :: Lens' PendingLogs (Maybe Bool)
 
 -- | Enables general logging.
 pendingLogs_general :: Lens' PendingLogs (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.MQ.Types.PendingLogs.PendingLogs
-instance GHC.Show.Show Network.AWS.MQ.Types.PendingLogs.PendingLogs
-instance GHC.Read.Read Network.AWS.MQ.Types.PendingLogs.PendingLogs
-instance GHC.Classes.Eq Network.AWS.MQ.Types.PendingLogs.PendingLogs
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.PendingLogs.PendingLogs
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.PendingLogs.PendingLogs
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.PendingLogs.PendingLogs
+instance GHC.Generics.Generic Amazonka.MQ.Types.PendingLogs.PendingLogs
+instance GHC.Show.Show Amazonka.MQ.Types.PendingLogs.PendingLogs
+instance GHC.Read.Read Amazonka.MQ.Types.PendingLogs.PendingLogs
+instance GHC.Classes.Eq Amazonka.MQ.Types.PendingLogs.PendingLogs
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.PendingLogs.PendingLogs
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.PendingLogs.PendingLogs
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.PendingLogs.PendingLogs
 
 
-module Network.AWS.MQ.Types.LogsSummary
+module Amazonka.MQ.Types.LogsSummary
 
 -- | The list of information about logs currently enabled and pending to be
 --   deployed for the specified broker.
@@ -1530,16 +1530,16 @@ logsSummary_generalLogGroup :: Lens' LogsSummary Text
 
 -- | Enables general logging.
 logsSummary_general :: Lens' LogsSummary Bool
-instance GHC.Generics.Generic Network.AWS.MQ.Types.LogsSummary.LogsSummary
-instance GHC.Show.Show Network.AWS.MQ.Types.LogsSummary.LogsSummary
-instance GHC.Read.Read Network.AWS.MQ.Types.LogsSummary.LogsSummary
-instance GHC.Classes.Eq Network.AWS.MQ.Types.LogsSummary.LogsSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.LogsSummary.LogsSummary
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.LogsSummary.LogsSummary
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.LogsSummary.LogsSummary
+instance GHC.Generics.Generic Amazonka.MQ.Types.LogsSummary.LogsSummary
+instance GHC.Show.Show Amazonka.MQ.Types.LogsSummary.LogsSummary
+instance GHC.Read.Read Amazonka.MQ.Types.LogsSummary.LogsSummary
+instance GHC.Classes.Eq Amazonka.MQ.Types.LogsSummary.LogsSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.LogsSummary.LogsSummary
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.LogsSummary.LogsSummary
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.LogsSummary.LogsSummary
 
 
-module Network.AWS.MQ.Types.SanitizationWarningReason
+module Amazonka.MQ.Types.SanitizationWarningReason
 
 -- | The reason for which the XML elements or attributes were sanitized.
 newtype SanitizationWarningReason
@@ -1548,28 +1548,28 @@ SanitizationWarningReason' :: Text -> SanitizationWarningReason
 pattern SanitizationWarningReason_DISALLOWED_ATTRIBUTE_REMOVED :: SanitizationWarningReason
 pattern SanitizationWarningReason_DISALLOWED_ELEMENT_REMOVED :: SanitizationWarningReason
 pattern SanitizationWarningReason_INVALID_ATTRIBUTE_VALUE_REMOVED :: SanitizationWarningReason
-instance Network.AWS.Data.XML.ToXML Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Network.AWS.Data.XML.FromXML Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Network.AWS.Data.Log.ToLog Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Network.AWS.Data.Text.ToText Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Network.AWS.Data.Text.FromText Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance GHC.Generics.Generic Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance GHC.Classes.Ord Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance GHC.Classes.Eq Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance GHC.Read.Read Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
-instance GHC.Show.Show Network.AWS.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.XML.ToXML Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.XML.FromXML Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.Headers.ToHeader Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.Log.ToLog Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.Text.ToText Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Amazonka.Data.Text.FromText Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance GHC.Generics.Generic Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance GHC.Classes.Ord Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance GHC.Classes.Eq Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance GHC.Read.Read Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
+instance GHC.Show.Show Amazonka.MQ.Types.SanitizationWarningReason.SanitizationWarningReason
 
 
-module Network.AWS.MQ.Types.SanitizationWarning
+module Amazonka.MQ.Types.SanitizationWarning
 
 -- | Returns information about the XML element or attribute that was
 --   sanitized in the configuration.
@@ -1619,16 +1619,16 @@ sanitizationWarning_elementName :: Lens' SanitizationWarning (Maybe Text)
 -- | Required. The reason for which the XML elements or attributes were
 --   sanitized.
 sanitizationWarning_reason :: Lens' SanitizationWarning SanitizationWarningReason
-instance GHC.Generics.Generic Network.AWS.MQ.Types.SanitizationWarning.SanitizationWarning
-instance GHC.Show.Show Network.AWS.MQ.Types.SanitizationWarning.SanitizationWarning
-instance GHC.Read.Read Network.AWS.MQ.Types.SanitizationWarning.SanitizationWarning
-instance GHC.Classes.Eq Network.AWS.MQ.Types.SanitizationWarning.SanitizationWarning
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.SanitizationWarning.SanitizationWarning
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.SanitizationWarning.SanitizationWarning
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.SanitizationWarning.SanitizationWarning
+instance GHC.Generics.Generic Amazonka.MQ.Types.SanitizationWarning.SanitizationWarning
+instance GHC.Show.Show Amazonka.MQ.Types.SanitizationWarning.SanitizationWarning
+instance GHC.Read.Read Amazonka.MQ.Types.SanitizationWarning.SanitizationWarning
+instance GHC.Classes.Eq Amazonka.MQ.Types.SanitizationWarning.SanitizationWarning
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.SanitizationWarning.SanitizationWarning
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.SanitizationWarning.SanitizationWarning
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.SanitizationWarning.SanitizationWarning
 
 
-module Network.AWS.MQ.Types.User
+module Amazonka.MQ.Types.User
 
 -- | A user associated with the broker. For RabbitMQ brokers, one and only
 --   one administrative user is accepted and created when a broker is first
@@ -1746,16 +1746,16 @@ user_username :: Lens' User Text
 --   characters long, must contain at least 4 unique characters, and must
 --   not contain commas, colons, or equal signs (,:=).
 user_password :: Lens' User Text
-instance GHC.Generics.Generic Network.AWS.MQ.Types.User.User
-instance GHC.Show.Show Network.AWS.MQ.Types.User.User
-instance GHC.Read.Read Network.AWS.MQ.Types.User.User
-instance GHC.Classes.Eq Network.AWS.MQ.Types.User.User
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.User.User
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.User.User
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.User.User
+instance GHC.Generics.Generic Amazonka.MQ.Types.User.User
+instance GHC.Show.Show Amazonka.MQ.Types.User.User
+instance GHC.Read.Read Amazonka.MQ.Types.User.User
+instance GHC.Classes.Eq Amazonka.MQ.Types.User.User
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.User.User
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.User.User
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.User.User
 
 
-module Network.AWS.MQ.Types.UserPendingChanges
+module Amazonka.MQ.Types.UserPendingChanges
 
 -- | Returns information about the status of the changes pending for the
 --   ActiveMQ user.
@@ -1811,16 +1811,16 @@ userPendingChanges_consoleAccess :: Lens' UserPendingChanges (Maybe Bool)
 
 -- | Required. The type of change pending for the ActiveMQ user.
 userPendingChanges_pendingChange :: Lens' UserPendingChanges ChangeType
-instance GHC.Generics.Generic Network.AWS.MQ.Types.UserPendingChanges.UserPendingChanges
-instance GHC.Show.Show Network.AWS.MQ.Types.UserPendingChanges.UserPendingChanges
-instance GHC.Read.Read Network.AWS.MQ.Types.UserPendingChanges.UserPendingChanges
-instance GHC.Classes.Eq Network.AWS.MQ.Types.UserPendingChanges.UserPendingChanges
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.UserPendingChanges.UserPendingChanges
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.UserPendingChanges.UserPendingChanges
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.UserPendingChanges.UserPendingChanges
+instance GHC.Generics.Generic Amazonka.MQ.Types.UserPendingChanges.UserPendingChanges
+instance GHC.Show.Show Amazonka.MQ.Types.UserPendingChanges.UserPendingChanges
+instance GHC.Read.Read Amazonka.MQ.Types.UserPendingChanges.UserPendingChanges
+instance GHC.Classes.Eq Amazonka.MQ.Types.UserPendingChanges.UserPendingChanges
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.UserPendingChanges.UserPendingChanges
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.UserPendingChanges.UserPendingChanges
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.UserPendingChanges.UserPendingChanges
 
 
-module Network.AWS.MQ.Types.UserSummary
+module Amazonka.MQ.Types.UserSummary
 
 -- | Returns a list of all broker users. Does not apply to RabbitMQ
 --   brokers.
@@ -1862,16 +1862,16 @@ userSummary_pendingChange :: Lens' UserSummary (Maybe ChangeType)
 --   alphanumeric characters, dashes, periods, underscores, and tildes (- .
 --   _ ~). This value must be 2-100 characters long.
 userSummary_username :: Lens' UserSummary Text
-instance GHC.Generics.Generic Network.AWS.MQ.Types.UserSummary.UserSummary
-instance GHC.Show.Show Network.AWS.MQ.Types.UserSummary.UserSummary
-instance GHC.Read.Read Network.AWS.MQ.Types.UserSummary.UserSummary
-instance GHC.Classes.Eq Network.AWS.MQ.Types.UserSummary.UserSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.UserSummary.UserSummary
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.UserSummary.UserSummary
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.UserSummary.UserSummary
+instance GHC.Generics.Generic Amazonka.MQ.Types.UserSummary.UserSummary
+instance GHC.Show.Show Amazonka.MQ.Types.UserSummary.UserSummary
+instance GHC.Read.Read Amazonka.MQ.Types.UserSummary.UserSummary
+instance GHC.Classes.Eq Amazonka.MQ.Types.UserSummary.UserSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.UserSummary.UserSummary
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.UserSummary.UserSummary
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.UserSummary.UserSummary
 
 
-module Network.AWS.MQ.Types.WeeklyStartTime
+module Amazonka.MQ.Types.WeeklyStartTime
 
 -- | The scheduled time period relative to UTC during which Amazon MQ
 --   begins to apply pending updates or patches to the broker.
@@ -1920,17 +1920,17 @@ weeklyStartTime_timeOfDay :: Lens' WeeklyStartTime Text
 
 -- | Required. The day of the week.
 weeklyStartTime_dayOfWeek :: Lens' WeeklyStartTime DayOfWeek
-instance GHC.Generics.Generic Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
-instance GHC.Show.Show Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
-instance GHC.Read.Read Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
-instance GHC.Classes.Eq Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
-instance Control.DeepSeq.NFData Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance GHC.Generics.Generic Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance GHC.Show.Show Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance GHC.Read.Read Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance GHC.Classes.Eq Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance Data.Hashable.Class.Hashable Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance Control.DeepSeq.NFData Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.Types.WeeklyStartTime.WeeklyStartTime
 
 
-module Network.AWS.MQ.Types
+module Amazonka.MQ.Types
 
 -- | API version <tt>2017-11-27</tt> of the Amazon MQ SDK configuration.
 defaultService :: Service
@@ -3490,7 +3490,7 @@ weeklyStartTime_dayOfWeek :: Lens' WeeklyStartTime DayOfWeek
 
 
 -- | Reboots a broker. Note: This API is asynchronous.
-module Network.AWS.MQ.RebootBroker
+module Amazonka.MQ.RebootBroker
 
 -- | <i>See:</i> <a>newRebootBroker</a> smart constructor.
 data RebootBroker
@@ -3538,26 +3538,26 @@ newRebootBrokerResponse :: Int -> RebootBrokerResponse
 
 -- | The response's http status code.
 rebootBrokerResponse_httpStatus :: Lens' RebootBrokerResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.RebootBroker.RebootBroker
-instance GHC.Show.Show Network.AWS.MQ.RebootBroker.RebootBroker
-instance GHC.Read.Read Network.AWS.MQ.RebootBroker.RebootBroker
-instance GHC.Classes.Eq Network.AWS.MQ.RebootBroker.RebootBroker
-instance GHC.Generics.Generic Network.AWS.MQ.RebootBroker.RebootBrokerResponse
-instance GHC.Show.Show Network.AWS.MQ.RebootBroker.RebootBrokerResponse
-instance GHC.Read.Read Network.AWS.MQ.RebootBroker.RebootBrokerResponse
-instance GHC.Classes.Eq Network.AWS.MQ.RebootBroker.RebootBrokerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.RebootBroker.RebootBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.RebootBroker.RebootBrokerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.RebootBroker.RebootBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.RebootBroker.RebootBroker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.RebootBroker.RebootBroker
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.RebootBroker.RebootBroker
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.RebootBroker.RebootBroker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.RebootBroker.RebootBroker
+instance GHC.Generics.Generic Amazonka.MQ.RebootBroker.RebootBroker
+instance GHC.Show.Show Amazonka.MQ.RebootBroker.RebootBroker
+instance GHC.Read.Read Amazonka.MQ.RebootBroker.RebootBroker
+instance GHC.Classes.Eq Amazonka.MQ.RebootBroker.RebootBroker
+instance GHC.Generics.Generic Amazonka.MQ.RebootBroker.RebootBrokerResponse
+instance GHC.Show.Show Amazonka.MQ.RebootBroker.RebootBrokerResponse
+instance GHC.Read.Read Amazonka.MQ.RebootBroker.RebootBrokerResponse
+instance GHC.Classes.Eq Amazonka.MQ.RebootBroker.RebootBrokerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.RebootBroker.RebootBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.RebootBroker.RebootBrokerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.RebootBroker.RebootBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.RebootBroker.RebootBroker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.RebootBroker.RebootBroker
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.RebootBroker.RebootBroker
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.RebootBroker.RebootBroker
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.RebootBroker.RebootBroker
 
 
 -- | Returns a list of all ActiveMQ users.
-module Network.AWS.MQ.ListUsers
+module Amazonka.MQ.ListUsers
 
 -- | <i>See:</i> <a>newListUsers</a> smart constructor.
 data ListUsers
@@ -3672,25 +3672,25 @@ listUsersResponse_maxResults :: Lens' ListUsersResponse (Maybe Natural)
 
 -- | The response's http status code.
 listUsersResponse_httpStatus :: Lens' ListUsersResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.ListUsers.ListUsers
-instance GHC.Show.Show Network.AWS.MQ.ListUsers.ListUsers
-instance GHC.Read.Read Network.AWS.MQ.ListUsers.ListUsers
-instance GHC.Classes.Eq Network.AWS.MQ.ListUsers.ListUsers
-instance GHC.Generics.Generic Network.AWS.MQ.ListUsers.ListUsersResponse
-instance GHC.Show.Show Network.AWS.MQ.ListUsers.ListUsersResponse
-instance GHC.Read.Read Network.AWS.MQ.ListUsers.ListUsersResponse
-instance GHC.Classes.Eq Network.AWS.MQ.ListUsers.ListUsersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.ListUsers.ListUsers
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListUsers.ListUsersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.ListUsers.ListUsers
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListUsers.ListUsers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.ListUsers.ListUsers
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.ListUsers.ListUsers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.ListUsers.ListUsers
+instance GHC.Generics.Generic Amazonka.MQ.ListUsers.ListUsers
+instance GHC.Show.Show Amazonka.MQ.ListUsers.ListUsers
+instance GHC.Read.Read Amazonka.MQ.ListUsers.ListUsers
+instance GHC.Classes.Eq Amazonka.MQ.ListUsers.ListUsers
+instance GHC.Generics.Generic Amazonka.MQ.ListUsers.ListUsersResponse
+instance GHC.Show.Show Amazonka.MQ.ListUsers.ListUsersResponse
+instance GHC.Read.Read Amazonka.MQ.ListUsers.ListUsersResponse
+instance GHC.Classes.Eq Amazonka.MQ.ListUsers.ListUsersResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.ListUsers.ListUsers
+instance Control.DeepSeq.NFData Amazonka.MQ.ListUsers.ListUsersResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.ListUsers.ListUsers
+instance Control.DeepSeq.NFData Amazonka.MQ.ListUsers.ListUsers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.ListUsers.ListUsers
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.ListUsers.ListUsers
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.ListUsers.ListUsers
 
 
 -- | Lists tags for a resource.
-module Network.AWS.MQ.ListTags
+module Amazonka.MQ.ListTags
 
 -- | <i>See:</i> <a>newListTags</a> smart constructor.
 data ListTags
@@ -3745,25 +3745,25 @@ listTagsResponse_tags :: Lens' ListTagsResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens' ListTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.ListTags.ListTags
-instance GHC.Show.Show Network.AWS.MQ.ListTags.ListTags
-instance GHC.Read.Read Network.AWS.MQ.ListTags.ListTags
-instance GHC.Classes.Eq Network.AWS.MQ.ListTags.ListTags
-instance GHC.Generics.Generic Network.AWS.MQ.ListTags.ListTagsResponse
-instance GHC.Show.Show Network.AWS.MQ.ListTags.ListTagsResponse
-instance GHC.Read.Read Network.AWS.MQ.ListTags.ListTagsResponse
-instance GHC.Classes.Eq Network.AWS.MQ.ListTags.ListTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListTags.ListTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListTags.ListTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.ListTags.ListTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.ListTags.ListTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.MQ.ListTags.ListTags
+instance GHC.Show.Show Amazonka.MQ.ListTags.ListTags
+instance GHC.Read.Read Amazonka.MQ.ListTags.ListTags
+instance GHC.Classes.Eq Amazonka.MQ.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.MQ.ListTags.ListTagsResponse
+instance GHC.Show.Show Amazonka.MQ.ListTags.ListTagsResponse
+instance GHC.Read.Read Amazonka.MQ.ListTags.ListTagsResponse
+instance GHC.Classes.Eq Amazonka.MQ.ListTags.ListTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.MQ.ListTags.ListTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.MQ.ListTags.ListTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.ListTags.ListTags
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.ListTags.ListTags
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.ListTags.ListTags
 
 
 -- | Returns a list of all configurations.
-module Network.AWS.MQ.ListConfigurations
+module Amazonka.MQ.ListConfigurations
 
 -- | <i>See:</i> <a>newListConfigurations</a> smart constructor.
 data ListConfigurations
@@ -3864,25 +3864,25 @@ listConfigurationsResponse_maxResults :: Lens' ListConfigurationsResponse (Maybe
 
 -- | The response's http status code.
 listConfigurationsResponse_httpStatus :: Lens' ListConfigurationsResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance GHC.Show.Show Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance GHC.Read.Read Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance GHC.Classes.Eq Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance GHC.Generics.Generic Network.AWS.MQ.ListConfigurations.ListConfigurationsResponse
-instance GHC.Show.Show Network.AWS.MQ.ListConfigurations.ListConfigurationsResponse
-instance GHC.Read.Read Network.AWS.MQ.ListConfigurations.ListConfigurationsResponse
-instance GHC.Classes.Eq Network.AWS.MQ.ListConfigurations.ListConfigurationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListConfigurations.ListConfigurationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.ListConfigurations.ListConfigurations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.ListConfigurations.ListConfigurations
+instance GHC.Generics.Generic Amazonka.MQ.ListConfigurations.ListConfigurations
+instance GHC.Show.Show Amazonka.MQ.ListConfigurations.ListConfigurations
+instance GHC.Read.Read Amazonka.MQ.ListConfigurations.ListConfigurations
+instance GHC.Classes.Eq Amazonka.MQ.ListConfigurations.ListConfigurations
+instance GHC.Generics.Generic Amazonka.MQ.ListConfigurations.ListConfigurationsResponse
+instance GHC.Show.Show Amazonka.MQ.ListConfigurations.ListConfigurationsResponse
+instance GHC.Read.Read Amazonka.MQ.ListConfigurations.ListConfigurationsResponse
+instance GHC.Classes.Eq Amazonka.MQ.ListConfigurations.ListConfigurationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.ListConfigurations.ListConfigurations
+instance Control.DeepSeq.NFData Amazonka.MQ.ListConfigurations.ListConfigurationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.ListConfigurations.ListConfigurations
+instance Control.DeepSeq.NFData Amazonka.MQ.ListConfigurations.ListConfigurations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.ListConfigurations.ListConfigurations
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.ListConfigurations.ListConfigurations
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.ListConfigurations.ListConfigurations
 
 
 -- | Returns a list of all revisions for the specified configuration.
-module Network.AWS.MQ.ListConfigurationRevisions
+module Amazonka.MQ.ListConfigurationRevisions
 
 -- | <i>See:</i> <a>newListConfigurationRevisions</a> smart constructor.
 data ListConfigurationRevisions
@@ -4004,27 +4004,27 @@ listConfigurationRevisionsResponse_maxResults :: Lens' ListConfigurationRevision
 
 -- | The response's http status code.
 listConfigurationRevisionsResponse_httpStatus :: Lens' ListConfigurationRevisionsResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance GHC.Show.Show Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance GHC.Read.Read Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance GHC.Classes.Eq Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance GHC.Generics.Generic Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
-instance GHC.Show.Show Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
-instance GHC.Read.Read Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
-instance GHC.Classes.Eq Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance GHC.Generics.Generic Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance GHC.Show.Show Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance GHC.Read.Read Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance GHC.Classes.Eq Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance GHC.Generics.Generic Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
+instance GHC.Show.Show Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
+instance GHC.Read.Read Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
+instance GHC.Classes.Eq Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance Control.DeepSeq.NFData Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance Control.DeepSeq.NFData Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.ListConfigurationRevisions.ListConfigurationRevisions
 
 
 -- | Returns a list of all brokers.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MQ.ListBrokers
+module Amazonka.MQ.ListBrokers
 
 -- | <i>See:</i> <a>newListBrokers</a> smart constructor.
 data ListBrokers
@@ -4109,26 +4109,26 @@ listBrokersResponse_brokerSummaries :: Lens' ListBrokersResponse (Maybe [BrokerS
 
 -- | The response's http status code.
 listBrokersResponse_httpStatus :: Lens' ListBrokersResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.ListBrokers.ListBrokers
-instance GHC.Show.Show Network.AWS.MQ.ListBrokers.ListBrokers
-instance GHC.Read.Read Network.AWS.MQ.ListBrokers.ListBrokers
-instance GHC.Classes.Eq Network.AWS.MQ.ListBrokers.ListBrokers
-instance GHC.Generics.Generic Network.AWS.MQ.ListBrokers.ListBrokersResponse
-instance GHC.Show.Show Network.AWS.MQ.ListBrokers.ListBrokersResponse
-instance GHC.Read.Read Network.AWS.MQ.ListBrokers.ListBrokersResponse
-instance GHC.Classes.Eq Network.AWS.MQ.ListBrokers.ListBrokersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.ListBrokers.ListBrokers
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListBrokers.ListBrokersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MQ.ListBrokers.ListBrokers
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.ListBrokers.ListBrokers
-instance Control.DeepSeq.NFData Network.AWS.MQ.ListBrokers.ListBrokers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.ListBrokers.ListBrokers
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.ListBrokers.ListBrokers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.ListBrokers.ListBrokers
+instance GHC.Generics.Generic Amazonka.MQ.ListBrokers.ListBrokers
+instance GHC.Show.Show Amazonka.MQ.ListBrokers.ListBrokers
+instance GHC.Read.Read Amazonka.MQ.ListBrokers.ListBrokers
+instance GHC.Classes.Eq Amazonka.MQ.ListBrokers.ListBrokers
+instance GHC.Generics.Generic Amazonka.MQ.ListBrokers.ListBrokersResponse
+instance GHC.Show.Show Amazonka.MQ.ListBrokers.ListBrokersResponse
+instance GHC.Read.Read Amazonka.MQ.ListBrokers.ListBrokersResponse
+instance GHC.Classes.Eq Amazonka.MQ.ListBrokers.ListBrokersResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.ListBrokers.ListBrokers
+instance Control.DeepSeq.NFData Amazonka.MQ.ListBrokers.ListBrokersResponse
+instance Amazonka.Pager.AWSPager Amazonka.MQ.ListBrokers.ListBrokers
+instance Data.Hashable.Class.Hashable Amazonka.MQ.ListBrokers.ListBrokers
+instance Control.DeepSeq.NFData Amazonka.MQ.ListBrokers.ListBrokers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.ListBrokers.ListBrokers
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.ListBrokers.ListBrokers
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.ListBrokers.ListBrokers
 
 
 -- | Returns information about an ActiveMQ user.
-module Network.AWS.MQ.DescribeUser
+module Amazonka.MQ.DescribeUser
 
 -- | <i>See:</i> <a>newDescribeUser</a> smart constructor.
 data DescribeUser
@@ -4255,26 +4255,26 @@ describeUserResponse_brokerId :: Lens' DescribeUserResponse (Maybe Text)
 
 -- | The response's http status code.
 describeUserResponse_httpStatus :: Lens' DescribeUserResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeUser.DescribeUser
-instance GHC.Show.Show Network.AWS.MQ.DescribeUser.DescribeUser
-instance GHC.Read.Read Network.AWS.MQ.DescribeUser.DescribeUser
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeUser.DescribeUser
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeUser.DescribeUserResponse
-instance GHC.Show.Show Network.AWS.MQ.DescribeUser.DescribeUserResponse
-instance GHC.Read.Read Network.AWS.MQ.DescribeUser.DescribeUserResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeUser.DescribeUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DescribeUser.DescribeUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeUser.DescribeUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DescribeUser.DescribeUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeUser.DescribeUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DescribeUser.DescribeUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DescribeUser.DescribeUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DescribeUser.DescribeUser
+instance GHC.Generics.Generic Amazonka.MQ.DescribeUser.DescribeUser
+instance GHC.Show.Show Amazonka.MQ.DescribeUser.DescribeUser
+instance GHC.Read.Read Amazonka.MQ.DescribeUser.DescribeUser
+instance GHC.Classes.Eq Amazonka.MQ.DescribeUser.DescribeUser
+instance GHC.Generics.Generic Amazonka.MQ.DescribeUser.DescribeUserResponse
+instance GHC.Show.Show Amazonka.MQ.DescribeUser.DescribeUserResponse
+instance GHC.Read.Read Amazonka.MQ.DescribeUser.DescribeUserResponse
+instance GHC.Classes.Eq Amazonka.MQ.DescribeUser.DescribeUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DescribeUser.DescribeUser
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeUser.DescribeUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DescribeUser.DescribeUser
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeUser.DescribeUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DescribeUser.DescribeUser
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DescribeUser.DescribeUser
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DescribeUser.DescribeUser
 
 
 -- | Returns the specified configuration revision for the specified
 --   configuration.
-module Network.AWS.MQ.DescribeConfigurationRevision
+module Amazonka.MQ.DescribeConfigurationRevision
 
 -- | <i>See:</i> <a>newDescribeConfigurationRevision</a> smart constructor.
 data DescribeConfigurationRevision
@@ -4377,25 +4377,25 @@ describeConfigurationRevisionResponse_description :: Lens' DescribeConfiguration
 
 -- | The response's http status code.
 describeConfigurationRevisionResponse_httpStatus :: Lens' DescribeConfigurationRevisionResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance GHC.Show.Show Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance GHC.Read.Read Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
-instance GHC.Show.Show Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
-instance GHC.Read.Read Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance GHC.Generics.Generic Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance GHC.Show.Show Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance GHC.Read.Read Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance GHC.Classes.Eq Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance GHC.Generics.Generic Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
+instance GHC.Show.Show Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
+instance GHC.Read.Read Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
+instance GHC.Classes.Eq Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevisionResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DescribeConfigurationRevision.DescribeConfigurationRevision
 
 
 -- | Returns information about the specified configuration.
-module Network.AWS.MQ.DescribeConfiguration
+module Amazonka.MQ.DescribeConfiguration
 
 -- | <i>See:</i> <a>newDescribeConfiguration</a> smart constructor.
 data DescribeConfiguration
@@ -4560,25 +4560,25 @@ describeConfigurationResponse_tags :: Lens' DescribeConfigurationResponse (Maybe
 
 -- | The response's http status code.
 describeConfigurationResponse_httpStatus :: Lens' DescribeConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance GHC.Show.Show Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance GHC.Read.Read Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeConfiguration.DescribeConfigurationResponse
-instance GHC.Show.Show Network.AWS.MQ.DescribeConfiguration.DescribeConfigurationResponse
-instance GHC.Read.Read Network.AWS.MQ.DescribeConfiguration.DescribeConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeConfiguration.DescribeConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeConfiguration.DescribeConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DescribeConfiguration.DescribeConfiguration
+instance GHC.Generics.Generic Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance GHC.Show.Show Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance GHC.Read.Read Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance GHC.Classes.Eq Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance GHC.Generics.Generic Amazonka.MQ.DescribeConfiguration.DescribeConfigurationResponse
+instance GHC.Show.Show Amazonka.MQ.DescribeConfiguration.DescribeConfigurationResponse
+instance GHC.Read.Read Amazonka.MQ.DescribeConfiguration.DescribeConfigurationResponse
+instance GHC.Classes.Eq Amazonka.MQ.DescribeConfiguration.DescribeConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeConfiguration.DescribeConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DescribeConfiguration.DescribeConfiguration
 
 
 -- | Describe available broker instance options.
-module Network.AWS.MQ.DescribeBrokerInstanceOptions
+module Amazonka.MQ.DescribeBrokerInstanceOptions
 
 -- | <i>See:</i> <a>newDescribeBrokerInstanceOptions</a> smart constructor.
 data DescribeBrokerInstanceOptions
@@ -4711,25 +4711,25 @@ describeBrokerInstanceOptionsResponse_maxResults :: Lens' DescribeBrokerInstance
 
 -- | The response's http status code.
 describeBrokerInstanceOptionsResponse_httpStatus :: Lens' DescribeBrokerInstanceOptionsResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance GHC.Show.Show Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance GHC.Read.Read Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
-instance GHC.Show.Show Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
-instance GHC.Read.Read Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance GHC.Generics.Generic Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance GHC.Show.Show Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance GHC.Read.Read Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance GHC.Classes.Eq Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance GHC.Generics.Generic Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
+instance GHC.Show.Show Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
+instance GHC.Read.Read Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
+instance GHC.Classes.Eq Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DescribeBrokerInstanceOptions.DescribeBrokerInstanceOptions
 
 
 -- | Describe available engine types and versions.
-module Network.AWS.MQ.DescribeBrokerEngineTypes
+module Amazonka.MQ.DescribeBrokerEngineTypes
 
 -- | <i>See:</i> <a>newDescribeBrokerEngineTypes</a> smart constructor.
 data DescribeBrokerEngineTypes
@@ -4841,25 +4841,25 @@ describeBrokerEngineTypesResponse_maxResults :: Lens' DescribeBrokerEngineTypesR
 
 -- | The response's http status code.
 describeBrokerEngineTypesResponse_httpStatus :: Lens' DescribeBrokerEngineTypesResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance GHC.Show.Show Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance GHC.Read.Read Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
-instance GHC.Show.Show Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
-instance GHC.Read.Read Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance GHC.Generics.Generic Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance GHC.Show.Show Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance GHC.Read.Read Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance GHC.Classes.Eq Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance GHC.Generics.Generic Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
+instance GHC.Show.Show Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
+instance GHC.Read.Read Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
+instance GHC.Classes.Eq Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypesResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DescribeBrokerEngineTypes.DescribeBrokerEngineTypes
 
 
 -- | Returns information about the specified broker.
-module Network.AWS.MQ.DescribeBroker
+module Amazonka.MQ.DescribeBroker
 
 -- | <i>See:</i> <a>newDescribeBroker</a> smart constructor.
 data DescribeBroker
@@ -5238,25 +5238,25 @@ describeBrokerResponse_storageType :: Lens' DescribeBrokerResponse (Maybe Broker
 
 -- | The response's http status code.
 describeBrokerResponse_httpStatus :: Lens' DescribeBrokerResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance GHC.Show.Show Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance GHC.Read.Read Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance GHC.Generics.Generic Network.AWS.MQ.DescribeBroker.DescribeBrokerResponse
-instance GHC.Show.Show Network.AWS.MQ.DescribeBroker.DescribeBrokerResponse
-instance GHC.Read.Read Network.AWS.MQ.DescribeBroker.DescribeBrokerResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DescribeBroker.DescribeBrokerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeBroker.DescribeBrokerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DescribeBroker.DescribeBroker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DescribeBroker.DescribeBroker
+instance GHC.Generics.Generic Amazonka.MQ.DescribeBroker.DescribeBroker
+instance GHC.Show.Show Amazonka.MQ.DescribeBroker.DescribeBroker
+instance GHC.Read.Read Amazonka.MQ.DescribeBroker.DescribeBroker
+instance GHC.Classes.Eq Amazonka.MQ.DescribeBroker.DescribeBroker
+instance GHC.Generics.Generic Amazonka.MQ.DescribeBroker.DescribeBrokerResponse
+instance GHC.Show.Show Amazonka.MQ.DescribeBroker.DescribeBrokerResponse
+instance GHC.Read.Read Amazonka.MQ.DescribeBroker.DescribeBrokerResponse
+instance GHC.Classes.Eq Amazonka.MQ.DescribeBroker.DescribeBrokerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DescribeBroker.DescribeBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeBroker.DescribeBrokerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DescribeBroker.DescribeBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.DescribeBroker.DescribeBroker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DescribeBroker.DescribeBroker
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DescribeBroker.DescribeBroker
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DescribeBroker.DescribeBroker
 
 
 -- | Deletes an ActiveMQ user.
-module Network.AWS.MQ.DeleteUser
+module Amazonka.MQ.DeleteUser
 
 -- | <i>See:</i> <a>newDeleteUser</a> smart constructor.
 data DeleteUser
@@ -5318,25 +5318,25 @@ newDeleteUserResponse :: Int -> DeleteUserResponse
 
 -- | The response's http status code.
 deleteUserResponse_httpStatus :: Lens' DeleteUserResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DeleteUser.DeleteUser
-instance GHC.Show.Show Network.AWS.MQ.DeleteUser.DeleteUser
-instance GHC.Read.Read Network.AWS.MQ.DeleteUser.DeleteUser
-instance GHC.Classes.Eq Network.AWS.MQ.DeleteUser.DeleteUser
-instance GHC.Generics.Generic Network.AWS.MQ.DeleteUser.DeleteUserResponse
-instance GHC.Show.Show Network.AWS.MQ.DeleteUser.DeleteUserResponse
-instance GHC.Read.Read Network.AWS.MQ.DeleteUser.DeleteUserResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DeleteUser.DeleteUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DeleteUser.DeleteUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.DeleteUser.DeleteUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DeleteUser.DeleteUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.DeleteUser.DeleteUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DeleteUser.DeleteUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DeleteUser.DeleteUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DeleteUser.DeleteUser
+instance GHC.Generics.Generic Amazonka.MQ.DeleteUser.DeleteUser
+instance GHC.Show.Show Amazonka.MQ.DeleteUser.DeleteUser
+instance GHC.Read.Read Amazonka.MQ.DeleteUser.DeleteUser
+instance GHC.Classes.Eq Amazonka.MQ.DeleteUser.DeleteUser
+instance GHC.Generics.Generic Amazonka.MQ.DeleteUser.DeleteUserResponse
+instance GHC.Show.Show Amazonka.MQ.DeleteUser.DeleteUserResponse
+instance GHC.Read.Read Amazonka.MQ.DeleteUser.DeleteUserResponse
+instance GHC.Classes.Eq Amazonka.MQ.DeleteUser.DeleteUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DeleteUser.DeleteUser
+instance Control.DeepSeq.NFData Amazonka.MQ.DeleteUser.DeleteUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DeleteUser.DeleteUser
+instance Control.DeepSeq.NFData Amazonka.MQ.DeleteUser.DeleteUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DeleteUser.DeleteUser
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DeleteUser.DeleteUser
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DeleteUser.DeleteUser
 
 
 -- | Removes a tag from a resource.
-module Network.AWS.MQ.DeleteTags
+module Amazonka.MQ.DeleteTags
 
 -- | <i>See:</i> <a>newDeleteTags</a> smart constructor.
 data DeleteTags
@@ -5379,25 +5379,25 @@ DeleteTagsResponse' :: DeleteTagsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteTagsResponse :: DeleteTagsResponse
-instance GHC.Generics.Generic Network.AWS.MQ.DeleteTags.DeleteTags
-instance GHC.Show.Show Network.AWS.MQ.DeleteTags.DeleteTags
-instance GHC.Read.Read Network.AWS.MQ.DeleteTags.DeleteTags
-instance GHC.Classes.Eq Network.AWS.MQ.DeleteTags.DeleteTags
-instance GHC.Generics.Generic Network.AWS.MQ.DeleteTags.DeleteTagsResponse
-instance GHC.Show.Show Network.AWS.MQ.DeleteTags.DeleteTagsResponse
-instance GHC.Read.Read Network.AWS.MQ.DeleteTags.DeleteTagsResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DeleteTags.DeleteTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DeleteTags.DeleteTags
-instance Control.DeepSeq.NFData Network.AWS.MQ.DeleteTags.DeleteTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DeleteTags.DeleteTags
-instance Control.DeepSeq.NFData Network.AWS.MQ.DeleteTags.DeleteTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DeleteTags.DeleteTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DeleteTags.DeleteTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DeleteTags.DeleteTags
+instance GHC.Generics.Generic Amazonka.MQ.DeleteTags.DeleteTags
+instance GHC.Show.Show Amazonka.MQ.DeleteTags.DeleteTags
+instance GHC.Read.Read Amazonka.MQ.DeleteTags.DeleteTags
+instance GHC.Classes.Eq Amazonka.MQ.DeleteTags.DeleteTags
+instance GHC.Generics.Generic Amazonka.MQ.DeleteTags.DeleteTagsResponse
+instance GHC.Show.Show Amazonka.MQ.DeleteTags.DeleteTagsResponse
+instance GHC.Read.Read Amazonka.MQ.DeleteTags.DeleteTagsResponse
+instance GHC.Classes.Eq Amazonka.MQ.DeleteTags.DeleteTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DeleteTags.DeleteTags
+instance Control.DeepSeq.NFData Amazonka.MQ.DeleteTags.DeleteTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DeleteTags.DeleteTags
+instance Control.DeepSeq.NFData Amazonka.MQ.DeleteTags.DeleteTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DeleteTags.DeleteTags
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DeleteTags.DeleteTags
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DeleteTags.DeleteTags
 
 
 -- | Deletes a broker. Note: This API is asynchronous.
-module Network.AWS.MQ.DeleteBroker
+module Amazonka.MQ.DeleteBroker
 
 -- | <i>See:</i> <a>newDeleteBroker</a> smart constructor.
 data DeleteBroker
@@ -5455,25 +5455,25 @@ deleteBrokerResponse_brokerId :: Lens' DeleteBrokerResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteBrokerResponse_httpStatus :: Lens' DeleteBrokerResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance GHC.Show.Show Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance GHC.Read.Read Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance GHC.Classes.Eq Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance GHC.Generics.Generic Network.AWS.MQ.DeleteBroker.DeleteBrokerResponse
-instance GHC.Show.Show Network.AWS.MQ.DeleteBroker.DeleteBrokerResponse
-instance GHC.Read.Read Network.AWS.MQ.DeleteBroker.DeleteBrokerResponse
-instance GHC.Classes.Eq Network.AWS.MQ.DeleteBroker.DeleteBrokerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.DeleteBroker.DeleteBrokerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.DeleteBroker.DeleteBroker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.DeleteBroker.DeleteBroker
+instance GHC.Generics.Generic Amazonka.MQ.DeleteBroker.DeleteBroker
+instance GHC.Show.Show Amazonka.MQ.DeleteBroker.DeleteBroker
+instance GHC.Read.Read Amazonka.MQ.DeleteBroker.DeleteBroker
+instance GHC.Classes.Eq Amazonka.MQ.DeleteBroker.DeleteBroker
+instance GHC.Generics.Generic Amazonka.MQ.DeleteBroker.DeleteBrokerResponse
+instance GHC.Show.Show Amazonka.MQ.DeleteBroker.DeleteBrokerResponse
+instance GHC.Read.Read Amazonka.MQ.DeleteBroker.DeleteBrokerResponse
+instance GHC.Classes.Eq Amazonka.MQ.DeleteBroker.DeleteBrokerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.DeleteBroker.DeleteBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.DeleteBroker.DeleteBrokerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.DeleteBroker.DeleteBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.DeleteBroker.DeleteBroker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.DeleteBroker.DeleteBroker
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.DeleteBroker.DeleteBroker
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.DeleteBroker.DeleteBroker
 
 
 -- | Creates an ActiveMQ user.
-module Network.AWS.MQ.CreateUser
+module Amazonka.MQ.CreateUser
 
 -- | Creates a new ActiveMQ user.
 --   
@@ -5578,26 +5578,26 @@ newCreateUserResponse :: Int -> CreateUserResponse
 
 -- | The response's http status code.
 createUserResponse_httpStatus :: Lens' CreateUserResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.CreateUser.CreateUser
-instance GHC.Show.Show Network.AWS.MQ.CreateUser.CreateUser
-instance GHC.Read.Read Network.AWS.MQ.CreateUser.CreateUser
-instance GHC.Classes.Eq Network.AWS.MQ.CreateUser.CreateUser
-instance GHC.Generics.Generic Network.AWS.MQ.CreateUser.CreateUserResponse
-instance GHC.Show.Show Network.AWS.MQ.CreateUser.CreateUserResponse
-instance GHC.Read.Read Network.AWS.MQ.CreateUser.CreateUserResponse
-instance GHC.Classes.Eq Network.AWS.MQ.CreateUser.CreateUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.CreateUser.CreateUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateUser.CreateUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.CreateUser.CreateUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateUser.CreateUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.CreateUser.CreateUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.CreateUser.CreateUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.CreateUser.CreateUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.CreateUser.CreateUser
+instance GHC.Generics.Generic Amazonka.MQ.CreateUser.CreateUser
+instance GHC.Show.Show Amazonka.MQ.CreateUser.CreateUser
+instance GHC.Read.Read Amazonka.MQ.CreateUser.CreateUser
+instance GHC.Classes.Eq Amazonka.MQ.CreateUser.CreateUser
+instance GHC.Generics.Generic Amazonka.MQ.CreateUser.CreateUserResponse
+instance GHC.Show.Show Amazonka.MQ.CreateUser.CreateUserResponse
+instance GHC.Read.Read Amazonka.MQ.CreateUser.CreateUserResponse
+instance GHC.Classes.Eq Amazonka.MQ.CreateUser.CreateUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.CreateUser.CreateUser
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateUser.CreateUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.CreateUser.CreateUser
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateUser.CreateUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.CreateUser.CreateUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.CreateUser.CreateUser
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.CreateUser.CreateUser
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.CreateUser.CreateUser
 
 
 -- | Add a tag to a resource.
-module Network.AWS.MQ.CreateTags
+module Amazonka.MQ.CreateTags
 
 -- | A map of the key-value pairs for the resource tag.
 --   
@@ -5642,28 +5642,28 @@ CreateTagsResponse' :: CreateTagsResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newCreateTagsResponse :: CreateTagsResponse
-instance GHC.Generics.Generic Network.AWS.MQ.CreateTags.CreateTags
-instance GHC.Show.Show Network.AWS.MQ.CreateTags.CreateTags
-instance GHC.Read.Read Network.AWS.MQ.CreateTags.CreateTags
-instance GHC.Classes.Eq Network.AWS.MQ.CreateTags.CreateTags
-instance GHC.Generics.Generic Network.AWS.MQ.CreateTags.CreateTagsResponse
-instance GHC.Show.Show Network.AWS.MQ.CreateTags.CreateTagsResponse
-instance GHC.Read.Read Network.AWS.MQ.CreateTags.CreateTagsResponse
-instance GHC.Classes.Eq Network.AWS.MQ.CreateTags.CreateTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.CreateTags.CreateTags
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateTags.CreateTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.CreateTags.CreateTags
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateTags.CreateTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.CreateTags.CreateTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.CreateTags.CreateTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.CreateTags.CreateTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.CreateTags.CreateTags
+instance GHC.Generics.Generic Amazonka.MQ.CreateTags.CreateTags
+instance GHC.Show.Show Amazonka.MQ.CreateTags.CreateTags
+instance GHC.Read.Read Amazonka.MQ.CreateTags.CreateTags
+instance GHC.Classes.Eq Amazonka.MQ.CreateTags.CreateTags
+instance GHC.Generics.Generic Amazonka.MQ.CreateTags.CreateTagsResponse
+instance GHC.Show.Show Amazonka.MQ.CreateTags.CreateTagsResponse
+instance GHC.Read.Read Amazonka.MQ.CreateTags.CreateTagsResponse
+instance GHC.Classes.Eq Amazonka.MQ.CreateTags.CreateTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.CreateTags.CreateTags
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateTags.CreateTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.CreateTags.CreateTags
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateTags.CreateTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.CreateTags.CreateTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.CreateTags.CreateTags
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.CreateTags.CreateTags
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.CreateTags.CreateTags
 
 
 -- | Creates a new configuration for the specified configuration name.
 --   Amazon MQ uses the default configuration (the engine type and
 --   version).
-module Network.AWS.MQ.CreateConfiguration
+module Amazonka.MQ.CreateConfiguration
 
 -- | Creates a new configuration for the specified configuration name.
 --   Amazon MQ uses the default configuration (the engine type and
@@ -5839,22 +5839,22 @@ createConfigurationResponse_id :: Lens' CreateConfigurationResponse (Maybe Text)
 
 -- | The response's http status code.
 createConfigurationResponse_httpStatus :: Lens' CreateConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance GHC.Show.Show Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance GHC.Read.Read Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance GHC.Classes.Eq Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance GHC.Generics.Generic Network.AWS.MQ.CreateConfiguration.CreateConfigurationResponse
-instance GHC.Show.Show Network.AWS.MQ.CreateConfiguration.CreateConfigurationResponse
-instance GHC.Read.Read Network.AWS.MQ.CreateConfiguration.CreateConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.MQ.CreateConfiguration.CreateConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateConfiguration.CreateConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.CreateConfiguration.CreateConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.CreateConfiguration.CreateConfiguration
+instance GHC.Generics.Generic Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance GHC.Show.Show Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance GHC.Read.Read Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance GHC.Classes.Eq Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance GHC.Generics.Generic Amazonka.MQ.CreateConfiguration.CreateConfigurationResponse
+instance GHC.Show.Show Amazonka.MQ.CreateConfiguration.CreateConfigurationResponse
+instance GHC.Read.Read Amazonka.MQ.CreateConfiguration.CreateConfigurationResponse
+instance GHC.Classes.Eq Amazonka.MQ.CreateConfiguration.CreateConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateConfiguration.CreateConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.CreateConfiguration.CreateConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.CreateConfiguration.CreateConfiguration
 
 
 -- | Creates a broker. Note: This API is asynchronous.
@@ -5883,7 +5883,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.CreateConfiguration.Creat
 --   For more information, see <a>Create an IAM User and Get Your AWS
 --   Credentials</a> and <a>Never Modify or Delete the Amazon MQ Elastic
 --   Network Interface</a> in the <i>Amazon MQ Developer Guide</i>.
-module Network.AWS.MQ.CreateBroker
+module Amazonka.MQ.CreateBroker
 
 -- | Creates a broker using the specified properties.
 --   
@@ -6254,26 +6254,26 @@ createBrokerResponse_brokerArn :: Lens' CreateBrokerResponse (Maybe Text)
 
 -- | The response's http status code.
 createBrokerResponse_httpStatus :: Lens' CreateBrokerResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.CreateBroker.CreateBroker
-instance GHC.Show.Show Network.AWS.MQ.CreateBroker.CreateBroker
-instance GHC.Read.Read Network.AWS.MQ.CreateBroker.CreateBroker
-instance GHC.Classes.Eq Network.AWS.MQ.CreateBroker.CreateBroker
-instance GHC.Generics.Generic Network.AWS.MQ.CreateBroker.CreateBrokerResponse
-instance GHC.Show.Show Network.AWS.MQ.CreateBroker.CreateBrokerResponse
-instance GHC.Read.Read Network.AWS.MQ.CreateBroker.CreateBrokerResponse
-instance GHC.Classes.Eq Network.AWS.MQ.CreateBroker.CreateBrokerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.CreateBroker.CreateBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateBroker.CreateBrokerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.CreateBroker.CreateBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.CreateBroker.CreateBroker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.CreateBroker.CreateBroker
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.CreateBroker.CreateBroker
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.CreateBroker.CreateBroker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.CreateBroker.CreateBroker
+instance GHC.Generics.Generic Amazonka.MQ.CreateBroker.CreateBroker
+instance GHC.Show.Show Amazonka.MQ.CreateBroker.CreateBroker
+instance GHC.Read.Read Amazonka.MQ.CreateBroker.CreateBroker
+instance GHC.Classes.Eq Amazonka.MQ.CreateBroker.CreateBroker
+instance GHC.Generics.Generic Amazonka.MQ.CreateBroker.CreateBrokerResponse
+instance GHC.Show.Show Amazonka.MQ.CreateBroker.CreateBrokerResponse
+instance GHC.Read.Read Amazonka.MQ.CreateBroker.CreateBrokerResponse
+instance GHC.Classes.Eq Amazonka.MQ.CreateBroker.CreateBrokerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.CreateBroker.CreateBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateBroker.CreateBrokerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.CreateBroker.CreateBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.CreateBroker.CreateBroker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.CreateBroker.CreateBroker
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.CreateBroker.CreateBroker
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.CreateBroker.CreateBroker
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.CreateBroker.CreateBroker
 
 
 -- | Adds a pending configuration change to a broker.
-module Network.AWS.MQ.UpdateBroker
+module Amazonka.MQ.UpdateBroker
 
 -- | Updates the broker using the specified properties.
 --   
@@ -6559,26 +6559,26 @@ updateBrokerResponse_hostInstanceType :: Lens' UpdateBrokerResponse (Maybe Text)
 
 -- | The response's http status code.
 updateBrokerResponse_httpStatus :: Lens' UpdateBrokerResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance GHC.Show.Show Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance GHC.Read.Read Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance GHC.Classes.Eq Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance GHC.Generics.Generic Network.AWS.MQ.UpdateBroker.UpdateBrokerResponse
-instance GHC.Show.Show Network.AWS.MQ.UpdateBroker.UpdateBrokerResponse
-instance GHC.Read.Read Network.AWS.MQ.UpdateBroker.UpdateBrokerResponse
-instance GHC.Classes.Eq Network.AWS.MQ.UpdateBroker.UpdateBrokerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.UpdateBroker.UpdateBrokerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance Control.DeepSeq.NFData Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.UpdateBroker.UpdateBroker
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.UpdateBroker.UpdateBroker
+instance GHC.Generics.Generic Amazonka.MQ.UpdateBroker.UpdateBroker
+instance GHC.Show.Show Amazonka.MQ.UpdateBroker.UpdateBroker
+instance GHC.Read.Read Amazonka.MQ.UpdateBroker.UpdateBroker
+instance GHC.Classes.Eq Amazonka.MQ.UpdateBroker.UpdateBroker
+instance GHC.Generics.Generic Amazonka.MQ.UpdateBroker.UpdateBrokerResponse
+instance GHC.Show.Show Amazonka.MQ.UpdateBroker.UpdateBrokerResponse
+instance GHC.Read.Read Amazonka.MQ.UpdateBroker.UpdateBrokerResponse
+instance GHC.Classes.Eq Amazonka.MQ.UpdateBroker.UpdateBrokerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.UpdateBroker.UpdateBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.UpdateBroker.UpdateBrokerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.UpdateBroker.UpdateBroker
+instance Control.DeepSeq.NFData Amazonka.MQ.UpdateBroker.UpdateBroker
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.UpdateBroker.UpdateBroker
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.UpdateBroker.UpdateBroker
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.UpdateBroker.UpdateBroker
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.UpdateBroker.UpdateBroker
 
 
 -- | Updates the specified configuration.
-module Network.AWS.MQ.UpdateConfiguration
+module Amazonka.MQ.UpdateConfiguration
 
 -- | Updates the specified configuration.
 --   
@@ -6720,26 +6720,26 @@ updateConfigurationResponse_id :: Lens' UpdateConfigurationResponse (Maybe Text)
 
 -- | The response's http status code.
 updateConfigurationResponse_httpStatus :: Lens' UpdateConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance GHC.Show.Show Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance GHC.Read.Read Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance GHC.Classes.Eq Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance GHC.Generics.Generic Network.AWS.MQ.UpdateConfiguration.UpdateConfigurationResponse
-instance GHC.Show.Show Network.AWS.MQ.UpdateConfiguration.UpdateConfigurationResponse
-instance GHC.Read.Read Network.AWS.MQ.UpdateConfiguration.UpdateConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.MQ.UpdateConfiguration.UpdateConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MQ.UpdateConfiguration.UpdateConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.UpdateConfiguration.UpdateConfiguration
+instance GHC.Generics.Generic Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance GHC.Show.Show Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance GHC.Read.Read Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance GHC.Classes.Eq Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance GHC.Generics.Generic Amazonka.MQ.UpdateConfiguration.UpdateConfigurationResponse
+instance GHC.Show.Show Amazonka.MQ.UpdateConfiguration.UpdateConfigurationResponse
+instance GHC.Read.Read Amazonka.MQ.UpdateConfiguration.UpdateConfigurationResponse
+instance GHC.Classes.Eq Amazonka.MQ.UpdateConfiguration.UpdateConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance Control.DeepSeq.NFData Amazonka.MQ.UpdateConfiguration.UpdateConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance Control.DeepSeq.NFData Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.UpdateConfiguration.UpdateConfiguration
 
 
 -- | Updates the information for an ActiveMQ user.
-module Network.AWS.MQ.UpdateUser
+module Amazonka.MQ.UpdateUser
 
 -- | Updates the information for an ActiveMQ user.
 --   
@@ -6845,25 +6845,25 @@ newUpdateUserResponse :: Int -> UpdateUserResponse
 
 -- | The response's http status code.
 updateUserResponse_httpStatus :: Lens' UpdateUserResponse Int
-instance GHC.Generics.Generic Network.AWS.MQ.UpdateUser.UpdateUser
-instance GHC.Show.Show Network.AWS.MQ.UpdateUser.UpdateUser
-instance GHC.Read.Read Network.AWS.MQ.UpdateUser.UpdateUser
-instance GHC.Classes.Eq Network.AWS.MQ.UpdateUser.UpdateUser
-instance GHC.Generics.Generic Network.AWS.MQ.UpdateUser.UpdateUserResponse
-instance GHC.Show.Show Network.AWS.MQ.UpdateUser.UpdateUserResponse
-instance GHC.Read.Read Network.AWS.MQ.UpdateUser.UpdateUserResponse
-instance GHC.Classes.Eq Network.AWS.MQ.UpdateUser.UpdateUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MQ.UpdateUser.UpdateUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.UpdateUser.UpdateUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MQ.UpdateUser.UpdateUser
-instance Control.DeepSeq.NFData Network.AWS.MQ.UpdateUser.UpdateUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MQ.UpdateUser.UpdateUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MQ.UpdateUser.UpdateUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.MQ.UpdateUser.UpdateUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MQ.UpdateUser.UpdateUser
+instance GHC.Generics.Generic Amazonka.MQ.UpdateUser.UpdateUser
+instance GHC.Show.Show Amazonka.MQ.UpdateUser.UpdateUser
+instance GHC.Read.Read Amazonka.MQ.UpdateUser.UpdateUser
+instance GHC.Classes.Eq Amazonka.MQ.UpdateUser.UpdateUser
+instance GHC.Generics.Generic Amazonka.MQ.UpdateUser.UpdateUserResponse
+instance GHC.Show.Show Amazonka.MQ.UpdateUser.UpdateUserResponse
+instance GHC.Read.Read Amazonka.MQ.UpdateUser.UpdateUserResponse
+instance GHC.Classes.Eq Amazonka.MQ.UpdateUser.UpdateUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.MQ.UpdateUser.UpdateUser
+instance Control.DeepSeq.NFData Amazonka.MQ.UpdateUser.UpdateUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.MQ.UpdateUser.UpdateUser
+instance Control.DeepSeq.NFData Amazonka.MQ.UpdateUser.UpdateUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MQ.UpdateUser.UpdateUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MQ.UpdateUser.UpdateUser
+instance Amazonka.Data.Path.ToPath Amazonka.MQ.UpdateUser.UpdateUser
+instance Amazonka.Data.Query.ToQuery Amazonka.MQ.UpdateUser.UpdateUser
 
 
-module Network.AWS.MQ.Lens
+module Amazonka.MQ.Lens
 
 -- | Optional. The authentication strategy associated with the
 --   configuration. The default is SIMPLE.
@@ -7952,7 +7952,7 @@ weeklyStartTime_timeOfDay :: Lens' WeeklyStartTime Text
 weeklyStartTime_dayOfWeek :: Lens' WeeklyStartTime DayOfWeek
 
 
-module Network.AWS.MQ.Waiters
+module Amazonka.MQ.Waiters
 
 
 -- | Derived from API version <tt>2017-11-27</tt> of the AWS service
@@ -7963,7 +7963,7 @@ module Network.AWS.MQ.Waiters
 --   the cloud. A message broker allows software applications and
 --   components to communicate using various programming languages,
 --   operating systems, and formal messaging protocols.
-module Network.AWS.MQ
+module Amazonka.MQ
 
 -- | API version <tt>2017-11-27</tt> of the Amazon MQ SDK configuration.
 defaultService :: Service

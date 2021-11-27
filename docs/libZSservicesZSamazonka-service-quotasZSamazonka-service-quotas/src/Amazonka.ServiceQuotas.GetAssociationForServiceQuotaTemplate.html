@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves the status of the association for the quota request template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier">GetAssociationForServiceQuotaTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#newGetAssociationForServiceQuotaTemplate"><span class="hs-identifier">newGetAssociationForServiceQuotaTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier">GetAssociationForServiceQuotaTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#newGetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier">newGetAssociationForServiceQuotaTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus"><span class="hs-identifier">getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#getAssociationForServiceQuotaTemplateResponse_httpStatus"><span class="hs-identifier">getAssociationForServiceQuotaTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.html"><span class="hs-identifier">Amazonka.ServiceQuotas.Types</span></a></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newGetAssociationForServiceQuotaTemplate' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679181040"><span id="local-6989586621679181041"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssociationForServiceQuotaTemplate"><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-var">GetAssociationForServiceQuotaTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssociationForServiceQuotaTemplate%27"><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate%27"><span class="hs-identifier hs-var">GetAssociationForServiceQuotaTemplate'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679181035"><span id="local-6989586621679181037"><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplate
+-&gt; GetAssociationForServiceQuotaTemplate -&gt; Bool
+(GetAssociationForServiceQuotaTemplate
+ -&gt; GetAssociationForServiceQuotaTemplate -&gt; Bool)
+-&gt; (GetAssociationForServiceQuotaTemplate
+    -&gt; GetAssociationForServiceQuotaTemplate -&gt; Bool)
+-&gt; Eq GetAssociationForServiceQuotaTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAssociationForServiceQuotaTemplate
+-&gt; GetAssociationForServiceQuotaTemplate -&gt; Bool
+$c/= :: GetAssociationForServiceQuotaTemplate
+-&gt; GetAssociationForServiceQuotaTemplate -&gt; Bool
+== :: GetAssociationForServiceQuotaTemplate
+-&gt; GetAssociationForServiceQuotaTemplate -&gt; Bool
+$c== :: GetAssociationForServiceQuotaTemplate
+-&gt; GetAssociationForServiceQuotaTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181026"><span id="local-6989586621679181028"><span id="local-6989586621679181030"><span id="local-6989586621679181032"><span class="annot"><span class="annottext">ReadPrec [GetAssociationForServiceQuotaTemplate]
+ReadPrec GetAssociationForServiceQuotaTemplate
+Int -&gt; ReadS GetAssociationForServiceQuotaTemplate
+ReadS [GetAssociationForServiceQuotaTemplate]
+(Int -&gt; ReadS GetAssociationForServiceQuotaTemplate)
+-&gt; ReadS [GetAssociationForServiceQuotaTemplate]
+-&gt; ReadPrec GetAssociationForServiceQuotaTemplate
+-&gt; ReadPrec [GetAssociationForServiceQuotaTemplate]
+-&gt; Read GetAssociationForServiceQuotaTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAssociationForServiceQuotaTemplate]
+$creadListPrec :: ReadPrec [GetAssociationForServiceQuotaTemplate]
+readPrec :: ReadPrec GetAssociationForServiceQuotaTemplate
+$creadPrec :: ReadPrec GetAssociationForServiceQuotaTemplate
+readList :: ReadS [GetAssociationForServiceQuotaTemplate]
+$creadList :: ReadS [GetAssociationForServiceQuotaTemplate]
+readsPrec :: Int -&gt; ReadS GetAssociationForServiceQuotaTemplate
+$creadsPrec :: Int -&gt; ReadS GetAssociationForServiceQuotaTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679181019"><span id="local-6989586621679181021"><span id="local-6989586621679181023"><span class="annot"><span class="annottext">Int -&gt; GetAssociationForServiceQuotaTemplate -&gt; ShowS
+[GetAssociationForServiceQuotaTemplate] -&gt; ShowS
+GetAssociationForServiceQuotaTemplate -&gt; String
+(Int -&gt; GetAssociationForServiceQuotaTemplate -&gt; ShowS)
+-&gt; (GetAssociationForServiceQuotaTemplate -&gt; String)
+-&gt; ([GetAssociationForServiceQuotaTemplate] -&gt; ShowS)
+-&gt; Show GetAssociationForServiceQuotaTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAssociationForServiceQuotaTemplate] -&gt; ShowS
+$cshowList :: [GetAssociationForServiceQuotaTemplate] -&gt; ShowS
+show :: GetAssociationForServiceQuotaTemplate -&gt; String
+$cshow :: GetAssociationForServiceQuotaTemplate -&gt; String
+showsPrec :: Int -&gt; GetAssociationForServiceQuotaTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAssociationForServiceQuotaTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAssociationForServiceQuotaTemplate
+ -&gt; Rep GetAssociationForServiceQuotaTemplate x)
+-&gt; (forall x.
+    Rep GetAssociationForServiceQuotaTemplate x
+    -&gt; GetAssociationForServiceQuotaTemplate)
+-&gt; Generic GetAssociationForServiceQuotaTemplate
+forall x.
+Rep GetAssociationForServiceQuotaTemplate x
+-&gt; GetAssociationForServiceQuotaTemplate
+forall x.
+GetAssociationForServiceQuotaTemplate
+-&gt; Rep GetAssociationForServiceQuotaTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetAssociationForServiceQuotaTemplate x
+-&gt; GetAssociationForServiceQuotaTemplate
+$cfrom :: forall x.
+GetAssociationForServiceQuotaTemplate
+-&gt; Rep GetAssociationForServiceQuotaTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'GetAssociationForServiceQuotaTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#newGetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">newGetAssociationForServiceQuotaTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span><span>
+</span><span id="line-58"></span><span id="newGetAssociationForServiceQuotaTemplate"><span class="annot"><span class="annottext">newGetAssociationForServiceQuotaTemplate :: GetAssociationForServiceQuotaTemplate
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#newGetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-var hs-var">newGetAssociationForServiceQuotaTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplate
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate%27"><span class="hs-identifier hs-var">GetAssociationForServiceQuotaTemplate'</span></a></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-66"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679181011"><span class="annot"><span class="annottext">request :: GetAssociationForServiceQuotaTemplate
+-&gt; Request GetAssociationForServiceQuotaTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetAssociationForServiceQuotaTemplate
+-&gt; Request GetAssociationForServiceQuotaTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ServiceQuotas.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679181007"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetAssociationForServiceQuotaTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetAssociationForServiceQuotaTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse GetAssociationForServiceQuotaTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetAssociationForServiceQuotaTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse GetAssociationForServiceQuotaTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-72"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679181004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181004"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679181003"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679181003"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679181002"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181002"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceQuotaTemplateAssociationStatus
+-&gt; Int -&gt; GetAssociationForServiceQuotaTemplateResponse
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var">GetAssociationForServiceQuotaTemplateResponse'</span></a></span><span>
+</span><span id="line-74"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceQuotaTemplateAssociationStatus
+ -&gt; Int -&gt; GetAssociationForServiceQuotaTemplateResponse)
+-&gt; Either String (Maybe ServiceQuotaTemplateAssociationStatus)
+-&gt; Either
+     String (Int -&gt; GetAssociationForServiceQuotaTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679181002"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key
+-&gt; Either String (Maybe ServiceQuotaTemplateAssociationStatus)
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;ServiceQuotaTemplateAssociationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; GetAssociationForServiceQuotaTemplateResponse)
+-&gt; Either String Int
+-&gt; Either String GetAssociationForServiceQuotaTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679181004"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679180994"><span id="local-6989586621679180996"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679180991"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679180987"><span class="annot"><span class="annottext">toHeaders :: GetAssociationForServiceQuotaTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetAssociationForServiceQuotaTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-93"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-94"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-96"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679180977"><span id="local-6989586621679180979"><span id="local-6989586621679180981"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span></span></span></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679180975"><span class="annot"><span class="annottext">toJSON :: GetAssociationForServiceQuotaTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; GetAssociationForServiceQuotaTemplate -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679180970"><span class="annot"><span class="annottext">toPath :: GetAssociationForServiceQuotaTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetAssociationForServiceQuotaTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplate"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplate</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679180966"><span class="annot"><span class="annottext">toQuery :: GetAssociationForServiceQuotaTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetAssociationForServiceQuotaTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newGetAssociationForServiceQuotaTemplateResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679180963"><span id="local-6989586621679180964"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetAssociationForServiceQuotaTemplateResponse"><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-var">GetAssociationForServiceQuotaTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetAssociationForServiceQuotaTemplateResponse%27"><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var">GetAssociationForServiceQuotaTemplateResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The association status. If the status is @ASSOCIATED@, the quota</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- increase requests in the template are automatically applied to new</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- accounts in your organization.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AserviceQuotaTemplateAssociationStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplateResponse
+-&gt; Maybe ServiceQuotaTemplateAssociationStatus
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#%24sel%3AserviceQuotaTemplateAssociationStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var hs-var">serviceQuotaTemplateAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.html#ServiceQuotaTemplateAssociationStatus"><span class="hs-identifier hs-type">ServiceQuotaTemplateAssociationStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplateResponse -&gt; Int
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#%24sel%3AhttpStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180957"><span id="local-6989586621679180959"><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplateResponse
+-&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; Bool
+(GetAssociationForServiceQuotaTemplateResponse
+ -&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; Bool)
+-&gt; (GetAssociationForServiceQuotaTemplateResponse
+    -&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; Bool)
+-&gt; Eq GetAssociationForServiceQuotaTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetAssociationForServiceQuotaTemplateResponse
+-&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; Bool
+$c/= :: GetAssociationForServiceQuotaTemplateResponse
+-&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; Bool
+== :: GetAssociationForServiceQuotaTemplateResponse
+-&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; Bool
+$c== :: GetAssociationForServiceQuotaTemplateResponse
+-&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180949"><span id="local-6989586621679180951"><span id="local-6989586621679180953"><span id="local-6989586621679180955"><span class="annot"><span class="annottext">ReadPrec [GetAssociationForServiceQuotaTemplateResponse]
+ReadPrec GetAssociationForServiceQuotaTemplateResponse
+Int -&gt; ReadS GetAssociationForServiceQuotaTemplateResponse
+ReadS [GetAssociationForServiceQuotaTemplateResponse]
+(Int -&gt; ReadS GetAssociationForServiceQuotaTemplateResponse)
+-&gt; ReadS [GetAssociationForServiceQuotaTemplateResponse]
+-&gt; ReadPrec GetAssociationForServiceQuotaTemplateResponse
+-&gt; ReadPrec [GetAssociationForServiceQuotaTemplateResponse]
+-&gt; Read GetAssociationForServiceQuotaTemplateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetAssociationForServiceQuotaTemplateResponse]
+$creadListPrec :: ReadPrec [GetAssociationForServiceQuotaTemplateResponse]
+readPrec :: ReadPrec GetAssociationForServiceQuotaTemplateResponse
+$creadPrec :: ReadPrec GetAssociationForServiceQuotaTemplateResponse
+readList :: ReadS [GetAssociationForServiceQuotaTemplateResponse]
+$creadList :: ReadS [GetAssociationForServiceQuotaTemplateResponse]
+readsPrec :: Int -&gt; ReadS GetAssociationForServiceQuotaTemplateResponse
+$creadsPrec :: Int -&gt; ReadS GetAssociationForServiceQuotaTemplateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180943"><span id="local-6989586621679180945"><span id="local-6989586621679180947"><span class="annot"><span class="annottext">Int -&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; ShowS
+[GetAssociationForServiceQuotaTemplateResponse] -&gt; ShowS
+GetAssociationForServiceQuotaTemplateResponse -&gt; String
+(Int -&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; ShowS)
+-&gt; (GetAssociationForServiceQuotaTemplateResponse -&gt; String)
+-&gt; ([GetAssociationForServiceQuotaTemplateResponse] -&gt; ShowS)
+-&gt; Show GetAssociationForServiceQuotaTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetAssociationForServiceQuotaTemplateResponse] -&gt; ShowS
+$cshowList :: [GetAssociationForServiceQuotaTemplateResponse] -&gt; ShowS
+show :: GetAssociationForServiceQuotaTemplateResponse -&gt; String
+$cshow :: GetAssociationForServiceQuotaTemplateResponse -&gt; String
+showsPrec :: Int -&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetAssociationForServiceQuotaTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetAssociationForServiceQuotaTemplateResponse
+ -&gt; Rep GetAssociationForServiceQuotaTemplateResponse x)
+-&gt; (forall x.
+    Rep GetAssociationForServiceQuotaTemplateResponse x
+    -&gt; GetAssociationForServiceQuotaTemplateResponse)
+-&gt; Generic GetAssociationForServiceQuotaTemplateResponse
+forall x.
+Rep GetAssociationForServiceQuotaTemplateResponse x
+-&gt; GetAssociationForServiceQuotaTemplateResponse
+forall x.
+GetAssociationForServiceQuotaTemplateResponse
+-&gt; Rep GetAssociationForServiceQuotaTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetAssociationForServiceQuotaTemplateResponse x
+-&gt; GetAssociationForServiceQuotaTemplateResponse
+$cfrom :: forall x.
+GetAssociationForServiceQuotaTemplateResponse
+-&gt; Rep GetAssociationForServiceQuotaTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Create a value of 'GetAssociationForServiceQuotaTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'serviceQuotaTemplateAssociationStatus', 'getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus' - The association status. If the status is @ASSOCIATED@, the quota</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- increase requests in the template are automatically applied to new</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- accounts in your organization.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'httpStatus', 'getAssociationForServiceQuotaTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#newGetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">newGetAssociationForServiceQuotaTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse</span></a></span><span>
+</span><span id="line-150"></span><span id="newGetAssociationForServiceQuotaTemplateResponse"><span class="annot"><span class="annottext">newGetAssociationForServiceQuotaTemplateResponse :: Int -&gt; GetAssociationForServiceQuotaTemplateResponse
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#newGetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-var hs-var">newGetAssociationForServiceQuotaTemplateResponse</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679180940"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplateResponse' :: Maybe ServiceQuotaTemplateAssociationStatus
+-&gt; Int -&gt; GetAssociationForServiceQuotaTemplateResponse
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceQuotaTemplateAssociationStatus:GetAssociationForServiceQuotaTemplateResponse' :: Maybe ServiceQuotaTemplateAssociationStatus
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#%24sel%3AserviceQuotaTemplateAssociationStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var">serviceQuotaTemplateAssociationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceQuotaTemplateAssociationStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssociationForServiceQuotaTemplateResponse' :: Int
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#%24sel%3AhttpStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180940"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The association status. If the status is @ASSOCIATED@, the quota</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- increase requests in the template are automatically applied to new</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- accounts in your organization.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus"><span class="hs-identifier hs-type">getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.Types.ServiceQuotaTemplateAssociationStatus.html#ServiceQuotaTemplateAssociationStatus"><span class="hs-identifier hs-type">ServiceQuotaTemplateAssociationStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus"><span class="annot"><span class="annottext">getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus :: (Maybe ServiceQuotaTemplateAssociationStatus
+ -&gt; f (Maybe ServiceQuotaTemplateAssociationStatus))
+-&gt; GetAssociationForServiceQuotaTemplateResponse
+-&gt; f GetAssociationForServiceQuotaTemplateResponse
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus"><span class="hs-identifier hs-var hs-var">getAssociationForServiceQuotaTemplateResponse_serviceQuotaTemplateAssociationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssociationForServiceQuotaTemplateResponse
+ -&gt; Maybe ServiceQuotaTemplateAssociationStatus)
+-&gt; (GetAssociationForServiceQuotaTemplateResponse
+    -&gt; Maybe ServiceQuotaTemplateAssociationStatus
+    -&gt; GetAssociationForServiceQuotaTemplateResponse)
+-&gt; Lens
+     GetAssociationForServiceQuotaTemplateResponse
+     GetAssociationForServiceQuotaTemplateResponse
+     (Maybe ServiceQuotaTemplateAssociationStatus)
+     (Maybe ServiceQuotaTemplateAssociationStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180937"><span class="annot"><span class="annottext">Maybe ServiceQuotaTemplateAssociationStatus
+serviceQuotaTemplateAssociationStatus :: Maybe ServiceQuotaTemplateAssociationStatus
+$sel:serviceQuotaTemplateAssociationStatus:GetAssociationForServiceQuotaTemplateResponse' :: GetAssociationForServiceQuotaTemplateResponse
+-&gt; Maybe ServiceQuotaTemplateAssociationStatus
+</span><a href="#local-6989586621679180937"><span class="hs-identifier hs-var hs-var">serviceQuotaTemplateAssociationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceQuotaTemplateAssociationStatus
+</span><a href="#local-6989586621679180937"><span class="hs-identifier hs-var">serviceQuotaTemplateAssociationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180936"><span class="annot"><span class="annottext">s :: GetAssociationForServiceQuotaTemplateResponse
+</span><a href="#local-6989586621679180936"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180935"><span class="annot"><span class="annottext">Maybe ServiceQuotaTemplateAssociationStatus
+</span><a href="#local-6989586621679180935"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplateResponse
+</span><a href="#local-6989586621679180936"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceQuotaTemplateAssociationStatus:GetAssociationForServiceQuotaTemplateResponse' :: Maybe ServiceQuotaTemplateAssociationStatus
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#%24sel%3AserviceQuotaTemplateAssociationStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var">serviceQuotaTemplateAssociationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceQuotaTemplateAssociationStatus
+</span><a href="#local-6989586621679180935"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#getAssociationForServiceQuotaTemplateResponse_httpStatus"><span class="hs-identifier hs-type">getAssociationForServiceQuotaTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-166"></span><span id="getAssociationForServiceQuotaTemplateResponse_httpStatus"><span class="annot"><span class="annottext">getAssociationForServiceQuotaTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetAssociationForServiceQuotaTemplateResponse
+-&gt; f GetAssociationForServiceQuotaTemplateResponse
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#getAssociationForServiceQuotaTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getAssociationForServiceQuotaTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetAssociationForServiceQuotaTemplateResponse -&gt; Int)
+-&gt; (GetAssociationForServiceQuotaTemplateResponse
+    -&gt; Int -&gt; GetAssociationForServiceQuotaTemplateResponse)
+-&gt; Lens
+     GetAssociationForServiceQuotaTemplateResponse
+     GetAssociationForServiceQuotaTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180934"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetAssociationForServiceQuotaTemplateResponse' :: GetAssociationForServiceQuotaTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679180934"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180934"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180933"><span class="annot"><span class="annottext">s :: GetAssociationForServiceQuotaTemplateResponse
+</span><a href="#local-6989586621679180933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180932"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetAssociationForServiceQuotaTemplateResponse
+</span><a href="#local-6989586621679180933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetAssociationForServiceQuotaTemplateResponse' :: Int
+</span><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#%24sel%3AhttpStatus%3AGetAssociationForServiceQuotaTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679180930"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.ServiceQuotas.GetAssociationForServiceQuotaTemplate.html#GetAssociationForServiceQuotaTemplateResponse"><span class="hs-identifier hs-type">GetAssociationForServiceQuotaTemplateResponse</span></a></span></span><span>
+</span><span id="line-171"></span></pre></body></html>

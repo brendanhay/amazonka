@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Greengrass.GetBulkDeploymentStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns the status of a bulk deployment.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Greengrass.GetBulkDeploymentStatus</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier">GetBulkDeploymentStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#newGetBulkDeploymentStatus"><span class="hs-identifier">newGetBulkDeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatus_bulkDeploymentId"><span class="hs-identifier">getBulkDeploymentStatus_bulkDeploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#newGetBulkDeploymentStatusResponse"><span class="hs-identifier">newGetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_createdAt"><span class="hs-identifier">getBulkDeploymentStatusResponse_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_errorDetails"><span class="hs-identifier">getBulkDeploymentStatusResponse_errorDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_bulkDeploymentStatus"><span class="hs-identifier">getBulkDeploymentStatusResponse_bulkDeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_errorMessage"><span class="hs-identifier">getBulkDeploymentStatusResponse_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_bulkDeploymentMetrics"><span class="hs-identifier">getBulkDeploymentStatusResponse_bulkDeploymentMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_tags"><span class="hs-identifier">getBulkDeploymentStatusResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_httpStatus"><span class="hs-identifier">getBulkDeploymentStatusResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.html"><span class="hs-identifier">Amazonka.Greengrass.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newGetBulkDeploymentStatus' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679360336"><span id="local-6989586621679360337"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBulkDeploymentStatus"><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-var">GetBulkDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBulkDeploymentStatus%27"><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus%27"><span class="hs-identifier hs-var">GetBulkDeploymentStatus'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the bulk deployment.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AbulkDeploymentId%3AGetBulkDeploymentStatus%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatus -&gt; Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentId%3AGetBulkDeploymentStatus%27"><span class="hs-identifier hs-var hs-var">bulkDeploymentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360330"><span id="local-6989586621679360332"><span class="annot"><span class="annottext">GetBulkDeploymentStatus -&gt; GetBulkDeploymentStatus -&gt; Bool
+(GetBulkDeploymentStatus -&gt; GetBulkDeploymentStatus -&gt; Bool)
+-&gt; (GetBulkDeploymentStatus -&gt; GetBulkDeploymentStatus -&gt; Bool)
+-&gt; Eq GetBulkDeploymentStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBulkDeploymentStatus -&gt; GetBulkDeploymentStatus -&gt; Bool
+$c/= :: GetBulkDeploymentStatus -&gt; GetBulkDeploymentStatus -&gt; Bool
+== :: GetBulkDeploymentStatus -&gt; GetBulkDeploymentStatus -&gt; Bool
+$c== :: GetBulkDeploymentStatus -&gt; GetBulkDeploymentStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360321"><span id="local-6989586621679360323"><span id="local-6989586621679360325"><span id="local-6989586621679360327"><span class="annot"><span class="annottext">ReadPrec [GetBulkDeploymentStatus]
+ReadPrec GetBulkDeploymentStatus
+Int -&gt; ReadS GetBulkDeploymentStatus
+ReadS [GetBulkDeploymentStatus]
+(Int -&gt; ReadS GetBulkDeploymentStatus)
+-&gt; ReadS [GetBulkDeploymentStatus]
+-&gt; ReadPrec GetBulkDeploymentStatus
+-&gt; ReadPrec [GetBulkDeploymentStatus]
+-&gt; Read GetBulkDeploymentStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBulkDeploymentStatus]
+$creadListPrec :: ReadPrec [GetBulkDeploymentStatus]
+readPrec :: ReadPrec GetBulkDeploymentStatus
+$creadPrec :: ReadPrec GetBulkDeploymentStatus
+readList :: ReadS [GetBulkDeploymentStatus]
+$creadList :: ReadS [GetBulkDeploymentStatus]
+readsPrec :: Int -&gt; ReadS GetBulkDeploymentStatus
+$creadsPrec :: Int -&gt; ReadS GetBulkDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360314"><span id="local-6989586621679360316"><span id="local-6989586621679360318"><span class="annot"><span class="annottext">Int -&gt; GetBulkDeploymentStatus -&gt; ShowS
+[GetBulkDeploymentStatus] -&gt; ShowS
+GetBulkDeploymentStatus -&gt; String
+(Int -&gt; GetBulkDeploymentStatus -&gt; ShowS)
+-&gt; (GetBulkDeploymentStatus -&gt; String)
+-&gt; ([GetBulkDeploymentStatus] -&gt; ShowS)
+-&gt; Show GetBulkDeploymentStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBulkDeploymentStatus] -&gt; ShowS
+$cshowList :: [GetBulkDeploymentStatus] -&gt; ShowS
+show :: GetBulkDeploymentStatus -&gt; String
+$cshow :: GetBulkDeploymentStatus -&gt; String
+showsPrec :: Int -&gt; GetBulkDeploymentStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBulkDeploymentStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBulkDeploymentStatus -&gt; Rep GetBulkDeploymentStatus x)
+-&gt; (forall x.
+    Rep GetBulkDeploymentStatus x -&gt; GetBulkDeploymentStatus)
+-&gt; Generic GetBulkDeploymentStatus
+forall x. Rep GetBulkDeploymentStatus x -&gt; GetBulkDeploymentStatus
+forall x. GetBulkDeploymentStatus -&gt; Rep GetBulkDeploymentStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetBulkDeploymentStatus x -&gt; GetBulkDeploymentStatus
+$cfrom :: forall x. GetBulkDeploymentStatus -&gt; Rep GetBulkDeploymentStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'GetBulkDeploymentStatus' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'bulkDeploymentId', 'getBulkDeploymentStatus_bulkDeploymentId' - The ID of the bulk deployment.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#newGetBulkDeploymentStatus"><span class="hs-identifier hs-type">newGetBulkDeploymentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'bulkDeploymentId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span>
+</span><span id="line-74"></span><span id="newGetBulkDeploymentStatus"><span class="annot"><span class="annottext">newGetBulkDeploymentStatus :: Text -&gt; GetBulkDeploymentStatus
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#newGetBulkDeploymentStatus"><span class="hs-identifier hs-var hs-var">newGetBulkDeploymentStatus</span></a></span></span><span> </span><span id="local-6989586621679360309"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360309"><span class="hs-identifier hs-var">pBulkDeploymentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">GetBulkDeploymentStatus' :: Text -&gt; GetBulkDeploymentStatus
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatus'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:bulkDeploymentId:GetBulkDeploymentStatus' :: Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentId%3AGetBulkDeploymentStatus%27"><span class="hs-identifier hs-var">bulkDeploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360309"><span class="hs-identifier hs-var">pBulkDeploymentId_</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The ID of the bulk deployment.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatus_bulkDeploymentId"><span class="hs-identifier hs-type">getBulkDeploymentStatus_bulkDeploymentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="getBulkDeploymentStatus_bulkDeploymentId"><span class="annot"><span class="annottext">getBulkDeploymentStatus_bulkDeploymentId :: (Text -&gt; f Text)
+-&gt; GetBulkDeploymentStatus -&gt; f GetBulkDeploymentStatus
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatus_bulkDeploymentId"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatus_bulkDeploymentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatus -&gt; Text)
+-&gt; (GetBulkDeploymentStatus -&gt; Text -&gt; GetBulkDeploymentStatus)
+-&gt; Lens GetBulkDeploymentStatus GetBulkDeploymentStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360306"><span class="annot"><span class="annottext">Text
+bulkDeploymentId :: Text
+$sel:bulkDeploymentId:GetBulkDeploymentStatus' :: GetBulkDeploymentStatus -&gt; Text
+</span><a href="#local-6989586621679360306"><span class="hs-identifier hs-var hs-var">bulkDeploymentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360306"><span class="hs-identifier hs-var">bulkDeploymentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360305"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatus
+</span><a href="#local-6989586621679360305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360304"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatus
+</span><a href="#local-6989586621679360305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bulkDeploymentId:GetBulkDeploymentStatus' :: Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentId%3AGetBulkDeploymentStatus%27"><span class="hs-identifier hs-var">bulkDeploymentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679360300"><span class="annot"><span class="annottext">request :: GetBulkDeploymentStatus -&gt; Request GetBulkDeploymentStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetBulkDeploymentStatus -&gt; Request GetBulkDeploymentStatus
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679360296"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetBulkDeploymentStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBulkDeploymentStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetBulkDeploymentStatus))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetBulkDeploymentStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetBulkDeploymentStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679360293"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360293"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679360292"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679360292"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679360291"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360291"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ErrorDetail]
+-&gt; Maybe BulkDeploymentStatus
+-&gt; Maybe Text
+-&gt; Maybe BulkDeploymentMetrics
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">GetBulkDeploymentStatusResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ErrorDetail]
+ -&gt; Maybe BulkDeploymentStatus
+ -&gt; Maybe Text
+ -&gt; Maybe BulkDeploymentMetrics
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ErrorDetail]
+      -&gt; Maybe BulkDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe BulkDeploymentMetrics
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetBulkDeploymentStatusResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ErrorDetail]
+   -&gt; Maybe BulkDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe BulkDeploymentMetrics
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Either String (Maybe [ErrorDetail])
+-&gt; Either
+     String
+     (Maybe BulkDeploymentStatus
+      -&gt; Maybe Text
+      -&gt; Maybe BulkDeploymentMetrics
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetBulkDeploymentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ErrorDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ErrorDetail]))
+-&gt; Maybe [ErrorDetail] -&gt; Either String (Maybe [ErrorDetail])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe BulkDeploymentStatus
+   -&gt; Maybe Text
+   -&gt; Maybe BulkDeploymentMetrics
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Either String (Maybe BulkDeploymentStatus)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe BulkDeploymentMetrics
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetBulkDeploymentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BulkDeploymentStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BulkDeploymentStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe BulkDeploymentMetrics
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe BulkDeploymentMetrics
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; GetBulkDeploymentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ErrorMessage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe BulkDeploymentMetrics
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Either String (Maybe BulkDeploymentMetrics)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Int -&gt; GetBulkDeploymentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe BulkDeploymentMetrics)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BulkDeploymentMetrics&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Int -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetBulkDeploymentStatusResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679360291"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Either String Int
+-&gt; Either String GetBulkDeploymentStatusResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360293"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360282"><span id="local-6989586621679360284"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679360279"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679360275"><span class="annot"><span class="annottext">toHeaders :: GetBulkDeploymentStatus -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetBulkDeploymentStatus -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-113"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679360269"><span class="annot"><span class="annottext">toPath :: GetBulkDeploymentStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360267"><span class="annot"><span class="annottext">Text
+bulkDeploymentId :: Text
+$sel:bulkDeploymentId:GetBulkDeploymentStatus' :: GetBulkDeploymentStatus -&gt; Text
+</span><a href="#local-6989586621679360267"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/bulk/deployments/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679360267"><span class="hs-identifier hs-var">bulkDeploymentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/status&quot;</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatus"><span class="hs-identifier hs-type">GetBulkDeploymentStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679360263"><span class="annot"><span class="annottext">toQuery :: GetBulkDeploymentStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetBulkDeploymentStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newGetBulkDeploymentStatusResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679360260"><span id="local-6989586621679360261"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetBulkDeploymentStatusResponse"><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-var">GetBulkDeploymentStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetBulkDeploymentStatusResponse%27"><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">GetBulkDeploymentStatusResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time, in ISO format, when the deployment was created.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AcreatedAt%3AGetBulkDeploymentStatusResponse%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AcreatedAt%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | Error details</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AerrorDetails%3AGetBulkDeploymentStatusResponse%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse -&gt; Maybe [ErrorDetail]
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AerrorDetails%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var hs-var">errorDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The status of the bulk deployment.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AbulkDeploymentStatus%3AGetBulkDeploymentStatusResponse%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse -&gt; Maybe BulkDeploymentStatus
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentStatus%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var hs-var">bulkDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.BulkDeploymentStatus.html#BulkDeploymentStatus"><span class="hs-identifier hs-type">BulkDeploymentStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- | Error message</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AerrorMessage%3AGetBulkDeploymentStatusResponse%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AerrorMessage%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | Relevant metrics on input records processed during bulk deployment.</span><span>
+</span><span id="line-139"></span><span>    </span><span id="%24sel%3AbulkDeploymentMetrics%3AGetBulkDeploymentStatusResponse%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse -&gt; Maybe BulkDeploymentMetrics
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentMetrics%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var hs-var">bulkDeploymentMetrics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.BulkDeploymentMetrics.html#BulkDeploymentMetrics"><span class="hs-identifier hs-type">BulkDeploymentMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3Atags%3AGetBulkDeploymentStatusResponse%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3Atags%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetBulkDeploymentStatusResponse%27"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse -&gt; Int
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AhttpStatus%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679360249"><span id="local-6989586621679360251"><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+-&gt; GetBulkDeploymentStatusResponse -&gt; Bool
+(GetBulkDeploymentStatusResponse
+ -&gt; GetBulkDeploymentStatusResponse -&gt; Bool)
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; GetBulkDeploymentStatusResponse -&gt; Bool)
+-&gt; Eq GetBulkDeploymentStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetBulkDeploymentStatusResponse
+-&gt; GetBulkDeploymentStatusResponse -&gt; Bool
+$c/= :: GetBulkDeploymentStatusResponse
+-&gt; GetBulkDeploymentStatusResponse -&gt; Bool
+== :: GetBulkDeploymentStatusResponse
+-&gt; GetBulkDeploymentStatusResponse -&gt; Bool
+$c== :: GetBulkDeploymentStatusResponse
+-&gt; GetBulkDeploymentStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360241"><span id="local-6989586621679360243"><span id="local-6989586621679360245"><span id="local-6989586621679360247"><span class="annot"><span class="annottext">ReadPrec [GetBulkDeploymentStatusResponse]
+ReadPrec GetBulkDeploymentStatusResponse
+Int -&gt; ReadS GetBulkDeploymentStatusResponse
+ReadS [GetBulkDeploymentStatusResponse]
+(Int -&gt; ReadS GetBulkDeploymentStatusResponse)
+-&gt; ReadS [GetBulkDeploymentStatusResponse]
+-&gt; ReadPrec GetBulkDeploymentStatusResponse
+-&gt; ReadPrec [GetBulkDeploymentStatusResponse]
+-&gt; Read GetBulkDeploymentStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetBulkDeploymentStatusResponse]
+$creadListPrec :: ReadPrec [GetBulkDeploymentStatusResponse]
+readPrec :: ReadPrec GetBulkDeploymentStatusResponse
+$creadPrec :: ReadPrec GetBulkDeploymentStatusResponse
+readList :: ReadS [GetBulkDeploymentStatusResponse]
+$creadList :: ReadS [GetBulkDeploymentStatusResponse]
+readsPrec :: Int -&gt; ReadS GetBulkDeploymentStatusResponse
+$creadsPrec :: Int -&gt; ReadS GetBulkDeploymentStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679360235"><span id="local-6989586621679360237"><span id="local-6989586621679360239"><span class="annot"><span class="annottext">Int -&gt; GetBulkDeploymentStatusResponse -&gt; ShowS
+[GetBulkDeploymentStatusResponse] -&gt; ShowS
+GetBulkDeploymentStatusResponse -&gt; String
+(Int -&gt; GetBulkDeploymentStatusResponse -&gt; ShowS)
+-&gt; (GetBulkDeploymentStatusResponse -&gt; String)
+-&gt; ([GetBulkDeploymentStatusResponse] -&gt; ShowS)
+-&gt; Show GetBulkDeploymentStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetBulkDeploymentStatusResponse] -&gt; ShowS
+$cshowList :: [GetBulkDeploymentStatusResponse] -&gt; ShowS
+show :: GetBulkDeploymentStatusResponse -&gt; String
+$cshow :: GetBulkDeploymentStatusResponse -&gt; String
+showsPrec :: Int -&gt; GetBulkDeploymentStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetBulkDeploymentStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetBulkDeploymentStatusResponse
+ -&gt; Rep GetBulkDeploymentStatusResponse x)
+-&gt; (forall x.
+    Rep GetBulkDeploymentStatusResponse x
+    -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Generic GetBulkDeploymentStatusResponse
+forall x.
+Rep GetBulkDeploymentStatusResponse x
+-&gt; GetBulkDeploymentStatusResponse
+forall x.
+GetBulkDeploymentStatusResponse
+-&gt; Rep GetBulkDeploymentStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetBulkDeploymentStatusResponse x
+-&gt; GetBulkDeploymentStatusResponse
+$cfrom :: forall x.
+GetBulkDeploymentStatusResponse
+-&gt; Rep GetBulkDeploymentStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Create a value of 'GetBulkDeploymentStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'createdAt', 'getBulkDeploymentStatusResponse_createdAt' - The time, in ISO format, when the deployment was created.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'errorDetails', 'getBulkDeploymentStatusResponse_errorDetails' - Error details</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'bulkDeploymentStatus', 'getBulkDeploymentStatusResponse_bulkDeploymentStatus' - The status of the bulk deployment.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'errorMessage', 'getBulkDeploymentStatusResponse_errorMessage' - Error message</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'bulkDeploymentMetrics', 'getBulkDeploymentStatusResponse_bulkDeploymentMetrics' - Relevant metrics on input records processed during bulk deployment.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'tags', 'getBulkDeploymentStatusResponse_tags' - Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'getBulkDeploymentStatusResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#newGetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">newGetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newGetBulkDeploymentStatusResponse"><span class="annot"><span class="annottext">newGetBulkDeploymentStatusResponse :: Int -&gt; GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#newGetBulkDeploymentStatusResponse"><span class="hs-identifier hs-var hs-var">newGetBulkDeploymentStatusResponse</span></a></span></span><span> </span><span id="local-6989586621679360232"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360232"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse' :: Maybe Text
+-&gt; Maybe [ErrorDetail]
+-&gt; Maybe BulkDeploymentStatus
+-&gt; Maybe Text
+-&gt; Maybe BulkDeploymentMetrics
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createdAt:GetBulkDeploymentStatusResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AcreatedAt%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorDetails:GetBulkDeploymentStatusResponse' :: Maybe [ErrorDetail]
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AerrorDetails%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">errorDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:bulkDeploymentStatus:GetBulkDeploymentStatusResponse' :: Maybe BulkDeploymentStatus
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentStatus%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">bulkDeploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BulkDeploymentStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorMessage:GetBulkDeploymentStatusResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AerrorMessage%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:bulkDeploymentMetrics:GetBulkDeploymentStatusResponse' :: Maybe BulkDeploymentMetrics
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentMetrics%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">bulkDeploymentMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BulkDeploymentMetrics
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:GetBulkDeploymentStatusResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3Atags%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetBulkDeploymentStatusResponse' :: Int
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AhttpStatus%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360232"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The time, in ISO format, when the deployment was created.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_createdAt"><span class="hs-identifier hs-type">getBulkDeploymentStatusResponse_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="getBulkDeploymentStatusResponse_createdAt"><span class="annot"><span class="annottext">getBulkDeploymentStatusResponse_createdAt :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_createdAt"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatusResponse_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatusResponse -&gt; Maybe Text)
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; Maybe Text -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Lens
+     GetBulkDeploymentStatusResponse
+     GetBulkDeploymentStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360231"><span class="annot"><span class="annottext">Maybe Text
+createdAt :: Maybe Text
+$sel:createdAt:GetBulkDeploymentStatusResponse' :: GetBulkDeploymentStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679360231"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360231"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360230"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360229"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:GetBulkDeploymentStatusResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AcreatedAt%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Error details</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_errorDetails"><span class="hs-identifier hs-type">getBulkDeploymentStatusResponse_errorDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Greengrass.Types.ErrorDetail.html#ErrorDetail"><span class="hs-identifier hs-type">ErrorDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="getBulkDeploymentStatusResponse_errorDetails"><span class="annot"><span class="annottext">getBulkDeploymentStatusResponse_errorDetails :: (Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_errorDetails"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatusResponse_errorDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatusResponse -&gt; Maybe [ErrorDetail])
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; Maybe [ErrorDetail] -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Lens
+     GetBulkDeploymentStatusResponse
+     GetBulkDeploymentStatusResponse
+     (Maybe [ErrorDetail])
+     (Maybe [ErrorDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360228"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+errorDetails :: Maybe [ErrorDetail]
+$sel:errorDetails:GetBulkDeploymentStatusResponse' :: GetBulkDeploymentStatusResponse -&gt; Maybe [ErrorDetail]
+</span><a href="#local-6989586621679360228"><span class="hs-identifier hs-var hs-var">errorDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679360228"><span class="hs-identifier hs-var">errorDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360227"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360226"><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679360226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorDetails:GetBulkDeploymentStatusResponse' :: Maybe [ErrorDetail]
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AerrorDetails%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">errorDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ErrorDetail]
+</span><a href="#local-6989586621679360226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+ -&gt; GetBulkDeploymentStatusResponse
+ -&gt; f GetBulkDeploymentStatusResponse)
+-&gt; ((Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+    -&gt; Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+-&gt; (Maybe [ErrorDetail] -&gt; f (Maybe [ErrorDetail]))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ErrorDetail] [ErrorDetail] [ErrorDetail] [ErrorDetail]
+-&gt; Iso
+     (Maybe [ErrorDetail])
+     (Maybe [ErrorDetail])
+     (Maybe [ErrorDetail])
+     (Maybe [ErrorDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ErrorDetail] [ErrorDetail] [ErrorDetail] [ErrorDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The status of the bulk deployment.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_bulkDeploymentStatus"><span class="hs-identifier hs-type">getBulkDeploymentStatusResponse_bulkDeploymentStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.BulkDeploymentStatus.html#BulkDeploymentStatus"><span class="hs-identifier hs-type">BulkDeploymentStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="getBulkDeploymentStatusResponse_bulkDeploymentStatus"><span class="annot"><span class="annottext">getBulkDeploymentStatusResponse_bulkDeploymentStatus :: (Maybe BulkDeploymentStatus -&gt; f (Maybe BulkDeploymentStatus))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_bulkDeploymentStatus"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatusResponse_bulkDeploymentStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatusResponse -&gt; Maybe BulkDeploymentStatus)
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; Maybe BulkDeploymentStatus -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Lens
+     GetBulkDeploymentStatusResponse
+     GetBulkDeploymentStatusResponse
+     (Maybe BulkDeploymentStatus)
+     (Maybe BulkDeploymentStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360222"><span class="annot"><span class="annottext">Maybe BulkDeploymentStatus
+bulkDeploymentStatus :: Maybe BulkDeploymentStatus
+$sel:bulkDeploymentStatus:GetBulkDeploymentStatusResponse' :: GetBulkDeploymentStatusResponse -&gt; Maybe BulkDeploymentStatus
+</span><a href="#local-6989586621679360222"><span class="hs-identifier hs-var hs-var">bulkDeploymentStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BulkDeploymentStatus
+</span><a href="#local-6989586621679360222"><span class="hs-identifier hs-var">bulkDeploymentStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360221"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360220"><span class="annot"><span class="annottext">Maybe BulkDeploymentStatus
+</span><a href="#local-6989586621679360220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bulkDeploymentStatus:GetBulkDeploymentStatusResponse' :: Maybe BulkDeploymentStatus
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentStatus%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">bulkDeploymentStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BulkDeploymentStatus
+</span><a href="#local-6989586621679360220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | Error message</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_errorMessage"><span class="hs-identifier hs-type">getBulkDeploymentStatusResponse_errorMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="getBulkDeploymentStatusResponse_errorMessage"><span class="annot"><span class="annottext">getBulkDeploymentStatusResponse_errorMessage :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_errorMessage"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatusResponse_errorMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatusResponse -&gt; Maybe Text)
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; Maybe Text -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Lens
+     GetBulkDeploymentStatusResponse
+     GetBulkDeploymentStatusResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360219"><span class="annot"><span class="annottext">Maybe Text
+errorMessage :: Maybe Text
+$sel:errorMessage:GetBulkDeploymentStatusResponse' :: GetBulkDeploymentStatusResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679360219"><span class="hs-identifier hs-var hs-var">errorMessage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360219"><span class="hs-identifier hs-var">errorMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360218"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360217"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorMessage:GetBulkDeploymentStatusResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AerrorMessage%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">errorMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679360217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | Relevant metrics on input records processed during bulk deployment.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_bulkDeploymentMetrics"><span class="hs-identifier hs-type">getBulkDeploymentStatusResponse_bulkDeploymentMetrics</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.BulkDeploymentMetrics.html#BulkDeploymentMetrics"><span class="hs-identifier hs-type">BulkDeploymentMetrics</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span id="getBulkDeploymentStatusResponse_bulkDeploymentMetrics"><span class="annot"><span class="annottext">getBulkDeploymentStatusResponse_bulkDeploymentMetrics :: (Maybe BulkDeploymentMetrics -&gt; f (Maybe BulkDeploymentMetrics))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_bulkDeploymentMetrics"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatusResponse_bulkDeploymentMetrics</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatusResponse -&gt; Maybe BulkDeploymentMetrics)
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; Maybe BulkDeploymentMetrics -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Lens
+     GetBulkDeploymentStatusResponse
+     GetBulkDeploymentStatusResponse
+     (Maybe BulkDeploymentMetrics)
+     (Maybe BulkDeploymentMetrics)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360216"><span class="annot"><span class="annottext">Maybe BulkDeploymentMetrics
+bulkDeploymentMetrics :: Maybe BulkDeploymentMetrics
+$sel:bulkDeploymentMetrics:GetBulkDeploymentStatusResponse' :: GetBulkDeploymentStatusResponse -&gt; Maybe BulkDeploymentMetrics
+</span><a href="#local-6989586621679360216"><span class="hs-identifier hs-var hs-var">bulkDeploymentMetrics</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BulkDeploymentMetrics
+</span><a href="#local-6989586621679360216"><span class="hs-identifier hs-var">bulkDeploymentMetrics</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360215"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360215"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360214"><span class="annot"><span class="annottext">Maybe BulkDeploymentMetrics
+</span><a href="#local-6989586621679360214"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360215"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bulkDeploymentMetrics:GetBulkDeploymentStatusResponse' :: Maybe BulkDeploymentMetrics
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AbulkDeploymentMetrics%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">bulkDeploymentMetrics</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BulkDeploymentMetrics
+</span><a href="#local-6989586621679360214"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | Tag(s) attached to the resource arn.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_tags"><span class="hs-identifier hs-type">getBulkDeploymentStatusResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="getBulkDeploymentStatusResponse_tags"><span class="annot"><span class="annottext">getBulkDeploymentStatusResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_tags"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatusResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatusResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Lens
+     GetBulkDeploymentStatusResponse
+     GetBulkDeploymentStatusResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360213"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:GetBulkDeploymentStatusResponse' :: GetBulkDeploymentStatusResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679360213"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679360213"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360212"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360212"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360211"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679360211"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360212"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:GetBulkDeploymentStatusResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3Atags%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679360211"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetBulkDeploymentStatusResponse
+ -&gt; f GetBulkDeploymentStatusResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_httpStatus"><span class="hs-identifier hs-type">getBulkDeploymentStatusResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-210"></span><span id="getBulkDeploymentStatusResponse_httpStatus"><span class="annot"><span class="annottext">getBulkDeploymentStatusResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetBulkDeploymentStatusResponse
+-&gt; f GetBulkDeploymentStatusResponse
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#getBulkDeploymentStatusResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getBulkDeploymentStatusResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetBulkDeploymentStatusResponse -&gt; Int)
+-&gt; (GetBulkDeploymentStatusResponse
+    -&gt; Int -&gt; GetBulkDeploymentStatusResponse)
+-&gt; Lens
+     GetBulkDeploymentStatusResponse
+     GetBulkDeploymentStatusResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679360210"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetBulkDeploymentStatusResponse' :: GetBulkDeploymentStatusResponse -&gt; Int
+</span><a href="#local-6989586621679360210"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360210"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679360209"><span class="annot"><span class="annottext">s :: GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360209"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679360208"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360208"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetBulkDeploymentStatusResponse
+</span><a href="#local-6989586621679360209"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetBulkDeploymentStatusResponse' :: Int
+</span><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#%24sel%3AhttpStatus%3AGetBulkDeploymentStatusResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679360208"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-213"></span><span>  </span><span id="local-6989586621679360206"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.GetBulkDeploymentStatus.html#GetBulkDeploymentStatusResponse"><span class="hs-identifier hs-type">GetBulkDeploymentStatusResponse</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

@@ -1,0 +1,813 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudDirectory.ListObjectParentPaths</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves all available parent paths for any object type such as node,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- leaf node, policy node, and index node objects. For more information</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- about objects, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/clouddirectory/latest/developerguide/key_concepts_directorystructure.html Directory Structure&gt;.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Use this API to evaluate all parents for an object. The call returns all</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- objects from the root of the directory up to the requested object. The</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- API returns the number of paths based on user-defined @MaxResults@, in</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- case there are multiple paths to the parent. The order of the paths and</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- nodes returned is consistent among multiple API calls unless the objects</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- are deleted or moved. Paths not leading to the directory root are</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- ignored from the target object.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudDirectory.ListObjectParentPaths</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier">ListObjectParentPaths</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#newListObjectParentPaths"><span class="hs-identifier">newListObjectParentPaths</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_nextToken"><span class="hs-identifier">listObjectParentPaths_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_maxResults"><span class="hs-identifier">listObjectParentPaths_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_directoryArn"><span class="hs-identifier">listObjectParentPaths_directoryArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_objectReference"><span class="hs-identifier">listObjectParentPaths_objectReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier">ListObjectParentPathsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#newListObjectParentPathsResponse"><span class="hs-identifier">newListObjectParentPathsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_pathToObjectIdentifiersList"><span class="hs-identifier">listObjectParentPathsResponse_pathToObjectIdentifiersList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_nextToken"><span class="hs-identifier">listObjectParentPathsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_httpStatus"><span class="hs-identifier">listObjectParentPathsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.html"><span class="hs-identifier">Amazonka.CloudDirectory.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newListObjectParentPaths' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679338843"><span id="local-6989586621679338844"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListObjectParentPaths"><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-var">ListObjectParentPaths</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListObjectParentPaths%27"><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-var">ListObjectParentPaths'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AnextToken%3AListObjectParentPaths%27"><span class="annot"><span class="annottext">ListObjectParentPaths -&gt; Maybe Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AnextToken%3AListObjectParentPaths%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to be retrieved in a single call. This is an</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- approximate number.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AListObjectParentPaths%27"><span class="annot"><span class="annottext">ListObjectParentPaths -&gt; Maybe Natural
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AmaxResults%3AListObjectParentPaths%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The ARN of the directory to which the parent path applies.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdirectoryArn%3AListObjectParentPaths%27"><span class="annot"><span class="annottext">ListObjectParentPaths -&gt; Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AdirectoryArn%3AListObjectParentPaths%27"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The reference that identifies the object whose parent paths are listed.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AobjectReference%3AListObjectParentPaths%27"><span class="annot"><span class="annottext">ListObjectParentPaths -&gt; ObjectReference
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AobjectReference%3AListObjectParentPaths%27"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338834"><span id="local-6989586621679338836"><span class="annot"><span class="annottext">ListObjectParentPaths -&gt; ListObjectParentPaths -&gt; Bool
+(ListObjectParentPaths -&gt; ListObjectParentPaths -&gt; Bool)
+-&gt; (ListObjectParentPaths -&gt; ListObjectParentPaths -&gt; Bool)
+-&gt; Eq ListObjectParentPaths
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListObjectParentPaths -&gt; ListObjectParentPaths -&gt; Bool
+$c/= :: ListObjectParentPaths -&gt; ListObjectParentPaths -&gt; Bool
+== :: ListObjectParentPaths -&gt; ListObjectParentPaths -&gt; Bool
+$c== :: ListObjectParentPaths -&gt; ListObjectParentPaths -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338825"><span id="local-6989586621679338827"><span id="local-6989586621679338829"><span id="local-6989586621679338831"><span class="annot"><span class="annottext">ReadPrec [ListObjectParentPaths]
+ReadPrec ListObjectParentPaths
+Int -&gt; ReadS ListObjectParentPaths
+ReadS [ListObjectParentPaths]
+(Int -&gt; ReadS ListObjectParentPaths)
+-&gt; ReadS [ListObjectParentPaths]
+-&gt; ReadPrec ListObjectParentPaths
+-&gt; ReadPrec [ListObjectParentPaths]
+-&gt; Read ListObjectParentPaths
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListObjectParentPaths]
+$creadListPrec :: ReadPrec [ListObjectParentPaths]
+readPrec :: ReadPrec ListObjectParentPaths
+$creadPrec :: ReadPrec ListObjectParentPaths
+readList :: ReadS [ListObjectParentPaths]
+$creadList :: ReadS [ListObjectParentPaths]
+readsPrec :: Int -&gt; ReadS ListObjectParentPaths
+$creadsPrec :: Int -&gt; ReadS ListObjectParentPaths
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338818"><span id="local-6989586621679338820"><span id="local-6989586621679338822"><span class="annot"><span class="annottext">Int -&gt; ListObjectParentPaths -&gt; ShowS
+[ListObjectParentPaths] -&gt; ShowS
+ListObjectParentPaths -&gt; String
+(Int -&gt; ListObjectParentPaths -&gt; ShowS)
+-&gt; (ListObjectParentPaths -&gt; String)
+-&gt; ([ListObjectParentPaths] -&gt; ShowS)
+-&gt; Show ListObjectParentPaths
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListObjectParentPaths] -&gt; ShowS
+$cshowList :: [ListObjectParentPaths] -&gt; ShowS
+show :: ListObjectParentPaths -&gt; String
+$cshow :: ListObjectParentPaths -&gt; String
+showsPrec :: Int -&gt; ListObjectParentPaths -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListObjectParentPaths -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListObjectParentPaths -&gt; Rep ListObjectParentPaths x)
+-&gt; (forall x. Rep ListObjectParentPaths x -&gt; ListObjectParentPaths)
+-&gt; Generic ListObjectParentPaths
+forall x. Rep ListObjectParentPaths x -&gt; ListObjectParentPaths
+forall x. ListObjectParentPaths -&gt; Rep ListObjectParentPaths x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListObjectParentPaths x -&gt; ListObjectParentPaths
+$cfrom :: forall x. ListObjectParentPaths -&gt; Rep ListObjectParentPaths x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'ListObjectParentPaths' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'nextToken', 'listObjectParentPaths_nextToken' - The pagination token.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'listObjectParentPaths_maxResults' - The maximum number of items to be retrieved in a single call. This is an</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- approximate number.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'directoryArn', 'listObjectParentPaths_directoryArn' - The ARN of the directory to which the parent path applies.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'objectReference', 'listObjectParentPaths_objectReference' - The reference that identifies the object whose parent paths are listed.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#newListObjectParentPaths"><span class="hs-identifier hs-type">newListObjectParentPaths</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'directoryArn'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'objectReference'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span>
+</span><span id="line-102"></span><span id="newListObjectParentPaths"><span class="annot"><span class="annottext">newListObjectParentPaths :: Text -&gt; ObjectReference -&gt; ListObjectParentPaths
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#newListObjectParentPaths"><span class="hs-identifier hs-var hs-var">newListObjectParentPaths</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679338813"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338813"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679338812"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679338812"><span class="hs-identifier hs-var">pObjectReference_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ListObjectParentPaths' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; ObjectReference
+-&gt; ListObjectParentPaths
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListObjectParentPaths' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AnextToken%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListObjectParentPaths' :: Maybe Natural
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AmaxResults%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:directoryArn:ListObjectParentPaths' :: Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AdirectoryArn%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338813"><span class="hs-identifier hs-var">pDirectoryArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:objectReference:ListObjectParentPaths' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AobjectReference%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679338812"><span class="hs-identifier hs-var">pObjectReference_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_nextToken"><span class="hs-identifier hs-type">listObjectParentPaths_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="listObjectParentPaths_nextToken"><span class="annot"><span class="annottext">listObjectParentPaths_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListObjectParentPaths -&gt; f ListObjectParentPaths
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_nextToken"><span class="hs-identifier hs-var hs-var">listObjectParentPaths_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPaths -&gt; Maybe Text)
+-&gt; (ListObjectParentPaths -&gt; Maybe Text -&gt; ListObjectParentPaths)
+-&gt; Lens
+     ListObjectParentPaths
+     ListObjectParentPaths
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338810"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Maybe Text
+</span><a href="#local-6989586621679338810"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338810"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338809"><span class="annot"><span class="annottext">s :: ListObjectParentPaths
+</span><a href="#local-6989586621679338809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338808"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectParentPaths
+</span><a href="#local-6989586621679338809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListObjectParentPaths' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AnextToken%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The maximum number of items to be retrieved in a single call. This is an</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- approximate number.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_maxResults"><span class="hs-identifier hs-type">listObjectParentPaths_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listObjectParentPaths_maxResults"><span class="annot"><span class="annottext">listObjectParentPaths_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListObjectParentPaths -&gt; f ListObjectParentPaths
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_maxResults"><span class="hs-identifier hs-var hs-var">listObjectParentPaths_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPaths -&gt; Maybe Natural)
+-&gt; (ListObjectParentPaths
+    -&gt; Maybe Natural -&gt; ListObjectParentPaths)
+-&gt; Lens
+     ListObjectParentPaths
+     ListObjectParentPaths
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338807"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Maybe Natural
+</span><a href="#local-6989586621679338807"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679338807"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338806"><span class="annot"><span class="annottext">s :: ListObjectParentPaths
+</span><a href="#local-6989586621679338806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338805"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679338805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectParentPaths
+</span><a href="#local-6989586621679338806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListObjectParentPaths' :: Maybe Natural
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AmaxResults%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679338805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ARN of the directory to which the parent path applies.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_directoryArn"><span class="hs-identifier hs-type">listObjectParentPaths_directoryArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="listObjectParentPaths_directoryArn"><span class="annot"><span class="annottext">listObjectParentPaths_directoryArn :: (Text -&gt; f Text)
+-&gt; ListObjectParentPaths -&gt; f ListObjectParentPaths
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_directoryArn"><span class="hs-identifier hs-var hs-var">listObjectParentPaths_directoryArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPaths -&gt; Text)
+-&gt; (ListObjectParentPaths -&gt; Text -&gt; ListObjectParentPaths)
+-&gt; Lens ListObjectParentPaths ListObjectParentPaths Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338804"><span class="annot"><span class="annottext">Text
+directoryArn :: Text
+$sel:directoryArn:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Text
+</span><a href="#local-6989586621679338804"><span class="hs-identifier hs-var hs-var">directoryArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338804"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338803"><span class="annot"><span class="annottext">s :: ListObjectParentPaths
+</span><a href="#local-6989586621679338803"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338802"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338802"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectParentPaths
+</span><a href="#local-6989586621679338803"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:directoryArn:ListObjectParentPaths' :: Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AdirectoryArn%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">directoryArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338802"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The reference that identifies the object whose parent paths are listed.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_objectReference"><span class="hs-identifier hs-type">listObjectParentPaths_objectReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.Types.ObjectReference.html#ObjectReference"><span class="hs-identifier hs-type">ObjectReference</span></a></span><span>
+</span><span id="line-127"></span><span id="listObjectParentPaths_objectReference"><span class="annot"><span class="annottext">listObjectParentPaths_objectReference :: (ObjectReference -&gt; f ObjectReference)
+-&gt; ListObjectParentPaths -&gt; f ListObjectParentPaths
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_objectReference"><span class="hs-identifier hs-var hs-var">listObjectParentPaths_objectReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPaths -&gt; ObjectReference)
+-&gt; (ListObjectParentPaths
+    -&gt; ObjectReference -&gt; ListObjectParentPaths)
+-&gt; Lens
+     ListObjectParentPaths
+     ListObjectParentPaths
+     ObjectReference
+     ObjectReference
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338801"><span class="annot"><span class="annottext">ObjectReference
+objectReference :: ObjectReference
+$sel:objectReference:ListObjectParentPaths' :: ListObjectParentPaths -&gt; ObjectReference
+</span><a href="#local-6989586621679338801"><span class="hs-identifier hs-var hs-var">objectReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679338801"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338800"><span class="annot"><span class="annottext">s :: ListObjectParentPaths
+</span><a href="#local-6989586621679338800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338799"><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679338799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectParentPaths
+</span><a href="#local-6989586621679338800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:objectReference:ListObjectParentPaths' :: ObjectReference
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AobjectReference%3AListObjectParentPaths%27"><span class="hs-identifier hs-var">objectReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679338799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679338795"><span class="annot"><span class="annottext">page :: ListObjectParentPaths
+-&gt; AWSResponse ListObjectParentPaths -&gt; Maybe ListObjectParentPaths
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679338793"><span class="annot"><span class="annottext">ListObjectParentPaths
+</span><a href="#local-6989586621679338793"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679338792"><span class="annot"><span class="annottext">AWSResponse ListObjectParentPaths
+</span><a href="#local-6989586621679338792"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListObjectParentPaths
+ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338792"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">ListObjectParentPathsResponse
+-&gt; Getting (First Text) ListObjectParentPathsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListObjectParentPathsResponse
+-&gt; Const (First Text) ListObjectParentPathsResponse
+Lens' ListObjectParentPathsResponse (Maybe Text)
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_nextToken"><span class="hs-identifier hs-var">listObjectParentPathsResponse_nextToken</span></a></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListObjectParentPathsResponse
+ -&gt; Const (First Text) ListObjectParentPathsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListObjectParentPathsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListObjectParentPaths
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-138"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListObjectParentPaths
+ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338792"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">ListObjectParentPathsResponse
+-&gt; Getting
+     (First [PathToObjectIdentifiers])
+     ListObjectParentPathsResponse
+     [PathToObjectIdentifiers]
+-&gt; Maybe [PathToObjectIdentifiers]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PathToObjectIdentifiers]
+ -&gt; Const
+      (First [PathToObjectIdentifiers])
+      (Maybe [PathToObjectIdentifiers]))
+-&gt; ListObjectParentPathsResponse
+-&gt; Const
+     (First [PathToObjectIdentifiers]) ListObjectParentPathsResponse
+Lens'
+  ListObjectParentPathsResponse (Maybe [PathToObjectIdentifiers])
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_pathToObjectIdentifiersList"><span class="hs-identifier hs-var">listObjectParentPathsResponse_pathToObjectIdentifiersList</span></a></span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PathToObjectIdentifiers]
+  -&gt; Const
+       (First [PathToObjectIdentifiers])
+       (Maybe [PathToObjectIdentifiers]))
+ -&gt; ListObjectParentPathsResponse
+ -&gt; Const
+      (First [PathToObjectIdentifiers]) ListObjectParentPathsResponse)
+-&gt; (([PathToObjectIdentifiers]
+     -&gt; Const
+          (First [PathToObjectIdentifiers]) [PathToObjectIdentifiers])
+    -&gt; Maybe [PathToObjectIdentifiers]
+    -&gt; Const
+         (First [PathToObjectIdentifiers])
+         (Maybe [PathToObjectIdentifiers]))
+-&gt; Getting
+     (First [PathToObjectIdentifiers])
+     ListObjectParentPathsResponse
+     [PathToObjectIdentifiers]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PathToObjectIdentifiers]
+ -&gt; Const
+      (First [PathToObjectIdentifiers]) [PathToObjectIdentifiers])
+-&gt; Maybe [PathToObjectIdentifiers]
+-&gt; Const
+     (First [PathToObjectIdentifiers]) (Maybe [PathToObjectIdentifiers])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-141"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListObjectParentPaths
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">ListObjectParentPaths -&gt; Maybe ListObjectParentPaths
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPaths -&gt; Maybe ListObjectParentPaths)
+-&gt; ListObjectParentPaths -&gt; Maybe ListObjectParentPaths
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ListObjectParentPaths
+</span><a href="#local-6989586621679338793"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ListObjectParentPaths
+-&gt; (ListObjectParentPaths -&gt; ListObjectParentPaths)
+-&gt; ListObjectParentPaths
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListObjectParentPaths -&gt; Identity ListObjectParentPaths
+Lens
+  ListObjectParentPaths
+  ListObjectParentPaths
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPaths_nextToken"><span class="hs-identifier hs-var">listObjectParentPaths_nextToken</span></a></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListObjectParentPaths -&gt; Identity ListObjectParentPaths)
+-&gt; Maybe Text -&gt; ListObjectParentPaths -&gt; ListObjectParentPaths
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListObjectParentPaths
+ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338792"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">ListObjectParentPathsResponse
+-&gt; Getting (First Text) ListObjectParentPathsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListObjectParentPathsResponse
+-&gt; Const (First Text) ListObjectParentPathsResponse
+Lens' ListObjectParentPathsResponse (Maybe Text)
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_nextToken"><span class="hs-identifier hs-var">listObjectParentPathsResponse_nextToken</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListObjectParentPathsResponse
+ -&gt; Const (First Text) ListObjectParentPathsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListObjectParentPathsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-153"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679338782"><span class="annot"><span class="annottext">request :: ListObjectParentPaths -&gt; Request ListObjectParentPaths
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListObjectParentPaths -&gt; Request ListObjectParentPaths
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudDirectory.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679338778"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListObjectParentPaths
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListObjectParentPaths)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListObjectParentPaths))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListObjectParentPaths
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListObjectParentPaths)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679338775"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338775"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679338774"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679338774"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679338773"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338773"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers]
+-&gt; Maybe Text -&gt; Int -&gt; ListObjectParentPathsResponse
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">ListObjectParentPathsResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PathToObjectIdentifiers]
+ -&gt; Maybe Text -&gt; Int -&gt; ListObjectParentPathsResponse)
+-&gt; Either String (Maybe [PathToObjectIdentifiers])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListObjectParentPathsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [PathToObjectIdentifiers]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PathToObjectIdentifiersList&quot;</span></span><span>
+</span><span id="line-161"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PathToObjectIdentifiers]))
+-&gt; Maybe [PathToObjectIdentifiers]
+-&gt; Either String (Maybe [PathToObjectIdentifiers])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-162"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListObjectParentPathsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListObjectParentPathsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679338773"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListObjectParentPathsResponse)
+-&gt; Either String Int -&gt; Either String ListObjectParentPathsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338775"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338764"><span id="local-6989586621679338766"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338761"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679338757"><span class="annot"><span class="annottext">toHeaders :: ListObjectParentPaths -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338752"><span id="local-6989586621679338753"><span id="local-6989586621679338754"><span id="local-6989586621679338755"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+ObjectReference
+objectReference :: ObjectReference
+directoryArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:objectReference:ListObjectParentPaths' :: ListObjectParentPaths -&gt; ObjectReference
+$sel:directoryArn:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Text
+$sel:maxResults:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Maybe Natural
+$sel:nextToken:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Maybe Text
+</span><a href="#local-6989586621679338752"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-data-partition&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679338753"><span class="hs-identifier hs-var">directoryArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338744"><span id="local-6989586621679338746"><span id="local-6989586621679338748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679338742"><span class="annot"><span class="annottext">toJSON :: ListObjectParentPaths -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths%27"><span class="hs-identifier hs-type">ListObjectParentPaths'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338737"><span id="local-6989586621679338738"><span id="local-6989586621679338739"><span id="local-6989586621679338740"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+ObjectReference
+objectReference :: ObjectReference
+directoryArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:objectReference:ListObjectParentPaths' :: ListObjectParentPaths -&gt; ObjectReference
+$sel:directoryArn:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Text
+$sel:maxResults:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Maybe Natural
+$sel:nextToken:ListObjectParentPaths' :: ListObjectParentPaths -&gt; Maybe Text
+</span><a href="#local-6989586621679338737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338740"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679338739"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-183"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ObjectReference&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ObjectReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ObjectReference
+</span><a href="#local-6989586621679338737"><span class="hs-identifier hs-var">objectReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679338731"><span class="annot"><span class="annottext">toPath :: ListObjectParentPaths -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; ListObjectParentPaths -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/amazonclouddirectory/2017-01-11/object/parentpaths&quot;</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPaths"><span class="hs-identifier hs-type">ListObjectParentPaths</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679338726"><span class="annot"><span class="annottext">toQuery :: ListObjectParentPaths -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListObjectParentPaths -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | /See:/ 'newListObjectParentPathsResponse' smart constructor.</span><span>
+</span><span id="line-196"></span><span id="local-6989586621679338723"><span id="local-6989586621679338724"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListObjectParentPathsResponse"><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-var">ListObjectParentPathsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListObjectParentPathsResponse%27"><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">ListObjectParentPathsResponse'</span></a></span></span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns the path to the @ObjectIdentifiers@ that are associated with the</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3ApathToObjectIdentifiersList%3AListObjectParentPathsResponse%27"><span class="annot"><span class="annottext">ListObjectParentPathsResponse -&gt; Maybe [PathToObjectIdentifiers]
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3ApathToObjectIdentifiersList%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var hs-var">pathToObjectIdentifiersList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AnextToken%3AListObjectParentPathsResponse%27"><span class="annot"><span class="annottext">ListObjectParentPathsResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AnextToken%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListObjectParentPathsResponse%27"><span class="annot"><span class="annottext">ListObjectParentPathsResponse -&gt; Int
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AhttpStatus%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679338716"><span id="local-6989586621679338718"><span class="annot"><span class="annottext">ListObjectParentPathsResponse
+-&gt; ListObjectParentPathsResponse -&gt; Bool
+(ListObjectParentPathsResponse
+ -&gt; ListObjectParentPathsResponse -&gt; Bool)
+-&gt; (ListObjectParentPathsResponse
+    -&gt; ListObjectParentPathsResponse -&gt; Bool)
+-&gt; Eq ListObjectParentPathsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListObjectParentPathsResponse
+-&gt; ListObjectParentPathsResponse -&gt; Bool
+$c/= :: ListObjectParentPathsResponse
+-&gt; ListObjectParentPathsResponse -&gt; Bool
+== :: ListObjectParentPathsResponse
+-&gt; ListObjectParentPathsResponse -&gt; Bool
+$c== :: ListObjectParentPathsResponse
+-&gt; ListObjectParentPathsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338708"><span id="local-6989586621679338710"><span id="local-6989586621679338712"><span id="local-6989586621679338714"><span class="annot"><span class="annottext">ReadPrec [ListObjectParentPathsResponse]
+ReadPrec ListObjectParentPathsResponse
+Int -&gt; ReadS ListObjectParentPathsResponse
+ReadS [ListObjectParentPathsResponse]
+(Int -&gt; ReadS ListObjectParentPathsResponse)
+-&gt; ReadS [ListObjectParentPathsResponse]
+-&gt; ReadPrec ListObjectParentPathsResponse
+-&gt; ReadPrec [ListObjectParentPathsResponse]
+-&gt; Read ListObjectParentPathsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListObjectParentPathsResponse]
+$creadListPrec :: ReadPrec [ListObjectParentPathsResponse]
+readPrec :: ReadPrec ListObjectParentPathsResponse
+$creadPrec :: ReadPrec ListObjectParentPathsResponse
+readList :: ReadS [ListObjectParentPathsResponse]
+$creadList :: ReadS [ListObjectParentPathsResponse]
+readsPrec :: Int -&gt; ReadS ListObjectParentPathsResponse
+$creadsPrec :: Int -&gt; ReadS ListObjectParentPathsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679338702"><span id="local-6989586621679338704"><span id="local-6989586621679338706"><span class="annot"><span class="annottext">Int -&gt; ListObjectParentPathsResponse -&gt; ShowS
+[ListObjectParentPathsResponse] -&gt; ShowS
+ListObjectParentPathsResponse -&gt; String
+(Int -&gt; ListObjectParentPathsResponse -&gt; ShowS)
+-&gt; (ListObjectParentPathsResponse -&gt; String)
+-&gt; ([ListObjectParentPathsResponse] -&gt; ShowS)
+-&gt; Show ListObjectParentPathsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListObjectParentPathsResponse] -&gt; ShowS
+$cshowList :: [ListObjectParentPathsResponse] -&gt; ShowS
+show :: ListObjectParentPathsResponse -&gt; String
+$cshow :: ListObjectParentPathsResponse -&gt; String
+showsPrec :: Int -&gt; ListObjectParentPathsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListObjectParentPathsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListObjectParentPathsResponse
+ -&gt; Rep ListObjectParentPathsResponse x)
+-&gt; (forall x.
+    Rep ListObjectParentPathsResponse x
+    -&gt; ListObjectParentPathsResponse)
+-&gt; Generic ListObjectParentPathsResponse
+forall x.
+Rep ListObjectParentPathsResponse x
+-&gt; ListObjectParentPathsResponse
+forall x.
+ListObjectParentPathsResponse
+-&gt; Rep ListObjectParentPathsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListObjectParentPathsResponse x
+-&gt; ListObjectParentPathsResponse
+$cfrom :: forall x.
+ListObjectParentPathsResponse
+-&gt; Rep ListObjectParentPathsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Create a value of 'ListObjectParentPathsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'pathToObjectIdentifiersList', 'listObjectParentPathsResponse_pathToObjectIdentifiersList' - Returns the path to the @ObjectIdentifiers@ that are associated with the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'nextToken', 'listObjectParentPathsResponse_nextToken' - The pagination token.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'httpStatus', 'listObjectParentPathsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#newListObjectParentPathsResponse"><span class="hs-identifier hs-type">newListObjectParentPathsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span>
+</span><span id="line-225"></span><span id="newListObjectParentPathsResponse"><span class="annot"><span class="annottext">newListObjectParentPathsResponse :: Int -&gt; ListObjectParentPathsResponse
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#newListObjectParentPathsResponse"><span class="hs-identifier hs-var hs-var">newListObjectParentPathsResponse</span></a></span></span><span> </span><span id="local-6989586621679338699"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="annottext">ListObjectParentPathsResponse' :: Maybe [PathToObjectIdentifiers]
+-&gt; Maybe Text -&gt; Int -&gt; ListObjectParentPathsResponse
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-type">ListObjectParentPathsResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pathToObjectIdentifiersList:ListObjectParentPathsResponse' :: Maybe [PathToObjectIdentifiers]
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3ApathToObjectIdentifiersList%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">pathToObjectIdentifiersList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListObjectParentPathsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AnextToken%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListObjectParentPathsResponse' :: Int
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AhttpStatus%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338699"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | Returns the path to the @ObjectIdentifiers@ that are associated with the</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- directory.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_pathToObjectIdentifiersList"><span class="hs-identifier hs-type">listObjectParentPathsResponse_pathToObjectIdentifiersList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CloudDirectory.Types.PathToObjectIdentifiers.html#PathToObjectIdentifiers"><span class="hs-identifier hs-type">PathToObjectIdentifiers</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="listObjectParentPathsResponse_pathToObjectIdentifiersList"><span class="annot"><span class="annottext">listObjectParentPathsResponse_pathToObjectIdentifiersList :: (Maybe [PathToObjectIdentifiers]
+ -&gt; f (Maybe [PathToObjectIdentifiers]))
+-&gt; ListObjectParentPathsResponse -&gt; f ListObjectParentPathsResponse
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_pathToObjectIdentifiersList"><span class="hs-identifier hs-var hs-var">listObjectParentPathsResponse_pathToObjectIdentifiersList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPathsResponse -&gt; Maybe [PathToObjectIdentifiers])
+-&gt; (ListObjectParentPathsResponse
+    -&gt; Maybe [PathToObjectIdentifiers]
+    -&gt; ListObjectParentPathsResponse)
+-&gt; Lens'
+     ListObjectParentPathsResponse (Maybe [PathToObjectIdentifiers])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-type">ListObjectParentPathsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338698"><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers]
+pathToObjectIdentifiersList :: Maybe [PathToObjectIdentifiers]
+$sel:pathToObjectIdentifiersList:ListObjectParentPathsResponse' :: ListObjectParentPathsResponse -&gt; Maybe [PathToObjectIdentifiers]
+</span><a href="#local-6989586621679338698"><span class="hs-identifier hs-var hs-var">pathToObjectIdentifiersList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers]
+</span><a href="#local-6989586621679338698"><span class="hs-identifier hs-var">pathToObjectIdentifiersList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338697"><span class="annot"><span class="annottext">s :: ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338697"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-type">ListObjectParentPathsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338696"><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers]
+</span><a href="#local-6989586621679338696"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338697"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pathToObjectIdentifiersList:ListObjectParentPathsResponse' :: Maybe [PathToObjectIdentifiers]
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3ApathToObjectIdentifiersList%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">pathToObjectIdentifiersList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PathToObjectIdentifiers]
+</span><a href="#local-6989586621679338696"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PathToObjectIdentifiers]
+  -&gt; f (Maybe [PathToObjectIdentifiers]))
+ -&gt; ListObjectParentPathsResponse
+ -&gt; f ListObjectParentPathsResponse)
+-&gt; ((Maybe [PathToObjectIdentifiers]
+     -&gt; f (Maybe [PathToObjectIdentifiers]))
+    -&gt; Maybe [PathToObjectIdentifiers]
+    -&gt; f (Maybe [PathToObjectIdentifiers]))
+-&gt; (Maybe [PathToObjectIdentifiers]
+    -&gt; f (Maybe [PathToObjectIdentifiers]))
+-&gt; ListObjectParentPathsResponse
+-&gt; f ListObjectParentPathsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PathToObjectIdentifiers]
+  [PathToObjectIdentifiers]
+  [PathToObjectIdentifiers]
+  [PathToObjectIdentifiers]
+-&gt; Iso
+     (Maybe [PathToObjectIdentifiers])
+     (Maybe [PathToObjectIdentifiers])
+     (Maybe [PathToObjectIdentifiers])
+     (Maybe [PathToObjectIdentifiers])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PathToObjectIdentifiers]
+  [PathToObjectIdentifiers]
+  [PathToObjectIdentifiers]
+  [PathToObjectIdentifiers]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The pagination token.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_nextToken"><span class="hs-identifier hs-type">listObjectParentPathsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="listObjectParentPathsResponse_nextToken"><span class="annot"><span class="annottext">listObjectParentPathsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListObjectParentPathsResponse -&gt; f ListObjectParentPathsResponse
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listObjectParentPathsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPathsResponse -&gt; Maybe Text)
+-&gt; (ListObjectParentPathsResponse
+    -&gt; Maybe Text -&gt; ListObjectParentPathsResponse)
+-&gt; Lens' ListObjectParentPathsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-type">ListObjectParentPathsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338693"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListObjectParentPathsResponse' :: ListObjectParentPathsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679338693"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338693"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338692"><span class="annot"><span class="annottext">s :: ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338692"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-type">ListObjectParentPathsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338691"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338691"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338692"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListObjectParentPathsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AnextToken%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679338691"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_httpStatus"><span class="hs-identifier hs-type">listObjectParentPathsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-244"></span><span id="listObjectParentPathsResponse_httpStatus"><span class="annot"><span class="annottext">listObjectParentPathsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListObjectParentPathsResponse -&gt; f ListObjectParentPathsResponse
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#listObjectParentPathsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listObjectParentPathsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListObjectParentPathsResponse -&gt; Int)
+-&gt; (ListObjectParentPathsResponse
+    -&gt; Int -&gt; ListObjectParentPathsResponse)
+-&gt; Lens
+     ListObjectParentPathsResponse ListObjectParentPathsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-type">ListObjectParentPathsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679338690"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListObjectParentPathsResponse' :: ListObjectParentPathsResponse -&gt; Int
+</span><a href="#local-6989586621679338690"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338690"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679338689"><span class="annot"><span class="annottext">s :: ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338689"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse%27"><span class="hs-identifier hs-type">ListObjectParentPathsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679338688"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338688"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListObjectParentPathsResponse
+</span><a href="#local-6989586621679338689"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListObjectParentPathsResponse' :: Int
+</span><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#%24sel%3AhttpStatus%3AListObjectParentPathsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679338688"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679338686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudDirectory.ListObjectParentPaths.html#ListObjectParentPathsResponse"><span class="hs-identifier hs-type">ListObjectParentPathsResponse</span></a></span></span><span>
+</span><span id="line-247"></span></pre></body></html>

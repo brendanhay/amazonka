@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.Types.HostEnvironment</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.Types.HostEnvironment</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment"><span class="hs-identifier">HostEnvironment</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_EC2"><span class="hs-identifier">HostEnvironment_EC2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_HYPER_V"><span class="hs-identifier">HostEnvironment_HYPER_V</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_KVM"><span class="hs-identifier">HostEnvironment_KVM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_OTHER"><span class="hs-identifier">HostEnvironment_OTHER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_VMWARE"><span class="hs-identifier">HostEnvironment_VMWARE</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679372311"><span id="local-6989586621679372312"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HostEnvironment"><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment"><span class="hs-identifier hs-var">HostEnvironment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HostEnvironment%27"><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment%27"><span class="hs-identifier hs-var">HostEnvironment'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHostEnvironment"><span class="annot"><span class="annottext">HostEnvironment -&gt; Text
+</span><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#fromHostEnvironment"><span class="hs-identifier hs-var hs-var">fromHostEnvironment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372303"><span id="local-6989586621679372305"><span id="local-6989586621679372307"><span class="annot"><span class="annottext">Int -&gt; HostEnvironment -&gt; ShowS
+[HostEnvironment] -&gt; ShowS
+HostEnvironment -&gt; String
+(Int -&gt; HostEnvironment -&gt; ShowS)
+-&gt; (HostEnvironment -&gt; String)
+-&gt; ([HostEnvironment] -&gt; ShowS)
+-&gt; Show HostEnvironment
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HostEnvironment] -&gt; ShowS
+$cshowList :: [HostEnvironment] -&gt; ShowS
+show :: HostEnvironment -&gt; String
+$cshow :: HostEnvironment -&gt; String
+showsPrec :: Int -&gt; HostEnvironment -&gt; ShowS
+$cshowsPrec :: Int -&gt; HostEnvironment -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679372294"><span id="local-6989586621679372296"><span id="local-6989586621679372298"><span id="local-6989586621679372300"><span class="annot"><span class="annottext">ReadPrec [HostEnvironment]
+ReadPrec HostEnvironment
+Int -&gt; ReadS HostEnvironment
+ReadS [HostEnvironment]
+(Int -&gt; ReadS HostEnvironment)
+-&gt; ReadS [HostEnvironment]
+-&gt; ReadPrec HostEnvironment
+-&gt; ReadPrec [HostEnvironment]
+-&gt; Read HostEnvironment
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HostEnvironment]
+$creadListPrec :: ReadPrec [HostEnvironment]
+readPrec :: ReadPrec HostEnvironment
+$creadPrec :: ReadPrec HostEnvironment
+readList :: ReadS [HostEnvironment]
+$creadList :: ReadS [HostEnvironment]
+readsPrec :: Int -&gt; ReadS HostEnvironment
+$creadsPrec :: Int -&gt; ReadS HostEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679372289"><span id="local-6989586621679372291"><span class="annot"><span class="annottext">HostEnvironment -&gt; HostEnvironment -&gt; Bool
+(HostEnvironment -&gt; HostEnvironment -&gt; Bool)
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; Bool)
+-&gt; Eq HostEnvironment
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+$c/= :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+== :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+$c== :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679372273"><span id="local-6989586621679372275"><span id="local-6989586621679372277"><span id="local-6989586621679372279"><span id="local-6989586621679372281"><span id="local-6989586621679372283"><span id="local-6989586621679372285"><span class="annot"><span class="annottext">Eq HostEnvironment
+Eq HostEnvironment
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; Ordering)
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; Bool)
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; Bool)
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; Bool)
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; Bool)
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; HostEnvironment)
+-&gt; (HostEnvironment -&gt; HostEnvironment -&gt; HostEnvironment)
+-&gt; Ord HostEnvironment
+HostEnvironment -&gt; HostEnvironment -&gt; Bool
+HostEnvironment -&gt; HostEnvironment -&gt; Ordering
+HostEnvironment -&gt; HostEnvironment -&gt; HostEnvironment
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HostEnvironment -&gt; HostEnvironment -&gt; HostEnvironment
+$cmin :: HostEnvironment -&gt; HostEnvironment -&gt; HostEnvironment
+max :: HostEnvironment -&gt; HostEnvironment -&gt; HostEnvironment
+$cmax :: HostEnvironment -&gt; HostEnvironment -&gt; HostEnvironment
+&gt;= :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+$c&gt;= :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+&gt; :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+$c&gt; :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+&lt;= :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+$c&lt;= :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+&lt; :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+$c&lt; :: HostEnvironment -&gt; HostEnvironment -&gt; Bool
+compare :: HostEnvironment -&gt; HostEnvironment -&gt; Ordering
+$ccompare :: HostEnvironment -&gt; HostEnvironment -&gt; Ordering
+$cp1Ord :: Eq HostEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HostEnvironment -&gt; Rep HostEnvironment x)
+-&gt; (forall x. Rep HostEnvironment x -&gt; HostEnvironment)
+-&gt; Generic HostEnvironment
+forall x. Rep HostEnvironment x -&gt; HostEnvironment
+forall x. HostEnvironment -&gt; Rep HostEnvironment x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HostEnvironment x -&gt; HostEnvironment
+$cfrom :: forall x. HostEnvironment -&gt; Rep HostEnvironment x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372265"><span id="local-6989586621679372267"><span class="annot"><span class="annottext">Int -&gt; HostEnvironment -&gt; Int
+HostEnvironment -&gt; Int
+(Int -&gt; HostEnvironment -&gt; Int)
+-&gt; (HostEnvironment -&gt; Int) -&gt; Hashable HostEnvironment
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HostEnvironment -&gt; Int
+$chash :: HostEnvironment -&gt; Int
+hashWithSalt :: Int -&gt; HostEnvironment -&gt; Int
+$chashWithSalt :: Int -&gt; HostEnvironment -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679372262"><span class="annot"><span class="annottext">HostEnvironment -&gt; ()
+(HostEnvironment -&gt; ()) -&gt; NFData HostEnvironment
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HostEnvironment -&gt; ()
+$crnf :: HostEnvironment -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679372259"><span class="annot"><span class="annottext">Text -&gt; Either String HostEnvironment
+(Text -&gt; Either String HostEnvironment) -&gt; FromText HostEnvironment
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HostEnvironment
+$cfromText :: Text -&gt; Either String HostEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679372256"><span class="annot"><span class="annottext">HostEnvironment -&gt; Text
+(HostEnvironment -&gt; Text) -&gt; ToText HostEnvironment
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HostEnvironment -&gt; Text
+$ctoText :: HostEnvironment -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679372253"><span class="annot"><span class="annottext">HostEnvironment -&gt; ByteString
+(HostEnvironment -&gt; ByteString) -&gt; ToByteString HostEnvironment
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HostEnvironment -&gt; ByteString
+$ctoBS :: HostEnvironment -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679372250"><span class="annot"><span class="annottext">HostEnvironment -&gt; ByteStringBuilder
+(HostEnvironment -&gt; ByteStringBuilder) -&gt; ToLog HostEnvironment
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HostEnvironment -&gt; ByteStringBuilder
+$cbuild :: HostEnvironment -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679372247"><span class="annot"><span class="annottext">HeaderName -&gt; HostEnvironment -&gt; [Header]
+(HeaderName -&gt; HostEnvironment -&gt; [Header])
+-&gt; ToHeader HostEnvironment
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HostEnvironment -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HostEnvironment -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679372244"><span class="annot"><span class="annottext">HostEnvironment -&gt; QueryString
+(HostEnvironment -&gt; QueryString) -&gt; ToQuery HostEnvironment
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HostEnvironment -&gt; QueryString
+$ctoQuery :: HostEnvironment -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679372239"><span id="local-6989586621679372241"><span class="annot"><span class="annottext">Value -&gt; Parser [HostEnvironment]
+Value -&gt; Parser HostEnvironment
+(Value -&gt; Parser HostEnvironment)
+-&gt; (Value -&gt; Parser [HostEnvironment]) -&gt; FromJSON HostEnvironment
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HostEnvironment]
+$cparseJSONList :: Value -&gt; Parser [HostEnvironment]
+parseJSON :: Value -&gt; Parser HostEnvironment
+$cparseJSON :: Value -&gt; Parser HostEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679372234"><span id="local-6989586621679372236"><span class="annot"><span class="annottext">FromJSONKeyFunction [HostEnvironment]
+FromJSONKeyFunction HostEnvironment
+FromJSONKeyFunction HostEnvironment
+-&gt; FromJSONKeyFunction [HostEnvironment]
+-&gt; FromJSONKey HostEnvironment
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HostEnvironment]
+$cfromJSONKeyList :: FromJSONKeyFunction [HostEnvironment]
+fromJSONKey :: FromJSONKeyFunction HostEnvironment
+$cfromJSONKey :: FromJSONKeyFunction HostEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679372225"><span id="local-6989586621679372227"><span id="local-6989586621679372229"><span id="local-6989586621679372231"><span class="annot"><span class="annottext">[HostEnvironment] -&gt; Encoding
+[HostEnvironment] -&gt; Value
+HostEnvironment -&gt; Encoding
+HostEnvironment -&gt; Value
+(HostEnvironment -&gt; Value)
+-&gt; (HostEnvironment -&gt; Encoding)
+-&gt; ([HostEnvironment] -&gt; Value)
+-&gt; ([HostEnvironment] -&gt; Encoding)
+-&gt; ToJSON HostEnvironment
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HostEnvironment] -&gt; Encoding
+$ctoEncodingList :: [HostEnvironment] -&gt; Encoding
+toJSONList :: [HostEnvironment] -&gt; Value
+$ctoJSONList :: [HostEnvironment] -&gt; Value
+toEncoding :: HostEnvironment -&gt; Encoding
+$ctoEncoding :: HostEnvironment -&gt; Encoding
+toJSON :: HostEnvironment -&gt; Value
+$ctoJSON :: HostEnvironment -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679372220"><span id="local-6989586621679372222"><span class="annot"><span class="annottext">ToJSONKeyFunction [HostEnvironment]
+ToJSONKeyFunction HostEnvironment
+ToJSONKeyFunction HostEnvironment
+-&gt; ToJSONKeyFunction [HostEnvironment] -&gt; ToJSONKey HostEnvironment
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HostEnvironment]
+$ctoJSONKeyList :: ToJSONKeyFunction [HostEnvironment]
+toJSONKey :: ToJSONKeyFunction HostEnvironment
+$ctoJSONKey :: ToJSONKeyFunction HostEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679372217"><span class="annot"><span class="annottext">[Node] -&gt; Either String HostEnvironment
+([Node] -&gt; Either String HostEnvironment)
+-&gt; FromXML HostEnvironment
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HostEnvironment
+$cparseXML :: [Node] -&gt; Either String HostEnvironment
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679372214"><span class="annot"><span class="annottext">HostEnvironment -&gt; XML
+(HostEnvironment -&gt; XML) -&gt; ToXML HostEnvironment
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HostEnvironment -&gt; XML
+$ctoXML :: HostEnvironment -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_EC2"><span class="hs-identifier hs-type">HostEnvironment_EC2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment"><span class="hs-identifier hs-type">HostEnvironment</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHostEnvironment_EC2"><span id="%24mHostEnvironment_EC2"><span id="HostEnvironment_EC2"><span class="annot"><span class="annottext">$bHostEnvironment_EC2 :: HostEnvironment
+$mHostEnvironment_EC2 :: forall r. HostEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#%24bHostEnvironment_EC2"><span class="hs-identifier hs-var hs-var hs-var">HostEnvironment_EC2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment%27"><span class="hs-identifier hs-type">HostEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EC2&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_HYPER_V"><span class="hs-identifier hs-type">HostEnvironment_HYPER_V</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment"><span class="hs-identifier hs-type">HostEnvironment</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHostEnvironment_HYPER_V"><span id="%24mHostEnvironment_HYPER_V"><span id="HostEnvironment_HYPER_V"><span class="annot"><span class="annottext">$bHostEnvironment_HYPER_V :: HostEnvironment
+$mHostEnvironment_HYPER_V :: forall r. HostEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#%24bHostEnvironment_HYPER_V"><span class="hs-identifier hs-var hs-var hs-var">HostEnvironment_HYPER_V</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment%27"><span class="hs-identifier hs-type">HostEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HYPER-V&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_KVM"><span class="hs-identifier hs-type">HostEnvironment_KVM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment"><span class="hs-identifier hs-type">HostEnvironment</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHostEnvironment_KVM"><span id="%24mHostEnvironment_KVM"><span id="HostEnvironment_KVM"><span class="annot"><span class="annottext">$bHostEnvironment_KVM :: HostEnvironment
+$mHostEnvironment_KVM :: forall r. HostEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#%24bHostEnvironment_KVM"><span class="hs-identifier hs-var hs-var hs-var">HostEnvironment_KVM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment%27"><span class="hs-identifier hs-type">HostEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;KVM&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_OTHER"><span class="hs-identifier hs-type">HostEnvironment_OTHER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment"><span class="hs-identifier hs-type">HostEnvironment</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHostEnvironment_OTHER"><span id="%24mHostEnvironment_OTHER"><span id="HostEnvironment_OTHER"><span class="annot"><span class="annottext">$bHostEnvironment_OTHER :: HostEnvironment
+$mHostEnvironment_OTHER :: forall r. HostEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#%24bHostEnvironment_OTHER"><span class="hs-identifier hs-var hs-var hs-var">HostEnvironment_OTHER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment%27"><span class="hs-identifier hs-type">HostEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OTHER&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_VMWARE"><span class="hs-identifier hs-type">HostEnvironment_VMWARE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment"><span class="hs-identifier hs-type">HostEnvironment</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHostEnvironment_VMWARE"><span id="%24mHostEnvironment_VMWARE"><span id="HostEnvironment_VMWARE"><span class="annot"><span class="annottext">$bHostEnvironment_VMWARE :: HostEnvironment
+$mHostEnvironment_VMWARE :: forall r. HostEnvironment -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#%24bHostEnvironment_VMWARE"><span class="hs-identifier hs-var hs-var hs-var">HostEnvironment_VMWARE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment%27"><span class="hs-identifier hs-type">HostEnvironment'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VMWARE&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_EC2"><span class="hs-pragma hs-type">HostEnvironment_EC2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_HYPER_V"><span class="hs-pragma hs-type">HostEnvironment_HYPER_V</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_KVM"><span class="hs-pragma hs-type">HostEnvironment_KVM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_OTHER"><span class="hs-pragma hs-type">HostEnvironment_OTHER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment_VMWARE"><span class="hs-pragma hs-type">HostEnvironment_VMWARE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.HostEnvironment.html#HostEnvironment%27"><span class="hs-pragma hs-type">HostEnvironment'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppRunner.Types.HealthCheckProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppRunner.Types.HealthCheckProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol"><span class="hs-identifier">HealthCheckProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol_HTTP"><span class="hs-identifier">HealthCheckProtocol_HTTP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol_TCP"><span class="hs-identifier">HealthCheckProtocol_TCP</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679203795"><span id="local-6989586621679203796"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HealthCheckProtocol"><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol"><span class="hs-identifier hs-var">HealthCheckProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HealthCheckProtocol%27"><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol%27"><span class="hs-identifier hs-var">HealthCheckProtocol'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHealthCheckProtocol"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; Text
+</span><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#fromHealthCheckProtocol"><span class="hs-identifier hs-var hs-var">fromHealthCheckProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203787"><span id="local-6989586621679203789"><span id="local-6989586621679203791"><span class="annot"><span class="annottext">Int -&gt; HealthCheckProtocol -&gt; ShowS
+[HealthCheckProtocol] -&gt; ShowS
+HealthCheckProtocol -&gt; String
+(Int -&gt; HealthCheckProtocol -&gt; ShowS)
+-&gt; (HealthCheckProtocol -&gt; String)
+-&gt; ([HealthCheckProtocol] -&gt; ShowS)
+-&gt; Show HealthCheckProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HealthCheckProtocol] -&gt; ShowS
+$cshowList :: [HealthCheckProtocol] -&gt; ShowS
+show :: HealthCheckProtocol -&gt; String
+$cshow :: HealthCheckProtocol -&gt; String
+showsPrec :: Int -&gt; HealthCheckProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; HealthCheckProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679203778"><span id="local-6989586621679203780"><span id="local-6989586621679203782"><span id="local-6989586621679203784"><span class="annot"><span class="annottext">ReadPrec [HealthCheckProtocol]
+ReadPrec HealthCheckProtocol
+Int -&gt; ReadS HealthCheckProtocol
+ReadS [HealthCheckProtocol]
+(Int -&gt; ReadS HealthCheckProtocol)
+-&gt; ReadS [HealthCheckProtocol]
+-&gt; ReadPrec HealthCheckProtocol
+-&gt; ReadPrec [HealthCheckProtocol]
+-&gt; Read HealthCheckProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HealthCheckProtocol]
+$creadListPrec :: ReadPrec [HealthCheckProtocol]
+readPrec :: ReadPrec HealthCheckProtocol
+$creadPrec :: ReadPrec HealthCheckProtocol
+readList :: ReadS [HealthCheckProtocol]
+$creadList :: ReadS [HealthCheckProtocol]
+readsPrec :: Int -&gt; ReadS HealthCheckProtocol
+$creadsPrec :: Int -&gt; ReadS HealthCheckProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679203773"><span id="local-6989586621679203775"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+(HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool)
+-&gt; (HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool)
+-&gt; Eq HealthCheckProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+$c/= :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+== :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+$c== :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679203757"><span id="local-6989586621679203759"><span id="local-6989586621679203761"><span id="local-6989586621679203763"><span id="local-6989586621679203765"><span id="local-6989586621679203767"><span id="local-6989586621679203769"><span class="annot"><span class="annottext">Eq HealthCheckProtocol
+Eq HealthCheckProtocol
+-&gt; (HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Ordering)
+-&gt; (HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool)
+-&gt; (HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool)
+-&gt; (HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool)
+-&gt; (HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool)
+-&gt; (HealthCheckProtocol
+    -&gt; HealthCheckProtocol -&gt; HealthCheckProtocol)
+-&gt; (HealthCheckProtocol
+    -&gt; HealthCheckProtocol -&gt; HealthCheckProtocol)
+-&gt; Ord HealthCheckProtocol
+HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Ordering
+HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; HealthCheckProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; HealthCheckProtocol
+$cmin :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; HealthCheckProtocol
+max :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; HealthCheckProtocol
+$cmax :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; HealthCheckProtocol
+&gt;= :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+$c&gt;= :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+&gt; :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+$c&gt; :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+&lt;= :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+$c&lt;= :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+&lt; :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+$c&lt; :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Bool
+compare :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Ordering
+$ccompare :: HealthCheckProtocol -&gt; HealthCheckProtocol -&gt; Ordering
+$cp1Ord :: Eq HealthCheckProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HealthCheckProtocol -&gt; Rep HealthCheckProtocol x)
+-&gt; (forall x. Rep HealthCheckProtocol x -&gt; HealthCheckProtocol)
+-&gt; Generic HealthCheckProtocol
+forall x. Rep HealthCheckProtocol x -&gt; HealthCheckProtocol
+forall x. HealthCheckProtocol -&gt; Rep HealthCheckProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HealthCheckProtocol x -&gt; HealthCheckProtocol
+$cfrom :: forall x. HealthCheckProtocol -&gt; Rep HealthCheckProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679203749"><span id="local-6989586621679203751"><span class="annot"><span class="annottext">Int -&gt; HealthCheckProtocol -&gt; Int
+HealthCheckProtocol -&gt; Int
+(Int -&gt; HealthCheckProtocol -&gt; Int)
+-&gt; (HealthCheckProtocol -&gt; Int) -&gt; Hashable HealthCheckProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HealthCheckProtocol -&gt; Int
+$chash :: HealthCheckProtocol -&gt; Int
+hashWithSalt :: Int -&gt; HealthCheckProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; HealthCheckProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679203746"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; ()
+(HealthCheckProtocol -&gt; ()) -&gt; NFData HealthCheckProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HealthCheckProtocol -&gt; ()
+$crnf :: HealthCheckProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679203743"><span class="annot"><span class="annottext">Text -&gt; Either String HealthCheckProtocol
+(Text -&gt; Either String HealthCheckProtocol)
+-&gt; FromText HealthCheckProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HealthCheckProtocol
+$cfromText :: Text -&gt; Either String HealthCheckProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679203740"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; Text
+(HealthCheckProtocol -&gt; Text) -&gt; ToText HealthCheckProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HealthCheckProtocol -&gt; Text
+$ctoText :: HealthCheckProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679203737"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; ByteString
+(HealthCheckProtocol -&gt; ByteString)
+-&gt; ToByteString HealthCheckProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HealthCheckProtocol -&gt; ByteString
+$ctoBS :: HealthCheckProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679203734"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; ByteStringBuilder
+(HealthCheckProtocol -&gt; ByteStringBuilder)
+-&gt; ToLog HealthCheckProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HealthCheckProtocol -&gt; ByteStringBuilder
+$cbuild :: HealthCheckProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679203731"><span class="annot"><span class="annottext">HeaderName -&gt; HealthCheckProtocol -&gt; [Header]
+(HeaderName -&gt; HealthCheckProtocol -&gt; [Header])
+-&gt; ToHeader HealthCheckProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HealthCheckProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HealthCheckProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679203728"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; QueryString
+(HealthCheckProtocol -&gt; QueryString) -&gt; ToQuery HealthCheckProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HealthCheckProtocol -&gt; QueryString
+$ctoQuery :: HealthCheckProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679203723"><span id="local-6989586621679203725"><span class="annot"><span class="annottext">Value -&gt; Parser [HealthCheckProtocol]
+Value -&gt; Parser HealthCheckProtocol
+(Value -&gt; Parser HealthCheckProtocol)
+-&gt; (Value -&gt; Parser [HealthCheckProtocol])
+-&gt; FromJSON HealthCheckProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HealthCheckProtocol]
+$cparseJSONList :: Value -&gt; Parser [HealthCheckProtocol]
+parseJSON :: Value -&gt; Parser HealthCheckProtocol
+$cparseJSON :: Value -&gt; Parser HealthCheckProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679203718"><span id="local-6989586621679203720"><span class="annot"><span class="annottext">FromJSONKeyFunction [HealthCheckProtocol]
+FromJSONKeyFunction HealthCheckProtocol
+FromJSONKeyFunction HealthCheckProtocol
+-&gt; FromJSONKeyFunction [HealthCheckProtocol]
+-&gt; FromJSONKey HealthCheckProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HealthCheckProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [HealthCheckProtocol]
+fromJSONKey :: FromJSONKeyFunction HealthCheckProtocol
+$cfromJSONKey :: FromJSONKeyFunction HealthCheckProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679203709"><span id="local-6989586621679203711"><span id="local-6989586621679203713"><span id="local-6989586621679203715"><span class="annot"><span class="annottext">[HealthCheckProtocol] -&gt; Encoding
+[HealthCheckProtocol] -&gt; Value
+HealthCheckProtocol -&gt; Encoding
+HealthCheckProtocol -&gt; Value
+(HealthCheckProtocol -&gt; Value)
+-&gt; (HealthCheckProtocol -&gt; Encoding)
+-&gt; ([HealthCheckProtocol] -&gt; Value)
+-&gt; ([HealthCheckProtocol] -&gt; Encoding)
+-&gt; ToJSON HealthCheckProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HealthCheckProtocol] -&gt; Encoding
+$ctoEncodingList :: [HealthCheckProtocol] -&gt; Encoding
+toJSONList :: [HealthCheckProtocol] -&gt; Value
+$ctoJSONList :: [HealthCheckProtocol] -&gt; Value
+toEncoding :: HealthCheckProtocol -&gt; Encoding
+$ctoEncoding :: HealthCheckProtocol -&gt; Encoding
+toJSON :: HealthCheckProtocol -&gt; Value
+$ctoJSON :: HealthCheckProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679203704"><span id="local-6989586621679203706"><span class="annot"><span class="annottext">ToJSONKeyFunction [HealthCheckProtocol]
+ToJSONKeyFunction HealthCheckProtocol
+ToJSONKeyFunction HealthCheckProtocol
+-&gt; ToJSONKeyFunction [HealthCheckProtocol]
+-&gt; ToJSONKey HealthCheckProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HealthCheckProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [HealthCheckProtocol]
+toJSONKey :: ToJSONKeyFunction HealthCheckProtocol
+$ctoJSONKey :: ToJSONKeyFunction HealthCheckProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679203701"><span class="annot"><span class="annottext">[Node] -&gt; Either String HealthCheckProtocol
+([Node] -&gt; Either String HealthCheckProtocol)
+-&gt; FromXML HealthCheckProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HealthCheckProtocol
+$cparseXML :: [Node] -&gt; Either String HealthCheckProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679203698"><span class="annot"><span class="annottext">HealthCheckProtocol -&gt; XML
+(HealthCheckProtocol -&gt; XML) -&gt; ToXML HealthCheckProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HealthCheckProtocol -&gt; XML
+$ctoXML :: HealthCheckProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol_HTTP"><span class="hs-identifier hs-type">HealthCheckProtocol_HTTP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol"><span class="hs-identifier hs-type">HealthCheckProtocol</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckProtocol_HTTP"><span id="%24mHealthCheckProtocol_HTTP"><span id="HealthCheckProtocol_HTTP"><span class="annot"><span class="annottext">$bHealthCheckProtocol_HTTP :: HealthCheckProtocol
+$mHealthCheckProtocol_HTTP :: forall r. HealthCheckProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#%24bHealthCheckProtocol_HTTP"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckProtocol_HTTP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol%27"><span class="hs-identifier hs-type">HealthCheckProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTP&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol_TCP"><span class="hs-identifier hs-type">HealthCheckProtocol_TCP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol"><span class="hs-identifier hs-type">HealthCheckProtocol</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHealthCheckProtocol_TCP"><span id="%24mHealthCheckProtocol_TCP"><span id="HealthCheckProtocol_TCP"><span class="annot"><span class="annottext">$bHealthCheckProtocol_TCP :: HealthCheckProtocol
+$mHealthCheckProtocol_TCP :: forall r. HealthCheckProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#%24bHealthCheckProtocol_TCP"><span class="hs-identifier hs-var hs-var hs-var">HealthCheckProtocol_TCP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol%27"><span class="hs-identifier hs-type">HealthCheckProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TCP&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol_HTTP"><span class="hs-pragma hs-type">HealthCheckProtocol_HTTP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol_TCP"><span class="hs-pragma hs-type">HealthCheckProtocol_TCP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AppRunner.Types.HealthCheckProtocol.html#HealthCheckProtocol%27"><span class="hs-pragma hs-type">HealthCheckProtocol'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

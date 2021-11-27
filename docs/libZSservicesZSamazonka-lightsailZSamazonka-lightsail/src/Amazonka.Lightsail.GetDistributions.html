@@ -1,0 +1,592 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.GetDistributions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about one or more of your Amazon Lightsail content</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- delivery network (CDN) distributions.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.GetDistributions</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier">GetDistributions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#newGetDistributions"><span class="hs-identifier">newGetDistributions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributions_distributionName"><span class="hs-identifier">getDistributions_distributionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributions_pageToken"><span class="hs-identifier">getDistributions_pageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier">GetDistributionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#newGetDistributionsResponse"><span class="hs-identifier">newGetDistributionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_nextPageToken"><span class="hs-identifier">getDistributionsResponse_nextPageToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_distributions"><span class="hs-identifier">getDistributionsResponse_distributions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_httpStatus"><span class="hs-identifier">getDistributionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newGetDistributions' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679642909"><span id="local-6989586621679642910"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributions"><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-var">GetDistributions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributions%27"><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions%27"><span class="hs-identifier hs-var">GetDistributions'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the distribution for which to return information.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- When omitted, the response includes all of your distributions in the AWS</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Region where the request is made.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdistributionName%3AGetDistributions%27"><span class="annot"><span class="annottext">GetDistributions -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AdistributionName%3AGetDistributions%27"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- To get a page token, perform an initial @GetDistributions@ request. If</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- your results are paginated, the response will return a next page token</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- that you can specify as the page token in a subsequent request.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApageToken%3AGetDistributions%27"><span class="annot"><span class="annottext">GetDistributions -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3ApageToken%3AGetDistributions%27"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642902"><span id="local-6989586621679642904"><span class="annot"><span class="annottext">GetDistributions -&gt; GetDistributions -&gt; Bool
+(GetDistributions -&gt; GetDistributions -&gt; Bool)
+-&gt; (GetDistributions -&gt; GetDistributions -&gt; Bool)
+-&gt; Eq GetDistributions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDistributions -&gt; GetDistributions -&gt; Bool
+$c/= :: GetDistributions -&gt; GetDistributions -&gt; Bool
+== :: GetDistributions -&gt; GetDistributions -&gt; Bool
+$c== :: GetDistributions -&gt; GetDistributions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642893"><span id="local-6989586621679642895"><span id="local-6989586621679642897"><span id="local-6989586621679642899"><span class="annot"><span class="annottext">ReadPrec [GetDistributions]
+ReadPrec GetDistributions
+Int -&gt; ReadS GetDistributions
+ReadS [GetDistributions]
+(Int -&gt; ReadS GetDistributions)
+-&gt; ReadS [GetDistributions]
+-&gt; ReadPrec GetDistributions
+-&gt; ReadPrec [GetDistributions]
+-&gt; Read GetDistributions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDistributions]
+$creadListPrec :: ReadPrec [GetDistributions]
+readPrec :: ReadPrec GetDistributions
+$creadPrec :: ReadPrec GetDistributions
+readList :: ReadS [GetDistributions]
+$creadList :: ReadS [GetDistributions]
+readsPrec :: Int -&gt; ReadS GetDistributions
+$creadsPrec :: Int -&gt; ReadS GetDistributions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642886"><span id="local-6989586621679642888"><span id="local-6989586621679642890"><span class="annot"><span class="annottext">Int -&gt; GetDistributions -&gt; ShowS
+[GetDistributions] -&gt; ShowS
+GetDistributions -&gt; String
+(Int -&gt; GetDistributions -&gt; ShowS)
+-&gt; (GetDistributions -&gt; String)
+-&gt; ([GetDistributions] -&gt; ShowS)
+-&gt; Show GetDistributions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDistributions] -&gt; ShowS
+$cshowList :: [GetDistributions] -&gt; ShowS
+show :: GetDistributions -&gt; String
+$cshow :: GetDistributions -&gt; String
+showsPrec :: Int -&gt; GetDistributions -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDistributions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetDistributions -&gt; Rep GetDistributions x)
+-&gt; (forall x. Rep GetDistributions x -&gt; GetDistributions)
+-&gt; Generic GetDistributions
+forall x. Rep GetDistributions x -&gt; GetDistributions
+forall x. GetDistributions -&gt; Rep GetDistributions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetDistributions x -&gt; GetDistributions
+$cfrom :: forall x. GetDistributions -&gt; Rep GetDistributions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetDistributions' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'distributionName', 'getDistributions_distributionName' - The name of the distribution for which to return information.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- When omitted, the response includes all of your distributions in the AWS</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Region where the request is made.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'pageToken', 'getDistributions_pageToken' - The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- To get a page token, perform an initial @GetDistributions@ request. If</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- your results are paginated, the response will return a next page token</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- that you can specify as the page token in a subsequent request.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#newGetDistributions"><span class="hs-identifier hs-type">newGetDistributions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span>
+</span><span id="line-88"></span><span id="newGetDistributions"><span class="annot"><span class="annottext">newGetDistributions :: GetDistributions
+</span><a href="Amazonka.Lightsail.GetDistributions.html#newGetDistributions"><span class="hs-identifier hs-var hs-var">newGetDistributions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">GetDistributions' :: Maybe Text -&gt; Maybe Text -&gt; GetDistributions
+</span><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions%27"><span class="hs-identifier hs-type">GetDistributions'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:distributionName:GetDistributions' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AdistributionName%3AGetDistributions%27"><span class="hs-identifier hs-var">distributionName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageToken:GetDistributions' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3ApageToken%3AGetDistributions%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The name of the distribution for which to return information.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- When omitted, the response includes all of your distributions in the AWS</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Region where the request is made.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributions_distributionName"><span class="hs-identifier hs-type">getDistributions_distributionName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="getDistributions_distributionName"><span class="annot"><span class="annottext">getDistributions_distributionName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDistributions -&gt; f GetDistributions
+</span><a href="Amazonka.Lightsail.GetDistributions.html#getDistributions_distributionName"><span class="hs-identifier hs-var hs-var">getDistributions_distributionName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributions -&gt; Maybe Text)
+-&gt; (GetDistributions -&gt; Maybe Text -&gt; GetDistributions)
+-&gt; Lens GetDistributions GetDistributions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions%27"><span class="hs-identifier hs-type">GetDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642879"><span class="annot"><span class="annottext">Maybe Text
+distributionName :: Maybe Text
+$sel:distributionName:GetDistributions' :: GetDistributions -&gt; Maybe Text
+</span><a href="#local-6989586621679642879"><span class="hs-identifier hs-var hs-var">distributionName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642879"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642878"><span class="annot"><span class="annottext">s :: GetDistributions
+</span><a href="#local-6989586621679642878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions%27"><span class="hs-identifier hs-type">GetDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642877"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributions
+</span><a href="#local-6989586621679642878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributionName:GetDistributions' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AdistributionName%3AGetDistributions%27"><span class="hs-identifier hs-var">distributionName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- To get a page token, perform an initial @GetDistributions@ request. If</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- your results are paginated, the response will return a next page token</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- that you can specify as the page token in a subsequent request.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributions_pageToken"><span class="hs-identifier hs-type">getDistributions_pageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="getDistributions_pageToken"><span class="annot"><span class="annottext">getDistributions_pageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDistributions -&gt; f GetDistributions
+</span><a href="Amazonka.Lightsail.GetDistributions.html#getDistributions_pageToken"><span class="hs-identifier hs-var hs-var">getDistributions_pageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributions -&gt; Maybe Text)
+-&gt; (GetDistributions -&gt; Maybe Text -&gt; GetDistributions)
+-&gt; Lens GetDistributions GetDistributions (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions%27"><span class="hs-identifier hs-type">GetDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642876"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+$sel:pageToken:GetDistributions' :: GetDistributions -&gt; Maybe Text
+</span><a href="#local-6989586621679642876"><span class="hs-identifier hs-var hs-var">pageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642876"><span class="hs-identifier hs-var">pageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642875"><span class="annot"><span class="annottext">s :: GetDistributions
+</span><a href="#local-6989586621679642875"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions%27"><span class="hs-identifier hs-type">GetDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642874"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642874"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributions
+</span><a href="#local-6989586621679642875"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageToken:GetDistributions' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3ApageToken%3AGetDistributions%27"><span class="hs-identifier hs-var">pageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642874"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-112"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679642870"><span class="annot"><span class="annottext">request :: GetDistributions -&gt; Request GetDistributions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetDistributions -&gt; Request GetDistributions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679642866"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetDistributions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDistributions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetDistributions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetDistributions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetDistributions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679642863"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642863"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679642862"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679642862"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679642861"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642861"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [LightsailDistribution] -&gt; Int -&gt; GetDistributionsResponse
+</span><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-var">GetDistributionsResponse'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [LightsailDistribution]
+ -&gt; Int
+ -&gt; GetDistributionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [LightsailDistribution] -&gt; Int -&gt; GetDistributionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextPageToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [LightsailDistribution] -&gt; Int -&gt; GetDistributionsResponse)
+-&gt; Either String (Maybe [LightsailDistribution])
+-&gt; Either String (Int -&gt; GetDistributionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679642861"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [LightsailDistribution]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;distributions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [LightsailDistribution]))
+-&gt; Maybe [LightsailDistribution]
+-&gt; Either String (Maybe [LightsailDistribution])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [LightsailDistribution]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetDistributionsResponse)
+-&gt; Either String Int -&gt; Either String GetDistributionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642863"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642852"><span id="local-6989586621679642854"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642849"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679642845"><span class="annot"><span class="annottext">toHeaders :: GetDistributions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetDistributions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.GetDistributions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-137"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-139"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642835"><span id="local-6989586621679642837"><span id="local-6989586621679642839"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679642833"><span class="annot"><span class="annottext">toJSON :: GetDistributions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions%27"><span class="hs-identifier hs-type">GetDistributions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642830"><span id="local-6989586621679642831"><span class="annot"><span class="annottext">Maybe Text
+pageToken :: Maybe Text
+distributionName :: Maybe Text
+$sel:pageToken:GetDistributions' :: GetDistributions -&gt; Maybe Text
+$sel:distributionName:GetDistributions' :: GetDistributions -&gt; Maybe Text
+</span><a href="#local-6989586621679642830"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;distributionName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642831"><span class="hs-identifier hs-var">distributionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pageToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642830"><span class="hs-identifier hs-var">pageToken</span></a></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679642824"><span class="annot"><span class="annottext">toPath :: GetDistributions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetDistributions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributions"><span class="hs-identifier hs-type">GetDistributions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679642820"><span class="annot"><span class="annottext">toQuery :: GetDistributions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetDistributions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | /See:/ 'newGetDistributionsResponse' smart constructor.</span><span>
+</span><span id="line-160"></span><span id="local-6989586621679642817"><span id="local-6989586621679642818"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetDistributionsResponse"><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-var">GetDistributionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetDistributionsResponse%27"><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-var">GetDistributionsResponse'</span></a></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">-- display.</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- To get the next page of results, perform another @GetDistributions@</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- request and specify the next page token using the @pageToken@ parameter.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AnextPageToken%3AGetDistributionsResponse%27"><span class="annot"><span class="annottext">GetDistributionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AnextPageToken%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe your distributions.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3Adistributions%3AGetDistributionsResponse%27"><span class="annot"><span class="annottext">GetDistributionsResponse -&gt; Maybe [LightsailDistribution]
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3Adistributions%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var hs-var">distributions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.LightsailDistribution.html#LightsailDistribution"><span class="hs-identifier hs-type">LightsailDistribution</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetDistributionsResponse%27"><span class="annot"><span class="annottext">GetDistributionsResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AhttpStatus%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679642810"><span id="local-6989586621679642812"><span class="annot"><span class="annottext">GetDistributionsResponse -&gt; GetDistributionsResponse -&gt; Bool
+(GetDistributionsResponse -&gt; GetDistributionsResponse -&gt; Bool)
+-&gt; (GetDistributionsResponse -&gt; GetDistributionsResponse -&gt; Bool)
+-&gt; Eq GetDistributionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetDistributionsResponse -&gt; GetDistributionsResponse -&gt; Bool
+$c/= :: GetDistributionsResponse -&gt; GetDistributionsResponse -&gt; Bool
+== :: GetDistributionsResponse -&gt; GetDistributionsResponse -&gt; Bool
+$c== :: GetDistributionsResponse -&gt; GetDistributionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642802"><span id="local-6989586621679642804"><span id="local-6989586621679642806"><span id="local-6989586621679642808"><span class="annot"><span class="annottext">ReadPrec [GetDistributionsResponse]
+ReadPrec GetDistributionsResponse
+Int -&gt; ReadS GetDistributionsResponse
+ReadS [GetDistributionsResponse]
+(Int -&gt; ReadS GetDistributionsResponse)
+-&gt; ReadS [GetDistributionsResponse]
+-&gt; ReadPrec GetDistributionsResponse
+-&gt; ReadPrec [GetDistributionsResponse]
+-&gt; Read GetDistributionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetDistributionsResponse]
+$creadListPrec :: ReadPrec [GetDistributionsResponse]
+readPrec :: ReadPrec GetDistributionsResponse
+$creadPrec :: ReadPrec GetDistributionsResponse
+readList :: ReadS [GetDistributionsResponse]
+$creadList :: ReadS [GetDistributionsResponse]
+readsPrec :: Int -&gt; ReadS GetDistributionsResponse
+$creadsPrec :: Int -&gt; ReadS GetDistributionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679642796"><span id="local-6989586621679642798"><span id="local-6989586621679642800"><span class="annot"><span class="annottext">Int -&gt; GetDistributionsResponse -&gt; ShowS
+[GetDistributionsResponse] -&gt; ShowS
+GetDistributionsResponse -&gt; String
+(Int -&gt; GetDistributionsResponse -&gt; ShowS)
+-&gt; (GetDistributionsResponse -&gt; String)
+-&gt; ([GetDistributionsResponse] -&gt; ShowS)
+-&gt; Show GetDistributionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetDistributionsResponse] -&gt; ShowS
+$cshowList :: [GetDistributionsResponse] -&gt; ShowS
+show :: GetDistributionsResponse -&gt; String
+$cshow :: GetDistributionsResponse -&gt; String
+showsPrec :: Int -&gt; GetDistributionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetDistributionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetDistributionsResponse -&gt; Rep GetDistributionsResponse x)
+-&gt; (forall x.
+    Rep GetDistributionsResponse x -&gt; GetDistributionsResponse)
+-&gt; Generic GetDistributionsResponse
+forall x.
+Rep GetDistributionsResponse x -&gt; GetDistributionsResponse
+forall x.
+GetDistributionsResponse -&gt; Rep GetDistributionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetDistributionsResponse x -&gt; GetDistributionsResponse
+$cfrom :: forall x.
+GetDistributionsResponse -&gt; Rep GetDistributionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'GetDistributionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'nextPageToken', 'getDistributionsResponse_nextPageToken' - The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- display.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- To get the next page of results, perform another @GetDistributions@</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- request and specify the next page token using the @pageToken@ parameter.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'distributions', 'getDistributionsResponse_distributions' - An array of objects that describe your distributions.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'getDistributionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#newGetDistributionsResponse"><span class="hs-identifier hs-type">newGetDistributionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newGetDistributionsResponse"><span class="annot"><span class="annottext">newGetDistributionsResponse :: Int -&gt; GetDistributionsResponse
+</span><a href="Amazonka.Lightsail.GetDistributions.html#newGetDistributionsResponse"><span class="hs-identifier hs-var hs-var">newGetDistributionsResponse</span></a></span></span><span> </span><span id="local-6989586621679642793"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">GetDistributionsResponse' :: Maybe Text
+-&gt; Maybe [LightsailDistribution] -&gt; Int -&gt; GetDistributionsResponse
+</span><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-type">GetDistributionsResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextPageToken:GetDistributionsResponse' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AnextPageToken%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:distributions:GetDistributionsResponse' :: Maybe [LightsailDistribution]
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3Adistributions%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var">distributions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LightsailDistribution]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionsResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AhttpStatus%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642793"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The token to advance to the next page of results from your request.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- A next page token is not returned if there are no more results to</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- display.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- To get the next page of results, perform another @GetDistributions@</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- request and specify the next page token using the @pageToken@ parameter.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_nextPageToken"><span class="hs-identifier hs-type">getDistributionsResponse_nextPageToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="getDistributionsResponse_nextPageToken"><span class="annot"><span class="annottext">getDistributionsResponse_nextPageToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetDistributionsResponse -&gt; f GetDistributionsResponse
+</span><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_nextPageToken"><span class="hs-identifier hs-var hs-var">getDistributionsResponse_nextPageToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributionsResponse -&gt; Maybe Text)
+-&gt; (GetDistributionsResponse
+    -&gt; Maybe Text -&gt; GetDistributionsResponse)
+-&gt; Lens
+     GetDistributionsResponse
+     GetDistributionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-type">GetDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642792"><span class="annot"><span class="annottext">Maybe Text
+nextPageToken :: Maybe Text
+$sel:nextPageToken:GetDistributionsResponse' :: GetDistributionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679642792"><span class="hs-identifier hs-var hs-var">nextPageToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642792"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642791"><span class="annot"><span class="annottext">s :: GetDistributionsResponse
+</span><a href="#local-6989586621679642791"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-type">GetDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642790"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642790"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionsResponse
+</span><a href="#local-6989586621679642791"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextPageToken:GetDistributionsResponse' :: Maybe Text
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AnextPageToken%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var">nextPageToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679642790"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | An array of objects that describe your distributions.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_distributions"><span class="hs-identifier hs-type">getDistributionsResponse_distributions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.LightsailDistribution.html#LightsailDistribution"><span class="hs-identifier hs-type">LightsailDistribution</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span id="getDistributionsResponse_distributions"><span class="annot"><span class="annottext">getDistributionsResponse_distributions :: (Maybe [LightsailDistribution]
+ -&gt; f (Maybe [LightsailDistribution]))
+-&gt; GetDistributionsResponse -&gt; f GetDistributionsResponse
+</span><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_distributions"><span class="hs-identifier hs-var hs-var">getDistributionsResponse_distributions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributionsResponse -&gt; Maybe [LightsailDistribution])
+-&gt; (GetDistributionsResponse
+    -&gt; Maybe [LightsailDistribution] -&gt; GetDistributionsResponse)
+-&gt; Lens
+     GetDistributionsResponse
+     GetDistributionsResponse
+     (Maybe [LightsailDistribution])
+     (Maybe [LightsailDistribution])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-type">GetDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642789"><span class="annot"><span class="annottext">Maybe [LightsailDistribution]
+distributions :: Maybe [LightsailDistribution]
+$sel:distributions:GetDistributionsResponse' :: GetDistributionsResponse -&gt; Maybe [LightsailDistribution]
+</span><a href="#local-6989586621679642789"><span class="hs-identifier hs-var hs-var">distributions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [LightsailDistribution]
+</span><a href="#local-6989586621679642789"><span class="hs-identifier hs-var">distributions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642788"><span class="annot"><span class="annottext">s :: GetDistributionsResponse
+</span><a href="#local-6989586621679642788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-type">GetDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642787"><span class="annot"><span class="annottext">Maybe [LightsailDistribution]
+</span><a href="#local-6989586621679642787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionsResponse
+</span><a href="#local-6989586621679642788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:distributions:GetDistributionsResponse' :: Maybe [LightsailDistribution]
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3Adistributions%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var">distributions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [LightsailDistribution]
+</span><a href="#local-6989586621679642787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [LightsailDistribution]
+  -&gt; f (Maybe [LightsailDistribution]))
+ -&gt; GetDistributionsResponse -&gt; f GetDistributionsResponse)
+-&gt; ((Maybe [LightsailDistribution]
+     -&gt; f (Maybe [LightsailDistribution]))
+    -&gt; Maybe [LightsailDistribution]
+    -&gt; f (Maybe [LightsailDistribution]))
+-&gt; (Maybe [LightsailDistribution]
+    -&gt; f (Maybe [LightsailDistribution]))
+-&gt; GetDistributionsResponse
+-&gt; f GetDistributionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LightsailDistribution]
+  [LightsailDistribution]
+  [LightsailDistribution]
+  [LightsailDistribution]
+-&gt; Iso
+     (Maybe [LightsailDistribution])
+     (Maybe [LightsailDistribution])
+     (Maybe [LightsailDistribution])
+     (Maybe [LightsailDistribution])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [LightsailDistribution]
+  [LightsailDistribution]
+  [LightsailDistribution]
+  [LightsailDistribution]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_httpStatus"><span class="hs-identifier hs-type">getDistributionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-223"></span><span id="getDistributionsResponse_httpStatus"><span class="annot"><span class="annottext">getDistributionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetDistributionsResponse -&gt; f GetDistributionsResponse
+</span><a href="Amazonka.Lightsail.GetDistributions.html#getDistributionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getDistributionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetDistributionsResponse -&gt; Int)
+-&gt; (GetDistributionsResponse -&gt; Int -&gt; GetDistributionsResponse)
+-&gt; Lens GetDistributionsResponse GetDistributionsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-type">GetDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679642783"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetDistributionsResponse' :: GetDistributionsResponse -&gt; Int
+</span><a href="#local-6989586621679642783"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642783"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679642782"><span class="annot"><span class="annottext">s :: GetDistributionsResponse
+</span><a href="#local-6989586621679642782"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse%27"><span class="hs-identifier hs-type">GetDistributionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679642781"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642781"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetDistributionsResponse
+</span><a href="#local-6989586621679642782"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetDistributionsResponse' :: Int
+</span><a href="Amazonka.Lightsail.GetDistributions.html#%24sel%3AhttpStatus%3AGetDistributionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679642781"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679642779"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.GetDistributions.html#GetDistributionsResponse"><span class="hs-identifier hs-type">GetDistributionsResponse</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

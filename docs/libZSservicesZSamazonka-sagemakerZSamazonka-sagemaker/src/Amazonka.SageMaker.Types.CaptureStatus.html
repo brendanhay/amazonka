@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.CaptureStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.CaptureStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus"><span class="hs-identifier">CaptureStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus_Started"><span class="hs-identifier">CaptureStatus_Started</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus_Stopped"><span class="hs-identifier">CaptureStatus_Stopped</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680296786"><span id="local-6989586621680296787"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptureStatus"><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus"><span class="hs-identifier hs-var">CaptureStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptureStatus%27"><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus%27"><span class="hs-identifier hs-var">CaptureStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCaptureStatus"><span class="annot"><span class="annottext">CaptureStatus -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.CaptureStatus.html#fromCaptureStatus"><span class="hs-identifier hs-var hs-var">fromCaptureStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296778"><span id="local-6989586621680296780"><span id="local-6989586621680296782"><span class="annot"><span class="annottext">Int -&gt; CaptureStatus -&gt; ShowS
+[CaptureStatus] -&gt; ShowS
+CaptureStatus -&gt; String
+(Int -&gt; CaptureStatus -&gt; ShowS)
+-&gt; (CaptureStatus -&gt; String)
+-&gt; ([CaptureStatus] -&gt; ShowS)
+-&gt; Show CaptureStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CaptureStatus] -&gt; ShowS
+$cshowList :: [CaptureStatus] -&gt; ShowS
+show :: CaptureStatus -&gt; String
+$cshow :: CaptureStatus -&gt; String
+showsPrec :: Int -&gt; CaptureStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; CaptureStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680296769"><span id="local-6989586621680296771"><span id="local-6989586621680296773"><span id="local-6989586621680296775"><span class="annot"><span class="annottext">ReadPrec [CaptureStatus]
+ReadPrec CaptureStatus
+Int -&gt; ReadS CaptureStatus
+ReadS [CaptureStatus]
+(Int -&gt; ReadS CaptureStatus)
+-&gt; ReadS [CaptureStatus]
+-&gt; ReadPrec CaptureStatus
+-&gt; ReadPrec [CaptureStatus]
+-&gt; Read CaptureStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CaptureStatus]
+$creadListPrec :: ReadPrec [CaptureStatus]
+readPrec :: ReadPrec CaptureStatus
+$creadPrec :: ReadPrec CaptureStatus
+readList :: ReadS [CaptureStatus]
+$creadList :: ReadS [CaptureStatus]
+readsPrec :: Int -&gt; ReadS CaptureStatus
+$creadsPrec :: Int -&gt; ReadS CaptureStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680296764"><span id="local-6989586621680296766"><span class="annot"><span class="annottext">CaptureStatus -&gt; CaptureStatus -&gt; Bool
+(CaptureStatus -&gt; CaptureStatus -&gt; Bool)
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Bool) -&gt; Eq CaptureStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+$c/= :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+== :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+$c== :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680296748"><span id="local-6989586621680296750"><span id="local-6989586621680296752"><span id="local-6989586621680296754"><span id="local-6989586621680296756"><span id="local-6989586621680296758"><span id="local-6989586621680296760"><span class="annot"><span class="annottext">Eq CaptureStatus
+Eq CaptureStatus
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Ordering)
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Bool)
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Bool)
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Bool)
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; Bool)
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; CaptureStatus)
+-&gt; (CaptureStatus -&gt; CaptureStatus -&gt; CaptureStatus)
+-&gt; Ord CaptureStatus
+CaptureStatus -&gt; CaptureStatus -&gt; Bool
+CaptureStatus -&gt; CaptureStatus -&gt; Ordering
+CaptureStatus -&gt; CaptureStatus -&gt; CaptureStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CaptureStatus -&gt; CaptureStatus -&gt; CaptureStatus
+$cmin :: CaptureStatus -&gt; CaptureStatus -&gt; CaptureStatus
+max :: CaptureStatus -&gt; CaptureStatus -&gt; CaptureStatus
+$cmax :: CaptureStatus -&gt; CaptureStatus -&gt; CaptureStatus
+&gt;= :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+$c&gt;= :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+&gt; :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+$c&gt; :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+&lt;= :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+$c&lt;= :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+&lt; :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+$c&lt; :: CaptureStatus -&gt; CaptureStatus -&gt; Bool
+compare :: CaptureStatus -&gt; CaptureStatus -&gt; Ordering
+$ccompare :: CaptureStatus -&gt; CaptureStatus -&gt; Ordering
+$cp1Ord :: Eq CaptureStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CaptureStatus -&gt; Rep CaptureStatus x)
+-&gt; (forall x. Rep CaptureStatus x -&gt; CaptureStatus)
+-&gt; Generic CaptureStatus
+forall x. Rep CaptureStatus x -&gt; CaptureStatus
+forall x. CaptureStatus -&gt; Rep CaptureStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CaptureStatus x -&gt; CaptureStatus
+$cfrom :: forall x. CaptureStatus -&gt; Rep CaptureStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680296740"><span id="local-6989586621680296742"><span class="annot"><span class="annottext">Int -&gt; CaptureStatus -&gt; Int
+CaptureStatus -&gt; Int
+(Int -&gt; CaptureStatus -&gt; Int)
+-&gt; (CaptureStatus -&gt; Int) -&gt; Hashable CaptureStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CaptureStatus -&gt; Int
+$chash :: CaptureStatus -&gt; Int
+hashWithSalt :: Int -&gt; CaptureStatus -&gt; Int
+$chashWithSalt :: Int -&gt; CaptureStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680296737"><span class="annot"><span class="annottext">CaptureStatus -&gt; ()
+(CaptureStatus -&gt; ()) -&gt; NFData CaptureStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CaptureStatus -&gt; ()
+$crnf :: CaptureStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680296734"><span class="annot"><span class="annottext">Text -&gt; Either String CaptureStatus
+(Text -&gt; Either String CaptureStatus) -&gt; FromText CaptureStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CaptureStatus
+$cfromText :: Text -&gt; Either String CaptureStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680296731"><span class="annot"><span class="annottext">CaptureStatus -&gt; Text
+(CaptureStatus -&gt; Text) -&gt; ToText CaptureStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CaptureStatus -&gt; Text
+$ctoText :: CaptureStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680296728"><span class="annot"><span class="annottext">CaptureStatus -&gt; ByteString
+(CaptureStatus -&gt; ByteString) -&gt; ToByteString CaptureStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CaptureStatus -&gt; ByteString
+$ctoBS :: CaptureStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680296725"><span class="annot"><span class="annottext">CaptureStatus -&gt; ByteStringBuilder
+(CaptureStatus -&gt; ByteStringBuilder) -&gt; ToLog CaptureStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CaptureStatus -&gt; ByteStringBuilder
+$cbuild :: CaptureStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680296722"><span class="annot"><span class="annottext">HeaderName -&gt; CaptureStatus -&gt; [Header]
+(HeaderName -&gt; CaptureStatus -&gt; [Header]) -&gt; ToHeader CaptureStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CaptureStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CaptureStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680296719"><span class="annot"><span class="annottext">CaptureStatus -&gt; QueryString
+(CaptureStatus -&gt; QueryString) -&gt; ToQuery CaptureStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CaptureStatus -&gt; QueryString
+$ctoQuery :: CaptureStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680296714"><span id="local-6989586621680296716"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptureStatus]
+Value -&gt; Parser CaptureStatus
+(Value -&gt; Parser CaptureStatus)
+-&gt; (Value -&gt; Parser [CaptureStatus]) -&gt; FromJSON CaptureStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CaptureStatus]
+$cparseJSONList :: Value -&gt; Parser [CaptureStatus]
+parseJSON :: Value -&gt; Parser CaptureStatus
+$cparseJSON :: Value -&gt; Parser CaptureStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680296709"><span id="local-6989586621680296711"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptureStatus]
+FromJSONKeyFunction CaptureStatus
+FromJSONKeyFunction CaptureStatus
+-&gt; FromJSONKeyFunction [CaptureStatus] -&gt; FromJSONKey CaptureStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CaptureStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [CaptureStatus]
+fromJSONKey :: FromJSONKeyFunction CaptureStatus
+$cfromJSONKey :: FromJSONKeyFunction CaptureStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680296700"><span id="local-6989586621680296702"><span id="local-6989586621680296704"><span id="local-6989586621680296706"><span class="annot"><span class="annottext">[CaptureStatus] -&gt; Encoding
+[CaptureStatus] -&gt; Value
+CaptureStatus -&gt; Encoding
+CaptureStatus -&gt; Value
+(CaptureStatus -&gt; Value)
+-&gt; (CaptureStatus -&gt; Encoding)
+-&gt; ([CaptureStatus] -&gt; Value)
+-&gt; ([CaptureStatus] -&gt; Encoding)
+-&gt; ToJSON CaptureStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CaptureStatus] -&gt; Encoding
+$ctoEncodingList :: [CaptureStatus] -&gt; Encoding
+toJSONList :: [CaptureStatus] -&gt; Value
+$ctoJSONList :: [CaptureStatus] -&gt; Value
+toEncoding :: CaptureStatus -&gt; Encoding
+$ctoEncoding :: CaptureStatus -&gt; Encoding
+toJSON :: CaptureStatus -&gt; Value
+$ctoJSON :: CaptureStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680296695"><span id="local-6989586621680296697"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptureStatus]
+ToJSONKeyFunction CaptureStatus
+ToJSONKeyFunction CaptureStatus
+-&gt; ToJSONKeyFunction [CaptureStatus] -&gt; ToJSONKey CaptureStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CaptureStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [CaptureStatus]
+toJSONKey :: ToJSONKeyFunction CaptureStatus
+$ctoJSONKey :: ToJSONKeyFunction CaptureStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680296692"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptureStatus
+([Node] -&gt; Either String CaptureStatus) -&gt; FromXML CaptureStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CaptureStatus
+$cparseXML :: [Node] -&gt; Either String CaptureStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680296689"><span class="annot"><span class="annottext">CaptureStatus -&gt; XML
+(CaptureStatus -&gt; XML) -&gt; ToXML CaptureStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CaptureStatus -&gt; XML
+$ctoXML :: CaptureStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus_Started"><span class="hs-identifier hs-type">CaptureStatus_Started</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus"><span class="hs-identifier hs-type">CaptureStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptureStatus_Started"><span id="%24mCaptureStatus_Started"><span id="CaptureStatus_Started"><span class="annot"><span class="annottext">$bCaptureStatus_Started :: CaptureStatus
+$mCaptureStatus_Started :: forall r. CaptureStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.CaptureStatus.html#%24bCaptureStatus_Started"><span class="hs-identifier hs-var hs-var hs-var">CaptureStatus_Started</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus%27"><span class="hs-identifier hs-type">CaptureStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Started&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus_Stopped"><span class="hs-identifier hs-type">CaptureStatus_Stopped</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus"><span class="hs-identifier hs-type">CaptureStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptureStatus_Stopped"><span id="%24mCaptureStatus_Stopped"><span id="CaptureStatus_Stopped"><span class="annot"><span class="annottext">$bCaptureStatus_Stopped :: CaptureStatus
+$mCaptureStatus_Stopped :: forall r. CaptureStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.CaptureStatus.html#%24bCaptureStatus_Stopped"><span class="hs-identifier hs-var hs-var hs-var">CaptureStatus_Stopped</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus%27"><span class="hs-identifier hs-type">CaptureStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Stopped&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus_Started"><span class="hs-pragma hs-type">CaptureStatus_Started</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus_Stopped"><span class="hs-pragma hs-type">CaptureStatus_Stopped</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.CaptureStatus.html#CaptureStatus%27"><span class="hs-pragma hs-type">CaptureStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

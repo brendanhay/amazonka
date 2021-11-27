@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.Eac3MetadataControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.Eac3MetadataControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl"><span class="hs-identifier">Eac3MetadataControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl_FOLLOW_INPUT"><span class="hs-identifier">Eac3MetadataControl_FOLLOW_INPUT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl_USE_CONFIGURED"><span class="hs-identifier">Eac3MetadataControl_USE_CONFIGURED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- DD+, or DolbyE decoder that supplied this audio data. If audio was not</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- supplied from one of these streams, then the static metadata settings</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- will be used.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679962690"><span id="local-6989586621679962691"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Eac3MetadataControl"><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl"><span class="hs-identifier hs-var">Eac3MetadataControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Eac3MetadataControl%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl%27"><span class="hs-identifier hs-var">Eac3MetadataControl'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEac3MetadataControl"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#fromEac3MetadataControl"><span class="hs-identifier hs-var hs-var">fromEac3MetadataControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962682"><span id="local-6989586621679962684"><span id="local-6989586621679962686"><span class="annot"><span class="annottext">Int -&gt; Eac3MetadataControl -&gt; ShowS
+[Eac3MetadataControl] -&gt; ShowS
+Eac3MetadataControl -&gt; String
+(Int -&gt; Eac3MetadataControl -&gt; ShowS)
+-&gt; (Eac3MetadataControl -&gt; String)
+-&gt; ([Eac3MetadataControl] -&gt; ShowS)
+-&gt; Show Eac3MetadataControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Eac3MetadataControl] -&gt; ShowS
+$cshowList :: [Eac3MetadataControl] -&gt; ShowS
+show :: Eac3MetadataControl -&gt; String
+$cshow :: Eac3MetadataControl -&gt; String
+showsPrec :: Int -&gt; Eac3MetadataControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; Eac3MetadataControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679962673"><span id="local-6989586621679962675"><span id="local-6989586621679962677"><span id="local-6989586621679962679"><span class="annot"><span class="annottext">ReadPrec [Eac3MetadataControl]
+ReadPrec Eac3MetadataControl
+Int -&gt; ReadS Eac3MetadataControl
+ReadS [Eac3MetadataControl]
+(Int -&gt; ReadS Eac3MetadataControl)
+-&gt; ReadS [Eac3MetadataControl]
+-&gt; ReadPrec Eac3MetadataControl
+-&gt; ReadPrec [Eac3MetadataControl]
+-&gt; Read Eac3MetadataControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Eac3MetadataControl]
+$creadListPrec :: ReadPrec [Eac3MetadataControl]
+readPrec :: ReadPrec Eac3MetadataControl
+$creadPrec :: ReadPrec Eac3MetadataControl
+readList :: ReadS [Eac3MetadataControl]
+$creadList :: ReadS [Eac3MetadataControl]
+readsPrec :: Int -&gt; ReadS Eac3MetadataControl
+$creadsPrec :: Int -&gt; ReadS Eac3MetadataControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679962668"><span id="local-6989586621679962670"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+(Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
+-&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
+-&gt; Eq Eac3MetadataControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+$c/= :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+== :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+$c== :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679962652"><span id="local-6989586621679962654"><span id="local-6989586621679962656"><span id="local-6989586621679962658"><span id="local-6989586621679962660"><span id="local-6989586621679962662"><span id="local-6989586621679962664"><span class="annot"><span class="annottext">Eq Eac3MetadataControl
+Eq Eac3MetadataControl
+-&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Ordering)
+-&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
+-&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
+-&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
+-&gt; (Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool)
+-&gt; (Eac3MetadataControl
+    -&gt; Eac3MetadataControl -&gt; Eac3MetadataControl)
+-&gt; (Eac3MetadataControl
+    -&gt; Eac3MetadataControl -&gt; Eac3MetadataControl)
+-&gt; Ord Eac3MetadataControl
+Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Ordering
+Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Eac3MetadataControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Eac3MetadataControl
+$cmin :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Eac3MetadataControl
+max :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Eac3MetadataControl
+$cmax :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Eac3MetadataControl
+&gt;= :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+$c&gt;= :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+&gt; :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+$c&gt; :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+&lt;= :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+$c&lt;= :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+&lt; :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+$c&lt; :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Bool
+compare :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Ordering
+$ccompare :: Eac3MetadataControl -&gt; Eac3MetadataControl -&gt; Ordering
+$cp1Ord :: Eq Eac3MetadataControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Eac3MetadataControl -&gt; Rep Eac3MetadataControl x)
+-&gt; (forall x. Rep Eac3MetadataControl x -&gt; Eac3MetadataControl)
+-&gt; Generic Eac3MetadataControl
+forall x. Rep Eac3MetadataControl x -&gt; Eac3MetadataControl
+forall x. Eac3MetadataControl -&gt; Rep Eac3MetadataControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Eac3MetadataControl x -&gt; Eac3MetadataControl
+$cfrom :: forall x. Eac3MetadataControl -&gt; Rep Eac3MetadataControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679962644"><span id="local-6989586621679962646"><span class="annot"><span class="annottext">Int -&gt; Eac3MetadataControl -&gt; Int
+Eac3MetadataControl -&gt; Int
+(Int -&gt; Eac3MetadataControl -&gt; Int)
+-&gt; (Eac3MetadataControl -&gt; Int) -&gt; Hashable Eac3MetadataControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Eac3MetadataControl -&gt; Int
+$chash :: Eac3MetadataControl -&gt; Int
+hashWithSalt :: Int -&gt; Eac3MetadataControl -&gt; Int
+$chashWithSalt :: Int -&gt; Eac3MetadataControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679962641"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ()
+(Eac3MetadataControl -&gt; ()) -&gt; NFData Eac3MetadataControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Eac3MetadataControl -&gt; ()
+$crnf :: Eac3MetadataControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679962638"><span class="annot"><span class="annottext">Text -&gt; Either String Eac3MetadataControl
+(Text -&gt; Either String Eac3MetadataControl)
+-&gt; FromText Eac3MetadataControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Eac3MetadataControl
+$cfromText :: Text -&gt; Either String Eac3MetadataControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679962635"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; Text
+(Eac3MetadataControl -&gt; Text) -&gt; ToText Eac3MetadataControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Eac3MetadataControl -&gt; Text
+$ctoText :: Eac3MetadataControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679962632"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ByteString
+(Eac3MetadataControl -&gt; ByteString)
+-&gt; ToByteString Eac3MetadataControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Eac3MetadataControl -&gt; ByteString
+$ctoBS :: Eac3MetadataControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679962629"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; ByteStringBuilder
+(Eac3MetadataControl -&gt; ByteStringBuilder)
+-&gt; ToLog Eac3MetadataControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Eac3MetadataControl -&gt; ByteStringBuilder
+$cbuild :: Eac3MetadataControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679962626"><span class="annot"><span class="annottext">HeaderName -&gt; Eac3MetadataControl -&gt; [Header]
+(HeaderName -&gt; Eac3MetadataControl -&gt; [Header])
+-&gt; ToHeader Eac3MetadataControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Eac3MetadataControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Eac3MetadataControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679962623"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; QueryString
+(Eac3MetadataControl -&gt; QueryString) -&gt; ToQuery Eac3MetadataControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Eac3MetadataControl -&gt; QueryString
+$ctoQuery :: Eac3MetadataControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679962618"><span id="local-6989586621679962620"><span class="annot"><span class="annottext">Value -&gt; Parser [Eac3MetadataControl]
+Value -&gt; Parser Eac3MetadataControl
+(Value -&gt; Parser Eac3MetadataControl)
+-&gt; (Value -&gt; Parser [Eac3MetadataControl])
+-&gt; FromJSON Eac3MetadataControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Eac3MetadataControl]
+$cparseJSONList :: Value -&gt; Parser [Eac3MetadataControl]
+parseJSON :: Value -&gt; Parser Eac3MetadataControl
+$cparseJSON :: Value -&gt; Parser Eac3MetadataControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679962613"><span id="local-6989586621679962615"><span class="annot"><span class="annottext">FromJSONKeyFunction [Eac3MetadataControl]
+FromJSONKeyFunction Eac3MetadataControl
+FromJSONKeyFunction Eac3MetadataControl
+-&gt; FromJSONKeyFunction [Eac3MetadataControl]
+-&gt; FromJSONKey Eac3MetadataControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Eac3MetadataControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [Eac3MetadataControl]
+fromJSONKey :: FromJSONKeyFunction Eac3MetadataControl
+$cfromJSONKey :: FromJSONKeyFunction Eac3MetadataControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679962604"><span id="local-6989586621679962606"><span id="local-6989586621679962608"><span id="local-6989586621679962610"><span class="annot"><span class="annottext">[Eac3MetadataControl] -&gt; Encoding
+[Eac3MetadataControl] -&gt; Value
+Eac3MetadataControl -&gt; Encoding
+Eac3MetadataControl -&gt; Value
+(Eac3MetadataControl -&gt; Value)
+-&gt; (Eac3MetadataControl -&gt; Encoding)
+-&gt; ([Eac3MetadataControl] -&gt; Value)
+-&gt; ([Eac3MetadataControl] -&gt; Encoding)
+-&gt; ToJSON Eac3MetadataControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Eac3MetadataControl] -&gt; Encoding
+$ctoEncodingList :: [Eac3MetadataControl] -&gt; Encoding
+toJSONList :: [Eac3MetadataControl] -&gt; Value
+$ctoJSONList :: [Eac3MetadataControl] -&gt; Value
+toEncoding :: Eac3MetadataControl -&gt; Encoding
+$ctoEncoding :: Eac3MetadataControl -&gt; Encoding
+toJSON :: Eac3MetadataControl -&gt; Value
+$ctoJSON :: Eac3MetadataControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679962599"><span id="local-6989586621679962601"><span class="annot"><span class="annottext">ToJSONKeyFunction [Eac3MetadataControl]
+ToJSONKeyFunction Eac3MetadataControl
+ToJSONKeyFunction Eac3MetadataControl
+-&gt; ToJSONKeyFunction [Eac3MetadataControl]
+-&gt; ToJSONKey Eac3MetadataControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Eac3MetadataControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [Eac3MetadataControl]
+toJSONKey :: ToJSONKeyFunction Eac3MetadataControl
+$ctoJSONKey :: ToJSONKeyFunction Eac3MetadataControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679962596"><span class="annot"><span class="annottext">[Node] -&gt; Either String Eac3MetadataControl
+([Node] -&gt; Either String Eac3MetadataControl)
+-&gt; FromXML Eac3MetadataControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Eac3MetadataControl
+$cparseXML :: [Node] -&gt; Either String Eac3MetadataControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679962593"><span class="annot"><span class="annottext">Eac3MetadataControl -&gt; XML
+(Eac3MetadataControl -&gt; XML) -&gt; ToXML Eac3MetadataControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Eac3MetadataControl -&gt; XML
+$ctoXML :: Eac3MetadataControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl_FOLLOW_INPUT"><span class="hs-identifier hs-type">Eac3MetadataControl_FOLLOW_INPUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl"><span class="hs-identifier hs-type">Eac3MetadataControl</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3MetadataControl_FOLLOW_INPUT"><span id="%24mEac3MetadataControl_FOLLOW_INPUT"><span id="Eac3MetadataControl_FOLLOW_INPUT"><span class="annot"><span class="annottext">$bEac3MetadataControl_FOLLOW_INPUT :: Eac3MetadataControl
+$mEac3MetadataControl_FOLLOW_INPUT :: forall r. Eac3MetadataControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#%24bEac3MetadataControl_FOLLOW_INPUT"><span class="hs-identifier hs-var hs-var hs-var">Eac3MetadataControl_FOLLOW_INPUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl%27"><span class="hs-identifier hs-type">Eac3MetadataControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FOLLOW_INPUT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl_USE_CONFIGURED"><span class="hs-identifier hs-type">Eac3MetadataControl_USE_CONFIGURED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl"><span class="hs-identifier hs-type">Eac3MetadataControl</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEac3MetadataControl_USE_CONFIGURED"><span id="%24mEac3MetadataControl_USE_CONFIGURED"><span id="Eac3MetadataControl_USE_CONFIGURED"><span class="annot"><span class="annottext">$bEac3MetadataControl_USE_CONFIGURED :: Eac3MetadataControl
+$mEac3MetadataControl_USE_CONFIGURED :: forall r. Eac3MetadataControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#%24bEac3MetadataControl_USE_CONFIGURED"><span class="hs-identifier hs-var hs-var hs-var">Eac3MetadataControl_USE_CONFIGURED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl%27"><span class="hs-identifier hs-type">Eac3MetadataControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USE_CONFIGURED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl_FOLLOW_INPUT"><span class="hs-pragma hs-type">Eac3MetadataControl_FOLLOW_INPUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl_USE_CONFIGURED"><span class="hs-pragma hs-type">Eac3MetadataControl_USE_CONFIGURED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.Eac3MetadataControl.html#Eac3MetadataControl%27"><span class="hs-pragma hs-type">Eac3MetadataControl'</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-75"></span></pre></body></html>

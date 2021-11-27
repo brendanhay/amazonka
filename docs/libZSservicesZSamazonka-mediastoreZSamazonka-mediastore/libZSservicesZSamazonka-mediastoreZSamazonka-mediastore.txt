@@ -5,62 +5,62 @@
 @version 2.0
 
 
-module Network.AWS.MediaStore.Types.ContainerLevelMetrics
+module Amazonka.MediaStore.Types.ContainerLevelMetrics
 newtype ContainerLevelMetrics
 ContainerLevelMetrics' :: Text -> ContainerLevelMetrics
 [fromContainerLevelMetrics] :: ContainerLevelMetrics -> Text
 pattern ContainerLevelMetrics_DISABLED :: ContainerLevelMetrics
 pattern ContainerLevelMetrics_ENABLED :: ContainerLevelMetrics
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance GHC.Classes.Ord Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance GHC.Read.Read Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
-instance GHC.Show.Show Network.AWS.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.XML.ToXML Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.XML.FromXML Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.Log.ToLog Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.Text.ToText Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Amazonka.Data.Text.FromText Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance GHC.Classes.Ord Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance GHC.Read.Read Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
+instance GHC.Show.Show Amazonka.MediaStore.Types.ContainerLevelMetrics.ContainerLevelMetrics
 
 
-module Network.AWS.MediaStore.Types.ContainerStatus
+module Amazonka.MediaStore.Types.ContainerStatus
 newtype ContainerStatus
 ContainerStatus' :: Text -> ContainerStatus
 [fromContainerStatus] :: ContainerStatus -> Text
 pattern ContainerStatus_ACTIVE :: ContainerStatus
 pattern ContainerStatus_CREATING :: ContainerStatus
 pattern ContainerStatus_DELETING :: ContainerStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance GHC.Classes.Ord Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance GHC.Read.Read Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
-instance GHC.Show.Show Network.AWS.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.Text.ToText Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Amazonka.Data.Text.FromText Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance GHC.Classes.Ord Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance GHC.Read.Read Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
+instance GHC.Show.Show Amazonka.MediaStore.Types.ContainerStatus.ContainerStatus
 
 
-module Network.AWS.MediaStore.Types.Container
+module Amazonka.MediaStore.Types.Container
 
 -- | This section describes operations that you can perform on an AWS
 --   Elemental MediaStore container.
@@ -187,16 +187,16 @@ container_name :: Lens' Container (Maybe Text)
 --   service assigns this value when the container is created. Once the
 --   value has been assigned, it does not change.
 container_endpoint :: Lens' Container (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.Container.Container
-instance GHC.Show.Show Network.AWS.MediaStore.Types.Container.Container
-instance GHC.Read.Read Network.AWS.MediaStore.Types.Container.Container
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.Container.Container
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.Container.Container
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.Container.Container
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.Container.Container
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.Container.Container
+instance GHC.Show.Show Amazonka.MediaStore.Types.Container.Container
+instance GHC.Read.Read Amazonka.MediaStore.Types.Container.Container
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.Container.Container
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.Container.Container
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.Container.Container
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.Container.Container
 
 
-module Network.AWS.MediaStore.Types.MethodName
+module Amazonka.MediaStore.Types.MethodName
 newtype MethodName
 MethodName' :: Text -> MethodName
 [fromMethodName] :: MethodName -> Text
@@ -204,28 +204,28 @@ pattern MethodName_DELETE :: MethodName
 pattern MethodName_GET :: MethodName
 pattern MethodName_HEAD :: MethodName
 pattern MethodName_PUT :: MethodName
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.MethodName.MethodName
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.MethodName.MethodName
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.MethodName.MethodName
-instance GHC.Classes.Ord Network.AWS.MediaStore.Types.MethodName.MethodName
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.MethodName.MethodName
-instance GHC.Read.Read Network.AWS.MediaStore.Types.MethodName.MethodName
-instance GHC.Show.Show Network.AWS.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.XML.ToXML Amazonka.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.XML.FromXML Amazonka.MediaStore.Types.MethodName.MethodName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaStore.Types.MethodName.MethodName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.Types.MethodName.MethodName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaStore.Types.MethodName.MethodName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.Log.ToLog Amazonka.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.Text.ToText Amazonka.MediaStore.Types.MethodName.MethodName
+instance Amazonka.Data.Text.FromText Amazonka.MediaStore.Types.MethodName.MethodName
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.MethodName.MethodName
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.MethodName.MethodName
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.MethodName.MethodName
+instance GHC.Classes.Ord Amazonka.MediaStore.Types.MethodName.MethodName
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.MethodName.MethodName
+instance GHC.Read.Read Amazonka.MediaStore.Types.MethodName.MethodName
+instance GHC.Show.Show Amazonka.MediaStore.Types.MethodName.MethodName
 
 
-module Network.AWS.MediaStore.Types.CorsRule
+module Amazonka.MediaStore.Types.CorsRule
 
 -- | A rule for a CORS policy. You can add up to 100 rules to a CORS
 --   policy. If more than one rule applies, the service uses the first
@@ -360,17 +360,17 @@ corsRule_allowedOrigins :: Lens' CorsRule (NonEmpty Text)
 --   
 --   This element can contain only one wildcard character (*).
 corsRule_allowedHeaders :: Lens' CorsRule [Text]
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.CorsRule.CorsRule
-instance GHC.Show.Show Network.AWS.MediaStore.Types.CorsRule.CorsRule
-instance GHC.Read.Read Network.AWS.MediaStore.Types.CorsRule.CorsRule
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.CorsRule.CorsRule
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.CorsRule.CorsRule
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.CorsRule.CorsRule
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.CorsRule.CorsRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.Types.CorsRule.CorsRule
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.CorsRule.CorsRule
+instance GHC.Show.Show Amazonka.MediaStore.Types.CorsRule.CorsRule
+instance GHC.Read.Read Amazonka.MediaStore.Types.CorsRule.CorsRule
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.CorsRule.CorsRule
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.CorsRule.CorsRule
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.CorsRule.CorsRule
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.CorsRule.CorsRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.Types.CorsRule.CorsRule
 
 
-module Network.AWS.MediaStore.Types.MetricPolicyRule
+module Amazonka.MediaStore.Types.MetricPolicyRule
 
 -- | A setting that enables metrics at the object level. Each rule contains
 --   an object group and an object group name. If the policy includes the
@@ -413,17 +413,17 @@ metricPolicyRule_objectGroup :: Lens' MetricPolicyRule Text
 
 -- | A name that allows you to refer to the object group.
 metricPolicyRule_objectGroupName :: Lens' MetricPolicyRule Text
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
-instance GHC.Show.Show Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
-instance GHC.Read.Read Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance GHC.Show.Show Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance GHC.Read.Read Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.Types.MetricPolicyRule.MetricPolicyRule
 
 
-module Network.AWS.MediaStore.Types.MetricPolicy
+module Amazonka.MediaStore.Types.MetricPolicy
 
 -- | The metric policy that is associated with the container. A metric
 --   policy allows AWS Elemental MediaStore to send metrics to Amazon
@@ -480,17 +480,17 @@ metricPolicy_metricPolicyRules :: Lens' MetricPolicy (Maybe (NonEmpty MetricPoli
 
 -- | A setting to enable or disable metrics at the container level.
 metricPolicy_containerLevelMetrics :: Lens' MetricPolicy ContainerLevelMetrics
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.Types.MetricPolicy.MetricPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
+instance GHC.Show.Show Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
+instance GHC.Read.Read Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.Types.MetricPolicy.MetricPolicy
 
 
-module Network.AWS.MediaStore.Types.Tag
+module Amazonka.MediaStore.Types.Tag
 
 -- | A collection of tags associated with a container. Each tag consists of
 --   a key:value pair, which can be anything you define. Typically, the tag
@@ -541,17 +541,17 @@ tag_value :: Lens' Tag (Maybe Text)
 --   to describe a category of information, such as "customer." Tag keys
 --   are case-sensitive.
 tag_key :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.MediaStore.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.MediaStore.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.MediaStore.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.MediaStore.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaStore.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.MediaStore.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.MediaStore.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.MediaStore.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.MediaStore.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaStore.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.MediaStore.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.Types.Tag.Tag
 
 
-module Network.AWS.MediaStore.Types
+module Amazonka.MediaStore.Types
 
 -- | API version <tt>2017-09-01</tt> of the Amazon Elemental MediaStore SDK
 --   configuration.
@@ -1010,7 +1010,7 @@ tag_key :: Lens' Tag Text
 --   You can add up to 50 tags to each container. For more information
 --   about tagging, including naming and usage conventions, see <a>Tagging
 --   Resources in MediaStore</a>.
-module Network.AWS.MediaStore.TagResource
+module Amazonka.MediaStore.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1087,29 +1087,29 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.MediaStore.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.MediaStore.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.MediaStore.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.MediaStore.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.MediaStore.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.MediaStore.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MediaStore.TagResource.TagResource
+instance GHC.Show.Show Amazonka.MediaStore.TagResource.TagResource
+instance GHC.Read.Read Amazonka.MediaStore.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.MediaStore.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MediaStore.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.MediaStore.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.MediaStore.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MediaStore.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MediaStore.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.TagResource.TagResource
 
 
 -- | Stops access logging on the specified container. When you stop access
 --   logging on a container, MediaStore stops sending access logs to Amazon
 --   CloudWatch Logs. These access logs are not saved and are not
 --   retrievable.
-module Network.AWS.MediaStore.StopAccessLogging
+module Amazonka.MediaStore.StopAccessLogging
 
 -- | <i>See:</i> <a>newStopAccessLogging</a> smart constructor.
 data StopAccessLogging
@@ -1158,28 +1158,28 @@ newStopAccessLoggingResponse :: Int -> StopAccessLoggingResponse
 
 -- | The response's http status code.
 stopAccessLoggingResponse_httpStatus :: Lens' StopAccessLoggingResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance GHC.Show.Show Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance GHC.Read.Read Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance GHC.Classes.Eq Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance GHC.Generics.Generic Network.AWS.MediaStore.StopAccessLogging.StopAccessLoggingResponse
-instance GHC.Show.Show Network.AWS.MediaStore.StopAccessLogging.StopAccessLoggingResponse
-instance GHC.Read.Read Network.AWS.MediaStore.StopAccessLogging.StopAccessLoggingResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.StopAccessLogging.StopAccessLoggingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.StopAccessLogging.StopAccessLoggingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.StopAccessLogging.StopAccessLogging
+instance GHC.Generics.Generic Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance GHC.Show.Show Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance GHC.Read.Read Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance GHC.Classes.Eq Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance GHC.Generics.Generic Amazonka.MediaStore.StopAccessLogging.StopAccessLoggingResponse
+instance GHC.Show.Show Amazonka.MediaStore.StopAccessLogging.StopAccessLoggingResponse
+instance GHC.Read.Read Amazonka.MediaStore.StopAccessLogging.StopAccessLoggingResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.StopAccessLogging.StopAccessLoggingResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance Control.DeepSeq.NFData Amazonka.MediaStore.StopAccessLogging.StopAccessLoggingResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance Control.DeepSeq.NFData Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.StopAccessLogging.StopAccessLogging
 
 
 -- | Starts access logging on the specified container. When you enable
 --   access logging on a container, MediaStore delivers access logs for
 --   objects stored in that container to Amazon CloudWatch Logs.
-module Network.AWS.MediaStore.StartAccessLogging
+module Amazonka.MediaStore.StartAccessLogging
 
 -- | <i>See:</i> <a>newStartAccessLogging</a> smart constructor.
 data StartAccessLogging
@@ -1228,29 +1228,29 @@ newStartAccessLoggingResponse :: Int -> StartAccessLoggingResponse
 
 -- | The response's http status code.
 startAccessLoggingResponse_httpStatus :: Lens' StartAccessLoggingResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance GHC.Show.Show Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance GHC.Read.Read Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance GHC.Classes.Eq Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance GHC.Generics.Generic Network.AWS.MediaStore.StartAccessLogging.StartAccessLoggingResponse
-instance GHC.Show.Show Network.AWS.MediaStore.StartAccessLogging.StartAccessLoggingResponse
-instance GHC.Read.Read Network.AWS.MediaStore.StartAccessLogging.StartAccessLoggingResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.StartAccessLogging.StartAccessLoggingResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.StartAccessLogging.StartAccessLoggingResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.StartAccessLogging.StartAccessLogging
+instance GHC.Generics.Generic Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance GHC.Show.Show Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance GHC.Read.Read Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance GHC.Classes.Eq Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance GHC.Generics.Generic Amazonka.MediaStore.StartAccessLogging.StartAccessLoggingResponse
+instance GHC.Show.Show Amazonka.MediaStore.StartAccessLogging.StartAccessLoggingResponse
+instance GHC.Read.Read Amazonka.MediaStore.StartAccessLogging.StartAccessLoggingResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.StartAccessLogging.StartAccessLoggingResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance Control.DeepSeq.NFData Amazonka.MediaStore.StartAccessLogging.StartAccessLoggingResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance Control.DeepSeq.NFData Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.StartAccessLogging.StartAccessLogging
 
 
 -- | The metric policy that you want to add to the container. A metric
 --   policy allows AWS Elemental MediaStore to send metrics to Amazon
 --   CloudWatch. It takes up to 20 minutes for the new policy to take
 --   effect.
-module Network.AWS.MediaStore.PutMetricPolicy
+module Amazonka.MediaStore.PutMetricPolicy
 
 -- | <i>See:</i> <a>newPutMetricPolicy</a> smart constructor.
 data PutMetricPolicy
@@ -1359,22 +1359,22 @@ newPutMetricPolicyResponse :: Int -> PutMetricPolicyResponse
 
 -- | The response's http status code.
 putMetricPolicyResponse_httpStatus :: Lens' PutMetricPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance GHC.Show.Show Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance GHC.Read.Read Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.PutMetricPolicy.PutMetricPolicy
 
 
 -- | Writes an object lifecycle policy to a container. If the container
@@ -1384,7 +1384,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.PutMetricPolicy.P
 --   
 --   For information about how to construct an object lifecycle policy, see
 --   <a>Components of an Object Lifecycle Policy</a>.
-module Network.AWS.MediaStore.PutLifecyclePolicy
+module Amazonka.MediaStore.PutLifecyclePolicy
 
 -- | <i>See:</i> <a>newPutLifecyclePolicy</a> smart constructor.
 data PutLifecyclePolicy
@@ -1445,22 +1445,22 @@ newPutLifecyclePolicyResponse :: Int -> PutLifecyclePolicyResponse
 
 -- | The response's http status code.
 putLifecyclePolicyResponse_httpStatus :: Lens' PutLifecyclePolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance GHC.Show.Show Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance GHC.Read.Read Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance GHC.Show.Show Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance GHC.Read.Read Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.PutLifecyclePolicy.PutLifecyclePolicy
 
 
 -- | Sets the cross-origin resource sharing (CORS) configuration on a
@@ -1479,7 +1479,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.PutLifecyclePolic
 --   
 --   To learn more about CORS, see <a>Cross-Origin Resource Sharing (CORS)
 --   in AWS Elemental MediaStore</a>.
-module Network.AWS.MediaStore.PutCorsPolicy
+module Amazonka.MediaStore.PutCorsPolicy
 
 -- | <i>See:</i> <a>newPutCorsPolicy</a> smart constructor.
 data PutCorsPolicy
@@ -1537,22 +1537,22 @@ newPutCorsPolicyResponse :: Int -> PutCorsPolicyResponse
 
 -- | The response's http status code.
 putCorsPolicyResponse_httpStatus :: Lens' PutCorsPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance GHC.Show.Show Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance GHC.Read.Read Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.PutCorsPolicy.PutCorsPolicy
 
 
 -- | Creates an access policy for the specified container to restrict the
@@ -1563,7 +1563,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.PutCorsPolicy.Put
 --   For this release of the REST API, you can create only one policy for a
 --   container. If you enter <tt>PutContainerPolicy</tt> twice, the second
 --   command modifies the existing policy.
-module Network.AWS.MediaStore.PutContainerPolicy
+module Amazonka.MediaStore.PutContainerPolicy
 
 -- | <i>See:</i> <a>newPutContainerPolicy</a> smart constructor.
 data PutContainerPolicy
@@ -1639,26 +1639,26 @@ newPutContainerPolicyResponse :: Int -> PutContainerPolicyResponse
 
 -- | The response's http status code.
 putContainerPolicyResponse_httpStatus :: Lens' PutContainerPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance GHC.Show.Show Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance GHC.Read.Read Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.PutContainerPolicy.PutContainerPolicy
 
 
 -- | Returns a list of the tags assigned to the specified container.
-module Network.AWS.MediaStore.ListTagsForResource
+module Amazonka.MediaStore.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1717,22 +1717,22 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (No
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.MediaStore.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.MediaStore.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.MediaStore.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MediaStore.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.MediaStore.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.MediaStore.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MediaStore.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the properties of all containers in AWS Elemental MediaStore.
@@ -1749,7 +1749,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.ListTagsForResour
 --   container.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaStore.ListContainers
+module Amazonka.MediaStore.ListContainers
 
 -- | <i>See:</i> <a>newListContainers</a> smart constructor.
 data ListContainers
@@ -1846,27 +1846,27 @@ listContainersResponse_httpStatus :: Lens' ListContainersResponse Int
 
 -- | The names of the containers.
 listContainersResponse_containers :: Lens' ListContainersResponse [Container]
-instance GHC.Generics.Generic Network.AWS.MediaStore.ListContainers.ListContainers
-instance GHC.Show.Show Network.AWS.MediaStore.ListContainers.ListContainers
-instance GHC.Read.Read Network.AWS.MediaStore.ListContainers.ListContainers
-instance GHC.Classes.Eq Network.AWS.MediaStore.ListContainers.ListContainers
-instance GHC.Generics.Generic Network.AWS.MediaStore.ListContainers.ListContainersResponse
-instance GHC.Show.Show Network.AWS.MediaStore.ListContainers.ListContainersResponse
-instance GHC.Read.Read Network.AWS.MediaStore.ListContainers.ListContainersResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.ListContainers.ListContainersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.ListContainers.ListContainers
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.ListContainers.ListContainersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaStore.ListContainers.ListContainers
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.ListContainers.ListContainers
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.ListContainers.ListContainers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.ListContainers.ListContainers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.ListContainers.ListContainers
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.ListContainers.ListContainers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.ListContainers.ListContainers
+instance GHC.Generics.Generic Amazonka.MediaStore.ListContainers.ListContainers
+instance GHC.Show.Show Amazonka.MediaStore.ListContainers.ListContainers
+instance GHC.Read.Read Amazonka.MediaStore.ListContainers.ListContainers
+instance GHC.Classes.Eq Amazonka.MediaStore.ListContainers.ListContainers
+instance GHC.Generics.Generic Amazonka.MediaStore.ListContainers.ListContainersResponse
+instance GHC.Show.Show Amazonka.MediaStore.ListContainers.ListContainersResponse
+instance GHC.Read.Read Amazonka.MediaStore.ListContainers.ListContainersResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.ListContainers.ListContainersResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.ListContainers.ListContainers
+instance Control.DeepSeq.NFData Amazonka.MediaStore.ListContainers.ListContainersResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaStore.ListContainers.ListContainers
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.ListContainers.ListContainers
+instance Control.DeepSeq.NFData Amazonka.MediaStore.ListContainers.ListContainers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.ListContainers.ListContainers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.ListContainers.ListContainers
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.ListContainers.ListContainers
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.ListContainers.ListContainers
 
 
 -- | Returns the metric policy for the specified container.
-module Network.AWS.MediaStore.GetMetricPolicy
+module Amazonka.MediaStore.GetMetricPolicy
 
 -- | <i>See:</i> <a>newGetMetricPolicy</a> smart constructor.
 data GetMetricPolicy
@@ -1925,26 +1925,26 @@ getMetricPolicyResponse_httpStatus :: Lens' GetMetricPolicyResponse Int
 
 -- | The metric policy that is associated with the specific container.
 getMetricPolicyResponse_metricPolicy :: Lens' GetMetricPolicyResponse MetricPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance GHC.Show.Show Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance GHC.Read.Read Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.GetMetricPolicy.GetMetricPolicy
 
 
 -- | Retrieves the object lifecycle policy that is assigned to a container.
-module Network.AWS.MediaStore.GetLifecyclePolicy
+module Amazonka.MediaStore.GetLifecyclePolicy
 
 -- | <i>See:</i> <a>newGetLifecyclePolicy</a> smart constructor.
 data GetLifecyclePolicy
@@ -2005,22 +2005,22 @@ getLifecyclePolicyResponse_httpStatus :: Lens' GetLifecyclePolicyResponse Int
 
 -- | The object lifecycle policy that is assigned to the container.
 getLifecyclePolicyResponse_lifecyclePolicy :: Lens' GetLifecyclePolicyResponse Text
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance GHC.Show.Show Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance GHC.Read.Read Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance GHC.Show.Show Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance GHC.Read.Read Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.GetLifecyclePolicy.GetLifecyclePolicy
 
 
 -- | Returns the cross-origin resource sharing (CORS) configuration
@@ -2029,7 +2029,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.GetLifecyclePolic
 --   To use this operation, you must have permission to perform the
 --   <tt>MediaStore:GetCorsPolicy</tt> action. By default, the container
 --   owner has this permission and can grant it to others.
-module Network.AWS.MediaStore.GetCorsPolicy
+module Amazonka.MediaStore.GetCorsPolicy
 
 -- | <i>See:</i> <a>newGetCorsPolicy</a> smart constructor.
 data GetCorsPolicy
@@ -2088,28 +2088,28 @@ getCorsPolicyResponse_httpStatus :: Lens' GetCorsPolicyResponse Int
 
 -- | The CORS policy assigned to the container.
 getCorsPolicyResponse_corsPolicy :: Lens' GetCorsPolicyResponse (NonEmpty CorsRule)
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance GHC.Show.Show Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance GHC.Read.Read Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.GetCorsPolicy.GetCorsPolicy
 
 
 -- | Retrieves the access policy for the specified container. For
 --   information about the data that is included in an access policy, see
 --   the <a>AWS Identity and Access Management User Guide</a>.
-module Network.AWS.MediaStore.GetContainerPolicy
+module Amazonka.MediaStore.GetContainerPolicy
 
 -- | <i>See:</i> <a>newGetContainerPolicy</a> smart constructor.
 data GetContainerPolicy
@@ -2167,22 +2167,22 @@ getContainerPolicyResponse_httpStatus :: Lens' GetContainerPolicyResponse Int
 
 -- | The contents of the access policy.
 getContainerPolicyResponse_policy :: Lens' GetContainerPolicyResponse Text
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance GHC.Show.Show Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance GHC.Read.Read Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.GetContainerPolicy.GetContainerPolicy
 
 
 -- | Retrieves the properties of the requested container. This request is
@@ -2193,7 +2193,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.GetContainerPolic
 --   object based on <tt>ContainerName</tt>. To return all
 --   <tt>Container</tt> objects that are associated with a specified AWS
 --   account, use ListContainers.
-module Network.AWS.MediaStore.DescribeContainer
+module Amazonka.MediaStore.DescribeContainer
 
 -- | <i>See:</i> <a>newDescribeContainer</a> smart constructor.
 data DescribeContainer
@@ -2252,28 +2252,28 @@ describeContainerResponse_container :: Lens' DescribeContainerResponse (Maybe Co
 
 -- | The response's http status code.
 describeContainerResponse_httpStatus :: Lens' DescribeContainerResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance GHC.Show.Show Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance GHC.Read.Read Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance GHC.Classes.Eq Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance GHC.Generics.Generic Network.AWS.MediaStore.DescribeContainer.DescribeContainerResponse
-instance GHC.Show.Show Network.AWS.MediaStore.DescribeContainer.DescribeContainerResponse
-instance GHC.Read.Read Network.AWS.MediaStore.DescribeContainer.DescribeContainerResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.DescribeContainer.DescribeContainerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DescribeContainer.DescribeContainerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.DescribeContainer.DescribeContainer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.DescribeContainer.DescribeContainer
+instance GHC.Generics.Generic Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance GHC.Show.Show Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance GHC.Read.Read Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance GHC.Classes.Eq Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance GHC.Generics.Generic Amazonka.MediaStore.DescribeContainer.DescribeContainerResponse
+instance GHC.Show.Show Amazonka.MediaStore.DescribeContainer.DescribeContainerResponse
+instance GHC.Read.Read Amazonka.MediaStore.DescribeContainer.DescribeContainerResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.DescribeContainer.DescribeContainerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DescribeContainer.DescribeContainerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.DescribeContainer.DescribeContainer
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.DescribeContainer.DescribeContainer
 
 
 -- | Deletes the metric policy that is associated with the specified
 --   container. If there is no metric policy associated with the container,
 --   MediaStore doesn't send metrics to CloudWatch.
-module Network.AWS.MediaStore.DeleteMetricPolicy
+module Amazonka.MediaStore.DeleteMetricPolicy
 
 -- | <i>See:</i> <a>newDeleteMetricPolicy</a> smart constructor.
 data DeleteMetricPolicy
@@ -2324,27 +2324,27 @@ newDeleteMetricPolicyResponse :: Int -> DeleteMetricPolicyResponse
 
 -- | The response's http status code.
 deleteMetricPolicyResponse_httpStatus :: Lens' DeleteMetricPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance GHC.Show.Show Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance GHC.Read.Read Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.DeleteMetricPolicy.DeleteMetricPolicy
 
 
 -- | Removes an object lifecycle policy from a container. It takes up to 20
 --   minutes for the change to take effect.
-module Network.AWS.MediaStore.DeleteLifecyclePolicy
+module Amazonka.MediaStore.DeleteLifecyclePolicy
 
 -- | <i>See:</i> <a>newDeleteLifecyclePolicy</a> smart constructor.
 data DeleteLifecyclePolicy
@@ -2393,22 +2393,22 @@ newDeleteLifecyclePolicyResponse :: Int -> DeleteLifecyclePolicyResponse
 
 -- | The response's http status code.
 deleteLifecyclePolicyResponse_httpStatus :: Lens' DeleteLifecyclePolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance GHC.Show.Show Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance GHC.Read.Read Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.DeleteLifecyclePolicy.DeleteLifecyclePolicy
 
 
 -- | Deletes the cross-origin resource sharing (CORS) configuration
@@ -2417,7 +2417,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.DeleteLifecyclePo
 --   To use this operation, you must have permission to perform the
 --   <tt>MediaStore:DeleteCorsPolicy</tt> action. The container owner has
 --   this permission by default and can grant this permission to others.
-module Network.AWS.MediaStore.DeleteCorsPolicy
+module Amazonka.MediaStore.DeleteCorsPolicy
 
 -- | <i>See:</i> <a>newDeleteCorsPolicy</a> smart constructor.
 data DeleteCorsPolicy
@@ -2466,27 +2466,27 @@ newDeleteCorsPolicyResponse :: Int -> DeleteCorsPolicyResponse
 
 -- | The response's http status code.
 deleteCorsPolicyResponse_httpStatus :: Lens' DeleteCorsPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance GHC.Show.Show Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance GHC.Read.Read Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.DeleteCorsPolicy.DeleteCorsPolicy
 
 
 -- | Deletes the access policy that is associated with the specified
 --   container.
-module Network.AWS.MediaStore.DeleteContainerPolicy
+module Amazonka.MediaStore.DeleteContainerPolicy
 
 -- | <i>See:</i> <a>newDeleteContainerPolicy</a> smart constructor.
 data DeleteContainerPolicy
@@ -2535,29 +2535,29 @@ newDeleteContainerPolicyResponse :: Int -> DeleteContainerPolicyResponse
 
 -- | The response's http status code.
 deleteContainerPolicyResponse_httpStatus :: Lens' DeleteContainerPolicyResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance GHC.Show.Show Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance GHC.Read.Read Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
+instance GHC.Show.Show Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
+instance GHC.Read.Read Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicyResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.DeleteContainerPolicy.DeleteContainerPolicy
 
 
 -- | Deletes the specified container. Before you make a
 --   <tt>DeleteContainer</tt> request, delete any objects in the container
 --   or in any folders in the container. You can delete only empty
 --   containers.
-module Network.AWS.MediaStore.DeleteContainer
+module Amazonka.MediaStore.DeleteContainer
 
 -- | <i>See:</i> <a>newDeleteContainer</a> smart constructor.
 data DeleteContainer
@@ -2606,27 +2606,27 @@ newDeleteContainerResponse :: Int -> DeleteContainerResponse
 
 -- | The response's http status code.
 deleteContainerResponse_httpStatus :: Lens' DeleteContainerResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance GHC.Generics.Generic Network.AWS.MediaStore.DeleteContainer.DeleteContainerResponse
-instance GHC.Show.Show Network.AWS.MediaStore.DeleteContainer.DeleteContainerResponse
-instance GHC.Read.Read Network.AWS.MediaStore.DeleteContainer.DeleteContainerResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.DeleteContainer.DeleteContainerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteContainer.DeleteContainerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.DeleteContainer.DeleteContainer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.DeleteContainer.DeleteContainer
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance GHC.Show.Show Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance GHC.Read.Read Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance GHC.Generics.Generic Amazonka.MediaStore.DeleteContainer.DeleteContainerResponse
+instance GHC.Show.Show Amazonka.MediaStore.DeleteContainer.DeleteContainerResponse
+instance GHC.Read.Read Amazonka.MediaStore.DeleteContainer.DeleteContainerResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.DeleteContainer.DeleteContainerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteContainer.DeleteContainerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance Control.DeepSeq.NFData Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.DeleteContainer.DeleteContainer
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.DeleteContainer.DeleteContainer
 
 
 -- | Creates a storage container to hold objects. A container is similar to
 --   a bucket in the Amazon S3 service.
-module Network.AWS.MediaStore.CreateContainer
+module Amazonka.MediaStore.CreateContainer
 
 -- | <i>See:</i> <a>newCreateContainer</a> smart constructor.
 data CreateContainer
@@ -2776,27 +2776,27 @@ createContainerResponse_httpStatus :: Lens' CreateContainerResponse Int
 --   downstream requests, you must obtain this value by using
 --   DescribeContainer or ListContainers.
 createContainerResponse_container :: Lens' CreateContainerResponse Container
-instance GHC.Generics.Generic Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance GHC.Show.Show Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance GHC.Read.Read Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance GHC.Classes.Eq Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance GHC.Generics.Generic Network.AWS.MediaStore.CreateContainer.CreateContainerResponse
-instance GHC.Show.Show Network.AWS.MediaStore.CreateContainer.CreateContainerResponse
-instance GHC.Read.Read Network.AWS.MediaStore.CreateContainer.CreateContainerResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.CreateContainer.CreateContainerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.CreateContainer.CreateContainerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.CreateContainer.CreateContainer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.CreateContainer.CreateContainer
+instance GHC.Generics.Generic Amazonka.MediaStore.CreateContainer.CreateContainer
+instance GHC.Show.Show Amazonka.MediaStore.CreateContainer.CreateContainer
+instance GHC.Read.Read Amazonka.MediaStore.CreateContainer.CreateContainer
+instance GHC.Classes.Eq Amazonka.MediaStore.CreateContainer.CreateContainer
+instance GHC.Generics.Generic Amazonka.MediaStore.CreateContainer.CreateContainerResponse
+instance GHC.Show.Show Amazonka.MediaStore.CreateContainer.CreateContainerResponse
+instance GHC.Read.Read Amazonka.MediaStore.CreateContainer.CreateContainerResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.CreateContainer.CreateContainerResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.CreateContainer.CreateContainer
+instance Control.DeepSeq.NFData Amazonka.MediaStore.CreateContainer.CreateContainerResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.CreateContainer.CreateContainer
+instance Control.DeepSeq.NFData Amazonka.MediaStore.CreateContainer.CreateContainer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.CreateContainer.CreateContainer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.CreateContainer.CreateContainer
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.CreateContainer.CreateContainer
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.CreateContainer.CreateContainer
 
 
 -- | Removes tags from the specified container. You can specify one or more
 --   tags to remove.
-module Network.AWS.MediaStore.UntagResource
+module Amazonka.MediaStore.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2865,25 +2865,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaStore.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.MediaStore.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.MediaStore.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.MediaStore.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.MediaStore.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.MediaStore.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.MediaStore.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaStore.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaStore.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaStore.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaStore.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaStore.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaStore.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaStore.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaStore.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MediaStore.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.MediaStore.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.MediaStore.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.MediaStore.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MediaStore.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.MediaStore.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.MediaStore.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaStore.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaStore.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MediaStore.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaStore.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MediaStore.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaStore.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaStore.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaStore.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaStore.UntagResource.UntagResource
 
 
-module Network.AWS.MediaStore.Lens
+module Amazonka.MediaStore.Lens
 
 -- | The name of the container that you want to stop access logging on.
 stopAccessLogging_containerName :: Lens' StopAccessLogging Text
@@ -3238,7 +3238,7 @@ tag_value :: Lens' Tag (Maybe Text)
 tag_key :: Lens' Tag Text
 
 
-module Network.AWS.MediaStore.Waiters
+module Amazonka.MediaStore.Waiters
 
 
 -- | Derived from API version <tt>2017-09-01</tt> of the AWS service
@@ -3247,7 +3247,7 @@ module Network.AWS.MediaStore.Waiters
 --   An AWS Elemental MediaStore container is a namespace that holds
 --   folders and objects. You use a container endpoint to create, read, and
 --   delete objects.
-module Network.AWS.MediaStore
+module Amazonka.MediaStore
 
 -- | API version <tt>2017-09-01</tt> of the Amazon Elemental MediaStore SDK
 --   configuration.

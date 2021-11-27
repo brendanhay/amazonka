@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.WAF.Types.RateKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WAF.Types.RateKey</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey"><span class="hs-identifier">RateKey</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey_IP"><span class="hs-identifier">RateKey_IP</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679302804"><span id="local-6989586621679302805"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RateKey"><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey"><span class="hs-identifier hs-var">RateKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RateKey%27"><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey%27"><span class="hs-identifier hs-var">RateKey'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromRateKey"><span class="annot"><span class="annottext">RateKey -&gt; Text
+</span><a href="Amazonka.WAF.Types.RateKey.html#fromRateKey"><span class="hs-identifier hs-var hs-var">fromRateKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302796"><span id="local-6989586621679302798"><span id="local-6989586621679302800"><span class="annot"><span class="annottext">Int -&gt; RateKey -&gt; ShowS
+[RateKey] -&gt; ShowS
+RateKey -&gt; String
+(Int -&gt; RateKey -&gt; ShowS)
+-&gt; (RateKey -&gt; String) -&gt; ([RateKey] -&gt; ShowS) -&gt; Show RateKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RateKey] -&gt; ShowS
+$cshowList :: [RateKey] -&gt; ShowS
+show :: RateKey -&gt; String
+$cshow :: RateKey -&gt; String
+showsPrec :: Int -&gt; RateKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; RateKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>      </span><span id="local-6989586621679302787"><span id="local-6989586621679302789"><span id="local-6989586621679302791"><span id="local-6989586621679302793"><span class="annot"><span class="annottext">ReadPrec [RateKey]
+ReadPrec RateKey
+Int -&gt; ReadS RateKey
+ReadS [RateKey]
+(Int -&gt; ReadS RateKey)
+-&gt; ReadS [RateKey]
+-&gt; ReadPrec RateKey
+-&gt; ReadPrec [RateKey]
+-&gt; Read RateKey
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RateKey]
+$creadListPrec :: ReadPrec [RateKey]
+readPrec :: ReadPrec RateKey
+$creadPrec :: ReadPrec RateKey
+readList :: ReadS [RateKey]
+$creadList :: ReadS [RateKey]
+readsPrec :: Int -&gt; ReadS RateKey
+$creadsPrec :: Int -&gt; ReadS RateKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679302782"><span id="local-6989586621679302784"><span class="annot"><span class="annottext">RateKey -&gt; RateKey -&gt; Bool
+(RateKey -&gt; RateKey -&gt; Bool)
+-&gt; (RateKey -&gt; RateKey -&gt; Bool) -&gt; Eq RateKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RateKey -&gt; RateKey -&gt; Bool
+$c/= :: RateKey -&gt; RateKey -&gt; Bool
+== :: RateKey -&gt; RateKey -&gt; Bool
+$c== :: RateKey -&gt; RateKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679302766"><span id="local-6989586621679302768"><span id="local-6989586621679302770"><span id="local-6989586621679302772"><span id="local-6989586621679302774"><span id="local-6989586621679302776"><span id="local-6989586621679302778"><span class="annot"><span class="annottext">Eq RateKey
+Eq RateKey
+-&gt; (RateKey -&gt; RateKey -&gt; Ordering)
+-&gt; (RateKey -&gt; RateKey -&gt; Bool)
+-&gt; (RateKey -&gt; RateKey -&gt; Bool)
+-&gt; (RateKey -&gt; RateKey -&gt; Bool)
+-&gt; (RateKey -&gt; RateKey -&gt; Bool)
+-&gt; (RateKey -&gt; RateKey -&gt; RateKey)
+-&gt; (RateKey -&gt; RateKey -&gt; RateKey)
+-&gt; Ord RateKey
+RateKey -&gt; RateKey -&gt; Bool
+RateKey -&gt; RateKey -&gt; Ordering
+RateKey -&gt; RateKey -&gt; RateKey
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RateKey -&gt; RateKey -&gt; RateKey
+$cmin :: RateKey -&gt; RateKey -&gt; RateKey
+max :: RateKey -&gt; RateKey -&gt; RateKey
+$cmax :: RateKey -&gt; RateKey -&gt; RateKey
+&gt;= :: RateKey -&gt; RateKey -&gt; Bool
+$c&gt;= :: RateKey -&gt; RateKey -&gt; Bool
+&gt; :: RateKey -&gt; RateKey -&gt; Bool
+$c&gt; :: RateKey -&gt; RateKey -&gt; Bool
+&lt;= :: RateKey -&gt; RateKey -&gt; Bool
+$c&lt;= :: RateKey -&gt; RateKey -&gt; Bool
+&lt; :: RateKey -&gt; RateKey -&gt; Bool
+$c&lt; :: RateKey -&gt; RateKey -&gt; Bool
+compare :: RateKey -&gt; RateKey -&gt; Ordering
+$ccompare :: RateKey -&gt; RateKey -&gt; Ordering
+$cp1Ord :: Eq RateKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RateKey -&gt; Rep RateKey x)
+-&gt; (forall x. Rep RateKey x -&gt; RateKey) -&gt; Generic RateKey
+forall x. Rep RateKey x -&gt; RateKey
+forall x. RateKey -&gt; Rep RateKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RateKey x -&gt; RateKey
+$cfrom :: forall x. RateKey -&gt; Rep RateKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679302758"><span id="local-6989586621679302760"><span class="annot"><span class="annottext">Int -&gt; RateKey -&gt; Int
+RateKey -&gt; Int
+(Int -&gt; RateKey -&gt; Int) -&gt; (RateKey -&gt; Int) -&gt; Hashable RateKey
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RateKey -&gt; Int
+$chash :: RateKey -&gt; Int
+hashWithSalt :: Int -&gt; RateKey -&gt; Int
+$chashWithSalt :: Int -&gt; RateKey -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679302755"><span class="annot"><span class="annottext">RateKey -&gt; ()
+(RateKey -&gt; ()) -&gt; NFData RateKey
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RateKey -&gt; ()
+$crnf :: RateKey -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679302752"><span class="annot"><span class="annottext">Text -&gt; Either String RateKey
+(Text -&gt; Either String RateKey) -&gt; FromText RateKey
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RateKey
+$cfromText :: Text -&gt; Either String RateKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679302749"><span class="annot"><span class="annottext">RateKey -&gt; Text
+(RateKey -&gt; Text) -&gt; ToText RateKey
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RateKey -&gt; Text
+$ctoText :: RateKey -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679302746"><span class="annot"><span class="annottext">RateKey -&gt; ByteString
+(RateKey -&gt; ByteString) -&gt; ToByteString RateKey
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RateKey -&gt; ByteString
+$ctoBS :: RateKey -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679302743"><span class="annot"><span class="annottext">RateKey -&gt; ByteStringBuilder
+(RateKey -&gt; ByteStringBuilder) -&gt; ToLog RateKey
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RateKey -&gt; ByteStringBuilder
+$cbuild :: RateKey -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679302740"><span class="annot"><span class="annottext">HeaderName -&gt; RateKey -&gt; [Header]
+(HeaderName -&gt; RateKey -&gt; [Header]) -&gt; ToHeader RateKey
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RateKey -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RateKey -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679302737"><span class="annot"><span class="annottext">RateKey -&gt; QueryString
+(RateKey -&gt; QueryString) -&gt; ToQuery RateKey
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RateKey -&gt; QueryString
+$ctoQuery :: RateKey -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679302732"><span id="local-6989586621679302734"><span class="annot"><span class="annottext">Value -&gt; Parser [RateKey]
+Value -&gt; Parser RateKey
+(Value -&gt; Parser RateKey)
+-&gt; (Value -&gt; Parser [RateKey]) -&gt; FromJSON RateKey
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RateKey]
+$cparseJSONList :: Value -&gt; Parser [RateKey]
+parseJSON :: Value -&gt; Parser RateKey
+$cparseJSON :: Value -&gt; Parser RateKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679302727"><span id="local-6989586621679302729"><span class="annot"><span class="annottext">FromJSONKeyFunction [RateKey]
+FromJSONKeyFunction RateKey
+FromJSONKeyFunction RateKey
+-&gt; FromJSONKeyFunction [RateKey] -&gt; FromJSONKey RateKey
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RateKey]
+$cfromJSONKeyList :: FromJSONKeyFunction [RateKey]
+fromJSONKey :: FromJSONKeyFunction RateKey
+$cfromJSONKey :: FromJSONKeyFunction RateKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679302718"><span id="local-6989586621679302720"><span id="local-6989586621679302722"><span id="local-6989586621679302724"><span class="annot"><span class="annottext">[RateKey] -&gt; Encoding
+[RateKey] -&gt; Value
+RateKey -&gt; Encoding
+RateKey -&gt; Value
+(RateKey -&gt; Value)
+-&gt; (RateKey -&gt; Encoding)
+-&gt; ([RateKey] -&gt; Value)
+-&gt; ([RateKey] -&gt; Encoding)
+-&gt; ToJSON RateKey
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RateKey] -&gt; Encoding
+$ctoEncodingList :: [RateKey] -&gt; Encoding
+toJSONList :: [RateKey] -&gt; Value
+$ctoJSONList :: [RateKey] -&gt; Value
+toEncoding :: RateKey -&gt; Encoding
+$ctoEncoding :: RateKey -&gt; Encoding
+toJSON :: RateKey -&gt; Value
+$ctoJSON :: RateKey -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679302713"><span id="local-6989586621679302715"><span class="annot"><span class="annottext">ToJSONKeyFunction [RateKey]
+ToJSONKeyFunction RateKey
+ToJSONKeyFunction RateKey
+-&gt; ToJSONKeyFunction [RateKey] -&gt; ToJSONKey RateKey
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RateKey]
+$ctoJSONKeyList :: ToJSONKeyFunction [RateKey]
+toJSONKey :: ToJSONKeyFunction RateKey
+$ctoJSONKey :: ToJSONKeyFunction RateKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679302710"><span class="annot"><span class="annottext">[Node] -&gt; Either String RateKey
+([Node] -&gt; Either String RateKey) -&gt; FromXML RateKey
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RateKey
+$cparseXML :: [Node] -&gt; Either String RateKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679302707"><span class="annot"><span class="annottext">RateKey -&gt; XML
+(RateKey -&gt; XML) -&gt; ToXML RateKey
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RateKey -&gt; XML
+$ctoXML :: RateKey -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey_IP"><span class="hs-identifier hs-type">RateKey_IP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey"><span class="hs-identifier hs-type">RateKey</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRateKey_IP"><span id="%24mRateKey_IP"><span id="RateKey_IP"><span class="annot"><span class="annottext">$bRateKey_IP :: RateKey
+$mRateKey_IP :: forall r. RateKey -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.WAF.Types.RateKey.html#%24bRateKey_IP"><span class="hs-identifier hs-var hs-var hs-var">RateKey_IP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey%27"><span class="hs-identifier hs-type">RateKey'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IP&quot;</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey_IP"><span class="hs-pragma hs-type">RateKey_IP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.WAF.Types.RateKey.html#RateKey%27"><span class="hs-pragma hs-type">RateKey'</span></a></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-63"></span></pre></body></html>

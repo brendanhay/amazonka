@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DMS.StartReplicationTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts the replication task.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For more information about DMS tasks, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.html Working with Migration Tasks&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /Database Migration Service User Guide./</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DMS.StartReplicationTask</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier">StartReplicationTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#newStartReplicationTask"><span class="hs-identifier">newStartReplicationTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStartPosition"><span class="hs-identifier">startReplicationTask_cdcStartPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStopPosition"><span class="hs-identifier">startReplicationTask_cdcStopPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStartTime"><span class="hs-identifier">startReplicationTask_cdcStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_replicationTaskArn"><span class="hs-identifier">startReplicationTask_replicationTaskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_startReplicationTaskType"><span class="hs-identifier">startReplicationTask_startReplicationTaskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier">StartReplicationTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#newStartReplicationTaskResponse"><span class="hs-identifier">newStartReplicationTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTaskResponse_replicationTask"><span class="hs-identifier">startReplicationTaskResponse_replicationTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTaskResponse_httpStatus"><span class="hs-identifier">startReplicationTaskResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.html"><span class="hs-identifier">Amazonka.DMS.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newStartReplicationTask' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679443858"><span id="local-6989586621679443859"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartReplicationTask"><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-var">StartReplicationTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartReplicationTask%27"><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-var">StartReplicationTask'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Indicates when you want a change data capture (CDC) operation to start.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Use either CdcStartPosition or CdcStartTime to specify when you want a</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- CDC operation to start. Specifying both values results in an error.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- The value can be in date, checkpoint, or LSN\/SCN format.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- Date Example: --cdc-start-position &#8220;2018-03-08T12:12:12&#8221;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Checkpoint Example: --cdc-start-position</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- \&quot;checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\&quot;</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- LSN Example: --cdc-start-position &#8220;mysql-bin-changelog.000024:373&#8221;</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- When you use this task setting with a source PostgreSQL database, a</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- logical replication slot should already be created and associated with</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the source endpoint. You can verify this by setting the @slotName@ extra</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- connection attribute to the name of this logical replication slot. For</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS&gt;.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AcdcStartPosition%3AStartReplicationTask%27"><span class="annot"><span class="annottext">StartReplicationTask -&gt; Maybe Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStartPosition%3AStartReplicationTask%27"><span class="hs-identifier hs-var hs-var">cdcStartPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | Indicates when you want a change data capture (CDC) operation to stop.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- The value can be either server time or commit time.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- Server time example: --cdc-stop-position</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- &#8220;server_time:2018-02-09T12:12:12&#8221;</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Commit time example: --cdc-stop-position &#8220;commit_time:</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- 2018-02-09T12:12:12 &#8220;</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3AcdcStopPosition%3AStartReplicationTask%27"><span class="annot"><span class="annottext">StartReplicationTask -&gt; Maybe Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStopPosition%3AStartReplicationTask%27"><span class="hs-identifier hs-var hs-var">cdcStopPosition</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | Indicates the start time for a change data capture (CDC) operation. Use</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- either CdcStartTime or CdcStartPosition to specify when you want a CDC</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- operation to start. Specifying both values results in an error.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- Timestamp Example: --cdc-start-time &#8220;2018-03-08T12:12:12&#8221;</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3AcdcStartTime%3AStartReplicationTask%27"><span class="annot"><span class="annottext">StartReplicationTask -&gt; Maybe POSIX
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStartTime%3AStartReplicationTask%27"><span class="hs-identifier hs-var hs-var">cdcStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the replication task to be started.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AreplicationTaskArn%3AStartReplicationTask%27"><span class="annot"><span class="annottext">StartReplicationTask -&gt; Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AreplicationTaskArn%3AStartReplicationTask%27"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | A type of replication task.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AstartReplicationTaskType%3AStartReplicationTask%27"><span class="annot"><span class="annottext">StartReplicationTask -&gt; StartReplicationTaskTypeValue
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AstartReplicationTaskType%3AStartReplicationTask%27"><span class="hs-identifier hs-var hs-var">startReplicationTaskType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443848"><span id="local-6989586621679443850"><span class="annot"><span class="annottext">StartReplicationTask -&gt; StartReplicationTask -&gt; Bool
+(StartReplicationTask -&gt; StartReplicationTask -&gt; Bool)
+-&gt; (StartReplicationTask -&gt; StartReplicationTask -&gt; Bool)
+-&gt; Eq StartReplicationTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartReplicationTask -&gt; StartReplicationTask -&gt; Bool
+$c/= :: StartReplicationTask -&gt; StartReplicationTask -&gt; Bool
+== :: StartReplicationTask -&gt; StartReplicationTask -&gt; Bool
+$c== :: StartReplicationTask -&gt; StartReplicationTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443839"><span id="local-6989586621679443841"><span id="local-6989586621679443843"><span id="local-6989586621679443845"><span class="annot"><span class="annottext">ReadPrec [StartReplicationTask]
+ReadPrec StartReplicationTask
+Int -&gt; ReadS StartReplicationTask
+ReadS [StartReplicationTask]
+(Int -&gt; ReadS StartReplicationTask)
+-&gt; ReadS [StartReplicationTask]
+-&gt; ReadPrec StartReplicationTask
+-&gt; ReadPrec [StartReplicationTask]
+-&gt; Read StartReplicationTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartReplicationTask]
+$creadListPrec :: ReadPrec [StartReplicationTask]
+readPrec :: ReadPrec StartReplicationTask
+$creadPrec :: ReadPrec StartReplicationTask
+readList :: ReadS [StartReplicationTask]
+$creadList :: ReadS [StartReplicationTask]
+readsPrec :: Int -&gt; ReadS StartReplicationTask
+$creadsPrec :: Int -&gt; ReadS StartReplicationTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443832"><span id="local-6989586621679443834"><span id="local-6989586621679443836"><span class="annot"><span class="annottext">Int -&gt; StartReplicationTask -&gt; ShowS
+[StartReplicationTask] -&gt; ShowS
+StartReplicationTask -&gt; String
+(Int -&gt; StartReplicationTask -&gt; ShowS)
+-&gt; (StartReplicationTask -&gt; String)
+-&gt; ([StartReplicationTask] -&gt; ShowS)
+-&gt; Show StartReplicationTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartReplicationTask] -&gt; ShowS
+$cshowList :: [StartReplicationTask] -&gt; ShowS
+show :: StartReplicationTask -&gt; String
+$cshow :: StartReplicationTask -&gt; String
+showsPrec :: Int -&gt; StartReplicationTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartReplicationTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StartReplicationTask -&gt; Rep StartReplicationTask x)
+-&gt; (forall x. Rep StartReplicationTask x -&gt; StartReplicationTask)
+-&gt; Generic StartReplicationTask
+forall x. Rep StartReplicationTask x -&gt; StartReplicationTask
+forall x. StartReplicationTask -&gt; Rep StartReplicationTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartReplicationTask x -&gt; StartReplicationTask
+$cfrom :: forall x. StartReplicationTask -&gt; Rep StartReplicationTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Create a value of 'StartReplicationTask' with all optional fields omitted.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'cdcStartPosition', 'startReplicationTask_cdcStartPosition' - Indicates when you want a change data capture (CDC) operation to start.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use either CdcStartPosition or CdcStartTime to specify when you want a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- CDC operation to start. Specifying both values results in an error.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- The value can be in date, checkpoint, or LSN\/SCN format.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Date Example: --cdc-start-position &#8220;2018-03-08T12:12:12&#8221;</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Checkpoint Example: --cdc-start-position</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- \&quot;checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\&quot;</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- LSN Example: --cdc-start-position &#8220;mysql-bin-changelog.000024:373&#8221;</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- When you use this task setting with a source PostgreSQL database, a</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- logical replication slot should already be created and associated with</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- the source endpoint. You can verify this by setting the @slotName@ extra</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- connection attribute to the name of this logical replication slot. For</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS&gt;.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'cdcStopPosition', 'startReplicationTask_cdcStopPosition' - Indicates when you want a change data capture (CDC) operation to stop.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The value can be either server time or commit time.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Server time example: --cdc-stop-position</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- &#8220;server_time:2018-02-09T12:12:12&#8221;</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Commit time example: --cdc-stop-position &#8220;commit_time:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 2018-02-09T12:12:12 &#8220;</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'cdcStartTime', 'startReplicationTask_cdcStartTime' - Indicates the start time for a change data capture (CDC) operation. Use</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- either CdcStartTime or CdcStartPosition to specify when you want a CDC</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- operation to start. Specifying both values results in an error.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Timestamp Example: --cdc-start-time &#8220;2018-03-08T12:12:12&#8221;</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'replicationTaskArn', 'startReplicationTask_replicationTaskArn' - The Amazon Resource Name (ARN) of the replication task to be started.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'startReplicationTaskType', 'startReplicationTask_startReplicationTaskType' - A type of replication task.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#newStartReplicationTask"><span class="hs-identifier hs-type">newStartReplicationTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'replicationTaskArn'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-comment">-- | 'startReplicationTaskType'</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span>
+</span><span id="line-155"></span><span id="newStartReplicationTask"><span class="annot"><span class="annottext">newStartReplicationTask :: Text -&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#newStartReplicationTask"><span class="hs-identifier hs-var hs-var">newStartReplicationTask</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679443827"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443827"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679443826"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+</span><a href="#local-6989586621679443826"><span class="hs-identifier hs-var">pStartReplicationTaskType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">StartReplicationTask' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Text
+-&gt; StartReplicationTaskTypeValue
+-&gt; StartReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cdcStartPosition:StartReplicationTask' :: Maybe Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStartPosition%3AStartReplicationTask%27"><span class="hs-identifier hs-var">cdcStartPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">$sel:cdcStopPosition:StartReplicationTask' :: Maybe Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStopPosition%3AStartReplicationTask%27"><span class="hs-identifier hs-var">cdcStopPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">$sel:cdcStartTime:StartReplicationTask' :: Maybe POSIX
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStartTime%3AStartReplicationTask%27"><span class="hs-identifier hs-var">cdcStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationTaskArn:StartReplicationTask' :: Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AreplicationTaskArn%3AStartReplicationTask%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443827"><span class="hs-identifier hs-var">pReplicationTaskArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:startReplicationTaskType:StartReplicationTask' :: StartReplicationTaskTypeValue
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AstartReplicationTaskType%3AStartReplicationTask%27"><span class="hs-identifier hs-var">startReplicationTaskType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+</span><a href="#local-6989586621679443826"><span class="hs-identifier hs-var">pStartReplicationTaskType_</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | Indicates when you want a change data capture (CDC) operation to start.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use either CdcStartPosition or CdcStartTime to specify when you want a</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- CDC operation to start. Specifying both values results in an error.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The value can be in date, checkpoint, or LSN\/SCN format.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- Date Example: --cdc-start-position &#8220;2018-03-08T12:12:12&#8221;</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Checkpoint Example: --cdc-start-position</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- \&quot;checkpoint:V1#27#mysql-bin-changelog.157832:1975:-1:2002:677883278264080:mysql-bin-changelog.157832:1876#0#0#*#0#93\&quot;</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- LSN Example: --cdc-start-position &#8220;mysql-bin-changelog.000024:373&#8221;</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- When you use this task setting with a source PostgreSQL database, a</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- logical replication slot should already be created and associated with</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- the source endpoint. You can verify this by setting the @slotName@ extra</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- connection attribute to the name of this logical replication slot. For</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib Extra Connection Attributes When Using PostgreSQL as a Source for DMS&gt;.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStartPosition"><span class="hs-identifier hs-type">startReplicationTask_cdcStartPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="startReplicationTask_cdcStartPosition"><span class="annot"><span class="annottext">startReplicationTask_cdcStartPosition :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartReplicationTask -&gt; f StartReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStartPosition"><span class="hs-identifier hs-var hs-var">startReplicationTask_cdcStartPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartReplicationTask -&gt; Maybe Text)
+-&gt; (StartReplicationTask -&gt; Maybe Text -&gt; StartReplicationTask)
+-&gt; Lens
+     StartReplicationTask StartReplicationTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443823"><span class="annot"><span class="annottext">Maybe Text
+cdcStartPosition :: Maybe Text
+$sel:cdcStartPosition:StartReplicationTask' :: StartReplicationTask -&gt; Maybe Text
+</span><a href="#local-6989586621679443823"><span class="hs-identifier hs-var hs-var">cdcStartPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443823"><span class="hs-identifier hs-var">cdcStartPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443822"><span class="annot"><span class="annottext">s :: StartReplicationTask
+</span><a href="#local-6989586621679443822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443821"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTask
+</span><a href="#local-6989586621679443822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cdcStartPosition:StartReplicationTask' :: Maybe Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStartPosition%3AStartReplicationTask%27"><span class="hs-identifier hs-var">cdcStartPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | Indicates when you want a change data capture (CDC) operation to stop.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- The value can be either server time or commit time.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Server time example: --cdc-stop-position</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- &#8220;server_time:2018-02-09T12:12:12&#8221;</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- Commit time example: --cdc-stop-position &#8220;commit_time:</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 2018-02-09T12:12:12 &#8220;</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStopPosition"><span class="hs-identifier hs-type">startReplicationTask_cdcStopPosition</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="startReplicationTask_cdcStopPosition"><span class="annot"><span class="annottext">startReplicationTask_cdcStopPosition :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartReplicationTask -&gt; f StartReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStopPosition"><span class="hs-identifier hs-var hs-var">startReplicationTask_cdcStopPosition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartReplicationTask -&gt; Maybe Text)
+-&gt; (StartReplicationTask -&gt; Maybe Text -&gt; StartReplicationTask)
+-&gt; Lens
+     StartReplicationTask StartReplicationTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443820"><span class="annot"><span class="annottext">Maybe Text
+cdcStopPosition :: Maybe Text
+$sel:cdcStopPosition:StartReplicationTask' :: StartReplicationTask -&gt; Maybe Text
+</span><a href="#local-6989586621679443820"><span class="hs-identifier hs-var hs-var">cdcStopPosition</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443820"><span class="hs-identifier hs-var">cdcStopPosition</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443819"><span class="annot"><span class="annottext">s :: StartReplicationTask
+</span><a href="#local-6989586621679443819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443818"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTask
+</span><a href="#local-6989586621679443819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cdcStopPosition:StartReplicationTask' :: Maybe Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStopPosition%3AStartReplicationTask%27"><span class="hs-identifier hs-var">cdcStopPosition</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | Indicates the start time for a change data capture (CDC) operation. Use</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- either CdcStartTime or CdcStartPosition to specify when you want a CDC</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- operation to start. Specifying both values results in an error.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Timestamp Example: --cdc-start-time &#8220;2018-03-08T12:12:12&#8221;</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStartTime"><span class="hs-identifier hs-type">startReplicationTask_cdcStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="startReplicationTask_cdcStartTime"><span class="annot"><span class="annottext">startReplicationTask_cdcStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StartReplicationTask -&gt; f StartReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_cdcStartTime"><span class="hs-identifier hs-var hs-var">startReplicationTask_cdcStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartReplicationTask -&gt; Maybe POSIX)
+-&gt; (StartReplicationTask -&gt; Maybe POSIX -&gt; StartReplicationTask)
+-&gt; Lens
+     StartReplicationTask
+     StartReplicationTask
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443817"><span class="annot"><span class="annottext">Maybe POSIX
+cdcStartTime :: Maybe POSIX
+$sel:cdcStartTime:StartReplicationTask' :: StartReplicationTask -&gt; Maybe POSIX
+</span><a href="#local-6989586621679443817"><span class="hs-identifier hs-var hs-var">cdcStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679443817"><span class="hs-identifier hs-var">cdcStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443816"><span class="annot"><span class="annottext">s :: StartReplicationTask
+</span><a href="#local-6989586621679443816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443815"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679443815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTask
+</span><a href="#local-6989586621679443816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cdcStartTime:StartReplicationTask' :: Maybe POSIX
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AcdcStartTime%3AStartReplicationTask%27"><span class="hs-identifier hs-var">cdcStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679443815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; StartReplicationTask -&gt; f StartReplicationTask)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StartReplicationTask
+-&gt; f StartReplicationTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the replication task to be started.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_replicationTaskArn"><span class="hs-identifier hs-type">startReplicationTask_replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-211"></span><span id="startReplicationTask_replicationTaskArn"><span class="annot"><span class="annottext">startReplicationTask_replicationTaskArn :: (Text -&gt; f Text) -&gt; StartReplicationTask -&gt; f StartReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_replicationTaskArn"><span class="hs-identifier hs-var hs-var">startReplicationTask_replicationTaskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartReplicationTask -&gt; Text)
+-&gt; (StartReplicationTask -&gt; Text -&gt; StartReplicationTask)
+-&gt; Lens StartReplicationTask StartReplicationTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443811"><span class="annot"><span class="annottext">Text
+replicationTaskArn :: Text
+$sel:replicationTaskArn:StartReplicationTask' :: StartReplicationTask -&gt; Text
+</span><a href="#local-6989586621679443811"><span class="hs-identifier hs-var hs-var">replicationTaskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443811"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443810"><span class="annot"><span class="annottext">s :: StartReplicationTask
+</span><a href="#local-6989586621679443810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443809"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTask
+</span><a href="#local-6989586621679443810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTaskArn:StartReplicationTask' :: Text
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AreplicationTaskArn%3AStartReplicationTask%27"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | A type of replication task.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_startReplicationTaskType"><span class="hs-identifier hs-type">startReplicationTask_startReplicationTaskType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.StartReplicationTaskTypeValue.html#StartReplicationTaskTypeValue"><span class="hs-identifier hs-type">StartReplicationTaskTypeValue</span></a></span><span>
+</span><span id="line-215"></span><span id="startReplicationTask_startReplicationTaskType"><span class="annot"><span class="annottext">startReplicationTask_startReplicationTaskType :: (StartReplicationTaskTypeValue -&gt; f StartReplicationTaskTypeValue)
+-&gt; StartReplicationTask -&gt; f StartReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTask_startReplicationTaskType"><span class="hs-identifier hs-var hs-var">startReplicationTask_startReplicationTaskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartReplicationTask -&gt; StartReplicationTaskTypeValue)
+-&gt; (StartReplicationTask
+    -&gt; StartReplicationTaskTypeValue -&gt; StartReplicationTask)
+-&gt; Lens
+     StartReplicationTask
+     StartReplicationTask
+     StartReplicationTaskTypeValue
+     StartReplicationTaskTypeValue
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443808"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+startReplicationTaskType :: StartReplicationTaskTypeValue
+$sel:startReplicationTaskType:StartReplicationTask' :: StartReplicationTask -&gt; StartReplicationTaskTypeValue
+</span><a href="#local-6989586621679443808"><span class="hs-identifier hs-var hs-var">startReplicationTaskType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+</span><a href="#local-6989586621679443808"><span class="hs-identifier hs-var">startReplicationTaskType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443807"><span class="annot"><span class="annottext">s :: StartReplicationTask
+</span><a href="#local-6989586621679443807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443806"><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+</span><a href="#local-6989586621679443806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTask
+</span><a href="#local-6989586621679443807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startReplicationTaskType:StartReplicationTask' :: StartReplicationTaskTypeValue
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AstartReplicationTaskType%3AStartReplicationTask%27"><span class="hs-identifier hs-var">startReplicationTaskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+</span><a href="#local-6989586621679443806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-219"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-type">StartReplicationTaskResponse</span></a></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679443802"><span class="annot"><span class="annottext">request :: StartReplicationTask -&gt; Request StartReplicationTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StartReplicationTask -&gt; Request StartReplicationTask
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679443798"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartReplicationTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartReplicationTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartReplicationTask))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartReplicationTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartReplicationTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679443795"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443795"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679443794"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679443794"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679443793"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443793"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationTask -&gt; Int -&gt; StartReplicationTaskResponse
+</span><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse%27"><span class="hs-identifier hs-var">StartReplicationTaskResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ReplicationTask -&gt; Int -&gt; StartReplicationTaskResponse)
+-&gt; Either String (Maybe ReplicationTask)
+-&gt; Either String (Int -&gt; StartReplicationTaskResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679443793"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ReplicationTask)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTask&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartReplicationTaskResponse)
+-&gt; Either String Int -&gt; Either String StartReplicationTaskResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443795"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443785"><span id="local-6989586621679443787"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span></span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443782"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-235"></span><span>  </span><span id="local-6989586621679443778"><span class="annot"><span class="annottext">toHeaders :: StartReplicationTask -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartReplicationTask -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-237"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-238"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-239"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonDMSv20160101.StartReplicationTask&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-240"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-241"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-243"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-244"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-245"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443768"><span id="local-6989586621679443770"><span id="local-6989586621679443772"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679443766"><span class="annot"><span class="annottext">toJSON :: StartReplicationTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask%27"><span class="hs-identifier hs-type">StartReplicationTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443760"><span id="local-6989586621679443761"><span id="local-6989586621679443762"><span id="local-6989586621679443763"><span id="local-6989586621679443764"><span class="annot"><span class="annottext">Maybe Text
+Maybe POSIX
+Text
+StartReplicationTaskTypeValue
+startReplicationTaskType :: StartReplicationTaskTypeValue
+replicationTaskArn :: Text
+cdcStartTime :: Maybe POSIX
+cdcStopPosition :: Maybe Text
+cdcStartPosition :: Maybe Text
+$sel:startReplicationTaskType:StartReplicationTask' :: StartReplicationTask -&gt; StartReplicationTaskTypeValue
+$sel:replicationTaskArn:StartReplicationTask' :: StartReplicationTask -&gt; Text
+$sel:cdcStartTime:StartReplicationTask' :: StartReplicationTask -&gt; Maybe POSIX
+$sel:cdcStopPosition:StartReplicationTask' :: StartReplicationTask -&gt; Maybe Text
+$sel:cdcStartPosition:StartReplicationTask' :: StartReplicationTask -&gt; Maybe Text
+</span><a href="#local-6989586621679443760"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-252"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CdcStartPosition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443764"><span class="hs-identifier hs-var">cdcStartPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CdcStopPosition&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679443763"><span class="hs-identifier hs-var">cdcStopPosition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CdcStartTime&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; POSIX -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(POSIX -&gt; Pair) -&gt; Maybe POSIX -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679443762"><span class="hs-identifier hs-var">cdcStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-259"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicationTaskArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679443761"><span class="hs-identifier hs-var">replicationTaskArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-261"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartReplicationTaskType&quot;</span></span><span>
+</span><span id="line-262"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; StartReplicationTaskTypeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">StartReplicationTaskTypeValue
+</span><a href="#local-6989586621679443760"><span class="hs-identifier hs-var">startReplicationTaskType</span></a></span><span>
+</span><span id="line-263"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679443754"><span class="annot"><span class="annottext">toPath :: StartReplicationTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartReplicationTask -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTask"><span class="hs-identifier hs-type">StartReplicationTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679443750"><span class="annot"><span class="annottext">toQuery :: StartReplicationTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartReplicationTask -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- /See:/ 'newStartReplicationTaskResponse' smart constructor.</span><span>
+</span><span id="line-276"></span><span id="local-6989586621679443747"><span id="local-6989586621679443748"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartReplicationTaskResponse"><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-var">StartReplicationTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartReplicationTaskResponse%27"><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse%27"><span class="hs-identifier hs-var">StartReplicationTaskResponse'</span></a></span></span><span>
+</span><span id="line-277"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The replication task started.</span><span>
+</span><span id="line-278"></span><span>    </span><span id="%24sel%3AreplicationTask%3AStartReplicationTaskResponse%27"><span class="annot"><span class="annottext">StartReplicationTaskResponse -&gt; Maybe ReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AreplicationTask%3AStartReplicationTaskResponse%27"><span class="hs-identifier hs-var hs-var">replicationTask</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTask.html#ReplicationTask"><span class="hs-identifier hs-type">ReplicationTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-280"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartReplicationTaskResponse%27"><span class="annot"><span class="annottext">StartReplicationTaskResponse -&gt; Int
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AhttpStatus%3AStartReplicationTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679443741"><span id="local-6989586621679443743"><span class="annot"><span class="annottext">StartReplicationTaskResponse
+-&gt; StartReplicationTaskResponse -&gt; Bool
+(StartReplicationTaskResponse
+ -&gt; StartReplicationTaskResponse -&gt; Bool)
+-&gt; (StartReplicationTaskResponse
+    -&gt; StartReplicationTaskResponse -&gt; Bool)
+-&gt; Eq StartReplicationTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartReplicationTaskResponse
+-&gt; StartReplicationTaskResponse -&gt; Bool
+$c/= :: StartReplicationTaskResponse
+-&gt; StartReplicationTaskResponse -&gt; Bool
+== :: StartReplicationTaskResponse
+-&gt; StartReplicationTaskResponse -&gt; Bool
+$c== :: StartReplicationTaskResponse
+-&gt; StartReplicationTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443733"><span id="local-6989586621679443735"><span id="local-6989586621679443737"><span id="local-6989586621679443739"><span class="annot"><span class="annottext">ReadPrec [StartReplicationTaskResponse]
+ReadPrec StartReplicationTaskResponse
+Int -&gt; ReadS StartReplicationTaskResponse
+ReadS [StartReplicationTaskResponse]
+(Int -&gt; ReadS StartReplicationTaskResponse)
+-&gt; ReadS [StartReplicationTaskResponse]
+-&gt; ReadPrec StartReplicationTaskResponse
+-&gt; ReadPrec [StartReplicationTaskResponse]
+-&gt; Read StartReplicationTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartReplicationTaskResponse]
+$creadListPrec :: ReadPrec [StartReplicationTaskResponse]
+readPrec :: ReadPrec StartReplicationTaskResponse
+$creadPrec :: ReadPrec StartReplicationTaskResponse
+readList :: ReadS [StartReplicationTaskResponse]
+$creadList :: ReadS [StartReplicationTaskResponse]
+readsPrec :: Int -&gt; ReadS StartReplicationTaskResponse
+$creadsPrec :: Int -&gt; ReadS StartReplicationTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679443727"><span id="local-6989586621679443729"><span id="local-6989586621679443731"><span class="annot"><span class="annottext">Int -&gt; StartReplicationTaskResponse -&gt; ShowS
+[StartReplicationTaskResponse] -&gt; ShowS
+StartReplicationTaskResponse -&gt; String
+(Int -&gt; StartReplicationTaskResponse -&gt; ShowS)
+-&gt; (StartReplicationTaskResponse -&gt; String)
+-&gt; ([StartReplicationTaskResponse] -&gt; ShowS)
+-&gt; Show StartReplicationTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartReplicationTaskResponse] -&gt; ShowS
+$cshowList :: [StartReplicationTaskResponse] -&gt; ShowS
+show :: StartReplicationTaskResponse -&gt; String
+$cshow :: StartReplicationTaskResponse -&gt; String
+showsPrec :: Int -&gt; StartReplicationTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartReplicationTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartReplicationTaskResponse -&gt; Rep StartReplicationTaskResponse x)
+-&gt; (forall x.
+    Rep StartReplicationTaskResponse x -&gt; StartReplicationTaskResponse)
+-&gt; Generic StartReplicationTaskResponse
+forall x.
+Rep StartReplicationTaskResponse x -&gt; StartReplicationTaskResponse
+forall x.
+StartReplicationTaskResponse -&gt; Rep StartReplicationTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartReplicationTaskResponse x -&gt; StartReplicationTaskResponse
+$cfrom :: forall x.
+StartReplicationTaskResponse -&gt; Rep StartReplicationTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- Create a value of 'StartReplicationTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- 'replicationTask', 'startReplicationTaskResponse_replicationTask' - The replication task started.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- 'httpStatus', 'startReplicationTaskResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#newStartReplicationTaskResponse"><span class="hs-identifier hs-type">newStartReplicationTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-type">StartReplicationTaskResponse</span></a></span><span>
+</span><span id="line-299"></span><span id="newStartReplicationTaskResponse"><span class="annot"><span class="annottext">newStartReplicationTaskResponse :: Int -&gt; StartReplicationTaskResponse
+</span><a href="Amazonka.DMS.StartReplicationTask.html#newStartReplicationTaskResponse"><span class="hs-identifier hs-var hs-var">newStartReplicationTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679443724"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443724"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">StartReplicationTaskResponse' :: Maybe ReplicationTask -&gt; Int -&gt; StartReplicationTaskResponse
+</span><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse%27"><span class="hs-identifier hs-type">StartReplicationTaskResponse'</span></a></span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:replicationTask:StartReplicationTaskResponse' :: Maybe ReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AreplicationTask%3AStartReplicationTaskResponse%27"><span class="hs-identifier hs-var">replicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReplicationTask
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartReplicationTaskResponse' :: Int
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AhttpStatus%3AStartReplicationTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443724"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The replication task started.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTaskResponse_replicationTask"><span class="hs-identifier hs-type">startReplicationTaskResponse_replicationTask</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-type">StartReplicationTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.Types.ReplicationTask.html#ReplicationTask"><span class="hs-identifier hs-type">ReplicationTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="startReplicationTaskResponse_replicationTask"><span class="annot"><span class="annottext">startReplicationTaskResponse_replicationTask :: (Maybe ReplicationTask -&gt; f (Maybe ReplicationTask))
+-&gt; StartReplicationTaskResponse -&gt; f StartReplicationTaskResponse
+</span><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTaskResponse_replicationTask"><span class="hs-identifier hs-var hs-var">startReplicationTaskResponse_replicationTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartReplicationTaskResponse -&gt; Maybe ReplicationTask)
+-&gt; (StartReplicationTaskResponse
+    -&gt; Maybe ReplicationTask -&gt; StartReplicationTaskResponse)
+-&gt; Lens
+     StartReplicationTaskResponse
+     StartReplicationTaskResponse
+     (Maybe ReplicationTask)
+     (Maybe ReplicationTask)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse%27"><span class="hs-identifier hs-type">StartReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443723"><span class="annot"><span class="annottext">Maybe ReplicationTask
+replicationTask :: Maybe ReplicationTask
+$sel:replicationTask:StartReplicationTaskResponse' :: StartReplicationTaskResponse -&gt; Maybe ReplicationTask
+</span><a href="#local-6989586621679443723"><span class="hs-identifier hs-var hs-var">replicationTask</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679443723"><span class="hs-identifier hs-var">replicationTask</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443722"><span class="annot"><span class="annottext">s :: StartReplicationTaskResponse
+</span><a href="#local-6989586621679443722"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse%27"><span class="hs-identifier hs-type">StartReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443721"><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679443721"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTaskResponse
+</span><a href="#local-6989586621679443722"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationTask:StartReplicationTaskResponse' :: Maybe ReplicationTask
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AreplicationTask%3AStartReplicationTaskResponse%27"><span class="hs-identifier hs-var">replicationTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationTask
+</span><a href="#local-6989586621679443721"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-type">StartReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTaskResponse_httpStatus"><span class="hs-identifier hs-type">startReplicationTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-type">StartReplicationTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-312"></span><span id="startReplicationTaskResponse_httpStatus"><span class="annot"><span class="annottext">startReplicationTaskResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartReplicationTaskResponse -&gt; f StartReplicationTaskResponse
+</span><a href="Amazonka.DMS.StartReplicationTask.html#startReplicationTaskResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startReplicationTaskResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartReplicationTaskResponse -&gt; Int)
+-&gt; (StartReplicationTaskResponse
+    -&gt; Int -&gt; StartReplicationTaskResponse)
+-&gt; Lens
+     StartReplicationTaskResponse StartReplicationTaskResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse%27"><span class="hs-identifier hs-type">StartReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679443720"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartReplicationTaskResponse' :: StartReplicationTaskResponse -&gt; Int
+</span><a href="#local-6989586621679443720"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443720"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679443719"><span class="annot"><span class="annottext">s :: StartReplicationTaskResponse
+</span><a href="#local-6989586621679443719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse%27"><span class="hs-identifier hs-type">StartReplicationTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679443718"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartReplicationTaskResponse
+</span><a href="#local-6989586621679443719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartReplicationTaskResponse' :: Int
+</span><a href="Amazonka.DMS.StartReplicationTask.html#%24sel%3AhttpStatus%3AStartReplicationTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679443718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-type">StartReplicationTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679443716"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DMS.StartReplicationTask.html#StartReplicationTaskResponse"><span class="hs-identifier hs-type">StartReplicationTaskResponse</span></a></span></span><span>
+</span><span id="line-315"></span></pre></body></html>

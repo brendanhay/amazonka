@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SWF.Types.CloseStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SWF.Types.CloseStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier">CloseStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_CANCELED"><span class="hs-identifier">CloseStatus_CANCELED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_COMPLETED"><span class="hs-identifier">CloseStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_CONTINUED_AS_NEW"><span class="hs-identifier">CloseStatus_CONTINUED_AS_NEW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_FAILED"><span class="hs-identifier">CloseStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_TERMINATED"><span class="hs-identifier">CloseStatus_TERMINATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_TIMED_OUT"><span class="hs-identifier">CloseStatus_TIMED_OUT</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679343470"><span id="local-6989586621679343471"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CloseStatus"><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-var">CloseStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CloseStatus%27"><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-identifier hs-var">CloseStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCloseStatus"><span class="annot"><span class="annottext">CloseStatus -&gt; Text
+</span><a href="Amazonka.SWF.Types.CloseStatus.html#fromCloseStatus"><span class="hs-identifier hs-var hs-var">fromCloseStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343462"><span id="local-6989586621679343464"><span id="local-6989586621679343466"><span class="annot"><span class="annottext">Int -&gt; CloseStatus -&gt; ShowS
+[CloseStatus] -&gt; ShowS
+CloseStatus -&gt; String
+(Int -&gt; CloseStatus -&gt; ShowS)
+-&gt; (CloseStatus -&gt; String)
+-&gt; ([CloseStatus] -&gt; ShowS)
+-&gt; Show CloseStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CloseStatus] -&gt; ShowS
+$cshowList :: [CloseStatus] -&gt; ShowS
+show :: CloseStatus -&gt; String
+$cshow :: CloseStatus -&gt; String
+showsPrec :: Int -&gt; CloseStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; CloseStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679343453"><span id="local-6989586621679343455"><span id="local-6989586621679343457"><span id="local-6989586621679343459"><span class="annot"><span class="annottext">ReadPrec [CloseStatus]
+ReadPrec CloseStatus
+Int -&gt; ReadS CloseStatus
+ReadS [CloseStatus]
+(Int -&gt; ReadS CloseStatus)
+-&gt; ReadS [CloseStatus]
+-&gt; ReadPrec CloseStatus
+-&gt; ReadPrec [CloseStatus]
+-&gt; Read CloseStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CloseStatus]
+$creadListPrec :: ReadPrec [CloseStatus]
+readPrec :: ReadPrec CloseStatus
+$creadPrec :: ReadPrec CloseStatus
+readList :: ReadS [CloseStatus]
+$creadList :: ReadS [CloseStatus]
+readsPrec :: Int -&gt; ReadS CloseStatus
+$creadsPrec :: Int -&gt; ReadS CloseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679343448"><span id="local-6989586621679343450"><span class="annot"><span class="annottext">CloseStatus -&gt; CloseStatus -&gt; Bool
+(CloseStatus -&gt; CloseStatus -&gt; Bool)
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; Bool) -&gt; Eq CloseStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CloseStatus -&gt; CloseStatus -&gt; Bool
+$c/= :: CloseStatus -&gt; CloseStatus -&gt; Bool
+== :: CloseStatus -&gt; CloseStatus -&gt; Bool
+$c== :: CloseStatus -&gt; CloseStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679343432"><span id="local-6989586621679343434"><span id="local-6989586621679343436"><span id="local-6989586621679343438"><span id="local-6989586621679343440"><span id="local-6989586621679343442"><span id="local-6989586621679343444"><span class="annot"><span class="annottext">Eq CloseStatus
+Eq CloseStatus
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; Ordering)
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; Bool)
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; Bool)
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; Bool)
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; Bool)
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; CloseStatus)
+-&gt; (CloseStatus -&gt; CloseStatus -&gt; CloseStatus)
+-&gt; Ord CloseStatus
+CloseStatus -&gt; CloseStatus -&gt; Bool
+CloseStatus -&gt; CloseStatus -&gt; Ordering
+CloseStatus -&gt; CloseStatus -&gt; CloseStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CloseStatus -&gt; CloseStatus -&gt; CloseStatus
+$cmin :: CloseStatus -&gt; CloseStatus -&gt; CloseStatus
+max :: CloseStatus -&gt; CloseStatus -&gt; CloseStatus
+$cmax :: CloseStatus -&gt; CloseStatus -&gt; CloseStatus
+&gt;= :: CloseStatus -&gt; CloseStatus -&gt; Bool
+$c&gt;= :: CloseStatus -&gt; CloseStatus -&gt; Bool
+&gt; :: CloseStatus -&gt; CloseStatus -&gt; Bool
+$c&gt; :: CloseStatus -&gt; CloseStatus -&gt; Bool
+&lt;= :: CloseStatus -&gt; CloseStatus -&gt; Bool
+$c&lt;= :: CloseStatus -&gt; CloseStatus -&gt; Bool
+&lt; :: CloseStatus -&gt; CloseStatus -&gt; Bool
+$c&lt; :: CloseStatus -&gt; CloseStatus -&gt; Bool
+compare :: CloseStatus -&gt; CloseStatus -&gt; Ordering
+$ccompare :: CloseStatus -&gt; CloseStatus -&gt; Ordering
+$cp1Ord :: Eq CloseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CloseStatus -&gt; Rep CloseStatus x)
+-&gt; (forall x. Rep CloseStatus x -&gt; CloseStatus)
+-&gt; Generic CloseStatus
+forall x. Rep CloseStatus x -&gt; CloseStatus
+forall x. CloseStatus -&gt; Rep CloseStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CloseStatus x -&gt; CloseStatus
+$cfrom :: forall x. CloseStatus -&gt; Rep CloseStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679343424"><span id="local-6989586621679343426"><span class="annot"><span class="annottext">Int -&gt; CloseStatus -&gt; Int
+CloseStatus -&gt; Int
+(Int -&gt; CloseStatus -&gt; Int)
+-&gt; (CloseStatus -&gt; Int) -&gt; Hashable CloseStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CloseStatus -&gt; Int
+$chash :: CloseStatus -&gt; Int
+hashWithSalt :: Int -&gt; CloseStatus -&gt; Int
+$chashWithSalt :: Int -&gt; CloseStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679343421"><span class="annot"><span class="annottext">CloseStatus -&gt; ()
+(CloseStatus -&gt; ()) -&gt; NFData CloseStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CloseStatus -&gt; ()
+$crnf :: CloseStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679343418"><span class="annot"><span class="annottext">Text -&gt; Either String CloseStatus
+(Text -&gt; Either String CloseStatus) -&gt; FromText CloseStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CloseStatus
+$cfromText :: Text -&gt; Either String CloseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679343415"><span class="annot"><span class="annottext">CloseStatus -&gt; Text
+(CloseStatus -&gt; Text) -&gt; ToText CloseStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CloseStatus -&gt; Text
+$ctoText :: CloseStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679343412"><span class="annot"><span class="annottext">CloseStatus -&gt; ByteString
+(CloseStatus -&gt; ByteString) -&gt; ToByteString CloseStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CloseStatus -&gt; ByteString
+$ctoBS :: CloseStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679343409"><span class="annot"><span class="annottext">CloseStatus -&gt; ByteStringBuilder
+(CloseStatus -&gt; ByteStringBuilder) -&gt; ToLog CloseStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CloseStatus -&gt; ByteStringBuilder
+$cbuild :: CloseStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679343406"><span class="annot"><span class="annottext">HeaderName -&gt; CloseStatus -&gt; [Header]
+(HeaderName -&gt; CloseStatus -&gt; [Header]) -&gt; ToHeader CloseStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CloseStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CloseStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679343403"><span class="annot"><span class="annottext">CloseStatus -&gt; QueryString
+(CloseStatus -&gt; QueryString) -&gt; ToQuery CloseStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CloseStatus -&gt; QueryString
+$ctoQuery :: CloseStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679343398"><span id="local-6989586621679343400"><span class="annot"><span class="annottext">Value -&gt; Parser [CloseStatus]
+Value -&gt; Parser CloseStatus
+(Value -&gt; Parser CloseStatus)
+-&gt; (Value -&gt; Parser [CloseStatus]) -&gt; FromJSON CloseStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CloseStatus]
+$cparseJSONList :: Value -&gt; Parser [CloseStatus]
+parseJSON :: Value -&gt; Parser CloseStatus
+$cparseJSON :: Value -&gt; Parser CloseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679343393"><span id="local-6989586621679343395"><span class="annot"><span class="annottext">FromJSONKeyFunction [CloseStatus]
+FromJSONKeyFunction CloseStatus
+FromJSONKeyFunction CloseStatus
+-&gt; FromJSONKeyFunction [CloseStatus] -&gt; FromJSONKey CloseStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CloseStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [CloseStatus]
+fromJSONKey :: FromJSONKeyFunction CloseStatus
+$cfromJSONKey :: FromJSONKeyFunction CloseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679343384"><span id="local-6989586621679343386"><span id="local-6989586621679343388"><span id="local-6989586621679343390"><span class="annot"><span class="annottext">[CloseStatus] -&gt; Encoding
+[CloseStatus] -&gt; Value
+CloseStatus -&gt; Encoding
+CloseStatus -&gt; Value
+(CloseStatus -&gt; Value)
+-&gt; (CloseStatus -&gt; Encoding)
+-&gt; ([CloseStatus] -&gt; Value)
+-&gt; ([CloseStatus] -&gt; Encoding)
+-&gt; ToJSON CloseStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CloseStatus] -&gt; Encoding
+$ctoEncodingList :: [CloseStatus] -&gt; Encoding
+toJSONList :: [CloseStatus] -&gt; Value
+$ctoJSONList :: [CloseStatus] -&gt; Value
+toEncoding :: CloseStatus -&gt; Encoding
+$ctoEncoding :: CloseStatus -&gt; Encoding
+toJSON :: CloseStatus -&gt; Value
+$ctoJSON :: CloseStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679343379"><span id="local-6989586621679343381"><span class="annot"><span class="annottext">ToJSONKeyFunction [CloseStatus]
+ToJSONKeyFunction CloseStatus
+ToJSONKeyFunction CloseStatus
+-&gt; ToJSONKeyFunction [CloseStatus] -&gt; ToJSONKey CloseStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CloseStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [CloseStatus]
+toJSONKey :: ToJSONKeyFunction CloseStatus
+$ctoJSONKey :: ToJSONKeyFunction CloseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679343376"><span class="annot"><span class="annottext">[Node] -&gt; Either String CloseStatus
+([Node] -&gt; Either String CloseStatus) -&gt; FromXML CloseStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CloseStatus
+$cparseXML :: [Node] -&gt; Either String CloseStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679343373"><span class="annot"><span class="annottext">CloseStatus -&gt; XML
+(CloseStatus -&gt; XML) -&gt; ToXML CloseStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CloseStatus -&gt; XML
+$ctoXML :: CloseStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_CANCELED"><span class="hs-identifier hs-type">CloseStatus_CANCELED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloseStatus_CANCELED"><span id="%24mCloseStatus_CANCELED"><span id="CloseStatus_CANCELED"><span class="annot"><span class="annottext">$bCloseStatus_CANCELED :: CloseStatus
+$mCloseStatus_CANCELED :: forall r. CloseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.CloseStatus.html#%24bCloseStatus_CANCELED"><span class="hs-identifier hs-var hs-var hs-var">CloseStatus_CANCELED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-identifier hs-type">CloseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CANCELED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_COMPLETED"><span class="hs-identifier hs-type">CloseStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloseStatus_COMPLETED"><span id="%24mCloseStatus_COMPLETED"><span id="CloseStatus_COMPLETED"><span class="annot"><span class="annottext">$bCloseStatus_COMPLETED :: CloseStatus
+$mCloseStatus_COMPLETED :: forall r. CloseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.CloseStatus.html#%24bCloseStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">CloseStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-identifier hs-type">CloseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_CONTINUED_AS_NEW"><span class="hs-identifier hs-type">CloseStatus_CONTINUED_AS_NEW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloseStatus_CONTINUED_AS_NEW"><span id="%24mCloseStatus_CONTINUED_AS_NEW"><span id="CloseStatus_CONTINUED_AS_NEW"><span class="annot"><span class="annottext">$bCloseStatus_CONTINUED_AS_NEW :: CloseStatus
+$mCloseStatus_CONTINUED_AS_NEW :: forall r. CloseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.CloseStatus.html#%24bCloseStatus_CONTINUED_AS_NEW"><span class="hs-identifier hs-var hs-var hs-var">CloseStatus_CONTINUED_AS_NEW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-identifier hs-type">CloseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTINUED_AS_NEW&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_FAILED"><span class="hs-identifier hs-type">CloseStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloseStatus_FAILED"><span id="%24mCloseStatus_FAILED"><span id="CloseStatus_FAILED"><span class="annot"><span class="annottext">$bCloseStatus_FAILED :: CloseStatus
+$mCloseStatus_FAILED :: forall r. CloseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.CloseStatus.html#%24bCloseStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">CloseStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-identifier hs-type">CloseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_TERMINATED"><span class="hs-identifier hs-type">CloseStatus_TERMINATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloseStatus_TERMINATED"><span id="%24mCloseStatus_TERMINATED"><span id="CloseStatus_TERMINATED"><span class="annot"><span class="annottext">$bCloseStatus_TERMINATED :: CloseStatus
+$mCloseStatus_TERMINATED :: forall r. CloseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.CloseStatus.html#%24bCloseStatus_TERMINATED"><span class="hs-identifier hs-var hs-var hs-var">CloseStatus_TERMINATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-identifier hs-type">CloseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_TIMED_OUT"><span class="hs-identifier hs-type">CloseStatus_TIMED_OUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus"><span class="hs-identifier hs-type">CloseStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCloseStatus_TIMED_OUT"><span id="%24mCloseStatus_TIMED_OUT"><span id="CloseStatus_TIMED_OUT"><span class="annot"><span class="annottext">$bCloseStatus_TIMED_OUT :: CloseStatus
+$mCloseStatus_TIMED_OUT :: forall r. CloseStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SWF.Types.CloseStatus.html#%24bCloseStatus_TIMED_OUT"><span class="hs-identifier hs-var hs-var hs-var">CloseStatus_TIMED_OUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-identifier hs-type">CloseStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TIMED_OUT&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_CANCELED"><span class="hs-pragma hs-type">CloseStatus_CANCELED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_COMPLETED"><span class="hs-pragma hs-type">CloseStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_CONTINUED_AS_NEW"><span class="hs-pragma hs-type">CloseStatus_CONTINUED_AS_NEW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_FAILED"><span class="hs-pragma hs-type">CloseStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_TERMINATED"><span class="hs-pragma hs-type">CloseStatus_TERMINATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus_TIMED_OUT"><span class="hs-pragma hs-type">CloseStatus_TIMED_OUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.SWF.Types.CloseStatus.html#CloseStatus%27"><span class="hs-pragma hs-type">CloseStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

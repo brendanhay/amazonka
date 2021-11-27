@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.HoldoutActivity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.HoldoutActivity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Specifies the settings for a holdout activity in a journey. This type of</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- activity stops a journey for a specified percentage of participants.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newHoldoutActivity' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679599615"><span id="local-6989586621679599616"></span></span><span class="hs-keyword">data</span><span> </span><span id="HoldoutActivity"><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-var">HoldoutActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HoldoutActivity%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-var">HoldoutActivity'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the next activity to perform, after performing</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- the holdout activity.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnextActivity%3AHoldoutActivity%27"><span class="annot"><span class="annottext">HoldoutActivity -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#%24sel%3AnextActivity%3AHoldoutActivity%27"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The percentage of participants who shouldn\'t continue the journey.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- To determine which participants are held out, Amazon Pinpoint applies a</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- probability-based algorithm to the percentage that you specify.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Therefore, the actual percentage of participants who are held out may</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- not be equal to the percentage that you specify.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Apercentage%3AHoldoutActivity%27"><span class="annot"><span class="annottext">HoldoutActivity -&gt; Int
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#%24sel%3Apercentage%3AHoldoutActivity%27"><span class="hs-identifier hs-var hs-var">percentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679599608"><span id="local-6989586621679599610"><span class="annot"><span class="annottext">HoldoutActivity -&gt; HoldoutActivity -&gt; Bool
+(HoldoutActivity -&gt; HoldoutActivity -&gt; Bool)
+-&gt; (HoldoutActivity -&gt; HoldoutActivity -&gt; Bool)
+-&gt; Eq HoldoutActivity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HoldoutActivity -&gt; HoldoutActivity -&gt; Bool
+$c/= :: HoldoutActivity -&gt; HoldoutActivity -&gt; Bool
+== :: HoldoutActivity -&gt; HoldoutActivity -&gt; Bool
+$c== :: HoldoutActivity -&gt; HoldoutActivity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599599"><span id="local-6989586621679599601"><span id="local-6989586621679599603"><span id="local-6989586621679599605"><span class="annot"><span class="annottext">ReadPrec [HoldoutActivity]
+ReadPrec HoldoutActivity
+Int -&gt; ReadS HoldoutActivity
+ReadS [HoldoutActivity]
+(Int -&gt; ReadS HoldoutActivity)
+-&gt; ReadS [HoldoutActivity]
+-&gt; ReadPrec HoldoutActivity
+-&gt; ReadPrec [HoldoutActivity]
+-&gt; Read HoldoutActivity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HoldoutActivity]
+$creadListPrec :: ReadPrec [HoldoutActivity]
+readPrec :: ReadPrec HoldoutActivity
+$creadPrec :: ReadPrec HoldoutActivity
+readList :: ReadS [HoldoutActivity]
+$creadList :: ReadS [HoldoutActivity]
+readsPrec :: Int -&gt; ReadS HoldoutActivity
+$creadsPrec :: Int -&gt; ReadS HoldoutActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679599592"><span id="local-6989586621679599594"><span id="local-6989586621679599596"><span class="annot"><span class="annottext">Int -&gt; HoldoutActivity -&gt; ShowS
+[HoldoutActivity] -&gt; ShowS
+HoldoutActivity -&gt; String
+(Int -&gt; HoldoutActivity -&gt; ShowS)
+-&gt; (HoldoutActivity -&gt; String)
+-&gt; ([HoldoutActivity] -&gt; ShowS)
+-&gt; Show HoldoutActivity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HoldoutActivity] -&gt; ShowS
+$cshowList :: [HoldoutActivity] -&gt; ShowS
+show :: HoldoutActivity -&gt; String
+$cshow :: HoldoutActivity -&gt; String
+showsPrec :: Int -&gt; HoldoutActivity -&gt; ShowS
+$cshowsPrec :: Int -&gt; HoldoutActivity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. HoldoutActivity -&gt; Rep HoldoutActivity x)
+-&gt; (forall x. Rep HoldoutActivity x -&gt; HoldoutActivity)
+-&gt; Generic HoldoutActivity
+forall x. Rep HoldoutActivity x -&gt; HoldoutActivity
+forall x. HoldoutActivity -&gt; Rep HoldoutActivity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HoldoutActivity x -&gt; HoldoutActivity
+$cfrom :: forall x. HoldoutActivity -&gt; Rep HoldoutActivity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'HoldoutActivity' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'nextActivity', 'holdoutActivity_nextActivity' - The unique identifier for the next activity to perform, after performing</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- the holdout activity.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'percentage', 'holdoutActivity_percentage' - The percentage of participants who shouldn\'t continue the journey.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- To determine which participants are held out, Amazon Pinpoint applies a</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- probability-based algorithm to the percentage that you specify.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Therefore, the actual percentage of participants who are held out may</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- not be equal to the percentage that you specify.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#newHoldoutActivity"><span class="hs-identifier hs-type">newHoldoutActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'percentage'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span><span>
+</span><span id="line-65"></span><span id="newHoldoutActivity"><span class="annot"><span class="annottext">newHoldoutActivity :: Int -&gt; HoldoutActivity
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#newHoldoutActivity"><span class="hs-identifier hs-var hs-var">newHoldoutActivity</span></a></span></span><span> </span><span id="local-6989586621679599586"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679599586"><span class="hs-identifier hs-var">pPercentage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="annottext">HoldoutActivity' :: Maybe Text -&gt; Int -&gt; HoldoutActivity
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-type">HoldoutActivity'</span></a></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextActivity:HoldoutActivity' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#%24sel%3AnextActivity%3AHoldoutActivity%27"><span class="hs-identifier hs-var">nextActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:percentage:HoldoutActivity' :: Int
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#%24sel%3Apercentage%3AHoldoutActivity%27"><span class="hs-identifier hs-var">percentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679599586"><span class="hs-identifier hs-var">pPercentage_</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The unique identifier for the next activity to perform, after performing</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the holdout activity.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#holdoutActivity_nextActivity"><span class="hs-identifier hs-type">holdoutActivity_nextActivity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="holdoutActivity_nextActivity"><span class="annot"><span class="annottext">holdoutActivity_nextActivity :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; HoldoutActivity -&gt; f HoldoutActivity
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#holdoutActivity_nextActivity"><span class="hs-identifier hs-var hs-var">holdoutActivity_nextActivity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HoldoutActivity -&gt; Maybe Text)
+-&gt; (HoldoutActivity -&gt; Maybe Text -&gt; HoldoutActivity)
+-&gt; Lens HoldoutActivity HoldoutActivity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-type">HoldoutActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599582"><span class="annot"><span class="annottext">Maybe Text
+nextActivity :: Maybe Text
+$sel:nextActivity:HoldoutActivity' :: HoldoutActivity -&gt; Maybe Text
+</span><a href="#local-6989586621679599582"><span class="hs-identifier hs-var hs-var">nextActivity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679599582"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599581"><span class="annot"><span class="annottext">s :: HoldoutActivity
+</span><a href="#local-6989586621679599581"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-type">HoldoutActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599580"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679599580"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HoldoutActivity
+</span><a href="#local-6989586621679599581"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextActivity:HoldoutActivity' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#%24sel%3AnextActivity%3AHoldoutActivity%27"><span class="hs-identifier hs-var">nextActivity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679599580"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The percentage of participants who shouldn\'t continue the journey.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- To determine which participants are held out, Amazon Pinpoint applies a</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- probability-based algorithm to the percentage that you specify.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Therefore, the actual percentage of participants who are held out may</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- not be equal to the percentage that you specify.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#holdoutActivity_percentage"><span class="hs-identifier hs-type">holdoutActivity_percentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-83"></span><span id="holdoutActivity_percentage"><span class="annot"><span class="annottext">holdoutActivity_percentage :: (Int -&gt; f Int) -&gt; HoldoutActivity -&gt; f HoldoutActivity
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#holdoutActivity_percentage"><span class="hs-identifier hs-var hs-var">holdoutActivity_percentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(HoldoutActivity -&gt; Int)
+-&gt; (HoldoutActivity -&gt; Int -&gt; HoldoutActivity)
+-&gt; Lens HoldoutActivity HoldoutActivity Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-type">HoldoutActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599578"><span class="annot"><span class="annottext">Int
+percentage :: Int
+$sel:percentage:HoldoutActivity' :: HoldoutActivity -&gt; Int
+</span><a href="#local-6989586621679599578"><span class="hs-identifier hs-var hs-var">percentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679599578"><span class="hs-identifier hs-var">percentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679599577"><span class="annot"><span class="annottext">s :: HoldoutActivity
+</span><a href="#local-6989586621679599577"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-type">HoldoutActivity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679599576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679599576"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HoldoutActivity
+</span><a href="#local-6989586621679599577"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:percentage:HoldoutActivity' :: Int
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#%24sel%3Apercentage%3AHoldoutActivity%27"><span class="hs-identifier hs-var">percentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679599576"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599573"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679599571"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser HoldoutActivity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser HoldoutActivity)
+-&gt; Value
+-&gt; Parser HoldoutActivity
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;HoldoutActivity&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679599568"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679599568"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; HoldoutActivity
+</span><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-var">HoldoutActivity'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; HoldoutActivity)
+-&gt; Parser (Maybe Text) -&gt; Parser (Int -&gt; HoldoutActivity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679599568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextActivity&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser (Int -&gt; HoldoutActivity)
+-&gt; Parser Int -&gt; Parser HoldoutActivity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679599568"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Int
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Percentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599561"><span id="local-6989586621679599563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679599550"><span id="local-6989586621679599552"><span id="local-6989586621679599554"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity"><span class="hs-identifier hs-type">HoldoutActivity</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679599548"><span class="annot"><span class="annottext">toJSON :: HoldoutActivity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.HoldoutActivity.html#HoldoutActivity%27"><span class="hs-identifier hs-type">HoldoutActivity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679599545"><span id="local-6989586621679599546"><span class="annot"><span class="annottext">Int
+Maybe Text
+percentage :: Int
+nextActivity :: Maybe Text
+$sel:percentage:HoldoutActivity' :: HoldoutActivity -&gt; Int
+$sel:nextActivity:HoldoutActivity' :: HoldoutActivity -&gt; Maybe Text
+</span><a href="#local-6989586621679599545"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextActivity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679599546"><span class="hs-identifier hs-var">nextActivity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Percentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679599545"><span class="hs-identifier hs-var">percentage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span></pre></body></html>

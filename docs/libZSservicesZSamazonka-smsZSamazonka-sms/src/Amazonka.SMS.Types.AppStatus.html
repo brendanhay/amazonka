@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SMS.Types.AppStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SMS.Types.AppStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier">AppStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_ACTIVE"><span class="hs-identifier">AppStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_CREATING"><span class="hs-identifier">AppStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETED"><span class="hs-identifier">AppStatus_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETE_FAILED"><span class="hs-identifier">AppStatus_DELETE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETING"><span class="hs-identifier">AppStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_UPDATING"><span class="hs-identifier">AppStatus_UPDATING</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679244407"><span id="local-6989586621679244408"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppStatus"><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-var">AppStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppStatus%27"><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-var">AppStatus'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAppStatus"><span class="annot"><span class="annottext">AppStatus -&gt; Text
+</span><a href="Amazonka.SMS.Types.AppStatus.html#fromAppStatus"><span class="hs-identifier hs-var hs-var">fromAppStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244399"><span id="local-6989586621679244401"><span id="local-6989586621679244403"><span class="annot"><span class="annottext">Int -&gt; AppStatus -&gt; ShowS
+[AppStatus] -&gt; ShowS
+AppStatus -&gt; String
+(Int -&gt; AppStatus -&gt; ShowS)
+-&gt; (AppStatus -&gt; String)
+-&gt; ([AppStatus] -&gt; ShowS)
+-&gt; Show AppStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AppStatus] -&gt; ShowS
+$cshowList :: [AppStatus] -&gt; ShowS
+show :: AppStatus -&gt; String
+$cshow :: AppStatus -&gt; String
+showsPrec :: Int -&gt; AppStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AppStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244390"><span id="local-6989586621679244392"><span id="local-6989586621679244394"><span id="local-6989586621679244396"><span class="annot"><span class="annottext">ReadPrec [AppStatus]
+ReadPrec AppStatus
+Int -&gt; ReadS AppStatus
+ReadS [AppStatus]
+(Int -&gt; ReadS AppStatus)
+-&gt; ReadS [AppStatus]
+-&gt; ReadPrec AppStatus
+-&gt; ReadPrec [AppStatus]
+-&gt; Read AppStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AppStatus]
+$creadListPrec :: ReadPrec [AppStatus]
+readPrec :: ReadPrec AppStatus
+$creadPrec :: ReadPrec AppStatus
+readList :: ReadS [AppStatus]
+$creadList :: ReadS [AppStatus]
+readsPrec :: Int -&gt; ReadS AppStatus
+$creadsPrec :: Int -&gt; ReadS AppStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679244385"><span id="local-6989586621679244387"><span class="annot"><span class="annottext">AppStatus -&gt; AppStatus -&gt; Bool
+(AppStatus -&gt; AppStatus -&gt; Bool)
+-&gt; (AppStatus -&gt; AppStatus -&gt; Bool) -&gt; Eq AppStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AppStatus -&gt; AppStatus -&gt; Bool
+$c/= :: AppStatus -&gt; AppStatus -&gt; Bool
+== :: AppStatus -&gt; AppStatus -&gt; Bool
+$c== :: AppStatus -&gt; AppStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679244369"><span id="local-6989586621679244371"><span id="local-6989586621679244373"><span id="local-6989586621679244375"><span id="local-6989586621679244377"><span id="local-6989586621679244379"><span id="local-6989586621679244381"><span class="annot"><span class="annottext">Eq AppStatus
+Eq AppStatus
+-&gt; (AppStatus -&gt; AppStatus -&gt; Ordering)
+-&gt; (AppStatus -&gt; AppStatus -&gt; Bool)
+-&gt; (AppStatus -&gt; AppStatus -&gt; Bool)
+-&gt; (AppStatus -&gt; AppStatus -&gt; Bool)
+-&gt; (AppStatus -&gt; AppStatus -&gt; Bool)
+-&gt; (AppStatus -&gt; AppStatus -&gt; AppStatus)
+-&gt; (AppStatus -&gt; AppStatus -&gt; AppStatus)
+-&gt; Ord AppStatus
+AppStatus -&gt; AppStatus -&gt; Bool
+AppStatus -&gt; AppStatus -&gt; Ordering
+AppStatus -&gt; AppStatus -&gt; AppStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AppStatus -&gt; AppStatus -&gt; AppStatus
+$cmin :: AppStatus -&gt; AppStatus -&gt; AppStatus
+max :: AppStatus -&gt; AppStatus -&gt; AppStatus
+$cmax :: AppStatus -&gt; AppStatus -&gt; AppStatus
+&gt;= :: AppStatus -&gt; AppStatus -&gt; Bool
+$c&gt;= :: AppStatus -&gt; AppStatus -&gt; Bool
+&gt; :: AppStatus -&gt; AppStatus -&gt; Bool
+$c&gt; :: AppStatus -&gt; AppStatus -&gt; Bool
+&lt;= :: AppStatus -&gt; AppStatus -&gt; Bool
+$c&lt;= :: AppStatus -&gt; AppStatus -&gt; Bool
+&lt; :: AppStatus -&gt; AppStatus -&gt; Bool
+$c&lt; :: AppStatus -&gt; AppStatus -&gt; Bool
+compare :: AppStatus -&gt; AppStatus -&gt; Ordering
+$ccompare :: AppStatus -&gt; AppStatus -&gt; Ordering
+$cp1Ord :: Eq AppStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AppStatus -&gt; Rep AppStatus x)
+-&gt; (forall x. Rep AppStatus x -&gt; AppStatus) -&gt; Generic AppStatus
+forall x. Rep AppStatus x -&gt; AppStatus
+forall x. AppStatus -&gt; Rep AppStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AppStatus x -&gt; AppStatus
+$cfrom :: forall x. AppStatus -&gt; Rep AppStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244361"><span id="local-6989586621679244363"><span class="annot"><span class="annottext">Int -&gt; AppStatus -&gt; Int
+AppStatus -&gt; Int
+(Int -&gt; AppStatus -&gt; Int)
+-&gt; (AppStatus -&gt; Int) -&gt; Hashable AppStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AppStatus -&gt; Int
+$chash :: AppStatus -&gt; Int
+hashWithSalt :: Int -&gt; AppStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AppStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244358"><span class="annot"><span class="annottext">AppStatus -&gt; ()
+(AppStatus -&gt; ()) -&gt; NFData AppStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AppStatus -&gt; ()
+$crnf :: AppStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244355"><span class="annot"><span class="annottext">Text -&gt; Either String AppStatus
+(Text -&gt; Either String AppStatus) -&gt; FromText AppStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AppStatus
+$cfromText :: Text -&gt; Either String AppStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244352"><span class="annot"><span class="annottext">AppStatus -&gt; Text
+(AppStatus -&gt; Text) -&gt; ToText AppStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AppStatus -&gt; Text
+$ctoText :: AppStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244349"><span class="annot"><span class="annottext">AppStatus -&gt; ByteString
+(AppStatus -&gt; ByteString) -&gt; ToByteString AppStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AppStatus -&gt; ByteString
+$ctoBS :: AppStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244346"><span class="annot"><span class="annottext">AppStatus -&gt; ByteStringBuilder
+(AppStatus -&gt; ByteStringBuilder) -&gt; ToLog AppStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AppStatus -&gt; ByteStringBuilder
+$cbuild :: AppStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244343"><span class="annot"><span class="annottext">HeaderName -&gt; AppStatus -&gt; [Header]
+(HeaderName -&gt; AppStatus -&gt; [Header]) -&gt; ToHeader AppStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AppStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AppStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244340"><span class="annot"><span class="annottext">AppStatus -&gt; QueryString
+(AppStatus -&gt; QueryString) -&gt; ToQuery AppStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AppStatus -&gt; QueryString
+$ctoQuery :: AppStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244335"><span id="local-6989586621679244337"><span class="annot"><span class="annottext">Value -&gt; Parser [AppStatus]
+Value -&gt; Parser AppStatus
+(Value -&gt; Parser AppStatus)
+-&gt; (Value -&gt; Parser [AppStatus]) -&gt; FromJSON AppStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AppStatus]
+$cparseJSONList :: Value -&gt; Parser [AppStatus]
+parseJSON :: Value -&gt; Parser AppStatus
+$cparseJSON :: Value -&gt; Parser AppStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244330"><span id="local-6989586621679244332"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppStatus]
+FromJSONKeyFunction AppStatus
+FromJSONKeyFunction AppStatus
+-&gt; FromJSONKeyFunction [AppStatus] -&gt; FromJSONKey AppStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AppStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AppStatus]
+fromJSONKey :: FromJSONKeyFunction AppStatus
+$cfromJSONKey :: FromJSONKeyFunction AppStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244321"><span id="local-6989586621679244323"><span id="local-6989586621679244325"><span id="local-6989586621679244327"><span class="annot"><span class="annottext">[AppStatus] -&gt; Encoding
+[AppStatus] -&gt; Value
+AppStatus -&gt; Encoding
+AppStatus -&gt; Value
+(AppStatus -&gt; Value)
+-&gt; (AppStatus -&gt; Encoding)
+-&gt; ([AppStatus] -&gt; Value)
+-&gt; ([AppStatus] -&gt; Encoding)
+-&gt; ToJSON AppStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AppStatus] -&gt; Encoding
+$ctoEncodingList :: [AppStatus] -&gt; Encoding
+toJSONList :: [AppStatus] -&gt; Value
+$ctoJSONList :: [AppStatus] -&gt; Value
+toEncoding :: AppStatus -&gt; Encoding
+$ctoEncoding :: AppStatus -&gt; Encoding
+toJSON :: AppStatus -&gt; Value
+$ctoJSON :: AppStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244316"><span id="local-6989586621679244318"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppStatus]
+ToJSONKeyFunction AppStatus
+ToJSONKeyFunction AppStatus
+-&gt; ToJSONKeyFunction [AppStatus] -&gt; ToJSONKey AppStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AppStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AppStatus]
+toJSONKey :: ToJSONKeyFunction AppStatus
+$ctoJSONKey :: ToJSONKeyFunction AppStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244313"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppStatus
+([Node] -&gt; Either String AppStatus) -&gt; FromXML AppStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AppStatus
+$cparseXML :: [Node] -&gt; Either String AppStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679244310"><span class="annot"><span class="annottext">AppStatus -&gt; XML
+(AppStatus -&gt; XML) -&gt; ToXML AppStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AppStatus -&gt; XML
+$ctoXML :: AppStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_ACTIVE"><span class="hs-identifier hs-type">AppStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-type">AppStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppStatus_ACTIVE"><span id="%24mAppStatus_ACTIVE"><span id="AppStatus_ACTIVE"><span class="annot"><span class="annottext">$bAppStatus_ACTIVE :: AppStatus
+$mAppStatus_ACTIVE :: forall r. AppStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppStatus.html#%24bAppStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">AppStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-type">AppStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_CREATING"><span class="hs-identifier hs-type">AppStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-type">AppStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppStatus_CREATING"><span id="%24mAppStatus_CREATING"><span id="AppStatus_CREATING"><span class="annot"><span class="annottext">$bAppStatus_CREATING :: AppStatus
+$mAppStatus_CREATING :: forall r. AppStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppStatus.html#%24bAppStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">AppStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-type">AppStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETED"><span class="hs-identifier hs-type">AppStatus_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-type">AppStatus</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppStatus_DELETED"><span id="%24mAppStatus_DELETED"><span id="AppStatus_DELETED"><span class="annot"><span class="annottext">$bAppStatus_DELETED :: AppStatus
+$mAppStatus_DELETED :: forall r. AppStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppStatus.html#%24bAppStatus_DELETED"><span class="hs-identifier hs-var hs-var hs-var">AppStatus_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-type">AppStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETE_FAILED"><span class="hs-identifier hs-type">AppStatus_DELETE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-type">AppStatus</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppStatus_DELETE_FAILED"><span id="%24mAppStatus_DELETE_FAILED"><span id="AppStatus_DELETE_FAILED"><span class="annot"><span class="annottext">$bAppStatus_DELETE_FAILED :: AppStatus
+$mAppStatus_DELETE_FAILED :: forall r. AppStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppStatus.html#%24bAppStatus_DELETE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AppStatus_DELETE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-type">AppStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETE_FAILED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETING"><span class="hs-identifier hs-type">AppStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-type">AppStatus</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppStatus_DELETING"><span id="%24mAppStatus_DELETING"><span id="AppStatus_DELETING"><span class="annot"><span class="annottext">$bAppStatus_DELETING :: AppStatus
+$mAppStatus_DELETING :: forall r. AppStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppStatus.html#%24bAppStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">AppStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-type">AppStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_UPDATING"><span class="hs-identifier hs-type">AppStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus"><span class="hs-identifier hs-type">AppStatus</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppStatus_UPDATING"><span id="%24mAppStatus_UPDATING"><span id="AppStatus_UPDATING"><span class="annot"><span class="annottext">$bAppStatus_UPDATING :: AppStatus
+$mAppStatus_UPDATING :: forall r. AppStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.AppStatus.html#%24bAppStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">AppStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-identifier hs-type">AppStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_ACTIVE"><span class="hs-pragma hs-type">AppStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_CREATING"><span class="hs-pragma hs-type">AppStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETED"><span class="hs-pragma hs-type">AppStatus_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETE_FAILED"><span class="hs-pragma hs-type">AppStatus_DELETE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_DELETING"><span class="hs-pragma hs-type">AppStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus_UPDATING"><span class="hs-pragma hs-type">AppStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.AppStatus.html#AppStatus%27"><span class="hs-pragma hs-type">AppStatus'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

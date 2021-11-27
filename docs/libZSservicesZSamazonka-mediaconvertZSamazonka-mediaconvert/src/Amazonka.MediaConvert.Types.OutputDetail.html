@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.OutputDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.OutputDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoDetail.html"><span class="hs-identifier">Amazonka.MediaConvert.Types.VideoDetail</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Details regarding output</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newOutputDetail' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680013105"><span id="local-6989586621680013106"></span></span><span class="hs-keyword">data</span><span> </span><span id="OutputDetail"><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-var">OutputDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputDetail%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail%27"><span class="hs-identifier hs-var">OutputDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains details about the output\'s video stream</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AvideoDetails%3AOutputDetail%27"><span class="annot"><span class="annottext">OutputDetail -&gt; Maybe VideoDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#%24sel%3AvideoDetails%3AOutputDetail%27"><span class="hs-identifier hs-var hs-var">videoDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoDetail.html#VideoDetail"><span class="hs-identifier hs-type">VideoDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Duration in milliseconds</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdurationInMs%3AOutputDetail%27"><span class="annot"><span class="annottext">OutputDetail -&gt; Maybe Int
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#%24sel%3AdurationInMs%3AOutputDetail%27"><span class="hs-identifier hs-var hs-var">durationInMs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680013098"><span id="local-6989586621680013100"><span class="annot"><span class="annottext">OutputDetail -&gt; OutputDetail -&gt; Bool
+(OutputDetail -&gt; OutputDetail -&gt; Bool)
+-&gt; (OutputDetail -&gt; OutputDetail -&gt; Bool) -&gt; Eq OutputDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OutputDetail -&gt; OutputDetail -&gt; Bool
+$c/= :: OutputDetail -&gt; OutputDetail -&gt; Bool
+== :: OutputDetail -&gt; OutputDetail -&gt; Bool
+$c== :: OutputDetail -&gt; OutputDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013089"><span id="local-6989586621680013091"><span id="local-6989586621680013093"><span id="local-6989586621680013095"><span class="annot"><span class="annottext">ReadPrec [OutputDetail]
+ReadPrec OutputDetail
+Int -&gt; ReadS OutputDetail
+ReadS [OutputDetail]
+(Int -&gt; ReadS OutputDetail)
+-&gt; ReadS [OutputDetail]
+-&gt; ReadPrec OutputDetail
+-&gt; ReadPrec [OutputDetail]
+-&gt; Read OutputDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OutputDetail]
+$creadListPrec :: ReadPrec [OutputDetail]
+readPrec :: ReadPrec OutputDetail
+$creadPrec :: ReadPrec OutputDetail
+readList :: ReadS [OutputDetail]
+$creadList :: ReadS [OutputDetail]
+readsPrec :: Int -&gt; ReadS OutputDetail
+$creadsPrec :: Int -&gt; ReadS OutputDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680013082"><span id="local-6989586621680013084"><span id="local-6989586621680013086"><span class="annot"><span class="annottext">Int -&gt; OutputDetail -&gt; ShowS
+[OutputDetail] -&gt; ShowS
+OutputDetail -&gt; String
+(Int -&gt; OutputDetail -&gt; ShowS)
+-&gt; (OutputDetail -&gt; String)
+-&gt; ([OutputDetail] -&gt; ShowS)
+-&gt; Show OutputDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OutputDetail] -&gt; ShowS
+$cshowList :: [OutputDetail] -&gt; ShowS
+show :: OutputDetail -&gt; String
+$cshow :: OutputDetail -&gt; String
+showsPrec :: Int -&gt; OutputDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; OutputDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OutputDetail -&gt; Rep OutputDetail x)
+-&gt; (forall x. Rep OutputDetail x -&gt; OutputDetail)
+-&gt; Generic OutputDetail
+forall x. Rep OutputDetail x -&gt; OutputDetail
+forall x. OutputDetail -&gt; Rep OutputDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OutputDetail x -&gt; OutputDetail
+$cfrom :: forall x. OutputDetail -&gt; Rep OutputDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'OutputDetail' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'videoDetails', 'outputDetail_videoDetails' - Contains details about the output\'s video stream</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'durationInMs', 'outputDetail_durationInMs' - Duration in milliseconds</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#newOutputDetail"><span class="hs-identifier hs-type">newOutputDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span><span>
+</span><span id="line-51"></span><span id="newOutputDetail"><span class="annot"><span class="annottext">newOutputDetail :: OutputDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#newOutputDetail"><span class="hs-identifier hs-var hs-var">newOutputDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">OutputDetail' :: Maybe VideoDetail -&gt; Maybe Int -&gt; OutputDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail%27"><span class="hs-identifier hs-type">OutputDetail'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:videoDetails:OutputDetail' :: Maybe VideoDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#%24sel%3AvideoDetails%3AOutputDetail%27"><span class="hs-identifier hs-var">videoDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationInMs:OutputDetail' :: Maybe Int
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#%24sel%3AdurationInMs%3AOutputDetail%27"><span class="hs-identifier hs-var">durationInMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | Contains details about the output\'s video stream</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#outputDetail_videoDetails"><span class="hs-identifier hs-type">outputDetail_videoDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.VideoDetail.html#VideoDetail"><span class="hs-identifier hs-type">VideoDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="outputDetail_videoDetails"><span class="annot"><span class="annottext">outputDetail_videoDetails :: (Maybe VideoDetail -&gt; f (Maybe VideoDetail))
+-&gt; OutputDetail -&gt; f OutputDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#outputDetail_videoDetails"><span class="hs-identifier hs-var hs-var">outputDetail_videoDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputDetail -&gt; Maybe VideoDetail)
+-&gt; (OutputDetail -&gt; Maybe VideoDetail -&gt; OutputDetail)
+-&gt; Lens
+     OutputDetail OutputDetail (Maybe VideoDetail) (Maybe VideoDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail%27"><span class="hs-identifier hs-type">OutputDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013073"><span class="annot"><span class="annottext">Maybe VideoDetail
+videoDetails :: Maybe VideoDetail
+$sel:videoDetails:OutputDetail' :: OutputDetail -&gt; Maybe VideoDetail
+</span><a href="#local-6989586621680013073"><span class="hs-identifier hs-var hs-var">videoDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDetail
+</span><a href="#local-6989586621680013073"><span class="hs-identifier hs-var">videoDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013072"><span class="annot"><span class="annottext">s :: OutputDetail
+</span><a href="#local-6989586621680013072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail%27"><span class="hs-identifier hs-type">OutputDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013071"><span class="annot"><span class="annottext">Maybe VideoDetail
+</span><a href="#local-6989586621680013071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDetail
+</span><a href="#local-6989586621680013072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoDetails:OutputDetail' :: Maybe VideoDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#%24sel%3AvideoDetails%3AOutputDetail%27"><span class="hs-identifier hs-var">videoDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VideoDetail
+</span><a href="#local-6989586621680013071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Duration in milliseconds</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#outputDetail_durationInMs"><span class="hs-identifier hs-type">outputDetail_durationInMs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="outputDetail_durationInMs"><span class="annot"><span class="annottext">outputDetail_durationInMs :: (Maybe Int -&gt; f (Maybe Int)) -&gt; OutputDetail -&gt; f OutputDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#outputDetail_durationInMs"><span class="hs-identifier hs-var hs-var">outputDetail_durationInMs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OutputDetail -&gt; Maybe Int)
+-&gt; (OutputDetail -&gt; Maybe Int -&gt; OutputDetail)
+-&gt; Lens OutputDetail OutputDetail (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail%27"><span class="hs-identifier hs-type">OutputDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680013069"><span class="annot"><span class="annottext">Maybe Int
+durationInMs :: Maybe Int
+$sel:durationInMs:OutputDetail' :: OutputDetail -&gt; Maybe Int
+</span><a href="#local-6989586621680013069"><span class="hs-identifier hs-var hs-var">durationInMs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680013069"><span class="hs-identifier hs-var">durationInMs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680013068"><span class="annot"><span class="annottext">s :: OutputDetail
+</span><a href="#local-6989586621680013068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail%27"><span class="hs-identifier hs-type">OutputDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680013067"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680013067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDetail
+</span><a href="#local-6989586621680013068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationInMs:OutputDetail' :: Maybe Int
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#%24sel%3AdurationInMs%3AOutputDetail%27"><span class="hs-identifier hs-var">durationInMs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621680013067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013064"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621680013062"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser OutputDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser OutputDetail) -&gt; Value -&gt; Parser OutputDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;OutputDetail&quot;</span></span><span>
+</span><span id="line-69"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680013059"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680013059"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>          </span><span class="annot"><span class="annottext">Maybe VideoDetail -&gt; Maybe Int -&gt; OutputDetail
+</span><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail%27"><span class="hs-identifier hs-var">OutputDetail'</span></a></span><span>
+</span><span id="line-71"></span><span>            </span><span class="annot"><span class="annottext">(Maybe VideoDetail -&gt; Maybe Int -&gt; OutputDetail)
+-&gt; Parser (Maybe VideoDetail) -&gt; Parser (Maybe Int -&gt; OutputDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680013059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VideoDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; OutputDetail)
+-&gt; Parser (Maybe Int) -&gt; Parser OutputDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680013059"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;durationInMs&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013053"><span id="local-6989586621680013055"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span></span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680013050"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputDetail.html#OutputDetail"><span class="hs-identifier hs-type">OutputDetail</span></a></span></span><span>
+</span><span id="line-78"></span></pre></body></html>

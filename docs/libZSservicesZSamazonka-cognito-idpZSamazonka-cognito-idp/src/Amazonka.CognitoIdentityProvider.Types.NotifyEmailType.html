@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.Types.NotifyEmailType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types.NotifyEmailType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The notify email type.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newNotifyEmailType' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679431014"><span id="local-6989586621679431015"></span></span><span class="hs-keyword">data</span><span> </span><span id="NotifyEmailType"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-var">NotifyEmailType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NotifyEmailType%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-var">NotifyEmailType'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The text body.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AtextBody%3ANotifyEmailType%27"><span class="annot"><span class="annottext">NotifyEmailType -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3AtextBody%3ANotifyEmailType%27"><span class="hs-identifier hs-var hs-var">textBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The HTML body.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AhtmlBody%3ANotifyEmailType%27"><span class="annot"><span class="annottext">NotifyEmailType -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3AhtmlBody%3ANotifyEmailType%27"><span class="hs-identifier hs-var hs-var">htmlBody</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The subject.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Asubject%3ANotifyEmailType%27"><span class="annot"><span class="annottext">NotifyEmailType -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3Asubject%3ANotifyEmailType%27"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679431006"><span id="local-6989586621679431008"><span class="annot"><span class="annottext">NotifyEmailType -&gt; NotifyEmailType -&gt; Bool
+(NotifyEmailType -&gt; NotifyEmailType -&gt; Bool)
+-&gt; (NotifyEmailType -&gt; NotifyEmailType -&gt; Bool)
+-&gt; Eq NotifyEmailType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NotifyEmailType -&gt; NotifyEmailType -&gt; Bool
+$c/= :: NotifyEmailType -&gt; NotifyEmailType -&gt; Bool
+== :: NotifyEmailType -&gt; NotifyEmailType -&gt; Bool
+$c== :: NotifyEmailType -&gt; NotifyEmailType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430997"><span id="local-6989586621679430999"><span id="local-6989586621679431001"><span id="local-6989586621679431003"><span class="annot"><span class="annottext">ReadPrec [NotifyEmailType]
+ReadPrec NotifyEmailType
+Int -&gt; ReadS NotifyEmailType
+ReadS [NotifyEmailType]
+(Int -&gt; ReadS NotifyEmailType)
+-&gt; ReadS [NotifyEmailType]
+-&gt; ReadPrec NotifyEmailType
+-&gt; ReadPrec [NotifyEmailType]
+-&gt; Read NotifyEmailType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NotifyEmailType]
+$creadListPrec :: ReadPrec [NotifyEmailType]
+readPrec :: ReadPrec NotifyEmailType
+$creadPrec :: ReadPrec NotifyEmailType
+readList :: ReadS [NotifyEmailType]
+$creadList :: ReadS [NotifyEmailType]
+readsPrec :: Int -&gt; ReadS NotifyEmailType
+$creadsPrec :: Int -&gt; ReadS NotifyEmailType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430990"><span id="local-6989586621679430992"><span id="local-6989586621679430994"><span class="annot"><span class="annottext">Int -&gt; NotifyEmailType -&gt; ShowS
+[NotifyEmailType] -&gt; ShowS
+NotifyEmailType -&gt; String
+(Int -&gt; NotifyEmailType -&gt; ShowS)
+-&gt; (NotifyEmailType -&gt; String)
+-&gt; ([NotifyEmailType] -&gt; ShowS)
+-&gt; Show NotifyEmailType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NotifyEmailType] -&gt; ShowS
+$cshowList :: [NotifyEmailType] -&gt; ShowS
+show :: NotifyEmailType -&gt; String
+$cshow :: NotifyEmailType -&gt; String
+showsPrec :: Int -&gt; NotifyEmailType -&gt; ShowS
+$cshowsPrec :: Int -&gt; NotifyEmailType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NotifyEmailType -&gt; Rep NotifyEmailType x)
+-&gt; (forall x. Rep NotifyEmailType x -&gt; NotifyEmailType)
+-&gt; Generic NotifyEmailType
+forall x. Rep NotifyEmailType x -&gt; NotifyEmailType
+forall x. NotifyEmailType -&gt; Rep NotifyEmailType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NotifyEmailType x -&gt; NotifyEmailType
+$cfrom :: forall x. NotifyEmailType -&gt; Rep NotifyEmailType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'NotifyEmailType' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'textBody', 'notifyEmailType_textBody' - The text body.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'htmlBody', 'notifyEmailType_htmlBody' - The HTML body.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'subject', 'notifyEmailType_subject' - The subject.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#newNotifyEmailType"><span class="hs-identifier hs-type">newNotifyEmailType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'subject'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span><span>
+</span><span id="line-56"></span><span id="newNotifyEmailType"><span class="annot"><span class="annottext">newNotifyEmailType :: Text -&gt; NotifyEmailType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#newNotifyEmailType"><span class="hs-identifier hs-var hs-var">newNotifyEmailType</span></a></span></span><span> </span><span id="local-6989586621679430984"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430984"><span class="hs-identifier hs-var">pSubject_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">NotifyEmailType' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; NotifyEmailType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:textBody:NotifyEmailType' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3AtextBody%3ANotifyEmailType%27"><span class="hs-identifier hs-var">textBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:htmlBody:NotifyEmailType' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3AhtmlBody%3ANotifyEmailType%27"><span class="hs-identifier hs-var">htmlBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:subject:NotifyEmailType' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3Asubject%3ANotifyEmailType%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430984"><span class="hs-identifier hs-var">pSubject_</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The text body.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#notifyEmailType_textBody"><span class="hs-identifier hs-type">notifyEmailType_textBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="notifyEmailType_textBody"><span class="annot"><span class="annottext">notifyEmailType_textBody :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NotifyEmailType -&gt; f NotifyEmailType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#notifyEmailType_textBody"><span class="hs-identifier hs-var hs-var">notifyEmailType_textBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyEmailType -&gt; Maybe Text)
+-&gt; (NotifyEmailType -&gt; Maybe Text -&gt; NotifyEmailType)
+-&gt; Lens NotifyEmailType NotifyEmailType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430980"><span class="annot"><span class="annottext">Maybe Text
+textBody :: Maybe Text
+$sel:textBody:NotifyEmailType' :: NotifyEmailType -&gt; Maybe Text
+</span><a href="#local-6989586621679430980"><span class="hs-identifier hs-var hs-var">textBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430980"><span class="hs-identifier hs-var">textBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430979"><span class="annot"><span class="annottext">s :: NotifyEmailType
+</span><a href="#local-6989586621679430979"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430978"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430978"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyEmailType
+</span><a href="#local-6989586621679430979"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:textBody:NotifyEmailType' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3AtextBody%3ANotifyEmailType%27"><span class="hs-identifier hs-var">textBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430978"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The HTML body.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#notifyEmailType_htmlBody"><span class="hs-identifier hs-type">notifyEmailType_htmlBody</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="notifyEmailType_htmlBody"><span class="annot"><span class="annottext">notifyEmailType_htmlBody :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NotifyEmailType -&gt; f NotifyEmailType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#notifyEmailType_htmlBody"><span class="hs-identifier hs-var hs-var">notifyEmailType_htmlBody</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyEmailType -&gt; Maybe Text)
+-&gt; (NotifyEmailType -&gt; Maybe Text -&gt; NotifyEmailType)
+-&gt; Lens NotifyEmailType NotifyEmailType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430976"><span class="annot"><span class="annottext">Maybe Text
+htmlBody :: Maybe Text
+$sel:htmlBody:NotifyEmailType' :: NotifyEmailType -&gt; Maybe Text
+</span><a href="#local-6989586621679430976"><span class="hs-identifier hs-var hs-var">htmlBody</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430976"><span class="hs-identifier hs-var">htmlBody</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430975"><span class="annot"><span class="annottext">s :: NotifyEmailType
+</span><a href="#local-6989586621679430975"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430974"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430974"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyEmailType
+</span><a href="#local-6989586621679430975"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:htmlBody:NotifyEmailType' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3AhtmlBody%3ANotifyEmailType%27"><span class="hs-identifier hs-var">htmlBody</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430974"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | The subject.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#notifyEmailType_subject"><span class="hs-identifier hs-type">notifyEmailType_subject</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-73"></span><span id="notifyEmailType_subject"><span class="annot"><span class="annottext">notifyEmailType_subject :: (Text -&gt; f Text) -&gt; NotifyEmailType -&gt; f NotifyEmailType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#notifyEmailType_subject"><span class="hs-identifier hs-var hs-var">notifyEmailType_subject</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NotifyEmailType -&gt; Text)
+-&gt; (NotifyEmailType -&gt; Text -&gt; NotifyEmailType)
+-&gt; Lens NotifyEmailType NotifyEmailType Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430972"><span class="annot"><span class="annottext">Text
+subject :: Text
+$sel:subject:NotifyEmailType' :: NotifyEmailType -&gt; Text
+</span><a href="#local-6989586621679430972"><span class="hs-identifier hs-var hs-var">subject</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430972"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430971"><span class="annot"><span class="annottext">s :: NotifyEmailType
+</span><a href="#local-6989586621679430971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NotifyEmailType
+</span><a href="#local-6989586621679430971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subject:NotifyEmailType' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#%24sel%3Asubject%3ANotifyEmailType%27"><span class="hs-identifier hs-var">subject</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430967"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679430965"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NotifyEmailType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NotifyEmailType)
+-&gt; Value
+-&gt; Parser NotifyEmailType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NotifyEmailType&quot;</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430962"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430962"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Text -&gt; NotifyEmailType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-var">NotifyEmailType'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Text -&gt; NotifyEmailType)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; NotifyEmailType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextBody&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; NotifyEmailType)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; NotifyEmailType)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HtmlBody&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; NotifyEmailType)
+-&gt; Parser Text -&gt; Parser NotifyEmailType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430962"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430955"><span id="local-6989586621679430957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430944"><span id="local-6989586621679430946"><span id="local-6989586621679430948"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType"><span class="hs-identifier hs-type">NotifyEmailType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679430942"><span class="annot"><span class="annottext">toJSON :: NotifyEmailType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.NotifyEmailType.html#NotifyEmailType%27"><span class="hs-identifier hs-type">NotifyEmailType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430938"><span id="local-6989586621679430939"><span id="local-6989586621679430940"><span class="annot"><span class="annottext">Maybe Text
+Text
+subject :: Text
+htmlBody :: Maybe Text
+textBody :: Maybe Text
+$sel:subject:NotifyEmailType' :: NotifyEmailType -&gt; Text
+$sel:htmlBody:NotifyEmailType' :: NotifyEmailType -&gt; Maybe Text
+$sel:textBody:NotifyEmailType' :: NotifyEmailType -&gt; Maybe Text
+</span><a href="#local-6989586621679430938"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TextBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430940"><span class="hs-identifier hs-var">textBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HtmlBody&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430939"><span class="hs-identifier hs-var">htmlBody</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subject&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679430938"><span class="hs-identifier hs-var">subject</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span></pre></body></html>

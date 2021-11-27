@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Amazonka.CodeStarConnections</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2019-12-01@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- AWS CodeStar Connections</span><span>
+</span><span id="line-15"></span><span class="hs-comment">--</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- This AWS CodeStar Connections API Reference provides descriptions and</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- usage examples of the operations and data types for the AWS CodeStar</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Connections API. You can use the connections API to work with</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- connections and installations.</span><span>
+</span><span id="line-20"></span><span class="hs-comment">--</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- /Connections/ are configurations that you use to connect AWS resources</span><span>
+</span><span id="line-22"></span><span class="hs-comment">-- to external code repositories. Each connection is a resource that can be</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- given to services such as CodePipeline to connect to a third-party</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- repository such as Bitbucket. For example, you can add the connection in</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- CodePipeline so that it triggers your pipeline when a code change is</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- made to your third-party code repository. Each connection is named and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- associated with a unique ARN that is used to reference the connection.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When you create a connection, the console initiates a third-party</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- connection handshake. /Installations/ are the apps that are used to</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- conduct this handshake. For example, the installation for the Bitbucket</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- provider type is the Bitbucket app. When you create a connection, you</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- can choose an existing installation or create one.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- When you want to create a connection to an installed provider type such</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- as GitHub Enterprise Server, you create a /host/ for your connections.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- You can work with connections by calling:</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- -   CreateConnection, which creates a uniquely named connection that can</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     be referenced by services such as CodePipeline.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- -   DeleteConnection, which deletes the specified connection.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   GetConnection, which returns information about the connection,</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     including the connection status.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- -   ListConnections, which lists the connections associated with your</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     account.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- You can work with hosts by calling:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- -   CreateHost, which creates a host that represents the infrastructure</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     where your provider is installed.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- -   DeleteHost, which deletes the specified host.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- -   GetHost, which returns information about the host, including the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--     setup status.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- -   ListHosts, which lists the hosts associated with your account.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- You can work with tags in AWS CodeStar Connections by calling the</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- -   ListTagsForResource, which gets information about AWS tags for a</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--     specified Amazon Resource Name (ARN) in AWS CodeStar Connections.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- -   TagResource, which adds or updates tags for a resource in AWS</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--     CodeStar Connections.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- -   UntagResource, which removes tags for a resource in AWS CodeStar</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--     Connections.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- For information about how to use AWS CodeStar Connections, see the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/dtconsole/latest/userguide/welcome-connections.html Developer Tools User Guide&gt;.</span><span>
+</span><span id="line-77"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeStarConnections</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceUnavailableException</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html#_ResourceUnavailableException"><span class="hs-identifier">_ResourceUnavailableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UnsupportedOperationException</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html#_UnsupportedOperationException"><span class="hs-identifier">_UnsupportedOperationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConflictException</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceNotFoundException</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LimitExceededException</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateHost</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateHost.html#CreateHost"><span class="hs-identifier">CreateHost</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateHost.html#CreateHost%27"><span class="hs-identifier">CreateHost'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateHost.html#newCreateHost"><span class="hs-identifier">newCreateHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateHost.html#CreateHostResponse"><span class="hs-identifier">CreateHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateHost.html#CreateHostResponse%27"><span class="hs-identifier">CreateHostResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateHost.html#newCreateHostResponse"><span class="hs-identifier">newCreateHostResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListConnections</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListConnections.html#ListConnections"><span class="hs-identifier">ListConnections</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.ListConnections.html#ListConnections%27"><span class="hs-identifier">ListConnections'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListConnections.html#newListConnections"><span class="hs-identifier">newListConnections</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListConnections.html#ListConnectionsResponse"><span class="hs-identifier">ListConnectionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.ListConnections.html#ListConnectionsResponse%27"><span class="hs-identifier">ListConnectionsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListConnections.html#newListConnectionsResponse"><span class="hs-identifier">newListConnectionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteConnection</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteConnection.html#DeleteConnection"><span class="hs-identifier">DeleteConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteConnection.html#DeleteConnection%27"><span class="hs-identifier">DeleteConnection'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteConnection.html#newDeleteConnection"><span class="hs-identifier">newDeleteConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteConnection.html#DeleteConnectionResponse"><span class="hs-identifier">DeleteConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteConnection.html#DeleteConnectionResponse%27"><span class="hs-identifier">DeleteConnectionResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteConnection.html#newDeleteConnectionResponse"><span class="hs-identifier">newDeleteConnectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListTagsForResource</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListTagsForResource.html#ListTagsForResource"><span class="hs-identifier">ListTagsForResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.ListTagsForResource.html#ListTagsForResource%27"><span class="hs-identifier">ListTagsForResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListTagsForResource.html#newListTagsForResource"><span class="hs-identifier">newListTagsForResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListTagsForResource.html#ListTagsForResourceResponse"><span class="hs-identifier">ListTagsForResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.ListTagsForResource.html#ListTagsForResourceResponse%27"><span class="hs-identifier">ListTagsForResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListTagsForResource.html#newListTagsForResourceResponse"><span class="hs-identifier">newListTagsForResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** CreateConnection</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateConnection.html#CreateConnection"><span class="hs-identifier">CreateConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateConnection.html#CreateConnection%27"><span class="hs-identifier">CreateConnection'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateConnection.html#newCreateConnection"><span class="hs-identifier">newCreateConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateConnection.html#CreateConnectionResponse"><span class="hs-identifier">CreateConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateConnection.html#CreateConnectionResponse%27"><span class="hs-identifier">CreateConnectionResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateConnection.html#newCreateConnectionResponse"><span class="hs-identifier">newCreateConnectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetConnection</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetConnection.html#GetConnection"><span class="hs-identifier">GetConnection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.GetConnection.html#GetConnection%27"><span class="hs-identifier">GetConnection'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetConnection.html#newGetConnection"><span class="hs-identifier">newGetConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetConnection.html#GetConnectionResponse"><span class="hs-identifier">GetConnectionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.GetConnection.html#GetConnectionResponse%27"><span class="hs-identifier">GetConnectionResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetConnection.html#newGetConnectionResponse"><span class="hs-identifier">newGetConnectionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DeleteHost</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost"><span class="hs-identifier">DeleteHost</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHost%27"><span class="hs-identifier">DeleteHost'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHost"><span class="hs-identifier">newDeleteHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse"><span class="hs-identifier">DeleteHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#DeleteHostResponse%27"><span class="hs-identifier">DeleteHostResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html#newDeleteHostResponse"><span class="hs-identifier">newDeleteHostResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UpdateHost</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UpdateHost.html#UpdateHost"><span class="hs-identifier">UpdateHost</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.UpdateHost.html#UpdateHost%27"><span class="hs-identifier">UpdateHost'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UpdateHost.html#newUpdateHost"><span class="hs-identifier">newUpdateHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UpdateHost.html#UpdateHostResponse"><span class="hs-identifier">UpdateHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.UpdateHost.html#UpdateHostResponse%27"><span class="hs-identifier">UpdateHostResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UpdateHost.html#newUpdateHostResponse"><span class="hs-identifier">newUpdateHostResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListHosts</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListHosts.html#ListHosts"><span class="hs-identifier">ListHosts</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.ListHosts.html#ListHosts%27"><span class="hs-identifier">ListHosts'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListHosts.html#newListHosts"><span class="hs-identifier">newListHosts</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListHosts.html#ListHostsResponse"><span class="hs-identifier">ListHostsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.ListHosts.html#ListHostsResponse%27"><span class="hs-identifier">ListHostsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListHosts.html#newListHostsResponse"><span class="hs-identifier">newListHostsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TagResource</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.TagResource.html#TagResource"><span class="hs-identifier">TagResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.TagResource.html#TagResource%27"><span class="hs-identifier">TagResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.TagResource.html#newTagResource"><span class="hs-identifier">newTagResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.TagResource.html#TagResourceResponse"><span class="hs-identifier">TagResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.TagResource.html#TagResourceResponse%27"><span class="hs-identifier">TagResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.TagResource.html#newTagResourceResponse"><span class="hs-identifier">newTagResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** UntagResource</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UntagResource.html#UntagResource"><span class="hs-identifier">UntagResource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.UntagResource.html#UntagResource%27"><span class="hs-identifier">UntagResource'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UntagResource.html#newUntagResource"><span class="hs-identifier">newUntagResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UntagResource.html#UntagResourceResponse"><span class="hs-identifier">UntagResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier">UntagResourceResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier">newUntagResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetHost</span></span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetHost.html#GetHost"><span class="hs-identifier">GetHost</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.GetHost.html#GetHost%27"><span class="hs-identifier">GetHost'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetHost.html#newGetHost"><span class="hs-identifier">newGetHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetHost.html#GetHostResponse"><span class="hs-identifier">GetHostResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.GetHost.html#GetHostResponse%27"><span class="hs-identifier">GetHostResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetHost.html#newGetHostResponse"><span class="hs-identifier">newGetHostResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ConnectionStatus</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.ConnectionStatus.html#ConnectionStatus"><span class="hs-identifier">ConnectionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ProviderType</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.ProviderType.html#ProviderType"><span class="hs-identifier">ProviderType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Connection</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Connection.html#Connection"><span class="hs-identifier">Connection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Connection.html#Connection%27"><span class="hs-identifier">Connection'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Connection.html#newConnection"><span class="hs-identifier">newConnection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Host</span></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Host.html#Host"><span class="hs-identifier">Host</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Host.html#Host%27"><span class="hs-identifier">Host'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Host.html#newHost"><span class="hs-identifier">newHost</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Tag</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Tag.html#Tag%27"><span class="hs-identifier">Tag'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** VpcConfiguration</span></span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.VpcConfiguration.html#VpcConfiguration"><span class="hs-identifier">VpcConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.VpcConfiguration.html#VpcConfiguration%27"><span class="hs-identifier">VpcConfiguration'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.VpcConfiguration.html#newVpcConfiguration"><span class="hs-identifier">newVpcConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateConnection.html"><span class="hs-identifier">Amazonka.CodeStarConnections.CreateConnection</span></a></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.CreateHost.html"><span class="hs-identifier">Amazonka.CodeStarConnections.CreateHost</span></a></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteConnection.html"><span class="hs-identifier">Amazonka.CodeStarConnections.DeleteConnection</span></a></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.DeleteHost.html"><span class="hs-identifier">Amazonka.CodeStarConnections.DeleteHost</span></a></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetConnection.html"><span class="hs-identifier">Amazonka.CodeStarConnections.GetConnection</span></a></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.GetHost.html"><span class="hs-identifier">Amazonka.CodeStarConnections.GetHost</span></a></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.Lens.html"><span class="hs-identifier">Amazonka.CodeStarConnections.Lens</span></a></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListConnections.html"><span class="hs-identifier">Amazonka.CodeStarConnections.ListConnections</span></a></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListHosts.html"><span class="hs-identifier">Amazonka.CodeStarConnections.ListHosts</span></a></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.ListTagsForResource.html"><span class="hs-identifier">Amazonka.CodeStarConnections.ListTagsForResource</span></a></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.TagResource.html"><span class="hs-identifier">Amazonka.CodeStarConnections.TagResource</span></a></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.Types.html"><span class="hs-identifier">Amazonka.CodeStarConnections.Types</span></a></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.UntagResource.html"><span class="hs-identifier">Amazonka.CodeStarConnections.UntagResource</span></a></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.UpdateHost.html"><span class="hs-identifier">Amazonka.CodeStarConnections.UpdateHost</span></a></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStarConnections.Waiters.html"><span class="hs-identifier">Amazonka.CodeStarConnections.Waiters</span></a></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- by 'CodeStarConnections'.</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-245"></span></pre></body></html>

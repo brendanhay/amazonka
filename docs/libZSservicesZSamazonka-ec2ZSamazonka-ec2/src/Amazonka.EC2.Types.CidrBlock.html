@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.CidrBlock</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.CidrBlock</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes an IPv4 CIDR block.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newCidrBlock' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681092559"><span id="local-6989586621681092560"></span></span><span class="hs-keyword">data</span><span> </span><span id="CidrBlock"><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-var">CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CidrBlock%27"><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-var">CidrBlock'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv4 CIDR block.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcidrBlock%3ACidrBlock%27"><span class="annot"><span class="annottext">CidrBlock -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.CidrBlock.html#%24sel%3AcidrBlock%3ACidrBlock%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092553"><span id="local-6989586621681092555"><span class="annot"><span class="annottext">CidrBlock -&gt; CidrBlock -&gt; Bool
+(CidrBlock -&gt; CidrBlock -&gt; Bool)
+-&gt; (CidrBlock -&gt; CidrBlock -&gt; Bool) -&gt; Eq CidrBlock
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CidrBlock -&gt; CidrBlock -&gt; Bool
+$c/= :: CidrBlock -&gt; CidrBlock -&gt; Bool
+== :: CidrBlock -&gt; CidrBlock -&gt; Bool
+$c== :: CidrBlock -&gt; CidrBlock -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092544"><span id="local-6989586621681092546"><span id="local-6989586621681092548"><span id="local-6989586621681092550"><span class="annot"><span class="annottext">ReadPrec [CidrBlock]
+ReadPrec CidrBlock
+Int -&gt; ReadS CidrBlock
+ReadS [CidrBlock]
+(Int -&gt; ReadS CidrBlock)
+-&gt; ReadS [CidrBlock]
+-&gt; ReadPrec CidrBlock
+-&gt; ReadPrec [CidrBlock]
+-&gt; Read CidrBlock
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CidrBlock]
+$creadListPrec :: ReadPrec [CidrBlock]
+readPrec :: ReadPrec CidrBlock
+$creadPrec :: ReadPrec CidrBlock
+readList :: ReadS [CidrBlock]
+$creadList :: ReadS [CidrBlock]
+readsPrec :: Int -&gt; ReadS CidrBlock
+$creadsPrec :: Int -&gt; ReadS CidrBlock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092537"><span id="local-6989586621681092539"><span id="local-6989586621681092541"><span class="annot"><span class="annottext">Int -&gt; CidrBlock -&gt; ShowS
+[CidrBlock] -&gt; ShowS
+CidrBlock -&gt; String
+(Int -&gt; CidrBlock -&gt; ShowS)
+-&gt; (CidrBlock -&gt; String)
+-&gt; ([CidrBlock] -&gt; ShowS)
+-&gt; Show CidrBlock
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CidrBlock] -&gt; ShowS
+$cshowList :: [CidrBlock] -&gt; ShowS
+show :: CidrBlock -&gt; String
+$cshow :: CidrBlock -&gt; String
+showsPrec :: Int -&gt; CidrBlock -&gt; ShowS
+$cshowsPrec :: Int -&gt; CidrBlock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CidrBlock -&gt; Rep CidrBlock x)
+-&gt; (forall x. Rep CidrBlock x -&gt; CidrBlock) -&gt; Generic CidrBlock
+forall x. Rep CidrBlock x -&gt; CidrBlock
+forall x. CidrBlock -&gt; Rep CidrBlock x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CidrBlock x -&gt; CidrBlock
+$cfrom :: forall x. CidrBlock -&gt; Rep CidrBlock x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'CidrBlock' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'cidrBlock', 'cidrBlock_cidrBlock' - The IPv4 CIDR block.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#newCidrBlock"><span class="hs-identifier hs-type">newCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span><span>
+</span><span id="line-47"></span><span id="newCidrBlock"><span class="annot"><span class="annottext">newCidrBlock :: CidrBlock
+</span><a href="Amazonka.EC2.Types.CidrBlock.html#newCidrBlock"><span class="hs-identifier hs-var hs-var">newCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><span class="annottext">CidrBlock' :: Maybe Text -&gt; CidrBlock
+</span><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-type">CidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CidrBlock' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.CidrBlock.html#%24sel%3AcidrBlock%3ACidrBlock%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | The IPv4 CIDR block.</span><span>
+</span><span id="line-51"></span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#cidrBlock_cidrBlock"><span class="hs-identifier hs-type">cidrBlock_cidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span id="cidrBlock_cidrBlock"><span class="annot"><span class="annottext">cidrBlock_cidrBlock :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CidrBlock -&gt; f CidrBlock
+</span><a href="Amazonka.EC2.Types.CidrBlock.html#cidrBlock_cidrBlock"><span class="hs-identifier hs-var hs-var">cidrBlock_cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CidrBlock -&gt; Maybe Text)
+-&gt; (CidrBlock -&gt; Maybe Text -&gt; CidrBlock)
+-&gt; Lens CidrBlock CidrBlock (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-type">CidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092528"><span class="annot"><span class="annottext">Maybe Text
+cidrBlock :: Maybe Text
+$sel:cidrBlock:CidrBlock' :: CidrBlock -&gt; Maybe Text
+</span><a href="#local-6989586621681092528"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092528"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092527"><span class="annot"><span class="annottext">s :: CidrBlock
+</span><a href="#local-6989586621681092527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-type">CidrBlock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092526"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CidrBlock
+</span><a href="#local-6989586621681092527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:CidrBlock' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.CidrBlock.html#%24sel%3AcidrBlock%3ACidrBlock%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681092526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621681092523"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CidrBlock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681092521"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092521"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; CidrBlock
+</span><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock%27"><span class="hs-identifier hs-var">CidrBlock'</span></a></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; CidrBlock)
+-&gt; Either String (Maybe Text) -&gt; Either String CidrBlock
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092521"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092515"><span id="local-6989586621681092517"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span></span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092512"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CidrBlock.html#CidrBlock"><span class="hs-identifier hs-type">CidrBlock</span></a></span></span><span>
+</span><span id="line-61"></span></pre></body></html>

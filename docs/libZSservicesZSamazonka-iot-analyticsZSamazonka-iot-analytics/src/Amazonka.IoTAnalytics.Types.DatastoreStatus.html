@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTAnalytics.Types.DatastoreStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTAnalytics.Types.DatastoreStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier">DatastoreStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_ACTIVE"><span class="hs-identifier">DatastoreStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_CREATING"><span class="hs-identifier">DatastoreStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_DELETING"><span class="hs-identifier">DatastoreStatus_DELETING</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679254311"><span id="local-6989586621679254312"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DatastoreStatus"><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier hs-var">DatastoreStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastoreStatus%27"><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus%27"><span class="hs-identifier hs-var">DatastoreStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDatastoreStatus"><span class="annot"><span class="annottext">DatastoreStatus -&gt; Text
+</span><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#fromDatastoreStatus"><span class="hs-identifier hs-var hs-var">fromDatastoreStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254303"><span id="local-6989586621679254305"><span id="local-6989586621679254307"><span class="annot"><span class="annottext">Int -&gt; DatastoreStatus -&gt; ShowS
+[DatastoreStatus] -&gt; ShowS
+DatastoreStatus -&gt; String
+(Int -&gt; DatastoreStatus -&gt; ShowS)
+-&gt; (DatastoreStatus -&gt; String)
+-&gt; ([DatastoreStatus] -&gt; ShowS)
+-&gt; Show DatastoreStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatastoreStatus] -&gt; ShowS
+$cshowList :: [DatastoreStatus] -&gt; ShowS
+show :: DatastoreStatus -&gt; String
+$cshow :: DatastoreStatus -&gt; String
+showsPrec :: Int -&gt; DatastoreStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatastoreStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679254294"><span id="local-6989586621679254296"><span id="local-6989586621679254298"><span id="local-6989586621679254300"><span class="annot"><span class="annottext">ReadPrec [DatastoreStatus]
+ReadPrec DatastoreStatus
+Int -&gt; ReadS DatastoreStatus
+ReadS [DatastoreStatus]
+(Int -&gt; ReadS DatastoreStatus)
+-&gt; ReadS [DatastoreStatus]
+-&gt; ReadPrec DatastoreStatus
+-&gt; ReadPrec [DatastoreStatus]
+-&gt; Read DatastoreStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatastoreStatus]
+$creadListPrec :: ReadPrec [DatastoreStatus]
+readPrec :: ReadPrec DatastoreStatus
+$creadPrec :: ReadPrec DatastoreStatus
+readList :: ReadS [DatastoreStatus]
+$creadList :: ReadS [DatastoreStatus]
+readsPrec :: Int -&gt; ReadS DatastoreStatus
+$creadsPrec :: Int -&gt; ReadS DatastoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679254289"><span id="local-6989586621679254291"><span class="annot"><span class="annottext">DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+(DatastoreStatus -&gt; DatastoreStatus -&gt; Bool)
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; Bool)
+-&gt; Eq DatastoreStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+$c/= :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+== :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+$c== :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679254273"><span id="local-6989586621679254275"><span id="local-6989586621679254277"><span id="local-6989586621679254279"><span id="local-6989586621679254281"><span id="local-6989586621679254283"><span id="local-6989586621679254285"><span class="annot"><span class="annottext">Eq DatastoreStatus
+Eq DatastoreStatus
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; Ordering)
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; Bool)
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; Bool)
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; Bool)
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; Bool)
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; DatastoreStatus)
+-&gt; (DatastoreStatus -&gt; DatastoreStatus -&gt; DatastoreStatus)
+-&gt; Ord DatastoreStatus
+DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+DatastoreStatus -&gt; DatastoreStatus -&gt; Ordering
+DatastoreStatus -&gt; DatastoreStatus -&gt; DatastoreStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DatastoreStatus -&gt; DatastoreStatus -&gt; DatastoreStatus
+$cmin :: DatastoreStatus -&gt; DatastoreStatus -&gt; DatastoreStatus
+max :: DatastoreStatus -&gt; DatastoreStatus -&gt; DatastoreStatus
+$cmax :: DatastoreStatus -&gt; DatastoreStatus -&gt; DatastoreStatus
+&gt;= :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+$c&gt;= :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+&gt; :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+$c&gt; :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+&lt;= :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+$c&lt;= :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+&lt; :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+$c&lt; :: DatastoreStatus -&gt; DatastoreStatus -&gt; Bool
+compare :: DatastoreStatus -&gt; DatastoreStatus -&gt; Ordering
+$ccompare :: DatastoreStatus -&gt; DatastoreStatus -&gt; Ordering
+$cp1Ord :: Eq DatastoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DatastoreStatus -&gt; Rep DatastoreStatus x)
+-&gt; (forall x. Rep DatastoreStatus x -&gt; DatastoreStatus)
+-&gt; Generic DatastoreStatus
+forall x. Rep DatastoreStatus x -&gt; DatastoreStatus
+forall x. DatastoreStatus -&gt; Rep DatastoreStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatastoreStatus x -&gt; DatastoreStatus
+$cfrom :: forall x. DatastoreStatus -&gt; Rep DatastoreStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679254265"><span id="local-6989586621679254267"><span class="annot"><span class="annottext">Int -&gt; DatastoreStatus -&gt; Int
+DatastoreStatus -&gt; Int
+(Int -&gt; DatastoreStatus -&gt; Int)
+-&gt; (DatastoreStatus -&gt; Int) -&gt; Hashable DatastoreStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DatastoreStatus -&gt; Int
+$chash :: DatastoreStatus -&gt; Int
+hashWithSalt :: Int -&gt; DatastoreStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DatastoreStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679254262"><span class="annot"><span class="annottext">DatastoreStatus -&gt; ()
+(DatastoreStatus -&gt; ()) -&gt; NFData DatastoreStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DatastoreStatus -&gt; ()
+$crnf :: DatastoreStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679254259"><span class="annot"><span class="annottext">Text -&gt; Either String DatastoreStatus
+(Text -&gt; Either String DatastoreStatus) -&gt; FromText DatastoreStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DatastoreStatus
+$cfromText :: Text -&gt; Either String DatastoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679254256"><span class="annot"><span class="annottext">DatastoreStatus -&gt; Text
+(DatastoreStatus -&gt; Text) -&gt; ToText DatastoreStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DatastoreStatus -&gt; Text
+$ctoText :: DatastoreStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679254253"><span class="annot"><span class="annottext">DatastoreStatus -&gt; ByteString
+(DatastoreStatus -&gt; ByteString) -&gt; ToByteString DatastoreStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DatastoreStatus -&gt; ByteString
+$ctoBS :: DatastoreStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679254250"><span class="annot"><span class="annottext">DatastoreStatus -&gt; ByteStringBuilder
+(DatastoreStatus -&gt; ByteStringBuilder) -&gt; ToLog DatastoreStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DatastoreStatus -&gt; ByteStringBuilder
+$cbuild :: DatastoreStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679254247"><span class="annot"><span class="annottext">HeaderName -&gt; DatastoreStatus -&gt; [Header]
+(HeaderName -&gt; DatastoreStatus -&gt; [Header])
+-&gt; ToHeader DatastoreStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DatastoreStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DatastoreStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679254244"><span class="annot"><span class="annottext">DatastoreStatus -&gt; QueryString
+(DatastoreStatus -&gt; QueryString) -&gt; ToQuery DatastoreStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DatastoreStatus -&gt; QueryString
+$ctoQuery :: DatastoreStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679254239"><span id="local-6989586621679254241"><span class="annot"><span class="annottext">Value -&gt; Parser [DatastoreStatus]
+Value -&gt; Parser DatastoreStatus
+(Value -&gt; Parser DatastoreStatus)
+-&gt; (Value -&gt; Parser [DatastoreStatus]) -&gt; FromJSON DatastoreStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DatastoreStatus]
+$cparseJSONList :: Value -&gt; Parser [DatastoreStatus]
+parseJSON :: Value -&gt; Parser DatastoreStatus
+$cparseJSON :: Value -&gt; Parser DatastoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679254234"><span id="local-6989586621679254236"><span class="annot"><span class="annottext">FromJSONKeyFunction [DatastoreStatus]
+FromJSONKeyFunction DatastoreStatus
+FromJSONKeyFunction DatastoreStatus
+-&gt; FromJSONKeyFunction [DatastoreStatus]
+-&gt; FromJSONKey DatastoreStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DatastoreStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DatastoreStatus]
+fromJSONKey :: FromJSONKeyFunction DatastoreStatus
+$cfromJSONKey :: FromJSONKeyFunction DatastoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679254225"><span id="local-6989586621679254227"><span id="local-6989586621679254229"><span id="local-6989586621679254231"><span class="annot"><span class="annottext">[DatastoreStatus] -&gt; Encoding
+[DatastoreStatus] -&gt; Value
+DatastoreStatus -&gt; Encoding
+DatastoreStatus -&gt; Value
+(DatastoreStatus -&gt; Value)
+-&gt; (DatastoreStatus -&gt; Encoding)
+-&gt; ([DatastoreStatus] -&gt; Value)
+-&gt; ([DatastoreStatus] -&gt; Encoding)
+-&gt; ToJSON DatastoreStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DatastoreStatus] -&gt; Encoding
+$ctoEncodingList :: [DatastoreStatus] -&gt; Encoding
+toJSONList :: [DatastoreStatus] -&gt; Value
+$ctoJSONList :: [DatastoreStatus] -&gt; Value
+toEncoding :: DatastoreStatus -&gt; Encoding
+$ctoEncoding :: DatastoreStatus -&gt; Encoding
+toJSON :: DatastoreStatus -&gt; Value
+$ctoJSON :: DatastoreStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679254220"><span id="local-6989586621679254222"><span class="annot"><span class="annottext">ToJSONKeyFunction [DatastoreStatus]
+ToJSONKeyFunction DatastoreStatus
+ToJSONKeyFunction DatastoreStatus
+-&gt; ToJSONKeyFunction [DatastoreStatus] -&gt; ToJSONKey DatastoreStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DatastoreStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DatastoreStatus]
+toJSONKey :: ToJSONKeyFunction DatastoreStatus
+$ctoJSONKey :: ToJSONKeyFunction DatastoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679254217"><span class="annot"><span class="annottext">[Node] -&gt; Either String DatastoreStatus
+([Node] -&gt; Either String DatastoreStatus)
+-&gt; FromXML DatastoreStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DatastoreStatus
+$cparseXML :: [Node] -&gt; Either String DatastoreStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679254214"><span class="annot"><span class="annottext">DatastoreStatus -&gt; XML
+(DatastoreStatus -&gt; XML) -&gt; ToXML DatastoreStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DatastoreStatus -&gt; XML
+$ctoXML :: DatastoreStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_ACTIVE"><span class="hs-identifier hs-type">DatastoreStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier hs-type">DatastoreStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatastoreStatus_ACTIVE"><span id="%24mDatastoreStatus_ACTIVE"><span id="DatastoreStatus_ACTIVE"><span class="annot"><span class="annottext">$bDatastoreStatus_ACTIVE :: DatastoreStatus
+$mDatastoreStatus_ACTIVE :: forall r. DatastoreStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#%24bDatastoreStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DatastoreStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus%27"><span class="hs-identifier hs-type">DatastoreStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_CREATING"><span class="hs-identifier hs-type">DatastoreStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier hs-type">DatastoreStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatastoreStatus_CREATING"><span id="%24mDatastoreStatus_CREATING"><span id="DatastoreStatus_CREATING"><span class="annot"><span class="annottext">$bDatastoreStatus_CREATING :: DatastoreStatus
+$mDatastoreStatus_CREATING :: forall r. DatastoreStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#%24bDatastoreStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">DatastoreStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus%27"><span class="hs-identifier hs-type">DatastoreStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_DELETING"><span class="hs-identifier hs-type">DatastoreStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier hs-type">DatastoreStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDatastoreStatus_DELETING"><span id="%24mDatastoreStatus_DELETING"><span id="DatastoreStatus_DELETING"><span class="annot"><span class="annottext">$bDatastoreStatus_DELETING :: DatastoreStatus
+$mDatastoreStatus_DELETING :: forall r. DatastoreStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#%24bDatastoreStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">DatastoreStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus%27"><span class="hs-identifier hs-type">DatastoreStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_ACTIVE"><span class="hs-pragma hs-type">DatastoreStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_CREATING"><span class="hs-pragma hs-type">DatastoreStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus_DELETING"><span class="hs-pragma hs-type">DatastoreStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.IoTAnalytics.Types.DatastoreStatus.html#DatastoreStatus%27"><span class="hs-pragma hs-type">DatastoreStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

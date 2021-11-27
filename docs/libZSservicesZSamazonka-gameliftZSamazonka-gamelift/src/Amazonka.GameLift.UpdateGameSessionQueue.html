@@ -1,0 +1,925 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.UpdateGameSessionQueue</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the configuration of a game session queue, which determines how</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the queue processes new game session requests. To update settings,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- specify the queue name to be updated and provide the new settings. When</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- updating destinations, provide a complete list of destinations.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- __Learn more__</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queues-intro.html Using Multi-Region Queues&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- CreateGameSessionQueue | DescribeGameSessionQueues |</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- UpdateGameSessionQueue | DeleteGameSessionQueue |</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets All APIs by task&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.UpdateGameSessionQueue</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueue"><span class="hs-identifier">newUpdateGameSessionQueue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier">updateGameSessionQueue_playerLatencyPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier">updateGameSessionQueue_filterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier">updateGameSessionQueue_notificationTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier">updateGameSessionQueue_timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier">updateGameSessionQueue_destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier">updateGameSessionQueue_customEventData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier">updateGameSessionQueue_priorityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_name"><span class="hs-identifier">updateGameSessionQueue_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier">UpdateGameSessionQueueResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueueResponse"><span class="hs-identifier">newUpdateGameSessionQueueResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueueResponse_gameSessionQueue"><span class="hs-identifier">updateGameSessionQueueResponse_gameSessionQueue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueueResponse_httpStatus"><span class="hs-identifier">updateGameSessionQueueResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.html"><span class="hs-identifier">Amazonka.GameLift.Types</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Represents the input for a request operation.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- /See:/ 'newUpdateGameSessionQueue' smart constructor.</span><span>
+</span><span id="line-72"></span><span id="local-6989586621679465606"><span id="local-6989586621679465607"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionQueue"><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-var">UpdateGameSessionQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionQueue%27"><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-var">UpdateGameSessionQueue'</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">playerLatencyPolicies</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | A list of locations where a queue is allowed to place new game sessions.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- in an empty set.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">filterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | An SNS topic ARN that is set up to receive game session placement</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- notifications. See</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">notificationTarget</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The maximum time, in seconds, that a new game session placement request</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Natural
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- of destinations.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.GameSessionQueueDestination.html#GameSessionQueueDestination"><span class="hs-identifier hs-type">GameSessionQueueDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | Information to be added to all events that are related to this game</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- session queue.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">customEventData</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | Custom settings to use when prioritizing destinations and locations for</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">priorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | A descriptive label that is associated with game session queue. Queue</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- names must be unique within each Region. You can use either the queue ID</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- or ARN value.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465593"><span id="local-6989586621679465595"><span class="annot"><span class="annottext">UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
+(UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool)
+-&gt; (UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool)
+-&gt; Eq UpdateGameSessionQueue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
+$c/= :: UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
+== :: UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
+$c== :: UpdateGameSessionQueue -&gt; UpdateGameSessionQueue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465584"><span id="local-6989586621679465586"><span id="local-6989586621679465588"><span id="local-6989586621679465590"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionQueue]
+ReadPrec UpdateGameSessionQueue
+Int -&gt; ReadS UpdateGameSessionQueue
+ReadS [UpdateGameSessionQueue]
+(Int -&gt; ReadS UpdateGameSessionQueue)
+-&gt; ReadS [UpdateGameSessionQueue]
+-&gt; ReadPrec UpdateGameSessionQueue
+-&gt; ReadPrec [UpdateGameSessionQueue]
+-&gt; Read UpdateGameSessionQueue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGameSessionQueue]
+$creadListPrec :: ReadPrec [UpdateGameSessionQueue]
+readPrec :: ReadPrec UpdateGameSessionQueue
+$creadPrec :: ReadPrec UpdateGameSessionQueue
+readList :: ReadS [UpdateGameSessionQueue]
+$creadList :: ReadS [UpdateGameSessionQueue]
+readsPrec :: Int -&gt; ReadS UpdateGameSessionQueue
+$creadsPrec :: Int -&gt; ReadS UpdateGameSessionQueue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465577"><span id="local-6989586621679465579"><span id="local-6989586621679465581"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionQueue -&gt; ShowS
+[UpdateGameSessionQueue] -&gt; ShowS
+UpdateGameSessionQueue -&gt; String
+(Int -&gt; UpdateGameSessionQueue -&gt; ShowS)
+-&gt; (UpdateGameSessionQueue -&gt; String)
+-&gt; ([UpdateGameSessionQueue] -&gt; ShowS)
+-&gt; Show UpdateGameSessionQueue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGameSessionQueue] -&gt; ShowS
+$cshowList :: [UpdateGameSessionQueue] -&gt; ShowS
+show :: UpdateGameSessionQueue -&gt; String
+$cshow :: UpdateGameSessionQueue -&gt; String
+showsPrec :: Int -&gt; UpdateGameSessionQueue -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGameSessionQueue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateGameSessionQueue -&gt; Rep UpdateGameSessionQueue x)
+-&gt; (forall x.
+    Rep UpdateGameSessionQueue x -&gt; UpdateGameSessionQueue)
+-&gt; Generic UpdateGameSessionQueue
+forall x. Rep UpdateGameSessionQueue x -&gt; UpdateGameSessionQueue
+forall x. UpdateGameSessionQueue -&gt; Rep UpdateGameSessionQueue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateGameSessionQueue x -&gt; UpdateGameSessionQueue
+$cfrom :: forall x. UpdateGameSessionQueue -&gt; Rep UpdateGameSessionQueue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Create a value of 'UpdateGameSessionQueue' with all optional fields omitted.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'playerLatencyPolicies', 'updateGameSessionQueue_playerLatencyPolicies' - A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'filterConfiguration', 'updateGameSessionQueue_filterConfiguration' - A list of locations where a queue is allowed to place new game sessions.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- in an empty set.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'notificationTarget', 'updateGameSessionQueue_notificationTarget' - An SNS topic ARN that is set up to receive game session placement</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- notifications. See</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'timeoutInSeconds', 'updateGameSessionQueue_timeoutInSeconds' - The maximum time, in seconds, that a new game session placement request</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'destinations', 'updateGameSessionQueue_destinations' - A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- of destinations.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'customEventData', 'updateGameSessionQueue_customEventData' - Information to be added to all events that are related to this game</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- session queue.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'priorityConfiguration', 'updateGameSessionQueue_priorityConfiguration' - Custom settings to use when prioritizing destinations and locations for</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'name', 'updateGameSessionQueue_name' - A descriptive label that is associated with game session queue. Queue</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- names must be unique within each Region. You can use either the queue ID</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- or ARN value.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueue"><span class="hs-identifier hs-type">newUpdateGameSessionQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span>
+</span><span id="line-169"></span><span id="newUpdateGameSessionQueue"><span class="annot"><span class="annottext">newUpdateGameSessionQueue :: Text -&gt; UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueue"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionQueue</span></a></span></span><span> </span><span id="local-6989586621679465572"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465572"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
+-&gt; Maybe FilterConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe [GameSessionQueueDestination]
+-&gt; Maybe Text
+-&gt; Maybe PriorityConfiguration
+-&gt; Text
+-&gt; UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:filterConfiguration:UpdateGameSessionQueue' :: Maybe FilterConfiguration
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:notificationTarget:UpdateGameSessionQueue' :: Maybe Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:UpdateGameSessionQueue' :: Maybe Natural
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinations:UpdateGameSessionQueue' :: Maybe [GameSessionQueueDestination]
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:customEventData:UpdateGameSessionQueue' :: Maybe Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">customEventData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:priorityConfiguration:UpdateGameSessionQueue' :: Maybe PriorityConfiguration
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateGameSessionQueue' :: Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465572"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | A set of policies that act as a sliding cap on player latency. FleetIQ</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- works to deliver low latency for most players in a game session. These</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- policies ensure that no individual player can be placed into a game with</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- unreasonably high latency. Use multiple policies to gradually relax</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- latency requirements a step at a time. Multiple policies are applied</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- based on their maximum allowed latency, starting with the lowest value.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- When updating policies, provide a complete collection of policies.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier hs-type">updateGameSessionQueue_playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.PlayerLatencyPolicy.html#PlayerLatencyPolicy"><span class="hs-identifier hs-type">PlayerLatencyPolicy</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="updateGameSessionQueue_playerLatencyPolicies"><span class="annot"><span class="annottext">updateGameSessionQueue_playerLatencyPolicies :: (Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_playerLatencyPolicies"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_playerLatencyPolicies</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy])
+-&gt; (UpdateGameSessionQueue
+    -&gt; Maybe [PlayerLatencyPolicy] -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe [PlayerLatencyPolicy])
+     (Maybe [PlayerLatencyPolicy])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465569"><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+playerLatencyPolicies :: Maybe [PlayerLatencyPolicy]
+$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465569"><span class="hs-identifier hs-var hs-var">playerLatencyPolicies</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465569"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465568"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465567"><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: Maybe [PlayerLatencyPolicy]
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AplayerLatencyPolicies%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
+ -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue)
+-&gt; ((Maybe [PlayerLatencyPolicy]
+     -&gt; f (Maybe [PlayerLatencyPolicy]))
+    -&gt; Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
+-&gt; (Maybe [PlayerLatencyPolicy] -&gt; f (Maybe [PlayerLatencyPolicy]))
+-&gt; UpdateGameSessionQueue
+-&gt; f UpdateGameSessionQueue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlayerLatencyPolicy]
+  [PlayerLatencyPolicy]
+  [PlayerLatencyPolicy]
+  [PlayerLatencyPolicy]
+-&gt; Iso
+     (Maybe [PlayerLatencyPolicy])
+     (Maybe [PlayerLatencyPolicy])
+     (Maybe [PlayerLatencyPolicy])
+     (Maybe [PlayerLatencyPolicy])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PlayerLatencyPolicy]
+  [PlayerLatencyPolicy]
+  [PlayerLatencyPolicy]
+  [PlayerLatencyPolicy]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A list of locations where a queue is allowed to place new game sessions.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- Locations are specified in the form of AWS Region codes, such as</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- @us-west-2@. If this parameter is not set, game sessions can be placed</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- in any queue location. To remove an existing filter configuration, pass</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- in an empty set.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier hs-type">updateGameSessionQueue_filterConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FilterConfiguration.html#FilterConfiguration"><span class="hs-identifier hs-type">FilterConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span id="updateGameSessionQueue_filterConfiguration"><span class="annot"><span class="annottext">updateGameSessionQueue_filterConfiguration :: (Maybe FilterConfiguration -&gt; f (Maybe FilterConfiguration))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_filterConfiguration"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_filterConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe FilterConfiguration)
+-&gt; (UpdateGameSessionQueue
+    -&gt; Maybe FilterConfiguration -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe FilterConfiguration)
+     (Maybe FilterConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465563"><span class="annot"><span class="annottext">Maybe FilterConfiguration
+filterConfiguration :: Maybe FilterConfiguration
+$sel:filterConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
+</span><a href="#local-6989586621679465563"><span class="hs-identifier hs-var hs-var">filterConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465563"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465562"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465561"><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filterConfiguration:UpdateGameSessionQueue' :: Maybe FilterConfiguration
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AfilterConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | An SNS topic ARN that is set up to receive game session placement</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- notifications. See</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/gamelift/latest/developerguide/queue-notification.html Setting up notifications for game session placement&gt;.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier hs-type">updateGameSessionQueue_notificationTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="updateGameSessionQueue_notificationTarget"><span class="annot"><span class="annottext">updateGameSessionQueue_notificationTarget :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_notificationTarget"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_notificationTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Text)
+-&gt; (UpdateGameSessionQueue -&gt; Maybe Text -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465560"><span class="annot"><span class="annottext">Maybe Text
+notificationTarget :: Maybe Text
+$sel:notificationTarget:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="#local-6989586621679465560"><span class="hs-identifier hs-var hs-var">notificationTarget</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465560"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465559"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465558"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationTarget:UpdateGameSessionQueue' :: Maybe Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AnotificationTarget%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | The maximum time, in seconds, that a new game session placement request</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- remains in the queue. When a request exceeds this time, the game session</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- placement changes to a @TIMED_OUT@ status.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier hs-type">updateGameSessionQueue_timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="updateGameSessionQueue_timeoutInSeconds"><span class="annot"><span class="annottext">updateGameSessionQueue_timeoutInSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_timeoutInSeconds"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Natural)
+-&gt; (UpdateGameSessionQueue
+    -&gt; Maybe Natural -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465557"><span class="annot"><span class="annottext">Maybe Natural
+timeoutInSeconds :: Maybe Natural
+$sel:timeoutInSeconds:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Natural
+</span><a href="#local-6989586621679465557"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465557"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465556"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465555"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:UpdateGameSessionQueue' :: Maybe Natural
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AtimeoutInSeconds%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | A list of fleets and\/or fleet aliases that can be used to fulfill game</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- session placement requests in the queue. Destinations are identified by</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- either a fleet ARN or a fleet alias ARN, and are listed in order of</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- placement preference. When updating this list, provide a complete list</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- of destinations.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier hs-type">updateGameSessionQueue_destinations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GameLift.Types.GameSessionQueueDestination.html#GameSessionQueueDestination"><span class="hs-identifier hs-type">GameSessionQueueDestination</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="updateGameSessionQueue_destinations"><span class="annot"><span class="annottext">updateGameSessionQueue_destinations :: (Maybe [GameSessionQueueDestination]
+ -&gt; f (Maybe [GameSessionQueueDestination]))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_destinations"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_destinations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination])
+-&gt; (UpdateGameSessionQueue
+    -&gt; Maybe [GameSessionQueueDestination] -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe [GameSessionQueueDestination])
+     (Maybe [GameSessionQueueDestination])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465554"><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+destinations :: Maybe [GameSessionQueueDestination]
+$sel:destinations:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465554"><span class="hs-identifier hs-var hs-var">destinations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465554"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465553"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465553"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465552"><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465552"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465553"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinations:UpdateGameSessionQueue' :: Maybe [GameSessionQueueDestination]
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3Adestinations%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">destinations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465552"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [GameSessionQueueDestination]
+  -&gt; f (Maybe [GameSessionQueueDestination]))
+ -&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue)
+-&gt; ((Maybe [GameSessionQueueDestination]
+     -&gt; f (Maybe [GameSessionQueueDestination]))
+    -&gt; Maybe [GameSessionQueueDestination]
+    -&gt; f (Maybe [GameSessionQueueDestination]))
+-&gt; (Maybe [GameSessionQueueDestination]
+    -&gt; f (Maybe [GameSessionQueueDestination]))
+-&gt; UpdateGameSessionQueue
+-&gt; f UpdateGameSessionQueue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GameSessionQueueDestination]
+  [GameSessionQueueDestination]
+  [GameSessionQueueDestination]
+  [GameSessionQueueDestination]
+-&gt; Iso
+     (Maybe [GameSessionQueueDestination])
+     (Maybe [GameSessionQueueDestination])
+     (Maybe [GameSessionQueueDestination])
+     (Maybe [GameSessionQueueDestination])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [GameSessionQueueDestination]
+  [GameSessionQueueDestination]
+  [GameSessionQueueDestination]
+  [GameSessionQueueDestination]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Information to be added to all events that are related to this game</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- session queue.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier hs-type">updateGameSessionQueue_customEventData</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="updateGameSessionQueue_customEventData"><span class="annot"><span class="annottext">updateGameSessionQueue_customEventData :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_customEventData"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_customEventData</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe Text)
+-&gt; (UpdateGameSessionQueue -&gt; Maybe Text -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465551"><span class="annot"><span class="annottext">Maybe Text
+customEventData :: Maybe Text
+$sel:customEventData:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
+</span><a href="#local-6989586621679465551"><span class="hs-identifier hs-var hs-var">customEventData</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465551"><span class="hs-identifier hs-var">customEventData</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465550"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465550"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465549"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465549"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465550"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customEventData:UpdateGameSessionQueue' :: Maybe Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AcustomEventData%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">customEventData</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465549"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | Custom settings to use when prioritizing destinations and locations for</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- game session placements. This configuration replaces the FleetIQ default</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- prioritization process. Priority types that are not explicitly named</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- will be automatically applied at the end of the prioritization process.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- To remove an existing priority configuration, pass in an empty set.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier hs-type">updateGameSessionQueue_priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.PriorityConfiguration.html#PriorityConfiguration"><span class="hs-identifier hs-type">PriorityConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span id="updateGameSessionQueue_priorityConfiguration"><span class="annot"><span class="annottext">updateGameSessionQueue_priorityConfiguration :: (Maybe PriorityConfiguration -&gt; f (Maybe PriorityConfiguration))
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_priorityConfiguration"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_priorityConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration)
+-&gt; (UpdateGameSessionQueue
+    -&gt; Maybe PriorityConfiguration -&gt; UpdateGameSessionQueue)
+-&gt; Lens
+     UpdateGameSessionQueue
+     UpdateGameSessionQueue
+     (Maybe PriorityConfiguration)
+     (Maybe PriorityConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465548"><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+priorityConfiguration :: Maybe PriorityConfiguration
+$sel:priorityConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465548"><span class="hs-identifier hs-var hs-var">priorityConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465548"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465547"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465547"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465546"><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465546"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465547"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priorityConfiguration:UpdateGameSessionQueue' :: Maybe PriorityConfiguration
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3ApriorityConfiguration%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465546"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | A descriptive label that is associated with game session queue. Queue</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- names must be unique within each Region. You can use either the queue ID</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- or ARN value.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_name"><span class="hs-identifier hs-type">updateGameSessionQueue_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-237"></span><span id="updateGameSessionQueue_name"><span class="annot"><span class="annottext">updateGameSessionQueue_name :: (Text -&gt; f Text)
+-&gt; UpdateGameSessionQueue -&gt; f UpdateGameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueue_name"><span class="hs-identifier hs-var hs-var">updateGameSessionQueue_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueue -&gt; Text)
+-&gt; (UpdateGameSessionQueue -&gt; Text -&gt; UpdateGameSessionQueue)
+-&gt; Lens UpdateGameSessionQueue UpdateGameSessionQueue Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465545"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Text
+</span><a href="#local-6989586621679465545"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465545"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465544"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueue
+</span><a href="#local-6989586621679465544"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465543"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465543"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueue
+</span><a href="#local-6989586621679465544"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateGameSessionQueue' :: Text
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3Aname%3AUpdateGameSessionQueue%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465543"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-241"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679465539"><span class="annot"><span class="annottext">request :: UpdateGameSessionQueue -&gt; Request UpdateGameSessionQueue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateGameSessionQueue -&gt; Request UpdateGameSessionQueue
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GameLift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-244"></span><span>  </span><span id="local-6989586621679465535"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateGameSessionQueue
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateGameSessionQueue)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateGameSessionQueue))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateGameSessionQueue
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateGameSessionQueue)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-246"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679465532"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465532"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679465531"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679465531"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679465530"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679465530"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>          </span><span class="annot"><span class="annottext">Maybe GameSessionQueue -&gt; Int -&gt; UpdateGameSessionQueueResponse
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse'</span></a></span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">(Maybe GameSessionQueue -&gt; Int -&gt; UpdateGameSessionQueueResponse)
+-&gt; Either String (Maybe GameSessionQueue)
+-&gt; Either String (Int -&gt; UpdateGameSessionQueueResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679465530"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe GameSessionQueue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GameSessionQueue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateGameSessionQueueResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateGameSessionQueueResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465532"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465522"><span id="local-6989586621679465524"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465519"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span id="local-6989586621679465515"><span class="annot"><span class="annottext">toHeaders :: UpdateGameSessionQueue -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateGameSessionQueue -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-259"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-260"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-261"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GameLift.UpdateGameSessionQueue&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-262"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-263"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-265"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-266"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-267"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679465505"><span id="local-6989586621679465507"><span id="local-6989586621679465509"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-272"></span><span>  </span><span id="local-6989586621679465503"><span class="annot"><span class="annottext">toJSON :: UpdateGameSessionQueue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue%27"><span class="hs-identifier hs-type">UpdateGameSessionQueue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465494"><span id="local-6989586621679465495"><span id="local-6989586621679465496"><span id="local-6989586621679465497"><span id="local-6989586621679465498"><span id="local-6989586621679465499"><span id="local-6989586621679465500"><span id="local-6989586621679465501"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [GameSessionQueueDestination]
+Maybe [PlayerLatencyPolicy]
+Maybe Text
+Maybe FilterConfiguration
+Maybe PriorityConfiguration
+Text
+name :: Text
+priorityConfiguration :: Maybe PriorityConfiguration
+customEventData :: Maybe Text
+destinations :: Maybe [GameSessionQueueDestination]
+timeoutInSeconds :: Maybe Natural
+notificationTarget :: Maybe Text
+filterConfiguration :: Maybe FilterConfiguration
+playerLatencyPolicies :: Maybe [PlayerLatencyPolicy]
+$sel:name:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Text
+$sel:priorityConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe PriorityConfiguration
+$sel:customEventData:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
+$sel:destinations:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [GameSessionQueueDestination]
+$sel:timeoutInSeconds:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Natural
+$sel:notificationTarget:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe Text
+$sel:filterConfiguration:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe FilterConfiguration
+$sel:playerLatencyPolicies:UpdateGameSessionQueue' :: UpdateGameSessionQueue -&gt; Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465494"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-274"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-275"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PlayerLatencyPolicies&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PlayerLatencyPolicy] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>              </span><span class="annot"><span class="annottext">([PlayerLatencyPolicy] -&gt; Pair)
+-&gt; Maybe [PlayerLatencyPolicy] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PlayerLatencyPolicy]
+</span><a href="#local-6989586621679465501"><span class="hs-identifier hs-var">playerLatencyPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FilterConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; FilterConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span>              </span><span class="annot"><span class="annottext">(FilterConfiguration -&gt; Pair)
+-&gt; Maybe FilterConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe FilterConfiguration
+</span><a href="#local-6989586621679465500"><span class="hs-identifier hs-var">filterConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationTarget&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465499"><span class="hs-identifier hs-var">notificationTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TimeoutInSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679465498"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Destinations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [GameSessionQueueDestination] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([GameSessionQueueDestination] -&gt; Pair)
+-&gt; Maybe [GameSessionQueueDestination] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [GameSessionQueueDestination]
+</span><a href="#local-6989586621679465497"><span class="hs-identifier hs-var">destinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomEventData&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679465496"><span class="hs-identifier hs-var">customEventData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PriorityConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PriorityConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">(PriorityConfiguration -&gt; Pair)
+-&gt; Maybe PriorityConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PriorityConfiguration
+</span><a href="#local-6989586621679465495"><span class="hs-identifier hs-var">priorityConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679465494"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-290"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-293"></span><span>  </span><span id="local-6989586621679465488"><span class="annot"><span class="annottext">toPath :: UpdateGameSessionQueue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateGameSessionQueue -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueue"><span class="hs-identifier hs-type">UpdateGameSessionQueue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-296"></span><span>  </span><span id="local-6989586621679465484"><span class="annot"><span class="annottext">toQuery :: UpdateGameSessionQueue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateGameSessionQueue -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | Represents the returned data in response to a request operation.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- /See:/ 'newUpdateGameSessionQueueResponse' smart constructor.</span><span>
+</span><span id="line-301"></span><span id="local-6989586621679465481"><span id="local-6989586621679465482"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateGameSessionQueueResponse"><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateGameSessionQueueResponse%27"><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">UpdateGameSessionQueueResponse'</span></a></span></span><span>
+</span><span id="line-302"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes the newly updated game session queue.</span><span>
+</span><span id="line-303"></span><span>    </span><span id="%24sel%3AgameSessionQueue%3AUpdateGameSessionQueueResponse%27"><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse -&gt; Maybe GameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AgameSessionQueue%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var hs-var">gameSessionQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameSessionQueue.html#GameSessionQueue"><span class="hs-identifier hs-type">GameSessionQueue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-305"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse -&gt; Int
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-306"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679465475"><span id="local-6989586621679465477"><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
+-&gt; UpdateGameSessionQueueResponse -&gt; Bool
+(UpdateGameSessionQueueResponse
+ -&gt; UpdateGameSessionQueueResponse -&gt; Bool)
+-&gt; (UpdateGameSessionQueueResponse
+    -&gt; UpdateGameSessionQueueResponse -&gt; Bool)
+-&gt; Eq UpdateGameSessionQueueResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateGameSessionQueueResponse
+-&gt; UpdateGameSessionQueueResponse -&gt; Bool
+$c/= :: UpdateGameSessionQueueResponse
+-&gt; UpdateGameSessionQueueResponse -&gt; Bool
+== :: UpdateGameSessionQueueResponse
+-&gt; UpdateGameSessionQueueResponse -&gt; Bool
+$c== :: UpdateGameSessionQueueResponse
+-&gt; UpdateGameSessionQueueResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465467"><span id="local-6989586621679465469"><span id="local-6989586621679465471"><span id="local-6989586621679465473"><span class="annot"><span class="annottext">ReadPrec [UpdateGameSessionQueueResponse]
+ReadPrec UpdateGameSessionQueueResponse
+Int -&gt; ReadS UpdateGameSessionQueueResponse
+ReadS [UpdateGameSessionQueueResponse]
+(Int -&gt; ReadS UpdateGameSessionQueueResponse)
+-&gt; ReadS [UpdateGameSessionQueueResponse]
+-&gt; ReadPrec UpdateGameSessionQueueResponse
+-&gt; ReadPrec [UpdateGameSessionQueueResponse]
+-&gt; Read UpdateGameSessionQueueResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateGameSessionQueueResponse]
+$creadListPrec :: ReadPrec [UpdateGameSessionQueueResponse]
+readPrec :: ReadPrec UpdateGameSessionQueueResponse
+$creadPrec :: ReadPrec UpdateGameSessionQueueResponse
+readList :: ReadS [UpdateGameSessionQueueResponse]
+$creadList :: ReadS [UpdateGameSessionQueueResponse]
+readsPrec :: Int -&gt; ReadS UpdateGameSessionQueueResponse
+$creadsPrec :: Int -&gt; ReadS UpdateGameSessionQueueResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679465461"><span id="local-6989586621679465463"><span id="local-6989586621679465465"><span class="annot"><span class="annottext">Int -&gt; UpdateGameSessionQueueResponse -&gt; ShowS
+[UpdateGameSessionQueueResponse] -&gt; ShowS
+UpdateGameSessionQueueResponse -&gt; String
+(Int -&gt; UpdateGameSessionQueueResponse -&gt; ShowS)
+-&gt; (UpdateGameSessionQueueResponse -&gt; String)
+-&gt; ([UpdateGameSessionQueueResponse] -&gt; ShowS)
+-&gt; Show UpdateGameSessionQueueResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateGameSessionQueueResponse] -&gt; ShowS
+$cshowList :: [UpdateGameSessionQueueResponse] -&gt; ShowS
+show :: UpdateGameSessionQueueResponse -&gt; String
+$cshow :: UpdateGameSessionQueueResponse -&gt; String
+showsPrec :: Int -&gt; UpdateGameSessionQueueResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateGameSessionQueueResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateGameSessionQueueResponse
+ -&gt; Rep UpdateGameSessionQueueResponse x)
+-&gt; (forall x.
+    Rep UpdateGameSessionQueueResponse x
+    -&gt; UpdateGameSessionQueueResponse)
+-&gt; Generic UpdateGameSessionQueueResponse
+forall x.
+Rep UpdateGameSessionQueueResponse x
+-&gt; UpdateGameSessionQueueResponse
+forall x.
+UpdateGameSessionQueueResponse
+-&gt; Rep UpdateGameSessionQueueResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateGameSessionQueueResponse x
+-&gt; UpdateGameSessionQueueResponse
+$cfrom :: forall x.
+UpdateGameSessionQueueResponse
+-&gt; Rep UpdateGameSessionQueueResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- Create a value of 'UpdateGameSessionQueueResponse' with all optional fields omitted.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'gameSessionQueue', 'updateGameSessionQueueResponse_gameSessionQueue' - An object that describes the newly updated game session queue.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- 'httpStatus', 'updateGameSessionQueueResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">newUpdateGameSessionQueueResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-321"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span>
+</span><span id="line-324"></span><span id="newUpdateGameSessionQueueResponse"><span class="annot"><span class="annottext">newUpdateGameSessionQueueResponse :: Int -&gt; UpdateGameSessionQueueResponse
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#newUpdateGameSessionQueueResponse"><span class="hs-identifier hs-var hs-var">newUpdateGameSessionQueueResponse</span></a></span></span><span> </span><span id="local-6989586621679465458"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-325"></span><span>  </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse' :: Maybe GameSessionQueue -&gt; Int -&gt; UpdateGameSessionQueueResponse
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: Maybe GameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AgameSessionQueue%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">gameSessionQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">Maybe GameSessionQueue
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionQueueResponse' :: Int
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465458"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- | An object that describes the newly updated game session queue.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueueResponse_gameSessionQueue"><span class="hs-identifier hs-type">updateGameSessionQueueResponse_gameSessionQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.GameSessionQueue.html#GameSessionQueue"><span class="hs-identifier hs-type">GameSessionQueue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span id="updateGameSessionQueueResponse_gameSessionQueue"><span class="annot"><span class="annottext">updateGameSessionQueueResponse_gameSessionQueue :: (Maybe GameSessionQueue -&gt; f (Maybe GameSessionQueue))
+-&gt; UpdateGameSessionQueueResponse
+-&gt; f UpdateGameSessionQueueResponse
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueueResponse_gameSessionQueue"><span class="hs-identifier hs-var hs-var">updateGameSessionQueueResponse_gameSessionQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueueResponse -&gt; Maybe GameSessionQueue)
+-&gt; (UpdateGameSessionQueueResponse
+    -&gt; Maybe GameSessionQueue -&gt; UpdateGameSessionQueueResponse)
+-&gt; Lens
+     UpdateGameSessionQueueResponse
+     UpdateGameSessionQueueResponse
+     (Maybe GameSessionQueue)
+     (Maybe GameSessionQueue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465457"><span class="annot"><span class="annottext">Maybe GameSessionQueue
+gameSessionQueue :: Maybe GameSessionQueue
+$sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: UpdateGameSessionQueueResponse -&gt; Maybe GameSessionQueue
+</span><a href="#local-6989586621679465457"><span class="hs-identifier hs-var hs-var">gameSessionQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionQueue
+</span><a href="#local-6989586621679465457"><span class="hs-identifier hs-var">gameSessionQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465456"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465456"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465455"><span class="annot"><span class="annottext">Maybe GameSessionQueue
+</span><a href="#local-6989586621679465455"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465456"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gameSessionQueue:UpdateGameSessionQueueResponse' :: Maybe GameSessionQueue
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AgameSessionQueue%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">gameSessionQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GameSessionQueue
+</span><a href="#local-6989586621679465455"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueueResponse_httpStatus"><span class="hs-identifier hs-type">updateGameSessionQueueResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-337"></span><span id="updateGameSessionQueueResponse_httpStatus"><span class="annot"><span class="annottext">updateGameSessionQueueResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateGameSessionQueueResponse
+-&gt; f UpdateGameSessionQueueResponse
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#updateGameSessionQueueResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateGameSessionQueueResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateGameSessionQueueResponse -&gt; Int)
+-&gt; (UpdateGameSessionQueueResponse
+    -&gt; Int -&gt; UpdateGameSessionQueueResponse)
+-&gt; Lens
+     UpdateGameSessionQueueResponse
+     UpdateGameSessionQueueResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679465454"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateGameSessionQueueResponse' :: UpdateGameSessionQueueResponse -&gt; Int
+</span><a href="#local-6989586621679465454"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465454"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679465453"><span class="annot"><span class="annottext">s :: UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679465452"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateGameSessionQueueResponse
+</span><a href="#local-6989586621679465453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateGameSessionQueueResponse' :: Int
+</span><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#%24sel%3AhttpStatus%3AUpdateGameSessionQueueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679465452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621679465450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><a href="Amazonka.GameLift.UpdateGameSessionQueue.html#UpdateGameSessionQueueResponse"><span class="hs-identifier hs-type">UpdateGameSessionQueueResponse</span></a></span></span><span>
+</span><span id="line-342"></span></pre></body></html>

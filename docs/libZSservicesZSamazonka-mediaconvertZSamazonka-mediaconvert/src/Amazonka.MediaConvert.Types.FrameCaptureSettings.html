@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.FrameCaptureSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.FrameCaptureSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Required when you set (Codec) under (VideoDescription)&gt;(CodecSettings)</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- to the value FRAME_CAPTURE.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFrameCaptureSettings' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679966427"><span id="local-6989586621679966428"></span></span><span class="hs-keyword">data</span><span> </span><span id="FrameCaptureSettings"><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-var">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FrameCaptureSettings%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-var">FrameCaptureSettings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | JPEG Quality - a higher value equals higher quality.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aquality%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3Aquality%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">quality</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Frame capture will encode the first frame of the output stream, then one</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- example, settings of framerateNumerator = 1 and framerateDenominator = 3</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- (a rate of 1\/3 frame per second) will capture the first frame, then 1</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- frame every 3s. Files will be named as filename.n.jpg where n is the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- 0-based sequence number of each Capture.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AframerateDenominator%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateDenominator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Maximum number of captures (encoded jpg output files).</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AmaxCaptures%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AmaxCaptures%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">maxCaptures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Frame capture will encode the first frame of the output stream, then one</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- example, settings of framerateNumerator = 1 and framerateDenominator = 3</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- (a rate of 1\/3 frame per second) will capture the first frame, then 1</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- the 0-based frame sequence number zero padded to 7 decimal places.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AframerateNumerator%3AFrameCaptureSettings%27"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateNumerator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679966418"><span id="local-6989586621679966420"><span class="annot"><span class="annottext">FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+(FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool)
+-&gt; (FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool)
+-&gt; Eq FrameCaptureSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+$c/= :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+== :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+$c== :: FrameCaptureSettings -&gt; FrameCaptureSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679966409"><span id="local-6989586621679966411"><span id="local-6989586621679966413"><span id="local-6989586621679966415"><span class="annot"><span class="annottext">ReadPrec [FrameCaptureSettings]
+ReadPrec FrameCaptureSettings
+Int -&gt; ReadS FrameCaptureSettings
+ReadS [FrameCaptureSettings]
+(Int -&gt; ReadS FrameCaptureSettings)
+-&gt; ReadS [FrameCaptureSettings]
+-&gt; ReadPrec FrameCaptureSettings
+-&gt; ReadPrec [FrameCaptureSettings]
+-&gt; Read FrameCaptureSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FrameCaptureSettings]
+$creadListPrec :: ReadPrec [FrameCaptureSettings]
+readPrec :: ReadPrec FrameCaptureSettings
+$creadPrec :: ReadPrec FrameCaptureSettings
+readList :: ReadS [FrameCaptureSettings]
+$creadList :: ReadS [FrameCaptureSettings]
+readsPrec :: Int -&gt; ReadS FrameCaptureSettings
+$creadsPrec :: Int -&gt; ReadS FrameCaptureSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679966402"><span id="local-6989586621679966404"><span id="local-6989586621679966406"><span class="annot"><span class="annottext">Int -&gt; FrameCaptureSettings -&gt; ShowS
+[FrameCaptureSettings] -&gt; ShowS
+FrameCaptureSettings -&gt; String
+(Int -&gt; FrameCaptureSettings -&gt; ShowS)
+-&gt; (FrameCaptureSettings -&gt; String)
+-&gt; ([FrameCaptureSettings] -&gt; ShowS)
+-&gt; Show FrameCaptureSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FrameCaptureSettings] -&gt; ShowS
+$cshowList :: [FrameCaptureSettings] -&gt; ShowS
+show :: FrameCaptureSettings -&gt; String
+$cshow :: FrameCaptureSettings -&gt; String
+showsPrec :: Int -&gt; FrameCaptureSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; FrameCaptureSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FrameCaptureSettings -&gt; Rep FrameCaptureSettings x)
+-&gt; (forall x. Rep FrameCaptureSettings x -&gt; FrameCaptureSettings)
+-&gt; Generic FrameCaptureSettings
+forall x. Rep FrameCaptureSettings x -&gt; FrameCaptureSettings
+forall x. FrameCaptureSettings -&gt; Rep FrameCaptureSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FrameCaptureSettings x -&gt; FrameCaptureSettings
+$cfrom :: forall x. FrameCaptureSettings -&gt; Rep FrameCaptureSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'FrameCaptureSettings' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'quality', 'frameCaptureSettings_quality' - JPEG Quality - a higher value equals higher quality.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'framerateDenominator', 'frameCaptureSettings_framerateDenominator' - Frame capture will encode the first frame of the output stream, then one</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- example, settings of framerateNumerator = 1 and framerateDenominator = 3</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- (a rate of 1\/3 frame per second) will capture the first frame, then 1</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- frame every 3s. Files will be named as filename.n.jpg where n is the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 0-based sequence number of each Capture.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'maxCaptures', 'frameCaptureSettings_maxCaptures' - Maximum number of captures (encoded jpg output files).</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'framerateNumerator', 'frameCaptureSettings_framerateNumerator' - Frame capture will encode the first frame of the output stream, then one</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- example, settings of framerateNumerator = 1 and framerateDenominator = 3</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- (a rate of 1\/3 frame per second) will capture the first frame, then 1</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the 0-based frame sequence number zero padded to 7 decimal places.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#newFrameCaptureSettings"><span class="hs-identifier hs-type">newFrameCaptureSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span>
+</span><span id="line-79"></span><span id="newFrameCaptureSettings"><span class="annot"><span class="annottext">newFrameCaptureSettings :: FrameCaptureSettings
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#newFrameCaptureSettings"><span class="hs-identifier hs-var hs-var">newFrameCaptureSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">FrameCaptureSettings' :: Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; FrameCaptureSettings
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:quality:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3Aquality%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">quality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateDenominator:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateDenominator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxCaptures:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AmaxCaptures%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:framerateNumerator:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateNumerator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | JPEG Quality - a higher value equals higher quality.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_quality"><span class="hs-identifier hs-type">frameCaptureSettings_quality</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="frameCaptureSettings_quality"><span class="annot"><span class="annottext">frameCaptureSettings_quality :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FrameCaptureSettings -&gt; f FrameCaptureSettings
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_quality"><span class="hs-identifier hs-var hs-var">frameCaptureSettings_quality</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FrameCaptureSettings -&gt; Maybe Natural)
+-&gt; (FrameCaptureSettings -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Lens
+     FrameCaptureSettings
+     FrameCaptureSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966393"><span class="annot"><span class="annottext">Maybe Natural
+quality :: Maybe Natural
+$sel:quality:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679966393"><span class="hs-identifier hs-var hs-var">quality</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966393"><span class="hs-identifier hs-var">quality</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966392"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966391"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:quality:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3Aquality%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">quality</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Frame capture will encode the first frame of the output stream, then one</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- example, settings of framerateNumerator = 1 and framerateDenominator = 3</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- (a rate of 1\/3 frame per second) will capture the first frame, then 1</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- frame every 3s. Files will be named as filename.n.jpg where n is the</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 0-based sequence number of each Capture.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_framerateDenominator"><span class="hs-identifier hs-type">frameCaptureSettings_framerateDenominator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="frameCaptureSettings_framerateDenominator"><span class="annot"><span class="annottext">frameCaptureSettings_framerateDenominator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FrameCaptureSettings -&gt; f FrameCaptureSettings
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_framerateDenominator"><span class="hs-identifier hs-var hs-var">frameCaptureSettings_framerateDenominator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FrameCaptureSettings -&gt; Maybe Natural)
+-&gt; (FrameCaptureSettings -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Lens
+     FrameCaptureSettings
+     FrameCaptureSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966389"><span class="annot"><span class="annottext">Maybe Natural
+framerateDenominator :: Maybe Natural
+$sel:framerateDenominator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679966389"><span class="hs-identifier hs-var hs-var">framerateDenominator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966389"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966388"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966387"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateDenominator:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateDenominator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Maximum number of captures (encoded jpg output files).</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_maxCaptures"><span class="hs-identifier hs-type">frameCaptureSettings_maxCaptures</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="frameCaptureSettings_maxCaptures"><span class="annot"><span class="annottext">frameCaptureSettings_maxCaptures :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FrameCaptureSettings -&gt; f FrameCaptureSettings
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_maxCaptures"><span class="hs-identifier hs-var hs-var">frameCaptureSettings_maxCaptures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FrameCaptureSettings -&gt; Maybe Natural)
+-&gt; (FrameCaptureSettings -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Lens
+     FrameCaptureSettings
+     FrameCaptureSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966385"><span class="annot"><span class="annottext">Maybe Natural
+maxCaptures :: Maybe Natural
+$sel:maxCaptures:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679966385"><span class="hs-identifier hs-var hs-var">maxCaptures</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966385"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966384"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966384"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966383"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966383"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966384"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCaptures:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AmaxCaptures%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966383"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | Frame capture will encode the first frame of the output stream, then one</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- frame every framerateDenominator\/framerateNumerator seconds. For</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- example, settings of framerateNumerator = 1 and framerateDenominator = 3</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- (a rate of 1\/3 frame per second) will capture the first frame, then 1</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- the 0-based frame sequence number zero padded to 7 decimal places.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_framerateNumerator"><span class="hs-identifier hs-type">frameCaptureSettings_framerateNumerator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="frameCaptureSettings_framerateNumerator"><span class="annot"><span class="annottext">frameCaptureSettings_framerateNumerator :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; FrameCaptureSettings -&gt; f FrameCaptureSettings
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#frameCaptureSettings_framerateNumerator"><span class="hs-identifier hs-var hs-var">frameCaptureSettings_framerateNumerator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FrameCaptureSettings -&gt; Maybe Natural)
+-&gt; (FrameCaptureSettings -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Lens
+     FrameCaptureSettings
+     FrameCaptureSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966381"><span class="annot"><span class="annottext">Maybe Natural
+framerateNumerator :: Maybe Natural
+$sel:framerateNumerator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679966381"><span class="hs-identifier hs-var hs-var">framerateNumerator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966381"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679966380"><span class="annot"><span class="annottext">s :: FrameCaptureSettings
+</span><a href="#local-6989586621679966380"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679966379"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966379"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FrameCaptureSettings
+</span><a href="#local-6989586621679966380"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:framerateNumerator:FrameCaptureSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#%24sel%3AframerateNumerator%3AFrameCaptureSettings%27"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966379"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966376"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679966374"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FrameCaptureSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FrameCaptureSettings)
+-&gt; Value
+-&gt; Parser FrameCaptureSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FrameCaptureSettings&quot;</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679966371"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679966371"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; FrameCaptureSettings
+</span><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-var">FrameCaptureSettings'</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; FrameCaptureSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679966371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;quality&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679966371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Natural -&gt; FrameCaptureSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679966371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxCaptures&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; FrameCaptureSettings)
+-&gt; Parser (Maybe Natural) -&gt; Parser FrameCaptureSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679966371"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966365"><span id="local-6989586621679966367"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966362"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679966354"><span id="local-6989586621679966356"><span id="local-6989586621679966358"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings"><span class="hs-identifier hs-type">FrameCaptureSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679966352"><span class="annot"><span class="annottext">toJSON :: FrameCaptureSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.FrameCaptureSettings.html#FrameCaptureSettings%27"><span class="hs-identifier hs-type">FrameCaptureSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679966347"><span id="local-6989586621679966348"><span id="local-6989586621679966349"><span id="local-6989586621679966350"><span class="annot"><span class="annottext">Maybe Natural
+framerateNumerator :: Maybe Natural
+maxCaptures :: Maybe Natural
+framerateDenominator :: Maybe Natural
+quality :: Maybe Natural
+$sel:framerateNumerator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+$sel:maxCaptures:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+$sel:framerateDenominator:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+$sel:quality:FrameCaptureSettings' :: FrameCaptureSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679966347"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;quality&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966350"><span class="hs-identifier hs-var">quality</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateDenominator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966349"><span class="hs-identifier hs-var">framerateDenominator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxCaptures&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966348"><span class="hs-identifier hs-var">maxCaptures</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;framerateNumerator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679966347"><span class="hs-identifier hs-var">framerateNumerator</span></a></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span></pre></body></html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Discovery.Types.ContinuousExportDescription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Discovery.Types.ContinuousExportDescription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportStatus.html"><span class="hs-identifier">Amazonka.Discovery.Types.ContinuousExportStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html"><span class="hs-identifier">Amazonka.Discovery.Types.DataSource</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | A list of continuous export descriptions.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContinuousExportDescription' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679202776"><span id="local-6989586621679202777"></span></span><span class="hs-keyword">data</span><span> </span><span id="ContinuousExportDescription"><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-var">ContinuousExportDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ContinuousExportDescription%27"><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-var">ContinuousExportDescription'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes the status of the export. Can be one of the following values:</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- -   START_IN_PROGRESS - setting up resources to start continuous export.</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- -   START_FAILED - an error occurred setting up continuous export. To</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--     recover, call start-continuous-export again.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   ACTIVE - data is being exported to the customer bucket.</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- -   ERROR - an error occurred during export. To fix the issue, call</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     stop-continuous-export and start-continuous-export.</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   STOP_IN_PROGRESS - stopping the export.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   STOP_FAILED - an error occurred stopping the export. To recover,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     call stop-continuous-export again.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   INACTIVE - the continuous export has been stopped. Data is no longer</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     being exported to the customer bucket.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Astatus%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe ContinuousExportStatus
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3Astatus%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportStatus.html#ContinuousExportStatus"><span class="hs-identifier hs-type">ContinuousExportStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The timestamp representing when the continuous export was started.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AstartTime%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe POSIX
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstartTime%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | An object which describes how the data is stored.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--     schema.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AschemaStorageConfig%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AschemaStorageConfig%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">schemaStorageConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | Contains information about any errors that have occurred. This data type</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- can have the following values:</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   ACCESS_DENIED - You don&#8217;t have permission to start Data Exploration</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--     in Amazon Athena. Contact your AWS administrator for help. For more</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up AWS Application Discovery Service&gt;</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     in the Application Discovery Service User Guide.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   DELIVERY_STREAM_LIMIT_FAILURE - You reached the limit for Amazon</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     Kinesis Data Firehose delivery streams. Reduce the number of streams</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     or request a limit increase and try again. For more information, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html Kinesis Data Streams Limits&gt;</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     in the Amazon Kinesis Data Streams Developer Guide.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   FIREHOSE_ROLE_MISSING - The Data Exploration feature is in an error</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     state because your IAM User is missing the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     AWSApplicationDiscoveryServiceFirehose role. Turn on Data</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--     Exploration in Amazon Athena and try again. For more information,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     see</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html#setting-up-user-policy Step 3: Provide Application Discovery Service Access to Non-Administrator Users by Attaching Policies&gt;</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     in the Application Discovery Service User Guide.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- -   FIREHOSE_STREAM_DOES_NOT_EXIST - The Data Exploration feature is in</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     an error state because your IAM User is missing one or more of the</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     Kinesis data delivery streams.</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     because of an internal failure. Try again later. If this problem</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     persists, contact AWS Support.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--     buckets. Reduce the number of Amazon S3 buckets or request a limit</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     increase and try again. For more information, see</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations&gt;</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     in the Amazon Simple Storage Service Developer Guide.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- -   S3_NOT_SIGNED_UP - Your account is not signed up for the Amazon S3</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     service. You must sign up before you can use Amazon S3. You can sign</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     up at the following URL: &lt;https://aws.amazon.com/s3&gt;.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3AstatusDetail%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstatusDetail%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">statusDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The timestamp that represents when this continuous export was stopped.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AstopTime%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe POSIX
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstopTime%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">stopTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The type of data collector used to gather this data (currently only</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- offered for AGENT).</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AdataSource%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe DataSource
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AdataSource%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The name of the s3 bucket where the export data parquet files are</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3As3Bucket%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3As3Bucket%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The unique ID assigned to this export.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AexportId%3AContinuousExportDescription%27"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AexportId%3AContinuousExportDescription%27"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679202763"><span id="local-6989586621679202765"><span class="annot"><span class="annottext">ContinuousExportDescription -&gt; ContinuousExportDescription -&gt; Bool
+(ContinuousExportDescription
+ -&gt; ContinuousExportDescription -&gt; Bool)
+-&gt; (ContinuousExportDescription
+    -&gt; ContinuousExportDescription -&gt; Bool)
+-&gt; Eq ContinuousExportDescription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ContinuousExportDescription -&gt; ContinuousExportDescription -&gt; Bool
+$c/= :: ContinuousExportDescription -&gt; ContinuousExportDescription -&gt; Bool
+== :: ContinuousExportDescription -&gt; ContinuousExportDescription -&gt; Bool
+$c== :: ContinuousExportDescription -&gt; ContinuousExportDescription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202754"><span id="local-6989586621679202756"><span id="local-6989586621679202758"><span id="local-6989586621679202760"><span class="annot"><span class="annottext">ReadPrec [ContinuousExportDescription]
+ReadPrec ContinuousExportDescription
+Int -&gt; ReadS ContinuousExportDescription
+ReadS [ContinuousExportDescription]
+(Int -&gt; ReadS ContinuousExportDescription)
+-&gt; ReadS [ContinuousExportDescription]
+-&gt; ReadPrec ContinuousExportDescription
+-&gt; ReadPrec [ContinuousExportDescription]
+-&gt; Read ContinuousExportDescription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ContinuousExportDescription]
+$creadListPrec :: ReadPrec [ContinuousExportDescription]
+readPrec :: ReadPrec ContinuousExportDescription
+$creadPrec :: ReadPrec ContinuousExportDescription
+readList :: ReadS [ContinuousExportDescription]
+$creadList :: ReadS [ContinuousExportDescription]
+readsPrec :: Int -&gt; ReadS ContinuousExportDescription
+$creadsPrec :: Int -&gt; ReadS ContinuousExportDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679202747"><span id="local-6989586621679202749"><span id="local-6989586621679202751"><span class="annot"><span class="annottext">Int -&gt; ContinuousExportDescription -&gt; ShowS
+[ContinuousExportDescription] -&gt; ShowS
+ContinuousExportDescription -&gt; String
+(Int -&gt; ContinuousExportDescription -&gt; ShowS)
+-&gt; (ContinuousExportDescription -&gt; String)
+-&gt; ([ContinuousExportDescription] -&gt; ShowS)
+-&gt; Show ContinuousExportDescription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ContinuousExportDescription] -&gt; ShowS
+$cshowList :: [ContinuousExportDescription] -&gt; ShowS
+show :: ContinuousExportDescription -&gt; String
+$cshow :: ContinuousExportDescription -&gt; String
+showsPrec :: Int -&gt; ContinuousExportDescription -&gt; ShowS
+$cshowsPrec :: Int -&gt; ContinuousExportDescription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ContinuousExportDescription -&gt; Rep ContinuousExportDescription x)
+-&gt; (forall x.
+    Rep ContinuousExportDescription x -&gt; ContinuousExportDescription)
+-&gt; Generic ContinuousExportDescription
+forall x.
+Rep ContinuousExportDescription x -&gt; ContinuousExportDescription
+forall x.
+ContinuousExportDescription -&gt; Rep ContinuousExportDescription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ContinuousExportDescription x -&gt; ContinuousExportDescription
+$cfrom :: forall x.
+ContinuousExportDescription -&gt; Rep ContinuousExportDescription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Create a value of 'ContinuousExportDescription' with all optional fields omitted.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'status', 'continuousExportDescription_status' - Describes the status of the export. Can be one of the following values:</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   START_IN_PROGRESS - setting up resources to start continuous export.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- -   START_FAILED - an error occurred setting up continuous export. To</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     recover, call start-continuous-export again.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   ACTIVE - data is being exported to the customer bucket.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   ERROR - an error occurred during export. To fix the issue, call</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     stop-continuous-export and start-continuous-export.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   STOP_IN_PROGRESS - stopping the export.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   STOP_FAILED - an error occurred stopping the export. To recover,</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--     call stop-continuous-export again.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   INACTIVE - the continuous export has been stopped. Data is no longer</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     being exported to the customer bucket.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'startTime', 'continuousExportDescription_startTime' - The timestamp representing when the continuous export was started.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'schemaStorageConfig', 'continuousExportDescription_schemaStorageConfig' - An object which describes how the data is stored.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     schema.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'statusDetail', 'continuousExportDescription_statusDetail' - Contains information about any errors that have occurred. This data type</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- can have the following values:</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   ACCESS_DENIED - You don&#8217;t have permission to start Data Exploration</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     in Amazon Athena. Contact your AWS administrator for help. For more</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up AWS Application Discovery Service&gt;</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     in the Application Discovery Service User Guide.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- -   DELIVERY_STREAM_LIMIT_FAILURE - You reached the limit for Amazon</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--     Kinesis Data Firehose delivery streams. Reduce the number of streams</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     or request a limit increase and try again. For more information, see</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html Kinesis Data Streams Limits&gt;</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     in the Amazon Kinesis Data Streams Developer Guide.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   FIREHOSE_ROLE_MISSING - The Data Exploration feature is in an error</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--     state because your IAM User is missing the</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     AWSApplicationDiscoveryServiceFirehose role. Turn on Data</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     Exploration in Amazon Athena and try again. For more information,</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html#setting-up-user-policy Step 3: Provide Application Discovery Service Access to Non-Administrator Users by Attaching Policies&gt;</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     in the Application Discovery Service User Guide.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   FIREHOSE_STREAM_DOES_NOT_EXIST - The Data Exploration feature is in</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--     an error state because your IAM User is missing one or more of the</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     Kinesis data delivery streams.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     because of an internal failure. Try again later. If this problem</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     persists, contact AWS Support.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- -   S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--     buckets. Reduce the number of Amazon S3 buckets or request a limit</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     increase and try again. For more information, see</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations&gt;</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     in the Amazon Simple Storage Service Developer Guide.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   S3_NOT_SIGNED_UP - Your account is not signed up for the Amazon S3</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     service. You must sign up before you can use Amazon S3. You can sign</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     up at the following URL: &lt;https://aws.amazon.com/s3&gt;.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'stopTime', 'continuousExportDescription_stopTime' - The timestamp that represents when this continuous export was stopped.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- 'dataSource', 'continuousExportDescription_dataSource' - The type of data collector used to gather this data (currently only</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- offered for AGENT).</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 's3Bucket', 'continuousExportDescription_s3Bucket' - The name of the s3 bucket where the export data parquet files are</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'exportId', 'continuousExportDescription_exportId' - The unique ID assigned to this export.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#newContinuousExportDescription"><span class="hs-identifier hs-type">newContinuousExportDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span>
+</span><span id="line-200"></span><span id="newContinuousExportDescription"><span class="annot"><span class="annottext">newContinuousExportDescription :: ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#newContinuousExportDescription"><span class="hs-identifier hs-var hs-var">newContinuousExportDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">ContinuousExportDescription' :: Maybe ContinuousExportStatus
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DataSource
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:ContinuousExportDescription' :: Maybe ContinuousExportStatus
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3Astatus%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContinuousExportStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTime:ContinuousExportDescription' :: Maybe POSIX
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstartTime%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:schemaStorageConfig:ContinuousExportDescription' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AschemaStorageConfig%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:statusDetail:ContinuousExportDescription' :: Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstatusDetail%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">statusDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:stopTime:ContinuousExportDescription' :: Maybe POSIX
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstopTime%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">stopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSource:ContinuousExportDescription' :: Maybe DataSource
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AdataSource%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:ContinuousExportDescription' :: Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3As3Bucket%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportId:ContinuousExportDescription' :: Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AexportId%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Describes the status of the export. Can be one of the following values:</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- -   START_IN_PROGRESS - setting up resources to start continuous export.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   START_FAILED - an error occurred setting up continuous export. To</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     recover, call start-continuous-export again.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   ACTIVE - data is being exported to the customer bucket.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   ERROR - an error occurred during export. To fix the issue, call</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     stop-continuous-export and start-continuous-export.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- -   STOP_IN_PROGRESS - stopping the export.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   STOP_FAILED - an error occurred stopping the export. To recover,</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     call stop-continuous-export again.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- -   INACTIVE - the continuous export has been stopped. Data is no longer</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     being exported to the customer bucket.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_status"><span class="hs-identifier hs-type">continuousExportDescription_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportStatus.html#ContinuousExportStatus"><span class="hs-identifier hs-type">ContinuousExportStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="continuousExportDescription_status"><span class="annot"><span class="annottext">continuousExportDescription_status :: (Maybe ContinuousExportStatus -&gt; f (Maybe ContinuousExportStatus))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_status"><span class="hs-identifier hs-var hs-var">continuousExportDescription_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe ContinuousExportStatus)
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe ContinuousExportStatus -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe ContinuousExportStatus)
+     (Maybe ContinuousExportStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202738"><span class="annot"><span class="annottext">Maybe ContinuousExportStatus
+status :: Maybe ContinuousExportStatus
+$sel:status:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe ContinuousExportStatus
+</span><a href="#local-6989586621679202738"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuousExportStatus
+</span><a href="#local-6989586621679202738"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202737"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202736"><span class="annot"><span class="annottext">Maybe ContinuousExportStatus
+</span><a href="#local-6989586621679202736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ContinuousExportDescription' :: Maybe ContinuousExportStatus
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3Astatus%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContinuousExportStatus
+</span><a href="#local-6989586621679202736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The timestamp representing when the continuous export was started.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_startTime"><span class="hs-identifier hs-type">continuousExportDescription_startTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="continuousExportDescription_startTime"><span class="annot"><span class="annottext">continuousExportDescription_startTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_startTime"><span class="hs-identifier hs-var hs-var">continuousExportDescription_startTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe POSIX)
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe POSIX -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202734"><span class="annot"><span class="annottext">Maybe POSIX
+startTime :: Maybe POSIX
+$sel:startTime:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679202734"><span class="hs-identifier hs-var hs-var">startTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202734"><span class="hs-identifier hs-var">startTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202733"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202733"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202732"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202732"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202733"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTime:ContinuousExportDescription' :: Maybe POSIX
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstartTime%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">startTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202732"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContinuousExportDescription
+-&gt; f ContinuousExportDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | An object which describes how the data is stored.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   @databaseName@ - the name of the Glue database used to store the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     schema.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_schemaStorageConfig"><span class="hs-identifier hs-type">continuousExportDescription_schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="continuousExportDescription_schemaStorageConfig"><span class="annot"><span class="annottext">continuousExportDescription_schemaStorageConfig :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_schemaStorageConfig"><span class="hs-identifier hs-var hs-var">continuousExportDescription_schemaStorageConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe (HashMap Text Text))
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe (HashMap Text Text) -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202727"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+schemaStorageConfig :: Maybe (HashMap Text Text)
+$sel:schemaStorageConfig:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679202727"><span class="hs-identifier hs-var hs-var">schemaStorageConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679202727"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202726"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202726"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202725"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679202725"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202726"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schemaStorageConfig:ContinuousExportDescription' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AschemaStorageConfig%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">schemaStorageConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679202725"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ContinuousExportDescription
+-&gt; f ContinuousExportDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Contains information about any errors that have occurred. This data type</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- can have the following values:</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- -   ACCESS_DENIED - You don&#8217;t have permission to start Data Exploration</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--     in Amazon Athena. Contact your AWS administrator for help. For more</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     information, see</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html Setting Up AWS Application Discovery Service&gt;</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     in the Application Discovery Service User Guide.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- -   DELIVERY_STREAM_LIMIT_FAILURE - You reached the limit for Amazon</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     Kinesis Data Firehose delivery streams. Reduce the number of streams</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     or request a limit increase and try again. For more information, see</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/streams/latest/dev/service-sizes-and-limits.html Kinesis Data Streams Limits&gt;</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     in the Amazon Kinesis Data Streams Developer Guide.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- -   FIREHOSE_ROLE_MISSING - The Data Exploration feature is in an error</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     state because your IAM User is missing the</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     AWSApplicationDiscoveryServiceFirehose role. Turn on Data</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     Exploration in Amazon Athena and try again. For more information,</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/application-discovery/latest/userguide/setting-up.html#setting-up-user-policy Step 3: Provide Application Discovery Service Access to Non-Administrator Users by Attaching Policies&gt;</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     in the Application Discovery Service User Guide.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- -   FIREHOSE_STREAM_DOES_NOT_EXIST - The Data Exploration feature is in</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     an error state because your IAM User is missing one or more of the</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     Kinesis data delivery streams.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- -   INTERNAL_FAILURE - The Data Exploration feature is in an error state</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--     because of an internal failure. Try again later. If this problem</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     persists, contact AWS Support.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   S3_BUCKET_LIMIT_FAILURE - You reached the limit for Amazon S3</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     buckets. Reduce the number of Amazon S3 buckets or request a limit</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     increase and try again. For more information, see</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     &lt;http://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html Bucket Restrictions and Limitations&gt;</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     in the Amazon Simple Storage Service Developer Guide.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   S3_NOT_SIGNED_UP - Your account is not signed up for the Amazon S3</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     service. You must sign up before you can use Amazon S3. You can sign</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--     up at the following URL: &lt;https://aws.amazon.com/s3&gt;.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_statusDetail"><span class="hs-identifier hs-type">continuousExportDescription_statusDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="continuousExportDescription_statusDetail"><span class="annot"><span class="annottext">continuousExportDescription_statusDetail :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_statusDetail"><span class="hs-identifier hs-var hs-var">continuousExportDescription_statusDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe Text)
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe Text -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202722"><span class="annot"><span class="annottext">Maybe Text
+statusDetail :: Maybe Text
+$sel:statusDetail:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679202722"><span class="hs-identifier hs-var hs-var">statusDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202722"><span class="hs-identifier hs-var">statusDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202721"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202720"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:statusDetail:ContinuousExportDescription' :: Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstatusDetail%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">statusDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The timestamp that represents when this continuous export was stopped.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_stopTime"><span class="hs-identifier hs-type">continuousExportDescription_stopTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="continuousExportDescription_stopTime"><span class="annot"><span class="annottext">continuousExportDescription_stopTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_stopTime"><span class="hs-identifier hs-var hs-var">continuousExportDescription_stopTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe POSIX)
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe POSIX -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202718"><span class="annot"><span class="annottext">Maybe POSIX
+stopTime :: Maybe POSIX
+$sel:stopTime:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe POSIX
+</span><a href="#local-6989586621679202718"><span class="hs-identifier hs-var hs-var">stopTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202718"><span class="hs-identifier hs-var">stopTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202717"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202716"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stopTime:ContinuousExportDescription' :: Maybe POSIX
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AstopTime%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">stopTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679202716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ContinuousExportDescription
+-&gt; f ContinuousExportDescription
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The type of data collector used to gather this data (currently only</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- offered for AGENT).</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_dataSource"><span class="hs-identifier hs-type">continuousExportDescription_dataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.DataSource.html#DataSource"><span class="hs-identifier hs-type">DataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="continuousExportDescription_dataSource"><span class="annot"><span class="annottext">continuousExportDescription_dataSource :: (Maybe DataSource -&gt; f (Maybe DataSource))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_dataSource"><span class="hs-identifier hs-var hs-var">continuousExportDescription_dataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe DataSource)
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe DataSource -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe DataSource)
+     (Maybe DataSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202714"><span class="annot"><span class="annottext">Maybe DataSource
+dataSource :: Maybe DataSource
+$sel:dataSource:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe DataSource
+</span><a href="#local-6989586621679202714"><span class="hs-identifier hs-var hs-var">dataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679202714"><span class="hs-identifier hs-var">dataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202713"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202712"><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679202712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSource:ContinuousExportDescription' :: Maybe DataSource
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AdataSource%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">dataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSource
+</span><a href="#local-6989586621679202712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The name of the s3 bucket where the export data parquet files are</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- stored.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_s3Bucket"><span class="hs-identifier hs-type">continuousExportDescription_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span id="continuousExportDescription_s3Bucket"><span class="annot"><span class="annottext">continuousExportDescription_s3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_s3Bucket"><span class="hs-identifier hs-var hs-var">continuousExportDescription_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe Text)
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe Text -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202710"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679202710"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202710"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202709"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202709"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202708"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202708"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202709"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ContinuousExportDescription' :: Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3As3Bucket%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202708"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | The unique ID assigned to this export.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_exportId"><span class="hs-identifier hs-type">continuousExportDescription_exportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="continuousExportDescription_exportId"><span class="annot"><span class="annottext">continuousExportDescription_exportId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ContinuousExportDescription -&gt; f ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#continuousExportDescription_exportId"><span class="hs-identifier hs-var hs-var">continuousExportDescription_exportId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ContinuousExportDescription -&gt; Maybe Text)
+-&gt; (ContinuousExportDescription
+    -&gt; Maybe Text -&gt; ContinuousExportDescription)
+-&gt; Lens
+     ContinuousExportDescription
+     ContinuousExportDescription
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679202706"><span class="annot"><span class="annottext">Maybe Text
+exportId :: Maybe Text
+$sel:exportId:ContinuousExportDescription' :: ContinuousExportDescription -&gt; Maybe Text
+</span><a href="#local-6989586621679202706"><span class="hs-identifier hs-var hs-var">exportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202706"><span class="hs-identifier hs-var">exportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679202705"><span class="annot"><span class="annottext">s :: ContinuousExportDescription
+</span><a href="#local-6989586621679202705"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-type">ContinuousExportDescription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679202704"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202704"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ContinuousExportDescription
+</span><a href="#local-6989586621679202705"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportId:ContinuousExportDescription' :: Maybe Text
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#%24sel%3AexportId%3AContinuousExportDescription%27"><span class="hs-identifier hs-var">exportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679202704"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202701"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-308"></span><span>  </span><span id="local-6989586621679202699"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ContinuousExportDescription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ContinuousExportDescription)
+-&gt; Value
+-&gt; Parser ContinuousExportDescription
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-310"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ContinuousExportDescription&quot;</span></span><span>
+</span><span id="line-311"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679202696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-312"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContinuousExportStatus
+-&gt; Maybe POSIX
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe DataSource
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ContinuousExportDescription
+</span><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription%27"><span class="hs-identifier hs-var">ContinuousExportDescription'</span></a></span><span>
+</span><span id="line-313"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContinuousExportStatus
+ -&gt; Maybe POSIX
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe DataSource
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe ContinuousExportStatus)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DataSource
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContinuousExportDescription)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContinuousExportStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DataSource
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DataSource
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContinuousExportDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DataSource
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe DataSource
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContinuousExportDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;schemaStorageConfig&quot;</span></span><span>
+</span><span id="line-316"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-317"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe DataSource
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe DataSource
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ContinuousExportDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;statusDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe DataSource
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe DataSource
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ContinuousExportDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stopTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe DataSource
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe DataSource)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ContinuousExportDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DataSource)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataSource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ContinuousExportDescription)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ContinuousExportDescription)
+-&gt; Parser (Maybe Text) -&gt; Parser ContinuousExportDescription
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679202696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;exportId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202689"><span id="local-6989586621679202691"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span></span></span><span>
+</span><span id="line-326"></span><span>
+</span><span id="line-327"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679202686"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Discovery.Types.ContinuousExportDescription.html#ContinuousExportDescription"><span class="hs-identifier hs-type">ContinuousExportDescription</span></a></span></span><span>
+</span><span id="line-328"></span></pre></body></html>

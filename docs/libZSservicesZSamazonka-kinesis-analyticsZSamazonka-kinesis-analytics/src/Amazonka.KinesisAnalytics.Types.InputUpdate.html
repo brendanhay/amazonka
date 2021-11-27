@@ -1,0 +1,447 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalytics.Types.InputUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.InputUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelismUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.InputParallelismUpdate</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputSchemaUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.InputSchemaUpdate</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | Describes updates to a specific input configuration (identified by the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- @InputId@ of an application).</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- /See:/ 'newInputUpdate' smart constructor.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679208562"><span id="local-6989586621679208563"></span></span><span class="hs-keyword">data</span><span> </span><span id="InputUpdate"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-var">InputUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputUpdate%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-var">InputUpdate'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes updates for an input processing configuration.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinputProcessingConfigurationUpdate%3AInputUpdate%27"><span class="annot"><span class="annottext">InputUpdate -&gt; Maybe InputProcessingConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputProcessingConfigurationUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var hs-var">inputProcessingConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate.html#InputProcessingConfigurationUpdate"><span class="hs-identifier hs-type">InputProcessingConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | If an Amazon Kinesis stream is the streaming source to be updated,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AkinesisStreamsInputUpdate%3AInputUpdate%27"><span class="annot"><span class="annottext">InputUpdate -&gt; Maybe KinesisStreamsInputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AkinesisStreamsInputUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var hs-var">kinesisStreamsInputUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate.html#KinesisStreamsInputUpdate"><span class="hs-identifier hs-type">KinesisStreamsInputUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Describes the parallelism updates (the number in-application streams</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Amazon Kinesis Analytics creates for the specific streaming source).</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AinputParallelismUpdate%3AInputUpdate%27"><span class="annot"><span class="annottext">InputUpdate -&gt; Maybe InputParallelismUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputParallelismUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var hs-var">inputParallelismUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelismUpdate.html#InputParallelismUpdate"><span class="hs-identifier hs-type">InputParallelismUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Name prefix for in-application streams that Amazon Kinesis Analytics</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- creates for the specific streaming source.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AnamePrefixUpdate%3AInputUpdate%27"><span class="annot"><span class="annottext">InputUpdate -&gt; Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AnamePrefixUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var hs-var">namePrefixUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | Describes the data format on the streaming source, and how record</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- elements on the streaming source map to columns of the in-application</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- stream that is created.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AinputSchemaUpdate%3AInputUpdate%27"><span class="annot"><span class="annottext">InputUpdate -&gt; Maybe InputSchemaUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputSchemaUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var hs-var">inputSchemaUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputSchemaUpdate.html#InputSchemaUpdate"><span class="hs-identifier hs-type">InputSchemaUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | If an Amazon Kinesis Firehose delivery stream is the streaming source to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- be updated, provides an updated stream ARN and IAM role ARN.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AkinesisFirehoseInputUpdate%3AInputUpdate%27"><span class="annot"><span class="annottext">InputUpdate -&gt; Maybe KinesisFirehoseInputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AkinesisFirehoseInputUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var hs-var">kinesisFirehoseInputUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate.html#KinesisFirehoseInputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseInputUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Input ID of the application input to be updated.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AinputId%3AInputUpdate%27"><span class="annot"><span class="annottext">InputUpdate -&gt; Text
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputId%3AInputUpdate%27"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679208550"><span id="local-6989586621679208552"><span class="annot"><span class="annottext">InputUpdate -&gt; InputUpdate -&gt; Bool
+(InputUpdate -&gt; InputUpdate -&gt; Bool)
+-&gt; (InputUpdate -&gt; InputUpdate -&gt; Bool) -&gt; Eq InputUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputUpdate -&gt; InputUpdate -&gt; Bool
+$c/= :: InputUpdate -&gt; InputUpdate -&gt; Bool
+== :: InputUpdate -&gt; InputUpdate -&gt; Bool
+$c== :: InputUpdate -&gt; InputUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208541"><span id="local-6989586621679208543"><span id="local-6989586621679208545"><span id="local-6989586621679208547"><span class="annot"><span class="annottext">ReadPrec [InputUpdate]
+ReadPrec InputUpdate
+Int -&gt; ReadS InputUpdate
+ReadS [InputUpdate]
+(Int -&gt; ReadS InputUpdate)
+-&gt; ReadS [InputUpdate]
+-&gt; ReadPrec InputUpdate
+-&gt; ReadPrec [InputUpdate]
+-&gt; Read InputUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputUpdate]
+$creadListPrec :: ReadPrec [InputUpdate]
+readPrec :: ReadPrec InputUpdate
+$creadPrec :: ReadPrec InputUpdate
+readList :: ReadS [InputUpdate]
+$creadList :: ReadS [InputUpdate]
+readsPrec :: Int -&gt; ReadS InputUpdate
+$creadsPrec :: Int -&gt; ReadS InputUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679208534"><span id="local-6989586621679208536"><span id="local-6989586621679208538"><span class="annot"><span class="annottext">Int -&gt; InputUpdate -&gt; ShowS
+[InputUpdate] -&gt; ShowS
+InputUpdate -&gt; String
+(Int -&gt; InputUpdate -&gt; ShowS)
+-&gt; (InputUpdate -&gt; String)
+-&gt; ([InputUpdate] -&gt; ShowS)
+-&gt; Show InputUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputUpdate] -&gt; ShowS
+$cshowList :: [InputUpdate] -&gt; ShowS
+show :: InputUpdate -&gt; String
+$cshow :: InputUpdate -&gt; String
+showsPrec :: Int -&gt; InputUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InputUpdate -&gt; Rep InputUpdate x)
+-&gt; (forall x. Rep InputUpdate x -&gt; InputUpdate)
+-&gt; Generic InputUpdate
+forall x. Rep InputUpdate x -&gt; InputUpdate
+forall x. InputUpdate -&gt; Rep InputUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputUpdate x -&gt; InputUpdate
+$cfrom :: forall x. InputUpdate -&gt; Rep InputUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'InputUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'inputProcessingConfigurationUpdate', 'inputUpdate_inputProcessingConfigurationUpdate' - Describes updates for an input processing configuration.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'kinesisStreamsInputUpdate', 'inputUpdate_kinesisStreamsInputUpdate' - If an Amazon Kinesis stream is the streaming source to be updated,</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'inputParallelismUpdate', 'inputUpdate_inputParallelismUpdate' - Describes the parallelism updates (the number in-application streams</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Amazon Kinesis Analytics creates for the specific streaming source).</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'namePrefixUpdate', 'inputUpdate_namePrefixUpdate' - Name prefix for in-application streams that Amazon Kinesis Analytics</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- creates for the specific streaming source.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'inputSchemaUpdate', 'inputUpdate_inputSchemaUpdate' - Describes the data format on the streaming source, and how record</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- elements on the streaming source map to columns of the in-application</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- stream that is created.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'kinesisFirehoseInputUpdate', 'inputUpdate_kinesisFirehoseInputUpdate' - If an Amazon Kinesis Firehose delivery stream is the streaming source to</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- be updated, provides an updated stream ARN and IAM role ARN.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'inputId', 'inputUpdate_inputId' - Input ID of the application input to be updated.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#newInputUpdate"><span class="hs-identifier hs-type">newInputUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'inputId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span>
+</span><span id="line-90"></span><span id="newInputUpdate"><span class="annot"><span class="annottext">newInputUpdate :: Text -&gt; InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#newInputUpdate"><span class="hs-identifier hs-var hs-var">newInputUpdate</span></a></span></span><span> </span><span id="local-6989586621679208528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208528"><span class="hs-identifier hs-var">pInputId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">InputUpdate' :: Maybe InputProcessingConfigurationUpdate
+-&gt; Maybe KinesisStreamsInputUpdate
+-&gt; Maybe InputParallelismUpdate
+-&gt; Maybe Text
+-&gt; Maybe InputSchemaUpdate
+-&gt; Maybe KinesisFirehoseInputUpdate
+-&gt; Text
+-&gt; InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputProcessingConfigurationUpdate:InputUpdate' :: Maybe InputProcessingConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputProcessingConfigurationUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">inputProcessingConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisStreamsInputUpdate:InputUpdate' :: Maybe KinesisStreamsInputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AkinesisStreamsInputUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">kinesisStreamsInputUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsInputUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputParallelismUpdate:InputUpdate' :: Maybe InputParallelismUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputParallelismUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">inputParallelismUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputParallelismUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:namePrefixUpdate:InputUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AnamePrefixUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">namePrefixUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputSchemaUpdate:InputUpdate' :: Maybe InputSchemaUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputSchemaUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">inputSchemaUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSchemaUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:kinesisFirehoseInputUpdate:InputUpdate' :: Maybe KinesisFirehoseInputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AkinesisFirehoseInputUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">kinesisFirehoseInputUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputUpdate
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputId:InputUpdate' :: Text
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputId%3AInputUpdate%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208528"><span class="hs-identifier hs-var">pInputId_</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | Describes updates for an input processing configuration.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputProcessingConfigurationUpdate"><span class="hs-identifier hs-type">inputUpdate_inputProcessingConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputProcessingConfigurationUpdate.html#InputProcessingConfigurationUpdate"><span class="hs-identifier hs-type">InputProcessingConfigurationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="inputUpdate_inputProcessingConfigurationUpdate"><span class="annot"><span class="annottext">inputUpdate_inputProcessingConfigurationUpdate :: (Maybe InputProcessingConfigurationUpdate
+ -&gt; f (Maybe InputProcessingConfigurationUpdate))
+-&gt; InputUpdate -&gt; f InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputProcessingConfigurationUpdate"><span class="hs-identifier hs-var hs-var">inputUpdate_inputProcessingConfigurationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputUpdate -&gt; Maybe InputProcessingConfigurationUpdate)
+-&gt; (InputUpdate
+    -&gt; Maybe InputProcessingConfigurationUpdate -&gt; InputUpdate)
+-&gt; Lens
+     InputUpdate
+     InputUpdate
+     (Maybe InputProcessingConfigurationUpdate)
+     (Maybe InputProcessingConfigurationUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208524"><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationUpdate
+inputProcessingConfigurationUpdate :: Maybe InputProcessingConfigurationUpdate
+$sel:inputProcessingConfigurationUpdate:InputUpdate' :: InputUpdate -&gt; Maybe InputProcessingConfigurationUpdate
+</span><a href="#local-6989586621679208524"><span class="hs-identifier hs-var hs-var">inputProcessingConfigurationUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationUpdate
+</span><a href="#local-6989586621679208524"><span class="hs-identifier hs-var">inputProcessingConfigurationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208523"><span class="annot"><span class="annottext">s :: InputUpdate
+</span><a href="#local-6989586621679208523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208522"><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationUpdate
+</span><a href="#local-6989586621679208522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputUpdate
+</span><a href="#local-6989586621679208523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputProcessingConfigurationUpdate:InputUpdate' :: Maybe InputProcessingConfigurationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputProcessingConfigurationUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">inputProcessingConfigurationUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationUpdate
+</span><a href="#local-6989586621679208522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | If an Amazon Kinesis stream is the streaming source to be updated,</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- provides an updated stream Amazon Resource Name (ARN) and IAM role ARN.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_kinesisStreamsInputUpdate"><span class="hs-identifier hs-type">inputUpdate_kinesisStreamsInputUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisStreamsInputUpdate.html#KinesisStreamsInputUpdate"><span class="hs-identifier hs-type">KinesisStreamsInputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="inputUpdate_kinesisStreamsInputUpdate"><span class="annot"><span class="annottext">inputUpdate_kinesisStreamsInputUpdate :: (Maybe KinesisStreamsInputUpdate
+ -&gt; f (Maybe KinesisStreamsInputUpdate))
+-&gt; InputUpdate -&gt; f InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_kinesisStreamsInputUpdate"><span class="hs-identifier hs-var hs-var">inputUpdate_kinesisStreamsInputUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputUpdate -&gt; Maybe KinesisStreamsInputUpdate)
+-&gt; (InputUpdate -&gt; Maybe KinesisStreamsInputUpdate -&gt; InputUpdate)
+-&gt; Lens
+     InputUpdate
+     InputUpdate
+     (Maybe KinesisStreamsInputUpdate)
+     (Maybe KinesisStreamsInputUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208520"><span class="annot"><span class="annottext">Maybe KinesisStreamsInputUpdate
+kinesisStreamsInputUpdate :: Maybe KinesisStreamsInputUpdate
+$sel:kinesisStreamsInputUpdate:InputUpdate' :: InputUpdate -&gt; Maybe KinesisStreamsInputUpdate
+</span><a href="#local-6989586621679208520"><span class="hs-identifier hs-var hs-var">kinesisStreamsInputUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsInputUpdate
+</span><a href="#local-6989586621679208520"><span class="hs-identifier hs-var">kinesisStreamsInputUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208519"><span class="annot"><span class="annottext">s :: InputUpdate
+</span><a href="#local-6989586621679208519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208518"><span class="annot"><span class="annottext">Maybe KinesisStreamsInputUpdate
+</span><a href="#local-6989586621679208518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputUpdate
+</span><a href="#local-6989586621679208519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisStreamsInputUpdate:InputUpdate' :: Maybe KinesisStreamsInputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AkinesisStreamsInputUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">kinesisStreamsInputUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsInputUpdate
+</span><a href="#local-6989586621679208518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Describes the parallelism updates (the number in-application streams</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Amazon Kinesis Analytics creates for the specific streaming source).</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputParallelismUpdate"><span class="hs-identifier hs-type">inputUpdate_inputParallelismUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputParallelismUpdate.html#InputParallelismUpdate"><span class="hs-identifier hs-type">InputParallelismUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="inputUpdate_inputParallelismUpdate"><span class="annot"><span class="annottext">inputUpdate_inputParallelismUpdate :: (Maybe InputParallelismUpdate -&gt; f (Maybe InputParallelismUpdate))
+-&gt; InputUpdate -&gt; f InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputParallelismUpdate"><span class="hs-identifier hs-var hs-var">inputUpdate_inputParallelismUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputUpdate -&gt; Maybe InputParallelismUpdate)
+-&gt; (InputUpdate -&gt; Maybe InputParallelismUpdate -&gt; InputUpdate)
+-&gt; Lens
+     InputUpdate
+     InputUpdate
+     (Maybe InputParallelismUpdate)
+     (Maybe InputParallelismUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208516"><span class="annot"><span class="annottext">Maybe InputParallelismUpdate
+inputParallelismUpdate :: Maybe InputParallelismUpdate
+$sel:inputParallelismUpdate:InputUpdate' :: InputUpdate -&gt; Maybe InputParallelismUpdate
+</span><a href="#local-6989586621679208516"><span class="hs-identifier hs-var hs-var">inputParallelismUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputParallelismUpdate
+</span><a href="#local-6989586621679208516"><span class="hs-identifier hs-var">inputParallelismUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208515"><span class="annot"><span class="annottext">s :: InputUpdate
+</span><a href="#local-6989586621679208515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208514"><span class="annot"><span class="annottext">Maybe InputParallelismUpdate
+</span><a href="#local-6989586621679208514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputUpdate
+</span><a href="#local-6989586621679208515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputParallelismUpdate:InputUpdate' :: Maybe InputParallelismUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputParallelismUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">inputParallelismUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputParallelismUpdate
+</span><a href="#local-6989586621679208514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | Name prefix for in-application streams that Amazon Kinesis Analytics</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- creates for the specific streaming source.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_namePrefixUpdate"><span class="hs-identifier hs-type">inputUpdate_namePrefixUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="inputUpdate_namePrefixUpdate"><span class="annot"><span class="annottext">inputUpdate_namePrefixUpdate :: (Maybe Text -&gt; f (Maybe Text)) -&gt; InputUpdate -&gt; f InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_namePrefixUpdate"><span class="hs-identifier hs-var hs-var">inputUpdate_namePrefixUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputUpdate -&gt; Maybe Text)
+-&gt; (InputUpdate -&gt; Maybe Text -&gt; InputUpdate)
+-&gt; Lens InputUpdate InputUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208512"><span class="annot"><span class="annottext">Maybe Text
+namePrefixUpdate :: Maybe Text
+$sel:namePrefixUpdate:InputUpdate' :: InputUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679208512"><span class="hs-identifier hs-var hs-var">namePrefixUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208512"><span class="hs-identifier hs-var">namePrefixUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208511"><span class="annot"><span class="annottext">s :: InputUpdate
+</span><a href="#local-6989586621679208511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputUpdate
+</span><a href="#local-6989586621679208511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namePrefixUpdate:InputUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AnamePrefixUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">namePrefixUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | Describes the data format on the streaming source, and how record</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- elements on the streaming source map to columns of the in-application</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- stream that is created.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputSchemaUpdate"><span class="hs-identifier hs-type">inputUpdate_inputSchemaUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputSchemaUpdate.html#InputSchemaUpdate"><span class="hs-identifier hs-type">InputSchemaUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="inputUpdate_inputSchemaUpdate"><span class="annot"><span class="annottext">inputUpdate_inputSchemaUpdate :: (Maybe InputSchemaUpdate -&gt; f (Maybe InputSchemaUpdate))
+-&gt; InputUpdate -&gt; f InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputSchemaUpdate"><span class="hs-identifier hs-var hs-var">inputUpdate_inputSchemaUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputUpdate -&gt; Maybe InputSchemaUpdate)
+-&gt; (InputUpdate -&gt; Maybe InputSchemaUpdate -&gt; InputUpdate)
+-&gt; Lens
+     InputUpdate
+     InputUpdate
+     (Maybe InputSchemaUpdate)
+     (Maybe InputSchemaUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208508"><span class="annot"><span class="annottext">Maybe InputSchemaUpdate
+inputSchemaUpdate :: Maybe InputSchemaUpdate
+$sel:inputSchemaUpdate:InputUpdate' :: InputUpdate -&gt; Maybe InputSchemaUpdate
+</span><a href="#local-6989586621679208508"><span class="hs-identifier hs-var hs-var">inputSchemaUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InputSchemaUpdate
+</span><a href="#local-6989586621679208508"><span class="hs-identifier hs-var">inputSchemaUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208507"><span class="annot"><span class="annottext">s :: InputUpdate
+</span><a href="#local-6989586621679208507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208506"><span class="annot"><span class="annottext">Maybe InputSchemaUpdate
+</span><a href="#local-6989586621679208506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputUpdate
+</span><a href="#local-6989586621679208507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputSchemaUpdate:InputUpdate' :: Maybe InputSchemaUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputSchemaUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">inputSchemaUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InputSchemaUpdate
+</span><a href="#local-6989586621679208506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | If an Amazon Kinesis Firehose delivery stream is the streaming source to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- be updated, provides an updated stream ARN and IAM role ARN.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_kinesisFirehoseInputUpdate"><span class="hs-identifier hs-type">inputUpdate_kinesisFirehoseInputUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.KinesisFirehoseInputUpdate.html#KinesisFirehoseInputUpdate"><span class="hs-identifier hs-type">KinesisFirehoseInputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="inputUpdate_kinesisFirehoseInputUpdate"><span class="annot"><span class="annottext">inputUpdate_kinesisFirehoseInputUpdate :: (Maybe KinesisFirehoseInputUpdate
+ -&gt; f (Maybe KinesisFirehoseInputUpdate))
+-&gt; InputUpdate -&gt; f InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_kinesisFirehoseInputUpdate"><span class="hs-identifier hs-var hs-var">inputUpdate_kinesisFirehoseInputUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputUpdate -&gt; Maybe KinesisFirehoseInputUpdate)
+-&gt; (InputUpdate -&gt; Maybe KinesisFirehoseInputUpdate -&gt; InputUpdate)
+-&gt; Lens
+     InputUpdate
+     InputUpdate
+     (Maybe KinesisFirehoseInputUpdate)
+     (Maybe KinesisFirehoseInputUpdate)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208504"><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputUpdate
+kinesisFirehoseInputUpdate :: Maybe KinesisFirehoseInputUpdate
+$sel:kinesisFirehoseInputUpdate:InputUpdate' :: InputUpdate -&gt; Maybe KinesisFirehoseInputUpdate
+</span><a href="#local-6989586621679208504"><span class="hs-identifier hs-var hs-var">kinesisFirehoseInputUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputUpdate
+</span><a href="#local-6989586621679208504"><span class="hs-identifier hs-var">kinesisFirehoseInputUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208503"><span class="annot"><span class="annottext">s :: InputUpdate
+</span><a href="#local-6989586621679208503"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208502"><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputUpdate
+</span><a href="#local-6989586621679208502"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputUpdate
+</span><a href="#local-6989586621679208503"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kinesisFirehoseInputUpdate:InputUpdate' :: Maybe KinesisFirehoseInputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AkinesisFirehoseInputUpdate%3AInputUpdate%27"><span class="hs-identifier hs-var">kinesisFirehoseInputUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputUpdate
+</span><a href="#local-6989586621679208502"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | Input ID of the application input to be updated.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputId"><span class="hs-identifier hs-type">inputUpdate_inputId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-134"></span><span id="inputUpdate_inputId"><span class="annot"><span class="annottext">inputUpdate_inputId :: (Text -&gt; f Text) -&gt; InputUpdate -&gt; f InputUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#inputUpdate_inputId"><span class="hs-identifier hs-var hs-var">inputUpdate_inputId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InputUpdate -&gt; Text)
+-&gt; (InputUpdate -&gt; Text -&gt; InputUpdate)
+-&gt; Lens InputUpdate InputUpdate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208500"><span class="annot"><span class="annottext">Text
+inputId :: Text
+$sel:inputId:InputUpdate' :: InputUpdate -&gt; Text
+</span><a href="#local-6989586621679208500"><span class="hs-identifier hs-var hs-var">inputId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208500"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679208499"><span class="annot"><span class="annottext">s :: InputUpdate
+</span><a href="#local-6989586621679208499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679208498"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputUpdate
+</span><a href="#local-6989586621679208499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputId:InputUpdate' :: Text
+</span><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#%24sel%3AinputId%3AInputUpdate%27"><span class="hs-identifier hs-var">inputId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208494"><span id="local-6989586621679208496"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208491"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679208483"><span id="local-6989586621679208485"><span id="local-6989586621679208487"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679208481"><span class="annot"><span class="annottext">toJSON :: InputUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate%27"><span class="hs-identifier hs-type">InputUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679208473"><span id="local-6989586621679208474"><span id="local-6989586621679208475"><span id="local-6989586621679208476"><span id="local-6989586621679208477"><span id="local-6989586621679208478"><span id="local-6989586621679208479"><span class="annot"><span class="annottext">Maybe Text
+Maybe InputParallelismUpdate
+Maybe InputProcessingConfigurationUpdate
+Maybe KinesisFirehoseInputUpdate
+Maybe KinesisStreamsInputUpdate
+Maybe InputSchemaUpdate
+Text
+inputId :: Text
+kinesisFirehoseInputUpdate :: Maybe KinesisFirehoseInputUpdate
+inputSchemaUpdate :: Maybe InputSchemaUpdate
+namePrefixUpdate :: Maybe Text
+inputParallelismUpdate :: Maybe InputParallelismUpdate
+kinesisStreamsInputUpdate :: Maybe KinesisStreamsInputUpdate
+inputProcessingConfigurationUpdate :: Maybe InputProcessingConfigurationUpdate
+$sel:inputId:InputUpdate' :: InputUpdate -&gt; Text
+$sel:kinesisFirehoseInputUpdate:InputUpdate' :: InputUpdate -&gt; Maybe KinesisFirehoseInputUpdate
+$sel:inputSchemaUpdate:InputUpdate' :: InputUpdate -&gt; Maybe InputSchemaUpdate
+$sel:namePrefixUpdate:InputUpdate' :: InputUpdate -&gt; Maybe Text
+$sel:inputParallelismUpdate:InputUpdate' :: InputUpdate -&gt; Maybe InputParallelismUpdate
+$sel:kinesisStreamsInputUpdate:InputUpdate' :: InputUpdate -&gt; Maybe KinesisStreamsInputUpdate
+$sel:inputProcessingConfigurationUpdate:InputUpdate' :: InputUpdate -&gt; Maybe InputProcessingConfigurationUpdate
+</span><a href="#local-6989586621679208473"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-144"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputProcessingConfigurationUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputProcessingConfigurationUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">(InputProcessingConfigurationUpdate -&gt; Pair)
+-&gt; Maybe InputProcessingConfigurationUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputProcessingConfigurationUpdate
+</span><a href="#local-6989586621679208479"><span class="hs-identifier hs-var">inputProcessingConfigurationUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisStreamsInputUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisStreamsInputUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">(KinesisStreamsInputUpdate -&gt; Pair)
+-&gt; Maybe KinesisStreamsInputUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisStreamsInputUpdate
+</span><a href="#local-6989586621679208478"><span class="hs-identifier hs-var">kinesisStreamsInputUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputParallelismUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputParallelismUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">(InputParallelismUpdate -&gt; Pair)
+-&gt; Maybe InputParallelismUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputParallelismUpdate
+</span><a href="#local-6989586621679208477"><span class="hs-identifier hs-var">inputParallelismUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NamePrefixUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679208476"><span class="hs-identifier hs-var">namePrefixUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputSchemaUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputSchemaUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">(InputSchemaUpdate -&gt; Pair)
+-&gt; Maybe InputSchemaUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InputSchemaUpdate
+</span><a href="#local-6989586621679208475"><span class="hs-identifier hs-var">inputSchemaUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KinesisFirehoseInputUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; KinesisFirehoseInputUpdate -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(KinesisFirehoseInputUpdate -&gt; Pair)
+-&gt; Maybe KinesisFirehoseInputUpdate -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe KinesisFirehoseInputUpdate
+</span><a href="#local-6989586621679208474"><span class="hs-identifier hs-var">kinesisFirehoseInputUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679208473"><span class="hs-identifier hs-var">inputId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span></pre></body></html>

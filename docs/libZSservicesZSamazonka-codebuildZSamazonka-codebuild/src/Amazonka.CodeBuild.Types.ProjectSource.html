@@ -1,0 +1,1048 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.Types.ProjectSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.Types.ProjectSource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.BuildStatusConfig.html"><span class="hs-identifier">Amazonka.CodeBuild.Types.BuildStatusConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.GitSubmodulesConfig.html"><span class="hs-identifier">Amazonka.CodeBuild.Types.GitSubmodulesConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SourceAuth.html"><span class="hs-identifier">Amazonka.CodeBuild.Types.SourceAuth</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SourceType.html"><span class="hs-identifier">Amazonka.CodeBuild.Types.SourceType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Information about the build input source code for the build project.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newProjectSource' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679378139"><span id="local-6989586621679378140"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSource"><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-var">ProjectSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSource%27"><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-var">ProjectSource'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Set to true to report the status of a build\'s start and finish to your</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- source provider. This option is valid only when your source provider is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- different source provider, an @invalidInputException@ is thrown.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- To be able to report the build status to the source provider, the user</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- associated with the source provider must have write access to the repo.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- If the user does not have write access, the build status cannot be</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- updated. For more information, see</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html Source provider access&gt;</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- in the /CodeBuild User Guide/.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- The status of a build triggered by a webhook is always reported to your</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- source provider.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- If your project\'s builds are triggered by a webhook, you must push a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- new commit to the repo for a change to this property to take effect.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AreportBuildStatus%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe Bool
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AreportBuildStatus%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">reportBuildStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Enable this flag to ignore SSL warnings while connecting to the project</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- source code.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AinsecureSsl%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe Bool
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AinsecureSsl%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">insecureSsl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | Information about the location of the source code to be built. Valid</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- values include:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- -   For source code settings that are specified in the source action of</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--     a pipeline in CodePipeline, @location@ should not be specified. If</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     it is specified, CodePipeline ignores it. This is because</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--     CodePipeline uses the settings in a pipeline\'s source action</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     instead of this value.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   For source code in an CodeCommit repository, the HTTPS clone URL to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--     the repository that contains the source code and the buildspec file</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     (for example,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--     @https:\/\/git-codecommit.\&lt;region-ID&gt;.amazonaws.com\/v1\/repos\/\&lt;repo-name&gt;@).</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   For source code in an Amazon S3 input bucket, one of the following.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     -   The path to the ZIP file that contains the source code (for</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--         example, @\&lt;bucket-name&gt;\/\&lt;path&gt;\/\&lt;object-name&gt;.zip@).</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     -   The path to the folder that contains the source code (for</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--         example, @\&lt;bucket-name&gt;\/\&lt;path-to-source-code&gt;\/\&lt;folder&gt;\/@).</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   For source code in a GitHub repository, the HTTPS clone URL to the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     repository that contains the source and the buildspec file. You must</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     connect your Amazon Web Services account to your GitHub account. Use</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     the CodeBuild console to start creating a build project. When you</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--     use the console to connect (or reconnect) with GitHub, on the GitHub</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     __Authorize application__ page, for __Organization access__, choose</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     __Request access__ next to each repository you want to allow</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     CodeBuild to have access to, and then choose __Authorize</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--     application__. (After you have connected to your GitHub account, you</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     do not need to finish creating the build project. You can leave the</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--     CodeBuild console.) To instruct CodeBuild to use this connection, in</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     the @source@ object, set the @auth@ object\'s @type@ value to</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--     @OAUTH@.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   For source code in a Bitbucket repository, the HTTPS clone URL to</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     the repository that contains the source and the buildspec file. You</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     must connect your Amazon Web Services account to your Bitbucket</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     account. Use the CodeBuild console to start creating a build</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--     project. When you use the console to connect (or reconnect) with</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     Bitbucket, on the Bitbucket __Confirm access to your account__ page,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     choose __Grant access__. (After you have connected to your Bitbucket</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     account, you do not need to finish creating the build project. You</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--     can leave the CodeBuild console.) To instruct CodeBuild to use this</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     connection, in the @source@ object, set the @auth@ object\'s @type@</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     value to @OAUTH@.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- If you specify @CODEPIPELINE@ for the @Type@ property, don\'t specify</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- this property. For all of the other types, you must specify @Location@.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Alocation%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Alocation%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | Information about the authorization settings for CodeBuild to access the</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- source code to be built.</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- This information is for the CodeBuild console\'s use only. Your code</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- should not get or set this information directly.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3Aauth%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe SourceAuth
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Aauth%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The buildspec file declaration to use for the builds in this build</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- If this value is set, it can be either an inline buildspec definition,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- the path to an alternate buildspec file relative to the value of the</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- bucket. The bucket must be in the same Amazon Web Services Region as the</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- build project. Specify the buildspec file using its ARN (for example,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- not provided or is set to an empty string, the source code must contain</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- a buildspec file in its root directory. For more information, see</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location&gt;.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3Abuildspec%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Abuildspec%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">buildspec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | An identifier for this project source. The identifier can only contain</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- alphanumeric characters and underscores, and must be less than 128</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- characters in length.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AsourceIdentifier%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AsourceIdentifier%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | Information about the Git clone depth for the build project.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AgitCloneDepth%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe Natural
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AgitCloneDepth%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">gitCloneDepth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- | Information about the Git submodules configuration for the build</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AgitSubmodulesConfig%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe GitSubmodulesConfig
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AgitSubmodulesConfig%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">gitSubmodulesConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | Contains information that defines how the build project reports the</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- build status to the source provider. This option is only used when the</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.</span><span>
+</span><span id="line-137"></span><span>    </span><span id="%24sel%3AbuildStatusConfig%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; Maybe BuildStatusConfig
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AbuildStatusConfig%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">buildStatusConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- | The type of repository that contains the source code to be built. Valid</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- values include:</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @BITBUCKET@: The source code is in a Bitbucket repository.</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">-- -   @CODECOMMIT@: The source code is in an CodeCommit repository.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- -   @CODEPIPELINE@: The source code settings are specified in the source</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--     action of a pipeline in CodePipeline.</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- -   @GITHUB@: The source code is in a GitHub or GitHub Enterprise Cloud</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">--     repository.</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- -   @GITHUB_ENTERPRISE@: The source code is in a GitHub Enterprise</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--     Server repository.</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- -   @NO_SOURCE@: The project does not have input source code.</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   @S3@: The source code is in an Amazon S3 bucket.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3Atype%27%3AProjectSource%27"><span class="annot"><span class="annottext">ProjectSource -&gt; SourceType
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Atype%27%3AProjectSource%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679378124"><span id="local-6989586621679378126"><span class="annot"><span class="annottext">ProjectSource -&gt; ProjectSource -&gt; Bool
+(ProjectSource -&gt; ProjectSource -&gt; Bool)
+-&gt; (ProjectSource -&gt; ProjectSource -&gt; Bool) -&gt; Eq ProjectSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProjectSource -&gt; ProjectSource -&gt; Bool
+$c/= :: ProjectSource -&gt; ProjectSource -&gt; Bool
+== :: ProjectSource -&gt; ProjectSource -&gt; Bool
+$c== :: ProjectSource -&gt; ProjectSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378115"><span id="local-6989586621679378117"><span id="local-6989586621679378119"><span id="local-6989586621679378121"><span class="annot"><span class="annottext">ReadPrec [ProjectSource]
+ReadPrec ProjectSource
+Int -&gt; ReadS ProjectSource
+ReadS [ProjectSource]
+(Int -&gt; ReadS ProjectSource)
+-&gt; ReadS [ProjectSource]
+-&gt; ReadPrec ProjectSource
+-&gt; ReadPrec [ProjectSource]
+-&gt; Read ProjectSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProjectSource]
+$creadListPrec :: ReadPrec [ProjectSource]
+readPrec :: ReadPrec ProjectSource
+$creadPrec :: ReadPrec ProjectSource
+readList :: ReadS [ProjectSource]
+$creadList :: ReadS [ProjectSource]
+readsPrec :: Int -&gt; ReadS ProjectSource
+$creadsPrec :: Int -&gt; ReadS ProjectSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679378108"><span id="local-6989586621679378110"><span id="local-6989586621679378112"><span class="annot"><span class="annottext">Int -&gt; ProjectSource -&gt; ShowS
+[ProjectSource] -&gt; ShowS
+ProjectSource -&gt; String
+(Int -&gt; ProjectSource -&gt; ShowS)
+-&gt; (ProjectSource -&gt; String)
+-&gt; ([ProjectSource] -&gt; ShowS)
+-&gt; Show ProjectSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProjectSource] -&gt; ShowS
+$cshowList :: [ProjectSource] -&gt; ShowS
+show :: ProjectSource -&gt; String
+$cshow :: ProjectSource -&gt; String
+showsPrec :: Int -&gt; ProjectSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProjectSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProjectSource -&gt; Rep ProjectSource x)
+-&gt; (forall x. Rep ProjectSource x -&gt; ProjectSource)
+-&gt; Generic ProjectSource
+forall x. Rep ProjectSource x -&gt; ProjectSource
+forall x. ProjectSource -&gt; Rep ProjectSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProjectSource x -&gt; ProjectSource
+$cfrom :: forall x. ProjectSource -&gt; Rep ProjectSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'ProjectSource' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'reportBuildStatus', 'projectSource_reportBuildStatus' - Set to true to report the status of a build\'s start and finish to your</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- source provider. This option is valid only when your source provider is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- different source provider, an @invalidInputException@ is thrown.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- To be able to report the build status to the source provider, the user</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- associated with the source provider must have write access to the repo.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- If the user does not have write access, the build status cannot be</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- updated. For more information, see</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html Source provider access&gt;</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- in the /CodeBuild User Guide/.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The status of a build triggered by a webhook is always reported to your</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- source provider.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- If your project\'s builds are triggered by a webhook, you must push a</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- new commit to the repo for a change to this property to take effect.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'insecureSsl', 'projectSource_insecureSsl' - Enable this flag to ignore SSL warnings while connecting to the project</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- source code.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'location', 'projectSource_location' - Information about the location of the source code to be built. Valid</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- values include:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- -   For source code settings that are specified in the source action of</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--     a pipeline in CodePipeline, @location@ should not be specified. If</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     it is specified, CodePipeline ignores it. This is because</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     CodePipeline uses the settings in a pipeline\'s source action</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     instead of this value.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   For source code in an CodeCommit repository, the HTTPS clone URL to</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     the repository that contains the source code and the buildspec file</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     (for example,</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     @https:\/\/git-codecommit.\&lt;region-ID&gt;.amazonaws.com\/v1\/repos\/\&lt;repo-name&gt;@).</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- -   For source code in an Amazon S3 input bucket, one of the following.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--     -   The path to the ZIP file that contains the source code (for</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--         example, @\&lt;bucket-name&gt;\/\&lt;path&gt;\/\&lt;object-name&gt;.zip@).</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--     -   The path to the folder that contains the source code (for</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--         example, @\&lt;bucket-name&gt;\/\&lt;path-to-source-code&gt;\/\&lt;folder&gt;\/@).</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- -   For source code in a GitHub repository, the HTTPS clone URL to the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--     repository that contains the source and the buildspec file. You must</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     connect your Amazon Web Services account to your GitHub account. Use</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     the CodeBuild console to start creating a build project. When you</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--     use the console to connect (or reconnect) with GitHub, on the GitHub</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--     __Authorize application__ page, for __Organization access__, choose</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     __Request access__ next to each repository you want to allow</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     CodeBuild to have access to, and then choose __Authorize</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     application__. (After you have connected to your GitHub account, you</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     do not need to finish creating the build project. You can leave the</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     CodeBuild console.) To instruct CodeBuild to use this connection, in</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--     the @source@ object, set the @auth@ object\'s @type@ value to</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--     @OAUTH@.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   For source code in a Bitbucket repository, the HTTPS clone URL to</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--     the repository that contains the source and the buildspec file. You</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     must connect your Amazon Web Services account to your Bitbucket</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     account. Use the CodeBuild console to start creating a build</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--     project. When you use the console to connect (or reconnect) with</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--     Bitbucket, on the Bitbucket __Confirm access to your account__ page,</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     choose __Grant access__. (After you have connected to your Bitbucket</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     account, you do not need to finish creating the build project. You</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     can leave the CodeBuild console.) To instruct CodeBuild to use this</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--     connection, in the @source@ object, set the @auth@ object\'s @type@</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     value to @OAUTH@.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- If you specify @CODEPIPELINE@ for the @Type@ property, don\'t specify</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- this property. For all of the other types, you must specify @Location@.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'auth', 'projectSource_auth' - Information about the authorization settings for CodeBuild to access the</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- source code to be built.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- This information is for the CodeBuild console\'s use only. Your code</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- should not get or set this information directly.</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- 'buildspec', 'projectSource_buildspec' - The buildspec file declaration to use for the builds in this build</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- If this value is set, it can be either an inline buildspec definition,</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- the path to an alternate buildspec file relative to the value of the</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- bucket. The bucket must be in the same Amazon Web Services Region as the</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- build project. Specify the buildspec file using its ARN (for example,</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- not provided or is set to an empty string, the source code must contain</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- a buildspec file in its root directory. For more information, see</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location&gt;.</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- 'sourceIdentifier', 'projectSource_sourceIdentifier' - An identifier for this project source. The identifier can only contain</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- alphanumeric characters and underscores, and must be less than 128</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- characters in length.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- 'gitCloneDepth', 'projectSource_gitCloneDepth' - Information about the Git clone depth for the build project.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- 'gitSubmodulesConfig', 'projectSource_gitSubmodulesConfig' - Information about the Git submodules configuration for the build</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'buildStatusConfig', 'projectSource_buildStatusConfig' - Contains information that defines how the build project reports the</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- build status to the source provider. This option is only used when the</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'type'', 'projectSource_type' - The type of repository that contains the source code to be built. Valid</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- values include:</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   @BITBUCKET@: The source code is in a Bitbucket repository.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- -   @CODECOMMIT@: The source code is in an CodeCommit repository.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -   @CODEPIPELINE@: The source code settings are specified in the source</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     action of a pipeline in CodePipeline.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   @GITHUB@: The source code is in a GitHub or GitHub Enterprise Cloud</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     repository.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- -   @GITHUB_ENTERPRISE@: The source code is in a GitHub Enterprise</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     Server repository.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   @NO_SOURCE@: The project does not have input source code.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- -   @S3@: The source code is in an Amazon S3 bucket.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#newProjectSource"><span class="hs-identifier hs-type">newProjectSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-293"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-294"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-295"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span>
+</span><span id="line-296"></span><span id="newProjectSource"><span class="annot"><span class="annottext">newProjectSource :: SourceType -&gt; ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#newProjectSource"><span class="hs-identifier hs-var hs-var">newProjectSource</span></a></span></span><span> </span><span id="local-6989586621679378102"><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378102"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="annottext">ProjectSource' :: Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe SourceAuth
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe GitSubmodulesConfig
+-&gt; Maybe BuildStatusConfig
+-&gt; SourceType
+-&gt; ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:reportBuildStatus:ProjectSource' :: Maybe Bool
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AreportBuildStatus%3AProjectSource%27"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:insecureSsl:ProjectSource' :: Maybe Bool
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AinsecureSsl%3AProjectSource%27"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>      </span><span class="annot"><span class="annottext">$sel:location:ProjectSource' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Alocation%3AProjectSource%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>      </span><span class="annot"><span class="annottext">$sel:auth:ProjectSource' :: Maybe SourceAuth
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Aauth%3AProjectSource%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildspec:ProjectSource' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Abuildspec%3AProjectSource%27"><span class="hs-identifier hs-var">buildspec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSource' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AsourceIdentifier%3AProjectSource%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><span class="annottext">$sel:gitCloneDepth:ProjectSource' :: Maybe Natural
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AgitCloneDepth%3AProjectSource%27"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>      </span><span class="annot"><span class="annottext">$sel:gitSubmodulesConfig:ProjectSource' :: Maybe GitSubmodulesConfig
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AgitSubmodulesConfig%3AProjectSource%27"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-306"></span><span>      </span><span class="annot"><span class="annottext">$sel:buildStatusConfig:ProjectSource' :: Maybe BuildStatusConfig
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AbuildStatusConfig%3AProjectSource%27"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ProjectSource' :: SourceType
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Atype%27%3AProjectSource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378102"><span class="hs-identifier hs-var">pType_</span></a></span><span>
+</span><span id="line-308"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | Set to true to report the status of a build\'s start and finish to your</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- source provider. This option is valid only when your source provider is</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- GitHub, GitHub Enterprise, or Bitbucket. If this is set and you use a</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- different source provider, an @invalidInputException@ is thrown.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- To be able to report the build status to the source provider, the user</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- associated with the source provider must have write access to the repo.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- If the user does not have write access, the build status cannot be</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- updated. For more information, see</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/access-tokens.html Source provider access&gt;</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- in the /CodeBuild User Guide/.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- The status of a build triggered by a webhook is always reported to your</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- source provider.</span><span>
+</span><span id="line-324"></span><span class="hs-comment">--</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- If your project\'s builds are triggered by a webhook, you must push a</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- new commit to the repo for a change to this property to take effect.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_reportBuildStatus"><span class="hs-identifier hs-type">projectSource_reportBuildStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span id="projectSource_reportBuildStatus"><span class="annot"><span class="annottext">projectSource_reportBuildStatus :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_reportBuildStatus"><span class="hs-identifier hs-var hs-var">projectSource_reportBuildStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe Bool)
+-&gt; (ProjectSource -&gt; Maybe Bool -&gt; ProjectSource)
+-&gt; Lens ProjectSource ProjectSource (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378098"><span class="annot"><span class="annottext">Maybe Bool
+reportBuildStatus :: Maybe Bool
+$sel:reportBuildStatus:ProjectSource' :: ProjectSource -&gt; Maybe Bool
+</span><a href="#local-6989586621679378098"><span class="hs-identifier hs-var hs-var">reportBuildStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378098"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378097"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378097"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378096"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378096"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378097"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportBuildStatus:ProjectSource' :: Maybe Bool
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AreportBuildStatus%3AProjectSource%27"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378096"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- | Enable this flag to ignore SSL warnings while connecting to the project</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- source code.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_insecureSsl"><span class="hs-identifier hs-type">projectSource_insecureSsl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span id="projectSource_insecureSsl"><span class="annot"><span class="annottext">projectSource_insecureSsl :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_insecureSsl"><span class="hs-identifier hs-var hs-var">projectSource_insecureSsl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe Bool)
+-&gt; (ProjectSource -&gt; Maybe Bool -&gt; ProjectSource)
+-&gt; Lens ProjectSource ProjectSource (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378094"><span class="annot"><span class="annottext">Maybe Bool
+insecureSsl :: Maybe Bool
+$sel:insecureSsl:ProjectSource' :: ProjectSource -&gt; Maybe Bool
+</span><a href="#local-6989586621679378094"><span class="hs-identifier hs-var hs-var">insecureSsl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378094"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378093"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378092"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:insecureSsl:ProjectSource' :: Maybe Bool
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AinsecureSsl%3AProjectSource%27"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | Information about the location of the source code to be built. Valid</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- values include:</span><span>
+</span><span id="line-337"></span><span class="hs-comment">--</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- -   For source code settings that are specified in the source action of</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--     a pipeline in CodePipeline, @location@ should not be specified. If</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--     it is specified, CodePipeline ignores it. This is because</span><span>
+</span><span id="line-341"></span><span class="hs-comment">--     CodePipeline uses the settings in a pipeline\'s source action</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--     instead of this value.</span><span>
+</span><span id="line-343"></span><span class="hs-comment">--</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- -   For source code in an CodeCommit repository, the HTTPS clone URL to</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--     the repository that contains the source code and the buildspec file</span><span>
+</span><span id="line-346"></span><span class="hs-comment">--     (for example,</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--     @https:\/\/git-codecommit.\&lt;region-ID&gt;.amazonaws.com\/v1\/repos\/\&lt;repo-name&gt;@).</span><span>
+</span><span id="line-348"></span><span class="hs-comment">--</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- -   For source code in an Amazon S3 input bucket, one of the following.</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">--     -   The path to the ZIP file that contains the source code (for</span><span>
+</span><span id="line-352"></span><span class="hs-comment">--         example, @\&lt;bucket-name&gt;\/\&lt;path&gt;\/\&lt;object-name&gt;.zip@).</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">--     -   The path to the folder that contains the source code (for</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--         example, @\&lt;bucket-name&gt;\/\&lt;path-to-source-code&gt;\/\&lt;folder&gt;\/@).</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- -   For source code in a GitHub repository, the HTTPS clone URL to the</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--     repository that contains the source and the buildspec file. You must</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--     connect your Amazon Web Services account to your GitHub account. Use</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--     the CodeBuild console to start creating a build project. When you</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--     use the console to connect (or reconnect) with GitHub, on the GitHub</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--     __Authorize application__ page, for __Organization access__, choose</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--     __Request access__ next to each repository you want to allow</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--     CodeBuild to have access to, and then choose __Authorize</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--     application__. (After you have connected to your GitHub account, you</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--     do not need to finish creating the build project. You can leave the</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--     CodeBuild console.) To instruct CodeBuild to use this connection, in</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--     the @source@ object, set the @auth@ object\'s @type@ value to</span><span>
+</span><span id="line-369"></span><span class="hs-comment">--     @OAUTH@.</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--</span><span>
+</span><span id="line-371"></span><span class="hs-comment">-- -   For source code in a Bitbucket repository, the HTTPS clone URL to</span><span>
+</span><span id="line-372"></span><span class="hs-comment">--     the repository that contains the source and the buildspec file. You</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--     must connect your Amazon Web Services account to your Bitbucket</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--     account. Use the CodeBuild console to start creating a build</span><span>
+</span><span id="line-375"></span><span class="hs-comment">--     project. When you use the console to connect (or reconnect) with</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--     Bitbucket, on the Bitbucket __Confirm access to your account__ page,</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--     choose __Grant access__. (After you have connected to your Bitbucket</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--     account, you do not need to finish creating the build project. You</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--     can leave the CodeBuild console.) To instruct CodeBuild to use this</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--     connection, in the @source@ object, set the @auth@ object\'s @type@</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--     value to @OAUTH@.</span><span>
+</span><span id="line-382"></span><span class="hs-comment">--</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- If you specify @CODEPIPELINE@ for the @Type@ property, don\'t specify</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- this property. For all of the other types, you must specify @Location@.</span><span>
+</span><span id="line-385"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_location"><span class="hs-identifier hs-type">projectSource_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-386"></span><span id="projectSource_location"><span class="annot"><span class="annottext">projectSource_location :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_location"><span class="hs-identifier hs-var hs-var">projectSource_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe Text)
+-&gt; (ProjectSource -&gt; Maybe Text -&gt; ProjectSource)
+-&gt; Lens ProjectSource ProjectSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378090"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:ProjectSource' :: ProjectSource -&gt; Maybe Text
+</span><a href="#local-6989586621679378090"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378090"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378089"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378089"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378088"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378088"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378089"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:ProjectSource' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Alocation%3AProjectSource%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378088"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- | Information about the authorization settings for CodeBuild to access the</span><span>
+</span><span id="line-389"></span><span class="hs-comment">-- source code to be built.</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--</span><span>
+</span><span id="line-391"></span><span class="hs-comment">-- This information is for the CodeBuild console\'s use only. Your code</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- should not get or set this information directly.</span><span>
+</span><span id="line-393"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_auth"><span class="hs-identifier hs-type">projectSource_auth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SourceAuth.html#SourceAuth"><span class="hs-identifier hs-type">SourceAuth</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-394"></span><span id="projectSource_auth"><span class="annot"><span class="annottext">projectSource_auth :: (Maybe SourceAuth -&gt; f (Maybe SourceAuth))
+-&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_auth"><span class="hs-identifier hs-var hs-var">projectSource_auth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe SourceAuth)
+-&gt; (ProjectSource -&gt; Maybe SourceAuth -&gt; ProjectSource)
+-&gt; Lens
+     ProjectSource ProjectSource (Maybe SourceAuth) (Maybe SourceAuth)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378086"><span class="annot"><span class="annottext">Maybe SourceAuth
+auth :: Maybe SourceAuth
+$sel:auth:ProjectSource' :: ProjectSource -&gt; Maybe SourceAuth
+</span><a href="#local-6989586621679378086"><span class="hs-identifier hs-var hs-var">auth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
+</span><a href="#local-6989586621679378086"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378085"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378085"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378084"><span class="annot"><span class="annottext">Maybe SourceAuth
+</span><a href="#local-6989586621679378084"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378085"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:auth:ProjectSource' :: Maybe SourceAuth
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Aauth%3AProjectSource%27"><span class="hs-identifier hs-var">auth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
+</span><a href="#local-6989586621679378084"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-395"></span><span>
+</span><span id="line-396"></span><span class="hs-comment">-- | The buildspec file declaration to use for the builds in this build</span><span>
+</span><span id="line-397"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-398"></span><span class="hs-comment">--</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- If this value is set, it can be either an inline buildspec definition,</span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- the path to an alternate buildspec file relative to the value of the</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- built-in @CODEBUILD_SRC_DIR@ environment variable, or the path to an S3</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- bucket. The bucket must be in the same Amazon Web Services Region as the</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- build project. Specify the buildspec file using its ARN (for example,</span><span>
+</span><span id="line-404"></span><span class="hs-comment">-- @arn:aws:s3:::my-codebuild-sample2\/buildspec.yml@). If this value is</span><span>
+</span><span id="line-405"></span><span class="hs-comment">-- not provided or is set to an empty string, the source code must contain</span><span>
+</span><span id="line-406"></span><span class="hs-comment">-- a buildspec file in its root directory. For more information, see</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html#build-spec-ref-name-storage Buildspec File Name and Storage Location&gt;.</span><span>
+</span><span id="line-408"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_buildspec"><span class="hs-identifier hs-type">projectSource_buildspec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span id="projectSource_buildspec"><span class="annot"><span class="annottext">projectSource_buildspec :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_buildspec"><span class="hs-identifier hs-var hs-var">projectSource_buildspec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe Text)
+-&gt; (ProjectSource -&gt; Maybe Text -&gt; ProjectSource)
+-&gt; Lens ProjectSource ProjectSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378082"><span class="annot"><span class="annottext">Maybe Text
+buildspec :: Maybe Text
+$sel:buildspec:ProjectSource' :: ProjectSource -&gt; Maybe Text
+</span><a href="#local-6989586621679378082"><span class="hs-identifier hs-var hs-var">buildspec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378082"><span class="hs-identifier hs-var">buildspec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378081"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378081"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378080"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378080"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378081"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildspec:ProjectSource' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Abuildspec%3AProjectSource%27"><span class="hs-identifier hs-var">buildspec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378080"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | An identifier for this project source. The identifier can only contain</span><span>
+</span><span id="line-412"></span><span class="hs-comment">-- alphanumeric characters and underscores, and must be less than 128</span><span>
+</span><span id="line-413"></span><span class="hs-comment">-- characters in length.</span><span>
+</span><span id="line-414"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_sourceIdentifier"><span class="hs-identifier hs-type">projectSource_sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-415"></span><span id="projectSource_sourceIdentifier"><span class="annot"><span class="annottext">projectSource_sourceIdentifier :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_sourceIdentifier"><span class="hs-identifier hs-var hs-var">projectSource_sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe Text)
+-&gt; (ProjectSource -&gt; Maybe Text -&gt; ProjectSource)
+-&gt; Lens ProjectSource ProjectSource (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378078"><span class="annot"><span class="annottext">Maybe Text
+sourceIdentifier :: Maybe Text
+$sel:sourceIdentifier:ProjectSource' :: ProjectSource -&gt; Maybe Text
+</span><a href="#local-6989586621679378078"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378078"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378077"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378076"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSource' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AsourceIdentifier%3AProjectSource%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-416"></span><span>
+</span><span id="line-417"></span><span class="hs-comment">-- | Information about the Git clone depth for the build project.</span><span>
+</span><span id="line-418"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_gitCloneDepth"><span class="hs-identifier hs-type">projectSource_gitCloneDepth</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-419"></span><span id="projectSource_gitCloneDepth"><span class="annot"><span class="annottext">projectSource_gitCloneDepth :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_gitCloneDepth"><span class="hs-identifier hs-var hs-var">projectSource_gitCloneDepth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe Natural)
+-&gt; (ProjectSource -&gt; Maybe Natural -&gt; ProjectSource)
+-&gt; Lens ProjectSource ProjectSource (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378074"><span class="annot"><span class="annottext">Maybe Natural
+gitCloneDepth :: Maybe Natural
+$sel:gitCloneDepth:ProjectSource' :: ProjectSource -&gt; Maybe Natural
+</span><a href="#local-6989586621679378074"><span class="hs-identifier hs-var hs-var">gitCloneDepth</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378074"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378073"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378072"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitCloneDepth:ProjectSource' :: Maybe Natural
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AgitCloneDepth%3AProjectSource%27"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-420"></span><span>
+</span><span id="line-421"></span><span class="hs-comment">-- | Information about the Git submodules configuration for the build</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- project.</span><span>
+</span><span id="line-423"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_gitSubmodulesConfig"><span class="hs-identifier hs-type">projectSource_gitSubmodulesConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.GitSubmodulesConfig.html#GitSubmodulesConfig"><span class="hs-identifier hs-type">GitSubmodulesConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-424"></span><span id="projectSource_gitSubmodulesConfig"><span class="annot"><span class="annottext">projectSource_gitSubmodulesConfig :: (Maybe GitSubmodulesConfig -&gt; f (Maybe GitSubmodulesConfig))
+-&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_gitSubmodulesConfig"><span class="hs-identifier hs-var hs-var">projectSource_gitSubmodulesConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe GitSubmodulesConfig)
+-&gt; (ProjectSource -&gt; Maybe GitSubmodulesConfig -&gt; ProjectSource)
+-&gt; Lens
+     ProjectSource
+     ProjectSource
+     (Maybe GitSubmodulesConfig)
+     (Maybe GitSubmodulesConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378070"><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+gitSubmodulesConfig :: Maybe GitSubmodulesConfig
+$sel:gitSubmodulesConfig:ProjectSource' :: ProjectSource -&gt; Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378070"><span class="hs-identifier hs-var hs-var">gitSubmodulesConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378070"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378069"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378069"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378068"><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378068"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378069"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gitSubmodulesConfig:ProjectSource' :: Maybe GitSubmodulesConfig
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AgitSubmodulesConfig%3AProjectSource%27"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378068"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span class="hs-comment">-- | Contains information that defines how the build project reports the</span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- build status to the source provider. This option is only used when the</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- source provider is @GITHUB@, @GITHUB_ENTERPRISE@, or @BITBUCKET@.</span><span>
+</span><span id="line-429"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_buildStatusConfig"><span class="hs-identifier hs-type">projectSource_buildStatusConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.BuildStatusConfig.html#BuildStatusConfig"><span class="hs-identifier hs-type">BuildStatusConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span id="projectSource_buildStatusConfig"><span class="annot"><span class="annottext">projectSource_buildStatusConfig :: (Maybe BuildStatusConfig -&gt; f (Maybe BuildStatusConfig))
+-&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_buildStatusConfig"><span class="hs-identifier hs-var hs-var">projectSource_buildStatusConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; Maybe BuildStatusConfig)
+-&gt; (ProjectSource -&gt; Maybe BuildStatusConfig -&gt; ProjectSource)
+-&gt; Lens
+     ProjectSource
+     ProjectSource
+     (Maybe BuildStatusConfig)
+     (Maybe BuildStatusConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378066"><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+buildStatusConfig :: Maybe BuildStatusConfig
+$sel:buildStatusConfig:ProjectSource' :: ProjectSource -&gt; Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378066"><span class="hs-identifier hs-var hs-var">buildStatusConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378066"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378065"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378064"><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:buildStatusConfig:ProjectSource' :: Maybe BuildStatusConfig
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3AbuildStatusConfig%3AProjectSource%27"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-431"></span><span>
+</span><span id="line-432"></span><span class="hs-comment">-- | The type of repository that contains the source code to be built. Valid</span><span>
+</span><span id="line-433"></span><span class="hs-comment">-- values include:</span><span>
+</span><span id="line-434"></span><span class="hs-comment">--</span><span>
+</span><span id="line-435"></span><span class="hs-comment">-- -   @BITBUCKET@: The source code is in a Bitbucket repository.</span><span>
+</span><span id="line-436"></span><span class="hs-comment">--</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- -   @CODECOMMIT@: The source code is in an CodeCommit repository.</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--</span><span>
+</span><span id="line-439"></span><span class="hs-comment">-- -   @CODEPIPELINE@: The source code settings are specified in the source</span><span>
+</span><span id="line-440"></span><span class="hs-comment">--     action of a pipeline in CodePipeline.</span><span>
+</span><span id="line-441"></span><span class="hs-comment">--</span><span>
+</span><span id="line-442"></span><span class="hs-comment">-- -   @GITHUB@: The source code is in a GitHub or GitHub Enterprise Cloud</span><span>
+</span><span id="line-443"></span><span class="hs-comment">--     repository.</span><span>
+</span><span id="line-444"></span><span class="hs-comment">--</span><span>
+</span><span id="line-445"></span><span class="hs-comment">-- -   @GITHUB_ENTERPRISE@: The source code is in a GitHub Enterprise</span><span>
+</span><span id="line-446"></span><span class="hs-comment">--     Server repository.</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--</span><span>
+</span><span id="line-448"></span><span class="hs-comment">-- -   @NO_SOURCE@: The project does not have input source code.</span><span>
+</span><span id="line-449"></span><span class="hs-comment">--</span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- -   @S3@: The source code is in an Amazon S3 bucket.</span><span>
+</span><span id="line-451"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_type"><span class="hs-identifier hs-type">projectSource_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.SourceType.html#SourceType"><span class="hs-identifier hs-type">SourceType</span></a></span><span>
+</span><span id="line-452"></span><span id="projectSource_type"><span class="annot"><span class="annottext">projectSource_type :: (SourceType -&gt; f SourceType) -&gt; ProjectSource -&gt; f ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#projectSource_type"><span class="hs-identifier hs-var hs-var">projectSource_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSource -&gt; SourceType)
+-&gt; (ProjectSource -&gt; SourceType -&gt; ProjectSource)
+-&gt; Lens ProjectSource ProjectSource SourceType SourceType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378062"><span class="annot"><span class="annottext">SourceType
+type' :: SourceType
+$sel:type':ProjectSource' :: ProjectSource -&gt; SourceType
+</span><a href="#local-6989586621679378062"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378062"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679378061"><span class="annot"><span class="annottext">s :: ProjectSource
+</span><a href="#local-6989586621679378061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679378060"><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSource
+</span><a href="#local-6989586621679378061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ProjectSource' :: SourceType
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#%24sel%3Atype%27%3AProjectSource%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-453"></span><span>
+</span><span id="line-454"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378057"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-455"></span><span>  </span><span id="local-6989586621679378055"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProjectSource)
+-&gt; Value
+-&gt; Parser ProjectSource
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-457"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProjectSource&quot;</span></span><span>
+</span><span id="line-458"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679378052"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-459"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe SourceAuth
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe GitSubmodulesConfig
+-&gt; Maybe BuildStatusConfig
+-&gt; SourceType
+-&gt; ProjectSource
+</span><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-var">ProjectSource'</span></a></span><span>
+</span><span id="line-460"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe SourceAuth
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe GitSubmodulesConfig
+ -&gt; Maybe BuildStatusConfig
+ -&gt; SourceType
+ -&gt; ProjectSource)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe SourceAuth
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe GitSubmodulesConfig
+      -&gt; Maybe BuildStatusConfig
+      -&gt; SourceType
+      -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportBuildStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-461"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe SourceAuth
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe GitSubmodulesConfig
+   -&gt; Maybe BuildStatusConfig
+   -&gt; SourceType
+   -&gt; ProjectSource)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe SourceAuth
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe GitSubmodulesConfig
+      -&gt; Maybe BuildStatusConfig
+      -&gt; SourceType
+      -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;insecureSsl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-462"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe SourceAuth
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe GitSubmodulesConfig
+   -&gt; Maybe BuildStatusConfig
+   -&gt; SourceType
+   -&gt; ProjectSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe SourceAuth
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe GitSubmodulesConfig
+      -&gt; Maybe BuildStatusConfig
+      -&gt; SourceType
+      -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-463"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SourceAuth
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe GitSubmodulesConfig
+   -&gt; Maybe BuildStatusConfig
+   -&gt; SourceType
+   -&gt; ProjectSource)
+-&gt; Parser (Maybe SourceAuth)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe GitSubmodulesConfig
+      -&gt; Maybe BuildStatusConfig
+      -&gt; SourceType
+      -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SourceAuth)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;auth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-464"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe GitSubmodulesConfig
+   -&gt; Maybe BuildStatusConfig
+   -&gt; SourceType
+   -&gt; ProjectSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe GitSubmodulesConfig
+      -&gt; Maybe BuildStatusConfig
+      -&gt; SourceType
+      -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildspec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-465"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe GitSubmodulesConfig
+   -&gt; Maybe BuildStatusConfig
+   -&gt; SourceType
+   -&gt; ProjectSource)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe GitSubmodulesConfig
+      -&gt; Maybe BuildStatusConfig
+      -&gt; SourceType
+      -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-466"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe GitSubmodulesConfig
+   -&gt; Maybe BuildStatusConfig
+   -&gt; SourceType
+   -&gt; ProjectSource)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe GitSubmodulesConfig
+      -&gt; Maybe BuildStatusConfig -&gt; SourceType -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gitCloneDepth&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-467"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe GitSubmodulesConfig
+   -&gt; Maybe BuildStatusConfig -&gt; SourceType -&gt; ProjectSource)
+-&gt; Parser (Maybe GitSubmodulesConfig)
+-&gt; Parser (Maybe BuildStatusConfig -&gt; SourceType -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe GitSubmodulesConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gitSubmodulesConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-468"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BuildStatusConfig -&gt; SourceType -&gt; ProjectSource)
+-&gt; Parser (Maybe BuildStatusConfig)
+-&gt; Parser (SourceType -&gt; ProjectSource)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BuildStatusConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildStatusConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-469"></span><span>            </span><span class="annot"><span class="annottext">Parser (SourceType -&gt; ProjectSource)
+-&gt; Parser SourceType -&gt; Parser ProjectSource
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679378052"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser SourceType
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-470"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-471"></span><span>
+</span><span id="line-472"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378045"><span id="local-6989586621679378047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span></span><span>
+</span><span id="line-473"></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span><span>
+</span><span id="line-475"></span><span>
+</span><span id="line-476"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679378034"><span id="local-6989586621679378036"><span id="local-6989586621679378038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource"><span class="hs-identifier hs-type">ProjectSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-477"></span><span>  </span><span id="local-6989586621679378032"><span class="annot"><span class="annottext">toJSON :: ProjectSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSource.html#ProjectSource%27"><span class="hs-identifier hs-type">ProjectSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679378021"><span id="local-6989586621679378022"><span id="local-6989586621679378023"><span id="local-6989586621679378024"><span id="local-6989586621679378025"><span id="local-6989586621679378026"><span id="local-6989586621679378027"><span id="local-6989586621679378028"><span id="local-6989586621679378029"><span id="local-6989586621679378030"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+Maybe BuildStatusConfig
+Maybe GitSubmodulesConfig
+Maybe SourceAuth
+SourceType
+type' :: SourceType
+buildStatusConfig :: Maybe BuildStatusConfig
+gitSubmodulesConfig :: Maybe GitSubmodulesConfig
+gitCloneDepth :: Maybe Natural
+sourceIdentifier :: Maybe Text
+buildspec :: Maybe Text
+auth :: Maybe SourceAuth
+location :: Maybe Text
+insecureSsl :: Maybe Bool
+reportBuildStatus :: Maybe Bool
+$sel:type':ProjectSource' :: ProjectSource -&gt; SourceType
+$sel:buildStatusConfig:ProjectSource' :: ProjectSource -&gt; Maybe BuildStatusConfig
+$sel:gitSubmodulesConfig:ProjectSource' :: ProjectSource -&gt; Maybe GitSubmodulesConfig
+$sel:gitCloneDepth:ProjectSource' :: ProjectSource -&gt; Maybe Natural
+$sel:sourceIdentifier:ProjectSource' :: ProjectSource -&gt; Maybe Text
+$sel:buildspec:ProjectSource' :: ProjectSource -&gt; Maybe Text
+$sel:auth:ProjectSource' :: ProjectSource -&gt; Maybe SourceAuth
+$sel:location:ProjectSource' :: ProjectSource -&gt; Maybe Text
+$sel:insecureSsl:ProjectSource' :: ProjectSource -&gt; Maybe Bool
+$sel:reportBuildStatus:ProjectSource' :: ProjectSource -&gt; Maybe Bool
+</span><a href="#local-6989586621679378021"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-478"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-479"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-480"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportBuildStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-481"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378030"><span class="hs-identifier hs-var">reportBuildStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-482"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;insecureSsl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679378029"><span class="hs-identifier hs-var">insecureSsl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-483"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378028"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-484"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;auth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceAuth -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SourceAuth -&gt; Pair) -&gt; Maybe SourceAuth -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SourceAuth
+</span><a href="#local-6989586621679378027"><span class="hs-identifier hs-var">auth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-485"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildspec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378026"><span class="hs-identifier hs-var">buildspec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-486"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-487"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679378025"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-488"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gitCloneDepth&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679378024"><span class="hs-identifier hs-var">gitCloneDepth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-489"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;gitSubmodulesConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GitSubmodulesConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-490"></span><span>              </span><span class="annot"><span class="annottext">(GitSubmodulesConfig -&gt; Pair)
+-&gt; Maybe GitSubmodulesConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GitSubmodulesConfig
+</span><a href="#local-6989586621679378023"><span class="hs-identifier hs-var">gitSubmodulesConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-491"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;buildStatusConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; BuildStatusConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-492"></span><span>              </span><span class="annot"><span class="annottext">(BuildStatusConfig -&gt; Pair)
+-&gt; Maybe BuildStatusConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe BuildStatusConfig
+</span><a href="#local-6989586621679378022"><span class="hs-identifier hs-var">buildStatusConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-493"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SourceType
+</span><a href="#local-6989586621679378021"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-494"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-495"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-496"></span></pre></body></html>

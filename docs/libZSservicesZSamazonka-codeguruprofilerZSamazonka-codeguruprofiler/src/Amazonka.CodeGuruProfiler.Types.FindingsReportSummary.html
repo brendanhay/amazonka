@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeGuruProfiler.Types.FindingsReportSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeGuruProfiler.Types.FindingsReportSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about potential recommendations that might be created from</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the analysis of profiling data.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newFindingsReportSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679198052"><span id="local-6989586621679198053"></span></span><span class="hs-keyword">data</span><span> </span><span id="FindingsReportSummary"><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-var">FindingsReportSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FindingsReportSummary%27"><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-var">FindingsReportSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The start time of the profile the analysis data is about. This is</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AprofileStartTime%3AFindingsReportSummary%27"><span class="annot"><span class="annottext">FindingsReportSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofileStartTime%3AFindingsReportSummary%27"><span class="hs-identifier hs-var hs-var">profileStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The end time of the period during which the metric is flagged as</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- anomalous. This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AprofileEndTime%3AFindingsReportSummary%27"><span class="annot"><span class="annottext">FindingsReportSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofileEndTime%3AFindingsReportSummary%27"><span class="hs-identifier hs-var hs-var">profileEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The universally unique identifier (UUID) of the recommendation report.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3Aid%3AFindingsReportSummary%27"><span class="annot"><span class="annottext">FindingsReportSummary -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3Aid%3AFindingsReportSummary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The name of the profiling group that is associated with the analysis</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AprofilingGroupName%3AFindingsReportSummary%27"><span class="annot"><span class="annottext">FindingsReportSummary -&gt; Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofilingGroupName%3AFindingsReportSummary%27"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The total number of different recommendations that were found by the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- analysis.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AtotalNumberOfFindings%3AFindingsReportSummary%27"><span class="annot"><span class="annottext">FindingsReportSummary -&gt; Maybe Int
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AtotalNumberOfFindings%3AFindingsReportSummary%27"><span class="hs-identifier hs-var hs-var">totalNumberOfFindings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198042"><span id="local-6989586621679198044"><span class="annot"><span class="annottext">FindingsReportSummary -&gt; FindingsReportSummary -&gt; Bool
+(FindingsReportSummary -&gt; FindingsReportSummary -&gt; Bool)
+-&gt; (FindingsReportSummary -&gt; FindingsReportSummary -&gt; Bool)
+-&gt; Eq FindingsReportSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FindingsReportSummary -&gt; FindingsReportSummary -&gt; Bool
+$c/= :: FindingsReportSummary -&gt; FindingsReportSummary -&gt; Bool
+== :: FindingsReportSummary -&gt; FindingsReportSummary -&gt; Bool
+$c== :: FindingsReportSummary -&gt; FindingsReportSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198033"><span id="local-6989586621679198035"><span id="local-6989586621679198037"><span id="local-6989586621679198039"><span class="annot"><span class="annottext">ReadPrec [FindingsReportSummary]
+ReadPrec FindingsReportSummary
+Int -&gt; ReadS FindingsReportSummary
+ReadS [FindingsReportSummary]
+(Int -&gt; ReadS FindingsReportSummary)
+-&gt; ReadS [FindingsReportSummary]
+-&gt; ReadPrec FindingsReportSummary
+-&gt; ReadPrec [FindingsReportSummary]
+-&gt; Read FindingsReportSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FindingsReportSummary]
+$creadListPrec :: ReadPrec [FindingsReportSummary]
+readPrec :: ReadPrec FindingsReportSummary
+$creadPrec :: ReadPrec FindingsReportSummary
+readList :: ReadS [FindingsReportSummary]
+$creadList :: ReadS [FindingsReportSummary]
+readsPrec :: Int -&gt; ReadS FindingsReportSummary
+$creadsPrec :: Int -&gt; ReadS FindingsReportSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198026"><span id="local-6989586621679198028"><span id="local-6989586621679198030"><span class="annot"><span class="annottext">Int -&gt; FindingsReportSummary -&gt; ShowS
+[FindingsReportSummary] -&gt; ShowS
+FindingsReportSummary -&gt; String
+(Int -&gt; FindingsReportSummary -&gt; ShowS)
+-&gt; (FindingsReportSummary -&gt; String)
+-&gt; ([FindingsReportSummary] -&gt; ShowS)
+-&gt; Show FindingsReportSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FindingsReportSummary] -&gt; ShowS
+$cshowList :: [FindingsReportSummary] -&gt; ShowS
+show :: FindingsReportSummary -&gt; String
+$cshow :: FindingsReportSummary -&gt; String
+showsPrec :: Int -&gt; FindingsReportSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; FindingsReportSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FindingsReportSummary -&gt; Rep FindingsReportSummary x)
+-&gt; (forall x. Rep FindingsReportSummary x -&gt; FindingsReportSummary)
+-&gt; Generic FindingsReportSummary
+forall x. Rep FindingsReportSummary x -&gt; FindingsReportSummary
+forall x. FindingsReportSummary -&gt; Rep FindingsReportSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FindingsReportSummary x -&gt; FindingsReportSummary
+$cfrom :: forall x. FindingsReportSummary -&gt; Rep FindingsReportSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'FindingsReportSummary' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'profileStartTime', 'findingsReportSummary_profileStartTime' - The start time of the profile the analysis data is about. This is</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'profileEndTime', 'findingsReportSummary_profileEndTime' - The end time of the period during which the metric is flagged as</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- anomalous. This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'id', 'findingsReportSummary_id' - The universally unique identifier (UUID) of the recommendation report.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'profilingGroupName', 'findingsReportSummary_profilingGroupName' - The name of the profiling group that is associated with the analysis</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'totalNumberOfFindings', 'findingsReportSummary_totalNumberOfFindings' - The total number of different recommendations that were found by the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- analysis.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#newFindingsReportSummary"><span class="hs-identifier hs-type">newFindingsReportSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span>
+</span><span id="line-79"></span><span id="newFindingsReportSummary"><span class="annot"><span class="annottext">newFindingsReportSummary :: FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#newFindingsReportSummary"><span class="hs-identifier hs-var hs-var">newFindingsReportSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">FindingsReportSummary' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:profileStartTime:FindingsReportSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofileStartTime%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">profileStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:profileEndTime:FindingsReportSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofileEndTime%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">profileEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:FindingsReportSummary' :: Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3Aid%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:profilingGroupName:FindingsReportSummary' :: Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofilingGroupName%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalNumberOfFindings:FindingsReportSummary' :: Maybe Int
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AtotalNumberOfFindings%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">totalNumberOfFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The start time of the profile the analysis data is about. This is</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_profileStartTime"><span class="hs-identifier hs-type">findingsReportSummary_profileStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="findingsReportSummary_profileStartTime"><span class="annot"><span class="annottext">findingsReportSummary_profileStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FindingsReportSummary -&gt; f FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_profileStartTime"><span class="hs-identifier hs-var hs-var">findingsReportSummary_profileStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsReportSummary -&gt; Maybe POSIX)
+-&gt; (FindingsReportSummary -&gt; Maybe POSIX -&gt; FindingsReportSummary)
+-&gt; Lens
+     FindingsReportSummary
+     FindingsReportSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198017"><span class="annot"><span class="annottext">Maybe POSIX
+profileStartTime :: Maybe POSIX
+$sel:profileStartTime:FindingsReportSummary' :: FindingsReportSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679198017"><span class="hs-identifier hs-var hs-var">profileStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198017"><span class="hs-identifier hs-var">profileStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198016"><span class="annot"><span class="annottext">s :: FindingsReportSummary
+</span><a href="#local-6989586621679198016"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198015"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198015"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsReportSummary
+</span><a href="#local-6989586621679198016"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileStartTime:FindingsReportSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofileStartTime%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">profileStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198015"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; FindingsReportSummary -&gt; f FindingsReportSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FindingsReportSummary
+-&gt; f FindingsReportSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The end time of the period during which the metric is flagged as</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- anomalous. This is specified using the ISO 8601 format. For example,</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 2020-06-01T13:15:02.001Z represents 1 millisecond past June 1, 2020</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 1:15:02 PM UTC.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_profileEndTime"><span class="hs-identifier hs-type">findingsReportSummary_profileEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="findingsReportSummary_profileEndTime"><span class="annot"><span class="annottext">findingsReportSummary_profileEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FindingsReportSummary -&gt; f FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_profileEndTime"><span class="hs-identifier hs-var hs-var">findingsReportSummary_profileEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsReportSummary -&gt; Maybe POSIX)
+-&gt; (FindingsReportSummary -&gt; Maybe POSIX -&gt; FindingsReportSummary)
+-&gt; Lens
+     FindingsReportSummary
+     FindingsReportSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198010"><span class="annot"><span class="annottext">Maybe POSIX
+profileEndTime :: Maybe POSIX
+$sel:profileEndTime:FindingsReportSummary' :: FindingsReportSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679198010"><span class="hs-identifier hs-var hs-var">profileEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198010"><span class="hs-identifier hs-var">profileEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198009"><span class="annot"><span class="annottext">s :: FindingsReportSummary
+</span><a href="#local-6989586621679198009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198008"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsReportSummary
+</span><a href="#local-6989586621679198009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profileEndTime:FindingsReportSummary' :: Maybe POSIX
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofileEndTime%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">profileEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679198008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; FindingsReportSummary -&gt; f FindingsReportSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; FindingsReportSummary
+-&gt; f FindingsReportSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The universally unique identifier (UUID) of the recommendation report.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_id"><span class="hs-identifier hs-type">findingsReportSummary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="findingsReportSummary_id"><span class="annot"><span class="annottext">findingsReportSummary_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FindingsReportSummary -&gt; f FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_id"><span class="hs-identifier hs-var hs-var">findingsReportSummary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsReportSummary -&gt; Maybe Text)
+-&gt; (FindingsReportSummary -&gt; Maybe Text -&gt; FindingsReportSummary)
+-&gt; Lens
+     FindingsReportSummary
+     FindingsReportSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198006"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:FindingsReportSummary' :: FindingsReportSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679198006"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198006"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198005"><span class="annot"><span class="annottext">s :: FindingsReportSummary
+</span><a href="#local-6989586621679198005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198004"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsReportSummary
+</span><a href="#local-6989586621679198005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:FindingsReportSummary' :: Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3Aid%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The name of the profiling group that is associated with the analysis</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- data.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_profilingGroupName"><span class="hs-identifier hs-type">findingsReportSummary_profilingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="findingsReportSummary_profilingGroupName"><span class="annot"><span class="annottext">findingsReportSummary_profilingGroupName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; FindingsReportSummary -&gt; f FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_profilingGroupName"><span class="hs-identifier hs-var hs-var">findingsReportSummary_profilingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsReportSummary -&gt; Maybe Text)
+-&gt; (FindingsReportSummary -&gt; Maybe Text -&gt; FindingsReportSummary)
+-&gt; Lens
+     FindingsReportSummary
+     FindingsReportSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198002"><span class="annot"><span class="annottext">Maybe Text
+profilingGroupName :: Maybe Text
+$sel:profilingGroupName:FindingsReportSummary' :: FindingsReportSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679198002"><span class="hs-identifier hs-var hs-var">profilingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198002"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198001"><span class="annot"><span class="annottext">s :: FindingsReportSummary
+</span><a href="#local-6989586621679198001"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198000"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198000"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsReportSummary
+</span><a href="#local-6989586621679198001"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:profilingGroupName:FindingsReportSummary' :: Maybe Text
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AprofilingGroupName%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">profilingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198000"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The total number of different recommendations that were found by the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- analysis.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_totalNumberOfFindings"><span class="hs-identifier hs-type">findingsReportSummary_totalNumberOfFindings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="findingsReportSummary_totalNumberOfFindings"><span class="annot"><span class="annottext">findingsReportSummary_totalNumberOfFindings :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; FindingsReportSummary -&gt; f FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#findingsReportSummary_totalNumberOfFindings"><span class="hs-identifier hs-var hs-var">findingsReportSummary_totalNumberOfFindings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FindingsReportSummary -&gt; Maybe Int)
+-&gt; (FindingsReportSummary -&gt; Maybe Int -&gt; FindingsReportSummary)
+-&gt; Lens
+     FindingsReportSummary FindingsReportSummary (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197998"><span class="annot"><span class="annottext">Maybe Int
+totalNumberOfFindings :: Maybe Int
+$sel:totalNumberOfFindings:FindingsReportSummary' :: FindingsReportSummary -&gt; Maybe Int
+</span><a href="#local-6989586621679197998"><span class="hs-identifier hs-var hs-var">totalNumberOfFindings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679197998"><span class="hs-identifier hs-var">totalNumberOfFindings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197997"><span class="annot"><span class="annottext">s :: FindingsReportSummary
+</span><a href="#local-6989586621679197997"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-type">FindingsReportSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197996"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679197996"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FindingsReportSummary
+</span><a href="#local-6989586621679197997"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalNumberOfFindings:FindingsReportSummary' :: Maybe Int
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#%24sel%3AtotalNumberOfFindings%3AFindingsReportSummary%27"><span class="hs-identifier hs-var">totalNumberOfFindings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679197996"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197993"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679197991"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FindingsReportSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FindingsReportSummary)
+-&gt; Value
+-&gt; Parser FindingsReportSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FindingsReportSummary&quot;</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197988"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197988"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; FindingsReportSummary
+</span><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary%27"><span class="hs-identifier hs-var">FindingsReportSummary'</span></a></span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; FindingsReportSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; FindingsReportSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profileStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; FindingsReportSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; FindingsReportSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profileEndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; FindingsReportSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; FindingsReportSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; FindingsReportSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; FindingsReportSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;profilingGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; FindingsReportSummary)
+-&gt; Parser (Maybe Int) -&gt; Parser FindingsReportSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679197988"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalNumberOfFindings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197982"><span id="local-6989586621679197984"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197979"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeGuruProfiler.Types.FindingsReportSummary.html#FindingsReportSummary"><span class="hs-identifier hs-type">FindingsReportSummary</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

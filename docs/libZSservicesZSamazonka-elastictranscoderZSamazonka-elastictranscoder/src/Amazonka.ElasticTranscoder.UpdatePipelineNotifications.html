@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElasticTranscoder.UpdatePipelineNotifications</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- With the UpdatePipelineNotifications operation, you can update Amazon</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Simple Notification Service (Amazon SNS) notifications for a pipeline.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- When you update notifications for a pipeline, Elastic Transcoder returns</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- the values that you specified in the request.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticTranscoder.UpdatePipelineNotifications</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier">UpdatePipelineNotifications</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#newUpdatePipelineNotifications"><span class="hs-identifier">newUpdatePipelineNotifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotifications_id"><span class="hs-identifier">updatePipelineNotifications_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotifications_notifications"><span class="hs-identifier">updatePipelineNotifications_notifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier">UpdatePipelineNotificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#newUpdatePipelineNotificationsResponse"><span class="hs-identifier">newUpdatePipelineNotificationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotificationsResponse_pipeline"><span class="hs-identifier">updatePipelineNotificationsResponse_pipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotificationsResponse_httpStatus"><span class="hs-identifier">updatePipelineNotificationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.html"><span class="hs-identifier">Amazonka.ElasticTranscoder.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | The @UpdatePipelineNotificationsRequest@ structure.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newUpdatePipelineNotifications' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679217961"><span id="local-6989586621679217962"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipelineNotifications"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-var">UpdatePipelineNotifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipelineNotifications%27"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-var">UpdatePipelineNotifications'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the pipeline for which you want to change notification</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- settings.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aid%3AUpdatePipelineNotifications%27"><span class="annot"><span class="annottext">UpdatePipelineNotifications -&gt; Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Aid%3AUpdatePipelineNotifications%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- topic that you want to notify to report job status.</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- To receive notifications, you must also subscribe to the new topic in</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the Amazon SNS console.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   __Progressing__: The topic ARN for the Amazon Simple Notification</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     Service (Amazon SNS) topic that you want to notify when Elastic</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     Transcoder has started to process jobs that are added to this</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     pipeline. This is the ARN that Amazon SNS returned when you created</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     the topic.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     to notify when Elastic Transcoder has finished processing a job.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     This is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     notify when Elastic Transcoder encounters a warning condition. This</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     notify when Elastic Transcoder encounters an error condition. This</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Anotifications%3AUpdatePipelineNotifications%27"><span class="annot"><span class="annottext">UpdatePipelineNotifications -&gt; Notifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Anotifications%3AUpdatePipelineNotifications%27"><span class="hs-identifier hs-var hs-var">notifications</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Notifications.html#Notifications"><span class="hs-identifier hs-type">Notifications</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217954"><span id="local-6989586621679217956"><span class="annot"><span class="annottext">UpdatePipelineNotifications -&gt; UpdatePipelineNotifications -&gt; Bool
+(UpdatePipelineNotifications
+ -&gt; UpdatePipelineNotifications -&gt; Bool)
+-&gt; (UpdatePipelineNotifications
+    -&gt; UpdatePipelineNotifications -&gt; Bool)
+-&gt; Eq UpdatePipelineNotifications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePipelineNotifications -&gt; UpdatePipelineNotifications -&gt; Bool
+$c/= :: UpdatePipelineNotifications -&gt; UpdatePipelineNotifications -&gt; Bool
+== :: UpdatePipelineNotifications -&gt; UpdatePipelineNotifications -&gt; Bool
+$c== :: UpdatePipelineNotifications -&gt; UpdatePipelineNotifications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217945"><span id="local-6989586621679217947"><span id="local-6989586621679217949"><span id="local-6989586621679217951"><span class="annot"><span class="annottext">ReadPrec [UpdatePipelineNotifications]
+ReadPrec UpdatePipelineNotifications
+Int -&gt; ReadS UpdatePipelineNotifications
+ReadS [UpdatePipelineNotifications]
+(Int -&gt; ReadS UpdatePipelineNotifications)
+-&gt; ReadS [UpdatePipelineNotifications]
+-&gt; ReadPrec UpdatePipelineNotifications
+-&gt; ReadPrec [UpdatePipelineNotifications]
+-&gt; Read UpdatePipelineNotifications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePipelineNotifications]
+$creadListPrec :: ReadPrec [UpdatePipelineNotifications]
+readPrec :: ReadPrec UpdatePipelineNotifications
+$creadPrec :: ReadPrec UpdatePipelineNotifications
+readList :: ReadS [UpdatePipelineNotifications]
+$creadList :: ReadS [UpdatePipelineNotifications]
+readsPrec :: Int -&gt; ReadS UpdatePipelineNotifications
+$creadsPrec :: Int -&gt; ReadS UpdatePipelineNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217938"><span id="local-6989586621679217940"><span id="local-6989586621679217942"><span class="annot"><span class="annottext">Int -&gt; UpdatePipelineNotifications -&gt; ShowS
+[UpdatePipelineNotifications] -&gt; ShowS
+UpdatePipelineNotifications -&gt; String
+(Int -&gt; UpdatePipelineNotifications -&gt; ShowS)
+-&gt; (UpdatePipelineNotifications -&gt; String)
+-&gt; ([UpdatePipelineNotifications] -&gt; ShowS)
+-&gt; Show UpdatePipelineNotifications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePipelineNotifications] -&gt; ShowS
+$cshowList :: [UpdatePipelineNotifications] -&gt; ShowS
+show :: UpdatePipelineNotifications -&gt; String
+$cshow :: UpdatePipelineNotifications -&gt; String
+showsPrec :: Int -&gt; UpdatePipelineNotifications -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePipelineNotifications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePipelineNotifications -&gt; Rep UpdatePipelineNotifications x)
+-&gt; (forall x.
+    Rep UpdatePipelineNotifications x -&gt; UpdatePipelineNotifications)
+-&gt; Generic UpdatePipelineNotifications
+forall x.
+Rep UpdatePipelineNotifications x -&gt; UpdatePipelineNotifications
+forall x.
+UpdatePipelineNotifications -&gt; Rep UpdatePipelineNotifications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePipelineNotifications x -&gt; UpdatePipelineNotifications
+$cfrom :: forall x.
+UpdatePipelineNotifications -&gt; Rep UpdatePipelineNotifications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Create a value of 'UpdatePipelineNotifications' with all optional fields omitted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'id', 'updatePipelineNotifications_id' - The identifier of the pipeline for which you want to change notification</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- settings.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'notifications', 'updatePipelineNotifications_notifications' - The topic ARN for the Amazon Simple Notification Service (Amazon SNS)</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- topic that you want to notify to report job status.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- To receive notifications, you must also subscribe to the new topic in</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the Amazon SNS console.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- -   __Progressing__: The topic ARN for the Amazon Simple Notification</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--     Service (Amazon SNS) topic that you want to notify when Elastic</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--     Transcoder has started to process jobs that are added to this</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--     pipeline. This is the ARN that Amazon SNS returned when you created</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--     the topic.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--     to notify when Elastic Transcoder has finished processing a job.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     This is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters a warning condition. This</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters an error condition. This</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#newUpdatePipelineNotifications"><span class="hs-identifier hs-type">newUpdatePipelineNotifications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-comment">-- | 'notifications'</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Notifications.html#Notifications"><span class="hs-identifier hs-type">Notifications</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span>
+</span><span id="line-128"></span><span id="newUpdatePipelineNotifications"><span class="annot"><span class="annottext">newUpdatePipelineNotifications :: Text -&gt; Notifications -&gt; UpdatePipelineNotifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#newUpdatePipelineNotifications"><span class="hs-identifier hs-var hs-var">newUpdatePipelineNotifications</span></a></span></span><span> </span><span id="local-6989586621679217933"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217933"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679217932"><span class="annot"><span class="annottext">Notifications
+</span><a href="#local-6989586621679217932"><span class="hs-identifier hs-var">pNotifications_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">UpdatePipelineNotifications' :: Text -&gt; Notifications -&gt; UpdatePipelineNotifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-type">UpdatePipelineNotifications'</span></a></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:UpdatePipelineNotifications' :: Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Aid%3AUpdatePipelineNotifications%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217933"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:notifications:UpdatePipelineNotifications' :: Notifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Anotifications%3AUpdatePipelineNotifications%27"><span class="hs-identifier hs-var">notifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Notifications
+</span><a href="#local-6989586621679217932"><span class="hs-identifier hs-var">pNotifications_</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The identifier of the pipeline for which you want to change notification</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- settings.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotifications_id"><span class="hs-identifier hs-type">updatePipelineNotifications_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="updatePipelineNotifications_id"><span class="annot"><span class="annottext">updatePipelineNotifications_id :: (Text -&gt; f Text)
+-&gt; UpdatePipelineNotifications -&gt; f UpdatePipelineNotifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotifications_id"><span class="hs-identifier hs-var hs-var">updatePipelineNotifications_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipelineNotifications -&gt; Text)
+-&gt; (UpdatePipelineNotifications
+    -&gt; Text -&gt; UpdatePipelineNotifications)
+-&gt; Lens
+     UpdatePipelineNotifications UpdatePipelineNotifications Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-type">UpdatePipelineNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217929"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:UpdatePipelineNotifications' :: UpdatePipelineNotifications -&gt; Text
+</span><a href="#local-6989586621679217929"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217929"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217928"><span class="annot"><span class="annottext">s :: UpdatePipelineNotifications
+</span><a href="#local-6989586621679217928"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-type">UpdatePipelineNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217927"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217927"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineNotifications
+</span><a href="#local-6989586621679217928"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:UpdatePipelineNotifications' :: Text
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Aid%3AUpdatePipelineNotifications%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217927"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- topic that you want to notify to report job status.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- To receive notifications, you must also subscribe to the new topic in</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- the Amazon SNS console.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   __Progressing__: The topic ARN for the Amazon Simple Notification</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     Service (Amazon SNS) topic that you want to notify when Elastic</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     Transcoder has started to process jobs that are added to this</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--     pipeline. This is the ARN that Amazon SNS returned when you created</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     the topic.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   __Complete__: The topic ARN for the Amazon SNS topic that you want</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--     to notify when Elastic Transcoder has finished processing a job.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     This is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- -   __Warning__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters a warning condition. This</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- -   __Error__: The topic ARN for the Amazon SNS topic that you want to</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--     notify when Elastic Transcoder encounters an error condition. This</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     is the ARN that Amazon SNS returned when you created the topic.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotifications_notifications"><span class="hs-identifier hs-type">updatePipelineNotifications_notifications</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Notifications.html#Notifications"><span class="hs-identifier hs-type">Notifications</span></a></span><span>
+</span><span id="line-163"></span><span id="updatePipelineNotifications_notifications"><span class="annot"><span class="annottext">updatePipelineNotifications_notifications :: (Notifications -&gt; f Notifications)
+-&gt; UpdatePipelineNotifications -&gt; f UpdatePipelineNotifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotifications_notifications"><span class="hs-identifier hs-var hs-var">updatePipelineNotifications_notifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipelineNotifications -&gt; Notifications)
+-&gt; (UpdatePipelineNotifications
+    -&gt; Notifications -&gt; UpdatePipelineNotifications)
+-&gt; Lens
+     UpdatePipelineNotifications
+     UpdatePipelineNotifications
+     Notifications
+     Notifications
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-type">UpdatePipelineNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217926"><span class="annot"><span class="annottext">Notifications
+notifications :: Notifications
+$sel:notifications:UpdatePipelineNotifications' :: UpdatePipelineNotifications -&gt; Notifications
+</span><a href="#local-6989586621679217926"><span class="hs-identifier hs-var hs-var">notifications</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Notifications
+</span><a href="#local-6989586621679217926"><span class="hs-identifier hs-var">notifications</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217925"><span class="annot"><span class="annottext">s :: UpdatePipelineNotifications
+</span><a href="#local-6989586621679217925"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-type">UpdatePipelineNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217924"><span class="annot"><span class="annottext">Notifications
+</span><a href="#local-6989586621679217924"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineNotifications
+</span><a href="#local-6989586621679217925"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notifications:UpdatePipelineNotifications' :: Notifications
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Anotifications%3AUpdatePipelineNotifications%27"><span class="hs-identifier hs-var">notifications</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Notifications
+</span><a href="#local-6989586621679217924"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-167"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679217920"><span class="annot"><span class="annottext">request :: UpdatePipelineNotifications -&gt; Request UpdatePipelineNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdatePipelineNotifications
+-&gt; Request UpdatePipelineNotifications
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElasticTranscoder.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679217916"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePipelineNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePipelineNotifications)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdatePipelineNotifications))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePipelineNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdatePipelineNotifications)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679217913"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679217912"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679217912"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679217911"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217911"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>          </span><span class="annot"><span class="annottext">Maybe Pipeline -&gt; Int -&gt; UpdatePipelineNotificationsResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var">UpdatePipelineNotificationsResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Pipeline -&gt; Int -&gt; UpdatePipelineNotificationsResponse)
+-&gt; Either String (Maybe Pipeline)
+-&gt; Either String (Int -&gt; UpdatePipelineNotificationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679217911"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Pipeline)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Pipeline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdatePipelineNotificationsResponse)
+-&gt; Either String Int
+-&gt; Either String UpdatePipelineNotificationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217913"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217903"><span id="local-6989586621679217905"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217900"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679217896"><span class="annot"><span class="annottext">toHeaders :: UpdatePipelineNotifications -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePipelineNotifications -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679217887"><span id="local-6989586621679217889"><span id="local-6989586621679217891"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679217885"><span class="annot"><span class="annottext">toJSON :: UpdatePipelineNotifications -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-type">UpdatePipelineNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217882"><span id="local-6989586621679217883"><span class="annot"><span class="annottext">Text
+Notifications
+notifications :: Notifications
+id :: Text
+$sel:notifications:UpdatePipelineNotifications' :: UpdatePipelineNotifications -&gt; Notifications
+$sel:id:UpdatePipelineNotifications' :: UpdatePipelineNotifications -&gt; Text
+</span><a href="#local-6989586621679217882"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Notifications&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Notifications -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Notifications
+</span><a href="#local-6989586621679217882"><span class="hs-identifier hs-var">notifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679217876"><span class="annot"><span class="annottext">toPath :: UpdatePipelineNotifications -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications%27"><span class="hs-identifier hs-type">UpdatePipelineNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217873"><span id="local-6989586621679217874"><span class="annot"><span class="annottext">Text
+Notifications
+notifications :: Notifications
+id :: Text
+$sel:notifications:UpdatePipelineNotifications' :: UpdatePipelineNotifications -&gt; Notifications
+$sel:id:UpdatePipelineNotifications' :: UpdatePipelineNotifications -&gt; Text
+</span><a href="#local-6989586621679217873"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2012-09-25/pipelines/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679217874"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/notifications&quot;</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotifications"><span class="hs-identifier hs-type">UpdatePipelineNotifications</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-203"></span><span>  </span><span id="local-6989586621679217869"><span class="annot"><span class="annottext">toQuery :: UpdatePipelineNotifications -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePipelineNotifications -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The @UpdatePipelineNotificationsResponse@ structure.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- /See:/ 'newUpdatePipelineNotificationsResponse' smart constructor.</span><span>
+</span><span id="line-208"></span><span id="local-6989586621679217866"><span id="local-6989586621679217867"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePipelineNotificationsResponse"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-var">UpdatePipelineNotificationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePipelineNotificationsResponse%27"><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var">UpdatePipelineNotificationsResponse'</span></a></span></span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A section of the response body that provides information about the</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- pipeline associated with this notification.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3Apipeline%3AUpdatePipelineNotificationsResponse%27"><span class="annot"><span class="annottext">UpdatePipelineNotificationsResponse -&gt; Maybe Pipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Apipeline%3AUpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Pipeline.html#Pipeline"><span class="hs-identifier hs-type">Pipeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePipelineNotificationsResponse%27"><span class="annot"><span class="annottext">UpdatePipelineNotificationsResponse -&gt; Int
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3AhttpStatus%3AUpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679217860"><span id="local-6989586621679217862"><span class="annot"><span class="annottext">UpdatePipelineNotificationsResponse
+-&gt; UpdatePipelineNotificationsResponse -&gt; Bool
+(UpdatePipelineNotificationsResponse
+ -&gt; UpdatePipelineNotificationsResponse -&gt; Bool)
+-&gt; (UpdatePipelineNotificationsResponse
+    -&gt; UpdatePipelineNotificationsResponse -&gt; Bool)
+-&gt; Eq UpdatePipelineNotificationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePipelineNotificationsResponse
+-&gt; UpdatePipelineNotificationsResponse -&gt; Bool
+$c/= :: UpdatePipelineNotificationsResponse
+-&gt; UpdatePipelineNotificationsResponse -&gt; Bool
+== :: UpdatePipelineNotificationsResponse
+-&gt; UpdatePipelineNotificationsResponse -&gt; Bool
+$c== :: UpdatePipelineNotificationsResponse
+-&gt; UpdatePipelineNotificationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217852"><span id="local-6989586621679217854"><span id="local-6989586621679217856"><span id="local-6989586621679217858"><span class="annot"><span class="annottext">ReadPrec [UpdatePipelineNotificationsResponse]
+ReadPrec UpdatePipelineNotificationsResponse
+Int -&gt; ReadS UpdatePipelineNotificationsResponse
+ReadS [UpdatePipelineNotificationsResponse]
+(Int -&gt; ReadS UpdatePipelineNotificationsResponse)
+-&gt; ReadS [UpdatePipelineNotificationsResponse]
+-&gt; ReadPrec UpdatePipelineNotificationsResponse
+-&gt; ReadPrec [UpdatePipelineNotificationsResponse]
+-&gt; Read UpdatePipelineNotificationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePipelineNotificationsResponse]
+$creadListPrec :: ReadPrec [UpdatePipelineNotificationsResponse]
+readPrec :: ReadPrec UpdatePipelineNotificationsResponse
+$creadPrec :: ReadPrec UpdatePipelineNotificationsResponse
+readList :: ReadS [UpdatePipelineNotificationsResponse]
+$creadList :: ReadS [UpdatePipelineNotificationsResponse]
+readsPrec :: Int -&gt; ReadS UpdatePipelineNotificationsResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePipelineNotificationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679217846"><span id="local-6989586621679217848"><span id="local-6989586621679217850"><span class="annot"><span class="annottext">Int -&gt; UpdatePipelineNotificationsResponse -&gt; ShowS
+[UpdatePipelineNotificationsResponse] -&gt; ShowS
+UpdatePipelineNotificationsResponse -&gt; String
+(Int -&gt; UpdatePipelineNotificationsResponse -&gt; ShowS)
+-&gt; (UpdatePipelineNotificationsResponse -&gt; String)
+-&gt; ([UpdatePipelineNotificationsResponse] -&gt; ShowS)
+-&gt; Show UpdatePipelineNotificationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePipelineNotificationsResponse] -&gt; ShowS
+$cshowList :: [UpdatePipelineNotificationsResponse] -&gt; ShowS
+show :: UpdatePipelineNotificationsResponse -&gt; String
+$cshow :: UpdatePipelineNotificationsResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePipelineNotificationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePipelineNotificationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePipelineNotificationsResponse
+ -&gt; Rep UpdatePipelineNotificationsResponse x)
+-&gt; (forall x.
+    Rep UpdatePipelineNotificationsResponse x
+    -&gt; UpdatePipelineNotificationsResponse)
+-&gt; Generic UpdatePipelineNotificationsResponse
+forall x.
+Rep UpdatePipelineNotificationsResponse x
+-&gt; UpdatePipelineNotificationsResponse
+forall x.
+UpdatePipelineNotificationsResponse
+-&gt; Rep UpdatePipelineNotificationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePipelineNotificationsResponse x
+-&gt; UpdatePipelineNotificationsResponse
+$cfrom :: forall x.
+UpdatePipelineNotificationsResponse
+-&gt; Rep UpdatePipelineNotificationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'UpdatePipelineNotificationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'pipeline', 'updatePipelineNotificationsResponse_pipeline' - A section of the response body that provides information about the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- pipeline associated with this notification.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- 'httpStatus', 'updatePipelineNotificationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#newUpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">newUpdatePipelineNotificationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-231"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-232"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse</span></a></span><span>
+</span><span id="line-233"></span><span id="newUpdatePipelineNotificationsResponse"><span class="annot"><span class="annottext">newUpdatePipelineNotificationsResponse :: Int -&gt; UpdatePipelineNotificationsResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#newUpdatePipelineNotificationsResponse"><span class="hs-identifier hs-var hs-var">newUpdatePipelineNotificationsResponse</span></a></span></span><span> </span><span id="local-6989586621679217843"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>  </span><span class="annot"><span class="annottext">UpdatePipelineNotificationsResponse' :: Maybe Pipeline -&gt; Int -&gt; UpdatePipelineNotificationsResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse'</span></a></span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipelineNotificationsResponse' :: Maybe Pipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Apipeline%3AUpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Maybe Pipeline
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePipelineNotificationsResponse' :: Int
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3AhttpStatus%3AUpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217843"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | A section of the response body that provides information about the</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- pipeline associated with this notification.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotificationsResponse_pipeline"><span class="hs-identifier hs-type">updatePipelineNotificationsResponse_pipeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Pipeline.html#Pipeline"><span class="hs-identifier hs-type">Pipeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="updatePipelineNotificationsResponse_pipeline"><span class="annot"><span class="annottext">updatePipelineNotificationsResponse_pipeline :: (Maybe Pipeline -&gt; f (Maybe Pipeline))
+-&gt; UpdatePipelineNotificationsResponse
+-&gt; f UpdatePipelineNotificationsResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotificationsResponse_pipeline"><span class="hs-identifier hs-var hs-var">updatePipelineNotificationsResponse_pipeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipelineNotificationsResponse -&gt; Maybe Pipeline)
+-&gt; (UpdatePipelineNotificationsResponse
+    -&gt; Maybe Pipeline -&gt; UpdatePipelineNotificationsResponse)
+-&gt; Lens
+     UpdatePipelineNotificationsResponse
+     UpdatePipelineNotificationsResponse
+     (Maybe Pipeline)
+     (Maybe Pipeline)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217842"><span class="annot"><span class="annottext">Maybe Pipeline
+pipeline :: Maybe Pipeline
+$sel:pipeline:UpdatePipelineNotificationsResponse' :: UpdatePipelineNotificationsResponse -&gt; Maybe Pipeline
+</span><a href="#local-6989586621679217842"><span class="hs-identifier hs-var hs-var">pipeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679217842"><span class="hs-identifier hs-var">pipeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217841"><span class="annot"><span class="annottext">s :: UpdatePipelineNotificationsResponse
+</span><a href="#local-6989586621679217841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217840"><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679217840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineNotificationsResponse
+</span><a href="#local-6989586621679217841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipeline:UpdatePipelineNotificationsResponse' :: Maybe Pipeline
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3Apipeline%3AUpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var">pipeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Pipeline
+</span><a href="#local-6989586621679217840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-246"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotificationsResponse_httpStatus"><span class="hs-identifier hs-type">updatePipelineNotificationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-247"></span><span id="updatePipelineNotificationsResponse_httpStatus"><span class="annot"><span class="annottext">updatePipelineNotificationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdatePipelineNotificationsResponse
+-&gt; f UpdatePipelineNotificationsResponse
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#updatePipelineNotificationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updatePipelineNotificationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePipelineNotificationsResponse -&gt; Int)
+-&gt; (UpdatePipelineNotificationsResponse
+    -&gt; Int -&gt; UpdatePipelineNotificationsResponse)
+-&gt; Lens
+     UpdatePipelineNotificationsResponse
+     UpdatePipelineNotificationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679217839"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdatePipelineNotificationsResponse' :: UpdatePipelineNotificationsResponse -&gt; Int
+</span><a href="#local-6989586621679217839"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217839"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679217838"><span class="annot"><span class="annottext">s :: UpdatePipelineNotificationsResponse
+</span><a href="#local-6989586621679217838"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679217837"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217837"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePipelineNotificationsResponse
+</span><a href="#local-6989586621679217838"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePipelineNotificationsResponse' :: Int
+</span><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#%24sel%3AhttpStatus%3AUpdatePipelineNotificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679217837"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-250"></span><span>  </span><span id="local-6989586621679217835"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticTranscoder.UpdatePipelineNotifications.html#UpdatePipelineNotificationsResponse"><span class="hs-identifier hs-type">UpdatePipelineNotificationsResponse</span></a></span></span><span>
+</span><span id="line-252"></span></pre></body></html>

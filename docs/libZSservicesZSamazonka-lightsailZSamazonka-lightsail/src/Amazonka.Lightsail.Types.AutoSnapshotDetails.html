@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.AutoSnapshotDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.AutoSnapshotDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AttachedDisk.html"><span class="hs-identifier">Amazonka.Lightsail.Types.AttachedDisk</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotStatus.html"><span class="hs-identifier">Amazonka.Lightsail.Types.AutoSnapshotStatus</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes an automatic snapshot.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAutoSnapshotDetails' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679604377"><span id="local-6989586621679604378"></span></span><span class="hs-keyword">data</span><span> </span><span id="AutoSnapshotDetails"><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-var">AutoSnapshotDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoSnapshotDetails%27"><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-var">AutoSnapshotDetails'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the automatic snapshot.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Astatus%3AAutoSnapshotDetails%27"><span class="annot"><span class="annottext">AutoSnapshotDetails -&gt; Maybe AutoSnapshotStatus
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3Astatus%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotStatus.html#AutoSnapshotStatus"><span class="hs-identifier hs-type">AutoSnapshotStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | An array of objects that describe the block storage disks attached to</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- the instance when the automatic snapshot was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AfromAttachedDisks%3AAutoSnapshotDetails%27"><span class="annot"><span class="annottext">AutoSnapshotDetails -&gt; Maybe [AttachedDisk]
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3AfromAttachedDisks%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var hs-var">fromAttachedDisks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.AttachedDisk.html#AttachedDisk"><span class="hs-identifier hs-type">AttachedDisk</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The timestamp when the automatic snapshot was created.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAutoSnapshotDetails%27"><span class="annot"><span class="annottext">AutoSnapshotDetails -&gt; Maybe POSIX
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3AcreatedAt%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date of the automatic snapshot in @YYYY-MM-DD@ format.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Adate%3AAutoSnapshotDetails%27"><span class="annot"><span class="annottext">AutoSnapshotDetails -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3Adate%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679604368"><span id="local-6989586621679604370"><span class="annot"><span class="annottext">AutoSnapshotDetails -&gt; AutoSnapshotDetails -&gt; Bool
+(AutoSnapshotDetails -&gt; AutoSnapshotDetails -&gt; Bool)
+-&gt; (AutoSnapshotDetails -&gt; AutoSnapshotDetails -&gt; Bool)
+-&gt; Eq AutoSnapshotDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoSnapshotDetails -&gt; AutoSnapshotDetails -&gt; Bool
+$c/= :: AutoSnapshotDetails -&gt; AutoSnapshotDetails -&gt; Bool
+== :: AutoSnapshotDetails -&gt; AutoSnapshotDetails -&gt; Bool
+$c== :: AutoSnapshotDetails -&gt; AutoSnapshotDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604359"><span id="local-6989586621679604361"><span id="local-6989586621679604363"><span id="local-6989586621679604365"><span class="annot"><span class="annottext">ReadPrec [AutoSnapshotDetails]
+ReadPrec AutoSnapshotDetails
+Int -&gt; ReadS AutoSnapshotDetails
+ReadS [AutoSnapshotDetails]
+(Int -&gt; ReadS AutoSnapshotDetails)
+-&gt; ReadS [AutoSnapshotDetails]
+-&gt; ReadPrec AutoSnapshotDetails
+-&gt; ReadPrec [AutoSnapshotDetails]
+-&gt; Read AutoSnapshotDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoSnapshotDetails]
+$creadListPrec :: ReadPrec [AutoSnapshotDetails]
+readPrec :: ReadPrec AutoSnapshotDetails
+$creadPrec :: ReadPrec AutoSnapshotDetails
+readList :: ReadS [AutoSnapshotDetails]
+$creadList :: ReadS [AutoSnapshotDetails]
+readsPrec :: Int -&gt; ReadS AutoSnapshotDetails
+$creadsPrec :: Int -&gt; ReadS AutoSnapshotDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679604352"><span id="local-6989586621679604354"><span id="local-6989586621679604356"><span class="annot"><span class="annottext">Int -&gt; AutoSnapshotDetails -&gt; ShowS
+[AutoSnapshotDetails] -&gt; ShowS
+AutoSnapshotDetails -&gt; String
+(Int -&gt; AutoSnapshotDetails -&gt; ShowS)
+-&gt; (AutoSnapshotDetails -&gt; String)
+-&gt; ([AutoSnapshotDetails] -&gt; ShowS)
+-&gt; Show AutoSnapshotDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoSnapshotDetails] -&gt; ShowS
+$cshowList :: [AutoSnapshotDetails] -&gt; ShowS
+show :: AutoSnapshotDetails -&gt; String
+$cshow :: AutoSnapshotDetails -&gt; String
+showsPrec :: Int -&gt; AutoSnapshotDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoSnapshotDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AutoSnapshotDetails -&gt; Rep AutoSnapshotDetails x)
+-&gt; (forall x. Rep AutoSnapshotDetails x -&gt; AutoSnapshotDetails)
+-&gt; Generic AutoSnapshotDetails
+forall x. Rep AutoSnapshotDetails x -&gt; AutoSnapshotDetails
+forall x. AutoSnapshotDetails -&gt; Rep AutoSnapshotDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AutoSnapshotDetails x -&gt; AutoSnapshotDetails
+$cfrom :: forall x. AutoSnapshotDetails -&gt; Rep AutoSnapshotDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'AutoSnapshotDetails' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'status', 'autoSnapshotDetails_status' - The status of the automatic snapshot.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'fromAttachedDisks', 'autoSnapshotDetails_fromAttachedDisks' - An array of objects that describe the block storage disks attached to</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- the instance when the automatic snapshot was created.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'createdAt', 'autoSnapshotDetails_createdAt' - The timestamp when the automatic snapshot was created.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'date', 'autoSnapshotDetails_date' - The date of the automatic snapshot in @YYYY-MM-DD@ format.</span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#newAutoSnapshotDetails"><span class="hs-identifier hs-type">newAutoSnapshotDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span>
+</span><span id="line-62"></span><span id="newAutoSnapshotDetails"><span class="annot"><span class="annottext">newAutoSnapshotDetails :: AutoSnapshotDetails
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#newAutoSnapshotDetails"><span class="hs-identifier hs-var hs-var">newAutoSnapshotDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="annottext">AutoSnapshotDetails' :: Maybe AutoSnapshotStatus
+-&gt; Maybe [AttachedDisk]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; AutoSnapshotDetails
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AutoSnapshotDetails' :: Maybe AutoSnapshotStatus
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3Astatus%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoSnapshotStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:fromAttachedDisks:AutoSnapshotDetails' :: Maybe [AttachedDisk]
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3AfromAttachedDisks%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">fromAttachedDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedDisk]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:AutoSnapshotDetails' :: Maybe POSIX
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3AcreatedAt%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:date:AutoSnapshotDetails' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3Adate%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The status of the automatic snapshot.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_status"><span class="hs-identifier hs-type">autoSnapshotDetails_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotStatus.html#AutoSnapshotStatus"><span class="hs-identifier hs-type">AutoSnapshotStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="autoSnapshotDetails_status"><span class="annot"><span class="annottext">autoSnapshotDetails_status :: (Maybe AutoSnapshotStatus -&gt; f (Maybe AutoSnapshotStatus))
+-&gt; AutoSnapshotDetails -&gt; f AutoSnapshotDetails
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_status"><span class="hs-identifier hs-var hs-var">autoSnapshotDetails_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoSnapshotDetails -&gt; Maybe AutoSnapshotStatus)
+-&gt; (AutoSnapshotDetails
+    -&gt; Maybe AutoSnapshotStatus -&gt; AutoSnapshotDetails)
+-&gt; Lens
+     AutoSnapshotDetails
+     AutoSnapshotDetails
+     (Maybe AutoSnapshotStatus)
+     (Maybe AutoSnapshotStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604343"><span class="annot"><span class="annottext">Maybe AutoSnapshotStatus
+status :: Maybe AutoSnapshotStatus
+$sel:status:AutoSnapshotDetails' :: AutoSnapshotDetails -&gt; Maybe AutoSnapshotStatus
+</span><a href="#local-6989586621679604343"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AutoSnapshotStatus
+</span><a href="#local-6989586621679604343"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604342"><span class="annot"><span class="annottext">s :: AutoSnapshotDetails
+</span><a href="#local-6989586621679604342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604341"><span class="annot"><span class="annottext">Maybe AutoSnapshotStatus
+</span><a href="#local-6989586621679604341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoSnapshotDetails
+</span><a href="#local-6989586621679604342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AutoSnapshotDetails' :: Maybe AutoSnapshotStatus
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3Astatus%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AutoSnapshotStatus
+</span><a href="#local-6989586621679604341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | An array of objects that describe the block storage disks attached to</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- the instance when the automatic snapshot was created.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_fromAttachedDisks"><span class="hs-identifier hs-type">autoSnapshotDetails_fromAttachedDisks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.AttachedDisk.html#AttachedDisk"><span class="hs-identifier hs-type">AttachedDisk</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="autoSnapshotDetails_fromAttachedDisks"><span class="annot"><span class="annottext">autoSnapshotDetails_fromAttachedDisks :: (Maybe [AttachedDisk] -&gt; f (Maybe [AttachedDisk]))
+-&gt; AutoSnapshotDetails -&gt; f AutoSnapshotDetails
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_fromAttachedDisks"><span class="hs-identifier hs-var hs-var">autoSnapshotDetails_fromAttachedDisks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoSnapshotDetails -&gt; Maybe [AttachedDisk])
+-&gt; (AutoSnapshotDetails
+    -&gt; Maybe [AttachedDisk] -&gt; AutoSnapshotDetails)
+-&gt; Lens
+     AutoSnapshotDetails
+     AutoSnapshotDetails
+     (Maybe [AttachedDisk])
+     (Maybe [AttachedDisk])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604339"><span class="annot"><span class="annottext">Maybe [AttachedDisk]
+fromAttachedDisks :: Maybe [AttachedDisk]
+$sel:fromAttachedDisks:AutoSnapshotDetails' :: AutoSnapshotDetails -&gt; Maybe [AttachedDisk]
+</span><a href="#local-6989586621679604339"><span class="hs-identifier hs-var hs-var">fromAttachedDisks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedDisk]
+</span><a href="#local-6989586621679604339"><span class="hs-identifier hs-var">fromAttachedDisks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604338"><span class="annot"><span class="annottext">s :: AutoSnapshotDetails
+</span><a href="#local-6989586621679604338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604337"><span class="annot"><span class="annottext">Maybe [AttachedDisk]
+</span><a href="#local-6989586621679604337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoSnapshotDetails
+</span><a href="#local-6989586621679604338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fromAttachedDisks:AutoSnapshotDetails' :: Maybe [AttachedDisk]
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3AfromAttachedDisks%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">fromAttachedDisks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedDisk]
+</span><a href="#local-6989586621679604337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachedDisk] -&gt; f (Maybe [AttachedDisk]))
+ -&gt; AutoSnapshotDetails -&gt; f AutoSnapshotDetails)
+-&gt; ((Maybe [AttachedDisk] -&gt; f (Maybe [AttachedDisk]))
+    -&gt; Maybe [AttachedDisk] -&gt; f (Maybe [AttachedDisk]))
+-&gt; (Maybe [AttachedDisk] -&gt; f (Maybe [AttachedDisk]))
+-&gt; AutoSnapshotDetails
+-&gt; f AutoSnapshotDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AttachedDisk] [AttachedDisk] [AttachedDisk] [AttachedDisk]
+-&gt; Iso
+     (Maybe [AttachedDisk])
+     (Maybe [AttachedDisk])
+     (Maybe [AttachedDisk])
+     (Maybe [AttachedDisk])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [AttachedDisk] [AttachedDisk] [AttachedDisk] [AttachedDisk]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The timestamp when the automatic snapshot was created.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_createdAt"><span class="hs-identifier hs-type">autoSnapshotDetails_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span id="autoSnapshotDetails_createdAt"><span class="annot"><span class="annottext">autoSnapshotDetails_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoSnapshotDetails -&gt; f AutoSnapshotDetails
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_createdAt"><span class="hs-identifier hs-var hs-var">autoSnapshotDetails_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoSnapshotDetails -&gt; Maybe POSIX)
+-&gt; (AutoSnapshotDetails -&gt; Maybe POSIX -&gt; AutoSnapshotDetails)
+-&gt; Lens
+     AutoSnapshotDetails AutoSnapshotDetails (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604332"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:AutoSnapshotDetails' :: AutoSnapshotDetails -&gt; Maybe POSIX
+</span><a href="#local-6989586621679604332"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679604332"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604331"><span class="annot"><span class="annottext">s :: AutoSnapshotDetails
+</span><a href="#local-6989586621679604331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604330"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679604330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoSnapshotDetails
+</span><a href="#local-6989586621679604331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AutoSnapshotDetails' :: Maybe POSIX
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3AcreatedAt%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679604330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AutoSnapshotDetails -&gt; f AutoSnapshotDetails)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AutoSnapshotDetails
+-&gt; f AutoSnapshotDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The date of the automatic snapshot in @YYYY-MM-DD@ format.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_date"><span class="hs-identifier hs-type">autoSnapshotDetails_date</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="autoSnapshotDetails_date"><span class="annot"><span class="annottext">autoSnapshotDetails_date :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AutoSnapshotDetails -&gt; f AutoSnapshotDetails
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#autoSnapshotDetails_date"><span class="hs-identifier hs-var hs-var">autoSnapshotDetails_date</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AutoSnapshotDetails -&gt; Maybe Text)
+-&gt; (AutoSnapshotDetails -&gt; Maybe Text -&gt; AutoSnapshotDetails)
+-&gt; Lens
+     AutoSnapshotDetails AutoSnapshotDetails (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679604327"><span class="annot"><span class="annottext">Maybe Text
+date :: Maybe Text
+$sel:date:AutoSnapshotDetails' :: AutoSnapshotDetails -&gt; Maybe Text
+</span><a href="#local-6989586621679604327"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604327"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679604326"><span class="annot"><span class="annottext">s :: AutoSnapshotDetails
+</span><a href="#local-6989586621679604326"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-type">AutoSnapshotDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679604325"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604325"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AutoSnapshotDetails
+</span><a href="#local-6989586621679604326"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:AutoSnapshotDetails' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#%24sel%3Adate%3AAutoSnapshotDetails%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679604325"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604322"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679604320"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AutoSnapshotDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AutoSnapshotDetails)
+-&gt; Value
+-&gt; Parser AutoSnapshotDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AutoSnapshotDetails&quot;</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679604317"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604317"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe AutoSnapshotStatus
+-&gt; Maybe [AttachedDisk]
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; AutoSnapshotDetails
+</span><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails%27"><span class="hs-identifier hs-var">AutoSnapshotDetails'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AutoSnapshotStatus
+ -&gt; Maybe [AttachedDisk]
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; AutoSnapshotDetails)
+-&gt; Parser (Maybe AutoSnapshotStatus)
+-&gt; Parser
+     (Maybe [AttachedDisk]
+      -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AutoSnapshotDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AutoSnapshotStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AttachedDisk]
+   -&gt; Maybe POSIX -&gt; Maybe Text -&gt; AutoSnapshotDetails)
+-&gt; Parser (Maybe [AttachedDisk])
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; AutoSnapshotDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttachedDisk]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fromAttachedDisks&quot;</span></span><span>
+</span><span id="line-95"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttachedDisk]))
+-&gt; Maybe [AttachedDisk] -&gt; Parser (Maybe [AttachedDisk])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttachedDisk]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-96"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; AutoSnapshotDetails)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; AutoSnapshotDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AutoSnapshotDetails)
+-&gt; Parser (Maybe Text) -&gt; Parser AutoSnapshotDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679604317"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;date&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604310"><span id="local-6989586621679604312"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679604307"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AutoSnapshotDetails.html#AutoSnapshotDetails"><span class="hs-identifier hs-type">AutoSnapshotDetails</span></a></span></span><span>
+</span><span id="line-104"></span></pre></body></html>

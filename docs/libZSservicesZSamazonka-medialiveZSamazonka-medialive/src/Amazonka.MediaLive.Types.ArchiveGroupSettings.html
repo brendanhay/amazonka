@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.ArchiveGroupSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.ArchiveGroupSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveCdnSettings.html"><span class="hs-identifier">Amazonka.MediaLive.Types.ArchiveCdnSettings</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.OutputLocationRef.html"><span class="hs-identifier">Amazonka.MediaLive.Types.OutputLocationRef</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Archive Group Settings</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newArchiveGroupSettings' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679916209"><span id="local-6989586621679916210"></span></span><span class="hs-keyword">data</span><span> </span><span id="ArchiveGroupSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-var">ArchiveGroupSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ArchiveGroupSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-var">ArchiveGroupSettings'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Number of seconds to write to archive file before closing and starting a</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- new one.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArolloverInterval%3AArchiveGroupSettings%27"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3ArolloverInterval%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var hs-var">rolloverInterval</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Parameters that control interactions with the CDN.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AarchiveCdnSettings%3AArchiveGroupSettings%27"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; Maybe ArchiveCdnSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3AarchiveCdnSettings%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var hs-var">archiveCdnSettings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | A directory and base filename where archive files should be written.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; OutputLocationRef
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679916201"><span id="local-6989586621679916203"><span class="annot"><span class="annottext">ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
+(ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool)
+-&gt; (ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool)
+-&gt; Eq ArchiveGroupSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
+$c/= :: ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
+== :: ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
+$c== :: ArchiveGroupSettings -&gt; ArchiveGroupSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916192"><span id="local-6989586621679916194"><span id="local-6989586621679916196"><span id="local-6989586621679916198"><span class="annot"><span class="annottext">ReadPrec [ArchiveGroupSettings]
+ReadPrec ArchiveGroupSettings
+Int -&gt; ReadS ArchiveGroupSettings
+ReadS [ArchiveGroupSettings]
+(Int -&gt; ReadS ArchiveGroupSettings)
+-&gt; ReadS [ArchiveGroupSettings]
+-&gt; ReadPrec ArchiveGroupSettings
+-&gt; ReadPrec [ArchiveGroupSettings]
+-&gt; Read ArchiveGroupSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ArchiveGroupSettings]
+$creadListPrec :: ReadPrec [ArchiveGroupSettings]
+readPrec :: ReadPrec ArchiveGroupSettings
+$creadPrec :: ReadPrec ArchiveGroupSettings
+readList :: ReadS [ArchiveGroupSettings]
+$creadList :: ReadS [ArchiveGroupSettings]
+readsPrec :: Int -&gt; ReadS ArchiveGroupSettings
+$creadsPrec :: Int -&gt; ReadS ArchiveGroupSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679916185"><span id="local-6989586621679916187"><span id="local-6989586621679916189"><span class="annot"><span class="annottext">Int -&gt; ArchiveGroupSettings -&gt; ShowS
+[ArchiveGroupSettings] -&gt; ShowS
+ArchiveGroupSettings -&gt; String
+(Int -&gt; ArchiveGroupSettings -&gt; ShowS)
+-&gt; (ArchiveGroupSettings -&gt; String)
+-&gt; ([ArchiveGroupSettings] -&gt; ShowS)
+-&gt; Show ArchiveGroupSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ArchiveGroupSettings] -&gt; ShowS
+$cshowList :: [ArchiveGroupSettings] -&gt; ShowS
+show :: ArchiveGroupSettings -&gt; String
+$cshow :: ArchiveGroupSettings -&gt; String
+showsPrec :: Int -&gt; ArchiveGroupSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; ArchiveGroupSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ArchiveGroupSettings -&gt; Rep ArchiveGroupSettings x)
+-&gt; (forall x. Rep ArchiveGroupSettings x -&gt; ArchiveGroupSettings)
+-&gt; Generic ArchiveGroupSettings
+forall x. Rep ArchiveGroupSettings x -&gt; ArchiveGroupSettings
+forall x. ArchiveGroupSettings -&gt; Rep ArchiveGroupSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ArchiveGroupSettings x -&gt; ArchiveGroupSettings
+$cfrom :: forall x. ArchiveGroupSettings -&gt; Rep ArchiveGroupSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'ArchiveGroupSettings' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'rolloverInterval', 'archiveGroupSettings_rolloverInterval' - Number of seconds to write to archive file before closing and starting a</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- new one.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'archiveCdnSettings', 'archiveGroupSettings_archiveCdnSettings' - Parameters that control interactions with the CDN.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'destination', 'archiveGroupSettings_destination' - A directory and base filename where archive files should be written.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#newArchiveGroupSettings"><span class="hs-identifier hs-type">newArchiveGroupSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-comment">-- | 'destination'</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span>
+</span><span id="line-60"></span><span id="newArchiveGroupSettings"><span class="annot"><span class="annottext">newArchiveGroupSettings :: OutputLocationRef -&gt; ArchiveGroupSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#newArchiveGroupSettings"><span class="hs-identifier hs-var hs-var">newArchiveGroupSettings</span></a></span></span><span> </span><span id="local-6989586621679916179"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916179"><span class="hs-identifier hs-var">pDestination_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="annottext">ArchiveGroupSettings' :: Maybe Natural
+-&gt; Maybe ArchiveCdnSettings
+-&gt; OutputLocationRef
+-&gt; ArchiveGroupSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:rolloverInterval:ArchiveGroupSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3ArolloverInterval%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-63"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:archiveCdnSettings:ArchiveGroupSettings' :: Maybe ArchiveCdnSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3AarchiveCdnSettings%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:destination:ArchiveGroupSettings' :: OutputLocationRef
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916179"><span class="hs-identifier hs-var">pDestination_</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Number of seconds to write to archive file before closing and starting a</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- new one.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_rolloverInterval"><span class="hs-identifier hs-type">archiveGroupSettings_rolloverInterval</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="archiveGroupSettings_rolloverInterval"><span class="annot"><span class="annottext">archiveGroupSettings_rolloverInterval :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ArchiveGroupSettings -&gt; f ArchiveGroupSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_rolloverInterval"><span class="hs-identifier hs-var hs-var">archiveGroupSettings_rolloverInterval</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveGroupSettings -&gt; Maybe Natural)
+-&gt; (ArchiveGroupSettings -&gt; Maybe Natural -&gt; ArchiveGroupSettings)
+-&gt; Lens
+     ArchiveGroupSettings
+     ArchiveGroupSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916175"><span class="annot"><span class="annottext">Maybe Natural
+rolloverInterval :: Maybe Natural
+$sel:rolloverInterval:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679916175"><span class="hs-identifier hs-var hs-var">rolloverInterval</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679916175"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916174"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
+</span><a href="#local-6989586621679916174"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916173"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679916173"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
+</span><a href="#local-6989586621679916174"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rolloverInterval:ArchiveGroupSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3ArolloverInterval%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679916173"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Parameters that control interactions with the CDN.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_archiveCdnSettings"><span class="hs-identifier hs-type">archiveGroupSettings_archiveCdnSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveCdnSettings.html#ArchiveCdnSettings"><span class="hs-identifier hs-type">ArchiveCdnSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="archiveGroupSettings_archiveCdnSettings"><span class="annot"><span class="annottext">archiveGroupSettings_archiveCdnSettings :: (Maybe ArchiveCdnSettings -&gt; f (Maybe ArchiveCdnSettings))
+-&gt; ArchiveGroupSettings -&gt; f ArchiveGroupSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_archiveCdnSettings"><span class="hs-identifier hs-var hs-var">archiveGroupSettings_archiveCdnSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveGroupSettings -&gt; Maybe ArchiveCdnSettings)
+-&gt; (ArchiveGroupSettings
+    -&gt; Maybe ArchiveCdnSettings -&gt; ArchiveGroupSettings)
+-&gt; Lens
+     ArchiveGroupSettings
+     ArchiveGroupSettings
+     (Maybe ArchiveCdnSettings)
+     (Maybe ArchiveCdnSettings)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916171"><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+archiveCdnSettings :: Maybe ArchiveCdnSettings
+$sel:archiveCdnSettings:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916171"><span class="hs-identifier hs-var hs-var">archiveCdnSettings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916171"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916170"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
+</span><a href="#local-6989586621679916170"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916169"><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916169"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
+</span><a href="#local-6989586621679916170"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:archiveCdnSettings:ArchiveGroupSettings' :: Maybe ArchiveCdnSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3AarchiveCdnSettings%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916169"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | A directory and base filename where archive files should be written.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_destination"><span class="hs-identifier hs-type">archiveGroupSettings_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.OutputLocationRef.html#OutputLocationRef"><span class="hs-identifier hs-type">OutputLocationRef</span></a></span><span>
+</span><span id="line-79"></span><span id="archiveGroupSettings_destination"><span class="annot"><span class="annottext">archiveGroupSettings_destination :: (OutputLocationRef -&gt; f OutputLocationRef)
+-&gt; ArchiveGroupSettings -&gt; f ArchiveGroupSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#archiveGroupSettings_destination"><span class="hs-identifier hs-var hs-var">archiveGroupSettings_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ArchiveGroupSettings -&gt; OutputLocationRef)
+-&gt; (ArchiveGroupSettings
+    -&gt; OutputLocationRef -&gt; ArchiveGroupSettings)
+-&gt; Lens
+     ArchiveGroupSettings
+     ArchiveGroupSettings
+     OutputLocationRef
+     OutputLocationRef
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916167"><span class="annot"><span class="annottext">OutputLocationRef
+destination :: OutputLocationRef
+$sel:destination:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; OutputLocationRef
+</span><a href="#local-6989586621679916167"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916167"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679916166"><span class="annot"><span class="annottext">s :: ArchiveGroupSettings
+</span><a href="#local-6989586621679916166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679916165"><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ArchiveGroupSettings
+</span><a href="#local-6989586621679916166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:ArchiveGroupSettings' :: OutputLocationRef
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#%24sel%3Adestination%3AArchiveGroupSettings%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916162"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679916160"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ArchiveGroupSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ArchiveGroupSettings)
+-&gt; Value
+-&gt; Parser ArchiveGroupSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ArchiveGroupSettings&quot;</span></span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679916157"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe ArchiveCdnSettings
+-&gt; OutputLocationRef
+-&gt; ArchiveGroupSettings
+</span><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-var">ArchiveGroupSettings'</span></a></span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe ArchiveCdnSettings
+ -&gt; OutputLocationRef
+ -&gt; ArchiveGroupSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe ArchiveCdnSettings
+      -&gt; OutputLocationRef -&gt; ArchiveGroupSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rolloverInterval&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArchiveCdnSettings
+   -&gt; OutputLocationRef -&gt; ArchiveGroupSettings)
+-&gt; Parser (Maybe ArchiveCdnSettings)
+-&gt; Parser (OutputLocationRef -&gt; ArchiveGroupSettings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArchiveCdnSettings)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;archiveCdnSettings&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>            </span><span class="annot"><span class="annottext">Parser (OutputLocationRef -&gt; ArchiveGroupSettings)
+-&gt; Parser OutputLocationRef -&gt; Parser ArchiveGroupSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679916157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OutputLocationRef
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916150"><span id="local-6989586621679916152"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679916139"><span id="local-6989586621679916141"><span id="local-6989586621679916143"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings"><span class="hs-identifier hs-type">ArchiveGroupSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679916137"><span class="annot"><span class="annottext">toJSON :: ArchiveGroupSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.ArchiveGroupSettings.html#ArchiveGroupSettings%27"><span class="hs-identifier hs-type">ArchiveGroupSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679916133"><span id="local-6989586621679916134"><span id="local-6989586621679916135"><span class="annot"><span class="annottext">Maybe Natural
+Maybe ArchiveCdnSettings
+OutputLocationRef
+destination :: OutputLocationRef
+archiveCdnSettings :: Maybe ArchiveCdnSettings
+rolloverInterval :: Maybe Natural
+$sel:destination:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; OutputLocationRef
+$sel:archiveCdnSettings:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe ArchiveCdnSettings
+$sel:rolloverInterval:ArchiveGroupSettings' :: ArchiveGroupSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679916133"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-100"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rolloverInterval&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679916135"><span class="hs-identifier hs-var">rolloverInterval</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;archiveCdnSettings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ArchiveCdnSettings -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>              </span><span class="annot"><span class="annottext">(ArchiveCdnSettings -&gt; Pair)
+-&gt; Maybe ArchiveCdnSettings -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ArchiveCdnSettings
+</span><a href="#local-6989586621679916134"><span class="hs-identifier hs-var">archiveCdnSettings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputLocationRef -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputLocationRef
+</span><a href="#local-6989586621679916133"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span></pre></body></html>

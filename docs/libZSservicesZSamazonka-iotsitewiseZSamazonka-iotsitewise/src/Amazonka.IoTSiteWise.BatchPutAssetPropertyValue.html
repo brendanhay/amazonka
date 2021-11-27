@@ -1,0 +1,539 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTSiteWise.BatchPutAssetPropertyValue</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sends a list of asset property values to IoT SiteWise. Each value is a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- timestamp-quality-value (TQV) data point. For more information, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/ingest-api.html Ingesting data using the API&gt;</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- To identify an asset property, you must specify one of the following:</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   The @assetId@ and @propertyId@ of an asset property.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   A @propertyAlias@, which is a data stream alias (for example,</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     @\/company\/windfarm\/3\/turbine\/7\/temperature@). To define an</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     asset property\'s alias, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_UpdateAssetProperty.html UpdateAssetProperty&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- With respect to Unix epoch time, IoT SiteWise accepts only TQVs that</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- have a timestamp of no more than 7 days in the past and no more than 10</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- minutes in the future. IoT SiteWise rejects timestamps outside of the</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- inclusive range of [-7 days, +10 minutes] and returns a</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- @TimestampOutOfRangeException@ error.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- For each asset property, IoT SiteWise overwrites TQVs with duplicate</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- timestamps unless the newer TQV has a different quality. For example, if</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- you store a TQV @{T1, GOOD, V1}@, then storing @{T1, GOOD, V2}@ replaces</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- the existing TQV.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- IoT SiteWise authorizes access to each @BatchPutAssetPropertyValue@</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- entry individually. For more information, see</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/iot-sitewise/latest/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-batchputassetpropertyvalue-action BatchPutAssetPropertyValue authorization&gt;</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- in the /IoT SiteWise User Guide/.</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTSiteWise.BatchPutAssetPropertyValue</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier">BatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#newBatchPutAssetPropertyValue"><span class="hs-identifier">newBatchPutAssetPropertyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValue_entries"><span class="hs-identifier">batchPutAssetPropertyValue_entries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier">BatchPutAssetPropertyValueResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#newBatchPutAssetPropertyValueResponse"><span class="hs-identifier">newBatchPutAssetPropertyValueResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValueResponse_httpStatus"><span class="hs-identifier">batchPutAssetPropertyValueResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValueResponse_errorEntries"><span class="hs-identifier">batchPutAssetPropertyValueResponse_errorEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.html"><span class="hs-identifier">Amazonka.IoTSiteWise.Types</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newBatchPutAssetPropertyValue' smart constructor.</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679359483"><span id="local-6989586621679359484"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutAssetPropertyValue"><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-var">BatchPutAssetPropertyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutAssetPropertyValue%27"><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue%27"><span class="hs-identifier hs-var">BatchPutAssetPropertyValue'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of asset property value entries for the batch put request. You</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- can specify up to 10 entries per request.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Aentries%3ABatchPutAssetPropertyValue%27"><span class="annot"><span class="annottext">BatchPutAssetPropertyValue -&gt; [PutAssetPropertyValueEntry]
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3Aentries%3ABatchPutAssetPropertyValue%27"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359477"><span id="local-6989586621679359479"><span class="annot"><span class="annottext">BatchPutAssetPropertyValue -&gt; BatchPutAssetPropertyValue -&gt; Bool
+(BatchPutAssetPropertyValue -&gt; BatchPutAssetPropertyValue -&gt; Bool)
+-&gt; (BatchPutAssetPropertyValue
+    -&gt; BatchPutAssetPropertyValue -&gt; Bool)
+-&gt; Eq BatchPutAssetPropertyValue
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchPutAssetPropertyValue -&gt; BatchPutAssetPropertyValue -&gt; Bool
+$c/= :: BatchPutAssetPropertyValue -&gt; BatchPutAssetPropertyValue -&gt; Bool
+== :: BatchPutAssetPropertyValue -&gt; BatchPutAssetPropertyValue -&gt; Bool
+$c== :: BatchPutAssetPropertyValue -&gt; BatchPutAssetPropertyValue -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359468"><span id="local-6989586621679359470"><span id="local-6989586621679359472"><span id="local-6989586621679359474"><span class="annot"><span class="annottext">ReadPrec [BatchPutAssetPropertyValue]
+ReadPrec BatchPutAssetPropertyValue
+Int -&gt; ReadS BatchPutAssetPropertyValue
+ReadS [BatchPutAssetPropertyValue]
+(Int -&gt; ReadS BatchPutAssetPropertyValue)
+-&gt; ReadS [BatchPutAssetPropertyValue]
+-&gt; ReadPrec BatchPutAssetPropertyValue
+-&gt; ReadPrec [BatchPutAssetPropertyValue]
+-&gt; Read BatchPutAssetPropertyValue
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchPutAssetPropertyValue]
+$creadListPrec :: ReadPrec [BatchPutAssetPropertyValue]
+readPrec :: ReadPrec BatchPutAssetPropertyValue
+$creadPrec :: ReadPrec BatchPutAssetPropertyValue
+readList :: ReadS [BatchPutAssetPropertyValue]
+$creadList :: ReadS [BatchPutAssetPropertyValue]
+readsPrec :: Int -&gt; ReadS BatchPutAssetPropertyValue
+$creadsPrec :: Int -&gt; ReadS BatchPutAssetPropertyValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359461"><span id="local-6989586621679359463"><span id="local-6989586621679359465"><span class="annot"><span class="annottext">Int -&gt; BatchPutAssetPropertyValue -&gt; ShowS
+[BatchPutAssetPropertyValue] -&gt; ShowS
+BatchPutAssetPropertyValue -&gt; String
+(Int -&gt; BatchPutAssetPropertyValue -&gt; ShowS)
+-&gt; (BatchPutAssetPropertyValue -&gt; String)
+-&gt; ([BatchPutAssetPropertyValue] -&gt; ShowS)
+-&gt; Show BatchPutAssetPropertyValue
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchPutAssetPropertyValue] -&gt; ShowS
+$cshowList :: [BatchPutAssetPropertyValue] -&gt; ShowS
+show :: BatchPutAssetPropertyValue -&gt; String
+$cshow :: BatchPutAssetPropertyValue -&gt; String
+showsPrec :: Int -&gt; BatchPutAssetPropertyValue -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchPutAssetPropertyValue -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchPutAssetPropertyValue -&gt; Rep BatchPutAssetPropertyValue x)
+-&gt; (forall x.
+    Rep BatchPutAssetPropertyValue x -&gt; BatchPutAssetPropertyValue)
+-&gt; Generic BatchPutAssetPropertyValue
+forall x.
+Rep BatchPutAssetPropertyValue x -&gt; BatchPutAssetPropertyValue
+forall x.
+BatchPutAssetPropertyValue -&gt; Rep BatchPutAssetPropertyValue x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchPutAssetPropertyValue x -&gt; BatchPutAssetPropertyValue
+$cfrom :: forall x.
+BatchPutAssetPropertyValue -&gt; Rep BatchPutAssetPropertyValue x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Create a value of 'BatchPutAssetPropertyValue' with all optional fields omitted.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'entries', 'batchPutAssetPropertyValue_entries' - The list of asset property value entries for the batch put request. You</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- can specify up to 10 entries per request.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#newBatchPutAssetPropertyValue"><span class="hs-identifier hs-type">newBatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span>
+</span><span id="line-97"></span><span id="newBatchPutAssetPropertyValue"><span class="annot"><span class="annottext">newBatchPutAssetPropertyValue :: BatchPutAssetPropertyValue
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#newBatchPutAssetPropertyValue"><span class="hs-identifier hs-var hs-var">newBatchPutAssetPropertyValue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">BatchPutAssetPropertyValue' :: [PutAssetPropertyValueEntry] -&gt; BatchPutAssetPropertyValue
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:entries:BatchPutAssetPropertyValue' :: [PutAssetPropertyValueEntry]
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3Aentries%3ABatchPutAssetPropertyValue%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">[PutAssetPropertyValueEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The list of asset property value entries for the batch put request. You</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- can specify up to 10 entries per request.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValue_entries"><span class="hs-identifier hs-type">batchPutAssetPropertyValue_entries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.PutAssetPropertyValueEntry.html#PutAssetPropertyValueEntry"><span class="hs-identifier hs-type">PutAssetPropertyValueEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span id="batchPutAssetPropertyValue_entries"><span class="annot"><span class="annottext">batchPutAssetPropertyValue_entries :: ([PutAssetPropertyValueEntry] -&gt; f [PutAssetPropertyValueEntry])
+-&gt; BatchPutAssetPropertyValue -&gt; f BatchPutAssetPropertyValue
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValue_entries"><span class="hs-identifier hs-var hs-var">batchPutAssetPropertyValue_entries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchPutAssetPropertyValue -&gt; [PutAssetPropertyValueEntry])
+-&gt; (BatchPutAssetPropertyValue
+    -&gt; [PutAssetPropertyValueEntry] -&gt; BatchPutAssetPropertyValue)
+-&gt; Lens
+     BatchPutAssetPropertyValue
+     BatchPutAssetPropertyValue
+     [PutAssetPropertyValueEntry]
+     [PutAssetPropertyValueEntry]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359454"><span class="annot"><span class="annottext">[PutAssetPropertyValueEntry]
+entries :: [PutAssetPropertyValueEntry]
+$sel:entries:BatchPutAssetPropertyValue' :: BatchPutAssetPropertyValue -&gt; [PutAssetPropertyValueEntry]
+</span><a href="#local-6989586621679359454"><span class="hs-identifier hs-var hs-var">entries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[PutAssetPropertyValueEntry]
+</span><a href="#local-6989586621679359454"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359453"><span class="annot"><span class="annottext">s :: BatchPutAssetPropertyValue
+</span><a href="#local-6989586621679359453"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359452"><span class="annot"><span class="annottext">[PutAssetPropertyValueEntry]
+</span><a href="#local-6989586621679359452"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutAssetPropertyValue
+</span><a href="#local-6989586621679359453"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:entries:BatchPutAssetPropertyValue' :: [PutAssetPropertyValueEntry]
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3Aentries%3ABatchPutAssetPropertyValue%27"><span class="hs-identifier hs-var">entries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[PutAssetPropertyValueEntry]
+</span><a href="#local-6989586621679359452"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([PutAssetPropertyValueEntry] -&gt; f [PutAssetPropertyValueEntry])
+ -&gt; BatchPutAssetPropertyValue -&gt; f BatchPutAssetPropertyValue)
+-&gt; (([PutAssetPropertyValueEntry]
+     -&gt; f [PutAssetPropertyValueEntry])
+    -&gt; [PutAssetPropertyValueEntry] -&gt; f [PutAssetPropertyValueEntry])
+-&gt; ([PutAssetPropertyValueEntry] -&gt; f [PutAssetPropertyValueEntry])
+-&gt; BatchPutAssetPropertyValue
+-&gt; f BatchPutAssetPropertyValue
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PutAssetPropertyValueEntry] -&gt; f [PutAssetPropertyValueEntry])
+-&gt; [PutAssetPropertyValueEntry] -&gt; f [PutAssetPropertyValueEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679359446"><span class="annot"><span class="annottext">request :: BatchPutAssetPropertyValue -&gt; Request BatchPutAssetPropertyValue
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; BatchPutAssetPropertyValue -&gt; Request BatchPutAssetPropertyValue
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTSiteWise.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679359442"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchPutAssetPropertyValue
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchPutAssetPropertyValue)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchPutAssetPropertyValue))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchPutAssetPropertyValue
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchPutAssetPropertyValue)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679359439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359439"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679359438"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679359438"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679359437"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679359437"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Int
+-&gt; [BatchPutAssetPropertyErrorEntry]
+-&gt; BatchPutAssetPropertyValueResponse
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var">BatchPutAssetPropertyValueResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Int
+ -&gt; [BatchPutAssetPropertyErrorEntry]
+ -&gt; BatchPutAssetPropertyValueResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     ([BatchPutAssetPropertyErrorEntry]
+      -&gt; BatchPutAssetPropertyValueResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359439"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  ([BatchPutAssetPropertyErrorEntry]
+   -&gt; BatchPutAssetPropertyValueResponse)
+-&gt; Either String [BatchPutAssetPropertyErrorEntry]
+-&gt; Either String BatchPutAssetPropertyValueResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679359437"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key -&gt; Either String (Maybe [BatchPutAssetPropertyErrorEntry])
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;errorEntries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [BatchPutAssetPropertyErrorEntry])
+-&gt; [BatchPutAssetPropertyErrorEntry]
+-&gt; Either String [BatchPutAssetPropertyErrorEntry]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[BatchPutAssetPropertyErrorEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359428"><span id="local-6989586621679359430"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359425"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679359421"><span class="annot"><span class="annottext">toHeaders :: BatchPutAssetPropertyValue -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchPutAssetPropertyValue -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679359411"><span id="local-6989586621679359413"><span id="local-6989586621679359415"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679359409"><span class="annot"><span class="annottext">toJSON :: BatchPutAssetPropertyValue -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359407"><span class="annot"><span class="annottext">[PutAssetPropertyValueEntry]
+entries :: [PutAssetPropertyValueEntry]
+$sel:entries:BatchPutAssetPropertyValue' :: BatchPutAssetPropertyValue -&gt; [PutAssetPropertyValueEntry]
+</span><a href="#local-6989586621679359407"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;entries&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; [PutAssetPropertyValueEntry] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[PutAssetPropertyValueEntry]
+</span><a href="#local-6989586621679359407"><span class="hs-identifier hs-var">entries</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679359401"><span class="annot"><span class="annottext">toPath :: BatchPutAssetPropertyValue -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchPutAssetPropertyValue -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/properties&quot;</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValue"><span class="hs-identifier hs-type">BatchPutAssetPropertyValue</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679359397"><span class="annot"><span class="annottext">toQuery :: BatchPutAssetPropertyValue -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchPutAssetPropertyValue -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newBatchPutAssetPropertyValueResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679359394"><span id="local-6989586621679359395"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutAssetPropertyValueResponse"><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-var">BatchPutAssetPropertyValueResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutAssetPropertyValueResponse%27"><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var">BatchPutAssetPropertyValueResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchPutAssetPropertyValueResponse%27"><span class="annot"><span class="annottext">BatchPutAssetPropertyValueResponse -&gt; Int
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3AhttpStatus%3ABatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | A list of the errors (if any) associated with the batch put request.</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- Each error entry contains the @entryId@ of the entry that failed.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AerrorEntries%3ABatchPutAssetPropertyValueResponse%27"><span class="annot"><span class="annottext">BatchPutAssetPropertyValueResponse
+-&gt; [BatchPutAssetPropertyErrorEntry]
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3AerrorEntries%3ABatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var hs-var">errorEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry.html#BatchPutAssetPropertyErrorEntry"><span class="hs-identifier hs-type">BatchPutAssetPropertyErrorEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679359388"><span id="local-6989586621679359390"><span class="annot"><span class="annottext">BatchPutAssetPropertyValueResponse
+-&gt; BatchPutAssetPropertyValueResponse -&gt; Bool
+(BatchPutAssetPropertyValueResponse
+ -&gt; BatchPutAssetPropertyValueResponse -&gt; Bool)
+-&gt; (BatchPutAssetPropertyValueResponse
+    -&gt; BatchPutAssetPropertyValueResponse -&gt; Bool)
+-&gt; Eq BatchPutAssetPropertyValueResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchPutAssetPropertyValueResponse
+-&gt; BatchPutAssetPropertyValueResponse -&gt; Bool
+$c/= :: BatchPutAssetPropertyValueResponse
+-&gt; BatchPutAssetPropertyValueResponse -&gt; Bool
+== :: BatchPutAssetPropertyValueResponse
+-&gt; BatchPutAssetPropertyValueResponse -&gt; Bool
+$c== :: BatchPutAssetPropertyValueResponse
+-&gt; BatchPutAssetPropertyValueResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359380"><span id="local-6989586621679359382"><span id="local-6989586621679359384"><span id="local-6989586621679359386"><span class="annot"><span class="annottext">ReadPrec [BatchPutAssetPropertyValueResponse]
+ReadPrec BatchPutAssetPropertyValueResponse
+Int -&gt; ReadS BatchPutAssetPropertyValueResponse
+ReadS [BatchPutAssetPropertyValueResponse]
+(Int -&gt; ReadS BatchPutAssetPropertyValueResponse)
+-&gt; ReadS [BatchPutAssetPropertyValueResponse]
+-&gt; ReadPrec BatchPutAssetPropertyValueResponse
+-&gt; ReadPrec [BatchPutAssetPropertyValueResponse]
+-&gt; Read BatchPutAssetPropertyValueResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchPutAssetPropertyValueResponse]
+$creadListPrec :: ReadPrec [BatchPutAssetPropertyValueResponse]
+readPrec :: ReadPrec BatchPutAssetPropertyValueResponse
+$creadPrec :: ReadPrec BatchPutAssetPropertyValueResponse
+readList :: ReadS [BatchPutAssetPropertyValueResponse]
+$creadList :: ReadS [BatchPutAssetPropertyValueResponse]
+readsPrec :: Int -&gt; ReadS BatchPutAssetPropertyValueResponse
+$creadsPrec :: Int -&gt; ReadS BatchPutAssetPropertyValueResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679359374"><span id="local-6989586621679359376"><span id="local-6989586621679359378"><span class="annot"><span class="annottext">Int -&gt; BatchPutAssetPropertyValueResponse -&gt; ShowS
+[BatchPutAssetPropertyValueResponse] -&gt; ShowS
+BatchPutAssetPropertyValueResponse -&gt; String
+(Int -&gt; BatchPutAssetPropertyValueResponse -&gt; ShowS)
+-&gt; (BatchPutAssetPropertyValueResponse -&gt; String)
+-&gt; ([BatchPutAssetPropertyValueResponse] -&gt; ShowS)
+-&gt; Show BatchPutAssetPropertyValueResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchPutAssetPropertyValueResponse] -&gt; ShowS
+$cshowList :: [BatchPutAssetPropertyValueResponse] -&gt; ShowS
+show :: BatchPutAssetPropertyValueResponse -&gt; String
+$cshow :: BatchPutAssetPropertyValueResponse -&gt; String
+showsPrec :: Int -&gt; BatchPutAssetPropertyValueResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchPutAssetPropertyValueResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchPutAssetPropertyValueResponse
+ -&gt; Rep BatchPutAssetPropertyValueResponse x)
+-&gt; (forall x.
+    Rep BatchPutAssetPropertyValueResponse x
+    -&gt; BatchPutAssetPropertyValueResponse)
+-&gt; Generic BatchPutAssetPropertyValueResponse
+forall x.
+Rep BatchPutAssetPropertyValueResponse x
+-&gt; BatchPutAssetPropertyValueResponse
+forall x.
+BatchPutAssetPropertyValueResponse
+-&gt; Rep BatchPutAssetPropertyValueResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchPutAssetPropertyValueResponse x
+-&gt; BatchPutAssetPropertyValueResponse
+$cfrom :: forall x.
+BatchPutAssetPropertyValueResponse
+-&gt; Rep BatchPutAssetPropertyValueResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'BatchPutAssetPropertyValueResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'batchPutAssetPropertyValueResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'errorEntries', 'batchPutAssetPropertyValueResponse_errorEntries' - A list of the errors (if any) associated with the batch put request.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Each error entry contains the @entryId@ of the entry that failed.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#newBatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">newBatchPutAssetPropertyValueResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse</span></a></span><span>
+</span><span id="line-175"></span><span id="newBatchPutAssetPropertyValueResponse"><span class="annot"><span class="annottext">newBatchPutAssetPropertyValueResponse :: Int -&gt; BatchPutAssetPropertyValueResponse
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#newBatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-var hs-var">newBatchPutAssetPropertyValueResponse</span></a></span></span><span> </span><span id="local-6989586621679359371"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">BatchPutAssetPropertyValueResponse' :: Int
+-&gt; [BatchPutAssetPropertyErrorEntry]
+-&gt; BatchPutAssetPropertyValueResponse
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutAssetPropertyValueResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3AhttpStatus%3ABatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359371"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorEntries:BatchPutAssetPropertyValueResponse' :: [BatchPutAssetPropertyErrorEntry]
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3AerrorEntries%3ABatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var">errorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchPutAssetPropertyErrorEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValueResponse_httpStatus"><span class="hs-identifier hs-type">batchPutAssetPropertyValueResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-184"></span><span id="batchPutAssetPropertyValueResponse_httpStatus"><span class="annot"><span class="annottext">batchPutAssetPropertyValueResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchPutAssetPropertyValueResponse
+-&gt; f BatchPutAssetPropertyValueResponse
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValueResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchPutAssetPropertyValueResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchPutAssetPropertyValueResponse -&gt; Int)
+-&gt; (BatchPutAssetPropertyValueResponse
+    -&gt; Int -&gt; BatchPutAssetPropertyValueResponse)
+-&gt; Lens
+     BatchPutAssetPropertyValueResponse
+     BatchPutAssetPropertyValueResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359370"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchPutAssetPropertyValueResponse' :: BatchPutAssetPropertyValueResponse -&gt; Int
+</span><a href="#local-6989586621679359370"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359370"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359369"><span class="annot"><span class="annottext">s :: BatchPutAssetPropertyValueResponse
+</span><a href="#local-6989586621679359369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359368"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutAssetPropertyValueResponse
+</span><a href="#local-6989586621679359369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutAssetPropertyValueResponse' :: Int
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3AhttpStatus%3ABatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679359368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A list of the errors (if any) associated with the batch put request.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Each error entry contains the @entryId@ of the entry that failed.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValueResponse_errorEntries"><span class="hs-identifier hs-type">batchPutAssetPropertyValueResponse_errorEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTSiteWise.Types.BatchPutAssetPropertyErrorEntry.html#BatchPutAssetPropertyErrorEntry"><span class="hs-identifier hs-type">BatchPutAssetPropertyErrorEntry</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-189"></span><span id="batchPutAssetPropertyValueResponse_errorEntries"><span class="annot"><span class="annottext">batchPutAssetPropertyValueResponse_errorEntries :: ([BatchPutAssetPropertyErrorEntry]
+ -&gt; f [BatchPutAssetPropertyErrorEntry])
+-&gt; BatchPutAssetPropertyValueResponse
+-&gt; f BatchPutAssetPropertyValueResponse
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#batchPutAssetPropertyValueResponse_errorEntries"><span class="hs-identifier hs-var hs-var">batchPutAssetPropertyValueResponse_errorEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchPutAssetPropertyValueResponse
+ -&gt; [BatchPutAssetPropertyErrorEntry])
+-&gt; (BatchPutAssetPropertyValueResponse
+    -&gt; [BatchPutAssetPropertyErrorEntry]
+    -&gt; BatchPutAssetPropertyValueResponse)
+-&gt; Lens
+     BatchPutAssetPropertyValueResponse
+     BatchPutAssetPropertyValueResponse
+     [BatchPutAssetPropertyErrorEntry]
+     [BatchPutAssetPropertyErrorEntry]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679359367"><span class="annot"><span class="annottext">[BatchPutAssetPropertyErrorEntry]
+errorEntries :: [BatchPutAssetPropertyErrorEntry]
+$sel:errorEntries:BatchPutAssetPropertyValueResponse' :: BatchPutAssetPropertyValueResponse
+-&gt; [BatchPutAssetPropertyErrorEntry]
+</span><a href="#local-6989586621679359367"><span class="hs-identifier hs-var hs-var">errorEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BatchPutAssetPropertyErrorEntry]
+</span><a href="#local-6989586621679359367"><span class="hs-identifier hs-var">errorEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679359366"><span class="annot"><span class="annottext">s :: BatchPutAssetPropertyValueResponse
+</span><a href="#local-6989586621679359366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679359365"><span class="annot"><span class="annottext">[BatchPutAssetPropertyErrorEntry]
+</span><a href="#local-6989586621679359365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutAssetPropertyValueResponse
+</span><a href="#local-6989586621679359366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorEntries:BatchPutAssetPropertyValueResponse' :: [BatchPutAssetPropertyErrorEntry]
+</span><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#%24sel%3AerrorEntries%3ABatchPutAssetPropertyValueResponse%27"><span class="hs-identifier hs-var">errorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BatchPutAssetPropertyErrorEntry]
+</span><a href="#local-6989586621679359365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BatchPutAssetPropertyErrorEntry]
+  -&gt; f [BatchPutAssetPropertyErrorEntry])
+ -&gt; BatchPutAssetPropertyValueResponse
+ -&gt; f BatchPutAssetPropertyValueResponse)
+-&gt; (([BatchPutAssetPropertyErrorEntry]
+     -&gt; f [BatchPutAssetPropertyErrorEntry])
+    -&gt; [BatchPutAssetPropertyErrorEntry]
+    -&gt; f [BatchPutAssetPropertyErrorEntry])
+-&gt; ([BatchPutAssetPropertyErrorEntry]
+    -&gt; f [BatchPutAssetPropertyErrorEntry])
+-&gt; BatchPutAssetPropertyValueResponse
+-&gt; f BatchPutAssetPropertyValueResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BatchPutAssetPropertyErrorEntry]
+ -&gt; f [BatchPutAssetPropertyErrorEntry])
+-&gt; [BatchPutAssetPropertyErrorEntry]
+-&gt; f [BatchPutAssetPropertyErrorEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679359363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.IoTSiteWise.BatchPutAssetPropertyValue.html#BatchPutAssetPropertyValueResponse"><span class="hs-identifier hs-type">BatchPutAssetPropertyValueResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

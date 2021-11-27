@@ -1,0 +1,1076 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.GetCapacityReservationUsage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets usage information about a Capacity Reservation. If the Capacity</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Reservation is shared, it shows usage information for the Capacity</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Reservation owner and each Amazon Web Services account that is currently</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- using the shared capacity. If the Capacity Reservation is not shared, it</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- shows only the Capacity Reservation owner\'s usage.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.GetCapacityReservationUsage</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#newGetCapacityReservationUsage"><span class="hs-identifier">newGetCapacityReservationUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_nextToken"><span class="hs-identifier">getCapacityReservationUsage_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_dryRun"><span class="hs-identifier">getCapacityReservationUsage_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_maxResults"><span class="hs-identifier">getCapacityReservationUsage_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_capacityReservationId"><span class="hs-identifier">getCapacityReservationUsage_capacityReservationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#newGetCapacityReservationUsageResponse"><span class="hs-identifier">newGetCapacityReservationUsageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_state"><span class="hs-identifier">getCapacityReservationUsageResponse_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_instanceUsages"><span class="hs-identifier">getCapacityReservationUsageResponse_instanceUsages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_availableInstanceCount"><span class="hs-identifier">getCapacityReservationUsageResponse_availableInstanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_capacityReservationId"><span class="hs-identifier">getCapacityReservationUsageResponse_capacityReservationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_instanceType"><span class="hs-identifier">getCapacityReservationUsageResponse_instanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_nextToken"><span class="hs-identifier">getCapacityReservationUsageResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_totalInstanceCount"><span class="hs-identifier">getCapacityReservationUsageResponse_totalInstanceCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_httpStatus"><span class="hs-identifier">getCapacityReservationUsageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | /See:/ 'newGetCapacityReservationUsage' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621681230431"><span id="local-6989586621681230432"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCapacityReservationUsage"><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-var">GetCapacityReservationUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCapacityReservationUsage%27"><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-var">GetCapacityReservationUsage'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCapacityReservationUsage%27"><span class="annot"><span class="annottext">GetCapacityReservationUsage -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AnextToken%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AdryRun%3AGetCapacityReservationUsage%27"><span class="annot"><span class="annottext">GetCapacityReservationUsage -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AdryRun%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Valid range: Minimum value of 1. Maximum value of 1000.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetCapacityReservationUsage%27"><span class="annot"><span class="annottext">GetCapacityReservationUsage -&gt; Maybe Natural
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AmaxResults%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The ID of the Capacity Reservation.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AcapacityReservationId%3AGetCapacityReservationUsage%27"><span class="annot"><span class="annottext">GetCapacityReservationUsage -&gt; Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AcapacityReservationId%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var hs-var">capacityReservationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681230422"><span id="local-6989586621681230424"><span class="annot"><span class="annottext">GetCapacityReservationUsage -&gt; GetCapacityReservationUsage -&gt; Bool
+(GetCapacityReservationUsage
+ -&gt; GetCapacityReservationUsage -&gt; Bool)
+-&gt; (GetCapacityReservationUsage
+    -&gt; GetCapacityReservationUsage -&gt; Bool)
+-&gt; Eq GetCapacityReservationUsage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCapacityReservationUsage -&gt; GetCapacityReservationUsage -&gt; Bool
+$c/= :: GetCapacityReservationUsage -&gt; GetCapacityReservationUsage -&gt; Bool
+== :: GetCapacityReservationUsage -&gt; GetCapacityReservationUsage -&gt; Bool
+$c== :: GetCapacityReservationUsage -&gt; GetCapacityReservationUsage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681230413"><span id="local-6989586621681230415"><span id="local-6989586621681230417"><span id="local-6989586621681230419"><span class="annot"><span class="annottext">ReadPrec [GetCapacityReservationUsage]
+ReadPrec GetCapacityReservationUsage
+Int -&gt; ReadS GetCapacityReservationUsage
+ReadS [GetCapacityReservationUsage]
+(Int -&gt; ReadS GetCapacityReservationUsage)
+-&gt; ReadS [GetCapacityReservationUsage]
+-&gt; ReadPrec GetCapacityReservationUsage
+-&gt; ReadPrec [GetCapacityReservationUsage]
+-&gt; Read GetCapacityReservationUsage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCapacityReservationUsage]
+$creadListPrec :: ReadPrec [GetCapacityReservationUsage]
+readPrec :: ReadPrec GetCapacityReservationUsage
+$creadPrec :: ReadPrec GetCapacityReservationUsage
+readList :: ReadS [GetCapacityReservationUsage]
+$creadList :: ReadS [GetCapacityReservationUsage]
+readsPrec :: Int -&gt; ReadS GetCapacityReservationUsage
+$creadsPrec :: Int -&gt; ReadS GetCapacityReservationUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681230406"><span id="local-6989586621681230408"><span id="local-6989586621681230410"><span class="annot"><span class="annottext">Int -&gt; GetCapacityReservationUsage -&gt; ShowS
+[GetCapacityReservationUsage] -&gt; ShowS
+GetCapacityReservationUsage -&gt; String
+(Int -&gt; GetCapacityReservationUsage -&gt; ShowS)
+-&gt; (GetCapacityReservationUsage -&gt; String)
+-&gt; ([GetCapacityReservationUsage] -&gt; ShowS)
+-&gt; Show GetCapacityReservationUsage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCapacityReservationUsage] -&gt; ShowS
+$cshowList :: [GetCapacityReservationUsage] -&gt; ShowS
+show :: GetCapacityReservationUsage -&gt; String
+$cshow :: GetCapacityReservationUsage -&gt; String
+showsPrec :: Int -&gt; GetCapacityReservationUsage -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCapacityReservationUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCapacityReservationUsage -&gt; Rep GetCapacityReservationUsage x)
+-&gt; (forall x.
+    Rep GetCapacityReservationUsage x -&gt; GetCapacityReservationUsage)
+-&gt; Generic GetCapacityReservationUsage
+forall x.
+Rep GetCapacityReservationUsage x -&gt; GetCapacityReservationUsage
+forall x.
+GetCapacityReservationUsage -&gt; Rep GetCapacityReservationUsage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCapacityReservationUsage x -&gt; GetCapacityReservationUsage
+$cfrom :: forall x.
+GetCapacityReservationUsage -&gt; Rep GetCapacityReservationUsage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'GetCapacityReservationUsage' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'nextToken', 'getCapacityReservationUsage_nextToken' - The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'dryRun', 'getCapacityReservationUsage_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'maxResults', 'getCapacityReservationUsage_maxResults' - The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Valid range: Minimum value of 1. Maximum value of 1000.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'capacityReservationId', 'getCapacityReservationUsage_capacityReservationId' - The ID of the Capacity Reservation.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#newGetCapacityReservationUsage"><span class="hs-identifier hs-type">newGetCapacityReservationUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-comment">-- | 'capacityReservationId'</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span>
+</span><span id="line-110"></span><span id="newGetCapacityReservationUsage"><span class="annot"><span class="annottext">newGetCapacityReservationUsage :: Text -&gt; GetCapacityReservationUsage
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#newGetCapacityReservationUsage"><span class="hs-identifier hs-var hs-var">newGetCapacityReservationUsage</span></a></span></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621681230401"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681230401"><span class="hs-identifier hs-var">pCapacityReservationId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">GetCapacityReservationUsage' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; GetCapacityReservationUsage
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:GetCapacityReservationUsage' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AnextToken%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:GetCapacityReservationUsage' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AdryRun%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:GetCapacityReservationUsage' :: Maybe Natural
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AmaxResults%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:capacityReservationId:GetCapacityReservationUsage' :: Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AcapacityReservationId%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681230401"><span class="hs-identifier hs-var">pCapacityReservationId_</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_nextToken"><span class="hs-identifier hs-type">getCapacityReservationUsage_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="getCapacityReservationUsage_nextToken"><span class="annot"><span class="annottext">getCapacityReservationUsage_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCapacityReservationUsage -&gt; f GetCapacityReservationUsage
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_nextToken"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsage_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsage -&gt; Maybe Text)
+-&gt; (GetCapacityReservationUsage
+    -&gt; Maybe Text -&gt; GetCapacityReservationUsage)
+-&gt; Lens
+     GetCapacityReservationUsage
+     GetCapacityReservationUsage
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230398"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Maybe Text
+</span><a href="#local-6989586621681230398"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230398"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230397"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsage
+</span><a href="#local-6989586621681230397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsage
+</span><a href="#local-6989586621681230397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCapacityReservationUsage' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AnextToken%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_dryRun"><span class="hs-identifier hs-type">getCapacityReservationUsage_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="getCapacityReservationUsage_dryRun"><span class="annot"><span class="annottext">getCapacityReservationUsage_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; GetCapacityReservationUsage -&gt; f GetCapacityReservationUsage
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_dryRun"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsage_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsage -&gt; Maybe Bool)
+-&gt; (GetCapacityReservationUsage
+    -&gt; Maybe Bool -&gt; GetCapacityReservationUsage)
+-&gt; Lens
+     GetCapacityReservationUsage
+     GetCapacityReservationUsage
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230395"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Maybe Bool
+</span><a href="#local-6989586621681230395"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681230395"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230394"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsage
+</span><a href="#local-6989586621681230394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230393"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681230393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsage
+</span><a href="#local-6989586621681230394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:GetCapacityReservationUsage' :: Maybe Bool
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AdryRun%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681230393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The maximum number of results to return for the request in a single</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- page. The remaining results can be seen by sending another request with</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- the returned @nextToken@ value. This value can be between 5 and 500. If</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- @maxResults@ is given a larger value than 500, you receive an error.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Valid range: Minimum value of 1. Maximum value of 1000.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_maxResults"><span class="hs-identifier hs-type">getCapacityReservationUsage_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="getCapacityReservationUsage_maxResults"><span class="annot"><span class="annottext">getCapacityReservationUsage_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; GetCapacityReservationUsage -&gt; f GetCapacityReservationUsage
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_maxResults"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsage_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsage -&gt; Maybe Natural)
+-&gt; (GetCapacityReservationUsage
+    -&gt; Maybe Natural -&gt; GetCapacityReservationUsage)
+-&gt; Lens
+     GetCapacityReservationUsage
+     GetCapacityReservationUsage
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230392"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Maybe Natural
+</span><a href="#local-6989586621681230392"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681230392"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230391"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsage
+</span><a href="#local-6989586621681230391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230390"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681230390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsage
+</span><a href="#local-6989586621681230391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetCapacityReservationUsage' :: Maybe Natural
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AmaxResults%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681230390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The ID of the Capacity Reservation.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_capacityReservationId"><span class="hs-identifier hs-type">getCapacityReservationUsage_capacityReservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-143"></span><span id="getCapacityReservationUsage_capacityReservationId"><span class="annot"><span class="annottext">getCapacityReservationUsage_capacityReservationId :: (Text -&gt; f Text)
+-&gt; GetCapacityReservationUsage -&gt; f GetCapacityReservationUsage
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsage_capacityReservationId"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsage_capacityReservationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsage -&gt; Text)
+-&gt; (GetCapacityReservationUsage
+    -&gt; Text -&gt; GetCapacityReservationUsage)
+-&gt; Lens
+     GetCapacityReservationUsage GetCapacityReservationUsage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230389"><span class="annot"><span class="annottext">Text
+capacityReservationId :: Text
+$sel:capacityReservationId:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Text
+</span><a href="#local-6989586621681230389"><span class="hs-identifier hs-var hs-var">capacityReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681230389"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230388"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsage
+</span><a href="#local-6989586621681230388"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230387"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681230387"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsage
+</span><a href="#local-6989586621681230388"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationId:GetCapacityReservationUsage' :: Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AcapacityReservationId%3AGetCapacityReservationUsage%27"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681230387"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-147"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621681230383"><span class="annot"><span class="annottext">request :: GetCapacityReservationUsage -&gt; Request GetCapacityReservationUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetCapacityReservationUsage
+-&gt; Request GetCapacityReservationUsage
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621681230379"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCapacityReservationUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCapacityReservationUsage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetCapacityReservationUsage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCapacityReservationUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCapacityReservationUsage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681230376"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681230376"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681230375"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681230375"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681230374"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>          </span><span class="annot"><span class="annottext">Maybe CapacityReservationState
+-&gt; Maybe [InstanceUsage]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Int
+-&gt; GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">GetCapacityReservationUsageResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CapacityReservationState
+ -&gt; Maybe [InstanceUsage]
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Int
+ -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String (Maybe CapacityReservationState)
+-&gt; Either
+     String
+     (Maybe [InstanceUsage]
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Int
+      -&gt; GetCapacityReservationUsageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CapacityReservationState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [InstanceUsage]
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Int
+   -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String (Maybe [InstanceUsage])
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Int
+      -&gt; GetCapacityReservationUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceUsageSet&quot;</span></span><span>
+</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [InstanceUsage]))
+-&gt; Either String (Maybe [InstanceUsage])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [InstanceUsage])
+-&gt; [Node] -&gt; Either String (Maybe [InstanceUsage])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [InstanceUsage]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Int
+   -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Int
+      -&gt; GetCapacityReservationUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availableInstanceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Int
+   -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Int
+      -&gt; GetCapacityReservationUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;capacityReservationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Int
+   -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int -&gt; Int -&gt; GetCapacityReservationUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int -&gt; Int -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Int -&gt; Int -&gt; GetCapacityReservationUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Int -&gt; Int -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either String (Int -&gt; GetCapacityReservationUsageResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681230374"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalInstanceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetCapacityReservationUsageResponse)
+-&gt; Either String Int
+-&gt; Either String GetCapacityReservationUsageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681230376"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681230363"><span id="local-6989586621681230365"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681230360"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621681230356"><span class="annot"><span class="annottext">toHeaders :: GetCapacityReservationUsage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCapacityReservationUsage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621681230351"><span class="annot"><span class="annottext">toPath :: GetCapacityReservationUsage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCapacityReservationUsage -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage"><span class="hs-identifier hs-type">GetCapacityReservationUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621681230347"><span class="annot"><span class="annottext">toQuery :: GetCapacityReservationUsage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsage%27"><span class="hs-identifier hs-type">GetCapacityReservationUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230342"><span id="local-6989586621681230343"><span id="local-6989586621681230344"><span id="local-6989586621681230345"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe Text
+Text
+capacityReservationId :: Text
+maxResults :: Maybe Natural
+dryRun :: Maybe Bool
+nextToken :: Maybe Text
+$sel:capacityReservationId:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Text
+$sel:maxResults:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Maybe Natural
+$sel:dryRun:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Maybe Bool
+$sel:nextToken:GetCapacityReservationUsage' :: GetCapacityReservationUsage -&gt; Maybe Text
+</span><a href="#local-6989586621681230342"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetCapacityReservationUsage&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-182"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-183"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230345"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681230344"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681230343"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CapacityReservationId&quot;</span></span><span>
+</span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681230342"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newGetCapacityReservationUsageResponse' smart constructor.</span><span>
+</span><span id="line-194"></span><span id="local-6989586621681230339"><span id="local-6989586621681230340"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCapacityReservationUsageResponse"><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-var">GetCapacityReservationUsageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCapacityReservationUsageResponse%27"><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">GetCapacityReservationUsageResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current state of the Capacity Reservation. A Capacity Reservation</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- can be in one of the following states:</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- -   @active@ - The Capacity Reservation is active and the capacity is</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">--     available for your use.</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- -   @expired@ - The Capacity Reservation expired automatically at the</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">--     date and time specified in your request. The reserved capacity is no</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">--     longer available for your use.</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- -   @cancelled@ - The Capacity Reservation was cancelled. The reserved</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">--     capacity is no longer available for your use.</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- -   @pending@ - The Capacity Reservation request was successful but the</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">--     capacity provisioning is still pending.</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">-- -   @failed@ - The Capacity Reservation request has failed. A request</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">--     might fail due to invalid request parameters, capacity constraints,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">--     or instance limit constraints. Failed requests are retained for 60</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">--     minutes.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3Astate%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+-&gt; Maybe CapacityReservationState
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3Astate%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CapacityReservationState.html#CapacityReservationState"><span class="hs-identifier hs-type">CapacityReservationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | Information about the Capacity Reservation usage.</span><span>
+</span><span id="line-217"></span><span>    </span><span id="%24sel%3AinstanceUsages%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse -&gt; Maybe [InstanceUsage]
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AinstanceUsages%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">instanceUsages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- | The remaining capacity. Indicates the number of instances that can be</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- launched in the Capacity Reservation.</span><span>
+</span><span id="line-220"></span><span>    </span><span id="%24sel%3AavailableInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse -&gt; Maybe Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AavailableInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">availableInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">-- | The ID of the Capacity Reservation.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AcapacityReservationId%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AcapacityReservationId%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">capacityReservationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The type of instance for which the Capacity Reservation reserves</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AinstanceType%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AinstanceType%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AnextToken%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AnextToken%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The number of instances for which the Capacity Reservation reserves</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-231"></span><span>    </span><span id="%24sel%3AtotalInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse -&gt; Maybe Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AtotalInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">totalInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-233"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCapacityReservationUsageResponse%27"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse -&gt; Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AhttpStatus%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681230327"><span id="local-6989586621681230329"><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+-&gt; GetCapacityReservationUsageResponse -&gt; Bool
+(GetCapacityReservationUsageResponse
+ -&gt; GetCapacityReservationUsageResponse -&gt; Bool)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; GetCapacityReservationUsageResponse -&gt; Bool)
+-&gt; Eq GetCapacityReservationUsageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCapacityReservationUsageResponse
+-&gt; GetCapacityReservationUsageResponse -&gt; Bool
+$c/= :: GetCapacityReservationUsageResponse
+-&gt; GetCapacityReservationUsageResponse -&gt; Bool
+== :: GetCapacityReservationUsageResponse
+-&gt; GetCapacityReservationUsageResponse -&gt; Bool
+$c== :: GetCapacityReservationUsageResponse
+-&gt; GetCapacityReservationUsageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681230319"><span id="local-6989586621681230321"><span id="local-6989586621681230323"><span id="local-6989586621681230325"><span class="annot"><span class="annottext">ReadPrec [GetCapacityReservationUsageResponse]
+ReadPrec GetCapacityReservationUsageResponse
+Int -&gt; ReadS GetCapacityReservationUsageResponse
+ReadS [GetCapacityReservationUsageResponse]
+(Int -&gt; ReadS GetCapacityReservationUsageResponse)
+-&gt; ReadS [GetCapacityReservationUsageResponse]
+-&gt; ReadPrec GetCapacityReservationUsageResponse
+-&gt; ReadPrec [GetCapacityReservationUsageResponse]
+-&gt; Read GetCapacityReservationUsageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCapacityReservationUsageResponse]
+$creadListPrec :: ReadPrec [GetCapacityReservationUsageResponse]
+readPrec :: ReadPrec GetCapacityReservationUsageResponse
+$creadPrec :: ReadPrec GetCapacityReservationUsageResponse
+readList :: ReadS [GetCapacityReservationUsageResponse]
+$creadList :: ReadS [GetCapacityReservationUsageResponse]
+readsPrec :: Int -&gt; ReadS GetCapacityReservationUsageResponse
+$creadsPrec :: Int -&gt; ReadS GetCapacityReservationUsageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681230313"><span id="local-6989586621681230315"><span id="local-6989586621681230317"><span class="annot"><span class="annottext">Int -&gt; GetCapacityReservationUsageResponse -&gt; ShowS
+[GetCapacityReservationUsageResponse] -&gt; ShowS
+GetCapacityReservationUsageResponse -&gt; String
+(Int -&gt; GetCapacityReservationUsageResponse -&gt; ShowS)
+-&gt; (GetCapacityReservationUsageResponse -&gt; String)
+-&gt; ([GetCapacityReservationUsageResponse] -&gt; ShowS)
+-&gt; Show GetCapacityReservationUsageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCapacityReservationUsageResponse] -&gt; ShowS
+$cshowList :: [GetCapacityReservationUsageResponse] -&gt; ShowS
+show :: GetCapacityReservationUsageResponse -&gt; String
+$cshow :: GetCapacityReservationUsageResponse -&gt; String
+showsPrec :: Int -&gt; GetCapacityReservationUsageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCapacityReservationUsageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCapacityReservationUsageResponse
+ -&gt; Rep GetCapacityReservationUsageResponse x)
+-&gt; (forall x.
+    Rep GetCapacityReservationUsageResponse x
+    -&gt; GetCapacityReservationUsageResponse)
+-&gt; Generic GetCapacityReservationUsageResponse
+forall x.
+Rep GetCapacityReservationUsageResponse x
+-&gt; GetCapacityReservationUsageResponse
+forall x.
+GetCapacityReservationUsageResponse
+-&gt; Rep GetCapacityReservationUsageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCapacityReservationUsageResponse x
+-&gt; GetCapacityReservationUsageResponse
+$cfrom :: forall x.
+GetCapacityReservationUsageResponse
+-&gt; Rep GetCapacityReservationUsageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Create a value of 'GetCapacityReservationUsageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'state', 'getCapacityReservationUsageResponse_state' - The current state of the Capacity Reservation. A Capacity Reservation</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- can be in one of the following states:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @active@ - The Capacity Reservation is active and the capacity is</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     available for your use.</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- -   @expired@ - The Capacity Reservation expired automatically at the</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--     date and time specified in your request. The reserved capacity is no</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     longer available for your use.</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- -   @cancelled@ - The Capacity Reservation was cancelled. The reserved</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--     capacity is no longer available for your use.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- -   @pending@ - The Capacity Reservation request was successful but the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     capacity provisioning is still pending.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- -   @failed@ - The Capacity Reservation request has failed. A request</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--     might fail due to invalid request parameters, capacity constraints,</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     or instance limit constraints. Failed requests are retained for 60</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--     minutes.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- 'instanceUsages', 'getCapacityReservationUsageResponse_instanceUsages' - Information about the Capacity Reservation usage.</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- 'availableInstanceCount', 'getCapacityReservationUsageResponse_availableInstanceCount' - The remaining capacity. Indicates the number of instances that can be</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- launched in the Capacity Reservation.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'capacityReservationId', 'getCapacityReservationUsageResponse_capacityReservationId' - The ID of the Capacity Reservation.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'instanceType', 'getCapacityReservationUsageResponse_instanceType' - The type of instance for which the Capacity Reservation reserves</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'nextToken', 'getCapacityReservationUsageResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- 'totalInstanceCount', 'getCapacityReservationUsageResponse_totalInstanceCount' - The number of instances for which the Capacity Reservation reserves</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- 'httpStatus', 'getCapacityReservationUsageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#newGetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">newGetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span>
+</span><span id="line-287"></span><span id="newGetCapacityReservationUsageResponse"><span class="annot"><span class="annottext">newGetCapacityReservationUsageResponse :: Int -&gt; GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#newGetCapacityReservationUsageResponse"><span class="hs-identifier hs-var hs-var">newGetCapacityReservationUsageResponse</span></a></span></span><span> </span><span id="local-6989586621681230310"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681230310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse' :: Maybe CapacityReservationState
+-&gt; Maybe [InstanceUsage]
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Int
+-&gt; GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span>
+</span><span id="line-289"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:state:GetCapacityReservationUsageResponse' :: Maybe CapacityReservationState
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3Astate%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">Maybe CapacityReservationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceUsages:GetCapacityReservationUsageResponse' :: Maybe [InstanceUsage]
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AinstanceUsages%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">instanceUsages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceUsage]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>      </span><span class="annot"><span class="annottext">$sel:availableInstanceCount:GetCapacityReservationUsageResponse' :: Maybe Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AavailableInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">availableInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:capacityReservationId:GetCapacityReservationUsageResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AcapacityReservationId%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:GetCapacityReservationUsageResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AinstanceType%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetCapacityReservationUsageResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AnextToken%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalInstanceCount:GetCapacityReservationUsageResponse' :: Maybe Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AtotalInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">totalInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCapacityReservationUsageResponse' :: Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AhttpStatus%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681230310"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-300"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The current state of the Capacity Reservation. A Capacity Reservation</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- can be in one of the following states:</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   @active@ - The Capacity Reservation is active and the capacity is</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     available for your use.</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- -   @expired@ - The Capacity Reservation expired automatically at the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     date and time specified in your request. The reserved capacity is no</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     longer available for your use.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- -   @cancelled@ - The Capacity Reservation was cancelled. The reserved</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--     capacity is no longer available for your use.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- -   @pending@ - The Capacity Reservation request was successful but the</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--     capacity provisioning is still pending.</span><span>
+</span><span id="line-317"></span><span class="hs-comment">--</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- -   @failed@ - The Capacity Reservation request has failed. A request</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--     might fail due to invalid request parameters, capacity constraints,</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--     or instance limit constraints. Failed requests are retained for 60</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--     minutes.</span><span>
+</span><span id="line-322"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_state"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.CapacityReservationState.html#CapacityReservationState"><span class="hs-identifier hs-type">CapacityReservationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span id="getCapacityReservationUsageResponse_state"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_state :: (Maybe CapacityReservationState
+ -&gt; f (Maybe CapacityReservationState))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_state"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse
+ -&gt; Maybe CapacityReservationState)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Maybe CapacityReservationState
+    -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     (Maybe CapacityReservationState)
+     (Maybe CapacityReservationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230309"><span class="annot"><span class="annottext">Maybe CapacityReservationState
+state :: Maybe CapacityReservationState
+$sel:state:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse
+-&gt; Maybe CapacityReservationState
+</span><a href="#local-6989586621681230309"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationState
+</span><a href="#local-6989586621681230309"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230308"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230307"><span class="annot"><span class="annottext">Maybe CapacityReservationState
+</span><a href="#local-6989586621681230307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:GetCapacityReservationUsageResponse' :: Maybe CapacityReservationState
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3Astate%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CapacityReservationState
+</span><a href="#local-6989586621681230307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- | Information about the Capacity Reservation usage.</span><span>
+</span><span id="line-326"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_instanceUsages"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_instanceUsages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.InstanceUsage.html#InstanceUsage"><span class="hs-identifier hs-type">InstanceUsage</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span id="getCapacityReservationUsageResponse_instanceUsages"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_instanceUsages :: (Maybe [InstanceUsage] -&gt; f (Maybe [InstanceUsage]))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_instanceUsages"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_instanceUsages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse -&gt; Maybe [InstanceUsage])
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Maybe [InstanceUsage] -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     (Maybe [InstanceUsage])
+     (Maybe [InstanceUsage])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230306"><span class="annot"><span class="annottext">Maybe [InstanceUsage]
+instanceUsages :: Maybe [InstanceUsage]
+$sel:instanceUsages:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse -&gt; Maybe [InstanceUsage]
+</span><a href="#local-6989586621681230306"><span class="hs-identifier hs-var hs-var">instanceUsages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceUsage]
+</span><a href="#local-6989586621681230306"><span class="hs-identifier hs-var">instanceUsages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230305"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230304"><span class="annot"><span class="annottext">Maybe [InstanceUsage]
+</span><a href="#local-6989586621681230304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceUsages:GetCapacityReservationUsageResponse' :: Maybe [InstanceUsage]
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AinstanceUsages%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">instanceUsages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InstanceUsage]
+</span><a href="#local-6989586621681230304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InstanceUsage] -&gt; f (Maybe [InstanceUsage]))
+ -&gt; GetCapacityReservationUsageResponse
+ -&gt; f GetCapacityReservationUsageResponse)
+-&gt; ((Maybe [InstanceUsage] -&gt; f (Maybe [InstanceUsage]))
+    -&gt; Maybe [InstanceUsage] -&gt; f (Maybe [InstanceUsage]))
+-&gt; (Maybe [InstanceUsage] -&gt; f (Maybe [InstanceUsage]))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceUsage] [InstanceUsage] [InstanceUsage] [InstanceUsage]
+-&gt; Iso
+     (Maybe [InstanceUsage])
+     (Maybe [InstanceUsage])
+     (Maybe [InstanceUsage])
+     (Maybe [InstanceUsage])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [InstanceUsage] [InstanceUsage] [InstanceUsage] [InstanceUsage]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- | The remaining capacity. Indicates the number of instances that can be</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- launched in the Capacity Reservation.</span><span>
+</span><span id="line-331"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_availableInstanceCount"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_availableInstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span id="getCapacityReservationUsageResponse_availableInstanceCount"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_availableInstanceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_availableInstanceCount"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_availableInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse -&gt; Maybe Int)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Maybe Int -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230300"><span class="annot"><span class="annottext">Maybe Int
+availableInstanceCount :: Maybe Int
+$sel:availableInstanceCount:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse -&gt; Maybe Int
+</span><a href="#local-6989586621681230300"><span class="hs-identifier hs-var hs-var">availableInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681230300"><span class="hs-identifier hs-var">availableInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230299"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230298"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681230298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availableInstanceCount:GetCapacityReservationUsageResponse' :: Maybe Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AavailableInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">availableInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681230298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- | The ID of the Capacity Reservation.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_capacityReservationId"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_capacityReservationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span id="getCapacityReservationUsageResponse_capacityReservationId"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_capacityReservationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_capacityReservationId"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_capacityReservationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse -&gt; Maybe Text)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Maybe Text -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230297"><span class="annot"><span class="annottext">Maybe Text
+capacityReservationId :: Maybe Text
+$sel:capacityReservationId:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681230297"><span class="hs-identifier hs-var hs-var">capacityReservationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230297"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230296"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capacityReservationId:GetCapacityReservationUsageResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AcapacityReservationId%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">capacityReservationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- | The type of instance for which the Capacity Reservation reserves</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-340"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_instanceType"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span id="getCapacityReservationUsageResponse_instanceType"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_instanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_instanceType"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse -&gt; Maybe Text)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Maybe Text -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230294"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681230294"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230294"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230293"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230292"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:GetCapacityReservationUsageResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AinstanceType%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-345"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_nextToken"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-346"></span><span id="getCapacityReservationUsageResponse_nextToken"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_nextToken"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse -&gt; Maybe Text)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Maybe Text -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230291"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681230291"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230291"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230290"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230289"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetCapacityReservationUsageResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AnextToken%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681230289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- | The number of instances for which the Capacity Reservation reserves</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- capacity.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_totalInstanceCount"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_totalInstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span id="getCapacityReservationUsageResponse_totalInstanceCount"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_totalInstanceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_totalInstanceCount"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_totalInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse -&gt; Maybe Int)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Maybe Int -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230288"><span class="annot"><span class="annottext">Maybe Int
+totalInstanceCount :: Maybe Int
+$sel:totalInstanceCount:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse -&gt; Maybe Int
+</span><a href="#local-6989586621681230288"><span class="hs-identifier hs-var hs-var">totalInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681230288"><span class="hs-identifier hs-var">totalInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230287"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230286"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681230286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalInstanceCount:GetCapacityReservationUsageResponse' :: Maybe Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AtotalInstanceCount%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">totalInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681230286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-354"></span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_httpStatus"><span class="hs-identifier hs-type">getCapacityReservationUsageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-355"></span><span id="getCapacityReservationUsageResponse_httpStatus"><span class="annot"><span class="annottext">getCapacityReservationUsageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetCapacityReservationUsageResponse
+-&gt; f GetCapacityReservationUsageResponse
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#getCapacityReservationUsageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCapacityReservationUsageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCapacityReservationUsageResponse -&gt; Int)
+-&gt; (GetCapacityReservationUsageResponse
+    -&gt; Int -&gt; GetCapacityReservationUsageResponse)
+-&gt; Lens
+     GetCapacityReservationUsageResponse
+     GetCapacityReservationUsageResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681230285"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCapacityReservationUsageResponse' :: GetCapacityReservationUsageResponse -&gt; Int
+</span><a href="#local-6989586621681230285"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681230285"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681230284"><span class="annot"><span class="annottext">s :: GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681230283"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681230283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCapacityReservationUsageResponse
+</span><a href="#local-6989586621681230284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCapacityReservationUsageResponse' :: Int
+</span><a href="Amazonka.EC2.GetCapacityReservationUsage.html#%24sel%3AhttpStatus%3AGetCapacityReservationUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681230283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-356"></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-358"></span><span>  </span><span id="local-6989586621681230281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.GetCapacityReservationUsage.html#GetCapacityReservationUsageResponse"><span class="hs-identifier hs-type">GetCapacityReservationUsageResponse</span></a></span></span><span>
+</span><span id="line-360"></span></pre></body></html>

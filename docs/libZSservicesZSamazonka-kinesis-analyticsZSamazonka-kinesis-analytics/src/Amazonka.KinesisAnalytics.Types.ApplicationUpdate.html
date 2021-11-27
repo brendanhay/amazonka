@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalytics.Types.ApplicationUpdate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.ApplicationUpdate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.InputUpdate</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.OutputUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.OutputUpdate</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes updates to apply to an existing Amazon Kinesis Analytics</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newApplicationUpdate' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679209895"><span id="local-6989586621679209896"></span></span><span class="hs-keyword">data</span><span> </span><span id="ApplicationUpdate"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-var">ApplicationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ApplicationUpdate%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-var">ApplicationUpdate'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Describes application reference data source updates.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AreferenceDataSourceUpdates%3AApplicationUpdate%27"><span class="annot"><span class="annottext">ApplicationUpdate -&gt; Maybe [ReferenceDataSourceUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AreferenceDataSourceUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var hs-var">referenceDataSourceUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate.html#ReferenceDataSourceUpdate"><span class="hs-identifier hs-type">ReferenceDataSourceUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Describes application input configuration updates.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinputUpdates%3AApplicationUpdate%27"><span class="annot"><span class="annottext">ApplicationUpdate -&gt; Maybe [InputUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AinputUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var hs-var">inputUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Describes application CloudWatch logging option updates.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcloudWatchLoggingOptionUpdates%3AApplicationUpdate%27"><span class="annot"><span class="annottext">ApplicationUpdate -&gt; Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AcloudWatchLoggingOptionUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptionUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate.html#CloudWatchLoggingOptionUpdate"><span class="hs-identifier hs-type">CloudWatchLoggingOptionUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Describes application output configuration updates.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AoutputUpdates%3AApplicationUpdate%27"><span class="annot"><span class="annottext">ApplicationUpdate -&gt; Maybe [OutputUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AoutputUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var hs-var">outputUpdates</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.OutputUpdate.html#OutputUpdate"><span class="hs-identifier hs-type">OutputUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Describes application code updates.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AapplicationCodeUpdate%3AApplicationUpdate%27"><span class="annot"><span class="annottext">ApplicationUpdate -&gt; Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AapplicationCodeUpdate%3AApplicationUpdate%27"><span class="hs-identifier hs-var hs-var">applicationCodeUpdate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209885"><span id="local-6989586621679209887"><span class="annot"><span class="annottext">ApplicationUpdate -&gt; ApplicationUpdate -&gt; Bool
+(ApplicationUpdate -&gt; ApplicationUpdate -&gt; Bool)
+-&gt; (ApplicationUpdate -&gt; ApplicationUpdate -&gt; Bool)
+-&gt; Eq ApplicationUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ApplicationUpdate -&gt; ApplicationUpdate -&gt; Bool
+$c/= :: ApplicationUpdate -&gt; ApplicationUpdate -&gt; Bool
+== :: ApplicationUpdate -&gt; ApplicationUpdate -&gt; Bool
+$c== :: ApplicationUpdate -&gt; ApplicationUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209876"><span id="local-6989586621679209878"><span id="local-6989586621679209880"><span id="local-6989586621679209882"><span class="annot"><span class="annottext">ReadPrec [ApplicationUpdate]
+ReadPrec ApplicationUpdate
+Int -&gt; ReadS ApplicationUpdate
+ReadS [ApplicationUpdate]
+(Int -&gt; ReadS ApplicationUpdate)
+-&gt; ReadS [ApplicationUpdate]
+-&gt; ReadPrec ApplicationUpdate
+-&gt; ReadPrec [ApplicationUpdate]
+-&gt; Read ApplicationUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ApplicationUpdate]
+$creadListPrec :: ReadPrec [ApplicationUpdate]
+readPrec :: ReadPrec ApplicationUpdate
+$creadPrec :: ReadPrec ApplicationUpdate
+readList :: ReadS [ApplicationUpdate]
+$creadList :: ReadS [ApplicationUpdate]
+readsPrec :: Int -&gt; ReadS ApplicationUpdate
+$creadsPrec :: Int -&gt; ReadS ApplicationUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209869"><span id="local-6989586621679209871"><span id="local-6989586621679209873"><span class="annot"><span class="annottext">Int -&gt; ApplicationUpdate -&gt; ShowS
+[ApplicationUpdate] -&gt; ShowS
+ApplicationUpdate -&gt; String
+(Int -&gt; ApplicationUpdate -&gt; ShowS)
+-&gt; (ApplicationUpdate -&gt; String)
+-&gt; ([ApplicationUpdate] -&gt; ShowS)
+-&gt; Show ApplicationUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ApplicationUpdate] -&gt; ShowS
+$cshowList :: [ApplicationUpdate] -&gt; ShowS
+show :: ApplicationUpdate -&gt; String
+$cshow :: ApplicationUpdate -&gt; String
+showsPrec :: Int -&gt; ApplicationUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ApplicationUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ApplicationUpdate -&gt; Rep ApplicationUpdate x)
+-&gt; (forall x. Rep ApplicationUpdate x -&gt; ApplicationUpdate)
+-&gt; Generic ApplicationUpdate
+forall x. Rep ApplicationUpdate x -&gt; ApplicationUpdate
+forall x. ApplicationUpdate -&gt; Rep ApplicationUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ApplicationUpdate x -&gt; ApplicationUpdate
+$cfrom :: forall x. ApplicationUpdate -&gt; Rep ApplicationUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'ApplicationUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'referenceDataSourceUpdates', 'applicationUpdate_referenceDataSourceUpdates' - Describes application reference data source updates.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'inputUpdates', 'applicationUpdate_inputUpdates' - Describes application input configuration updates.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'cloudWatchLoggingOptionUpdates', 'applicationUpdate_cloudWatchLoggingOptionUpdates' - Describes application CloudWatch logging option updates.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'outputUpdates', 'applicationUpdate_outputUpdates' - Describes application output configuration updates.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'applicationCodeUpdate', 'applicationUpdate_applicationCodeUpdate' - Describes application code updates.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#newApplicationUpdate"><span class="hs-identifier hs-type">newApplicationUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span>
+</span><span id="line-67"></span><span id="newApplicationUpdate"><span class="annot"><span class="annottext">newApplicationUpdate :: ApplicationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#newApplicationUpdate"><span class="hs-identifier hs-var hs-var">newApplicationUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ApplicationUpdate' :: Maybe [ReferenceDataSourceUpdate]
+-&gt; Maybe [InputUpdate]
+-&gt; Maybe [CloudWatchLoggingOptionUpdate]
+-&gt; Maybe [OutputUpdate]
+-&gt; Maybe Text
+-&gt; ApplicationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:referenceDataSourceUpdates:ApplicationUpdate' :: Maybe [ReferenceDataSourceUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AreferenceDataSourceUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">referenceDataSourceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceUpdate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputUpdates:ApplicationUpdate' :: Maybe [InputUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AinputUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">inputUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputUpdate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptionUpdates:ApplicationUpdate' :: Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AcloudWatchLoggingOptionUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptionUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOptionUpdate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputUpdates:ApplicationUpdate' :: Maybe [OutputUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AoutputUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">outputUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputUpdate]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:applicationCodeUpdate:ApplicationUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AapplicationCodeUpdate%3AApplicationUpdate%27"><span class="hs-identifier hs-var">applicationCodeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | Describes application reference data source updates.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_referenceDataSourceUpdates"><span class="hs-identifier hs-type">applicationUpdate_referenceDataSourceUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSourceUpdate.html#ReferenceDataSourceUpdate"><span class="hs-identifier hs-type">ReferenceDataSourceUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="applicationUpdate_referenceDataSourceUpdates"><span class="annot"><span class="annottext">applicationUpdate_referenceDataSourceUpdates :: (Maybe [ReferenceDataSourceUpdate]
+ -&gt; f (Maybe [ReferenceDataSourceUpdate]))
+-&gt; ApplicationUpdate -&gt; f ApplicationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_referenceDataSourceUpdates"><span class="hs-identifier hs-var hs-var">applicationUpdate_referenceDataSourceUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationUpdate -&gt; Maybe [ReferenceDataSourceUpdate])
+-&gt; (ApplicationUpdate
+    -&gt; Maybe [ReferenceDataSourceUpdate] -&gt; ApplicationUpdate)
+-&gt; Lens
+     ApplicationUpdate
+     ApplicationUpdate
+     (Maybe [ReferenceDataSourceUpdate])
+     (Maybe [ReferenceDataSourceUpdate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209860"><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceUpdate]
+referenceDataSourceUpdates :: Maybe [ReferenceDataSourceUpdate]
+$sel:referenceDataSourceUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [ReferenceDataSourceUpdate]
+</span><a href="#local-6989586621679209860"><span class="hs-identifier hs-var hs-var">referenceDataSourceUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceUpdate]
+</span><a href="#local-6989586621679209860"><span class="hs-identifier hs-var">referenceDataSourceUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209859"><span class="annot"><span class="annottext">s :: ApplicationUpdate
+</span><a href="#local-6989586621679209859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209858"><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceUpdate]
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationUpdate
+</span><a href="#local-6989586621679209859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceDataSourceUpdates:ApplicationUpdate' :: Maybe [ReferenceDataSourceUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AreferenceDataSourceUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">referenceDataSourceUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceUpdate]
+</span><a href="#local-6989586621679209858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ReferenceDataSourceUpdate]
+  -&gt; f (Maybe [ReferenceDataSourceUpdate]))
+ -&gt; ApplicationUpdate -&gt; f ApplicationUpdate)
+-&gt; ((Maybe [ReferenceDataSourceUpdate]
+     -&gt; f (Maybe [ReferenceDataSourceUpdate]))
+    -&gt; Maybe [ReferenceDataSourceUpdate]
+    -&gt; f (Maybe [ReferenceDataSourceUpdate]))
+-&gt; (Maybe [ReferenceDataSourceUpdate]
+    -&gt; f (Maybe [ReferenceDataSourceUpdate]))
+-&gt; ApplicationUpdate
+-&gt; f ApplicationUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReferenceDataSourceUpdate]
+  [ReferenceDataSourceUpdate]
+  [ReferenceDataSourceUpdate]
+  [ReferenceDataSourceUpdate]
+-&gt; Iso
+     (Maybe [ReferenceDataSourceUpdate])
+     (Maybe [ReferenceDataSourceUpdate])
+     (Maybe [ReferenceDataSourceUpdate])
+     (Maybe [ReferenceDataSourceUpdate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ReferenceDataSourceUpdate]
+  [ReferenceDataSourceUpdate]
+  [ReferenceDataSourceUpdate]
+  [ReferenceDataSourceUpdate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Describes application input configuration updates.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_inputUpdates"><span class="hs-identifier hs-type">applicationUpdate_inputUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.InputUpdate.html#InputUpdate"><span class="hs-identifier hs-type">InputUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="applicationUpdate_inputUpdates"><span class="annot"><span class="annottext">applicationUpdate_inputUpdates :: (Maybe [InputUpdate] -&gt; f (Maybe [InputUpdate]))
+-&gt; ApplicationUpdate -&gt; f ApplicationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_inputUpdates"><span class="hs-identifier hs-var hs-var">applicationUpdate_inputUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationUpdate -&gt; Maybe [InputUpdate])
+-&gt; (ApplicationUpdate -&gt; Maybe [InputUpdate] -&gt; ApplicationUpdate)
+-&gt; Lens
+     ApplicationUpdate
+     ApplicationUpdate
+     (Maybe [InputUpdate])
+     (Maybe [InputUpdate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209853"><span class="annot"><span class="annottext">Maybe [InputUpdate]
+inputUpdates :: Maybe [InputUpdate]
+$sel:inputUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [InputUpdate]
+</span><a href="#local-6989586621679209853"><span class="hs-identifier hs-var hs-var">inputUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [InputUpdate]
+</span><a href="#local-6989586621679209853"><span class="hs-identifier hs-var">inputUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209852"><span class="annot"><span class="annottext">s :: ApplicationUpdate
+</span><a href="#local-6989586621679209852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209851"><span class="annot"><span class="annottext">Maybe [InputUpdate]
+</span><a href="#local-6989586621679209851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationUpdate
+</span><a href="#local-6989586621679209852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputUpdates:ApplicationUpdate' :: Maybe [InputUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AinputUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">inputUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [InputUpdate]
+</span><a href="#local-6989586621679209851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [InputUpdate] -&gt; f (Maybe [InputUpdate]))
+ -&gt; ApplicationUpdate -&gt; f ApplicationUpdate)
+-&gt; ((Maybe [InputUpdate] -&gt; f (Maybe [InputUpdate]))
+    -&gt; Maybe [InputUpdate] -&gt; f (Maybe [InputUpdate]))
+-&gt; (Maybe [InputUpdate] -&gt; f (Maybe [InputUpdate]))
+-&gt; ApplicationUpdate
+-&gt; f ApplicationUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [InputUpdate] [InputUpdate] [InputUpdate] [InputUpdate]
+-&gt; Iso
+     (Maybe [InputUpdate])
+     (Maybe [InputUpdate])
+     (Maybe [InputUpdate])
+     (Maybe [InputUpdate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [InputUpdate] [InputUpdate] [InputUpdate] [InputUpdate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Describes application CloudWatch logging option updates.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_cloudWatchLoggingOptionUpdates"><span class="hs-identifier hs-type">applicationUpdate_cloudWatchLoggingOptionUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.CloudWatchLoggingOptionUpdate.html#CloudWatchLoggingOptionUpdate"><span class="hs-identifier hs-type">CloudWatchLoggingOptionUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="applicationUpdate_cloudWatchLoggingOptionUpdates"><span class="annot"><span class="annottext">applicationUpdate_cloudWatchLoggingOptionUpdates :: (Maybe [CloudWatchLoggingOptionUpdate]
+ -&gt; f (Maybe [CloudWatchLoggingOptionUpdate]))
+-&gt; ApplicationUpdate -&gt; f ApplicationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_cloudWatchLoggingOptionUpdates"><span class="hs-identifier hs-var hs-var">applicationUpdate_cloudWatchLoggingOptionUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationUpdate -&gt; Maybe [CloudWatchLoggingOptionUpdate])
+-&gt; (ApplicationUpdate
+    -&gt; Maybe [CloudWatchLoggingOptionUpdate] -&gt; ApplicationUpdate)
+-&gt; Lens
+     ApplicationUpdate
+     ApplicationUpdate
+     (Maybe [CloudWatchLoggingOptionUpdate])
+     (Maybe [CloudWatchLoggingOptionUpdate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209849"><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOptionUpdate]
+cloudWatchLoggingOptionUpdates :: Maybe [CloudWatchLoggingOptionUpdate]
+$sel:cloudWatchLoggingOptionUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="#local-6989586621679209849"><span class="hs-identifier hs-var hs-var">cloudWatchLoggingOptionUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="#local-6989586621679209849"><span class="hs-identifier hs-var">cloudWatchLoggingOptionUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209848"><span class="annot"><span class="annottext">s :: ApplicationUpdate
+</span><a href="#local-6989586621679209848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209847"><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="#local-6989586621679209847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationUpdate
+</span><a href="#local-6989586621679209848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLoggingOptionUpdates:ApplicationUpdate' :: Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AcloudWatchLoggingOptionUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">cloudWatchLoggingOptionUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="#local-6989586621679209847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [CloudWatchLoggingOptionUpdate]
+  -&gt; f (Maybe [CloudWatchLoggingOptionUpdate]))
+ -&gt; ApplicationUpdate -&gt; f ApplicationUpdate)
+-&gt; ((Maybe [CloudWatchLoggingOptionUpdate]
+     -&gt; f (Maybe [CloudWatchLoggingOptionUpdate]))
+    -&gt; Maybe [CloudWatchLoggingOptionUpdate]
+    -&gt; f (Maybe [CloudWatchLoggingOptionUpdate]))
+-&gt; (Maybe [CloudWatchLoggingOptionUpdate]
+    -&gt; f (Maybe [CloudWatchLoggingOptionUpdate]))
+-&gt; ApplicationUpdate
+-&gt; f ApplicationUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CloudWatchLoggingOptionUpdate]
+  [CloudWatchLoggingOptionUpdate]
+  [CloudWatchLoggingOptionUpdate]
+  [CloudWatchLoggingOptionUpdate]
+-&gt; Iso
+     (Maybe [CloudWatchLoggingOptionUpdate])
+     (Maybe [CloudWatchLoggingOptionUpdate])
+     (Maybe [CloudWatchLoggingOptionUpdate])
+     (Maybe [CloudWatchLoggingOptionUpdate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [CloudWatchLoggingOptionUpdate]
+  [CloudWatchLoggingOptionUpdate]
+  [CloudWatchLoggingOptionUpdate]
+  [CloudWatchLoggingOptionUpdate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | Describes application output configuration updates.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_outputUpdates"><span class="hs-identifier hs-type">applicationUpdate_outputUpdates</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.OutputUpdate.html#OutputUpdate"><span class="hs-identifier hs-type">OutputUpdate</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="applicationUpdate_outputUpdates"><span class="annot"><span class="annottext">applicationUpdate_outputUpdates :: (Maybe [OutputUpdate] -&gt; f (Maybe [OutputUpdate]))
+-&gt; ApplicationUpdate -&gt; f ApplicationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_outputUpdates"><span class="hs-identifier hs-var hs-var">applicationUpdate_outputUpdates</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationUpdate -&gt; Maybe [OutputUpdate])
+-&gt; (ApplicationUpdate -&gt; Maybe [OutputUpdate] -&gt; ApplicationUpdate)
+-&gt; Lens
+     ApplicationUpdate
+     ApplicationUpdate
+     (Maybe [OutputUpdate])
+     (Maybe [OutputUpdate])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209845"><span class="annot"><span class="annottext">Maybe [OutputUpdate]
+outputUpdates :: Maybe [OutputUpdate]
+$sel:outputUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [OutputUpdate]
+</span><a href="#local-6989586621679209845"><span class="hs-identifier hs-var hs-var">outputUpdates</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputUpdate]
+</span><a href="#local-6989586621679209845"><span class="hs-identifier hs-var">outputUpdates</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209844"><span class="annot"><span class="annottext">s :: ApplicationUpdate
+</span><a href="#local-6989586621679209844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209843"><span class="annot"><span class="annottext">Maybe [OutputUpdate]
+</span><a href="#local-6989586621679209843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationUpdate
+</span><a href="#local-6989586621679209844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputUpdates:ApplicationUpdate' :: Maybe [OutputUpdate]
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AoutputUpdates%3AApplicationUpdate%27"><span class="hs-identifier hs-var">outputUpdates</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [OutputUpdate]
+</span><a href="#local-6989586621679209843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [OutputUpdate] -&gt; f (Maybe [OutputUpdate]))
+ -&gt; ApplicationUpdate -&gt; f ApplicationUpdate)
+-&gt; ((Maybe [OutputUpdate] -&gt; f (Maybe [OutputUpdate]))
+    -&gt; Maybe [OutputUpdate] -&gt; f (Maybe [OutputUpdate]))
+-&gt; (Maybe [OutputUpdate] -&gt; f (Maybe [OutputUpdate]))
+-&gt; ApplicationUpdate
+-&gt; f ApplicationUpdate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OutputUpdate] [OutputUpdate] [OutputUpdate] [OutputUpdate]
+-&gt; Iso
+     (Maybe [OutputUpdate])
+     (Maybe [OutputUpdate])
+     (Maybe [OutputUpdate])
+     (Maybe [OutputUpdate])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [OutputUpdate] [OutputUpdate] [OutputUpdate] [OutputUpdate]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Describes application code updates.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_applicationCodeUpdate"><span class="hs-identifier hs-type">applicationUpdate_applicationCodeUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="applicationUpdate_applicationCodeUpdate"><span class="annot"><span class="annottext">applicationUpdate_applicationCodeUpdate :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ApplicationUpdate -&gt; f ApplicationUpdate
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#applicationUpdate_applicationCodeUpdate"><span class="hs-identifier hs-var hs-var">applicationUpdate_applicationCodeUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ApplicationUpdate -&gt; Maybe Text)
+-&gt; (ApplicationUpdate -&gt; Maybe Text -&gt; ApplicationUpdate)
+-&gt; Lens
+     ApplicationUpdate ApplicationUpdate (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209841"><span class="annot"><span class="annottext">Maybe Text
+applicationCodeUpdate :: Maybe Text
+$sel:applicationCodeUpdate:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe Text
+</span><a href="#local-6989586621679209841"><span class="hs-identifier hs-var hs-var">applicationCodeUpdate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209841"><span class="hs-identifier hs-var">applicationCodeUpdate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209840"><span class="annot"><span class="annottext">s :: ApplicationUpdate
+</span><a href="#local-6989586621679209840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209839"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ApplicationUpdate
+</span><a href="#local-6989586621679209840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationCodeUpdate:ApplicationUpdate' :: Maybe Text
+</span><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#%24sel%3AapplicationCodeUpdate%3AApplicationUpdate%27"><span class="hs-identifier hs-var">applicationCodeUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209835"><span id="local-6989586621679209837"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209832"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209824"><span id="local-6989586621679209826"><span id="local-6989586621679209828"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate"><span class="hs-identifier hs-type">ApplicationUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679209822"><span class="annot"><span class="annottext">toJSON :: ApplicationUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ApplicationUpdate.html#ApplicationUpdate%27"><span class="hs-identifier hs-type">ApplicationUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209816"><span id="local-6989586621679209817"><span id="local-6989586621679209818"><span id="local-6989586621679209819"><span id="local-6989586621679209820"><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOptionUpdate]
+Maybe [InputUpdate]
+Maybe [OutputUpdate]
+Maybe [ReferenceDataSourceUpdate]
+Maybe Text
+applicationCodeUpdate :: Maybe Text
+outputUpdates :: Maybe [OutputUpdate]
+cloudWatchLoggingOptionUpdates :: Maybe [CloudWatchLoggingOptionUpdate]
+inputUpdates :: Maybe [InputUpdate]
+referenceDataSourceUpdates :: Maybe [ReferenceDataSourceUpdate]
+$sel:applicationCodeUpdate:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe Text
+$sel:outputUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [OutputUpdate]
+$sel:cloudWatchLoggingOptionUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [CloudWatchLoggingOptionUpdate]
+$sel:inputUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [InputUpdate]
+$sel:referenceDataSourceUpdates:ApplicationUpdate' :: ApplicationUpdate -&gt; Maybe [ReferenceDataSourceUpdate]
+</span><a href="#local-6989586621679209816"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReferenceDataSourceUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ReferenceDataSourceUpdate] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>              </span><span class="annot"><span class="annottext">([ReferenceDataSourceUpdate] -&gt; Pair)
+-&gt; Maybe [ReferenceDataSourceUpdate] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ReferenceDataSourceUpdate]
+</span><a href="#local-6989586621679209820"><span class="hs-identifier hs-var">referenceDataSourceUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [InputUpdate] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([InputUpdate] -&gt; Pair) -&gt; Maybe [InputUpdate] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [InputUpdate]
+</span><a href="#local-6989586621679209819"><span class="hs-identifier hs-var">inputUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLoggingOptionUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [CloudWatchLoggingOptionUpdate] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">([CloudWatchLoggingOptionUpdate] -&gt; Pair)
+-&gt; Maybe [CloudWatchLoggingOptionUpdate] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [CloudWatchLoggingOptionUpdate]
+</span><a href="#local-6989586621679209818"><span class="hs-identifier hs-var">cloudWatchLoggingOptionUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputUpdates&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [OutputUpdate] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([OutputUpdate] -&gt; Pair) -&gt; Maybe [OutputUpdate] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [OutputUpdate]
+</span><a href="#local-6989586621679209817"><span class="hs-identifier hs-var">outputUpdates</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ApplicationCodeUpdate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209816"><span class="hs-identifier hs-var">applicationCodeUpdate</span></a></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span></pre></body></html>

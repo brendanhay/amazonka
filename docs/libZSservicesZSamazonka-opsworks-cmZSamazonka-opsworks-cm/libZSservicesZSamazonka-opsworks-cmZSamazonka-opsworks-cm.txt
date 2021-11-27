@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.OpsWorksCM.Types.AccountAttribute
+module Amazonka.OpsWorksCM.Types.AccountAttribute
 
 -- | Stores account attributes.
 --   
@@ -79,16 +79,16 @@ accountAttribute_maximum :: Lens' AccountAttribute (Maybe Int)
 --   maximum of 50 manual backups saved.</li>
 --   </ul>
 accountAttribute_name :: Lens' AccountAttribute (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.AccountAttribute.AccountAttribute
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.AccountAttribute.AccountAttribute
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.AccountAttribute.AccountAttribute
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.AccountAttribute.AccountAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.AccountAttribute.AccountAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.AccountAttribute.AccountAttribute
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.AccountAttribute.AccountAttribute
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.AccountAttribute.AccountAttribute
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.AccountAttribute.AccountAttribute
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.AccountAttribute.AccountAttribute
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.AccountAttribute.AccountAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.AccountAttribute.AccountAttribute
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.AccountAttribute.AccountAttribute
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.AccountAttribute.AccountAttribute
 
 
-module Network.AWS.OpsWorksCM.Types.BackupStatus
+module Amazonka.OpsWorksCM.Types.BackupStatus
 newtype BackupStatus
 BackupStatus' :: Text -> BackupStatus
 [fromBackupStatus] :: BackupStatus -> Text
@@ -96,55 +96,55 @@ pattern BackupStatus_DELETING :: BackupStatus
 pattern BackupStatus_FAILED :: BackupStatus
 pattern BackupStatus_IN_PROGRESS :: BackupStatus
 pattern BackupStatus_OK :: BackupStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance GHC.Classes.Ord Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.XML.ToXML Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.XML.FromXML Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Log.ToLog Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Text.ToText Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Amazonka.Data.Text.FromText Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance GHC.Classes.Ord Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.BackupStatus.BackupStatus
 
 
-module Network.AWS.OpsWorksCM.Types.BackupType
+module Amazonka.OpsWorksCM.Types.BackupType
 newtype BackupType
 BackupType' :: Text -> BackupType
 [fromBackupType] :: BackupType -> Text
 pattern BackupType_AUTOMATED :: BackupType
 pattern BackupType_MANUAL :: BackupType
-instance Network.AWS.Data.XML.ToXML Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Network.AWS.Data.XML.FromXML Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Network.AWS.Data.Log.ToLog Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Network.AWS.Data.Text.ToText Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Network.AWS.Data.Text.FromText Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance GHC.Classes.Ord Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.BackupType.BackupType
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.XML.ToXML Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.XML.FromXML Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.Headers.ToHeader Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.Log.ToLog Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.Text.ToText Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Amazonka.Data.Text.FromText Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance GHC.Classes.Ord Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.BackupType.BackupType
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.BackupType.BackupType
 
 
-module Network.AWS.OpsWorksCM.Types.Backup
+module Amazonka.OpsWorksCM.Types.Backup
 
 -- | Describes a single backup.
 --   
@@ -426,16 +426,16 @@ backup_backupType :: Lens' Backup (Maybe BackupType)
 -- | The version of AWS OpsWorks CM-specific tools that is obtained from
 --   the server when the backup is created.
 backup_toolsVersion :: Lens' Backup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.Backup.Backup
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.Backup.Backup
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.Backup.Backup
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.Backup.Backup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.Backup.Backup
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.Backup.Backup
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.Backup.Backup
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.Backup.Backup
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.Backup.Backup
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.Backup.Backup
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.Backup.Backup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.Backup.Backup
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.Backup.Backup
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.Backup.Backup
 
 
-module Network.AWS.OpsWorksCM.Types.EngineAttribute
+module Amazonka.OpsWorksCM.Types.EngineAttribute
 
 -- | A name and value pair that is specific to the engine of the server.
 --   
@@ -470,43 +470,43 @@ engineAttribute_value :: Lens' EngineAttribute (Maybe Text)
 
 -- | The name of the engine attribute.
 engineAttribute_name :: Lens' EngineAttribute (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.EngineAttribute.EngineAttribute
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.EngineAttribute.EngineAttribute
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.EngineAttribute.EngineAttribute
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.EngineAttribute.EngineAttribute
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.EngineAttribute.EngineAttribute
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.EngineAttribute.EngineAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.Types.EngineAttribute.EngineAttribute
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.EngineAttribute.EngineAttribute
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.EngineAttribute.EngineAttribute
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.EngineAttribute.EngineAttribute
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.EngineAttribute.EngineAttribute
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.EngineAttribute.EngineAttribute
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.EngineAttribute.EngineAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.Types.EngineAttribute.EngineAttribute
 
 
-module Network.AWS.OpsWorksCM.Types.MaintenanceStatus
+module Amazonka.OpsWorksCM.Types.MaintenanceStatus
 newtype MaintenanceStatus
 MaintenanceStatus' :: Text -> MaintenanceStatus
 [fromMaintenanceStatus] :: MaintenanceStatus -> Text
 pattern MaintenanceStatus_FAILED :: MaintenanceStatus
 pattern MaintenanceStatus_SUCCESS :: MaintenanceStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance GHC.Classes.Ord Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.XML.ToXML Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.XML.FromXML Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.Log.ToLog Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.Text.ToText Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Amazonka.Data.Text.FromText Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance GHC.Classes.Ord Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.MaintenanceStatus.MaintenanceStatus
 
 
-module Network.AWS.OpsWorksCM.Types.NodeAssociationStatus
+module Amazonka.OpsWorksCM.Types.NodeAssociationStatus
 
 -- | The status of the association or disassociation request.
 --   
@@ -525,28 +525,28 @@ NodeAssociationStatus' :: Text -> NodeAssociationStatus
 pattern NodeAssociationStatus_FAILED :: NodeAssociationStatus
 pattern NodeAssociationStatus_IN_PROGRESS :: NodeAssociationStatus
 pattern NodeAssociationStatus_SUCCESS :: NodeAssociationStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance GHC.Classes.Ord Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.XML.ToXML Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.XML.FromXML Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.Log.ToLog Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.Text.ToText Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Amazonka.Data.Text.FromText Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance GHC.Classes.Ord Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.NodeAssociationStatus.NodeAssociationStatus
 
 
-module Network.AWS.OpsWorksCM.Types.ServerEvent
+module Amazonka.OpsWorksCM.Types.ServerEvent
 
 -- | An event that is related to the server, such as the start of
 --   maintenance or backup.
@@ -599,16 +599,16 @@ serverEvent_createdAt :: Lens' ServerEvent (Maybe UTCTime)
 
 -- | A human-readable informational or status message.
 serverEvent_message :: Lens' ServerEvent (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.ServerEvent.ServerEvent
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.ServerEvent.ServerEvent
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.ServerEvent.ServerEvent
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.ServerEvent.ServerEvent
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.ServerEvent.ServerEvent
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.ServerEvent.ServerEvent
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.ServerEvent.ServerEvent
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.ServerEvent.ServerEvent
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.ServerEvent.ServerEvent
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.ServerEvent.ServerEvent
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.ServerEvent.ServerEvent
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.ServerEvent.ServerEvent
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.ServerEvent.ServerEvent
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.ServerEvent.ServerEvent
 
 
-module Network.AWS.OpsWorksCM.Types.ServerStatus
+module Amazonka.OpsWorksCM.Types.ServerStatus
 newtype ServerStatus
 ServerStatus' :: Text -> ServerStatus
 [fromServerStatus] :: ServerStatus -> Text
@@ -625,28 +625,28 @@ pattern ServerStatus_SETUP :: ServerStatus
 pattern ServerStatus_TERMINATED :: ServerStatus
 pattern ServerStatus_UNDER_MAINTENANCE :: ServerStatus
 pattern ServerStatus_UNHEALTHY :: ServerStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance GHC.Classes.Ord Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.XML.ToXML Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.XML.FromXML Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.Log.ToLog Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.Text.ToText Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Amazonka.Data.Text.FromText Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance GHC.Classes.Ord Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.ServerStatus.ServerStatus
 
 
-module Network.AWS.OpsWorksCM.Types.Server
+module Amazonka.OpsWorksCM.Types.Server
 
 -- | Describes a configuration management server.
 --   
@@ -1033,15 +1033,15 @@ server_cloudFormationStackArn :: Lens' Server (Maybe Text)
 
 -- | The number of automated backups to keep.
 server_backupRetentionCount :: Lens' Server (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.Server.Server
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.Server.Server
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.Server.Server
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.Server.Server
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.Server.Server
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.Server.Server
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.Server.Server
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.Server.Server
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.Server.Server
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.Server.Server
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.Server.Server
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.Server.Server
 
 
-module Network.AWS.OpsWorksCM.Types.Tag
+module Amazonka.OpsWorksCM.Types.Tag
 
 -- | A map that contains tag keys and tag values to attach to an AWS
 --   OpsWorks for Chef Automate or AWS OpsWorks for Puppet Enterprise
@@ -1097,17 +1097,17 @@ tag_key :: Lens' Tag Text
 --   characters, and contain only Unicode letters, numbers, or separators,
 --   or the following special characters: <tt>+ - = . _ : /</tt>
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.OpsWorksCM.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.OpsWorksCM.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.OpsWorksCM.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.OpsWorksCM.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.OpsWorksCM.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.OpsWorksCM.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.Types.Tag.Tag
 
 
-module Network.AWS.OpsWorksCM.Types
+module Amazonka.OpsWorksCM.Types
 
 -- | API version <tt>2016-11-01</tt> of the Amazon OpsWorks CM SDK
 --   configuration.
@@ -2067,7 +2067,7 @@ tag_value :: Lens' Tag Text
 
 -- | Applies tags to an AWS OpsWorks for Chef Automate or AWS OpsWorks for
 --   Puppet Enterprise server, or to server backups.
-module Network.AWS.OpsWorksCM.TagResource
+module Amazonka.OpsWorksCM.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2174,22 +2174,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.OpsWorksCM.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.OpsWorksCM.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.TagResource.TagResource
+instance GHC.Show.Show Amazonka.OpsWorksCM.TagResource.TagResource
+instance GHC.Read.Read Amazonka.OpsWorksCM.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.TagResource.TagResource
 
 
 -- | Manually starts server maintenance. This command can be useful if an
@@ -2203,7 +2203,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.TagResource.TagRe
 --   <tt>ResourceNotFoundException</tt> is thrown when the server does not
 --   exist. A <tt>ValidationException</tt> is raised when parameters of the
 --   request are not valid.
-module Network.AWS.OpsWorksCM.StartMaintenance
+module Amazonka.OpsWorksCM.StartMaintenance
 
 -- | <i>See:</i> <a>newStartMaintenance</a> smart constructor.
 data StartMaintenance
@@ -2307,20 +2307,20 @@ startMaintenanceResponse_server :: Lens' StartMaintenanceResponse (Maybe Server)
 
 -- | The response's http status code.
 startMaintenanceResponse_httpStatus :: Lens' StartMaintenanceResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance GHC.Show.Show Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.StartMaintenance.StartMaintenance
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance GHC.Show.Show Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.StartMaintenance.StartMaintenanceResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.StartMaintenance.StartMaintenance
 
 
 -- | Restores a backup to a server that is in a <tt>CONNECTION_LOST</tt>,
@@ -2344,7 +2344,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.StartMaintenance.
 --   a valid state. A <tt>ResourceNotFoundException</tt> is thrown when the
 --   server does not exist. A <tt>ValidationException</tt> is raised when
 --   parameters of the request are not valid.
-module Network.AWS.OpsWorksCM.RestoreServer
+module Amazonka.OpsWorksCM.RestoreServer
 
 -- | <i>See:</i> <a>newRestoreServer</a> smart constructor.
 data RestoreServer
@@ -2444,21 +2444,21 @@ restoreServerResponse_server :: Lens' RestoreServerResponse (Maybe Server)
 
 -- | The response's http status code.
 restoreServerResponse_httpStatus :: Lens' RestoreServerResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance GHC.Show.Show Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance GHC.Read.Read Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.RestoreServer.RestoreServerResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.RestoreServer.RestoreServerResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.RestoreServer.RestoreServerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.RestoreServer.RestoreServerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.RestoreServer.RestoreServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance GHC.Show.Show Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance GHC.Read.Read Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.RestoreServer.RestoreServerResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.RestoreServer.RestoreServerResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.RestoreServer.RestoreServerResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.RestoreServer.RestoreServerResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.RestoreServer.RestoreServer
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.RestoreServer.RestoreServer
 
 
 -- | Returns a list of tags that are applied to the specified AWS OpsWorks
@@ -2466,7 +2466,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.RestoreServer.Res
 --   backups.
 --   
 --   This operation returns paginated results.
-module Network.AWS.OpsWorksCM.ListTagsForResource
+module Amazonka.OpsWorksCM.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2603,23 +2603,23 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Pager.AWSPager Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.ListTagsForResource.ListTagsForResource
 
 
 -- | Exports a specified server engine attribute as a base64-encoded
@@ -2633,7 +2633,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.ListTagsForResour
 --   when the server does not exist. An <tt>InvalidStateException</tt> is
 --   thrown when the server is in any of the following states: CREATING,
 --   TERMINATED, FAILED or DELETING.
-module Network.AWS.OpsWorksCM.ExportServerEngineAttribute
+module Amazonka.OpsWorksCM.ExportServerEngineAttribute
 
 -- | <i>See:</i> <a>newExportServerEngineAttribute</a> smart constructor.
 data ExportServerEngineAttribute
@@ -2788,20 +2788,20 @@ exportServerEngineAttributeResponse_engineAttribute :: Lens' ExportServerEngineA
 
 -- | The response's http status code.
 exportServerEngineAttributeResponse_httpStatus :: Lens' ExportServerEngineAttributeResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance GHC.Show.Show Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance GHC.Show.Show Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttributeResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.ExportServerEngineAttribute.ExportServerEngineAttribute
 
 
 -- | Disassociates a node from an AWS OpsWorks CM server, and removes the
@@ -2815,7 +2815,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.ExportServerEngin
 --   is thrown. A <tt>ResourceNotFoundException</tt> is thrown when the
 --   server does not exist. A <tt>ValidationException</tt> is raised when
 --   parameters of the request are not valid.
-module Network.AWS.OpsWorksCM.DisassociateNode
+module Amazonka.OpsWorksCM.DisassociateNode
 
 -- | <i>See:</i> <a>newDisassociateNode</a> smart constructor.
 data DisassociateNode
@@ -2926,21 +2926,21 @@ disassociateNodeResponse_nodeAssociationStatusToken :: Lens' DisassociateNodeRes
 
 -- | The response's http status code.
 disassociateNodeResponse_httpStatus :: Lens' DisassociateNodeResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DisassociateNode.DisassociateNode
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance GHC.Show.Show Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DisassociateNode.DisassociateNodeResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DisassociateNode.DisassociateNode
 
 
 -- | Lists all configuration management servers that are identified with
@@ -2954,7 +2954,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DisassociateNode.
 --   the request are not valid.
 --   
 --   This operation returns paginated results.
-module Network.AWS.OpsWorksCM.DescribeServers
+module Amazonka.OpsWorksCM.DescribeServers
 
 -- | <i>See:</i> <a>newDescribeServers</a> smart constructor.
 data DescribeServers
@@ -3115,22 +3115,22 @@ describeServersResponse_nextToken :: Lens' DescribeServersResponse (Maybe Text)
 
 -- | The response's http status code.
 describeServersResponse_httpStatus :: Lens' DescribeServersResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeServers.DescribeServersResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeServers.DescribeServersResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeServers.DescribeServersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeServers.DescribeServersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeServers.DescribeServers
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeServers.DescribeServersResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeServers.DescribeServersResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeServers.DescribeServersResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeServers.DescribeServersResponse
+instance Amazonka.Pager.AWSPager Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DescribeServers.DescribeServers
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DescribeServers.DescribeServers
 
 
 -- | Returns the current status of an existing association or
@@ -3141,7 +3141,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeServers.D
 --   found, or when the server does not exist. A
 --   <tt>ValidationException</tt> is raised when parameters of the request
 --   are not valid.
-module Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus
+module Amazonka.OpsWorksCM.DescribeNodeAssociationStatus
 
 -- | <i>See:</i> <a>newDescribeNodeAssociationStatus</a> smart constructor.
 data DescribeNodeAssociationStatus
@@ -3261,21 +3261,21 @@ describeNodeAssociationStatusResponse_httpStatus :: Lens' DescribeNodeAssociatio
 --   in progress.</li>
 --   </ul>
 describeNodeAssociationStatusResponse_nodeAssociationStatus :: Lens' DescribeNodeAssociationStatusResponse NodeAssociationStatus
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DescribeNodeAssociationStatus.DescribeNodeAssociationStatus
 
 
 -- | Describes events for a specified server. Results are ordered by time,
@@ -3288,7 +3288,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeNodeAssoc
 --   the request are not valid.
 --   
 --   This operation returns paginated results.
-module Network.AWS.OpsWorksCM.DescribeEvents
+module Amazonka.OpsWorksCM.DescribeEvents
 
 -- | <i>See:</i> <a>newDescribeEvents</a> smart constructor.
 data DescribeEvents
@@ -3436,23 +3436,23 @@ describeEventsResponse_nextToken :: Lens' DescribeEventsResponse (Maybe Text)
 
 -- | The response's http status code.
 describeEventsResponse_httpStatus :: Lens' DescribeEventsResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeEvents.DescribeEventsResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeEvents.DescribeEventsResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeEvents.DescribeEventsResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeEvents.DescribeEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeEvents.DescribeEventsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeEvents.DescribeEventsResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeEvents.DescribeEventsResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeEvents.DescribeEventsResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeEvents.DescribeEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeEvents.DescribeEventsResponse
+instance Amazonka.Pager.AWSPager Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DescribeEvents.DescribeEvents
 
 
 -- | Describes backups. The results are ordered by time, with newest
@@ -3466,7 +3466,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeEvents.De
 --   the request are not valid.
 --   
 --   This operation returns paginated results.
-module Network.AWS.OpsWorksCM.DescribeBackups
+module Amazonka.OpsWorksCM.DescribeBackups
 
 -- | <i>See:</i> <a>newDescribeBackups</a> smart constructor.
 data DescribeBackups
@@ -3570,29 +3570,29 @@ describeBackupsResponse_nextToken :: Lens' DescribeBackupsResponse (Maybe Text)
 
 -- | The response's http status code.
 describeBackupsResponse_httpStatus :: Lens' DescribeBackupsResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeBackups.DescribeBackups
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeBackups.DescribeBackupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DescribeBackups.DescribeBackups
 
 
 -- | Describes your OpsWorks-CM account attributes.
 --   
 --   This operation is synchronous.
-module Network.AWS.OpsWorksCM.DescribeAccountAttributes
+module Amazonka.OpsWorksCM.DescribeAccountAttributes
 
 -- | <i>See:</i> <a>newDescribeAccountAttributes</a> smart constructor.
 data DescribeAccountAttributes
@@ -3639,22 +3639,22 @@ describeAccountAttributesResponse_attributes :: Lens' DescribeAccountAttributesR
 
 -- | The response's http status code.
 describeAccountAttributesResponse_httpStatus :: Lens' DescribeAccountAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DescribeAccountAttributes.DescribeAccountAttributes
 
 
 -- | Deletes the server and the underlying AWS CloudFormation stacks
@@ -3670,7 +3670,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DescribeAccountAt
 --   already in progress. A <tt>ResourceNotFoundException</tt> is thrown
 --   when the server does not exist. A <tt>ValidationException</tt> is
 --   raised when parameters of the request are not valid.
-module Network.AWS.OpsWorksCM.DeleteServer
+module Amazonka.OpsWorksCM.DeleteServer
 
 -- | <i>See:</i> <a>newDeleteServer</a> smart constructor.
 data DeleteServer
@@ -3718,22 +3718,22 @@ newDeleteServerResponse :: Int -> DeleteServerResponse
 
 -- | The response's http status code.
 deleteServerResponse_httpStatus :: Lens' DeleteServerResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DeleteServer.DeleteServerResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DeleteServer.DeleteServerResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DeleteServer.DeleteServerResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DeleteServer.DeleteServerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DeleteServer.DeleteServerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DeleteServer.DeleteServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance GHC.Show.Show Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance GHC.Read.Read Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DeleteServer.DeleteServerResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DeleteServer.DeleteServerResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.DeleteServer.DeleteServerResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DeleteServer.DeleteServerResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DeleteServer.DeleteServerResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DeleteServer.DeleteServer
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DeleteServer.DeleteServer
 
 
 -- | Deletes a backup. You can delete both manual and automated backups.
@@ -3743,7 +3743,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DeleteServer.Dele
 --   already in progress. A <tt>ResourceNotFoundException</tt> is thrown
 --   when the backup does not exist. A <tt>ValidationException</tt> is
 --   thrown when parameters of the request are not valid.
-module Network.AWS.OpsWorksCM.DeleteBackup
+module Amazonka.OpsWorksCM.DeleteBackup
 
 -- | <i>See:</i> <a>newDeleteBackup</a> smart constructor.
 data DeleteBackup
@@ -3797,22 +3797,22 @@ newDeleteBackupResponse :: Int -> DeleteBackupResponse
 
 -- | The response's http status code.
 deleteBackupResponse_httpStatus :: Lens' DeleteBackupResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackupResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackupResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackupResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DeleteBackup.DeleteBackup
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance GHC.Show.Show Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance GHC.Read.Read Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.DeleteBackup.DeleteBackupResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.DeleteBackup.DeleteBackupResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.DeleteBackup.DeleteBackupResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.DeleteBackup.DeleteBackupResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DeleteBackup.DeleteBackupResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.DeleteBackup.DeleteBackup
 
 
 -- | Creates and immedately starts a new server. The server is ready to use
@@ -3853,7 +3853,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.DeleteBackup.Dele
 --   self-signed or CA-signed certificate and private key, specify values
 --   for <tt>CustomDomain</tt>, <tt>CustomCertificate</tt>, and
 --   <tt>CustomPrivateKey</tt>.
-module Network.AWS.OpsWorksCM.CreateServer
+module Amazonka.OpsWorksCM.CreateServer
 
 -- | <i>See:</i> <a>newCreateServer</a> smart constructor.
 data CreateServer
@@ -4552,20 +4552,20 @@ createServerResponse_server :: Lens' CreateServerResponse (Maybe Server)
 
 -- | The response's http status code.
 createServerResponse_httpStatus :: Lens' CreateServerResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance GHC.Show.Show Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.CreateServer.CreateServerResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.CreateServer.CreateServerResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.CreateServer.CreateServerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.CreateServer.CreateServerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.CreateServer.CreateServer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.CreateServer.CreateServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance GHC.Show.Show Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.CreateServer.CreateServerResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.CreateServer.CreateServerResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.CreateServer.CreateServerResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.CreateServer.CreateServerResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.CreateServer.CreateServer
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.CreateServer.CreateServer
 
 
 -- | Creates an application-level backup of a server. While the server is
@@ -4584,7 +4584,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.CreateServer.Crea
 --   HEALTHY, or UNHEALTHY. A <tt>ResourceNotFoundException</tt> is thrown
 --   when the server is not found. A <tt>ValidationException</tt> is thrown
 --   when parameters of the request are not valid.
-module Network.AWS.OpsWorksCM.CreateBackup
+module Amazonka.OpsWorksCM.CreateBackup
 
 -- | <i>See:</i> <a>newCreateBackup</a> smart constructor.
 data CreateBackup
@@ -4704,22 +4704,22 @@ createBackupResponse_backup :: Lens' CreateBackupResponse (Maybe Backup)
 
 -- | The response's http status code.
 createBackupResponse_httpStatus :: Lens' CreateBackupResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance GHC.Show.Show Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance GHC.Read.Read Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.CreateBackup.CreateBackupResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.CreateBackup.CreateBackupResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.CreateBackup.CreateBackupResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.CreateBackup.CreateBackupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.CreateBackup.CreateBackupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.CreateBackup.CreateBackup
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance GHC.Show.Show Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance GHC.Read.Read Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.CreateBackup.CreateBackupResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.CreateBackup.CreateBackupResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.CreateBackup.CreateBackupResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.CreateBackup.CreateBackupResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.CreateBackup.CreateBackupResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.CreateBackup.CreateBackup
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.CreateBackup.CreateBackup
 
 
 -- | Associates a new node with the server. For more information about how
@@ -4747,7 +4747,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.CreateBackup.Crea
 --   parameters of the request are not valid. The AssociateNode API call
 --   can be integrated into Auto Scaling configurations, AWS Cloudformation
 --   templates, or the user data of a server's instance.
-module Network.AWS.OpsWorksCM.AssociateNode
+module Amazonka.OpsWorksCM.AssociateNode
 
 -- | <i>See:</i> <a>newAssociateNode</a> smart constructor.
 data AssociateNode
@@ -4884,25 +4884,25 @@ associateNodeResponse_nodeAssociationStatusToken :: Lens' AssociateNodeResponse 
 
 -- | The response's http status code.
 associateNodeResponse_httpStatus :: Lens' AssociateNodeResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance GHC.Show.Show Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.AssociateNode.AssociateNodeResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.AssociateNode.AssociateNodeResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.AssociateNode.AssociateNodeResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.AssociateNode.AssociateNodeResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.AssociateNode.AssociateNodeResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.AssociateNode.AssociateNode
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance GHC.Show.Show Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.AssociateNode.AssociateNodeResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.AssociateNode.AssociateNodeResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.AssociateNode.AssociateNodeResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.AssociateNode.AssociateNodeResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.AssociateNode.AssociateNodeResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.AssociateNode.AssociateNode
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.AssociateNode.AssociateNode
 
 
 -- | Removes specified tags from an AWS OpsWorks-CM server or backup.
-module Network.AWS.OpsWorksCM.UntagResource
+module Amazonka.OpsWorksCM.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4965,28 +4965,28 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.OpsWorksCM.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.OpsWorksCM.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.UntagResource.UntagResource
 
 
 -- | Updates settings for a server.
 --   
 --   This operation is synchronous.
-module Network.AWS.OpsWorksCM.UpdateServer
+module Amazonka.OpsWorksCM.UpdateServer
 
 -- | <i>See:</i> <a>newUpdateServer</a> smart constructor.
 data UpdateServer
@@ -5081,21 +5081,21 @@ updateServerResponse_server :: Lens' UpdateServerResponse (Maybe Server)
 
 -- | The response's http status code.
 updateServerResponse_httpStatus :: Lens' UpdateServerResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance GHC.Show.Show Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance GHC.Read.Read Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.UpdateServer.UpdateServerResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.UpdateServer.UpdateServerResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.UpdateServer.UpdateServerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.UpdateServer.UpdateServerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.UpdateServer.UpdateServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance GHC.Show.Show Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance GHC.Read.Read Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.UpdateServer.UpdateServerResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.UpdateServer.UpdateServerResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.UpdateServer.UpdateServerResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.UpdateServer.UpdateServerResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.UpdateServer.UpdateServer
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.UpdateServer.UpdateServer
 
 
 -- | Updates engine-specific attributes on a specified server. The server
@@ -5113,7 +5113,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.UpdateServer.Upda
 --   <tt>ResourceNotFoundException</tt> is thrown when the server does not
 --   exist. A <tt>ValidationException</tt> is raised when parameters of the
 --   request are not valid.
-module Network.AWS.OpsWorksCM.UpdateServerEngineAttributes
+module Amazonka.OpsWorksCM.UpdateServerEngineAttributes
 
 -- | <i>See:</i> <a>newUpdateServerEngineAttributes</a> smart constructor.
 data UpdateServerEngineAttributes
@@ -5195,24 +5195,24 @@ updateServerEngineAttributesResponse_server :: Lens' UpdateServerEngineAttribute
 
 -- | The response's http status code.
 updateServerEngineAttributesResponse_httpStatus :: Lens' UpdateServerEngineAttributesResponse Int
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance GHC.Show.Show Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance GHC.Read.Read Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance GHC.Generics.Generic Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
-instance GHC.Show.Show Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
-instance GHC.Classes.Eq Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance Control.DeepSeq.NFData Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance Network.AWS.Data.Path.ToPath Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance GHC.Show.Show Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance GHC.Read.Read Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance GHC.Generics.Generic Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
+instance GHC.Show.Show Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
+instance GHC.Classes.Eq Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
+instance Amazonka.Types.AWSRequest Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributesResponse
+instance Data.Hashable.Class.Hashable Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance Control.DeepSeq.NFData Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance Amazonka.Data.Path.ToPath Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
+instance Amazonka.Data.Query.ToQuery Amazonka.OpsWorksCM.UpdateServerEngineAttributes.UpdateServerEngineAttributes
 
 
-module Network.AWS.OpsWorksCM.Lens
+module Amazonka.OpsWorksCM.Lens
 
 -- | The name of the server with which to associate the node.
 associateNode_serverName :: Lens' AssociateNode Text
@@ -6137,7 +6137,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.OpsWorksCM.Waiters
+module Amazonka.OpsWorksCM.Waiters
 
 -- | Polls <a>DescribeNodeAssociationStatus</a> every 15 seconds until a
 --   successful state is reached. An error is returned after 15 failed
@@ -6210,7 +6210,7 @@ newNodeAssociated :: Wait DescribeNodeAssociationStatus
 --   
 --   All API operations allow for five requests per second with a burst of
 --   10 requests per second.
-module Network.AWS.OpsWorksCM
+module Amazonka.OpsWorksCM
 
 -- | API version <tt>2016-11-01</tt> of the Amazon OpsWorks CM SDK
 --   configuration.

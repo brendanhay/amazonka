@@ -1,0 +1,1006 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DescribeClassicLinkInstances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes one or more of your linked EC2-Classic instances. This request</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- only returns information about EC2-Classic instances linked to a VPC</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- through ClassicLink. You cannot use this request to return information</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- about other instances.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DescribeClassicLinkInstances</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#newDescribeClassicLinkInstances"><span class="hs-identifier">newDescribeClassicLinkInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_filters"><span class="hs-identifier">describeClassicLinkInstances_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_nextToken"><span class="hs-identifier">describeClassicLinkInstances_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_instanceIds"><span class="hs-identifier">describeClassicLinkInstances_instanceIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_dryRun"><span class="hs-identifier">describeClassicLinkInstances_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_maxResults"><span class="hs-identifier">describeClassicLinkInstances_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier">DescribeClassicLinkInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#newDescribeClassicLinkInstancesResponse"><span class="hs-identifier">newDescribeClassicLinkInstancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_nextToken"><span class="hs-identifier">describeClassicLinkInstancesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_instances"><span class="hs-identifier">describeClassicLinkInstancesResponse_instances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_httpStatus"><span class="hs-identifier">describeClassicLinkInstancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newDescribeClassicLinkInstances' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621681270105"><span id="local-6989586621681270106"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClassicLinkInstances"><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-var">DescribeClassicLinkInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClassicLinkInstances%27"><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">DescribeClassicLinkInstances'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @group-id@ - The ID of a VPC security group that\'s associated with</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     the instance.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- -   @vpc-id@ - The ID of the VPC to which the instance is linked.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     @vpc-id@ - The ID of the VPC that the instance is linked to.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeClassicLinkInstances%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstances -&gt; Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3Afilters%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeClassicLinkInstances%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstances -&gt; Maybe Text
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AnextToken%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | One or more instance IDs. Must be instances linked to a VPC through</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- ClassicLink.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AinstanceIds%3ADescribeClassicLinkInstances%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstances -&gt; Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AinstanceIds%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeClassicLinkInstances%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstances -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AdryRun%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- Constraint: If the value is greater than 1000, we return only 1000</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- items.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AmaxResults%3ADescribeClassicLinkInstances%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstances -&gt; Maybe Natural
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AmaxResults%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681270095"><span id="local-6989586621681270097"><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+-&gt; DescribeClassicLinkInstances -&gt; Bool
+(DescribeClassicLinkInstances
+ -&gt; DescribeClassicLinkInstances -&gt; Bool)
+-&gt; (DescribeClassicLinkInstances
+    -&gt; DescribeClassicLinkInstances -&gt; Bool)
+-&gt; Eq DescribeClassicLinkInstances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeClassicLinkInstances
+-&gt; DescribeClassicLinkInstances -&gt; Bool
+$c/= :: DescribeClassicLinkInstances
+-&gt; DescribeClassicLinkInstances -&gt; Bool
+== :: DescribeClassicLinkInstances
+-&gt; DescribeClassicLinkInstances -&gt; Bool
+$c== :: DescribeClassicLinkInstances
+-&gt; DescribeClassicLinkInstances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681270086"><span id="local-6989586621681270088"><span id="local-6989586621681270090"><span id="local-6989586621681270092"><span class="annot"><span class="annottext">ReadPrec [DescribeClassicLinkInstances]
+ReadPrec DescribeClassicLinkInstances
+Int -&gt; ReadS DescribeClassicLinkInstances
+ReadS [DescribeClassicLinkInstances]
+(Int -&gt; ReadS DescribeClassicLinkInstances)
+-&gt; ReadS [DescribeClassicLinkInstances]
+-&gt; ReadPrec DescribeClassicLinkInstances
+-&gt; ReadPrec [DescribeClassicLinkInstances]
+-&gt; Read DescribeClassicLinkInstances
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeClassicLinkInstances]
+$creadListPrec :: ReadPrec [DescribeClassicLinkInstances]
+readPrec :: ReadPrec DescribeClassicLinkInstances
+$creadPrec :: ReadPrec DescribeClassicLinkInstances
+readList :: ReadS [DescribeClassicLinkInstances]
+$creadList :: ReadS [DescribeClassicLinkInstances]
+readsPrec :: Int -&gt; ReadS DescribeClassicLinkInstances
+$creadsPrec :: Int -&gt; ReadS DescribeClassicLinkInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681270079"><span id="local-6989586621681270081"><span id="local-6989586621681270083"><span class="annot"><span class="annottext">Int -&gt; DescribeClassicLinkInstances -&gt; ShowS
+[DescribeClassicLinkInstances] -&gt; ShowS
+DescribeClassicLinkInstances -&gt; String
+(Int -&gt; DescribeClassicLinkInstances -&gt; ShowS)
+-&gt; (DescribeClassicLinkInstances -&gt; String)
+-&gt; ([DescribeClassicLinkInstances] -&gt; ShowS)
+-&gt; Show DescribeClassicLinkInstances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeClassicLinkInstances] -&gt; ShowS
+$cshowList :: [DescribeClassicLinkInstances] -&gt; ShowS
+show :: DescribeClassicLinkInstances -&gt; String
+$cshow :: DescribeClassicLinkInstances -&gt; String
+showsPrec :: Int -&gt; DescribeClassicLinkInstances -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeClassicLinkInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeClassicLinkInstances -&gt; Rep DescribeClassicLinkInstances x)
+-&gt; (forall x.
+    Rep DescribeClassicLinkInstances x -&gt; DescribeClassicLinkInstances)
+-&gt; Generic DescribeClassicLinkInstances
+forall x.
+Rep DescribeClassicLinkInstances x -&gt; DescribeClassicLinkInstances
+forall x.
+DescribeClassicLinkInstances -&gt; Rep DescribeClassicLinkInstances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeClassicLinkInstances x -&gt; DescribeClassicLinkInstances
+$cfrom :: forall x.
+DescribeClassicLinkInstances -&gt; Rep DescribeClassicLinkInstances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'DescribeClassicLinkInstances' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'filters', 'describeClassicLinkInstances_filters' - One or more filters.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- -   @group-id@ - The ID of a VPC security group that\'s associated with</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--     the instance.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- -   @vpc-id@ - The ID of the VPC to which the instance is linked.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--     @vpc-id@ - The ID of the VPC that the instance is linked to.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'nextToken', 'describeClassicLinkInstances_nextToken' - The token for the next page of results.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'instanceIds', 'describeClassicLinkInstances_instanceIds' - One or more instance IDs. Must be instances linked to a VPC through</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- ClassicLink.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'dryRun', 'describeClassicLinkInstances_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'maxResults', 'describeClassicLinkInstances_maxResults' - The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- Constraint: If the value is greater than 1000, we return only 1000</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- items.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#newDescribeClassicLinkInstances"><span class="hs-identifier hs-type">newDescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span>
+</span><span id="line-149"></span><span id="newDescribeClassicLinkInstances"><span class="annot"><span class="annottext">newDescribeClassicLinkInstances :: DescribeClassicLinkInstances
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#newDescribeClassicLinkInstances"><span class="hs-identifier hs-var hs-var">newDescribeClassicLinkInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances' :: Maybe [Filter]
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Maybe Natural
+-&gt; DescribeClassicLinkInstances
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:DescribeClassicLinkInstances' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3Afilters%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClassicLinkInstances' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AnextToken%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeClassicLinkInstances' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AinstanceIds%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeClassicLinkInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AdryRun%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:DescribeClassicLinkInstances' :: Maybe Natural
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AmaxResults%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | One or more filters.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- -   @group-id@ - The ID of a VPC security group that\'s associated with</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--     the instance.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @instance-id@ - The ID of the instance.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   @tag@:\&lt;key&gt; - The key\/value combination of a tag assigned to the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     resource. Use the tag key in the filter name and the tag value as</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--     the filter value. For example, to find all resources that have a tag</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     with the key @Owner@ and the value @TeamA@, specify @tag:Owner@ for</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--     the filter name and @TeamA@ for the filter value.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- -   @tag-key@ - The key of a tag assigned to the resource. Use this</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     filter to find all resources assigned a tag with a specific key,</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--     regardless of the tag value.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   @vpc-id@ - The ID of the VPC to which the instance is linked.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     @vpc-id@ - The ID of the VPC that the instance is linked to.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_filters"><span class="hs-identifier hs-type">describeClassicLinkInstances_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="describeClassicLinkInstances_filters"><span class="annot"><span class="annottext">describeClassicLinkInstances_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeClassicLinkInstances -&gt; f DescribeClassicLinkInstances
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_filters"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstances_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstances -&gt; Maybe [Filter])
+-&gt; (DescribeClassicLinkInstances
+    -&gt; Maybe [Filter] -&gt; DescribeClassicLinkInstances)
+-&gt; Lens
+     DescribeClassicLinkInstances
+     DescribeClassicLinkInstances
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681270073"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681270073"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681270073"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681270072"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681270071"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681270071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeClassicLinkInstances' :: Maybe [Filter]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3Afilters%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681270071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeClassicLinkInstances -&gt; f DescribeClassicLinkInstances)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeClassicLinkInstances
+-&gt; f DescribeClassicLinkInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The token for the next page of results.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_nextToken"><span class="hs-identifier hs-type">describeClassicLinkInstances_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="describeClassicLinkInstances_nextToken"><span class="annot"><span class="annottext">describeClassicLinkInstances_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeClassicLinkInstances -&gt; f DescribeClassicLinkInstances
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_nextToken"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstances_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstances -&gt; Maybe Text)
+-&gt; (DescribeClassicLinkInstances
+    -&gt; Maybe Text -&gt; DescribeClassicLinkInstances)
+-&gt; Lens
+     DescribeClassicLinkInstances
+     DescribeClassicLinkInstances
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681270067"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe Text
+</span><a href="#local-6989586621681270067"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681270067"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681270066"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681270065"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681270065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClassicLinkInstances' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AnextToken%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681270065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | One or more instance IDs. Must be instances linked to a VPC through</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- ClassicLink.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_instanceIds"><span class="hs-identifier hs-type">describeClassicLinkInstances_instanceIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="describeClassicLinkInstances_instanceIds"><span class="annot"><span class="annottext">describeClassicLinkInstances_instanceIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeClassicLinkInstances -&gt; f DescribeClassicLinkInstances
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_instanceIds"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstances_instanceIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstances -&gt; Maybe [Text])
+-&gt; (DescribeClassicLinkInstances
+    -&gt; Maybe [Text] -&gt; DescribeClassicLinkInstances)
+-&gt; Lens
+     DescribeClassicLinkInstances
+     DescribeClassicLinkInstances
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681270064"><span class="annot"><span class="annottext">Maybe [Text]
+instanceIds :: Maybe [Text]
+$sel:instanceIds:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe [Text]
+</span><a href="#local-6989586621681270064"><span class="hs-identifier hs-var hs-var">instanceIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681270064"><span class="hs-identifier hs-var">instanceIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681270063"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270063"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681270062"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681270062"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270063"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceIds:DescribeClassicLinkInstances' :: Maybe [Text]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AinstanceIds%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">instanceIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681270062"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeClassicLinkInstances -&gt; f DescribeClassicLinkInstances)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeClassicLinkInstances
+-&gt; f DescribeClassicLinkInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_dryRun"><span class="hs-identifier hs-type">describeClassicLinkInstances_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="describeClassicLinkInstances_dryRun"><span class="annot"><span class="annottext">describeClassicLinkInstances_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeClassicLinkInstances -&gt; f DescribeClassicLinkInstances
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_dryRun"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstances_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstances -&gt; Maybe Bool)
+-&gt; (DescribeClassicLinkInstances
+    -&gt; Maybe Bool -&gt; DescribeClassicLinkInstances)
+-&gt; Lens
+     DescribeClassicLinkInstances
+     DescribeClassicLinkInstances
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681270061"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe Bool
+</span><a href="#local-6989586621681270061"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681270061"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681270060"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681270059"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681270059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeClassicLinkInstances' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AdryRun%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681270059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The maximum number of results to return with a single call. To retrieve</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- the remaining results, make another call with the returned @nextToken@</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Constraint: If the value is greater than 1000, we return only 1000</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- items.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_maxResults"><span class="hs-identifier hs-type">describeClassicLinkInstances_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="describeClassicLinkInstances_maxResults"><span class="annot"><span class="annottext">describeClassicLinkInstances_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeClassicLinkInstances -&gt; f DescribeClassicLinkInstances
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_maxResults"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstances_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstances -&gt; Maybe Natural)
+-&gt; (DescribeClassicLinkInstances
+    -&gt; Maybe Natural -&gt; DescribeClassicLinkInstances)
+-&gt; Lens
+     DescribeClassicLinkInstances
+     DescribeClassicLinkInstances
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681270058"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe Natural
+</span><a href="#local-6989586621681270058"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681270058"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681270057"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270057"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681270056"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681270056"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270057"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:DescribeClassicLinkInstances' :: Maybe Natural
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AmaxResults%3ADescribeClassicLinkInstances%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681270056"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621681270052"><span class="annot"><span class="annottext">page :: DescribeClassicLinkInstances
+-&gt; AWSResponse DescribeClassicLinkInstances
+-&gt; Maybe DescribeClassicLinkInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621681270050"><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270050"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621681270049"><span class="annot"><span class="annottext">AWSResponse DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270049"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-210"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClassicLinkInstances
+DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681270049"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse
+-&gt; Getting (First Text) DescribeClassicLinkInstancesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeClassicLinkInstancesResponse
+-&gt; Const (First Text) DescribeClassicLinkInstancesResponse
+Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_nextToken"><span class="hs-identifier hs-var">describeClassicLinkInstancesResponse_nextToken</span></a></span><span>
+</span><span id="line-212"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeClassicLinkInstancesResponse
+ -&gt; Const (First Text) DescribeClassicLinkInstancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeClassicLinkInstancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-213"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeClassicLinkInstances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ClassicLinkInstance] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-216"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClassicLinkInstances
+DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681270049"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse
+-&gt; Getting
+     (First [ClassicLinkInstance])
+     DescribeClassicLinkInstancesResponse
+     [ClassicLinkInstance]
+-&gt; Maybe [ClassicLinkInstance]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ClassicLinkInstance]
+ -&gt; Const
+      (First [ClassicLinkInstance]) (Maybe [ClassicLinkInstance]))
+-&gt; DescribeClassicLinkInstancesResponse
+-&gt; Const
+     (First [ClassicLinkInstance]) DescribeClassicLinkInstancesResponse
+Lens'
+  DescribeClassicLinkInstancesResponse (Maybe [ClassicLinkInstance])
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_instances"><span class="hs-identifier hs-var">describeClassicLinkInstancesResponse_instances</span></a></span><span>
+</span><span id="line-218"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ClassicLinkInstance]
+  -&gt; Const
+       (First [ClassicLinkInstance]) (Maybe [ClassicLinkInstance]))
+ -&gt; DescribeClassicLinkInstancesResponse
+ -&gt; Const
+      (First [ClassicLinkInstance]) DescribeClassicLinkInstancesResponse)
+-&gt; (([ClassicLinkInstance]
+     -&gt; Const (First [ClassicLinkInstance]) [ClassicLinkInstance])
+    -&gt; Maybe [ClassicLinkInstance]
+    -&gt; Const
+         (First [ClassicLinkInstance]) (Maybe [ClassicLinkInstance]))
+-&gt; Getting
+     (First [ClassicLinkInstance])
+     DescribeClassicLinkInstancesResponse
+     [ClassicLinkInstance]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ClassicLinkInstance]
+ -&gt; Const (First [ClassicLinkInstance]) [ClassicLinkInstance])
+-&gt; Maybe [ClassicLinkInstance]
+-&gt; Const
+     (First [ClassicLinkInstance]) (Maybe [ClassicLinkInstance])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-219"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeClassicLinkInstances
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances -&gt; Maybe DescribeClassicLinkInstances
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstances
+ -&gt; Maybe DescribeClassicLinkInstances)
+-&gt; DescribeClassicLinkInstances
+-&gt; Maybe DescribeClassicLinkInstances
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+</span><a href="#local-6989586621681270050"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">DescribeClassicLinkInstances
+-&gt; (DescribeClassicLinkInstances -&gt; DescribeClassicLinkInstances)
+-&gt; DescribeClassicLinkInstances
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeClassicLinkInstances
+-&gt; Identity DescribeClassicLinkInstances
+Lens
+  DescribeClassicLinkInstances
+  DescribeClassicLinkInstances
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstances_nextToken"><span class="hs-identifier hs-var">describeClassicLinkInstances_nextToken</span></a></span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeClassicLinkInstances
+ -&gt; Identity DescribeClassicLinkInstances)
+-&gt; Maybe Text
+-&gt; DescribeClassicLinkInstances
+-&gt; DescribeClassicLinkInstances
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeClassicLinkInstances
+DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681270049"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse
+-&gt; Getting (First Text) DescribeClassicLinkInstancesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeClassicLinkInstancesResponse
+-&gt; Const (First Text) DescribeClassicLinkInstancesResponse
+Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_nextToken"><span class="hs-identifier hs-var">describeClassicLinkInstancesResponse_nextToken</span></a></span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeClassicLinkInstancesResponse
+ -&gt; Const (First Text) DescribeClassicLinkInstancesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeClassicLinkInstancesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-231"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621681270040"><span class="annot"><span class="annottext">request :: DescribeClassicLinkInstances
+-&gt; Request DescribeClassicLinkInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeClassicLinkInstances
+-&gt; Request DescribeClassicLinkInstances
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621681270036"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeClassicLinkInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeClassicLinkInstances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DescribeClassicLinkInstances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeClassicLinkInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeClassicLinkInstances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681270033"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681270033"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681270032"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681270032"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681270031"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681270031"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ClassicLinkInstance]
+-&gt; Int
+-&gt; DescribeClassicLinkInstancesResponse
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">DescribeClassicLinkInstancesResponse'</span></a></span><span>
+</span><span id="line-238"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ClassicLinkInstance]
+ -&gt; Int
+ -&gt; DescribeClassicLinkInstancesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ClassicLinkInstance]
+      -&gt; Int -&gt; DescribeClassicLinkInstancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681270031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ClassicLinkInstance]
+   -&gt; Int -&gt; DescribeClassicLinkInstancesResponse)
+-&gt; Either String (Maybe [ClassicLinkInstance])
+-&gt; Either String (Int -&gt; DescribeClassicLinkInstancesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681270031"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instancesSet&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-240"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ClassicLinkInstance]))
+-&gt; Either String (Maybe [ClassicLinkInstance])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ClassicLinkInstance])
+-&gt; [Node] -&gt; Either String (Maybe [ClassicLinkInstance])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ClassicLinkInstance]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeClassicLinkInstancesResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeClassicLinkInstancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681270033"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-246"></span><span>  </span><span id="local-6989586621681270020"><span id="local-6989586621681270022"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span></span></span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681270017"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span></span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-252"></span><span>  </span><span id="local-6989586621681270013"><span class="annot"><span class="annottext">toHeaders :: DescribeClassicLinkInstances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeClassicLinkInstances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-255"></span><span>  </span><span id="local-6989586621681270008"><span class="annot"><span class="annottext">toPath :: DescribeClassicLinkInstances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeClassicLinkInstances -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances"><span class="hs-identifier hs-type">DescribeClassicLinkInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span id="local-6989586621681270004"><span class="annot"><span class="annottext">toQuery :: DescribeClassicLinkInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstances%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269998"><span id="local-6989586621681269999"><span id="local-6989586621681270000"><span id="local-6989586621681270001"><span id="local-6989586621681270002"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe [Text]
+Maybe [Filter]
+Maybe Text
+maxResults :: Maybe Natural
+dryRun :: Maybe Bool
+instanceIds :: Maybe [Text]
+nextToken :: Maybe Text
+filters :: Maybe [Filter]
+$sel:maxResults:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe Natural
+$sel:dryRun:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe Bool
+$sel:instanceIds:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe [Text]
+$sel:nextToken:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe Text
+$sel:filters:DescribeClassicLinkInstances' :: DescribeClassicLinkInstances -&gt; Maybe [Filter]
+</span><a href="#local-6989586621681269998"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-260"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeClassicLinkInstances&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-262"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-263"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621681270002"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681270001"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-270"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span>
+</span><span id="line-271"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621681270000"><span class="hs-identifier hs-var">instanceIds</span></a></span><span>
+</span><span id="line-272"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681269999"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621681269998"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | /See:/ 'newDescribeClassicLinkInstancesResponse' smart constructor.</span><span>
+</span><span id="line-278"></span><span id="local-6989586621681269994"><span id="local-6989586621681269995"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeClassicLinkInstancesResponse"><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-var">DescribeClassicLinkInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeClassicLinkInstancesResponse%27"><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">DescribeClassicLinkInstancesResponse'</span></a></span></span><span>
+</span><span id="line-279"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-281"></span><span>    </span><span id="%24sel%3AnextToken%3ADescribeClassicLinkInstancesResponse%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AnextToken%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="hs-comment">-- | Information about one or more linked EC2-Classic instances.</span><span>
+</span><span id="line-283"></span><span>    </span><span id="%24sel%3Ainstances%3ADescribeClassicLinkInstancesResponse%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse -&gt; Maybe [ClassicLinkInstance]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3Ainstances%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLinkInstance.html#ClassicLinkInstance"><span class="hs-identifier hs-type">ClassicLinkInstance</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-285"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeClassicLinkInstancesResponse%27"><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse -&gt; Int
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AhttpStatus%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-286"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681269987"><span id="local-6989586621681269989"><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse
+-&gt; DescribeClassicLinkInstancesResponse -&gt; Bool
+(DescribeClassicLinkInstancesResponse
+ -&gt; DescribeClassicLinkInstancesResponse -&gt; Bool)
+-&gt; (DescribeClassicLinkInstancesResponse
+    -&gt; DescribeClassicLinkInstancesResponse -&gt; Bool)
+-&gt; Eq DescribeClassicLinkInstancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeClassicLinkInstancesResponse
+-&gt; DescribeClassicLinkInstancesResponse -&gt; Bool
+$c/= :: DescribeClassicLinkInstancesResponse
+-&gt; DescribeClassicLinkInstancesResponse -&gt; Bool
+== :: DescribeClassicLinkInstancesResponse
+-&gt; DescribeClassicLinkInstancesResponse -&gt; Bool
+$c== :: DescribeClassicLinkInstancesResponse
+-&gt; DescribeClassicLinkInstancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269979"><span id="local-6989586621681269981"><span id="local-6989586621681269983"><span id="local-6989586621681269985"><span class="annot"><span class="annottext">ReadPrec [DescribeClassicLinkInstancesResponse]
+ReadPrec DescribeClassicLinkInstancesResponse
+Int -&gt; ReadS DescribeClassicLinkInstancesResponse
+ReadS [DescribeClassicLinkInstancesResponse]
+(Int -&gt; ReadS DescribeClassicLinkInstancesResponse)
+-&gt; ReadS [DescribeClassicLinkInstancesResponse]
+-&gt; ReadPrec DescribeClassicLinkInstancesResponse
+-&gt; ReadPrec [DescribeClassicLinkInstancesResponse]
+-&gt; Read DescribeClassicLinkInstancesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeClassicLinkInstancesResponse]
+$creadListPrec :: ReadPrec [DescribeClassicLinkInstancesResponse]
+readPrec :: ReadPrec DescribeClassicLinkInstancesResponse
+$creadPrec :: ReadPrec DescribeClassicLinkInstancesResponse
+readList :: ReadS [DescribeClassicLinkInstancesResponse]
+$creadList :: ReadS [DescribeClassicLinkInstancesResponse]
+readsPrec :: Int -&gt; ReadS DescribeClassicLinkInstancesResponse
+$creadsPrec :: Int -&gt; ReadS DescribeClassicLinkInstancesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681269973"><span id="local-6989586621681269975"><span id="local-6989586621681269977"><span class="annot"><span class="annottext">Int -&gt; DescribeClassicLinkInstancesResponse -&gt; ShowS
+[DescribeClassicLinkInstancesResponse] -&gt; ShowS
+DescribeClassicLinkInstancesResponse -&gt; String
+(Int -&gt; DescribeClassicLinkInstancesResponse -&gt; ShowS)
+-&gt; (DescribeClassicLinkInstancesResponse -&gt; String)
+-&gt; ([DescribeClassicLinkInstancesResponse] -&gt; ShowS)
+-&gt; Show DescribeClassicLinkInstancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeClassicLinkInstancesResponse] -&gt; ShowS
+$cshowList :: [DescribeClassicLinkInstancesResponse] -&gt; ShowS
+show :: DescribeClassicLinkInstancesResponse -&gt; String
+$cshow :: DescribeClassicLinkInstancesResponse -&gt; String
+showsPrec :: Int -&gt; DescribeClassicLinkInstancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeClassicLinkInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeClassicLinkInstancesResponse
+ -&gt; Rep DescribeClassicLinkInstancesResponse x)
+-&gt; (forall x.
+    Rep DescribeClassicLinkInstancesResponse x
+    -&gt; DescribeClassicLinkInstancesResponse)
+-&gt; Generic DescribeClassicLinkInstancesResponse
+forall x.
+Rep DescribeClassicLinkInstancesResponse x
+-&gt; DescribeClassicLinkInstancesResponse
+forall x.
+DescribeClassicLinkInstancesResponse
+-&gt; Rep DescribeClassicLinkInstancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeClassicLinkInstancesResponse x
+-&gt; DescribeClassicLinkInstancesResponse
+$cfrom :: forall x.
+DescribeClassicLinkInstancesResponse
+-&gt; Rep DescribeClassicLinkInstancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- Create a value of 'DescribeClassicLinkInstancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- 'nextToken', 'describeClassicLinkInstancesResponse_nextToken' - The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- 'instances', 'describeClassicLinkInstancesResponse_instances' - Information about one or more linked EC2-Classic instances.</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- 'httpStatus', 'describeClassicLinkInstancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#newDescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">newDescribeClassicLinkInstancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-304"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-305"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-306"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span>
+</span><span id="line-307"></span><span id="newDescribeClassicLinkInstancesResponse"><span class="annot"><span class="annottext">newDescribeClassicLinkInstancesResponse :: Int -&gt; DescribeClassicLinkInstancesResponse
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#newDescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-var hs-var">newDescribeClassicLinkInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621681269970"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269970"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-308"></span><span>  </span><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse' :: Maybe Text
+-&gt; Maybe [ClassicLinkInstance]
+-&gt; Int
+-&gt; DescribeClassicLinkInstancesResponse
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse'</span></a></span><span>
+</span><span id="line-309"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClassicLinkInstancesResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AnextToken%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-310"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>      </span><span class="annot"><span class="annottext">$sel:instances:DescribeClassicLinkInstancesResponse' :: Maybe [ClassicLinkInstance]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3Ainstances%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClassicLinkInstance]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClassicLinkInstancesResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AhttpStatus%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269970"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-313"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | The token to use to retrieve the next page of results. This value is</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- @null@ when there are no more results to return.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_nextToken"><span class="hs-identifier hs-type">describeClassicLinkInstancesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span id="describeClassicLinkInstancesResponse_nextToken"><span class="annot"><span class="annottext">describeClassicLinkInstancesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeClassicLinkInstancesResponse
+-&gt; f DescribeClassicLinkInstancesResponse
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_nextToken"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstancesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstancesResponse -&gt; Maybe Text)
+-&gt; (DescribeClassicLinkInstancesResponse
+    -&gt; Maybe Text -&gt; DescribeClassicLinkInstancesResponse)
+-&gt; Lens' DescribeClassicLinkInstancesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269969"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:DescribeClassicLinkInstancesResponse' :: DescribeClassicLinkInstancesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681269969"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269969"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269968"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681269968"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269967"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269967"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681269968"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:DescribeClassicLinkInstancesResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AnextToken%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681269967"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | Information about one or more linked EC2-Classic instances.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_instances"><span class="hs-identifier hs-type">describeClassicLinkInstancesResponse_instances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLinkInstance.html#ClassicLinkInstance"><span class="hs-identifier hs-type">ClassicLinkInstance</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="describeClassicLinkInstancesResponse_instances"><span class="annot"><span class="annottext">describeClassicLinkInstancesResponse_instances :: (Maybe [ClassicLinkInstance] -&gt; f (Maybe [ClassicLinkInstance]))
+-&gt; DescribeClassicLinkInstancesResponse
+-&gt; f DescribeClassicLinkInstancesResponse
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_instances"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstancesResponse_instances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstancesResponse
+ -&gt; Maybe [ClassicLinkInstance])
+-&gt; (DescribeClassicLinkInstancesResponse
+    -&gt; Maybe [ClassicLinkInstance]
+    -&gt; DescribeClassicLinkInstancesResponse)
+-&gt; Lens'
+     DescribeClassicLinkInstancesResponse (Maybe [ClassicLinkInstance])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269966"><span class="annot"><span class="annottext">Maybe [ClassicLinkInstance]
+instances :: Maybe [ClassicLinkInstance]
+$sel:instances:DescribeClassicLinkInstancesResponse' :: DescribeClassicLinkInstancesResponse -&gt; Maybe [ClassicLinkInstance]
+</span><a href="#local-6989586621681269966"><span class="hs-identifier hs-var hs-var">instances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ClassicLinkInstance]
+</span><a href="#local-6989586621681269966"><span class="hs-identifier hs-var">instances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269965"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681269965"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269964"><span class="annot"><span class="annottext">Maybe [ClassicLinkInstance]
+</span><a href="#local-6989586621681269964"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681269965"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instances:DescribeClassicLinkInstancesResponse' :: Maybe [ClassicLinkInstance]
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3Ainstances%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">instances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ClassicLinkInstance]
+</span><a href="#local-6989586621681269964"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ClassicLinkInstance] -&gt; f (Maybe [ClassicLinkInstance]))
+ -&gt; DescribeClassicLinkInstancesResponse
+ -&gt; f DescribeClassicLinkInstancesResponse)
+-&gt; ((Maybe [ClassicLinkInstance]
+     -&gt; f (Maybe [ClassicLinkInstance]))
+    -&gt; Maybe [ClassicLinkInstance] -&gt; f (Maybe [ClassicLinkInstance]))
+-&gt; (Maybe [ClassicLinkInstance] -&gt; f (Maybe [ClassicLinkInstance]))
+-&gt; DescribeClassicLinkInstancesResponse
+-&gt; f DescribeClassicLinkInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClassicLinkInstance]
+  [ClassicLinkInstance]
+  [ClassicLinkInstance]
+  [ClassicLinkInstance]
+-&gt; Iso
+     (Maybe [ClassicLinkInstance])
+     (Maybe [ClassicLinkInstance])
+     (Maybe [ClassicLinkInstance])
+     (Maybe [ClassicLinkInstance])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ClassicLinkInstance]
+  [ClassicLinkInstance]
+  [ClassicLinkInstance]
+  [ClassicLinkInstance]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_httpStatus"><span class="hs-identifier hs-type">describeClassicLinkInstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-326"></span><span id="describeClassicLinkInstancesResponse_httpStatus"><span class="annot"><span class="annottext">describeClassicLinkInstancesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeClassicLinkInstancesResponse
+-&gt; f DescribeClassicLinkInstancesResponse
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#describeClassicLinkInstancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeClassicLinkInstancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeClassicLinkInstancesResponse -&gt; Int)
+-&gt; (DescribeClassicLinkInstancesResponse
+    -&gt; Int -&gt; DescribeClassicLinkInstancesResponse)
+-&gt; Lens
+     DescribeClassicLinkInstancesResponse
+     DescribeClassicLinkInstancesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681269963"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeClassicLinkInstancesResponse' :: DescribeClassicLinkInstancesResponse -&gt; Int
+</span><a href="#local-6989586621681269963"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269963"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681269962"><span class="annot"><span class="annottext">s :: DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681269962"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681269961"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269961"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeClassicLinkInstancesResponse
+</span><a href="#local-6989586621681269962"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeClassicLinkInstancesResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#%24sel%3AhttpStatus%3ADescribeClassicLinkInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681269961"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-329"></span><span>  </span><span id="local-6989586621681269959"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-330"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeClassicLinkInstances.html#DescribeClassicLinkInstancesResponse"><span class="hs-identifier hs-type">DescribeClassicLinkInstancesResponse</span></a></span></span><span>
+</span><span id="line-331"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DirectoryService.Types.ReplicationScope</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectoryService.Types.ReplicationScope</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope"><span class="hs-identifier">ReplicationScope</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope_Domain"><span class="hs-identifier">ReplicationScope_Domain</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679298532"><span id="local-6989586621679298533"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ReplicationScope"><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope"><span class="hs-identifier hs-var">ReplicationScope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationScope%27"><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope%27"><span class="hs-identifier hs-var">ReplicationScope'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReplicationScope"><span class="annot"><span class="annottext">ReplicationScope -&gt; Text
+</span><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#fromReplicationScope"><span class="hs-identifier hs-var hs-var">fromReplicationScope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298524"><span id="local-6989586621679298526"><span id="local-6989586621679298528"><span class="annot"><span class="annottext">Int -&gt; ReplicationScope -&gt; ShowS
+[ReplicationScope] -&gt; ShowS
+ReplicationScope -&gt; String
+(Int -&gt; ReplicationScope -&gt; ShowS)
+-&gt; (ReplicationScope -&gt; String)
+-&gt; ([ReplicationScope] -&gt; ShowS)
+-&gt; Show ReplicationScope
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationScope] -&gt; ShowS
+$cshowList :: [ReplicationScope] -&gt; ShowS
+show :: ReplicationScope -&gt; String
+$cshow :: ReplicationScope -&gt; String
+showsPrec :: Int -&gt; ReplicationScope -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationScope -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679298515"><span id="local-6989586621679298517"><span id="local-6989586621679298519"><span id="local-6989586621679298521"><span class="annot"><span class="annottext">ReadPrec [ReplicationScope]
+ReadPrec ReplicationScope
+Int -&gt; ReadS ReplicationScope
+ReadS [ReplicationScope]
+(Int -&gt; ReadS ReplicationScope)
+-&gt; ReadS [ReplicationScope]
+-&gt; ReadPrec ReplicationScope
+-&gt; ReadPrec [ReplicationScope]
+-&gt; Read ReplicationScope
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReplicationScope]
+$creadListPrec :: ReadPrec [ReplicationScope]
+readPrec :: ReadPrec ReplicationScope
+$creadPrec :: ReadPrec ReplicationScope
+readList :: ReadS [ReplicationScope]
+$creadList :: ReadS [ReplicationScope]
+readsPrec :: Int -&gt; ReadS ReplicationScope
+$creadsPrec :: Int -&gt; ReadS ReplicationScope
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679298510"><span id="local-6989586621679298512"><span class="annot"><span class="annottext">ReplicationScope -&gt; ReplicationScope -&gt; Bool
+(ReplicationScope -&gt; ReplicationScope -&gt; Bool)
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
+-&gt; Eq ReplicationScope
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+$c/= :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+== :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+$c== :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679298494"><span id="local-6989586621679298496"><span id="local-6989586621679298498"><span id="local-6989586621679298500"><span id="local-6989586621679298502"><span id="local-6989586621679298504"><span id="local-6989586621679298506"><span class="annot"><span class="annottext">Eq ReplicationScope
+Eq ReplicationScope
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Ordering)
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; Bool)
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; ReplicationScope)
+-&gt; (ReplicationScope -&gt; ReplicationScope -&gt; ReplicationScope)
+-&gt; Ord ReplicationScope
+ReplicationScope -&gt; ReplicationScope -&gt; Bool
+ReplicationScope -&gt; ReplicationScope -&gt; Ordering
+ReplicationScope -&gt; ReplicationScope -&gt; ReplicationScope
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ReplicationScope -&gt; ReplicationScope -&gt; ReplicationScope
+$cmin :: ReplicationScope -&gt; ReplicationScope -&gt; ReplicationScope
+max :: ReplicationScope -&gt; ReplicationScope -&gt; ReplicationScope
+$cmax :: ReplicationScope -&gt; ReplicationScope -&gt; ReplicationScope
+&gt;= :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+$c&gt;= :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+&gt; :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+$c&gt; :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+&lt;= :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+$c&lt;= :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+&lt; :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+$c&lt; :: ReplicationScope -&gt; ReplicationScope -&gt; Bool
+compare :: ReplicationScope -&gt; ReplicationScope -&gt; Ordering
+$ccompare :: ReplicationScope -&gt; ReplicationScope -&gt; Ordering
+$cp1Ord :: Eq ReplicationScope
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ReplicationScope -&gt; Rep ReplicationScope x)
+-&gt; (forall x. Rep ReplicationScope x -&gt; ReplicationScope)
+-&gt; Generic ReplicationScope
+forall x. Rep ReplicationScope x -&gt; ReplicationScope
+forall x. ReplicationScope -&gt; Rep ReplicationScope x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReplicationScope x -&gt; ReplicationScope
+$cfrom :: forall x. ReplicationScope -&gt; Rep ReplicationScope x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679298486"><span id="local-6989586621679298488"><span class="annot"><span class="annottext">Int -&gt; ReplicationScope -&gt; Int
+ReplicationScope -&gt; Int
+(Int -&gt; ReplicationScope -&gt; Int)
+-&gt; (ReplicationScope -&gt; Int) -&gt; Hashable ReplicationScope
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ReplicationScope -&gt; Int
+$chash :: ReplicationScope -&gt; Int
+hashWithSalt :: Int -&gt; ReplicationScope -&gt; Int
+$chashWithSalt :: Int -&gt; ReplicationScope -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679298483"><span class="annot"><span class="annottext">ReplicationScope -&gt; ()
+(ReplicationScope -&gt; ()) -&gt; NFData ReplicationScope
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ReplicationScope -&gt; ()
+$crnf :: ReplicationScope -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679298480"><span class="annot"><span class="annottext">Text -&gt; Either String ReplicationScope
+(Text -&gt; Either String ReplicationScope)
+-&gt; FromText ReplicationScope
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ReplicationScope
+$cfromText :: Text -&gt; Either String ReplicationScope
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679298477"><span class="annot"><span class="annottext">ReplicationScope -&gt; Text
+(ReplicationScope -&gt; Text) -&gt; ToText ReplicationScope
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ReplicationScope -&gt; Text
+$ctoText :: ReplicationScope -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679298474"><span class="annot"><span class="annottext">ReplicationScope -&gt; ByteString
+(ReplicationScope -&gt; ByteString) -&gt; ToByteString ReplicationScope
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ReplicationScope -&gt; ByteString
+$ctoBS :: ReplicationScope -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679298471"><span class="annot"><span class="annottext">ReplicationScope -&gt; ByteStringBuilder
+(ReplicationScope -&gt; ByteStringBuilder) -&gt; ToLog ReplicationScope
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ReplicationScope -&gt; ByteStringBuilder
+$cbuild :: ReplicationScope -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679298468"><span class="annot"><span class="annottext">HeaderName -&gt; ReplicationScope -&gt; [Header]
+(HeaderName -&gt; ReplicationScope -&gt; [Header])
+-&gt; ToHeader ReplicationScope
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ReplicationScope -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ReplicationScope -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679298465"><span class="annot"><span class="annottext">ReplicationScope -&gt; QueryString
+(ReplicationScope -&gt; QueryString) -&gt; ToQuery ReplicationScope
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ReplicationScope -&gt; QueryString
+$ctoQuery :: ReplicationScope -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679298460"><span id="local-6989586621679298462"><span class="annot"><span class="annottext">Value -&gt; Parser [ReplicationScope]
+Value -&gt; Parser ReplicationScope
+(Value -&gt; Parser ReplicationScope)
+-&gt; (Value -&gt; Parser [ReplicationScope])
+-&gt; FromJSON ReplicationScope
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ReplicationScope]
+$cparseJSONList :: Value -&gt; Parser [ReplicationScope]
+parseJSON :: Value -&gt; Parser ReplicationScope
+$cparseJSON :: Value -&gt; Parser ReplicationScope
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679298455"><span id="local-6989586621679298457"><span class="annot"><span class="annottext">FromJSONKeyFunction [ReplicationScope]
+FromJSONKeyFunction ReplicationScope
+FromJSONKeyFunction ReplicationScope
+-&gt; FromJSONKeyFunction [ReplicationScope]
+-&gt; FromJSONKey ReplicationScope
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ReplicationScope]
+$cfromJSONKeyList :: FromJSONKeyFunction [ReplicationScope]
+fromJSONKey :: FromJSONKeyFunction ReplicationScope
+$cfromJSONKey :: FromJSONKeyFunction ReplicationScope
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679298446"><span id="local-6989586621679298448"><span id="local-6989586621679298450"><span id="local-6989586621679298452"><span class="annot"><span class="annottext">[ReplicationScope] -&gt; Encoding
+[ReplicationScope] -&gt; Value
+ReplicationScope -&gt; Encoding
+ReplicationScope -&gt; Value
+(ReplicationScope -&gt; Value)
+-&gt; (ReplicationScope -&gt; Encoding)
+-&gt; ([ReplicationScope] -&gt; Value)
+-&gt; ([ReplicationScope] -&gt; Encoding)
+-&gt; ToJSON ReplicationScope
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ReplicationScope] -&gt; Encoding
+$ctoEncodingList :: [ReplicationScope] -&gt; Encoding
+toJSONList :: [ReplicationScope] -&gt; Value
+$ctoJSONList :: [ReplicationScope] -&gt; Value
+toEncoding :: ReplicationScope -&gt; Encoding
+$ctoEncoding :: ReplicationScope -&gt; Encoding
+toJSON :: ReplicationScope -&gt; Value
+$ctoJSON :: ReplicationScope -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679298441"><span id="local-6989586621679298443"><span class="annot"><span class="annottext">ToJSONKeyFunction [ReplicationScope]
+ToJSONKeyFunction ReplicationScope
+ToJSONKeyFunction ReplicationScope
+-&gt; ToJSONKeyFunction [ReplicationScope]
+-&gt; ToJSONKey ReplicationScope
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ReplicationScope]
+$ctoJSONKeyList :: ToJSONKeyFunction [ReplicationScope]
+toJSONKey :: ToJSONKeyFunction ReplicationScope
+$ctoJSONKey :: ToJSONKeyFunction ReplicationScope
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679298438"><span class="annot"><span class="annottext">[Node] -&gt; Either String ReplicationScope
+([Node] -&gt; Either String ReplicationScope)
+-&gt; FromXML ReplicationScope
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ReplicationScope
+$cparseXML :: [Node] -&gt; Either String ReplicationScope
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679298435"><span class="annot"><span class="annottext">ReplicationScope -&gt; XML
+(ReplicationScope -&gt; XML) -&gt; ToXML ReplicationScope
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ReplicationScope -&gt; XML
+$ctoXML :: ReplicationScope -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope_Domain"><span class="hs-identifier hs-type">ReplicationScope_Domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope"><span class="hs-identifier hs-type">ReplicationScope</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReplicationScope_Domain"><span id="%24mReplicationScope_Domain"><span id="ReplicationScope_Domain"><span class="annot"><span class="annottext">$bReplicationScope_Domain :: ReplicationScope
+$mReplicationScope_Domain :: forall r. ReplicationScope -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#%24bReplicationScope_Domain"><span class="hs-identifier hs-var hs-var hs-var">ReplicationScope_Domain</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope%27"><span class="hs-identifier hs-type">ReplicationScope'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Domain&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope_Domain"><span class="hs-pragma hs-type">ReplicationScope_Domain</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.Types.ReplicationScope.html#ReplicationScope%27"><span class="hs-pragma hs-type">ReplicationScope'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

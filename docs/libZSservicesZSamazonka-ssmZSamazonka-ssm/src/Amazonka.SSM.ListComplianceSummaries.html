@@ -1,0 +1,836 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.ListComplianceSummaries</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a summary count of compliant and non-compliant resources for a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- compliance type. For example, this call can return State Manager</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- associations, patches, or custom compliance types according to the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- filter criteria that you specify.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.ListComplianceSummaries</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier">ListComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#newListComplianceSummaries"><span class="hs-identifier">newListComplianceSummaries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_filters"><span class="hs-identifier">listComplianceSummaries_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_nextToken"><span class="hs-identifier">listComplianceSummaries_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_maxResults"><span class="hs-identifier">listComplianceSummaries_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier">ListComplianceSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#newListComplianceSummariesResponse"><span class="hs-identifier">newListComplianceSummariesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_nextToken"><span class="hs-identifier">listComplianceSummariesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_complianceSummaryItems"><span class="hs-identifier">listComplianceSummariesResponse_complianceSummaryItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_httpStatus"><span class="hs-identifier">listComplianceSummariesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListComplianceSummaries' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679831652"><span id="local-6989586621679831653"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComplianceSummaries"><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-var">ListComplianceSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComplianceSummaries%27"><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-var">ListComplianceSummaries'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more compliance or inventory filters. Use a filter to return a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- more specific list of results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Afilters%3AListComplianceSummaries%27"><span class="annot"><span class="annottext">ListComplianceSummaries -&gt; Maybe [ComplianceStringFilter]
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3Afilters%3AListComplianceSummaries%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AnextToken%3AListComplianceSummaries%27"><span class="annot"><span class="annottext">ListComplianceSummaries -&gt; Maybe Text
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AnextToken%3AListComplianceSummaries%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return for this call. Currently, you can</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- specify null or 50. The call also returns a token that you can specify</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- in a subsequent call to get the next set of results.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3AListComplianceSummaries%27"><span class="annot"><span class="annottext">ListComplianceSummaries -&gt; Maybe Natural
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AmaxResults%3AListComplianceSummaries%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831644"><span id="local-6989586621679831646"><span class="annot"><span class="annottext">ListComplianceSummaries -&gt; ListComplianceSummaries -&gt; Bool
+(ListComplianceSummaries -&gt; ListComplianceSummaries -&gt; Bool)
+-&gt; (ListComplianceSummaries -&gt; ListComplianceSummaries -&gt; Bool)
+-&gt; Eq ListComplianceSummaries
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListComplianceSummaries -&gt; ListComplianceSummaries -&gt; Bool
+$c/= :: ListComplianceSummaries -&gt; ListComplianceSummaries -&gt; Bool
+== :: ListComplianceSummaries -&gt; ListComplianceSummaries -&gt; Bool
+$c== :: ListComplianceSummaries -&gt; ListComplianceSummaries -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831635"><span id="local-6989586621679831637"><span id="local-6989586621679831639"><span id="local-6989586621679831641"><span class="annot"><span class="annottext">ReadPrec [ListComplianceSummaries]
+ReadPrec ListComplianceSummaries
+Int -&gt; ReadS ListComplianceSummaries
+ReadS [ListComplianceSummaries]
+(Int -&gt; ReadS ListComplianceSummaries)
+-&gt; ReadS [ListComplianceSummaries]
+-&gt; ReadPrec ListComplianceSummaries
+-&gt; ReadPrec [ListComplianceSummaries]
+-&gt; Read ListComplianceSummaries
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListComplianceSummaries]
+$creadListPrec :: ReadPrec [ListComplianceSummaries]
+readPrec :: ReadPrec ListComplianceSummaries
+$creadPrec :: ReadPrec ListComplianceSummaries
+readList :: ReadS [ListComplianceSummaries]
+$creadList :: ReadS [ListComplianceSummaries]
+readsPrec :: Int -&gt; ReadS ListComplianceSummaries
+$creadsPrec :: Int -&gt; ReadS ListComplianceSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831628"><span id="local-6989586621679831630"><span id="local-6989586621679831632"><span class="annot"><span class="annottext">Int -&gt; ListComplianceSummaries -&gt; ShowS
+[ListComplianceSummaries] -&gt; ShowS
+ListComplianceSummaries -&gt; String
+(Int -&gt; ListComplianceSummaries -&gt; ShowS)
+-&gt; (ListComplianceSummaries -&gt; String)
+-&gt; ([ListComplianceSummaries] -&gt; ShowS)
+-&gt; Show ListComplianceSummaries
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListComplianceSummaries] -&gt; ShowS
+$cshowList :: [ListComplianceSummaries] -&gt; ShowS
+show :: ListComplianceSummaries -&gt; String
+$cshow :: ListComplianceSummaries -&gt; String
+showsPrec :: Int -&gt; ListComplianceSummaries -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListComplianceSummaries -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListComplianceSummaries -&gt; Rep ListComplianceSummaries x)
+-&gt; (forall x.
+    Rep ListComplianceSummaries x -&gt; ListComplianceSummaries)
+-&gt; Generic ListComplianceSummaries
+forall x. Rep ListComplianceSummaries x -&gt; ListComplianceSummaries
+forall x. ListComplianceSummaries -&gt; Rep ListComplianceSummaries x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListComplianceSummaries x -&gt; ListComplianceSummaries
+$cfrom :: forall x. ListComplianceSummaries -&gt; Rep ListComplianceSummaries x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'ListComplianceSummaries' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'filters', 'listComplianceSummaries_filters' - One or more compliance or inventory filters. Use a filter to return a</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- more specific list of results.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listComplianceSummaries_nextToken' - A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'maxResults', 'listComplianceSummaries_maxResults' - The maximum number of items to return for this call. Currently, you can</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- specify null or 50. The call also returns a token that you can specify</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- in a subsequent call to get the next set of results.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#newListComplianceSummaries"><span class="hs-identifier hs-type">newListComplianceSummaries</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span>
+</span><span id="line-91"></span><span id="newListComplianceSummaries"><span class="annot"><span class="annottext">newListComplianceSummaries :: ListComplianceSummaries
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#newListComplianceSummaries"><span class="hs-identifier hs-var hs-var">newListComplianceSummaries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="annottext">ListComplianceSummaries' :: Maybe [ComplianceStringFilter]
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListComplianceSummaries
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:filters:ListComplianceSummaries' :: Maybe [ComplianceStringFilter]
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3Afilters%3AListComplianceSummaries%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceSummaries' :: Maybe Text
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AnextToken%3AListComplianceSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListComplianceSummaries' :: Maybe Natural
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AmaxResults%3AListComplianceSummaries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | One or more compliance or inventory filters. Use a filter to return a</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- more specific list of results.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_filters"><span class="hs-identifier hs-type">listComplianceSummaries_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.ComplianceStringFilter.html#ComplianceStringFilter"><span class="hs-identifier hs-type">ComplianceStringFilter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="listComplianceSummaries_filters"><span class="annot"><span class="annottext">listComplianceSummaries_filters :: (Maybe [ComplianceStringFilter]
+ -&gt; f (Maybe [ComplianceStringFilter]))
+-&gt; ListComplianceSummaries -&gt; f ListComplianceSummaries
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_filters"><span class="hs-identifier hs-var hs-var">listComplianceSummaries_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComplianceSummaries -&gt; Maybe [ComplianceStringFilter])
+-&gt; (ListComplianceSummaries
+    -&gt; Maybe [ComplianceStringFilter] -&gt; ListComplianceSummaries)
+-&gt; Lens
+     ListComplianceSummaries
+     ListComplianceSummaries
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831622"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+filters :: Maybe [ComplianceStringFilter]
+$sel:filters:ListComplianceSummaries' :: ListComplianceSummaries -&gt; Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679831622"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679831622"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831621"><span class="annot"><span class="annottext">s :: ListComplianceSummaries
+</span><a href="#local-6989586621679831621"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831620"><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679831620"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceSummaries
+</span><a href="#local-6989586621679831621"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:ListComplianceSummaries' :: Maybe [ComplianceStringFilter]
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3Afilters%3AListComplianceSummaries%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679831620"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceStringFilter]
+  -&gt; f (Maybe [ComplianceStringFilter]))
+ -&gt; ListComplianceSummaries -&gt; f ListComplianceSummaries)
+-&gt; ((Maybe [ComplianceStringFilter]
+     -&gt; f (Maybe [ComplianceStringFilter]))
+    -&gt; Maybe [ComplianceStringFilter]
+    -&gt; f (Maybe [ComplianceStringFilter]))
+-&gt; (Maybe [ComplianceStringFilter]
+    -&gt; f (Maybe [ComplianceStringFilter]))
+-&gt; ListComplianceSummaries
+-&gt; f ListComplianceSummaries
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+-&gt; Iso
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+     (Maybe [ComplianceStringFilter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+  [ComplianceStringFilter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | A token to start the list. Use this token to get the next set of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_nextToken"><span class="hs-identifier hs-type">listComplianceSummaries_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="listComplianceSummaries_nextToken"><span class="annot"><span class="annottext">listComplianceSummaries_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListComplianceSummaries -&gt; f ListComplianceSummaries
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_nextToken"><span class="hs-identifier hs-var hs-var">listComplianceSummaries_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComplianceSummaries -&gt; Maybe Text)
+-&gt; (ListComplianceSummaries
+    -&gt; Maybe Text -&gt; ListComplianceSummaries)
+-&gt; Lens
+     ListComplianceSummaries
+     ListComplianceSummaries
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831616"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListComplianceSummaries' :: ListComplianceSummaries -&gt; Maybe Text
+</span><a href="#local-6989586621679831616"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831616"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831615"><span class="annot"><span class="annottext">s :: ListComplianceSummaries
+</span><a href="#local-6989586621679831615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831614"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceSummaries
+</span><a href="#local-6989586621679831615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceSummaries' :: Maybe Text
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AnextToken%3AListComplianceSummaries%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of items to return for this call. Currently, you can</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- specify null or 50. The call also returns a token that you can specify</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- in a subsequent call to get the next set of results.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_maxResults"><span class="hs-identifier hs-type">listComplianceSummaries_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="listComplianceSummaries_maxResults"><span class="annot"><span class="annottext">listComplianceSummaries_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListComplianceSummaries -&gt; f ListComplianceSummaries
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_maxResults"><span class="hs-identifier hs-var hs-var">listComplianceSummaries_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComplianceSummaries -&gt; Maybe Natural)
+-&gt; (ListComplianceSummaries
+    -&gt; Maybe Natural -&gt; ListComplianceSummaries)
+-&gt; Lens
+     ListComplianceSummaries
+     ListComplianceSummaries
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831613"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListComplianceSummaries' :: ListComplianceSummaries -&gt; Maybe Natural
+</span><a href="#local-6989586621679831613"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679831613"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831612"><span class="annot"><span class="annottext">s :: ListComplianceSummaries
+</span><a href="#local-6989586621679831612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831611"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679831611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceSummaries
+</span><a href="#local-6989586621679831612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListComplianceSummaries' :: Maybe Natural
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AmaxResults%3AListComplianceSummaries%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679831611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679831607"><span class="annot"><span class="annottext">page :: ListComplianceSummaries
+-&gt; AWSResponse ListComplianceSummaries
+-&gt; Maybe ListComplianceSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679831605"><span class="annot"><span class="annottext">ListComplianceSummaries
+</span><a href="#local-6989586621679831605"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679831604"><span class="annot"><span class="annottext">AWSResponse ListComplianceSummaries
+</span><a href="#local-6989586621679831604"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComplianceSummaries
+ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831604"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">ListComplianceSummariesResponse
+-&gt; Getting (First Text) ListComplianceSummariesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListComplianceSummariesResponse
+-&gt; Const (First Text) ListComplianceSummariesResponse
+Lens' ListComplianceSummariesResponse (Maybe Text)
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-var">listComplianceSummariesResponse_nextToken</span></a></span><span>
+</span><span id="line-119"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListComplianceSummariesResponse
+ -&gt; Const (First Text) ListComplianceSummariesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListComplianceSummariesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListComplianceSummaries
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceSummaryItem] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComplianceSummaries
+ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831604"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListComplianceSummariesResponse
+-&gt; Getting
+     (First [ComplianceSummaryItem])
+     ListComplianceSummariesResponse
+     [ComplianceSummaryItem]
+-&gt; Maybe [ComplianceSummaryItem]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ComplianceSummaryItem]
+ -&gt; Const
+      (First [ComplianceSummaryItem]) (Maybe [ComplianceSummaryItem]))
+-&gt; ListComplianceSummariesResponse
+-&gt; Const
+     (First [ComplianceSummaryItem]) ListComplianceSummariesResponse
+Lens'
+  ListComplianceSummariesResponse (Maybe [ComplianceSummaryItem])
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_complianceSummaryItems"><span class="hs-identifier hs-var">listComplianceSummariesResponse_complianceSummaryItems</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ComplianceSummaryItem]
+  -&gt; Const
+       (First [ComplianceSummaryItem]) (Maybe [ComplianceSummaryItem]))
+ -&gt; ListComplianceSummariesResponse
+ -&gt; Const
+      (First [ComplianceSummaryItem]) ListComplianceSummariesResponse)
+-&gt; (([ComplianceSummaryItem]
+     -&gt; Const (First [ComplianceSummaryItem]) [ComplianceSummaryItem])
+    -&gt; Maybe [ComplianceSummaryItem]
+    -&gt; Const
+         (First [ComplianceSummaryItem]) (Maybe [ComplianceSummaryItem]))
+-&gt; Getting
+     (First [ComplianceSummaryItem])
+     ListComplianceSummariesResponse
+     [ComplianceSummaryItem]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ComplianceSummaryItem]
+ -&gt; Const (First [ComplianceSummaryItem]) [ComplianceSummaryItem])
+-&gt; Maybe [ComplianceSummaryItem]
+-&gt; Const
+     (First [ComplianceSummaryItem]) (Maybe [ComplianceSummaryItem])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListComplianceSummaries
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">ListComplianceSummaries -&gt; Maybe ListComplianceSummaries
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListComplianceSummaries -&gt; Maybe ListComplianceSummaries)
+-&gt; ListComplianceSummaries -&gt; Maybe ListComplianceSummaries
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">ListComplianceSummaries
+</span><a href="#local-6989586621679831605"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">ListComplianceSummaries
+-&gt; (ListComplianceSummaries -&gt; ListComplianceSummaries)
+-&gt; ListComplianceSummaries
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListComplianceSummaries -&gt; Identity ListComplianceSummaries
+Lens
+  ListComplianceSummaries
+  ListComplianceSummaries
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummaries_nextToken"><span class="hs-identifier hs-var">listComplianceSummaries_nextToken</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListComplianceSummaries -&gt; Identity ListComplianceSummaries)
+-&gt; Maybe Text -&gt; ListComplianceSummaries -&gt; ListComplianceSummaries
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComplianceSummaries
+ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831604"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">ListComplianceSummariesResponse
+-&gt; Getting (First Text) ListComplianceSummariesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListComplianceSummariesResponse
+-&gt; Const (First Text) ListComplianceSummariesResponse
+Lens' ListComplianceSummariesResponse (Maybe Text)
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-var">listComplianceSummariesResponse_nextToken</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListComplianceSummariesResponse
+ -&gt; Const (First Text) ListComplianceSummariesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListComplianceSummariesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679831595"><span class="annot"><span class="annottext">request :: ListComplianceSummaries -&gt; Request ListComplianceSummaries
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListComplianceSummaries -&gt; Request ListComplianceSummaries
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679831591"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListComplianceSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListComplianceSummaries)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListComplianceSummaries))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListComplianceSummaries
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListComplianceSummaries)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679831588"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831588"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679831587"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679831587"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679831586"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679831586"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ComplianceSummaryItem]
+-&gt; Int
+-&gt; ListComplianceSummariesResponse
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">ListComplianceSummariesResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ComplianceSummaryItem]
+ -&gt; Int
+ -&gt; ListComplianceSummariesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ComplianceSummaryItem]
+      -&gt; Int -&gt; ListComplianceSummariesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679831586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ComplianceSummaryItem]
+   -&gt; Int -&gt; ListComplianceSummariesResponse)
+-&gt; Either String (Maybe [ComplianceSummaryItem])
+-&gt; Either String (Int -&gt; ListComplianceSummariesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679831586"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [ComplianceSummaryItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ComplianceSummaryItems&quot;</span></span><span>
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ComplianceSummaryItem]))
+-&gt; Maybe [ComplianceSummaryItem]
+-&gt; Either String (Maybe [ComplianceSummaryItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceSummaryItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListComplianceSummariesResponse)
+-&gt; Either String Int
+-&gt; Either String ListComplianceSummariesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831588"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831577"><span id="local-6989586621679831579"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831574"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span></span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679831570"><span class="annot"><span class="annottext">toHeaders :: ListComplianceSummaries -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListComplianceSummaries -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-161"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.ListComplianceSummaries&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-162"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-163"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-165"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-167"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679831560"><span id="local-6989586621679831562"><span id="local-6989586621679831564"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679831558"><span class="annot"><span class="annottext">toJSON :: ListComplianceSummaries -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries%27"><span class="hs-identifier hs-type">ListComplianceSummaries'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831554"><span id="local-6989586621679831555"><span id="local-6989586621679831556"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [ComplianceStringFilter]
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+filters :: Maybe [ComplianceStringFilter]
+$sel:maxResults:ListComplianceSummaries' :: ListComplianceSummaries -&gt; Maybe Natural
+$sel:nextToken:ListComplianceSummaries' :: ListComplianceSummaries -&gt; Maybe Text
+$sel:filters:ListComplianceSummaries' :: ListComplianceSummaries -&gt; Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679831554"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-175"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [ComplianceStringFilter] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([ComplianceStringFilter] -&gt; Pair)
+-&gt; Maybe [ComplianceStringFilter] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceStringFilter]
+</span><a href="#local-6989586621679831556"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831555"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679831554"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679831548"><span class="annot"><span class="annottext">toPath :: ListComplianceSummaries -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListComplianceSummaries -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummaries"><span class="hs-identifier hs-type">ListComplianceSummaries</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679831544"><span class="annot"><span class="annottext">toQuery :: ListComplianceSummaries -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListComplianceSummaries -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newListComplianceSummariesResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679831541"><span id="local-6989586621679831542"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComplianceSummariesResponse"><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-var">ListComplianceSummariesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComplianceSummariesResponse%27"><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">ListComplianceSummariesResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AnextToken%3AListComplianceSummariesResponse%27"><span class="annot"><span class="annottext">ListComplianceSummariesResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AnextToken%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | A list of compliant and non-compliant summary counts based on compliance</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- types. For example, this call returns State Manager associations,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- patches, or custom compliance types according to the filter criteria</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- that you specified.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AcomplianceSummaryItems%3AListComplianceSummariesResponse%27"><span class="annot"><span class="annottext">ListComplianceSummariesResponse -&gt; Maybe [ComplianceSummaryItem]
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AcomplianceSummaryItems%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var hs-var">complianceSummaryItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.ComplianceSummaryItem.html#ComplianceSummaryItem"><span class="hs-identifier hs-type">ComplianceSummaryItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListComplianceSummariesResponse%27"><span class="annot"><span class="annottext">ListComplianceSummariesResponse -&gt; Int
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AhttpStatus%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679831534"><span id="local-6989586621679831536"><span class="annot"><span class="annottext">ListComplianceSummariesResponse
+-&gt; ListComplianceSummariesResponse -&gt; Bool
+(ListComplianceSummariesResponse
+ -&gt; ListComplianceSummariesResponse -&gt; Bool)
+-&gt; (ListComplianceSummariesResponse
+    -&gt; ListComplianceSummariesResponse -&gt; Bool)
+-&gt; Eq ListComplianceSummariesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListComplianceSummariesResponse
+-&gt; ListComplianceSummariesResponse -&gt; Bool
+$c/= :: ListComplianceSummariesResponse
+-&gt; ListComplianceSummariesResponse -&gt; Bool
+== :: ListComplianceSummariesResponse
+-&gt; ListComplianceSummariesResponse -&gt; Bool
+$c== :: ListComplianceSummariesResponse
+-&gt; ListComplianceSummariesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831526"><span id="local-6989586621679831528"><span id="local-6989586621679831530"><span id="local-6989586621679831532"><span class="annot"><span class="annottext">ReadPrec [ListComplianceSummariesResponse]
+ReadPrec ListComplianceSummariesResponse
+Int -&gt; ReadS ListComplianceSummariesResponse
+ReadS [ListComplianceSummariesResponse]
+(Int -&gt; ReadS ListComplianceSummariesResponse)
+-&gt; ReadS [ListComplianceSummariesResponse]
+-&gt; ReadPrec ListComplianceSummariesResponse
+-&gt; ReadPrec [ListComplianceSummariesResponse]
+-&gt; Read ListComplianceSummariesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListComplianceSummariesResponse]
+$creadListPrec :: ReadPrec [ListComplianceSummariesResponse]
+readPrec :: ReadPrec ListComplianceSummariesResponse
+$creadPrec :: ReadPrec ListComplianceSummariesResponse
+readList :: ReadS [ListComplianceSummariesResponse]
+$creadList :: ReadS [ListComplianceSummariesResponse]
+readsPrec :: Int -&gt; ReadS ListComplianceSummariesResponse
+$creadsPrec :: Int -&gt; ReadS ListComplianceSummariesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679831520"><span id="local-6989586621679831522"><span id="local-6989586621679831524"><span class="annot"><span class="annottext">Int -&gt; ListComplianceSummariesResponse -&gt; ShowS
+[ListComplianceSummariesResponse] -&gt; ShowS
+ListComplianceSummariesResponse -&gt; String
+(Int -&gt; ListComplianceSummariesResponse -&gt; ShowS)
+-&gt; (ListComplianceSummariesResponse -&gt; String)
+-&gt; ([ListComplianceSummariesResponse] -&gt; ShowS)
+-&gt; Show ListComplianceSummariesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListComplianceSummariesResponse] -&gt; ShowS
+$cshowList :: [ListComplianceSummariesResponse] -&gt; ShowS
+show :: ListComplianceSummariesResponse -&gt; String
+$cshow :: ListComplianceSummariesResponse -&gt; String
+showsPrec :: Int -&gt; ListComplianceSummariesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListComplianceSummariesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListComplianceSummariesResponse
+ -&gt; Rep ListComplianceSummariesResponse x)
+-&gt; (forall x.
+    Rep ListComplianceSummariesResponse x
+    -&gt; ListComplianceSummariesResponse)
+-&gt; Generic ListComplianceSummariesResponse
+forall x.
+Rep ListComplianceSummariesResponse x
+-&gt; ListComplianceSummariesResponse
+forall x.
+ListComplianceSummariesResponse
+-&gt; Rep ListComplianceSummariesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListComplianceSummariesResponse x
+-&gt; ListComplianceSummariesResponse
+$cfrom :: forall x.
+ListComplianceSummariesResponse
+-&gt; Rep ListComplianceSummariesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- Create a value of 'ListComplianceSummariesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- 'nextToken', 'listComplianceSummariesResponse_nextToken' - The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'complianceSummaryItems', 'listComplianceSummariesResponse_complianceSummaryItems' - A list of compliant and non-compliant summary counts based on compliance</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- types. For example, this call returns State Manager associations,</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- patches, or custom compliance types according to the filter criteria</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- that you specified.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'httpStatus', 'listComplianceSummariesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#newListComplianceSummariesResponse"><span class="hs-identifier hs-type">newListComplianceSummariesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-220"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span>
+</span><span id="line-223"></span><span id="newListComplianceSummariesResponse"><span class="annot"><span class="annottext">newListComplianceSummariesResponse :: Int -&gt; ListComplianceSummariesResponse
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#newListComplianceSummariesResponse"><span class="hs-identifier hs-var hs-var">newListComplianceSummariesResponse</span></a></span></span><span> </span><span id="local-6989586621679831517"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831517"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="annottext">ListComplianceSummariesResponse' :: Maybe Text
+-&gt; Maybe [ComplianceSummaryItem]
+-&gt; Int
+-&gt; ListComplianceSummariesResponse
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListComplianceSummariesResponse'</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceSummariesResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AnextToken%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:complianceSummaryItems:ListComplianceSummariesResponse' :: Maybe [ComplianceSummaryItem]
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AcomplianceSummaryItems%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">complianceSummaryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceSummaryItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListComplianceSummariesResponse' :: Int
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AhttpStatus%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831517"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The token for the next set of items to return. Use this token to get the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- next set of results.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-type">listComplianceSummariesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="listComplianceSummariesResponse_nextToken"><span class="annot"><span class="annottext">listComplianceSummariesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListComplianceSummariesResponse
+-&gt; f ListComplianceSummariesResponse
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listComplianceSummariesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComplianceSummariesResponse -&gt; Maybe Text)
+-&gt; (ListComplianceSummariesResponse
+    -&gt; Maybe Text -&gt; ListComplianceSummariesResponse)
+-&gt; Lens' ListComplianceSummariesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831516"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListComplianceSummariesResponse' :: ListComplianceSummariesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679831516"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831516"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831515"><span class="annot"><span class="annottext">s :: ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831515"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831514"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831514"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831515"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComplianceSummariesResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AnextToken%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679831514"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | A list of compliant and non-compliant summary counts based on compliance</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- types. For example, this call returns State Manager associations,</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- patches, or custom compliance types according to the filter criteria</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- that you specified.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_complianceSummaryItems"><span class="hs-identifier hs-type">listComplianceSummariesResponse_complianceSummaryItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSM.Types.ComplianceSummaryItem.html#ComplianceSummaryItem"><span class="hs-identifier hs-type">ComplianceSummaryItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="listComplianceSummariesResponse_complianceSummaryItems"><span class="annot"><span class="annottext">listComplianceSummariesResponse_complianceSummaryItems :: (Maybe [ComplianceSummaryItem]
+ -&gt; f (Maybe [ComplianceSummaryItem]))
+-&gt; ListComplianceSummariesResponse
+-&gt; f ListComplianceSummariesResponse
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_complianceSummaryItems"><span class="hs-identifier hs-var hs-var">listComplianceSummariesResponse_complianceSummaryItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComplianceSummariesResponse -&gt; Maybe [ComplianceSummaryItem])
+-&gt; (ListComplianceSummariesResponse
+    -&gt; Maybe [ComplianceSummaryItem]
+    -&gt; ListComplianceSummariesResponse)
+-&gt; Lens'
+     ListComplianceSummariesResponse (Maybe [ComplianceSummaryItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831513"><span class="annot"><span class="annottext">Maybe [ComplianceSummaryItem]
+complianceSummaryItems :: Maybe [ComplianceSummaryItem]
+$sel:complianceSummaryItems:ListComplianceSummariesResponse' :: ListComplianceSummariesResponse -&gt; Maybe [ComplianceSummaryItem]
+</span><a href="#local-6989586621679831513"><span class="hs-identifier hs-var hs-var">complianceSummaryItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceSummaryItem]
+</span><a href="#local-6989586621679831513"><span class="hs-identifier hs-var">complianceSummaryItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831512"><span class="annot"><span class="annottext">s :: ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831511"><span class="annot"><span class="annottext">Maybe [ComplianceSummaryItem]
+</span><a href="#local-6989586621679831511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:complianceSummaryItems:ListComplianceSummariesResponse' :: Maybe [ComplianceSummaryItem]
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AcomplianceSummaryItems%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">complianceSummaryItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ComplianceSummaryItem]
+</span><a href="#local-6989586621679831511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ComplianceSummaryItem]
+  -&gt; f (Maybe [ComplianceSummaryItem]))
+ -&gt; ListComplianceSummariesResponse
+ -&gt; f ListComplianceSummariesResponse)
+-&gt; ((Maybe [ComplianceSummaryItem]
+     -&gt; f (Maybe [ComplianceSummaryItem]))
+    -&gt; Maybe [ComplianceSummaryItem]
+    -&gt; f (Maybe [ComplianceSummaryItem]))
+-&gt; (Maybe [ComplianceSummaryItem]
+    -&gt; f (Maybe [ComplianceSummaryItem]))
+-&gt; ListComplianceSummariesResponse
+-&gt; f ListComplianceSummariesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceSummaryItem]
+  [ComplianceSummaryItem]
+  [ComplianceSummaryItem]
+  [ComplianceSummaryItem]
+-&gt; Iso
+     (Maybe [ComplianceSummaryItem])
+     (Maybe [ComplianceSummaryItem])
+     (Maybe [ComplianceSummaryItem])
+     (Maybe [ComplianceSummaryItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ComplianceSummaryItem]
+  [ComplianceSummaryItem]
+  [ComplianceSummaryItem]
+  [ComplianceSummaryItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_httpStatus"><span class="hs-identifier hs-type">listComplianceSummariesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-245"></span><span id="listComplianceSummariesResponse_httpStatus"><span class="annot"><span class="annottext">listComplianceSummariesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListComplianceSummariesResponse
+-&gt; f ListComplianceSummariesResponse
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#listComplianceSummariesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listComplianceSummariesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComplianceSummariesResponse -&gt; Int)
+-&gt; (ListComplianceSummariesResponse
+    -&gt; Int -&gt; ListComplianceSummariesResponse)
+-&gt; Lens
+     ListComplianceSummariesResponse
+     ListComplianceSummariesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679831510"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListComplianceSummariesResponse' :: ListComplianceSummariesResponse -&gt; Int
+</span><a href="#local-6989586621679831510"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831510"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679831509"><span class="annot"><span class="annottext">s :: ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831509"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse%27"><span class="hs-identifier hs-type">ListComplianceSummariesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679831508"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831508"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComplianceSummariesResponse
+</span><a href="#local-6989586621679831509"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListComplianceSummariesResponse' :: Int
+</span><a href="Amazonka.SSM.ListComplianceSummaries.html#%24sel%3AhttpStatus%3AListComplianceSummariesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679831508"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679831506"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.ListComplianceSummaries.html#ListComplianceSummariesResponse"><span class="hs-identifier hs-type">ListComplianceSummariesResponse</span></a></span></span><span>
+</span><span id="line-250"></span></pre></body></html>

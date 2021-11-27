@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-6"></span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Module      : Amazonka.CloudControl.Waiters</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-16"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudControl.Waiters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html"><span class="hs-identifier">Amazonka.CloudControl.GetResourceRequestStatus</span></a></span><span>
+</span><span id="line-19"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Lens.html"><span class="hs-identifier">Amazonka.CloudControl.Lens</span></a></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudControl.Types.html"><span class="hs-identifier">Amazonka.CloudControl.Types</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- | Polls 'Amazonka.CloudControl.GetResourceRequestStatus' every 5 seconds until a successful state is reached. An error is returned after 720 failed checks.</span><span>
+</span><span id="line-26"></span><span class="annot"><a href="Amazonka.CloudControl.Waiters.html#newResourceRequestSuccess"><span class="hs-identifier hs-type">newResourceRequestSuccess</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Wait</span></span><span> </span><span class="annot"><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#GetResourceRequestStatus"><span class="hs-identifier hs-type">GetResourceRequestStatus</span></a></span><span>
+</span><span id="line-27"></span><span id="newResourceRequestSuccess"><span class="annot"><span class="annottext">newResourceRequestSuccess :: Wait GetResourceRequestStatus
+</span><a href="Amazonka.CloudControl.Waiters.html#newResourceRequestSuccess"><span class="hs-identifier hs-var hs-var">newResourceRequestSuccess</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-28"></span><span>  </span><span class="annot"><span class="annottext">Wait :: forall a. ByteString -&gt; Int -&gt; Seconds -&gt; [Acceptor a] -&gt; Wait a
+</span><span class="hs-identifier hs-type">Core.Wait</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_waitName:Wait :: ByteString
+</span><span class="hs-identifier hs-var">Core._waitName</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResourceRequestSuccess&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAttempts:Wait :: Int
+</span><span class="hs-identifier hs-var">Core._waitAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">720</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitDelay:Wait :: Seconds
+</span><span class="hs-identifier hs-var">Core._waitDelay</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="annottext">$sel:_waitAcceptors:Wait :: [Acceptor GetResourceRequestStatus]
+</span><span class="hs-identifier hs-var">Core._waitAcceptors</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-34"></span><span>        </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetResourceRequestStatus) (CI Text)
+-&gt; Acceptor GetResourceRequestStatus
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-35"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;SUCCESS&quot;</span></span><span>
+</span><span id="line-36"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptSuccess</span></span><span>
+</span><span id="line-37"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+Lens' GetResourceRequestStatusResponse (Maybe ProgressEvent)
+</span><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_progressEvent"><span class="hs-identifier hs-var">getResourceRequestStatusResponse_progressEvent</span></a></span><span>
+</span><span id="line-38"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+ -&gt; GetResourceRequestStatusResponse
+ -&gt; f GetResourceRequestStatusResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; f ProgressEvent)
+-&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-39"></span><span>                </span><span class="annot"><span class="annottext">((ProgressEvent -&gt; f ProgressEvent)
+ -&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ProgressEvent
+-&gt; f (Maybe ProgressEvent)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+Lens' ProgressEvent (Maybe OperationStatus)
+</span><a href="Amazonka.CloudControl.Types.ProgressEvent.html#progressEvent_operationStatus"><span class="hs-identifier hs-var">progressEvent_operationStatus</span></a></span><span>
+</span><span id="line-40"></span><span>                </span><span class="annot"><span class="annottext">((Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+ -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ProgressEvent
+-&gt; f ProgressEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(OperationStatus -&gt; f OperationStatus)
+-&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-41"></span><span>                </span><span class="annot"><span class="annottext">((OperationStatus -&gt; f OperationStatus)
+ -&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; OperationStatus -&gt; f OperationStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe OperationStatus
+-&gt; f (Maybe OperationStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(OperationStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; OperationStatus -&gt; f OperationStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">OperationStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-42"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetResourceRequestStatus) (CI Text)
+-&gt; Acceptor GetResourceRequestStatus
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-44"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-45"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-46"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+Lens' GetResourceRequestStatusResponse (Maybe ProgressEvent)
+</span><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_progressEvent"><span class="hs-identifier hs-var">getResourceRequestStatusResponse_progressEvent</span></a></span><span>
+</span><span id="line-47"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+ -&gt; GetResourceRequestStatusResponse
+ -&gt; f GetResourceRequestStatusResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; f ProgressEvent)
+-&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-48"></span><span>                </span><span class="annot"><span class="annottext">((ProgressEvent -&gt; f ProgressEvent)
+ -&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ProgressEvent
+-&gt; f (Maybe ProgressEvent)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+Lens' ProgressEvent (Maybe OperationStatus)
+</span><a href="Amazonka.CloudControl.Types.ProgressEvent.html#progressEvent_operationStatus"><span class="hs-identifier hs-var">progressEvent_operationStatus</span></a></span><span>
+</span><span id="line-49"></span><span>                </span><span class="annot"><span class="annottext">((Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+ -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ProgressEvent
+-&gt; f ProgressEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(OperationStatus -&gt; f OperationStatus)
+-&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-50"></span><span>                </span><span class="annot"><span class="annottext">((OperationStatus -&gt; f OperationStatus)
+ -&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; OperationStatus -&gt; f OperationStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe OperationStatus
+-&gt; f (Maybe OperationStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(OperationStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; OperationStatus -&gt; f OperationStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">OperationStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-51"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>          </span><span class="annot"><span class="annottext">CI Text
+-&gt; Accept
+-&gt; Fold (AWSResponse GetResourceRequestStatus) (CI Text)
+-&gt; Acceptor GetResourceRequestStatus
+forall b a.
+Eq b =&gt;
+b -&gt; Accept -&gt; Fold (AWSResponse a) b -&gt; Acceptor a
+</span><span class="hs-identifier hs-var">Core.matchAll</span></span><span>
+</span><span id="line-53"></span><span>            </span><span class="annot"><span class="annottext">CI Text
+</span><span class="hs-string">&quot;CANCEL_COMPLETE&quot;</span></span><span>
+</span><span id="line-54"></span><span>            </span><span class="annot"><span class="annottext">Accept
+</span><span class="hs-identifier hs-var">Core.AcceptFailure</span></span><span>
+</span><span id="line-55"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">(Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+Lens' GetResourceRequestStatusResponse (Maybe ProgressEvent)
+</span><a href="Amazonka.CloudControl.GetResourceRequestStatus.html#getResourceRequestStatusResponse_progressEvent"><span class="hs-identifier hs-var">getResourceRequestStatusResponse_progressEvent</span></a></span><span>
+</span><span id="line-56"></span><span>                </span><span class="annot"><span class="annottext">((Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+ -&gt; GetResourceRequestStatusResponse
+ -&gt; f GetResourceRequestStatusResponse)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; GetResourceRequestStatusResponse
+-&gt; f GetResourceRequestStatusResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(ProgressEvent -&gt; f ProgressEvent)
+-&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-57"></span><span>                </span><span class="annot"><span class="annottext">((ProgressEvent -&gt; f ProgressEvent)
+ -&gt; Maybe ProgressEvent -&gt; f (Maybe ProgressEvent))
+-&gt; ((CI Text -&gt; f (CI Text)) -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe ProgressEvent
+-&gt; f (Maybe ProgressEvent)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; ProgressEvent -&gt; f ProgressEvent
+Lens' ProgressEvent (Maybe OperationStatus)
+</span><a href="Amazonka.CloudControl.Types.ProgressEvent.html#progressEvent_operationStatus"><span class="hs-identifier hs-var">progressEvent_operationStatus</span></a></span><span>
+</span><span id="line-58"></span><span>                </span><span class="annot"><span class="annottext">((Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+ -&gt; ProgressEvent -&gt; f ProgressEvent)
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; ProgressEvent
+-&gt; f ProgressEvent
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(OperationStatus -&gt; f OperationStatus)
+-&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-59"></span><span>                </span><span class="annot"><span class="annottext">((OperationStatus -&gt; f OperationStatus)
+ -&gt; Maybe OperationStatus -&gt; f (Maybe OperationStatus))
+-&gt; ((CI Text -&gt; f (CI Text))
+    -&gt; OperationStatus -&gt; f OperationStatus)
+-&gt; (CI Text -&gt; f (CI Text))
+-&gt; Maybe OperationStatus
+-&gt; f (Maybe OperationStatus)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(OperationStatus -&gt; CI Text)
+-&gt; (CI Text -&gt; f (CI Text)) -&gt; OperationStatus -&gt; f OperationStatus
+forall (p :: * -&gt; * -&gt; *) (f :: * -&gt; *) s a.
+(Profunctor p, Contravariant f) =&gt;
+(s -&gt; a) -&gt; Optic' p f s a
+</span><span class="hs-identifier hs-var">Lens.to</span></span><span> </span><span class="annot"><span class="annottext">OperationStatus -&gt; CI Text
+forall a. ToText a =&gt; a -&gt; CI Text
+</span><span class="hs-identifier hs-var">Core.toTextCI</span></span><span>
+</span><span id="line-60"></span><span>            </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>        </span><span class="hs-special">]</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span></pre></body></html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.Mp2Settings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.Mp2Settings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2CodingMode.html"><span class="hs-identifier">Amazonka.MediaLive.Types.Mp2CodingMode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Mp2 Settings</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newMp2Settings' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679904384"><span id="local-6989586621679904385"></span></span><span class="hs-keyword">data</span><span> </span><span id="Mp2Settings"><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-var">Mp2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Mp2Settings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-var">Mp2Settings'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- codingMode20 (for stereo).</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcodingMode%3AMp2Settings%27"><span class="annot"><span class="annottext">Mp2Settings -&gt; Maybe Mp2CodingMode
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3AcodingMode%3AMp2Settings%27"><span class="hs-identifier hs-var hs-var">codingMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2CodingMode.html#Mp2CodingMode"><span class="hs-identifier hs-type">Mp2CodingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Sample rate in Hz.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsampleRate%3AMp2Settings%27"><span class="annot"><span class="annottext">Mp2Settings -&gt; Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3AsampleRate%3AMp2Settings%27"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Average bitrate in bits\/second.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Abitrate%3AMp2Settings%27"><span class="annot"><span class="annottext">Mp2Settings -&gt; Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3Abitrate%3AMp2Settings%27"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679904376"><span id="local-6989586621679904378"><span class="annot"><span class="annottext">Mp2Settings -&gt; Mp2Settings -&gt; Bool
+(Mp2Settings -&gt; Mp2Settings -&gt; Bool)
+-&gt; (Mp2Settings -&gt; Mp2Settings -&gt; Bool) -&gt; Eq Mp2Settings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Mp2Settings -&gt; Mp2Settings -&gt; Bool
+$c/= :: Mp2Settings -&gt; Mp2Settings -&gt; Bool
+== :: Mp2Settings -&gt; Mp2Settings -&gt; Bool
+$c== :: Mp2Settings -&gt; Mp2Settings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679904367"><span id="local-6989586621679904369"><span id="local-6989586621679904371"><span id="local-6989586621679904373"><span class="annot"><span class="annottext">ReadPrec [Mp2Settings]
+ReadPrec Mp2Settings
+Int -&gt; ReadS Mp2Settings
+ReadS [Mp2Settings]
+(Int -&gt; ReadS Mp2Settings)
+-&gt; ReadS [Mp2Settings]
+-&gt; ReadPrec Mp2Settings
+-&gt; ReadPrec [Mp2Settings]
+-&gt; Read Mp2Settings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Mp2Settings]
+$creadListPrec :: ReadPrec [Mp2Settings]
+readPrec :: ReadPrec Mp2Settings
+$creadPrec :: ReadPrec Mp2Settings
+readList :: ReadS [Mp2Settings]
+$creadList :: ReadS [Mp2Settings]
+readsPrec :: Int -&gt; ReadS Mp2Settings
+$creadsPrec :: Int -&gt; ReadS Mp2Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679904360"><span id="local-6989586621679904362"><span id="local-6989586621679904364"><span class="annot"><span class="annottext">Int -&gt; Mp2Settings -&gt; ShowS
+[Mp2Settings] -&gt; ShowS
+Mp2Settings -&gt; String
+(Int -&gt; Mp2Settings -&gt; ShowS)
+-&gt; (Mp2Settings -&gt; String)
+-&gt; ([Mp2Settings] -&gt; ShowS)
+-&gt; Show Mp2Settings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Mp2Settings] -&gt; ShowS
+$cshowList :: [Mp2Settings] -&gt; ShowS
+show :: Mp2Settings -&gt; String
+$cshow :: Mp2Settings -&gt; String
+showsPrec :: Int -&gt; Mp2Settings -&gt; ShowS
+$cshowsPrec :: Int -&gt; Mp2Settings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Mp2Settings -&gt; Rep Mp2Settings x)
+-&gt; (forall x. Rep Mp2Settings x -&gt; Mp2Settings)
+-&gt; Generic Mp2Settings
+forall x. Rep Mp2Settings x -&gt; Mp2Settings
+forall x. Mp2Settings -&gt; Rep Mp2Settings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Mp2Settings x -&gt; Mp2Settings
+$cfrom :: forall x. Mp2Settings -&gt; Rep Mp2Settings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'Mp2Settings' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'codingMode', 'mp2Settings_codingMode' - The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- codingMode20 (for stereo).</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'sampleRate', 'mp2Settings_sampleRate' - Sample rate in Hz.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'bitrate', 'mp2Settings_bitrate' - Average bitrate in bits\/second.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#newMp2Settings"><span class="hs-identifier hs-type">newMp2Settings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span>
+</span><span id="line-57"></span><span id="newMp2Settings"><span class="annot"><span class="annottext">newMp2Settings :: Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#newMp2Settings"><span class="hs-identifier hs-var hs-var">newMp2Settings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">Mp2Settings' :: Maybe Mp2CodingMode -&gt; Maybe Double -&gt; Maybe Double -&gt; Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:codingMode:Mp2Settings' :: Maybe Mp2CodingMode
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3AcodingMode%3AMp2Settings%27"><span class="hs-identifier hs-var">codingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2CodingMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:sampleRate:Mp2Settings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3AsampleRate%3AMp2Settings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:bitrate:Mp2Settings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3Abitrate%3AMp2Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The MPEG2 Audio coding mode. Valid values are codingMode10 (for mono) or</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- codingMode20 (for stereo).</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#mp2Settings_codingMode"><span class="hs-identifier hs-type">mp2Settings_codingMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2CodingMode.html#Mp2CodingMode"><span class="hs-identifier hs-type">Mp2CodingMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span id="mp2Settings_codingMode"><span class="annot"><span class="annottext">mp2Settings_codingMode :: (Maybe Mp2CodingMode -&gt; f (Maybe Mp2CodingMode))
+-&gt; Mp2Settings -&gt; f Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#mp2Settings_codingMode"><span class="hs-identifier hs-var hs-var">mp2Settings_codingMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp2Settings -&gt; Maybe Mp2CodingMode)
+-&gt; (Mp2Settings -&gt; Maybe Mp2CodingMode -&gt; Mp2Settings)
+-&gt; Lens
+     Mp2Settings Mp2Settings (Maybe Mp2CodingMode) (Maybe Mp2CodingMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904351"><span class="annot"><span class="annottext">Maybe Mp2CodingMode
+codingMode :: Maybe Mp2CodingMode
+$sel:codingMode:Mp2Settings' :: Mp2Settings -&gt; Maybe Mp2CodingMode
+</span><a href="#local-6989586621679904351"><span class="hs-identifier hs-var hs-var">codingMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2CodingMode
+</span><a href="#local-6989586621679904351"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904350"><span class="annot"><span class="annottext">s :: Mp2Settings
+</span><a href="#local-6989586621679904350"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904349"><span class="annot"><span class="annottext">Maybe Mp2CodingMode
+</span><a href="#local-6989586621679904349"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
+</span><a href="#local-6989586621679904350"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:codingMode:Mp2Settings' :: Maybe Mp2CodingMode
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3AcodingMode%3AMp2Settings%27"><span class="hs-identifier hs-var">codingMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Mp2CodingMode
+</span><a href="#local-6989586621679904349"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | Sample rate in Hz.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#mp2Settings_sampleRate"><span class="hs-identifier hs-type">mp2Settings_sampleRate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="mp2Settings_sampleRate"><span class="annot"><span class="annottext">mp2Settings_sampleRate :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Mp2Settings -&gt; f Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#mp2Settings_sampleRate"><span class="hs-identifier hs-var hs-var">mp2Settings_sampleRate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp2Settings -&gt; Maybe Double)
+-&gt; (Mp2Settings -&gt; Maybe Double -&gt; Mp2Settings)
+-&gt; Lens Mp2Settings Mp2Settings (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904347"><span class="annot"><span class="annottext">Maybe Double
+sampleRate :: Maybe Double
+$sel:sampleRate:Mp2Settings' :: Mp2Settings -&gt; Maybe Double
+</span><a href="#local-6989586621679904347"><span class="hs-identifier hs-var hs-var">sampleRate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904347"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904346"><span class="annot"><span class="annottext">s :: Mp2Settings
+</span><a href="#local-6989586621679904346"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904345"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904345"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
+</span><a href="#local-6989586621679904346"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sampleRate:Mp2Settings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3AsampleRate%3AMp2Settings%27"><span class="hs-identifier hs-var">sampleRate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904345"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | Average bitrate in bits\/second.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#mp2Settings_bitrate"><span class="hs-identifier hs-type">mp2Settings_bitrate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="mp2Settings_bitrate"><span class="annot"><span class="annottext">mp2Settings_bitrate :: (Maybe Double -&gt; f (Maybe Double)) -&gt; Mp2Settings -&gt; f Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#mp2Settings_bitrate"><span class="hs-identifier hs-var hs-var">mp2Settings_bitrate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Mp2Settings -&gt; Maybe Double)
+-&gt; (Mp2Settings -&gt; Maybe Double -&gt; Mp2Settings)
+-&gt; Lens Mp2Settings Mp2Settings (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904343"><span class="annot"><span class="annottext">Maybe Double
+bitrate :: Maybe Double
+$sel:bitrate:Mp2Settings' :: Mp2Settings -&gt; Maybe Double
+</span><a href="#local-6989586621679904343"><span class="hs-identifier hs-var hs-var">bitrate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904343"><span class="hs-identifier hs-var">bitrate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679904342"><span class="annot"><span class="annottext">s :: Mp2Settings
+</span><a href="#local-6989586621679904342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679904341"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Mp2Settings
+</span><a href="#local-6989586621679904342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bitrate:Mp2Settings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#%24sel%3Abitrate%3AMp2Settings%27"><span class="hs-identifier hs-var">bitrate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904338"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679904336"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Mp2Settings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Mp2Settings) -&gt; Value -&gt; Parser Mp2Settings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Mp2Settings&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679904333"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904333"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Mp2CodingMode -&gt; Maybe Double -&gt; Maybe Double -&gt; Mp2Settings
+</span><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-var">Mp2Settings'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Mp2CodingMode
+ -&gt; Maybe Double -&gt; Maybe Double -&gt; Mp2Settings)
+-&gt; Parser (Maybe Mp2CodingMode)
+-&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; Mp2Settings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Mp2CodingMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;codingMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Double -&gt; Mp2Settings)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; Mp2Settings)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sampleRate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Mp2Settings)
+-&gt; Parser (Maybe Double) -&gt; Parser Mp2Settings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679904333"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bitrate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904327"><span id="local-6989586621679904329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679904316"><span id="local-6989586621679904318"><span id="local-6989586621679904320"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings"><span class="hs-identifier hs-type">Mp2Settings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679904314"><span class="annot"><span class="annottext">toJSON :: Mp2Settings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.Mp2Settings.html#Mp2Settings%27"><span class="hs-identifier hs-type">Mp2Settings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679904310"><span id="local-6989586621679904311"><span id="local-6989586621679904312"><span class="annot"><span class="annottext">Maybe Double
+Maybe Mp2CodingMode
+bitrate :: Maybe Double
+sampleRate :: Maybe Double
+codingMode :: Maybe Mp2CodingMode
+$sel:bitrate:Mp2Settings' :: Mp2Settings -&gt; Maybe Double
+$sel:sampleRate:Mp2Settings' :: Mp2Settings -&gt; Maybe Double
+$sel:codingMode:Mp2Settings' :: Mp2Settings -&gt; Maybe Mp2CodingMode
+</span><a href="#local-6989586621679904310"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-96"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;codingMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Mp2CodingMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Mp2CodingMode -&gt; Pair) -&gt; Maybe Mp2CodingMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Mp2CodingMode
+</span><a href="#local-6989586621679904312"><span class="hs-identifier hs-var">codingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sampleRate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904311"><span class="hs-identifier hs-var">sampleRate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bitrate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679904310"><span class="hs-identifier hs-var">bitrate</span></a></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span></pre></body></html>

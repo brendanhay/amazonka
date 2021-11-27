@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.HlsDirectoryStructure</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.HlsDirectoryStructure</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure"><span class="hs-identifier">HlsDirectoryStructure</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure_SINGLE_DIRECTORY"><span class="hs-identifier">HlsDirectoryStructure_SINGLE_DIRECTORY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM"><span class="hs-identifier">HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Hls Directory Structure</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679885749"><span id="local-6989586621679885750"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsDirectoryStructure"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure"><span class="hs-identifier hs-var">HlsDirectoryStructure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsDirectoryStructure%27"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure%27"><span class="hs-identifier hs-var">HlsDirectoryStructure'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsDirectoryStructure"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#fromHlsDirectoryStructure"><span class="hs-identifier hs-var hs-var">fromHlsDirectoryStructure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679885741"><span id="local-6989586621679885743"><span id="local-6989586621679885745"><span class="annot"><span class="annottext">Int -&gt; HlsDirectoryStructure -&gt; ShowS
+[HlsDirectoryStructure] -&gt; ShowS
+HlsDirectoryStructure -&gt; String
+(Int -&gt; HlsDirectoryStructure -&gt; ShowS)
+-&gt; (HlsDirectoryStructure -&gt; String)
+-&gt; ([HlsDirectoryStructure] -&gt; ShowS)
+-&gt; Show HlsDirectoryStructure
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsDirectoryStructure] -&gt; ShowS
+$cshowList :: [HlsDirectoryStructure] -&gt; ShowS
+show :: HlsDirectoryStructure -&gt; String
+$cshow :: HlsDirectoryStructure -&gt; String
+showsPrec :: Int -&gt; HlsDirectoryStructure -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsDirectoryStructure -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679885732"><span id="local-6989586621679885734"><span id="local-6989586621679885736"><span id="local-6989586621679885738"><span class="annot"><span class="annottext">ReadPrec [HlsDirectoryStructure]
+ReadPrec HlsDirectoryStructure
+Int -&gt; ReadS HlsDirectoryStructure
+ReadS [HlsDirectoryStructure]
+(Int -&gt; ReadS HlsDirectoryStructure)
+-&gt; ReadS [HlsDirectoryStructure]
+-&gt; ReadPrec HlsDirectoryStructure
+-&gt; ReadPrec [HlsDirectoryStructure]
+-&gt; Read HlsDirectoryStructure
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsDirectoryStructure]
+$creadListPrec :: ReadPrec [HlsDirectoryStructure]
+readPrec :: ReadPrec HlsDirectoryStructure
+$creadPrec :: ReadPrec HlsDirectoryStructure
+readList :: ReadS [HlsDirectoryStructure]
+$creadList :: ReadS [HlsDirectoryStructure]
+readsPrec :: Int -&gt; ReadS HlsDirectoryStructure
+$creadsPrec :: Int -&gt; ReadS HlsDirectoryStructure
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679885727"><span id="local-6989586621679885729"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+(HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool)
+-&gt; (HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool)
+-&gt; Eq HlsDirectoryStructure
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+$c/= :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+== :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+$c== :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679885711"><span id="local-6989586621679885713"><span id="local-6989586621679885715"><span id="local-6989586621679885717"><span id="local-6989586621679885719"><span id="local-6989586621679885721"><span id="local-6989586621679885723"><span class="annot"><span class="annottext">Eq HlsDirectoryStructure
+Eq HlsDirectoryStructure
+-&gt; (HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Ordering)
+-&gt; (HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool)
+-&gt; (HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool)
+-&gt; (HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool)
+-&gt; (HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool)
+-&gt; (HlsDirectoryStructure
+    -&gt; HlsDirectoryStructure -&gt; HlsDirectoryStructure)
+-&gt; (HlsDirectoryStructure
+    -&gt; HlsDirectoryStructure -&gt; HlsDirectoryStructure)
+-&gt; Ord HlsDirectoryStructure
+HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Ordering
+HlsDirectoryStructure
+-&gt; HlsDirectoryStructure -&gt; HlsDirectoryStructure
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsDirectoryStructure
+-&gt; HlsDirectoryStructure -&gt; HlsDirectoryStructure
+$cmin :: HlsDirectoryStructure
+-&gt; HlsDirectoryStructure -&gt; HlsDirectoryStructure
+max :: HlsDirectoryStructure
+-&gt; HlsDirectoryStructure -&gt; HlsDirectoryStructure
+$cmax :: HlsDirectoryStructure
+-&gt; HlsDirectoryStructure -&gt; HlsDirectoryStructure
+&gt;= :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+$c&gt;= :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+&gt; :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+$c&gt; :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+&lt;= :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+$c&lt;= :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+&lt; :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+$c&lt; :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Bool
+compare :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Ordering
+$ccompare :: HlsDirectoryStructure -&gt; HlsDirectoryStructure -&gt; Ordering
+$cp1Ord :: Eq HlsDirectoryStructure
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsDirectoryStructure -&gt; Rep HlsDirectoryStructure x)
+-&gt; (forall x. Rep HlsDirectoryStructure x -&gt; HlsDirectoryStructure)
+-&gt; Generic HlsDirectoryStructure
+forall x. Rep HlsDirectoryStructure x -&gt; HlsDirectoryStructure
+forall x. HlsDirectoryStructure -&gt; Rep HlsDirectoryStructure x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsDirectoryStructure x -&gt; HlsDirectoryStructure
+$cfrom :: forall x. HlsDirectoryStructure -&gt; Rep HlsDirectoryStructure x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679885703"><span id="local-6989586621679885705"><span class="annot"><span class="annottext">Int -&gt; HlsDirectoryStructure -&gt; Int
+HlsDirectoryStructure -&gt; Int
+(Int -&gt; HlsDirectoryStructure -&gt; Int)
+-&gt; (HlsDirectoryStructure -&gt; Int) -&gt; Hashable HlsDirectoryStructure
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsDirectoryStructure -&gt; Int
+$chash :: HlsDirectoryStructure -&gt; Int
+hashWithSalt :: Int -&gt; HlsDirectoryStructure -&gt; Int
+$chashWithSalt :: Int -&gt; HlsDirectoryStructure -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679885700"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; ()
+(HlsDirectoryStructure -&gt; ()) -&gt; NFData HlsDirectoryStructure
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsDirectoryStructure -&gt; ()
+$crnf :: HlsDirectoryStructure -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679885697"><span class="annot"><span class="annottext">Text -&gt; Either String HlsDirectoryStructure
+(Text -&gt; Either String HlsDirectoryStructure)
+-&gt; FromText HlsDirectoryStructure
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsDirectoryStructure
+$cfromText :: Text -&gt; Either String HlsDirectoryStructure
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679885694"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; Text
+(HlsDirectoryStructure -&gt; Text) -&gt; ToText HlsDirectoryStructure
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsDirectoryStructure -&gt; Text
+$ctoText :: HlsDirectoryStructure -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679885691"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; ByteString
+(HlsDirectoryStructure -&gt; ByteString)
+-&gt; ToByteString HlsDirectoryStructure
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsDirectoryStructure -&gt; ByteString
+$ctoBS :: HlsDirectoryStructure -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679885688"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; ByteStringBuilder
+(HlsDirectoryStructure -&gt; ByteStringBuilder)
+-&gt; ToLog HlsDirectoryStructure
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsDirectoryStructure -&gt; ByteStringBuilder
+$cbuild :: HlsDirectoryStructure -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679885685"><span class="annot"><span class="annottext">HeaderName -&gt; HlsDirectoryStructure -&gt; [Header]
+(HeaderName -&gt; HlsDirectoryStructure -&gt; [Header])
+-&gt; ToHeader HlsDirectoryStructure
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsDirectoryStructure -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsDirectoryStructure -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679885682"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; QueryString
+(HlsDirectoryStructure -&gt; QueryString)
+-&gt; ToQuery HlsDirectoryStructure
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsDirectoryStructure -&gt; QueryString
+$ctoQuery :: HlsDirectoryStructure -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679885677"><span id="local-6989586621679885679"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsDirectoryStructure]
+Value -&gt; Parser HlsDirectoryStructure
+(Value -&gt; Parser HlsDirectoryStructure)
+-&gt; (Value -&gt; Parser [HlsDirectoryStructure])
+-&gt; FromJSON HlsDirectoryStructure
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsDirectoryStructure]
+$cparseJSONList :: Value -&gt; Parser [HlsDirectoryStructure]
+parseJSON :: Value -&gt; Parser HlsDirectoryStructure
+$cparseJSON :: Value -&gt; Parser HlsDirectoryStructure
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679885672"><span id="local-6989586621679885674"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsDirectoryStructure]
+FromJSONKeyFunction HlsDirectoryStructure
+FromJSONKeyFunction HlsDirectoryStructure
+-&gt; FromJSONKeyFunction [HlsDirectoryStructure]
+-&gt; FromJSONKey HlsDirectoryStructure
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsDirectoryStructure]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsDirectoryStructure]
+fromJSONKey :: FromJSONKeyFunction HlsDirectoryStructure
+$cfromJSONKey :: FromJSONKeyFunction HlsDirectoryStructure
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679885663"><span id="local-6989586621679885665"><span id="local-6989586621679885667"><span id="local-6989586621679885669"><span class="annot"><span class="annottext">[HlsDirectoryStructure] -&gt; Encoding
+[HlsDirectoryStructure] -&gt; Value
+HlsDirectoryStructure -&gt; Encoding
+HlsDirectoryStructure -&gt; Value
+(HlsDirectoryStructure -&gt; Value)
+-&gt; (HlsDirectoryStructure -&gt; Encoding)
+-&gt; ([HlsDirectoryStructure] -&gt; Value)
+-&gt; ([HlsDirectoryStructure] -&gt; Encoding)
+-&gt; ToJSON HlsDirectoryStructure
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsDirectoryStructure] -&gt; Encoding
+$ctoEncodingList :: [HlsDirectoryStructure] -&gt; Encoding
+toJSONList :: [HlsDirectoryStructure] -&gt; Value
+$ctoJSONList :: [HlsDirectoryStructure] -&gt; Value
+toEncoding :: HlsDirectoryStructure -&gt; Encoding
+$ctoEncoding :: HlsDirectoryStructure -&gt; Encoding
+toJSON :: HlsDirectoryStructure -&gt; Value
+$ctoJSON :: HlsDirectoryStructure -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679885658"><span id="local-6989586621679885660"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsDirectoryStructure]
+ToJSONKeyFunction HlsDirectoryStructure
+ToJSONKeyFunction HlsDirectoryStructure
+-&gt; ToJSONKeyFunction [HlsDirectoryStructure]
+-&gt; ToJSONKey HlsDirectoryStructure
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsDirectoryStructure]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsDirectoryStructure]
+toJSONKey :: ToJSONKeyFunction HlsDirectoryStructure
+$ctoJSONKey :: ToJSONKeyFunction HlsDirectoryStructure
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679885655"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsDirectoryStructure
+([Node] -&gt; Either String HlsDirectoryStructure)
+-&gt; FromXML HlsDirectoryStructure
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsDirectoryStructure
+$cparseXML :: [Node] -&gt; Either String HlsDirectoryStructure
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679885652"><span class="annot"><span class="annottext">HlsDirectoryStructure -&gt; XML
+(HlsDirectoryStructure -&gt; XML) -&gt; ToXML HlsDirectoryStructure
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsDirectoryStructure -&gt; XML
+$ctoXML :: HlsDirectoryStructure -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure_SINGLE_DIRECTORY"><span class="hs-identifier hs-type">HlsDirectoryStructure_SINGLE_DIRECTORY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure"><span class="hs-identifier hs-type">HlsDirectoryStructure</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsDirectoryStructure_SINGLE_DIRECTORY"><span id="%24mHlsDirectoryStructure_SINGLE_DIRECTORY"><span id="HlsDirectoryStructure_SINGLE_DIRECTORY"><span class="annot"><span class="annottext">$bHlsDirectoryStructure_SINGLE_DIRECTORY :: HlsDirectoryStructure
+$mHlsDirectoryStructure_SINGLE_DIRECTORY :: forall r.
+HlsDirectoryStructure -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#%24bHlsDirectoryStructure_SINGLE_DIRECTORY"><span class="hs-identifier hs-var hs-var hs-var">HlsDirectoryStructure_SINGLE_DIRECTORY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure%27"><span class="hs-identifier hs-type">HlsDirectoryStructure'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SINGLE_DIRECTORY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM"><span class="hs-identifier hs-type">HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure"><span class="hs-identifier hs-type">HlsDirectoryStructure</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsDirectoryStructure_SUBDIRECTORY_PER_STREAM"><span id="%24mHlsDirectoryStructure_SUBDIRECTORY_PER_STREAM"><span id="HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM"><span class="annot"><span class="annottext">$bHlsDirectoryStructure_SUBDIRECTORY_PER_STREAM :: HlsDirectoryStructure
+$mHlsDirectoryStructure_SUBDIRECTORY_PER_STREAM :: forall r.
+HlsDirectoryStructure -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#%24bHlsDirectoryStructure_SUBDIRECTORY_PER_STREAM"><span class="hs-identifier hs-var hs-var hs-var">HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure%27"><span class="hs-identifier hs-type">HlsDirectoryStructure'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBDIRECTORY_PER_STREAM&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure_SINGLE_DIRECTORY"><span class="hs-pragma hs-type">HlsDirectoryStructure_SINGLE_DIRECTORY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM"><span class="hs-pragma hs-type">HlsDirectoryStructure_SUBDIRECTORY_PER_STREAM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsDirectoryStructure.html#HlsDirectoryStructure%27"><span class="hs-pragma hs-type">HlsDirectoryStructure'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

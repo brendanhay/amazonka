@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Polly.Types.TaskStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Polly.Types.TaskStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier">TaskStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Completed"><span class="hs-identifier">TaskStatus_Completed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Failed"><span class="hs-identifier">TaskStatus_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_InProgress"><span class="hs-identifier">TaskStatus_InProgress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Scheduled"><span class="hs-identifier">TaskStatus_Scheduled</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679171615"><span id="local-6989586621679171616"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TaskStatus"><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-var">TaskStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TaskStatus%27"><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-identifier hs-var">TaskStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTaskStatus"><span class="annot"><span class="annottext">TaskStatus -&gt; Text
+</span><a href="Amazonka.Polly.Types.TaskStatus.html#fromTaskStatus"><span class="hs-identifier hs-var hs-var">fromTaskStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171607"><span id="local-6989586621679171609"><span id="local-6989586621679171611"><span class="annot"><span class="annottext">Int -&gt; TaskStatus -&gt; ShowS
+[TaskStatus] -&gt; ShowS
+TaskStatus -&gt; String
+(Int -&gt; TaskStatus -&gt; ShowS)
+-&gt; (TaskStatus -&gt; String)
+-&gt; ([TaskStatus] -&gt; ShowS)
+-&gt; Show TaskStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TaskStatus] -&gt; ShowS
+$cshowList :: [TaskStatus] -&gt; ShowS
+show :: TaskStatus -&gt; String
+$cshow :: TaskStatus -&gt; String
+showsPrec :: Int -&gt; TaskStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; TaskStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679171598"><span id="local-6989586621679171600"><span id="local-6989586621679171602"><span id="local-6989586621679171604"><span class="annot"><span class="annottext">ReadPrec [TaskStatus]
+ReadPrec TaskStatus
+Int -&gt; ReadS TaskStatus
+ReadS [TaskStatus]
+(Int -&gt; ReadS TaskStatus)
+-&gt; ReadS [TaskStatus]
+-&gt; ReadPrec TaskStatus
+-&gt; ReadPrec [TaskStatus]
+-&gt; Read TaskStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TaskStatus]
+$creadListPrec :: ReadPrec [TaskStatus]
+readPrec :: ReadPrec TaskStatus
+$creadPrec :: ReadPrec TaskStatus
+readList :: ReadS [TaskStatus]
+$creadList :: ReadS [TaskStatus]
+readsPrec :: Int -&gt; ReadS TaskStatus
+$creadsPrec :: Int -&gt; ReadS TaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679171593"><span id="local-6989586621679171595"><span class="annot"><span class="annottext">TaskStatus -&gt; TaskStatus -&gt; Bool
+(TaskStatus -&gt; TaskStatus -&gt; Bool)
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; Bool) -&gt; Eq TaskStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TaskStatus -&gt; TaskStatus -&gt; Bool
+$c/= :: TaskStatus -&gt; TaskStatus -&gt; Bool
+== :: TaskStatus -&gt; TaskStatus -&gt; Bool
+$c== :: TaskStatus -&gt; TaskStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679171577"><span id="local-6989586621679171579"><span id="local-6989586621679171581"><span id="local-6989586621679171583"><span id="local-6989586621679171585"><span id="local-6989586621679171587"><span id="local-6989586621679171589"><span class="annot"><span class="annottext">Eq TaskStatus
+Eq TaskStatus
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; Ordering)
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; Bool)
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; Bool)
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; Bool)
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; Bool)
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; TaskStatus)
+-&gt; (TaskStatus -&gt; TaskStatus -&gt; TaskStatus)
+-&gt; Ord TaskStatus
+TaskStatus -&gt; TaskStatus -&gt; Bool
+TaskStatus -&gt; TaskStatus -&gt; Ordering
+TaskStatus -&gt; TaskStatus -&gt; TaskStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TaskStatus -&gt; TaskStatus -&gt; TaskStatus
+$cmin :: TaskStatus -&gt; TaskStatus -&gt; TaskStatus
+max :: TaskStatus -&gt; TaskStatus -&gt; TaskStatus
+$cmax :: TaskStatus -&gt; TaskStatus -&gt; TaskStatus
+&gt;= :: TaskStatus -&gt; TaskStatus -&gt; Bool
+$c&gt;= :: TaskStatus -&gt; TaskStatus -&gt; Bool
+&gt; :: TaskStatus -&gt; TaskStatus -&gt; Bool
+$c&gt; :: TaskStatus -&gt; TaskStatus -&gt; Bool
+&lt;= :: TaskStatus -&gt; TaskStatus -&gt; Bool
+$c&lt;= :: TaskStatus -&gt; TaskStatus -&gt; Bool
+&lt; :: TaskStatus -&gt; TaskStatus -&gt; Bool
+$c&lt; :: TaskStatus -&gt; TaskStatus -&gt; Bool
+compare :: TaskStatus -&gt; TaskStatus -&gt; Ordering
+$ccompare :: TaskStatus -&gt; TaskStatus -&gt; Ordering
+$cp1Ord :: Eq TaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TaskStatus -&gt; Rep TaskStatus x)
+-&gt; (forall x. Rep TaskStatus x -&gt; TaskStatus) -&gt; Generic TaskStatus
+forall x. Rep TaskStatus x -&gt; TaskStatus
+forall x. TaskStatus -&gt; Rep TaskStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TaskStatus x -&gt; TaskStatus
+$cfrom :: forall x. TaskStatus -&gt; Rep TaskStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679171569"><span id="local-6989586621679171571"><span class="annot"><span class="annottext">Int -&gt; TaskStatus -&gt; Int
+TaskStatus -&gt; Int
+(Int -&gt; TaskStatus -&gt; Int)
+-&gt; (TaskStatus -&gt; Int) -&gt; Hashable TaskStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TaskStatus -&gt; Int
+$chash :: TaskStatus -&gt; Int
+hashWithSalt :: Int -&gt; TaskStatus -&gt; Int
+$chashWithSalt :: Int -&gt; TaskStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679171566"><span class="annot"><span class="annottext">TaskStatus -&gt; ()
+(TaskStatus -&gt; ()) -&gt; NFData TaskStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TaskStatus -&gt; ()
+$crnf :: TaskStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679171563"><span class="annot"><span class="annottext">Text -&gt; Either String TaskStatus
+(Text -&gt; Either String TaskStatus) -&gt; FromText TaskStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TaskStatus
+$cfromText :: Text -&gt; Either String TaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679171560"><span class="annot"><span class="annottext">TaskStatus -&gt; Text
+(TaskStatus -&gt; Text) -&gt; ToText TaskStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TaskStatus -&gt; Text
+$ctoText :: TaskStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679171557"><span class="annot"><span class="annottext">TaskStatus -&gt; ByteString
+(TaskStatus -&gt; ByteString) -&gt; ToByteString TaskStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TaskStatus -&gt; ByteString
+$ctoBS :: TaskStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679171554"><span class="annot"><span class="annottext">TaskStatus -&gt; ByteStringBuilder
+(TaskStatus -&gt; ByteStringBuilder) -&gt; ToLog TaskStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TaskStatus -&gt; ByteStringBuilder
+$cbuild :: TaskStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679171551"><span class="annot"><span class="annottext">HeaderName -&gt; TaskStatus -&gt; [Header]
+(HeaderName -&gt; TaskStatus -&gt; [Header]) -&gt; ToHeader TaskStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TaskStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TaskStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679171548"><span class="annot"><span class="annottext">TaskStatus -&gt; QueryString
+(TaskStatus -&gt; QueryString) -&gt; ToQuery TaskStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TaskStatus -&gt; QueryString
+$ctoQuery :: TaskStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679171543"><span id="local-6989586621679171545"><span class="annot"><span class="annottext">Value -&gt; Parser [TaskStatus]
+Value -&gt; Parser TaskStatus
+(Value -&gt; Parser TaskStatus)
+-&gt; (Value -&gt; Parser [TaskStatus]) -&gt; FromJSON TaskStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TaskStatus]
+$cparseJSONList :: Value -&gt; Parser [TaskStatus]
+parseJSON :: Value -&gt; Parser TaskStatus
+$cparseJSON :: Value -&gt; Parser TaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679171538"><span id="local-6989586621679171540"><span class="annot"><span class="annottext">FromJSONKeyFunction [TaskStatus]
+FromJSONKeyFunction TaskStatus
+FromJSONKeyFunction TaskStatus
+-&gt; FromJSONKeyFunction [TaskStatus] -&gt; FromJSONKey TaskStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TaskStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [TaskStatus]
+fromJSONKey :: FromJSONKeyFunction TaskStatus
+$cfromJSONKey :: FromJSONKeyFunction TaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679171529"><span id="local-6989586621679171531"><span id="local-6989586621679171533"><span id="local-6989586621679171535"><span class="annot"><span class="annottext">[TaskStatus] -&gt; Encoding
+[TaskStatus] -&gt; Value
+TaskStatus -&gt; Encoding
+TaskStatus -&gt; Value
+(TaskStatus -&gt; Value)
+-&gt; (TaskStatus -&gt; Encoding)
+-&gt; ([TaskStatus] -&gt; Value)
+-&gt; ([TaskStatus] -&gt; Encoding)
+-&gt; ToJSON TaskStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TaskStatus] -&gt; Encoding
+$ctoEncodingList :: [TaskStatus] -&gt; Encoding
+toJSONList :: [TaskStatus] -&gt; Value
+$ctoJSONList :: [TaskStatus] -&gt; Value
+toEncoding :: TaskStatus -&gt; Encoding
+$ctoEncoding :: TaskStatus -&gt; Encoding
+toJSON :: TaskStatus -&gt; Value
+$ctoJSON :: TaskStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679171524"><span id="local-6989586621679171526"><span class="annot"><span class="annottext">ToJSONKeyFunction [TaskStatus]
+ToJSONKeyFunction TaskStatus
+ToJSONKeyFunction TaskStatus
+-&gt; ToJSONKeyFunction [TaskStatus] -&gt; ToJSONKey TaskStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TaskStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [TaskStatus]
+toJSONKey :: ToJSONKeyFunction TaskStatus
+$ctoJSONKey :: ToJSONKeyFunction TaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679171521"><span class="annot"><span class="annottext">[Node] -&gt; Either String TaskStatus
+([Node] -&gt; Either String TaskStatus) -&gt; FromXML TaskStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TaskStatus
+$cparseXML :: [Node] -&gt; Either String TaskStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679171518"><span class="annot"><span class="annottext">TaskStatus -&gt; XML
+(TaskStatus -&gt; XML) -&gt; ToXML TaskStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TaskStatus -&gt; XML
+$ctoXML :: TaskStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Completed"><span class="hs-identifier hs-type">TaskStatus_Completed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-type">TaskStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskStatus_Completed"><span id="%24mTaskStatus_Completed"><span id="TaskStatus_Completed"><span class="annot"><span class="annottext">$bTaskStatus_Completed :: TaskStatus
+$mTaskStatus_Completed :: forall r. TaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Polly.Types.TaskStatus.html#%24bTaskStatus_Completed"><span class="hs-identifier hs-var hs-var hs-var">TaskStatus_Completed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-identifier hs-type">TaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;completed&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Failed"><span class="hs-identifier hs-type">TaskStatus_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-type">TaskStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskStatus_Failed"><span id="%24mTaskStatus_Failed"><span id="TaskStatus_Failed"><span class="annot"><span class="annottext">$bTaskStatus_Failed :: TaskStatus
+$mTaskStatus_Failed :: forall r. TaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Polly.Types.TaskStatus.html#%24bTaskStatus_Failed"><span class="hs-identifier hs-var hs-var hs-var">TaskStatus_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-identifier hs-type">TaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_InProgress"><span class="hs-identifier hs-type">TaskStatus_InProgress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-type">TaskStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskStatus_InProgress"><span id="%24mTaskStatus_InProgress"><span id="TaskStatus_InProgress"><span class="annot"><span class="annottext">$bTaskStatus_InProgress :: TaskStatus
+$mTaskStatus_InProgress :: forall r. TaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Polly.Types.TaskStatus.html#%24bTaskStatus_InProgress"><span class="hs-identifier hs-var hs-var hs-var">TaskStatus_InProgress</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-identifier hs-type">TaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;inProgress&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Scheduled"><span class="hs-identifier hs-type">TaskStatus_Scheduled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus"><span class="hs-identifier hs-type">TaskStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTaskStatus_Scheduled"><span id="%24mTaskStatus_Scheduled"><span id="TaskStatus_Scheduled"><span class="annot"><span class="annottext">$bTaskStatus_Scheduled :: TaskStatus
+$mTaskStatus_Scheduled :: forall r. TaskStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Polly.Types.TaskStatus.html#%24bTaskStatus_Scheduled"><span class="hs-identifier hs-var hs-var hs-var">TaskStatus_Scheduled</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-identifier hs-type">TaskStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;scheduled&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Completed"><span class="hs-pragma hs-type">TaskStatus_Completed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Failed"><span class="hs-pragma hs-type">TaskStatus_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_InProgress"><span class="hs-pragma hs-type">TaskStatus_InProgress</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus_Scheduled"><span class="hs-pragma hs-type">TaskStatus_Scheduled</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Polly.Types.TaskStatus.html#TaskStatus%27"><span class="hs-pragma hs-type">TaskStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

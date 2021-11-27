@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.UpdatePhoneNumberRequestItem</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.UpdatePhoneNumberRequestItem</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html"><span class="hs-identifier">Amazonka.Chime.Types.PhoneNumberProductType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The phone number ID, product type, or calling name fields to update,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- used with the BatchUpdatePhoneNumber and UpdatePhoneNumber actions.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUpdatePhoneNumberRequestItem' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679521264"><span id="local-6989586621679521265"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePhoneNumberRequestItem"><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-var">UpdatePhoneNumberRequestItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePhoneNumberRequestItem%27"><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var">UpdatePhoneNumberRequestItem'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The product type to update.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AproductType%3AUpdatePhoneNumberRequestItem%27"><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem -&gt; Maybe PhoneNumberProductType
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AproductType%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html#PhoneNumberProductType"><span class="hs-identifier hs-type">PhoneNumberProductType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The outbound calling name to update.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AcallingName%3AUpdatePhoneNumberRequestItem%27"><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AcallingName%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var hs-var">callingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The phone number ID to update.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AphoneNumberId%3AUpdatePhoneNumberRequestItem%27"><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem -&gt; Text
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AphoneNumberId%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var hs-var">phoneNumberId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679521256"><span id="local-6989586621679521258"><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem
+-&gt; UpdatePhoneNumberRequestItem -&gt; Bool
+(UpdatePhoneNumberRequestItem
+ -&gt; UpdatePhoneNumberRequestItem -&gt; Bool)
+-&gt; (UpdatePhoneNumberRequestItem
+    -&gt; UpdatePhoneNumberRequestItem -&gt; Bool)
+-&gt; Eq UpdatePhoneNumberRequestItem
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePhoneNumberRequestItem
+-&gt; UpdatePhoneNumberRequestItem -&gt; Bool
+$c/= :: UpdatePhoneNumberRequestItem
+-&gt; UpdatePhoneNumberRequestItem -&gt; Bool
+== :: UpdatePhoneNumberRequestItem
+-&gt; UpdatePhoneNumberRequestItem -&gt; Bool
+$c== :: UpdatePhoneNumberRequestItem
+-&gt; UpdatePhoneNumberRequestItem -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679521249"><span id="local-6989586621679521251"><span id="local-6989586621679521253"><span class="annot"><span class="annottext">Int -&gt; UpdatePhoneNumberRequestItem -&gt; ShowS
+[UpdatePhoneNumberRequestItem] -&gt; ShowS
+UpdatePhoneNumberRequestItem -&gt; String
+(Int -&gt; UpdatePhoneNumberRequestItem -&gt; ShowS)
+-&gt; (UpdatePhoneNumberRequestItem -&gt; String)
+-&gt; ([UpdatePhoneNumberRequestItem] -&gt; ShowS)
+-&gt; Show UpdatePhoneNumberRequestItem
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePhoneNumberRequestItem] -&gt; ShowS
+$cshowList :: [UpdatePhoneNumberRequestItem] -&gt; ShowS
+show :: UpdatePhoneNumberRequestItem -&gt; String
+$cshow :: UpdatePhoneNumberRequestItem -&gt; String
+showsPrec :: Int -&gt; UpdatePhoneNumberRequestItem -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePhoneNumberRequestItem -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePhoneNumberRequestItem -&gt; Rep UpdatePhoneNumberRequestItem x)
+-&gt; (forall x.
+    Rep UpdatePhoneNumberRequestItem x -&gt; UpdatePhoneNumberRequestItem)
+-&gt; Generic UpdatePhoneNumberRequestItem
+forall x.
+Rep UpdatePhoneNumberRequestItem x -&gt; UpdatePhoneNumberRequestItem
+forall x.
+UpdatePhoneNumberRequestItem -&gt; Rep UpdatePhoneNumberRequestItem x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePhoneNumberRequestItem x -&gt; UpdatePhoneNumberRequestItem
+$cfrom :: forall x.
+UpdatePhoneNumberRequestItem -&gt; Rep UpdatePhoneNumberRequestItem x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'UpdatePhoneNumberRequestItem' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'productType', 'updatePhoneNumberRequestItem_productType' - The product type to update.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'callingName', 'updatePhoneNumberRequestItem_callingName' - The outbound calling name to update.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'phoneNumberId', 'updatePhoneNumberRequestItem_phoneNumberId' - The phone number ID to update.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#newUpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">newUpdatePhoneNumberRequestItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'phoneNumberId'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span><span>
+</span><span id="line-58"></span><span id="newUpdatePhoneNumberRequestItem"><span class="annot"><span class="annottext">newUpdatePhoneNumberRequestItem :: Text -&gt; UpdatePhoneNumberRequestItem
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#newUpdatePhoneNumberRequestItem"><span class="hs-identifier hs-var hs-var">newUpdatePhoneNumberRequestItem</span></a></span></span><span> </span><span id="local-6989586621679521243"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521243"><span class="hs-identifier hs-var">pPhoneNumberId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem' :: Maybe PhoneNumberProductType
+-&gt; Maybe (Sensitive Text) -&gt; Text -&gt; UpdatePhoneNumberRequestItem
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:productType:UpdatePhoneNumberRequestItem' :: Maybe PhoneNumberProductType
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AproductType%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>        </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:callingName:UpdatePhoneNumberRequestItem' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AcallingName%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var">callingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:phoneNumberId:UpdatePhoneNumberRequestItem' :: Text
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AphoneNumberId%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var">phoneNumberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521243"><span class="hs-identifier hs-var">pPhoneNumberId_</span></a></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The product type to update.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#updatePhoneNumberRequestItem_productType"><span class="hs-identifier hs-type">updatePhoneNumberRequestItem_productType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html#PhoneNumberProductType"><span class="hs-identifier hs-type">PhoneNumberProductType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="updatePhoneNumberRequestItem_productType"><span class="annot"><span class="annottext">updatePhoneNumberRequestItem_productType :: (Maybe PhoneNumberProductType -&gt; f (Maybe PhoneNumberProductType))
+-&gt; UpdatePhoneNumberRequestItem -&gt; f UpdatePhoneNumberRequestItem
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#updatePhoneNumberRequestItem_productType"><span class="hs-identifier hs-var hs-var">updatePhoneNumberRequestItem_productType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePhoneNumberRequestItem -&gt; Maybe PhoneNumberProductType)
+-&gt; (UpdatePhoneNumberRequestItem
+    -&gt; Maybe PhoneNumberProductType -&gt; UpdatePhoneNumberRequestItem)
+-&gt; Lens
+     UpdatePhoneNumberRequestItem
+     UpdatePhoneNumberRequestItem
+     (Maybe PhoneNumberProductType)
+     (Maybe PhoneNumberProductType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521239"><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+productType :: Maybe PhoneNumberProductType
+$sel:productType:UpdatePhoneNumberRequestItem' :: UpdatePhoneNumberRequestItem -&gt; Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679521239"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679521239"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521238"><span class="annot"><span class="annottext">s :: UpdatePhoneNumberRequestItem
+</span><a href="#local-6989586621679521238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521237"><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679521237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem
+</span><a href="#local-6989586621679521238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productType:UpdatePhoneNumberRequestItem' :: Maybe PhoneNumberProductType
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AproductType%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679521237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The outbound calling name to update.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#updatePhoneNumberRequestItem_callingName"><span class="hs-identifier hs-type">updatePhoneNumberRequestItem_callingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="updatePhoneNumberRequestItem_callingName"><span class="annot"><span class="annottext">updatePhoneNumberRequestItem_callingName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePhoneNumberRequestItem -&gt; f UpdatePhoneNumberRequestItem
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#updatePhoneNumberRequestItem_callingName"><span class="hs-identifier hs-var hs-var">updatePhoneNumberRequestItem_callingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePhoneNumberRequestItem -&gt; Maybe (Sensitive Text))
+-&gt; (UpdatePhoneNumberRequestItem
+    -&gt; Maybe (Sensitive Text) -&gt; UpdatePhoneNumberRequestItem)
+-&gt; Lens
+     UpdatePhoneNumberRequestItem
+     UpdatePhoneNumberRequestItem
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521235"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+callingName :: Maybe (Sensitive Text)
+$sel:callingName:UpdatePhoneNumberRequestItem' :: UpdatePhoneNumberRequestItem -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521235"><span class="hs-identifier hs-var hs-var">callingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521235"><span class="hs-identifier hs-var">callingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521234"><span class="annot"><span class="annottext">s :: UpdatePhoneNumberRequestItem
+</span><a href="#local-6989586621679521234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521233"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem
+</span><a href="#local-6989586621679521234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:callingName:UpdatePhoneNumberRequestItem' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AcallingName%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var">callingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; UpdatePhoneNumberRequestItem -&gt; f UpdatePhoneNumberRequestItem)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePhoneNumberRequestItem
+-&gt; f UpdatePhoneNumberRequestItem
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- | The phone number ID to update.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#updatePhoneNumberRequestItem_phoneNumberId"><span class="hs-identifier hs-type">updatePhoneNumberRequestItem_phoneNumberId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span id="updatePhoneNumberRequestItem_phoneNumberId"><span class="annot"><span class="annottext">updatePhoneNumberRequestItem_phoneNumberId :: (Text -&gt; f Text)
+-&gt; UpdatePhoneNumberRequestItem -&gt; f UpdatePhoneNumberRequestItem
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#updatePhoneNumberRequestItem_phoneNumberId"><span class="hs-identifier hs-var hs-var">updatePhoneNumberRequestItem_phoneNumberId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePhoneNumberRequestItem -&gt; Text)
+-&gt; (UpdatePhoneNumberRequestItem
+    -&gt; Text -&gt; UpdatePhoneNumberRequestItem)
+-&gt; Lens
+     UpdatePhoneNumberRequestItem UpdatePhoneNumberRequestItem Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521228"><span class="annot"><span class="annottext">Text
+phoneNumberId :: Text
+$sel:phoneNumberId:UpdatePhoneNumberRequestItem' :: UpdatePhoneNumberRequestItem -&gt; Text
+</span><a href="#local-6989586621679521228"><span class="hs-identifier hs-var hs-var">phoneNumberId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521228"><span class="hs-identifier hs-var">phoneNumberId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679521227"><span class="annot"><span class="annottext">s :: UpdatePhoneNumberRequestItem
+</span><a href="#local-6989586621679521227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679521226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePhoneNumberRequestItem
+</span><a href="#local-6989586621679521227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberId:UpdatePhoneNumberRequestItem' :: Text
+</span><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#%24sel%3AphoneNumberId%3AUpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-var">phoneNumberId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679521222"><span id="local-6989586621679521224"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span></span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521219"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679521211"><span id="local-6989586621679521213"><span id="local-6989586621679521215"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679521209"><span class="annot"><span class="annottext">toJSON :: UpdatePhoneNumberRequestItem -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.UpdatePhoneNumberRequestItem.html#UpdatePhoneNumberRequestItem%27"><span class="hs-identifier hs-type">UpdatePhoneNumberRequestItem'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679521205"><span id="local-6989586621679521206"><span id="local-6989586621679521207"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Maybe PhoneNumberProductType
+Text
+phoneNumberId :: Text
+callingName :: Maybe (Sensitive Text)
+productType :: Maybe PhoneNumberProductType
+$sel:phoneNumberId:UpdatePhoneNumberRequestItem' :: UpdatePhoneNumberRequestItem -&gt; Text
+$sel:callingName:UpdatePhoneNumberRequestItem' :: UpdatePhoneNumberRequestItem -&gt; Maybe (Sensitive Text)
+$sel:productType:UpdatePhoneNumberRequestItem' :: UpdatePhoneNumberRequestItem -&gt; Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679521205"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-88"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PhoneNumberProductType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PhoneNumberProductType -&gt; Pair)
+-&gt; Maybe PhoneNumberProductType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberProductType
+</span><a href="#local-6989586621679521207"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CallingName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679521206"><span class="hs-identifier hs-var">callingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-91"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumberId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679521205"><span class="hs-identifier hs-var">phoneNumberId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span></pre></body></html>

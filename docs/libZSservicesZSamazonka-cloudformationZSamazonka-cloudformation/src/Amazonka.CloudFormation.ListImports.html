@@ -1,0 +1,619 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.ListImports</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all stacks that are importing an exported output value. To modify</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- or remove an exported output value, first use this action to see which</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- stacks are using it. To see the exported output values in your account,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- see ListExports.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- For more information about importing an exported output value, see the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-importvalue.html Fn::ImportValue&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- function.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.ListImports</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier">ListImports</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#newListImports"><span class="hs-identifier">newListImports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImports_nextToken"><span class="hs-identifier">listImports_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImports_exportName"><span class="hs-identifier">listImports_exportName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier">ListImportsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#newListImportsResponse"><span class="hs-identifier">newListImportsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_imports"><span class="hs-identifier">listImportsResponse_imports</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_nextToken"><span class="hs-identifier">listImportsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_httpStatus"><span class="hs-identifier">listImportsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.html"><span class="hs-identifier">Amazonka.CloudFormation.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | /See:/ 'newListImports' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679434563"><span id="local-6989586621679434564"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImports"><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-var">ListImports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImports%27"><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-var">ListImports'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A string (provided by the ListImports response output) that identifies</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- the next page of stacks that are importing the specified exported output</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AnextToken%3AListImports%27"><span class="annot"><span class="annottext">ListImports -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImports%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the exported output value. CloudFormation returns the stack</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- names that are importing this value.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AexportName%3AListImports%27"><span class="annot"><span class="annottext">ListImports -&gt; Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AexportName%3AListImports%27"><span class="hs-identifier hs-var hs-var">exportName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434556"><span id="local-6989586621679434558"><span class="annot"><span class="annottext">ListImports -&gt; ListImports -&gt; Bool
+(ListImports -&gt; ListImports -&gt; Bool)
+-&gt; (ListImports -&gt; ListImports -&gt; Bool) -&gt; Eq ListImports
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListImports -&gt; ListImports -&gt; Bool
+$c/= :: ListImports -&gt; ListImports -&gt; Bool
+== :: ListImports -&gt; ListImports -&gt; Bool
+$c== :: ListImports -&gt; ListImports -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434547"><span id="local-6989586621679434549"><span id="local-6989586621679434551"><span id="local-6989586621679434553"><span class="annot"><span class="annottext">ReadPrec [ListImports]
+ReadPrec ListImports
+Int -&gt; ReadS ListImports
+ReadS [ListImports]
+(Int -&gt; ReadS ListImports)
+-&gt; ReadS [ListImports]
+-&gt; ReadPrec ListImports
+-&gt; ReadPrec [ListImports]
+-&gt; Read ListImports
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListImports]
+$creadListPrec :: ReadPrec [ListImports]
+readPrec :: ReadPrec ListImports
+$creadPrec :: ReadPrec ListImports
+readList :: ReadS [ListImports]
+$creadList :: ReadS [ListImports]
+readsPrec :: Int -&gt; ReadS ListImports
+$creadsPrec :: Int -&gt; ReadS ListImports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434540"><span id="local-6989586621679434542"><span id="local-6989586621679434544"><span class="annot"><span class="annottext">Int -&gt; ListImports -&gt; ShowS
+[ListImports] -&gt; ShowS
+ListImports -&gt; String
+(Int -&gt; ListImports -&gt; ShowS)
+-&gt; (ListImports -&gt; String)
+-&gt; ([ListImports] -&gt; ShowS)
+-&gt; Show ListImports
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListImports] -&gt; ShowS
+$cshowList :: [ListImports] -&gt; ShowS
+show :: ListImports -&gt; String
+$cshow :: ListImports -&gt; String
+showsPrec :: Int -&gt; ListImports -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListImports -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListImports -&gt; Rep ListImports x)
+-&gt; (forall x. Rep ListImports x -&gt; ListImports)
+-&gt; Generic ListImports
+forall x. Rep ListImports x -&gt; ListImports
+forall x. ListImports -&gt; Rep ListImports x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListImports x -&gt; ListImports
+$cfrom :: forall x. ListImports -&gt; Rep ListImports x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'ListImports' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'nextToken', 'listImports_nextToken' - A string (provided by the ListImports response output) that identifies</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the next page of stacks that are importing the specified exported output</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'exportName', 'listImports_exportName' - The name of the exported output value. CloudFormation returns the stack</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- names that are importing this value.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#newListImports"><span class="hs-identifier hs-type">newListImports</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'exportName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span>
+</span><span id="line-90"></span><span id="newListImports"><span class="annot"><span class="annottext">newListImports :: Text -&gt; ListImports
+</span><a href="Amazonka.CloudFormation.ListImports.html#newListImports"><span class="hs-identifier hs-var hs-var">newListImports</span></a></span></span><span> </span><span id="local-6989586621679434535"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434535"><span class="hs-identifier hs-var">pExportName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">ListImports' :: Maybe Text -&gt; Text -&gt; ListImports
+</span><a href="Amazonka.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListImports' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImports%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportName:ListImports' :: Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AexportName%3AListImports%27"><span class="hs-identifier hs-var">exportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434535"><span class="hs-identifier hs-var">pExportName_</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | A string (provided by the ListImports response output) that identifies</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the next page of stacks that are importing the specified exported output</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImports_nextToken"><span class="hs-identifier hs-type">listImports_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listImports_nextToken"><span class="annot"><span class="annottext">listImports_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListImports -&gt; f ListImports
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImports_nextToken"><span class="hs-identifier hs-var hs-var">listImports_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImports -&gt; Maybe Text)
+-&gt; (ListImports -&gt; Maybe Text -&gt; ListImports)
+-&gt; Lens ListImports ListImports (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434533"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListImports' :: ListImports -&gt; Maybe Text
+</span><a href="#local-6989586621679434533"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434533"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434532"><span class="annot"><span class="annottext">s :: ListImports
+</span><a href="#local-6989586621679434532"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434531"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434531"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImports
+</span><a href="#local-6989586621679434532"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImports' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImports%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434531"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The name of the exported output value. CloudFormation returns the stack</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- names that are importing this value.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImports_exportName"><span class="hs-identifier hs-type">listImports_exportName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="listImports_exportName"><span class="annot"><span class="annottext">listImports_exportName :: (Text -&gt; f Text) -&gt; ListImports -&gt; f ListImports
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImports_exportName"><span class="hs-identifier hs-var hs-var">listImports_exportName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImports -&gt; Text)
+-&gt; (ListImports -&gt; Text -&gt; ListImports)
+-&gt; Lens ListImports ListImports Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434530"><span class="annot"><span class="annottext">Text
+exportName :: Text
+$sel:exportName:ListImports' :: ListImports -&gt; Text
+</span><a href="#local-6989586621679434530"><span class="hs-identifier hs-var hs-var">exportName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434530"><span class="hs-identifier hs-var">exportName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434529"><span class="annot"><span class="annottext">s :: ListImports
+</span><a href="#local-6989586621679434529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434528"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImports
+</span><a href="#local-6989586621679434529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportName:ListImports' :: Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AexportName%3AListImports%27"><span class="hs-identifier hs-var">exportName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679434524"><span class="annot"><span class="annottext">page :: ListImports -&gt; AWSResponse ListImports -&gt; Maybe ListImports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679434522"><span class="annot"><span class="annottext">ListImports
+</span><a href="#local-6989586621679434522"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679434521"><span class="annot"><span class="annottext">AWSResponse ListImports
+</span><a href="#local-6989586621679434521"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListImports
+ListImportsResponse
+</span><a href="#local-6989586621679434521"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">ListImportsResponse
+-&gt; Getting (First Text) ListImportsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListImportsResponse -&gt; Const (First Text) ListImportsResponse
+Lens' ListImportsResponse (Maybe Text)
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_nextToken"><span class="hs-identifier hs-var">listImportsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListImportsResponse -&gt; Const (First Text) ListImportsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListImportsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListImports
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListImports
+ListImportsResponse
+</span><a href="#local-6989586621679434521"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListImportsResponse
+-&gt; Getting (First [Text]) ListImportsResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListImportsResponse -&gt; Const (First [Text]) ListImportsResponse
+Lens' ListImportsResponse (Maybe [Text])
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_imports"><span class="hs-identifier hs-var">listImportsResponse_imports</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListImportsResponse -&gt; Const (First [Text]) ListImportsResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListImportsResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListImports
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">ListImports -&gt; Maybe ListImports
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListImports -&gt; Maybe ListImports)
+-&gt; ListImports -&gt; Maybe ListImports
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListImports
+</span><a href="#local-6989586621679434522"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListImports -&gt; (ListImports -&gt; ListImports) -&gt; ListImports
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListImports -&gt; Identity ListImports
+Lens ListImports ListImports (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImports_nextToken"><span class="hs-identifier hs-var">listImports_nextToken</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListImports -&gt; Identity ListImports)
+-&gt; Maybe Text -&gt; ListImports -&gt; ListImports
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListImports
+ListImportsResponse
+</span><a href="#local-6989586621679434521"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListImportsResponse
+-&gt; Getting (First Text) ListImportsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListImportsResponse -&gt; Const (First Text) ListImportsResponse
+Lens' ListImportsResponse (Maybe Text)
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_nextToken"><span class="hs-identifier hs-var">listImportsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListImportsResponse -&gt; Const (First Text) ListImportsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListImportsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679434511"><span class="annot"><span class="annottext">request :: ListImports -&gt; Request ListImports
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListImports -&gt; Request ListImports
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CloudFormation.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679434507"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListImports
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListImports)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ListImports))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListImports
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListImports)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListImportsResult&quot;</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679434504"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434504"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679434503"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679434503"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679434502"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679434502"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListImportsResponse
+</span><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-var">ListImportsResponse'</span></a></span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListImportsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListImportsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679434502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Imports&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [Text]))
+-&gt; Either String (Maybe [Text])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [Text])
+-&gt; [Node] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListImportsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListImportsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679434502"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListImportsResponse)
+-&gt; Either String Int -&gt; Either String ListImportsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434504"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434491"><span id="local-6989586621679434493"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434488"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679434484"><span class="annot"><span class="annottext">toHeaders :: ListImports -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListImports -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679434479"><span class="annot"><span class="annottext">toPath :: ListImports -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListImports -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports"><span class="hs-identifier hs-type">ListImports</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679434475"><span class="annot"><span class="annottext">toQuery :: ListImports -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImports%27"><span class="hs-identifier hs-type">ListImports'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434472"><span id="local-6989586621679434473"><span class="annot"><span class="annottext">Maybe Text
+Text
+exportName :: Text
+nextToken :: Maybe Text
+$sel:exportName:ListImports' :: ListImports -&gt; Text
+$sel:nextToken:ListImports' :: ListImports -&gt; Maybe Text
+</span><a href="#local-6989586621679434472"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListImports&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434473"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExportName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679434472"><span class="hs-identifier hs-var">exportName</span></a></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- | /See:/ 'newListImportsResponse' smart constructor.</span><span>
+</span><span id="line-163"></span><span id="local-6989586621679434469"><span id="local-6989586621679434470"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListImportsResponse"><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-var">ListImportsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListImportsResponse%27"><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-var">ListImportsResponse'</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of stack names that are importing the specified exported output</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Aimports%3AListImportsResponse%27"><span class="annot"><span class="annottext">ListImportsResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3Aimports%3AListImportsResponse%27"><span class="hs-identifier hs-var hs-var">imports</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | A string that identifies the next page of exports. If there is no</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- additional page, this value is null.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AnextToken%3AListImportsResponse%27"><span class="annot"><span class="annottext">ListImportsResponse -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImportsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="annot"><span class="annottext">ListImportsResponse -&gt; Int
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679434462"><span id="local-6989586621679434464"><span class="annot"><span class="annottext">ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
+(ListImportsResponse -&gt; ListImportsResponse -&gt; Bool)
+-&gt; (ListImportsResponse -&gt; ListImportsResponse -&gt; Bool)
+-&gt; Eq ListImportsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
+$c/= :: ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
+== :: ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
+$c== :: ListImportsResponse -&gt; ListImportsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434454"><span id="local-6989586621679434456"><span id="local-6989586621679434458"><span id="local-6989586621679434460"><span class="annot"><span class="annottext">ReadPrec [ListImportsResponse]
+ReadPrec ListImportsResponse
+Int -&gt; ReadS ListImportsResponse
+ReadS [ListImportsResponse]
+(Int -&gt; ReadS ListImportsResponse)
+-&gt; ReadS [ListImportsResponse]
+-&gt; ReadPrec ListImportsResponse
+-&gt; ReadPrec [ListImportsResponse]
+-&gt; Read ListImportsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListImportsResponse]
+$creadListPrec :: ReadPrec [ListImportsResponse]
+readPrec :: ReadPrec ListImportsResponse
+$creadPrec :: ReadPrec ListImportsResponse
+readList :: ReadS [ListImportsResponse]
+$creadList :: ReadS [ListImportsResponse]
+readsPrec :: Int -&gt; ReadS ListImportsResponse
+$creadsPrec :: Int -&gt; ReadS ListImportsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679434448"><span id="local-6989586621679434450"><span id="local-6989586621679434452"><span class="annot"><span class="annottext">Int -&gt; ListImportsResponse -&gt; ShowS
+[ListImportsResponse] -&gt; ShowS
+ListImportsResponse -&gt; String
+(Int -&gt; ListImportsResponse -&gt; ShowS)
+-&gt; (ListImportsResponse -&gt; String)
+-&gt; ([ListImportsResponse] -&gt; ShowS)
+-&gt; Show ListImportsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListImportsResponse] -&gt; ShowS
+$cshowList :: [ListImportsResponse] -&gt; ShowS
+show :: ListImportsResponse -&gt; String
+$cshow :: ListImportsResponse -&gt; String
+showsPrec :: Int -&gt; ListImportsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListImportsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListImportsResponse -&gt; Rep ListImportsResponse x)
+-&gt; (forall x. Rep ListImportsResponse x -&gt; ListImportsResponse)
+-&gt; Generic ListImportsResponse
+forall x. Rep ListImportsResponse x -&gt; ListImportsResponse
+forall x. ListImportsResponse -&gt; Rep ListImportsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListImportsResponse x -&gt; ListImportsResponse
+$cfrom :: forall x. ListImportsResponse -&gt; Rep ListImportsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'ListImportsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'imports', 'listImportsResponse_imports' - A list of stack names that are importing the specified exported output</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'nextToken', 'listImportsResponse_nextToken' - A string that identifies the next page of exports. If there is no</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- additional page, this value is null.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'httpStatus', 'listImportsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#newListImportsResponse"><span class="hs-identifier hs-type">newListImportsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-193"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span>
+</span><span id="line-194"></span><span id="newListImportsResponse"><span class="annot"><span class="annottext">newListImportsResponse :: Int -&gt; ListImportsResponse
+</span><a href="Amazonka.CloudFormation.ListImports.html#newListImportsResponse"><span class="hs-identifier hs-var hs-var">newListImportsResponse</span></a></span></span><span> </span><span id="local-6989586621679434445"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="annottext">ListImportsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListImportsResponse
+</span><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imports:ListImportsResponse' :: Maybe [Text]
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3Aimports%3AListImportsResponse%27"><span class="hs-identifier hs-var">imports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListImportsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImportsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportsResponse' :: Int
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434445"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | A list of stack names that are importing the specified exported output</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- value.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_imports"><span class="hs-identifier hs-type">listImportsResponse_imports</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="listImportsResponse_imports"><span class="annot"><span class="annottext">listImportsResponse_imports :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListImportsResponse -&gt; f ListImportsResponse
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_imports"><span class="hs-identifier hs-var hs-var">listImportsResponse_imports</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportsResponse -&gt; Maybe [Text])
+-&gt; (ListImportsResponse -&gt; Maybe [Text] -&gt; ListImportsResponse)
+-&gt; Lens' ListImportsResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434444"><span class="annot"><span class="annottext">Maybe [Text]
+imports :: Maybe [Text]
+$sel:imports:ListImportsResponse' :: ListImportsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679434444"><span class="hs-identifier hs-var hs-var">imports</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679434444"><span class="hs-identifier hs-var">imports</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434443"><span class="annot"><span class="annottext">s :: ListImportsResponse
+</span><a href="#local-6989586621679434443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434442"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679434442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
+</span><a href="#local-6989586621679434443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imports:ListImportsResponse' :: Maybe [Text]
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3Aimports%3AListImportsResponse%27"><span class="hs-identifier hs-var">imports</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679434442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListImportsResponse -&gt; f ListImportsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListImportsResponse
+-&gt; f ListImportsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A string that identifies the next page of exports. If there is no</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- additional page, this value is null.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_nextToken"><span class="hs-identifier hs-type">listImportsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="listImportsResponse_nextToken"><span class="annot"><span class="annottext">listImportsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListImportsResponse -&gt; f ListImportsResponse
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listImportsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportsResponse -&gt; Maybe Text)
+-&gt; (ListImportsResponse -&gt; Maybe Text -&gt; ListImportsResponse)
+-&gt; Lens' ListImportsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434439"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListImportsResponse' :: ListImportsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679434439"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434439"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434438"><span class="annot"><span class="annottext">s :: ListImportsResponse
+</span><a href="#local-6989586621679434438"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434437"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434437"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
+</span><a href="#local-6989586621679434438"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListImportsResponse' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AnextToken%3AListImportsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679434437"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_httpStatus"><span class="hs-identifier hs-type">listImportsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-213"></span><span id="listImportsResponse_httpStatus"><span class="annot"><span class="annottext">listImportsResponse_httpStatus :: (Int -&gt; f Int) -&gt; ListImportsResponse -&gt; f ListImportsResponse
+</span><a href="Amazonka.CloudFormation.ListImports.html#listImportsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listImportsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListImportsResponse -&gt; Int)
+-&gt; (ListImportsResponse -&gt; Int -&gt; ListImportsResponse)
+-&gt; Lens ListImportsResponse ListImportsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679434436"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListImportsResponse' :: ListImportsResponse -&gt; Int
+</span><a href="#local-6989586621679434436"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434436"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679434435"><span class="annot"><span class="annottext">s :: ListImportsResponse
+</span><a href="#local-6989586621679434435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse%27"><span class="hs-identifier hs-type">ListImportsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679434434"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListImportsResponse
+</span><a href="#local-6989586621679434435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListImportsResponse' :: Int
+</span><a href="Amazonka.CloudFormation.ListImports.html#%24sel%3AhttpStatus%3AListImportsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679434434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679434432"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.ListImports.html#ListImportsResponse"><span class="hs-identifier hs-type">ListImportsResponse</span></a></span></span><span>
+</span><span id="line-216"></span></pre></body></html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Wisdom.Types.AssistantType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Wisdom.Types.AssistantType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType"><span class="hs-identifier">AssistantType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType_AGENT"><span class="hs-identifier">AssistantType_AGENT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679219078"><span id="local-6989586621679219079"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssistantType"><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType"><span class="hs-identifier hs-var">AssistantType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssistantType%27"><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType%27"><span class="hs-identifier hs-var">AssistantType'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssistantType"><span class="annot"><span class="annottext">AssistantType -&gt; Text
+</span><a href="Amazonka.Wisdom.Types.AssistantType.html#fromAssistantType"><span class="hs-identifier hs-var hs-var">fromAssistantType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219070"><span id="local-6989586621679219072"><span id="local-6989586621679219074"><span class="annot"><span class="annottext">Int -&gt; AssistantType -&gt; ShowS
+[AssistantType] -&gt; ShowS
+AssistantType -&gt; String
+(Int -&gt; AssistantType -&gt; ShowS)
+-&gt; (AssistantType -&gt; String)
+-&gt; ([AssistantType] -&gt; ShowS)
+-&gt; Show AssistantType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssistantType] -&gt; ShowS
+$cshowList :: [AssistantType] -&gt; ShowS
+show :: AssistantType -&gt; String
+$cshow :: AssistantType -&gt; String
+showsPrec :: Int -&gt; AssistantType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssistantType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679219061"><span id="local-6989586621679219063"><span id="local-6989586621679219065"><span id="local-6989586621679219067"><span class="annot"><span class="annottext">ReadPrec [AssistantType]
+ReadPrec AssistantType
+Int -&gt; ReadS AssistantType
+ReadS [AssistantType]
+(Int -&gt; ReadS AssistantType)
+-&gt; ReadS [AssistantType]
+-&gt; ReadPrec AssistantType
+-&gt; ReadPrec [AssistantType]
+-&gt; Read AssistantType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssistantType]
+$creadListPrec :: ReadPrec [AssistantType]
+readPrec :: ReadPrec AssistantType
+$creadPrec :: ReadPrec AssistantType
+readList :: ReadS [AssistantType]
+$creadList :: ReadS [AssistantType]
+readsPrec :: Int -&gt; ReadS AssistantType
+$creadsPrec :: Int -&gt; ReadS AssistantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679219056"><span id="local-6989586621679219058"><span class="annot"><span class="annottext">AssistantType -&gt; AssistantType -&gt; Bool
+(AssistantType -&gt; AssistantType -&gt; Bool)
+-&gt; (AssistantType -&gt; AssistantType -&gt; Bool) -&gt; Eq AssistantType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssistantType -&gt; AssistantType -&gt; Bool
+$c/= :: AssistantType -&gt; AssistantType -&gt; Bool
+== :: AssistantType -&gt; AssistantType -&gt; Bool
+$c== :: AssistantType -&gt; AssistantType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679219040"><span id="local-6989586621679219042"><span id="local-6989586621679219044"><span id="local-6989586621679219046"><span id="local-6989586621679219048"><span id="local-6989586621679219050"><span id="local-6989586621679219052"><span class="annot"><span class="annottext">Eq AssistantType
+Eq AssistantType
+-&gt; (AssistantType -&gt; AssistantType -&gt; Ordering)
+-&gt; (AssistantType -&gt; AssistantType -&gt; Bool)
+-&gt; (AssistantType -&gt; AssistantType -&gt; Bool)
+-&gt; (AssistantType -&gt; AssistantType -&gt; Bool)
+-&gt; (AssistantType -&gt; AssistantType -&gt; Bool)
+-&gt; (AssistantType -&gt; AssistantType -&gt; AssistantType)
+-&gt; (AssistantType -&gt; AssistantType -&gt; AssistantType)
+-&gt; Ord AssistantType
+AssistantType -&gt; AssistantType -&gt; Bool
+AssistantType -&gt; AssistantType -&gt; Ordering
+AssistantType -&gt; AssistantType -&gt; AssistantType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssistantType -&gt; AssistantType -&gt; AssistantType
+$cmin :: AssistantType -&gt; AssistantType -&gt; AssistantType
+max :: AssistantType -&gt; AssistantType -&gt; AssistantType
+$cmax :: AssistantType -&gt; AssistantType -&gt; AssistantType
+&gt;= :: AssistantType -&gt; AssistantType -&gt; Bool
+$c&gt;= :: AssistantType -&gt; AssistantType -&gt; Bool
+&gt; :: AssistantType -&gt; AssistantType -&gt; Bool
+$c&gt; :: AssistantType -&gt; AssistantType -&gt; Bool
+&lt;= :: AssistantType -&gt; AssistantType -&gt; Bool
+$c&lt;= :: AssistantType -&gt; AssistantType -&gt; Bool
+&lt; :: AssistantType -&gt; AssistantType -&gt; Bool
+$c&lt; :: AssistantType -&gt; AssistantType -&gt; Bool
+compare :: AssistantType -&gt; AssistantType -&gt; Ordering
+$ccompare :: AssistantType -&gt; AssistantType -&gt; Ordering
+$cp1Ord :: Eq AssistantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AssistantType -&gt; Rep AssistantType x)
+-&gt; (forall x. Rep AssistantType x -&gt; AssistantType)
+-&gt; Generic AssistantType
+forall x. Rep AssistantType x -&gt; AssistantType
+forall x. AssistantType -&gt; Rep AssistantType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssistantType x -&gt; AssistantType
+$cfrom :: forall x. AssistantType -&gt; Rep AssistantType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679219032"><span id="local-6989586621679219034"><span class="annot"><span class="annottext">Int -&gt; AssistantType -&gt; Int
+AssistantType -&gt; Int
+(Int -&gt; AssistantType -&gt; Int)
+-&gt; (AssistantType -&gt; Int) -&gt; Hashable AssistantType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssistantType -&gt; Int
+$chash :: AssistantType -&gt; Int
+hashWithSalt :: Int -&gt; AssistantType -&gt; Int
+$chashWithSalt :: Int -&gt; AssistantType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679219029"><span class="annot"><span class="annottext">AssistantType -&gt; ()
+(AssistantType -&gt; ()) -&gt; NFData AssistantType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssistantType -&gt; ()
+$crnf :: AssistantType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679219026"><span class="annot"><span class="annottext">Text -&gt; Either String AssistantType
+(Text -&gt; Either String AssistantType) -&gt; FromText AssistantType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssistantType
+$cfromText :: Text -&gt; Either String AssistantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679219023"><span class="annot"><span class="annottext">AssistantType -&gt; Text
+(AssistantType -&gt; Text) -&gt; ToText AssistantType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssistantType -&gt; Text
+$ctoText :: AssistantType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679219020"><span class="annot"><span class="annottext">AssistantType -&gt; ByteString
+(AssistantType -&gt; ByteString) -&gt; ToByteString AssistantType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssistantType -&gt; ByteString
+$ctoBS :: AssistantType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679219017"><span class="annot"><span class="annottext">AssistantType -&gt; ByteStringBuilder
+(AssistantType -&gt; ByteStringBuilder) -&gt; ToLog AssistantType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssistantType -&gt; ByteStringBuilder
+$cbuild :: AssistantType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679219014"><span class="annot"><span class="annottext">HeaderName -&gt; AssistantType -&gt; [Header]
+(HeaderName -&gt; AssistantType -&gt; [Header]) -&gt; ToHeader AssistantType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssistantType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssistantType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679219011"><span class="annot"><span class="annottext">AssistantType -&gt; QueryString
+(AssistantType -&gt; QueryString) -&gt; ToQuery AssistantType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssistantType -&gt; QueryString
+$ctoQuery :: AssistantType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679219006"><span id="local-6989586621679219008"><span class="annot"><span class="annottext">Value -&gt; Parser [AssistantType]
+Value -&gt; Parser AssistantType
+(Value -&gt; Parser AssistantType)
+-&gt; (Value -&gt; Parser [AssistantType]) -&gt; FromJSON AssistantType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssistantType]
+$cparseJSONList :: Value -&gt; Parser [AssistantType]
+parseJSON :: Value -&gt; Parser AssistantType
+$cparseJSON :: Value -&gt; Parser AssistantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679219001"><span id="local-6989586621679219003"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssistantType]
+FromJSONKeyFunction AssistantType
+FromJSONKeyFunction AssistantType
+-&gt; FromJSONKeyFunction [AssistantType] -&gt; FromJSONKey AssistantType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssistantType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssistantType]
+fromJSONKey :: FromJSONKeyFunction AssistantType
+$cfromJSONKey :: FromJSONKeyFunction AssistantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679218992"><span id="local-6989586621679218994"><span id="local-6989586621679218996"><span id="local-6989586621679218998"><span class="annot"><span class="annottext">[AssistantType] -&gt; Encoding
+[AssistantType] -&gt; Value
+AssistantType -&gt; Encoding
+AssistantType -&gt; Value
+(AssistantType -&gt; Value)
+-&gt; (AssistantType -&gt; Encoding)
+-&gt; ([AssistantType] -&gt; Value)
+-&gt; ([AssistantType] -&gt; Encoding)
+-&gt; ToJSON AssistantType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssistantType] -&gt; Encoding
+$ctoEncodingList :: [AssistantType] -&gt; Encoding
+toJSONList :: [AssistantType] -&gt; Value
+$ctoJSONList :: [AssistantType] -&gt; Value
+toEncoding :: AssistantType -&gt; Encoding
+$ctoEncoding :: AssistantType -&gt; Encoding
+toJSON :: AssistantType -&gt; Value
+$ctoJSON :: AssistantType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679218987"><span id="local-6989586621679218989"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssistantType]
+ToJSONKeyFunction AssistantType
+ToJSONKeyFunction AssistantType
+-&gt; ToJSONKeyFunction [AssistantType] -&gt; ToJSONKey AssistantType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssistantType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssistantType]
+toJSONKey :: ToJSONKeyFunction AssistantType
+$ctoJSONKey :: ToJSONKeyFunction AssistantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679218984"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssistantType
+([Node] -&gt; Either String AssistantType) -&gt; FromXML AssistantType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssistantType
+$cparseXML :: [Node] -&gt; Either String AssistantType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679218981"><span class="annot"><span class="annottext">AssistantType -&gt; XML
+(AssistantType -&gt; XML) -&gt; ToXML AssistantType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssistantType -&gt; XML
+$ctoXML :: AssistantType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType_AGENT"><span class="hs-identifier hs-type">AssistantType_AGENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType"><span class="hs-identifier hs-type">AssistantType</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssistantType_AGENT"><span id="%24mAssistantType_AGENT"><span id="AssistantType_AGENT"><span class="annot"><span class="annottext">$bAssistantType_AGENT :: AssistantType
+$mAssistantType_AGENT :: forall r. AssistantType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Wisdom.Types.AssistantType.html#%24bAssistantType_AGENT"><span class="hs-identifier hs-var hs-var hs-var">AssistantType_AGENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType%27"><span class="hs-identifier hs-type">AssistantType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AGENT&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType_AGENT"><span class="hs-pragma hs-type">AssistantType_AGENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.Types.AssistantType.html#AssistantType%27"><span class="hs-pragma hs-type">AssistantType'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

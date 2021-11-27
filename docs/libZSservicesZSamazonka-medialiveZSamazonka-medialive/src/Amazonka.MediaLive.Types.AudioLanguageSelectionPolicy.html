@@ -1,0 +1,327 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy"><span class="hs-identifier">AudioLanguageSelectionPolicy</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy_LOOSE"><span class="hs-identifier">AudioLanguageSelectionPolicy_LOOSE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy_STRICT"><span class="hs-identifier">AudioLanguageSelectionPolicy_STRICT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Audio Language Selection Policy</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679865048"><span id="local-6989586621679865049"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AudioLanguageSelectionPolicy"><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy"><span class="hs-identifier hs-var">AudioLanguageSelectionPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AudioLanguageSelectionPolicy%27"><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy%27"><span class="hs-identifier hs-var">AudioLanguageSelectionPolicy'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAudioLanguageSelectionPolicy"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#fromAudioLanguageSelectionPolicy"><span class="hs-identifier hs-var hs-var">fromAudioLanguageSelectionPolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679865040"><span id="local-6989586621679865042"><span id="local-6989586621679865044"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageSelectionPolicy -&gt; ShowS
+[AudioLanguageSelectionPolicy] -&gt; ShowS
+AudioLanguageSelectionPolicy -&gt; String
+(Int -&gt; AudioLanguageSelectionPolicy -&gt; ShowS)
+-&gt; (AudioLanguageSelectionPolicy -&gt; String)
+-&gt; ([AudioLanguageSelectionPolicy] -&gt; ShowS)
+-&gt; Show AudioLanguageSelectionPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AudioLanguageSelectionPolicy] -&gt; ShowS
+$cshowList :: [AudioLanguageSelectionPolicy] -&gt; ShowS
+show :: AudioLanguageSelectionPolicy -&gt; String
+$cshow :: AudioLanguageSelectionPolicy -&gt; String
+showsPrec :: Int -&gt; AudioLanguageSelectionPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; AudioLanguageSelectionPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679865031"><span id="local-6989586621679865033"><span id="local-6989586621679865035"><span id="local-6989586621679865037"><span class="annot"><span class="annottext">ReadPrec [AudioLanguageSelectionPolicy]
+ReadPrec AudioLanguageSelectionPolicy
+Int -&gt; ReadS AudioLanguageSelectionPolicy
+ReadS [AudioLanguageSelectionPolicy]
+(Int -&gt; ReadS AudioLanguageSelectionPolicy)
+-&gt; ReadS [AudioLanguageSelectionPolicy]
+-&gt; ReadPrec AudioLanguageSelectionPolicy
+-&gt; ReadPrec [AudioLanguageSelectionPolicy]
+-&gt; Read AudioLanguageSelectionPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AudioLanguageSelectionPolicy]
+$creadListPrec :: ReadPrec [AudioLanguageSelectionPolicy]
+readPrec :: ReadPrec AudioLanguageSelectionPolicy
+$creadPrec :: ReadPrec AudioLanguageSelectionPolicy
+readList :: ReadS [AudioLanguageSelectionPolicy]
+$creadList :: ReadS [AudioLanguageSelectionPolicy]
+readsPrec :: Int -&gt; ReadS AudioLanguageSelectionPolicy
+$creadsPrec :: Int -&gt; ReadS AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679865026"><span id="local-6989586621679865028"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+(AudioLanguageSelectionPolicy
+ -&gt; AudioLanguageSelectionPolicy -&gt; Bool)
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; Bool)
+-&gt; Eq AudioLanguageSelectionPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+$c/= :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+== :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+$c== :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679865010"><span id="local-6989586621679865012"><span id="local-6989586621679865014"><span id="local-6989586621679865016"><span id="local-6989586621679865018"><span id="local-6989586621679865020"><span id="local-6989586621679865022"><span class="annot"><span class="annottext">Eq AudioLanguageSelectionPolicy
+Eq AudioLanguageSelectionPolicy
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; Ordering)
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; Bool)
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; Bool)
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; Bool)
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; Bool)
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; AudioLanguageSelectionPolicy)
+-&gt; (AudioLanguageSelectionPolicy
+    -&gt; AudioLanguageSelectionPolicy -&gt; AudioLanguageSelectionPolicy)
+-&gt; Ord AudioLanguageSelectionPolicy
+AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Ordering
+AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; AudioLanguageSelectionPolicy
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; AudioLanguageSelectionPolicy
+$cmin :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; AudioLanguageSelectionPolicy
+max :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; AudioLanguageSelectionPolicy
+$cmax :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; AudioLanguageSelectionPolicy
+&gt;= :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+$c&gt;= :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+&gt; :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+$c&gt; :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+&lt;= :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+$c&lt;= :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+&lt; :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+$c&lt; :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Bool
+compare :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Ordering
+$ccompare :: AudioLanguageSelectionPolicy
+-&gt; AudioLanguageSelectionPolicy -&gt; Ordering
+$cp1Ord :: Eq AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AudioLanguageSelectionPolicy -&gt; Rep AudioLanguageSelectionPolicy x)
+-&gt; (forall x.
+    Rep AudioLanguageSelectionPolicy x -&gt; AudioLanguageSelectionPolicy)
+-&gt; Generic AudioLanguageSelectionPolicy
+forall x.
+Rep AudioLanguageSelectionPolicy x -&gt; AudioLanguageSelectionPolicy
+forall x.
+AudioLanguageSelectionPolicy -&gt; Rep AudioLanguageSelectionPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AudioLanguageSelectionPolicy x -&gt; AudioLanguageSelectionPolicy
+$cfrom :: forall x.
+AudioLanguageSelectionPolicy -&gt; Rep AudioLanguageSelectionPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679865002"><span id="local-6989586621679865004"><span class="annot"><span class="annottext">Int -&gt; AudioLanguageSelectionPolicy -&gt; Int
+AudioLanguageSelectionPolicy -&gt; Int
+(Int -&gt; AudioLanguageSelectionPolicy -&gt; Int)
+-&gt; (AudioLanguageSelectionPolicy -&gt; Int)
+-&gt; Hashable AudioLanguageSelectionPolicy
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AudioLanguageSelectionPolicy -&gt; Int
+$chash :: AudioLanguageSelectionPolicy -&gt; Int
+hashWithSalt :: Int -&gt; AudioLanguageSelectionPolicy -&gt; Int
+$chashWithSalt :: Int -&gt; AudioLanguageSelectionPolicy -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679864999"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy -&gt; ()
+(AudioLanguageSelectionPolicy -&gt; ())
+-&gt; NFData AudioLanguageSelectionPolicy
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AudioLanguageSelectionPolicy -&gt; ()
+$crnf :: AudioLanguageSelectionPolicy -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679864996"><span class="annot"><span class="annottext">Text -&gt; Either String AudioLanguageSelectionPolicy
+(Text -&gt; Either String AudioLanguageSelectionPolicy)
+-&gt; FromText AudioLanguageSelectionPolicy
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AudioLanguageSelectionPolicy
+$cfromText :: Text -&gt; Either String AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679864993"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy -&gt; Text
+(AudioLanguageSelectionPolicy -&gt; Text)
+-&gt; ToText AudioLanguageSelectionPolicy
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AudioLanguageSelectionPolicy -&gt; Text
+$ctoText :: AudioLanguageSelectionPolicy -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679864990"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy -&gt; ByteString
+(AudioLanguageSelectionPolicy -&gt; ByteString)
+-&gt; ToByteString AudioLanguageSelectionPolicy
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AudioLanguageSelectionPolicy -&gt; ByteString
+$ctoBS :: AudioLanguageSelectionPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679864987"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy -&gt; ByteStringBuilder
+(AudioLanguageSelectionPolicy -&gt; ByteStringBuilder)
+-&gt; ToLog AudioLanguageSelectionPolicy
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AudioLanguageSelectionPolicy -&gt; ByteStringBuilder
+$cbuild :: AudioLanguageSelectionPolicy -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679864984"><span class="annot"><span class="annottext">HeaderName -&gt; AudioLanguageSelectionPolicy -&gt; [Header]
+(HeaderName -&gt; AudioLanguageSelectionPolicy -&gt; [Header])
+-&gt; ToHeader AudioLanguageSelectionPolicy
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AudioLanguageSelectionPolicy -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AudioLanguageSelectionPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679864981"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy -&gt; QueryString
+(AudioLanguageSelectionPolicy -&gt; QueryString)
+-&gt; ToQuery AudioLanguageSelectionPolicy
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AudioLanguageSelectionPolicy -&gt; QueryString
+$ctoQuery :: AudioLanguageSelectionPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679864976"><span id="local-6989586621679864978"><span class="annot"><span class="annottext">Value -&gt; Parser [AudioLanguageSelectionPolicy]
+Value -&gt; Parser AudioLanguageSelectionPolicy
+(Value -&gt; Parser AudioLanguageSelectionPolicy)
+-&gt; (Value -&gt; Parser [AudioLanguageSelectionPolicy])
+-&gt; FromJSON AudioLanguageSelectionPolicy
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AudioLanguageSelectionPolicy]
+$cparseJSONList :: Value -&gt; Parser [AudioLanguageSelectionPolicy]
+parseJSON :: Value -&gt; Parser AudioLanguageSelectionPolicy
+$cparseJSON :: Value -&gt; Parser AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679864971"><span id="local-6989586621679864973"><span class="annot"><span class="annottext">FromJSONKeyFunction [AudioLanguageSelectionPolicy]
+FromJSONKeyFunction AudioLanguageSelectionPolicy
+FromJSONKeyFunction AudioLanguageSelectionPolicy
+-&gt; FromJSONKeyFunction [AudioLanguageSelectionPolicy]
+-&gt; FromJSONKey AudioLanguageSelectionPolicy
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AudioLanguageSelectionPolicy]
+$cfromJSONKeyList :: FromJSONKeyFunction [AudioLanguageSelectionPolicy]
+fromJSONKey :: FromJSONKeyFunction AudioLanguageSelectionPolicy
+$cfromJSONKey :: FromJSONKeyFunction AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679864962"><span id="local-6989586621679864964"><span id="local-6989586621679864966"><span id="local-6989586621679864968"><span class="annot"><span class="annottext">[AudioLanguageSelectionPolicy] -&gt; Encoding
+[AudioLanguageSelectionPolicy] -&gt; Value
+AudioLanguageSelectionPolicy -&gt; Encoding
+AudioLanguageSelectionPolicy -&gt; Value
+(AudioLanguageSelectionPolicy -&gt; Value)
+-&gt; (AudioLanguageSelectionPolicy -&gt; Encoding)
+-&gt; ([AudioLanguageSelectionPolicy] -&gt; Value)
+-&gt; ([AudioLanguageSelectionPolicy] -&gt; Encoding)
+-&gt; ToJSON AudioLanguageSelectionPolicy
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AudioLanguageSelectionPolicy] -&gt; Encoding
+$ctoEncodingList :: [AudioLanguageSelectionPolicy] -&gt; Encoding
+toJSONList :: [AudioLanguageSelectionPolicy] -&gt; Value
+$ctoJSONList :: [AudioLanguageSelectionPolicy] -&gt; Value
+toEncoding :: AudioLanguageSelectionPolicy -&gt; Encoding
+$ctoEncoding :: AudioLanguageSelectionPolicy -&gt; Encoding
+toJSON :: AudioLanguageSelectionPolicy -&gt; Value
+$ctoJSON :: AudioLanguageSelectionPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679864957"><span id="local-6989586621679864959"><span class="annot"><span class="annottext">ToJSONKeyFunction [AudioLanguageSelectionPolicy]
+ToJSONKeyFunction AudioLanguageSelectionPolicy
+ToJSONKeyFunction AudioLanguageSelectionPolicy
+-&gt; ToJSONKeyFunction [AudioLanguageSelectionPolicy]
+-&gt; ToJSONKey AudioLanguageSelectionPolicy
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AudioLanguageSelectionPolicy]
+$ctoJSONKeyList :: ToJSONKeyFunction [AudioLanguageSelectionPolicy]
+toJSONKey :: ToJSONKeyFunction AudioLanguageSelectionPolicy
+$ctoJSONKey :: ToJSONKeyFunction AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679864954"><span class="annot"><span class="annottext">[Node] -&gt; Either String AudioLanguageSelectionPolicy
+([Node] -&gt; Either String AudioLanguageSelectionPolicy)
+-&gt; FromXML AudioLanguageSelectionPolicy
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AudioLanguageSelectionPolicy
+$cparseXML :: [Node] -&gt; Either String AudioLanguageSelectionPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679864951"><span class="annot"><span class="annottext">AudioLanguageSelectionPolicy -&gt; XML
+(AudioLanguageSelectionPolicy -&gt; XML)
+-&gt; ToXML AudioLanguageSelectionPolicy
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AudioLanguageSelectionPolicy -&gt; XML
+$ctoXML :: AudioLanguageSelectionPolicy -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy_LOOSE"><span class="hs-identifier hs-type">AudioLanguageSelectionPolicy_LOOSE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy"><span class="hs-identifier hs-type">AudioLanguageSelectionPolicy</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioLanguageSelectionPolicy_LOOSE"><span id="%24mAudioLanguageSelectionPolicy_LOOSE"><span id="AudioLanguageSelectionPolicy_LOOSE"><span class="annot"><span class="annottext">$bAudioLanguageSelectionPolicy_LOOSE :: AudioLanguageSelectionPolicy
+$mAudioLanguageSelectionPolicy_LOOSE :: forall r.
+AudioLanguageSelectionPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#%24bAudioLanguageSelectionPolicy_LOOSE"><span class="hs-identifier hs-var hs-var hs-var">AudioLanguageSelectionPolicy_LOOSE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy%27"><span class="hs-identifier hs-type">AudioLanguageSelectionPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOOSE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy_STRICT"><span class="hs-identifier hs-type">AudioLanguageSelectionPolicy_STRICT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy"><span class="hs-identifier hs-type">AudioLanguageSelectionPolicy</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAudioLanguageSelectionPolicy_STRICT"><span id="%24mAudioLanguageSelectionPolicy_STRICT"><span id="AudioLanguageSelectionPolicy_STRICT"><span class="annot"><span class="annottext">$bAudioLanguageSelectionPolicy_STRICT :: AudioLanguageSelectionPolicy
+$mAudioLanguageSelectionPolicy_STRICT :: forall r.
+AudioLanguageSelectionPolicy -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#%24bAudioLanguageSelectionPolicy_STRICT"><span class="hs-identifier hs-var hs-var hs-var">AudioLanguageSelectionPolicy_STRICT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy%27"><span class="hs-identifier hs-type">AudioLanguageSelectionPolicy'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRICT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy_LOOSE"><span class="hs-pragma hs-type">AudioLanguageSelectionPolicy_LOOSE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy_STRICT"><span class="hs-pragma hs-type">AudioLanguageSelectionPolicy_STRICT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.AudioLanguageSelectionPolicy.html#AudioLanguageSelectionPolicy%27"><span class="hs-pragma hs-type">AudioLanguageSelectionPolicy'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

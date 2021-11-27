@@ -1,0 +1,477 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SDB.DeleteAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes one or more attributes associated with an item. If all</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- attributes of the item are deleted, the item is deleted.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @DeleteAttributes@ is an idempotent operation; running it multiple times</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- on the same item or attribute does not result in an error response.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Because Amazon SimpleDB makes multiple copies of item data and uses an</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- eventual consistency update model, performing a GetAttributes or Select</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- operation (read) immediately after a @DeleteAttributes@ or PutAttributes</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- operation (write) might not return updated item data.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SDB.DeleteAttributes</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier">DeleteAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#newDeleteAttributes"><span class="hs-identifier">newDeleteAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_attributes"><span class="hs-identifier">deleteAttributes_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_expected"><span class="hs-identifier">deleteAttributes_expected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_domainName"><span class="hs-identifier">deleteAttributes_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_itemName"><span class="hs-identifier">deleteAttributes_itemName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier">DeleteAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#newDeleteAttributesResponse"><span class="hs-identifier">newDeleteAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SDB.Types.html"><span class="hs-identifier">Amazonka.SDB.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDeleteAttributes' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679151018"><span id="local-6989586621679151019"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttributes"><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-var">DeleteAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttributes%27"><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-var">DeleteAttributes'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of Attributes. Similar to columns on a spreadsheet, attributes</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- represent categories of data that can be assigned to items.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Aattributes%3ADeleteAttributes%27"><span class="annot"><span class="annottext">DeleteAttributes -&gt; Maybe [Attribute]
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3Aattributes%3ADeleteAttributes%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The update condition which, if specified, determines whether the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- specified attributes will be deleted or not. The update condition must</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- be satisfied in order for this request to be processed and the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- attributes to be deleted.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Aexpected%3ADeleteAttributes%27"><span class="annot"><span class="annottext">DeleteAttributes -&gt; Maybe UpdateCondition
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3Aexpected%3ADeleteAttributes%27"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the domain in which to perform the operation.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AdomainName%3ADeleteAttributes%27"><span class="annot"><span class="annottext">DeleteAttributes -&gt; Text
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3AdomainName%3ADeleteAttributes%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The name of the item. Similar to rows on a spreadsheet, items represent</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- individual objects that contain one or more value-attribute pairs.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AitemName%3ADeleteAttributes%27"><span class="annot"><span class="annottext">DeleteAttributes -&gt; Text
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3AitemName%3ADeleteAttributes%27"><span class="hs-identifier hs-var hs-var">itemName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679151009"><span id="local-6989586621679151011"><span class="annot"><span class="annottext">DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
+(DeleteAttributes -&gt; DeleteAttributes -&gt; Bool)
+-&gt; (DeleteAttributes -&gt; DeleteAttributes -&gt; Bool)
+-&gt; Eq DeleteAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
+$c/= :: DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
+== :: DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
+$c== :: DeleteAttributes -&gt; DeleteAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679151000"><span id="local-6989586621679151002"><span id="local-6989586621679151004"><span id="local-6989586621679151006"><span class="annot"><span class="annottext">ReadPrec [DeleteAttributes]
+ReadPrec DeleteAttributes
+Int -&gt; ReadS DeleteAttributes
+ReadS [DeleteAttributes]
+(Int -&gt; ReadS DeleteAttributes)
+-&gt; ReadS [DeleteAttributes]
+-&gt; ReadPrec DeleteAttributes
+-&gt; ReadPrec [DeleteAttributes]
+-&gt; Read DeleteAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAttributes]
+$creadListPrec :: ReadPrec [DeleteAttributes]
+readPrec :: ReadPrec DeleteAttributes
+$creadPrec :: ReadPrec DeleteAttributes
+readList :: ReadS [DeleteAttributes]
+$creadList :: ReadS [DeleteAttributes]
+readsPrec :: Int -&gt; ReadS DeleteAttributes
+$creadsPrec :: Int -&gt; ReadS DeleteAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150993"><span id="local-6989586621679150995"><span id="local-6989586621679150997"><span class="annot"><span class="annottext">Int -&gt; DeleteAttributes -&gt; ShowS
+[DeleteAttributes] -&gt; ShowS
+DeleteAttributes -&gt; String
+(Int -&gt; DeleteAttributes -&gt; ShowS)
+-&gt; (DeleteAttributes -&gt; String)
+-&gt; ([DeleteAttributes] -&gt; ShowS)
+-&gt; Show DeleteAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAttributes] -&gt; ShowS
+$cshowList :: [DeleteAttributes] -&gt; ShowS
+show :: DeleteAttributes -&gt; String
+$cshow :: DeleteAttributes -&gt; String
+showsPrec :: Int -&gt; DeleteAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAttributes -&gt; Rep DeleteAttributes x)
+-&gt; (forall x. Rep DeleteAttributes x -&gt; DeleteAttributes)
+-&gt; Generic DeleteAttributes
+forall x. Rep DeleteAttributes x -&gt; DeleteAttributes
+forall x. DeleteAttributes -&gt; Rep DeleteAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAttributes x -&gt; DeleteAttributes
+$cfrom :: forall x. DeleteAttributes -&gt; Rep DeleteAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'DeleteAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'attributes', 'deleteAttributes_attributes' - A list of Attributes. Similar to columns on a spreadsheet, attributes</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- represent categories of data that can be assigned to items.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'expected', 'deleteAttributes_expected' - The update condition which, if specified, determines whether the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- specified attributes will be deleted or not. The update condition must</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- be satisfied in order for this request to be processed and the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- attributes to be deleted.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'domainName', 'deleteAttributes_domainName' - The name of the domain in which to perform the operation.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'itemName', 'deleteAttributes_itemName' - The name of the item. Similar to rows on a spreadsheet, items represent</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- individual objects that contain one or more value-attribute pairs.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#newDeleteAttributes"><span class="hs-identifier hs-type">newDeleteAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'itemName'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span>
+</span><span id="line-101"></span><span id="newDeleteAttributes"><span class="annot"><span class="annottext">newDeleteAttributes :: Text -&gt; Text -&gt; DeleteAttributes
+</span><a href="Amazonka.SDB.DeleteAttributes.html#newDeleteAttributes"><span class="hs-identifier hs-var hs-var">newDeleteAttributes</span></a></span></span><span> </span><span id="local-6989586621679150988"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150988"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span id="local-6989586621679150987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150987"><span class="hs-identifier hs-var">pItemName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="annottext">DeleteAttributes' :: Maybe [Attribute]
+-&gt; Maybe UpdateCondition -&gt; Text -&gt; Text -&gt; DeleteAttributes
+</span><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:DeleteAttributes' :: Maybe [Attribute]
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3Aattributes%3ADeleteAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:expected:DeleteAttributes' :: Maybe UpdateCondition
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3Aexpected%3ADeleteAttributes%27"><span class="hs-identifier hs-var">expected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:domainName:DeleteAttributes' :: Text
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3AdomainName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150988"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:itemName:DeleteAttributes' :: Text
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3AitemName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">itemName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150987"><span class="hs-identifier hs-var">pItemName_</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | A list of Attributes. Similar to columns on a spreadsheet, attributes</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- represent categories of data that can be assigned to items.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_attributes"><span class="hs-identifier hs-type">deleteAttributes_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SDB.Types.Attribute.html#Attribute"><span class="hs-identifier hs-type">Attribute</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="deleteAttributes_attributes"><span class="annot"><span class="annottext">deleteAttributes_attributes :: (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; DeleteAttributes -&gt; f DeleteAttributes
+</span><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_attributes"><span class="hs-identifier hs-var hs-var">deleteAttributes_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAttributes -&gt; Maybe [Attribute])
+-&gt; (DeleteAttributes -&gt; Maybe [Attribute] -&gt; DeleteAttributes)
+-&gt; Lens
+     DeleteAttributes
+     DeleteAttributes
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150984"><span class="annot"><span class="annottext">Maybe [Attribute]
+attributes :: Maybe [Attribute]
+$sel:attributes:DeleteAttributes' :: DeleteAttributes -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679150984"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679150984"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150983"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679150983"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150982"><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679150982"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679150983"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:DeleteAttributes' :: Maybe [Attribute]
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3Aattributes%3ADeleteAttributes%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679150982"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+ -&gt; DeleteAttributes -&gt; f DeleteAttributes)
+-&gt; ((Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+    -&gt; Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; (Maybe [Attribute] -&gt; f (Maybe [Attribute]))
+-&gt; DeleteAttributes
+-&gt; f DeleteAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+-&gt; Iso
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+     (Maybe [Attribute])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Attribute] [Attribute] [Attribute] [Attribute]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The update condition which, if specified, determines whether the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- specified attributes will be deleted or not. The update condition must</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- be satisfied in order for this request to be processed and the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- attributes to be deleted.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_expected"><span class="hs-identifier hs-type">deleteAttributes_expected</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.Types.UpdateCondition.html#UpdateCondition"><span class="hs-identifier hs-type">UpdateCondition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="deleteAttributes_expected"><span class="annot"><span class="annottext">deleteAttributes_expected :: (Maybe UpdateCondition -&gt; f (Maybe UpdateCondition))
+-&gt; DeleteAttributes -&gt; f DeleteAttributes
+</span><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_expected"><span class="hs-identifier hs-var hs-var">deleteAttributes_expected</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAttributes -&gt; Maybe UpdateCondition)
+-&gt; (DeleteAttributes -&gt; Maybe UpdateCondition -&gt; DeleteAttributes)
+-&gt; Lens
+     DeleteAttributes
+     DeleteAttributes
+     (Maybe UpdateCondition)
+     (Maybe UpdateCondition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150978"><span class="annot"><span class="annottext">Maybe UpdateCondition
+expected :: Maybe UpdateCondition
+$sel:expected:DeleteAttributes' :: DeleteAttributes -&gt; Maybe UpdateCondition
+</span><a href="#local-6989586621679150978"><span class="hs-identifier hs-var hs-var">expected</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
+</span><a href="#local-6989586621679150978"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150977"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679150977"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150976"><span class="annot"><span class="annottext">Maybe UpdateCondition
+</span><a href="#local-6989586621679150976"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679150977"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expected:DeleteAttributes' :: Maybe UpdateCondition
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3Aexpected%3ADeleteAttributes%27"><span class="hs-identifier hs-var">expected</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
+</span><a href="#local-6989586621679150976"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The name of the domain in which to perform the operation.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_domainName"><span class="hs-identifier hs-type">deleteAttributes_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="deleteAttributes_domainName"><span class="annot"><span class="annottext">deleteAttributes_domainName :: (Text -&gt; f Text) -&gt; DeleteAttributes -&gt; f DeleteAttributes
+</span><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_domainName"><span class="hs-identifier hs-var hs-var">deleteAttributes_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAttributes -&gt; Text)
+-&gt; (DeleteAttributes -&gt; Text -&gt; DeleteAttributes)
+-&gt; Lens DeleteAttributes DeleteAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150975"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DeleteAttributes' :: DeleteAttributes -&gt; Text
+</span><a href="#local-6989586621679150975"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150975"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150974"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679150974"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150973"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150973"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679150974"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DeleteAttributes' :: Text
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3AdomainName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150973"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the item. Similar to rows on a spreadsheet, items represent</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- individual objects that contain one or more value-attribute pairs.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_itemName"><span class="hs-identifier hs-type">deleteAttributes_itemName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="deleteAttributes_itemName"><span class="annot"><span class="annottext">deleteAttributes_itemName :: (Text -&gt; f Text) -&gt; DeleteAttributes -&gt; f DeleteAttributes
+</span><a href="Amazonka.SDB.DeleteAttributes.html#deleteAttributes_itemName"><span class="hs-identifier hs-var hs-var">deleteAttributes_itemName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAttributes -&gt; Text)
+-&gt; (DeleteAttributes -&gt; Text -&gt; DeleteAttributes)
+-&gt; Lens DeleteAttributes DeleteAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150972"><span class="annot"><span class="annottext">Text
+itemName :: Text
+$sel:itemName:DeleteAttributes' :: DeleteAttributes -&gt; Text
+</span><a href="#local-6989586621679150972"><span class="hs-identifier hs-var hs-var">itemName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150972"><span class="hs-identifier hs-var">itemName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150971"><span class="annot"><span class="annottext">s :: DeleteAttributes
+</span><a href="#local-6989586621679150971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150970"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAttributes
+</span><a href="#local-6989586621679150971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:itemName:DeleteAttributes' :: Text
+</span><a href="Amazonka.SDB.DeleteAttributes.html#%24sel%3AitemName%3ADeleteAttributes%27"><span class="hs-identifier hs-var">itemName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-132"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-type">DeleteAttributesResponse</span></a></span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679150966"><span class="annot"><span class="annottext">request :: DeleteAttributes -&gt; Request DeleteAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAttributes -&gt; Request DeleteAttributes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SDB.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679150962"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteAttributes
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DeleteAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteAttributes
+DeleteAttributesResponse
+</span><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse%27"><span class="hs-identifier hs-var">DeleteAttributesResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150955"><span id="local-6989586621679150957"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span></span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150952"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679150948"><span class="annot"><span class="annottext">toHeaders :: DeleteAttributes -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAttributes -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679150943"><span class="annot"><span class="annottext">toPath :: DeleteAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAttributes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes"><span class="hs-identifier hs-type">DeleteAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679150939"><span class="annot"><span class="annottext">toQuery :: DeleteAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributes%27"><span class="hs-identifier hs-type">DeleteAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150934"><span id="local-6989586621679150935"><span id="local-6989586621679150936"><span id="local-6989586621679150937"><span class="annot"><span class="annottext">Maybe [Attribute]
+Maybe UpdateCondition
+Text
+itemName :: Text
+domainName :: Text
+expected :: Maybe UpdateCondition
+attributes :: Maybe [Attribute]
+$sel:itemName:DeleteAttributes' :: DeleteAttributes -&gt; Text
+$sel:domainName:DeleteAttributes' :: DeleteAttributes -&gt; Text
+$sel:expected:DeleteAttributes' :: DeleteAttributes -&gt; Maybe UpdateCondition
+$sel:attributes:DeleteAttributes' :: DeleteAttributes -&gt; Maybe [Attribute]
+</span><a href="#local-6989586621679150934"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteAttributes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-154"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2009-04-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Attribute] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Attribute&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">([Attribute] -&gt; QueryString)
+-&gt; Maybe [Attribute] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Attribute]
+</span><a href="#local-6989586621679150937"><span class="hs-identifier hs-var">attributes</span></a></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Expected&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe UpdateCondition -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateCondition
+</span><a href="#local-6989586621679150936"><span class="hs-identifier hs-var">expected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150935"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ItemName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150934"><span class="hs-identifier hs-var">itemName</span></a></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newDeleteAttributesResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679150929"><span id="local-6989586621679150930"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAttributesResponse"><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-var">DeleteAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAttributesResponse%27"><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse%27"><span class="hs-identifier hs-var">DeleteAttributesResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-167"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679150925"><span id="local-6989586621679150927"><span class="annot"><span class="annottext">DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
+(DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool)
+-&gt; (DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool)
+-&gt; Eq DeleteAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
+$c/= :: DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
+== :: DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
+$c== :: DeleteAttributesResponse -&gt; DeleteAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150917"><span id="local-6989586621679150919"><span id="local-6989586621679150921"><span id="local-6989586621679150923"><span class="annot"><span class="annottext">ReadPrec [DeleteAttributesResponse]
+ReadPrec DeleteAttributesResponse
+Int -&gt; ReadS DeleteAttributesResponse
+ReadS [DeleteAttributesResponse]
+(Int -&gt; ReadS DeleteAttributesResponse)
+-&gt; ReadS [DeleteAttributesResponse]
+-&gt; ReadPrec DeleteAttributesResponse
+-&gt; ReadPrec [DeleteAttributesResponse]
+-&gt; Read DeleteAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAttributesResponse]
+$creadListPrec :: ReadPrec [DeleteAttributesResponse]
+readPrec :: ReadPrec DeleteAttributesResponse
+$creadPrec :: ReadPrec DeleteAttributesResponse
+readList :: ReadS [DeleteAttributesResponse]
+$creadList :: ReadS [DeleteAttributesResponse]
+readsPrec :: Int -&gt; ReadS DeleteAttributesResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150911"><span id="local-6989586621679150913"><span id="local-6989586621679150915"><span class="annot"><span class="annottext">Int -&gt; DeleteAttributesResponse -&gt; ShowS
+[DeleteAttributesResponse] -&gt; ShowS
+DeleteAttributesResponse -&gt; String
+(Int -&gt; DeleteAttributesResponse -&gt; ShowS)
+-&gt; (DeleteAttributesResponse -&gt; String)
+-&gt; ([DeleteAttributesResponse] -&gt; ShowS)
+-&gt; Show DeleteAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAttributesResponse] -&gt; ShowS
+$cshowList :: [DeleteAttributesResponse] -&gt; ShowS
+show :: DeleteAttributesResponse -&gt; String
+$cshow :: DeleteAttributesResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAttributesResponse -&gt; Rep DeleteAttributesResponse x)
+-&gt; (forall x.
+    Rep DeleteAttributesResponse x -&gt; DeleteAttributesResponse)
+-&gt; Generic DeleteAttributesResponse
+forall x.
+Rep DeleteAttributesResponse x -&gt; DeleteAttributesResponse
+forall x.
+DeleteAttributesResponse -&gt; Rep DeleteAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAttributesResponse x -&gt; DeleteAttributesResponse
+$cfrom :: forall x.
+DeleteAttributesResponse -&gt; Rep DeleteAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Create a value of 'DeleteAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#newDeleteAttributesResponse"><span class="hs-identifier hs-type">newDeleteAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-type">DeleteAttributesResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newDeleteAttributesResponse"><span class="annot"><span class="annottext">newDeleteAttributesResponse :: DeleteAttributesResponse
+</span><a href="Amazonka.SDB.DeleteAttributes.html#newDeleteAttributesResponse"><span class="hs-identifier hs-var hs-var">newDeleteAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">DeleteAttributesResponse
+</span><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse%27"><span class="hs-identifier hs-var">DeleteAttributesResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150907"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SDB.DeleteAttributes.html#DeleteAttributesResponse"><span class="hs-identifier hs-type">DeleteAttributesResponse</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

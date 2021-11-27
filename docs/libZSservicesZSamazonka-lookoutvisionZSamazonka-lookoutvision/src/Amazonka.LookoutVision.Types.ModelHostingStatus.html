@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.LookoutVision.Types.ModelHostingStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.LookoutVision.Types.ModelHostingStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus"><span class="hs-identifier">ModelHostingStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_HOSTED"><span class="hs-identifier">ModelHostingStatus_HOSTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_HOSTING_FAILED"><span class="hs-identifier">ModelHostingStatus_HOSTING_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_STARTING_HOSTING"><span class="hs-identifier">ModelHostingStatus_STARTING_HOSTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_STOPPING_HOSTING"><span class="hs-identifier">ModelHostingStatus_STOPPING_HOSTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_SYSTEM_UPDATING"><span class="hs-identifier">ModelHostingStatus_SYSTEM_UPDATING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679181244"><span id="local-6989586621679181245"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ModelHostingStatus"><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus"><span class="hs-identifier hs-var">ModelHostingStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModelHostingStatus%27"><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus%27"><span class="hs-identifier hs-var">ModelHostingStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromModelHostingStatus"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; Text
+</span><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#fromModelHostingStatus"><span class="hs-identifier hs-var hs-var">fromModelHostingStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679181236"><span id="local-6989586621679181238"><span id="local-6989586621679181240"><span class="annot"><span class="annottext">Int -&gt; ModelHostingStatus -&gt; ShowS
+[ModelHostingStatus] -&gt; ShowS
+ModelHostingStatus -&gt; String
+(Int -&gt; ModelHostingStatus -&gt; ShowS)
+-&gt; (ModelHostingStatus -&gt; String)
+-&gt; ([ModelHostingStatus] -&gt; ShowS)
+-&gt; Show ModelHostingStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModelHostingStatus] -&gt; ShowS
+$cshowList :: [ModelHostingStatus] -&gt; ShowS
+show :: ModelHostingStatus -&gt; String
+$cshow :: ModelHostingStatus -&gt; String
+showsPrec :: Int -&gt; ModelHostingStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModelHostingStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679181227"><span id="local-6989586621679181229"><span id="local-6989586621679181231"><span id="local-6989586621679181233"><span class="annot"><span class="annottext">ReadPrec [ModelHostingStatus]
+ReadPrec ModelHostingStatus
+Int -&gt; ReadS ModelHostingStatus
+ReadS [ModelHostingStatus]
+(Int -&gt; ReadS ModelHostingStatus)
+-&gt; ReadS [ModelHostingStatus]
+-&gt; ReadPrec ModelHostingStatus
+-&gt; ReadPrec [ModelHostingStatus]
+-&gt; Read ModelHostingStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModelHostingStatus]
+$creadListPrec :: ReadPrec [ModelHostingStatus]
+readPrec :: ReadPrec ModelHostingStatus
+$creadPrec :: ReadPrec ModelHostingStatus
+readList :: ReadS [ModelHostingStatus]
+$creadList :: ReadS [ModelHostingStatus]
+readsPrec :: Int -&gt; ReadS ModelHostingStatus
+$creadsPrec :: Int -&gt; ReadS ModelHostingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679181222"><span id="local-6989586621679181224"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+(ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool)
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool)
+-&gt; Eq ModelHostingStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+$c/= :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+== :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+$c== :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679181206"><span id="local-6989586621679181208"><span id="local-6989586621679181210"><span id="local-6989586621679181212"><span id="local-6989586621679181214"><span id="local-6989586621679181216"><span id="local-6989586621679181218"><span class="annot"><span class="annottext">Eq ModelHostingStatus
+Eq ModelHostingStatus
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; Ordering)
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool)
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool)
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool)
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool)
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; ModelHostingStatus)
+-&gt; (ModelHostingStatus -&gt; ModelHostingStatus -&gt; ModelHostingStatus)
+-&gt; Ord ModelHostingStatus
+ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+ModelHostingStatus -&gt; ModelHostingStatus -&gt; Ordering
+ModelHostingStatus -&gt; ModelHostingStatus -&gt; ModelHostingStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; ModelHostingStatus
+$cmin :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; ModelHostingStatus
+max :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; ModelHostingStatus
+$cmax :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; ModelHostingStatus
+&gt;= :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+$c&gt;= :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+&gt; :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+$c&gt; :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+&lt;= :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+$c&lt;= :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+&lt; :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+$c&lt; :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Bool
+compare :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Ordering
+$ccompare :: ModelHostingStatus -&gt; ModelHostingStatus -&gt; Ordering
+$cp1Ord :: Eq ModelHostingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ModelHostingStatus -&gt; Rep ModelHostingStatus x)
+-&gt; (forall x. Rep ModelHostingStatus x -&gt; ModelHostingStatus)
+-&gt; Generic ModelHostingStatus
+forall x. Rep ModelHostingStatus x -&gt; ModelHostingStatus
+forall x. ModelHostingStatus -&gt; Rep ModelHostingStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModelHostingStatus x -&gt; ModelHostingStatus
+$cfrom :: forall x. ModelHostingStatus -&gt; Rep ModelHostingStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679181198"><span id="local-6989586621679181200"><span class="annot"><span class="annottext">Int -&gt; ModelHostingStatus -&gt; Int
+ModelHostingStatus -&gt; Int
+(Int -&gt; ModelHostingStatus -&gt; Int)
+-&gt; (ModelHostingStatus -&gt; Int) -&gt; Hashable ModelHostingStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ModelHostingStatus -&gt; Int
+$chash :: ModelHostingStatus -&gt; Int
+hashWithSalt :: Int -&gt; ModelHostingStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ModelHostingStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679181195"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; ()
+(ModelHostingStatus -&gt; ()) -&gt; NFData ModelHostingStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ModelHostingStatus -&gt; ()
+$crnf :: ModelHostingStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679181192"><span class="annot"><span class="annottext">Text -&gt; Either String ModelHostingStatus
+(Text -&gt; Either String ModelHostingStatus)
+-&gt; FromText ModelHostingStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ModelHostingStatus
+$cfromText :: Text -&gt; Either String ModelHostingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679181189"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; Text
+(ModelHostingStatus -&gt; Text) -&gt; ToText ModelHostingStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ModelHostingStatus -&gt; Text
+$ctoText :: ModelHostingStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679181186"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; ByteString
+(ModelHostingStatus -&gt; ByteString)
+-&gt; ToByteString ModelHostingStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ModelHostingStatus -&gt; ByteString
+$ctoBS :: ModelHostingStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679181183"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; ByteStringBuilder
+(ModelHostingStatus -&gt; ByteStringBuilder)
+-&gt; ToLog ModelHostingStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ModelHostingStatus -&gt; ByteStringBuilder
+$cbuild :: ModelHostingStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679181180"><span class="annot"><span class="annottext">HeaderName -&gt; ModelHostingStatus -&gt; [Header]
+(HeaderName -&gt; ModelHostingStatus -&gt; [Header])
+-&gt; ToHeader ModelHostingStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ModelHostingStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ModelHostingStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679181177"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; QueryString
+(ModelHostingStatus -&gt; QueryString) -&gt; ToQuery ModelHostingStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ModelHostingStatus -&gt; QueryString
+$ctoQuery :: ModelHostingStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679181172"><span id="local-6989586621679181174"><span class="annot"><span class="annottext">Value -&gt; Parser [ModelHostingStatus]
+Value -&gt; Parser ModelHostingStatus
+(Value -&gt; Parser ModelHostingStatus)
+-&gt; (Value -&gt; Parser [ModelHostingStatus])
+-&gt; FromJSON ModelHostingStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ModelHostingStatus]
+$cparseJSONList :: Value -&gt; Parser [ModelHostingStatus]
+parseJSON :: Value -&gt; Parser ModelHostingStatus
+$cparseJSON :: Value -&gt; Parser ModelHostingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679181167"><span id="local-6989586621679181169"><span class="annot"><span class="annottext">FromJSONKeyFunction [ModelHostingStatus]
+FromJSONKeyFunction ModelHostingStatus
+FromJSONKeyFunction ModelHostingStatus
+-&gt; FromJSONKeyFunction [ModelHostingStatus]
+-&gt; FromJSONKey ModelHostingStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ModelHostingStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ModelHostingStatus]
+fromJSONKey :: FromJSONKeyFunction ModelHostingStatus
+$cfromJSONKey :: FromJSONKeyFunction ModelHostingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679181158"><span id="local-6989586621679181160"><span id="local-6989586621679181162"><span id="local-6989586621679181164"><span class="annot"><span class="annottext">[ModelHostingStatus] -&gt; Encoding
+[ModelHostingStatus] -&gt; Value
+ModelHostingStatus -&gt; Encoding
+ModelHostingStatus -&gt; Value
+(ModelHostingStatus -&gt; Value)
+-&gt; (ModelHostingStatus -&gt; Encoding)
+-&gt; ([ModelHostingStatus] -&gt; Value)
+-&gt; ([ModelHostingStatus] -&gt; Encoding)
+-&gt; ToJSON ModelHostingStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ModelHostingStatus] -&gt; Encoding
+$ctoEncodingList :: [ModelHostingStatus] -&gt; Encoding
+toJSONList :: [ModelHostingStatus] -&gt; Value
+$ctoJSONList :: [ModelHostingStatus] -&gt; Value
+toEncoding :: ModelHostingStatus -&gt; Encoding
+$ctoEncoding :: ModelHostingStatus -&gt; Encoding
+toJSON :: ModelHostingStatus -&gt; Value
+$ctoJSON :: ModelHostingStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679181153"><span id="local-6989586621679181155"><span class="annot"><span class="annottext">ToJSONKeyFunction [ModelHostingStatus]
+ToJSONKeyFunction ModelHostingStatus
+ToJSONKeyFunction ModelHostingStatus
+-&gt; ToJSONKeyFunction [ModelHostingStatus]
+-&gt; ToJSONKey ModelHostingStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ModelHostingStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ModelHostingStatus]
+toJSONKey :: ToJSONKeyFunction ModelHostingStatus
+$ctoJSONKey :: ToJSONKeyFunction ModelHostingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679181150"><span class="annot"><span class="annottext">[Node] -&gt; Either String ModelHostingStatus
+([Node] -&gt; Either String ModelHostingStatus)
+-&gt; FromXML ModelHostingStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ModelHostingStatus
+$cparseXML :: [Node] -&gt; Either String ModelHostingStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679181147"><span class="annot"><span class="annottext">ModelHostingStatus -&gt; XML
+(ModelHostingStatus -&gt; XML) -&gt; ToXML ModelHostingStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ModelHostingStatus -&gt; XML
+$ctoXML :: ModelHostingStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_HOSTED"><span class="hs-identifier hs-type">ModelHostingStatus_HOSTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus"><span class="hs-identifier hs-type">ModelHostingStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelHostingStatus_HOSTED"><span id="%24mModelHostingStatus_HOSTED"><span id="ModelHostingStatus_HOSTED"><span class="annot"><span class="annottext">$bModelHostingStatus_HOSTED :: ModelHostingStatus
+$mModelHostingStatus_HOSTED :: forall r. ModelHostingStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#%24bModelHostingStatus_HOSTED"><span class="hs-identifier hs-var hs-var hs-var">ModelHostingStatus_HOSTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus%27"><span class="hs-identifier hs-type">ModelHostingStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HOSTED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_HOSTING_FAILED"><span class="hs-identifier hs-type">ModelHostingStatus_HOSTING_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus"><span class="hs-identifier hs-type">ModelHostingStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelHostingStatus_HOSTING_FAILED"><span id="%24mModelHostingStatus_HOSTING_FAILED"><span id="ModelHostingStatus_HOSTING_FAILED"><span class="annot"><span class="annottext">$bModelHostingStatus_HOSTING_FAILED :: ModelHostingStatus
+$mModelHostingStatus_HOSTING_FAILED :: forall r. ModelHostingStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#%24bModelHostingStatus_HOSTING_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ModelHostingStatus_HOSTING_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus%27"><span class="hs-identifier hs-type">ModelHostingStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HOSTING_FAILED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_STARTING_HOSTING"><span class="hs-identifier hs-type">ModelHostingStatus_STARTING_HOSTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus"><span class="hs-identifier hs-type">ModelHostingStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelHostingStatus_STARTING_HOSTING"><span id="%24mModelHostingStatus_STARTING_HOSTING"><span id="ModelHostingStatus_STARTING_HOSTING"><span class="annot"><span class="annottext">$bModelHostingStatus_STARTING_HOSTING :: ModelHostingStatus
+$mModelHostingStatus_STARTING_HOSTING :: forall r. ModelHostingStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#%24bModelHostingStatus_STARTING_HOSTING"><span class="hs-identifier hs-var hs-var hs-var">ModelHostingStatus_STARTING_HOSTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus%27"><span class="hs-identifier hs-type">ModelHostingStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STARTING_HOSTING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_STOPPING_HOSTING"><span class="hs-identifier hs-type">ModelHostingStatus_STOPPING_HOSTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus"><span class="hs-identifier hs-type">ModelHostingStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelHostingStatus_STOPPING_HOSTING"><span id="%24mModelHostingStatus_STOPPING_HOSTING"><span id="ModelHostingStatus_STOPPING_HOSTING"><span class="annot"><span class="annottext">$bModelHostingStatus_STOPPING_HOSTING :: ModelHostingStatus
+$mModelHostingStatus_STOPPING_HOSTING :: forall r. ModelHostingStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#%24bModelHostingStatus_STOPPING_HOSTING"><span class="hs-identifier hs-var hs-var hs-var">ModelHostingStatus_STOPPING_HOSTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus%27"><span class="hs-identifier hs-type">ModelHostingStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPING_HOSTING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_SYSTEM_UPDATING"><span class="hs-identifier hs-type">ModelHostingStatus_SYSTEM_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus"><span class="hs-identifier hs-type">ModelHostingStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bModelHostingStatus_SYSTEM_UPDATING"><span id="%24mModelHostingStatus_SYSTEM_UPDATING"><span id="ModelHostingStatus_SYSTEM_UPDATING"><span class="annot"><span class="annottext">$bModelHostingStatus_SYSTEM_UPDATING :: ModelHostingStatus
+$mModelHostingStatus_SYSTEM_UPDATING :: forall r. ModelHostingStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#%24bModelHostingStatus_SYSTEM_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">ModelHostingStatus_SYSTEM_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus%27"><span class="hs-identifier hs-type">ModelHostingStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SYSTEM_UPDATING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_HOSTED"><span class="hs-pragma hs-type">ModelHostingStatus_HOSTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_HOSTING_FAILED"><span class="hs-pragma hs-type">ModelHostingStatus_HOSTING_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_STARTING_HOSTING"><span class="hs-pragma hs-type">ModelHostingStatus_STARTING_HOSTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_STOPPING_HOSTING"><span class="hs-pragma hs-type">ModelHostingStatus_STOPPING_HOSTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus_SYSTEM_UPDATING"><span class="hs-pragma hs-type">ModelHostingStatus_SYSTEM_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.LookoutVision.Types.ModelHostingStatus.html#ModelHostingStatus%27"><span class="hs-pragma hs-type">ModelHostingStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

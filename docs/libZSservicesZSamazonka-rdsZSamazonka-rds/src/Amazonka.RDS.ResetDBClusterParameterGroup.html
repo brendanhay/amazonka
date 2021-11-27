@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.ResetDBClusterParameterGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies the parameters of a DB cluster parameter group to the default</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- value. To reset specific parameters submit a list of the following:</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- @ParameterName@ and @ApplyMethod@. To reset the entire DB cluster</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- parameter group, specify the @DBClusterParameterGroupName@ and</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- @ResetAllParameters@ parameters.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When resetting the entire group, dynamic parameters are updated</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- immediately and static parameters are set to @pending-reboot@ to take</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- effect on the next DB instance restart or @RebootDBInstance@ request.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- You must call @RebootDBInstance@ for every DB instance in your DB</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- cluster that you want the updated static parameter to apply to.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- For more information on Amazon Aurora, see</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html What Is Amazon Aurora?&gt;</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- in the /Amazon Aurora User Guide./</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- This action only applies to Aurora DB clusters.</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.ResetDBClusterParameterGroup</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#newResetDBClusterParameterGroup"><span class="hs-identifier">newResetDBClusterParameterGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_resetAllParameters"><span class="hs-identifier">resetDBClusterParameterGroup_resetAllParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_parameters"><span class="hs-identifier">resetDBClusterParameterGroup_parameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_dbClusterParameterGroupName"><span class="hs-identifier">resetDBClusterParameterGroup_dbClusterParameterGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.Types.DBClusterParameterGroupNameMessage.html#DBClusterParameterGroupNameMessage"><span class="hs-identifier">DBClusterParameterGroupNameMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.Types.DBClusterParameterGroupNameMessage.html#newDBClusterParameterGroupNameMessage"><span class="hs-identifier">newDBClusterParameterGroupNameMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.Types.DBClusterParameterGroupNameMessage.html#dbClusterParameterGroupNameMessage_dbClusterParameterGroupName"><span class="hs-identifier">dbClusterParameterGroupNameMessage_dbClusterParameterGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- /See:/ 'newResetDBClusterParameterGroup' smart constructor.</span><span>
+</span><span id="line-69"></span><span id="local-6989586621679778374"><span id="local-6989586621679778375"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResetDBClusterParameterGroup"><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-var">ResetDBClusterParameterGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResetDBClusterParameterGroup%27"><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">ResetDBClusterParameterGroup'</span></a></span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A value that indicates whether to reset all parameters in the DB cluster</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- parameter group to their default values. You can\'t use this parameter</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- if there is a list of parameter names specified for the @Parameters@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AresetAllParameters%3AResetDBClusterParameterGroup%27"><span class="annot"><span class="annottext">ResetDBClusterParameterGroup -&gt; Maybe Bool
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3AresetAllParameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var hs-var">resetAllParameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A list of parameter names in the DB cluster parameter group to reset to</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the default values. You can\'t use this parameter if the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- @ResetAllParameters@ parameter is enabled.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3Aparameters%3AResetDBClusterParameterGroup%27"><span class="annot"><span class="annottext">ResetDBClusterParameterGroup -&gt; Maybe [Parameter]
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3Aparameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The name of the DB cluster parameter group to reset.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="annot"><span class="annottext">ResetDBClusterParameterGroup -&gt; Text
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var hs-var">dbClusterParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679778366"><span id="local-6989586621679778368"><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+-&gt; ResetDBClusterParameterGroup -&gt; Bool
+(ResetDBClusterParameterGroup
+ -&gt; ResetDBClusterParameterGroup -&gt; Bool)
+-&gt; (ResetDBClusterParameterGroup
+    -&gt; ResetDBClusterParameterGroup -&gt; Bool)
+-&gt; Eq ResetDBClusterParameterGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResetDBClusterParameterGroup
+-&gt; ResetDBClusterParameterGroup -&gt; Bool
+$c/= :: ResetDBClusterParameterGroup
+-&gt; ResetDBClusterParameterGroup -&gt; Bool
+== :: ResetDBClusterParameterGroup
+-&gt; ResetDBClusterParameterGroup -&gt; Bool
+$c== :: ResetDBClusterParameterGroup
+-&gt; ResetDBClusterParameterGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778357"><span id="local-6989586621679778359"><span id="local-6989586621679778361"><span id="local-6989586621679778363"><span class="annot"><span class="annottext">ReadPrec [ResetDBClusterParameterGroup]
+ReadPrec ResetDBClusterParameterGroup
+Int -&gt; ReadS ResetDBClusterParameterGroup
+ReadS [ResetDBClusterParameterGroup]
+(Int -&gt; ReadS ResetDBClusterParameterGroup)
+-&gt; ReadS [ResetDBClusterParameterGroup]
+-&gt; ReadPrec ResetDBClusterParameterGroup
+-&gt; ReadPrec [ResetDBClusterParameterGroup]
+-&gt; Read ResetDBClusterParameterGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResetDBClusterParameterGroup]
+$creadListPrec :: ReadPrec [ResetDBClusterParameterGroup]
+readPrec :: ReadPrec ResetDBClusterParameterGroup
+$creadPrec :: ReadPrec ResetDBClusterParameterGroup
+readList :: ReadS [ResetDBClusterParameterGroup]
+$creadList :: ReadS [ResetDBClusterParameterGroup]
+readsPrec :: Int -&gt; ReadS ResetDBClusterParameterGroup
+$creadsPrec :: Int -&gt; ReadS ResetDBClusterParameterGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679778350"><span id="local-6989586621679778352"><span id="local-6989586621679778354"><span class="annot"><span class="annottext">Int -&gt; ResetDBClusterParameterGroup -&gt; ShowS
+[ResetDBClusterParameterGroup] -&gt; ShowS
+ResetDBClusterParameterGroup -&gt; String
+(Int -&gt; ResetDBClusterParameterGroup -&gt; ShowS)
+-&gt; (ResetDBClusterParameterGroup -&gt; String)
+-&gt; ([ResetDBClusterParameterGroup] -&gt; ShowS)
+-&gt; Show ResetDBClusterParameterGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResetDBClusterParameterGroup] -&gt; ShowS
+$cshowList :: [ResetDBClusterParameterGroup] -&gt; ShowS
+show :: ResetDBClusterParameterGroup -&gt; String
+$cshow :: ResetDBClusterParameterGroup -&gt; String
+showsPrec :: Int -&gt; ResetDBClusterParameterGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResetDBClusterParameterGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResetDBClusterParameterGroup -&gt; Rep ResetDBClusterParameterGroup x)
+-&gt; (forall x.
+    Rep ResetDBClusterParameterGroup x -&gt; ResetDBClusterParameterGroup)
+-&gt; Generic ResetDBClusterParameterGroup
+forall x.
+Rep ResetDBClusterParameterGroup x -&gt; ResetDBClusterParameterGroup
+forall x.
+ResetDBClusterParameterGroup -&gt; Rep ResetDBClusterParameterGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ResetDBClusterParameterGroup x -&gt; ResetDBClusterParameterGroup
+$cfrom :: forall x.
+ResetDBClusterParameterGroup -&gt; Rep ResetDBClusterParameterGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'ResetDBClusterParameterGroup' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'resetAllParameters', 'resetDBClusterParameterGroup_resetAllParameters' - A value that indicates whether to reset all parameters in the DB cluster</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- parameter group to their default values. You can\'t use this parameter</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- if there is a list of parameter names specified for the @Parameters@</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'parameters', 'resetDBClusterParameterGroup_parameters' - A list of parameter names in the DB cluster parameter group to reset to</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- the default values. You can\'t use this parameter if the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- @ResetAllParameters@ parameter is enabled.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'dbClusterParameterGroupName', 'resetDBClusterParameterGroup_dbClusterParameterGroupName' - The name of the DB cluster parameter group to reset.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#newResetDBClusterParameterGroup"><span class="hs-identifier hs-type">newResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-comment">-- | 'dbClusterParameterGroupName'</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span>
+</span><span id="line-106"></span><span id="newResetDBClusterParameterGroup"><span class="annot"><span class="annottext">newResetDBClusterParameterGroup :: Text -&gt; ResetDBClusterParameterGroup
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#newResetDBClusterParameterGroup"><span class="hs-identifier hs-var hs-var">newResetDBClusterParameterGroup</span></a></span></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679778345"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778345"><span class="hs-identifier hs-var">pDBClusterParameterGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup' :: Maybe Bool
+-&gt; Maybe [Parameter] -&gt; Text -&gt; ResetDBClusterParameterGroup
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resetAllParameters:ResetDBClusterParameterGroup' :: Maybe Bool
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3AresetAllParameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:parameters:ResetDBClusterParameterGroup' :: Maybe [Parameter]
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3Aparameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: Text
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778345"><span class="hs-identifier hs-var">pDBClusterParameterGroupName_</span></a></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | A value that indicates whether to reset all parameters in the DB cluster</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- parameter group to their default values. You can\'t use this parameter</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- if there is a list of parameter names specified for the @Parameters@</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_resetAllParameters"><span class="hs-identifier hs-type">resetDBClusterParameterGroup_resetAllParameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="resetDBClusterParameterGroup_resetAllParameters"><span class="annot"><span class="annottext">resetDBClusterParameterGroup_resetAllParameters :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ResetDBClusterParameterGroup -&gt; f ResetDBClusterParameterGroup
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_resetAllParameters"><span class="hs-identifier hs-var hs-var">resetDBClusterParameterGroup_resetAllParameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetDBClusterParameterGroup -&gt; Maybe Bool)
+-&gt; (ResetDBClusterParameterGroup
+    -&gt; Maybe Bool -&gt; ResetDBClusterParameterGroup)
+-&gt; Lens
+     ResetDBClusterParameterGroup
+     ResetDBClusterParameterGroup
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778342"><span class="annot"><span class="annottext">Maybe Bool
+resetAllParameters :: Maybe Bool
+$sel:resetAllParameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe Bool
+</span><a href="#local-6989586621679778342"><span class="hs-identifier hs-var hs-var">resetAllParameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679778342"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778341"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778341"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778340"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679778340"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778341"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resetAllParameters:ResetDBClusterParameterGroup' :: Maybe Bool
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3AresetAllParameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679778340"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | A list of parameter names in the DB cluster parameter group to reset to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the default values. You can\'t use this parameter if the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @ResetAllParameters@ parameter is enabled.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_parameters"><span class="hs-identifier hs-type">resetDBClusterParameterGroup_parameters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Parameter.html#Parameter"><span class="hs-identifier hs-type">Parameter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="resetDBClusterParameterGroup_parameters"><span class="annot"><span class="annottext">resetDBClusterParameterGroup_parameters :: (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; ResetDBClusterParameterGroup -&gt; f ResetDBClusterParameterGroup
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_parameters"><span class="hs-identifier hs-var hs-var">resetDBClusterParameterGroup_parameters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetDBClusterParameterGroup -&gt; Maybe [Parameter])
+-&gt; (ResetDBClusterParameterGroup
+    -&gt; Maybe [Parameter] -&gt; ResetDBClusterParameterGroup)
+-&gt; Lens
+     ResetDBClusterParameterGroup
+     ResetDBClusterParameterGroup
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778339"><span class="annot"><span class="annottext">Maybe [Parameter]
+parameters :: Maybe [Parameter]
+$sel:parameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe [Parameter]
+</span><a href="#local-6989586621679778339"><span class="hs-identifier hs-var hs-var">parameters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679778339"><span class="hs-identifier hs-var">parameters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778338"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778337"><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679778337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:parameters:ResetDBClusterParameterGroup' :: Maybe [Parameter]
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3Aparameters%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">parameters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679778337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+ -&gt; ResetDBClusterParameterGroup -&gt; f ResetDBClusterParameterGroup)
+-&gt; ((Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+    -&gt; Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; (Maybe [Parameter] -&gt; f (Maybe [Parameter]))
+-&gt; ResetDBClusterParameterGroup
+-&gt; f ResetDBClusterParameterGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
+-&gt; Iso
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+     (Maybe [Parameter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Parameter] [Parameter] [Parameter] [Parameter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name of the DB cluster parameter group to reset.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_dbClusterParameterGroupName"><span class="hs-identifier hs-type">resetDBClusterParameterGroup_dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="resetDBClusterParameterGroup_dbClusterParameterGroupName"><span class="annot"><span class="annottext">resetDBClusterParameterGroup_dbClusterParameterGroupName :: (Text -&gt; f Text)
+-&gt; ResetDBClusterParameterGroup -&gt; f ResetDBClusterParameterGroup
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#resetDBClusterParameterGroup_dbClusterParameterGroupName"><span class="hs-identifier hs-var hs-var">resetDBClusterParameterGroup_dbClusterParameterGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResetDBClusterParameterGroup -&gt; Text)
+-&gt; (ResetDBClusterParameterGroup
+    -&gt; Text -&gt; ResetDBClusterParameterGroup)
+-&gt; Lens
+     ResetDBClusterParameterGroup ResetDBClusterParameterGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778333"><span class="annot"><span class="annottext">Text
+dbClusterParameterGroupName :: Text
+$sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Text
+</span><a href="#local-6989586621679778333"><span class="hs-identifier hs-var hs-var">dbClusterParameterGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778333"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778332"><span class="annot"><span class="annottext">s :: ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679778331"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResetDBClusterParameterGroup
+</span><a href="#local-6989586621679778332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: Text
+</span><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#%24sel%3AdbClusterParameterGroupName%3AResetDBClusterParameterGroup%27"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.Types.DBClusterParameterGroupNameMessage.html#DBClusterParameterGroupNameMessage"><span class="hs-identifier hs-type">DBClusterParameterGroupNameMessage</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679778327"><span class="annot"><span class="annottext">request :: ResetDBClusterParameterGroup
+-&gt; Request ResetDBClusterParameterGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ResetDBClusterParameterGroup
+-&gt; Request ResetDBClusterParameterGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679778323"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ResetDBClusterParameterGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ResetDBClusterParameterGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ResetDBClusterParameterGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ResetDBClusterParameterGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ResetDBClusterParameterGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResetDBClusterParameterGroupResult&quot;</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679778320"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679778320"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679778319"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679778319"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679778318"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679778318"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Either String DBClusterParameterGroupNameMessage
+forall a. FromXML a =&gt; [Node] -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.parseXML</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679778318"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679778313"><span id="local-6989586621679778315"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679778310"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679778306"><span class="annot"><span class="annottext">toHeaders :: ResetDBClusterParameterGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ResetDBClusterParameterGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679778301"><span class="annot"><span class="annottext">toPath :: ResetDBClusterParameterGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResetDBClusterParameterGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679778297"><span class="annot"><span class="annottext">toQuery :: ResetDBClusterParameterGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.ResetDBClusterParameterGroup.html#ResetDBClusterParameterGroup%27"><span class="hs-identifier hs-type">ResetDBClusterParameterGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679778293"><span id="local-6989586621679778294"><span id="local-6989586621679778295"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Parameter]
+Text
+dbClusterParameterGroupName :: Text
+parameters :: Maybe [Parameter]
+resetAllParameters :: Maybe Bool
+$sel:dbClusterParameterGroupName:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Text
+$sel:parameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe [Parameter]
+$sel:resetAllParameters:ResetDBClusterParameterGroup' :: ResetDBClusterParameterGroup -&gt; Maybe Bool
+</span><a href="#local-6989586621679778293"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResetDBClusterParameterGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-160"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-161"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResetAllParameters&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679778295"><span class="hs-identifier hs-var">resetAllParameters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Parameters&quot;</span></span><span>
+</span><span id="line-166"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-167"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Parameter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Parameter&quot;</span></span><span>
+</span><span id="line-168"></span><span>                </span><span class="annot"><span class="annottext">([Parameter] -&gt; QueryString)
+-&gt; Maybe [Parameter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Parameter]
+</span><a href="#local-6989586621679778294"><span class="hs-identifier hs-var">parameters</span></a></span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DBClusterParameterGroupName&quot;</span></span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679778293"><span class="hs-identifier hs-var">dbClusterParameterGroupName</span></a></span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span></pre></body></html>

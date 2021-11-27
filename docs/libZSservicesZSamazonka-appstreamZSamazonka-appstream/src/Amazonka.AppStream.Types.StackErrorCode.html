@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppStream.Types.StackErrorCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppStream.Types.StackErrorCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode"><span class="hs-identifier">StackErrorCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode_INTERNAL_SERVICE_ERROR"><span class="hs-identifier">StackErrorCode_INTERNAL_SERVICE_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode_STORAGE_CONNECTOR_ERROR"><span class="hs-identifier">StackErrorCode_STORAGE_CONNECTOR_ERROR</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679289231"><span id="local-6989586621679289232"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StackErrorCode"><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode"><span class="hs-identifier hs-var">StackErrorCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackErrorCode%27"><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode%27"><span class="hs-identifier hs-var">StackErrorCode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStackErrorCode"><span class="annot"><span class="annottext">StackErrorCode -&gt; Text
+</span><a href="Amazonka.AppStream.Types.StackErrorCode.html#fromStackErrorCode"><span class="hs-identifier hs-var hs-var">fromStackErrorCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289223"><span id="local-6989586621679289225"><span id="local-6989586621679289227"><span class="annot"><span class="annottext">Int -&gt; StackErrorCode -&gt; ShowS
+[StackErrorCode] -&gt; ShowS
+StackErrorCode -&gt; String
+(Int -&gt; StackErrorCode -&gt; ShowS)
+-&gt; (StackErrorCode -&gt; String)
+-&gt; ([StackErrorCode] -&gt; ShowS)
+-&gt; Show StackErrorCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackErrorCode] -&gt; ShowS
+$cshowList :: [StackErrorCode] -&gt; ShowS
+show :: StackErrorCode -&gt; String
+$cshow :: StackErrorCode -&gt; String
+showsPrec :: Int -&gt; StackErrorCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackErrorCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679289214"><span id="local-6989586621679289216"><span id="local-6989586621679289218"><span id="local-6989586621679289220"><span class="annot"><span class="annottext">ReadPrec [StackErrorCode]
+ReadPrec StackErrorCode
+Int -&gt; ReadS StackErrorCode
+ReadS [StackErrorCode]
+(Int -&gt; ReadS StackErrorCode)
+-&gt; ReadS [StackErrorCode]
+-&gt; ReadPrec StackErrorCode
+-&gt; ReadPrec [StackErrorCode]
+-&gt; Read StackErrorCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackErrorCode]
+$creadListPrec :: ReadPrec [StackErrorCode]
+readPrec :: ReadPrec StackErrorCode
+$creadPrec :: ReadPrec StackErrorCode
+readList :: ReadS [StackErrorCode]
+$creadList :: ReadS [StackErrorCode]
+readsPrec :: Int -&gt; ReadS StackErrorCode
+$creadsPrec :: Int -&gt; ReadS StackErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679289209"><span id="local-6989586621679289211"><span class="annot"><span class="annottext">StackErrorCode -&gt; StackErrorCode -&gt; Bool
+(StackErrorCode -&gt; StackErrorCode -&gt; Bool)
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; Bool) -&gt; Eq StackErrorCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+$c/= :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+== :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+$c== :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679289193"><span id="local-6989586621679289195"><span id="local-6989586621679289197"><span id="local-6989586621679289199"><span id="local-6989586621679289201"><span id="local-6989586621679289203"><span id="local-6989586621679289205"><span class="annot"><span class="annottext">Eq StackErrorCode
+Eq StackErrorCode
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; Ordering)
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; Bool)
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; Bool)
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; Bool)
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; Bool)
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; StackErrorCode)
+-&gt; (StackErrorCode -&gt; StackErrorCode -&gt; StackErrorCode)
+-&gt; Ord StackErrorCode
+StackErrorCode -&gt; StackErrorCode -&gt; Bool
+StackErrorCode -&gt; StackErrorCode -&gt; Ordering
+StackErrorCode -&gt; StackErrorCode -&gt; StackErrorCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StackErrorCode -&gt; StackErrorCode -&gt; StackErrorCode
+$cmin :: StackErrorCode -&gt; StackErrorCode -&gt; StackErrorCode
+max :: StackErrorCode -&gt; StackErrorCode -&gt; StackErrorCode
+$cmax :: StackErrorCode -&gt; StackErrorCode -&gt; StackErrorCode
+&gt;= :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+$c&gt;= :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+&gt; :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+$c&gt; :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+&lt;= :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+$c&lt;= :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+&lt; :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+$c&lt; :: StackErrorCode -&gt; StackErrorCode -&gt; Bool
+compare :: StackErrorCode -&gt; StackErrorCode -&gt; Ordering
+$ccompare :: StackErrorCode -&gt; StackErrorCode -&gt; Ordering
+$cp1Ord :: Eq StackErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StackErrorCode -&gt; Rep StackErrorCode x)
+-&gt; (forall x. Rep StackErrorCode x -&gt; StackErrorCode)
+-&gt; Generic StackErrorCode
+forall x. Rep StackErrorCode x -&gt; StackErrorCode
+forall x. StackErrorCode -&gt; Rep StackErrorCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackErrorCode x -&gt; StackErrorCode
+$cfrom :: forall x. StackErrorCode -&gt; Rep StackErrorCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679289185"><span id="local-6989586621679289187"><span class="annot"><span class="annottext">Int -&gt; StackErrorCode -&gt; Int
+StackErrorCode -&gt; Int
+(Int -&gt; StackErrorCode -&gt; Int)
+-&gt; (StackErrorCode -&gt; Int) -&gt; Hashable StackErrorCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StackErrorCode -&gt; Int
+$chash :: StackErrorCode -&gt; Int
+hashWithSalt :: Int -&gt; StackErrorCode -&gt; Int
+$chashWithSalt :: Int -&gt; StackErrorCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679289182"><span class="annot"><span class="annottext">StackErrorCode -&gt; ()
+(StackErrorCode -&gt; ()) -&gt; NFData StackErrorCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StackErrorCode -&gt; ()
+$crnf :: StackErrorCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679289179"><span class="annot"><span class="annottext">Text -&gt; Either String StackErrorCode
+(Text -&gt; Either String StackErrorCode) -&gt; FromText StackErrorCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StackErrorCode
+$cfromText :: Text -&gt; Either String StackErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679289176"><span class="annot"><span class="annottext">StackErrorCode -&gt; Text
+(StackErrorCode -&gt; Text) -&gt; ToText StackErrorCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StackErrorCode -&gt; Text
+$ctoText :: StackErrorCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679289173"><span class="annot"><span class="annottext">StackErrorCode -&gt; ByteString
+(StackErrorCode -&gt; ByteString) -&gt; ToByteString StackErrorCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StackErrorCode -&gt; ByteString
+$ctoBS :: StackErrorCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679289170"><span class="annot"><span class="annottext">StackErrorCode -&gt; ByteStringBuilder
+(StackErrorCode -&gt; ByteStringBuilder) -&gt; ToLog StackErrorCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StackErrorCode -&gt; ByteStringBuilder
+$cbuild :: StackErrorCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679289167"><span class="annot"><span class="annottext">HeaderName -&gt; StackErrorCode -&gt; [Header]
+(HeaderName -&gt; StackErrorCode -&gt; [Header])
+-&gt; ToHeader StackErrorCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StackErrorCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StackErrorCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679289164"><span class="annot"><span class="annottext">StackErrorCode -&gt; QueryString
+(StackErrorCode -&gt; QueryString) -&gt; ToQuery StackErrorCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StackErrorCode -&gt; QueryString
+$ctoQuery :: StackErrorCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679289159"><span id="local-6989586621679289161"><span class="annot"><span class="annottext">Value -&gt; Parser [StackErrorCode]
+Value -&gt; Parser StackErrorCode
+(Value -&gt; Parser StackErrorCode)
+-&gt; (Value -&gt; Parser [StackErrorCode]) -&gt; FromJSON StackErrorCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StackErrorCode]
+$cparseJSONList :: Value -&gt; Parser [StackErrorCode]
+parseJSON :: Value -&gt; Parser StackErrorCode
+$cparseJSON :: Value -&gt; Parser StackErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679289154"><span id="local-6989586621679289156"><span class="annot"><span class="annottext">FromJSONKeyFunction [StackErrorCode]
+FromJSONKeyFunction StackErrorCode
+FromJSONKeyFunction StackErrorCode
+-&gt; FromJSONKeyFunction [StackErrorCode]
+-&gt; FromJSONKey StackErrorCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StackErrorCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [StackErrorCode]
+fromJSONKey :: FromJSONKeyFunction StackErrorCode
+$cfromJSONKey :: FromJSONKeyFunction StackErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679289145"><span id="local-6989586621679289147"><span id="local-6989586621679289149"><span id="local-6989586621679289151"><span class="annot"><span class="annottext">[StackErrorCode] -&gt; Encoding
+[StackErrorCode] -&gt; Value
+StackErrorCode -&gt; Encoding
+StackErrorCode -&gt; Value
+(StackErrorCode -&gt; Value)
+-&gt; (StackErrorCode -&gt; Encoding)
+-&gt; ([StackErrorCode] -&gt; Value)
+-&gt; ([StackErrorCode] -&gt; Encoding)
+-&gt; ToJSON StackErrorCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StackErrorCode] -&gt; Encoding
+$ctoEncodingList :: [StackErrorCode] -&gt; Encoding
+toJSONList :: [StackErrorCode] -&gt; Value
+$ctoJSONList :: [StackErrorCode] -&gt; Value
+toEncoding :: StackErrorCode -&gt; Encoding
+$ctoEncoding :: StackErrorCode -&gt; Encoding
+toJSON :: StackErrorCode -&gt; Value
+$ctoJSON :: StackErrorCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679289140"><span id="local-6989586621679289142"><span class="annot"><span class="annottext">ToJSONKeyFunction [StackErrorCode]
+ToJSONKeyFunction StackErrorCode
+ToJSONKeyFunction StackErrorCode
+-&gt; ToJSONKeyFunction [StackErrorCode] -&gt; ToJSONKey StackErrorCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StackErrorCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [StackErrorCode]
+toJSONKey :: ToJSONKeyFunction StackErrorCode
+$ctoJSONKey :: ToJSONKeyFunction StackErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679289137"><span class="annot"><span class="annottext">[Node] -&gt; Either String StackErrorCode
+([Node] -&gt; Either String StackErrorCode) -&gt; FromXML StackErrorCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StackErrorCode
+$cparseXML :: [Node] -&gt; Either String StackErrorCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679289134"><span class="annot"><span class="annottext">StackErrorCode -&gt; XML
+(StackErrorCode -&gt; XML) -&gt; ToXML StackErrorCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StackErrorCode -&gt; XML
+$ctoXML :: StackErrorCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode_INTERNAL_SERVICE_ERROR"><span class="hs-identifier hs-type">StackErrorCode_INTERNAL_SERVICE_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode"><span class="hs-identifier hs-type">StackErrorCode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackErrorCode_INTERNAL_SERVICE_ERROR"><span id="%24mStackErrorCode_INTERNAL_SERVICE_ERROR"><span id="StackErrorCode_INTERNAL_SERVICE_ERROR"><span class="annot"><span class="annottext">$bStackErrorCode_INTERNAL_SERVICE_ERROR :: StackErrorCode
+$mStackErrorCode_INTERNAL_SERVICE_ERROR :: forall r. StackErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.StackErrorCode.html#%24bStackErrorCode_INTERNAL_SERVICE_ERROR"><span class="hs-identifier hs-var hs-var hs-var">StackErrorCode_INTERNAL_SERVICE_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode%27"><span class="hs-identifier hs-type">StackErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTERNAL_SERVICE_ERROR&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode_STORAGE_CONNECTOR_ERROR"><span class="hs-identifier hs-type">StackErrorCode_STORAGE_CONNECTOR_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode"><span class="hs-identifier hs-type">StackErrorCode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStackErrorCode_STORAGE_CONNECTOR_ERROR"><span id="%24mStackErrorCode_STORAGE_CONNECTOR_ERROR"><span id="StackErrorCode_STORAGE_CONNECTOR_ERROR"><span class="annot"><span class="annottext">$bStackErrorCode_STORAGE_CONNECTOR_ERROR :: StackErrorCode
+$mStackErrorCode_STORAGE_CONNECTOR_ERROR :: forall r. StackErrorCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppStream.Types.StackErrorCode.html#%24bStackErrorCode_STORAGE_CONNECTOR_ERROR"><span class="hs-identifier hs-var hs-var hs-var">StackErrorCode_STORAGE_CONNECTOR_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode%27"><span class="hs-identifier hs-type">StackErrorCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STORAGE_CONNECTOR_ERROR&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode_INTERNAL_SERVICE_ERROR"><span class="hs-pragma hs-type">StackErrorCode_INTERNAL_SERVICE_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode_STORAGE_CONNECTOR_ERROR"><span class="hs-pragma hs-type">StackErrorCode_STORAGE_CONNECTOR_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.AppStream.Types.StackErrorCode.html#StackErrorCode%27"><span class="hs-pragma hs-type">StackErrorCode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

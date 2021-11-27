@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.MonitoringSubscription</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.MonitoringSubscription</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html"><span class="hs-identifier">Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A monitoring subscription. This structure contains information about</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- whether additional CloudWatch metrics are enabled for a given CloudFront</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- distribution.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMonitoringSubscription' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679401140"><span id="local-6989586621679401141"></span></span><span class="hs-keyword">data</span><span> </span><span id="MonitoringSubscription"><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-var">MonitoringSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MonitoringSubscription%27"><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription%27"><span class="hs-identifier hs-var">MonitoringSubscription'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A subscription configuration for additional CloudWatch metrics.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArealtimeMetricsSubscriptionConfig%3AMonitoringSubscription%27"><span class="annot"><span class="annottext">MonitoringSubscription -&gt; Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#%24sel%3ArealtimeMetricsSubscriptionConfig%3AMonitoringSubscription%27"><span class="hs-identifier hs-var hs-var">realtimeMetricsSubscriptionConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679401134"><span id="local-6989586621679401136"><span class="annot"><span class="annottext">MonitoringSubscription -&gt; MonitoringSubscription -&gt; Bool
+(MonitoringSubscription -&gt; MonitoringSubscription -&gt; Bool)
+-&gt; (MonitoringSubscription -&gt; MonitoringSubscription -&gt; Bool)
+-&gt; Eq MonitoringSubscription
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MonitoringSubscription -&gt; MonitoringSubscription -&gt; Bool
+$c/= :: MonitoringSubscription -&gt; MonitoringSubscription -&gt; Bool
+== :: MonitoringSubscription -&gt; MonitoringSubscription -&gt; Bool
+$c== :: MonitoringSubscription -&gt; MonitoringSubscription -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401125"><span id="local-6989586621679401127"><span id="local-6989586621679401129"><span id="local-6989586621679401131"><span class="annot"><span class="annottext">ReadPrec [MonitoringSubscription]
+ReadPrec MonitoringSubscription
+Int -&gt; ReadS MonitoringSubscription
+ReadS [MonitoringSubscription]
+(Int -&gt; ReadS MonitoringSubscription)
+-&gt; ReadS [MonitoringSubscription]
+-&gt; ReadPrec MonitoringSubscription
+-&gt; ReadPrec [MonitoringSubscription]
+-&gt; Read MonitoringSubscription
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MonitoringSubscription]
+$creadListPrec :: ReadPrec [MonitoringSubscription]
+readPrec :: ReadPrec MonitoringSubscription
+$creadPrec :: ReadPrec MonitoringSubscription
+readList :: ReadS [MonitoringSubscription]
+$creadList :: ReadS [MonitoringSubscription]
+readsPrec :: Int -&gt; ReadS MonitoringSubscription
+$creadsPrec :: Int -&gt; ReadS MonitoringSubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679401118"><span id="local-6989586621679401120"><span id="local-6989586621679401122"><span class="annot"><span class="annottext">Int -&gt; MonitoringSubscription -&gt; ShowS
+[MonitoringSubscription] -&gt; ShowS
+MonitoringSubscription -&gt; String
+(Int -&gt; MonitoringSubscription -&gt; ShowS)
+-&gt; (MonitoringSubscription -&gt; String)
+-&gt; ([MonitoringSubscription] -&gt; ShowS)
+-&gt; Show MonitoringSubscription
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MonitoringSubscription] -&gt; ShowS
+$cshowList :: [MonitoringSubscription] -&gt; ShowS
+show :: MonitoringSubscription -&gt; String
+$cshow :: MonitoringSubscription -&gt; String
+showsPrec :: Int -&gt; MonitoringSubscription -&gt; ShowS
+$cshowsPrec :: Int -&gt; MonitoringSubscription -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MonitoringSubscription -&gt; Rep MonitoringSubscription x)
+-&gt; (forall x.
+    Rep MonitoringSubscription x -&gt; MonitoringSubscription)
+-&gt; Generic MonitoringSubscription
+forall x. Rep MonitoringSubscription x -&gt; MonitoringSubscription
+forall x. MonitoringSubscription -&gt; Rep MonitoringSubscription x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MonitoringSubscription x -&gt; MonitoringSubscription
+$cfrom :: forall x. MonitoringSubscription -&gt; Rep MonitoringSubscription x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'MonitoringSubscription' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'realtimeMetricsSubscriptionConfig', 'monitoringSubscription_realtimeMetricsSubscriptionConfig' - A subscription configuration for additional CloudWatch metrics.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#newMonitoringSubscription"><span class="hs-identifier hs-type">newMonitoringSubscription</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-type">MonitoringSubscription</span></a></span><span>
+</span><span id="line-49"></span><span id="newMonitoringSubscription"><span class="annot"><span class="annottext">newMonitoringSubscription :: MonitoringSubscription
+</span><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#newMonitoringSubscription"><span class="hs-identifier hs-var hs-var">newMonitoringSubscription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">MonitoringSubscription' :: Maybe RealtimeMetricsSubscriptionConfig -&gt; MonitoringSubscription
+</span><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription%27"><span class="hs-identifier hs-type">MonitoringSubscription'</span></a></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeMetricsSubscriptionConfig:MonitoringSubscription' :: Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#%24sel%3ArealtimeMetricsSubscriptionConfig%3AMonitoringSubscription%27"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | A subscription configuration for additional CloudWatch metrics.</span><span>
+</span><span id="line-56"></span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#monitoringSubscription_realtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">monitoringSubscription_realtimeMetricsSubscriptionConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-type">MonitoringSubscription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.RealtimeMetricsSubscriptionConfig.html#RealtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-type">RealtimeMetricsSubscriptionConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span id="monitoringSubscription_realtimeMetricsSubscriptionConfig"><span class="annot"><span class="annottext">monitoringSubscription_realtimeMetricsSubscriptionConfig :: (Maybe RealtimeMetricsSubscriptionConfig
+ -&gt; f (Maybe RealtimeMetricsSubscriptionConfig))
+-&gt; MonitoringSubscription -&gt; f MonitoringSubscription
+</span><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#monitoringSubscription_realtimeMetricsSubscriptionConfig"><span class="hs-identifier hs-var hs-var">monitoringSubscription_realtimeMetricsSubscriptionConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MonitoringSubscription -&gt; Maybe RealtimeMetricsSubscriptionConfig)
+-&gt; (MonitoringSubscription
+    -&gt; Maybe RealtimeMetricsSubscriptionConfig
+    -&gt; MonitoringSubscription)
+-&gt; Lens
+     MonitoringSubscription
+     MonitoringSubscription
+     (Maybe RealtimeMetricsSubscriptionConfig)
+     (Maybe RealtimeMetricsSubscriptionConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription%27"><span class="hs-identifier hs-type">MonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401109"><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig
+realtimeMetricsSubscriptionConfig :: Maybe RealtimeMetricsSubscriptionConfig
+$sel:realtimeMetricsSubscriptionConfig:MonitoringSubscription' :: MonitoringSubscription -&gt; Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401109"><span class="hs-identifier hs-var hs-var">realtimeMetricsSubscriptionConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401109"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679401108"><span class="annot"><span class="annottext">s :: MonitoringSubscription
+</span><a href="#local-6989586621679401108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription%27"><span class="hs-identifier hs-type">MonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679401107"><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MonitoringSubscription
+</span><a href="#local-6989586621679401108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeMetricsSubscriptionConfig:MonitoringSubscription' :: Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#%24sel%3ArealtimeMetricsSubscriptionConfig%3AMonitoringSubscription%27"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-type">MonitoringSubscription</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-type">MonitoringSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-60"></span><span>  </span><span id="local-6989586621679401104"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String MonitoringSubscription
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679401102"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401102"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig -&gt; MonitoringSubscription
+</span><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription%27"><span class="hs-identifier hs-var">MonitoringSubscription'</span></a></span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">(Maybe RealtimeMetricsSubscriptionConfig -&gt; MonitoringSubscription)
+-&gt; Either String (Maybe RealtimeMetricsSubscriptionConfig)
+-&gt; Either String MonitoringSubscription
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679401102"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe RealtimeMetricsSubscriptionConfig)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RealtimeMetricsSubscriptionConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401096"><span id="local-6989586621679401098"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-type">MonitoringSubscription</span></a></span></span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679401093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-type">MonitoringSubscription</span></a></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription"><span class="hs-identifier hs-type">MonitoringSubscription</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>  </span><span id="local-6989586621679401089"><span class="annot"><span class="annottext">toXML :: MonitoringSubscription -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.MonitoringSubscription.html#MonitoringSubscription%27"><span class="hs-identifier hs-type">MonitoringSubscription'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679401087"><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig
+realtimeMetricsSubscriptionConfig :: Maybe RealtimeMetricsSubscriptionConfig
+$sel:realtimeMetricsSubscriptionConfig:MonitoringSubscription' :: MonitoringSubscription -&gt; Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401087"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;RealtimeMetricsSubscriptionConfig&quot;</span></span><span>
+</span><span id="line-72"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe RealtimeMetricsSubscriptionConfig -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeMetricsSubscriptionConfig
+</span><a href="#local-6989586621679401087"><span class="hs-identifier hs-var">realtimeMetricsSubscriptionConfig</span></a></span><span>
+</span><span id="line-73"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-74"></span></pre></body></html>

@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ResourceUnavailableException"><span class="hs-identifier">_ResourceUnavailableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AsyncJobStatus</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.AsyncJobStatus.html#AsyncJobStatus"><span class="hs-identifier">AsyncJobStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataSource</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataSource.html#DataSource"><span class="hs-identifier">DataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataType</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataType.html#DataType"><span class="hs-identifier">DataType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DetectorVersionStatus</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionStatus.html#DetectorVersionStatus"><span class="hs-identifier">DetectorVersionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EventIngestion</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventIngestion.html#EventIngestion"><span class="hs-identifier">EventIngestion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Language</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Language.html#Language"><span class="hs-identifier">Language</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelEndpointStatus</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html#ModelEndpointStatus"><span class="hs-identifier">ModelEndpointStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelInputDataFormat</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputDataFormat.html#ModelInputDataFormat"><span class="hs-identifier">ModelInputDataFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelOutputDataFormat</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html#ModelOutputDataFormat"><span class="hs-identifier">ModelOutputDataFormat</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelSource</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelSource.html#ModelSource"><span class="hs-identifier">ModelSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelTypeEnum</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelTypeEnum.html#ModelTypeEnum"><span class="hs-identifier">ModelTypeEnum</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelVersionStatus</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html#ModelVersionStatus"><span class="hs-identifier">ModelVersionStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleExecutionMode</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleExecutionMode.html#RuleExecutionMode"><span class="hs-identifier">RuleExecutionMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TrainingDataSourceEnum</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingDataSourceEnum.html#TrainingDataSourceEnum"><span class="hs-identifier">TrainingDataSourceEnum</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UnlabeledEventsTreatment</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html#UnlabeledEventsTreatment"><span class="hs-identifier">UnlabeledEventsTreatment</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchCreateVariableError</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchCreateVariableError.html#BatchCreateVariableError"><span class="hs-identifier">BatchCreateVariableError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchCreateVariableError.html#newBatchCreateVariableError"><span class="hs-identifier">newBatchCreateVariableError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchCreateVariableError.html#batchCreateVariableError_name"><span class="hs-identifier">batchCreateVariableError_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchCreateVariableError.html#batchCreateVariableError_code"><span class="hs-identifier">batchCreateVariableError_code</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchCreateVariableError.html#batchCreateVariableError_message"><span class="hs-identifier">batchCreateVariableError_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchGetVariableError</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchGetVariableError.html#BatchGetVariableError"><span class="hs-identifier">BatchGetVariableError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchGetVariableError.html#newBatchGetVariableError"><span class="hs-identifier">newBatchGetVariableError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchGetVariableError.html#batchGetVariableError_name"><span class="hs-identifier">batchGetVariableError_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchGetVariableError.html#batchGetVariableError_code"><span class="hs-identifier">batchGetVariableError_code</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchGetVariableError.html#batchGetVariableError_message"><span class="hs-identifier">batchGetVariableError_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchImport</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#BatchImport"><span class="hs-identifier">BatchImport</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#newBatchImport"><span class="hs-identifier">newBatchImport</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_failureReason"><span class="hs-identifier">batchImport_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_iamRoleArn"><span class="hs-identifier">batchImport_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_status"><span class="hs-identifier">batchImport_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_processedRecordsCount"><span class="hs-identifier">batchImport_processedRecordsCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_totalRecordsCount"><span class="hs-identifier">batchImport_totalRecordsCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_jobId"><span class="hs-identifier">batchImport_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_arn"><span class="hs-identifier">batchImport_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_startTime"><span class="hs-identifier">batchImport_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_eventTypeName"><span class="hs-identifier">batchImport_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_completionTime"><span class="hs-identifier">batchImport_completionTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_outputPath"><span class="hs-identifier">batchImport_outputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_inputPath"><span class="hs-identifier">batchImport_inputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html#batchImport_failedRecordsCount"><span class="hs-identifier">batchImport_failedRecordsCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchPrediction</span></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#BatchPrediction"><span class="hs-identifier">BatchPrediction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#newBatchPrediction"><span class="hs-identifier">newBatchPrediction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_failureReason"><span class="hs-identifier">batchPrediction_failureReason</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_iamRoleArn"><span class="hs-identifier">batchPrediction_iamRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_status"><span class="hs-identifier">batchPrediction_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_processedRecordsCount"><span class="hs-identifier">batchPrediction_processedRecordsCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_totalRecordsCount"><span class="hs-identifier">batchPrediction_totalRecordsCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_lastHeartbeatTime"><span class="hs-identifier">batchPrediction_lastHeartbeatTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_jobId"><span class="hs-identifier">batchPrediction_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_arn"><span class="hs-identifier">batchPrediction_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_startTime"><span class="hs-identifier">batchPrediction_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_eventTypeName"><span class="hs-identifier">batchPrediction_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_completionTime"><span class="hs-identifier">batchPrediction_completionTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_outputPath"><span class="hs-identifier">batchPrediction_outputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_detectorName"><span class="hs-identifier">batchPrediction_detectorName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_detectorVersion"><span class="hs-identifier">batchPrediction_detectorVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html#batchPrediction_inputPath"><span class="hs-identifier">batchPrediction_inputPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataValidationMetrics</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataValidationMetrics.html#DataValidationMetrics"><span class="hs-identifier">DataValidationMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataValidationMetrics.html#newDataValidationMetrics"><span class="hs-identifier">newDataValidationMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataValidationMetrics.html#dataValidationMetrics_fieldLevelMessages"><span class="hs-identifier">dataValidationMetrics_fieldLevelMessages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataValidationMetrics.html#dataValidationMetrics_fileLevelMessages"><span class="hs-identifier">dataValidationMetrics_fileLevelMessages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Detector</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#Detector"><span class="hs-identifier">Detector</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#newDetector"><span class="hs-identifier">newDetector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#detector_lastUpdatedTime"><span class="hs-identifier">detector_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#detector_arn"><span class="hs-identifier">detector_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#detector_createdTime"><span class="hs-identifier">detector_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#detector_eventTypeName"><span class="hs-identifier">detector_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#detector_detectorId"><span class="hs-identifier">detector_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html#detector_description"><span class="hs-identifier">detector_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DetectorVersionSummary</span></span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionSummary.html#DetectorVersionSummary"><span class="hs-identifier">DetectorVersionSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionSummary.html#newDetectorVersionSummary"><span class="hs-identifier">newDetectorVersionSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionSummary.html#detectorVersionSummary_status"><span class="hs-identifier">detectorVersionSummary_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionSummary.html#detectorVersionSummary_lastUpdatedTime"><span class="hs-identifier">detectorVersionSummary_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionSummary.html#detectorVersionSummary_detectorVersionId"><span class="hs-identifier">detectorVersionSummary_detectorVersionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionSummary.html#detectorVersionSummary_description"><span class="hs-identifier">detectorVersionSummary_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Entity</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Entity.html#Entity"><span class="hs-identifier">Entity</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Entity.html#newEntity"><span class="hs-identifier">newEntity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Entity.html#entity_entityType"><span class="hs-identifier">entity_entityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Entity.html#entity_entityId"><span class="hs-identifier">entity_entityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EntityType</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html#EntityType"><span class="hs-identifier">EntityType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html#newEntityType"><span class="hs-identifier">newEntityType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html#entityType_lastUpdatedTime"><span class="hs-identifier">entityType_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html#entityType_arn"><span class="hs-identifier">entityType_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html#entityType_createdTime"><span class="hs-identifier">entityType_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html#entityType_name"><span class="hs-identifier">entityType_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html#entityType_description"><span class="hs-identifier">entityType_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Event</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#Event"><span class="hs-identifier">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#newEvent"><span class="hs-identifier">newEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#event_eventTimestamp"><span class="hs-identifier">event_eventTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#event_entities"><span class="hs-identifier">event_entities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#event_labelTimestamp"><span class="hs-identifier">event_labelTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#event_eventTypeName"><span class="hs-identifier">event_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#event_eventVariables"><span class="hs-identifier">event_eventVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#event_currentLabel"><span class="hs-identifier">event_currentLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html#event_eventId"><span class="hs-identifier">event_eventId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EventType</span></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#EventType"><span class="hs-identifier">EventType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#newEventType"><span class="hs-identifier">newEventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_lastUpdatedTime"><span class="hs-identifier">eventType_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_arn"><span class="hs-identifier">eventType_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_createdTime"><span class="hs-identifier">eventType_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_entityTypes"><span class="hs-identifier">eventType_entityTypes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_eventVariables"><span class="hs-identifier">eventType_eventVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_name"><span class="hs-identifier">eventType_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_ingestedEventStatistics"><span class="hs-identifier">eventType_ingestedEventStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_labels"><span class="hs-identifier">eventType_labels</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_eventIngestion"><span class="hs-identifier">eventType_eventIngestion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html#eventType_description"><span class="hs-identifier">eventType_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExternalEventsDetail</span></span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalEventsDetail.html#ExternalEventsDetail"><span class="hs-identifier">ExternalEventsDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalEventsDetail.html#newExternalEventsDetail"><span class="hs-identifier">newExternalEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalEventsDetail.html#externalEventsDetail_dataLocation"><span class="hs-identifier">externalEventsDetail_dataLocation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalEventsDetail.html#externalEventsDetail_dataAccessRoleArn"><span class="hs-identifier">externalEventsDetail_dataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExternalModel</span></span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#ExternalModel"><span class="hs-identifier">ExternalModel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#newExternalModel"><span class="hs-identifier">newExternalModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_modelEndpoint"><span class="hs-identifier">externalModel_modelEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_modelSource"><span class="hs-identifier">externalModel_modelSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_lastUpdatedTime"><span class="hs-identifier">externalModel_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_arn"><span class="hs-identifier">externalModel_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_createdTime"><span class="hs-identifier">externalModel_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_modelEndpointStatus"><span class="hs-identifier">externalModel_modelEndpointStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_outputConfiguration"><span class="hs-identifier">externalModel_outputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_invokeModelEndpointRoleArn"><span class="hs-identifier">externalModel_invokeModelEndpointRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html#externalModel_inputConfiguration"><span class="hs-identifier">externalModel_inputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExternalModelOutputs</span></span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelOutputs.html#ExternalModelOutputs"><span class="hs-identifier">ExternalModelOutputs</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelOutputs.html#newExternalModelOutputs"><span class="hs-identifier">newExternalModelOutputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelOutputs.html#externalModelOutputs_externalModel"><span class="hs-identifier">externalModelOutputs_externalModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelOutputs.html#externalModelOutputs_outputs"><span class="hs-identifier">externalModelOutputs_outputs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExternalModelSummary</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelSummary.html#ExternalModelSummary"><span class="hs-identifier">ExternalModelSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelSummary.html#newExternalModelSummary"><span class="hs-identifier">newExternalModelSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelSummary.html#externalModelSummary_modelEndpoint"><span class="hs-identifier">externalModelSummary_modelEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelSummary.html#externalModelSummary_modelSource"><span class="hs-identifier">externalModelSummary_modelSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FieldValidationMessage</span></span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html#FieldValidationMessage"><span class="hs-identifier">FieldValidationMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html#newFieldValidationMessage"><span class="hs-identifier">newFieldValidationMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html#fieldValidationMessage_identifier"><span class="hs-identifier">fieldValidationMessage_identifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html#fieldValidationMessage_content"><span class="hs-identifier">fieldValidationMessage_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html#fieldValidationMessage_fieldName"><span class="hs-identifier">fieldValidationMessage_fieldName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html#fieldValidationMessage_title"><span class="hs-identifier">fieldValidationMessage_title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html#fieldValidationMessage_type"><span class="hs-identifier">fieldValidationMessage_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="hs-comment">-- * FileValidationMessage</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FileValidationMessage.html#FileValidationMessage"><span class="hs-identifier">FileValidationMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FileValidationMessage.html#newFileValidationMessage"><span class="hs-identifier">newFileValidationMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FileValidationMessage.html#fileValidationMessage_content"><span class="hs-identifier">fileValidationMessage_content</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FileValidationMessage.html#fileValidationMessage_title"><span class="hs-identifier">fileValidationMessage_title</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FileValidationMessage.html#fileValidationMessage_type"><span class="hs-identifier">fileValidationMessage_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IngestedEventStatistics</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html#IngestedEventStatistics"><span class="hs-identifier">IngestedEventStatistics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html#newIngestedEventStatistics"><span class="hs-identifier">newIngestedEventStatistics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html#ingestedEventStatistics_eventDataSizeInBytes"><span class="hs-identifier">ingestedEventStatistics_eventDataSizeInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html#ingestedEventStatistics_mostRecentEvent"><span class="hs-identifier">ingestedEventStatistics_mostRecentEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html#ingestedEventStatistics_lastUpdatedTime"><span class="hs-identifier">ingestedEventStatistics_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html#ingestedEventStatistics_numberOfEvents"><span class="hs-identifier">ingestedEventStatistics_numberOfEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html#ingestedEventStatistics_leastRecentEvent"><span class="hs-identifier">ingestedEventStatistics_leastRecentEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IngestedEventsDetail</span></span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsDetail.html#IngestedEventsDetail"><span class="hs-identifier">IngestedEventsDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsDetail.html#newIngestedEventsDetail"><span class="hs-identifier">newIngestedEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsDetail.html#ingestedEventsDetail_ingestedEventsTimeWindow"><span class="hs-identifier">ingestedEventsDetail_ingestedEventsTimeWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><span class="hs-comment">-- * IngestedEventsTimeWindow</span></span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsTimeWindow.html#IngestedEventsTimeWindow"><span class="hs-identifier">IngestedEventsTimeWindow</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsTimeWindow.html#newIngestedEventsTimeWindow"><span class="hs-identifier">newIngestedEventsTimeWindow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsTimeWindow.html#ingestedEventsTimeWindow_startTime"><span class="hs-identifier">ingestedEventsTimeWindow_startTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsTimeWindow.html#ingestedEventsTimeWindow_endTime"><span class="hs-identifier">ingestedEventsTimeWindow_endTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="hs-comment">-- * KMSKey</span></span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.KMSKey.html#KMSKey"><span class="hs-identifier">KMSKey</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.KMSKey.html#newKMSKey"><span class="hs-identifier">newKMSKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.KMSKey.html#kmsKey_kmsEncryptionKeyArn"><span class="hs-identifier">kmsKey_kmsEncryptionKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Label</span></span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html#Label"><span class="hs-identifier">Label</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html#newLabel"><span class="hs-identifier">newLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html#label_lastUpdatedTime"><span class="hs-identifier">label_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html#label_arn"><span class="hs-identifier">label_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html#label_createdTime"><span class="hs-identifier">label_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html#label_name"><span class="hs-identifier">label_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html#label_description"><span class="hs-identifier">label_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LabelSchema</span></span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LabelSchema.html#LabelSchema"><span class="hs-identifier">LabelSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LabelSchema.html#newLabelSchema"><span class="hs-identifier">newLabelSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LabelSchema.html#labelSchema_unlabeledEventsTreatment"><span class="hs-identifier">labelSchema_unlabeledEventsTreatment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LabelSchema.html#labelSchema_labelMapper"><span class="hs-identifier">labelSchema_labelMapper</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LogOddsMetric</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LogOddsMetric.html#LogOddsMetric"><span class="hs-identifier">LogOddsMetric</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LogOddsMetric.html#newLogOddsMetric"><span class="hs-identifier">newLogOddsMetric</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableName"><span class="hs-identifier">logOddsMetric_variableName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableType"><span class="hs-identifier">logOddsMetric_variableType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LogOddsMetric.html#logOddsMetric_variableImportance"><span class="hs-identifier">logOddsMetric_variableImportance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricDataPoint</span></span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.MetricDataPoint.html#MetricDataPoint"><span class="hs-identifier">MetricDataPoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.MetricDataPoint.html#newMetricDataPoint"><span class="hs-identifier">newMetricDataPoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.MetricDataPoint.html#metricDataPoint_precision"><span class="hs-identifier">metricDataPoint_precision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.MetricDataPoint.html#metricDataPoint_fpr"><span class="hs-identifier">metricDataPoint_fpr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.MetricDataPoint.html#metricDataPoint_threshold"><span class="hs-identifier">metricDataPoint_threshold</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.MetricDataPoint.html#metricDataPoint_tpr"><span class="hs-identifier">metricDataPoint_tpr</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Model</span></span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#Model"><span class="hs-identifier">Model</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#newModel"><span class="hs-identifier">newModel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#model_modelType"><span class="hs-identifier">model_modelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#model_lastUpdatedTime"><span class="hs-identifier">model_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#model_modelId"><span class="hs-identifier">model_modelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#model_arn"><span class="hs-identifier">model_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#model_createdTime"><span class="hs-identifier">model_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#model_eventTypeName"><span class="hs-identifier">model_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html#model_description"><span class="hs-identifier">model_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelEndpointDataBlob</span></span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointDataBlob.html#ModelEndpointDataBlob"><span class="hs-identifier">ModelEndpointDataBlob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointDataBlob.html#newModelEndpointDataBlob"><span class="hs-identifier">newModelEndpointDataBlob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointDataBlob.html#modelEndpointDataBlob_byteBuffer"><span class="hs-identifier">modelEndpointDataBlob_byteBuffer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointDataBlob.html#modelEndpointDataBlob_contentType"><span class="hs-identifier">modelEndpointDataBlob_contentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelInputConfiguration</span></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html#ModelInputConfiguration"><span class="hs-identifier">ModelInputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html#newModelInputConfiguration"><span class="hs-identifier">newModelInputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_format"><span class="hs-identifier">modelInputConfiguration_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_eventTypeName"><span class="hs-identifier">modelInputConfiguration_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_csvInputTemplate"><span class="hs-identifier">modelInputConfiguration_csvInputTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_jsonInputTemplate"><span class="hs-identifier">modelInputConfiguration_jsonInputTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html#modelInputConfiguration_useEventVariables"><span class="hs-identifier">modelInputConfiguration_useEventVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelOutputConfiguration</span></span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputConfiguration.html#ModelOutputConfiguration"><span class="hs-identifier">ModelOutputConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputConfiguration.html#newModelOutputConfiguration"><span class="hs-identifier">newModelOutputConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputConfiguration.html#modelOutputConfiguration_jsonKeyToVariableMap"><span class="hs-identifier">modelOutputConfiguration_jsonKeyToVariableMap</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputConfiguration.html#modelOutputConfiguration_csvIndexToVariableMap"><span class="hs-identifier">modelOutputConfiguration_csvIndexToVariableMap</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputConfiguration.html#modelOutputConfiguration_format"><span class="hs-identifier">modelOutputConfiguration_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelScores</span></span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelScores.html#ModelScores"><span class="hs-identifier">ModelScores</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelScores.html#newModelScores"><span class="hs-identifier">newModelScores</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelScores.html#modelScores_modelVersion"><span class="hs-identifier">modelScores_modelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelScores.html#modelScores_scores"><span class="hs-identifier">modelScores_scores</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>
+</span><span id="line-328"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelVersion</span></span><span>
+</span><span id="line-329"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersion.html#ModelVersion"><span class="hs-identifier">ModelVersion</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersion.html#newModelVersion"><span class="hs-identifier">newModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersion.html#modelVersion_arn"><span class="hs-identifier">modelVersion_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersion.html#modelVersion_modelId"><span class="hs-identifier">modelVersion_modelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersion.html#modelVersion_modelType"><span class="hs-identifier">modelVersion_modelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersion.html#modelVersion_modelVersionNumber"><span class="hs-identifier">modelVersion_modelVersionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ModelVersionDetail</span></span><span>
+</span><span id="line-337"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#ModelVersionDetail"><span class="hs-identifier">ModelVersionDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#newModelVersionDetail"><span class="hs-identifier">newModelVersionDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_status"><span class="hs-identifier">modelVersionDetail_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelType"><span class="hs-identifier">modelVersionDetail_modelType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_lastUpdatedTime"><span class="hs-identifier">modelVersionDetail_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelId"><span class="hs-identifier">modelVersionDetail_modelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_arn"><span class="hs-identifier">modelVersionDetail_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingDataSource"><span class="hs-identifier">modelVersionDetail_trainingDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_createdTime"><span class="hs-identifier">modelVersionDetail_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_externalEventsDetail"><span class="hs-identifier">modelVersionDetail_externalEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_ingestedEventsDetail"><span class="hs-identifier">modelVersionDetail_ingestedEventsDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_modelVersionNumber"><span class="hs-identifier">modelVersionDetail_modelVersionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingResult"><span class="hs-identifier">modelVersionDetail_trainingResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html#modelVersionDetail_trainingDataSchema"><span class="hs-identifier">modelVersionDetail_trainingDataSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>
+</span><span id="line-352"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Outcome</span></span><span>
+</span><span id="line-353"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html#Outcome"><span class="hs-identifier">Outcome</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-354"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html#newOutcome"><span class="hs-identifier">newOutcome</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html#outcome_lastUpdatedTime"><span class="hs-identifier">outcome_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html#outcome_arn"><span class="hs-identifier">outcome_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-357"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html#outcome_createdTime"><span class="hs-identifier">outcome_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html#outcome_name"><span class="hs-identifier">outcome_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-359"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html#outcome_description"><span class="hs-identifier">outcome_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>
+</span><span id="line-361"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Rule</span></span><span>
+</span><span id="line-362"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Rule.html#Rule"><span class="hs-identifier">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-363"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Rule.html#newRule"><span class="hs-identifier">newRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Rule.html#rule_detectorId"><span class="hs-identifier">rule_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-365"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Rule.html#rule_ruleId"><span class="hs-identifier">rule_ruleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Rule.html#rule_ruleVersion"><span class="hs-identifier">rule_ruleVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleDetail</span></span><span>
+</span><span id="line-369"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#RuleDetail"><span class="hs-identifier">RuleDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#newRuleDetail"><span class="hs-identifier">newRuleDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_ruleVersion"><span class="hs-identifier">ruleDetail_ruleVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-372"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_lastUpdatedTime"><span class="hs-identifier">ruleDetail_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_arn"><span class="hs-identifier">ruleDetail_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-374"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_createdTime"><span class="hs-identifier">ruleDetail_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_ruleId"><span class="hs-identifier">ruleDetail_ruleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_outcomes"><span class="hs-identifier">ruleDetail_outcomes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_detectorId"><span class="hs-identifier">ruleDetail_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_expression"><span class="hs-identifier">ruleDetail_expression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-379"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_language"><span class="hs-identifier">ruleDetail_language</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#ruleDetail_description"><span class="hs-identifier">ruleDetail_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-381"></span><span>
+</span><span id="line-382"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleResult</span></span><span>
+</span><span id="line-383"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleResult.html#RuleResult"><span class="hs-identifier">RuleResult</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleResult.html#newRuleResult"><span class="hs-identifier">newRuleResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleResult.html#ruleResult_ruleId"><span class="hs-identifier">ruleResult_ruleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleResult.html#ruleResult_outcomes"><span class="hs-identifier">ruleResult_outcomes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>
+</span><span id="line-388"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Tag</span></span><span>
+</span><span id="line-389"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Tag.html#Tag"><span class="hs-identifier">Tag</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Tag.html#newTag"><span class="hs-identifier">newTag</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Tag.html#tag_key"><span class="hs-identifier">tag_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Tag.html#tag_value"><span class="hs-identifier">tag_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TrainingDataSchema</span></span><span>
+</span><span id="line-395"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingDataSchema.html#TrainingDataSchema"><span class="hs-identifier">TrainingDataSchema</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-396"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingDataSchema.html#newTrainingDataSchema"><span class="hs-identifier">newTrainingDataSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-397"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingDataSchema.html#trainingDataSchema_modelVariables"><span class="hs-identifier">trainingDataSchema_modelVariables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-398"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingDataSchema.html#trainingDataSchema_labelSchema"><span class="hs-identifier">trainingDataSchema_labelSchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TrainingMetrics</span></span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingMetrics.html#TrainingMetrics"><span class="hs-identifier">TrainingMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingMetrics.html#newTrainingMetrics"><span class="hs-identifier">newTrainingMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-403"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingMetrics.html#trainingMetrics_auc"><span class="hs-identifier">trainingMetrics_auc</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-404"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingMetrics.html#trainingMetrics_metricDataPoints"><span class="hs-identifier">trainingMetrics_metricDataPoints</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TrainingResult</span></span><span>
+</span><span id="line-407"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingResult.html#TrainingResult"><span class="hs-identifier">TrainingResult</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-408"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingResult.html#newTrainingResult"><span class="hs-identifier">newTrainingResult</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingResult.html#trainingResult_dataValidationMetrics"><span class="hs-identifier">trainingResult_dataValidationMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-410"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingResult.html#trainingResult_trainingMetrics"><span class="hs-identifier">trainingResult_trainingMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-411"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingResult.html#trainingResult_variableImportanceMetrics"><span class="hs-identifier">trainingResult_variableImportanceMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-412"></span><span>
+</span><span id="line-413"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Variable</span></span><span>
+</span><span id="line-414"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#Variable"><span class="hs-identifier">Variable</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-415"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#newVariable"><span class="hs-identifier">newVariable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_lastUpdatedTime"><span class="hs-identifier">variable_lastUpdatedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-417"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_arn"><span class="hs-identifier">variable_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-418"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_createdTime"><span class="hs-identifier">variable_createdTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-419"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_name"><span class="hs-identifier">variable_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-420"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_dataSource"><span class="hs-identifier">variable_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-421"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_dataType"><span class="hs-identifier">variable_dataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-422"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_defaultValue"><span class="hs-identifier">variable_defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-423"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_variableType"><span class="hs-identifier">variable_variableType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-424"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html#variable_description"><span class="hs-identifier">variable_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-425"></span><span>
+</span><span id="line-426"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VariableEntry</span></span><span>
+</span><span id="line-427"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#VariableEntry"><span class="hs-identifier">VariableEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-428"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#newVariableEntry"><span class="hs-identifier">newVariableEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-429"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#variableEntry_name"><span class="hs-identifier">variableEntry_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-430"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#variableEntry_dataSource"><span class="hs-identifier">variableEntry_dataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#variableEntry_dataType"><span class="hs-identifier">variableEntry_dataType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#variableEntry_defaultValue"><span class="hs-identifier">variableEntry_defaultValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#variableEntry_variableType"><span class="hs-identifier">variableEntry_variableType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-434"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html#variableEntry_description"><span class="hs-identifier">variableEntry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-435"></span><span>
+</span><span id="line-436"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VariableImportanceMetrics</span></span><span>
+</span><span id="line-437"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableImportanceMetrics.html#VariableImportanceMetrics"><span class="hs-identifier">VariableImportanceMetrics</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-438"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableImportanceMetrics.html#newVariableImportanceMetrics"><span class="hs-identifier">newVariableImportanceMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-439"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableImportanceMetrics.html#variableImportanceMetrics_logOddsMetrics"><span class="hs-identifier">variableImportanceMetrics_logOddsMetrics</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-440"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-441"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-442"></span><span>
+</span><span id="line-443"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-444"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.AsyncJobStatus.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.AsyncJobStatus</span></a></span><span>
+</span><span id="line-445"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchCreateVariableError.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.BatchCreateVariableError</span></a></span><span>
+</span><span id="line-446"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchGetVariableError.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.BatchGetVariableError</span></a></span><span>
+</span><span id="line-447"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchImport.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.BatchImport</span></a></span><span>
+</span><span id="line-448"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.BatchPrediction.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.BatchPrediction</span></a></span><span>
+</span><span id="line-449"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataSource.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.DataSource</span></a></span><span>
+</span><span id="line-450"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataType.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.DataType</span></a></span><span>
+</span><span id="line-451"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DataValidationMetrics.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.DataValidationMetrics</span></a></span><span>
+</span><span id="line-452"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Detector.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Detector</span></a></span><span>
+</span><span id="line-453"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionStatus.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.DetectorVersionStatus</span></a></span><span>
+</span><span id="line-454"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.DetectorVersionSummary.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.DetectorVersionSummary</span></a></span><span>
+</span><span id="line-455"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Entity.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Entity</span></a></span><span>
+</span><span id="line-456"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EntityType.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.EntityType</span></a></span><span>
+</span><span id="line-457"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Event.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Event</span></a></span><span>
+</span><span id="line-458"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventIngestion.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.EventIngestion</span></a></span><span>
+</span><span id="line-459"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.EventType.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.EventType</span></a></span><span>
+</span><span id="line-460"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalEventsDetail.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ExternalEventsDetail</span></a></span><span>
+</span><span id="line-461"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModel.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ExternalModel</span></a></span><span>
+</span><span id="line-462"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelOutputs.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ExternalModelOutputs</span></a></span><span>
+</span><span id="line-463"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ExternalModelSummary.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ExternalModelSummary</span></a></span><span>
+</span><span id="line-464"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FieldValidationMessage.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.FieldValidationMessage</span></a></span><span>
+</span><span id="line-465"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.FileValidationMessage.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.FileValidationMessage</span></a></span><span>
+</span><span id="line-466"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventStatistics.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.IngestedEventStatistics</span></a></span><span>
+</span><span id="line-467"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsDetail.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.IngestedEventsDetail</span></a></span><span>
+</span><span id="line-468"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.IngestedEventsTimeWindow.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.IngestedEventsTimeWindow</span></a></span><span>
+</span><span id="line-469"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.KMSKey.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.KMSKey</span></a></span><span>
+</span><span id="line-470"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Label.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Label</span></a></span><span>
+</span><span id="line-471"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LabelSchema.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.LabelSchema</span></a></span><span>
+</span><span id="line-472"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Language.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Language</span></a></span><span>
+</span><span id="line-473"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.LogOddsMetric.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.LogOddsMetric</span></a></span><span>
+</span><span id="line-474"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.MetricDataPoint.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.MetricDataPoint</span></a></span><span>
+</span><span id="line-475"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Model.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Model</span></a></span><span>
+</span><span id="line-476"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointDataBlob.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelEndpointDataBlob</span></a></span><span>
+</span><span id="line-477"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelEndpointStatus.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelEndpointStatus</span></a></span><span>
+</span><span id="line-478"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputConfiguration.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelInputConfiguration</span></a></span><span>
+</span><span id="line-479"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelInputDataFormat.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelInputDataFormat</span></a></span><span>
+</span><span id="line-480"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputConfiguration.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelOutputConfiguration</span></a></span><span>
+</span><span id="line-481"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelOutputDataFormat.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelOutputDataFormat</span></a></span><span>
+</span><span id="line-482"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelScores.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelScores</span></a></span><span>
+</span><span id="line-483"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelSource.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelSource</span></a></span><span>
+</span><span id="line-484"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelTypeEnum.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelTypeEnum</span></a></span><span>
+</span><span id="line-485"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersion.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelVersion</span></a></span><span>
+</span><span id="line-486"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionDetail.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelVersionDetail</span></a></span><span>
+</span><span id="line-487"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.ModelVersionStatus.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.ModelVersionStatus</span></a></span><span>
+</span><span id="line-488"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Outcome.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Outcome</span></a></span><span>
+</span><span id="line-489"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Rule.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Rule</span></a></span><span>
+</span><span id="line-490"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.RuleDetail</span></a></span><span>
+</span><span id="line-491"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleExecutionMode.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.RuleExecutionMode</span></a></span><span>
+</span><span id="line-492"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleResult.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.RuleResult</span></a></span><span>
+</span><span id="line-493"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Tag.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Tag</span></a></span><span>
+</span><span id="line-494"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingDataSchema.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.TrainingDataSchema</span></a></span><span>
+</span><span id="line-495"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingDataSourceEnum.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.TrainingDataSourceEnum</span></a></span><span>
+</span><span id="line-496"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingMetrics.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.TrainingMetrics</span></a></span><span>
+</span><span id="line-497"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.TrainingResult.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.TrainingResult</span></a></span><span>
+</span><span id="line-498"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.UnlabeledEventsTreatment.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.UnlabeledEventsTreatment</span></a></span><span>
+</span><span id="line-499"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.Variable.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.Variable</span></a></span><span>
+</span><span id="line-500"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableEntry.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.VariableEntry</span></a></span><span>
+</span><span id="line-501"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.VariableImportanceMetrics.html"><span class="hs-identifier">Amazonka.FraudDetector.Types.VariableImportanceMetrics</span></a></span><span>
+</span><span id="line-502"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-503"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-504"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-505"></span><span>
+</span><span id="line-506"></span><span class="hs-comment">-- | API version @2019-11-15@ of the Amazon Fraud Detector SDK configuration.</span><span>
+</span><span id="line-507"></span><span class="annot"><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-508"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-509"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-510"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;FraudDetector&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-511"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-512"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;frauddetector&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-513"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;frauddetector&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-514"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2019-11-15&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-515"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-516"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-517"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-518"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-519"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-520"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;FraudDetector&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-521"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679309228"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-522"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-523"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-524"></span><span>    </span><span id="local-6989586621679309228"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679309228"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-525"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-526"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-527"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-528"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-529"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679309222"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-530"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-531"></span><span>    </span><span id="local-6989586621679309222"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679309222"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679309221"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-532"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-533"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-534"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-535"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-536"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-537"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-538"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-539"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-540"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-541"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-542"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-543"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-544"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-545"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-546"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-547"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-548"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-549"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-550"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-551"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-552"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-553"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-554"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-555"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-556"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-557"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-558"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-559"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-560"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-561"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-562"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-563"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-564"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-565"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-566"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-567"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-568"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-569"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-570"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-571"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-572"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-573"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679309221"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-574"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-575"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-576"></span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- | An exception indicating a specified value is not allowed.</span><span>
+</span><span id="line-578"></span><span id="local-6989586621679309216"><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679309216"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679309216"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-579"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.FraudDetector.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-580"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-581"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-582"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-583"></span><span>
+</span><span id="line-584"></span><span class="hs-comment">-- | An exception indicating Amazon Fraud Detector does not have the needed</span><span>
+</span><span id="line-585"></span><span class="hs-comment">-- permissions. This can occur if you submit a request, such as</span><span>
+</span><span id="line-586"></span><span class="hs-comment">-- @PutExternalModel@, that specifies a role that is not in your account.</span><span>
+</span><span id="line-587"></span><span id="local-6989586621679309214"><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679309214"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679309214"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-588"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.FraudDetector.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-589"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-590"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-591"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-592"></span><span>
+</span><span id="line-593"></span><span class="hs-comment">-- | An exception indicating that the attached customer-owned (external)</span><span>
+</span><span id="line-594"></span><span class="hs-comment">-- model threw an exception when Amazon Fraud Detector invoked the model.</span><span>
+</span><span id="line-595"></span><span id="local-6989586621679309213"><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ResourceUnavailableException"><span class="hs-identifier hs-type">_ResourceUnavailableException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679309213"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679309213"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-596"></span><span id="_ResourceUnavailableException"><span class="annot"><span class="annottext">_ResourceUnavailableException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.FraudDetector.Types.html#_ResourceUnavailableException"><span class="hs-identifier hs-var hs-var">_ResourceUnavailableException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-597"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-598"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-599"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceUnavailableException&quot;</span></span><span>
+</span><span id="line-600"></span><span>
+</span><span id="line-601"></span><span class="hs-comment">-- | An exception indicating there was a conflict during a delete operation.</span><span>
+</span><span id="line-602"></span><span id="local-6989586621679309212"><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679309212"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679309212"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-603"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.FraudDetector.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-604"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-605"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-606"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-607"></span><span>
+</span><span id="line-608"></span><span class="hs-comment">-- | An exception indicating a throttling error.</span><span>
+</span><span id="line-609"></span><span id="local-6989586621679309211"><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679309211"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679309211"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-610"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.FraudDetector.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-611"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-612"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-613"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-614"></span><span>
+</span><span id="line-615"></span><span class="hs-comment">-- | An exception indicating an internal server error.</span><span>
+</span><span id="line-616"></span><span id="local-6989586621679309210"><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679309210"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679309210"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-617"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.FraudDetector.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-618"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-619"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-620"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-621"></span><span>
+</span><span id="line-622"></span><span class="hs-comment">-- | An exception indicating the specified resource was not found.</span><span>
+</span><span id="line-623"></span><span id="local-6989586621679309209"><span class="annot"><a href="Amazonka.FraudDetector.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679309209"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679309209"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-624"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.FraudDetector.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-625"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-626"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-627"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-628"></span></pre></body></html>

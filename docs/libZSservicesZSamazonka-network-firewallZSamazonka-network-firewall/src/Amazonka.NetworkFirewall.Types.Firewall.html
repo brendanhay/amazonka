@@ -1,0 +1,735 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.Types.Firewall</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Firewall</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SubnetMapping.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.SubnetMapping</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html"><span class="hs-identifier">Amazonka.NetworkFirewall.Types.Tag</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The firewall defines the configuration settings for an AWS Network</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Firewall firewall. These settings include the firewall policy, the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- subnets in your VPC to use for the firewall endpoints, and any tags that</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- are attached to the firewall AWS resource.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- The status of the firewall, for example whether it\'s ready to filter</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- network traffic, is provided in the corresponding FirewallStatus. You</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- can retrieve both objects by calling DescribeFirewall.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newFirewall' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679242748"><span id="local-6989586621679242749"></span></span><span class="hs-keyword">data</span><span> </span><span id="Firewall"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-var">Firewall</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Firewall%27"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-var">Firewall'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AfirewallArn%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallArn%3AFirewall%27"><span class="hs-identifier hs-var hs-var">firewallArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A setting indicating whether the firewall is protected against a change</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- to the firewall policy association. Use this setting to protect against</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- accidentally modifying the firewall policy for a firewall that is in</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- use. When you create a firewall, the operation initializes this setting</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- to @TRUE@.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AfirewallPolicyChangeProtection%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallPolicyChangeProtection%3AFirewall%27"><span class="hs-identifier hs-var hs-var">firewallPolicyChangeProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | A setting indicating whether the firewall is protected against changes</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- to the subnet associations. Use this setting to protect against</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- accidentally modifying the subnet associations for a firewall that is in</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- use. When you create a firewall, the operation initializes this setting</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- to @TRUE@.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AsubnetChangeProtection%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AsubnetChangeProtection%3AFirewall%27"><span class="hs-identifier hs-var hs-var">subnetChangeProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | A flag indicating whether it is possible to delete the firewall. A</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- setting of @TRUE@ indicates that the firewall is protected against</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- deletion. Use this setting to protect against accidentally deleting a</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- firewall that is in use. When you create a firewall, the operation</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- initializes this flag to @TRUE@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdeleteProtection%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AdeleteProtection%3AFirewall%27"><span class="hs-identifier hs-var hs-var">deleteProtection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | A description of the firewall.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Adescription%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3Adescription%3AFirewall%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atags%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Maybe (NonEmpty Tag)
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3Atags%3AFirewall%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AfirewallName%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallName%3AFirewall%27"><span class="hs-identifier hs-var hs-var">firewallName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall policy.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- The relationship of firewall to firewall policy is many to one. Each</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- firewall requires one firewall policy association, and you can use the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- same firewall policy for multiple firewalls.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AfirewallPolicyArn%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallPolicyArn%3AFirewall%27"><span class="hs-identifier hs-var hs-var">firewallPolicyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the VPC where the firewall is in use.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AvpcId%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AvpcId%3AFirewall%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The public subnets that Network Firewall is using for the firewall. Each</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- subnet must belong to a different Availability Zone.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AsubnetMappings%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; [SubnetMapping]
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AsubnetMappings%3AFirewall%27"><span class="hs-identifier hs-var hs-var">subnetMappings</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SubnetMapping.html#SubnetMapping"><span class="hs-identifier hs-type">SubnetMapping</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the firewall.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AfirewallId%3AFirewall%27"><span class="annot"><span class="annottext">Firewall -&gt; Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallId%3AFirewall%27"><span class="hs-identifier hs-var hs-var">firewallId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242732"><span id="local-6989586621679242734"><span class="annot"><span class="annottext">Firewall -&gt; Firewall -&gt; Bool
+(Firewall -&gt; Firewall -&gt; Bool)
+-&gt; (Firewall -&gt; Firewall -&gt; Bool) -&gt; Eq Firewall
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Firewall -&gt; Firewall -&gt; Bool
+$c/= :: Firewall -&gt; Firewall -&gt; Bool
+== :: Firewall -&gt; Firewall -&gt; Bool
+$c== :: Firewall -&gt; Firewall -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242723"><span id="local-6989586621679242725"><span id="local-6989586621679242727"><span id="local-6989586621679242729"><span class="annot"><span class="annottext">ReadPrec [Firewall]
+ReadPrec Firewall
+Int -&gt; ReadS Firewall
+ReadS [Firewall]
+(Int -&gt; ReadS Firewall)
+-&gt; ReadS [Firewall]
+-&gt; ReadPrec Firewall
+-&gt; ReadPrec [Firewall]
+-&gt; Read Firewall
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Firewall]
+$creadListPrec :: ReadPrec [Firewall]
+readPrec :: ReadPrec Firewall
+$creadPrec :: ReadPrec Firewall
+readList :: ReadS [Firewall]
+$creadList :: ReadS [Firewall]
+readsPrec :: Int -&gt; ReadS Firewall
+$creadsPrec :: Int -&gt; ReadS Firewall
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242716"><span id="local-6989586621679242718"><span id="local-6989586621679242720"><span class="annot"><span class="annottext">Int -&gt; Firewall -&gt; ShowS
+[Firewall] -&gt; ShowS
+Firewall -&gt; String
+(Int -&gt; Firewall -&gt; ShowS)
+-&gt; (Firewall -&gt; String) -&gt; ([Firewall] -&gt; ShowS) -&gt; Show Firewall
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Firewall] -&gt; ShowS
+$cshowList :: [Firewall] -&gt; ShowS
+show :: Firewall -&gt; String
+$cshow :: Firewall -&gt; String
+showsPrec :: Int -&gt; Firewall -&gt; ShowS
+$cshowsPrec :: Int -&gt; Firewall -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Firewall -&gt; Rep Firewall x)
+-&gt; (forall x. Rep Firewall x -&gt; Firewall) -&gt; Generic Firewall
+forall x. Rep Firewall x -&gt; Firewall
+forall x. Firewall -&gt; Rep Firewall x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Firewall x -&gt; Firewall
+$cfrom :: forall x. Firewall -&gt; Rep Firewall x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'Firewall' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'firewallArn', 'firewall_firewallArn' - The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'firewallPolicyChangeProtection', 'firewall_firewallPolicyChangeProtection' - A setting indicating whether the firewall is protected against a change</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- to the firewall policy association. Use this setting to protect against</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- accidentally modifying the firewall policy for a firewall that is in</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- use. When you create a firewall, the operation initializes this setting</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- to @TRUE@.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'subnetChangeProtection', 'firewall_subnetChangeProtection' - A setting indicating whether the firewall is protected against changes</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- to the subnet associations. Use this setting to protect against</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- accidentally modifying the subnet associations for a firewall that is in</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- use. When you create a firewall, the operation initializes this setting</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- to @TRUE@.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'deleteProtection', 'firewall_deleteProtection' - A flag indicating whether it is possible to delete the firewall. A</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- setting of @TRUE@ indicates that the firewall is protected against</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- deletion. Use this setting to protect against accidentally deleting a</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- firewall that is in use. When you create a firewall, the operation</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- initializes this flag to @TRUE@.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'description', 'firewall_description' - A description of the firewall.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'tags', 'firewall_tags' -</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'firewallName', 'firewall_firewallName' - The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'firewallPolicyArn', 'firewall_firewallPolicyArn' - The Amazon Resource Name (ARN) of the firewall policy.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The relationship of firewall to firewall policy is many to one. Each</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- firewall requires one firewall policy association, and you can use the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- same firewall policy for multiple firewalls.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'vpcId', 'firewall_vpcId' - The unique identifier of the VPC where the firewall is in use.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'subnetMappings', 'firewall_subnetMappings' - The public subnets that Network Firewall is using for the firewall. Each</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- subnet must belong to a different Availability Zone.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'firewallId', 'firewall_firewallId' - The unique identifier for the firewall.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#newFirewall"><span class="hs-identifier hs-type">newFirewall</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'firewallPolicyArn'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'vpcId'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-comment">-- | 'firewallId'</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span>
+</span><span id="line-136"></span><span id="newFirewall"><span class="annot"><span class="annottext">newFirewall :: Text -&gt; Text -&gt; Text -&gt; Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#newFirewall"><span class="hs-identifier hs-var hs-var">newFirewall</span></a></span></span><span> </span><span id="local-6989586621679242710"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242710"><span class="hs-identifier hs-var">pFirewallPolicyArn_</span></a></span></span><span> </span><span id="local-6989586621679242709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242709"><span class="hs-identifier hs-var">pVpcId_</span></a></span></span><span> </span><span id="local-6989586621679242708"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242708"><span class="hs-identifier hs-var">pFirewallId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="annottext">Firewall' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; [SubnetMapping]
+-&gt; Text
+-&gt; Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:firewallArn:Firewall' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallArn%3AFirewall%27"><span class="hs-identifier hs-var">firewallArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallPolicyChangeProtection:Firewall' :: Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallPolicyChangeProtection%3AFirewall%27"><span class="hs-identifier hs-var">firewallPolicyChangeProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetChangeProtection:Firewall' :: Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AsubnetChangeProtection%3AFirewall%27"><span class="hs-identifier hs-var">subnetChangeProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><span class="annottext">$sel:deleteProtection:Firewall' :: Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AdeleteProtection%3AFirewall%27"><span class="hs-identifier hs-var">deleteProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Firewall' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3Adescription%3AFirewall%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Firewall' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3Atags%3AFirewall%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallName:Firewall' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallName%3AFirewall%27"><span class="hs-identifier hs-var">firewallName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallPolicyArn:Firewall' :: Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallPolicyArn%3AFirewall%27"><span class="hs-identifier hs-var">firewallPolicyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242710"><span class="hs-identifier hs-var">pFirewallPolicyArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:Firewall' :: Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AvpcId%3AFirewall%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242709"><span class="hs-identifier hs-var">pVpcId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:subnetMappings:Firewall' :: [SubnetMapping]
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AsubnetMappings%3AFirewall%27"><span class="hs-identifier hs-var">subnetMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SubnetMapping]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:firewallId:Firewall' :: Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallId%3AFirewall%27"><span class="hs-identifier hs-var">firewallId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242708"><span class="hs-identifier hs-var">pFirewallId_</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallArn"><span class="hs-identifier hs-type">firewall_firewallArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="firewall_firewallArn"><span class="annot"><span class="annottext">firewall_firewallArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallArn"><span class="hs-identifier hs-var hs-var">firewall_firewallArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Maybe Text)
+-&gt; (Firewall -&gt; Maybe Text -&gt; Firewall)
+-&gt; Lens Firewall Firewall (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242704"><span class="annot"><span class="annottext">Maybe Text
+firewallArn :: Maybe Text
+$sel:firewallArn:Firewall' :: Firewall -&gt; Maybe Text
+</span><a href="#local-6989586621679242704"><span class="hs-identifier hs-var hs-var">firewallArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242704"><span class="hs-identifier hs-var">firewallArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242703"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242702"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallArn:Firewall' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallArn%3AFirewall%27"><span class="hs-identifier hs-var">firewallArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | A setting indicating whether the firewall is protected against a change</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- to the firewall policy association. Use this setting to protect against</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- accidentally modifying the firewall policy for a firewall that is in</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- use. When you create a firewall, the operation initializes this setting</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- to @TRUE@.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallPolicyChangeProtection"><span class="hs-identifier hs-type">firewall_firewallPolicyChangeProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="firewall_firewallPolicyChangeProtection"><span class="annot"><span class="annottext">firewall_firewallPolicyChangeProtection :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallPolicyChangeProtection"><span class="hs-identifier hs-var hs-var">firewall_firewallPolicyChangeProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Maybe Bool)
+-&gt; (Firewall -&gt; Maybe Bool -&gt; Firewall)
+-&gt; Lens Firewall Firewall (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242700"><span class="annot"><span class="annottext">Maybe Bool
+firewallPolicyChangeProtection :: Maybe Bool
+$sel:firewallPolicyChangeProtection:Firewall' :: Firewall -&gt; Maybe Bool
+</span><a href="#local-6989586621679242700"><span class="hs-identifier hs-var hs-var">firewallPolicyChangeProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242700"><span class="hs-identifier hs-var">firewallPolicyChangeProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242699"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242699"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242698"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242698"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242699"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallPolicyChangeProtection:Firewall' :: Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallPolicyChangeProtection%3AFirewall%27"><span class="hs-identifier hs-var">firewallPolicyChangeProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242698"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A setting indicating whether the firewall is protected against changes</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- to the subnet associations. Use this setting to protect against</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- accidentally modifying the subnet associations for a firewall that is in</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- use. When you create a firewall, the operation initializes this setting</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- to @TRUE@.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_subnetChangeProtection"><span class="hs-identifier hs-type">firewall_subnetChangeProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="firewall_subnetChangeProtection"><span class="annot"><span class="annottext">firewall_subnetChangeProtection :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_subnetChangeProtection"><span class="hs-identifier hs-var hs-var">firewall_subnetChangeProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Maybe Bool)
+-&gt; (Firewall -&gt; Maybe Bool -&gt; Firewall)
+-&gt; Lens Firewall Firewall (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242696"><span class="annot"><span class="annottext">Maybe Bool
+subnetChangeProtection :: Maybe Bool
+$sel:subnetChangeProtection:Firewall' :: Firewall -&gt; Maybe Bool
+</span><a href="#local-6989586621679242696"><span class="hs-identifier hs-var hs-var">subnetChangeProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242696"><span class="hs-identifier hs-var">subnetChangeProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242695"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242695"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242694"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242694"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242695"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetChangeProtection:Firewall' :: Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AsubnetChangeProtection%3AFirewall%27"><span class="hs-identifier hs-var">subnetChangeProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242694"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | A flag indicating whether it is possible to delete the firewall. A</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- setting of @TRUE@ indicates that the firewall is protected against</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- deletion. Use this setting to protect against accidentally deleting a</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- firewall that is in use. When you create a firewall, the operation</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- initializes this flag to @TRUE@.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_deleteProtection"><span class="hs-identifier hs-type">firewall_deleteProtection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="firewall_deleteProtection"><span class="annot"><span class="annottext">firewall_deleteProtection :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_deleteProtection"><span class="hs-identifier hs-var hs-var">firewall_deleteProtection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Maybe Bool)
+-&gt; (Firewall -&gt; Maybe Bool -&gt; Firewall)
+-&gt; Lens Firewall Firewall (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242692"><span class="annot"><span class="annottext">Maybe Bool
+deleteProtection :: Maybe Bool
+$sel:deleteProtection:Firewall' :: Firewall -&gt; Maybe Bool
+</span><a href="#local-6989586621679242692"><span class="hs-identifier hs-var hs-var">deleteProtection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242692"><span class="hs-identifier hs-var">deleteProtection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242691"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242690"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleteProtection:Firewall' :: Maybe Bool
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AdeleteProtection%3AFirewall%27"><span class="hs-identifier hs-var">deleteProtection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679242690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A description of the firewall.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_description"><span class="hs-identifier hs-type">firewall_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="firewall_description"><span class="annot"><span class="annottext">firewall_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_description"><span class="hs-identifier hs-var hs-var">firewall_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Maybe Text)
+-&gt; (Firewall -&gt; Maybe Text -&gt; Firewall)
+-&gt; Lens Firewall Firewall (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242688"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Firewall' :: Firewall -&gt; Maybe Text
+</span><a href="#local-6989586621679242688"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242688"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242687"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242687"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242686"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242686"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242687"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Firewall' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3Adescription%3AFirewall%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242686"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_tags"><span class="hs-identifier hs-type">firewall_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="firewall_tags"><span class="annot"><span class="annottext">firewall_tags :: (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_tags"><span class="hs-identifier hs-var hs-var">firewall_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Maybe (NonEmpty Tag))
+-&gt; (Firewall -&gt; Maybe (NonEmpty Tag) -&gt; Firewall)
+-&gt; Lens
+     Firewall Firewall (Maybe (NonEmpty Tag)) (Maybe (NonEmpty Tag))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242684"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+tags :: Maybe (NonEmpty Tag)
+$sel:tags:Firewall' :: Firewall -&gt; Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242684"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242684"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242683"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242682"><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Firewall' :: Maybe (NonEmpty Tag)
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3Atags%3AFirewall%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty Tag)
+</span><a href="#local-6989586621679242682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+ -&gt; Firewall -&gt; f Firewall)
+-&gt; ((Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+    -&gt; Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; (Maybe (NonEmpty Tag) -&gt; f (Maybe (NonEmpty Tag)))
+-&gt; Firewall
+-&gt; f Firewall
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+-&gt; Iso
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+     (Maybe (NonEmpty Tag))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag) (NonEmpty Tag)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The descriptive name of the firewall. You can\'t change the name of a</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- firewall after you create it.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallName"><span class="hs-identifier hs-type">firewall_firewallName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="firewall_firewallName"><span class="annot"><span class="annottext">firewall_firewallName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallName"><span class="hs-identifier hs-var hs-var">firewall_firewallName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Maybe Text)
+-&gt; (Firewall -&gt; Maybe Text -&gt; Firewall)
+-&gt; Lens Firewall Firewall (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242677"><span class="annot"><span class="annottext">Maybe Text
+firewallName :: Maybe Text
+$sel:firewallName:Firewall' :: Firewall -&gt; Maybe Text
+</span><a href="#local-6989586621679242677"><span class="hs-identifier hs-var hs-var">firewallName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242677"><span class="hs-identifier hs-var">firewallName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242676"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242676"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242675"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242675"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242676"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallName:Firewall' :: Maybe Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallName%3AFirewall%27"><span class="hs-identifier hs-var">firewallName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242675"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the firewall policy.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The relationship of firewall to firewall policy is many to one. Each</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- firewall requires one firewall policy association, and you can use the</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- same firewall policy for multiple firewalls.</span><span>
+</span><span id="line-197"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallPolicyArn"><span class="hs-identifier hs-type">firewall_firewallPolicyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-198"></span><span id="firewall_firewallPolicyArn"><span class="annot"><span class="annottext">firewall_firewallPolicyArn :: (Text -&gt; f Text) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallPolicyArn"><span class="hs-identifier hs-var hs-var">firewall_firewallPolicyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Text)
+-&gt; (Firewall -&gt; Text -&gt; Firewall)
+-&gt; Lens Firewall Firewall Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242673"><span class="annot"><span class="annottext">Text
+firewallPolicyArn :: Text
+$sel:firewallPolicyArn:Firewall' :: Firewall -&gt; Text
+</span><a href="#local-6989586621679242673"><span class="hs-identifier hs-var hs-var">firewallPolicyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242673"><span class="hs-identifier hs-var">firewallPolicyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242672"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242671"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallPolicyArn:Firewall' :: Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallPolicyArn%3AFirewall%27"><span class="hs-identifier hs-var">firewallPolicyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The unique identifier of the VPC where the firewall is in use.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_vpcId"><span class="hs-identifier hs-type">firewall_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-202"></span><span id="firewall_vpcId"><span class="annot"><span class="annottext">firewall_vpcId :: (Text -&gt; f Text) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_vpcId"><span class="hs-identifier hs-var hs-var">firewall_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Text)
+-&gt; (Firewall -&gt; Text -&gt; Firewall)
+-&gt; Lens Firewall Firewall Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242669"><span class="annot"><span class="annottext">Text
+vpcId :: Text
+$sel:vpcId:Firewall' :: Firewall -&gt; Text
+</span><a href="#local-6989586621679242669"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242669"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242668"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242668"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242667"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242667"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242668"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:Firewall' :: Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AvpcId%3AFirewall%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242667"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- | The public subnets that Network Firewall is using for the firewall. Each</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- subnet must belong to a different Availability Zone.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_subnetMappings"><span class="hs-identifier hs-type">firewall_subnetMappings</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.SubnetMapping.html#SubnetMapping"><span class="hs-identifier hs-type">SubnetMapping</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-207"></span><span id="firewall_subnetMappings"><span class="annot"><span class="annottext">firewall_subnetMappings :: ([SubnetMapping] -&gt; f [SubnetMapping]) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_subnetMappings"><span class="hs-identifier hs-var hs-var">firewall_subnetMappings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; [SubnetMapping])
+-&gt; (Firewall -&gt; [SubnetMapping] -&gt; Firewall)
+-&gt; Lens Firewall Firewall [SubnetMapping] [SubnetMapping]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242665"><span class="annot"><span class="annottext">[SubnetMapping]
+subnetMappings :: [SubnetMapping]
+$sel:subnetMappings:Firewall' :: Firewall -&gt; [SubnetMapping]
+</span><a href="#local-6989586621679242665"><span class="hs-identifier hs-var hs-var">subnetMappings</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[SubnetMapping]
+</span><a href="#local-6989586621679242665"><span class="hs-identifier hs-var">subnetMappings</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242664"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242664"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242663"><span class="annot"><span class="annottext">[SubnetMapping]
+</span><a href="#local-6989586621679242663"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242664"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetMappings:Firewall' :: [SubnetMapping]
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AsubnetMappings%3AFirewall%27"><span class="hs-identifier hs-var">subnetMappings</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[SubnetMapping]
+</span><a href="#local-6989586621679242663"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([SubnetMapping] -&gt; f [SubnetMapping]) -&gt; Firewall -&gt; f Firewall)
+-&gt; (([SubnetMapping] -&gt; f [SubnetMapping])
+    -&gt; [SubnetMapping] -&gt; f [SubnetMapping])
+-&gt; ([SubnetMapping] -&gt; f [SubnetMapping])
+-&gt; Firewall
+-&gt; f Firewall
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([SubnetMapping] -&gt; f [SubnetMapping])
+-&gt; [SubnetMapping] -&gt; f [SubnetMapping]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The unique identifier for the firewall.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallId"><span class="hs-identifier hs-type">firewall_firewallId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-211"></span><span id="firewall_firewallId"><span class="annot"><span class="annottext">firewall_firewallId :: (Text -&gt; f Text) -&gt; Firewall -&gt; f Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#firewall_firewallId"><span class="hs-identifier hs-var hs-var">firewall_firewallId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Firewall -&gt; Text)
+-&gt; (Firewall -&gt; Text -&gt; Firewall)
+-&gt; Lens Firewall Firewall Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242661"><span class="annot"><span class="annottext">Text
+firewallId :: Text
+$sel:firewallId:Firewall' :: Firewall -&gt; Text
+</span><a href="#local-6989586621679242661"><span class="hs-identifier hs-var hs-var">firewallId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242661"><span class="hs-identifier hs-var">firewallId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242660"><span class="annot"><span class="annottext">s :: Firewall
+</span><a href="#local-6989586621679242660"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-type">Firewall'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242659"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242659"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Firewall
+</span><a href="#local-6989586621679242660"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:firewallId:Firewall' :: Text
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#%24sel%3AfirewallId%3AFirewall%27"><span class="hs-identifier hs-var">firewallId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242659"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242656"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679242654"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Firewall
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Firewall) -&gt; Value -&gt; Parser Firewall
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Firewall&quot;</span></span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242651"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty Tag)
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; [SubnetMapping]
+-&gt; Text
+-&gt; Firewall
+</span><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall%27"><span class="hs-identifier hs-var">Firewall'</span></a></span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty Tag)
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; [SubnetMapping]
+ -&gt; Text
+ -&gt; Firewall)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; [SubnetMapping]
+      -&gt; Text
+      -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [SubnetMapping]
+   -&gt; Text
+   -&gt; Firewall)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; [SubnetMapping]
+      -&gt; Text
+      -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallPolicyChangeProtection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [SubnetMapping]
+   -&gt; Text
+   -&gt; Firewall)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; [SubnetMapping]
+      -&gt; Text
+      -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetChangeProtection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [SubnetMapping]
+   -&gt; Text
+   -&gt; Firewall)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe (NonEmpty Tag)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; [SubnetMapping]
+      -&gt; Text
+      -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteProtection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe (NonEmpty Tag)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [SubnetMapping]
+   -&gt; Text
+   -&gt; Firewall)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe (NonEmpty Tag)
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; [SubnetMapping]
+      -&gt; Text
+      -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (NonEmpty Tag)
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; [SubnetMapping]
+   -&gt; Text
+   -&gt; Firewall)
+-&gt; Parser (Maybe (NonEmpty Tag))
+-&gt; Parser
+     (Maybe Text -&gt; Text -&gt; Text -&gt; [SubnetMapping] -&gt; Text -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (NonEmpty Tag))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Text -&gt; Text -&gt; [SubnetMapping] -&gt; Text -&gt; Firewall)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Text -&gt; Text -&gt; [SubnetMapping] -&gt; Text -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Text -&gt; [SubnetMapping] -&gt; Text -&gt; Firewall)
+-&gt; Parser Text
+-&gt; Parser (Text -&gt; [SubnetMapping] -&gt; Text -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallPolicyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; [SubnetMapping] -&gt; Text -&gt; Firewall)
+-&gt; Parser Text -&gt; Parser ([SubnetMapping] -&gt; Text -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser ([SubnetMapping] -&gt; Text -&gt; Firewall)
+-&gt; Parser [SubnetMapping] -&gt; Parser (Text -&gt; Firewall)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [SubnetMapping])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubnetMappings&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [SubnetMapping])
+-&gt; [SubnetMapping] -&gt; Parser [SubnetMapping]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[SubnetMapping]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; Firewall) -&gt; Parser Text -&gt; Parser Firewall
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242651"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FirewallId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242643"><span id="local-6989586621679242645"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242640"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.Firewall.html#Firewall"><span class="hs-identifier hs-type">Firewall</span></a></span></span><span>
+</span><span id="line-235"></span></pre></body></html>

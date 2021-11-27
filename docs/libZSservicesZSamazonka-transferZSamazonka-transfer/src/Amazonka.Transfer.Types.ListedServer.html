@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Transfer.Types.ListedServer</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transfer.Types.ListedServer</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.Domain.html"><span class="hs-identifier">Amazonka.Transfer.Types.Domain</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.EndpointType.html"><span class="hs-identifier">Amazonka.Transfer.Types.EndpointType</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.IdentityProviderType.html"><span class="hs-identifier">Amazonka.Transfer.Types.IdentityProviderType</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html"><span class="hs-identifier">Amazonka.Transfer.Types.State</span></a></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Returns properties of a file transfer protocol-enabled server that was</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- specified.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newListedServer' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679240177"><span id="local-6989586621679240178"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListedServer"><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-var">ListedServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListedServer%27"><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-var">ListedServer'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Identity and Access Management (IAM) role that allows a server to turn</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- set, user activity can be viewed in your CloudWatch logs.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AloggingRole%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Maybe Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AloggingRole%3AListedServer%27"><span class="hs-identifier hs-var hs-var">loggingRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies the condition of a server for the server that was described. A</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- value of @ONLINE@ indicates that the server can accept jobs and transfer</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- files. A @State@ value of @OFFLINE@ means that the server cannot perform</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- file transfer operations.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- The states of @STARTING@ and @STOPPING@ indicate that the server is in</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- an intermediate state, either not fully able to respond, or not fully</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- error condition.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Astate%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Maybe State
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Astate%3AListedServer%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Specifies the mode of authentication for a server. The default value is</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- @SERVICE_MANAGED@, which allows you to store and access user credentials</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- within the Amazon Web Services Transfer Family service.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Use @AWS_DIRECTORY_SERVICE@ to provide access to Active Directory groups</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- in Amazon Web Services Managed Active Directory or Microsoft Active</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- Directory in your on-premises environment or in Amazon Web Services</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- using AD Connectors. This option also requires you to provide a</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- Directory ID using the @IdentityProviderDetails@ parameter.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Use the @API_GATEWAY@ value to integrate with an identity provider of</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- your choosing. The @API_GATEWAY@ setting requires you to provide an API</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Gateway endpoint URL to call for authentication using the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @IdentityProviderDetails@ parameter.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AidentityProviderType%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Maybe IdentityProviderType
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AidentityProviderType%3AListedServer%27"><span class="hs-identifier hs-var hs-var">identityProviderType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.IdentityProviderType.html#IdentityProviderType"><span class="hs-identifier hs-type">IdentityProviderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Specifies the unique system assigned identifier for the servers that</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- were listed.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AserverId%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Maybe Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AserverId%3AListedServer%27"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | Specifies the domain of the storage system that is used for file</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- transfers.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Adomain%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Maybe Domain
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Adomain%3AListedServer%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Specifies the type of VPC endpoint that your server is connected to. If</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- your server is connected to a VPC endpoint, your server isn\'t</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- accessible over the public internet.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AendpointType%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Maybe EndpointType
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AendpointType%3AListedServer%27"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-type">EndpointType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Specifies the number of users that are assigned to a server you</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- specified with the @ServerId@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AuserCount%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Maybe Int
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AuserCount%3AListedServer%27"><span class="hs-identifier hs-var hs-var">userCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | Specifies the unique Amazon Resource Name (ARN) for a server to be</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- listed.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Aarn%3AListedServer%27"><span class="annot"><span class="annottext">ListedServer -&gt; Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Aarn%3AListedServer%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679240164"><span id="local-6989586621679240166"><span class="annot"><span class="annottext">ListedServer -&gt; ListedServer -&gt; Bool
+(ListedServer -&gt; ListedServer -&gt; Bool)
+-&gt; (ListedServer -&gt; ListedServer -&gt; Bool) -&gt; Eq ListedServer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListedServer -&gt; ListedServer -&gt; Bool
+$c/= :: ListedServer -&gt; ListedServer -&gt; Bool
+== :: ListedServer -&gt; ListedServer -&gt; Bool
+$c== :: ListedServer -&gt; ListedServer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240155"><span id="local-6989586621679240157"><span id="local-6989586621679240159"><span id="local-6989586621679240161"><span class="annot"><span class="annottext">ReadPrec [ListedServer]
+ReadPrec ListedServer
+Int -&gt; ReadS ListedServer
+ReadS [ListedServer]
+(Int -&gt; ReadS ListedServer)
+-&gt; ReadS [ListedServer]
+-&gt; ReadPrec ListedServer
+-&gt; ReadPrec [ListedServer]
+-&gt; Read ListedServer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListedServer]
+$creadListPrec :: ReadPrec [ListedServer]
+readPrec :: ReadPrec ListedServer
+$creadPrec :: ReadPrec ListedServer
+readList :: ReadS [ListedServer]
+$creadList :: ReadS [ListedServer]
+readsPrec :: Int -&gt; ReadS ListedServer
+$creadsPrec :: Int -&gt; ReadS ListedServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679240148"><span id="local-6989586621679240150"><span id="local-6989586621679240152"><span class="annot"><span class="annottext">Int -&gt; ListedServer -&gt; ShowS
+[ListedServer] -&gt; ShowS
+ListedServer -&gt; String
+(Int -&gt; ListedServer -&gt; ShowS)
+-&gt; (ListedServer -&gt; String)
+-&gt; ([ListedServer] -&gt; ShowS)
+-&gt; Show ListedServer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListedServer] -&gt; ShowS
+$cshowList :: [ListedServer] -&gt; ShowS
+show :: ListedServer -&gt; String
+$cshow :: ListedServer -&gt; String
+showsPrec :: Int -&gt; ListedServer -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListedServer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListedServer -&gt; Rep ListedServer x)
+-&gt; (forall x. Rep ListedServer x -&gt; ListedServer)
+-&gt; Generic ListedServer
+forall x. Rep ListedServer x -&gt; ListedServer
+forall x. ListedServer -&gt; Rep ListedServer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListedServer x -&gt; ListedServer
+$cfrom :: forall x. ListedServer -&gt; Rep ListedServer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Create a value of 'ListedServer' with all optional fields omitted.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'loggingRole', 'listedServer_loggingRole' - Specifies the Amazon Resource Name (ARN) of the Amazon Web Services</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- Identity and Access Management (IAM) role that allows a server to turn</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- set, user activity can be viewed in your CloudWatch logs.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'state', 'listedServer_state' - Specifies the condition of a server for the server that was described. A</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- value of @ONLINE@ indicates that the server can accept jobs and transfer</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- files. A @State@ value of @OFFLINE@ means that the server cannot perform</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- file transfer operations.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The states of @STARTING@ and @STOPPING@ indicate that the server is in</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- an intermediate state, either not fully able to respond, or not fully</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- error condition.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'identityProviderType', 'listedServer_identityProviderType' - Specifies the mode of authentication for a server. The default value is</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @SERVICE_MANAGED@, which allows you to store and access user credentials</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- within the Amazon Web Services Transfer Family service.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Use @AWS_DIRECTORY_SERVICE@ to provide access to Active Directory groups</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- in Amazon Web Services Managed Active Directory or Microsoft Active</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Directory in your on-premises environment or in Amazon Web Services</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- using AD Connectors. This option also requires you to provide a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Directory ID using the @IdentityProviderDetails@ parameter.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- Use the @API_GATEWAY@ value to integrate with an identity provider of</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- your choosing. The @API_GATEWAY@ setting requires you to provide an API</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Gateway endpoint URL to call for authentication using the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- @IdentityProviderDetails@ parameter.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'serverId', 'listedServer_serverId' - Specifies the unique system assigned identifier for the servers that</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- were listed.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'domain', 'listedServer_domain' - Specifies the domain of the storage system that is used for file</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- transfers.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'endpointType', 'listedServer_endpointType' - Specifies the type of VPC endpoint that your server is connected to. If</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- your server is connected to a VPC endpoint, your server isn\'t</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- accessible over the public internet.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'userCount', 'listedServer_userCount' - Specifies the number of users that are assigned to a server you</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- specified with the @ServerId@.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'arn', 'listedServer_arn' - Specifies the unique Amazon Resource Name (ARN) for a server to be</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- listed.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#newListedServer"><span class="hs-identifier hs-type">newListedServer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span>
+</span><span id="line-141"></span><span id="newListedServer"><span class="annot"><span class="annottext">newListedServer :: Text -&gt; ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#newListedServer"><span class="hs-identifier hs-var hs-var">newListedServer</span></a></span></span><span> </span><span id="local-6989586621679240142"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240142"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">ListedServer' :: Maybe Text
+-&gt; Maybe State
+-&gt; Maybe IdentityProviderType
+-&gt; Maybe Text
+-&gt; Maybe Domain
+-&gt; Maybe EndpointType
+-&gt; Maybe Int
+-&gt; Text
+-&gt; ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:loggingRole:ListedServer' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AloggingRole%3AListedServer%27"><span class="hs-identifier hs-var">loggingRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:ListedServer' :: Maybe State
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Astate%3AListedServer%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe State
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:identityProviderType:ListedServer' :: Maybe IdentityProviderType
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AidentityProviderType%3AListedServer%27"><span class="hs-identifier hs-var">identityProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityProviderType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:serverId:ListedServer' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AserverId%3AListedServer%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:domain:ListedServer' :: Maybe Domain
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Adomain%3AListedServer%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointType:ListedServer' :: Maybe EndpointType
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AendpointType%3AListedServer%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:userCount:ListedServer' :: Maybe Int
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AuserCount%3AListedServer%27"><span class="hs-identifier hs-var">userCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:ListedServer' :: Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Aarn%3AListedServer%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240142"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | Specifies the Amazon Resource Name (ARN) of the Amazon Web Services</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Identity and Access Management (IAM) role that allows a server to turn</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- on Amazon CloudWatch logging for Amazon S3 or Amazon EFS events. When</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- set, user activity can be viewed in your CloudWatch logs.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_loggingRole"><span class="hs-identifier hs-type">listedServer_loggingRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="listedServer_loggingRole"><span class="annot"><span class="annottext">listedServer_loggingRole :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_loggingRole"><span class="hs-identifier hs-var hs-var">listedServer_loggingRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Maybe Text)
+-&gt; (ListedServer -&gt; Maybe Text -&gt; ListedServer)
+-&gt; Lens ListedServer ListedServer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240138"><span class="annot"><span class="annottext">Maybe Text
+loggingRole :: Maybe Text
+$sel:loggingRole:ListedServer' :: ListedServer -&gt; Maybe Text
+</span><a href="#local-6989586621679240138"><span class="hs-identifier hs-var hs-var">loggingRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240138"><span class="hs-identifier hs-var">loggingRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240137"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggingRole:ListedServer' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AloggingRole%3AListedServer%27"><span class="hs-identifier hs-var">loggingRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | Specifies the condition of a server for the server that was described. A</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- value of @ONLINE@ indicates that the server can accept jobs and transfer</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- files. A @State@ value of @OFFLINE@ means that the server cannot perform</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- file transfer operations.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The states of @STARTING@ and @STOPPING@ indicate that the server is in</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- an intermediate state, either not fully able to respond, or not fully</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- offline. The values of @START_FAILED@ or @STOP_FAILED@ can indicate an</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- error condition.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_state"><span class="hs-identifier hs-type">listedServer_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="listedServer_state"><span class="annot"><span class="annottext">listedServer_state :: (Maybe State -&gt; f (Maybe State)) -&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_state"><span class="hs-identifier hs-var hs-var">listedServer_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Maybe State)
+-&gt; (ListedServer -&gt; Maybe State -&gt; ListedServer)
+-&gt; Lens ListedServer ListedServer (Maybe State) (Maybe State)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240134"><span class="annot"><span class="annottext">Maybe State
+state :: Maybe State
+$sel:state:ListedServer' :: ListedServer -&gt; Maybe State
+</span><a href="#local-6989586621679240134"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621679240134"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240133"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240133"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240132"><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621679240132"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240133"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:ListedServer' :: Maybe State
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Astate%3AListedServer%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe State
+</span><a href="#local-6989586621679240132"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | Specifies the mode of authentication for a server. The default value is</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- @SERVICE_MANAGED@, which allows you to store and access user credentials</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- within the Amazon Web Services Transfer Family service.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Use @AWS_DIRECTORY_SERVICE@ to provide access to Active Directory groups</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- in Amazon Web Services Managed Active Directory or Microsoft Active</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Directory in your on-premises environment or in Amazon Web Services</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- using AD Connectors. This option also requires you to provide a</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Directory ID using the @IdentityProviderDetails@ parameter.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use the @API_GATEWAY@ value to integrate with an identity provider of</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- your choosing. The @API_GATEWAY@ setting requires you to provide an API</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Gateway endpoint URL to call for authentication using the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- @IdentityProviderDetails@ parameter.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_identityProviderType"><span class="hs-identifier hs-type">listedServer_identityProviderType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.IdentityProviderType.html#IdentityProviderType"><span class="hs-identifier hs-type">IdentityProviderType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="listedServer_identityProviderType"><span class="annot"><span class="annottext">listedServer_identityProviderType :: (Maybe IdentityProviderType -&gt; f (Maybe IdentityProviderType))
+-&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_identityProviderType"><span class="hs-identifier hs-var hs-var">listedServer_identityProviderType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Maybe IdentityProviderType)
+-&gt; (ListedServer -&gt; Maybe IdentityProviderType -&gt; ListedServer)
+-&gt; Lens
+     ListedServer
+     ListedServer
+     (Maybe IdentityProviderType)
+     (Maybe IdentityProviderType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240130"><span class="annot"><span class="annottext">Maybe IdentityProviderType
+identityProviderType :: Maybe IdentityProviderType
+$sel:identityProviderType:ListedServer' :: ListedServer -&gt; Maybe IdentityProviderType
+</span><a href="#local-6989586621679240130"><span class="hs-identifier hs-var hs-var">identityProviderType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityProviderType
+</span><a href="#local-6989586621679240130"><span class="hs-identifier hs-var">identityProviderType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240129"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240129"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240128"><span class="annot"><span class="annottext">Maybe IdentityProviderType
+</span><a href="#local-6989586621679240128"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240129"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityProviderType:ListedServer' :: Maybe IdentityProviderType
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AidentityProviderType%3AListedServer%27"><span class="hs-identifier hs-var">identityProviderType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityProviderType
+</span><a href="#local-6989586621679240128"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | Specifies the unique system assigned identifier for the servers that</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- were listed.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_serverId"><span class="hs-identifier hs-type">listedServer_serverId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="listedServer_serverId"><span class="annot"><span class="annottext">listedServer_serverId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_serverId"><span class="hs-identifier hs-var hs-var">listedServer_serverId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Maybe Text)
+-&gt; (ListedServer -&gt; Maybe Text -&gt; ListedServer)
+-&gt; Lens ListedServer ListedServer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240126"><span class="annot"><span class="annottext">Maybe Text
+serverId :: Maybe Text
+$sel:serverId:ListedServer' :: ListedServer -&gt; Maybe Text
+</span><a href="#local-6989586621679240126"><span class="hs-identifier hs-var hs-var">serverId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240126"><span class="hs-identifier hs-var">serverId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240125"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240124"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverId:ListedServer' :: Maybe Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AserverId%3AListedServer%27"><span class="hs-identifier hs-var">serverId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679240124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Specifies the domain of the storage system that is used for file</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- transfers.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_domain"><span class="hs-identifier hs-type">listedServer_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.Domain.html#Domain"><span class="hs-identifier hs-type">Domain</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="listedServer_domain"><span class="annot"><span class="annottext">listedServer_domain :: (Maybe Domain -&gt; f (Maybe Domain))
+-&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_domain"><span class="hs-identifier hs-var hs-var">listedServer_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Maybe Domain)
+-&gt; (ListedServer -&gt; Maybe Domain -&gt; ListedServer)
+-&gt; Lens ListedServer ListedServer (Maybe Domain) (Maybe Domain)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240122"><span class="annot"><span class="annottext">Maybe Domain
+domain :: Maybe Domain
+$sel:domain:ListedServer' :: ListedServer -&gt; Maybe Domain
+</span><a href="#local-6989586621679240122"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679240122"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240121"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240121"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240120"><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679240120"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240121"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:ListedServer' :: Maybe Domain
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Adomain%3AListedServer%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Domain
+</span><a href="#local-6989586621679240120"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Specifies the type of VPC endpoint that your server is connected to. If</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- your server is connected to a VPC endpoint, your server isn\'t</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- accessible over the public internet.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_endpointType"><span class="hs-identifier hs-type">listedServer_endpointType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.EndpointType.html#EndpointType"><span class="hs-identifier hs-type">EndpointType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="listedServer_endpointType"><span class="annot"><span class="annottext">listedServer_endpointType :: (Maybe EndpointType -&gt; f (Maybe EndpointType))
+-&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_endpointType"><span class="hs-identifier hs-var hs-var">listedServer_endpointType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Maybe EndpointType)
+-&gt; (ListedServer -&gt; Maybe EndpointType -&gt; ListedServer)
+-&gt; Lens
+     ListedServer ListedServer (Maybe EndpointType) (Maybe EndpointType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240118"><span class="annot"><span class="annottext">Maybe EndpointType
+endpointType :: Maybe EndpointType
+$sel:endpointType:ListedServer' :: ListedServer -&gt; Maybe EndpointType
+</span><a href="#local-6989586621679240118"><span class="hs-identifier hs-var hs-var">endpointType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointType
+</span><a href="#local-6989586621679240118"><span class="hs-identifier hs-var">endpointType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240117"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240116"><span class="annot"><span class="annottext">Maybe EndpointType
+</span><a href="#local-6989586621679240116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointType:ListedServer' :: Maybe EndpointType
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AendpointType%3AListedServer%27"><span class="hs-identifier hs-var">endpointType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointType
+</span><a href="#local-6989586621679240116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Specifies the number of users that are assigned to a server you</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- specified with the @ServerId@.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_userCount"><span class="hs-identifier hs-type">listedServer_userCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="listedServer_userCount"><span class="annot"><span class="annottext">listedServer_userCount :: (Maybe Int -&gt; f (Maybe Int)) -&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_userCount"><span class="hs-identifier hs-var hs-var">listedServer_userCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Maybe Int)
+-&gt; (ListedServer -&gt; Maybe Int -&gt; ListedServer)
+-&gt; Lens ListedServer ListedServer (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240114"><span class="annot"><span class="annottext">Maybe Int
+userCount :: Maybe Int
+$sel:userCount:ListedServer' :: ListedServer -&gt; Maybe Int
+</span><a href="#local-6989586621679240114"><span class="hs-identifier hs-var hs-var">userCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679240114"><span class="hs-identifier hs-var">userCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240113"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240113"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240112"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679240112"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240113"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userCount:ListedServer' :: Maybe Int
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3AuserCount%3AListedServer%27"><span class="hs-identifier hs-var">userCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679240112"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | Specifies the unique Amazon Resource Name (ARN) for a server to be</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- listed.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_arn"><span class="hs-identifier hs-type">listedServer_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-213"></span><span id="listedServer_arn"><span class="annot"><span class="annottext">listedServer_arn :: (Text -&gt; f Text) -&gt; ListedServer -&gt; f ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#listedServer_arn"><span class="hs-identifier hs-var hs-var">listedServer_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListedServer -&gt; Text)
+-&gt; (ListedServer -&gt; Text -&gt; ListedServer)
+-&gt; Lens ListedServer ListedServer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679240110"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:ListedServer' :: ListedServer -&gt; Text
+</span><a href="#local-6989586621679240110"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240110"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679240109"><span class="annot"><span class="annottext">s :: ListedServer
+</span><a href="#local-6989586621679240109"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-type">ListedServer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679240108"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240108"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListedServer
+</span><a href="#local-6989586621679240109"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ListedServer' :: Text
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#%24sel%3Aarn%3AListedServer%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679240108"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240105"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679240103"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ListedServer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ListedServer) -&gt; Value -&gt; Parser ListedServer
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ListedServer&quot;</span></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679240100"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-220"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe State
+-&gt; Maybe IdentityProviderType
+-&gt; Maybe Text
+-&gt; Maybe Domain
+-&gt; Maybe EndpointType
+-&gt; Maybe Int
+-&gt; Text
+-&gt; ListedServer
+</span><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer%27"><span class="hs-identifier hs-var">ListedServer'</span></a></span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe State
+ -&gt; Maybe IdentityProviderType
+ -&gt; Maybe Text
+ -&gt; Maybe Domain
+ -&gt; Maybe EndpointType
+ -&gt; Maybe Int
+ -&gt; Text
+ -&gt; ListedServer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe State
+      -&gt; Maybe IdentityProviderType
+      -&gt; Maybe Text
+      -&gt; Maybe Domain
+      -&gt; Maybe EndpointType
+      -&gt; Maybe Int
+      -&gt; Text
+      -&gt; ListedServer)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LoggingRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe State
+   -&gt; Maybe IdentityProviderType
+   -&gt; Maybe Text
+   -&gt; Maybe Domain
+   -&gt; Maybe EndpointType
+   -&gt; Maybe Int
+   -&gt; Text
+   -&gt; ListedServer)
+-&gt; Parser (Maybe State)
+-&gt; Parser
+     (Maybe IdentityProviderType
+      -&gt; Maybe Text
+      -&gt; Maybe Domain
+      -&gt; Maybe EndpointType
+      -&gt; Maybe Int
+      -&gt; Text
+      -&gt; ListedServer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe State)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe IdentityProviderType
+   -&gt; Maybe Text
+   -&gt; Maybe Domain
+   -&gt; Maybe EndpointType
+   -&gt; Maybe Int
+   -&gt; Text
+   -&gt; ListedServer)
+-&gt; Parser (Maybe IdentityProviderType)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Domain
+      -&gt; Maybe EndpointType
+      -&gt; Maybe Int
+      -&gt; Text
+      -&gt; ListedServer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe IdentityProviderType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityProviderType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Domain
+   -&gt; Maybe EndpointType
+   -&gt; Maybe Int
+   -&gt; Text
+   -&gt; ListedServer)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Domain
+      -&gt; Maybe EndpointType -&gt; Maybe Int -&gt; Text -&gt; ListedServer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Domain
+   -&gt; Maybe EndpointType -&gt; Maybe Int -&gt; Text -&gt; ListedServer)
+-&gt; Parser (Maybe Domain)
+-&gt; Parser (Maybe EndpointType -&gt; Maybe Int -&gt; Text -&gt; ListedServer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Domain)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Domain&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EndpointType -&gt; Maybe Int -&gt; Text -&gt; ListedServer)
+-&gt; Parser (Maybe EndpointType)
+-&gt; Parser (Maybe Int -&gt; Text -&gt; ListedServer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EndpointType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; Text -&gt; ListedServer)
+-&gt; Parser (Maybe Int) -&gt; Parser (Text -&gt; ListedServer)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ListedServer) -&gt; Parser Text -&gt; Parser ListedServer
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679240100"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240093"><span id="local-6989586621679240095"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span></span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679240090"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.ListedServer.html#ListedServer"><span class="hs-identifier hs-type">ListedServer</span></a></span></span><span>
+</span><span id="line-234"></span></pre></body></html>

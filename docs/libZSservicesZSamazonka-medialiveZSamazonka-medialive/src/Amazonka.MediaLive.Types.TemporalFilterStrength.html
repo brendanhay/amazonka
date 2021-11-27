@@ -1,0 +1,415 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.TemporalFilterStrength</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.TemporalFilterStrength</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_AUTO"><span class="hs-identifier">TemporalFilterStrength_AUTO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_1"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_10"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_10</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_11"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_11</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_12"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_12</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_13"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_13</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_14"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_14</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_15"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_15</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_16"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_16</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_2"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_2</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_3"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_4"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_4</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_5"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_5</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_6"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_6</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_7"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_7</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_8"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_8</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_9"><span class="hs-identifier">TemporalFilterStrength_STRENGTH_9</span></a></span><span>
+</span><span id="line-40"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | Temporal Filter Strength</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679925325"><span id="local-6989586621679925326"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TemporalFilterStrength"><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-var">TemporalFilterStrength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TemporalFilterStrength%27"><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-var">TemporalFilterStrength'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTemporalFilterStrength"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#fromTemporalFilterStrength"><span class="hs-identifier hs-var hs-var">fromTemporalFilterStrength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679925317"><span id="local-6989586621679925319"><span id="local-6989586621679925321"><span class="annot"><span class="annottext">Int -&gt; TemporalFilterStrength -&gt; ShowS
+[TemporalFilterStrength] -&gt; ShowS
+TemporalFilterStrength -&gt; String
+(Int -&gt; TemporalFilterStrength -&gt; ShowS)
+-&gt; (TemporalFilterStrength -&gt; String)
+-&gt; ([TemporalFilterStrength] -&gt; ShowS)
+-&gt; Show TemporalFilterStrength
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TemporalFilterStrength] -&gt; ShowS
+$cshowList :: [TemporalFilterStrength] -&gt; ShowS
+show :: TemporalFilterStrength -&gt; String
+$cshow :: TemporalFilterStrength -&gt; String
+showsPrec :: Int -&gt; TemporalFilterStrength -&gt; ShowS
+$cshowsPrec :: Int -&gt; TemporalFilterStrength -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679925308"><span id="local-6989586621679925310"><span id="local-6989586621679925312"><span id="local-6989586621679925314"><span class="annot"><span class="annottext">ReadPrec [TemporalFilterStrength]
+ReadPrec TemporalFilterStrength
+Int -&gt; ReadS TemporalFilterStrength
+ReadS [TemporalFilterStrength]
+(Int -&gt; ReadS TemporalFilterStrength)
+-&gt; ReadS [TemporalFilterStrength]
+-&gt; ReadPrec TemporalFilterStrength
+-&gt; ReadPrec [TemporalFilterStrength]
+-&gt; Read TemporalFilterStrength
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TemporalFilterStrength]
+$creadListPrec :: ReadPrec [TemporalFilterStrength]
+readPrec :: ReadPrec TemporalFilterStrength
+$creadPrec :: ReadPrec TemporalFilterStrength
+readList :: ReadS [TemporalFilterStrength]
+$creadList :: ReadS [TemporalFilterStrength]
+readsPrec :: Int -&gt; ReadS TemporalFilterStrength
+$creadsPrec :: Int -&gt; ReadS TemporalFilterStrength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679925303"><span id="local-6989586621679925305"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+(TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool)
+-&gt; (TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool)
+-&gt; Eq TemporalFilterStrength
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+$c/= :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+== :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+$c== :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679925287"><span id="local-6989586621679925289"><span id="local-6989586621679925291"><span id="local-6989586621679925293"><span id="local-6989586621679925295"><span id="local-6989586621679925297"><span id="local-6989586621679925299"><span class="annot"><span class="annottext">Eq TemporalFilterStrength
+Eq TemporalFilterStrength
+-&gt; (TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Ordering)
+-&gt; (TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool)
+-&gt; (TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool)
+-&gt; (TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool)
+-&gt; (TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool)
+-&gt; (TemporalFilterStrength
+    -&gt; TemporalFilterStrength -&gt; TemporalFilterStrength)
+-&gt; (TemporalFilterStrength
+    -&gt; TemporalFilterStrength -&gt; TemporalFilterStrength)
+-&gt; Ord TemporalFilterStrength
+TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Ordering
+TemporalFilterStrength
+-&gt; TemporalFilterStrength -&gt; TemporalFilterStrength
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TemporalFilterStrength
+-&gt; TemporalFilterStrength -&gt; TemporalFilterStrength
+$cmin :: TemporalFilterStrength
+-&gt; TemporalFilterStrength -&gt; TemporalFilterStrength
+max :: TemporalFilterStrength
+-&gt; TemporalFilterStrength -&gt; TemporalFilterStrength
+$cmax :: TemporalFilterStrength
+-&gt; TemporalFilterStrength -&gt; TemporalFilterStrength
+&gt;= :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+$c&gt;= :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+&gt; :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+$c&gt; :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+&lt;= :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+$c&lt;= :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+&lt; :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+$c&lt; :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Bool
+compare :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Ordering
+$ccompare :: TemporalFilterStrength -&gt; TemporalFilterStrength -&gt; Ordering
+$cp1Ord :: Eq TemporalFilterStrength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TemporalFilterStrength -&gt; Rep TemporalFilterStrength x)
+-&gt; (forall x.
+    Rep TemporalFilterStrength x -&gt; TemporalFilterStrength)
+-&gt; Generic TemporalFilterStrength
+forall x. Rep TemporalFilterStrength x -&gt; TemporalFilterStrength
+forall x. TemporalFilterStrength -&gt; Rep TemporalFilterStrength x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TemporalFilterStrength x -&gt; TemporalFilterStrength
+$cfrom :: forall x. TemporalFilterStrength -&gt; Rep TemporalFilterStrength x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679925279"><span id="local-6989586621679925281"><span class="annot"><span class="annottext">Int -&gt; TemporalFilterStrength -&gt; Int
+TemporalFilterStrength -&gt; Int
+(Int -&gt; TemporalFilterStrength -&gt; Int)
+-&gt; (TemporalFilterStrength -&gt; Int)
+-&gt; Hashable TemporalFilterStrength
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TemporalFilterStrength -&gt; Int
+$chash :: TemporalFilterStrength -&gt; Int
+hashWithSalt :: Int -&gt; TemporalFilterStrength -&gt; Int
+$chashWithSalt :: Int -&gt; TemporalFilterStrength -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679925276"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; ()
+(TemporalFilterStrength -&gt; ()) -&gt; NFData TemporalFilterStrength
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TemporalFilterStrength -&gt; ()
+$crnf :: TemporalFilterStrength -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679925273"><span class="annot"><span class="annottext">Text -&gt; Either String TemporalFilterStrength
+(Text -&gt; Either String TemporalFilterStrength)
+-&gt; FromText TemporalFilterStrength
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TemporalFilterStrength
+$cfromText :: Text -&gt; Either String TemporalFilterStrength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679925270"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; Text
+(TemporalFilterStrength -&gt; Text) -&gt; ToText TemporalFilterStrength
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TemporalFilterStrength -&gt; Text
+$ctoText :: TemporalFilterStrength -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679925267"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; ByteString
+(TemporalFilterStrength -&gt; ByteString)
+-&gt; ToByteString TemporalFilterStrength
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TemporalFilterStrength -&gt; ByteString
+$ctoBS :: TemporalFilterStrength -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679925264"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; ByteStringBuilder
+(TemporalFilterStrength -&gt; ByteStringBuilder)
+-&gt; ToLog TemporalFilterStrength
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TemporalFilterStrength -&gt; ByteStringBuilder
+$cbuild :: TemporalFilterStrength -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679925261"><span class="annot"><span class="annottext">HeaderName -&gt; TemporalFilterStrength -&gt; [Header]
+(HeaderName -&gt; TemporalFilterStrength -&gt; [Header])
+-&gt; ToHeader TemporalFilterStrength
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TemporalFilterStrength -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TemporalFilterStrength -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679925258"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; QueryString
+(TemporalFilterStrength -&gt; QueryString)
+-&gt; ToQuery TemporalFilterStrength
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TemporalFilterStrength -&gt; QueryString
+$ctoQuery :: TemporalFilterStrength -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679925253"><span id="local-6989586621679925255"><span class="annot"><span class="annottext">Value -&gt; Parser [TemporalFilterStrength]
+Value -&gt; Parser TemporalFilterStrength
+(Value -&gt; Parser TemporalFilterStrength)
+-&gt; (Value -&gt; Parser [TemporalFilterStrength])
+-&gt; FromJSON TemporalFilterStrength
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TemporalFilterStrength]
+$cparseJSONList :: Value -&gt; Parser [TemporalFilterStrength]
+parseJSON :: Value -&gt; Parser TemporalFilterStrength
+$cparseJSON :: Value -&gt; Parser TemporalFilterStrength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679925248"><span id="local-6989586621679925250"><span class="annot"><span class="annottext">FromJSONKeyFunction [TemporalFilterStrength]
+FromJSONKeyFunction TemporalFilterStrength
+FromJSONKeyFunction TemporalFilterStrength
+-&gt; FromJSONKeyFunction [TemporalFilterStrength]
+-&gt; FromJSONKey TemporalFilterStrength
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TemporalFilterStrength]
+$cfromJSONKeyList :: FromJSONKeyFunction [TemporalFilterStrength]
+fromJSONKey :: FromJSONKeyFunction TemporalFilterStrength
+$cfromJSONKey :: FromJSONKeyFunction TemporalFilterStrength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679925239"><span id="local-6989586621679925241"><span id="local-6989586621679925243"><span id="local-6989586621679925245"><span class="annot"><span class="annottext">[TemporalFilterStrength] -&gt; Encoding
+[TemporalFilterStrength] -&gt; Value
+TemporalFilterStrength -&gt; Encoding
+TemporalFilterStrength -&gt; Value
+(TemporalFilterStrength -&gt; Value)
+-&gt; (TemporalFilterStrength -&gt; Encoding)
+-&gt; ([TemporalFilterStrength] -&gt; Value)
+-&gt; ([TemporalFilterStrength] -&gt; Encoding)
+-&gt; ToJSON TemporalFilterStrength
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TemporalFilterStrength] -&gt; Encoding
+$ctoEncodingList :: [TemporalFilterStrength] -&gt; Encoding
+toJSONList :: [TemporalFilterStrength] -&gt; Value
+$ctoJSONList :: [TemporalFilterStrength] -&gt; Value
+toEncoding :: TemporalFilterStrength -&gt; Encoding
+$ctoEncoding :: TemporalFilterStrength -&gt; Encoding
+toJSON :: TemporalFilterStrength -&gt; Value
+$ctoJSON :: TemporalFilterStrength -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679925234"><span id="local-6989586621679925236"><span class="annot"><span class="annottext">ToJSONKeyFunction [TemporalFilterStrength]
+ToJSONKeyFunction TemporalFilterStrength
+ToJSONKeyFunction TemporalFilterStrength
+-&gt; ToJSONKeyFunction [TemporalFilterStrength]
+-&gt; ToJSONKey TemporalFilterStrength
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TemporalFilterStrength]
+$ctoJSONKeyList :: ToJSONKeyFunction [TemporalFilterStrength]
+toJSONKey :: ToJSONKeyFunction TemporalFilterStrength
+$ctoJSONKey :: ToJSONKeyFunction TemporalFilterStrength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679925231"><span class="annot"><span class="annottext">[Node] -&gt; Either String TemporalFilterStrength
+([Node] -&gt; Either String TemporalFilterStrength)
+-&gt; FromXML TemporalFilterStrength
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TemporalFilterStrength
+$cparseXML :: [Node] -&gt; Either String TemporalFilterStrength
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679925228"><span class="annot"><span class="annottext">TemporalFilterStrength -&gt; XML
+(TemporalFilterStrength -&gt; XML) -&gt; ToXML TemporalFilterStrength
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TemporalFilterStrength -&gt; XML
+$ctoXML :: TemporalFilterStrength -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_AUTO"><span class="hs-identifier hs-type">TemporalFilterStrength_AUTO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_AUTO"><span id="%24mTemporalFilterStrength_AUTO"><span id="TemporalFilterStrength_AUTO"><span class="annot"><span class="annottext">$bTemporalFilterStrength_AUTO :: TemporalFilterStrength
+$mTemporalFilterStrength_AUTO :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_AUTO"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_AUTO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_1"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_1"><span id="%24mTemporalFilterStrength_STRENGTH_1"><span id="TemporalFilterStrength_STRENGTH_1"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_1 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_1 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_1"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_1&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_10"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_10</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_10"><span id="%24mTemporalFilterStrength_STRENGTH_10"><span id="TemporalFilterStrength_STRENGTH_10"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_10 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_10 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_10"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_10</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_10&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_11"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_11</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_11"><span id="%24mTemporalFilterStrength_STRENGTH_11"><span id="TemporalFilterStrength_STRENGTH_11"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_11 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_11 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_11"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_11</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_11&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_12"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_12</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_12"><span id="%24mTemporalFilterStrength_STRENGTH_12"><span id="TemporalFilterStrength_STRENGTH_12"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_12 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_12 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_12"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_12</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_12&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_13"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_13</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_13"><span id="%24mTemporalFilterStrength_STRENGTH_13"><span id="TemporalFilterStrength_STRENGTH_13"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_13 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_13 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_13"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_13</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_13&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_14"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_14</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_14"><span id="%24mTemporalFilterStrength_STRENGTH_14"><span id="TemporalFilterStrength_STRENGTH_14"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_14 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_14 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_14"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_14</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_14&quot;</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_15"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_15</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_15"><span id="%24mTemporalFilterStrength_STRENGTH_15"><span id="TemporalFilterStrength_STRENGTH_15"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_15 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_15 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_15"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_15</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_15&quot;</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_16"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_16</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_16"><span id="%24mTemporalFilterStrength_STRENGTH_16"><span id="TemporalFilterStrength_STRENGTH_16"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_16 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_16 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_16"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_16</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_16&quot;</span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_2"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_2</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_2"><span id="%24mTemporalFilterStrength_STRENGTH_2"><span id="TemporalFilterStrength_STRENGTH_2"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_2 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_2 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_2"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_2</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_2&quot;</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_3"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_3</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_3"><span id="%24mTemporalFilterStrength_STRENGTH_3"><span id="TemporalFilterStrength_STRENGTH_3"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_3 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_3 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_3"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_3</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_3&quot;</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_4"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_4</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_4"><span id="%24mTemporalFilterStrength_STRENGTH_4"><span id="TemporalFilterStrength_STRENGTH_4"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_4 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_4 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_4"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_4</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_4&quot;</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_5"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_5"><span id="%24mTemporalFilterStrength_STRENGTH_5"><span id="TemporalFilterStrength_STRENGTH_5"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_5 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_5 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_5"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_5</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_5&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_6"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_6</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_6"><span id="%24mTemporalFilterStrength_STRENGTH_6"><span id="TemporalFilterStrength_STRENGTH_6"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_6 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_6 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_6"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_6</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_6&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_7"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_7</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_7"><span id="%24mTemporalFilterStrength_STRENGTH_7"><span id="TemporalFilterStrength_STRENGTH_7"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_7 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_7 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_7"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_7</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_7&quot;</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_8"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_8</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_8"><span id="%24mTemporalFilterStrength_STRENGTH_8"><span id="TemporalFilterStrength_STRENGTH_8"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_8 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_8 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_8"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_8</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_8&quot;</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_9"><span class="hs-identifier hs-type">TemporalFilterStrength_STRENGTH_9</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength"><span class="hs-identifier hs-type">TemporalFilterStrength</span></a></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTemporalFilterStrength_STRENGTH_9"><span id="%24mTemporalFilterStrength_STRENGTH_9"><span id="TemporalFilterStrength_STRENGTH_9"><span class="annot"><span class="annottext">$bTemporalFilterStrength_STRENGTH_9 :: TemporalFilterStrength
+$mTemporalFilterStrength_STRENGTH_9 :: forall r.
+TemporalFilterStrength -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#%24bTemporalFilterStrength_STRENGTH_9"><span class="hs-identifier hs-var hs-var hs-var">TemporalFilterStrength_STRENGTH_9</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-identifier hs-type">TemporalFilterStrength'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRENGTH_9&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_AUTO"><span class="hs-pragma hs-type">TemporalFilterStrength_AUTO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_1"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_10"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_10</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_11"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_11</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_12"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_12</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_13"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_13</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_14"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_14</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_15"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_15</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_16"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_16</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_2"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_2</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_3"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_3</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_4"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_4</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_5"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_5</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_6"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_6</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_7"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_7</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_8"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_8</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength_STRENGTH_9"><span class="hs-pragma hs-type">TemporalFilterStrength_STRENGTH_9</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.TemporalFilterStrength.html#TemporalFilterStrength%27"><span class="hs-pragma hs-type">TemporalFilterStrength'</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-147"></span></pre></body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.Types.GatewayCapacity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.Types.GatewayCapacity</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity"><span class="hs-identifier">GatewayCapacity</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Large"><span class="hs-identifier">GatewayCapacity_Large</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Medium"><span class="hs-identifier">GatewayCapacity_Medium</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Small"><span class="hs-identifier">GatewayCapacity_Small</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679372014"><span id="local-6989586621679372015"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GatewayCapacity"><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity"><span class="hs-identifier hs-var">GatewayCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GatewayCapacity%27"><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity%27"><span class="hs-identifier hs-var">GatewayCapacity'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGatewayCapacity"><span class="annot"><span class="annottext">GatewayCapacity -&gt; Text
+</span><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#fromGatewayCapacity"><span class="hs-identifier hs-var hs-var">fromGatewayCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679372006"><span id="local-6989586621679372008"><span id="local-6989586621679372010"><span class="annot"><span class="annottext">Int -&gt; GatewayCapacity -&gt; ShowS
+[GatewayCapacity] -&gt; ShowS
+GatewayCapacity -&gt; String
+(Int -&gt; GatewayCapacity -&gt; ShowS)
+-&gt; (GatewayCapacity -&gt; String)
+-&gt; ([GatewayCapacity] -&gt; ShowS)
+-&gt; Show GatewayCapacity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GatewayCapacity] -&gt; ShowS
+$cshowList :: [GatewayCapacity] -&gt; ShowS
+show :: GatewayCapacity -&gt; String
+$cshow :: GatewayCapacity -&gt; String
+showsPrec :: Int -&gt; GatewayCapacity -&gt; ShowS
+$cshowsPrec :: Int -&gt; GatewayCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679371997"><span id="local-6989586621679371999"><span id="local-6989586621679372001"><span id="local-6989586621679372003"><span class="annot"><span class="annottext">ReadPrec [GatewayCapacity]
+ReadPrec GatewayCapacity
+Int -&gt; ReadS GatewayCapacity
+ReadS [GatewayCapacity]
+(Int -&gt; ReadS GatewayCapacity)
+-&gt; ReadS [GatewayCapacity]
+-&gt; ReadPrec GatewayCapacity
+-&gt; ReadPrec [GatewayCapacity]
+-&gt; Read GatewayCapacity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GatewayCapacity]
+$creadListPrec :: ReadPrec [GatewayCapacity]
+readPrec :: ReadPrec GatewayCapacity
+$creadPrec :: ReadPrec GatewayCapacity
+readList :: ReadS [GatewayCapacity]
+$creadList :: ReadS [GatewayCapacity]
+readsPrec :: Int -&gt; ReadS GatewayCapacity
+$creadsPrec :: Int -&gt; ReadS GatewayCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371992"><span id="local-6989586621679371994"><span class="annot"><span class="annottext">GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+(GatewayCapacity -&gt; GatewayCapacity -&gt; Bool)
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; Bool)
+-&gt; Eq GatewayCapacity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+$c/= :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+== :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+$c== :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679371976"><span id="local-6989586621679371978"><span id="local-6989586621679371980"><span id="local-6989586621679371982"><span id="local-6989586621679371984"><span id="local-6989586621679371986"><span id="local-6989586621679371988"><span class="annot"><span class="annottext">Eq GatewayCapacity
+Eq GatewayCapacity
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; Ordering)
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; Bool)
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; Bool)
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; Bool)
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; Bool)
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; GatewayCapacity)
+-&gt; (GatewayCapacity -&gt; GatewayCapacity -&gt; GatewayCapacity)
+-&gt; Ord GatewayCapacity
+GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+GatewayCapacity -&gt; GatewayCapacity -&gt; Ordering
+GatewayCapacity -&gt; GatewayCapacity -&gt; GatewayCapacity
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GatewayCapacity -&gt; GatewayCapacity -&gt; GatewayCapacity
+$cmin :: GatewayCapacity -&gt; GatewayCapacity -&gt; GatewayCapacity
+max :: GatewayCapacity -&gt; GatewayCapacity -&gt; GatewayCapacity
+$cmax :: GatewayCapacity -&gt; GatewayCapacity -&gt; GatewayCapacity
+&gt;= :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+$c&gt;= :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+&gt; :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+$c&gt; :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+&lt;= :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+$c&lt;= :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+&lt; :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+$c&lt; :: GatewayCapacity -&gt; GatewayCapacity -&gt; Bool
+compare :: GatewayCapacity -&gt; GatewayCapacity -&gt; Ordering
+$ccompare :: GatewayCapacity -&gt; GatewayCapacity -&gt; Ordering
+$cp1Ord :: Eq GatewayCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GatewayCapacity -&gt; Rep GatewayCapacity x)
+-&gt; (forall x. Rep GatewayCapacity x -&gt; GatewayCapacity)
+-&gt; Generic GatewayCapacity
+forall x. Rep GatewayCapacity x -&gt; GatewayCapacity
+forall x. GatewayCapacity -&gt; Rep GatewayCapacity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GatewayCapacity x -&gt; GatewayCapacity
+$cfrom :: forall x. GatewayCapacity -&gt; Rep GatewayCapacity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371968"><span id="local-6989586621679371970"><span class="annot"><span class="annottext">Int -&gt; GatewayCapacity -&gt; Int
+GatewayCapacity -&gt; Int
+(Int -&gt; GatewayCapacity -&gt; Int)
+-&gt; (GatewayCapacity -&gt; Int) -&gt; Hashable GatewayCapacity
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GatewayCapacity -&gt; Int
+$chash :: GatewayCapacity -&gt; Int
+hashWithSalt :: Int -&gt; GatewayCapacity -&gt; Int
+$chashWithSalt :: Int -&gt; GatewayCapacity -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679371965"><span class="annot"><span class="annottext">GatewayCapacity -&gt; ()
+(GatewayCapacity -&gt; ()) -&gt; NFData GatewayCapacity
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GatewayCapacity -&gt; ()
+$crnf :: GatewayCapacity -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371962"><span class="annot"><span class="annottext">Text -&gt; Either String GatewayCapacity
+(Text -&gt; Either String GatewayCapacity) -&gt; FromText GatewayCapacity
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GatewayCapacity
+$cfromText :: Text -&gt; Either String GatewayCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371959"><span class="annot"><span class="annottext">GatewayCapacity -&gt; Text
+(GatewayCapacity -&gt; Text) -&gt; ToText GatewayCapacity
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GatewayCapacity -&gt; Text
+$ctoText :: GatewayCapacity -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371956"><span class="annot"><span class="annottext">GatewayCapacity -&gt; ByteString
+(GatewayCapacity -&gt; ByteString) -&gt; ToByteString GatewayCapacity
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GatewayCapacity -&gt; ByteString
+$ctoBS :: GatewayCapacity -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371953"><span class="annot"><span class="annottext">GatewayCapacity -&gt; ByteStringBuilder
+(GatewayCapacity -&gt; ByteStringBuilder) -&gt; ToLog GatewayCapacity
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GatewayCapacity -&gt; ByteStringBuilder
+$cbuild :: GatewayCapacity -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371950"><span class="annot"><span class="annottext">HeaderName -&gt; GatewayCapacity -&gt; [Header]
+(HeaderName -&gt; GatewayCapacity -&gt; [Header])
+-&gt; ToHeader GatewayCapacity
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GatewayCapacity -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GatewayCapacity -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371947"><span class="annot"><span class="annottext">GatewayCapacity -&gt; QueryString
+(GatewayCapacity -&gt; QueryString) -&gt; ToQuery GatewayCapacity
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GatewayCapacity -&gt; QueryString
+$ctoQuery :: GatewayCapacity -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371942"><span id="local-6989586621679371944"><span class="annot"><span class="annottext">Value -&gt; Parser [GatewayCapacity]
+Value -&gt; Parser GatewayCapacity
+(Value -&gt; Parser GatewayCapacity)
+-&gt; (Value -&gt; Parser [GatewayCapacity]) -&gt; FromJSON GatewayCapacity
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GatewayCapacity]
+$cparseJSONList :: Value -&gt; Parser [GatewayCapacity]
+parseJSON :: Value -&gt; Parser GatewayCapacity
+$cparseJSON :: Value -&gt; Parser GatewayCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371937"><span id="local-6989586621679371939"><span class="annot"><span class="annottext">FromJSONKeyFunction [GatewayCapacity]
+FromJSONKeyFunction GatewayCapacity
+FromJSONKeyFunction GatewayCapacity
+-&gt; FromJSONKeyFunction [GatewayCapacity]
+-&gt; FromJSONKey GatewayCapacity
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GatewayCapacity]
+$cfromJSONKeyList :: FromJSONKeyFunction [GatewayCapacity]
+fromJSONKey :: FromJSONKeyFunction GatewayCapacity
+$cfromJSONKey :: FromJSONKeyFunction GatewayCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371928"><span id="local-6989586621679371930"><span id="local-6989586621679371932"><span id="local-6989586621679371934"><span class="annot"><span class="annottext">[GatewayCapacity] -&gt; Encoding
+[GatewayCapacity] -&gt; Value
+GatewayCapacity -&gt; Encoding
+GatewayCapacity -&gt; Value
+(GatewayCapacity -&gt; Value)
+-&gt; (GatewayCapacity -&gt; Encoding)
+-&gt; ([GatewayCapacity] -&gt; Value)
+-&gt; ([GatewayCapacity] -&gt; Encoding)
+-&gt; ToJSON GatewayCapacity
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GatewayCapacity] -&gt; Encoding
+$ctoEncodingList :: [GatewayCapacity] -&gt; Encoding
+toJSONList :: [GatewayCapacity] -&gt; Value
+$ctoJSONList :: [GatewayCapacity] -&gt; Value
+toEncoding :: GatewayCapacity -&gt; Encoding
+$ctoEncoding :: GatewayCapacity -&gt; Encoding
+toJSON :: GatewayCapacity -&gt; Value
+$ctoJSON :: GatewayCapacity -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371923"><span id="local-6989586621679371925"><span class="annot"><span class="annottext">ToJSONKeyFunction [GatewayCapacity]
+ToJSONKeyFunction GatewayCapacity
+ToJSONKeyFunction GatewayCapacity
+-&gt; ToJSONKeyFunction [GatewayCapacity] -&gt; ToJSONKey GatewayCapacity
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GatewayCapacity]
+$ctoJSONKeyList :: ToJSONKeyFunction [GatewayCapacity]
+toJSONKey :: ToJSONKeyFunction GatewayCapacity
+$ctoJSONKey :: ToJSONKeyFunction GatewayCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371920"><span class="annot"><span class="annottext">[Node] -&gt; Either String GatewayCapacity
+([Node] -&gt; Either String GatewayCapacity)
+-&gt; FromXML GatewayCapacity
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GatewayCapacity
+$cparseXML :: [Node] -&gt; Either String GatewayCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679371917"><span class="annot"><span class="annottext">GatewayCapacity -&gt; XML
+(GatewayCapacity -&gt; XML) -&gt; ToXML GatewayCapacity
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GatewayCapacity -&gt; XML
+$ctoXML :: GatewayCapacity -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Large"><span class="hs-identifier hs-type">GatewayCapacity_Large</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity"><span class="hs-identifier hs-type">GatewayCapacity</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGatewayCapacity_Large"><span id="%24mGatewayCapacity_Large"><span id="GatewayCapacity_Large"><span class="annot"><span class="annottext">$bGatewayCapacity_Large :: GatewayCapacity
+$mGatewayCapacity_Large :: forall r. GatewayCapacity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#%24bGatewayCapacity_Large"><span class="hs-identifier hs-var hs-var hs-var">GatewayCapacity_Large</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity%27"><span class="hs-identifier hs-type">GatewayCapacity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Large&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Medium"><span class="hs-identifier hs-type">GatewayCapacity_Medium</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity"><span class="hs-identifier hs-type">GatewayCapacity</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGatewayCapacity_Medium"><span id="%24mGatewayCapacity_Medium"><span id="GatewayCapacity_Medium"><span class="annot"><span class="annottext">$bGatewayCapacity_Medium :: GatewayCapacity
+$mGatewayCapacity_Medium :: forall r. GatewayCapacity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#%24bGatewayCapacity_Medium"><span class="hs-identifier hs-var hs-var hs-var">GatewayCapacity_Medium</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity%27"><span class="hs-identifier hs-type">GatewayCapacity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Medium&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Small"><span class="hs-identifier hs-type">GatewayCapacity_Small</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity"><span class="hs-identifier hs-type">GatewayCapacity</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGatewayCapacity_Small"><span id="%24mGatewayCapacity_Small"><span id="GatewayCapacity_Small"><span class="annot"><span class="annottext">$bGatewayCapacity_Small :: GatewayCapacity
+$mGatewayCapacity_Small :: forall r. GatewayCapacity -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#%24bGatewayCapacity_Small"><span class="hs-identifier hs-var hs-var hs-var">GatewayCapacity_Small</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity%27"><span class="hs-identifier hs-type">GatewayCapacity'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Small&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Large"><span class="hs-pragma hs-type">GatewayCapacity_Large</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Medium"><span class="hs-pragma hs-type">GatewayCapacity_Medium</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity_Small"><span class="hs-pragma hs-type">GatewayCapacity_Small</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.Types.GatewayCapacity.html#GatewayCapacity%27"><span class="hs-pragma hs-type">GatewayCapacity'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

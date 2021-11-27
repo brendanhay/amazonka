@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Chime.CreatePhoneNumberOrder</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates an order for phone numbers to be provisioned. For toll-free</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- numbers, you cannot use the Amazon Chime Business Calling product type.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- For numbers outside the U.S., you must use the Amazon Chime SIP Media</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Application Dial-In product type.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.CreatePhoneNumberOrder</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier">CreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#newCreatePhoneNumberOrder"><span class="hs-identifier">newCreatePhoneNumberOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrder_productType"><span class="hs-identifier">createPhoneNumberOrder_productType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrder_e164PhoneNumbers"><span class="hs-identifier">createPhoneNumberOrder_e164PhoneNumbers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier">CreatePhoneNumberOrderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#newCreatePhoneNumberOrderResponse"><span class="hs-identifier">newCreatePhoneNumberOrderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrderResponse_phoneNumberOrder"><span class="hs-identifier">createPhoneNumberOrderResponse_phoneNumberOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrderResponse_httpStatus"><span class="hs-identifier">createPhoneNumberOrderResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.html"><span class="hs-identifier">Amazonka.Chime.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreatePhoneNumberOrder' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679552566"><span id="local-6989586621679552567"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePhoneNumberOrder"><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-var">CreatePhoneNumberOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePhoneNumberOrder%27"><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder%27"><span class="hs-identifier hs-var">CreatePhoneNumberOrder'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number product type.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AproductType%3ACreatePhoneNumberOrder%27"><span class="annot"><span class="annottext">CreatePhoneNumberOrder -&gt; PhoneNumberProductType
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AproductType%3ACreatePhoneNumberOrder%27"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html#PhoneNumberProductType"><span class="hs-identifier hs-type">PhoneNumberProductType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Ae164PhoneNumbers%3ACreatePhoneNumberOrder%27"><span class="annot"><span class="annottext">CreatePhoneNumberOrder -&gt; [Sensitive Text]
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3Ae164PhoneNumbers%3ACreatePhoneNumberOrder%27"><span class="hs-identifier hs-var hs-var">e164PhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552559"><span id="local-6989586621679552561"><span class="annot"><span class="annottext">CreatePhoneNumberOrder -&gt; CreatePhoneNumberOrder -&gt; Bool
+(CreatePhoneNumberOrder -&gt; CreatePhoneNumberOrder -&gt; Bool)
+-&gt; (CreatePhoneNumberOrder -&gt; CreatePhoneNumberOrder -&gt; Bool)
+-&gt; Eq CreatePhoneNumberOrder
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePhoneNumberOrder -&gt; CreatePhoneNumberOrder -&gt; Bool
+$c/= :: CreatePhoneNumberOrder -&gt; CreatePhoneNumberOrder -&gt; Bool
+== :: CreatePhoneNumberOrder -&gt; CreatePhoneNumberOrder -&gt; Bool
+$c== :: CreatePhoneNumberOrder -&gt; CreatePhoneNumberOrder -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552552"><span id="local-6989586621679552554"><span id="local-6989586621679552556"><span class="annot"><span class="annottext">Int -&gt; CreatePhoneNumberOrder -&gt; ShowS
+[CreatePhoneNumberOrder] -&gt; ShowS
+CreatePhoneNumberOrder -&gt; String
+(Int -&gt; CreatePhoneNumberOrder -&gt; ShowS)
+-&gt; (CreatePhoneNumberOrder -&gt; String)
+-&gt; ([CreatePhoneNumberOrder] -&gt; ShowS)
+-&gt; Show CreatePhoneNumberOrder
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePhoneNumberOrder] -&gt; ShowS
+$cshowList :: [CreatePhoneNumberOrder] -&gt; ShowS
+show :: CreatePhoneNumberOrder -&gt; String
+$cshow :: CreatePhoneNumberOrder -&gt; String
+showsPrec :: Int -&gt; CreatePhoneNumberOrder -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePhoneNumberOrder -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreatePhoneNumberOrder -&gt; Rep CreatePhoneNumberOrder x)
+-&gt; (forall x.
+    Rep CreatePhoneNumberOrder x -&gt; CreatePhoneNumberOrder)
+-&gt; Generic CreatePhoneNumberOrder
+forall x. Rep CreatePhoneNumberOrder x -&gt; CreatePhoneNumberOrder
+forall x. CreatePhoneNumberOrder -&gt; Rep CreatePhoneNumberOrder x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreatePhoneNumberOrder x -&gt; CreatePhoneNumberOrder
+$cfrom :: forall x. CreatePhoneNumberOrder -&gt; Rep CreatePhoneNumberOrder x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'CreatePhoneNumberOrder' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'productType', 'createPhoneNumberOrder_productType' - The phone number product type.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'e164PhoneNumbers', 'createPhoneNumberOrder_e164PhoneNumbers' - List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#newCreatePhoneNumberOrder"><span class="hs-identifier hs-type">newCreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'productType'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html#PhoneNumberProductType"><span class="hs-identifier hs-type">PhoneNumberProductType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span>
+</span><span id="line-77"></span><span id="newCreatePhoneNumberOrder"><span class="annot"><span class="annottext">newCreatePhoneNumberOrder :: PhoneNumberProductType -&gt; CreatePhoneNumberOrder
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#newCreatePhoneNumberOrder"><span class="hs-identifier hs-var hs-var">newCreatePhoneNumberOrder</span></a></span></span><span> </span><span id="local-6989586621679552547"><span class="annot"><span class="annottext">PhoneNumberProductType
+</span><a href="#local-6989586621679552547"><span class="hs-identifier hs-var">pProductType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">CreatePhoneNumberOrder' :: PhoneNumberProductType
+-&gt; [Sensitive Text] -&gt; CreatePhoneNumberOrder
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrder'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:productType:CreatePhoneNumberOrder' :: PhoneNumberProductType
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AproductType%3ACreatePhoneNumberOrder%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">PhoneNumberProductType
+</span><a href="#local-6989586621679552547"><span class="hs-identifier hs-var">pProductType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:e164PhoneNumbers:CreatePhoneNumberOrder' :: [Sensitive Text]
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3Ae164PhoneNumbers%3ACreatePhoneNumberOrder%27"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Sensitive Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The phone number product type.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrder_productType"><span class="hs-identifier hs-type">createPhoneNumberOrder_productType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberProductType.html#PhoneNumberProductType"><span class="hs-identifier hs-type">PhoneNumberProductType</span></a></span><span>
+</span><span id="line-86"></span><span id="createPhoneNumberOrder_productType"><span class="annot"><span class="annottext">createPhoneNumberOrder_productType :: (PhoneNumberProductType -&gt; f PhoneNumberProductType)
+-&gt; CreatePhoneNumberOrder -&gt; f CreatePhoneNumberOrder
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrder_productType"><span class="hs-identifier hs-var hs-var">createPhoneNumberOrder_productType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePhoneNumberOrder -&gt; PhoneNumberProductType)
+-&gt; (CreatePhoneNumberOrder
+    -&gt; PhoneNumberProductType -&gt; CreatePhoneNumberOrder)
+-&gt; Lens
+     CreatePhoneNumberOrder
+     CreatePhoneNumberOrder
+     PhoneNumberProductType
+     PhoneNumberProductType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552544"><span class="annot"><span class="annottext">PhoneNumberProductType
+productType :: PhoneNumberProductType
+$sel:productType:CreatePhoneNumberOrder' :: CreatePhoneNumberOrder -&gt; PhoneNumberProductType
+</span><a href="#local-6989586621679552544"><span class="hs-identifier hs-var hs-var">productType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PhoneNumberProductType
+</span><a href="#local-6989586621679552544"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552543"><span class="annot"><span class="annottext">s :: CreatePhoneNumberOrder
+</span><a href="#local-6989586621679552543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552542"><span class="annot"><span class="annottext">PhoneNumberProductType
+</span><a href="#local-6989586621679552542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePhoneNumberOrder
+</span><a href="#local-6989586621679552543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:productType:CreatePhoneNumberOrder' :: PhoneNumberProductType
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AproductType%3ACreatePhoneNumberOrder%27"><span class="hs-identifier hs-var">productType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PhoneNumberProductType
+</span><a href="#local-6989586621679552542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | List of phone numbers, in E.164 format.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrder_e164PhoneNumbers"><span class="hs-identifier hs-type">createPhoneNumberOrder_e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span id="createPhoneNumberOrder_e164PhoneNumbers"><span class="annot"><span class="annottext">createPhoneNumberOrder_e164PhoneNumbers :: ([Text] -&gt; f [Text])
+-&gt; CreatePhoneNumberOrder -&gt; f CreatePhoneNumberOrder
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrder_e164PhoneNumbers"><span class="hs-identifier hs-var hs-var">createPhoneNumberOrder_e164PhoneNumbers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePhoneNumberOrder -&gt; [Sensitive Text])
+-&gt; (CreatePhoneNumberOrder
+    -&gt; [Sensitive Text] -&gt; CreatePhoneNumberOrder)
+-&gt; Lens
+     CreatePhoneNumberOrder
+     CreatePhoneNumberOrder
+     [Sensitive Text]
+     [Sensitive Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552541"><span class="annot"><span class="annottext">[Sensitive Text]
+e164PhoneNumbers :: [Sensitive Text]
+$sel:e164PhoneNumbers:CreatePhoneNumberOrder' :: CreatePhoneNumberOrder -&gt; [Sensitive Text]
+</span><a href="#local-6989586621679552541"><span class="hs-identifier hs-var hs-var">e164PhoneNumbers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679552541"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552540"><span class="annot"><span class="annottext">s :: CreatePhoneNumberOrder
+</span><a href="#local-6989586621679552540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrder'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552539"><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679552539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePhoneNumberOrder
+</span><a href="#local-6989586621679552540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:e164PhoneNumbers:CreatePhoneNumberOrder' :: [Sensitive Text]
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3Ae164PhoneNumbers%3ACreatePhoneNumberOrder%27"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679552539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Sensitive Text] -&gt; f [Sensitive Text])
+ -&gt; CreatePhoneNumberOrder -&gt; f CreatePhoneNumberOrder)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; CreatePhoneNumberOrder
+-&gt; f CreatePhoneNumberOrder
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Sensitive Text] -&gt; f [Sensitive Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-94"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679552533"><span class="annot"><span class="annottext">request :: CreatePhoneNumberOrder -&gt; Request CreatePhoneNumberOrder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreatePhoneNumberOrder -&gt; Request CreatePhoneNumberOrder
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Chime.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679552529"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreatePhoneNumberOrder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePhoneNumberOrder)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreatePhoneNumberOrder))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreatePhoneNumberOrder
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreatePhoneNumberOrder)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679552526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679552526"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679552525"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679552525"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679552524"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679552524"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe PhoneNumberOrder -&gt; Int -&gt; CreatePhoneNumberOrderResponse
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var">CreatePhoneNumberOrderResponse'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PhoneNumberOrder -&gt; Int -&gt; CreatePhoneNumberOrderResponse)
+-&gt; Either String (Maybe PhoneNumberOrder)
+-&gt; Either String (Int -&gt; CreatePhoneNumberOrderResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679552524"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PhoneNumberOrder)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhoneNumberOrder&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreatePhoneNumberOrderResponse)
+-&gt; Either String Int
+-&gt; Either String CreatePhoneNumberOrderResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679552526"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552516"><span id="local-6989586621679552518"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552513"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679552509"><span class="annot"><span class="annottext">toHeaders :: CreatePhoneNumberOrder -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreatePhoneNumberOrder -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552500"><span id="local-6989586621679552502"><span id="local-6989586621679552504"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679552498"><span class="annot"><span class="annottext">toJSON :: CreatePhoneNumberOrder -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrder'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552495"><span id="local-6989586621679552496"><span class="annot"><span class="annottext">[Sensitive Text]
+PhoneNumberProductType
+e164PhoneNumbers :: [Sensitive Text]
+productType :: PhoneNumberProductType
+$sel:e164PhoneNumbers:CreatePhoneNumberOrder' :: CreatePhoneNumberOrder -&gt; [Sensitive Text]
+$sel:productType:CreatePhoneNumberOrder' :: CreatePhoneNumberOrder -&gt; PhoneNumberProductType
+</span><a href="#local-6989586621679552495"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ProductType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PhoneNumberProductType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">PhoneNumberProductType
+</span><a href="#local-6989586621679552496"><span class="hs-identifier hs-var">productType</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-118"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;E164PhoneNumbers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Sensitive Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Sensitive Text]
+</span><a href="#local-6989586621679552495"><span class="hs-identifier hs-var">e164PhoneNumbers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679552489"><span class="annot"><span class="annottext">toPath :: CreatePhoneNumberOrder -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreatePhoneNumberOrder -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/phone-number-orders&quot;</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrder"><span class="hs-identifier hs-type">CreatePhoneNumberOrder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679552485"><span class="annot"><span class="annottext">toQuery :: CreatePhoneNumberOrder -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreatePhoneNumberOrder -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newCreatePhoneNumberOrderResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679552482"><span id="local-6989586621679552483"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreatePhoneNumberOrderResponse"><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-var">CreatePhoneNumberOrderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreatePhoneNumberOrderResponse%27"><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var">CreatePhoneNumberOrderResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The phone number order details.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AphoneNumberOrder%3ACreatePhoneNumberOrderResponse%27"><span class="annot"><span class="annottext">CreatePhoneNumberOrderResponse -&gt; Maybe PhoneNumberOrder
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AphoneNumberOrder%3ACreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var hs-var">phoneNumberOrder</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberOrder.html#PhoneNumberOrder"><span class="hs-identifier hs-type">PhoneNumberOrder</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreatePhoneNumberOrderResponse%27"><span class="annot"><span class="annottext">CreatePhoneNumberOrderResponse -&gt; Int
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AhttpStatus%3ACreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552476"><span id="local-6989586621679552478"><span class="annot"><span class="annottext">CreatePhoneNumberOrderResponse
+-&gt; CreatePhoneNumberOrderResponse -&gt; Bool
+(CreatePhoneNumberOrderResponse
+ -&gt; CreatePhoneNumberOrderResponse -&gt; Bool)
+-&gt; (CreatePhoneNumberOrderResponse
+    -&gt; CreatePhoneNumberOrderResponse -&gt; Bool)
+-&gt; Eq CreatePhoneNumberOrderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreatePhoneNumberOrderResponse
+-&gt; CreatePhoneNumberOrderResponse -&gt; Bool
+$c/= :: CreatePhoneNumberOrderResponse
+-&gt; CreatePhoneNumberOrderResponse -&gt; Bool
+== :: CreatePhoneNumberOrderResponse
+-&gt; CreatePhoneNumberOrderResponse -&gt; Bool
+$c== :: CreatePhoneNumberOrderResponse
+-&gt; CreatePhoneNumberOrderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552470"><span id="local-6989586621679552472"><span id="local-6989586621679552474"><span class="annot"><span class="annottext">Int -&gt; CreatePhoneNumberOrderResponse -&gt; ShowS
+[CreatePhoneNumberOrderResponse] -&gt; ShowS
+CreatePhoneNumberOrderResponse -&gt; String
+(Int -&gt; CreatePhoneNumberOrderResponse -&gt; ShowS)
+-&gt; (CreatePhoneNumberOrderResponse -&gt; String)
+-&gt; ([CreatePhoneNumberOrderResponse] -&gt; ShowS)
+-&gt; Show CreatePhoneNumberOrderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreatePhoneNumberOrderResponse] -&gt; ShowS
+$cshowList :: [CreatePhoneNumberOrderResponse] -&gt; ShowS
+show :: CreatePhoneNumberOrderResponse -&gt; String
+$cshow :: CreatePhoneNumberOrderResponse -&gt; String
+showsPrec :: Int -&gt; CreatePhoneNumberOrderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreatePhoneNumberOrderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreatePhoneNumberOrderResponse
+ -&gt; Rep CreatePhoneNumberOrderResponse x)
+-&gt; (forall x.
+    Rep CreatePhoneNumberOrderResponse x
+    -&gt; CreatePhoneNumberOrderResponse)
+-&gt; Generic CreatePhoneNumberOrderResponse
+forall x.
+Rep CreatePhoneNumberOrderResponse x
+-&gt; CreatePhoneNumberOrderResponse
+forall x.
+CreatePhoneNumberOrderResponse
+-&gt; Rep CreatePhoneNumberOrderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreatePhoneNumberOrderResponse x
+-&gt; CreatePhoneNumberOrderResponse
+$cfrom :: forall x.
+CreatePhoneNumberOrderResponse
+-&gt; Rep CreatePhoneNumberOrderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Create a value of 'CreatePhoneNumberOrderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'phoneNumberOrder', 'createPhoneNumberOrderResponse_phoneNumberOrder' - The phone number order details.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'createPhoneNumberOrderResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#newCreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">newCreatePhoneNumberOrderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newCreatePhoneNumberOrderResponse"><span class="annot"><span class="annottext">newCreatePhoneNumberOrderResponse :: Int -&gt; CreatePhoneNumberOrderResponse
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#newCreatePhoneNumberOrderResponse"><span class="hs-identifier hs-var hs-var">newCreatePhoneNumberOrderResponse</span></a></span></span><span> </span><span id="local-6989586621679552467"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679552467"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">CreatePhoneNumberOrderResponse' :: Maybe PhoneNumberOrder -&gt; Int -&gt; CreatePhoneNumberOrderResponse
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:phoneNumberOrder:CreatePhoneNumberOrderResponse' :: Maybe PhoneNumberOrder
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AphoneNumberOrder%3ACreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var">phoneNumberOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe PhoneNumberOrder
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePhoneNumberOrderResponse' :: Int
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AhttpStatus%3ACreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679552467"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The phone number order details.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrderResponse_phoneNumberOrder"><span class="hs-identifier hs-type">createPhoneNumberOrderResponse_phoneNumberOrder</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.PhoneNumberOrder.html#PhoneNumberOrder"><span class="hs-identifier hs-type">PhoneNumberOrder</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="createPhoneNumberOrderResponse_phoneNumberOrder"><span class="annot"><span class="annottext">createPhoneNumberOrderResponse_phoneNumberOrder :: (Maybe PhoneNumberOrder -&gt; f (Maybe PhoneNumberOrder))
+-&gt; CreatePhoneNumberOrderResponse
+-&gt; f CreatePhoneNumberOrderResponse
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrderResponse_phoneNumberOrder"><span class="hs-identifier hs-var hs-var">createPhoneNumberOrderResponse_phoneNumberOrder</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePhoneNumberOrderResponse -&gt; Maybe PhoneNumberOrder)
+-&gt; (CreatePhoneNumberOrderResponse
+    -&gt; Maybe PhoneNumberOrder -&gt; CreatePhoneNumberOrderResponse)
+-&gt; Lens
+     CreatePhoneNumberOrderResponse
+     CreatePhoneNumberOrderResponse
+     (Maybe PhoneNumberOrder)
+     (Maybe PhoneNumberOrder)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552466"><span class="annot"><span class="annottext">Maybe PhoneNumberOrder
+phoneNumberOrder :: Maybe PhoneNumberOrder
+$sel:phoneNumberOrder:CreatePhoneNumberOrderResponse' :: CreatePhoneNumberOrderResponse -&gt; Maybe PhoneNumberOrder
+</span><a href="#local-6989586621679552466"><span class="hs-identifier hs-var hs-var">phoneNumberOrder</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberOrder
+</span><a href="#local-6989586621679552466"><span class="hs-identifier hs-var">phoneNumberOrder</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552465"><span class="annot"><span class="annottext">s :: CreatePhoneNumberOrderResponse
+</span><a href="#local-6989586621679552465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552464"><span class="annot"><span class="annottext">Maybe PhoneNumberOrder
+</span><a href="#local-6989586621679552464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePhoneNumberOrderResponse
+</span><a href="#local-6989586621679552465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:phoneNumberOrder:CreatePhoneNumberOrderResponse' :: Maybe PhoneNumberOrder
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AphoneNumberOrder%3ACreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var">phoneNumberOrder</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PhoneNumberOrder
+</span><a href="#local-6989586621679552464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrderResponse_httpStatus"><span class="hs-identifier hs-type">createPhoneNumberOrderResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="createPhoneNumberOrderResponse_httpStatus"><span class="annot"><span class="annottext">createPhoneNumberOrderResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreatePhoneNumberOrderResponse
+-&gt; f CreatePhoneNumberOrderResponse
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#createPhoneNumberOrderResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createPhoneNumberOrderResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreatePhoneNumberOrderResponse -&gt; Int)
+-&gt; (CreatePhoneNumberOrderResponse
+    -&gt; Int -&gt; CreatePhoneNumberOrderResponse)
+-&gt; Lens
+     CreatePhoneNumberOrderResponse
+     CreatePhoneNumberOrderResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552463"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreatePhoneNumberOrderResponse' :: CreatePhoneNumberOrderResponse -&gt; Int
+</span><a href="#local-6989586621679552463"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679552463"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552462"><span class="annot"><span class="annottext">s :: CreatePhoneNumberOrderResponse
+</span><a href="#local-6989586621679552462"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552461"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679552461"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreatePhoneNumberOrderResponse
+</span><a href="#local-6989586621679552462"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreatePhoneNumberOrderResponse' :: Int
+</span><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#%24sel%3AhttpStatus%3ACreatePhoneNumberOrderResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679552461"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679552459"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.Chime.CreatePhoneNumberOrder.html#CreatePhoneNumberOrderResponse"><span class="hs-identifier hs-type">CreatePhoneNumberOrderResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

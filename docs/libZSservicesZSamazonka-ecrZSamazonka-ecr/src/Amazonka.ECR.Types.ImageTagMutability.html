@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECR.Types.ImageTagMutability</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECR.Types.ImageTagMutability</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier">ImageTagMutability</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability_IMMUTABLE"><span class="hs-identifier">ImageTagMutability_IMMUTABLE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability_MUTABLE"><span class="hs-identifier">ImageTagMutability_MUTABLE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679232768"><span id="local-6989586621679232769"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ImageTagMutability"><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-var">ImageTagMutability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ImageTagMutability%27"><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability%27"><span class="hs-identifier hs-var">ImageTagMutability'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromImageTagMutability"><span class="annot"><span class="annottext">ImageTagMutability -&gt; Text
+</span><a href="Amazonka.ECR.Types.ImageTagMutability.html#fromImageTagMutability"><span class="hs-identifier hs-var hs-var">fromImageTagMutability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679232760"><span id="local-6989586621679232762"><span id="local-6989586621679232764"><span class="annot"><span class="annottext">Int -&gt; ImageTagMutability -&gt; ShowS
+[ImageTagMutability] -&gt; ShowS
+ImageTagMutability -&gt; String
+(Int -&gt; ImageTagMutability -&gt; ShowS)
+-&gt; (ImageTagMutability -&gt; String)
+-&gt; ([ImageTagMutability] -&gt; ShowS)
+-&gt; Show ImageTagMutability
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ImageTagMutability] -&gt; ShowS
+$cshowList :: [ImageTagMutability] -&gt; ShowS
+show :: ImageTagMutability -&gt; String
+$cshow :: ImageTagMutability -&gt; String
+showsPrec :: Int -&gt; ImageTagMutability -&gt; ShowS
+$cshowsPrec :: Int -&gt; ImageTagMutability -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679232751"><span id="local-6989586621679232753"><span id="local-6989586621679232755"><span id="local-6989586621679232757"><span class="annot"><span class="annottext">ReadPrec [ImageTagMutability]
+ReadPrec ImageTagMutability
+Int -&gt; ReadS ImageTagMutability
+ReadS [ImageTagMutability]
+(Int -&gt; ReadS ImageTagMutability)
+-&gt; ReadS [ImageTagMutability]
+-&gt; ReadPrec ImageTagMutability
+-&gt; ReadPrec [ImageTagMutability]
+-&gt; Read ImageTagMutability
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ImageTagMutability]
+$creadListPrec :: ReadPrec [ImageTagMutability]
+readPrec :: ReadPrec ImageTagMutability
+$creadPrec :: ReadPrec ImageTagMutability
+readList :: ReadS [ImageTagMutability]
+$creadList :: ReadS [ImageTagMutability]
+readsPrec :: Int -&gt; ReadS ImageTagMutability
+$creadsPrec :: Int -&gt; ReadS ImageTagMutability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679232746"><span id="local-6989586621679232748"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+(ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
+-&gt; Eq ImageTagMutability
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+$c/= :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+== :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+$c== :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679232730"><span id="local-6989586621679232732"><span id="local-6989586621679232734"><span id="local-6989586621679232736"><span id="local-6989586621679232738"><span id="local-6989586621679232740"><span id="local-6989586621679232742"><span class="annot"><span class="annottext">Eq ImageTagMutability
+Eq ImageTagMutability
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Ordering)
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; Bool)
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; ImageTagMutability)
+-&gt; (ImageTagMutability -&gt; ImageTagMutability -&gt; ImageTagMutability)
+-&gt; Ord ImageTagMutability
+ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+ImageTagMutability -&gt; ImageTagMutability -&gt; Ordering
+ImageTagMutability -&gt; ImageTagMutability -&gt; ImageTagMutability
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ImageTagMutability -&gt; ImageTagMutability -&gt; ImageTagMutability
+$cmin :: ImageTagMutability -&gt; ImageTagMutability -&gt; ImageTagMutability
+max :: ImageTagMutability -&gt; ImageTagMutability -&gt; ImageTagMutability
+$cmax :: ImageTagMutability -&gt; ImageTagMutability -&gt; ImageTagMutability
+&gt;= :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+$c&gt;= :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+&gt; :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+$c&gt; :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+&lt;= :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+$c&lt;= :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+&lt; :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+$c&lt; :: ImageTagMutability -&gt; ImageTagMutability -&gt; Bool
+compare :: ImageTagMutability -&gt; ImageTagMutability -&gt; Ordering
+$ccompare :: ImageTagMutability -&gt; ImageTagMutability -&gt; Ordering
+$cp1Ord :: Eq ImageTagMutability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ImageTagMutability -&gt; Rep ImageTagMutability x)
+-&gt; (forall x. Rep ImageTagMutability x -&gt; ImageTagMutability)
+-&gt; Generic ImageTagMutability
+forall x. Rep ImageTagMutability x -&gt; ImageTagMutability
+forall x. ImageTagMutability -&gt; Rep ImageTagMutability x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ImageTagMutability x -&gt; ImageTagMutability
+$cfrom :: forall x. ImageTagMutability -&gt; Rep ImageTagMutability x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679232722"><span id="local-6989586621679232724"><span class="annot"><span class="annottext">Int -&gt; ImageTagMutability -&gt; Int
+ImageTagMutability -&gt; Int
+(Int -&gt; ImageTagMutability -&gt; Int)
+-&gt; (ImageTagMutability -&gt; Int) -&gt; Hashable ImageTagMutability
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ImageTagMutability -&gt; Int
+$chash :: ImageTagMutability -&gt; Int
+hashWithSalt :: Int -&gt; ImageTagMutability -&gt; Int
+$chashWithSalt :: Int -&gt; ImageTagMutability -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679232719"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ()
+(ImageTagMutability -&gt; ()) -&gt; NFData ImageTagMutability
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ImageTagMutability -&gt; ()
+$crnf :: ImageTagMutability -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679232716"><span class="annot"><span class="annottext">Text -&gt; Either String ImageTagMutability
+(Text -&gt; Either String ImageTagMutability)
+-&gt; FromText ImageTagMutability
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ImageTagMutability
+$cfromText :: Text -&gt; Either String ImageTagMutability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679232713"><span class="annot"><span class="annottext">ImageTagMutability -&gt; Text
+(ImageTagMutability -&gt; Text) -&gt; ToText ImageTagMutability
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ImageTagMutability -&gt; Text
+$ctoText :: ImageTagMutability -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679232710"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ByteString
+(ImageTagMutability -&gt; ByteString)
+-&gt; ToByteString ImageTagMutability
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ImageTagMutability -&gt; ByteString
+$ctoBS :: ImageTagMutability -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679232707"><span class="annot"><span class="annottext">ImageTagMutability -&gt; ByteStringBuilder
+(ImageTagMutability -&gt; ByteStringBuilder)
+-&gt; ToLog ImageTagMutability
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ImageTagMutability -&gt; ByteStringBuilder
+$cbuild :: ImageTagMutability -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679232704"><span class="annot"><span class="annottext">HeaderName -&gt; ImageTagMutability -&gt; [Header]
+(HeaderName -&gt; ImageTagMutability -&gt; [Header])
+-&gt; ToHeader ImageTagMutability
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ImageTagMutability -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ImageTagMutability -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679232701"><span class="annot"><span class="annottext">ImageTagMutability -&gt; QueryString
+(ImageTagMutability -&gt; QueryString) -&gt; ToQuery ImageTagMutability
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ImageTagMutability -&gt; QueryString
+$ctoQuery :: ImageTagMutability -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679232696"><span id="local-6989586621679232698"><span class="annot"><span class="annottext">Value -&gt; Parser [ImageTagMutability]
+Value -&gt; Parser ImageTagMutability
+(Value -&gt; Parser ImageTagMutability)
+-&gt; (Value -&gt; Parser [ImageTagMutability])
+-&gt; FromJSON ImageTagMutability
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ImageTagMutability]
+$cparseJSONList :: Value -&gt; Parser [ImageTagMutability]
+parseJSON :: Value -&gt; Parser ImageTagMutability
+$cparseJSON :: Value -&gt; Parser ImageTagMutability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679232691"><span id="local-6989586621679232693"><span class="annot"><span class="annottext">FromJSONKeyFunction [ImageTagMutability]
+FromJSONKeyFunction ImageTagMutability
+FromJSONKeyFunction ImageTagMutability
+-&gt; FromJSONKeyFunction [ImageTagMutability]
+-&gt; FromJSONKey ImageTagMutability
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ImageTagMutability]
+$cfromJSONKeyList :: FromJSONKeyFunction [ImageTagMutability]
+fromJSONKey :: FromJSONKeyFunction ImageTagMutability
+$cfromJSONKey :: FromJSONKeyFunction ImageTagMutability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679232682"><span id="local-6989586621679232684"><span id="local-6989586621679232686"><span id="local-6989586621679232688"><span class="annot"><span class="annottext">[ImageTagMutability] -&gt; Encoding
+[ImageTagMutability] -&gt; Value
+ImageTagMutability -&gt; Encoding
+ImageTagMutability -&gt; Value
+(ImageTagMutability -&gt; Value)
+-&gt; (ImageTagMutability -&gt; Encoding)
+-&gt; ([ImageTagMutability] -&gt; Value)
+-&gt; ([ImageTagMutability] -&gt; Encoding)
+-&gt; ToJSON ImageTagMutability
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ImageTagMutability] -&gt; Encoding
+$ctoEncodingList :: [ImageTagMutability] -&gt; Encoding
+toJSONList :: [ImageTagMutability] -&gt; Value
+$ctoJSONList :: [ImageTagMutability] -&gt; Value
+toEncoding :: ImageTagMutability -&gt; Encoding
+$ctoEncoding :: ImageTagMutability -&gt; Encoding
+toJSON :: ImageTagMutability -&gt; Value
+$ctoJSON :: ImageTagMutability -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679232677"><span id="local-6989586621679232679"><span class="annot"><span class="annottext">ToJSONKeyFunction [ImageTagMutability]
+ToJSONKeyFunction ImageTagMutability
+ToJSONKeyFunction ImageTagMutability
+-&gt; ToJSONKeyFunction [ImageTagMutability]
+-&gt; ToJSONKey ImageTagMutability
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ImageTagMutability]
+$ctoJSONKeyList :: ToJSONKeyFunction [ImageTagMutability]
+toJSONKey :: ToJSONKeyFunction ImageTagMutability
+$ctoJSONKey :: ToJSONKeyFunction ImageTagMutability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679232674"><span class="annot"><span class="annottext">[Node] -&gt; Either String ImageTagMutability
+([Node] -&gt; Either String ImageTagMutability)
+-&gt; FromXML ImageTagMutability
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ImageTagMutability
+$cparseXML :: [Node] -&gt; Either String ImageTagMutability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679232671"><span class="annot"><span class="annottext">ImageTagMutability -&gt; XML
+(ImageTagMutability -&gt; XML) -&gt; ToXML ImageTagMutability
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ImageTagMutability -&gt; XML
+$ctoXML :: ImageTagMutability -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability_IMMUTABLE"><span class="hs-identifier hs-type">ImageTagMutability_IMMUTABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-type">ImageTagMutability</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageTagMutability_IMMUTABLE"><span id="%24mImageTagMutability_IMMUTABLE"><span id="ImageTagMutability_IMMUTABLE"><span class="annot"><span class="annottext">$bImageTagMutability_IMMUTABLE :: ImageTagMutability
+$mImageTagMutability_IMMUTABLE :: forall r. ImageTagMutability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECR.Types.ImageTagMutability.html#%24bImageTagMutability_IMMUTABLE"><span class="hs-identifier hs-var hs-var hs-var">ImageTagMutability_IMMUTABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability%27"><span class="hs-identifier hs-type">ImageTagMutability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMMUTABLE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability_MUTABLE"><span class="hs-identifier hs-type">ImageTagMutability_MUTABLE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability"><span class="hs-identifier hs-type">ImageTagMutability</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bImageTagMutability_MUTABLE"><span id="%24mImageTagMutability_MUTABLE"><span id="ImageTagMutability_MUTABLE"><span class="annot"><span class="annottext">$bImageTagMutability_MUTABLE :: ImageTagMutability
+$mImageTagMutability_MUTABLE :: forall r. ImageTagMutability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ECR.Types.ImageTagMutability.html#%24bImageTagMutability_MUTABLE"><span class="hs-identifier hs-var hs-var hs-var">ImageTagMutability_MUTABLE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability%27"><span class="hs-identifier hs-type">ImageTagMutability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MUTABLE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability_IMMUTABLE"><span class="hs-pragma hs-type">ImageTagMutability_IMMUTABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability_MUTABLE"><span class="hs-pragma hs-type">ImageTagMutability_MUTABLE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ECR.Types.ImageTagMutability.html#ImageTagMutability%27"><span class="hs-pragma hs-type">ImageTagMutability'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

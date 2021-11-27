@@ -1,0 +1,818 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.HoneyCode.BatchCreateTableRows</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- The BatchCreateTableRows API allows you to create one or more rows at</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- the end of a table in a workbook. The API allows you to specify the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- values to set in some or all of the columns in the new rows.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- If a column is not explicitly set in a specific row, then the column</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- level formula specified in the table will be applied to the new row. If</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- there is no column level formula but the last row of the table has a</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- formula, then that formula will be copied down to the new row. If there</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- is no column level formula and no formula in the last row of the table,</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- then that column will be left blank for the new rows.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HoneyCode.BatchCreateTableRows</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier">BatchCreateTableRows</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#newBatchCreateTableRows"><span class="hs-identifier">newBatchCreateTableRows</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_clientRequestToken"><span class="hs-identifier">batchCreateTableRows_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_workbookId"><span class="hs-identifier">batchCreateTableRows_workbookId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_tableId"><span class="hs-identifier">batchCreateTableRows_tableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_rowsToCreate"><span class="hs-identifier">batchCreateTableRows_rowsToCreate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier">BatchCreateTableRowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#newBatchCreateTableRowsResponse"><span class="hs-identifier">newBatchCreateTableRowsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_failedBatchItems"><span class="hs-identifier">batchCreateTableRowsResponse_failedBatchItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_httpStatus"><span class="hs-identifier">batchCreateTableRowsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_workbookCursor"><span class="hs-identifier">batchCreateTableRowsResponse_workbookCursor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_createdRows"><span class="hs-identifier">batchCreateTableRowsResponse_createdRows</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.html"><span class="hs-identifier">Amazonka.HoneyCode.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newBatchCreateTableRows' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679184627"><span id="local-6989586621679184628"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCreateTableRows"><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-var">BatchCreateTableRows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCreateTableRows%27"><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-var">BatchCreateTableRows'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The request token for performing the batch create operation. Request</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- tokens help to identify duplicate requests. If a call times out or fails</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- due to a transient error like a failed network connection, you can retry</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- the call with the same request token. The service ensures that if the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- first call using that request token is successfully performed, the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- second call will not perform the operation again.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Note that request tokens are valid only for a few minutes. You cannot</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- use request tokens to dedupe requests spanning hours or days.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AclientRequestToken%3ABatchCreateTableRows%27"><span class="annot"><span class="annottext">BatchCreateTableRows -&gt; Maybe Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AclientRequestToken%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The ID of the workbook where the new rows are being added.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- If a workbook with the specified ID could not be found, this API throws</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AworkbookId%3ABatchCreateTableRows%27"><span class="annot"><span class="annottext">BatchCreateTableRows -&gt; Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AworkbookId%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var hs-var">workbookId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The ID of the table where the new rows are being added.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- If a table with the specified ID could not be found, this API throws</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AtableId%3ABatchCreateTableRows%27"><span class="annot"><span class="annottext">BatchCreateTableRows -&gt; Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AtableId%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var hs-var">tableId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The list of rows to create at the end of the table. Each item in this</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- list needs to have a batch item id to uniquely identify the element in</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- the request and the cells to create for that row. You need to specify at</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- least one item in this list.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Note that if one of the column ids in any of the rows in the request</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- does not exist in the table, then the request fails and no updates are</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- made to the table.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3ArowsToCreate%3ABatchCreateTableRows%27"><span class="annot"><span class="annottext">BatchCreateTableRows -&gt; NonEmpty CreateRowData
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3ArowsToCreate%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var hs-var">rowsToCreate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.CreateRowData.html#CreateRowData"><span class="hs-identifier hs-type">CreateRowData</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184618"><span id="local-6989586621679184620"><span class="annot"><span class="annottext">BatchCreateTableRows -&gt; BatchCreateTableRows -&gt; Bool
+(BatchCreateTableRows -&gt; BatchCreateTableRows -&gt; Bool)
+-&gt; (BatchCreateTableRows -&gt; BatchCreateTableRows -&gt; Bool)
+-&gt; Eq BatchCreateTableRows
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchCreateTableRows -&gt; BatchCreateTableRows -&gt; Bool
+$c/= :: BatchCreateTableRows -&gt; BatchCreateTableRows -&gt; Bool
+== :: BatchCreateTableRows -&gt; BatchCreateTableRows -&gt; Bool
+$c== :: BatchCreateTableRows -&gt; BatchCreateTableRows -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184611"><span id="local-6989586621679184613"><span id="local-6989586621679184615"><span class="annot"><span class="annottext">Int -&gt; BatchCreateTableRows -&gt; ShowS
+[BatchCreateTableRows] -&gt; ShowS
+BatchCreateTableRows -&gt; String
+(Int -&gt; BatchCreateTableRows -&gt; ShowS)
+-&gt; (BatchCreateTableRows -&gt; String)
+-&gt; ([BatchCreateTableRows] -&gt; ShowS)
+-&gt; Show BatchCreateTableRows
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchCreateTableRows] -&gt; ShowS
+$cshowList :: [BatchCreateTableRows] -&gt; ShowS
+show :: BatchCreateTableRows -&gt; String
+$cshow :: BatchCreateTableRows -&gt; String
+showsPrec :: Int -&gt; BatchCreateTableRows -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchCreateTableRows -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchCreateTableRows -&gt; Rep BatchCreateTableRows x)
+-&gt; (forall x. Rep BatchCreateTableRows x -&gt; BatchCreateTableRows)
+-&gt; Generic BatchCreateTableRows
+forall x. Rep BatchCreateTableRows x -&gt; BatchCreateTableRows
+forall x. BatchCreateTableRows -&gt; Rep BatchCreateTableRows x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchCreateTableRows x -&gt; BatchCreateTableRows
+$cfrom :: forall x. BatchCreateTableRows -&gt; Rep BatchCreateTableRows x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'BatchCreateTableRows' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'clientRequestToken', 'batchCreateTableRows_clientRequestToken' - The request token for performing the batch create operation. Request</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- tokens help to identify duplicate requests. If a call times out or fails</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- due to a transient error like a failed network connection, you can retry</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the call with the same request token. The service ensures that if the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- first call using that request token is successfully performed, the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- second call will not perform the operation again.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Note that request tokens are valid only for a few minutes. You cannot</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- use request tokens to dedupe requests spanning hours or days.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'workbookId', 'batchCreateTableRows_workbookId' - The ID of the workbook where the new rows are being added.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- If a workbook with the specified ID could not be found, this API throws</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'tableId', 'batchCreateTableRows_tableId' - The ID of the table where the new rows are being added.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- If a table with the specified ID could not be found, this API throws</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'rowsToCreate', 'batchCreateTableRows_rowsToCreate' - The list of rows to create at the end of the table. Each item in this</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- list needs to have a batch item id to uniquely identify the element in</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- the request and the cells to create for that row. You need to specify at</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- least one item in this list.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Note that if one of the column ids in any of the rows in the request</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- does not exist in the table, then the request fails and no updates are</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- made to the table.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#newBatchCreateTableRows"><span class="hs-identifier hs-type">newBatchCreateTableRows</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-comment">-- | 'workbookId'</span><span>
+</span><span id="line-135"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'tableId'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'rowsToCreate'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.CreateRowData.html#CreateRowData"><span class="hs-identifier hs-type">CreateRowData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span>
+</span><span id="line-141"></span><span id="newBatchCreateTableRows"><span class="annot"><span class="annottext">newBatchCreateTableRows :: Text -&gt; Text -&gt; NonEmpty CreateRowData -&gt; BatchCreateTableRows
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#newBatchCreateTableRows"><span class="hs-identifier hs-var hs-var">newBatchCreateTableRows</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679184606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184606"><span class="hs-identifier hs-var">pWorkbookId_</span></a></span></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679184605"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184605"><span class="hs-identifier hs-var">pTableId_</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679184604"><span class="annot"><span class="annottext">NonEmpty CreateRowData
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">pRowsToCreate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">BatchCreateTableRows' :: Maybe Text
+-&gt; Text -&gt; Text -&gt; NonEmpty CreateRowData -&gt; BatchCreateTableRows
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientRequestToken:BatchCreateTableRows' :: Maybe Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AclientRequestToken%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">$sel:workbookId:BatchCreateTableRows' :: Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AworkbookId%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">workbookId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184606"><span class="hs-identifier hs-var">pWorkbookId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:tableId:BatchCreateTableRows' :: Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AtableId%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">tableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184605"><span class="hs-identifier hs-var">pTableId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:rowsToCreate:BatchCreateTableRows' :: NonEmpty CreateRowData
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3ArowsToCreate%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">rowsToCreate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty CreateRowData) (Identity (NonEmpty CreateRowData))
+-&gt; Tagged
+     (NonEmpty CreateRowData) (Identity (NonEmpty CreateRowData))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty CreateRowData) (Identity (NonEmpty CreateRowData))
+ -&gt; Tagged
+      (NonEmpty CreateRowData) (Identity (NonEmpty CreateRowData)))
+-&gt; NonEmpty CreateRowData -&gt; NonEmpty CreateRowData
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateRowData
+</span><a href="#local-6989586621679184604"><span class="hs-identifier hs-var">pRowsToCreate_</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The request token for performing the batch create operation. Request</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- tokens help to identify duplicate requests. If a call times out or fails</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- due to a transient error like a failed network connection, you can retry</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- the call with the same request token. The service ensures that if the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- first call using that request token is successfully performed, the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- second call will not perform the operation again.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Note that request tokens are valid only for a few minutes. You cannot</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- use request tokens to dedupe requests spanning hours or days.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_clientRequestToken"><span class="hs-identifier hs-type">batchCreateTableRows_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="batchCreateTableRows_clientRequestToken"><span class="annot"><span class="annottext">batchCreateTableRows_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BatchCreateTableRows -&gt; f BatchCreateTableRows
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_clientRequestToken"><span class="hs-identifier hs-var hs-var">batchCreateTableRows_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRows -&gt; Maybe Text)
+-&gt; (BatchCreateTableRows -&gt; Maybe Text -&gt; BatchCreateTableRows)
+-&gt; Lens
+     BatchCreateTableRows BatchCreateTableRows (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184599"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Maybe Text
+</span><a href="#local-6989586621679184599"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184599"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184598"><span class="annot"><span class="annottext">s :: BatchCreateTableRows
+</span><a href="#local-6989586621679184598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184597"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRows
+</span><a href="#local-6989586621679184598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:BatchCreateTableRows' :: Maybe Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AclientRequestToken%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The ID of the workbook where the new rows are being added.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- If a workbook with the specified ID could not be found, this API throws</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_workbookId"><span class="hs-identifier hs-type">batchCreateTableRows_workbookId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-170"></span><span id="batchCreateTableRows_workbookId"><span class="annot"><span class="annottext">batchCreateTableRows_workbookId :: (Text -&gt; f Text) -&gt; BatchCreateTableRows -&gt; f BatchCreateTableRows
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_workbookId"><span class="hs-identifier hs-var hs-var">batchCreateTableRows_workbookId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRows -&gt; Text)
+-&gt; (BatchCreateTableRows -&gt; Text -&gt; BatchCreateTableRows)
+-&gt; Lens BatchCreateTableRows BatchCreateTableRows Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184596"><span class="annot"><span class="annottext">Text
+workbookId :: Text
+$sel:workbookId:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Text
+</span><a href="#local-6989586621679184596"><span class="hs-identifier hs-var hs-var">workbookId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184596"><span class="hs-identifier hs-var">workbookId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184595"><span class="annot"><span class="annottext">s :: BatchCreateTableRows
+</span><a href="#local-6989586621679184595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184594"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRows
+</span><a href="#local-6989586621679184595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workbookId:BatchCreateTableRows' :: Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AworkbookId%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">workbookId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The ID of the table where the new rows are being added.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- If a table with the specified ID could not be found, this API throws</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- ResourceNotFoundException.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_tableId"><span class="hs-identifier hs-type">batchCreateTableRows_tableId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-177"></span><span id="batchCreateTableRows_tableId"><span class="annot"><span class="annottext">batchCreateTableRows_tableId :: (Text -&gt; f Text) -&gt; BatchCreateTableRows -&gt; f BatchCreateTableRows
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_tableId"><span class="hs-identifier hs-var hs-var">batchCreateTableRows_tableId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRows -&gt; Text)
+-&gt; (BatchCreateTableRows -&gt; Text -&gt; BatchCreateTableRows)
+-&gt; Lens BatchCreateTableRows BatchCreateTableRows Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184593"><span class="annot"><span class="annottext">Text
+tableId :: Text
+$sel:tableId:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Text
+</span><a href="#local-6989586621679184593"><span class="hs-identifier hs-var hs-var">tableId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184593"><span class="hs-identifier hs-var">tableId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184592"><span class="annot"><span class="annottext">s :: BatchCreateTableRows
+</span><a href="#local-6989586621679184592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRows
+</span><a href="#local-6989586621679184592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableId:BatchCreateTableRows' :: Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AtableId%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">tableId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | The list of rows to create at the end of the table. Each item in this</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- list needs to have a batch item id to uniquely identify the element in</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- the request and the cells to create for that row. You need to specify at</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- least one item in this list.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Note that if one of the column ids in any of the rows in the request</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- does not exist in the table, then the request fails and no updates are</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- made to the table.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_rowsToCreate"><span class="hs-identifier hs-type">batchCreateTableRows_rowsToCreate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.Types.CreateRowData.html#CreateRowData"><span class="hs-identifier hs-type">CreateRowData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="batchCreateTableRows_rowsToCreate"><span class="annot"><span class="annottext">batchCreateTableRows_rowsToCreate :: (NonEmpty CreateRowData -&gt; f (NonEmpty CreateRowData))
+-&gt; BatchCreateTableRows -&gt; f BatchCreateTableRows
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRows_rowsToCreate"><span class="hs-identifier hs-var hs-var">batchCreateTableRows_rowsToCreate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRows -&gt; NonEmpty CreateRowData)
+-&gt; (BatchCreateTableRows
+    -&gt; NonEmpty CreateRowData -&gt; BatchCreateTableRows)
+-&gt; Lens
+     BatchCreateTableRows
+     BatchCreateTableRows
+     (NonEmpty CreateRowData)
+     (NonEmpty CreateRowData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184590"><span class="annot"><span class="annottext">NonEmpty CreateRowData
+rowsToCreate :: NonEmpty CreateRowData
+$sel:rowsToCreate:BatchCreateTableRows' :: BatchCreateTableRows -&gt; NonEmpty CreateRowData
+</span><a href="#local-6989586621679184590"><span class="hs-identifier hs-var hs-var">rowsToCreate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateRowData
+</span><a href="#local-6989586621679184590"><span class="hs-identifier hs-var">rowsToCreate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184589"><span class="annot"><span class="annottext">s :: BatchCreateTableRows
+</span><a href="#local-6989586621679184589"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184588"><span class="annot"><span class="annottext">NonEmpty CreateRowData
+</span><a href="#local-6989586621679184588"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRows
+</span><a href="#local-6989586621679184589"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:rowsToCreate:BatchCreateTableRows' :: NonEmpty CreateRowData
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3ArowsToCreate%3ABatchCreateTableRows%27"><span class="hs-identifier hs-var">rowsToCreate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateRowData
+</span><a href="#local-6989586621679184588"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty CreateRowData -&gt; f (NonEmpty CreateRowData))
+ -&gt; BatchCreateTableRows -&gt; f BatchCreateTableRows)
+-&gt; ((NonEmpty CreateRowData -&gt; f (NonEmpty CreateRowData))
+    -&gt; NonEmpty CreateRowData -&gt; f (NonEmpty CreateRowData))
+-&gt; (NonEmpty CreateRowData -&gt; f (NonEmpty CreateRowData))
+-&gt; BatchCreateTableRows
+-&gt; f BatchCreateTableRows
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty CreateRowData -&gt; f (NonEmpty CreateRowData))
+-&gt; NonEmpty CreateRowData -&gt; f (NonEmpty CreateRowData)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-192"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span>
+</span><span id="line-194"></span><span>  </span><span id="local-6989586621679184583"><span class="annot"><span class="annottext">request :: BatchCreateTableRows -&gt; Request BatchCreateTableRows
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchCreateTableRows -&gt; Request BatchCreateTableRows
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.HoneyCode.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679184579"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchCreateTableRows
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchCreateTableRows)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchCreateTableRows))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchCreateTableRows
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse BatchCreateTableRows)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184576"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184576"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679184575"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679184575"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679184574"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184574"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedBatchItem]
+-&gt; Int
+-&gt; Integer
+-&gt; HashMap Text Text
+-&gt; BatchCreateTableRowsResponse
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">BatchCreateTableRowsResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [FailedBatchItem]
+ -&gt; Int
+ -&gt; Integer
+ -&gt; HashMap Text Text
+ -&gt; BatchCreateTableRowsResponse)
+-&gt; Either String (Maybe [FailedBatchItem])
+-&gt; Either
+     String
+     (Int
+      -&gt; Integer -&gt; HashMap Text Text -&gt; BatchCreateTableRowsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [FailedBatchItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failedBatchItems&quot;</span></span><span>
+</span><span id="line-200"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [FailedBatchItem]))
+-&gt; Maybe [FailedBatchItem]
+-&gt; Either String (Maybe [FailedBatchItem])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FailedBatchItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-201"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int
+   -&gt; Integer -&gt; HashMap Text Text -&gt; BatchCreateTableRowsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String
+     (Integer -&gt; HashMap Text Text -&gt; BatchCreateTableRowsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184576"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Integer -&gt; HashMap Text Text -&gt; BatchCreateTableRowsResponse)
+-&gt; Either String Integer
+-&gt; Either
+     String (HashMap Text Text -&gt; BatchCreateTableRowsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Integer
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;workbookCursor&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Either String (HashMap Text Text -&gt; BatchCreateTableRowsResponse)
+-&gt; Either String (HashMap Text Text)
+-&gt; Either String BatchCreateTableRowsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184574"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (HashMap Text Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdRows&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; Either String (HashMap Text Text)
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184564"><span id="local-6989586621679184566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span></span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-212"></span><span>  </span><span id="local-6989586621679184557"><span class="annot"><span class="annottext">toHeaders :: BatchCreateTableRows -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchCreateTableRows -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-216"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-218"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184547"><span id="local-6989586621679184549"><span id="local-6989586621679184551"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679184545"><span class="annot"><span class="annottext">toJSON :: BatchCreateTableRows -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184540"><span id="local-6989586621679184541"><span id="local-6989586621679184542"><span id="local-6989586621679184543"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty CreateRowData
+Text
+rowsToCreate :: NonEmpty CreateRowData
+tableId :: Text
+workbookId :: Text
+clientRequestToken :: Maybe Text
+$sel:rowsToCreate:BatchCreateTableRows' :: BatchCreateTableRows -&gt; NonEmpty CreateRowData
+$sel:tableId:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Text
+$sel:workbookId:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Text
+$sel:clientRequestToken:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Maybe Text
+</span><a href="#local-6989586621679184540"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-226"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679184543"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;rowsToCreate&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty CreateRowData -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty CreateRowData
+</span><a href="#local-6989586621679184540"><span class="hs-identifier hs-var">rowsToCreate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679184534"><span class="annot"><span class="annottext">toPath :: BatchCreateTableRows -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows%27"><span class="hs-identifier hs-type">BatchCreateTableRows'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184529"><span id="local-6989586621679184530"><span id="local-6989586621679184531"><span id="local-6989586621679184532"><span class="annot"><span class="annottext">Maybe Text
+NonEmpty CreateRowData
+Text
+rowsToCreate :: NonEmpty CreateRowData
+tableId :: Text
+workbookId :: Text
+clientRequestToken :: Maybe Text
+$sel:rowsToCreate:BatchCreateTableRows' :: BatchCreateTableRows -&gt; NonEmpty CreateRowData
+$sel:tableId:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Text
+$sel:workbookId:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Text
+$sel:clientRequestToken:BatchCreateTableRows' :: BatchCreateTableRows -&gt; Maybe Text
+</span><a href="#local-6989586621679184529"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workbooks/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184531"><span class="hs-identifier hs-var">workbookId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/tables/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184530"><span class="hs-identifier hs-var">tableId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/rows/batchcreate&quot;</span></span><span>
+</span><span id="line-240"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRows"><span class="hs-identifier hs-type">BatchCreateTableRows</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679184525"><span class="annot"><span class="annottext">toQuery :: BatchCreateTableRows -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchCreateTableRows -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | /See:/ 'newBatchCreateTableRowsResponse' smart constructor.</span><span>
+</span><span id="line-246"></span><span id="local-6989586621679184522"><span id="local-6989586621679184523"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchCreateTableRowsResponse"><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-var">BatchCreateTableRowsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchCreateTableRowsResponse%27"><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">BatchCreateTableRowsResponse'</span></a></span></span><span>
+</span><span id="line-247"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of batch items in the request that could not be added to the</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">-- table. Each element in this list contains one item from the request that</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">-- could not be added to the table along with the reason why that item</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- could not be added.</span><span>
+</span><span id="line-251"></span><span>    </span><span id="%24sel%3AfailedBatchItems%3ABatchCreateTableRowsResponse%27"><span class="annot"><span class="annottext">BatchCreateTableRowsResponse -&gt; Maybe [FailedBatchItem]
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AfailedBatchItems%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var hs-var">failedBatchItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.HoneyCode.Types.FailedBatchItem.html#FailedBatchItem"><span class="hs-identifier hs-type">FailedBatchItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-253"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchCreateTableRowsResponse%27"><span class="annot"><span class="annottext">BatchCreateTableRowsResponse -&gt; Int
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AhttpStatus%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- | The updated workbook cursor after adding the new rows at the end of the</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-256"></span><span>    </span><span id="%24sel%3AworkbookCursor%3ABatchCreateTableRowsResponse%27"><span class="annot"><span class="annottext">BatchCreateTableRowsResponse -&gt; Integer
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AworkbookCursor%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var hs-var">workbookCursor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- | The map of batch item id to the row id that was created for that item.</span><span>
+</span><span id="line-258"></span><span>    </span><span id="%24sel%3AcreatedRows%3ABatchCreateTableRowsResponse%27"><span class="annot"><span class="annottext">BatchCreateTableRowsResponse -&gt; HashMap Text Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AcreatedRows%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var hs-var">createdRows</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184514"><span id="local-6989586621679184516"><span class="annot"><span class="annottext">BatchCreateTableRowsResponse
+-&gt; BatchCreateTableRowsResponse -&gt; Bool
+(BatchCreateTableRowsResponse
+ -&gt; BatchCreateTableRowsResponse -&gt; Bool)
+-&gt; (BatchCreateTableRowsResponse
+    -&gt; BatchCreateTableRowsResponse -&gt; Bool)
+-&gt; Eq BatchCreateTableRowsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchCreateTableRowsResponse
+-&gt; BatchCreateTableRowsResponse -&gt; Bool
+$c/= :: BatchCreateTableRowsResponse
+-&gt; BatchCreateTableRowsResponse -&gt; Bool
+== :: BatchCreateTableRowsResponse
+-&gt; BatchCreateTableRowsResponse -&gt; Bool
+$c== :: BatchCreateTableRowsResponse
+-&gt; BatchCreateTableRowsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184506"><span id="local-6989586621679184508"><span id="local-6989586621679184510"><span id="local-6989586621679184512"><span class="annot"><span class="annottext">ReadPrec [BatchCreateTableRowsResponse]
+ReadPrec BatchCreateTableRowsResponse
+Int -&gt; ReadS BatchCreateTableRowsResponse
+ReadS [BatchCreateTableRowsResponse]
+(Int -&gt; ReadS BatchCreateTableRowsResponse)
+-&gt; ReadS [BatchCreateTableRowsResponse]
+-&gt; ReadPrec BatchCreateTableRowsResponse
+-&gt; ReadPrec [BatchCreateTableRowsResponse]
+-&gt; Read BatchCreateTableRowsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchCreateTableRowsResponse]
+$creadListPrec :: ReadPrec [BatchCreateTableRowsResponse]
+readPrec :: ReadPrec BatchCreateTableRowsResponse
+$creadPrec :: ReadPrec BatchCreateTableRowsResponse
+readList :: ReadS [BatchCreateTableRowsResponse]
+$creadList :: ReadS [BatchCreateTableRowsResponse]
+readsPrec :: Int -&gt; ReadS BatchCreateTableRowsResponse
+$creadsPrec :: Int -&gt; ReadS BatchCreateTableRowsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184499"><span id="local-6989586621679184501"><span id="local-6989586621679184503"><span class="annot"><span class="annottext">Int -&gt; BatchCreateTableRowsResponse -&gt; ShowS
+[BatchCreateTableRowsResponse] -&gt; ShowS
+BatchCreateTableRowsResponse -&gt; String
+(Int -&gt; BatchCreateTableRowsResponse -&gt; ShowS)
+-&gt; (BatchCreateTableRowsResponse -&gt; String)
+-&gt; ([BatchCreateTableRowsResponse] -&gt; ShowS)
+-&gt; Show BatchCreateTableRowsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchCreateTableRowsResponse] -&gt; ShowS
+$cshowList :: [BatchCreateTableRowsResponse] -&gt; ShowS
+show :: BatchCreateTableRowsResponse -&gt; String
+$cshow :: BatchCreateTableRowsResponse -&gt; String
+showsPrec :: Int -&gt; BatchCreateTableRowsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchCreateTableRowsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchCreateTableRowsResponse -&gt; Rep BatchCreateTableRowsResponse x)
+-&gt; (forall x.
+    Rep BatchCreateTableRowsResponse x -&gt; BatchCreateTableRowsResponse)
+-&gt; Generic BatchCreateTableRowsResponse
+forall x.
+Rep BatchCreateTableRowsResponse x -&gt; BatchCreateTableRowsResponse
+forall x.
+BatchCreateTableRowsResponse -&gt; Rep BatchCreateTableRowsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchCreateTableRowsResponse x -&gt; BatchCreateTableRowsResponse
+$cfrom :: forall x.
+BatchCreateTableRowsResponse -&gt; Rep BatchCreateTableRowsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- Create a value of 'BatchCreateTableRowsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- 'failedBatchItems', 'batchCreateTableRowsResponse_failedBatchItems' - The list of batch items in the request that could not be added to the</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- table. Each element in this list contains one item from the request that</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- could not be added to the table along with the reason why that item</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- could not be added.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- 'httpStatus', 'batchCreateTableRowsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- 'workbookCursor', 'batchCreateTableRowsResponse_workbookCursor' - The updated workbook cursor after adding the new rows at the end of the</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- 'createdRows', 'batchCreateTableRowsResponse_createdRows' - The map of batch item id to the row id that was created for that item.</span><span>
+</span><span id="line-281"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#newBatchCreateTableRowsResponse"><span class="hs-identifier hs-type">newBatchCreateTableRowsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-283"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-284"></span><span>  </span><span class="hs-comment">-- | 'workbookCursor'</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-286"></span><span>  </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span>
+</span><span id="line-287"></span><span id="newBatchCreateTableRowsResponse"><span class="annot"><span class="annottext">newBatchCreateTableRowsResponse :: Int -&gt; Integer -&gt; BatchCreateTableRowsResponse
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#newBatchCreateTableRowsResponse"><span class="hs-identifier hs-var hs-var">newBatchCreateTableRowsResponse</span></a></span></span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679184496"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-289"></span><span>  </span><span id="local-6989586621679184495"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679184495"><span class="hs-identifier hs-var">pWorkbookCursor_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><span class="annottext">BatchCreateTableRowsResponse' :: Maybe [FailedBatchItem]
+-&gt; Int
+-&gt; Integer
+-&gt; HashMap Text Text
+-&gt; BatchCreateTableRowsResponse
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failedBatchItems:BatchCreateTableRowsResponse' :: Maybe [FailedBatchItem]
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AfailedBatchItems%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">failedBatchItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-292"></span><span>          </span><span class="annot"><span class="annottext">Maybe [FailedBatchItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCreateTableRowsResponse' :: Int
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AhttpStatus%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184496"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">$sel:workbookCursor:BatchCreateTableRowsResponse' :: Integer
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AworkbookCursor%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">workbookCursor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679184495"><span class="hs-identifier hs-var">pWorkbookCursor_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdRows:BatchCreateTableRowsResponse' :: HashMap Text Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AcreatedRows%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">createdRows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-296"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The list of batch items in the request that could not be added to the</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- table. Each element in this list contains one item from the request that</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- could not be added to the table along with the reason why that item</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- could not be added.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_failedBatchItems"><span class="hs-identifier hs-type">batchCreateTableRowsResponse_failedBatchItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.HoneyCode.Types.FailedBatchItem.html#FailedBatchItem"><span class="hs-identifier hs-type">FailedBatchItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="batchCreateTableRowsResponse_failedBatchItems"><span class="annot"><span class="annottext">batchCreateTableRowsResponse_failedBatchItems :: (Maybe [FailedBatchItem] -&gt; f (Maybe [FailedBatchItem]))
+-&gt; BatchCreateTableRowsResponse -&gt; f BatchCreateTableRowsResponse
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_failedBatchItems"><span class="hs-identifier hs-var hs-var">batchCreateTableRowsResponse_failedBatchItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRowsResponse -&gt; Maybe [FailedBatchItem])
+-&gt; (BatchCreateTableRowsResponse
+    -&gt; Maybe [FailedBatchItem] -&gt; BatchCreateTableRowsResponse)
+-&gt; Lens
+     BatchCreateTableRowsResponse
+     BatchCreateTableRowsResponse
+     (Maybe [FailedBatchItem])
+     (Maybe [FailedBatchItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184494"><span class="annot"><span class="annottext">Maybe [FailedBatchItem]
+failedBatchItems :: Maybe [FailedBatchItem]
+$sel:failedBatchItems:BatchCreateTableRowsResponse' :: BatchCreateTableRowsResponse -&gt; Maybe [FailedBatchItem]
+</span><a href="#local-6989586621679184494"><span class="hs-identifier hs-var hs-var">failedBatchItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedBatchItem]
+</span><a href="#local-6989586621679184494"><span class="hs-identifier hs-var">failedBatchItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184493"><span class="annot"><span class="annottext">s :: BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184492"><span class="annot"><span class="annottext">Maybe [FailedBatchItem]
+</span><a href="#local-6989586621679184492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedBatchItems:BatchCreateTableRowsResponse' :: Maybe [FailedBatchItem]
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AfailedBatchItems%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">failedBatchItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FailedBatchItem]
+</span><a href="#local-6989586621679184492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FailedBatchItem] -&gt; f (Maybe [FailedBatchItem]))
+ -&gt; BatchCreateTableRowsResponse -&gt; f BatchCreateTableRowsResponse)
+-&gt; ((Maybe [FailedBatchItem] -&gt; f (Maybe [FailedBatchItem]))
+    -&gt; Maybe [FailedBatchItem] -&gt; f (Maybe [FailedBatchItem]))
+-&gt; (Maybe [FailedBatchItem] -&gt; f (Maybe [FailedBatchItem]))
+-&gt; BatchCreateTableRowsResponse
+-&gt; f BatchCreateTableRowsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FailedBatchItem]
+  [FailedBatchItem]
+  [FailedBatchItem]
+  [FailedBatchItem]
+-&gt; Iso
+     (Maybe [FailedBatchItem])
+     (Maybe [FailedBatchItem])
+     (Maybe [FailedBatchItem])
+     (Maybe [FailedBatchItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [FailedBatchItem]
+  [FailedBatchItem]
+  [FailedBatchItem]
+  [FailedBatchItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_httpStatus"><span class="hs-identifier hs-type">batchCreateTableRowsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-307"></span><span id="batchCreateTableRowsResponse_httpStatus"><span class="annot"><span class="annottext">batchCreateTableRowsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchCreateTableRowsResponse -&gt; f BatchCreateTableRowsResponse
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchCreateTableRowsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRowsResponse -&gt; Int)
+-&gt; (BatchCreateTableRowsResponse
+    -&gt; Int -&gt; BatchCreateTableRowsResponse)
+-&gt; Lens
+     BatchCreateTableRowsResponse BatchCreateTableRowsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184490"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchCreateTableRowsResponse' :: BatchCreateTableRowsResponse -&gt; Int
+</span><a href="#local-6989586621679184490"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184490"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184489"><span class="annot"><span class="annottext">s :: BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchCreateTableRowsResponse' :: Int
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AhttpStatus%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679184488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | The updated workbook cursor after adding the new rows at the end of the</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- table.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_workbookCursor"><span class="hs-identifier hs-type">batchCreateTableRowsResponse_workbookCursor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-312"></span><span id="batchCreateTableRowsResponse_workbookCursor"><span class="annot"><span class="annottext">batchCreateTableRowsResponse_workbookCursor :: (Integer -&gt; f Integer)
+-&gt; BatchCreateTableRowsResponse -&gt; f BatchCreateTableRowsResponse
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_workbookCursor"><span class="hs-identifier hs-var hs-var">batchCreateTableRowsResponse_workbookCursor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRowsResponse -&gt; Integer)
+-&gt; (BatchCreateTableRowsResponse
+    -&gt; Integer -&gt; BatchCreateTableRowsResponse)
+-&gt; Lens
+     BatchCreateTableRowsResponse
+     BatchCreateTableRowsResponse
+     Integer
+     Integer
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184487"><span class="annot"><span class="annottext">Integer
+workbookCursor :: Integer
+$sel:workbookCursor:BatchCreateTableRowsResponse' :: BatchCreateTableRowsResponse -&gt; Integer
+</span><a href="#local-6989586621679184487"><span class="hs-identifier hs-var hs-var">workbookCursor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679184487"><span class="hs-identifier hs-var">workbookCursor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184486"><span class="annot"><span class="annottext">s :: BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184485"><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679184485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workbookCursor:BatchCreateTableRowsResponse' :: Integer
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AworkbookCursor%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">workbookCursor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer
+</span><a href="#local-6989586621679184485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The map of batch item id to the row id that was created for that item.</span><span>
+</span><span id="line-315"></span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_createdRows"><span class="hs-identifier hs-type">batchCreateTableRowsResponse_createdRows</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span id="batchCreateTableRowsResponse_createdRows"><span class="annot"><span class="annottext">batchCreateTableRowsResponse_createdRows :: (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; BatchCreateTableRowsResponse -&gt; f BatchCreateTableRowsResponse
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#batchCreateTableRowsResponse_createdRows"><span class="hs-identifier hs-var hs-var">batchCreateTableRowsResponse_createdRows</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchCreateTableRowsResponse -&gt; HashMap Text Text)
+-&gt; (BatchCreateTableRowsResponse
+    -&gt; HashMap Text Text -&gt; BatchCreateTableRowsResponse)
+-&gt; Lens
+     BatchCreateTableRowsResponse
+     BatchCreateTableRowsResponse
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184484"><span class="annot"><span class="annottext">HashMap Text Text
+createdRows :: HashMap Text Text
+$sel:createdRows:BatchCreateTableRowsResponse' :: BatchCreateTableRowsResponse -&gt; HashMap Text Text
+</span><a href="#local-6989586621679184484"><span class="hs-identifier hs-var hs-var">createdRows</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184484"><span class="hs-identifier hs-var">createdRows</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184483"><span class="annot"><span class="annottext">s :: BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse%27"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184482"><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchCreateTableRowsResponse
+</span><a href="#local-6989586621679184483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdRows:BatchCreateTableRowsResponse' :: HashMap Text Text
+</span><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#%24sel%3AcreatedRows%3ABatchCreateTableRowsResponse%27"><span class="hs-identifier hs-var">createdRows</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text Text
+</span><a href="#local-6989586621679184482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text Text -&gt; f (HashMap Text Text))
+ -&gt; BatchCreateTableRowsResponse -&gt; f BatchCreateTableRowsResponse)
+-&gt; ((HashMap Text Text -&gt; f (HashMap Text Text))
+    -&gt; HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; (HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; BatchCreateTableRowsResponse
+-&gt; f BatchCreateTableRowsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; f (HashMap Text Text))
+-&gt; HashMap Text Text -&gt; f (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184480"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HoneyCode.BatchCreateTableRows.html#BatchCreateTableRowsResponse"><span class="hs-identifier hs-type">BatchCreateTableRowsResponse</span></a></span></span><span>
+</span><span id="line-319"></span></pre></body></html>

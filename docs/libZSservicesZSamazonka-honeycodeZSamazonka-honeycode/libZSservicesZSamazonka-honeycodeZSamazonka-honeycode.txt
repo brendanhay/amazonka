@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.HoneyCode.Types.CellInput
+module Amazonka.HoneyCode.Types.CellInput
 
 -- | CellInput object contains the data needed to create or update cells in
 --   a table.
@@ -36,15 +36,15 @@ newCellInput :: CellInput
 --   free text or a formula. Formulas need to start with the equals (=)
 --   sign.
 cellInput_fact :: Lens' CellInput (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.CellInput.CellInput
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.CellInput.CellInput
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.CellInput.CellInput
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.CellInput.CellInput
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.CellInput.CellInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.CellInput.CellInput
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.CellInput.CellInput
+instance GHC.Show.Show Amazonka.HoneyCode.Types.CellInput.CellInput
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.CellInput.CellInput
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.CellInput.CellInput
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.CellInput.CellInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.CellInput.CellInput
 
 
-module Network.AWS.HoneyCode.Types.CreateRowData
+module Amazonka.HoneyCode.Types.CreateRowData
 
 -- | Data needed to create a single row in a table as part of the
 --   BatchCreateTableRows request.
@@ -100,15 +100,15 @@ createRowData_batchItemId :: Lens' CreateRowData Text
 --   column id of the cell and the value is the CellInput object that
 --   represents the data to set in that cell.
 createRowData_cellsToCreate :: Lens' CreateRowData (HashMap Text CellInput)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.CreateRowData.CreateRowData
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.CreateRowData.CreateRowData
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.CreateRowData.CreateRowData
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.CreateRowData.CreateRowData
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.CreateRowData.CreateRowData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.CreateRowData.CreateRowData
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.CreateRowData.CreateRowData
+instance GHC.Show.Show Amazonka.HoneyCode.Types.CreateRowData.CreateRowData
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.CreateRowData.CreateRowData
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.CreateRowData.CreateRowData
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.CreateRowData.CreateRowData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.CreateRowData.CreateRowData
 
 
-module Network.AWS.HoneyCode.Types.FailedBatchItem
+module Amazonka.HoneyCode.Types.FailedBatchItem
 
 -- | A single item in a batch that failed to perform the intended action
 --   because of an error preventing it from succeeding.
@@ -153,16 +153,16 @@ failedBatchItem_id :: Lens' FailedBatchItem Text
 
 -- | The error message that indicates why the batch item failed.
 failedBatchItem_errorMessage :: Lens' FailedBatchItem Text
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.FailedBatchItem.FailedBatchItem
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.FailedBatchItem.FailedBatchItem
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.FailedBatchItem.FailedBatchItem
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.FailedBatchItem.FailedBatchItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.FailedBatchItem.FailedBatchItem
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.FailedBatchItem.FailedBatchItem
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.FailedBatchItem.FailedBatchItem
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.FailedBatchItem.FailedBatchItem
+instance GHC.Show.Show Amazonka.HoneyCode.Types.FailedBatchItem.FailedBatchItem
+instance GHC.Read.Read Amazonka.HoneyCode.Types.FailedBatchItem.FailedBatchItem
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.FailedBatchItem.FailedBatchItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.FailedBatchItem.FailedBatchItem
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.FailedBatchItem.FailedBatchItem
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.FailedBatchItem.FailedBatchItem
 
 
-module Network.AWS.HoneyCode.Types.Filter
+module Amazonka.HoneyCode.Types.Filter
 
 -- | An object that represents a filter formula along with the id of the
 --   context row under which the filter function needs to evaluate.
@@ -224,15 +224,15 @@ filter_contextRowId :: Lens' Filter (Maybe Text)
 --   For example, you can use a formula that points to a cell that contains
 --   a filter function.
 filter_formula :: Lens' Filter Text
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.HoneyCode.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.Filter.Filter
 
 
-module Network.AWS.HoneyCode.Types.Format
+module Amazonka.HoneyCode.Types.Format
 newtype Format
 Format' :: Text -> Format
 [fromFormat] :: Format -> Text
@@ -247,28 +247,28 @@ pattern Format_PERCENTAGE :: Format
 pattern Format_ROWLINK :: Format
 pattern Format_TEXT :: Format
 pattern Format_TIME :: Format
-instance Network.AWS.Data.XML.ToXML Network.AWS.HoneyCode.Types.Format.Format
-instance Network.AWS.Data.XML.FromXML Network.AWS.HoneyCode.Types.Format.Format
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HoneyCode.Types.Format.Format
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.Format.Format
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HoneyCode.Types.Format.Format
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.Format.Format
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.Types.Format.Format
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HoneyCode.Types.Format.Format
-instance Network.AWS.Data.Log.ToLog Network.AWS.HoneyCode.Types.Format.Format
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HoneyCode.Types.Format.Format
-instance Network.AWS.Data.Text.ToText Network.AWS.HoneyCode.Types.Format.Format
-instance Network.AWS.Data.Text.FromText Network.AWS.HoneyCode.Types.Format.Format
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.Format.Format
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.Format.Format
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.Format.Format
-instance GHC.Classes.Ord Network.AWS.HoneyCode.Types.Format.Format
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.Format.Format
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.Format.Format
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.Format.Format
+instance Amazonka.Data.XML.ToXML Amazonka.HoneyCode.Types.Format.Format
+instance Amazonka.Data.XML.FromXML Amazonka.HoneyCode.Types.Format.Format
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HoneyCode.Types.Format.Format
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.Format.Format
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HoneyCode.Types.Format.Format
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.Format.Format
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.Types.Format.Format
+instance Amazonka.Data.Headers.ToHeader Amazonka.HoneyCode.Types.Format.Format
+instance Amazonka.Data.Log.ToLog Amazonka.HoneyCode.Types.Format.Format
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HoneyCode.Types.Format.Format
+instance Amazonka.Data.Text.ToText Amazonka.HoneyCode.Types.Format.Format
+instance Amazonka.Data.Text.FromText Amazonka.HoneyCode.Types.Format.Format
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.Format.Format
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.Format.Format
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.Format.Format
+instance GHC.Classes.Ord Amazonka.HoneyCode.Types.Format.Format
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.Format.Format
+instance GHC.Read.Read Amazonka.HoneyCode.Types.Format.Format
+instance GHC.Show.Show Amazonka.HoneyCode.Types.Format.Format
 
 
-module Network.AWS.HoneyCode.Types.DataItem
+module Amazonka.HoneyCode.Types.DataItem
 
 -- | The data in a particular data cell defined on the screen.
 --   
@@ -317,15 +317,15 @@ dataItem_overrideFormat :: Lens' DataItem (Maybe Format)
 
 -- | The formatted value of the data. e.g. John Smith.
 dataItem_formattedValue :: Lens' DataItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.DataItem.DataItem
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.DataItem.DataItem
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.DataItem.DataItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.DataItem.DataItem
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.DataItem.DataItem
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.DataItem.DataItem
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.DataItem.DataItem
+instance GHC.Show.Show Amazonka.HoneyCode.Types.DataItem.DataItem
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.DataItem.DataItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.DataItem.DataItem
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.DataItem.DataItem
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.DataItem.DataItem
 
 
-module Network.AWS.HoneyCode.Types.ColumnMetadata
+module Amazonka.HoneyCode.Types.ColumnMetadata
 
 -- | Metadata for column in the table.
 --   
@@ -360,15 +360,15 @@ columnMetadata_name :: Lens' ColumnMetadata Text
 
 -- | The format of the column.
 columnMetadata_format :: Lens' ColumnMetadata Format
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ColumnMetadata.ColumnMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ColumnMetadata.ColumnMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ColumnMetadata.ColumnMetadata
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ColumnMetadata.ColumnMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ColumnMetadata.ColumnMetadata
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ColumnMetadata.ColumnMetadata
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ColumnMetadata.ColumnMetadata
 
 
-module Network.AWS.HoneyCode.Types.Cell
+module Amazonka.HoneyCode.Types.Cell
 
 -- | An object that represents a single cell in a table.
 --   
@@ -581,15 +581,15 @@ cell_formula :: Lens' Cell (Maybe Text)
 --   cell in the UI. See details in the rawValue field below for how cells
 --   of different formats will have different raw and formatted values.
 cell_formattedValue :: Lens' Cell (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.Cell.Cell
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.Cell.Cell
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.Cell.Cell
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.Cell.Cell
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.Cell.Cell
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.Cell.Cell
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.Cell.Cell
+instance GHC.Show.Show Amazonka.HoneyCode.Types.Cell.Cell
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.Cell.Cell
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.Cell.Cell
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.Cell.Cell
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.Cell.Cell
 
 
-module Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding
+module Amazonka.HoneyCode.Types.ImportDataCharacterEncoding
 newtype ImportDataCharacterEncoding
 ImportDataCharacterEncoding' :: Text -> ImportDataCharacterEncoding
 [fromImportDataCharacterEncoding] :: ImportDataCharacterEncoding -> Text
@@ -599,28 +599,28 @@ pattern ImportDataCharacterEncoding_UTF_16 :: ImportDataCharacterEncoding
 pattern ImportDataCharacterEncoding_UTF_16BE :: ImportDataCharacterEncoding
 pattern ImportDataCharacterEncoding_UTF_16LE :: ImportDataCharacterEncoding
 pattern ImportDataCharacterEncoding_UTF_8 :: ImportDataCharacterEncoding
-instance Network.AWS.Data.XML.ToXML Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Network.AWS.Data.XML.FromXML Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Network.AWS.Data.Log.ToLog Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Network.AWS.Data.Text.ToText Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Network.AWS.Data.Text.FromText Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance GHC.Classes.Ord Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.XML.ToXML Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.XML.FromXML Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.Headers.ToHeader Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.Log.ToLog Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.Text.ToText Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Amazonka.Data.Text.FromText Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance GHC.Classes.Ord Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance GHC.Read.Read Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ImportDataCharacterEncoding.ImportDataCharacterEncoding
 
 
-module Network.AWS.HoneyCode.Types.DelimitedTextImportOptions
+module Amazonka.HoneyCode.Types.DelimitedTextImportOptions
 
 -- | An object that contains the options relating to parsing delimited text
 --   as part of an import request.
@@ -685,17 +685,17 @@ delimitedTextImportOptions_dataCharacterEncoding :: Lens' DelimitedTextImportOpt
 -- | The delimiter to use for separating columns in a single row of the
 --   input.
 delimitedTextImportOptions_delimiter :: Lens' DelimitedTextImportOptions Text
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance GHC.Show.Show Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance GHC.Read.Read Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.DelimitedTextImportOptions.DelimitedTextImportOptions
 
 
-module Network.AWS.HoneyCode.Types.ImportDataSourceConfig
+module Amazonka.HoneyCode.Types.ImportDataSourceConfig
 
 -- | An object that contains the configuration parameters for the data
 --   source of an import request.
@@ -725,17 +725,17 @@ newImportDataSourceConfig :: ImportDataSourceConfig
 -- | The URL from which source data will be downloaded for the import
 --   request.
 importDataSourceConfig_dataSourceUrl :: Lens' ImportDataSourceConfig (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance GHC.Read.Read Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.ImportDataSourceConfig.ImportDataSourceConfig
 
 
-module Network.AWS.HoneyCode.Types.ImportDataSource
+module Amazonka.HoneyCode.Types.ImportDataSource
 
 -- | An object that has details about the source of the data that was
 --   submitted for import.
@@ -763,17 +763,17 @@ newImportDataSource :: ImportDataSourceConfig -> ImportDataSource
 
 -- | The configuration parameters for the data source of the import
 importDataSource_dataSourceConfig :: Lens' ImportDataSource ImportDataSourceConfig
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance GHC.Read.Read Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.ImportDataSource.ImportDataSource
 
 
-module Network.AWS.HoneyCode.Types.ImportJobSubmitter
+module Amazonka.HoneyCode.Types.ImportJobSubmitter
 
 -- | An object that contains the attributes of the submitter of the import
 --   job.
@@ -810,41 +810,41 @@ importJobSubmitter_email :: Lens' ImportJobSubmitter (Maybe Text)
 
 -- | The AWS user ARN of the submitter of the import job, if available.
 importJobSubmitter_userArn :: Lens' ImportJobSubmitter (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ImportJobSubmitter.ImportJobSubmitter
 
 
-module Network.AWS.HoneyCode.Types.ImportSourceDataFormat
+module Amazonka.HoneyCode.Types.ImportSourceDataFormat
 newtype ImportSourceDataFormat
 ImportSourceDataFormat' :: Text -> ImportSourceDataFormat
 [fromImportSourceDataFormat] :: ImportSourceDataFormat -> Text
 pattern ImportSourceDataFormat_DELIMITED_TEXT :: ImportSourceDataFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance GHC.Classes.Ord Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.XML.ToXML Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.XML.FromXML Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.Log.ToLog Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.Text.ToText Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Amazonka.Data.Text.FromText Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance GHC.Classes.Ord Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance GHC.Read.Read Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ImportSourceDataFormat.ImportSourceDataFormat
 
 
-module Network.AWS.HoneyCode.Types.ResultRow
+module Amazonka.HoneyCode.Types.ResultRow
 
 -- | A single row in the ResultSet.
 --   
@@ -878,15 +878,15 @@ resultRow_rowId :: Lens' ResultRow (Maybe Text)
 
 -- | List of all the data cells in a row.
 resultRow_dataItems :: Lens' ResultRow [DataItem]
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ResultRow.ResultRow
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ResultRow.ResultRow
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ResultRow.ResultRow
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ResultRow.ResultRow
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ResultRow.ResultRow
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ResultRow.ResultRow
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ResultRow.ResultRow
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ResultRow.ResultRow
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ResultRow.ResultRow
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ResultRow.ResultRow
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ResultRow.ResultRow
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ResultRow.ResultRow
 
 
-module Network.AWS.HoneyCode.Types.ResultSet
+module Amazonka.HoneyCode.Types.ResultSet
 
 -- | ResultSet contains the results of the request for a single block or
 --   list defined on the screen.
@@ -966,15 +966,15 @@ resultSet_headers :: Lens' ResultSet [ColumnMetadata]
 --   of data cells in that row. The data cells will be present in the same
 --   order as they are defined in the header.
 resultSet_rows :: Lens' ResultSet [ResultRow]
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ResultSet.ResultSet
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ResultSet.ResultSet
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ResultSet.ResultSet
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ResultSet.ResultSet
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ResultSet.ResultSet
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ResultSet.ResultSet
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ResultSet.ResultSet
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ResultSet.ResultSet
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ResultSet.ResultSet
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ResultSet.ResultSet
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ResultSet.ResultSet
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ResultSet.ResultSet
 
 
-module Network.AWS.HoneyCode.Types.SourceDataColumnProperties
+module Amazonka.HoneyCode.Types.SourceDataColumnProperties
 
 -- | An object that contains the properties for importing data to a
 --   specific column in a table.
@@ -1002,17 +1002,17 @@ newSourceDataColumnProperties :: SourceDataColumnProperties
 
 -- | The index of the column in the input file.
 sourceDataColumnProperties_columnIndex :: Lens' SourceDataColumnProperties (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance GHC.Show.Show Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance GHC.Read.Read Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.SourceDataColumnProperties.SourceDataColumnProperties
 
 
-module Network.AWS.HoneyCode.Types.DestinationOptions
+module Amazonka.HoneyCode.Types.DestinationOptions
 
 -- | An object that contains the options relating to the destination of the
 --   import request.
@@ -1040,17 +1040,17 @@ newDestinationOptions :: DestinationOptions
 
 -- | A map of the column id to the import properties for each column.
 destinationOptions_columnMap :: Lens' DestinationOptions (Maybe (HashMap Text SourceDataColumnProperties))
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance GHC.Show.Show Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance GHC.Read.Read Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.DestinationOptions.DestinationOptions
 
 
-module Network.AWS.HoneyCode.Types.ImportOptions
+module Amazonka.HoneyCode.Types.ImportOptions
 
 -- | An object that contains the options specified by the sumitter of the
 --   import request.
@@ -1090,17 +1090,17 @@ importOptions_delimitedTextOptions :: Lens' ImportOptions (Maybe DelimitedTextIm
 
 -- | Options relating to the destination of the import request.
 importOptions_destinationOptions :: Lens' ImportOptions (Maybe DestinationOptions)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.ImportOptions.ImportOptions
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
+instance GHC.Show.Show Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
+instance GHC.Read.Read Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.ImportOptions.ImportOptions
 
 
-module Network.AWS.HoneyCode.Types.Table
+module Amazonka.HoneyCode.Types.Table
 
 -- | An object representing the properties of a table in a workbook.
 --   
@@ -1134,16 +1134,16 @@ table_tableId :: Lens' Table (Maybe Text)
 
 -- | The name of the table.
 table_tableName :: Lens' Table (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.Table.Table
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.Table.Table
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.Table.Table
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.Table.Table
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.Table.Table
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.Table.Table
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.Table.Table
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.Table.Table
+instance GHC.Show.Show Amazonka.HoneyCode.Types.Table.Table
+instance GHC.Read.Read Amazonka.HoneyCode.Types.Table.Table
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.Table.Table
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.Table.Table
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.Table.Table
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.Table.Table
 
 
-module Network.AWS.HoneyCode.Types.TableColumn
+module Amazonka.HoneyCode.Types.TableColumn
 
 -- | An object that contains attributes about a single column in a table
 --   
@@ -1192,16 +1192,16 @@ tableColumn_tableColumnName :: Lens' TableColumn (Maybe Text)
 
 -- | The id of the column in the table.
 tableColumn_tableColumnId :: Lens' TableColumn (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.TableColumn.TableColumn
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.TableColumn.TableColumn
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.TableColumn.TableColumn
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.TableColumn.TableColumn
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.TableColumn.TableColumn
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.TableColumn.TableColumn
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.TableColumn.TableColumn
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.TableColumn.TableColumn
+instance GHC.Show.Show Amazonka.HoneyCode.Types.TableColumn.TableColumn
+instance GHC.Read.Read Amazonka.HoneyCode.Types.TableColumn.TableColumn
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.TableColumn.TableColumn
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.TableColumn.TableColumn
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.TableColumn.TableColumn
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.TableColumn.TableColumn
 
 
-module Network.AWS.HoneyCode.Types.TableDataImportJobMetadata
+module Amazonka.HoneyCode.Types.TableDataImportJobMetadata
 
 -- | The metadata associated with the table data import job that was
 --   submitted.
@@ -1261,15 +1261,15 @@ tableDataImportJobMetadata_importOptions :: Lens' TableDataImportJobMetadata Imp
 
 -- | The source of the data that was submitted for import.
 tableDataImportJobMetadata_dataSource :: Lens' TableDataImportJobMetadata ImportDataSource
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
+instance GHC.Show.Show Amazonka.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.TableDataImportJobMetadata.TableDataImportJobMetadata
 
 
-module Network.AWS.HoneyCode.Types.TableDataImportJobStatus
+module Amazonka.HoneyCode.Types.TableDataImportJobStatus
 newtype TableDataImportJobStatus
 TableDataImportJobStatus' :: Text -> TableDataImportJobStatus
 [fromTableDataImportJobStatus] :: TableDataImportJobStatus -> Text
@@ -1277,28 +1277,28 @@ pattern TableDataImportJobStatus_COMPLETED :: TableDataImportJobStatus
 pattern TableDataImportJobStatus_FAILED :: TableDataImportJobStatus
 pattern TableDataImportJobStatus_IN_PROGRESS :: TableDataImportJobStatus
 pattern TableDataImportJobStatus_SUBMITTED :: TableDataImportJobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance GHC.Classes.Ord Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.Text.ToText Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Amazonka.Data.Text.FromText Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance GHC.Classes.Ord Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance GHC.Read.Read Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
+instance GHC.Show.Show Amazonka.HoneyCode.Types.TableDataImportJobStatus.TableDataImportJobStatus
 
 
-module Network.AWS.HoneyCode.Types.TableRow
+module Amazonka.HoneyCode.Types.TableRow
 
 -- | An object that contains attributes about a single row in a table
 --   
@@ -1335,15 +1335,15 @@ tableRow_rowId :: Lens' TableRow Text
 -- | A list of cells in the table row. The cells appear in the same order
 --   as the columns of the table.
 tableRow_cells :: Lens' TableRow [Cell]
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.TableRow.TableRow
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.TableRow.TableRow
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.TableRow.TableRow
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.TableRow.TableRow
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.TableRow.TableRow
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.TableRow.TableRow
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.TableRow.TableRow
+instance GHC.Show.Show Amazonka.HoneyCode.Types.TableRow.TableRow
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.TableRow.TableRow
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.TableRow.TableRow
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.TableRow.TableRow
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.TableRow.TableRow
 
 
-module Network.AWS.HoneyCode.Types.UpdateRowData
+module Amazonka.HoneyCode.Types.UpdateRowData
 
 -- | Data needed to create a single row in a table as part of the
 --   BatchCreateTableRows request.
@@ -1386,42 +1386,42 @@ updateRowData_rowId :: Lens' UpdateRowData Text
 --   the column id of the cell and the value is the CellInput object that
 --   represents the data to set in that cell.
 updateRowData_cellsToUpdate :: Lens' UpdateRowData (HashMap Text CellInput)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.UpdateRowData.UpdateRowData
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.UpdateRowData.UpdateRowData
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.UpdateRowData.UpdateRowData
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.UpdateRowData.UpdateRowData
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.UpdateRowData.UpdateRowData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.UpdateRowData.UpdateRowData
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.UpdateRowData.UpdateRowData
+instance GHC.Show.Show Amazonka.HoneyCode.Types.UpdateRowData.UpdateRowData
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.UpdateRowData.UpdateRowData
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.UpdateRowData.UpdateRowData
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.UpdateRowData.UpdateRowData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.UpdateRowData.UpdateRowData
 
 
-module Network.AWS.HoneyCode.Types.UpsertAction
+module Amazonka.HoneyCode.Types.UpsertAction
 newtype UpsertAction
 UpsertAction' :: Text -> UpsertAction
 [fromUpsertAction] :: UpsertAction -> Text
 pattern UpsertAction_APPENDED :: UpsertAction
 pattern UpsertAction_UPDATED :: UpsertAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Network.AWS.Data.Text.ToText Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Network.AWS.Data.Text.FromText Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance GHC.Classes.Ord Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.XML.ToXML Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.XML.FromXML Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.Log.ToLog Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.Text.ToText Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Amazonka.Data.Text.FromText Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance GHC.Classes.Ord Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance GHC.Read.Read Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
+instance GHC.Show.Show Amazonka.HoneyCode.Types.UpsertAction.UpsertAction
 
 
-module Network.AWS.HoneyCode.Types.UpsertRowData
+module Amazonka.HoneyCode.Types.UpsertRowData
 
 -- | Data needed to upsert rows in a table as part of a single item in the
 --   BatchUpsertTableRows request.
@@ -1521,15 +1521,15 @@ upsertRowData_filter :: Lens' UpsertRowData Filter
 --   appended row. The key is the column id of the cell and the value is
 --   the CellInput object that represents the data to set in that cell.
 upsertRowData_cellsToUpdate :: Lens' UpsertRowData (HashMap Text CellInput)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.UpsertRowData.UpsertRowData
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.UpsertRowData.UpsertRowData
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.UpsertRowData.UpsertRowData
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.UpsertRowData.UpsertRowData
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.UpsertRowData.UpsertRowData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.UpsertRowData.UpsertRowData
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.UpsertRowData.UpsertRowData
+instance GHC.Show.Show Amazonka.HoneyCode.Types.UpsertRowData.UpsertRowData
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.UpsertRowData.UpsertRowData
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.UpsertRowData.UpsertRowData
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.UpsertRowData.UpsertRowData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.UpsertRowData.UpsertRowData
 
 
-module Network.AWS.HoneyCode.Types.UpsertRowsResult
+module Amazonka.HoneyCode.Types.UpsertRowsResult
 
 -- | An object that represents the result of a single upsert row request.
 --   
@@ -1577,16 +1577,16 @@ upsertRowsResult_rowIds :: Lens' UpsertRowsResult (NonEmpty Text)
 
 -- | The result of the upsert action.
 upsertRowsResult_upsertAction :: Lens' UpsertRowsResult UpsertAction
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
-instance GHC.Read.Read Network.AWS.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
+instance GHC.Show.Show Amazonka.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
+instance GHC.Read.Read Amazonka.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.UpsertRowsResult.UpsertRowsResult
 
 
-module Network.AWS.HoneyCode.Types.VariableValue
+module Amazonka.HoneyCode.Types.VariableValue
 
 -- | The input variables to the app to be used by the
 --   InvokeScreenAutomation action request.
@@ -1613,15 +1613,15 @@ newVariableValue :: Text -> VariableValue
 
 -- | Raw value of the variable.
 variableValue_rawValue :: Lens' VariableValue Text
-instance GHC.Generics.Generic Network.AWS.HoneyCode.Types.VariableValue.VariableValue
-instance GHC.Show.Show Network.AWS.HoneyCode.Types.VariableValue.VariableValue
-instance GHC.Classes.Eq Network.AWS.HoneyCode.Types.VariableValue.VariableValue
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.Types.VariableValue.VariableValue
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.Types.VariableValue.VariableValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.Types.VariableValue.VariableValue
+instance GHC.Generics.Generic Amazonka.HoneyCode.Types.VariableValue.VariableValue
+instance GHC.Show.Show Amazonka.HoneyCode.Types.VariableValue.VariableValue
+instance GHC.Classes.Eq Amazonka.HoneyCode.Types.VariableValue.VariableValue
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.Types.VariableValue.VariableValue
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.Types.VariableValue.VariableValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.Types.VariableValue.VariableValue
 
 
-module Network.AWS.HoneyCode.Types
+module Amazonka.HoneyCode.Types
 
 -- | API version <tt>2020-03-01</tt> of the Amazon Honeycode SDK
 --   configuration.
@@ -2940,7 +2940,7 @@ variableValue_rawValue :: Lens' VariableValue Text
 --   table. This API will only return the id of the job that was started.
 --   To find out the status of the import request, you need to call the
 --   DescribeTableDataImportJob API.
-module Network.AWS.HoneyCode.StartTableDataImportJob
+module Amazonka.HoneyCode.StartTableDataImportJob
 
 -- | <i>See:</i> <a>newStartTableDataImportJob</a> smart constructor.
 data StartTableDataImportJob
@@ -3117,29 +3117,29 @@ startTableDataImportJobResponse_jobId :: Lens' StartTableDataImportJobResponse T
 
 -- | The status of the import job immediately after submitting the request.
 startTableDataImportJobResponse_jobStatus :: Lens' StartTableDataImportJobResponse TableDataImportJobStatus
-instance GHC.Generics.Generic Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance GHC.Show.Show Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance GHC.Read.Read Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance GHC.Classes.Eq Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance GHC.Generics.Generic Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance GHC.Generics.Generic Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance GHC.Show.Show Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance GHC.Read.Read Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance GHC.Classes.Eq Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance GHC.Generics.Generic Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
+instance GHC.Show.Show Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
+instance GHC.Read.Read Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.StartTableDataImportJob.StartTableDataImportJob
 
 
 -- | The QueryTableRows API allows you to use a filter formula to query for
 --   specific rows in a table.
 --   
 --   This operation returns paginated results.
-module Network.AWS.HoneyCode.QueryTableRows
+module Amazonka.HoneyCode.QueryTableRows
 
 -- | <i>See:</i> <a>newQueryTableRows</a> smart constructor.
 data QueryTableRows
@@ -3318,28 +3318,28 @@ queryTableRowsResponse_rows :: Lens' QueryTableRowsResponse [TableRow]
 --   this request is read. Workbook cursor keeps increasing with every
 --   update and the increments are not sequential.
 queryTableRowsResponse_workbookCursor :: Lens' QueryTableRowsResponse Integer
-instance GHC.Generics.Generic Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance GHC.Show.Show Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance GHC.Classes.Eq Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance GHC.Generics.Generic Network.AWS.HoneyCode.QueryTableRows.QueryTableRowsResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.QueryTableRows.QueryTableRowsResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.QueryTableRows.QueryTableRowsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.QueryTableRows.QueryTableRowsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.QueryTableRows.QueryTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance GHC.Show.Show Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance GHC.Classes.Eq Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.QueryTableRows.QueryTableRowsResponse
+instance GHC.Show.Show Amazonka.HoneyCode.QueryTableRows.QueryTableRowsResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.QueryTableRows.QueryTableRowsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.QueryTableRows.QueryTableRowsResponse
+instance Amazonka.Pager.AWSPager Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.QueryTableRows.QueryTableRows
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.QueryTableRows.QueryTableRows
 
 
 -- | The ListTables API allows you to retrieve a list of all the tables in
 --   a workbook.
 --   
 --   This operation returns paginated results.
-module Network.AWS.HoneyCode.ListTables
+module Amazonka.HoneyCode.ListTables
 
 -- | <i>See:</i> <a>newListTables</a> smart constructor.
 data ListTables
@@ -3471,29 +3471,29 @@ listTablesResponse_httpStatus :: Lens' ListTablesResponse Int
 
 -- | The list of tables in the workbook.
 listTablesResponse_tables :: Lens' ListTablesResponse [Table]
-instance GHC.Generics.Generic Network.AWS.HoneyCode.ListTables.ListTables
-instance GHC.Show.Show Network.AWS.HoneyCode.ListTables.ListTables
-instance GHC.Read.Read Network.AWS.HoneyCode.ListTables.ListTables
-instance GHC.Classes.Eq Network.AWS.HoneyCode.ListTables.ListTables
-instance GHC.Generics.Generic Network.AWS.HoneyCode.ListTables.ListTablesResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.ListTables.ListTablesResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.ListTables.ListTablesResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.ListTables.ListTablesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.ListTables.ListTables
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.ListTables.ListTablesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.HoneyCode.ListTables.ListTables
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.ListTables.ListTables
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.ListTables.ListTables
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.ListTables.ListTables
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.ListTables.ListTables
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.ListTables.ListTables
+instance GHC.Generics.Generic Amazonka.HoneyCode.ListTables.ListTables
+instance GHC.Show.Show Amazonka.HoneyCode.ListTables.ListTables
+instance GHC.Read.Read Amazonka.HoneyCode.ListTables.ListTables
+instance GHC.Classes.Eq Amazonka.HoneyCode.ListTables.ListTables
+instance GHC.Generics.Generic Amazonka.HoneyCode.ListTables.ListTablesResponse
+instance GHC.Show.Show Amazonka.HoneyCode.ListTables.ListTablesResponse
+instance GHC.Read.Read Amazonka.HoneyCode.ListTables.ListTablesResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.ListTables.ListTablesResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.ListTables.ListTables
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.ListTables.ListTablesResponse
+instance Amazonka.Pager.AWSPager Amazonka.HoneyCode.ListTables.ListTables
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.ListTables.ListTables
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.ListTables.ListTables
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.ListTables.ListTables
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.ListTables.ListTables
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.ListTables.ListTables
 
 
 -- | The ListTableRows API allows you to retrieve a list of all the rows in
 --   a table in a workbook.
 --   
 --   This operation returns paginated results.
-module Network.AWS.HoneyCode.ListTableRows
+module Amazonka.HoneyCode.ListTableRows
 
 -- | <i>See:</i> <a>newListTableRows</a> smart constructor.
 data ListTableRows
@@ -3693,29 +3693,29 @@ listTableRowsResponse_rows :: Lens' ListTableRowsResponse [TableRow]
 --   this request is read. Workbook cursor keeps increasing with every
 --   update and the increments are not sequential.
 listTableRowsResponse_workbookCursor :: Lens' ListTableRowsResponse Integer
-instance GHC.Generics.Generic Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance GHC.Show.Show Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance GHC.Read.Read Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance GHC.Classes.Eq Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance GHC.Generics.Generic Network.AWS.HoneyCode.ListTableRows.ListTableRowsResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.ListTableRows.ListTableRowsResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.ListTableRows.ListTableRowsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.ListTableRows.ListTableRowsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.ListTableRows.ListTableRows
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.ListTableRows.ListTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance GHC.Show.Show Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance GHC.Read.Read Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance GHC.Classes.Eq Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.ListTableRows.ListTableRowsResponse
+instance GHC.Show.Show Amazonka.HoneyCode.ListTableRows.ListTableRowsResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.ListTableRows.ListTableRowsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.ListTableRows.ListTableRowsResponse
+instance Amazonka.Pager.AWSPager Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.ListTableRows.ListTableRows
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.ListTableRows.ListTableRows
 
 
 -- | The ListTableColumns API allows you to retrieve a list of all the
 --   columns in a table in a workbook.
 --   
 --   This operation returns paginated results.
-module Network.AWS.HoneyCode.ListTableColumns
+module Amazonka.HoneyCode.ListTableColumns
 
 -- | <i>See:</i> <a>newListTableColumns</a> smart constructor.
 data ListTableColumns
@@ -3861,22 +3861,22 @@ listTableColumnsResponse_httpStatus :: Lens' ListTableColumnsResponse Int
 
 -- | The list of columns in the table.
 listTableColumnsResponse_tableColumns :: Lens' ListTableColumnsResponse [TableColumn]
-instance GHC.Generics.Generic Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance GHC.Show.Show Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance GHC.Read.Read Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance GHC.Classes.Eq Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance GHC.Generics.Generic Network.AWS.HoneyCode.ListTableColumns.ListTableColumnsResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.ListTableColumns.ListTableColumnsResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.ListTableColumns.ListTableColumnsResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.ListTableColumns.ListTableColumnsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.ListTableColumns.ListTableColumnsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.ListTableColumns.ListTableColumns
+instance GHC.Generics.Generic Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance GHC.Show.Show Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance GHC.Read.Read Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance GHC.Classes.Eq Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance GHC.Generics.Generic Amazonka.HoneyCode.ListTableColumns.ListTableColumnsResponse
+instance GHC.Show.Show Amazonka.HoneyCode.ListTableColumns.ListTableColumnsResponse
+instance GHC.Read.Read Amazonka.HoneyCode.ListTableColumns.ListTableColumnsResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.ListTableColumns.ListTableColumnsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.ListTableColumns.ListTableColumnsResponse
+instance Amazonka.Pager.AWSPager Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.ListTableColumns.ListTableColumns
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.ListTableColumns.ListTableColumns
 
 
 -- | The InvokeScreenAutomation API allows invoking an action defined in a
@@ -3884,7 +3884,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.ListTableColumns.L
 --   which can then be used in the automation being invoked. This allows
 --   automating the Honeycode app interactions to write, update or delete
 --   data in the workbook.
-module Network.AWS.HoneyCode.InvokeScreenAutomation
+module Amazonka.HoneyCode.InvokeScreenAutomation
 
 -- | <i>See:</i> <a>newInvokeScreenAutomation</a> smart constructor.
 data InvokeScreenAutomation
@@ -4045,27 +4045,27 @@ invokeScreenAutomationResponse_httpStatus :: Lens' InvokeScreenAutomationRespons
 
 -- | The updated workbook cursor after performing the automation action.
 invokeScreenAutomationResponse_workbookCursor :: Lens' InvokeScreenAutomationResponse Integer
-instance GHC.Generics.Generic Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance GHC.Show.Show Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance GHC.Classes.Eq Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance GHC.Generics.Generic Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance GHC.Generics.Generic Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance GHC.Show.Show Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance GHC.Classes.Eq Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance GHC.Generics.Generic Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
+instance GHC.Show.Show Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
+instance GHC.Read.Read Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomationResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.InvokeScreenAutomation.InvokeScreenAutomation
 
 
 -- | The GetScreenData API allows retrieval of data from a screen in a
 --   Honeycode app. The API allows setting local variables in the screen to
 --   filter, sort or otherwise affect what will be displayed on the screen.
-module Network.AWS.HoneyCode.GetScreenData
+module Amazonka.HoneyCode.GetScreenData
 
 -- | <i>See:</i> <a>newGetScreenData</a> smart constructor.
 data GetScreenData
@@ -4241,25 +4241,25 @@ getScreenDataResponse_results :: Lens' GetScreenDataResponse (HashMap Text Resul
 --   this workbook is read. Workbook cursor keeps increasing with every
 --   update and the increments are not sequential.
 getScreenDataResponse_workbookCursor :: Lens' GetScreenDataResponse Integer
-instance GHC.Generics.Generic Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance GHC.Show.Show Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance GHC.Classes.Eq Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance GHC.Generics.Generic Network.AWS.HoneyCode.GetScreenData.GetScreenDataResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.GetScreenData.GetScreenDataResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.GetScreenData.GetScreenDataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.GetScreenData.GetScreenDataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.GetScreenData.GetScreenData
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.GetScreenData.GetScreenData
+instance GHC.Generics.Generic Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance GHC.Show.Show Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance GHC.Classes.Eq Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance GHC.Generics.Generic Amazonka.HoneyCode.GetScreenData.GetScreenDataResponse
+instance GHC.Show.Show Amazonka.HoneyCode.GetScreenData.GetScreenDataResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.GetScreenData.GetScreenDataResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.GetScreenData.GetScreenDataResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.GetScreenData.GetScreenData
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.GetScreenData.GetScreenData
 
 
 -- | The DescribeTableDataImportJob API allows you to retrieve the status
 --   and details of a table data import job.
-module Network.AWS.HoneyCode.DescribeTableDataImportJob
+module Amazonka.HoneyCode.DescribeTableDataImportJob
 
 -- | <i>See:</i> <a>newDescribeTableDataImportJob</a> smart constructor.
 data DescribeTableDataImportJob
@@ -4390,20 +4390,20 @@ describeTableDataImportJobResponse_message :: Lens' DescribeTableDataImportJobRe
 
 -- | The metadata about the job that was submitted for import.
 describeTableDataImportJobResponse_jobMetadata :: Lens' DescribeTableDataImportJobResponse TableDataImportJobMetadata
-instance GHC.Generics.Generic Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance GHC.Show.Show Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance GHC.Read.Read Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance GHC.Classes.Eq Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance GHC.Generics.Generic Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance GHC.Generics.Generic Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance GHC.Show.Show Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance GHC.Read.Read Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance GHC.Classes.Eq Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance GHC.Generics.Generic Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
+instance GHC.Show.Show Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.DescribeTableDataImportJob.DescribeTableDataImportJob
 
 
 -- | The BatchUpsertTableRows API allows you to upsert one or more rows in
@@ -4419,7 +4419,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.DescribeTableDataI
 --   explicitly specified for a particular row, then that column will not
 --   be updated for that row. To clear out the data in a specific cell, you
 --   need to set the value as an empty string ("").
-module Network.AWS.HoneyCode.BatchUpsertTableRows
+module Amazonka.HoneyCode.BatchUpsertTableRows
 
 -- | <i>See:</i> <a>newBatchUpsertTableRows</a> smart constructor.
 data BatchUpsertTableRows
@@ -4617,21 +4617,21 @@ batchUpsertTableRowsResponse_rows :: Lens' BatchUpsertTableRowsResponse (HashMap
 -- | The updated workbook cursor after updating or appending rows in the
 --   table.
 batchUpsertTableRowsResponse_workbookCursor :: Lens' BatchUpsertTableRowsResponse Integer
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance GHC.Show.Show Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
+instance GHC.Show.Show Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
+instance GHC.Read.Read Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRowsResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.BatchUpsertTableRows.BatchUpsertTableRows
 
 
 -- | The BatchUpdateTableRows API allows you to update one or more rows in
@@ -4642,7 +4642,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.BatchUpsertTableRo
 --   in a particular row, then that column will not be updated for that
 --   row. To clear out the data in a specific cell, you need to set the
 --   value as an empty string ("").
-module Network.AWS.HoneyCode.BatchUpdateTableRows
+module Amazonka.HoneyCode.BatchUpdateTableRows
 
 -- | <i>See:</i> <a>newBatchUpdateTableRows</a> smart constructor.
 data BatchUpdateTableRows
@@ -4818,27 +4818,27 @@ batchUpdateTableRowsResponse_httpStatus :: Lens' BatchUpdateTableRowsResponse In
 -- | The updated workbook cursor after adding the new rows at the end of
 --   the table.
 batchUpdateTableRowsResponse_workbookCursor :: Lens' BatchUpdateTableRowsResponse Integer
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance GHC.Show.Show Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
+instance GHC.Show.Show Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
+instance GHC.Read.Read Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRowsResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.BatchUpdateTableRows.BatchUpdateTableRows
 
 
 -- | The BatchDeleteTableRows API allows you to delete one or more rows
 --   from a table in a workbook. You need to specify the ids of the rows
 --   that you want to delete from the table.
-module Network.AWS.HoneyCode.BatchDeleteTableRows
+module Amazonka.HoneyCode.BatchDeleteTableRows
 
 -- | <i>See:</i> <a>newBatchDeleteTableRows</a> smart constructor.
 data BatchDeleteTableRows
@@ -5002,22 +5002,22 @@ batchDeleteTableRowsResponse_httpStatus :: Lens' BatchDeleteTableRowsResponse In
 
 -- | The updated workbook cursor after deleting the rows from the table.
 batchDeleteTableRowsResponse_workbookCursor :: Lens' BatchDeleteTableRowsResponse Integer
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance GHC.Read.Read Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance GHC.Show.Show Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance GHC.Read.Read Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
+instance GHC.Show.Show Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
+instance GHC.Read.Read Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRowsResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.BatchDeleteTableRows.BatchDeleteTableRows
 
 
 -- | The BatchCreateTableRows API allows you to create one or more rows at
@@ -5030,7 +5030,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.BatchDeleteTableRo
 --   a formula, then that formula will be copied down to the new row. If
 --   there is no column level formula and no formula in the last row of the
 --   table, then that column will be left blank for the new rows.
-module Network.AWS.HoneyCode.BatchCreateTableRows
+module Amazonka.HoneyCode.BatchCreateTableRows
 
 -- | <i>See:</i> <a>newBatchCreateTableRows</a> smart constructor.
 data BatchCreateTableRows
@@ -5213,24 +5213,24 @@ batchCreateTableRowsResponse_workbookCursor :: Lens' BatchCreateTableRowsRespons
 
 -- | The map of batch item id to the row id that was created for that item.
 batchCreateTableRowsResponse_createdRows :: Lens' BatchCreateTableRowsResponse (HashMap Text Text)
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance GHC.Generics.Generic Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
-instance GHC.Show.Show Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
-instance GHC.Read.Read Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
-instance GHC.Classes.Eq Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance Control.DeepSeq.NFData Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance Network.AWS.Data.Path.ToPath Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
-instance Network.AWS.Data.Query.ToQuery Network.AWS.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance GHC.Show.Show Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance GHC.Generics.Generic Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
+instance GHC.Show.Show Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
+instance GHC.Read.Read Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
+instance GHC.Classes.Eq Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
+instance Amazonka.Types.AWSRequest Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRowsResponse
+instance Data.Hashable.Class.Hashable Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance Control.DeepSeq.NFData Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance Amazonka.Data.Headers.ToHeaders Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance Amazonka.Data.Path.ToPath Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
+instance Amazonka.Data.Query.ToQuery Amazonka.HoneyCode.BatchCreateTableRows.BatchCreateTableRows
 
 
-module Network.AWS.HoneyCode.Lens
+module Amazonka.HoneyCode.Lens
 
 -- | The request token for performing the delete action. Request tokens
 --   help to identify duplicate requests. If a call times out or fails due
@@ -6046,7 +6046,7 @@ upsertRowsResult_upsertAction :: Lens' UpsertRowsResult UpsertAction
 variableValue_rawValue :: Lens' VariableValue Text
 
 
-module Network.AWS.HoneyCode.Waiters
+module Amazonka.HoneyCode.Waiters
 
 
 -- | Derived from API version <tt>2020-03-01</tt> of the AWS service
@@ -6056,7 +6056,7 @@ module Network.AWS.HoneyCode.Waiters
 --   build mobile and web apps for teams—without programming. Build
 --   Honeycode apps for managing almost anything, like projects, customers,
 --   operations, approvals, resources, and even your team.
-module Network.AWS.HoneyCode
+module Amazonka.HoneyCode
 
 -- | API version <tt>2020-03-01</tt> of the Amazon Honeycode SDK
 --   configuration.

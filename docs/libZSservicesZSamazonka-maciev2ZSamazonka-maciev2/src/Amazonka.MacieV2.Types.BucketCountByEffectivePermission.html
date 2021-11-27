@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MacieV2.Types.BucketCountByEffectivePermission</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MacieV2.Types.BucketCountByEffectivePermission</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about the number of S3 buckets that are publicly</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- accessible based on a combination of permissions settings for each</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- bucket.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newBucketCountByEffectivePermission' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679383823"><span id="local-6989586621679383824"></span></span><span class="hs-keyword">data</span><span> </span><span id="BucketCountByEffectivePermission"><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-var">BucketCountByEffectivePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BucketCountByEffectivePermission%27"><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">BucketCountByEffectivePermission'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of buckets that allow the general public to have read</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- or write access to the bucket.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ApubliclyAccessible%3ABucketCountByEffectivePermission%27"><span class="annot"><span class="annottext">BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyAccessible%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var hs-var">publiclyAccessible</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The total number of buckets that Amazon Macie wasn\'t able to evaluate</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- permissions settings for. Macie can\'t determine whether these buckets</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- are publicly accessible.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aunknown%3ABucketCountByEffectivePermission%27"><span class="annot"><span class="annottext">BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3Aunknown%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var hs-var">unknown</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The total number of buckets that allow the general public to have read</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- access to the bucket.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3ApubliclyReadable%3ABucketCountByEffectivePermission%27"><span class="annot"><span class="annottext">BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyReadable%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var hs-var">publiclyReadable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The total number of buckets that allow the general public to have write</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- access to the bucket.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3ApubliclyWritable%3ABucketCountByEffectivePermission%27"><span class="annot"><span class="annottext">BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyWritable%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var hs-var">publiclyWritable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383814"><span id="local-6989586621679383816"><span class="annot"><span class="annottext">BucketCountByEffectivePermission
+-&gt; BucketCountByEffectivePermission -&gt; Bool
+(BucketCountByEffectivePermission
+ -&gt; BucketCountByEffectivePermission -&gt; Bool)
+-&gt; (BucketCountByEffectivePermission
+    -&gt; BucketCountByEffectivePermission -&gt; Bool)
+-&gt; Eq BucketCountByEffectivePermission
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BucketCountByEffectivePermission
+-&gt; BucketCountByEffectivePermission -&gt; Bool
+$c/= :: BucketCountByEffectivePermission
+-&gt; BucketCountByEffectivePermission -&gt; Bool
+== :: BucketCountByEffectivePermission
+-&gt; BucketCountByEffectivePermission -&gt; Bool
+$c== :: BucketCountByEffectivePermission
+-&gt; BucketCountByEffectivePermission -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383805"><span id="local-6989586621679383807"><span id="local-6989586621679383809"><span id="local-6989586621679383811"><span class="annot"><span class="annottext">ReadPrec [BucketCountByEffectivePermission]
+ReadPrec BucketCountByEffectivePermission
+Int -&gt; ReadS BucketCountByEffectivePermission
+ReadS [BucketCountByEffectivePermission]
+(Int -&gt; ReadS BucketCountByEffectivePermission)
+-&gt; ReadS [BucketCountByEffectivePermission]
+-&gt; ReadPrec BucketCountByEffectivePermission
+-&gt; ReadPrec [BucketCountByEffectivePermission]
+-&gt; Read BucketCountByEffectivePermission
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BucketCountByEffectivePermission]
+$creadListPrec :: ReadPrec [BucketCountByEffectivePermission]
+readPrec :: ReadPrec BucketCountByEffectivePermission
+$creadPrec :: ReadPrec BucketCountByEffectivePermission
+readList :: ReadS [BucketCountByEffectivePermission]
+$creadList :: ReadS [BucketCountByEffectivePermission]
+readsPrec :: Int -&gt; ReadS BucketCountByEffectivePermission
+$creadsPrec :: Int -&gt; ReadS BucketCountByEffectivePermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383798"><span id="local-6989586621679383800"><span id="local-6989586621679383802"><span class="annot"><span class="annottext">Int -&gt; BucketCountByEffectivePermission -&gt; ShowS
+[BucketCountByEffectivePermission] -&gt; ShowS
+BucketCountByEffectivePermission -&gt; String
+(Int -&gt; BucketCountByEffectivePermission -&gt; ShowS)
+-&gt; (BucketCountByEffectivePermission -&gt; String)
+-&gt; ([BucketCountByEffectivePermission] -&gt; ShowS)
+-&gt; Show BucketCountByEffectivePermission
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BucketCountByEffectivePermission] -&gt; ShowS
+$cshowList :: [BucketCountByEffectivePermission] -&gt; ShowS
+show :: BucketCountByEffectivePermission -&gt; String
+$cshow :: BucketCountByEffectivePermission -&gt; String
+showsPrec :: Int -&gt; BucketCountByEffectivePermission -&gt; ShowS
+$cshowsPrec :: Int -&gt; BucketCountByEffectivePermission -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BucketCountByEffectivePermission
+ -&gt; Rep BucketCountByEffectivePermission x)
+-&gt; (forall x.
+    Rep BucketCountByEffectivePermission x
+    -&gt; BucketCountByEffectivePermission)
+-&gt; Generic BucketCountByEffectivePermission
+forall x.
+Rep BucketCountByEffectivePermission x
+-&gt; BucketCountByEffectivePermission
+forall x.
+BucketCountByEffectivePermission
+-&gt; Rep BucketCountByEffectivePermission x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BucketCountByEffectivePermission x
+-&gt; BucketCountByEffectivePermission
+$cfrom :: forall x.
+BucketCountByEffectivePermission
+-&gt; Rep BucketCountByEffectivePermission x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Create a value of 'BucketCountByEffectivePermission' with all optional fields omitted.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'publiclyAccessible', 'bucketCountByEffectivePermission_publiclyAccessible' - The total number of buckets that allow the general public to have read</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- or write access to the bucket.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'unknown', 'bucketCountByEffectivePermission_unknown' - The total number of buckets that Amazon Macie wasn\'t able to evaluate</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- permissions settings for. Macie can\'t determine whether these buckets</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- are publicly accessible.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'publiclyReadable', 'bucketCountByEffectivePermission_publiclyReadable' - The total number of buckets that allow the general public to have read</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- access to the bucket.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'publiclyWritable', 'bucketCountByEffectivePermission_publiclyWritable' - The total number of buckets that allow the general public to have write</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- access to the bucket.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#newBucketCountByEffectivePermission"><span class="hs-identifier hs-type">newBucketCountByEffectivePermission</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span>
+</span><span id="line-70"></span><span id="newBucketCountByEffectivePermission"><span class="annot"><span class="annottext">newBucketCountByEffectivePermission :: BucketCountByEffectivePermission
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#newBucketCountByEffectivePermission"><span class="hs-identifier hs-var hs-var">newBucketCountByEffectivePermission</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">BucketCountByEffectivePermission' :: Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; BucketCountByEffectivePermission
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:publiclyAccessible:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyAccessible%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:unknown:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3Aunknown%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">unknown</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:publiclyReadable:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyReadable%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">publiclyReadable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:publiclyWritable:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyWritable%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">publiclyWritable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The total number of buckets that allow the general public to have read</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- or write access to the bucket.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_publiclyAccessible"><span class="hs-identifier hs-type">bucketCountByEffectivePermission_publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="bucketCountByEffectivePermission_publiclyAccessible"><span class="annot"><span class="annottext">bucketCountByEffectivePermission_publiclyAccessible :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountByEffectivePermission
+-&gt; f BucketCountByEffectivePermission
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_publiclyAccessible"><span class="hs-identifier hs-var hs-var">bucketCountByEffectivePermission_publiclyAccessible</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountByEffectivePermission -&gt; Maybe Integer)
+-&gt; (BucketCountByEffectivePermission
+    -&gt; Maybe Integer -&gt; BucketCountByEffectivePermission)
+-&gt; Lens
+     BucketCountByEffectivePermission
+     BucketCountByEffectivePermission
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383789"><span class="annot"><span class="annottext">Maybe Integer
+publiclyAccessible :: Maybe Integer
+$sel:publiclyAccessible:BucketCountByEffectivePermission' :: BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="#local-6989586621679383789"><span class="hs-identifier hs-var hs-var">publiclyAccessible</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383789"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383788"><span class="annot"><span class="annottext">s :: BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383788"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383787"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383787"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383788"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publiclyAccessible:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyAccessible%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">publiclyAccessible</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383787"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The total number of buckets that Amazon Macie wasn\'t able to evaluate</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- permissions settings for. Macie can\'t determine whether these buckets</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- are publicly accessible.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_unknown"><span class="hs-identifier hs-type">bucketCountByEffectivePermission_unknown</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="bucketCountByEffectivePermission_unknown"><span class="annot"><span class="annottext">bucketCountByEffectivePermission_unknown :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountByEffectivePermission
+-&gt; f BucketCountByEffectivePermission
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_unknown"><span class="hs-identifier hs-var hs-var">bucketCountByEffectivePermission_unknown</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountByEffectivePermission -&gt; Maybe Integer)
+-&gt; (BucketCountByEffectivePermission
+    -&gt; Maybe Integer -&gt; BucketCountByEffectivePermission)
+-&gt; Lens
+     BucketCountByEffectivePermission
+     BucketCountByEffectivePermission
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383785"><span class="annot"><span class="annottext">Maybe Integer
+unknown :: Maybe Integer
+$sel:unknown:BucketCountByEffectivePermission' :: BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="#local-6989586621679383785"><span class="hs-identifier hs-var hs-var">unknown</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383785"><span class="hs-identifier hs-var">unknown</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383784"><span class="annot"><span class="annottext">s :: BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383783"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unknown:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3Aunknown%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">unknown</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The total number of buckets that allow the general public to have read</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- access to the bucket.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_publiclyReadable"><span class="hs-identifier hs-type">bucketCountByEffectivePermission_publiclyReadable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="bucketCountByEffectivePermission_publiclyReadable"><span class="annot"><span class="annottext">bucketCountByEffectivePermission_publiclyReadable :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountByEffectivePermission
+-&gt; f BucketCountByEffectivePermission
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_publiclyReadable"><span class="hs-identifier hs-var hs-var">bucketCountByEffectivePermission_publiclyReadable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountByEffectivePermission -&gt; Maybe Integer)
+-&gt; (BucketCountByEffectivePermission
+    -&gt; Maybe Integer -&gt; BucketCountByEffectivePermission)
+-&gt; Lens
+     BucketCountByEffectivePermission
+     BucketCountByEffectivePermission
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383781"><span class="annot"><span class="annottext">Maybe Integer
+publiclyReadable :: Maybe Integer
+$sel:publiclyReadable:BucketCountByEffectivePermission' :: BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="#local-6989586621679383781"><span class="hs-identifier hs-var hs-var">publiclyReadable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383781"><span class="hs-identifier hs-var">publiclyReadable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383780"><span class="annot"><span class="annottext">s :: BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383779"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publiclyReadable:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyReadable%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">publiclyReadable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The total number of buckets that allow the general public to have write</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- access to the bucket.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_publiclyWritable"><span class="hs-identifier hs-type">bucketCountByEffectivePermission_publiclyWritable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="bucketCountByEffectivePermission_publiclyWritable"><span class="annot"><span class="annottext">bucketCountByEffectivePermission_publiclyWritable :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; BucketCountByEffectivePermission
+-&gt; f BucketCountByEffectivePermission
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#bucketCountByEffectivePermission_publiclyWritable"><span class="hs-identifier hs-var hs-var">bucketCountByEffectivePermission_publiclyWritable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BucketCountByEffectivePermission -&gt; Maybe Integer)
+-&gt; (BucketCountByEffectivePermission
+    -&gt; Maybe Integer -&gt; BucketCountByEffectivePermission)
+-&gt; Lens
+     BucketCountByEffectivePermission
+     BucketCountByEffectivePermission
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383777"><span class="annot"><span class="annottext">Maybe Integer
+publiclyWritable :: Maybe Integer
+$sel:publiclyWritable:BucketCountByEffectivePermission' :: BucketCountByEffectivePermission -&gt; Maybe Integer
+</span><a href="#local-6989586621679383777"><span class="hs-identifier hs-var hs-var">publiclyWritable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383777"><span class="hs-identifier hs-var">publiclyWritable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383776"><span class="annot"><span class="annottext">s :: BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383776"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-type">BucketCountByEffectivePermission'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383775"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383775"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketCountByEffectivePermission
+</span><a href="#local-6989586621679383776"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publiclyWritable:BucketCountByEffectivePermission' :: Maybe Integer
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#%24sel%3ApubliclyWritable%3ABucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">publiclyWritable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383775"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679383772"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679383770"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BucketCountByEffectivePermission
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BucketCountByEffectivePermission)
+-&gt; Value
+-&gt; Parser BucketCountByEffectivePermission
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BucketCountByEffectivePermission&quot;</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383767"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383767"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; BucketCountByEffectivePermission
+</span><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission%27"><span class="hs-identifier hs-var">BucketCountByEffectivePermission'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; BucketCountByEffectivePermission)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; BucketCountByEffectivePermission)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publiclyAccessible&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; BucketCountByEffectivePermission)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer -&gt; BucketCountByEffectivePermission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unknown&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer -&gt; BucketCountByEffectivePermission)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Maybe Integer -&gt; BucketCountByEffectivePermission)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publiclyReadable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Integer -&gt; BucketCountByEffectivePermission)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser BucketCountByEffectivePermission
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383767"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publiclyWritable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679383761"><span id="local-6989586621679383763"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679383758"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.MacieV2.Types.BucketCountByEffectivePermission.html#BucketCountByEffectivePermission"><span class="hs-identifier hs-type">BucketCountByEffectivePermission</span></a></span></span><span>
+</span><span id="line-122"></span></pre></body></html>

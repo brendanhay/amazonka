@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType
+module Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType
 
 -- | An object that defines a message that contains text formatted using
 --   Amazon Pinpoint Voice Instructions markup.
@@ -36,16 +36,16 @@ newCallInstructionsMessageType :: CallInstructionsMessageType
 -- | The language to use when delivering the message. For a complete list
 --   of supported languages, see the Amazon Polly Developer Guide.
 callInstructionsMessageType_text :: Lens' CallInstructionsMessageType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.CallInstructionsMessageType.CallInstructionsMessageType
 
 
-module Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination
+module Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination
 
 -- | An object that contains information about an event destination that
 --   sends data to Amazon CloudWatch Logs.
@@ -90,17 +90,17 @@ cloudWatchLogsDestination_iamRoleArn :: Lens' CloudWatchLogsDestination (Maybe T
 -- | The name of the Amazon CloudWatch Log Group that you want to record
 --   events in.
 cloudWatchLogsDestination_logGroupArn :: Lens' CloudWatchLogsDestination (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.CloudWatchLogsDestination.CloudWatchLogsDestination
 
 
-module Network.AWS.PinpointSMSVoice.Types.EventType
+module Amazonka.PinpointSMSVoice.Types.EventType
 
 -- | The types of events that are sent to the event destination.
 newtype EventType
@@ -113,28 +113,28 @@ pattern EventType_FAILED :: EventType
 pattern EventType_INITIATED_CALL :: EventType
 pattern EventType_NO_ANSWER :: EventType
 pattern EventType_RINGING :: EventType
-instance Network.AWS.Data.XML.ToXML Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Network.AWS.Data.XML.FromXML Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Network.AWS.Data.Log.ToLog Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Network.AWS.Data.Text.ToText Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Network.AWS.Data.Text.FromText Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance GHC.Classes.Ord Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.EventType.EventType
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.XML.ToXML Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.XML.FromXML Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.Headers.ToHeader Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.Log.ToLog Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.Text.ToText Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Amazonka.Data.Text.FromText Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance GHC.Classes.Ord Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.EventType.EventType
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.EventType.EventType
 
 
-module Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination
+module Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination
 
 -- | An object that contains information about an event destination that
 --   sends data to Amazon Kinesis Data Firehose.
@@ -178,17 +178,17 @@ kinesisFirehoseDestination_iamRoleArn :: Lens' KinesisFirehoseDestination (Maybe
 -- | The Amazon Resource Name (ARN) of an IAM role that can write data to
 --   an Amazon Kinesis Data Firehose stream.
 kinesisFirehoseDestination_deliveryStreamArn :: Lens' KinesisFirehoseDestination (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.KinesisFirehoseDestination.KinesisFirehoseDestination
 
 
-module Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType
+module Amazonka.PinpointSMSVoice.Types.PlainTextMessageType
 
 -- | An object that defines a message that contains unformatted text.
 --   
@@ -243,16 +243,16 @@ plainTextMessageType_text :: Lens' PlainTextMessageType (Maybe Text)
 --   a complete list of supported voices, see the Amazon Polly Developer
 --   Guide.
 plainTextMessageType_voiceId :: Lens' PlainTextMessageType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.PlainTextMessageType.PlainTextMessageType
 
 
-module Network.AWS.PinpointSMSVoice.Types.SSMLMessageType
+module Amazonka.PinpointSMSVoice.Types.SSMLMessageType
 
 -- | An object that defines a message that contains SSML-formatted text.
 --   
@@ -306,16 +306,16 @@ sSMLMessageType_text :: Lens' SSMLMessageType (Maybe Text)
 --   a complete list of supported voices, see the Amazon Polly Developer
 --   Guide.
 sSMLMessageType_voiceId :: Lens' SSMLMessageType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.SSMLMessageType.SSMLMessageType
 
 
-module Network.AWS.PinpointSMSVoice.Types.SnsDestination
+module Amazonka.PinpointSMSVoice.Types.SnsDestination
 
 -- | An object that contains information about an event destination that
 --   sends data to Amazon SNS.
@@ -345,17 +345,17 @@ newSnsDestination :: SnsDestination
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic that you want
 --   to publish events to.
 snsDestination_topicArn :: Lens' SnsDestination (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.SnsDestination.SnsDestination
 
 
-module Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition
+module Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition
 
 -- | An object that defines a single event destination.
 --   
@@ -420,16 +420,16 @@ eventDestinationDefinition_snsDestination :: Lens' EventDestinationDefinition (M
 
 -- | Undocumented member.
 eventDestinationDefinition_cloudWatchLogsDestination :: Lens' EventDestinationDefinition (Maybe CloudWatchLogsDestination)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.EventDestinationDefinition.EventDestinationDefinition
 
 
-module Network.AWS.PinpointSMSVoice.Types.EventDestination
+module Amazonka.PinpointSMSVoice.Types.EventDestination
 
 -- | An object that defines an event destination.
 --   
@@ -500,16 +500,16 @@ eventDestination_snsDestination :: Lens' EventDestination (Maybe SnsDestination)
 
 -- | Undocumented member.
 eventDestination_cloudWatchLogsDestination :: Lens' EventDestination (Maybe CloudWatchLogsDestination)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.EventDestination.EventDestination
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.EventDestination.EventDestination
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.EventDestination.EventDestination
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.EventDestination.EventDestination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.PinpointSMSVoice.Types.EventDestination.EventDestination
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.EventDestination.EventDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.EventDestination.EventDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.EventDestination.EventDestination
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.EventDestination.EventDestination
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.EventDestination.EventDestination
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.EventDestination.EventDestination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.PinpointSMSVoice.Types.EventDestination.EventDestination
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.EventDestination.EventDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.EventDestination.EventDestination
 
 
-module Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent
+module Amazonka.PinpointSMSVoice.Types.VoiceMessageContent
 
 -- | An object that contains a voice message and information about the
 --   recipient that you want to send it to.
@@ -549,16 +549,16 @@ voiceMessageContent_sSMLMessage :: Lens' VoiceMessageContent (Maybe SSMLMessageT
 
 -- | Undocumented member.
 voiceMessageContent_plainTextMessage :: Lens' VoiceMessageContent (Maybe PlainTextMessageType)
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.Types.VoiceMessageContent.VoiceMessageContent
 
 
-module Network.AWS.PinpointSMSVoice.Types
+module Amazonka.PinpointSMSVoice.Types
 
 -- | API version <tt>2018-09-05</tt> of the Amazon Pinpoint SMS and Voice
 --   Service SDK configuration.
@@ -1025,7 +1025,7 @@ voiceMessageContent_plainTextMessage :: Lens' VoiceMessageContent (Maybe PlainTe
 
 
 -- | Create a new voice message and send it to a recipient's phone number.
-module Network.AWS.PinpointSMSVoice.SendVoiceMessage
+module Amazonka.PinpointSMSVoice.SendVoiceMessage
 
 -- | SendVoiceMessageRequest
 --   
@@ -1139,28 +1139,28 @@ sendVoiceMessageResponse_messageId :: Lens' SendVoiceMessageResponse (Maybe Text
 
 -- | The response's http status code.
 sendVoiceMessageResponse_httpStatus :: Lens' SendVoiceMessageResponse Int
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance Network.AWS.Data.Path.ToPath Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
+instance Amazonka.Types.AWSRequest Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessageResponse
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance Amazonka.Data.Path.ToPath Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.SendVoiceMessage.SendVoiceMessage
 
 
 -- | Obtain information about an event destination, including the types of
 --   events it reports, the Amazon Resource Name (ARN) of the destination,
 --   and the name of the event destination.
-module Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations
+module Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations
 
 -- | <i>See:</i> <a>newGetConfigurationSetEventDestinations</a> smart
 --   constructor.
@@ -1223,25 +1223,25 @@ getConfigurationSetEventDestinationsResponse_eventDestinations :: Lens' GetConfi
 
 -- | The response's http status code.
 getConfigurationSetEventDestinationsResponse_httpStatus :: Lens' GetConfigurationSetEventDestinationsResponse Int
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance Network.AWS.Data.Path.ToPath Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinationsResponse
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance Amazonka.Data.Path.ToPath Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.GetConfigurationSetEventDestinations.GetConfigurationSetEventDestinations
 
 
 -- | Deletes an event destination in a configuration set.
-module Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination
+module Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination
 
 -- | <i>See:</i> <a>newDeleteConfigurationSetEventDestination</a> smart
 --   constructor.
@@ -1309,25 +1309,25 @@ newDeleteConfigurationSetEventDestinationResponse :: Int -> DeleteConfigurationS
 
 -- | The response's http status code.
 deleteConfigurationSetEventDestinationResponse_httpStatus :: Lens' DeleteConfigurationSetEventDestinationResponse Int
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance Network.AWS.Data.Path.ToPath Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
+instance Amazonka.Types.AWSRequest Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestinationResponse
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance Amazonka.Data.Path.ToPath Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.DeleteConfigurationSetEventDestination.DeleteConfigurationSetEventDestination
 
 
 -- | Deletes an existing configuration set.
-module Network.AWS.PinpointSMSVoice.DeleteConfigurationSet
+module Amazonka.PinpointSMSVoice.DeleteConfigurationSet
 
 -- | <i>See:</i> <a>newDeleteConfigurationSet</a> smart constructor.
 data DeleteConfigurationSet
@@ -1380,25 +1380,25 @@ newDeleteConfigurationSetResponse :: Int -> DeleteConfigurationSetResponse
 
 -- | The response's http status code.
 deleteConfigurationSetResponse_httpStatus :: Lens' DeleteConfigurationSetResponse Int
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance Amazonka.Data.Path.ToPath Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.DeleteConfigurationSet.DeleteConfigurationSet
 
 
 -- | Create a new event destination in a configuration set.
-module Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination
+module Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination
 
 -- | Create a new event destination in a configuration set.
 --   
@@ -1476,27 +1476,27 @@ newCreateConfigurationSetEventDestinationResponse :: Int -> CreateConfigurationS
 
 -- | The response's http status code.
 createConfigurationSetEventDestinationResponse_httpStatus :: Lens' CreateConfigurationSetEventDestinationResponse Int
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance Network.AWS.Data.Path.ToPath Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
+instance Amazonka.Types.AWSRequest Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestinationResponse
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance Amazonka.Data.Path.ToPath Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.CreateConfigurationSetEventDestination.CreateConfigurationSetEventDestination
 
 
 -- | Create a new configuration set. After you create the configuration
 --   set, you can add one or more event destinations to it.
-module Network.AWS.PinpointSMSVoice.CreateConfigurationSet
+module Amazonka.PinpointSMSVoice.CreateConfigurationSet
 
 -- | A request to create a new configuration set.
 --   
@@ -1551,29 +1551,29 @@ newCreateConfigurationSetResponse :: Int -> CreateConfigurationSetResponse
 
 -- | The response's http status code.
 createConfigurationSetResponse_httpStatus :: Lens' CreateConfigurationSetResponse Int
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance Amazonka.Data.Path.ToPath Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.CreateConfigurationSet.CreateConfigurationSet
 
 
 -- | Update an event destination in a configuration set. An event
 --   destination is a location that you publish information about your
 --   voice calls to. For example, you can log an event to an Amazon
 --   CloudWatch destination when a call fails.
-module Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination
+module Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination
 
 -- | UpdateConfigurationSetEventDestinationRequest
 --   
@@ -1651,25 +1651,25 @@ newUpdateConfigurationSetEventDestinationResponse :: Int -> UpdateConfigurationS
 
 -- | The response's http status code.
 updateConfigurationSetEventDestinationResponse_httpStatus :: Lens' UpdateConfigurationSetEventDestinationResponse Int
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance GHC.Generics.Generic Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
-instance GHC.Show.Show Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
-instance GHC.Read.Read Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
-instance GHC.Classes.Eq Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance Control.DeepSeq.NFData Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance Network.AWS.Data.Path.ToPath Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
-instance Network.AWS.Data.Query.ToQuery Network.AWS.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance GHC.Generics.Generic Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
+instance GHC.Show.Show Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
+instance GHC.Read.Read Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
+instance GHC.Classes.Eq Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
+instance Amazonka.Types.AWSRequest Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestinationResponse
+instance Data.Hashable.Class.Hashable Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance Control.DeepSeq.NFData Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance Amazonka.Data.Headers.ToHeaders Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance Amazonka.Data.Path.ToPath Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
+instance Amazonka.Data.Query.ToQuery Amazonka.PinpointSMSVoice.UpdateConfigurationSetEventDestination.UpdateConfigurationSetEventDestination
 
 
-module Network.AWS.PinpointSMSVoice.Lens
+module Amazonka.PinpointSMSVoice.Lens
 
 -- | Undocumented member.
 updateConfigurationSetEventDestination_eventDestination :: Lens' UpdateConfigurationSetEventDestination (Maybe EventDestinationDefinition)
@@ -1847,14 +1847,14 @@ voiceMessageContent_sSMLMessage :: Lens' VoiceMessageContent (Maybe SSMLMessageT
 voiceMessageContent_plainTextMessage :: Lens' VoiceMessageContent (Maybe PlainTextMessageType)
 
 
-module Network.AWS.PinpointSMSVoice.Waiters
+module Amazonka.PinpointSMSVoice.Waiters
 
 
 -- | Derived from API version <tt>2018-09-05</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Pinpoint SMS and Voice Messaging public facing APIs
-module Network.AWS.PinpointSMSVoice
+module Amazonka.PinpointSMSVoice
 
 -- | API version <tt>2018-09-05</tt> of the Amazon Pinpoint SMS and Voice
 --   Service SDK configuration.

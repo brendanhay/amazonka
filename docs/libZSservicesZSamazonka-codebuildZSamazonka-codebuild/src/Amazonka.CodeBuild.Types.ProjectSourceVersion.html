@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.Types.ProjectSourceVersion</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.Types.ProjectSourceVersion</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | A source identifier and its corresponding version.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProjectSourceVersion' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679373864"><span id="local-6989586621679373865"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProjectSourceVersion"><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-var">ProjectSourceVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProjectSourceVersion%27"><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-var">ProjectSourceVersion'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An identifier for a source in the build project. The identifier can only</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- contain alphanumeric characters and underscores, and must be less than</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- 128 characters in length.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AsourceIdentifier%3AProjectSourceVersion%27"><span class="annot"><span class="annottext">ProjectSourceVersion -&gt; Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceIdentifier%3AProjectSourceVersion%27"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The source version for the corresponding source identifier. If</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- specified, must be one of:</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- -   For CodeCommit: the commit ID, branch, or Git tag to use.</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- -   For GitHub: the commit ID, pull request ID, branch name, or tag name</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     that corresponds to the version of the source code you want to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--     build. If a pull request ID is specified, it must use the format</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--     @pr\/pull-request-ID@ (for example, @pr\/25@). If a branch name is</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     specified, the branch\'s HEAD commit ID is used. If not specified,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     the default branch\'s HEAD commit ID is used.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   For Bitbucket: the commit ID, branch name, or tag name that</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     corresponds to the version of the source code you want to build. If</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     a branch name is specified, the branch\'s HEAD commit ID is used. If</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     not specified, the default branch\'s HEAD commit ID is used.</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   For Amazon S3: the version ID of the object that represents the</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     build input ZIP file to use.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild&gt;</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- in the /CodeBuild User Guide/.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="annot"><span class="annottext">ProjectSourceVersion -&gt; Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="hs-identifier hs-var hs-var">sourceVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679373857"><span id="local-6989586621679373859"><span class="annot"><span class="annottext">ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
+(ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool)
+-&gt; (ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool)
+-&gt; Eq ProjectSourceVersion
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
+$c/= :: ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
+== :: ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
+$c== :: ProjectSourceVersion -&gt; ProjectSourceVersion -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373848"><span id="local-6989586621679373850"><span id="local-6989586621679373852"><span id="local-6989586621679373854"><span class="annot"><span class="annottext">ReadPrec [ProjectSourceVersion]
+ReadPrec ProjectSourceVersion
+Int -&gt; ReadS ProjectSourceVersion
+ReadS [ProjectSourceVersion]
+(Int -&gt; ReadS ProjectSourceVersion)
+-&gt; ReadS [ProjectSourceVersion]
+-&gt; ReadPrec ProjectSourceVersion
+-&gt; ReadPrec [ProjectSourceVersion]
+-&gt; Read ProjectSourceVersion
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProjectSourceVersion]
+$creadListPrec :: ReadPrec [ProjectSourceVersion]
+readPrec :: ReadPrec ProjectSourceVersion
+$creadPrec :: ReadPrec ProjectSourceVersion
+readList :: ReadS [ProjectSourceVersion]
+$creadList :: ReadS [ProjectSourceVersion]
+readsPrec :: Int -&gt; ReadS ProjectSourceVersion
+$creadsPrec :: Int -&gt; ReadS ProjectSourceVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679373841"><span id="local-6989586621679373843"><span id="local-6989586621679373845"><span class="annot"><span class="annottext">Int -&gt; ProjectSourceVersion -&gt; ShowS
+[ProjectSourceVersion] -&gt; ShowS
+ProjectSourceVersion -&gt; String
+(Int -&gt; ProjectSourceVersion -&gt; ShowS)
+-&gt; (ProjectSourceVersion -&gt; String)
+-&gt; ([ProjectSourceVersion] -&gt; ShowS)
+-&gt; Show ProjectSourceVersion
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProjectSourceVersion] -&gt; ShowS
+$cshowList :: [ProjectSourceVersion] -&gt; ShowS
+show :: ProjectSourceVersion -&gt; String
+$cshow :: ProjectSourceVersion -&gt; String
+showsPrec :: Int -&gt; ProjectSourceVersion -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProjectSourceVersion -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProjectSourceVersion -&gt; Rep ProjectSourceVersion x)
+-&gt; (forall x. Rep ProjectSourceVersion x -&gt; ProjectSourceVersion)
+-&gt; Generic ProjectSourceVersion
+forall x. Rep ProjectSourceVersion x -&gt; ProjectSourceVersion
+forall x. ProjectSourceVersion -&gt; Rep ProjectSourceVersion x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProjectSourceVersion x -&gt; ProjectSourceVersion
+$cfrom :: forall x. ProjectSourceVersion -&gt; Rep ProjectSourceVersion x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'ProjectSourceVersion' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'sourceIdentifier', 'projectSourceVersion_sourceIdentifier' - An identifier for a source in the build project. The identifier can only</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- contain alphanumeric characters and underscores, and must be less than</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 128 characters in length.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'sourceVersion', 'projectSourceVersion_sourceVersion' - The source version for the corresponding source identifier. If</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- specified, must be one of:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- -   For CodeCommit: the commit ID, branch, or Git tag to use.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- -   For GitHub: the commit ID, pull request ID, branch name, or tag name</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--     that corresponds to the version of the source code you want to</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--     build. If a pull request ID is specified, it must use the format</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--     @pr\/pull-request-ID@ (for example, @pr\/25@). If a branch name is</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--     specified, the branch\'s HEAD commit ID is used. If not specified,</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--     the default branch\'s HEAD commit ID is used.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- -   For Bitbucket: the commit ID, branch name, or tag name that</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--     corresponds to the version of the source code you want to build. If</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--     a branch name is specified, the branch\'s HEAD commit ID is used. If</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--     not specified, the default branch\'s HEAD commit ID is used.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   For Amazon S3: the version ID of the object that represents the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--     build input ZIP file to use.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild&gt;</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- in the /CodeBuild User Guide/.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#newProjectSourceVersion"><span class="hs-identifier hs-type">newProjectSourceVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'sourceIdentifier'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-comment">-- | 'sourceVersion'</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span>
+</span><span id="line-102"></span><span id="newProjectSourceVersion"><span class="annot"><span class="annottext">newProjectSourceVersion :: Text -&gt; Text -&gt; ProjectSourceVersion
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#newProjectSourceVersion"><span class="hs-identifier hs-var hs-var">newProjectSourceVersion</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679373835"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373835"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679373834"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373834"><span class="hs-identifier hs-var">pSourceVersion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">ProjectSourceVersion' :: Text -&gt; Text -&gt; ProjectSourceVersion
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSourceVersion' :: Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceIdentifier%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373835"><span class="hs-identifier hs-var">pSourceIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceVersion:ProjectSourceVersion' :: Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373834"><span class="hs-identifier hs-var">pSourceVersion_</span></a></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | An identifier for a source in the build project. The identifier can only</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- contain alphanumeric characters and underscores, and must be less than</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 128 characters in length.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#projectSourceVersion_sourceIdentifier"><span class="hs-identifier hs-type">projectSourceVersion_sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="projectSourceVersion_sourceIdentifier"><span class="annot"><span class="annottext">projectSourceVersion_sourceIdentifier :: (Text -&gt; f Text) -&gt; ProjectSourceVersion -&gt; f ProjectSourceVersion
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#projectSourceVersion_sourceIdentifier"><span class="hs-identifier hs-var hs-var">projectSourceVersion_sourceIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSourceVersion -&gt; Text)
+-&gt; (ProjectSourceVersion -&gt; Text -&gt; ProjectSourceVersion)
+-&gt; Lens ProjectSourceVersion ProjectSourceVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373830"><span class="annot"><span class="annottext">Text
+sourceIdentifier :: Text
+$sel:sourceIdentifier:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
+</span><a href="#local-6989586621679373830"><span class="hs-identifier hs-var hs-var">sourceIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373830"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373829"><span class="annot"><span class="annottext">s :: ProjectSourceVersion
+</span><a href="#local-6989586621679373829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373828"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSourceVersion
+</span><a href="#local-6989586621679373829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceIdentifier:ProjectSourceVersion' :: Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceIdentifier%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The source version for the corresponding source identifier. If</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- specified, must be one of:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- -   For CodeCommit: the commit ID, branch, or Git tag to use.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- -   For GitHub: the commit ID, pull request ID, branch name, or tag name</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--     that corresponds to the version of the source code you want to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--     build. If a pull request ID is specified, it must use the format</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--     @pr\/pull-request-ID@ (for example, @pr\/25@). If a branch name is</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--     specified, the branch\'s HEAD commit ID is used. If not specified,</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--     the default branch\'s HEAD commit ID is used.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   For Bitbucket: the commit ID, branch name, or tag name that</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--     corresponds to the version of the source code you want to build. If</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--     a branch name is specified, the branch\'s HEAD commit ID is used. If</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--     not specified, the default branch\'s HEAD commit ID is used.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   For Amazon S3: the version ID of the object that represents the</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     build input ZIP file to use.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codebuild/latest/userguide/sample-source-version.html Source Version Sample with CodeBuild&gt;</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- in the /CodeBuild User Guide/.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#projectSourceVersion_sourceVersion"><span class="hs-identifier hs-type">projectSourceVersion_sourceVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-141"></span><span id="projectSourceVersion_sourceVersion"><span class="annot"><span class="annottext">projectSourceVersion_sourceVersion :: (Text -&gt; f Text) -&gt; ProjectSourceVersion -&gt; f ProjectSourceVersion
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#projectSourceVersion_sourceVersion"><span class="hs-identifier hs-var hs-var">projectSourceVersion_sourceVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProjectSourceVersion -&gt; Text)
+-&gt; (ProjectSourceVersion -&gt; Text -&gt; ProjectSourceVersion)
+-&gt; Lens ProjectSourceVersion ProjectSourceVersion Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373826"><span class="annot"><span class="annottext">Text
+sourceVersion :: Text
+$sel:sourceVersion:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
+</span><a href="#local-6989586621679373826"><span class="hs-identifier hs-var hs-var">sourceVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373826"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679373825"><span class="annot"><span class="annottext">s :: ProjectSourceVersion
+</span><a href="#local-6989586621679373825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679373824"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProjectSourceVersion
+</span><a href="#local-6989586621679373825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceVersion:ProjectSourceVersion' :: Text
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#%24sel%3AsourceVersion%3AProjectSourceVersion%27"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373821"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679373819"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProjectSourceVersion
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProjectSourceVersion)
+-&gt; Value
+-&gt; Parser ProjectSourceVersion
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProjectSourceVersion&quot;</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679373816"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373816"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; ProjectSourceVersion
+</span><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-var">ProjectSourceVersion'</span></a></span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; ProjectSourceVersion)
+-&gt; Parser Text -&gt; Parser (Text -&gt; ProjectSourceVersion)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ProjectSourceVersion)
+-&gt; Parser Text -&gt; Parser ProjectSourceVersion
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679373816"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373810"><span id="local-6989586621679373812"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373807"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679373799"><span id="local-6989586621679373801"><span id="local-6989586621679373803"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion"><span class="hs-identifier hs-type">ProjectSourceVersion</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679373797"><span class="annot"><span class="annottext">toJSON :: ProjectSourceVersion -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.ProjectSourceVersion.html#ProjectSourceVersion%27"><span class="hs-identifier hs-type">ProjectSourceVersion'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679373794"><span id="local-6989586621679373795"><span class="annot"><span class="annottext">Text
+sourceVersion :: Text
+sourceIdentifier :: Text
+$sel:sourceVersion:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
+$sel:sourceIdentifier:ProjectSourceVersion' :: ProjectSourceVersion -&gt; Text
+</span><a href="#local-6989586621679373794"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373795"><span class="hs-identifier hs-var">sourceIdentifier</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679373794"><span class="hs-identifier hs-var">sourceVersion</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span></pre></body></html>

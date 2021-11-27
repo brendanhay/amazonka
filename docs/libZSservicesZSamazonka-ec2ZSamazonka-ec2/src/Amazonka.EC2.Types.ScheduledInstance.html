@@ -1,0 +1,1056 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ScheduledInstance</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ScheduledInstance</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstanceRecurrence.html"><span class="hs-identifier">Amazonka.EC2.Types.ScheduledInstanceRecurrence</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes a Scheduled Instance.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newScheduledInstance' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681146897"><span id="local-6989586621681146898"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduledInstance"><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-var">ScheduledInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledInstance%27"><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-var">ScheduledInstance'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time that the previous schedule ended or will end.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3ApreviousSlotEndTime%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3ApreviousSlotEndTime%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">previousSlotEndTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The platform (@Linux\/UNIX@ or @Windows@).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aplatform%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3Aplatform%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The start date for the Scheduled Instance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtermStartDate%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtermStartDate%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">termStartDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The number of instances.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinstanceCount%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AinstanceCount%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The Scheduled Instance ID.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AscheduledInstanceId%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AscheduledInstanceId%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">scheduledInstanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The hourly price for a single instance.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AhourlyPrice%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AhourlyPrice%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The date when the Scheduled Instance was purchased.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AcreateDate%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AcreateDate%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The number of hours in the schedule.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AslotDurationInHours%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AslotDurationInHours%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">slotDurationInHours</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The total number of hours for a single instance for the entire term.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AtotalScheduledInstanceHours%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtotalScheduledInstanceHours%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">totalScheduledInstanceHours</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AinstanceType%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AinstanceType%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The schedule recurrence.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Arecurrence%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe ScheduledInstanceRecurrence
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3Arecurrence%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">recurrence</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstanceRecurrence.html#ScheduledInstanceRecurrence"><span class="hs-identifier hs-type">ScheduledInstanceRecurrence</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Availability Zone.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AavailabilityZone%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AavailabilityZone%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The end date for the Scheduled Instance.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AtermEndDate%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtermEndDate%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">termEndDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The time for the next schedule to start.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextSlotStartTime%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AnextSlotStartTime%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">nextSlotStartTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The network platform (@EC2-Classic@ or @EC2-VPC@).</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnetworkPlatform%3AScheduledInstance%27"><span class="annot"><span class="annottext">ScheduledInstance -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AnetworkPlatform%3AScheduledInstance%27"><span class="hs-identifier hs-var hs-var">networkPlatform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681146877"><span id="local-6989586621681146879"><span class="annot"><span class="annottext">ScheduledInstance -&gt; ScheduledInstance -&gt; Bool
+(ScheduledInstance -&gt; ScheduledInstance -&gt; Bool)
+-&gt; (ScheduledInstance -&gt; ScheduledInstance -&gt; Bool)
+-&gt; Eq ScheduledInstance
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduledInstance -&gt; ScheduledInstance -&gt; Bool
+$c/= :: ScheduledInstance -&gt; ScheduledInstance -&gt; Bool
+== :: ScheduledInstance -&gt; ScheduledInstance -&gt; Bool
+$c== :: ScheduledInstance -&gt; ScheduledInstance -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146868"><span id="local-6989586621681146870"><span id="local-6989586621681146872"><span id="local-6989586621681146874"><span class="annot"><span class="annottext">ReadPrec [ScheduledInstance]
+ReadPrec ScheduledInstance
+Int -&gt; ReadS ScheduledInstance
+ReadS [ScheduledInstance]
+(Int -&gt; ReadS ScheduledInstance)
+-&gt; ReadS [ScheduledInstance]
+-&gt; ReadPrec ScheduledInstance
+-&gt; ReadPrec [ScheduledInstance]
+-&gt; Read ScheduledInstance
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduledInstance]
+$creadListPrec :: ReadPrec [ScheduledInstance]
+readPrec :: ReadPrec ScheduledInstance
+$creadPrec :: ReadPrec ScheduledInstance
+readList :: ReadS [ScheduledInstance]
+$creadList :: ReadS [ScheduledInstance]
+readsPrec :: Int -&gt; ReadS ScheduledInstance
+$creadsPrec :: Int -&gt; ReadS ScheduledInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146861"><span id="local-6989586621681146863"><span id="local-6989586621681146865"><span class="annot"><span class="annottext">Int -&gt; ScheduledInstance -&gt; ShowS
+[ScheduledInstance] -&gt; ShowS
+ScheduledInstance -&gt; String
+(Int -&gt; ScheduledInstance -&gt; ShowS)
+-&gt; (ScheduledInstance -&gt; String)
+-&gt; ([ScheduledInstance] -&gt; ShowS)
+-&gt; Show ScheduledInstance
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduledInstance] -&gt; ShowS
+$cshowList :: [ScheduledInstance] -&gt; ShowS
+show :: ScheduledInstance -&gt; String
+$cshow :: ScheduledInstance -&gt; String
+showsPrec :: Int -&gt; ScheduledInstance -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduledInstance -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ScheduledInstance -&gt; Rep ScheduledInstance x)
+-&gt; (forall x. Rep ScheduledInstance x -&gt; ScheduledInstance)
+-&gt; Generic ScheduledInstance
+forall x. Rep ScheduledInstance x -&gt; ScheduledInstance
+forall x. ScheduledInstance -&gt; Rep ScheduledInstance x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ScheduledInstance x -&gt; ScheduledInstance
+$cfrom :: forall x. ScheduledInstance -&gt; Rep ScheduledInstance x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ScheduledInstance' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'previousSlotEndTime', 'scheduledInstance_previousSlotEndTime' - The time that the previous schedule ended or will end.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'platform', 'scheduledInstance_platform' - The platform (@Linux\/UNIX@ or @Windows@).</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'termStartDate', 'scheduledInstance_termStartDate' - The start date for the Scheduled Instance.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'instanceCount', 'scheduledInstance_instanceCount' - The number of instances.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'scheduledInstanceId', 'scheduledInstance_scheduledInstanceId' - The Scheduled Instance ID.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'hourlyPrice', 'scheduledInstance_hourlyPrice' - The hourly price for a single instance.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'createDate', 'scheduledInstance_createDate' - The date when the Scheduled Instance was purchased.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'slotDurationInHours', 'scheduledInstance_slotDurationInHours' - The number of hours in the schedule.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'totalScheduledInstanceHours', 'scheduledInstance_totalScheduledInstanceHours' - The total number of hours for a single instance for the entire term.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'instanceType', 'scheduledInstance_instanceType' - The instance type.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'recurrence', 'scheduledInstance_recurrence' - The schedule recurrence.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'availabilityZone', 'scheduledInstance_availabilityZone' - The Availability Zone.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'termEndDate', 'scheduledInstance_termEndDate' - The end date for the Scheduled Instance.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'nextSlotStartTime', 'scheduledInstance_nextSlotStartTime' - The time for the next schedule to start.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'networkPlatform', 'scheduledInstance_networkPlatform' - The network platform (@EC2-Classic@ or @EC2-VPC@).</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#newScheduledInstance"><span class="hs-identifier hs-type">newScheduledInstance</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span>
+</span><span id="line-104"></span><span id="newScheduledInstance"><span class="annot"><span class="annottext">newScheduledInstance :: ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#newScheduledInstance"><span class="hs-identifier hs-var hs-var">newScheduledInstance</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="annottext">ScheduledInstance' :: Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ScheduledInstanceRecurrence
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:previousSlotEndTime:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3ApreviousSlotEndTime%3AScheduledInstance%27"><span class="hs-identifier hs-var">previousSlotEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:platform:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3Aplatform%3AScheduledInstance%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:termStartDate:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtermStartDate%3AScheduledInstance%27"><span class="hs-identifier hs-var">termStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceCount:ScheduledInstance' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AinstanceCount%3AScheduledInstance%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduledInstanceId:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AscheduledInstanceId%3AScheduledInstance%27"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:hourlyPrice:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AhourlyPrice%3AScheduledInstance%27"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:createDate:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AcreateDate%3AScheduledInstance%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:slotDurationInHours:ScheduledInstance' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AslotDurationInHours%3AScheduledInstance%27"><span class="hs-identifier hs-var">slotDurationInHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalScheduledInstanceHours:ScheduledInstance' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtotalScheduledInstanceHours%3AScheduledInstance%27"><span class="hs-identifier hs-var">totalScheduledInstanceHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AinstanceType%3AScheduledInstance%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:recurrence:ScheduledInstance' :: Maybe ScheduledInstanceRecurrence
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3Arecurrence%3AScheduledInstance%27"><span class="hs-identifier hs-var">recurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledInstanceRecurrence
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">$sel:availabilityZone:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AavailabilityZone%3AScheduledInstance%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:termEndDate:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtermEndDate%3AScheduledInstance%27"><span class="hs-identifier hs-var">termEndDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextSlotStartTime:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AnextSlotStartTime%3AScheduledInstance%27"><span class="hs-identifier hs-var">nextSlotStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">$sel:networkPlatform:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AnetworkPlatform%3AScheduledInstance%27"><span class="hs-identifier hs-var">networkPlatform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The time that the previous schedule ended or will end.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_previousSlotEndTime"><span class="hs-identifier hs-type">scheduledInstance_previousSlotEndTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="scheduledInstance_previousSlotEndTime"><span class="annot"><span class="annottext">scheduledInstance_previousSlotEndTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_previousSlotEndTime"><span class="hs-identifier hs-var hs-var">scheduledInstance_previousSlotEndTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe ISO8601)
+-&gt; (ScheduledInstance -&gt; Maybe ISO8601 -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146852"><span class="annot"><span class="annottext">Maybe ISO8601
+previousSlotEndTime :: Maybe ISO8601
+$sel:previousSlotEndTime:ScheduledInstance' :: ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681146852"><span class="hs-identifier hs-var hs-var">previousSlotEndTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146852"><span class="hs-identifier hs-var">previousSlotEndTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146851"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146851"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146850"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146850"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146851"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:previousSlotEndTime:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3ApreviousSlotEndTime%3AScheduledInstance%27"><span class="hs-identifier hs-var">previousSlotEndTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146850"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ScheduledInstance -&gt; f ScheduledInstance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance
+-&gt; f ScheduledInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The platform (@Linux\/UNIX@ or @Windows@).</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_platform"><span class="hs-identifier hs-type">scheduledInstance_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="scheduledInstance_platform"><span class="annot"><span class="annottext">scheduledInstance_platform :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_platform"><span class="hs-identifier hs-var hs-var">scheduledInstance_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Text)
+-&gt; (ScheduledInstance -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146845"><span class="annot"><span class="annottext">Maybe Text
+platform :: Maybe Text
+$sel:platform:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Text
+</span><a href="#local-6989586621681146845"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146845"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146844"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146844"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146843"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146843"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146844"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3Aplatform%3AScheduledInstance%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146843"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The start date for the Scheduled Instance.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_termStartDate"><span class="hs-identifier hs-type">scheduledInstance_termStartDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span id="scheduledInstance_termStartDate"><span class="annot"><span class="annottext">scheduledInstance_termStartDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_termStartDate"><span class="hs-identifier hs-var hs-var">scheduledInstance_termStartDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe ISO8601)
+-&gt; (ScheduledInstance -&gt; Maybe ISO8601 -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146841"><span class="annot"><span class="annottext">Maybe ISO8601
+termStartDate :: Maybe ISO8601
+$sel:termStartDate:ScheduledInstance' :: ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681146841"><span class="hs-identifier hs-var hs-var">termStartDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146841"><span class="hs-identifier hs-var">termStartDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146840"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146840"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146839"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146839"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146840"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:termStartDate:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtermStartDate%3AScheduledInstance%27"><span class="hs-identifier hs-var">termStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146839"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ScheduledInstance -&gt; f ScheduledInstance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance
+-&gt; f ScheduledInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | The number of instances.</span><span>
+</span><span id="line-137"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_instanceCount"><span class="hs-identifier hs-type">scheduledInstance_instanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span id="scheduledInstance_instanceCount"><span class="annot"><span class="annottext">scheduledInstance_instanceCount :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_instanceCount"><span class="hs-identifier hs-var hs-var">scheduledInstance_instanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Int)
+-&gt; (ScheduledInstance -&gt; Maybe Int -&gt; ScheduledInstance)
+-&gt; Lens ScheduledInstance ScheduledInstance (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146837"><span class="annot"><span class="annottext">Maybe Int
+instanceCount :: Maybe Int
+$sel:instanceCount:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Int
+</span><a href="#local-6989586621681146837"><span class="hs-identifier hs-var hs-var">instanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146837"><span class="hs-identifier hs-var">instanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146836"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146835"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCount:ScheduledInstance' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AinstanceCount%3AScheduledInstance%27"><span class="hs-identifier hs-var">instanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- | The Scheduled Instance ID.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_scheduledInstanceId"><span class="hs-identifier hs-type">scheduledInstance_scheduledInstanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="scheduledInstance_scheduledInstanceId"><span class="annot"><span class="annottext">scheduledInstance_scheduledInstanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_scheduledInstanceId"><span class="hs-identifier hs-var hs-var">scheduledInstance_scheduledInstanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Text)
+-&gt; (ScheduledInstance -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146833"><span class="annot"><span class="annottext">Maybe Text
+scheduledInstanceId :: Maybe Text
+$sel:scheduledInstanceId:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Text
+</span><a href="#local-6989586621681146833"><span class="hs-identifier hs-var hs-var">scheduledInstanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146833"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146832"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146832"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146831"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146831"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146832"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduledInstanceId:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AscheduledInstanceId%3AScheduledInstance%27"><span class="hs-identifier hs-var">scheduledInstanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146831"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The hourly price for a single instance.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_hourlyPrice"><span class="hs-identifier hs-type">scheduledInstance_hourlyPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="scheduledInstance_hourlyPrice"><span class="annot"><span class="annottext">scheduledInstance_hourlyPrice :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_hourlyPrice"><span class="hs-identifier hs-var hs-var">scheduledInstance_hourlyPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Text)
+-&gt; (ScheduledInstance -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146829"><span class="annot"><span class="annottext">Maybe Text
+hourlyPrice :: Maybe Text
+$sel:hourlyPrice:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Text
+</span><a href="#local-6989586621681146829"><span class="hs-identifier hs-var hs-var">hourlyPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146829"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146828"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146827"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hourlyPrice:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AhourlyPrice%3AScheduledInstance%27"><span class="hs-identifier hs-var">hourlyPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The date when the Scheduled Instance was purchased.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_createDate"><span class="hs-identifier hs-type">scheduledInstance_createDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="scheduledInstance_createDate"><span class="annot"><span class="annottext">scheduledInstance_createDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_createDate"><span class="hs-identifier hs-var hs-var">scheduledInstance_createDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe ISO8601)
+-&gt; (ScheduledInstance -&gt; Maybe ISO8601 -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146825"><span class="annot"><span class="annottext">Maybe ISO8601
+createDate :: Maybe ISO8601
+$sel:createDate:ScheduledInstance' :: ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681146825"><span class="hs-identifier hs-var hs-var">createDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146825"><span class="hs-identifier hs-var">createDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146824"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146823"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createDate:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AcreateDate%3AScheduledInstance%27"><span class="hs-identifier hs-var">createDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ScheduledInstance -&gt; f ScheduledInstance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance
+-&gt; f ScheduledInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The number of hours in the schedule.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_slotDurationInHours"><span class="hs-identifier hs-type">scheduledInstance_slotDurationInHours</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="scheduledInstance_slotDurationInHours"><span class="annot"><span class="annottext">scheduledInstance_slotDurationInHours :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_slotDurationInHours"><span class="hs-identifier hs-var hs-var">scheduledInstance_slotDurationInHours</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Int)
+-&gt; (ScheduledInstance -&gt; Maybe Int -&gt; ScheduledInstance)
+-&gt; Lens ScheduledInstance ScheduledInstance (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146821"><span class="annot"><span class="annottext">Maybe Int
+slotDurationInHours :: Maybe Int
+$sel:slotDurationInHours:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Int
+</span><a href="#local-6989586621681146821"><span class="hs-identifier hs-var hs-var">slotDurationInHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146821"><span class="hs-identifier hs-var">slotDurationInHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146820"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146820"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146819"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146819"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146820"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:slotDurationInHours:ScheduledInstance' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AslotDurationInHours%3AScheduledInstance%27"><span class="hs-identifier hs-var">slotDurationInHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146819"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The total number of hours for a single instance for the entire term.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_totalScheduledInstanceHours"><span class="hs-identifier hs-type">scheduledInstance_totalScheduledInstanceHours</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="scheduledInstance_totalScheduledInstanceHours"><span class="annot"><span class="annottext">scheduledInstance_totalScheduledInstanceHours :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_totalScheduledInstanceHours"><span class="hs-identifier hs-var hs-var">scheduledInstance_totalScheduledInstanceHours</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Int)
+-&gt; (ScheduledInstance -&gt; Maybe Int -&gt; ScheduledInstance)
+-&gt; Lens ScheduledInstance ScheduledInstance (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146817"><span class="annot"><span class="annottext">Maybe Int
+totalScheduledInstanceHours :: Maybe Int
+$sel:totalScheduledInstanceHours:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Int
+</span><a href="#local-6989586621681146817"><span class="hs-identifier hs-var hs-var">totalScheduledInstanceHours</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146817"><span class="hs-identifier hs-var">totalScheduledInstanceHours</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146816"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146815"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalScheduledInstanceHours:ScheduledInstance' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtotalScheduledInstanceHours%3AScheduledInstance%27"><span class="hs-identifier hs-var">totalScheduledInstanceHours</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The instance type.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_instanceType"><span class="hs-identifier hs-type">scheduledInstance_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="scheduledInstance_instanceType"><span class="annot"><span class="annottext">scheduledInstance_instanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_instanceType"><span class="hs-identifier hs-var hs-var">scheduledInstance_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Text)
+-&gt; (ScheduledInstance -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146813"><span class="annot"><span class="annottext">Maybe Text
+instanceType :: Maybe Text
+$sel:instanceType:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Text
+</span><a href="#local-6989586621681146813"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146813"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146812"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146811"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AinstanceType%3AScheduledInstance%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The schedule recurrence.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_recurrence"><span class="hs-identifier hs-type">scheduledInstance_recurrence</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstanceRecurrence.html#ScheduledInstanceRecurrence"><span class="hs-identifier hs-type">ScheduledInstanceRecurrence</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span id="scheduledInstance_recurrence"><span class="annot"><span class="annottext">scheduledInstance_recurrence :: (Maybe ScheduledInstanceRecurrence
+ -&gt; f (Maybe ScheduledInstanceRecurrence))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_recurrence"><span class="hs-identifier hs-var hs-var">scheduledInstance_recurrence</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe ScheduledInstanceRecurrence)
+-&gt; (ScheduledInstance
+    -&gt; Maybe ScheduledInstanceRecurrence -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance
+     ScheduledInstance
+     (Maybe ScheduledInstanceRecurrence)
+     (Maybe ScheduledInstanceRecurrence)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146809"><span class="annot"><span class="annottext">Maybe ScheduledInstanceRecurrence
+recurrence :: Maybe ScheduledInstanceRecurrence
+$sel:recurrence:ScheduledInstance' :: ScheduledInstance -&gt; Maybe ScheduledInstanceRecurrence
+</span><a href="#local-6989586621681146809"><span class="hs-identifier hs-var hs-var">recurrence</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledInstanceRecurrence
+</span><a href="#local-6989586621681146809"><span class="hs-identifier hs-var">recurrence</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146808"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146808"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146807"><span class="annot"><span class="annottext">Maybe ScheduledInstanceRecurrence
+</span><a href="#local-6989586621681146807"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146808"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurrence:ScheduledInstance' :: Maybe ScheduledInstanceRecurrence
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3Arecurrence%3AScheduledInstance%27"><span class="hs-identifier hs-var">recurrence</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ScheduledInstanceRecurrence
+</span><a href="#local-6989586621681146807"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | The Availability Zone.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_availabilityZone"><span class="hs-identifier hs-type">scheduledInstance_availabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="scheduledInstance_availabilityZone"><span class="annot"><span class="annottext">scheduledInstance_availabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_availabilityZone"><span class="hs-identifier hs-var hs-var">scheduledInstance_availabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Text)
+-&gt; (ScheduledInstance -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146805"><span class="annot"><span class="annottext">Maybe Text
+availabilityZone :: Maybe Text
+$sel:availabilityZone:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Text
+</span><a href="#local-6989586621681146805"><span class="hs-identifier hs-var hs-var">availabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146805"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146804"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146803"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:availabilityZone:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AavailabilityZone%3AScheduledInstance%27"><span class="hs-identifier hs-var">availabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The end date for the Scheduled Instance.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_termEndDate"><span class="hs-identifier hs-type">scheduledInstance_termEndDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="scheduledInstance_termEndDate"><span class="annot"><span class="annottext">scheduledInstance_termEndDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_termEndDate"><span class="hs-identifier hs-var hs-var">scheduledInstance_termEndDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe ISO8601)
+-&gt; (ScheduledInstance -&gt; Maybe ISO8601 -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146801"><span class="annot"><span class="annottext">Maybe ISO8601
+termEndDate :: Maybe ISO8601
+$sel:termEndDate:ScheduledInstance' :: ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681146801"><span class="hs-identifier hs-var hs-var">termEndDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146801"><span class="hs-identifier hs-var">termEndDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146800"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146800"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146799"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146799"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146800"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:termEndDate:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AtermEndDate%3AScheduledInstance%27"><span class="hs-identifier hs-var">termEndDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146799"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ScheduledInstance -&gt; f ScheduledInstance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance
+-&gt; f ScheduledInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The time for the next schedule to start.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_nextSlotStartTime"><span class="hs-identifier hs-type">scheduledInstance_nextSlotStartTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="scheduledInstance_nextSlotStartTime"><span class="annot"><span class="annottext">scheduledInstance_nextSlotStartTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_nextSlotStartTime"><span class="hs-identifier hs-var hs-var">scheduledInstance_nextSlotStartTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe ISO8601)
+-&gt; (ScheduledInstance -&gt; Maybe ISO8601 -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe ISO8601) (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146797"><span class="annot"><span class="annottext">Maybe ISO8601
+nextSlotStartTime :: Maybe ISO8601
+$sel:nextSlotStartTime:ScheduledInstance' :: ScheduledInstance -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681146797"><span class="hs-identifier hs-var hs-var">nextSlotStartTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146797"><span class="hs-identifier hs-var">nextSlotStartTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146796"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146796"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146795"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146795"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146796"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextSlotStartTime:ScheduledInstance' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AnextSlotStartTime%3AScheduledInstance%27"><span class="hs-identifier hs-var">nextSlotStartTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681146795"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; ScheduledInstance -&gt; f ScheduledInstance)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ScheduledInstance
+-&gt; f ScheduledInstance
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The network platform (@EC2-Classic@ or @EC2-VPC@).</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_networkPlatform"><span class="hs-identifier hs-type">scheduledInstance_networkPlatform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="scheduledInstance_networkPlatform"><span class="annot"><span class="annottext">scheduledInstance_networkPlatform :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstance -&gt; f ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#scheduledInstance_networkPlatform"><span class="hs-identifier hs-var hs-var">scheduledInstance_networkPlatform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstance -&gt; Maybe Text)
+-&gt; (ScheduledInstance -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Lens
+     ScheduledInstance ScheduledInstance (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146793"><span class="annot"><span class="annottext">Maybe Text
+networkPlatform :: Maybe Text
+$sel:networkPlatform:ScheduledInstance' :: ScheduledInstance -&gt; Maybe Text
+</span><a href="#local-6989586621681146793"><span class="hs-identifier hs-var hs-var">networkPlatform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146793"><span class="hs-identifier hs-var">networkPlatform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146792"><span class="annot"><span class="annottext">s :: ScheduledInstance
+</span><a href="#local-6989586621681146792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-type">ScheduledInstance'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146791"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstance
+</span><a href="#local-6989586621681146792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkPlatform:ScheduledInstance' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#%24sel%3AnetworkPlatform%3AScheduledInstance%27"><span class="hs-identifier hs-var">networkPlatform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621681146788"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ScheduledInstance
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681146786"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">Maybe ISO8601
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe ScheduledInstanceRecurrence
+-&gt; Maybe Text
+-&gt; Maybe ISO8601
+-&gt; Maybe ISO8601
+-&gt; Maybe Text
+-&gt; ScheduledInstance
+</span><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance%27"><span class="hs-identifier hs-var">ScheduledInstance'</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Int
+ -&gt; Maybe Int
+ -&gt; Maybe Text
+ -&gt; Maybe ScheduledInstanceRecurrence
+ -&gt; Maybe Text
+ -&gt; Maybe ISO8601
+ -&gt; Maybe ISO8601
+ -&gt; Maybe Text
+ -&gt; ScheduledInstance)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;previousSlotEndTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;platform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;termStartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scheduledInstanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601
+      -&gt; Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hourlyPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601
+   -&gt; Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;slotDurationInHours&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;totalScheduledInstanceHours&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ScheduledInstanceRecurrence
+      -&gt; Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ScheduledInstanceRecurrence
+   -&gt; Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe ScheduledInstanceRecurrence)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ISO8601
+      -&gt; Maybe ISO8601
+      -&gt; Maybe Text
+      -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ScheduledInstanceRecurrence)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;recurrence&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ISO8601
+   -&gt; Maybe ISO8601
+   -&gt; Maybe Text
+   -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;availabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ISO8601 -&gt; Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;termEndDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; Maybe Text -&gt; ScheduledInstance)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String (Maybe Text -&gt; ScheduledInstance)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextSlotStartTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ScheduledInstance)
+-&gt; Either String (Maybe Text) -&gt; Either String ScheduledInstance
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146786"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkPlatform&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146780"><span id="local-6989586621681146782"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span></span></span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146777"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstance.html#ScheduledInstance"><span class="hs-identifier hs-type">ScheduledInstance</span></a></span></span><span>
+</span><span id="line-206"></span></pre></body></html>

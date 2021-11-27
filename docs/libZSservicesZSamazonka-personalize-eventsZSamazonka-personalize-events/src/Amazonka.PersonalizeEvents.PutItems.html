@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.PersonalizeEvents.PutItems</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds one or more items to an Items dataset. For more information see</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/personalize/latest/dg/importing-items.html Importing Items Incrementally&gt;.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.PersonalizeEvents.PutItems</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier">PutItems</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#newPutItems"><span class="hs-identifier">newPutItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#putItems_datasetArn"><span class="hs-identifier">putItems_datasetArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#putItems_items"><span class="hs-identifier">putItems_items</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse"><span class="hs-identifier">PutItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#newPutItemsResponse"><span class="hs-identifier">newPutItemsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.html"><span class="hs-identifier">Amazonka.PersonalizeEvents.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- | /See:/ 'newPutItems' smart constructor.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679139704"><span id="local-6989586621679139705"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItems"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-var">PutItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItems%27"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier hs-var">PutItems'</span></a></span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Items dataset you are adding the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- item or items to.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdatasetArn%3APutItems%27"><span class="annot"><span class="annottext">PutItems -&gt; Text
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#%24sel%3AdatasetArn%3APutItems%27"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | A list of item data.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aitems%3APutItems%27"><span class="annot"><span class="annottext">PutItems -&gt; NonEmpty Item
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#%24sel%3Aitems%3APutItems%27"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139697"><span id="local-6989586621679139699"><span class="annot"><span class="annottext">PutItems -&gt; PutItems -&gt; Bool
+(PutItems -&gt; PutItems -&gt; Bool)
+-&gt; (PutItems -&gt; PutItems -&gt; Bool) -&gt; Eq PutItems
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutItems -&gt; PutItems -&gt; Bool
+$c/= :: PutItems -&gt; PutItems -&gt; Bool
+== :: PutItems -&gt; PutItems -&gt; Bool
+$c== :: PutItems -&gt; PutItems -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139688"><span id="local-6989586621679139690"><span id="local-6989586621679139692"><span id="local-6989586621679139694"><span class="annot"><span class="annottext">ReadPrec [PutItems]
+ReadPrec PutItems
+Int -&gt; ReadS PutItems
+ReadS [PutItems]
+(Int -&gt; ReadS PutItems)
+-&gt; ReadS [PutItems]
+-&gt; ReadPrec PutItems
+-&gt; ReadPrec [PutItems]
+-&gt; Read PutItems
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutItems]
+$creadListPrec :: ReadPrec [PutItems]
+readPrec :: ReadPrec PutItems
+$creadPrec :: ReadPrec PutItems
+readList :: ReadS [PutItems]
+$creadList :: ReadS [PutItems]
+readsPrec :: Int -&gt; ReadS PutItems
+$creadsPrec :: Int -&gt; ReadS PutItems
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139681"><span id="local-6989586621679139683"><span id="local-6989586621679139685"><span class="annot"><span class="annottext">Int -&gt; PutItems -&gt; ShowS
+[PutItems] -&gt; ShowS
+PutItems -&gt; String
+(Int -&gt; PutItems -&gt; ShowS)
+-&gt; (PutItems -&gt; String) -&gt; ([PutItems] -&gt; ShowS) -&gt; Show PutItems
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutItems] -&gt; ShowS
+$cshowList :: [PutItems] -&gt; ShowS
+show :: PutItems -&gt; String
+$cshow :: PutItems -&gt; String
+showsPrec :: Int -&gt; PutItems -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutItems -&gt; Rep PutItems x)
+-&gt; (forall x. Rep PutItems x -&gt; PutItems) -&gt; Generic PutItems
+forall x. Rep PutItems x -&gt; PutItems
+forall x. PutItems -&gt; Rep PutItems x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutItems x -&gt; PutItems
+$cfrom :: forall x. PutItems -&gt; Rep PutItems x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'PutItems' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'datasetArn', 'putItems_datasetArn' - The Amazon Resource Name (ARN) of the Items dataset you are adding the</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- item or items to.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'items', 'putItems_items' - A list of item data.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#newPutItems"><span class="hs-identifier hs-type">newPutItems</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-comment">-- | 'datasetArn'</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'items'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span>
+</span><span id="line-75"></span><span id="newPutItems"><span class="annot"><span class="annottext">newPutItems :: Text -&gt; NonEmpty Item -&gt; PutItems
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#newPutItems"><span class="hs-identifier hs-var hs-var">newPutItems</span></a></span></span><span> </span><span id="local-6989586621679139676"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139676"><span class="hs-identifier hs-var">pDatasetArn_</span></a></span></span><span> </span><span id="local-6989586621679139675"><span class="annot"><span class="annottext">NonEmpty Item
+</span><a href="#local-6989586621679139675"><span class="hs-identifier hs-var">pItems_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">PutItems' :: Text -&gt; NonEmpty Item -&gt; PutItems
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier hs-type">PutItems'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:datasetArn:PutItems' :: Text
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#%24sel%3AdatasetArn%3APutItems%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139676"><span class="hs-identifier hs-var">pDatasetArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:items:PutItems' :: NonEmpty Item
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#%24sel%3Aitems%3APutItems%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Item) (Identity (NonEmpty Item))
+-&gt; Tagged (NonEmpty Item) (Identity (NonEmpty Item))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Item) (Identity (NonEmpty Item))
+ -&gt; Tagged (NonEmpty Item) (Identity (NonEmpty Item)))
+-&gt; NonEmpty Item -&gt; NonEmpty Item
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Item
+</span><a href="#local-6989586621679139675"><span class="hs-identifier hs-var">pItems_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Items dataset you are adding the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- item or items to.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#putItems_datasetArn"><span class="hs-identifier hs-type">putItems_datasetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="putItems_datasetArn"><span class="annot"><span class="annottext">putItems_datasetArn :: (Text -&gt; f Text) -&gt; PutItems -&gt; f PutItems
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#putItems_datasetArn"><span class="hs-identifier hs-var hs-var">putItems_datasetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutItems -&gt; Text)
+-&gt; (PutItems -&gt; Text -&gt; PutItems)
+-&gt; Lens PutItems PutItems Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier hs-type">PutItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139670"><span class="annot"><span class="annottext">Text
+datasetArn :: Text
+$sel:datasetArn:PutItems' :: PutItems -&gt; Text
+</span><a href="#local-6989586621679139670"><span class="hs-identifier hs-var hs-var">datasetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139670"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139669"><span class="annot"><span class="annottext">s :: PutItems
+</span><a href="#local-6989586621679139669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier hs-type">PutItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139668"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItems
+</span><a href="#local-6989586621679139669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datasetArn:PutItems' :: Text
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#%24sel%3AdatasetArn%3APutItems%27"><span class="hs-identifier hs-var">datasetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | A list of item data.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#putItems_items"><span class="hs-identifier hs-type">putItems_items</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="putItems_items"><span class="annot"><span class="annottext">putItems_items :: (NonEmpty Item -&gt; f (NonEmpty Item)) -&gt; PutItems -&gt; f PutItems
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#putItems_items"><span class="hs-identifier hs-var hs-var">putItems_items</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutItems -&gt; NonEmpty Item)
+-&gt; (PutItems -&gt; NonEmpty Item -&gt; PutItems)
+-&gt; Lens PutItems PutItems (NonEmpty Item) (NonEmpty Item)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier hs-type">PutItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139667"><span class="annot"><span class="annottext">NonEmpty Item
+items :: NonEmpty Item
+$sel:items:PutItems' :: PutItems -&gt; NonEmpty Item
+</span><a href="#local-6989586621679139667"><span class="hs-identifier hs-var hs-var">items</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Item
+</span><a href="#local-6989586621679139667"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679139666"><span class="annot"><span class="annottext">s :: PutItems
+</span><a href="#local-6989586621679139666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier hs-type">PutItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679139665"><span class="annot"><span class="annottext">NonEmpty Item
+</span><a href="#local-6989586621679139665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutItems
+</span><a href="#local-6989586621679139666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:items:PutItems' :: NonEmpty Item
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#%24sel%3Aitems%3APutItems%27"><span class="hs-identifier hs-var">items</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Item
+</span><a href="#local-6989586621679139665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Item -&gt; f (NonEmpty Item)) -&gt; PutItems -&gt; f PutItems)
+-&gt; ((NonEmpty Item -&gt; f (NonEmpty Item))
+    -&gt; NonEmpty Item -&gt; f (NonEmpty Item))
+-&gt; (NonEmpty Item -&gt; f (NonEmpty Item))
+-&gt; PutItems
+-&gt; f PutItems
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Item -&gt; f (NonEmpty Item))
+-&gt; NonEmpty Item -&gt; f (NonEmpty Item)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse"><span class="hs-identifier hs-type">PutItemsResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679139660"><span class="annot"><span class="annottext">request :: PutItems -&gt; Request PutItems
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutItems -&gt; Request PutItems
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.PersonalizeEvents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679139656"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutItems
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutItems)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse PutItems
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutItems
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutItems)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse PutItems
+PutItemsResponse
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse%27"><span class="hs-identifier hs-var">PutItemsResponse'</span></a></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139649"><span id="local-6989586621679139651"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span></span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139646"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679139642"><span class="annot"><span class="annottext">toHeaders :: PutItems -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; PutItems -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139632"><span id="local-6989586621679139634"><span id="local-6989586621679139636"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679139630"><span class="annot"><span class="annottext">toJSON :: PutItems -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems%27"><span class="hs-identifier hs-type">PutItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679139627"><span id="local-6989586621679139628"><span class="annot"><span class="annottext">NonEmpty Item
+Text
+items :: NonEmpty Item
+datasetArn :: Text
+$sel:items:PutItems' :: PutItems -&gt; NonEmpty Item
+$sel:datasetArn:PutItems' :: PutItems -&gt; Text
+</span><a href="#local-6989586621679139627"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datasetArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679139628"><span class="hs-identifier hs-var">datasetArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;items&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Item -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Item
+</span><a href="#local-6989586621679139627"><span class="hs-identifier hs-var">items</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679139621"><span class="annot"><span class="annottext">toPath :: PutItems -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutItems -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/items&quot;</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItems"><span class="hs-identifier hs-type">PutItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679139617"><span class="annot"><span class="annottext">toQuery :: PutItems -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutItems -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | /See:/ 'newPutItemsResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679139614"><span id="local-6989586621679139615"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutItemsResponse"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse"><span class="hs-identifier hs-var">PutItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutItemsResponse%27"><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse%27"><span class="hs-identifier hs-var">PutItemsResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679139610"><span id="local-6989586621679139612"><span class="annot"><span class="annottext">PutItemsResponse -&gt; PutItemsResponse -&gt; Bool
+(PutItemsResponse -&gt; PutItemsResponse -&gt; Bool)
+-&gt; (PutItemsResponse -&gt; PutItemsResponse -&gt; Bool)
+-&gt; Eq PutItemsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutItemsResponse -&gt; PutItemsResponse -&gt; Bool
+$c/= :: PutItemsResponse -&gt; PutItemsResponse -&gt; Bool
+== :: PutItemsResponse -&gt; PutItemsResponse -&gt; Bool
+$c== :: PutItemsResponse -&gt; PutItemsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139602"><span id="local-6989586621679139604"><span id="local-6989586621679139606"><span id="local-6989586621679139608"><span class="annot"><span class="annottext">ReadPrec [PutItemsResponse]
+ReadPrec PutItemsResponse
+Int -&gt; ReadS PutItemsResponse
+ReadS [PutItemsResponse]
+(Int -&gt; ReadS PutItemsResponse)
+-&gt; ReadS [PutItemsResponse]
+-&gt; ReadPrec PutItemsResponse
+-&gt; ReadPrec [PutItemsResponse]
+-&gt; Read PutItemsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutItemsResponse]
+$creadListPrec :: ReadPrec [PutItemsResponse]
+readPrec :: ReadPrec PutItemsResponse
+$creadPrec :: ReadPrec PutItemsResponse
+readList :: ReadS [PutItemsResponse]
+$creadList :: ReadS [PutItemsResponse]
+readsPrec :: Int -&gt; ReadS PutItemsResponse
+$creadsPrec :: Int -&gt; ReadS PutItemsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679139596"><span id="local-6989586621679139598"><span id="local-6989586621679139600"><span class="annot"><span class="annottext">Int -&gt; PutItemsResponse -&gt; ShowS
+[PutItemsResponse] -&gt; ShowS
+PutItemsResponse -&gt; String
+(Int -&gt; PutItemsResponse -&gt; ShowS)
+-&gt; (PutItemsResponse -&gt; String)
+-&gt; ([PutItemsResponse] -&gt; ShowS)
+-&gt; Show PutItemsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutItemsResponse] -&gt; ShowS
+$cshowList :: [PutItemsResponse] -&gt; ShowS
+show :: PutItemsResponse -&gt; String
+$cshow :: PutItemsResponse -&gt; String
+showsPrec :: Int -&gt; PutItemsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutItemsResponse -&gt; Rep PutItemsResponse x)
+-&gt; (forall x. Rep PutItemsResponse x -&gt; PutItemsResponse)
+-&gt; Generic PutItemsResponse
+forall x. Rep PutItemsResponse x -&gt; PutItemsResponse
+forall x. PutItemsResponse -&gt; Rep PutItemsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutItemsResponse x -&gt; PutItemsResponse
+$cfrom :: forall x. PutItemsResponse -&gt; Rep PutItemsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'PutItemsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#newPutItemsResponse"><span class="hs-identifier hs-type">newPutItemsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse"><span class="hs-identifier hs-type">PutItemsResponse</span></a></span><span>
+</span><span id="line-137"></span><span id="newPutItemsResponse"><span class="annot"><span class="annottext">newPutItemsResponse :: PutItemsResponse
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#newPutItemsResponse"><span class="hs-identifier hs-var hs-var">newPutItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PutItemsResponse
+</span><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse%27"><span class="hs-identifier hs-var">PutItemsResponse'</span></a></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679139592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.PersonalizeEvents.PutItems.html#PutItemsResponse"><span class="hs-identifier hs-type">PutItemsResponse</span></a></span></span><span>
+</span><span id="line-140"></span></pre></body></html>

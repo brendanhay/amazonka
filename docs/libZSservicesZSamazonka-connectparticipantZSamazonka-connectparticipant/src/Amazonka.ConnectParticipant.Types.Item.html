@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ConnectParticipant.Types.Item</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ConnectParticipant.Types.Item</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.AttachmentItem.html"><span class="hs-identifier">Amazonka.ConnectParticipant.Types.AttachmentItem</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ChatItemType.html"><span class="hs-identifier">Amazonka.ConnectParticipant.Types.ChatItemType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ParticipantRole.html"><span class="hs-identifier">Amazonka.ConnectParticipant.Types.ParticipantRole</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | An item - message or event - that has been sent.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newItem' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679160310"><span id="local-6989586621679160311"></span></span><span class="hs-keyword">data</span><span> </span><span id="Item"><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-var">Item</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Item%27"><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-var">Item'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the sender in the session.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AparticipantId%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AparticipantId%3AItem%27"><span class="hs-identifier hs-var hs-var">participantId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time when the message or event was sent.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- example, 2019-11-08T02:41:28.172Z.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AabsoluteTime%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AabsoluteTime%3AItem%27"><span class="hs-identifier hs-var hs-var">absoluteTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Provides information about the attachments.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aattachments%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe [AttachmentItem]
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Aattachments%3AItem%27"><span class="hs-identifier hs-var hs-var">attachments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.AttachmentItem.html#AttachmentItem"><span class="hs-identifier hs-type">AttachmentItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The role of the sender. For example, is it a customer, agent, or system.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AparticipantRole%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe ParticipantRole
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AparticipantRole%3AItem%27"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The content of the message or event.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Acontent%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Acontent%3AItem%27"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The ID of the item.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aid%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Aid%3AItem%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The chat display name of the sender.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AdisplayName%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AdisplayName%3AItem%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Type of the item: message or event.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Atype%27%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe ChatItemType
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Atype%27%3AItem%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ChatItemType.html#ChatItemType"><span class="hs-identifier hs-type">ChatItemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The type of content of the item.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AcontentType%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AcontentType%3AItem%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679160296"><span id="local-6989586621679160298"><span class="annot"><span class="annottext">Item -&gt; Item -&gt; Bool
+(Item -&gt; Item -&gt; Bool) -&gt; (Item -&gt; Item -&gt; Bool) -&gt; Eq Item
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Item -&gt; Item -&gt; Bool
+$c/= :: Item -&gt; Item -&gt; Bool
+== :: Item -&gt; Item -&gt; Bool
+$c== :: Item -&gt; Item -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160287"><span id="local-6989586621679160289"><span id="local-6989586621679160291"><span id="local-6989586621679160293"><span class="annot"><span class="annottext">ReadPrec [Item]
+ReadPrec Item
+Int -&gt; ReadS Item
+ReadS [Item]
+(Int -&gt; ReadS Item)
+-&gt; ReadS [Item] -&gt; ReadPrec Item -&gt; ReadPrec [Item] -&gt; Read Item
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Item]
+$creadListPrec :: ReadPrec [Item]
+readPrec :: ReadPrec Item
+$creadPrec :: ReadPrec Item
+readList :: ReadS [Item]
+$creadList :: ReadS [Item]
+readsPrec :: Int -&gt; ReadS Item
+$creadsPrec :: Int -&gt; ReadS Item
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160280"><span id="local-6989586621679160282"><span id="local-6989586621679160284"><span class="annot"><span class="annottext">Int -&gt; Item -&gt; ShowS
+[Item] -&gt; ShowS
+Item -&gt; String
+(Int -&gt; Item -&gt; ShowS)
+-&gt; (Item -&gt; String) -&gt; ([Item] -&gt; ShowS) -&gt; Show Item
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Item] -&gt; ShowS
+$cshowList :: [Item] -&gt; ShowS
+show :: Item -&gt; String
+$cshow :: Item -&gt; String
+showsPrec :: Int -&gt; Item -&gt; ShowS
+$cshowsPrec :: Int -&gt; Item -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Item -&gt; Rep Item x)
+-&gt; (forall x. Rep Item x -&gt; Item) -&gt; Generic Item
+forall x. Rep Item x -&gt; Item
+forall x. Item -&gt; Rep Item x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Item x -&gt; Item
+$cfrom :: forall x. Item -&gt; Rep Item x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'Item' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'participantId', 'item_participantId' - The ID of the sender in the session.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'absoluteTime', 'item_absoluteTime' - The time when the message or event was sent.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- example, 2019-11-08T02:41:28.172Z.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'attachments', 'item_attachments' - Provides information about the attachments.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'participantRole', 'item_participantRole' - The role of the sender. For example, is it a customer, agent, or system.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'content', 'item_content' - The content of the message or event.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'id', 'item_id' - The ID of the item.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'displayName', 'item_displayName' - The chat display name of the sender.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'type'', 'item_type' - Type of the item: message or event.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'contentType', 'item_contentType' - The type of content of the item.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#newItem"><span class="hs-identifier hs-type">newItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span>
+</span><span id="line-87"></span><span id="newItem"><span class="annot"><span class="annottext">newItem :: Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#newItem"><span class="hs-identifier hs-var hs-var">newItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">Item' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AttachmentItem]
+-&gt; Maybe ParticipantRole
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChatItemType
+-&gt; Maybe Text
+-&gt; Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:participantId:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AparticipantId%3AItem%27"><span class="hs-identifier hs-var">participantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:absoluteTime:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AabsoluteTime%3AItem%27"><span class="hs-identifier hs-var">absoluteTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:attachments:Item' :: Maybe [AttachmentItem]
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Aattachments%3AItem%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:participantRole:Item' :: Maybe ParticipantRole
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AparticipantRole%3AItem%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:content:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Acontent%3AItem%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Aid%3AItem%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AdisplayName%3AItem%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Item' :: Maybe ChatItemType
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Atype%27%3AItem%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChatItemType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AcontentType%3AItem%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the sender in the session.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_participantId"><span class="hs-identifier hs-type">item_participantId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="item_participantId"><span class="annot"><span class="annottext">item_participantId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_participantId"><span class="hs-identifier hs-var hs-var">item_participantId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160271"><span class="annot"><span class="annottext">Maybe Text
+participantId :: Maybe Text
+$sel:participantId:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679160271"><span class="hs-identifier hs-var hs-var">participantId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160271"><span class="hs-identifier hs-var">participantId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160270"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160269"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantId:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AparticipantId%3AItem%27"><span class="hs-identifier hs-var">participantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The time when the message or event was sent.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- It\'s specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- example, 2019-11-08T02:41:28.172Z.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_absoluteTime"><span class="hs-identifier hs-type">item_absoluteTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="item_absoluteTime"><span class="annot"><span class="annottext">item_absoluteTime :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_absoluteTime"><span class="hs-identifier hs-var hs-var">item_absoluteTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160267"><span class="annot"><span class="annottext">Maybe Text
+absoluteTime :: Maybe Text
+$sel:absoluteTime:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679160267"><span class="hs-identifier hs-var hs-var">absoluteTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160267"><span class="hs-identifier hs-var">absoluteTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160266"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160265"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:absoluteTime:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AabsoluteTime%3AItem%27"><span class="hs-identifier hs-var">absoluteTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Provides information about the attachments.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_attachments"><span class="hs-identifier hs-type">item_attachments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.AttachmentItem.html#AttachmentItem"><span class="hs-identifier hs-type">AttachmentItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="item_attachments"><span class="annot"><span class="annottext">item_attachments :: (Maybe [AttachmentItem] -&gt; f (Maybe [AttachmentItem]))
+-&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_attachments"><span class="hs-identifier hs-var hs-var">item_attachments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe [AttachmentItem])
+-&gt; (Item -&gt; Maybe [AttachmentItem] -&gt; Item)
+-&gt; Lens Item Item (Maybe [AttachmentItem]) (Maybe [AttachmentItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160263"><span class="annot"><span class="annottext">Maybe [AttachmentItem]
+attachments :: Maybe [AttachmentItem]
+$sel:attachments:Item' :: Item -&gt; Maybe [AttachmentItem]
+</span><a href="#local-6989586621679160263"><span class="hs-identifier hs-var hs-var">attachments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentItem]
+</span><a href="#local-6989586621679160263"><span class="hs-identifier hs-var">attachments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160262"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160261"><span class="annot"><span class="annottext">Maybe [AttachmentItem]
+</span><a href="#local-6989586621679160261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attachments:Item' :: Maybe [AttachmentItem]
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Aattachments%3AItem%27"><span class="hs-identifier hs-var">attachments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentItem]
+</span><a href="#local-6989586621679160261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AttachmentItem] -&gt; f (Maybe [AttachmentItem]))
+ -&gt; Item -&gt; f Item)
+-&gt; ((Maybe [AttachmentItem] -&gt; f (Maybe [AttachmentItem]))
+    -&gt; Maybe [AttachmentItem] -&gt; f (Maybe [AttachmentItem]))
+-&gt; (Maybe [AttachmentItem] -&gt; f (Maybe [AttachmentItem]))
+-&gt; Item
+-&gt; f Item
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttachmentItem] [AttachmentItem] [AttachmentItem] [AttachmentItem]
+-&gt; Iso
+     (Maybe [AttachmentItem])
+     (Maybe [AttachmentItem])
+     (Maybe [AttachmentItem])
+     (Maybe [AttachmentItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AttachmentItem] [AttachmentItem] [AttachmentItem] [AttachmentItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The role of the sender. For example, is it a customer, agent, or system.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_participantRole"><span class="hs-identifier hs-type">item_participantRole</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ParticipantRole.html#ParticipantRole"><span class="hs-identifier hs-type">ParticipantRole</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="item_participantRole"><span class="annot"><span class="annottext">item_participantRole :: (Maybe ParticipantRole -&gt; f (Maybe ParticipantRole))
+-&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_participantRole"><span class="hs-identifier hs-var hs-var">item_participantRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe ParticipantRole)
+-&gt; (Item -&gt; Maybe ParticipantRole -&gt; Item)
+-&gt; Lens Item Item (Maybe ParticipantRole) (Maybe ParticipantRole)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160256"><span class="annot"><span class="annottext">Maybe ParticipantRole
+participantRole :: Maybe ParticipantRole
+$sel:participantRole:Item' :: Item -&gt; Maybe ParticipantRole
+</span><a href="#local-6989586621679160256"><span class="hs-identifier hs-var hs-var">participantRole</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679160256"><span class="hs-identifier hs-var">participantRole</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160255"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160254"><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679160254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:participantRole:Item' :: Maybe ParticipantRole
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AparticipantRole%3AItem%27"><span class="hs-identifier hs-var">participantRole</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ParticipantRole
+</span><a href="#local-6989586621679160254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The content of the message or event.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_content"><span class="hs-identifier hs-type">item_content</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="item_content"><span class="annot"><span class="annottext">item_content :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_content"><span class="hs-identifier hs-var hs-var">item_content</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160252"><span class="annot"><span class="annottext">Maybe Text
+content :: Maybe Text
+$sel:content:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679160252"><span class="hs-identifier hs-var hs-var">content</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160252"><span class="hs-identifier hs-var">content</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160251"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160251"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160250"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160250"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160251"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:content:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Acontent%3AItem%27"><span class="hs-identifier hs-var">content</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160250"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The ID of the item.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_id"><span class="hs-identifier hs-type">item_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="item_id"><span class="annot"><span class="annottext">item_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_id"><span class="hs-identifier hs-var hs-var">item_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160248"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679160248"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160248"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160247"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160246"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Aid%3AItem%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The chat display name of the sender.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_displayName"><span class="hs-identifier hs-type">item_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span id="item_displayName"><span class="annot"><span class="annottext">item_displayName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_displayName"><span class="hs-identifier hs-var hs-var">item_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160244"><span class="annot"><span class="annottext">Maybe Text
+displayName :: Maybe Text
+$sel:displayName:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679160244"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160244"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160243"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160242"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AdisplayName%3AItem%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- | Type of the item: message or event.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_type"><span class="hs-identifier hs-type">item_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.ChatItemType.html#ChatItemType"><span class="hs-identifier hs-type">ChatItemType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="item_type"><span class="annot"><span class="annottext">item_type :: (Maybe ChatItemType -&gt; f (Maybe ChatItemType)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_type"><span class="hs-identifier hs-var hs-var">item_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe ChatItemType)
+-&gt; (Item -&gt; Maybe ChatItemType -&gt; Item)
+-&gt; Lens Item Item (Maybe ChatItemType) (Maybe ChatItemType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160240"><span class="annot"><span class="annottext">Maybe ChatItemType
+type' :: Maybe ChatItemType
+$sel:type':Item' :: Item -&gt; Maybe ChatItemType
+</span><a href="#local-6989586621679160240"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChatItemType
+</span><a href="#local-6989586621679160240"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160239"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160239"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160238"><span class="annot"><span class="annottext">Maybe ChatItemType
+</span><a href="#local-6989586621679160238"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160239"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Item' :: Maybe ChatItemType
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3Atype%27%3AItem%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChatItemType
+</span><a href="#local-6989586621679160238"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The type of content of the item.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#item_contentType"><span class="hs-identifier hs-type">item_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="item_contentType"><span class="annot"><span class="annottext">item_contentType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#item_contentType"><span class="hs-identifier hs-var hs-var">item_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160236"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679160236"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160236"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160235"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679160235"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160234"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160234"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679160235"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:Item' :: Maybe Text
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#%24sel%3AcontentType%3AItem%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679160234"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160231"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679160229"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Item
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Item) -&gt; Value -&gt; Parser Item
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Item&quot;</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679160226"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AttachmentItem]
+-&gt; Maybe ParticipantRole
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ChatItemType
+-&gt; Maybe Text
+-&gt; Item
+</span><a href="Amazonka.ConnectParticipant.Types.Item.html#Item%27"><span class="hs-identifier hs-var">Item'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [AttachmentItem]
+ -&gt; Maybe ParticipantRole
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ChatItemType
+ -&gt; Maybe Text
+ -&gt; Item)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [AttachmentItem]
+      -&gt; Maybe ParticipantRole
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChatItemType
+      -&gt; Maybe Text
+      -&gt; Item)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [AttachmentItem]
+   -&gt; Maybe ParticipantRole
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChatItemType
+   -&gt; Maybe Text
+   -&gt; Item)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [AttachmentItem]
+      -&gt; Maybe ParticipantRole
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChatItemType
+      -&gt; Maybe Text
+      -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AbsoluteTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AttachmentItem]
+   -&gt; Maybe ParticipantRole
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChatItemType
+   -&gt; Maybe Text
+   -&gt; Item)
+-&gt; Parser (Maybe [AttachmentItem])
+-&gt; Parser
+     (Maybe ParticipantRole
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChatItemType
+      -&gt; Maybe Text
+      -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [AttachmentItem]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attachments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AttachmentItem]))
+-&gt; Maybe [AttachmentItem] -&gt; Parser (Maybe [AttachmentItem])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AttachmentItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ParticipantRole
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChatItemType
+   -&gt; Maybe Text
+   -&gt; Item)
+-&gt; Parser (Maybe ParticipantRole)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ChatItemType
+      -&gt; Maybe Text
+      -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ParticipantRole)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ParticipantRole&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ChatItemType
+   -&gt; Maybe Text
+   -&gt; Item)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe ChatItemType -&gt; Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Content&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe ChatItemType -&gt; Maybe Text -&gt; Item)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe ChatItemType -&gt; Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe ChatItemType -&gt; Maybe Text -&gt; Item)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ChatItemType -&gt; Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DisplayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ChatItemType -&gt; Maybe Text -&gt; Item)
+-&gt; Parser (Maybe ChatItemType) -&gt; Parser (Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChatItemType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Item) -&gt; Parser (Maybe Text) -&gt; Parser Item
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160219"><span id="local-6989586621679160221"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160216"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ConnectParticipant.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

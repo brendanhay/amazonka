@@ -1,0 +1,801 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Rekognition.Types.SegmentDetection</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Rekognition.Types.SegmentDetection</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html"><span class="hs-identifier">Amazonka.Rekognition.Types.SegmentType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.ShotSegment.html"><span class="hs-identifier">Amazonka.Rekognition.Types.ShotSegment</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.TechnicalCueSegment.html"><span class="hs-identifier">Amazonka.Rekognition.Types.TechnicalCueSegment</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | A technical cue or shot detection segment detected in a video. An array</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- of @SegmentDetection@ objects containing all segments detected in a</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- stored video is returned by GetSegmentDetection.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newSegmentDetection' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679333289"><span id="local-6989586621679333290"></span></span><span class="hs-keyword">data</span><span> </span><span id="SegmentDetection"><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-var">SegmentDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentDetection%27"><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-var">SegmentDetection'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | If the segment is a technical cue, contains information about the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- technical cue.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtechnicalCueSegment%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe TechnicalCueSegment
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AtechnicalCueSegment%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">technicalCueSegment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.TechnicalCueSegment.html#TechnicalCueSegment"><span class="hs-identifier hs-type">TechnicalCueSegment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The frame number at the end of a video segment, using a frame index that</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- starts with 0.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AendFrameNumber%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendFrameNumber%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">endFrameNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The duration of the timecode for the detected segment in SMPTE format.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AdurationSMPTE%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">durationSMPTE</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The end time of the detected segment, in milliseconds, from the start of</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- the video. This value is rounded down.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AendTimestampMillis%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Integer
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendTimestampMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">endTimestampMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The frame-accurate SMPTE timecode, from the start of a video, for the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- (and /;fr/ for drop frame-rates).</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AstartTimecodeSMPTE%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartTimecodeSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">startTimecodeSMPTE</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The frame-accurate SMPTE timecode, from the start of a video, for the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- /;fr/ for drop frame-rates).</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AendTimecodeSMPTE%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendTimecodeSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">endTimecodeSMPTE</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The duration of the detected segment in milliseconds.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdurationMillis%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">durationMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The duration of a video segment, expressed in frames.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AdurationFrames%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationFrames%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">durationFrames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The start time of the detected segment in milliseconds from the start of</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- the video. This value is rounded down. For example, if the actual</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- value of 100 millis.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AstartTimestampMillis%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Integer
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartTimestampMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">startTimestampMillis</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Atype%27%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe SegmentType
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3Atype%27%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | If the segment is a shot detection, contains information about the shot</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- detection.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AshotSegment%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe ShotSegment
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AshotSegment%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">shotSegment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The frame number of the start of a video segment, using a frame index</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- that starts with 0.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AstartFrameNumber%3ASegmentDetection%27"><span class="annot"><span class="annottext">SegmentDetection -&gt; Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartFrameNumber%3ASegmentDetection%27"><span class="hs-identifier hs-var hs-var">startFrameNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679333272"><span id="local-6989586621679333274"><span class="annot"><span class="annottext">SegmentDetection -&gt; SegmentDetection -&gt; Bool
+(SegmentDetection -&gt; SegmentDetection -&gt; Bool)
+-&gt; (SegmentDetection -&gt; SegmentDetection -&gt; Bool)
+-&gt; Eq SegmentDetection
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SegmentDetection -&gt; SegmentDetection -&gt; Bool
+$c/= :: SegmentDetection -&gt; SegmentDetection -&gt; Bool
+== :: SegmentDetection -&gt; SegmentDetection -&gt; Bool
+$c== :: SegmentDetection -&gt; SegmentDetection -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333263"><span id="local-6989586621679333265"><span id="local-6989586621679333267"><span id="local-6989586621679333269"><span class="annot"><span class="annottext">ReadPrec [SegmentDetection]
+ReadPrec SegmentDetection
+Int -&gt; ReadS SegmentDetection
+ReadS [SegmentDetection]
+(Int -&gt; ReadS SegmentDetection)
+-&gt; ReadS [SegmentDetection]
+-&gt; ReadPrec SegmentDetection
+-&gt; ReadPrec [SegmentDetection]
+-&gt; Read SegmentDetection
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SegmentDetection]
+$creadListPrec :: ReadPrec [SegmentDetection]
+readPrec :: ReadPrec SegmentDetection
+$creadPrec :: ReadPrec SegmentDetection
+readList :: ReadS [SegmentDetection]
+$creadList :: ReadS [SegmentDetection]
+readsPrec :: Int -&gt; ReadS SegmentDetection
+$creadsPrec :: Int -&gt; ReadS SegmentDetection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679333256"><span id="local-6989586621679333258"><span id="local-6989586621679333260"><span class="annot"><span class="annottext">Int -&gt; SegmentDetection -&gt; ShowS
+[SegmentDetection] -&gt; ShowS
+SegmentDetection -&gt; String
+(Int -&gt; SegmentDetection -&gt; ShowS)
+-&gt; (SegmentDetection -&gt; String)
+-&gt; ([SegmentDetection] -&gt; ShowS)
+-&gt; Show SegmentDetection
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SegmentDetection] -&gt; ShowS
+$cshowList :: [SegmentDetection] -&gt; ShowS
+show :: SegmentDetection -&gt; String
+$cshow :: SegmentDetection -&gt; String
+showsPrec :: Int -&gt; SegmentDetection -&gt; ShowS
+$cshowsPrec :: Int -&gt; SegmentDetection -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SegmentDetection -&gt; Rep SegmentDetection x)
+-&gt; (forall x. Rep SegmentDetection x -&gt; SegmentDetection)
+-&gt; Generic SegmentDetection
+forall x. Rep SegmentDetection x -&gt; SegmentDetection
+forall x. SegmentDetection -&gt; Rep SegmentDetection x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SegmentDetection x -&gt; SegmentDetection
+$cfrom :: forall x. SegmentDetection -&gt; Rep SegmentDetection x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'SegmentDetection' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'technicalCueSegment', 'segmentDetection_technicalCueSegment' - If the segment is a technical cue, contains information about the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- technical cue.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'endFrameNumber', 'segmentDetection_endFrameNumber' - The frame number at the end of a video segment, using a frame index that</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- starts with 0.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'durationSMPTE', 'segmentDetection_durationSMPTE' - The duration of the timecode for the detected segment in SMPTE format.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'endTimestampMillis', 'segmentDetection_endTimestampMillis' - The end time of the detected segment, in milliseconds, from the start of</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- the video. This value is rounded down.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'startTimecodeSMPTE', 'segmentDetection_startTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- (and /;fr/ for drop frame-rates).</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'endTimecodeSMPTE', 'segmentDetection_endTimecodeSMPTE' - The frame-accurate SMPTE timecode, from the start of a video, for the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- /;fr/ for drop frame-rates).</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'durationMillis', 'segmentDetection_durationMillis' - The duration of the detected segment in milliseconds.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'durationFrames', 'segmentDetection_durationFrames' - The duration of a video segment, expressed in frames.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'startTimestampMillis', 'segmentDetection_startTimestampMillis' - The start time of the detected segment in milliseconds from the start of</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- the video. This value is rounded down. For example, if the actual</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- value of 100 millis.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'type'', 'segmentDetection_type' - The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'shotSegment', 'segmentDetection_shotSegment' - If the segment is a shot detection, contains information about the shot</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- detection.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'startFrameNumber', 'segmentDetection_startFrameNumber' - The frame number of the start of a video segment, using a frame index</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- that starts with 0.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#newSegmentDetection"><span class="hs-identifier hs-type">newSegmentDetection</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span>
+</span><span id="line-119"></span><span id="newSegmentDetection"><span class="annot"><span class="annottext">newSegmentDetection :: SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#newSegmentDetection"><span class="hs-identifier hs-var hs-var">newSegmentDetection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><span class="annottext">SegmentDetection' :: Maybe TechnicalCueSegment
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Integer
+-&gt; Maybe SegmentType
+-&gt; Maybe ShotSegment
+-&gt; Maybe Natural
+-&gt; SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:technicalCueSegment:SegmentDetection' :: Maybe TechnicalCueSegment
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AtechnicalCueSegment%3ASegmentDetection%27"><span class="hs-identifier hs-var">technicalCueSegment</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Maybe TechnicalCueSegment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><span class="annottext">$sel:endFrameNumber:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendFrameNumber%3ASegmentDetection%27"><span class="hs-identifier hs-var">endFrameNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationSMPTE:SegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var">durationSMPTE</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTimestampMillis:SegmentDetection' :: Maybe Integer
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendTimestampMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var">endTimestampMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimecodeSMPTE:SegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartTimecodeSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var">startTimecodeSMPTE</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:endTimecodeSMPTE:SegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendTimecodeSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var">endTimecodeSMPTE</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationMillis:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var">durationMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:durationFrames:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationFrames%3ASegmentDetection%27"><span class="hs-identifier hs-var">durationFrames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:startTimestampMillis:SegmentDetection' :: Maybe Integer
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartTimestampMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var">startTimestampMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':SegmentDetection' :: Maybe SegmentType
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3Atype%27%3ASegmentDetection%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:shotSegment:SegmentDetection' :: Maybe ShotSegment
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AshotSegment%3ASegmentDetection%27"><span class="hs-identifier hs-var">shotSegment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShotSegment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:startFrameNumber:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartFrameNumber%3ASegmentDetection%27"><span class="hs-identifier hs-var">startFrameNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | If the segment is a technical cue, contains information about the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- technical cue.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_technicalCueSegment"><span class="hs-identifier hs-type">segmentDetection_technicalCueSegment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.TechnicalCueSegment.html#TechnicalCueSegment"><span class="hs-identifier hs-type">TechnicalCueSegment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span id="segmentDetection_technicalCueSegment"><span class="annot"><span class="annottext">segmentDetection_technicalCueSegment :: (Maybe TechnicalCueSegment -&gt; f (Maybe TechnicalCueSegment))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_technicalCueSegment"><span class="hs-identifier hs-var hs-var">segmentDetection_technicalCueSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe TechnicalCueSegment)
+-&gt; (SegmentDetection
+    -&gt; Maybe TechnicalCueSegment -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection
+     SegmentDetection
+     (Maybe TechnicalCueSegment)
+     (Maybe TechnicalCueSegment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333247"><span class="annot"><span class="annottext">Maybe TechnicalCueSegment
+technicalCueSegment :: Maybe TechnicalCueSegment
+$sel:technicalCueSegment:SegmentDetection' :: SegmentDetection -&gt; Maybe TechnicalCueSegment
+</span><a href="#local-6989586621679333247"><span class="hs-identifier hs-var hs-var">technicalCueSegment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TechnicalCueSegment
+</span><a href="#local-6989586621679333247"><span class="hs-identifier hs-var">technicalCueSegment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333246"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333245"><span class="annot"><span class="annottext">Maybe TechnicalCueSegment
+</span><a href="#local-6989586621679333245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:technicalCueSegment:SegmentDetection' :: Maybe TechnicalCueSegment
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AtechnicalCueSegment%3ASegmentDetection%27"><span class="hs-identifier hs-var">technicalCueSegment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TechnicalCueSegment
+</span><a href="#local-6989586621679333245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The frame number at the end of a video segment, using a frame index that</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- starts with 0.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_endFrameNumber"><span class="hs-identifier hs-type">segmentDetection_endFrameNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="segmentDetection_endFrameNumber"><span class="annot"><span class="annottext">segmentDetection_endFrameNumber :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_endFrameNumber"><span class="hs-identifier hs-var hs-var">segmentDetection_endFrameNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Natural)
+-&gt; (SegmentDetection -&gt; Maybe Natural -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection SegmentDetection (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333243"><span class="annot"><span class="annottext">Maybe Natural
+endFrameNumber :: Maybe Natural
+$sel:endFrameNumber:SegmentDetection' :: SegmentDetection -&gt; Maybe Natural
+</span><a href="#local-6989586621679333243"><span class="hs-identifier hs-var hs-var">endFrameNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333243"><span class="hs-identifier hs-var">endFrameNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333242"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333242"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333241"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333241"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333242"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endFrameNumber:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendFrameNumber%3ASegmentDetection%27"><span class="hs-identifier hs-var">endFrameNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333241"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The duration of the timecode for the detected segment in SMPTE format.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_durationSMPTE"><span class="hs-identifier hs-type">segmentDetection_durationSMPTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="segmentDetection_durationSMPTE"><span class="annot"><span class="annottext">segmentDetection_durationSMPTE :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_durationSMPTE"><span class="hs-identifier hs-var hs-var">segmentDetection_durationSMPTE</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Text)
+-&gt; (SegmentDetection -&gt; Maybe Text -&gt; SegmentDetection)
+-&gt; Lens SegmentDetection SegmentDetection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333239"><span class="annot"><span class="annottext">Maybe Text
+durationSMPTE :: Maybe Text
+$sel:durationSMPTE:SegmentDetection' :: SegmentDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679333239"><span class="hs-identifier hs-var hs-var">durationSMPTE</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333239"><span class="hs-identifier hs-var">durationSMPTE</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333238"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333238"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333237"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333237"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333238"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationSMPTE:SegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var">durationSMPTE</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333237"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The end time of the detected segment, in milliseconds, from the start of</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- the video. This value is rounded down.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_endTimestampMillis"><span class="hs-identifier hs-type">segmentDetection_endTimestampMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="segmentDetection_endTimestampMillis"><span class="annot"><span class="annottext">segmentDetection_endTimestampMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_endTimestampMillis"><span class="hs-identifier hs-var hs-var">segmentDetection_endTimestampMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Integer)
+-&gt; (SegmentDetection -&gt; Maybe Integer -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection SegmentDetection (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333235"><span class="annot"><span class="annottext">Maybe Integer
+endTimestampMillis :: Maybe Integer
+$sel:endTimestampMillis:SegmentDetection' :: SegmentDetection -&gt; Maybe Integer
+</span><a href="#local-6989586621679333235"><span class="hs-identifier hs-var hs-var">endTimestampMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333235"><span class="hs-identifier hs-var">endTimestampMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333234"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333233"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimestampMillis:SegmentDetection' :: Maybe Integer
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendTimestampMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var">endTimestampMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The frame-accurate SMPTE timecode, from the start of a video, for the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- start of a detected segment. @StartTimecode@ is in /HH:MM:SS:fr/ format</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- (and /;fr/ for drop frame-rates).</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_startTimecodeSMPTE"><span class="hs-identifier hs-type">segmentDetection_startTimecodeSMPTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="segmentDetection_startTimecodeSMPTE"><span class="annot"><span class="annottext">segmentDetection_startTimecodeSMPTE :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_startTimecodeSMPTE"><span class="hs-identifier hs-var hs-var">segmentDetection_startTimecodeSMPTE</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Text)
+-&gt; (SegmentDetection -&gt; Maybe Text -&gt; SegmentDetection)
+-&gt; Lens SegmentDetection SegmentDetection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333231"><span class="annot"><span class="annottext">Maybe Text
+startTimecodeSMPTE :: Maybe Text
+$sel:startTimecodeSMPTE:SegmentDetection' :: SegmentDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679333231"><span class="hs-identifier hs-var hs-var">startTimecodeSMPTE</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333231"><span class="hs-identifier hs-var">startTimecodeSMPTE</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333230"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333229"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimecodeSMPTE:SegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartTimecodeSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var">startTimecodeSMPTE</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The frame-accurate SMPTE timecode, from the start of a video, for the</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- end of a detected segment. @EndTimecode@ is in /HH:MM:SS:fr/ format (and</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- /;fr/ for drop frame-rates).</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_endTimecodeSMPTE"><span class="hs-identifier hs-type">segmentDetection_endTimecodeSMPTE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="segmentDetection_endTimecodeSMPTE"><span class="annot"><span class="annottext">segmentDetection_endTimecodeSMPTE :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_endTimecodeSMPTE"><span class="hs-identifier hs-var hs-var">segmentDetection_endTimecodeSMPTE</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Text)
+-&gt; (SegmentDetection -&gt; Maybe Text -&gt; SegmentDetection)
+-&gt; Lens SegmentDetection SegmentDetection (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333227"><span class="annot"><span class="annottext">Maybe Text
+endTimecodeSMPTE :: Maybe Text
+$sel:endTimecodeSMPTE:SegmentDetection' :: SegmentDetection -&gt; Maybe Text
+</span><a href="#local-6989586621679333227"><span class="hs-identifier hs-var hs-var">endTimecodeSMPTE</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333227"><span class="hs-identifier hs-var">endTimecodeSMPTE</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333226"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333226"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333225"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333225"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333226"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endTimecodeSMPTE:SegmentDetection' :: Maybe Text
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AendTimecodeSMPTE%3ASegmentDetection%27"><span class="hs-identifier hs-var">endTimecodeSMPTE</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679333225"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The duration of the detected segment in milliseconds.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_durationMillis"><span class="hs-identifier hs-type">segmentDetection_durationMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="segmentDetection_durationMillis"><span class="annot"><span class="annottext">segmentDetection_durationMillis :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_durationMillis"><span class="hs-identifier hs-var hs-var">segmentDetection_durationMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Natural)
+-&gt; (SegmentDetection -&gt; Maybe Natural -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection SegmentDetection (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333223"><span class="annot"><span class="annottext">Maybe Natural
+durationMillis :: Maybe Natural
+$sel:durationMillis:SegmentDetection' :: SegmentDetection -&gt; Maybe Natural
+</span><a href="#local-6989586621679333223"><span class="hs-identifier hs-var hs-var">durationMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333223"><span class="hs-identifier hs-var">durationMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333222"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333221"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationMillis:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var">durationMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The duration of a video segment, expressed in frames.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_durationFrames"><span class="hs-identifier hs-type">segmentDetection_durationFrames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="segmentDetection_durationFrames"><span class="annot"><span class="annottext">segmentDetection_durationFrames :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_durationFrames"><span class="hs-identifier hs-var hs-var">segmentDetection_durationFrames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Natural)
+-&gt; (SegmentDetection -&gt; Maybe Natural -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection SegmentDetection (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333219"><span class="annot"><span class="annottext">Maybe Natural
+durationFrames :: Maybe Natural
+$sel:durationFrames:SegmentDetection' :: SegmentDetection -&gt; Maybe Natural
+</span><a href="#local-6989586621679333219"><span class="hs-identifier hs-var hs-var">durationFrames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333219"><span class="hs-identifier hs-var">durationFrames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333218"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333218"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333217"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333217"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333218"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:durationFrames:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AdurationFrames%3ASegmentDetection%27"><span class="hs-identifier hs-var">durationFrames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333217"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The start time of the detected segment in milliseconds from the start of</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- the video. This value is rounded down. For example, if the actual</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- value of 100 millis.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_startTimestampMillis"><span class="hs-identifier hs-type">segmentDetection_startTimestampMillis</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="segmentDetection_startTimestampMillis"><span class="annot"><span class="annottext">segmentDetection_startTimestampMillis :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_startTimestampMillis"><span class="hs-identifier hs-var hs-var">segmentDetection_startTimestampMillis</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Integer)
+-&gt; (SegmentDetection -&gt; Maybe Integer -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection SegmentDetection (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333215"><span class="annot"><span class="annottext">Maybe Integer
+startTimestampMillis :: Maybe Integer
+$sel:startTimestampMillis:SegmentDetection' :: SegmentDetection -&gt; Maybe Integer
+</span><a href="#local-6989586621679333215"><span class="hs-identifier hs-var hs-var">startTimestampMillis</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333215"><span class="hs-identifier hs-var">startTimestampMillis</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333214"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333213"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startTimestampMillis:SegmentDetection' :: Maybe Integer
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartTimestampMillis%3ASegmentDetection%27"><span class="hs-identifier hs-var">startTimestampMillis</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679333213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | The type of the segment. Valid values are @TECHNICAL_CUE@ and @SHOT@.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_type"><span class="hs-identifier hs-type">segmentDetection_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="segmentDetection_type"><span class="annot"><span class="annottext">segmentDetection_type :: (Maybe SegmentType -&gt; f (Maybe SegmentType))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_type"><span class="hs-identifier hs-var hs-var">segmentDetection_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe SegmentType)
+-&gt; (SegmentDetection -&gt; Maybe SegmentType -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection
+     SegmentDetection
+     (Maybe SegmentType)
+     (Maybe SegmentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333211"><span class="annot"><span class="annottext">Maybe SegmentType
+type' :: Maybe SegmentType
+$sel:type':SegmentDetection' :: SegmentDetection -&gt; Maybe SegmentType
+</span><a href="#local-6989586621679333211"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentType
+</span><a href="#local-6989586621679333211"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333210"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333209"><span class="annot"><span class="annottext">Maybe SegmentType
+</span><a href="#local-6989586621679333209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':SegmentDetection' :: Maybe SegmentType
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3Atype%27%3ASegmentDetection%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SegmentType
+</span><a href="#local-6989586621679333209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | If the segment is a shot detection, contains information about the shot</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- detection.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_shotSegment"><span class="hs-identifier hs-type">segmentDetection_shotSegment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.ShotSegment.html#ShotSegment"><span class="hs-identifier hs-type">ShotSegment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="segmentDetection_shotSegment"><span class="annot"><span class="annottext">segmentDetection_shotSegment :: (Maybe ShotSegment -&gt; f (Maybe ShotSegment))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_shotSegment"><span class="hs-identifier hs-var hs-var">segmentDetection_shotSegment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe ShotSegment)
+-&gt; (SegmentDetection -&gt; Maybe ShotSegment -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection
+     SegmentDetection
+     (Maybe ShotSegment)
+     (Maybe ShotSegment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333207"><span class="annot"><span class="annottext">Maybe ShotSegment
+shotSegment :: Maybe ShotSegment
+$sel:shotSegment:SegmentDetection' :: SegmentDetection -&gt; Maybe ShotSegment
+</span><a href="#local-6989586621679333207"><span class="hs-identifier hs-var hs-var">shotSegment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ShotSegment
+</span><a href="#local-6989586621679333207"><span class="hs-identifier hs-var">shotSegment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333206"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333205"><span class="annot"><span class="annottext">Maybe ShotSegment
+</span><a href="#local-6989586621679333205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shotSegment:SegmentDetection' :: Maybe ShotSegment
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AshotSegment%3ASegmentDetection%27"><span class="hs-identifier hs-var">shotSegment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ShotSegment
+</span><a href="#local-6989586621679333205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The frame number of the start of a video segment, using a frame index</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- that starts with 0.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_startFrameNumber"><span class="hs-identifier hs-type">segmentDetection_startFrameNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="segmentDetection_startFrameNumber"><span class="annot"><span class="annottext">segmentDetection_startFrameNumber :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SegmentDetection -&gt; f SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#segmentDetection_startFrameNumber"><span class="hs-identifier hs-var hs-var">segmentDetection_startFrameNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SegmentDetection -&gt; Maybe Natural)
+-&gt; (SegmentDetection -&gt; Maybe Natural -&gt; SegmentDetection)
+-&gt; Lens
+     SegmentDetection SegmentDetection (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679333203"><span class="annot"><span class="annottext">Maybe Natural
+startFrameNumber :: Maybe Natural
+$sel:startFrameNumber:SegmentDetection' :: SegmentDetection -&gt; Maybe Natural
+</span><a href="#local-6989586621679333203"><span class="hs-identifier hs-var hs-var">startFrameNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333203"><span class="hs-identifier hs-var">startFrameNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679333202"><span class="annot"><span class="annottext">s :: SegmentDetection
+</span><a href="#local-6989586621679333202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-type">SegmentDetection'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679333201"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SegmentDetection
+</span><a href="#local-6989586621679333202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startFrameNumber:SegmentDetection' :: Maybe Natural
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#%24sel%3AstartFrameNumber%3ASegmentDetection%27"><span class="hs-identifier hs-var">startFrameNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679333201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333198"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679333196"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SegmentDetection
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SegmentDetection)
+-&gt; Value
+-&gt; Parser SegmentDetection
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SegmentDetection&quot;</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679333193"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe TechnicalCueSegment
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Natural
+-&gt; Maybe Integer
+-&gt; Maybe SegmentType
+-&gt; Maybe ShotSegment
+-&gt; Maybe Natural
+-&gt; SegmentDetection
+</span><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection%27"><span class="hs-identifier hs-var">SegmentDetection'</span></a></span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TechnicalCueSegment
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Natural
+ -&gt; Maybe Integer
+ -&gt; Maybe SegmentType
+ -&gt; Maybe ShotSegment
+ -&gt; Maybe Natural
+ -&gt; SegmentDetection)
+-&gt; Parser (Maybe TechnicalCueSegment)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TechnicalCueSegment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TechnicalCueSegment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndFrameNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationSMPTE&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTimestampMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTimecodeSMPTE&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Natural
+      -&gt; Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndTimecodeSMPTE&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Natural
+   -&gt; Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe SegmentType
+      -&gt; Maybe ShotSegment
+      -&gt; Maybe Natural
+      -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DurationFrames&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe SegmentType
+   -&gt; Maybe ShotSegment
+   -&gt; Maybe Natural
+   -&gt; SegmentDetection)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe SegmentType
+      -&gt; Maybe ShotSegment -&gt; Maybe Natural -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartTimestampMillis&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe SegmentType
+   -&gt; Maybe ShotSegment -&gt; Maybe Natural -&gt; SegmentDetection)
+-&gt; Parser (Maybe SegmentType)
+-&gt; Parser (Maybe ShotSegment -&gt; Maybe Natural -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SegmentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ShotSegment -&gt; Maybe Natural -&gt; SegmentDetection)
+-&gt; Parser (Maybe ShotSegment)
+-&gt; Parser (Maybe Natural -&gt; SegmentDetection)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ShotSegment)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ShotSegment&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Natural -&gt; SegmentDetection)
+-&gt; Parser (Maybe Natural) -&gt; Parser SegmentDetection
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679333193"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StartFrameNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333187"><span id="local-6989586621679333189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span></span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679333184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentDetection.html#SegmentDetection"><span class="hs-identifier hs-type">SegmentDetection</span></a></span></span><span>
+</span><span id="line-219"></span></pre></body></html>

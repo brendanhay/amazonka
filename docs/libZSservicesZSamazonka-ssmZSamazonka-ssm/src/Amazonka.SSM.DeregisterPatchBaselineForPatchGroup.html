@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSM.DeregisterPatchBaselineForPatchGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Removes a patch group from a patch baseline.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.DeregisterPatchBaselineForPatchGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier">DeregisterPatchBaselineForPatchGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#newDeregisterPatchBaselineForPatchGroup"><span class="hs-identifier">newDeregisterPatchBaselineForPatchGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroup_baselineId"><span class="hs-identifier">deregisterPatchBaselineForPatchGroup_baselineId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroup_patchGroup"><span class="hs-identifier">deregisterPatchBaselineForPatchGroup_patchGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#newDeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier">newDeregisterPatchBaselineForPatchGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_baselineId"><span class="hs-identifier">deregisterPatchBaselineForPatchGroupResponse_baselineId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_patchGroup"><span class="hs-identifier">deregisterPatchBaselineForPatchGroupResponse_patchGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_httpStatus"><span class="hs-identifier">deregisterPatchBaselineForPatchGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.html"><span class="hs-identifier">Amazonka.SSM.Types</span></a></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeregisterPatchBaselineForPatchGroup' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679849813"><span id="local-6989586621679849814"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterPatchBaselineForPatchGroup"><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-var">DeregisterPatchBaselineForPatchGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterPatchBaselineForPatchGroup%27"><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-var">DeregisterPatchBaselineForPatchGroup'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the patch baseline to deregister the patch group from.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroup%27"><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroup -&gt; Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The name of the patch group that should be deregistered from the patch</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- baseline.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroup%27"><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroup -&gt; Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849806"><span id="local-6989586621679849808"><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroup
+-&gt; DeregisterPatchBaselineForPatchGroup -&gt; Bool
+(DeregisterPatchBaselineForPatchGroup
+ -&gt; DeregisterPatchBaselineForPatchGroup -&gt; Bool)
+-&gt; (DeregisterPatchBaselineForPatchGroup
+    -&gt; DeregisterPatchBaselineForPatchGroup -&gt; Bool)
+-&gt; Eq DeregisterPatchBaselineForPatchGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeregisterPatchBaselineForPatchGroup
+-&gt; DeregisterPatchBaselineForPatchGroup -&gt; Bool
+$c/= :: DeregisterPatchBaselineForPatchGroup
+-&gt; DeregisterPatchBaselineForPatchGroup -&gt; Bool
+== :: DeregisterPatchBaselineForPatchGroup
+-&gt; DeregisterPatchBaselineForPatchGroup -&gt; Bool
+$c== :: DeregisterPatchBaselineForPatchGroup
+-&gt; DeregisterPatchBaselineForPatchGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849797"><span id="local-6989586621679849799"><span id="local-6989586621679849801"><span id="local-6989586621679849803"><span class="annot"><span class="annottext">ReadPrec [DeregisterPatchBaselineForPatchGroup]
+ReadPrec DeregisterPatchBaselineForPatchGroup
+Int -&gt; ReadS DeregisterPatchBaselineForPatchGroup
+ReadS [DeregisterPatchBaselineForPatchGroup]
+(Int -&gt; ReadS DeregisterPatchBaselineForPatchGroup)
+-&gt; ReadS [DeregisterPatchBaselineForPatchGroup]
+-&gt; ReadPrec DeregisterPatchBaselineForPatchGroup
+-&gt; ReadPrec [DeregisterPatchBaselineForPatchGroup]
+-&gt; Read DeregisterPatchBaselineForPatchGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeregisterPatchBaselineForPatchGroup]
+$creadListPrec :: ReadPrec [DeregisterPatchBaselineForPatchGroup]
+readPrec :: ReadPrec DeregisterPatchBaselineForPatchGroup
+$creadPrec :: ReadPrec DeregisterPatchBaselineForPatchGroup
+readList :: ReadS [DeregisterPatchBaselineForPatchGroup]
+$creadList :: ReadS [DeregisterPatchBaselineForPatchGroup]
+readsPrec :: Int -&gt; ReadS DeregisterPatchBaselineForPatchGroup
+$creadsPrec :: Int -&gt; ReadS DeregisterPatchBaselineForPatchGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849790"><span id="local-6989586621679849792"><span id="local-6989586621679849794"><span class="annot"><span class="annottext">Int -&gt; DeregisterPatchBaselineForPatchGroup -&gt; ShowS
+[DeregisterPatchBaselineForPatchGroup] -&gt; ShowS
+DeregisterPatchBaselineForPatchGroup -&gt; String
+(Int -&gt; DeregisterPatchBaselineForPatchGroup -&gt; ShowS)
+-&gt; (DeregisterPatchBaselineForPatchGroup -&gt; String)
+-&gt; ([DeregisterPatchBaselineForPatchGroup] -&gt; ShowS)
+-&gt; Show DeregisterPatchBaselineForPatchGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeregisterPatchBaselineForPatchGroup] -&gt; ShowS
+$cshowList :: [DeregisterPatchBaselineForPatchGroup] -&gt; ShowS
+show :: DeregisterPatchBaselineForPatchGroup -&gt; String
+$cshow :: DeregisterPatchBaselineForPatchGroup -&gt; String
+showsPrec :: Int -&gt; DeregisterPatchBaselineForPatchGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeregisterPatchBaselineForPatchGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeregisterPatchBaselineForPatchGroup
+ -&gt; Rep DeregisterPatchBaselineForPatchGroup x)
+-&gt; (forall x.
+    Rep DeregisterPatchBaselineForPatchGroup x
+    -&gt; DeregisterPatchBaselineForPatchGroup)
+-&gt; Generic DeregisterPatchBaselineForPatchGroup
+forall x.
+Rep DeregisterPatchBaselineForPatchGroup x
+-&gt; DeregisterPatchBaselineForPatchGroup
+forall x.
+DeregisterPatchBaselineForPatchGroup
+-&gt; Rep DeregisterPatchBaselineForPatchGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeregisterPatchBaselineForPatchGroup x
+-&gt; DeregisterPatchBaselineForPatchGroup
+$cfrom :: forall x.
+DeregisterPatchBaselineForPatchGroup
+-&gt; Rep DeregisterPatchBaselineForPatchGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'DeregisterPatchBaselineForPatchGroup' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'baselineId', 'deregisterPatchBaselineForPatchGroup_baselineId' - The ID of the patch baseline to deregister the patch group from.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'patchGroup', 'deregisterPatchBaselineForPatchGroup_patchGroup' - The name of the patch group that should be deregistered from the patch</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- baseline.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#newDeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">newDeregisterPatchBaselineForPatchGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'baselineId'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'patchGroup'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span>
+</span><span id="line-79"></span><span id="newDeregisterPatchBaselineForPatchGroup"><span class="annot"><span class="annottext">newDeregisterPatchBaselineForPatchGroup :: Text -&gt; Text -&gt; DeregisterPatchBaselineForPatchGroup
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#newDeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-var hs-var">newDeregisterPatchBaselineForPatchGroup</span></a></span></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679849785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849785"><span class="hs-identifier hs-var">pBaselineId_</span></a></span></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679849784"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849784"><span class="hs-identifier hs-var">pPatchGroup_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroup' :: Text -&gt; Text -&gt; DeregisterPatchBaselineForPatchGroup
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup'</span></a></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baselineId:DeregisterPatchBaselineForPatchGroup' :: Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849785"><span class="hs-identifier hs-var">pBaselineId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">$sel:patchGroup:DeregisterPatchBaselineForPatchGroup' :: Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849784"><span class="hs-identifier hs-var">pPatchGroup_</span></a></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The ID of the patch baseline to deregister the patch group from.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroup_baselineId"><span class="hs-identifier hs-type">deregisterPatchBaselineForPatchGroup_baselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-90"></span><span id="deregisterPatchBaselineForPatchGroup_baselineId"><span class="annot"><span class="annottext">deregisterPatchBaselineForPatchGroup_baselineId :: (Text -&gt; f Text)
+-&gt; DeregisterPatchBaselineForPatchGroup
+-&gt; f DeregisterPatchBaselineForPatchGroup
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroup_baselineId"><span class="hs-identifier hs-var hs-var">deregisterPatchBaselineForPatchGroup_baselineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterPatchBaselineForPatchGroup -&gt; Text)
+-&gt; (DeregisterPatchBaselineForPatchGroup
+    -&gt; Text -&gt; DeregisterPatchBaselineForPatchGroup)
+-&gt; Lens
+     DeregisterPatchBaselineForPatchGroup
+     DeregisterPatchBaselineForPatchGroup
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849781"><span class="annot"><span class="annottext">Text
+baselineId :: Text
+$sel:baselineId:DeregisterPatchBaselineForPatchGroup' :: DeregisterPatchBaselineForPatchGroup -&gt; Text
+</span><a href="#local-6989586621679849781"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849781"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849780"><span class="annot"><span class="annottext">s :: DeregisterPatchBaselineForPatchGroup
+</span><a href="#local-6989586621679849780"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849779"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849779"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroup
+</span><a href="#local-6989586621679849780"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:DeregisterPatchBaselineForPatchGroup' :: Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849779"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the patch group that should be deregistered from the patch</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- baseline.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroup_patchGroup"><span class="hs-identifier hs-type">deregisterPatchBaselineForPatchGroup_patchGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-95"></span><span id="deregisterPatchBaselineForPatchGroup_patchGroup"><span class="annot"><span class="annottext">deregisterPatchBaselineForPatchGroup_patchGroup :: (Text -&gt; f Text)
+-&gt; DeregisterPatchBaselineForPatchGroup
+-&gt; f DeregisterPatchBaselineForPatchGroup
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroup_patchGroup"><span class="hs-identifier hs-var hs-var">deregisterPatchBaselineForPatchGroup_patchGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterPatchBaselineForPatchGroup -&gt; Text)
+-&gt; (DeregisterPatchBaselineForPatchGroup
+    -&gt; Text -&gt; DeregisterPatchBaselineForPatchGroup)
+-&gt; Lens
+     DeregisterPatchBaselineForPatchGroup
+     DeregisterPatchBaselineForPatchGroup
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849778"><span class="annot"><span class="annottext">Text
+patchGroup :: Text
+$sel:patchGroup:DeregisterPatchBaselineForPatchGroup' :: DeregisterPatchBaselineForPatchGroup -&gt; Text
+</span><a href="#local-6989586621679849778"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849778"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849777"><span class="annot"><span class="annottext">s :: DeregisterPatchBaselineForPatchGroup
+</span><a href="#local-6989586621679849777"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849776"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849776"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroup
+</span><a href="#local-6989586621679849777"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchGroup:DeregisterPatchBaselineForPatchGroup' :: Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849776"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679849772"><span class="annot"><span class="annottext">request :: DeregisterPatchBaselineForPatchGroup
+-&gt; Request DeregisterPatchBaselineForPatchGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeregisterPatchBaselineForPatchGroup
+-&gt; Request DeregisterPatchBaselineForPatchGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679849768"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeregisterPatchBaselineForPatchGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeregisterPatchBaselineForPatchGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either
+      String (AWSResponse DeregisterPatchBaselineForPatchGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeregisterPatchBaselineForPatchGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeregisterPatchBaselineForPatchGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679849765"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849765"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679849764"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679849764"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679849763"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849763"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-108"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaselineId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679849763"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; Either String Int
+-&gt; Either String DeregisterPatchBaselineForPatchGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849765"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679849755"><span id="local-6989586621679849757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679849752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679849748"><span class="annot"><span class="annottext">toHeaders :: DeregisterPatchBaselineForPatchGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DeregisterPatchBaselineForPatchGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonSSM.DeregisterPatchBaselineForPatchGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-135"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-136"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679849738"><span id="local-6989586621679849740"><span id="local-6989586621679849742"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span></span></span></span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679849736"><span class="annot"><span class="annottext">toJSON :: DeregisterPatchBaselineForPatchGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849733"><span id="local-6989586621679849734"><span class="annot"><span class="annottext">Text
+patchGroup :: Text
+baselineId :: Text
+$sel:patchGroup:DeregisterPatchBaselineForPatchGroup' :: DeregisterPatchBaselineForPatchGroup -&gt; Text
+$sel:baselineId:DeregisterPatchBaselineForPatchGroup' :: DeregisterPatchBaselineForPatchGroup -&gt; Text
+</span><a href="#local-6989586621679849733"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaselineId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849734"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PatchGroup&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679849733"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679849727"><span class="annot"><span class="annottext">toPath :: DeregisterPatchBaselineForPatchGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeregisterPatchBaselineForPatchGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroup"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroup</span></a></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679849723"><span class="annot"><span class="annottext">toQuery :: DeregisterPatchBaselineForPatchGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeregisterPatchBaselineForPatchGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newDeregisterPatchBaselineForPatchGroupResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679849720"><span id="local-6989586621679849721"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeregisterPatchBaselineForPatchGroupResponse"><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-var">DeregisterPatchBaselineForPatchGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeregisterPatchBaselineForPatchGroupResponse%27"><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the patch baseline the patch group was deregistered from.</span><span>
+</span><span id="line-167"></span><span>    </span><span id="%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">-- | The name of the patch group deregistered from the patch baseline.</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse -&gt; Int
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AhttpStatus%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679849713"><span id="local-6989586621679849715"><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse
+-&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; Bool
+(DeregisterPatchBaselineForPatchGroupResponse
+ -&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; Bool)
+-&gt; (DeregisterPatchBaselineForPatchGroupResponse
+    -&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; Bool)
+-&gt; Eq DeregisterPatchBaselineForPatchGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeregisterPatchBaselineForPatchGroupResponse
+-&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; Bool
+$c/= :: DeregisterPatchBaselineForPatchGroupResponse
+-&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; Bool
+== :: DeregisterPatchBaselineForPatchGroupResponse
+-&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; Bool
+$c== :: DeregisterPatchBaselineForPatchGroupResponse
+-&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849705"><span id="local-6989586621679849707"><span id="local-6989586621679849709"><span id="local-6989586621679849711"><span class="annot"><span class="annottext">ReadPrec [DeregisterPatchBaselineForPatchGroupResponse]
+ReadPrec DeregisterPatchBaselineForPatchGroupResponse
+Int -&gt; ReadS DeregisterPatchBaselineForPatchGroupResponse
+ReadS [DeregisterPatchBaselineForPatchGroupResponse]
+(Int -&gt; ReadS DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; ReadS [DeregisterPatchBaselineForPatchGroupResponse]
+-&gt; ReadPrec DeregisterPatchBaselineForPatchGroupResponse
+-&gt; ReadPrec [DeregisterPatchBaselineForPatchGroupResponse]
+-&gt; Read DeregisterPatchBaselineForPatchGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeregisterPatchBaselineForPatchGroupResponse]
+$creadListPrec :: ReadPrec [DeregisterPatchBaselineForPatchGroupResponse]
+readPrec :: ReadPrec DeregisterPatchBaselineForPatchGroupResponse
+$creadPrec :: ReadPrec DeregisterPatchBaselineForPatchGroupResponse
+readList :: ReadS [DeregisterPatchBaselineForPatchGroupResponse]
+$creadList :: ReadS [DeregisterPatchBaselineForPatchGroupResponse]
+readsPrec :: Int -&gt; ReadS DeregisterPatchBaselineForPatchGroupResponse
+$creadsPrec :: Int -&gt; ReadS DeregisterPatchBaselineForPatchGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679849699"><span id="local-6989586621679849701"><span id="local-6989586621679849703"><span class="annot"><span class="annottext">Int -&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; ShowS
+[DeregisterPatchBaselineForPatchGroupResponse] -&gt; ShowS
+DeregisterPatchBaselineForPatchGroupResponse -&gt; String
+(Int -&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; ShowS)
+-&gt; (DeregisterPatchBaselineForPatchGroupResponse -&gt; String)
+-&gt; ([DeregisterPatchBaselineForPatchGroupResponse] -&gt; ShowS)
+-&gt; Show DeregisterPatchBaselineForPatchGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeregisterPatchBaselineForPatchGroupResponse] -&gt; ShowS
+$cshowList :: [DeregisterPatchBaselineForPatchGroupResponse] -&gt; ShowS
+show :: DeregisterPatchBaselineForPatchGroupResponse -&gt; String
+$cshow :: DeregisterPatchBaselineForPatchGroupResponse -&gt; String
+showsPrec :: Int -&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeregisterPatchBaselineForPatchGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeregisterPatchBaselineForPatchGroupResponse
+ -&gt; Rep DeregisterPatchBaselineForPatchGroupResponse x)
+-&gt; (forall x.
+    Rep DeregisterPatchBaselineForPatchGroupResponse x
+    -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; Generic DeregisterPatchBaselineForPatchGroupResponse
+forall x.
+Rep DeregisterPatchBaselineForPatchGroupResponse x
+-&gt; DeregisterPatchBaselineForPatchGroupResponse
+forall x.
+DeregisterPatchBaselineForPatchGroupResponse
+-&gt; Rep DeregisterPatchBaselineForPatchGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeregisterPatchBaselineForPatchGroupResponse x
+-&gt; DeregisterPatchBaselineForPatchGroupResponse
+$cfrom :: forall x.
+DeregisterPatchBaselineForPatchGroupResponse
+-&gt; Rep DeregisterPatchBaselineForPatchGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'DeregisterPatchBaselineForPatchGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- 'baselineId', 'deregisterPatchBaselineForPatchGroupResponse_baselineId' - The ID of the patch baseline the patch group was deregistered from.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'patchGroup', 'deregisterPatchBaselineForPatchGroupResponse_patchGroup' - The name of the patch group deregistered from the patch baseline.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'httpStatus', 'deregisterPatchBaselineForPatchGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#newDeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">newDeregisterPatchBaselineForPatchGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span>
+</span><span id="line-192"></span><span id="newDeregisterPatchBaselineForPatchGroupResponse"><span class="annot"><span class="annottext">newDeregisterPatchBaselineForPatchGroupResponse :: Int -&gt; DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#newDeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-var hs-var">newDeregisterPatchBaselineForPatchGroupResponse</span></a></span></span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679849696"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>    </span><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Int
+-&gt; DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span>
+</span><span id="line-195"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baselineId:DeregisterPatchBaselineForPatchGroupResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:patchGroup:DeregisterPatchBaselineForPatchGroupResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterPatchBaselineForPatchGroupResponse' :: Int
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AhttpStatus%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849696"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The ID of the patch baseline the patch group was deregistered from.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_baselineId"><span class="hs-identifier hs-type">deregisterPatchBaselineForPatchGroupResponse_baselineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="deregisterPatchBaselineForPatchGroupResponse_baselineId"><span class="annot"><span class="annottext">deregisterPatchBaselineForPatchGroupResponse_baselineId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeregisterPatchBaselineForPatchGroupResponse
+-&gt; f DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_baselineId"><span class="hs-identifier hs-var hs-var">deregisterPatchBaselineForPatchGroupResponse_baselineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterPatchBaselineForPatchGroupResponse -&gt; Maybe Text)
+-&gt; (DeregisterPatchBaselineForPatchGroupResponse
+    -&gt; Maybe Text -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; Lens
+     DeregisterPatchBaselineForPatchGroupResponse
+     DeregisterPatchBaselineForPatchGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849695"><span class="annot"><span class="annottext">Maybe Text
+baselineId :: Maybe Text
+$sel:baselineId:DeregisterPatchBaselineForPatchGroupResponse' :: DeregisterPatchBaselineForPatchGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849695"><span class="hs-identifier hs-var hs-var">baselineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849695"><span class="hs-identifier hs-var">baselineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849694"><span class="annot"><span class="annottext">s :: DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="#local-6989586621679849694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849693"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="#local-6989586621679849694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baselineId:DeregisterPatchBaselineForPatchGroupResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AbaselineId%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">baselineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The name of the patch group deregistered from the patch baseline.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_patchGroup"><span class="hs-identifier hs-type">deregisterPatchBaselineForPatchGroupResponse_patchGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="deregisterPatchBaselineForPatchGroupResponse_patchGroup"><span class="annot"><span class="annottext">deregisterPatchBaselineForPatchGroupResponse_patchGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeregisterPatchBaselineForPatchGroupResponse
+-&gt; f DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_patchGroup"><span class="hs-identifier hs-var hs-var">deregisterPatchBaselineForPatchGroupResponse_patchGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterPatchBaselineForPatchGroupResponse -&gt; Maybe Text)
+-&gt; (DeregisterPatchBaselineForPatchGroupResponse
+    -&gt; Maybe Text -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; Lens
+     DeregisterPatchBaselineForPatchGroupResponse
+     DeregisterPatchBaselineForPatchGroupResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849692"><span class="annot"><span class="annottext">Maybe Text
+patchGroup :: Maybe Text
+$sel:patchGroup:DeregisterPatchBaselineForPatchGroupResponse' :: DeregisterPatchBaselineForPatchGroupResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679849692"><span class="hs-identifier hs-var hs-var">patchGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849692"><span class="hs-identifier hs-var">patchGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849691"><span class="annot"><span class="annottext">s :: DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="#local-6989586621679849691"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849690"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849690"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="#local-6989586621679849691"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:patchGroup:DeregisterPatchBaselineForPatchGroupResponse' :: Maybe Text
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3ApatchGroup%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">patchGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679849690"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_httpStatus"><span class="hs-identifier hs-type">deregisterPatchBaselineForPatchGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="deregisterPatchBaselineForPatchGroupResponse_httpStatus"><span class="annot"><span class="annottext">deregisterPatchBaselineForPatchGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeregisterPatchBaselineForPatchGroupResponse
+-&gt; f DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#deregisterPatchBaselineForPatchGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deregisterPatchBaselineForPatchGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeregisterPatchBaselineForPatchGroupResponse -&gt; Int)
+-&gt; (DeregisterPatchBaselineForPatchGroupResponse
+    -&gt; Int -&gt; DeregisterPatchBaselineForPatchGroupResponse)
+-&gt; Lens
+     DeregisterPatchBaselineForPatchGroupResponse
+     DeregisterPatchBaselineForPatchGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679849689"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeregisterPatchBaselineForPatchGroupResponse' :: DeregisterPatchBaselineForPatchGroupResponse -&gt; Int
+</span><a href="#local-6989586621679849689"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849689"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679849688"><span class="annot"><span class="annottext">s :: DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="#local-6989586621679849688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679849687"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeregisterPatchBaselineForPatchGroupResponse
+</span><a href="#local-6989586621679849688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeregisterPatchBaselineForPatchGroupResponse' :: Int
+</span><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#%24sel%3AhttpStatus%3ADeregisterPatchBaselineForPatchGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679849687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679849685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.SSM.DeregisterPatchBaselineForPatchGroup.html#DeregisterPatchBaselineForPatchGroupResponse"><span class="hs-identifier hs-type">DeregisterPatchBaselineForPatchGroupResponse</span></a></span></span><span>
+</span><span id="line-216"></span></pre></body></html>

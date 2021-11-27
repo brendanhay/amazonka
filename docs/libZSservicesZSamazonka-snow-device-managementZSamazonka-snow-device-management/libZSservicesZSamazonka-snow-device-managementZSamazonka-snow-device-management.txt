@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SnowDeviceManagement.Types.AttachmentStatus
+module Amazonka.SnowDeviceManagement.Types.AttachmentStatus
 newtype AttachmentStatus
 AttachmentStatus' :: Text -> AttachmentStatus
 [fromAttachmentStatus] :: AttachmentStatus -> Text
@@ -13,28 +13,28 @@ pattern AttachmentStatus_ATTACHED :: AttachmentStatus
 pattern AttachmentStatus_ATTACHING :: AttachmentStatus
 pattern AttachmentStatus_DETACHED :: AttachmentStatus
 pattern AttachmentStatus_DETACHING :: AttachmentStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance GHC.Classes.Ord Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.Text.ToText Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Amazonka.Data.Text.FromText Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance GHC.Classes.Ord Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.AttachmentStatus.AttachmentStatus
 
 
-module Network.AWS.SnowDeviceManagement.Types.Capacity
+module Amazonka.SnowDeviceManagement.Types.Capacity
 
 -- | The physical capacity of the Amazon Web Services Snow Family device.
 --   
@@ -95,16 +95,16 @@ capacity_unit :: Lens' Capacity (Maybe Text)
 
 -- | The amount of capacity available for use on the device.
 capacity_available :: Lens' Capacity (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.Capacity.Capacity
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.Capacity.Capacity
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.Capacity.Capacity
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.Capacity.Capacity
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.Capacity.Capacity
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.Capacity.Capacity
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.Capacity.Capacity
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.Capacity.Capacity
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.Capacity.Capacity
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.Capacity.Capacity
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.Capacity.Capacity
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.Capacity.Capacity
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.Capacity.Capacity
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.Capacity.Capacity
 
 
-module Network.AWS.SnowDeviceManagement.Types.CpuOptions
+module Amazonka.SnowDeviceManagement.Types.CpuOptions
 
 -- | The options for how a device's CPU is configured.
 --   
@@ -139,16 +139,16 @@ cpuOptions_coreCount :: Lens' CpuOptions (Maybe Int)
 
 -- | The number of threads per core in the CPU.
 cpuOptions_threadsPerCore :: Lens' CpuOptions (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.CpuOptions.CpuOptions
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.CpuOptions.CpuOptions
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.CpuOptions.CpuOptions
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.CpuOptions.CpuOptions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.CpuOptions.CpuOptions
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.CpuOptions.CpuOptions
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.CpuOptions.CpuOptions
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.CpuOptions.CpuOptions
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.CpuOptions.CpuOptions
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.CpuOptions.CpuOptions
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.CpuOptions.CpuOptions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.CpuOptions.CpuOptions
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.CpuOptions.CpuOptions
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.CpuOptions.CpuOptions
 
 
-module Network.AWS.SnowDeviceManagement.Types.DeviceSummary
+module Amazonka.SnowDeviceManagement.Types.DeviceSummary
 
 -- | Identifying information about the device.
 --   
@@ -209,16 +209,16 @@ deviceSummary_managedDeviceArn :: Lens' DeviceSummary (Maybe Text)
 --   categorize a resource in different ways, such as by purpose, owner, or
 --   environment.
 deviceSummary_tags :: Lens' DeviceSummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.DeviceSummary.DeviceSummary
 
 
-module Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice
+module Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice
 
 -- | Describes a parameter used to set up an Amazon Elastic Block Store
 --   (Amazon EBS) volume in a block device mapping.
@@ -277,16 +277,16 @@ ebsInstanceBlockDevice_volumeId :: Lens' EbsInstanceBlockDevice (Maybe Text)
 
 -- | When the attachment was initiated.
 ebsInstanceBlockDevice_attachTime :: Lens' EbsInstanceBlockDevice (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.EbsInstanceBlockDevice.EbsInstanceBlockDevice
 
 
-module Network.AWS.SnowDeviceManagement.Types.ExecutionState
+module Amazonka.SnowDeviceManagement.Types.ExecutionState
 newtype ExecutionState
 ExecutionState' :: Text -> ExecutionState
 [fromExecutionState] :: ExecutionState -> Text
@@ -297,28 +297,28 @@ pattern ExecutionState_QUEUED :: ExecutionState
 pattern ExecutionState_REJECTED :: ExecutionState
 pattern ExecutionState_SUCCEEDED :: ExecutionState
 pattern ExecutionState_TIMED_OUT :: ExecutionState
-instance Network.AWS.Data.XML.ToXML Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Network.AWS.Data.XML.FromXML Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Network.AWS.Data.Log.ToLog Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Network.AWS.Data.Text.ToText Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Network.AWS.Data.Text.FromText Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance GHC.Classes.Ord Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.XML.ToXML Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.XML.FromXML Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.Headers.ToHeader Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.Log.ToLog Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.Text.ToText Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Amazonka.Data.Text.FromText Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance GHC.Classes.Ord Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.ExecutionState.ExecutionState
 
 
-module Network.AWS.SnowDeviceManagement.Types.ExecutionSummary
+module Amazonka.SnowDeviceManagement.Types.ExecutionSummary
 
 -- | The summary of a task execution on a specified device.
 --   
@@ -372,16 +372,16 @@ executionSummary_taskId :: Lens' ExecutionSummary (Maybe Text)
 
 -- | The ID of the managed device that the task is being executed on.
 executionSummary_managedDeviceId :: Lens' ExecutionSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.ExecutionSummary.ExecutionSummary
 
 
-module Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
+module Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping
 
 -- | The description of a block device mapping.
 --   
@@ -420,16 +420,16 @@ instanceBlockDeviceMapping_ebs :: Lens' InstanceBlockDeviceMapping (Maybe EbsIns
 
 -- | The block device name.
 instanceBlockDeviceMapping_deviceName :: Lens' InstanceBlockDeviceMapping (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.InstanceBlockDeviceMapping.InstanceBlockDeviceMapping
 
 
-module Network.AWS.SnowDeviceManagement.Types.InstanceStateName
+module Amazonka.SnowDeviceManagement.Types.InstanceStateName
 newtype InstanceStateName
 InstanceStateName' :: Text -> InstanceStateName
 [fromInstanceStateName] :: InstanceStateName -> Text
@@ -439,28 +439,28 @@ pattern InstanceStateName_SHUTTING_DOWN :: InstanceStateName
 pattern InstanceStateName_STOPPED :: InstanceStateName
 pattern InstanceStateName_STOPPING :: InstanceStateName
 pattern InstanceStateName_TERMINATED :: InstanceStateName
-instance Network.AWS.Data.XML.ToXML Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Network.AWS.Data.XML.FromXML Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Network.AWS.Data.Log.ToLog Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Network.AWS.Data.Text.ToText Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Network.AWS.Data.Text.FromText Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance GHC.Classes.Ord Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.XML.ToXML Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.XML.FromXML Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.Headers.ToHeader Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.Log.ToLog Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.Text.ToText Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Amazonka.Data.Text.FromText Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance GHC.Classes.Ord Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.InstanceStateName.InstanceStateName
 
 
-module Network.AWS.SnowDeviceManagement.Types.InstanceState
+module Amazonka.SnowDeviceManagement.Types.InstanceState
 
 -- | The description of the current state of an instance.
 --   
@@ -561,43 +561,43 @@ instanceState_name :: Lens' InstanceState (Maybe InstanceStateName)
 --   You can ignore the high byte value by zeroing out all of the bits
 --   above 2^8 or 256 in decimal.
 instanceState_code :: Lens' InstanceState (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.InstanceState.InstanceState
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.InstanceState.InstanceState
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.InstanceState.InstanceState
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.InstanceState.InstanceState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.InstanceState.InstanceState
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.InstanceState.InstanceState
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.InstanceState.InstanceState
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.InstanceState.InstanceState
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.InstanceState.InstanceState
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.InstanceState.InstanceState
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.InstanceState.InstanceState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.InstanceState.InstanceState
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.InstanceState.InstanceState
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.InstanceState.InstanceState
 
 
-module Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment
+module Amazonka.SnowDeviceManagement.Types.IpAddressAssignment
 newtype IpAddressAssignment
 IpAddressAssignment' :: Text -> IpAddressAssignment
 [fromIpAddressAssignment] :: IpAddressAssignment -> Text
 pattern IpAddressAssignment_DHCP :: IpAddressAssignment
 pattern IpAddressAssignment_STATIC :: IpAddressAssignment
-instance Network.AWS.Data.XML.ToXML Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Network.AWS.Data.XML.FromXML Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Network.AWS.Data.Log.ToLog Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Network.AWS.Data.Text.ToText Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Network.AWS.Data.Text.FromText Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance GHC.Classes.Ord Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.XML.ToXML Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.XML.FromXML Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.Headers.ToHeader Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.Log.ToLog Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.Text.ToText Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Amazonka.Data.Text.FromText Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance GHC.Classes.Ord Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.IpAddressAssignment.IpAddressAssignment
 
 
-module Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType
+module Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType
 newtype PhysicalConnectorType
 PhysicalConnectorType' :: Text -> PhysicalConnectorType
 [fromPhysicalConnectorType] :: PhysicalConnectorType -> Text
@@ -606,28 +606,28 @@ pattern PhysicalConnectorType_RJ45 :: PhysicalConnectorType
 pattern PhysicalConnectorType_RJ45_2 :: PhysicalConnectorType
 pattern PhysicalConnectorType_SFP_PLUS :: PhysicalConnectorType
 pattern PhysicalConnectorType_WIFI :: PhysicalConnectorType
-instance Network.AWS.Data.XML.ToXML Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Network.AWS.Data.XML.FromXML Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Network.AWS.Data.Log.ToLog Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Network.AWS.Data.Text.ToText Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Network.AWS.Data.Text.FromText Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance GHC.Classes.Ord Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.XML.ToXML Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.XML.FromXML Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.Headers.ToHeader Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.Log.ToLog Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.Text.ToText Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Amazonka.Data.Text.FromText Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance GHC.Classes.Ord Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.PhysicalConnectorType.PhysicalConnectorType
 
 
-module Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface
+module Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface
 
 -- | The details about the physical network interface for the device.
 --   
@@ -716,16 +716,16 @@ physicalNetworkInterface_netmask :: Lens' PhysicalNetworkInterface (Maybe Text)
 
 -- | The physical connector type.
 physicalNetworkInterface_physicalConnectorType :: Lens' PhysicalNetworkInterface (Maybe PhysicalConnectorType)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.PhysicalNetworkInterface.PhysicalNetworkInterface
 
 
-module Network.AWS.SnowDeviceManagement.Types.Reboot
+module Amazonka.SnowDeviceManagement.Types.Reboot
 
 -- | A structure used to reboot the device.
 --   
@@ -738,16 +738,16 @@ Reboot' :: Reboot
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newReboot :: Reboot
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.Reboot.Reboot
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.Reboot.Reboot
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.Reboot.Reboot
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.Reboot.Reboot
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.Reboot.Reboot
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.Reboot.Reboot
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.Reboot.Reboot
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.Reboot.Reboot
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.Reboot.Reboot
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.Reboot.Reboot
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.Reboot.Reboot
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.Reboot.Reboot
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.Reboot.Reboot
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.Reboot.Reboot
 
 
-module Network.AWS.SnowDeviceManagement.Types.ResourceSummary
+module Amazonka.SnowDeviceManagement.Types.ResourceSummary
 
 -- | A summary of a resource available on the device.
 --   
@@ -791,16 +791,16 @@ resourceSummary_id :: Lens' ResourceSummary (Maybe Text)
 
 -- | The resource type.
 resourceSummary_resourceType :: Lens' ResourceSummary Text
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.ResourceSummary.ResourceSummary
 
 
-module Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier
+module Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier
 
 -- | Information about the device's security group.
 --   
@@ -835,16 +835,16 @@ securityGroupIdentifier_groupId :: Lens' SecurityGroupIdentifier (Maybe Text)
 
 -- | The security group name.
 securityGroupIdentifier_groupName :: Lens' SecurityGroupIdentifier (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.SecurityGroupIdentifier.SecurityGroupIdentifier
 
 
-module Network.AWS.SnowDeviceManagement.Types.Instance
+module Amazonka.SnowDeviceManagement.Types.Instance
 
 -- | The description of an instance. Currently, Amazon EC2 instances are
 --   the only supported instance type.
@@ -984,16 +984,16 @@ instance_publicIpAddress :: Lens' Instance (Maybe Text)
 -- | The Amazon Machine Image (AMI) launch index, which you can use to find
 --   this instance in the launch group.
 instance_amiLaunchIndex :: Lens' Instance (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.Instance.Instance
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.Instance.Instance
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.Instance.Instance
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.Instance.Instance
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.Instance.Instance
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.Instance.Instance
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.Instance.Instance
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.Instance.Instance
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.Instance.Instance
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.Instance.Instance
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.Instance.Instance
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.Instance.Instance
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.Instance.Instance
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.Instance.Instance
 
 
-module Network.AWS.SnowDeviceManagement.Types.InstanceSummary
+module Amazonka.SnowDeviceManagement.Types.InstanceSummary
 
 -- | The details about the instance.
 --   
@@ -1030,16 +1030,16 @@ instanceSummary_lastUpdatedAt :: Lens' InstanceSummary (Maybe UTCTime)
 
 -- | A structure containing details about the instance.
 instanceSummary_instance :: Lens' InstanceSummary (Maybe Instance)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.InstanceSummary.InstanceSummary
 
 
-module Network.AWS.SnowDeviceManagement.Types.SoftwareInformation
+module Amazonka.SnowDeviceManagement.Types.SoftwareInformation
 
 -- | Information about the software on the device.
 --   
@@ -1088,44 +1088,44 @@ softwareInformation_installState :: Lens' SoftwareInformation (Maybe Text)
 
 -- | The version of the software being installed on the device.
 softwareInformation_installingVersion :: Lens' SoftwareInformation (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.SoftwareInformation.SoftwareInformation
 
 
-module Network.AWS.SnowDeviceManagement.Types.TaskState
+module Amazonka.SnowDeviceManagement.Types.TaskState
 newtype TaskState
 TaskState' :: Text -> TaskState
 [fromTaskState] :: TaskState -> Text
 pattern TaskState_CANCELED :: TaskState
 pattern TaskState_COMPLETED :: TaskState
 pattern TaskState_IN_PROGRESS :: TaskState
-instance Network.AWS.Data.XML.ToXML Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Network.AWS.Data.XML.FromXML Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Network.AWS.Data.Log.ToLog Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Network.AWS.Data.Text.ToText Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Network.AWS.Data.Text.FromText Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance GHC.Classes.Ord Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.XML.ToXML Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.XML.FromXML Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.Headers.ToHeader Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.Log.ToLog Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.Text.ToText Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Amazonka.Data.Text.FromText Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance GHC.Classes.Ord Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.TaskState.TaskState
 
 
-module Network.AWS.SnowDeviceManagement.Types.TaskSummary
+module Amazonka.SnowDeviceManagement.Types.TaskSummary
 
 -- | Information about the task assigned to one or many devices.
 --   
@@ -1183,16 +1183,16 @@ taskSummary_tags :: Lens' TaskSummary (Maybe (HashMap Text Text))
 
 -- | The task ID.
 taskSummary_taskId :: Lens' TaskSummary Text
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.TaskSummary.TaskSummary
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.TaskSummary.TaskSummary
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.TaskSummary.TaskSummary
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.TaskSummary.TaskSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.TaskSummary.TaskSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.TaskSummary.TaskSummary
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.TaskSummary.TaskSummary
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.TaskSummary.TaskSummary
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.TaskSummary.TaskSummary
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.TaskSummary.TaskSummary
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.TaskSummary.TaskSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.TaskSummary.TaskSummary
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.TaskSummary.TaskSummary
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.TaskSummary.TaskSummary
 
 
-module Network.AWS.SnowDeviceManagement.Types.Unlock
+module Amazonka.SnowDeviceManagement.Types.Unlock
 
 -- | A structure used to unlock a device.
 --   
@@ -1205,16 +1205,16 @@ Unlock' :: Unlock
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUnlock :: Unlock
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.Unlock.Unlock
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.Unlock.Unlock
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.Unlock.Unlock
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.Unlock.Unlock
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.Unlock.Unlock
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.Unlock.Unlock
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.Unlock.Unlock
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.Unlock.Unlock
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.Unlock.Unlock
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.Unlock.Unlock
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.Unlock.Unlock
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.Unlock.Unlock
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.Unlock.Unlock
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.Unlock.Unlock
 
 
-module Network.AWS.SnowDeviceManagement.Types.Command
+module Amazonka.SnowDeviceManagement.Types.Command
 
 -- | The command given to the device to execute.
 --   
@@ -1248,44 +1248,44 @@ command_unlock :: Lens' Command (Maybe Unlock)
 
 -- | Reboots the device.
 command_reboot :: Lens' Command (Maybe Reboot)
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.Command.Command
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.Command.Command
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.Command.Command
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.Command.Command
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.Command.Command
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.Command.Command
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.Command.Command
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.Command.Command
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.Command.Command
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.Command.Command
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.Command.Command
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.Command.Command
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.Command.Command
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.Command.Command
 
 
-module Network.AWS.SnowDeviceManagement.Types.UnlockState
+module Amazonka.SnowDeviceManagement.Types.UnlockState
 newtype UnlockState
 UnlockState' :: Text -> UnlockState
 [fromUnlockState] :: UnlockState -> Text
 pattern UnlockState_LOCKED :: UnlockState
 pattern UnlockState_UNLOCKED :: UnlockState
 pattern UnlockState_UNLOCKING :: UnlockState
-instance Network.AWS.Data.XML.ToXML Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Network.AWS.Data.XML.FromXML Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Network.AWS.Data.Log.ToLog Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Network.AWS.Data.Text.ToText Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Network.AWS.Data.Text.FromText Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance GHC.Classes.Ord Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.XML.ToXML Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.XML.FromXML Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.Headers.ToHeader Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.Log.ToLog Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.Text.ToText Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Amazonka.Data.Text.FromText Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance GHC.Classes.Ord Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.Types.UnlockState.UnlockState
 
 
-module Network.AWS.SnowDeviceManagement.Types
+module Amazonka.SnowDeviceManagement.Types
 
 -- | API version <tt>2021-08-04</tt> of the Amazon Snow Device Management
 --   SDK configuration.
@@ -2268,7 +2268,7 @@ newUnlock :: Unlock
 
 
 -- | Adds or replaces tags on a device or task.
-module Network.AWS.SnowDeviceManagement.TagResource
+module Amazonka.SnowDeviceManagement.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2317,28 +2317,28 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.TagResource.TagResource
 
 
 -- | Returns a list of tasks that can be filtered by state.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SnowDeviceManagement.ListTasks
+module Amazonka.SnowDeviceManagement.ListTasks
 
 -- | <i>See:</i> <a>newListTasks</a> smart constructor.
 data ListTasks
@@ -2420,26 +2420,26 @@ listTasksResponse_nextToken :: Lens' ListTasksResponse (Maybe Text)
 
 -- | The response's http status code.
 listTasksResponse_httpStatus :: Lens' ListTasksResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListTasks.ListTasksResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListTasks.ListTasksResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListTasks.ListTasksResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListTasks.ListTasksResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListTasks.ListTasksResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.ListTasks.ListTasks
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListTasks.ListTasksResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListTasks.ListTasksResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListTasks.ListTasksResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListTasks.ListTasksResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListTasks.ListTasksResponse
+instance Amazonka.Pager.AWSPager Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.ListTasks.ListTasks
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.ListTasks.ListTasks
 
 
 -- | Returns a list of tags for a managed device or task.
-module Network.AWS.SnowDeviceManagement.ListTagsForResource
+module Amazonka.SnowDeviceManagement.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2498,27 +2498,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns the status of tasks for one or more target devices.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SnowDeviceManagement.ListExecutions
+module Amazonka.SnowDeviceManagement.ListExecutions
 
 -- | <i>See:</i> <a>newListExecutions</a> smart constructor.
 data ListExecutions
@@ -2619,22 +2619,22 @@ listExecutionsResponse_nextToken :: Lens' ListExecutionsResponse (Maybe Text)
 
 -- | The response's http status code.
 listExecutionsResponse_httpStatus :: Lens' ListExecutionsResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.ListExecutions.ListExecutions
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListExecutions.ListExecutionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.ListExecutions.ListExecutions
 
 
 -- | Returns a list of all devices on your Amazon Web Services account that
@@ -2642,7 +2642,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.ListExe
 --   Web Services Region where the command is run.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SnowDeviceManagement.ListDevices
+module Amazonka.SnowDeviceManagement.ListDevices
 
 -- | <i>See:</i> <a>newListDevices</a> smart constructor.
 data ListDevices
@@ -2727,22 +2727,22 @@ listDevicesResponse_devices :: Lens' ListDevicesResponse (Maybe [DeviceSummary])
 
 -- | The response's http status code.
 listDevicesResponse_httpStatus :: Lens' ListDevicesResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListDevices.ListDevicesResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListDevices.ListDevicesResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListDevices.ListDevicesResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListDevices.ListDevicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListDevices.ListDevicesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.ListDevices.ListDevices
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListDevices.ListDevicesResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListDevices.ListDevicesResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListDevices.ListDevicesResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListDevices.ListDevicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListDevices.ListDevicesResponse
+instance Amazonka.Pager.AWSPager Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.ListDevices.ListDevices
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.ListDevices.ListDevices
 
 
 -- | Returns a list of the Amazon Web Services resources available for a
@@ -2750,7 +2750,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.ListDev
 --   resource type.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SnowDeviceManagement.ListDeviceResources
+module Amazonka.SnowDeviceManagement.ListDeviceResources
 
 -- | <i>See:</i> <a>newListDeviceResources</a> smart constructor.
 data ListDeviceResources
@@ -2851,26 +2851,26 @@ listDeviceResourcesResponse_nextToken :: Lens' ListDeviceResourcesResponse (Mayb
 
 -- | The response's http status code.
 listDeviceResourcesResponse_httpStatus :: Lens' ListDeviceResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.ListDeviceResources.ListDeviceResources
 
 
 -- | Checks the metadata for a given task on a device.
-module Network.AWS.SnowDeviceManagement.DescribeTask
+module Amazonka.SnowDeviceManagement.DescribeTask
 
 -- | <i>See:</i> <a>newDescribeTask</a> smart constructor.
 data DescribeTask
@@ -3010,27 +3010,27 @@ describeTaskResponse_tags :: Lens' DescribeTaskResponse (Maybe (HashMap Text Tex
 
 -- | The response's http status code.
 describeTaskResponse_httpStatus :: Lens' DescribeTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.DescribeTask.DescribeTask
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeTask.DescribeTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.DescribeTask.DescribeTask
 
 
 -- | Checks the status of a remote task running on one or more target
 --   devices.
-module Network.AWS.SnowDeviceManagement.DescribeExecution
+module Amazonka.SnowDeviceManagement.DescribeExecution
 
 -- | <i>See:</i> <a>newDescribeExecution</a> smart constructor.
 data DescribeExecution
@@ -3147,29 +3147,29 @@ describeExecutionResponse_managedDeviceId :: Lens' DescribeExecutionResponse (Ma
 
 -- | The response's http status code.
 describeExecutionResponse_httpStatus :: Lens' DescribeExecutionResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecutionResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.DescribeExecution.DescribeExecution
 
 
 -- | Checks the current state of the Amazon EC2 instances. The output is
 --   similar to <tt>describeDevice</tt>, but the results are sourced from
 --   the device cache in the Amazon Web Services Cloud and include a subset
 --   of the available fields.
-module Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances
+module Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances
 
 -- | <i>See:</i> <a>newDescribeDeviceEc2Instances</a> smart constructor.
 data DescribeDeviceEc2Instances
@@ -3239,27 +3239,27 @@ describeDeviceEc2InstancesResponse_instances :: Lens' DescribeDeviceEc2Instances
 
 -- | The response's http status code.
 describeDeviceEc2InstancesResponse_httpStatus :: Lens' DescribeDeviceEc2InstancesResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2InstancesResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.DescribeDeviceEc2Instances.DescribeDeviceEc2Instances
 
 
 -- | Checks device-specific information, such as the device type, software
 --   version, IP addresses, and lock status.
-module Network.AWS.SnowDeviceManagement.DescribeDevice
+module Amazonka.SnowDeviceManagement.DescribeDevice
 
 -- | <i>See:</i> <a>newDescribeDevice</a> smart constructor.
 data DescribeDevice
@@ -3429,27 +3429,27 @@ describeDeviceResponse_tags :: Lens' DescribeDeviceResponse (Maybe (HashMap Text
 
 -- | The response's http status code.
 describeDeviceResponse_httpStatus :: Lens' DescribeDeviceResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDeviceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.DescribeDevice.DescribeDevice
 
 
 -- | Instructs one or more devices to start a task, such as unlocking or
 --   rebooting.
-module Network.AWS.SnowDeviceManagement.CreateTask
+module Amazonka.SnowDeviceManagement.CreateTask
 
 -- | <i>See:</i> <a>newCreateTask</a> smart constructor.
 data CreateTask
@@ -3563,22 +3563,22 @@ createTaskResponse_taskArn :: Lens' CreateTaskResponse (Maybe Text)
 
 -- | The response's http status code.
 createTaskResponse_httpStatus :: Lens' CreateTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.CreateTask.CreateTaskResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.CreateTask.CreateTaskResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.CreateTask.CreateTaskResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.CreateTask.CreateTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.CreateTask.CreateTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.CreateTask.CreateTask
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.CreateTask.CreateTaskResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.CreateTask.CreateTaskResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.CreateTask.CreateTaskResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.CreateTask.CreateTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.CreateTask.CreateTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.CreateTask.CreateTask
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.CreateTask.CreateTask
 
 
 -- | Sends a cancel request for a specified task. You can cancel a task
@@ -3587,7 +3587,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.CreateT
 --   
 --   A task might still run if it's processed from the queue before the
 --   <tt>CancelTask</tt> operation changes the task's state.
-module Network.AWS.SnowDeviceManagement.CancelTask
+module Amazonka.SnowDeviceManagement.CancelTask
 
 -- | <i>See:</i> <a>newCancelTask</a> smart constructor.
 data CancelTask
@@ -3646,26 +3646,26 @@ cancelTaskResponse_taskId :: Lens' CancelTaskResponse (Maybe Text)
 
 -- | The response's http status code.
 cancelTaskResponse_httpStatus :: Lens' CancelTaskResponse Int
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.CancelTask.CancelTaskResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.CancelTask.CancelTaskResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.CancelTask.CancelTaskResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.CancelTask.CancelTaskResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.CancelTask.CancelTaskResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.CancelTask.CancelTask
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.CancelTask.CancelTaskResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.CancelTask.CancelTaskResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.CancelTask.CancelTaskResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.CancelTask.CancelTaskResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.CancelTask.CancelTaskResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.CancelTask.CancelTask
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.CancelTask.CancelTask
 
 
 -- | Removes a tag from a device or task.
-module Network.AWS.SnowDeviceManagement.UntagResource
+module Amazonka.SnowDeviceManagement.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -3716,24 +3716,24 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.SnowDeviceManagement.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.SnowDeviceManagement.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.SnowDeviceManagement.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.SnowDeviceManagement.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SnowDeviceManagement.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.SnowDeviceManagement.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.SnowDeviceManagement.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.SnowDeviceManagement.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.SnowDeviceManagement.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.SnowDeviceManagement.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.SnowDeviceManagement.UntagResource.UntagResource
 
 
-module Network.AWS.SnowDeviceManagement.Lens
+module Amazonka.SnowDeviceManagement.Lens
 
 -- | The Amazon Resource Name (ARN) of the device or task.
 listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
@@ -4206,14 +4206,14 @@ taskSummary_tags :: Lens' TaskSummary (Maybe (HashMap Text Text))
 taskSummary_taskId :: Lens' TaskSummary Text
 
 
-module Network.AWS.SnowDeviceManagement.Waiters
+module Amazonka.SnowDeviceManagement.Waiters
 
 
 -- | Derived from API version <tt>2021-08-04</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Amazon Web Services Snow Device Management documentation.
-module Network.AWS.SnowDeviceManagement
+module Amazonka.SnowDeviceManagement
 
 -- | API version <tt>2021-08-04</tt> of the Amazon Snow Device Management
 --   SDK configuration.

@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.GroundStation.Types.AngleUnits
+module Amazonka.GroundStation.Types.AngleUnits
 newtype AngleUnits
 AngleUnits' :: Text -> AngleUnits
 [fromAngleUnits] :: AngleUnits -> Text
 pattern AngleUnits_DEGREE_ANGLE :: AngleUnits
 pattern AngleUnits_RADIAN :: AngleUnits
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance GHC.Read.Read Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
-instance GHC.Show.Show Network.AWS.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance GHC.Read.Read Amazonka.GroundStation.Types.AngleUnits.AngleUnits
+instance GHC.Show.Show Amazonka.GroundStation.Types.AngleUnits.AngleUnits
 
 
-module Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails
+module Amazonka.GroundStation.Types.AntennaDemodDecodeDetails
 
 -- | Details about an antenna demod decode <tt>Config</tt> used in a
 --   contact.
@@ -60,44 +60,44 @@ newAntennaDemodDecodeDetails :: AntennaDemodDecodeDetails
 
 -- | Name of an antenna demod decode output node used in a contact.
 antennaDemodDecodeDetails_outputNode :: Lens' AntennaDemodDecodeDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
-instance GHC.Show.Show Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
-instance GHC.Read.Read Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
+instance GHC.Show.Show Amazonka.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
+instance GHC.Read.Read Amazonka.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.AntennaDemodDecodeDetails.AntennaDemodDecodeDetails
 
 
-module Network.AWS.GroundStation.Types.BandwidthUnits
+module Amazonka.GroundStation.Types.BandwidthUnits
 newtype BandwidthUnits
 BandwidthUnits' :: Text -> BandwidthUnits
 [fromBandwidthUnits] :: BandwidthUnits -> Text
 pattern BandwidthUnits_GHz :: BandwidthUnits
 pattern BandwidthUnits_KHz :: BandwidthUnits
 pattern BandwidthUnits_MHz :: BandwidthUnits
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance GHC.Read.Read Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
-instance GHC.Show.Show Network.AWS.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance GHC.Read.Read Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
+instance GHC.Show.Show Amazonka.GroundStation.Types.BandwidthUnits.BandwidthUnits
 
 
-module Network.AWS.GroundStation.Types.ConfigCapabilityType
+module Amazonka.GroundStation.Types.ConfigCapabilityType
 newtype ConfigCapabilityType
 ConfigCapabilityType' :: Text -> ConfigCapabilityType
 [fromConfigCapabilityType] :: ConfigCapabilityType -> Text
@@ -108,28 +108,28 @@ pattern ConfigCapabilityType_Dataflow_endpoint :: ConfigCapabilityType
 pattern ConfigCapabilityType_S3_recording :: ConfigCapabilityType
 pattern ConfigCapabilityType_Tracking :: ConfigCapabilityType
 pattern ConfigCapabilityType_Uplink_echo :: ConfigCapabilityType
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance GHC.Read.Read Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
+instance GHC.Show.Show Amazonka.GroundStation.Types.ConfigCapabilityType.ConfigCapabilityType
 
 
-module Network.AWS.GroundStation.Types.ConfigIdResponse
+module Amazonka.GroundStation.Types.ConfigIdResponse
 
 -- | <i>See:</i> <a>newConfigIdResponse</a> smart constructor.
 data ConfigIdResponse
@@ -171,16 +171,16 @@ configIdResponse_configId :: Lens' ConfigIdResponse (Maybe Text)
 
 -- | Type of a <tt>Config</tt>.
 configIdResponse_configType :: Lens' ConfigIdResponse (Maybe ConfigCapabilityType)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
+instance GHC.Show.Show Amazonka.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
+instance GHC.Read.Read Amazonka.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ConfigIdResponse.ConfigIdResponse
 
 
-module Network.AWS.GroundStation.Types.ConfigListItem
+module Amazonka.GroundStation.Types.ConfigListItem
 
 -- | An item in a list of <tt>Config</tt> objects.
 --   
@@ -233,16 +233,16 @@ configListItem_configId :: Lens' ConfigListItem (Maybe Text)
 
 -- | Type of a <tt>Config</tt>.
 configListItem_configType :: Lens' ConfigListItem (Maybe ConfigCapabilityType)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ConfigListItem.ConfigListItem
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ConfigListItem.ConfigListItem
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ConfigListItem.ConfigListItem
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ConfigListItem.ConfigListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ConfigListItem.ConfigListItem
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ConfigListItem.ConfigListItem
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ConfigListItem.ConfigListItem
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ConfigListItem.ConfigListItem
+instance GHC.Show.Show Amazonka.GroundStation.Types.ConfigListItem.ConfigListItem
+instance GHC.Read.Read Amazonka.GroundStation.Types.ConfigListItem.ConfigListItem
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ConfigListItem.ConfigListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ConfigListItem.ConfigListItem
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ConfigListItem.ConfigListItem
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ConfigListItem.ConfigListItem
 
 
-module Network.AWS.GroundStation.Types.ContactIdResponse
+module Amazonka.GroundStation.Types.ContactIdResponse
 
 -- | <i>See:</i> <a>newContactIdResponse</a> smart constructor.
 data ContactIdResponse
@@ -266,16 +266,16 @@ newContactIdResponse :: ContactIdResponse
 
 -- | UUID of a contact.
 contactIdResponse_contactId :: Lens' ContactIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ContactIdResponse.ContactIdResponse
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ContactIdResponse.ContactIdResponse
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ContactIdResponse.ContactIdResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ContactIdResponse.ContactIdResponse
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ContactIdResponse.ContactIdResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ContactIdResponse.ContactIdResponse
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ContactIdResponse.ContactIdResponse
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ContactIdResponse.ContactIdResponse
+instance GHC.Show.Show Amazonka.GroundStation.Types.ContactIdResponse.ContactIdResponse
+instance GHC.Read.Read Amazonka.GroundStation.Types.ContactIdResponse.ContactIdResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ContactIdResponse.ContactIdResponse
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ContactIdResponse.ContactIdResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ContactIdResponse.ContactIdResponse
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ContactIdResponse.ContactIdResponse
 
 
-module Network.AWS.GroundStation.Types.ContactStatus
+module Amazonka.GroundStation.Types.ContactStatus
 newtype ContactStatus
 ContactStatus' :: Text -> ContactStatus
 [fromContactStatus] :: ContactStatus -> Text
@@ -292,56 +292,56 @@ pattern ContactStatus_POSTPASS :: ContactStatus
 pattern ContactStatus_PREPASS :: ContactStatus
 pattern ContactStatus_SCHEDULED :: ContactStatus
 pattern ContactStatus_SCHEDULING :: ContactStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance GHC.Read.Read Amazonka.GroundStation.Types.ContactStatus.ContactStatus
+instance GHC.Show.Show Amazonka.GroundStation.Types.ContactStatus.ContactStatus
 
 
-module Network.AWS.GroundStation.Types.Criticality
+module Amazonka.GroundStation.Types.Criticality
 newtype Criticality
 Criticality' :: Text -> Criticality
 [fromCriticality] :: Criticality -> Text
 pattern Criticality_PREFERRED :: Criticality
 pattern Criticality_REMOVED :: Criticality
 pattern Criticality_REQUIRED :: Criticality
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.Criticality.Criticality
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.Criticality.Criticality
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.Criticality.Criticality
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.Criticality.Criticality
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.Criticality.Criticality
-instance GHC.Read.Read Network.AWS.GroundStation.Types.Criticality.Criticality
-instance GHC.Show.Show Network.AWS.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.Criticality.Criticality
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.Criticality.Criticality
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.Criticality.Criticality
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.Criticality.Criticality
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.Criticality.Criticality
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.Criticality.Criticality
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.Criticality.Criticality
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.Criticality.Criticality
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.Criticality.Criticality
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.Criticality.Criticality
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.Criticality.Criticality
+instance GHC.Read.Read Amazonka.GroundStation.Types.Criticality.Criticality
+instance GHC.Show.Show Amazonka.GroundStation.Types.Criticality.Criticality
 
 
-module Network.AWS.GroundStation.Types.DataflowEndpointConfig
+module Amazonka.GroundStation.Types.DataflowEndpointConfig
 
 -- | Information about the dataflow endpoint <tt>Config</tt>.
 --   
@@ -378,17 +378,17 @@ dataflowEndpointConfig_dataflowEndpointRegion :: Lens' DataflowEndpointConfig (M
 
 -- | Name of a dataflow endpoint.
 dataflowEndpointConfig_dataflowEndpointName :: Lens' DataflowEndpointConfig Text
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.DataflowEndpointConfig.DataflowEndpointConfig
 
 
-module Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse
+module Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse
 
 -- | <i>See:</i> <a>newDataflowEndpointGroupIdResponse</a> smart
 --   constructor.
@@ -414,16 +414,16 @@ newDataflowEndpointGroupIdResponse :: DataflowEndpointGroupIdResponse
 
 -- | UUID of a dataflow endpoint group.
 dataflowEndpointGroupIdResponse_dataflowEndpointGroupId :: Lens' DataflowEndpointGroupIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
-instance GHC.Show.Show Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
-instance GHC.Read.Read Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
+instance GHC.Show.Show Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
+instance GHC.Read.Read Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.DataflowEndpointGroupIdResponse.DataflowEndpointGroupIdResponse
 
 
-module Network.AWS.GroundStation.Types.DataflowEndpointListItem
+module Amazonka.GroundStation.Types.DataflowEndpointListItem
 
 -- | Item in a list of <tt>DataflowEndpoint</tt> groups.
 --   
@@ -460,16 +460,16 @@ dataflowEndpointListItem_dataflowEndpointGroupArn :: Lens' DataflowEndpointListI
 
 -- | UUID of a dataflow endpoint group.
 dataflowEndpointListItem_dataflowEndpointGroupId :: Lens' DataflowEndpointListItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
-instance GHC.Show.Show Network.AWS.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
-instance GHC.Read.Read Network.AWS.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
+instance GHC.Show.Show Amazonka.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
+instance GHC.Read.Read Amazonka.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.DataflowEndpointListItem.DataflowEndpointListItem
 
 
-module Network.AWS.GroundStation.Types.DecodeConfig
+module Amazonka.GroundStation.Types.DecodeConfig
 
 -- | Information about the decode <tt>Config</tt>.
 --   
@@ -496,17 +496,17 @@ newDecodeConfig :: Text -> DecodeConfig
 
 -- | Unvalidated JSON of a decode <tt>Config</tt>.
 decodeConfig_unvalidatedJSON :: Lens' DecodeConfig Text
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.DecodeConfig.DecodeConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.DecodeConfig.DecodeConfig
 
 
-module Network.AWS.GroundStation.Types.DemodulationConfig
+module Amazonka.GroundStation.Types.DemodulationConfig
 
 -- | Information about the demodulation <tt>Config</tt>.
 --   
@@ -533,43 +533,43 @@ newDemodulationConfig :: Text -> DemodulationConfig
 
 -- | Unvalidated JSON of a demodulation <tt>Config</tt>.
 demodulationConfig_unvalidatedJSON :: Lens' DemodulationConfig Text
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.DemodulationConfig.DemodulationConfig
 
 
-module Network.AWS.GroundStation.Types.EirpUnits
+module Amazonka.GroundStation.Types.EirpUnits
 newtype EirpUnits
 EirpUnits' :: Text -> EirpUnits
 [fromEirpUnits] :: EirpUnits -> Text
 pattern EirpUnits_DBW :: EirpUnits
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance GHC.Read.Read Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
-instance GHC.Show.Show Network.AWS.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance GHC.Read.Read Amazonka.GroundStation.Types.EirpUnits.EirpUnits
+instance GHC.Show.Show Amazonka.GroundStation.Types.EirpUnits.EirpUnits
 
 
-module Network.AWS.GroundStation.Types.Eirp
+module Amazonka.GroundStation.Types.Eirp
 
 -- | Object that represents EIRP.
 --   
@@ -602,17 +602,17 @@ eirp_units :: Lens' Eirp EirpUnits
 
 -- | Value of an EIRP. Valid values are between 20.0 to 50.0 dBW.
 eirp_value :: Lens' Eirp Double
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.Eirp.Eirp
-instance GHC.Show.Show Network.AWS.GroundStation.Types.Eirp.Eirp
-instance GHC.Read.Read Network.AWS.GroundStation.Types.Eirp.Eirp
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.Eirp.Eirp
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.Eirp.Eirp
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.Eirp.Eirp
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.Eirp.Eirp
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.Eirp.Eirp
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.Eirp.Eirp
+instance GHC.Show.Show Amazonka.GroundStation.Types.Eirp.Eirp
+instance GHC.Read.Read Amazonka.GroundStation.Types.Eirp.Eirp
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.Eirp.Eirp
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.Eirp.Eirp
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.Eirp.Eirp
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.Eirp.Eirp
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.Eirp.Eirp
 
 
-module Network.AWS.GroundStation.Types.Elevation
+module Amazonka.GroundStation.Types.Elevation
 
 -- | Elevation angle of the satellite in the sky during a contact.
 --   
@@ -646,16 +646,16 @@ elevation_unit :: Lens' Elevation AngleUnits
 
 -- | Elevation angle value.
 elevation_value :: Lens' Elevation Double
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.Elevation.Elevation
-instance GHC.Show.Show Network.AWS.GroundStation.Types.Elevation.Elevation
-instance GHC.Read.Read Network.AWS.GroundStation.Types.Elevation.Elevation
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.Elevation.Elevation
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.Elevation.Elevation
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.Elevation.Elevation
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.Elevation.Elevation
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.Elevation.Elevation
+instance GHC.Show.Show Amazonka.GroundStation.Types.Elevation.Elevation
+instance GHC.Read.Read Amazonka.GroundStation.Types.Elevation.Elevation
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.Elevation.Elevation
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.Elevation.Elevation
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.Elevation.Elevation
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.Elevation.Elevation
 
 
-module Network.AWS.GroundStation.Types.ContactData
+module Amazonka.GroundStation.Types.ContactData
 
 -- | Data describing a contact.
 --   
@@ -797,16 +797,16 @@ contactData_errorMessage :: Lens' ContactData (Maybe Text)
 
 -- | Tags assigned to a contact.
 contactData_tags :: Lens' ContactData (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ContactData.ContactData
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ContactData.ContactData
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ContactData.ContactData
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ContactData.ContactData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ContactData.ContactData
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ContactData.ContactData
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ContactData.ContactData
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ContactData.ContactData
+instance GHC.Show.Show Amazonka.GroundStation.Types.ContactData.ContactData
+instance GHC.Read.Read Amazonka.GroundStation.Types.ContactData.ContactData
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ContactData.ContactData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ContactData.ContactData
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ContactData.ContactData
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ContactData.ContactData
 
 
-module Network.AWS.GroundStation.Types.EndpointStatus
+module Amazonka.GroundStation.Types.EndpointStatus
 newtype EndpointStatus
 EndpointStatus' :: Text -> EndpointStatus
 [fromEndpointStatus] :: EndpointStatus -> Text
@@ -815,28 +815,28 @@ pattern EndpointStatus_Creating :: EndpointStatus
 pattern EndpointStatus_Deleted :: EndpointStatus
 pattern EndpointStatus_Deleting :: EndpointStatus
 pattern EndpointStatus_Failed :: EndpointStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance GHC.Read.Read Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
-instance GHC.Show.Show Network.AWS.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance GHC.Read.Read Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
+instance GHC.Show.Show Amazonka.GroundStation.Types.EndpointStatus.EndpointStatus
 
 
-module Network.AWS.GroundStation.Types.FrequencyBandwidth
+module Amazonka.GroundStation.Types.FrequencyBandwidth
 
 -- | Object that describes the frequency bandwidth.
 --   
@@ -901,45 +901,45 @@ frequencyBandwidth_units :: Lens' FrequencyBandwidth BandwidthUnits
 --   to 54 MHz.</li>
 --   </ul>
 frequencyBandwidth_value :: Lens' FrequencyBandwidth Double
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
-instance GHC.Show.Show Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
-instance GHC.Read.Read Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance GHC.Show.Show Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance GHC.Read.Read Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.FrequencyBandwidth.FrequencyBandwidth
 
 
-module Network.AWS.GroundStation.Types.FrequencyUnits
+module Amazonka.GroundStation.Types.FrequencyUnits
 newtype FrequencyUnits
 FrequencyUnits' :: Text -> FrequencyUnits
 [fromFrequencyUnits] :: FrequencyUnits -> Text
 pattern FrequencyUnits_GHz :: FrequencyUnits
 pattern FrequencyUnits_KHz :: FrequencyUnits
 pattern FrequencyUnits_MHz :: FrequencyUnits
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance GHC.Read.Read Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
-instance GHC.Show.Show Network.AWS.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance GHC.Read.Read Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
+instance GHC.Show.Show Amazonka.GroundStation.Types.FrequencyUnits.FrequencyUnits
 
 
-module Network.AWS.GroundStation.Types.Frequency
+module Amazonka.GroundStation.Types.Frequency
 
 -- | Object that describes the frequency.
 --   
@@ -976,17 +976,17 @@ frequency_units :: Lens' Frequency FrequencyUnits
 -- | Frequency value. Valid values are between 2200 to 2300 MHz and 7750 to
 --   8400 MHz for downlink and 2025 to 2120 MHz for uplink.
 frequency_value :: Lens' Frequency Double
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.Frequency.Frequency
-instance GHC.Show.Show Network.AWS.GroundStation.Types.Frequency.Frequency
-instance GHC.Read.Read Network.AWS.GroundStation.Types.Frequency.Frequency
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.Frequency.Frequency
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.Frequency.Frequency
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.Frequency.Frequency
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.Frequency.Frequency
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.Frequency.Frequency
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.Frequency.Frequency
+instance GHC.Show.Show Amazonka.GroundStation.Types.Frequency.Frequency
+instance GHC.Read.Read Amazonka.GroundStation.Types.Frequency.Frequency
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.Frequency.Frequency
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.Frequency.Frequency
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.Frequency.Frequency
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.Frequency.Frequency
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.Frequency.Frequency
 
 
-module Network.AWS.GroundStation.Types.GroundStationData
+module Amazonka.GroundStation.Types.GroundStationData
 
 -- | Information about the ground station data.
 --   
@@ -1030,16 +1030,16 @@ groundStationData_groundStationName :: Lens' GroundStationData (Maybe Text)
 
 -- | Ground station Region.
 groundStationData_region :: Lens' GroundStationData (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.GroundStationData.GroundStationData
-instance GHC.Show.Show Network.AWS.GroundStation.Types.GroundStationData.GroundStationData
-instance GHC.Read.Read Network.AWS.GroundStation.Types.GroundStationData.GroundStationData
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.GroundStationData.GroundStationData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.GroundStationData.GroundStationData
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.GroundStationData.GroundStationData
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.GroundStationData.GroundStationData
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.GroundStationData.GroundStationData
+instance GHC.Show.Show Amazonka.GroundStation.Types.GroundStationData.GroundStationData
+instance GHC.Read.Read Amazonka.GroundStation.Types.GroundStationData.GroundStationData
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.GroundStationData.GroundStationData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.GroundStationData.GroundStationData
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.GroundStationData.GroundStationData
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.GroundStationData.GroundStationData
 
 
-module Network.AWS.GroundStation.Types.MissionProfileIdResponse
+module Amazonka.GroundStation.Types.MissionProfileIdResponse
 
 -- | <i>See:</i> <a>newMissionProfileIdResponse</a> smart constructor.
 data MissionProfileIdResponse
@@ -1064,16 +1064,16 @@ newMissionProfileIdResponse :: MissionProfileIdResponse
 
 -- | UUID of a mission profile.
 missionProfileIdResponse_missionProfileId :: Lens' MissionProfileIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
-instance GHC.Show.Show Network.AWS.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
-instance GHC.Read.Read Network.AWS.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
+instance GHC.Show.Show Amazonka.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
+instance GHC.Read.Read Amazonka.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.MissionProfileIdResponse.MissionProfileIdResponse
 
 
-module Network.AWS.GroundStation.Types.MissionProfileListItem
+module Amazonka.GroundStation.Types.MissionProfileListItem
 
 -- | Item in a list of mission profiles.
 --   
@@ -1128,44 +1128,44 @@ missionProfileListItem_name :: Lens' MissionProfileListItem (Maybe Text)
 
 -- | Region of a mission profile.
 missionProfileListItem_region :: Lens' MissionProfileListItem (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
-instance GHC.Show.Show Network.AWS.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
-instance GHC.Read.Read Network.AWS.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
+instance GHC.Show.Show Amazonka.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
+instance GHC.Read.Read Amazonka.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.MissionProfileListItem.MissionProfileListItem
 
 
-module Network.AWS.GroundStation.Types.Polarization
+module Amazonka.GroundStation.Types.Polarization
 newtype Polarization
 Polarization' :: Text -> Polarization
 [fromPolarization] :: Polarization -> Text
 pattern Polarization_LEFT_HAND :: Polarization
 pattern Polarization_NONE :: Polarization
 pattern Polarization_RIGHT_HAND :: Polarization
-instance Network.AWS.Data.XML.ToXML Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Network.AWS.Data.XML.FromXML Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Network.AWS.Data.Log.ToLog Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Network.AWS.Data.Text.ToText Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Network.AWS.Data.Text.FromText Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.Polarization.Polarization
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.Polarization.Polarization
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.Polarization.Polarization
-instance GHC.Classes.Ord Network.AWS.GroundStation.Types.Polarization.Polarization
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.Polarization.Polarization
-instance GHC.Read.Read Network.AWS.GroundStation.Types.Polarization.Polarization
-instance GHC.Show.Show Network.AWS.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.XML.ToXML Amazonka.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.XML.FromXML Amazonka.GroundStation.Types.Polarization.Polarization
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.GroundStation.Types.Polarization.Polarization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.Polarization.Polarization
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.GroundStation.Types.Polarization.Polarization
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.Headers.ToHeader Amazonka.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.Log.ToLog Amazonka.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.ByteString.ToByteString Amazonka.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.Text.ToText Amazonka.GroundStation.Types.Polarization.Polarization
+instance Amazonka.Data.Text.FromText Amazonka.GroundStation.Types.Polarization.Polarization
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.Polarization.Polarization
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.Polarization.Polarization
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.Polarization.Polarization
+instance GHC.Classes.Ord Amazonka.GroundStation.Types.Polarization.Polarization
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.Polarization.Polarization
+instance GHC.Read.Read Amazonka.GroundStation.Types.Polarization.Polarization
+instance GHC.Show.Show Amazonka.GroundStation.Types.Polarization.Polarization
 
 
-module Network.AWS.GroundStation.Types.S3RecordingConfig
+module Amazonka.GroundStation.Types.S3RecordingConfig
 
 -- | Information about an S3 recording <tt>Config</tt>.
 --   
@@ -1210,17 +1210,17 @@ s3RecordingConfig_bucketArn :: Lens' S3RecordingConfig Text
 
 -- | ARN of the role Ground Station assumes to write data to the bucket.
 s3RecordingConfig_roleArn :: Lens' S3RecordingConfig Text
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.S3RecordingConfig.S3RecordingConfig
 
 
-module Network.AWS.GroundStation.Types.S3RecordingDetails
+module Amazonka.GroundStation.Types.S3RecordingDetails
 
 -- | Details about an S3 recording <tt>Config</tt> used in a contact.
 --   
@@ -1255,16 +1255,16 @@ s3RecordingDetails_keyTemplate :: Lens' S3RecordingDetails (Maybe Text)
 
 -- | ARN of the bucket used.
 s3RecordingDetails_bucketArn :: Lens' S3RecordingDetails (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
-instance GHC.Show.Show Network.AWS.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
-instance GHC.Read.Read Network.AWS.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
+instance GHC.Show.Show Amazonka.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
+instance GHC.Read.Read Amazonka.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.S3RecordingDetails.S3RecordingDetails
 
 
-module Network.AWS.GroundStation.Types.SatelliteListItem
+module Amazonka.GroundStation.Types.SatelliteListItem
 
 -- | Item in a list of satellites.
 --   
@@ -1318,16 +1318,16 @@ satelliteListItem_groundStations :: Lens' SatelliteListItem (Maybe [Text])
 
 -- | NORAD satellite ID number.
 satelliteListItem_noradSatelliteID :: Lens' SatelliteListItem (Maybe Natural)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.SatelliteListItem.SatelliteListItem
-instance GHC.Show.Show Network.AWS.GroundStation.Types.SatelliteListItem.SatelliteListItem
-instance GHC.Read.Read Network.AWS.GroundStation.Types.SatelliteListItem.SatelliteListItem
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.SatelliteListItem.SatelliteListItem
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.SatelliteListItem.SatelliteListItem
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.SatelliteListItem.SatelliteListItem
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.SatelliteListItem.SatelliteListItem
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.SatelliteListItem.SatelliteListItem
+instance GHC.Show.Show Amazonka.GroundStation.Types.SatelliteListItem.SatelliteListItem
+instance GHC.Read.Read Amazonka.GroundStation.Types.SatelliteListItem.SatelliteListItem
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.SatelliteListItem.SatelliteListItem
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.SatelliteListItem.SatelliteListItem
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.SatelliteListItem.SatelliteListItem
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.SatelliteListItem.SatelliteListItem
 
 
-module Network.AWS.GroundStation.Types.SecurityDetails
+module Amazonka.GroundStation.Types.SecurityDetails
 
 -- | Information about endpoints.
 --   
@@ -1376,17 +1376,17 @@ securityDetails_securityGroupIds :: Lens' SecurityDetails [Text]
 -- | A list of subnets where AWS Ground Station places elastic network
 --   interfaces to send streams to your instances.
 securityDetails_subnetIds :: Lens' SecurityDetails [Text]
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
-instance GHC.Show.Show Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
-instance GHC.Read.Read Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.SecurityDetails.SecurityDetails
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
+instance GHC.Show.Show Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
+instance GHC.Read.Read Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.SecurityDetails.SecurityDetails
 
 
-module Network.AWS.GroundStation.Types.SocketAddress
+module Amazonka.GroundStation.Types.SocketAddress
 
 -- | Information about the socket address.
 --   
@@ -1421,17 +1421,17 @@ socketAddress_name :: Lens' SocketAddress Text
 
 -- | Port of a socket address.
 socketAddress_port :: Lens' SocketAddress Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
-instance GHC.Show.Show Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
-instance GHC.Read.Read Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.SocketAddress.SocketAddress
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.SocketAddress.SocketAddress
+instance GHC.Show.Show Amazonka.GroundStation.Types.SocketAddress.SocketAddress
+instance GHC.Read.Read Amazonka.GroundStation.Types.SocketAddress.SocketAddress
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.SocketAddress.SocketAddress
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.SocketAddress.SocketAddress
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.SocketAddress.SocketAddress
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.SocketAddress.SocketAddress
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.SocketAddress.SocketAddress
 
 
-module Network.AWS.GroundStation.Types.DataflowEndpoint
+module Amazonka.GroundStation.Types.DataflowEndpoint
 
 -- | Information about a dataflow endpoint.
 --   
@@ -1484,17 +1484,17 @@ dataflowEndpoint_address :: Lens' DataflowEndpoint (Maybe SocketAddress)
 
 -- | Name of a dataflow endpoint.
 dataflowEndpoint_name :: Lens' DataflowEndpoint (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
-instance GHC.Show.Show Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
-instance GHC.Read.Read Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance GHC.Show.Show Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance GHC.Read.Read Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.DataflowEndpoint.DataflowEndpoint
 
 
-module Network.AWS.GroundStation.Types.EndpointDetails
+module Amazonka.GroundStation.Types.EndpointDetails
 
 -- | Information about the endpoint details.
 --   
@@ -1529,17 +1529,17 @@ endpointDetails_securityDetails :: Lens' EndpointDetails (Maybe SecurityDetails)
 
 -- | A dataflow endpoint.
 endpointDetails_endpoint :: Lens' EndpointDetails (Maybe DataflowEndpoint)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
-instance GHC.Show.Show Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
-instance GHC.Read.Read Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.EndpointDetails.EndpointDetails
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
+instance GHC.Show.Show Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
+instance GHC.Read.Read Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.EndpointDetails.EndpointDetails
 
 
-module Network.AWS.GroundStation.Types.ConfigDetails
+module Amazonka.GroundStation.Types.ConfigDetails
 
 -- | Details for certain <tt>Config</tt> object types in a contact.
 --   
@@ -1583,16 +1583,16 @@ configDetails_s3RecordingDetails :: Lens' ConfigDetails (Maybe S3RecordingDetail
 
 -- | Undocumented member.
 configDetails_endpointDetails :: Lens' ConfigDetails (Maybe EndpointDetails)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ConfigDetails.ConfigDetails
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ConfigDetails.ConfigDetails
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ConfigDetails.ConfigDetails
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ConfigDetails.ConfigDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ConfigDetails.ConfigDetails
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ConfigDetails.ConfigDetails
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ConfigDetails.ConfigDetails
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ConfigDetails.ConfigDetails
+instance GHC.Show.Show Amazonka.GroundStation.Types.ConfigDetails.ConfigDetails
+instance GHC.Read.Read Amazonka.GroundStation.Types.ConfigDetails.ConfigDetails
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ConfigDetails.ConfigDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ConfigDetails.ConfigDetails
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ConfigDetails.ConfigDetails
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ConfigDetails.ConfigDetails
 
 
-module Network.AWS.GroundStation.Types.Destination
+module Amazonka.GroundStation.Types.Destination
 
 -- | Dataflow details for the destination side.
 --   
@@ -1648,16 +1648,16 @@ destination_configType :: Lens' Destination (Maybe ConfigCapabilityType)
 -- | Additional details for a <tt>Config</tt>, if type is dataflow endpoint
 --   or antenna demod decode.
 destination_configDetails :: Lens' Destination (Maybe ConfigDetails)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.Destination.Destination
-instance GHC.Show.Show Network.AWS.GroundStation.Types.Destination.Destination
-instance GHC.Read.Read Network.AWS.GroundStation.Types.Destination.Destination
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.Destination.Destination
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.Destination.Destination
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.Destination.Destination
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.Destination.Destination
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.Destination.Destination
+instance GHC.Show.Show Amazonka.GroundStation.Types.Destination.Destination
+instance GHC.Read.Read Amazonka.GroundStation.Types.Destination.Destination
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.Destination.Destination
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.Destination.Destination
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.Destination.Destination
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.Destination.Destination
 
 
-module Network.AWS.GroundStation.Types.Source
+module Amazonka.GroundStation.Types.Source
 
 -- | Dataflow details for the source side.
 --   
@@ -1712,16 +1712,16 @@ source_configType :: Lens' Source (Maybe ConfigCapabilityType)
 -- | Additional details for a <tt>Config</tt>, if type is dataflow endpoint
 --   or antenna demod decode.
 source_configDetails :: Lens' Source (Maybe ConfigDetails)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.Source.Source
-instance GHC.Show.Show Network.AWS.GroundStation.Types.Source.Source
-instance GHC.Read.Read Network.AWS.GroundStation.Types.Source.Source
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.Source.Source
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.Source.Source
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.Source.Source
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.Source.Source
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.Source.Source
+instance GHC.Show.Show Amazonka.GroundStation.Types.Source.Source
+instance GHC.Read.Read Amazonka.GroundStation.Types.Source.Source
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.Source.Source
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.Source.Source
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.Source.Source
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.Source.Source
 
 
-module Network.AWS.GroundStation.Types.DataflowDetail
+module Amazonka.GroundStation.Types.DataflowDetail
 
 -- | Information about a dataflow edge used in a contact.
 --   
@@ -1761,16 +1761,16 @@ dataflowDetail_source :: Lens' DataflowDetail (Maybe Source)
 
 -- | Error message for a dataflow.
 dataflowDetail_errorMessage :: Lens' DataflowDetail (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.DataflowDetail.DataflowDetail
-instance GHC.Show.Show Network.AWS.GroundStation.Types.DataflowDetail.DataflowDetail
-instance GHC.Read.Read Network.AWS.GroundStation.Types.DataflowDetail.DataflowDetail
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.DataflowDetail.DataflowDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.DataflowDetail.DataflowDetail
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.DataflowDetail.DataflowDetail
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.DataflowDetail.DataflowDetail
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.DataflowDetail.DataflowDetail
+instance GHC.Show.Show Amazonka.GroundStation.Types.DataflowDetail.DataflowDetail
+instance GHC.Read.Read Amazonka.GroundStation.Types.DataflowDetail.DataflowDetail
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.DataflowDetail.DataflowDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.DataflowDetail.DataflowDetail
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.DataflowDetail.DataflowDetail
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.DataflowDetail.DataflowDetail
 
 
-module Network.AWS.GroundStation.Types.SpectrumConfig
+module Amazonka.GroundStation.Types.SpectrumConfig
 
 -- | Object that describes a spectral <tt>Config</tt>.
 --   
@@ -1856,17 +1856,17 @@ spectrumConfig_bandwidth :: Lens' SpectrumConfig FrequencyBandwidth
 --   between 2200 to 2300 MHz and 7750 to 8400 MHz for downlink and 2025 to
 --   2120 MHz for uplink.
 spectrumConfig_centerFrequency :: Lens' SpectrumConfig Frequency
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.SpectrumConfig.SpectrumConfig
 
 
-module Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
+module Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig
 
 -- | Information about how AWS Ground Station should conﬁgure an antenna
 --   for downlink demod decode during a contact.
@@ -1915,17 +1915,17 @@ antennaDownlinkDemodDecodeConfig_demodulationConfig :: Lens' AntennaDownlinkDemo
 
 -- | Information about the spectral <tt>Config</tt>.
 antennaDownlinkDemodDecodeConfig_spectrumConfig :: Lens' AntennaDownlinkDemodDecodeConfig SpectrumConfig
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.AntennaDownlinkDemodDecodeConfig.AntennaDownlinkDemodDecodeConfig
 
 
-module Network.AWS.GroundStation.Types.AntennaDownlinkConfig
+module Amazonka.GroundStation.Types.AntennaDownlinkConfig
 
 -- | Information about how AWS Ground Station should configure an antenna
 --   for downlink during a contact.
@@ -1953,17 +1953,17 @@ newAntennaDownlinkConfig :: SpectrumConfig -> AntennaDownlinkConfig
 
 -- | Object that describes a spectral <tt>Config</tt>.
 antennaDownlinkConfig_spectrumConfig :: Lens' AntennaDownlinkConfig SpectrumConfig
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.AntennaDownlinkConfig.AntennaDownlinkConfig
 
 
-module Network.AWS.GroundStation.Types.TrackingConfig
+module Amazonka.GroundStation.Types.TrackingConfig
 
 -- | Object that determines whether tracking should be used during a
 --   contact executed with this <tt>Config</tt> in the mission profile.
@@ -1990,17 +1990,17 @@ newTrackingConfig :: Criticality -> TrackingConfig
 
 -- | Current setting for autotrack.
 trackingConfig_autotrack :: Lens' TrackingConfig Criticality
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.TrackingConfig.TrackingConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.TrackingConfig.TrackingConfig
 
 
-module Network.AWS.GroundStation.Types.UplinkEchoConfig
+module Amazonka.GroundStation.Types.UplinkEchoConfig
 
 -- | Information about an uplink echo <tt>Config</tt>.
 --   
@@ -2040,17 +2040,17 @@ uplinkEchoConfig_antennaUplinkConfigArn :: Lens' UplinkEchoConfig Text
 
 -- | Whether or not an uplink <tt>Config</tt> is enabled.
 uplinkEchoConfig_enabled :: Lens' UplinkEchoConfig Bool
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.UplinkEchoConfig.UplinkEchoConfig
 
 
-module Network.AWS.GroundStation.Types.UplinkSpectrumConfig
+module Amazonka.GroundStation.Types.UplinkSpectrumConfig
 
 -- | Information about the uplink spectral <tt>Config</tt>.
 --   
@@ -2095,17 +2095,17 @@ uplinkSpectrumConfig_polarization :: Lens' UplinkSpectrumConfig (Maybe Polarizat
 -- | Center frequency of an uplink spectral <tt>Config</tt>. Valid values
 --   are between 2025 to 2120 MHz.
 uplinkSpectrumConfig_centerFrequency :: Lens' UplinkSpectrumConfig Frequency
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.UplinkSpectrumConfig.UplinkSpectrumConfig
 
 
-module Network.AWS.GroundStation.Types.AntennaUplinkConfig
+module Amazonka.GroundStation.Types.AntennaUplinkConfig
 
 -- | Information about the uplink <tt>Config</tt> of an antenna.
 --   
@@ -2151,17 +2151,17 @@ antennaUplinkConfig_spectrumConfig :: Lens' AntennaUplinkConfig UplinkSpectrumCo
 
 -- | EIRP of the target.
 antennaUplinkConfig_targetEirp :: Lens' AntennaUplinkConfig Eirp
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
-instance GHC.Show.Show Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
-instance GHC.Read.Read Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance GHC.Show.Show Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance GHC.Read.Read Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.AntennaUplinkConfig.AntennaUplinkConfig
 
 
-module Network.AWS.GroundStation.Types.ConfigTypeData
+module Amazonka.GroundStation.Types.ConfigTypeData
 
 -- | Object containing the parameters of a <tt>Config</tt>.
 --   
@@ -2274,17 +2274,17 @@ configTypeData_trackingConfig :: Lens' ConfigTypeData (Maybe TrackingConfig)
 
 -- | Information about the dataflow endpoint <tt>Config</tt>.
 configTypeData_dataflowEndpointConfig :: Lens' ConfigTypeData (Maybe DataflowEndpointConfig)
-instance GHC.Generics.Generic Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
-instance GHC.Show.Show Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
-instance GHC.Read.Read Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
-instance GHC.Classes.Eq Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance GHC.Generics.Generic Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance GHC.Show.Show Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance GHC.Read.Read Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance GHC.Classes.Eq Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance Control.DeepSeq.NFData Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.Types.ConfigTypeData.ConfigTypeData
 
 
-module Network.AWS.GroundStation.Types
+module Amazonka.GroundStation.Types
 
 -- | API version <tt>2019-05-23</tt> of the Amazon Ground Station SDK
 --   configuration.
@@ -4006,7 +4006,7 @@ uplinkSpectrumConfig_centerFrequency :: Lens' UplinkSpectrumConfig Frequency
 
 
 -- | Assigns a tag to a resource.
-module Network.AWS.GroundStation.TagResource
+module Amazonka.GroundStation.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4062,26 +4062,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.GroundStation.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.GroundStation.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.GroundStation.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.GroundStation.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.GroundStation.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.GroundStation.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.GroundStation.TagResource.TagResource
+instance GHC.Show.Show Amazonka.GroundStation.TagResource.TagResource
+instance GHC.Read.Read Amazonka.GroundStation.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.GroundStation.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.GroundStation.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.GroundStation.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.GroundStation.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.GroundStation.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.GroundStation.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.TagResource.TagResource
 
 
 -- | Reserves a contact using specified parameters.
-module Network.AWS.GroundStation.ReserveContact
+module Amazonka.GroundStation.ReserveContact
 
 -- | <i>See:</i> <a>newReserveContact</a> smart constructor.
 data ReserveContact
@@ -4173,21 +4173,21 @@ newContactIdResponse :: ContactIdResponse
 
 -- | UUID of a contact.
 contactIdResponse_contactId :: Lens' ContactIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance GHC.Show.Show Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance GHC.Read.Read Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance GHC.Classes.Eq Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ReserveContact.ReserveContact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ReserveContact.ReserveContact
+instance GHC.Generics.Generic Amazonka.GroundStation.ReserveContact.ReserveContact
+instance GHC.Show.Show Amazonka.GroundStation.ReserveContact.ReserveContact
+instance GHC.Read.Read Amazonka.GroundStation.ReserveContact.ReserveContact
+instance GHC.Classes.Eq Amazonka.GroundStation.ReserveContact.ReserveContact
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ReserveContact.ReserveContact
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ReserveContact.ReserveContact
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ReserveContact.ReserveContact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ReserveContact.ReserveContact
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.ReserveContact.ReserveContact
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ReserveContact.ReserveContact
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ReserveContact.ReserveContact
 
 
 -- | Returns a list of tags for a specified resource.
-module Network.AWS.GroundStation.ListTagsForResource
+module Amazonka.GroundStation.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4244,27 +4244,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.GroundStation.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.GroundStation.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.GroundStation.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.GroundStation.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.GroundStation.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a list of satellites.
 --   
 --   This operation returns paginated results.
-module Network.AWS.GroundStation.ListSatellites
+module Amazonka.GroundStation.ListSatellites
 
 -- | <i>See:</i> <a>newListSatellites</a> smart constructor.
 data ListSatellites
@@ -4346,28 +4346,28 @@ listSatellitesResponse_nextToken :: Lens' ListSatellitesResponse (Maybe Text)
 
 -- | The response's http status code.
 listSatellitesResponse_httpStatus :: Lens' ListSatellitesResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance GHC.Show.Show Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance GHC.Read.Read Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListSatellites.ListSatellitesResponse
-instance GHC.Show.Show Network.AWS.GroundStation.ListSatellites.ListSatellitesResponse
-instance GHC.Read.Read Network.AWS.GroundStation.ListSatellites.ListSatellitesResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListSatellites.ListSatellitesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListSatellites.ListSatellitesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ListSatellites.ListSatellites
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListSatellites.ListSatellites
+instance GHC.Generics.Generic Amazonka.GroundStation.ListSatellites.ListSatellites
+instance GHC.Show.Show Amazonka.GroundStation.ListSatellites.ListSatellites
+instance GHC.Read.Read Amazonka.GroundStation.ListSatellites.ListSatellites
+instance GHC.Classes.Eq Amazonka.GroundStation.ListSatellites.ListSatellites
+instance GHC.Generics.Generic Amazonka.GroundStation.ListSatellites.ListSatellitesResponse
+instance GHC.Show.Show Amazonka.GroundStation.ListSatellites.ListSatellitesResponse
+instance GHC.Read.Read Amazonka.GroundStation.ListSatellites.ListSatellitesResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.ListSatellites.ListSatellitesResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ListSatellites.ListSatellites
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListSatellites.ListSatellitesResponse
+instance Amazonka.Pager.AWSPager Amazonka.GroundStation.ListSatellites.ListSatellites
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ListSatellites.ListSatellites
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListSatellites.ListSatellites
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ListSatellites.ListSatellites
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ListSatellites.ListSatellites
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ListSatellites.ListSatellites
 
 
 -- | Returns a list of mission profiles.
 --   
 --   This operation returns paginated results.
-module Network.AWS.GroundStation.ListMissionProfiles
+module Amazonka.GroundStation.ListMissionProfiles
 
 -- | <i>See:</i> <a>newListMissionProfiles</a> smart constructor.
 data ListMissionProfiles
@@ -4456,28 +4456,28 @@ listMissionProfilesResponse_missionProfileList :: Lens' ListMissionProfilesRespo
 
 -- | The response's http status code.
 listMissionProfilesResponse_httpStatus :: Lens' ListMissionProfilesResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance GHC.Show.Show Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance GHC.Read.Read Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
-instance GHC.Show.Show Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
-instance GHC.Read.Read Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance GHC.Generics.Generic Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance GHC.Show.Show Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance GHC.Read.Read Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance GHC.Classes.Eq Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance GHC.Generics.Generic Amazonka.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
+instance GHC.Show.Show Amazonka.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
+instance GHC.Read.Read Amazonka.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListMissionProfiles.ListMissionProfilesResponse
+instance Amazonka.Pager.AWSPager Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ListMissionProfiles.ListMissionProfiles
 
 
 -- | Returns a list of ground stations.
 --   
 --   This operation returns paginated results.
-module Network.AWS.GroundStation.ListGroundStations
+module Amazonka.GroundStation.ListGroundStations
 
 -- | <i>See:</i> <a>newListGroundStations</a> smart constructor.
 data ListGroundStations
@@ -4570,28 +4570,28 @@ listGroundStationsResponse_groundStationList :: Lens' ListGroundStationsResponse
 
 -- | The response's http status code.
 listGroundStationsResponse_httpStatus :: Lens' ListGroundStationsResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance GHC.Show.Show Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance GHC.Read.Read Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListGroundStations.ListGroundStationsResponse
-instance GHC.Show.Show Network.AWS.GroundStation.ListGroundStations.ListGroundStationsResponse
-instance GHC.Read.Read Network.AWS.GroundStation.ListGroundStations.ListGroundStationsResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListGroundStations.ListGroundStationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListGroundStations.ListGroundStationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ListGroundStations.ListGroundStations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListGroundStations.ListGroundStations
+instance GHC.Generics.Generic Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance GHC.Show.Show Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance GHC.Read.Read Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance GHC.Classes.Eq Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance GHC.Generics.Generic Amazonka.GroundStation.ListGroundStations.ListGroundStationsResponse
+instance GHC.Show.Show Amazonka.GroundStation.ListGroundStations.ListGroundStationsResponse
+instance GHC.Read.Read Amazonka.GroundStation.ListGroundStations.ListGroundStationsResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.ListGroundStations.ListGroundStationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListGroundStations.ListGroundStationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ListGroundStations.ListGroundStations
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ListGroundStations.ListGroundStations
 
 
 -- | Returns a list of <tt>DataflowEndpoint</tt> groups.
 --   
 --   This operation returns paginated results.
-module Network.AWS.GroundStation.ListDataflowEndpointGroups
+module Amazonka.GroundStation.ListDataflowEndpointGroups
 
 -- | <i>See:</i> <a>newListDataflowEndpointGroups</a> smart constructor.
 data ListDataflowEndpointGroups
@@ -4683,22 +4683,22 @@ listDataflowEndpointGroupsResponse_nextToken :: Lens' ListDataflowEndpointGroups
 
 -- | The response's http status code.
 listDataflowEndpointGroupsResponse_httpStatus :: Lens' ListDataflowEndpointGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance GHC.Show.Show Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance GHC.Read.Read Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
-instance GHC.Show.Show Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
-instance GHC.Read.Read Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance GHC.Generics.Generic Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance GHC.Show.Show Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance GHC.Read.Read Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance GHC.Classes.Eq Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance GHC.Generics.Generic Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
+instance GHC.Show.Show Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
+instance GHC.Read.Read Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ListDataflowEndpointGroups.ListDataflowEndpointGroups
 
 
 -- | Returns a list of contacts.
@@ -4708,7 +4708,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListDataflowEn
 --   <tt>satelliteArn</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.GroundStation.ListContacts
+module Amazonka.GroundStation.ListContacts
 
 -- | <i>See:</i> <a>newListContacts</a> smart constructor.
 data ListContacts
@@ -4844,29 +4844,29 @@ listContactsResponse_nextToken :: Lens' ListContactsResponse (Maybe Text)
 
 -- | The response's http status code.
 listContactsResponse_httpStatus :: Lens' ListContactsResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListContacts.ListContacts
-instance GHC.Show.Show Network.AWS.GroundStation.ListContacts.ListContacts
-instance GHC.Read.Read Network.AWS.GroundStation.ListContacts.ListContacts
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListContacts.ListContacts
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListContacts.ListContactsResponse
-instance GHC.Show.Show Network.AWS.GroundStation.ListContacts.ListContactsResponse
-instance GHC.Read.Read Network.AWS.GroundStation.ListContacts.ListContactsResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListContacts.ListContactsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ListContacts.ListContacts
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListContacts.ListContactsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.GroundStation.ListContacts.ListContacts
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ListContacts.ListContacts
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListContacts.ListContacts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ListContacts.ListContacts
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.ListContacts.ListContacts
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ListContacts.ListContacts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListContacts.ListContacts
+instance GHC.Generics.Generic Amazonka.GroundStation.ListContacts.ListContacts
+instance GHC.Show.Show Amazonka.GroundStation.ListContacts.ListContacts
+instance GHC.Read.Read Amazonka.GroundStation.ListContacts.ListContacts
+instance GHC.Classes.Eq Amazonka.GroundStation.ListContacts.ListContacts
+instance GHC.Generics.Generic Amazonka.GroundStation.ListContacts.ListContactsResponse
+instance GHC.Show.Show Amazonka.GroundStation.ListContacts.ListContactsResponse
+instance GHC.Read.Read Amazonka.GroundStation.ListContacts.ListContactsResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.ListContacts.ListContactsResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ListContacts.ListContacts
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListContacts.ListContactsResponse
+instance Amazonka.Pager.AWSPager Amazonka.GroundStation.ListContacts.ListContacts
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ListContacts.ListContacts
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListContacts.ListContacts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ListContacts.ListContacts
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.ListContacts.ListContacts
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ListContacts.ListContacts
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ListContacts.ListContacts
 
 
 -- | Returns a list of <tt>Config</tt> objects.
 --   
 --   This operation returns paginated results.
-module Network.AWS.GroundStation.ListConfigs
+module Amazonka.GroundStation.ListConfigs
 
 -- | <i>See:</i> <a>newListConfigs</a> smart constructor.
 data ListConfigs
@@ -4947,26 +4947,26 @@ listConfigsResponse_nextToken :: Lens' ListConfigsResponse (Maybe Text)
 
 -- | The response's http status code.
 listConfigsResponse_httpStatus :: Lens' ListConfigsResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance GHC.Show.Show Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance GHC.Read.Read Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance GHC.Generics.Generic Network.AWS.GroundStation.ListConfigs.ListConfigsResponse
-instance GHC.Show.Show Network.AWS.GroundStation.ListConfigs.ListConfigsResponse
-instance GHC.Read.Read Network.AWS.GroundStation.ListConfigs.ListConfigsResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.ListConfigs.ListConfigsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListConfigs.ListConfigsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.ListConfigs.ListConfigs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.ListConfigs.ListConfigs
+instance GHC.Generics.Generic Amazonka.GroundStation.ListConfigs.ListConfigs
+instance GHC.Show.Show Amazonka.GroundStation.ListConfigs.ListConfigs
+instance GHC.Read.Read Amazonka.GroundStation.ListConfigs.ListConfigs
+instance GHC.Classes.Eq Amazonka.GroundStation.ListConfigs.ListConfigs
+instance GHC.Generics.Generic Amazonka.GroundStation.ListConfigs.ListConfigsResponse
+instance GHC.Show.Show Amazonka.GroundStation.ListConfigs.ListConfigsResponse
+instance GHC.Read.Read Amazonka.GroundStation.ListConfigs.ListConfigsResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.ListConfigs.ListConfigsResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.ListConfigs.ListConfigs
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListConfigs.ListConfigsResponse
+instance Amazonka.Pager.AWSPager Amazonka.GroundStation.ListConfigs.ListConfigs
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.ListConfigs.ListConfigs
+instance Control.DeepSeq.NFData Amazonka.GroundStation.ListConfigs.ListConfigs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.ListConfigs.ListConfigs
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.ListConfigs.ListConfigs
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.ListConfigs.ListConfigs
 
 
 -- | Returns a satellite.
-module Network.AWS.GroundStation.GetSatellite
+module Amazonka.GroundStation.GetSatellite
 
 -- | <i>See:</i> <a>newGetSatellite</a> smart constructor.
 data GetSatellite
@@ -5052,25 +5052,25 @@ getSatelliteResponse_noradSatelliteID :: Lens' GetSatelliteResponse (Maybe Natur
 
 -- | The response's http status code.
 getSatelliteResponse_httpStatus :: Lens' GetSatelliteResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance GHC.Show.Show Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance GHC.Read.Read Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetSatellite.GetSatelliteResponse
-instance GHC.Show.Show Network.AWS.GroundStation.GetSatellite.GetSatelliteResponse
-instance GHC.Read.Read Network.AWS.GroundStation.GetSatellite.GetSatelliteResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetSatellite.GetSatelliteResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetSatellite.GetSatelliteResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.GetSatellite.GetSatellite
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.GetSatellite.GetSatellite
+instance GHC.Generics.Generic Amazonka.GroundStation.GetSatellite.GetSatellite
+instance GHC.Show.Show Amazonka.GroundStation.GetSatellite.GetSatellite
+instance GHC.Read.Read Amazonka.GroundStation.GetSatellite.GetSatellite
+instance GHC.Classes.Eq Amazonka.GroundStation.GetSatellite.GetSatellite
+instance GHC.Generics.Generic Amazonka.GroundStation.GetSatellite.GetSatelliteResponse
+instance GHC.Show.Show Amazonka.GroundStation.GetSatellite.GetSatelliteResponse
+instance GHC.Read.Read Amazonka.GroundStation.GetSatellite.GetSatelliteResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.GetSatellite.GetSatelliteResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.GetSatellite.GetSatellite
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetSatellite.GetSatelliteResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.GetSatellite.GetSatellite
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetSatellite.GetSatellite
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.GetSatellite.GetSatellite
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.GetSatellite.GetSatellite
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.GetSatellite.GetSatellite
 
 
 -- | Returns a mission profile.
-module Network.AWS.GroundStation.GetMissionProfile
+module Amazonka.GroundStation.GetMissionProfile
 
 -- | <i>See:</i> <a>newGetMissionProfile</a> smart constructor.
 data GetMissionProfile
@@ -5232,25 +5232,25 @@ getMissionProfileResponse_tags :: Lens' GetMissionProfileResponse (Maybe (HashMa
 
 -- | The response's http status code.
 getMissionProfileResponse_httpStatus :: Lens' GetMissionProfileResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance GHC.Show.Show Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance GHC.Read.Read Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetMissionProfile.GetMissionProfileResponse
-instance GHC.Show.Show Network.AWS.GroundStation.GetMissionProfile.GetMissionProfileResponse
-instance GHC.Read.Read Network.AWS.GroundStation.GetMissionProfile.GetMissionProfileResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetMissionProfile.GetMissionProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetMissionProfile.GetMissionProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.GetMissionProfile.GetMissionProfile
+instance GHC.Generics.Generic Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance GHC.Show.Show Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance GHC.Read.Read Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance GHC.Classes.Eq Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance GHC.Generics.Generic Amazonka.GroundStation.GetMissionProfile.GetMissionProfileResponse
+instance GHC.Show.Show Amazonka.GroundStation.GetMissionProfile.GetMissionProfileResponse
+instance GHC.Read.Read Amazonka.GroundStation.GetMissionProfile.GetMissionProfileResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.GetMissionProfile.GetMissionProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetMissionProfile.GetMissionProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.GetMissionProfile.GetMissionProfile
 
 
 -- | Returns the number of minutes used by account.
-module Network.AWS.GroundStation.GetMinuteUsage
+module Amazonka.GroundStation.GetMinuteUsage
 
 -- | <i>See:</i> <a>newGetMinuteUsage</a> smart constructor.
 data GetMinuteUsage
@@ -5371,26 +5371,26 @@ getMinuteUsageResponse_estimatedMinutesRemaining :: Lens' GetMinuteUsageResponse
 
 -- | The response's http status code.
 getMinuteUsageResponse_httpStatus :: Lens' GetMinuteUsageResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance GHC.Show.Show Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance GHC.Read.Read Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
-instance GHC.Show.Show Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
-instance GHC.Read.Read Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance GHC.Generics.Generic Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance GHC.Show.Show Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance GHC.Read.Read Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance GHC.Classes.Eq Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance GHC.Generics.Generic Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
+instance GHC.Show.Show Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
+instance GHC.Read.Read Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsageResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.GetMinuteUsage.GetMinuteUsage
 
 
 -- | Returns the dataflow endpoint group.
-module Network.AWS.GroundStation.GetDataflowEndpointGroup
+module Amazonka.GroundStation.GetDataflowEndpointGroup
 
 -- | <i>See:</i> <a>newGetDataflowEndpointGroup</a> smart constructor.
 data GetDataflowEndpointGroup
@@ -5481,27 +5481,27 @@ getDataflowEndpointGroupResponse_tags :: Lens' GetDataflowEndpointGroupResponse 
 
 -- | The response's http status code.
 getDataflowEndpointGroupResponse_httpStatus :: Lens' GetDataflowEndpointGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance GHC.Show.Show Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance GHC.Read.Read Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
-instance GHC.Show.Show Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
-instance GHC.Read.Read Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance GHC.Generics.Generic Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance GHC.Show.Show Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance GHC.Read.Read Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance GHC.Classes.Eq Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance GHC.Generics.Generic Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
+instance GHC.Show.Show Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
+instance GHC.Read.Read Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.GetDataflowEndpointGroup.GetDataflowEndpointGroup
 
 
 -- | Returns <tt>Config</tt> information.
 --   
 --   Only one <tt>Config</tt> response can be returned.
-module Network.AWS.GroundStation.GetConfig
+module Amazonka.GroundStation.GetConfig
 
 -- | <i>See:</i> <a>newGetConfig</a> smart constructor.
 data GetConfig
@@ -5611,25 +5611,25 @@ getConfigResponse_configId :: Lens' GetConfigResponse Text
 
 -- | Name of a <tt>Config</tt>.
 getConfigResponse_name :: Lens' GetConfigResponse Text
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetConfig.GetConfig
-instance GHC.Show.Show Network.AWS.GroundStation.GetConfig.GetConfig
-instance GHC.Read.Read Network.AWS.GroundStation.GetConfig.GetConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetConfig.GetConfig
-instance GHC.Generics.Generic Network.AWS.GroundStation.GetConfig.GetConfigResponse
-instance GHC.Show.Show Network.AWS.GroundStation.GetConfig.GetConfigResponse
-instance GHC.Read.Read Network.AWS.GroundStation.GetConfig.GetConfigResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.GetConfig.GetConfigResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.GetConfig.GetConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetConfig.GetConfigResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.GetConfig.GetConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.GetConfig.GetConfig
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.GetConfig.GetConfig
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.GetConfig.GetConfig
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.GetConfig.GetConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.GetConfig.GetConfig
+instance GHC.Show.Show Amazonka.GroundStation.GetConfig.GetConfig
+instance GHC.Read.Read Amazonka.GroundStation.GetConfig.GetConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.GetConfig.GetConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.GetConfig.GetConfigResponse
+instance GHC.Show.Show Amazonka.GroundStation.GetConfig.GetConfigResponse
+instance GHC.Read.Read Amazonka.GroundStation.GetConfig.GetConfigResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.GetConfig.GetConfigResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.GetConfig.GetConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetConfig.GetConfigResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.GetConfig.GetConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.GetConfig.GetConfig
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.GetConfig.GetConfig
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.GetConfig.GetConfig
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.GetConfig.GetConfig
 
 
 -- | Describes an existing contact.
-module Network.AWS.GroundStation.DescribeContact
+module Amazonka.GroundStation.DescribeContact
 
 -- | <i>See:</i> <a>newDescribeContact</a> smart constructor.
 data DescribeContact
@@ -5816,25 +5816,25 @@ describeContactResponse_tags :: Lens' DescribeContactResponse (Maybe (HashMap Te
 
 -- | The response's http status code.
 describeContactResponse_httpStatus :: Lens' DescribeContactResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance GHC.Show.Show Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance GHC.Read.Read Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance GHC.Classes.Eq Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance GHC.Generics.Generic Network.AWS.GroundStation.DescribeContact.DescribeContactResponse
-instance GHC.Show.Show Network.AWS.GroundStation.DescribeContact.DescribeContactResponse
-instance GHC.Read.Read Network.AWS.GroundStation.DescribeContact.DescribeContactResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.DescribeContact.DescribeContactResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.DescribeContact.DescribeContactResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.DescribeContact.DescribeContact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.DescribeContact.DescribeContact
+instance GHC.Generics.Generic Amazonka.GroundStation.DescribeContact.DescribeContact
+instance GHC.Show.Show Amazonka.GroundStation.DescribeContact.DescribeContact
+instance GHC.Read.Read Amazonka.GroundStation.DescribeContact.DescribeContact
+instance GHC.Classes.Eq Amazonka.GroundStation.DescribeContact.DescribeContact
+instance GHC.Generics.Generic Amazonka.GroundStation.DescribeContact.DescribeContactResponse
+instance GHC.Show.Show Amazonka.GroundStation.DescribeContact.DescribeContactResponse
+instance GHC.Read.Read Amazonka.GroundStation.DescribeContact.DescribeContactResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.DescribeContact.DescribeContactResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.DescribeContact.DescribeContact
+instance Control.DeepSeq.NFData Amazonka.GroundStation.DescribeContact.DescribeContactResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.DescribeContact.DescribeContact
+instance Control.DeepSeq.NFData Amazonka.GroundStation.DescribeContact.DescribeContact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.DescribeContact.DescribeContact
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.DescribeContact.DescribeContact
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.DescribeContact.DescribeContact
 
 
 -- | Deletes a mission profile.
-module Network.AWS.GroundStation.DeleteMissionProfile
+module Amazonka.GroundStation.DeleteMissionProfile
 
 -- | <i>See:</i> <a>newDeleteMissionProfile</a> smart constructor.
 data DeleteMissionProfile
@@ -5883,20 +5883,20 @@ newMissionProfileIdResponse :: MissionProfileIdResponse
 
 -- | UUID of a mission profile.
 missionProfileIdResponse_missionProfileId :: Lens' MissionProfileIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance GHC.Show.Show Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance GHC.Read.Read Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance GHC.Classes.Eq Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance GHC.Generics.Generic Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance GHC.Show.Show Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance GHC.Read.Read Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance GHC.Classes.Eq Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance Control.DeepSeq.NFData Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.DeleteMissionProfile.DeleteMissionProfile
 
 
 -- | Deletes a dataflow endpoint group.
-module Network.AWS.GroundStation.DeleteDataflowEndpointGroup
+module Amazonka.GroundStation.DeleteDataflowEndpointGroup
 
 -- | <i>See:</i> <a>newDeleteDataflowEndpointGroup</a> smart constructor.
 data DeleteDataflowEndpointGroup
@@ -5946,20 +5946,20 @@ newDataflowEndpointGroupIdResponse :: DataflowEndpointGroupIdResponse
 
 -- | UUID of a dataflow endpoint group.
 dataflowEndpointGroupIdResponse_dataflowEndpointGroupId :: Lens' DataflowEndpointGroupIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance GHC.Show.Show Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance GHC.Read.Read Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance GHC.Classes.Eq Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance GHC.Generics.Generic Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance GHC.Show.Show Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance GHC.Read.Read Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance GHC.Classes.Eq Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance Control.DeepSeq.NFData Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.DeleteDataflowEndpointGroup.DeleteDataflowEndpointGroup
 
 
 -- | Deletes a <tt>Config</tt>.
-module Network.AWS.GroundStation.DeleteConfig
+module Amazonka.GroundStation.DeleteConfig
 
 -- | <i>See:</i> <a>newDeleteConfig</a> smart constructor.
 data DeleteConfig
@@ -6033,16 +6033,16 @@ configIdResponse_configId :: Lens' ConfigIdResponse (Maybe Text)
 
 -- | Type of a <tt>Config</tt>.
 configIdResponse_configType :: Lens' ConfigIdResponse (Maybe ConfigCapabilityType)
-instance GHC.Generics.Generic Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance GHC.Show.Show Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance GHC.Read.Read Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.DeleteConfig.DeleteConfig
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.DeleteConfig.DeleteConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance GHC.Show.Show Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance GHC.Read.Read Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.DeleteConfig.DeleteConfig
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.DeleteConfig.DeleteConfig
 
 
 -- | Creates a mission profile.
@@ -6050,7 +6050,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.DeleteConfig.D
 --   <tt>dataflowEdges</tt> is a list of lists of strings. Each lower level
 --   list of strings has two elements: a <i>from</i> ARN and a <i>to</i>
 --   ARN.
-module Network.AWS.GroundStation.CreateMissionProfile
+module Amazonka.GroundStation.CreateMissionProfile
 
 -- | <i>See:</i> <a>newCreateMissionProfile</a> smart constructor.
 data CreateMissionProfile
@@ -6172,17 +6172,17 @@ newMissionProfileIdResponse :: MissionProfileIdResponse
 
 -- | UUID of a mission profile.
 missionProfileIdResponse_missionProfileId :: Lens' MissionProfileIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance GHC.Show.Show Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance GHC.Read.Read Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance GHC.Classes.Eq Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance GHC.Generics.Generic Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance GHC.Show.Show Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance GHC.Read.Read Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance GHC.Classes.Eq Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance Control.DeepSeq.NFData Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.CreateMissionProfile.CreateMissionProfile
 
 
 -- | Creates a <tt>DataflowEndpoint</tt> group containing the specified
@@ -6195,7 +6195,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.CreateMissionP
 --   When a contact uses multiple <tt>DataflowEndpointConfig</tt> objects,
 --   each <tt>Config</tt> must match a <tt>DataflowEndpoint</tt> in the
 --   same group.
-module Network.AWS.GroundStation.CreateDataflowEndpointGroup
+module Amazonka.GroundStation.CreateDataflowEndpointGroup
 
 -- | <i>See:</i> <a>newCreateDataflowEndpointGroup</a> smart constructor.
 data CreateDataflowEndpointGroup
@@ -6255,24 +6255,24 @@ newDataflowEndpointGroupIdResponse :: DataflowEndpointGroupIdResponse
 
 -- | UUID of a dataflow endpoint group.
 dataflowEndpointGroupIdResponse_dataflowEndpointGroupId :: Lens' DataflowEndpointGroupIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance GHC.Show.Show Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance GHC.Read.Read Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance GHC.Classes.Eq Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance GHC.Generics.Generic Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance GHC.Show.Show Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance GHC.Read.Read Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance GHC.Classes.Eq Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance Control.DeepSeq.NFData Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.CreateDataflowEndpointGroup.CreateDataflowEndpointGroup
 
 
 -- | Creates a <tt>Config</tt> with the specified <tt>configData</tt>
 --   parameters.
 --   
 --   Only one type of <tt>configData</tt> can be specified.
-module Network.AWS.GroundStation.CreateConfig
+module Amazonka.GroundStation.CreateConfig
 
 -- | <i>See:</i> <a>newCreateConfig</a> smart constructor.
 data CreateConfig
@@ -6355,21 +6355,21 @@ configIdResponse_configId :: Lens' ConfigIdResponse (Maybe Text)
 
 -- | Type of a <tt>Config</tt>.
 configIdResponse_configType :: Lens' ConfigIdResponse (Maybe ConfigCapabilityType)
-instance GHC.Generics.Generic Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance GHC.Show.Show Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance GHC.Read.Read Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.CreateConfig.CreateConfig
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.CreateConfig.CreateConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.CreateConfig.CreateConfig
+instance GHC.Show.Show Amazonka.GroundStation.CreateConfig.CreateConfig
+instance GHC.Read.Read Amazonka.GroundStation.CreateConfig.CreateConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.CreateConfig.CreateConfig
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.CreateConfig.CreateConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.CreateConfig.CreateConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.CreateConfig.CreateConfig
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.CreateConfig.CreateConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.CreateConfig.CreateConfig
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.CreateConfig.CreateConfig
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.CreateConfig.CreateConfig
 
 
 -- | Cancels a contact with a specified contact ID.
-module Network.AWS.GroundStation.CancelContact
+module Amazonka.GroundStation.CancelContact
 
 -- | <i>See:</i> <a>newCancelContact</a> smart constructor.
 data CancelContact
@@ -6416,20 +6416,20 @@ newContactIdResponse :: ContactIdResponse
 
 -- | UUID of a contact.
 contactIdResponse_contactId :: Lens' ContactIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.CancelContact.CancelContact
-instance GHC.Show.Show Network.AWS.GroundStation.CancelContact.CancelContact
-instance GHC.Read.Read Network.AWS.GroundStation.CancelContact.CancelContact
-instance GHC.Classes.Eq Network.AWS.GroundStation.CancelContact.CancelContact
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.CancelContact.CancelContact
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.CancelContact.CancelContact
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.CancelContact.CancelContact
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.CancelContact.CancelContact
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.CancelContact.CancelContact
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.CancelContact.CancelContact
+instance GHC.Generics.Generic Amazonka.GroundStation.CancelContact.CancelContact
+instance GHC.Show.Show Amazonka.GroundStation.CancelContact.CancelContact
+instance GHC.Read.Read Amazonka.GroundStation.CancelContact.CancelContact
+instance GHC.Classes.Eq Amazonka.GroundStation.CancelContact.CancelContact
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.CancelContact.CancelContact
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.CancelContact.CancelContact
+instance Control.DeepSeq.NFData Amazonka.GroundStation.CancelContact.CancelContact
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.CancelContact.CancelContact
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.CancelContact.CancelContact
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.CancelContact.CancelContact
 
 
 -- | Deassigns a resource tag.
-module Network.AWS.GroundStation.UntagResource
+module Amazonka.GroundStation.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -6486,28 +6486,28 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.GroundStation.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.GroundStation.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.GroundStation.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.GroundStation.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.GroundStation.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.GroundStation.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.GroundStation.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.GroundStation.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.GroundStation.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.GroundStation.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.GroundStation.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.GroundStation.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.GroundStation.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.GroundStation.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.GroundStation.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.GroundStation.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.GroundStation.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.GroundStation.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.UntagResource.UntagResource
 
 
 -- | Updates the <tt>Config</tt> used when scheduling contacts.
 --   
 --   Updating a <tt>Config</tt> will not update the execution parameters
 --   for existing future contacts scheduled with this <tt>Config</tt>.
-module Network.AWS.GroundStation.UpdateConfig
+module Amazonka.GroundStation.UpdateConfig
 
 -- | <i>See:</i> <a>newUpdateConfig</a> smart constructor.
 data UpdateConfig
@@ -6599,24 +6599,24 @@ configIdResponse_configId :: Lens' ConfigIdResponse (Maybe Text)
 
 -- | Type of a <tt>Config</tt>.
 configIdResponse_configType :: Lens' ConfigIdResponse (Maybe ConfigCapabilityType)
-instance GHC.Generics.Generic Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance GHC.Show.Show Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance GHC.Read.Read Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance GHC.Classes.Eq Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.UpdateConfig.UpdateConfig
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.UpdateConfig.UpdateConfig
+instance GHC.Generics.Generic Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance GHC.Show.Show Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance GHC.Read.Read Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance GHC.Classes.Eq Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance Control.DeepSeq.NFData Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.UpdateConfig.UpdateConfig
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.UpdateConfig.UpdateConfig
 
 
 -- | Updates a mission profile.
 --   
 --   Updating a mission profile will not update the execution parameters
 --   for existing future contacts.
-module Network.AWS.GroundStation.UpdateMissionProfile
+module Amazonka.GroundStation.UpdateMissionProfile
 
 -- | <i>See:</i> <a>newUpdateMissionProfile</a> smart constructor.
 data UpdateMissionProfile
@@ -6739,20 +6739,20 @@ newMissionProfileIdResponse :: MissionProfileIdResponse
 
 -- | UUID of a mission profile.
 missionProfileIdResponse_missionProfileId :: Lens' MissionProfileIdResponse (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance GHC.Show.Show Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance GHC.Read.Read Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance GHC.Classes.Eq Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance Network.AWS.Types.AWSRequest Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance Data.Hashable.Class.Hashable Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance Control.DeepSeq.NFData Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance GHC.Generics.Generic Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance GHC.Show.Show Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance GHC.Read.Read Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance GHC.Classes.Eq Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance Amazonka.Types.AWSRequest Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance Data.Hashable.Class.Hashable Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance Control.DeepSeq.NFData Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance Amazonka.Data.Path.ToPath Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.GroundStation.UpdateMissionProfile.UpdateMissionProfile
 
 
-module Network.AWS.GroundStation.Lens
+module Amazonka.GroundStation.Lens
 
 -- | UUID of a dataflow endpoint group.
 deleteDataflowEndpointGroup_dataflowEndpointGroupId :: Lens' DeleteDataflowEndpointGroup Text
@@ -7596,7 +7596,7 @@ uplinkSpectrumConfig_polarization :: Lens' UplinkSpectrumConfig (Maybe Polarizat
 uplinkSpectrumConfig_centerFrequency :: Lens' UplinkSpectrumConfig Frequency
 
 
-module Network.AWS.GroundStation.Waiters
+module Amazonka.GroundStation.Waiters
 
 
 -- | Derived from API version <tt>2019-05-23</tt> of the AWS service
@@ -7607,7 +7607,7 @@ module Network.AWS.GroundStation.Waiters
 --   communications, downlink and process satellite data, and scale your
 --   satellite operations efficiently and cost-effectively without having
 --   to build or manage your own ground station infrastructure.
-module Network.AWS.GroundStation
+module Amazonka.GroundStation
 
 -- | API version <tt>2019-05-23</tt> of the Amazon Ground Station SDK
 --   configuration.

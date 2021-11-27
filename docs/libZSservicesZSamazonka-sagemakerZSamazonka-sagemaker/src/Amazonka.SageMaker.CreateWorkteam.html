@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.CreateWorkteam</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a new work team for labeling your data. A work team is defined</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- by one or more Amazon Cognito user pools. You must first create the user</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- pools before you can create a work team.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You cannot create more than 25 work teams in an account and region.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.CreateWorkteam</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier">CreateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#newCreateWorkteam"><span class="hs-identifier">newCreateWorkteam</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_notificationConfiguration"><span class="hs-identifier">createWorkteam_notificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_workforceName"><span class="hs-identifier">createWorkteam_workforceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_tags"><span class="hs-identifier">createWorkteam_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_workteamName"><span class="hs-identifier">createWorkteam_workteamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_memberDefinitions"><span class="hs-identifier">createWorkteam_memberDefinitions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_description"><span class="hs-identifier">createWorkteam_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier">CreateWorkteamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#newCreateWorkteamResponse"><span class="hs-identifier">newCreateWorkteamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteamResponse_workteamArn"><span class="hs-identifier">createWorkteamResponse_workteamArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteamResponse_httpStatus"><span class="hs-identifier">createWorkteamResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.html"><span class="hs-identifier">Amazonka.SageMaker.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkteam' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621680411873"><span id="local-6989586621680411874"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkteam"><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-var">CreateWorkteam</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkteam%27"><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-var">CreateWorkteam'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Configures notification of workers regarding available or expiring work</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- items.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnotificationConfiguration%3ACreateWorkteam%27"><span class="annot"><span class="annottext">CreateWorkteam -&gt; Maybe NotificationConfiguration
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AnotificationConfiguration%3ACreateWorkteam%27"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The name of the workforce.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AworkforceName%3ACreateWorkteam%27"><span class="annot"><span class="annottext">CreateWorkteam -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkforceName%3ACreateWorkteam%27"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | An array of key-value pairs.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html Resource Tag&gt;</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- and</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3Atags%3ACreateWorkteam%27"><span class="annot"><span class="annottext">CreateWorkteam -&gt; Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3Atags%3ACreateWorkteam%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The name of the work team. Use this name to identify the work team.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AworkteamName%3ACreateWorkteam%27"><span class="annot"><span class="annottext">CreateWorkteam -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkteamName%3ACreateWorkteam%27"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A list of @MemberDefinition@ objects that contains objects that identify</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- the workers that make up the work team.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. Do not provide input</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- for both of these parameters in a single request.</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- about user pools, see</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AmemberDefinitions%3ACreateWorkteam%27"><span class="annot"><span class="annottext">CreateWorkteam -&gt; NonEmpty MemberDefinition
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AmemberDefinitions%3ACreateWorkteam%27"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | A description of the work team.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Adescription%3ACreateWorkteam%27"><span class="annot"><span class="annottext">CreateWorkteam -&gt; Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3Adescription%3ACreateWorkteam%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680411862"><span id="local-6989586621680411864"><span class="annot"><span class="annottext">CreateWorkteam -&gt; CreateWorkteam -&gt; Bool
+(CreateWorkteam -&gt; CreateWorkteam -&gt; Bool)
+-&gt; (CreateWorkteam -&gt; CreateWorkteam -&gt; Bool) -&gt; Eq CreateWorkteam
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorkteam -&gt; CreateWorkteam -&gt; Bool
+$c/= :: CreateWorkteam -&gt; CreateWorkteam -&gt; Bool
+== :: CreateWorkteam -&gt; CreateWorkteam -&gt; Bool
+$c== :: CreateWorkteam -&gt; CreateWorkteam -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411853"><span id="local-6989586621680411855"><span id="local-6989586621680411857"><span id="local-6989586621680411859"><span class="annot"><span class="annottext">ReadPrec [CreateWorkteam]
+ReadPrec CreateWorkteam
+Int -&gt; ReadS CreateWorkteam
+ReadS [CreateWorkteam]
+(Int -&gt; ReadS CreateWorkteam)
+-&gt; ReadS [CreateWorkteam]
+-&gt; ReadPrec CreateWorkteam
+-&gt; ReadPrec [CreateWorkteam]
+-&gt; Read CreateWorkteam
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWorkteam]
+$creadListPrec :: ReadPrec [CreateWorkteam]
+readPrec :: ReadPrec CreateWorkteam
+$creadPrec :: ReadPrec CreateWorkteam
+readList :: ReadS [CreateWorkteam]
+$creadList :: ReadS [CreateWorkteam]
+readsPrec :: Int -&gt; ReadS CreateWorkteam
+$creadsPrec :: Int -&gt; ReadS CreateWorkteam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411846"><span id="local-6989586621680411848"><span id="local-6989586621680411850"><span class="annot"><span class="annottext">Int -&gt; CreateWorkteam -&gt; ShowS
+[CreateWorkteam] -&gt; ShowS
+CreateWorkteam -&gt; String
+(Int -&gt; CreateWorkteam -&gt; ShowS)
+-&gt; (CreateWorkteam -&gt; String)
+-&gt; ([CreateWorkteam] -&gt; ShowS)
+-&gt; Show CreateWorkteam
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorkteam] -&gt; ShowS
+$cshowList :: [CreateWorkteam] -&gt; ShowS
+show :: CreateWorkteam -&gt; String
+$cshow :: CreateWorkteam -&gt; String
+showsPrec :: Int -&gt; CreateWorkteam -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorkteam -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateWorkteam -&gt; Rep CreateWorkteam x)
+-&gt; (forall x. Rep CreateWorkteam x -&gt; CreateWorkteam)
+-&gt; Generic CreateWorkteam
+forall x. Rep CreateWorkteam x -&gt; CreateWorkteam
+forall x. CreateWorkteam -&gt; Rep CreateWorkteam x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWorkteam x -&gt; CreateWorkteam
+$cfrom :: forall x. CreateWorkteam -&gt; Rep CreateWorkteam x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'CreateWorkteam' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'notificationConfiguration', 'createWorkteam_notificationConfiguration' - Configures notification of workers regarding available or expiring work</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- items.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'workforceName', 'createWorkteam_workforceName' - The name of the workforce.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'tags', 'createWorkteam_tags' - An array of key-value pairs.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html Resource Tag&gt;</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'workteamName', 'createWorkteam_workteamName' - The name of the work team. Use this name to identify the work team.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'memberDefinitions', 'createWorkteam_memberDefinitions' - A list of @MemberDefinition@ objects that contains objects that identify</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- the workers that make up the work team.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. Do not provide input</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for both of these parameters in a single request.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- about user pools, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'description', 'createWorkteam_description' - A description of the work team.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#newCreateWorkteam"><span class="hs-identifier hs-type">newCreateWorkteam</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'workteamName'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'memberDefinitions'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'description'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span>
+</span><span id="line-156"></span><span id="newCreateWorkteam"><span class="annot"><span class="annottext">newCreateWorkteam :: Text -&gt; NonEmpty MemberDefinition -&gt; Text -&gt; CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#newCreateWorkteam"><span class="hs-identifier hs-var hs-var">newCreateWorkteam</span></a></span></span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621680411841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411841"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span></span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621680411840"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680411840"><span class="hs-identifier hs-var">pMemberDefinitions_</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621680411839"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411839"><span class="hs-identifier hs-var">pDescription_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">CreateWorkteam' :: Maybe NotificationConfiguration
+-&gt; Maybe Text
+-&gt; Maybe [Tag]
+-&gt; Text
+-&gt; NonEmpty MemberDefinition
+-&gt; Text
+-&gt; CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:notificationConfiguration:CreateWorkteam' :: Maybe NotificationConfiguration
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AnotificationConfiguration%3ACreateWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">$sel:workforceName:CreateWorkteam' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkforceName%3ACreateWorkteam%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateWorkteam' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3Atags%3ACreateWorkteam%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">$sel:workteamName:CreateWorkteam' :: Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkteamName%3ACreateWorkteam%27"><span class="hs-identifier hs-var">workteamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411841"><span class="hs-identifier hs-var">pWorkteamName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">$sel:memberDefinitions:CreateWorkteam' :: NonEmpty MemberDefinition
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AmemberDefinitions%3ACreateWorkteam%27"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>          </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition))
+-&gt; Tagged
+     (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition))
+ -&gt; Tagged
+      (NonEmpty MemberDefinition) (Identity (NonEmpty MemberDefinition)))
+-&gt; NonEmpty MemberDefinition -&gt; NonEmpty MemberDefinition
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680411840"><span class="hs-identifier hs-var">pMemberDefinitions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateWorkteam' :: Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3Adescription%3ACreateWorkteam%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411839"><span class="hs-identifier hs-var">pDescription_</span></a></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Configures notification of workers regarding available or expiring work</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- items.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_notificationConfiguration"><span class="hs-identifier hs-type">createWorkteam_notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.NotificationConfiguration.html#NotificationConfiguration"><span class="hs-identifier hs-type">NotificationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="createWorkteam_notificationConfiguration"><span class="annot"><span class="annottext">createWorkteam_notificationConfiguration :: (Maybe NotificationConfiguration
+ -&gt; f (Maybe NotificationConfiguration))
+-&gt; CreateWorkteam -&gt; f CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_notificationConfiguration"><span class="hs-identifier hs-var hs-var">createWorkteam_notificationConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteam -&gt; Maybe NotificationConfiguration)
+-&gt; (CreateWorkteam
+    -&gt; Maybe NotificationConfiguration -&gt; CreateWorkteam)
+-&gt; Lens
+     CreateWorkteam
+     CreateWorkteam
+     (Maybe NotificationConfiguration)
+     (Maybe NotificationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411834"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+notificationConfiguration :: Maybe NotificationConfiguration
+$sel:notificationConfiguration:CreateWorkteam' :: CreateWorkteam -&gt; Maybe NotificationConfiguration
+</span><a href="#local-6989586621680411834"><span class="hs-identifier hs-var hs-var">notificationConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680411834"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411833"><span class="annot"><span class="annottext">s :: CreateWorkteam
+</span><a href="#local-6989586621680411833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411832"><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680411832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteam
+</span><a href="#local-6989586621680411833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:notificationConfiguration:CreateWorkteam' :: Maybe NotificationConfiguration
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AnotificationConfiguration%3ACreateWorkteam%27"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680411832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The name of the workforce.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_workforceName"><span class="hs-identifier hs-type">createWorkteam_workforceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="createWorkteam_workforceName"><span class="annot"><span class="annottext">createWorkteam_workforceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkteam -&gt; f CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_workforceName"><span class="hs-identifier hs-var hs-var">createWorkteam_workforceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteam -&gt; Maybe Text)
+-&gt; (CreateWorkteam -&gt; Maybe Text -&gt; CreateWorkteam)
+-&gt; Lens CreateWorkteam CreateWorkteam (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411831"><span class="annot"><span class="annottext">Maybe Text
+workforceName :: Maybe Text
+$sel:workforceName:CreateWorkteam' :: CreateWorkteam -&gt; Maybe Text
+</span><a href="#local-6989586621680411831"><span class="hs-identifier hs-var hs-var">workforceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411831"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411830"><span class="annot"><span class="annottext">s :: CreateWorkteam
+</span><a href="#local-6989586621680411830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteam
+</span><a href="#local-6989586621680411830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workforceName:CreateWorkteam' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkforceName%3ACreateWorkteam%27"><span class="hs-identifier hs-var">workforceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | An array of key-value pairs.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html Resource Tag&gt;</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what Using Cost Allocation Tags&gt;</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- in the /Amazon Web Services Billing and Cost Management User Guide/.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_tags"><span class="hs-identifier hs-type">createWorkteam_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SageMaker.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="createWorkteam_tags"><span class="annot"><span class="annottext">createWorkteam_tags :: (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateWorkteam -&gt; f CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_tags"><span class="hs-identifier hs-var hs-var">createWorkteam_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteam -&gt; Maybe [Tag])
+-&gt; (CreateWorkteam -&gt; Maybe [Tag] -&gt; CreateWorkteam)
+-&gt; Lens CreateWorkteam CreateWorkteam (Maybe [Tag]) (Maybe [Tag])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411828"><span class="annot"><span class="annottext">Maybe [Tag]
+tags :: Maybe [Tag]
+$sel:tags:CreateWorkteam' :: CreateWorkteam -&gt; Maybe [Tag]
+</span><a href="#local-6989586621680411828"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680411828"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411827"><span class="annot"><span class="annottext">s :: CreateWorkteam
+</span><a href="#local-6989586621680411827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411826"><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680411826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteam
+</span><a href="#local-6989586621680411827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateWorkteam' :: Maybe [Tag]
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3Atags%3ACreateWorkteam%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680411826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Tag] -&gt; f (Maybe [Tag]))
+ -&gt; CreateWorkteam -&gt; f CreateWorkteam)
+-&gt; ((Maybe [Tag] -&gt; f (Maybe [Tag]))
+    -&gt; Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; (Maybe [Tag] -&gt; f (Maybe [Tag]))
+-&gt; CreateWorkteam
+-&gt; f CreateWorkteam
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+-&gt; Iso (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag]) (Maybe [Tag])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Tag] [Tag] [Tag] [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The name of the work team. Use this name to identify the work team.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_workteamName"><span class="hs-identifier hs-type">createWorkteam_workteamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-192"></span><span id="createWorkteam_workteamName"><span class="annot"><span class="annottext">createWorkteam_workteamName :: (Text -&gt; f Text) -&gt; CreateWorkteam -&gt; f CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_workteamName"><span class="hs-identifier hs-var hs-var">createWorkteam_workteamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteam -&gt; Text)
+-&gt; (CreateWorkteam -&gt; Text -&gt; CreateWorkteam)
+-&gt; Lens CreateWorkteam CreateWorkteam Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411823"><span class="annot"><span class="annottext">Text
+workteamName :: Text
+$sel:workteamName:CreateWorkteam' :: CreateWorkteam -&gt; Text
+</span><a href="#local-6989586621680411823"><span class="hs-identifier hs-var hs-var">workteamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411823"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411822"><span class="annot"><span class="annottext">s :: CreateWorkteam
+</span><a href="#local-6989586621680411822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411821"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteam
+</span><a href="#local-6989586621680411822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamName:CreateWorkteam' :: Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkteamName%3ACreateWorkteam%27"><span class="hs-identifier hs-var">workteamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | A list of @MemberDefinition@ objects that contains objects that identify</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- the workers that make up the work team.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Workforces can be created using Amazon Cognito or your own OIDC Identity</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- Provider (IdP). For private workforces created using Amazon Cognito use</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- @CognitoMemberDefinition@. For workforces created using your own OIDC</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- identity provider (IdP) use @OidcMemberDefinition@. Do not provide input</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- for both of these parameters in a single request.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- For workforces created using Amazon Cognito, private work teams</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- correspond to Amazon Cognito /user groups/ within the user pool used to</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- create a workforce. All of the @CognitoMemberDefinition@ objects that</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- make up the member definition must have the same @ClientId@ and</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @UserPool@ values. To add a Amazon Cognito user group to an existing</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- worker pool, see &lt; Adding groups to a User Pool&gt;. For more information</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- about user pools, see</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html Amazon Cognito User Pools&gt;.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- For workforces created using your own OIDC IdP, specify the user groups</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- that you want to include in your private work team in</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- @OidcMemberDefinition@ by listing those groups in @Groups@.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_memberDefinitions"><span class="hs-identifier hs-type">createWorkteam_memberDefinitions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.MemberDefinition.html#MemberDefinition"><span class="hs-identifier hs-type">MemberDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="createWorkteam_memberDefinitions"><span class="annot"><span class="annottext">createWorkteam_memberDefinitions :: (NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
+-&gt; CreateWorkteam -&gt; f CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_memberDefinitions"><span class="hs-identifier hs-var hs-var">createWorkteam_memberDefinitions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteam -&gt; NonEmpty MemberDefinition)
+-&gt; (CreateWorkteam -&gt; NonEmpty MemberDefinition -&gt; CreateWorkteam)
+-&gt; Lens
+     CreateWorkteam
+     CreateWorkteam
+     (NonEmpty MemberDefinition)
+     (NonEmpty MemberDefinition)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411820"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+memberDefinitions :: NonEmpty MemberDefinition
+$sel:memberDefinitions:CreateWorkteam' :: CreateWorkteam -&gt; NonEmpty MemberDefinition
+</span><a href="#local-6989586621680411820"><span class="hs-identifier hs-var hs-var">memberDefinitions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680411820"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411819"><span class="annot"><span class="annottext">s :: CreateWorkteam
+</span><a href="#local-6989586621680411819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411818"><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680411818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteam
+</span><a href="#local-6989586621680411819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberDefinitions:CreateWorkteam' :: NonEmpty MemberDefinition
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AmemberDefinitions%3ACreateWorkteam%27"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680411818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
+ -&gt; CreateWorkteam -&gt; f CreateWorkteam)
+-&gt; ((NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
+    -&gt; NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
+-&gt; (NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
+-&gt; CreateWorkteam
+-&gt; f CreateWorkteam
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition))
+-&gt; NonEmpty MemberDefinition -&gt; f (NonEmpty MemberDefinition)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | A description of the work team.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_description"><span class="hs-identifier hs-type">createWorkteam_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-220"></span><span id="createWorkteam_description"><span class="annot"><span class="annottext">createWorkteam_description :: (Text -&gt; f Text) -&gt; CreateWorkteam -&gt; f CreateWorkteam
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteam_description"><span class="hs-identifier hs-var hs-var">createWorkteam_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteam -&gt; Text)
+-&gt; (CreateWorkteam -&gt; Text -&gt; CreateWorkteam)
+-&gt; Lens CreateWorkteam CreateWorkteam Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411817"><span class="annot"><span class="annottext">Text
+description :: Text
+$sel:description:CreateWorkteam' :: CreateWorkteam -&gt; Text
+</span><a href="#local-6989586621680411817"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411817"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411816"><span class="annot"><span class="annottext">s :: CreateWorkteam
+</span><a href="#local-6989586621680411816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411815"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteam
+</span><a href="#local-6989586621680411816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateWorkteam' :: Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3Adescription%3ACreateWorkteam%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-224"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-type">CreateWorkteamResponse</span></a></span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621680411811"><span class="annot"><span class="annottext">request :: CreateWorkteam -&gt; Request CreateWorkteam
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateWorkteam -&gt; Request CreateWorkteam
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SageMaker.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621680411807"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateWorkteam
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateWorkteam)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateWorkteam))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateWorkteam
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateWorkteam)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680411804"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411804"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621680411803"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621680411803"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621680411802"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680411802"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateWorkteamResponse
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse%27"><span class="hs-identifier hs-var">CreateWorkteamResponse'</span></a></span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateWorkteamResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateWorkteamResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680411802"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkteamArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateWorkteamResponse)
+-&gt; Either String Int -&gt; Either String CreateWorkteamResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411804"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411794"><span id="local-6989586621680411796"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span></span></span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411791"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span></span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-240"></span><span>  </span><span id="local-6989586621680411787"><span class="annot"><span class="annottext">toHeaders :: CreateWorkteam -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateWorkteam -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-243"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-244"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SageMaker.CreateWorkteam&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-247"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-248"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411777"><span id="local-6989586621680411779"><span id="local-6989586621680411781"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621680411775"><span class="annot"><span class="annottext">toJSON :: CreateWorkteam -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam%27"><span class="hs-identifier hs-type">CreateWorkteam'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411768"><span id="local-6989586621680411769"><span id="local-6989586621680411770"><span id="local-6989586621680411771"><span id="local-6989586621680411772"><span id="local-6989586621680411773"><span class="annot"><span class="annottext">Maybe [Tag]
+Maybe Text
+Maybe NotificationConfiguration
+NonEmpty MemberDefinition
+Text
+description :: Text
+memberDefinitions :: NonEmpty MemberDefinition
+workteamName :: Text
+tags :: Maybe [Tag]
+workforceName :: Maybe Text
+notificationConfiguration :: Maybe NotificationConfiguration
+$sel:description:CreateWorkteam' :: CreateWorkteam -&gt; Text
+$sel:memberDefinitions:CreateWorkteam' :: CreateWorkteam -&gt; NonEmpty MemberDefinition
+$sel:workteamName:CreateWorkteam' :: CreateWorkteam -&gt; Text
+$sel:tags:CreateWorkteam' :: CreateWorkteam -&gt; Maybe [Tag]
+$sel:workforceName:CreateWorkteam' :: CreateWorkteam -&gt; Maybe Text
+$sel:notificationConfiguration:CreateWorkteam' :: CreateWorkteam -&gt; Maybe NotificationConfiguration
+</span><a href="#local-6989586621680411768"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-255"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-256"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NotificationConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NotificationConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>              </span><span class="annot"><span class="annottext">(NotificationConfiguration -&gt; Pair)
+-&gt; Maybe NotificationConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NotificationConfiguration
+</span><a href="#local-6989586621680411773"><span class="hs-identifier hs-var">notificationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkforceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411772"><span class="hs-identifier hs-var">workforceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Tag] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; Pair) -&gt; Maybe [Tag] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Tag]
+</span><a href="#local-6989586621680411771"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;WorkteamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411770"><span class="hs-identifier hs-var">workteamName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-262"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberDefinitions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty MemberDefinition -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty MemberDefinition
+</span><a href="#local-6989586621680411769"><span class="hs-identifier hs-var">memberDefinitions</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680411768"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621680411762"><span class="annot"><span class="annottext">toPath :: CreateWorkteam -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateWorkteam -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteam"><span class="hs-identifier hs-type">CreateWorkteam</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621680411758"><span class="annot"><span class="annottext">toQuery :: CreateWorkteam -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateWorkteam -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | /See:/ 'newCreateWorkteamResponse' smart constructor.</span><span>
+</span><span id="line-274"></span><span id="local-6989586621680411755"><span id="local-6989586621680411756"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateWorkteamResponse"><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-var">CreateWorkteamResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateWorkteamResponse%27"><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse%27"><span class="hs-identifier hs-var">CreateWorkteamResponse'</span></a></span></span><span>
+</span><span id="line-275"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the work team. You can use this ARN to</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- identify the work team.</span><span>
+</span><span id="line-277"></span><span>    </span><span id="%24sel%3AworkteamArn%3ACreateWorkteamResponse%27"><span class="annot"><span class="annottext">CreateWorkteamResponse -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkteamArn%3ACreateWorkteamResponse%27"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-279"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateWorkteamResponse%27"><span class="annot"><span class="annottext">CreateWorkteamResponse -&gt; Int
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AhttpStatus%3ACreateWorkteamResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-280"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-281"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680411749"><span id="local-6989586621680411751"><span class="annot"><span class="annottext">CreateWorkteamResponse -&gt; CreateWorkteamResponse -&gt; Bool
+(CreateWorkteamResponse -&gt; CreateWorkteamResponse -&gt; Bool)
+-&gt; (CreateWorkteamResponse -&gt; CreateWorkteamResponse -&gt; Bool)
+-&gt; Eq CreateWorkteamResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateWorkteamResponse -&gt; CreateWorkteamResponse -&gt; Bool
+$c/= :: CreateWorkteamResponse -&gt; CreateWorkteamResponse -&gt; Bool
+== :: CreateWorkteamResponse -&gt; CreateWorkteamResponse -&gt; Bool
+$c== :: CreateWorkteamResponse -&gt; CreateWorkteamResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411741"><span id="local-6989586621680411743"><span id="local-6989586621680411745"><span id="local-6989586621680411747"><span class="annot"><span class="annottext">ReadPrec [CreateWorkteamResponse]
+ReadPrec CreateWorkteamResponse
+Int -&gt; ReadS CreateWorkteamResponse
+ReadS [CreateWorkteamResponse]
+(Int -&gt; ReadS CreateWorkteamResponse)
+-&gt; ReadS [CreateWorkteamResponse]
+-&gt; ReadPrec CreateWorkteamResponse
+-&gt; ReadPrec [CreateWorkteamResponse]
+-&gt; Read CreateWorkteamResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateWorkteamResponse]
+$creadListPrec :: ReadPrec [CreateWorkteamResponse]
+readPrec :: ReadPrec CreateWorkteamResponse
+$creadPrec :: ReadPrec CreateWorkteamResponse
+readList :: ReadS [CreateWorkteamResponse]
+$creadList :: ReadS [CreateWorkteamResponse]
+readsPrec :: Int -&gt; ReadS CreateWorkteamResponse
+$creadsPrec :: Int -&gt; ReadS CreateWorkteamResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680411735"><span id="local-6989586621680411737"><span id="local-6989586621680411739"><span class="annot"><span class="annottext">Int -&gt; CreateWorkteamResponse -&gt; ShowS
+[CreateWorkteamResponse] -&gt; ShowS
+CreateWorkteamResponse -&gt; String
+(Int -&gt; CreateWorkteamResponse -&gt; ShowS)
+-&gt; (CreateWorkteamResponse -&gt; String)
+-&gt; ([CreateWorkteamResponse] -&gt; ShowS)
+-&gt; Show CreateWorkteamResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateWorkteamResponse] -&gt; ShowS
+$cshowList :: [CreateWorkteamResponse] -&gt; ShowS
+show :: CreateWorkteamResponse -&gt; String
+$cshow :: CreateWorkteamResponse -&gt; String
+showsPrec :: Int -&gt; CreateWorkteamResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateWorkteamResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateWorkteamResponse -&gt; Rep CreateWorkteamResponse x)
+-&gt; (forall x.
+    Rep CreateWorkteamResponse x -&gt; CreateWorkteamResponse)
+-&gt; Generic CreateWorkteamResponse
+forall x. Rep CreateWorkteamResponse x -&gt; CreateWorkteamResponse
+forall x. CreateWorkteamResponse -&gt; Rep CreateWorkteamResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateWorkteamResponse x -&gt; CreateWorkteamResponse
+$cfrom :: forall x. CreateWorkteamResponse -&gt; Rep CreateWorkteamResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- Create a value of 'CreateWorkteamResponse' with all optional fields omitted.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- 'workteamArn', 'createWorkteamResponse_workteamArn' - The Amazon Resource Name (ARN) of the work team. You can use this ARN to</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- identify the work team.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- 'httpStatus', 'createWorkteamResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#newCreateWorkteamResponse"><span class="hs-identifier hs-type">newCreateWorkteamResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-296"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-297"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-298"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-type">CreateWorkteamResponse</span></a></span><span>
+</span><span id="line-299"></span><span id="newCreateWorkteamResponse"><span class="annot"><span class="annottext">newCreateWorkteamResponse :: Int -&gt; CreateWorkteamResponse
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#newCreateWorkteamResponse"><span class="hs-identifier hs-var hs-var">newCreateWorkteamResponse</span></a></span></span><span> </span><span id="local-6989586621680411732"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411732"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">CreateWorkteamResponse' :: Maybe Text -&gt; Int -&gt; CreateWorkteamResponse
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse%27"><span class="hs-identifier hs-type">CreateWorkteamResponse'</span></a></span><span>
+</span><span id="line-301"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:workteamArn:CreateWorkteamResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkteamArn%3ACreateWorkteamResponse%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-302"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkteamResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AhttpStatus%3ACreateWorkteamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411732"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the work team. You can use this ARN to</span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- identify the work team.</span><span>
+</span><span id="line-308"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteamResponse_workteamArn"><span class="hs-identifier hs-type">createWorkteamResponse_workteamArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-type">CreateWorkteamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-309"></span><span id="createWorkteamResponse_workteamArn"><span class="annot"><span class="annottext">createWorkteamResponse_workteamArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateWorkteamResponse -&gt; f CreateWorkteamResponse
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteamResponse_workteamArn"><span class="hs-identifier hs-var hs-var">createWorkteamResponse_workteamArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteamResponse -&gt; Maybe Text)
+-&gt; (CreateWorkteamResponse -&gt; Maybe Text -&gt; CreateWorkteamResponse)
+-&gt; Lens
+     CreateWorkteamResponse
+     CreateWorkteamResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse%27"><span class="hs-identifier hs-type">CreateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411731"><span class="annot"><span class="annottext">Maybe Text
+workteamArn :: Maybe Text
+$sel:workteamArn:CreateWorkteamResponse' :: CreateWorkteamResponse -&gt; Maybe Text
+</span><a href="#local-6989586621680411731"><span class="hs-identifier hs-var hs-var">workteamArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411731"><span class="hs-identifier hs-var">workteamArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411730"><span class="annot"><span class="annottext">s :: CreateWorkteamResponse
+</span><a href="#local-6989586621680411730"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse%27"><span class="hs-identifier hs-type">CreateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411729"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411729"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteamResponse
+</span><a href="#local-6989586621680411730"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workteamArn:CreateWorkteamResponse' :: Maybe Text
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AworkteamArn%3ACreateWorkteamResponse%27"><span class="hs-identifier hs-var">workteamArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680411729"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-type">CreateWorkteamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteamResponse_httpStatus"><span class="hs-identifier hs-type">createWorkteamResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-type">CreateWorkteamResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-313"></span><span id="createWorkteamResponse_httpStatus"><span class="annot"><span class="annottext">createWorkteamResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateWorkteamResponse -&gt; f CreateWorkteamResponse
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#createWorkteamResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createWorkteamResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateWorkteamResponse -&gt; Int)
+-&gt; (CreateWorkteamResponse -&gt; Int -&gt; CreateWorkteamResponse)
+-&gt; Lens CreateWorkteamResponse CreateWorkteamResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse%27"><span class="hs-identifier hs-type">CreateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680411728"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateWorkteamResponse' :: CreateWorkteamResponse -&gt; Int
+</span><a href="#local-6989586621680411728"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411728"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680411727"><span class="annot"><span class="annottext">s :: CreateWorkteamResponse
+</span><a href="#local-6989586621680411727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse%27"><span class="hs-identifier hs-type">CreateWorkteamResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680411726"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateWorkteamResponse
+</span><a href="#local-6989586621680411727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateWorkteamResponse' :: Int
+</span><a href="Amazonka.SageMaker.CreateWorkteam.html#%24sel%3AhttpStatus%3ACreateWorkteamResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621680411726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-type">CreateWorkteamResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680411724"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.CreateWorkteam.html#CreateWorkteamResponse"><span class="hs-identifier hs-type">CreateWorkteamResponse</span></a></span></span><span>
+</span><span id="line-316"></span></pre></body></html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Redshift.EnableSnapshotCopy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Enables the automatic copy of snapshots from one region to another</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- region for a specified cluster.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Redshift.EnableSnapshotCopy</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopy"><span class="hs-identifier">newEnableSnapshotCopy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_manualSnapshotRetentionPeriod"><span class="hs-identifier">enableSnapshotCopy_manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_retentionPeriod"><span class="hs-identifier">enableSnapshotCopy_retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_snapshotCopyGrantName"><span class="hs-identifier">enableSnapshotCopy_snapshotCopyGrantName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_clusterIdentifier"><span class="hs-identifier">enableSnapshotCopy_clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_destinationRegion"><span class="hs-identifier">enableSnapshotCopy_destinationRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier">EnableSnapshotCopyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopyResponse"><span class="hs-identifier">newEnableSnapshotCopyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopyResponse_cluster"><span class="hs-identifier">enableSnapshotCopyResponse_cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopyResponse_httpStatus"><span class="hs-identifier">enableSnapshotCopyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.html"><span class="hs-identifier">Amazonka.Redshift.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newEnableSnapshotCopy' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679511478"><span id="local-6989586621679511479"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSnapshotCopy"><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-var">EnableSnapshotCopy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSnapshotCopy%27"><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-var">EnableSnapshotCopy'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of days to retain newly copied snapshots in the destination</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Amazon Web Services Region after they are copied from the source Amazon</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Web Services Region. If the value is -1, the manual snapshot is retained</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- indefinitely.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- The value must be either -1 or an integer between 1 and 3,653.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmanualSnapshotRetentionPeriod%3AEnableSnapshotCopy%27"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; Maybe Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AmanualSnapshotRetentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The number of days to retain automated snapshots in the destination</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- region after they are copied from the source region.</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Default: 7.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- Constraints: Must be at least 1 and no more than 35.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AretentionPeriod%3AEnableSnapshotCopy%27"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; Maybe Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AretentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The name of the snapshot copy grant to use when snapshots of an Amazon</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- Web Services KMS-encrypted cluster are copied to the destination region.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AsnapshotCopyGrantName%3AEnableSnapshotCopy%27"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; Maybe Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AsnapshotCopyGrantName%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The unique identifier of the source cluster to copy snapshots from.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Constraints: Must be the valid name of an existing cluster that does not</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- already have cross-region snapshot copy enabled.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AclusterIdentifier%3AEnableSnapshotCopy%27"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AclusterIdentifier%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The destination Amazon Web Services Region that you want to copy</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- snapshots to.</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- Constraints: Must be the name of a valid Amazon Web Services Region. For</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints&gt;</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- in the Amazon Web Services General Reference.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511468"><span id="local-6989586621679511470"><span class="annot"><span class="annottext">EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
+(EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool)
+-&gt; (EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool)
+-&gt; Eq EnableSnapshotCopy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
+$c/= :: EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
+== :: EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
+$c== :: EnableSnapshotCopy -&gt; EnableSnapshotCopy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511459"><span id="local-6989586621679511461"><span id="local-6989586621679511463"><span id="local-6989586621679511465"><span class="annot"><span class="annottext">ReadPrec [EnableSnapshotCopy]
+ReadPrec EnableSnapshotCopy
+Int -&gt; ReadS EnableSnapshotCopy
+ReadS [EnableSnapshotCopy]
+(Int -&gt; ReadS EnableSnapshotCopy)
+-&gt; ReadS [EnableSnapshotCopy]
+-&gt; ReadPrec EnableSnapshotCopy
+-&gt; ReadPrec [EnableSnapshotCopy]
+-&gt; Read EnableSnapshotCopy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableSnapshotCopy]
+$creadListPrec :: ReadPrec [EnableSnapshotCopy]
+readPrec :: ReadPrec EnableSnapshotCopy
+$creadPrec :: ReadPrec EnableSnapshotCopy
+readList :: ReadS [EnableSnapshotCopy]
+$creadList :: ReadS [EnableSnapshotCopy]
+readsPrec :: Int -&gt; ReadS EnableSnapshotCopy
+$creadsPrec :: Int -&gt; ReadS EnableSnapshotCopy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511452"><span id="local-6989586621679511454"><span id="local-6989586621679511456"><span class="annot"><span class="annottext">Int -&gt; EnableSnapshotCopy -&gt; ShowS
+[EnableSnapshotCopy] -&gt; ShowS
+EnableSnapshotCopy -&gt; String
+(Int -&gt; EnableSnapshotCopy -&gt; ShowS)
+-&gt; (EnableSnapshotCopy -&gt; String)
+-&gt; ([EnableSnapshotCopy] -&gt; ShowS)
+-&gt; Show EnableSnapshotCopy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableSnapshotCopy] -&gt; ShowS
+$cshowList :: [EnableSnapshotCopy] -&gt; ShowS
+show :: EnableSnapshotCopy -&gt; String
+$cshow :: EnableSnapshotCopy -&gt; String
+showsPrec :: Int -&gt; EnableSnapshotCopy -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableSnapshotCopy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. EnableSnapshotCopy -&gt; Rep EnableSnapshotCopy x)
+-&gt; (forall x. Rep EnableSnapshotCopy x -&gt; EnableSnapshotCopy)
+-&gt; Generic EnableSnapshotCopy
+forall x. Rep EnableSnapshotCopy x -&gt; EnableSnapshotCopy
+forall x. EnableSnapshotCopy -&gt; Rep EnableSnapshotCopy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EnableSnapshotCopy x -&gt; EnableSnapshotCopy
+$cfrom :: forall x. EnableSnapshotCopy -&gt; Rep EnableSnapshotCopy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- Create a value of 'EnableSnapshotCopy' with all optional fields omitted.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'manualSnapshotRetentionPeriod', 'enableSnapshotCopy_manualSnapshotRetentionPeriod' - The number of days to retain newly copied snapshots in the destination</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Amazon Web Services Region after they are copied from the source Amazon</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Web Services Region. If the value is -1, the manual snapshot is retained</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- indefinitely.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- The value must be either -1 or an integer between 1 and 3,653.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'retentionPeriod', 'enableSnapshotCopy_retentionPeriod' - The number of days to retain automated snapshots in the destination</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- region after they are copied from the source region.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Default: 7.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Constraints: Must be at least 1 and no more than 35.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'snapshotCopyGrantName', 'enableSnapshotCopy_snapshotCopyGrantName' - The name of the snapshot copy grant to use when snapshots of an Amazon</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Web Services KMS-encrypted cluster are copied to the destination region.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'clusterIdentifier', 'enableSnapshotCopy_clusterIdentifier' - The unique identifier of the source cluster to copy snapshots from.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- Constraints: Must be the valid name of an existing cluster that does not</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- already have cross-region snapshot copy enabled.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'destinationRegion', 'enableSnapshotCopy_destinationRegion' - The destination Amazon Web Services Region that you want to copy</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- snapshots to.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Constraints: Must be the name of a valid Amazon Web Services Region. For</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints&gt;</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- in the Amazon Web Services General Reference.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopy"><span class="hs-identifier hs-type">newEnableSnapshotCopy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-comment">-- | 'clusterIdentifier'</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-comment">-- | 'destinationRegion'</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-133"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span>
+</span><span id="line-134"></span><span id="newEnableSnapshotCopy"><span class="annot"><span class="annottext">newEnableSnapshotCopy :: Text -&gt; Text -&gt; EnableSnapshotCopy
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopy"><span class="hs-identifier hs-var hs-var">newEnableSnapshotCopy</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679511447"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511447"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span></span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679511446"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511446"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">EnableSnapshotCopy' :: Maybe Int
+-&gt; Maybe Int -&gt; Maybe Text -&gt; Text -&gt; Text -&gt; EnableSnapshotCopy
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: Maybe Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AmanualSnapshotRetentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:retentionPeriod:EnableSnapshotCopy' :: Maybe Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AretentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:EnableSnapshotCopy' :: Maybe Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AsnapshotCopyGrantName%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableSnapshotCopy' :: Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AclusterIdentifier%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511447"><span class="hs-identifier hs-var">pClusterIdentifier_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationRegion:EnableSnapshotCopy' :: Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511446"><span class="hs-identifier hs-var">pDestinationRegion_</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The number of days to retain newly copied snapshots in the destination</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Amazon Web Services Region after they are copied from the source Amazon</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- Web Services Region. If the value is -1, the manual snapshot is retained</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- indefinitely.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- The value must be either -1 or an integer between 1 and 3,653.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_manualSnapshotRetentionPeriod"><span class="hs-identifier hs-type">enableSnapshotCopy_manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="enableSnapshotCopy_manualSnapshotRetentionPeriod"><span class="annot"><span class="annottext">enableSnapshotCopy_manualSnapshotRetentionPeriod :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EnableSnapshotCopy -&gt; f EnableSnapshotCopy
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_manualSnapshotRetentionPeriod"><span class="hs-identifier hs-var hs-var">enableSnapshotCopy_manualSnapshotRetentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSnapshotCopy -&gt; Maybe Int)
+-&gt; (EnableSnapshotCopy -&gt; Maybe Int -&gt; EnableSnapshotCopy)
+-&gt; Lens
+     EnableSnapshotCopy EnableSnapshotCopy (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511443"><span class="annot"><span class="annottext">Maybe Int
+manualSnapshotRetentionPeriod :: Maybe Int
+$sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
+</span><a href="#local-6989586621679511443"><span class="hs-identifier hs-var hs-var">manualSnapshotRetentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511443"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511442"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511442"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511441"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511441"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511442"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: Maybe Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AmanualSnapshotRetentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511441"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The number of days to retain automated snapshots in the destination</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- region after they are copied from the source region.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Default: 7.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Constraints: Must be at least 1 and no more than 35.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_retentionPeriod"><span class="hs-identifier hs-type">enableSnapshotCopy_retentionPeriod</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="enableSnapshotCopy_retentionPeriod"><span class="annot"><span class="annottext">enableSnapshotCopy_retentionPeriod :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; EnableSnapshotCopy -&gt; f EnableSnapshotCopy
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_retentionPeriod"><span class="hs-identifier hs-var hs-var">enableSnapshotCopy_retentionPeriod</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSnapshotCopy -&gt; Maybe Int)
+-&gt; (EnableSnapshotCopy -&gt; Maybe Int -&gt; EnableSnapshotCopy)
+-&gt; Lens
+     EnableSnapshotCopy EnableSnapshotCopy (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511440"><span class="annot"><span class="annottext">Maybe Int
+retentionPeriod :: Maybe Int
+$sel:retentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
+</span><a href="#local-6989586621679511440"><span class="hs-identifier hs-var hs-var">retentionPeriod</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511440"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511439"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511438"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:retentionPeriod:EnableSnapshotCopy' :: Maybe Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AretentionPeriod%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The name of the snapshot copy grant to use when snapshots of an Amazon</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Web Services KMS-encrypted cluster are copied to the destination region.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_snapshotCopyGrantName"><span class="hs-identifier hs-type">enableSnapshotCopy_snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="enableSnapshotCopy_snapshotCopyGrantName"><span class="annot"><span class="annottext">enableSnapshotCopy_snapshotCopyGrantName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; EnableSnapshotCopy -&gt; f EnableSnapshotCopy
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_snapshotCopyGrantName"><span class="hs-identifier hs-var hs-var">enableSnapshotCopy_snapshotCopyGrantName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSnapshotCopy -&gt; Maybe Text)
+-&gt; (EnableSnapshotCopy -&gt; Maybe Text -&gt; EnableSnapshotCopy)
+-&gt; Lens
+     EnableSnapshotCopy EnableSnapshotCopy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511437"><span class="annot"><span class="annottext">Maybe Text
+snapshotCopyGrantName :: Maybe Text
+$sel:snapshotCopyGrantName:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Text
+</span><a href="#local-6989586621679511437"><span class="hs-identifier hs-var hs-var">snapshotCopyGrantName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511437"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511436"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511435"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:snapshotCopyGrantName:EnableSnapshotCopy' :: Maybe Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AsnapshotCopyGrantName%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The unique identifier of the source cluster to copy snapshots from.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Constraints: Must be the valid name of an existing cluster that does not</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- already have cross-region snapshot copy enabled.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_clusterIdentifier"><span class="hs-identifier hs-type">enableSnapshotCopy_clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-174"></span><span id="enableSnapshotCopy_clusterIdentifier"><span class="annot"><span class="annottext">enableSnapshotCopy_clusterIdentifier :: (Text -&gt; f Text) -&gt; EnableSnapshotCopy -&gt; f EnableSnapshotCopy
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_clusterIdentifier"><span class="hs-identifier hs-var hs-var">enableSnapshotCopy_clusterIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSnapshotCopy -&gt; Text)
+-&gt; (EnableSnapshotCopy -&gt; Text -&gt; EnableSnapshotCopy)
+-&gt; Lens EnableSnapshotCopy EnableSnapshotCopy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511434"><span class="annot"><span class="annottext">Text
+clusterIdentifier :: Text
+$sel:clusterIdentifier:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
+</span><a href="#local-6989586621679511434"><span class="hs-identifier hs-var hs-var">clusterIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511434"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511433"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511433"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511432"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511432"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511433"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clusterIdentifier:EnableSnapshotCopy' :: Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AclusterIdentifier%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511432"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The destination Amazon Web Services Region that you want to copy</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- snapshots to.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Constraints: Must be the name of a valid Amazon Web Services Region. For</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints&gt;</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- in the Amazon Web Services General Reference.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_destinationRegion"><span class="hs-identifier hs-type">enableSnapshotCopy_destinationRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-184"></span><span id="enableSnapshotCopy_destinationRegion"><span class="annot"><span class="annottext">enableSnapshotCopy_destinationRegion :: (Text -&gt; f Text) -&gt; EnableSnapshotCopy -&gt; f EnableSnapshotCopy
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopy_destinationRegion"><span class="hs-identifier hs-var hs-var">enableSnapshotCopy_destinationRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSnapshotCopy -&gt; Text)
+-&gt; (EnableSnapshotCopy -&gt; Text -&gt; EnableSnapshotCopy)
+-&gt; Lens EnableSnapshotCopy EnableSnapshotCopy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511431"><span class="annot"><span class="annottext">Text
+destinationRegion :: Text
+$sel:destinationRegion:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
+</span><a href="#local-6989586621679511431"><span class="hs-identifier hs-var hs-var">destinationRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511431"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511430"><span class="annot"><span class="annottext">s :: EnableSnapshotCopy
+</span><a href="#local-6989586621679511430"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511429"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511429"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopy
+</span><a href="#local-6989586621679511430"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationRegion:EnableSnapshotCopy' :: Text
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AdestinationRegion%3AEnableSnapshotCopy%27"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511429"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-188"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>      </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span>
+</span><span id="line-190"></span><span>  </span><span id="local-6989586621679511425"><span class="annot"><span class="annottext">request :: EnableSnapshotCopy -&gt; Request EnableSnapshotCopy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; EnableSnapshotCopy -&gt; Request EnableSnapshotCopy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Redshift.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679511421"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy EnableSnapshotCopy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableSnapshotCopy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse EnableSnapshotCopy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy EnableSnapshotCopy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse EnableSnapshotCopy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableSnapshotCopyResult&quot;</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679511418"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511418"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679511417"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679511417"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679511416"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679511416"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Maybe Cluster -&gt; Int -&gt; EnableSnapshotCopyResponse
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Cluster -&gt; Int -&gt; EnableSnapshotCopyResponse)
+-&gt; Either String (Maybe Cluster)
+-&gt; Either String (Int -&gt; EnableSnapshotCopyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679511416"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Cluster)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cluster&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; EnableSnapshotCopyResponse)
+-&gt; Either String Int -&gt; Either String EnableSnapshotCopyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511418"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511408"><span id="local-6989586621679511410"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span></span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span></span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679511401"><span class="annot"><span class="annottext">toHeaders :: EnableSnapshotCopy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; EnableSnapshotCopy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679511396"><span class="annot"><span class="annottext">toPath :: EnableSnapshotCopy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; EnableSnapshotCopy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy"><span class="hs-identifier hs-type">EnableSnapshotCopy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-211"></span><span>  </span><span id="local-6989586621679511392"><span class="annot"><span class="annottext">toQuery :: EnableSnapshotCopy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopy%27"><span class="hs-identifier hs-type">EnableSnapshotCopy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511386"><span id="local-6989586621679511387"><span id="local-6989586621679511388"><span id="local-6989586621679511389"><span id="local-6989586621679511390"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Text
+destinationRegion :: Text
+clusterIdentifier :: Text
+snapshotCopyGrantName :: Maybe Text
+retentionPeriod :: Maybe Int
+manualSnapshotRetentionPeriod :: Maybe Int
+$sel:destinationRegion:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
+$sel:clusterIdentifier:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Text
+$sel:snapshotCopyGrantName:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Text
+$sel:retentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
+$sel:manualSnapshotRetentionPeriod:EnableSnapshotCopy' :: EnableSnapshotCopy -&gt; Maybe Int
+</span><a href="#local-6989586621679511386"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-213"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EnableSnapshotCopy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-216"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ManualSnapshotRetentionPeriod&quot;</span></span><span>
+</span><span id="line-218"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511390"><span class="hs-identifier hs-var">manualSnapshotRetentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RetentionPeriod&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679511389"><span class="hs-identifier hs-var">retentionPeriod</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SnapshotCopyGrantName&quot;</span></span><span>
+</span><span id="line-221"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511388"><span class="hs-identifier hs-var">snapshotCopyGrantName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClusterIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511387"><span class="hs-identifier hs-var">clusterIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679511386"><span class="hs-identifier hs-var">destinationRegion</span></a></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | /See:/ 'newEnableSnapshotCopyResponse' smart constructor.</span><span>
+</span><span id="line-227"></span><span id="local-6989586621679511383"><span id="local-6989586621679511384"></span></span><span class="hs-keyword">data</span><span> </span><span id="EnableSnapshotCopyResponse"><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EnableSnapshotCopyResponse%27"><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">EnableSnapshotCopyResponse'</span></a></span></span><span>
+</span><span id="line-228"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3Acluster%3AEnableSnapshotCopyResponse%27"><span class="annot"><span class="annottext">EnableSnapshotCopyResponse -&gt; Maybe Cluster
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3Acluster%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span>    </span><span id="%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="annot"><span class="annottext">EnableSnapshotCopyResponse -&gt; Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511377"><span id="local-6989586621679511379"><span class="annot"><span class="annottext">EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
+(EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool)
+-&gt; (EnableSnapshotCopyResponse
+    -&gt; EnableSnapshotCopyResponse -&gt; Bool)
+-&gt; Eq EnableSnapshotCopyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
+$c/= :: EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
+== :: EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
+$c== :: EnableSnapshotCopyResponse -&gt; EnableSnapshotCopyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511369"><span id="local-6989586621679511371"><span id="local-6989586621679511373"><span id="local-6989586621679511375"><span class="annot"><span class="annottext">ReadPrec [EnableSnapshotCopyResponse]
+ReadPrec EnableSnapshotCopyResponse
+Int -&gt; ReadS EnableSnapshotCopyResponse
+ReadS [EnableSnapshotCopyResponse]
+(Int -&gt; ReadS EnableSnapshotCopyResponse)
+-&gt; ReadS [EnableSnapshotCopyResponse]
+-&gt; ReadPrec EnableSnapshotCopyResponse
+-&gt; ReadPrec [EnableSnapshotCopyResponse]
+-&gt; Read EnableSnapshotCopyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EnableSnapshotCopyResponse]
+$creadListPrec :: ReadPrec [EnableSnapshotCopyResponse]
+readPrec :: ReadPrec EnableSnapshotCopyResponse
+$creadPrec :: ReadPrec EnableSnapshotCopyResponse
+readList :: ReadS [EnableSnapshotCopyResponse]
+$creadList :: ReadS [EnableSnapshotCopyResponse]
+readsPrec :: Int -&gt; ReadS EnableSnapshotCopyResponse
+$creadsPrec :: Int -&gt; ReadS EnableSnapshotCopyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511363"><span id="local-6989586621679511365"><span id="local-6989586621679511367"><span class="annot"><span class="annottext">Int -&gt; EnableSnapshotCopyResponse -&gt; ShowS
+[EnableSnapshotCopyResponse] -&gt; ShowS
+EnableSnapshotCopyResponse -&gt; String
+(Int -&gt; EnableSnapshotCopyResponse -&gt; ShowS)
+-&gt; (EnableSnapshotCopyResponse -&gt; String)
+-&gt; ([EnableSnapshotCopyResponse] -&gt; ShowS)
+-&gt; Show EnableSnapshotCopyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EnableSnapshotCopyResponse] -&gt; ShowS
+$cshowList :: [EnableSnapshotCopyResponse] -&gt; ShowS
+show :: EnableSnapshotCopyResponse -&gt; String
+$cshow :: EnableSnapshotCopyResponse -&gt; String
+showsPrec :: Int -&gt; EnableSnapshotCopyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; EnableSnapshotCopyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ EnableSnapshotCopyResponse -&gt; Rep EnableSnapshotCopyResponse x)
+-&gt; (forall x.
+    Rep EnableSnapshotCopyResponse x -&gt; EnableSnapshotCopyResponse)
+-&gt; Generic EnableSnapshotCopyResponse
+forall x.
+Rep EnableSnapshotCopyResponse x -&gt; EnableSnapshotCopyResponse
+forall x.
+EnableSnapshotCopyResponse -&gt; Rep EnableSnapshotCopyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep EnableSnapshotCopyResponse x -&gt; EnableSnapshotCopyResponse
+$cfrom :: forall x.
+EnableSnapshotCopyResponse -&gt; Rep EnableSnapshotCopyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Create a value of 'EnableSnapshotCopyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'cluster', 'enableSnapshotCopyResponse_cluster' - Undocumented member.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'httpStatus', 'enableSnapshotCopyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopyResponse"><span class="hs-identifier hs-type">newEnableSnapshotCopyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newEnableSnapshotCopyResponse"><span class="annot"><span class="annottext">newEnableSnapshotCopyResponse :: Int -&gt; EnableSnapshotCopyResponse
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#newEnableSnapshotCopyResponse"><span class="hs-identifier hs-var hs-var">newEnableSnapshotCopyResponse</span></a></span></span><span> </span><span id="local-6989586621679511360"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511360"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse' :: Maybe Cluster -&gt; Int -&gt; EnableSnapshotCopyResponse
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cluster:EnableSnapshotCopyResponse' :: Maybe Cluster
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3Acluster%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe Cluster
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:EnableSnapshotCopyResponse' :: Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511360"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-257"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopyResponse_cluster"><span class="hs-identifier hs-type">enableSnapshotCopyResponse_cluster</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.Types.Cluster.html#Cluster"><span class="hs-identifier hs-type">Cluster</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span id="enableSnapshotCopyResponse_cluster"><span class="annot"><span class="annottext">enableSnapshotCopyResponse_cluster :: (Maybe Cluster -&gt; f (Maybe Cluster))
+-&gt; EnableSnapshotCopyResponse -&gt; f EnableSnapshotCopyResponse
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopyResponse_cluster"><span class="hs-identifier hs-var hs-var">enableSnapshotCopyResponse_cluster</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSnapshotCopyResponse -&gt; Maybe Cluster)
+-&gt; (EnableSnapshotCopyResponse
+    -&gt; Maybe Cluster -&gt; EnableSnapshotCopyResponse)
+-&gt; Lens
+     EnableSnapshotCopyResponse
+     EnableSnapshotCopyResponse
+     (Maybe Cluster)
+     (Maybe Cluster)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511359"><span class="annot"><span class="annottext">Maybe Cluster
+cluster :: Maybe Cluster
+$sel:cluster:EnableSnapshotCopyResponse' :: EnableSnapshotCopyResponse -&gt; Maybe Cluster
+</span><a href="#local-6989586621679511359"><span class="hs-identifier hs-var hs-var">cluster</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679511359"><span class="hs-identifier hs-var">cluster</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511358"><span class="annot"><span class="annottext">s :: EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511357"><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679511357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cluster:EnableSnapshotCopyResponse' :: Maybe Cluster
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3Acluster%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">cluster</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Cluster
+</span><a href="#local-6989586621679511357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-261"></span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopyResponse_httpStatus"><span class="hs-identifier hs-type">enableSnapshotCopyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-262"></span><span id="enableSnapshotCopyResponse_httpStatus"><span class="annot"><span class="annottext">enableSnapshotCopyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; EnableSnapshotCopyResponse -&gt; f EnableSnapshotCopyResponse
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#enableSnapshotCopyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">enableSnapshotCopyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(EnableSnapshotCopyResponse -&gt; Int)
+-&gt; (EnableSnapshotCopyResponse
+    -&gt; Int -&gt; EnableSnapshotCopyResponse)
+-&gt; Lens
+     EnableSnapshotCopyResponse EnableSnapshotCopyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511356"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:EnableSnapshotCopyResponse' :: EnableSnapshotCopyResponse -&gt; Int
+</span><a href="#local-6989586621679511356"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511356"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511355"><span class="annot"><span class="annottext">s :: EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse%27"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511354"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnableSnapshotCopyResponse
+</span><a href="#local-6989586621679511355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:EnableSnapshotCopyResponse' :: Int
+</span><a href="Amazonka.Redshift.EnableSnapshotCopy.html#%24sel%3AhttpStatus%3AEnableSnapshotCopyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679511354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511352"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Redshift.EnableSnapshotCopy.html#EnableSnapshotCopyResponse"><span class="hs-identifier hs-type">EnableSnapshotCopyResponse</span></a></span></span><span>
+</span><span id="line-265"></span></pre></body></html>

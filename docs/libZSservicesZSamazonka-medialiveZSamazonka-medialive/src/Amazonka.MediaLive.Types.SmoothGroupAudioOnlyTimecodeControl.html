@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl"><span class="hs-identifier">SmoothGroupAudioOnlyTimecodeControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH"><span class="hs-identifier">SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK"><span class="hs-identifier">SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Smooth Group Audio Only Timecode Control</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679920125"><span id="local-6989586621679920126"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SmoothGroupAudioOnlyTimecodeControl"><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl"><span class="hs-identifier hs-var">SmoothGroupAudioOnlyTimecodeControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SmoothGroupAudioOnlyTimecodeControl%27"><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl%27"><span class="hs-identifier hs-var">SmoothGroupAudioOnlyTimecodeControl'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSmoothGroupAudioOnlyTimecodeControl"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#fromSmoothGroupAudioOnlyTimecodeControl"><span class="hs-identifier hs-var hs-var">fromSmoothGroupAudioOnlyTimecodeControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679920117"><span id="local-6989586621679920119"><span id="local-6989586621679920121"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; ShowS
+[SmoothGroupAudioOnlyTimecodeControl] -&gt; ShowS
+SmoothGroupAudioOnlyTimecodeControl -&gt; String
+(Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; ShowS)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl -&gt; String)
+-&gt; ([SmoothGroupAudioOnlyTimecodeControl] -&gt; ShowS)
+-&gt; Show SmoothGroupAudioOnlyTimecodeControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SmoothGroupAudioOnlyTimecodeControl] -&gt; ShowS
+$cshowList :: [SmoothGroupAudioOnlyTimecodeControl] -&gt; ShowS
+show :: SmoothGroupAudioOnlyTimecodeControl -&gt; String
+$cshow :: SmoothGroupAudioOnlyTimecodeControl -&gt; String
+showsPrec :: Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679920108"><span id="local-6989586621679920110"><span id="local-6989586621679920112"><span id="local-6989586621679920114"><span class="annot"><span class="annottext">ReadPrec [SmoothGroupAudioOnlyTimecodeControl]
+ReadPrec SmoothGroupAudioOnlyTimecodeControl
+Int -&gt; ReadS SmoothGroupAudioOnlyTimecodeControl
+ReadS [SmoothGroupAudioOnlyTimecodeControl]
+(Int -&gt; ReadS SmoothGroupAudioOnlyTimecodeControl)
+-&gt; ReadS [SmoothGroupAudioOnlyTimecodeControl]
+-&gt; ReadPrec SmoothGroupAudioOnlyTimecodeControl
+-&gt; ReadPrec [SmoothGroupAudioOnlyTimecodeControl]
+-&gt; Read SmoothGroupAudioOnlyTimecodeControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SmoothGroupAudioOnlyTimecodeControl]
+$creadListPrec :: ReadPrec [SmoothGroupAudioOnlyTimecodeControl]
+readPrec :: ReadPrec SmoothGroupAudioOnlyTimecodeControl
+$creadPrec :: ReadPrec SmoothGroupAudioOnlyTimecodeControl
+readList :: ReadS [SmoothGroupAudioOnlyTimecodeControl]
+$creadList :: ReadS [SmoothGroupAudioOnlyTimecodeControl]
+readsPrec :: Int -&gt; ReadS SmoothGroupAudioOnlyTimecodeControl
+$creadsPrec :: Int -&gt; ReadS SmoothGroupAudioOnlyTimecodeControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679920103"><span id="local-6989586621679920105"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+(SmoothGroupAudioOnlyTimecodeControl
+ -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool)
+-&gt; Eq SmoothGroupAudioOnlyTimecodeControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+$c/= :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+== :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+$c== :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679920087"><span id="local-6989586621679920089"><span id="local-6989586621679920091"><span id="local-6989586621679920093"><span id="local-6989586621679920095"><span id="local-6989586621679920097"><span id="local-6989586621679920099"><span class="annot"><span class="annottext">Eq SmoothGroupAudioOnlyTimecodeControl
+Eq SmoothGroupAudioOnlyTimecodeControl
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Ordering)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl
+    -&gt; SmoothGroupAudioOnlyTimecodeControl)
+-&gt; Ord SmoothGroupAudioOnlyTimecodeControl
+SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Ordering
+SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+$cmin :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+max :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+$cmax :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+&gt;= :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+$c&gt;= :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+&gt; :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+$c&gt; :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+&lt;= :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+$c&lt;= :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+&lt; :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+$c&lt; :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Bool
+compare :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Ordering
+$ccompare :: SmoothGroupAudioOnlyTimecodeControl
+-&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Ordering
+$cp1Ord :: Eq SmoothGroupAudioOnlyTimecodeControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SmoothGroupAudioOnlyTimecodeControl
+ -&gt; Rep SmoothGroupAudioOnlyTimecodeControl x)
+-&gt; (forall x.
+    Rep SmoothGroupAudioOnlyTimecodeControl x
+    -&gt; SmoothGroupAudioOnlyTimecodeControl)
+-&gt; Generic SmoothGroupAudioOnlyTimecodeControl
+forall x.
+Rep SmoothGroupAudioOnlyTimecodeControl x
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+forall x.
+SmoothGroupAudioOnlyTimecodeControl
+-&gt; Rep SmoothGroupAudioOnlyTimecodeControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SmoothGroupAudioOnlyTimecodeControl x
+-&gt; SmoothGroupAudioOnlyTimecodeControl
+$cfrom :: forall x.
+SmoothGroupAudioOnlyTimecodeControl
+-&gt; Rep SmoothGroupAudioOnlyTimecodeControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679920079"><span id="local-6989586621679920081"><span class="annot"><span class="annottext">Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Int
+SmoothGroupAudioOnlyTimecodeControl -&gt; Int
+(Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Int)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl -&gt; Int)
+-&gt; Hashable SmoothGroupAudioOnlyTimecodeControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SmoothGroupAudioOnlyTimecodeControl -&gt; Int
+$chash :: SmoothGroupAudioOnlyTimecodeControl -&gt; Int
+hashWithSalt :: Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Int
+$chashWithSalt :: Int -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679920076"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl -&gt; ()
+(SmoothGroupAudioOnlyTimecodeControl -&gt; ())
+-&gt; NFData SmoothGroupAudioOnlyTimecodeControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SmoothGroupAudioOnlyTimecodeControl -&gt; ()
+$crnf :: SmoothGroupAudioOnlyTimecodeControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679920073"><span class="annot"><span class="annottext">Text -&gt; Either String SmoothGroupAudioOnlyTimecodeControl
+(Text -&gt; Either String SmoothGroupAudioOnlyTimecodeControl)
+-&gt; FromText SmoothGroupAudioOnlyTimecodeControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SmoothGroupAudioOnlyTimecodeControl
+$cfromText :: Text -&gt; Either String SmoothGroupAudioOnlyTimecodeControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679920070"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl -&gt; Text
+(SmoothGroupAudioOnlyTimecodeControl -&gt; Text)
+-&gt; ToText SmoothGroupAudioOnlyTimecodeControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SmoothGroupAudioOnlyTimecodeControl -&gt; Text
+$ctoText :: SmoothGroupAudioOnlyTimecodeControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679920067"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl -&gt; ByteString
+(SmoothGroupAudioOnlyTimecodeControl -&gt; ByteString)
+-&gt; ToByteString SmoothGroupAudioOnlyTimecodeControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SmoothGroupAudioOnlyTimecodeControl -&gt; ByteString
+$ctoBS :: SmoothGroupAudioOnlyTimecodeControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679920064"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl -&gt; ByteStringBuilder
+(SmoothGroupAudioOnlyTimecodeControl -&gt; ByteStringBuilder)
+-&gt; ToLog SmoothGroupAudioOnlyTimecodeControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SmoothGroupAudioOnlyTimecodeControl -&gt; ByteStringBuilder
+$cbuild :: SmoothGroupAudioOnlyTimecodeControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679920061"><span class="annot"><span class="annottext">HeaderName -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; [Header]
+(HeaderName -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; [Header])
+-&gt; ToHeader SmoothGroupAudioOnlyTimecodeControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SmoothGroupAudioOnlyTimecodeControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679920058"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl -&gt; QueryString
+(SmoothGroupAudioOnlyTimecodeControl -&gt; QueryString)
+-&gt; ToQuery SmoothGroupAudioOnlyTimecodeControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SmoothGroupAudioOnlyTimecodeControl -&gt; QueryString
+$ctoQuery :: SmoothGroupAudioOnlyTimecodeControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679920053"><span id="local-6989586621679920055"><span class="annot"><span class="annottext">Value -&gt; Parser [SmoothGroupAudioOnlyTimecodeControl]
+Value -&gt; Parser SmoothGroupAudioOnlyTimecodeControl
+(Value -&gt; Parser SmoothGroupAudioOnlyTimecodeControl)
+-&gt; (Value -&gt; Parser [SmoothGroupAudioOnlyTimecodeControl])
+-&gt; FromJSON SmoothGroupAudioOnlyTimecodeControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SmoothGroupAudioOnlyTimecodeControl]
+$cparseJSONList :: Value -&gt; Parser [SmoothGroupAudioOnlyTimecodeControl]
+parseJSON :: Value -&gt; Parser SmoothGroupAudioOnlyTimecodeControl
+$cparseJSON :: Value -&gt; Parser SmoothGroupAudioOnlyTimecodeControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679920048"><span id="local-6989586621679920050"><span class="annot"><span class="annottext">FromJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+FromJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+FromJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+-&gt; FromJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+-&gt; FromJSONKey SmoothGroupAudioOnlyTimecodeControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+fromJSONKey :: FromJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+$cfromJSONKey :: FromJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679920039"><span id="local-6989586621679920041"><span id="local-6989586621679920043"><span id="local-6989586621679920045"><span class="annot"><span class="annottext">[SmoothGroupAudioOnlyTimecodeControl] -&gt; Encoding
+[SmoothGroupAudioOnlyTimecodeControl] -&gt; Value
+SmoothGroupAudioOnlyTimecodeControl -&gt; Encoding
+SmoothGroupAudioOnlyTimecodeControl -&gt; Value
+(SmoothGroupAudioOnlyTimecodeControl -&gt; Value)
+-&gt; (SmoothGroupAudioOnlyTimecodeControl -&gt; Encoding)
+-&gt; ([SmoothGroupAudioOnlyTimecodeControl] -&gt; Value)
+-&gt; ([SmoothGroupAudioOnlyTimecodeControl] -&gt; Encoding)
+-&gt; ToJSON SmoothGroupAudioOnlyTimecodeControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SmoothGroupAudioOnlyTimecodeControl] -&gt; Encoding
+$ctoEncodingList :: [SmoothGroupAudioOnlyTimecodeControl] -&gt; Encoding
+toJSONList :: [SmoothGroupAudioOnlyTimecodeControl] -&gt; Value
+$ctoJSONList :: [SmoothGroupAudioOnlyTimecodeControl] -&gt; Value
+toEncoding :: SmoothGroupAudioOnlyTimecodeControl -&gt; Encoding
+$ctoEncoding :: SmoothGroupAudioOnlyTimecodeControl -&gt; Encoding
+toJSON :: SmoothGroupAudioOnlyTimecodeControl -&gt; Value
+$ctoJSON :: SmoothGroupAudioOnlyTimecodeControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679920034"><span id="local-6989586621679920036"><span class="annot"><span class="annottext">ToJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+ToJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+ToJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+-&gt; ToJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+-&gt; ToJSONKey SmoothGroupAudioOnlyTimecodeControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [SmoothGroupAudioOnlyTimecodeControl]
+toJSONKey :: ToJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+$ctoJSONKey :: ToJSONKeyFunction SmoothGroupAudioOnlyTimecodeControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679920031"><span class="annot"><span class="annottext">[Node] -&gt; Either String SmoothGroupAudioOnlyTimecodeControl
+([Node] -&gt; Either String SmoothGroupAudioOnlyTimecodeControl)
+-&gt; FromXML SmoothGroupAudioOnlyTimecodeControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SmoothGroupAudioOnlyTimecodeControl
+$cparseXML :: [Node] -&gt; Either String SmoothGroupAudioOnlyTimecodeControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679920028"><span class="annot"><span class="annottext">SmoothGroupAudioOnlyTimecodeControl -&gt; XML
+(SmoothGroupAudioOnlyTimecodeControl -&gt; XML)
+-&gt; ToXML SmoothGroupAudioOnlyTimecodeControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SmoothGroupAudioOnlyTimecodeControl -&gt; XML
+$ctoXML :: SmoothGroupAudioOnlyTimecodeControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH"><span class="hs-identifier hs-type">SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl"><span class="hs-identifier hs-type">SmoothGroupAudioOnlyTimecodeControl</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH"><span id="%24mSmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH"><span id="SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH"><span class="annot"><span class="annottext">$bSmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH :: SmoothGroupAudioOnlyTimecodeControl
+$mSmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH :: forall r.
+SmoothGroupAudioOnlyTimecodeControl
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#%24bSmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH"><span class="hs-identifier hs-var hs-var hs-var">SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl%27"><span class="hs-identifier hs-type">SmoothGroupAudioOnlyTimecodeControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PASSTHROUGH&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK"><span class="hs-identifier hs-type">SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl"><span class="hs-identifier hs-type">SmoothGroupAudioOnlyTimecodeControl</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK"><span id="%24mSmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK"><span id="SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK"><span class="annot"><span class="annottext">$bSmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK :: SmoothGroupAudioOnlyTimecodeControl
+$mSmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK :: forall r.
+SmoothGroupAudioOnlyTimecodeControl
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#%24bSmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK"><span class="hs-identifier hs-var hs-var hs-var">SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl%27"><span class="hs-identifier hs-type">SmoothGroupAudioOnlyTimecodeControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USE_CONFIGURED_CLOCK&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH"><span class="hs-pragma hs-type">SmoothGroupAudioOnlyTimecodeControl_PASSTHROUGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK"><span class="hs-pragma hs-type">SmoothGroupAudioOnlyTimecodeControl_USE_CONFIGURED_CLOCK</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.SmoothGroupAudioOnlyTimecodeControl.html#SmoothGroupAudioOnlyTimecodeControl%27"><span class="hs-pragma hs-type">SmoothGroupAudioOnlyTimecodeControl'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SMS.Types.ConnectorCapability</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SMS.Types.ConnectorCapability</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier">ConnectorCapability</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_HYPERV_MANAGER"><span class="hs-identifier">ConnectorCapability_HYPERV_MANAGER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SCVMM"><span class="hs-identifier">ConnectorCapability_SCVMM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SMS_OPTIMIZED"><span class="hs-identifier">ConnectorCapability_SMS_OPTIMIZED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SNAPSHOT_BATCHING"><span class="hs-identifier">ConnectorCapability_SNAPSHOT_BATCHING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_VSPHERE"><span class="hs-identifier">ConnectorCapability_VSPHERE</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679244740"><span id="local-6989586621679244741"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectorCapability"><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-var">ConnectorCapability</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectorCapability%27"><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-var">ConnectorCapability'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectorCapability"><span class="annot"><span class="annottext">ConnectorCapability -&gt; Text
+</span><a href="Amazonka.SMS.Types.ConnectorCapability.html#fromConnectorCapability"><span class="hs-identifier hs-var hs-var">fromConnectorCapability</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244732"><span id="local-6989586621679244734"><span id="local-6989586621679244736"><span class="annot"><span class="annottext">Int -&gt; ConnectorCapability -&gt; ShowS
+[ConnectorCapability] -&gt; ShowS
+ConnectorCapability -&gt; String
+(Int -&gt; ConnectorCapability -&gt; ShowS)
+-&gt; (ConnectorCapability -&gt; String)
+-&gt; ([ConnectorCapability] -&gt; ShowS)
+-&gt; Show ConnectorCapability
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectorCapability] -&gt; ShowS
+$cshowList :: [ConnectorCapability] -&gt; ShowS
+show :: ConnectorCapability -&gt; String
+$cshow :: ConnectorCapability -&gt; String
+showsPrec :: Int -&gt; ConnectorCapability -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectorCapability -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679244723"><span id="local-6989586621679244725"><span id="local-6989586621679244727"><span id="local-6989586621679244729"><span class="annot"><span class="annottext">ReadPrec [ConnectorCapability]
+ReadPrec ConnectorCapability
+Int -&gt; ReadS ConnectorCapability
+ReadS [ConnectorCapability]
+(Int -&gt; ReadS ConnectorCapability)
+-&gt; ReadS [ConnectorCapability]
+-&gt; ReadPrec ConnectorCapability
+-&gt; ReadPrec [ConnectorCapability]
+-&gt; Read ConnectorCapability
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectorCapability]
+$creadListPrec :: ReadPrec [ConnectorCapability]
+readPrec :: ReadPrec ConnectorCapability
+$creadPrec :: ReadPrec ConnectorCapability
+readList :: ReadS [ConnectorCapability]
+$creadList :: ReadS [ConnectorCapability]
+readsPrec :: Int -&gt; ReadS ConnectorCapability
+$creadsPrec :: Int -&gt; ReadS ConnectorCapability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679244718"><span id="local-6989586621679244720"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+(ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
+-&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
+-&gt; Eq ConnectorCapability
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+$c/= :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+== :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+$c== :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679244702"><span id="local-6989586621679244704"><span id="local-6989586621679244706"><span id="local-6989586621679244708"><span id="local-6989586621679244710"><span id="local-6989586621679244712"><span id="local-6989586621679244714"><span class="annot"><span class="annottext">Eq ConnectorCapability
+Eq ConnectorCapability
+-&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Ordering)
+-&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
+-&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
+-&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
+-&gt; (ConnectorCapability -&gt; ConnectorCapability -&gt; Bool)
+-&gt; (ConnectorCapability
+    -&gt; ConnectorCapability -&gt; ConnectorCapability)
+-&gt; (ConnectorCapability
+    -&gt; ConnectorCapability -&gt; ConnectorCapability)
+-&gt; Ord ConnectorCapability
+ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+ConnectorCapability -&gt; ConnectorCapability -&gt; Ordering
+ConnectorCapability -&gt; ConnectorCapability -&gt; ConnectorCapability
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConnectorCapability -&gt; ConnectorCapability -&gt; ConnectorCapability
+$cmin :: ConnectorCapability -&gt; ConnectorCapability -&gt; ConnectorCapability
+max :: ConnectorCapability -&gt; ConnectorCapability -&gt; ConnectorCapability
+$cmax :: ConnectorCapability -&gt; ConnectorCapability -&gt; ConnectorCapability
+&gt;= :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+$c&gt;= :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+&gt; :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+$c&gt; :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+&lt;= :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+$c&lt;= :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+&lt; :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+$c&lt; :: ConnectorCapability -&gt; ConnectorCapability -&gt; Bool
+compare :: ConnectorCapability -&gt; ConnectorCapability -&gt; Ordering
+$ccompare :: ConnectorCapability -&gt; ConnectorCapability -&gt; Ordering
+$cp1Ord :: Eq ConnectorCapability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConnectorCapability -&gt; Rep ConnectorCapability x)
+-&gt; (forall x. Rep ConnectorCapability x -&gt; ConnectorCapability)
+-&gt; Generic ConnectorCapability
+forall x. Rep ConnectorCapability x -&gt; ConnectorCapability
+forall x. ConnectorCapability -&gt; Rep ConnectorCapability x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectorCapability x -&gt; ConnectorCapability
+$cfrom :: forall x. ConnectorCapability -&gt; Rep ConnectorCapability x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679244694"><span id="local-6989586621679244696"><span class="annot"><span class="annottext">Int -&gt; ConnectorCapability -&gt; Int
+ConnectorCapability -&gt; Int
+(Int -&gt; ConnectorCapability -&gt; Int)
+-&gt; (ConnectorCapability -&gt; Int) -&gt; Hashable ConnectorCapability
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConnectorCapability -&gt; Int
+$chash :: ConnectorCapability -&gt; Int
+hashWithSalt :: Int -&gt; ConnectorCapability -&gt; Int
+$chashWithSalt :: Int -&gt; ConnectorCapability -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679244691"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ()
+(ConnectorCapability -&gt; ()) -&gt; NFData ConnectorCapability
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConnectorCapability -&gt; ()
+$crnf :: ConnectorCapability -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679244688"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectorCapability
+(Text -&gt; Either String ConnectorCapability)
+-&gt; FromText ConnectorCapability
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConnectorCapability
+$cfromText :: Text -&gt; Either String ConnectorCapability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679244685"><span class="annot"><span class="annottext">ConnectorCapability -&gt; Text
+(ConnectorCapability -&gt; Text) -&gt; ToText ConnectorCapability
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConnectorCapability -&gt; Text
+$ctoText :: ConnectorCapability -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679244682"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ByteString
+(ConnectorCapability -&gt; ByteString)
+-&gt; ToByteString ConnectorCapability
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConnectorCapability -&gt; ByteString
+$ctoBS :: ConnectorCapability -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679244679"><span class="annot"><span class="annottext">ConnectorCapability -&gt; ByteStringBuilder
+(ConnectorCapability -&gt; ByteStringBuilder)
+-&gt; ToLog ConnectorCapability
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConnectorCapability -&gt; ByteStringBuilder
+$cbuild :: ConnectorCapability -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679244676"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectorCapability -&gt; [Header]
+(HeaderName -&gt; ConnectorCapability -&gt; [Header])
+-&gt; ToHeader ConnectorCapability
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConnectorCapability -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConnectorCapability -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679244673"><span class="annot"><span class="annottext">ConnectorCapability -&gt; QueryString
+(ConnectorCapability -&gt; QueryString) -&gt; ToQuery ConnectorCapability
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConnectorCapability -&gt; QueryString
+$ctoQuery :: ConnectorCapability -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679244668"><span id="local-6989586621679244670"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectorCapability]
+Value -&gt; Parser ConnectorCapability
+(Value -&gt; Parser ConnectorCapability)
+-&gt; (Value -&gt; Parser [ConnectorCapability])
+-&gt; FromJSON ConnectorCapability
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConnectorCapability]
+$cparseJSONList :: Value -&gt; Parser [ConnectorCapability]
+parseJSON :: Value -&gt; Parser ConnectorCapability
+$cparseJSON :: Value -&gt; Parser ConnectorCapability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679244663"><span id="local-6989586621679244665"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectorCapability]
+FromJSONKeyFunction ConnectorCapability
+FromJSONKeyFunction ConnectorCapability
+-&gt; FromJSONKeyFunction [ConnectorCapability]
+-&gt; FromJSONKey ConnectorCapability
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConnectorCapability]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConnectorCapability]
+fromJSONKey :: FromJSONKeyFunction ConnectorCapability
+$cfromJSONKey :: FromJSONKeyFunction ConnectorCapability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679244654"><span id="local-6989586621679244656"><span id="local-6989586621679244658"><span id="local-6989586621679244660"><span class="annot"><span class="annottext">[ConnectorCapability] -&gt; Encoding
+[ConnectorCapability] -&gt; Value
+ConnectorCapability -&gt; Encoding
+ConnectorCapability -&gt; Value
+(ConnectorCapability -&gt; Value)
+-&gt; (ConnectorCapability -&gt; Encoding)
+-&gt; ([ConnectorCapability] -&gt; Value)
+-&gt; ([ConnectorCapability] -&gt; Encoding)
+-&gt; ToJSON ConnectorCapability
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConnectorCapability] -&gt; Encoding
+$ctoEncodingList :: [ConnectorCapability] -&gt; Encoding
+toJSONList :: [ConnectorCapability] -&gt; Value
+$ctoJSONList :: [ConnectorCapability] -&gt; Value
+toEncoding :: ConnectorCapability -&gt; Encoding
+$ctoEncoding :: ConnectorCapability -&gt; Encoding
+toJSON :: ConnectorCapability -&gt; Value
+$ctoJSON :: ConnectorCapability -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679244649"><span id="local-6989586621679244651"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectorCapability]
+ToJSONKeyFunction ConnectorCapability
+ToJSONKeyFunction ConnectorCapability
+-&gt; ToJSONKeyFunction [ConnectorCapability]
+-&gt; ToJSONKey ConnectorCapability
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConnectorCapability]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConnectorCapability]
+toJSONKey :: ToJSONKeyFunction ConnectorCapability
+$ctoJSONKey :: ToJSONKeyFunction ConnectorCapability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679244646"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectorCapability
+([Node] -&gt; Either String ConnectorCapability)
+-&gt; FromXML ConnectorCapability
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConnectorCapability
+$cparseXML :: [Node] -&gt; Either String ConnectorCapability
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679244643"><span class="annot"><span class="annottext">ConnectorCapability -&gt; XML
+(ConnectorCapability -&gt; XML) -&gt; ToXML ConnectorCapability
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConnectorCapability -&gt; XML
+$ctoXML :: ConnectorCapability -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_HYPERV_MANAGER"><span class="hs-identifier hs-type">ConnectorCapability_HYPERV_MANAGER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-type">ConnectorCapability</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorCapability_HYPERV_MANAGER"><span id="%24mConnectorCapability_HYPERV_MANAGER"><span id="ConnectorCapability_HYPERV_MANAGER"><span class="annot"><span class="annottext">$bConnectorCapability_HYPERV_MANAGER :: ConnectorCapability
+$mConnectorCapability_HYPERV_MANAGER :: forall r. ConnectorCapability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ConnectorCapability.html#%24bConnectorCapability_HYPERV_MANAGER"><span class="hs-identifier hs-var hs-var hs-var">ConnectorCapability_HYPERV_MANAGER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-type">ConnectorCapability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HYPERV-MANAGER&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SCVMM"><span class="hs-identifier hs-type">ConnectorCapability_SCVMM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-type">ConnectorCapability</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorCapability_SCVMM"><span id="%24mConnectorCapability_SCVMM"><span id="ConnectorCapability_SCVMM"><span class="annot"><span class="annottext">$bConnectorCapability_SCVMM :: ConnectorCapability
+$mConnectorCapability_SCVMM :: forall r. ConnectorCapability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ConnectorCapability.html#%24bConnectorCapability_SCVMM"><span class="hs-identifier hs-var hs-var hs-var">ConnectorCapability_SCVMM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-type">ConnectorCapability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SCVMM&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SMS_OPTIMIZED"><span class="hs-identifier hs-type">ConnectorCapability_SMS_OPTIMIZED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-type">ConnectorCapability</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorCapability_SMS_OPTIMIZED"><span id="%24mConnectorCapability_SMS_OPTIMIZED"><span id="ConnectorCapability_SMS_OPTIMIZED"><span class="annot"><span class="annottext">$bConnectorCapability_SMS_OPTIMIZED :: ConnectorCapability
+$mConnectorCapability_SMS_OPTIMIZED :: forall r. ConnectorCapability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ConnectorCapability.html#%24bConnectorCapability_SMS_OPTIMIZED"><span class="hs-identifier hs-var hs-var hs-var">ConnectorCapability_SMS_OPTIMIZED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-type">ConnectorCapability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMS_OPTIMIZED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SNAPSHOT_BATCHING"><span class="hs-identifier hs-type">ConnectorCapability_SNAPSHOT_BATCHING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-type">ConnectorCapability</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorCapability_SNAPSHOT_BATCHING"><span id="%24mConnectorCapability_SNAPSHOT_BATCHING"><span id="ConnectorCapability_SNAPSHOT_BATCHING"><span class="annot"><span class="annottext">$bConnectorCapability_SNAPSHOT_BATCHING :: ConnectorCapability
+$mConnectorCapability_SNAPSHOT_BATCHING :: forall r. ConnectorCapability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ConnectorCapability.html#%24bConnectorCapability_SNAPSHOT_BATCHING"><span class="hs-identifier hs-var hs-var hs-var">ConnectorCapability_SNAPSHOT_BATCHING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-type">ConnectorCapability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SNAPSHOT_BATCHING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_VSPHERE"><span class="hs-identifier hs-type">ConnectorCapability_VSPHERE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability"><span class="hs-identifier hs-type">ConnectorCapability</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectorCapability_VSPHERE"><span id="%24mConnectorCapability_VSPHERE"><span id="ConnectorCapability_VSPHERE"><span class="annot"><span class="annottext">$bConnectorCapability_VSPHERE :: ConnectorCapability
+$mConnectorCapability_VSPHERE :: forall r. ConnectorCapability -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ConnectorCapability.html#%24bConnectorCapability_VSPHERE"><span class="hs-identifier hs-var hs-var hs-var">ConnectorCapability_VSPHERE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-identifier hs-type">ConnectorCapability'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VSPHERE&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_HYPERV_MANAGER"><span class="hs-pragma hs-type">ConnectorCapability_HYPERV_MANAGER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SCVMM"><span class="hs-pragma hs-type">ConnectorCapability_SCVMM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SMS_OPTIMIZED"><span class="hs-pragma hs-type">ConnectorCapability_SMS_OPTIMIZED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_SNAPSHOT_BATCHING"><span class="hs-pragma hs-type">ConnectorCapability_SNAPSHOT_BATCHING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability_VSPHERE"><span class="hs-pragma hs-type">ConnectorCapability_VSPHERE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ConnectorCapability.html#ConnectorCapability%27"><span class="hs-pragma hs-type">ConnectorCapability'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

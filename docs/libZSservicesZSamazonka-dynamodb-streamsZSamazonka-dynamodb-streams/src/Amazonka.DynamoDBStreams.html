@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-duplicate-exports #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-3"></span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDBStreams</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-11"></span><span class="hs-comment">--</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Derived from API version @2012-08-10@ of the AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-13"></span><span class="hs-comment">--</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Amazon DynamoDB</span><span>
+</span><span id="line-15"></span><span class="hs-comment">--</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Amazon DynamoDB Streams provides API actions for accessing streams and</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- processing stream records. To learn more about application development</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- with Streams, see</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html Capturing Table Activity with DynamoDB Streams&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- in the Amazon DynamoDB Developer Guide.</span><span>
+</span><span id="line-21"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDBStreams</span><span>
+</span><span id="line-22"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- $errors</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ExpiredIteratorException</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.html#_ExpiredIteratorException"><span class="hs-identifier">_ExpiredIteratorException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** InternalServerError</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.html#_InternalServerError"><span class="hs-identifier">_InternalServerError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** TrimmedDataAccessException</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.html#_TrimmedDataAccessException"><span class="hs-identifier">_TrimmedDataAccessException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ResourceNotFoundException</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** LimitExceededException</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Waiters</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- $waiters</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Operations</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- $operations</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetShardIterator</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetShardIterator.html#GetShardIterator"><span class="hs-identifier">GetShardIterator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetShardIterator.html#GetShardIterator%27"><span class="hs-identifier">GetShardIterator'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetShardIterator.html#newGetShardIterator"><span class="hs-identifier">newGetShardIterator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse"><span class="hs-identifier">GetShardIteratorResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetShardIterator.html#GetShardIteratorResponse%27"><span class="hs-identifier">GetShardIteratorResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetShardIterator.html#newGetShardIteratorResponse"><span class="hs-identifier">newGetShardIteratorResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** GetRecords</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetRecords.html#GetRecords"><span class="hs-identifier">GetRecords</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetRecords.html#GetRecords%27"><span class="hs-identifier">GetRecords'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetRecords.html#newGetRecords"><span class="hs-identifier">newGetRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetRecords.html#GetRecordsResponse"><span class="hs-identifier">GetRecordsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetRecords.html#GetRecordsResponse%27"><span class="hs-identifier">GetRecordsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetRecords.html#newGetRecordsResponse"><span class="hs-identifier">newGetRecordsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ListStreams</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.ListStreams.html#ListStreams"><span class="hs-identifier">ListStreams</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.ListStreams.html#ListStreams%27"><span class="hs-identifier">ListStreams'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.ListStreams.html#newListStreams"><span class="hs-identifier">newListStreams</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.ListStreams.html#ListStreamsResponse"><span class="hs-identifier">ListStreamsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.ListStreams.html#ListStreamsResponse%27"><span class="hs-identifier">ListStreamsResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.ListStreams.html#newListStreamsResponse"><span class="hs-identifier">newListStreamsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** DescribeStream</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.DescribeStream.html#DescribeStream"><span class="hs-identifier">DescribeStream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.DescribeStream.html#DescribeStream%27"><span class="hs-identifier">DescribeStream'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.DescribeStream.html#newDescribeStream"><span class="hs-identifier">newDescribeStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.DescribeStream.html#DescribeStreamResponse"><span class="hs-identifier">DescribeStreamResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.DescribeStream.html#DescribeStreamResponse%27"><span class="hs-identifier">DescribeStreamResponse'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.DescribeStream.html#newDescribeStreamResponse"><span class="hs-identifier">newDescribeStreamResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Types</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** KeyType</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.KeyType.html#KeyType"><span class="hs-identifier">KeyType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** OperationType</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.OperationType.html#OperationType"><span class="hs-identifier">OperationType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** ShardIteratorType</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.ShardIteratorType.html#ShardIteratorType"><span class="hs-identifier">ShardIteratorType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StreamStatus</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamStatus.html#StreamStatus"><span class="hs-identifier">StreamStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StreamViewType</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamViewType.html#StreamViewType"><span class="hs-identifier">StreamViewType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** AttributeValue</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier">AttributeValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.AttributeValue.html#AttributeValue%27"><span class="hs-identifier">AttributeValue'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.AttributeValue.html#newAttributeValue"><span class="hs-identifier">newAttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Identity</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Identity.html#Identity"><span class="hs-identifier">Identity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Identity.html#Identity%27"><span class="hs-identifier">Identity'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Identity.html#newIdentity"><span class="hs-identifier">newIdentity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** KeySchemaElement</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.KeySchemaElement.html#KeySchemaElement"><span class="hs-identifier">KeySchemaElement</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.KeySchemaElement.html#KeySchemaElement%27"><span class="hs-identifier">KeySchemaElement'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.KeySchemaElement.html#newKeySchemaElement"><span class="hs-identifier">newKeySchemaElement</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Record</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Record.html#Record"><span class="hs-identifier">Record</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Record.html#Record%27"><span class="hs-identifier">Record'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Record.html#newRecord"><span class="hs-identifier">newRecord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** SequenceNumberRange</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange"><span class="hs-identifier">SequenceNumberRange</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.SequenceNumberRange.html#SequenceNumberRange%27"><span class="hs-identifier">SequenceNumberRange'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.SequenceNumberRange.html#newSequenceNumberRange"><span class="hs-identifier">newSequenceNumberRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Shard</span></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Shard.html#Shard"><span class="hs-identifier">Shard</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Shard.html#Shard%27"><span class="hs-identifier">Shard'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Shard.html#newShard"><span class="hs-identifier">newShard</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** Stream</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Stream.html#Stream"><span class="hs-identifier">Stream</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Stream.html#Stream%27"><span class="hs-identifier">Stream'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.Stream.html#newStream"><span class="hs-identifier">newStream</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StreamDescription</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamDescription.html#StreamDescription"><span class="hs-identifier">StreamDescription</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamDescription.html#StreamDescription%27"><span class="hs-identifier">StreamDescription'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamDescription.html#newStreamDescription"><span class="hs-identifier">newStreamDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="hs-comment">-- ** StreamRecord</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamRecord.html#StreamRecord"><span class="hs-identifier">StreamRecord</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamRecord.html#StreamRecord%27"><span class="hs-identifier">StreamRecord'</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.StreamRecord.html#newStreamRecord"><span class="hs-identifier">newStreamRecord</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDBStreams.DescribeStream.html"><span class="hs-identifier">Amazonka.DynamoDBStreams.DescribeStream</span></a></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetRecords.html"><span class="hs-identifier">Amazonka.DynamoDBStreams.GetRecords</span></a></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDBStreams.GetShardIterator.html"><span class="hs-identifier">Amazonka.DynamoDBStreams.GetShardIterator</span></a></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Lens.html"><span class="hs-identifier">Amazonka.DynamoDBStreams.Lens</span></a></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDBStreams.ListStreams.html"><span class="hs-identifier">Amazonka.DynamoDBStreams.ListStreams</span></a></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Types.html"><span class="hs-identifier">Amazonka.DynamoDBStreams.Types</span></a></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDBStreams.Waiters.html"><span class="hs-identifier">Amazonka.DynamoDBStreams.Waiters</span></a></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- $errors</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Error matchers are designed for use with the functions provided by</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- &lt;http://hackage.haskell.org/package/lens/docs/Control-Exception-Lens.html Control.Exception.Lens&gt;.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- This allows catching (and rethrowing) service specific errors returned</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- by 'DynamoDBStreams'.</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- $operations</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Some AWS operations return results that are incomplete and require subsequent</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- requests in order to obtain the entire result set. The process of sending</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- subsequent requests to continue where a previous request left off is called</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- pagination. For example, the 'ListObjects' operation of Amazon S3 returns up to</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 1000 objects at a time, and you must send subsequent requests with the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- appropriate Marker in order to retrieve the next page of results.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Operations that have an 'AWSPager' instance can transparently perform subsequent</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- requests, correctly setting Markers and other request facets to iterate through</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- the entire result set of a truncated API operation. Operations which support</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- this have an additional note in the documentation.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Many operations have the ability to filter results on the server side. See the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- individual operation parameters for details.</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- $waiters</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Waiters poll by repeatedly sending a request until some remote success condition</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- configured by the 'Wait' specification is fulfilled. The 'Wait' specification</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- determines how many attempts should be made, in addition to delay and retry strategies.</span><span>
+</span><span id="line-162"></span></pre></body></html>

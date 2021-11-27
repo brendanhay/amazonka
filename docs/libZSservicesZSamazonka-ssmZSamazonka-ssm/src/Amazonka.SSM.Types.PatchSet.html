@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.PatchSet</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.PatchSet</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet"><span class="hs-identifier">PatchSet</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet_APPLICATION"><span class="hs-identifier">PatchSet_APPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet_OS"><span class="hs-identifier">PatchSet_OS</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679809622"><span id="local-6989586621679809623"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchSet"><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet"><span class="hs-identifier hs-var">PatchSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchSet%27"><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet%27"><span class="hs-identifier hs-var">PatchSet'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchSet"><span class="annot"><span class="annottext">PatchSet -&gt; Text
+</span><a href="Amazonka.SSM.Types.PatchSet.html#fromPatchSet"><span class="hs-identifier hs-var hs-var">fromPatchSet</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809614"><span id="local-6989586621679809616"><span id="local-6989586621679809618"><span class="annot"><span class="annottext">Int -&gt; PatchSet -&gt; ShowS
+[PatchSet] -&gt; ShowS
+PatchSet -&gt; String
+(Int -&gt; PatchSet -&gt; ShowS)
+-&gt; (PatchSet -&gt; String) -&gt; ([PatchSet] -&gt; ShowS) -&gt; Show PatchSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchSet] -&gt; ShowS
+$cshowList :: [PatchSet] -&gt; ShowS
+show :: PatchSet -&gt; String
+$cshow :: PatchSet -&gt; String
+showsPrec :: Int -&gt; PatchSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679809605"><span id="local-6989586621679809607"><span id="local-6989586621679809609"><span id="local-6989586621679809611"><span class="annot"><span class="annottext">ReadPrec [PatchSet]
+ReadPrec PatchSet
+Int -&gt; ReadS PatchSet
+ReadS [PatchSet]
+(Int -&gt; ReadS PatchSet)
+-&gt; ReadS [PatchSet]
+-&gt; ReadPrec PatchSet
+-&gt; ReadPrec [PatchSet]
+-&gt; Read PatchSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchSet]
+$creadListPrec :: ReadPrec [PatchSet]
+readPrec :: ReadPrec PatchSet
+$creadPrec :: ReadPrec PatchSet
+readList :: ReadS [PatchSet]
+$creadList :: ReadS [PatchSet]
+readsPrec :: Int -&gt; ReadS PatchSet
+$creadsPrec :: Int -&gt; ReadS PatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679809600"><span id="local-6989586621679809602"><span class="annot"><span class="annottext">PatchSet -&gt; PatchSet -&gt; Bool
+(PatchSet -&gt; PatchSet -&gt; Bool)
+-&gt; (PatchSet -&gt; PatchSet -&gt; Bool) -&gt; Eq PatchSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchSet -&gt; PatchSet -&gt; Bool
+$c/= :: PatchSet -&gt; PatchSet -&gt; Bool
+== :: PatchSet -&gt; PatchSet -&gt; Bool
+$c== :: PatchSet -&gt; PatchSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679809584"><span id="local-6989586621679809586"><span id="local-6989586621679809588"><span id="local-6989586621679809590"><span id="local-6989586621679809592"><span id="local-6989586621679809594"><span id="local-6989586621679809596"><span class="annot"><span class="annottext">Eq PatchSet
+Eq PatchSet
+-&gt; (PatchSet -&gt; PatchSet -&gt; Ordering)
+-&gt; (PatchSet -&gt; PatchSet -&gt; Bool)
+-&gt; (PatchSet -&gt; PatchSet -&gt; Bool)
+-&gt; (PatchSet -&gt; PatchSet -&gt; Bool)
+-&gt; (PatchSet -&gt; PatchSet -&gt; Bool)
+-&gt; (PatchSet -&gt; PatchSet -&gt; PatchSet)
+-&gt; (PatchSet -&gt; PatchSet -&gt; PatchSet)
+-&gt; Ord PatchSet
+PatchSet -&gt; PatchSet -&gt; Bool
+PatchSet -&gt; PatchSet -&gt; Ordering
+PatchSet -&gt; PatchSet -&gt; PatchSet
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PatchSet -&gt; PatchSet -&gt; PatchSet
+$cmin :: PatchSet -&gt; PatchSet -&gt; PatchSet
+max :: PatchSet -&gt; PatchSet -&gt; PatchSet
+$cmax :: PatchSet -&gt; PatchSet -&gt; PatchSet
+&gt;= :: PatchSet -&gt; PatchSet -&gt; Bool
+$c&gt;= :: PatchSet -&gt; PatchSet -&gt; Bool
+&gt; :: PatchSet -&gt; PatchSet -&gt; Bool
+$c&gt; :: PatchSet -&gt; PatchSet -&gt; Bool
+&lt;= :: PatchSet -&gt; PatchSet -&gt; Bool
+$c&lt;= :: PatchSet -&gt; PatchSet -&gt; Bool
+&lt; :: PatchSet -&gt; PatchSet -&gt; Bool
+$c&lt; :: PatchSet -&gt; PatchSet -&gt; Bool
+compare :: PatchSet -&gt; PatchSet -&gt; Ordering
+$ccompare :: PatchSet -&gt; PatchSet -&gt; Ordering
+$cp1Ord :: Eq PatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PatchSet -&gt; Rep PatchSet x)
+-&gt; (forall x. Rep PatchSet x -&gt; PatchSet) -&gt; Generic PatchSet
+forall x. Rep PatchSet x -&gt; PatchSet
+forall x. PatchSet -&gt; Rep PatchSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchSet x -&gt; PatchSet
+$cfrom :: forall x. PatchSet -&gt; Rep PatchSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679809576"><span id="local-6989586621679809578"><span class="annot"><span class="annottext">Int -&gt; PatchSet -&gt; Int
+PatchSet -&gt; Int
+(Int -&gt; PatchSet -&gt; Int) -&gt; (PatchSet -&gt; Int) -&gt; Hashable PatchSet
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PatchSet -&gt; Int
+$chash :: PatchSet -&gt; Int
+hashWithSalt :: Int -&gt; PatchSet -&gt; Int
+$chashWithSalt :: Int -&gt; PatchSet -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679809573"><span class="annot"><span class="annottext">PatchSet -&gt; ()
+(PatchSet -&gt; ()) -&gt; NFData PatchSet
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PatchSet -&gt; ()
+$crnf :: PatchSet -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679809570"><span class="annot"><span class="annottext">Text -&gt; Either String PatchSet
+(Text -&gt; Either String PatchSet) -&gt; FromText PatchSet
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PatchSet
+$cfromText :: Text -&gt; Either String PatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679809567"><span class="annot"><span class="annottext">PatchSet -&gt; Text
+(PatchSet -&gt; Text) -&gt; ToText PatchSet
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PatchSet -&gt; Text
+$ctoText :: PatchSet -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679809564"><span class="annot"><span class="annottext">PatchSet -&gt; ByteString
+(PatchSet -&gt; ByteString) -&gt; ToByteString PatchSet
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PatchSet -&gt; ByteString
+$ctoBS :: PatchSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679809561"><span class="annot"><span class="annottext">PatchSet -&gt; ByteStringBuilder
+(PatchSet -&gt; ByteStringBuilder) -&gt; ToLog PatchSet
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PatchSet -&gt; ByteStringBuilder
+$cbuild :: PatchSet -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679809558"><span class="annot"><span class="annottext">HeaderName -&gt; PatchSet -&gt; [Header]
+(HeaderName -&gt; PatchSet -&gt; [Header]) -&gt; ToHeader PatchSet
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PatchSet -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PatchSet -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679809555"><span class="annot"><span class="annottext">PatchSet -&gt; QueryString
+(PatchSet -&gt; QueryString) -&gt; ToQuery PatchSet
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PatchSet -&gt; QueryString
+$ctoQuery :: PatchSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679809550"><span id="local-6989586621679809552"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchSet]
+Value -&gt; Parser PatchSet
+(Value -&gt; Parser PatchSet)
+-&gt; (Value -&gt; Parser [PatchSet]) -&gt; FromJSON PatchSet
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PatchSet]
+$cparseJSONList :: Value -&gt; Parser [PatchSet]
+parseJSON :: Value -&gt; Parser PatchSet
+$cparseJSON :: Value -&gt; Parser PatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679809545"><span id="local-6989586621679809547"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchSet]
+FromJSONKeyFunction PatchSet
+FromJSONKeyFunction PatchSet
+-&gt; FromJSONKeyFunction [PatchSet] -&gt; FromJSONKey PatchSet
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PatchSet]
+$cfromJSONKeyList :: FromJSONKeyFunction [PatchSet]
+fromJSONKey :: FromJSONKeyFunction PatchSet
+$cfromJSONKey :: FromJSONKeyFunction PatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679809536"><span id="local-6989586621679809538"><span id="local-6989586621679809540"><span id="local-6989586621679809542"><span class="annot"><span class="annottext">[PatchSet] -&gt; Encoding
+[PatchSet] -&gt; Value
+PatchSet -&gt; Encoding
+PatchSet -&gt; Value
+(PatchSet -&gt; Value)
+-&gt; (PatchSet -&gt; Encoding)
+-&gt; ([PatchSet] -&gt; Value)
+-&gt; ([PatchSet] -&gt; Encoding)
+-&gt; ToJSON PatchSet
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PatchSet] -&gt; Encoding
+$ctoEncodingList :: [PatchSet] -&gt; Encoding
+toJSONList :: [PatchSet] -&gt; Value
+$ctoJSONList :: [PatchSet] -&gt; Value
+toEncoding :: PatchSet -&gt; Encoding
+$ctoEncoding :: PatchSet -&gt; Encoding
+toJSON :: PatchSet -&gt; Value
+$ctoJSON :: PatchSet -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679809531"><span id="local-6989586621679809533"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchSet]
+ToJSONKeyFunction PatchSet
+ToJSONKeyFunction PatchSet
+-&gt; ToJSONKeyFunction [PatchSet] -&gt; ToJSONKey PatchSet
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PatchSet]
+$ctoJSONKeyList :: ToJSONKeyFunction [PatchSet]
+toJSONKey :: ToJSONKeyFunction PatchSet
+$ctoJSONKey :: ToJSONKeyFunction PatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679809528"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchSet
+([Node] -&gt; Either String PatchSet) -&gt; FromXML PatchSet
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PatchSet
+$cparseXML :: [Node] -&gt; Either String PatchSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679809525"><span class="annot"><span class="annottext">PatchSet -&gt; XML
+(PatchSet -&gt; XML) -&gt; ToXML PatchSet
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PatchSet -&gt; XML
+$ctoXML :: PatchSet -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet_APPLICATION"><span class="hs-identifier hs-type">PatchSet_APPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet"><span class="hs-identifier hs-type">PatchSet</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchSet_APPLICATION"><span id="%24mPatchSet_APPLICATION"><span id="PatchSet_APPLICATION"><span class="annot"><span class="annottext">$bPatchSet_APPLICATION :: PatchSet
+$mPatchSet_APPLICATION :: forall r. PatchSet -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchSet.html#%24bPatchSet_APPLICATION"><span class="hs-identifier hs-var hs-var hs-var">PatchSet_APPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet%27"><span class="hs-identifier hs-type">PatchSet'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;APPLICATION&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet_OS"><span class="hs-identifier hs-type">PatchSet_OS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet"><span class="hs-identifier hs-type">PatchSet</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchSet_OS"><span id="%24mPatchSet_OS"><span id="PatchSet_OS"><span class="annot"><span class="annottext">$bPatchSet_OS :: PatchSet
+$mPatchSet_OS :: forall r. PatchSet -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchSet.html#%24bPatchSet_OS"><span class="hs-identifier hs-var hs-var hs-var">PatchSet_OS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet%27"><span class="hs-identifier hs-type">PatchSet'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet_APPLICATION"><span class="hs-pragma hs-type">PatchSet_APPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet_OS"><span class="hs-pragma hs-type">PatchSet_OS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchSet.html#PatchSet%27"><span class="hs-pragma hs-type">PatchSet'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

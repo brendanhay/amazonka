@@ -1,0 +1,660 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GreengrassV2.ListComponents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Retrieves a paginated list of component summaries. This list includes</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- components that you have permission to view.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GreengrassV2.ListComponents</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier">ListComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#newListComponents"><span class="hs-identifier">newListComponents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_nextToken"><span class="hs-identifier">listComponents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_scope"><span class="hs-identifier">listComponents_scope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_maxResults"><span class="hs-identifier">listComponents_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier">ListComponentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#newListComponentsResponse"><span class="hs-identifier">newListComponentsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_components"><span class="hs-identifier">listComponentsResponse_components</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_nextToken"><span class="hs-identifier">listComponentsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_httpStatus"><span class="hs-identifier">listComponentsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.html"><span class="hs-identifier">Amazonka.GreengrassV2.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListComponents' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679235557"><span id="local-6989586621679235558"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComponents"><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-var">ListComponents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComponents%27"><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-var">ListComponents'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListComponents%27"><span class="annot"><span class="annottext">ListComponents -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AnextToken%3AListComponents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The scope of the components to list.</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- Default: @PRIVATE@</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Ascope%3AListComponents%27"><span class="annot"><span class="annottext">ListComponents -&gt; Maybe ComponentVisibilityScope
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3Ascope%3AListComponents%27"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.ComponentVisibilityScope.html#ComponentVisibilityScope"><span class="hs-identifier hs-type">ComponentVisibilityScope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned per paginated request.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3AListComponents%27"><span class="annot"><span class="annottext">ListComponents -&gt; Maybe Natural
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AmaxResults%3AListComponents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235549"><span id="local-6989586621679235551"><span class="annot"><span class="annottext">ListComponents -&gt; ListComponents -&gt; Bool
+(ListComponents -&gt; ListComponents -&gt; Bool)
+-&gt; (ListComponents -&gt; ListComponents -&gt; Bool) -&gt; Eq ListComponents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListComponents -&gt; ListComponents -&gt; Bool
+$c/= :: ListComponents -&gt; ListComponents -&gt; Bool
+== :: ListComponents -&gt; ListComponents -&gt; Bool
+$c== :: ListComponents -&gt; ListComponents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235540"><span id="local-6989586621679235542"><span id="local-6989586621679235544"><span id="local-6989586621679235546"><span class="annot"><span class="annottext">ReadPrec [ListComponents]
+ReadPrec ListComponents
+Int -&gt; ReadS ListComponents
+ReadS [ListComponents]
+(Int -&gt; ReadS ListComponents)
+-&gt; ReadS [ListComponents]
+-&gt; ReadPrec ListComponents
+-&gt; ReadPrec [ListComponents]
+-&gt; Read ListComponents
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListComponents]
+$creadListPrec :: ReadPrec [ListComponents]
+readPrec :: ReadPrec ListComponents
+$creadPrec :: ReadPrec ListComponents
+readList :: ReadS [ListComponents]
+$creadList :: ReadS [ListComponents]
+readsPrec :: Int -&gt; ReadS ListComponents
+$creadsPrec :: Int -&gt; ReadS ListComponents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235533"><span id="local-6989586621679235535"><span id="local-6989586621679235537"><span class="annot"><span class="annottext">Int -&gt; ListComponents -&gt; ShowS
+[ListComponents] -&gt; ShowS
+ListComponents -&gt; String
+(Int -&gt; ListComponents -&gt; ShowS)
+-&gt; (ListComponents -&gt; String)
+-&gt; ([ListComponents] -&gt; ShowS)
+-&gt; Show ListComponents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListComponents] -&gt; ShowS
+$cshowList :: [ListComponents] -&gt; ShowS
+show :: ListComponents -&gt; String
+$cshow :: ListComponents -&gt; String
+showsPrec :: Int -&gt; ListComponents -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListComponents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListComponents -&gt; Rep ListComponents x)
+-&gt; (forall x. Rep ListComponents x -&gt; ListComponents)
+-&gt; Generic ListComponents
+forall x. Rep ListComponents x -&gt; ListComponents
+forall x. ListComponents -&gt; Rep ListComponents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListComponents x -&gt; ListComponents
+$cfrom :: forall x. ListComponents -&gt; Rep ListComponents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'ListComponents' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'nextToken', 'listComponents_nextToken' - The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'scope', 'listComponents_scope' - The scope of the components to list.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Default: @PRIVATE@</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'maxResults', 'listComponents_maxResults' - The maximum number of results to be returned per paginated request.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#newListComponents"><span class="hs-identifier hs-type">newListComponents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span>
+</span><span id="line-85"></span><span id="newListComponents"><span class="annot"><span class="annottext">newListComponents :: ListComponents
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#newListComponents"><span class="hs-identifier hs-var hs-var">newListComponents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="annottext">ListComponents' :: Maybe Text
+-&gt; Maybe ComponentVisibilityScope
+-&gt; Maybe Natural
+-&gt; ListComponents
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListComponents' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AnextToken%3AListComponents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:scope:ListComponents' :: Maybe ComponentVisibilityScope
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3Ascope%3AListComponents%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentVisibilityScope
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListComponents' :: Maybe Natural
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AmaxResults%3AListComponents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The token to be used for the next set of paginated results.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_nextToken"><span class="hs-identifier hs-type">listComponents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listComponents_nextToken"><span class="annot"><span class="annottext">listComponents_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListComponents -&gt; f ListComponents
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_nextToken"><span class="hs-identifier hs-var hs-var">listComponents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComponents -&gt; Maybe Text)
+-&gt; (ListComponents -&gt; Maybe Text -&gt; ListComponents)
+-&gt; Lens ListComponents ListComponents (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235527"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListComponents' :: ListComponents -&gt; Maybe Text
+</span><a href="#local-6989586621679235527"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235527"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235526"><span class="annot"><span class="annottext">s :: ListComponents
+</span><a href="#local-6989586621679235526"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235525"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235525"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComponents
+</span><a href="#local-6989586621679235526"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComponents' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AnextToken%3AListComponents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235525"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The scope of the components to list.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Default: @PRIVATE@</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_scope"><span class="hs-identifier hs-type">listComponents_scope</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.Types.ComponentVisibilityScope.html#ComponentVisibilityScope"><span class="hs-identifier hs-type">ComponentVisibilityScope</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listComponents_scope"><span class="annot"><span class="annottext">listComponents_scope :: (Maybe ComponentVisibilityScope
+ -&gt; f (Maybe ComponentVisibilityScope))
+-&gt; ListComponents -&gt; f ListComponents
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_scope"><span class="hs-identifier hs-var hs-var">listComponents_scope</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComponents -&gt; Maybe ComponentVisibilityScope)
+-&gt; (ListComponents
+    -&gt; Maybe ComponentVisibilityScope -&gt; ListComponents)
+-&gt; Lens
+     ListComponents
+     ListComponents
+     (Maybe ComponentVisibilityScope)
+     (Maybe ComponentVisibilityScope)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235524"><span class="annot"><span class="annottext">Maybe ComponentVisibilityScope
+scope :: Maybe ComponentVisibilityScope
+$sel:scope:ListComponents' :: ListComponents -&gt; Maybe ComponentVisibilityScope
+</span><a href="#local-6989586621679235524"><span class="hs-identifier hs-var hs-var">scope</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentVisibilityScope
+</span><a href="#local-6989586621679235524"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235523"><span class="annot"><span class="annottext">s :: ListComponents
+</span><a href="#local-6989586621679235523"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235522"><span class="annot"><span class="annottext">Maybe ComponentVisibilityScope
+</span><a href="#local-6989586621679235522"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComponents
+</span><a href="#local-6989586621679235523"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scope:ListComponents' :: Maybe ComponentVisibilityScope
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3Ascope%3AListComponents%27"><span class="hs-identifier hs-var">scope</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ComponentVisibilityScope
+</span><a href="#local-6989586621679235522"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The maximum number of results to be returned per paginated request.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_maxResults"><span class="hs-identifier hs-type">listComponents_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="listComponents_maxResults"><span class="annot"><span class="annottext">listComponents_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListComponents -&gt; f ListComponents
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_maxResults"><span class="hs-identifier hs-var hs-var">listComponents_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComponents -&gt; Maybe Natural)
+-&gt; (ListComponents -&gt; Maybe Natural -&gt; ListComponents)
+-&gt; Lens
+     ListComponents ListComponents (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235521"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListComponents' :: ListComponents -&gt; Maybe Natural
+</span><a href="#local-6989586621679235521"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235521"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235520"><span class="annot"><span class="annottext">s :: ListComponents
+</span><a href="#local-6989586621679235520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235519"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComponents
+</span><a href="#local-6989586621679235520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListComponents' :: Maybe Natural
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AmaxResults%3AListComponents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679235515"><span class="annot"><span class="annottext">page :: ListComponents
+-&gt; AWSResponse ListComponents -&gt; Maybe ListComponents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679235513"><span class="annot"><span class="annottext">ListComponents
+</span><a href="#local-6989586621679235513"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679235512"><span class="annot"><span class="annottext">AWSResponse ListComponents
+</span><a href="#local-6989586621679235512"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComponents
+ListComponentsResponse
+</span><a href="#local-6989586621679235512"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">ListComponentsResponse
+-&gt; Getting (First Text) ListComponentsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListComponentsResponse
+-&gt; Const (First Text) ListComponentsResponse
+Lens' ListComponentsResponse (Maybe Text)
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_nextToken"><span class="hs-identifier hs-var">listComponentsResponse_nextToken</span></a></span><span>
+</span><span id="line-111"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListComponentsResponse
+ -&gt; Const (First Text) ListComponentsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListComponentsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-112"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListComponents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Component] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-115"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComponents
+ListComponentsResponse
+</span><a href="#local-6989586621679235512"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">ListComponentsResponse
+-&gt; Getting (First [Component]) ListComponentsResponse [Component]
+-&gt; Maybe [Component]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Component]
+ -&gt; Const (First [Component]) (Maybe [Component]))
+-&gt; ListComponentsResponse
+-&gt; Const (First [Component]) ListComponentsResponse
+Lens' ListComponentsResponse (Maybe [Component])
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_components"><span class="hs-identifier hs-var">listComponentsResponse_components</span></a></span><span>
+</span><span id="line-117"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Component]
+  -&gt; Const (First [Component]) (Maybe [Component]))
+ -&gt; ListComponentsResponse
+ -&gt; Const (First [Component]) ListComponentsResponse)
+-&gt; (([Component] -&gt; Const (First [Component]) [Component])
+    -&gt; Maybe [Component]
+    -&gt; Const (First [Component]) (Maybe [Component]))
+-&gt; Getting (First [Component]) ListComponentsResponse [Component]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Component] -&gt; Const (First [Component]) [Component])
+-&gt; Maybe [Component]
+-&gt; Const (First [Component]) (Maybe [Component])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListComponents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">ListComponents -&gt; Maybe ListComponents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListComponents -&gt; Maybe ListComponents)
+-&gt; ListComponents -&gt; Maybe ListComponents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">ListComponents
+</span><a href="#local-6989586621679235513"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListComponents
+-&gt; (ListComponents -&gt; ListComponents) -&gt; ListComponents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListComponents -&gt; Identity ListComponents
+Lens ListComponents ListComponents (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponents_nextToken"><span class="hs-identifier hs-var">listComponents_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListComponents -&gt; Identity ListComponents)
+-&gt; Maybe Text -&gt; ListComponents -&gt; ListComponents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListComponents
+ListComponentsResponse
+</span><a href="#local-6989586621679235512"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="annot"><span class="annottext">ListComponentsResponse
+-&gt; Getting (First Text) ListComponentsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListComponentsResponse
+-&gt; Const (First Text) ListComponentsResponse
+Lens' ListComponentsResponse (Maybe Text)
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_nextToken"><span class="hs-identifier hs-var">listComponentsResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListComponentsResponse
+ -&gt; Const (First Text) ListComponentsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListComponentsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679235502"><span class="annot"><span class="annottext">request :: ListComponents -&gt; Request ListComponents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListComponents -&gt; Request ListComponents
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GreengrassV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679235498"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListComponents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListComponents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListComponents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListComponents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListComponents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679235495"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235495"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679235494"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679235494"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679235493"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235493"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Component] -&gt; Maybe Text -&gt; Int -&gt; ListComponentsResponse
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-var">ListComponentsResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Component] -&gt; Maybe Text -&gt; Int -&gt; ListComponentsResponse)
+-&gt; Either String (Maybe [Component])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListComponentsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Component]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;components&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Component]))
+-&gt; Maybe [Component] -&gt; Either String (Maybe [Component])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Component]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListComponentsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListComponentsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679235493"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListComponentsResponse)
+-&gt; Either String Int -&gt; Either String ListComponentsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235495"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235484"><span id="local-6989586621679235486"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235481"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679235477"><span class="annot"><span class="annottext">toHeaders :: ListComponents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListComponents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679235471"><span class="annot"><span class="annottext">toPath :: ListComponents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListComponents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/v2/components&quot;</span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents"><span class="hs-identifier hs-type">ListComponents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679235467"><span class="annot"><span class="annottext">toQuery :: ListComponents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponents%27"><span class="hs-identifier hs-type">ListComponents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235463"><span id="local-6989586621679235464"><span id="local-6989586621679235465"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe ComponentVisibilityScope
+maxResults :: Maybe Natural
+scope :: Maybe ComponentVisibilityScope
+nextToken :: Maybe Text
+$sel:maxResults:ListComponents' :: ListComponents -&gt; Maybe Natural
+$sel:scope:ListComponents' :: ListComponents -&gt; Maybe ComponentVisibilityScope
+$sel:nextToken:ListComponents' :: ListComponents -&gt; Maybe Text
+</span><a href="#local-6989586621679235463"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235465"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;scope&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ComponentVisibilityScope -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe ComponentVisibilityScope
+</span><a href="#local-6989586621679235464"><span class="hs-identifier hs-var">scope</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679235463"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | /See:/ 'newListComponentsResponse' smart constructor.</span><span>
+</span><span id="line-168"></span><span id="local-6989586621679235460"><span id="local-6989586621679235461"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListComponentsResponse"><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-var">ListComponentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListComponentsResponse%27"><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-var">ListComponentsResponse'</span></a></span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list that summarizes each component.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3Acomponents%3AListComponentsResponse%27"><span class="annot"><span class="annottext">ListComponentsResponse -&gt; Maybe [Component]
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3Acomponents%3AListComponentsResponse%27"><span class="hs-identifier hs-var hs-var">components</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-173"></span><span>    </span><span id="%24sel%3AnextToken%3AListComponentsResponse%27"><span class="annot"><span class="annottext">ListComponentsResponse -&gt; Maybe Text
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AnextToken%3AListComponentsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListComponentsResponse%27"><span class="annot"><span class="annottext">ListComponentsResponse -&gt; Int
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AhttpStatus%3AListComponentsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679235453"><span id="local-6989586621679235455"><span class="annot"><span class="annottext">ListComponentsResponse -&gt; ListComponentsResponse -&gt; Bool
+(ListComponentsResponse -&gt; ListComponentsResponse -&gt; Bool)
+-&gt; (ListComponentsResponse -&gt; ListComponentsResponse -&gt; Bool)
+-&gt; Eq ListComponentsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListComponentsResponse -&gt; ListComponentsResponse -&gt; Bool
+$c/= :: ListComponentsResponse -&gt; ListComponentsResponse -&gt; Bool
+== :: ListComponentsResponse -&gt; ListComponentsResponse -&gt; Bool
+$c== :: ListComponentsResponse -&gt; ListComponentsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235445"><span id="local-6989586621679235447"><span id="local-6989586621679235449"><span id="local-6989586621679235451"><span class="annot"><span class="annottext">ReadPrec [ListComponentsResponse]
+ReadPrec ListComponentsResponse
+Int -&gt; ReadS ListComponentsResponse
+ReadS [ListComponentsResponse]
+(Int -&gt; ReadS ListComponentsResponse)
+-&gt; ReadS [ListComponentsResponse]
+-&gt; ReadPrec ListComponentsResponse
+-&gt; ReadPrec [ListComponentsResponse]
+-&gt; Read ListComponentsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListComponentsResponse]
+$creadListPrec :: ReadPrec [ListComponentsResponse]
+readPrec :: ReadPrec ListComponentsResponse
+$creadPrec :: ReadPrec ListComponentsResponse
+readList :: ReadS [ListComponentsResponse]
+$creadList :: ReadS [ListComponentsResponse]
+readsPrec :: Int -&gt; ReadS ListComponentsResponse
+$creadsPrec :: Int -&gt; ReadS ListComponentsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679235439"><span id="local-6989586621679235441"><span id="local-6989586621679235443"><span class="annot"><span class="annottext">Int -&gt; ListComponentsResponse -&gt; ShowS
+[ListComponentsResponse] -&gt; ShowS
+ListComponentsResponse -&gt; String
+(Int -&gt; ListComponentsResponse -&gt; ShowS)
+-&gt; (ListComponentsResponse -&gt; String)
+-&gt; ([ListComponentsResponse] -&gt; ShowS)
+-&gt; Show ListComponentsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListComponentsResponse] -&gt; ShowS
+$cshowList :: [ListComponentsResponse] -&gt; ShowS
+show :: ListComponentsResponse -&gt; String
+$cshow :: ListComponentsResponse -&gt; String
+showsPrec :: Int -&gt; ListComponentsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListComponentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListComponentsResponse -&gt; Rep ListComponentsResponse x)
+-&gt; (forall x.
+    Rep ListComponentsResponse x -&gt; ListComponentsResponse)
+-&gt; Generic ListComponentsResponse
+forall x. Rep ListComponentsResponse x -&gt; ListComponentsResponse
+forall x. ListComponentsResponse -&gt; Rep ListComponentsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListComponentsResponse x -&gt; ListComponentsResponse
+$cfrom :: forall x. ListComponentsResponse -&gt; Rep ListComponentsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- Create a value of 'ListComponentsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'components', 'listComponentsResponse_components' - A list that summarizes each component.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'nextToken', 'listComponentsResponse_nextToken' - The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'httpStatus', 'listComponentsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#newListComponentsResponse"><span class="hs-identifier hs-type">newListComponentsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newListComponentsResponse"><span class="annot"><span class="annottext">newListComponentsResponse :: Int -&gt; ListComponentsResponse
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#newListComponentsResponse"><span class="hs-identifier hs-var hs-var">newListComponentsResponse</span></a></span></span><span> </span><span id="local-6989586621679235436"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235436"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="annottext">ListComponentsResponse' :: Maybe [Component] -&gt; Maybe Text -&gt; Int -&gt; ListComponentsResponse
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-type">ListComponentsResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:components:ListComponentsResponse' :: Maybe [Component]
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3Acomponents%3AListComponentsResponse%27"><span class="hs-identifier hs-var">components</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Component]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListComponentsResponse' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AnextToken%3AListComponentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListComponentsResponse' :: Int
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AhttpStatus%3AListComponentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235436"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | A list that summarizes each component.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_components"><span class="hs-identifier hs-type">listComponentsResponse_components</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GreengrassV2.Types.Component.html#Component"><span class="hs-identifier hs-type">Component</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listComponentsResponse_components"><span class="annot"><span class="annottext">listComponentsResponse_components :: (Maybe [Component] -&gt; f (Maybe [Component]))
+-&gt; ListComponentsResponse -&gt; f ListComponentsResponse
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_components"><span class="hs-identifier hs-var hs-var">listComponentsResponse_components</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComponentsResponse -&gt; Maybe [Component])
+-&gt; (ListComponentsResponse
+    -&gt; Maybe [Component] -&gt; ListComponentsResponse)
+-&gt; Lens' ListComponentsResponse (Maybe [Component])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-type">ListComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235435"><span class="annot"><span class="annottext">Maybe [Component]
+components :: Maybe [Component]
+$sel:components:ListComponentsResponse' :: ListComponentsResponse -&gt; Maybe [Component]
+</span><a href="#local-6989586621679235435"><span class="hs-identifier hs-var hs-var">components</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Component]
+</span><a href="#local-6989586621679235435"><span class="hs-identifier hs-var">components</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235434"><span class="annot"><span class="annottext">s :: ListComponentsResponse
+</span><a href="#local-6989586621679235434"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-type">ListComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235433"><span class="annot"><span class="annottext">Maybe [Component]
+</span><a href="#local-6989586621679235433"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComponentsResponse
+</span><a href="#local-6989586621679235434"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:components:ListComponentsResponse' :: Maybe [Component]
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3Acomponents%3AListComponentsResponse%27"><span class="hs-identifier hs-var">components</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Component]
+</span><a href="#local-6989586621679235433"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Component] -&gt; f (Maybe [Component]))
+ -&gt; ListComponentsResponse -&gt; f ListComponentsResponse)
+-&gt; ((Maybe [Component] -&gt; f (Maybe [Component]))
+    -&gt; Maybe [Component] -&gt; f (Maybe [Component]))
+-&gt; (Maybe [Component] -&gt; f (Maybe [Component]))
+-&gt; ListComponentsResponse
+-&gt; f ListComponentsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Component] [Component] [Component] [Component]
+-&gt; Iso
+     (Maybe [Component])
+     (Maybe [Component])
+     (Maybe [Component])
+     (Maybe [Component])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Component] [Component] [Component] [Component]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_nextToken"><span class="hs-identifier hs-type">listComponentsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="listComponentsResponse_nextToken"><span class="annot"><span class="annottext">listComponentsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListComponentsResponse -&gt; f ListComponentsResponse
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listComponentsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComponentsResponse -&gt; Maybe Text)
+-&gt; (ListComponentsResponse -&gt; Maybe Text -&gt; ListComponentsResponse)
+-&gt; Lens' ListComponentsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-type">ListComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235430"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListComponentsResponse' :: ListComponentsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679235430"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235430"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235429"><span class="annot"><span class="annottext">s :: ListComponentsResponse
+</span><a href="#local-6989586621679235429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-type">ListComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235428"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComponentsResponse
+</span><a href="#local-6989586621679235429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListComponentsResponse' :: Maybe Text
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AnextToken%3AListComponentsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679235428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_httpStatus"><span class="hs-identifier hs-type">listComponentsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="listComponentsResponse_httpStatus"><span class="annot"><span class="annottext">listComponentsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListComponentsResponse -&gt; f ListComponentsResponse
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#listComponentsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listComponentsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListComponentsResponse -&gt; Int)
+-&gt; (ListComponentsResponse -&gt; Int -&gt; ListComponentsResponse)
+-&gt; Lens ListComponentsResponse ListComponentsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-type">ListComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679235427"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListComponentsResponse' :: ListComponentsResponse -&gt; Int
+</span><a href="#local-6989586621679235427"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235427"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679235426"><span class="annot"><span class="annottext">s :: ListComponentsResponse
+</span><a href="#local-6989586621679235426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse%27"><span class="hs-identifier hs-type">ListComponentsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679235425"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListComponentsResponse
+</span><a href="#local-6989586621679235426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListComponentsResponse' :: Int
+</span><a href="Amazonka.GreengrassV2.ListComponents.html#%24sel%3AhttpStatus%3AListComponentsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679235425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679235423"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GreengrassV2.ListComponents.html#ListComponentsResponse"><span class="hs-identifier hs-type">ListComponentsResponse</span></a></span></span><span>
+</span><span id="line-219"></span></pre></body></html>

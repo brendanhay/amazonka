@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.ESPartitionInstanceType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.RecurringCharge.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.RecurringCharge</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Details of a reserved Elasticsearch instance offering.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReservedElasticsearchInstanceOffering' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679299582"><span id="local-6989586621679299583"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReservedElasticsearchInstanceOffering"><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReservedElasticsearchInstanceOffering%27"><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The currency code for the reserved Elasticsearch instance offering.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch reserved instance offering identifier.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOfferingId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Elasticsearch instance type offered by the reserved instance</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- offering.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+-&gt; Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">elasticsearchInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- domains using the instance offering.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe [RecurringCharge]
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The rate you are charged for each hour the domain that is using the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- Elasticsearch instance.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering -&gt; Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Payment option for the reserved Elasticsearch instance offering</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption.html#ReservedElasticsearchInstancePaymentOption"><span class="hs-identifier hs-type">ReservedElasticsearchInstancePaymentOption</span></a></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679299569"><span id="local-6989586621679299571"><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+-&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
+(ReservedElasticsearchInstanceOffering
+ -&gt; ReservedElasticsearchInstanceOffering -&gt; Bool)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; ReservedElasticsearchInstanceOffering -&gt; Bool)
+-&gt; Eq ReservedElasticsearchInstanceOffering
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReservedElasticsearchInstanceOffering
+-&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
+$c/= :: ReservedElasticsearchInstanceOffering
+-&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
+== :: ReservedElasticsearchInstanceOffering
+-&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
+$c== :: ReservedElasticsearchInstanceOffering
+-&gt; ReservedElasticsearchInstanceOffering -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299560"><span id="local-6989586621679299562"><span id="local-6989586621679299564"><span id="local-6989586621679299566"><span class="annot"><span class="annottext">ReadPrec [ReservedElasticsearchInstanceOffering]
+ReadPrec ReservedElasticsearchInstanceOffering
+Int -&gt; ReadS ReservedElasticsearchInstanceOffering
+ReadS [ReservedElasticsearchInstanceOffering]
+(Int -&gt; ReadS ReservedElasticsearchInstanceOffering)
+-&gt; ReadS [ReservedElasticsearchInstanceOffering]
+-&gt; ReadPrec ReservedElasticsearchInstanceOffering
+-&gt; ReadPrec [ReservedElasticsearchInstanceOffering]
+-&gt; Read ReservedElasticsearchInstanceOffering
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReservedElasticsearchInstanceOffering]
+$creadListPrec :: ReadPrec [ReservedElasticsearchInstanceOffering]
+readPrec :: ReadPrec ReservedElasticsearchInstanceOffering
+$creadPrec :: ReadPrec ReservedElasticsearchInstanceOffering
+readList :: ReadS [ReservedElasticsearchInstanceOffering]
+$creadList :: ReadS [ReservedElasticsearchInstanceOffering]
+readsPrec :: Int -&gt; ReadS ReservedElasticsearchInstanceOffering
+$creadsPrec :: Int -&gt; ReadS ReservedElasticsearchInstanceOffering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679299553"><span id="local-6989586621679299555"><span id="local-6989586621679299557"><span class="annot"><span class="annottext">Int -&gt; ReservedElasticsearchInstanceOffering -&gt; ShowS
+[ReservedElasticsearchInstanceOffering] -&gt; ShowS
+ReservedElasticsearchInstanceOffering -&gt; String
+(Int -&gt; ReservedElasticsearchInstanceOffering -&gt; ShowS)
+-&gt; (ReservedElasticsearchInstanceOffering -&gt; String)
+-&gt; ([ReservedElasticsearchInstanceOffering] -&gt; ShowS)
+-&gt; Show ReservedElasticsearchInstanceOffering
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReservedElasticsearchInstanceOffering] -&gt; ShowS
+$cshowList :: [ReservedElasticsearchInstanceOffering] -&gt; ShowS
+show :: ReservedElasticsearchInstanceOffering -&gt; String
+$cshow :: ReservedElasticsearchInstanceOffering -&gt; String
+showsPrec :: Int -&gt; ReservedElasticsearchInstanceOffering -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReservedElasticsearchInstanceOffering -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReservedElasticsearchInstanceOffering
+ -&gt; Rep ReservedElasticsearchInstanceOffering x)
+-&gt; (forall x.
+    Rep ReservedElasticsearchInstanceOffering x
+    -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Generic ReservedElasticsearchInstanceOffering
+forall x.
+Rep ReservedElasticsearchInstanceOffering x
+-&gt; ReservedElasticsearchInstanceOffering
+forall x.
+ReservedElasticsearchInstanceOffering
+-&gt; Rep ReservedElasticsearchInstanceOffering x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReservedElasticsearchInstanceOffering x
+-&gt; ReservedElasticsearchInstanceOffering
+$cfrom :: forall x.
+ReservedElasticsearchInstanceOffering
+-&gt; Rep ReservedElasticsearchInstanceOffering x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'ReservedElasticsearchInstanceOffering' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'currencyCode', 'reservedElasticsearchInstanceOffering_currencyCode' - The currency code for the reserved Elasticsearch instance offering.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'reservedElasticsearchInstanceOfferingId', 'reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId' - The Elasticsearch reserved instance offering identifier.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'elasticsearchInstanceType', 'reservedElasticsearchInstanceOffering_elasticsearchInstanceType' - The Elasticsearch instance type offered by the reserved instance</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- offering.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'recurringCharges', 'reservedElasticsearchInstanceOffering_recurringCharges' - The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- domains using the instance offering.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'usagePrice', 'reservedElasticsearchInstanceOffering_usagePrice' - The rate you are charged for each hour the domain that is using the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'fixedPrice', 'reservedElasticsearchInstanceOffering_fixedPrice' - The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'duration', 'reservedElasticsearchInstanceOffering_duration' - The duration, in seconds, for which the offering will reserve the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Elasticsearch instance.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'paymentOption', 'reservedElasticsearchInstanceOffering_paymentOption' - Payment option for the reserved Elasticsearch instance offering</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#newReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">newReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span>
+</span><span id="line-87"></span><span id="newReservedElasticsearchInstanceOffering"><span class="annot"><span class="annottext">newReservedElasticsearchInstanceOffering :: ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#newReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-var hs-var">newReservedElasticsearchInstanceOffering</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ESPartitionInstanceType
+-&gt; Maybe [RecurringCharge]
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
+-&gt; ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:elasticsearchInstanceType:ReservedElasticsearchInstanceOffering' :: Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">elasticsearchInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: Maybe [RecurringCharge]
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:duration:ReservedElasticsearchInstanceOffering' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The currency code for the reserved Elasticsearch instance offering.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_currencyCode"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_currencyCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="reservedElasticsearchInstanceOffering_currencyCode"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_currencyCode :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_currencyCode"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_currencyCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Text)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Text -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299544"><span class="annot"><span class="annottext">Maybe Text
+currencyCode :: Maybe Text
+$sel:currencyCode:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Text
+</span><a href="#local-6989586621679299544"><span class="hs-identifier hs-var hs-var">currencyCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299544"><span class="hs-identifier hs-var">currencyCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299543"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299542"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:currencyCode:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AcurrencyCode%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">currencyCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The Elasticsearch reserved instance offering identifier.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_reservedElasticsearchInstanceOfferingId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Text)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Text -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299540"><span class="annot"><span class="annottext">Maybe Text
+reservedElasticsearchInstanceOfferingId :: Maybe Text
+$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Text
+</span><a href="#local-6989586621679299540"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOfferingId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299540"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299539"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299539"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299538"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299538"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299539"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reservedElasticsearchInstanceOfferingId:ReservedElasticsearchInstanceOffering' :: Maybe Text
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AreservedElasticsearchInstanceOfferingId%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">reservedElasticsearchInstanceOfferingId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679299538"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The Elasticsearch instance type offered by the reserved instance</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- offering.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_elasticsearchInstanceType"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_elasticsearchInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ESPartitionInstanceType.html#ESPartitionInstanceType"><span class="hs-identifier hs-type">ESPartitionInstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="reservedElasticsearchInstanceOffering_elasticsearchInstanceType"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_elasticsearchInstanceType :: (Maybe ESPartitionInstanceType
+ -&gt; f (Maybe ESPartitionInstanceType))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_elasticsearchInstanceType"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_elasticsearchInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering
+ -&gt; Maybe ESPartitionInstanceType)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe ESPartitionInstanceType
+    -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe ESPartitionInstanceType)
+     (Maybe ESPartitionInstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299536"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+elasticsearchInstanceType :: Maybe ESPartitionInstanceType
+$sel:elasticsearchInstanceType:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering
+-&gt; Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299536"><span class="hs-identifier hs-var hs-var">elasticsearchInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299536"><span class="hs-identifier hs-var">elasticsearchInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299535"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299535"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299534"><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299534"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299535"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:elasticsearchInstanceType:ReservedElasticsearchInstanceOffering' :: Maybe ESPartitionInstanceType
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AelasticsearchInstanceType%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">elasticsearchInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ESPartitionInstanceType
+</span><a href="#local-6989586621679299534"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The charge to your account regardless of whether you are creating any</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- domains using the instance offering.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_recurringCharges"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_recurringCharges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.RecurringCharge.html#RecurringCharge"><span class="hs-identifier hs-type">RecurringCharge</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="reservedElasticsearchInstanceOffering_recurringCharges"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_recurringCharges :: (Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_recurringCharges"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_recurringCharges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe [RecurringCharge])
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe [RecurringCharge]
+    -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe [RecurringCharge])
+     (Maybe [RecurringCharge])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299532"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+recurringCharges :: Maybe [RecurringCharge]
+$sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe [RecurringCharge]
+</span><a href="#local-6989586621679299532"><span class="hs-identifier hs-var hs-var">recurringCharges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><a href="#local-6989586621679299532"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299531"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299530"><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><a href="#local-6989586621679299530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recurringCharges:ReservedElasticsearchInstanceOffering' :: Maybe [RecurringCharge]
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ArecurringCharges%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">recurringCharges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+</span><a href="#local-6989586621679299530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+ -&gt; ReservedElasticsearchInstanceOffering
+ -&gt; f ReservedElasticsearchInstanceOffering)
+-&gt; ((Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+    -&gt; Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+-&gt; (Maybe [RecurringCharge] -&gt; f (Maybe [RecurringCharge]))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RecurringCharge]
+  [RecurringCharge]
+  [RecurringCharge]
+  [RecurringCharge]
+-&gt; Iso
+     (Maybe [RecurringCharge])
+     (Maybe [RecurringCharge])
+     (Maybe [RecurringCharge])
+     (Maybe [RecurringCharge])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RecurringCharge]
+  [RecurringCharge]
+  [RecurringCharge]
+  [RecurringCharge]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The rate you are charged for each hour the domain that is using the</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- offering is running.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_usagePrice"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_usagePrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="reservedElasticsearchInstanceOffering_usagePrice"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_usagePrice :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_usagePrice"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_usagePrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Double)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Double -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299525"><span class="annot"><span class="annottext">Maybe Double
+usagePrice :: Maybe Double
+$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><a href="#local-6989586621679299525"><span class="hs-identifier hs-var hs-var">usagePrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299525"><span class="hs-identifier hs-var">usagePrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299524"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299524"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299523"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299523"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299524"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:usagePrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AusagePrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">usagePrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299523"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The upfront fixed charge you will pay to purchase the specific reserved</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Elasticsearch instance offering.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_fixedPrice"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_fixedPrice</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="reservedElasticsearchInstanceOffering_fixedPrice"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_fixedPrice :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_fixedPrice"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_fixedPrice</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Double)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Double -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299521"><span class="annot"><span class="annottext">Maybe Double
+fixedPrice :: Maybe Double
+$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Double
+</span><a href="#local-6989586621679299521"><span class="hs-identifier hs-var hs-var">fixedPrice</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299521"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299520"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299519"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fixedPrice:ReservedElasticsearchInstanceOffering' :: Maybe Double
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3AfixedPrice%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">fixedPrice</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679299519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The duration, in seconds, for which the offering will reserve the</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Elasticsearch instance.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_duration"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_duration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="reservedElasticsearchInstanceOffering_duration"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_duration :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_duration"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_duration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering -&gt; Maybe Int)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe Int -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299517"><span class="annot"><span class="annottext">Maybe Int
+duration :: Maybe Int
+$sel:duration:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering -&gt; Maybe Int
+</span><a href="#local-6989586621679299517"><span class="hs-identifier hs-var hs-var">duration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299517"><span class="hs-identifier hs-var">duration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299516"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299515"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:duration:ReservedElasticsearchInstanceOffering' :: Maybe Int
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3Aduration%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">duration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679299515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | Payment option for the reserved Elasticsearch instance offering</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_paymentOption"><span class="hs-identifier hs-type">reservedElasticsearchInstanceOffering_paymentOption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstancePaymentOption.html#ReservedElasticsearchInstancePaymentOption"><span class="hs-identifier hs-type">ReservedElasticsearchInstancePaymentOption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="reservedElasticsearchInstanceOffering_paymentOption"><span class="annot"><span class="annottext">reservedElasticsearchInstanceOffering_paymentOption :: (Maybe ReservedElasticsearchInstancePaymentOption
+ -&gt; f (Maybe ReservedElasticsearchInstancePaymentOption))
+-&gt; ReservedElasticsearchInstanceOffering
+-&gt; f ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#reservedElasticsearchInstanceOffering_paymentOption"><span class="hs-identifier hs-var hs-var">reservedElasticsearchInstanceOffering_paymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReservedElasticsearchInstanceOffering
+ -&gt; Maybe ReservedElasticsearchInstancePaymentOption)
+-&gt; (ReservedElasticsearchInstanceOffering
+    -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+    -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Lens
+     ReservedElasticsearchInstanceOffering
+     ReservedElasticsearchInstanceOffering
+     (Maybe ReservedElasticsearchInstancePaymentOption)
+     (Maybe ReservedElasticsearchInstancePaymentOption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679299513"><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+paymentOption :: Maybe ReservedElasticsearchInstancePaymentOption
+$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: ReservedElasticsearchInstanceOffering
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299513"><span class="hs-identifier hs-var hs-var">paymentOption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299513"><span class="hs-identifier hs-var">paymentOption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679299512"><span class="annot"><span class="annottext">s :: ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299512"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679299511"><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299511"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReservedElasticsearchInstanceOffering
+</span><a href="#local-6989586621679299512"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:paymentOption:ReservedElasticsearchInstanceOffering' :: Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#%24sel%3ApaymentOption%3AReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">paymentOption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReservedElasticsearchInstancePaymentOption
+</span><a href="#local-6989586621679299511"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679299508"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span></span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679299506"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReservedElasticsearchInstanceOffering
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReservedElasticsearchInstanceOffering)
+-&gt; Value
+-&gt; Parser ReservedElasticsearchInstanceOffering
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReservedElasticsearchInstanceOffering&quot;</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679299503"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ESPartitionInstanceType
+-&gt; Maybe [RecurringCharge]
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; Maybe Int
+-&gt; Maybe ReservedElasticsearchInstancePaymentOption
+-&gt; ReservedElasticsearchInstanceOffering
+</span><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering%27"><span class="hs-identifier hs-var">ReservedElasticsearchInstanceOffering'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ESPartitionInstanceType
+ -&gt; Maybe [RecurringCharge]
+ -&gt; Maybe Double
+ -&gt; Maybe Double
+ -&gt; Maybe Int
+ -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+ -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ESPartitionInstanceType
+      -&gt; Maybe [RecurringCharge]
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CurrencyCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ESPartitionInstanceType
+   -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ESPartitionInstanceType
+      -&gt; Maybe [RecurringCharge]
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-150"></span><span>                            </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReservedElasticsearchInstanceOfferingId&quot;</span></span><span>
+</span><span id="line-151"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ESPartitionInstanceType
+   -&gt; Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe ESPartitionInstanceType)
+-&gt; Parser
+     (Maybe [RecurringCharge]
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ESPartitionInstanceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ElasticsearchInstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [RecurringCharge]
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe [RecurringCharge])
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [RecurringCharge]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecurringCharges&quot;</span></span><span>
+</span><span id="line-154"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [RecurringCharge]))
+-&gt; Maybe [RecurringCharge] -&gt; Parser (Maybe [RecurringCharge])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RecurringCharge]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-155"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UsagePrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FixedPrice&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe ReservedElasticsearchInstancePaymentOption
+      -&gt; ReservedElasticsearchInstanceOffering)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Duration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReservedElasticsearchInstancePaymentOption
+   -&gt; ReservedElasticsearchInstanceOffering)
+-&gt; Parser (Maybe ReservedElasticsearchInstancePaymentOption)
+-&gt; Parser ReservedElasticsearchInstanceOffering
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679299503"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser (Maybe ReservedElasticsearchInstancePaymentOption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PaymentOption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679299496"><span id="local-6989586621679299498"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span></span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679299493"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.ReservedElasticsearchInstanceOffering.html#ReservedElasticsearchInstanceOffering"><span class="hs-identifier hs-type">ReservedElasticsearchInstanceOffering</span></a></span></span><span>
+</span><span id="line-169"></span></pre></body></html>

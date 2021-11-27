@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.JoinSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.JoinSource</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource"><span class="hs-identifier">JoinSource</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource_Input"><span class="hs-identifier">JoinSource_Input</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource_None"><span class="hs-identifier">JoinSource_None</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621680311889"><span id="local-6989586621680311890"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="JoinSource"><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource"><span class="hs-identifier hs-var">JoinSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="JoinSource%27"><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource%27"><span class="hs-identifier hs-var">JoinSource'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromJoinSource"><span class="annot"><span class="annottext">JoinSource -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.JoinSource.html#fromJoinSource"><span class="hs-identifier hs-var hs-var">fromJoinSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680311881"><span id="local-6989586621680311883"><span id="local-6989586621680311885"><span class="annot"><span class="annottext">Int -&gt; JoinSource -&gt; ShowS
+[JoinSource] -&gt; ShowS
+JoinSource -&gt; String
+(Int -&gt; JoinSource -&gt; ShowS)
+-&gt; (JoinSource -&gt; String)
+-&gt; ([JoinSource] -&gt; ShowS)
+-&gt; Show JoinSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [JoinSource] -&gt; ShowS
+$cshowList :: [JoinSource] -&gt; ShowS
+show :: JoinSource -&gt; String
+$cshow :: JoinSource -&gt; String
+showsPrec :: Int -&gt; JoinSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; JoinSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621680311872"><span id="local-6989586621680311874"><span id="local-6989586621680311876"><span id="local-6989586621680311878"><span class="annot"><span class="annottext">ReadPrec [JoinSource]
+ReadPrec JoinSource
+Int -&gt; ReadS JoinSource
+ReadS [JoinSource]
+(Int -&gt; ReadS JoinSource)
+-&gt; ReadS [JoinSource]
+-&gt; ReadPrec JoinSource
+-&gt; ReadPrec [JoinSource]
+-&gt; Read JoinSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [JoinSource]
+$creadListPrec :: ReadPrec [JoinSource]
+readPrec :: ReadPrec JoinSource
+$creadPrec :: ReadPrec JoinSource
+readList :: ReadS [JoinSource]
+$creadList :: ReadS [JoinSource]
+readsPrec :: Int -&gt; ReadS JoinSource
+$creadsPrec :: Int -&gt; ReadS JoinSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621680311867"><span id="local-6989586621680311869"><span class="annot"><span class="annottext">JoinSource -&gt; JoinSource -&gt; Bool
+(JoinSource -&gt; JoinSource -&gt; Bool)
+-&gt; (JoinSource -&gt; JoinSource -&gt; Bool) -&gt; Eq JoinSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: JoinSource -&gt; JoinSource -&gt; Bool
+$c/= :: JoinSource -&gt; JoinSource -&gt; Bool
+== :: JoinSource -&gt; JoinSource -&gt; Bool
+$c== :: JoinSource -&gt; JoinSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621680311851"><span id="local-6989586621680311853"><span id="local-6989586621680311855"><span id="local-6989586621680311857"><span id="local-6989586621680311859"><span id="local-6989586621680311861"><span id="local-6989586621680311863"><span class="annot"><span class="annottext">Eq JoinSource
+Eq JoinSource
+-&gt; (JoinSource -&gt; JoinSource -&gt; Ordering)
+-&gt; (JoinSource -&gt; JoinSource -&gt; Bool)
+-&gt; (JoinSource -&gt; JoinSource -&gt; Bool)
+-&gt; (JoinSource -&gt; JoinSource -&gt; Bool)
+-&gt; (JoinSource -&gt; JoinSource -&gt; Bool)
+-&gt; (JoinSource -&gt; JoinSource -&gt; JoinSource)
+-&gt; (JoinSource -&gt; JoinSource -&gt; JoinSource)
+-&gt; Ord JoinSource
+JoinSource -&gt; JoinSource -&gt; Bool
+JoinSource -&gt; JoinSource -&gt; Ordering
+JoinSource -&gt; JoinSource -&gt; JoinSource
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: JoinSource -&gt; JoinSource -&gt; JoinSource
+$cmin :: JoinSource -&gt; JoinSource -&gt; JoinSource
+max :: JoinSource -&gt; JoinSource -&gt; JoinSource
+$cmax :: JoinSource -&gt; JoinSource -&gt; JoinSource
+&gt;= :: JoinSource -&gt; JoinSource -&gt; Bool
+$c&gt;= :: JoinSource -&gt; JoinSource -&gt; Bool
+&gt; :: JoinSource -&gt; JoinSource -&gt; Bool
+$c&gt; :: JoinSource -&gt; JoinSource -&gt; Bool
+&lt;= :: JoinSource -&gt; JoinSource -&gt; Bool
+$c&lt;= :: JoinSource -&gt; JoinSource -&gt; Bool
+&lt; :: JoinSource -&gt; JoinSource -&gt; Bool
+$c&lt; :: JoinSource -&gt; JoinSource -&gt; Bool
+compare :: JoinSource -&gt; JoinSource -&gt; Ordering
+$ccompare :: JoinSource -&gt; JoinSource -&gt; Ordering
+$cp1Ord :: Eq JoinSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. JoinSource -&gt; Rep JoinSource x)
+-&gt; (forall x. Rep JoinSource x -&gt; JoinSource) -&gt; Generic JoinSource
+forall x. Rep JoinSource x -&gt; JoinSource
+forall x. JoinSource -&gt; Rep JoinSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep JoinSource x -&gt; JoinSource
+$cfrom :: forall x. JoinSource -&gt; Rep JoinSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680311843"><span id="local-6989586621680311845"><span class="annot"><span class="annottext">Int -&gt; JoinSource -&gt; Int
+JoinSource -&gt; Int
+(Int -&gt; JoinSource -&gt; Int)
+-&gt; (JoinSource -&gt; Int) -&gt; Hashable JoinSource
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: JoinSource -&gt; Int
+$chash :: JoinSource -&gt; Int
+hashWithSalt :: Int -&gt; JoinSource -&gt; Int
+$chashWithSalt :: Int -&gt; JoinSource -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621680311840"><span class="annot"><span class="annottext">JoinSource -&gt; ()
+(JoinSource -&gt; ()) -&gt; NFData JoinSource
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: JoinSource -&gt; ()
+$crnf :: JoinSource -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621680311837"><span class="annot"><span class="annottext">Text -&gt; Either String JoinSource
+(Text -&gt; Either String JoinSource) -&gt; FromText JoinSource
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String JoinSource
+$cfromText :: Text -&gt; Either String JoinSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621680311834"><span class="annot"><span class="annottext">JoinSource -&gt; Text
+(JoinSource -&gt; Text) -&gt; ToText JoinSource
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: JoinSource -&gt; Text
+$ctoText :: JoinSource -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621680311831"><span class="annot"><span class="annottext">JoinSource -&gt; ByteString
+(JoinSource -&gt; ByteString) -&gt; ToByteString JoinSource
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: JoinSource -&gt; ByteString
+$ctoBS :: JoinSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621680311828"><span class="annot"><span class="annottext">JoinSource -&gt; ByteStringBuilder
+(JoinSource -&gt; ByteStringBuilder) -&gt; ToLog JoinSource
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: JoinSource -&gt; ByteStringBuilder
+$cbuild :: JoinSource -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680311825"><span class="annot"><span class="annottext">HeaderName -&gt; JoinSource -&gt; [Header]
+(HeaderName -&gt; JoinSource -&gt; [Header]) -&gt; ToHeader JoinSource
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; JoinSource -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; JoinSource -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680311822"><span class="annot"><span class="annottext">JoinSource -&gt; QueryString
+(JoinSource -&gt; QueryString) -&gt; ToQuery JoinSource
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: JoinSource -&gt; QueryString
+$ctoQuery :: JoinSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680311817"><span id="local-6989586621680311819"><span class="annot"><span class="annottext">Value -&gt; Parser [JoinSource]
+Value -&gt; Parser JoinSource
+(Value -&gt; Parser JoinSource)
+-&gt; (Value -&gt; Parser [JoinSource]) -&gt; FromJSON JoinSource
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [JoinSource]
+$cparseJSONList :: Value -&gt; Parser [JoinSource]
+parseJSON :: Value -&gt; Parser JoinSource
+$cparseJSON :: Value -&gt; Parser JoinSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621680311812"><span id="local-6989586621680311814"><span class="annot"><span class="annottext">FromJSONKeyFunction [JoinSource]
+FromJSONKeyFunction JoinSource
+FromJSONKeyFunction JoinSource
+-&gt; FromJSONKeyFunction [JoinSource] -&gt; FromJSONKey JoinSource
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [JoinSource]
+$cfromJSONKeyList :: FromJSONKeyFunction [JoinSource]
+fromJSONKey :: FromJSONKeyFunction JoinSource
+$cfromJSONKey :: FromJSONKeyFunction JoinSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621680311803"><span id="local-6989586621680311805"><span id="local-6989586621680311807"><span id="local-6989586621680311809"><span class="annot"><span class="annottext">[JoinSource] -&gt; Encoding
+[JoinSource] -&gt; Value
+JoinSource -&gt; Encoding
+JoinSource -&gt; Value
+(JoinSource -&gt; Value)
+-&gt; (JoinSource -&gt; Encoding)
+-&gt; ([JoinSource] -&gt; Value)
+-&gt; ([JoinSource] -&gt; Encoding)
+-&gt; ToJSON JoinSource
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [JoinSource] -&gt; Encoding
+$ctoEncodingList :: [JoinSource] -&gt; Encoding
+toJSONList :: [JoinSource] -&gt; Value
+$ctoJSONList :: [JoinSource] -&gt; Value
+toEncoding :: JoinSource -&gt; Encoding
+$ctoEncoding :: JoinSource -&gt; Encoding
+toJSON :: JoinSource -&gt; Value
+$ctoJSON :: JoinSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621680311798"><span id="local-6989586621680311800"><span class="annot"><span class="annottext">ToJSONKeyFunction [JoinSource]
+ToJSONKeyFunction JoinSource
+ToJSONKeyFunction JoinSource
+-&gt; ToJSONKeyFunction [JoinSource] -&gt; ToJSONKey JoinSource
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [JoinSource]
+$ctoJSONKeyList :: ToJSONKeyFunction [JoinSource]
+toJSONKey :: ToJSONKeyFunction JoinSource
+$ctoJSONKey :: ToJSONKeyFunction JoinSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621680311795"><span class="annot"><span class="annottext">[Node] -&gt; Either String JoinSource
+([Node] -&gt; Either String JoinSource) -&gt; FromXML JoinSource
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String JoinSource
+$cparseXML :: [Node] -&gt; Either String JoinSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680311792"><span class="annot"><span class="annottext">JoinSource -&gt; XML
+(JoinSource -&gt; XML) -&gt; ToXML JoinSource
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: JoinSource -&gt; XML
+$ctoXML :: JoinSource -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource_Input"><span class="hs-identifier hs-type">JoinSource_Input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource"><span class="hs-identifier hs-type">JoinSource</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJoinSource_Input"><span id="%24mJoinSource_Input"><span id="JoinSource_Input"><span class="annot"><span class="annottext">$bJoinSource_Input :: JoinSource
+$mJoinSource_Input :: forall r. JoinSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.JoinSource.html#%24bJoinSource_Input"><span class="hs-identifier hs-var hs-var hs-var">JoinSource_Input</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource%27"><span class="hs-identifier hs-type">JoinSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Input&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource_None"><span class="hs-identifier hs-type">JoinSource_None</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource"><span class="hs-identifier hs-type">JoinSource</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bJoinSource_None"><span id="%24mJoinSource_None"><span id="JoinSource_None"><span class="annot"><span class="annottext">$bJoinSource_None :: JoinSource
+$mJoinSource_None :: forall r. JoinSource -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SageMaker.Types.JoinSource.html#%24bJoinSource_None"><span class="hs-identifier hs-var hs-var hs-var">JoinSource_None</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource%27"><span class="hs-identifier hs-type">JoinSource'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;None&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource_Input"><span class="hs-pragma hs-type">JoinSource_Input</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource_None"><span class="hs-pragma hs-type">JoinSource_None</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.JoinSource.html#JoinSource%27"><span class="hs-pragma hs-type">JoinSource'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

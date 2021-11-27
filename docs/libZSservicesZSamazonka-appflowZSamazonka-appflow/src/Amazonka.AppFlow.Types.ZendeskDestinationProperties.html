@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.ZendeskDestinationProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.ZendeskDestinationProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ErrorHandlingConfig.html"><span class="hs-identifier">Amazonka.AppFlow.Types.ErrorHandlingConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.WriteOperationType.html"><span class="hs-identifier">Amazonka.AppFlow.Types.WriteOperationType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The properties that are applied when Zendesk is used as a destination.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newZendeskDestinationProperties' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679330113"><span id="local-6989586621679330114"></span></span><span class="hs-keyword">data</span><span> </span><span id="ZendeskDestinationProperties"><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-var">ZendeskDestinationProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ZendeskDestinationProperties%27"><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-var">ZendeskDestinationProperties'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AwriteOperationType%3AZendeskDestinationProperties%27"><span class="annot"><span class="annottext">ZendeskDestinationProperties -&gt; Maybe WriteOperationType
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AwriteOperationType%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var hs-var">writeOperationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.WriteOperationType.html#WriteOperationType"><span class="hs-identifier hs-type">WriteOperationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AidFieldNames%3AZendeskDestinationProperties%27"><span class="annot"><span class="annottext">ZendeskDestinationProperties -&gt; Maybe [Text]
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AidFieldNames%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var hs-var">idFieldNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AerrorHandlingConfig%3AZendeskDestinationProperties%27"><span class="annot"><span class="annottext">ZendeskDestinationProperties -&gt; Maybe ErrorHandlingConfig
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AerrorHandlingConfig%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var hs-var">errorHandlingConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ErrorHandlingConfig.html#ErrorHandlingConfig"><span class="hs-identifier hs-type">ErrorHandlingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The object specified in the Zendesk flow destination.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aobject%27%3AZendeskDestinationProperties%27"><span class="annot"><span class="annottext">ZendeskDestinationProperties -&gt; Text
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3Aobject%27%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var hs-var">object'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679330104"><span id="local-6989586621679330106"><span class="annot"><span class="annottext">ZendeskDestinationProperties
+-&gt; ZendeskDestinationProperties -&gt; Bool
+(ZendeskDestinationProperties
+ -&gt; ZendeskDestinationProperties -&gt; Bool)
+-&gt; (ZendeskDestinationProperties
+    -&gt; ZendeskDestinationProperties -&gt; Bool)
+-&gt; Eq ZendeskDestinationProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ZendeskDestinationProperties
+-&gt; ZendeskDestinationProperties -&gt; Bool
+$c/= :: ZendeskDestinationProperties
+-&gt; ZendeskDestinationProperties -&gt; Bool
+== :: ZendeskDestinationProperties
+-&gt; ZendeskDestinationProperties -&gt; Bool
+$c== :: ZendeskDestinationProperties
+-&gt; ZendeskDestinationProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330095"><span id="local-6989586621679330097"><span id="local-6989586621679330099"><span id="local-6989586621679330101"><span class="annot"><span class="annottext">ReadPrec [ZendeskDestinationProperties]
+ReadPrec ZendeskDestinationProperties
+Int -&gt; ReadS ZendeskDestinationProperties
+ReadS [ZendeskDestinationProperties]
+(Int -&gt; ReadS ZendeskDestinationProperties)
+-&gt; ReadS [ZendeskDestinationProperties]
+-&gt; ReadPrec ZendeskDestinationProperties
+-&gt; ReadPrec [ZendeskDestinationProperties]
+-&gt; Read ZendeskDestinationProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ZendeskDestinationProperties]
+$creadListPrec :: ReadPrec [ZendeskDestinationProperties]
+readPrec :: ReadPrec ZendeskDestinationProperties
+$creadPrec :: ReadPrec ZendeskDestinationProperties
+readList :: ReadS [ZendeskDestinationProperties]
+$creadList :: ReadS [ZendeskDestinationProperties]
+readsPrec :: Int -&gt; ReadS ZendeskDestinationProperties
+$creadsPrec :: Int -&gt; ReadS ZendeskDestinationProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679330088"><span id="local-6989586621679330090"><span id="local-6989586621679330092"><span class="annot"><span class="annottext">Int -&gt; ZendeskDestinationProperties -&gt; ShowS
+[ZendeskDestinationProperties] -&gt; ShowS
+ZendeskDestinationProperties -&gt; String
+(Int -&gt; ZendeskDestinationProperties -&gt; ShowS)
+-&gt; (ZendeskDestinationProperties -&gt; String)
+-&gt; ([ZendeskDestinationProperties] -&gt; ShowS)
+-&gt; Show ZendeskDestinationProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ZendeskDestinationProperties] -&gt; ShowS
+$cshowList :: [ZendeskDestinationProperties] -&gt; ShowS
+show :: ZendeskDestinationProperties -&gt; String
+$cshow :: ZendeskDestinationProperties -&gt; String
+showsPrec :: Int -&gt; ZendeskDestinationProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; ZendeskDestinationProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ZendeskDestinationProperties -&gt; Rep ZendeskDestinationProperties x)
+-&gt; (forall x.
+    Rep ZendeskDestinationProperties x -&gt; ZendeskDestinationProperties)
+-&gt; Generic ZendeskDestinationProperties
+forall x.
+Rep ZendeskDestinationProperties x -&gt; ZendeskDestinationProperties
+forall x.
+ZendeskDestinationProperties -&gt; Rep ZendeskDestinationProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ZendeskDestinationProperties x -&gt; ZendeskDestinationProperties
+$cfrom :: forall x.
+ZendeskDestinationProperties -&gt; Rep ZendeskDestinationProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ZendeskDestinationProperties' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'writeOperationType', 'zendeskDestinationProperties_writeOperationType' - Undocumented member.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'idFieldNames', 'zendeskDestinationProperties_idFieldNames' - Undocumented member.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'errorHandlingConfig', 'zendeskDestinationProperties_errorHandlingConfig' - Undocumented member.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'object'', 'zendeskDestinationProperties_object' - The object specified in the Zendesk flow destination.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#newZendeskDestinationProperties"><span class="hs-identifier hs-type">newZendeskDestinationProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'object''</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span>
+</span><span id="line-59"></span><span id="newZendeskDestinationProperties"><span class="annot"><span class="annottext">newZendeskDestinationProperties :: Text -&gt; ZendeskDestinationProperties
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#newZendeskDestinationProperties"><span class="hs-identifier hs-var hs-var">newZendeskDestinationProperties</span></a></span></span><span> </span><span id="local-6989586621679330082"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330082"><span class="hs-identifier hs-var">pObject_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><span class="annottext">ZendeskDestinationProperties' :: Maybe WriteOperationType
+-&gt; Maybe [Text]
+-&gt; Maybe ErrorHandlingConfig
+-&gt; Text
+-&gt; ZendeskDestinationProperties
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:writeOperationType:ZendeskDestinationProperties' :: Maybe WriteOperationType
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AwriteOperationType%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">writeOperationType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">Maybe WriteOperationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">$sel:idFieldNames:ZendeskDestinationProperties' :: Maybe [Text]
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AidFieldNames%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">idFieldNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:errorHandlingConfig:ZendeskDestinationProperties' :: Maybe ErrorHandlingConfig
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AerrorHandlingConfig%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">errorHandlingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorHandlingConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:object':ZendeskDestinationProperties' :: Text
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3Aobject%27%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">object'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330082"><span class="hs-identifier hs-var">pObject_</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_writeOperationType"><span class="hs-identifier hs-type">zendeskDestinationProperties_writeOperationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.WriteOperationType.html#WriteOperationType"><span class="hs-identifier hs-type">WriteOperationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="zendeskDestinationProperties_writeOperationType"><span class="annot"><span class="annottext">zendeskDestinationProperties_writeOperationType :: (Maybe WriteOperationType -&gt; f (Maybe WriteOperationType))
+-&gt; ZendeskDestinationProperties -&gt; f ZendeskDestinationProperties
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_writeOperationType"><span class="hs-identifier hs-var hs-var">zendeskDestinationProperties_writeOperationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZendeskDestinationProperties -&gt; Maybe WriteOperationType)
+-&gt; (ZendeskDestinationProperties
+    -&gt; Maybe WriteOperationType -&gt; ZendeskDestinationProperties)
+-&gt; Lens
+     ZendeskDestinationProperties
+     ZendeskDestinationProperties
+     (Maybe WriteOperationType)
+     (Maybe WriteOperationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330078"><span class="annot"><span class="annottext">Maybe WriteOperationType
+writeOperationType :: Maybe WriteOperationType
+$sel:writeOperationType:ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Maybe WriteOperationType
+</span><a href="#local-6989586621679330078"><span class="hs-identifier hs-var hs-var">writeOperationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe WriteOperationType
+</span><a href="#local-6989586621679330078"><span class="hs-identifier hs-var">writeOperationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330077"><span class="annot"><span class="annottext">s :: ZendeskDestinationProperties
+</span><a href="#local-6989586621679330077"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330076"><span class="annot"><span class="annottext">Maybe WriteOperationType
+</span><a href="#local-6989586621679330076"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZendeskDestinationProperties
+</span><a href="#local-6989586621679330077"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:writeOperationType:ZendeskDestinationProperties' :: Maybe WriteOperationType
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AwriteOperationType%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">writeOperationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe WriteOperationType
+</span><a href="#local-6989586621679330076"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_idFieldNames"><span class="hs-identifier hs-type">zendeskDestinationProperties_idFieldNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="zendeskDestinationProperties_idFieldNames"><span class="annot"><span class="annottext">zendeskDestinationProperties_idFieldNames :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ZendeskDestinationProperties -&gt; f ZendeskDestinationProperties
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_idFieldNames"><span class="hs-identifier hs-var hs-var">zendeskDestinationProperties_idFieldNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZendeskDestinationProperties -&gt; Maybe [Text])
+-&gt; (ZendeskDestinationProperties
+    -&gt; Maybe [Text] -&gt; ZendeskDestinationProperties)
+-&gt; Lens
+     ZendeskDestinationProperties
+     ZendeskDestinationProperties
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330074"><span class="annot"><span class="annottext">Maybe [Text]
+idFieldNames :: Maybe [Text]
+$sel:idFieldNames:ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Maybe [Text]
+</span><a href="#local-6989586621679330074"><span class="hs-identifier hs-var hs-var">idFieldNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330074"><span class="hs-identifier hs-var">idFieldNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330073"><span class="annot"><span class="annottext">s :: ZendeskDestinationProperties
+</span><a href="#local-6989586621679330073"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330072"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330072"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZendeskDestinationProperties
+</span><a href="#local-6989586621679330073"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:idFieldNames:ZendeskDestinationProperties' :: Maybe [Text]
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AidFieldNames%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">idFieldNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330072"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ZendeskDestinationProperties -&gt; f ZendeskDestinationProperties)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ZendeskDestinationProperties
+-&gt; f ZendeskDestinationProperties
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_errorHandlingConfig"><span class="hs-identifier hs-type">zendeskDestinationProperties_errorHandlingConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ErrorHandlingConfig.html#ErrorHandlingConfig"><span class="hs-identifier hs-type">ErrorHandlingConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="zendeskDestinationProperties_errorHandlingConfig"><span class="annot"><span class="annottext">zendeskDestinationProperties_errorHandlingConfig :: (Maybe ErrorHandlingConfig -&gt; f (Maybe ErrorHandlingConfig))
+-&gt; ZendeskDestinationProperties -&gt; f ZendeskDestinationProperties
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_errorHandlingConfig"><span class="hs-identifier hs-var hs-var">zendeskDestinationProperties_errorHandlingConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZendeskDestinationProperties -&gt; Maybe ErrorHandlingConfig)
+-&gt; (ZendeskDestinationProperties
+    -&gt; Maybe ErrorHandlingConfig -&gt; ZendeskDestinationProperties)
+-&gt; Lens
+     ZendeskDestinationProperties
+     ZendeskDestinationProperties
+     (Maybe ErrorHandlingConfig)
+     (Maybe ErrorHandlingConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330067"><span class="annot"><span class="annottext">Maybe ErrorHandlingConfig
+errorHandlingConfig :: Maybe ErrorHandlingConfig
+$sel:errorHandlingConfig:ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Maybe ErrorHandlingConfig
+</span><a href="#local-6989586621679330067"><span class="hs-identifier hs-var hs-var">errorHandlingConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorHandlingConfig
+</span><a href="#local-6989586621679330067"><span class="hs-identifier hs-var">errorHandlingConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330066"><span class="annot"><span class="annottext">s :: ZendeskDestinationProperties
+</span><a href="#local-6989586621679330066"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330065"><span class="annot"><span class="annottext">Maybe ErrorHandlingConfig
+</span><a href="#local-6989586621679330065"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZendeskDestinationProperties
+</span><a href="#local-6989586621679330066"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:errorHandlingConfig:ZendeskDestinationProperties' :: Maybe ErrorHandlingConfig
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3AerrorHandlingConfig%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">errorHandlingConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ErrorHandlingConfig
+</span><a href="#local-6989586621679330065"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The object specified in the Zendesk flow destination.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_object"><span class="hs-identifier hs-type">zendeskDestinationProperties_object</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="zendeskDestinationProperties_object"><span class="annot"><span class="annottext">zendeskDestinationProperties_object :: (Text -&gt; f Text)
+-&gt; ZendeskDestinationProperties -&gt; f ZendeskDestinationProperties
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#zendeskDestinationProperties_object"><span class="hs-identifier hs-var hs-var">zendeskDestinationProperties_object</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ZendeskDestinationProperties -&gt; Text)
+-&gt; (ZendeskDestinationProperties
+    -&gt; Text -&gt; ZendeskDestinationProperties)
+-&gt; Lens
+     ZendeskDestinationProperties ZendeskDestinationProperties Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330063"><span class="annot"><span class="annottext">Text
+object' :: Text
+$sel:object':ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Text
+</span><a href="#local-6989586621679330063"><span class="hs-identifier hs-var hs-var">object'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330063"><span class="hs-identifier hs-var">object'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679330062"><span class="annot"><span class="annottext">s :: ZendeskDestinationProperties
+</span><a href="#local-6989586621679330062"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679330061"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330061"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ZendeskDestinationProperties
+</span><a href="#local-6989586621679330062"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:object':ZendeskDestinationProperties' :: Text
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#%24sel%3Aobject%27%3AZendeskDestinationProperties%27"><span class="hs-identifier hs-var">object'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330061"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330058"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679330056"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ZendeskDestinationProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ZendeskDestinationProperties)
+-&gt; Value
+-&gt; Parser ZendeskDestinationProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ZendeskDestinationProperties&quot;</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679330053"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330053"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>          </span><span class="annot"><span class="annottext">Maybe WriteOperationType
+-&gt; Maybe [Text]
+-&gt; Maybe ErrorHandlingConfig
+-&gt; Text
+-&gt; ZendeskDestinationProperties
+</span><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-var">ZendeskDestinationProperties'</span></a></span><span>
+</span><span id="line-90"></span><span>            </span><span class="annot"><span class="annottext">(Maybe WriteOperationType
+ -&gt; Maybe [Text]
+ -&gt; Maybe ErrorHandlingConfig
+ -&gt; Text
+ -&gt; ZendeskDestinationProperties)
+-&gt; Parser (Maybe WriteOperationType)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe ErrorHandlingConfig
+      -&gt; Text
+      -&gt; ZendeskDestinationProperties)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe WriteOperationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;writeOperationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe ErrorHandlingConfig
+   -&gt; Text
+   -&gt; ZendeskDestinationProperties)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe ErrorHandlingConfig -&gt; Text -&gt; ZendeskDestinationProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;idFieldNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ErrorHandlingConfig -&gt; Text -&gt; ZendeskDestinationProperties)
+-&gt; Parser (Maybe ErrorHandlingConfig)
+-&gt; Parser (Text -&gt; ZendeskDestinationProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ErrorHandlingConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorHandlingConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ZendeskDestinationProperties)
+-&gt; Parser Text -&gt; Parser ZendeskDestinationProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679330053"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;object&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679330045"><span id="local-6989586621679330047"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330042"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679330034"><span id="local-6989586621679330036"><span id="local-6989586621679330038"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties"><span class="hs-identifier hs-type">ZendeskDestinationProperties</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679330032"><span class="annot"><span class="annottext">toJSON :: ZendeskDestinationProperties -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.ZendeskDestinationProperties.html#ZendeskDestinationProperties%27"><span class="hs-identifier hs-type">ZendeskDestinationProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679330027"><span id="local-6989586621679330028"><span id="local-6989586621679330029"><span id="local-6989586621679330030"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe ErrorHandlingConfig
+Maybe WriteOperationType
+Text
+object' :: Text
+errorHandlingConfig :: Maybe ErrorHandlingConfig
+idFieldNames :: Maybe [Text]
+writeOperationType :: Maybe WriteOperationType
+$sel:object':ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Text
+$sel:errorHandlingConfig:ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Maybe ErrorHandlingConfig
+$sel:idFieldNames:ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Maybe [Text]
+$sel:writeOperationType:ZendeskDestinationProperties' :: ZendeskDestinationProperties -&gt; Maybe WriteOperationType
+</span><a href="#local-6989586621679330027"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-106"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;writeOperationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; WriteOperationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>              </span><span class="annot"><span class="annottext">(WriteOperationType -&gt; Pair)
+-&gt; Maybe WriteOperationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe WriteOperationType
+</span><a href="#local-6989586621679330030"><span class="hs-identifier hs-var">writeOperationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;idFieldNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679330029"><span class="hs-identifier hs-var">idFieldNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;errorHandlingConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ErrorHandlingConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">(ErrorHandlingConfig -&gt; Pair)
+-&gt; Maybe ErrorHandlingConfig -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ErrorHandlingConfig
+</span><a href="#local-6989586621679330028"><span class="hs-identifier hs-var">errorHandlingConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;object&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679330027"><span class="hs-identifier hs-var">object'</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span></pre></body></html>

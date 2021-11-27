@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryReadiness.Types.Readiness</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryReadiness.Types.Readiness</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier">Readiness</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_NOT_AUTHORIZED"><span class="hs-identifier">Readiness_NOT_AUTHORIZED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_NOT_READY"><span class="hs-identifier">Readiness_NOT_READY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_READY"><span class="hs-identifier">Readiness_READY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_UNKNOWN"><span class="hs-identifier">Readiness_UNKNOWN</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | The readiness of an entire ReadinessCheck or an individual resource ARN.</span><span>
+</span><span id="line-35"></span><span id="local-6989586621679199194"><span id="local-6989586621679199195"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Readiness"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-var">Readiness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Readiness%27"><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness%27"><span class="hs-identifier hs-var">Readiness'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromReadiness"><span class="annot"><span class="annottext">Readiness -&gt; Text
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#fromReadiness"><span class="hs-identifier hs-var hs-var">fromReadiness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679199186"><span id="local-6989586621679199188"><span id="local-6989586621679199190"><span class="annot"><span class="annottext">Int -&gt; Readiness -&gt; ShowS
+[Readiness] -&gt; ShowS
+Readiness -&gt; String
+(Int -&gt; Readiness -&gt; ShowS)
+-&gt; (Readiness -&gt; String)
+-&gt; ([Readiness] -&gt; ShowS)
+-&gt; Show Readiness
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Readiness] -&gt; ShowS
+$cshowList :: [Readiness] -&gt; ShowS
+show :: Readiness -&gt; String
+$cshow :: Readiness -&gt; String
+showsPrec :: Int -&gt; Readiness -&gt; ShowS
+$cshowsPrec :: Int -&gt; Readiness -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679199177"><span id="local-6989586621679199179"><span id="local-6989586621679199181"><span id="local-6989586621679199183"><span class="annot"><span class="annottext">ReadPrec [Readiness]
+ReadPrec Readiness
+Int -&gt; ReadS Readiness
+ReadS [Readiness]
+(Int -&gt; ReadS Readiness)
+-&gt; ReadS [Readiness]
+-&gt; ReadPrec Readiness
+-&gt; ReadPrec [Readiness]
+-&gt; Read Readiness
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Readiness]
+$creadListPrec :: ReadPrec [Readiness]
+readPrec :: ReadPrec Readiness
+$creadPrec :: ReadPrec Readiness
+readList :: ReadS [Readiness]
+$creadList :: ReadS [Readiness]
+readsPrec :: Int -&gt; ReadS Readiness
+$creadsPrec :: Int -&gt; ReadS Readiness
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679199172"><span id="local-6989586621679199174"><span class="annot"><span class="annottext">Readiness -&gt; Readiness -&gt; Bool
+(Readiness -&gt; Readiness -&gt; Bool)
+-&gt; (Readiness -&gt; Readiness -&gt; Bool) -&gt; Eq Readiness
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Readiness -&gt; Readiness -&gt; Bool
+$c/= :: Readiness -&gt; Readiness -&gt; Bool
+== :: Readiness -&gt; Readiness -&gt; Bool
+$c== :: Readiness -&gt; Readiness -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679199156"><span id="local-6989586621679199158"><span id="local-6989586621679199160"><span id="local-6989586621679199162"><span id="local-6989586621679199164"><span id="local-6989586621679199166"><span id="local-6989586621679199168"><span class="annot"><span class="annottext">Eq Readiness
+Eq Readiness
+-&gt; (Readiness -&gt; Readiness -&gt; Ordering)
+-&gt; (Readiness -&gt; Readiness -&gt; Bool)
+-&gt; (Readiness -&gt; Readiness -&gt; Bool)
+-&gt; (Readiness -&gt; Readiness -&gt; Bool)
+-&gt; (Readiness -&gt; Readiness -&gt; Bool)
+-&gt; (Readiness -&gt; Readiness -&gt; Readiness)
+-&gt; (Readiness -&gt; Readiness -&gt; Readiness)
+-&gt; Ord Readiness
+Readiness -&gt; Readiness -&gt; Bool
+Readiness -&gt; Readiness -&gt; Ordering
+Readiness -&gt; Readiness -&gt; Readiness
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Readiness -&gt; Readiness -&gt; Readiness
+$cmin :: Readiness -&gt; Readiness -&gt; Readiness
+max :: Readiness -&gt; Readiness -&gt; Readiness
+$cmax :: Readiness -&gt; Readiness -&gt; Readiness
+&gt;= :: Readiness -&gt; Readiness -&gt; Bool
+$c&gt;= :: Readiness -&gt; Readiness -&gt; Bool
+&gt; :: Readiness -&gt; Readiness -&gt; Bool
+$c&gt; :: Readiness -&gt; Readiness -&gt; Bool
+&lt;= :: Readiness -&gt; Readiness -&gt; Bool
+$c&lt;= :: Readiness -&gt; Readiness -&gt; Bool
+&lt; :: Readiness -&gt; Readiness -&gt; Bool
+$c&lt; :: Readiness -&gt; Readiness -&gt; Bool
+compare :: Readiness -&gt; Readiness -&gt; Ordering
+$ccompare :: Readiness -&gt; Readiness -&gt; Ordering
+$cp1Ord :: Eq Readiness
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Readiness -&gt; Rep Readiness x)
+-&gt; (forall x. Rep Readiness x -&gt; Readiness) -&gt; Generic Readiness
+forall x. Rep Readiness x -&gt; Readiness
+forall x. Readiness -&gt; Rep Readiness x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Readiness x -&gt; Readiness
+$cfrom :: forall x. Readiness -&gt; Rep Readiness x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679199148"><span id="local-6989586621679199150"><span class="annot"><span class="annottext">Int -&gt; Readiness -&gt; Int
+Readiness -&gt; Int
+(Int -&gt; Readiness -&gt; Int)
+-&gt; (Readiness -&gt; Int) -&gt; Hashable Readiness
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Readiness -&gt; Int
+$chash :: Readiness -&gt; Int
+hashWithSalt :: Int -&gt; Readiness -&gt; Int
+$chashWithSalt :: Int -&gt; Readiness -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679199145"><span class="annot"><span class="annottext">Readiness -&gt; ()
+(Readiness -&gt; ()) -&gt; NFData Readiness
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Readiness -&gt; ()
+$crnf :: Readiness -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679199142"><span class="annot"><span class="annottext">Text -&gt; Either String Readiness
+(Text -&gt; Either String Readiness) -&gt; FromText Readiness
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Readiness
+$cfromText :: Text -&gt; Either String Readiness
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679199139"><span class="annot"><span class="annottext">Readiness -&gt; Text
+(Readiness -&gt; Text) -&gt; ToText Readiness
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Readiness -&gt; Text
+$ctoText :: Readiness -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679199136"><span class="annot"><span class="annottext">Readiness -&gt; ByteString
+(Readiness -&gt; ByteString) -&gt; ToByteString Readiness
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Readiness -&gt; ByteString
+$ctoBS :: Readiness -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679199133"><span class="annot"><span class="annottext">Readiness -&gt; ByteStringBuilder
+(Readiness -&gt; ByteStringBuilder) -&gt; ToLog Readiness
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Readiness -&gt; ByteStringBuilder
+$cbuild :: Readiness -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679199130"><span class="annot"><span class="annottext">HeaderName -&gt; Readiness -&gt; [Header]
+(HeaderName -&gt; Readiness -&gt; [Header]) -&gt; ToHeader Readiness
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Readiness -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Readiness -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679199127"><span class="annot"><span class="annottext">Readiness -&gt; QueryString
+(Readiness -&gt; QueryString) -&gt; ToQuery Readiness
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Readiness -&gt; QueryString
+$ctoQuery :: Readiness -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679199122"><span id="local-6989586621679199124"><span class="annot"><span class="annottext">Value -&gt; Parser [Readiness]
+Value -&gt; Parser Readiness
+(Value -&gt; Parser Readiness)
+-&gt; (Value -&gt; Parser [Readiness]) -&gt; FromJSON Readiness
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Readiness]
+$cparseJSONList :: Value -&gt; Parser [Readiness]
+parseJSON :: Value -&gt; Parser Readiness
+$cparseJSON :: Value -&gt; Parser Readiness
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679199117"><span id="local-6989586621679199119"><span class="annot"><span class="annottext">FromJSONKeyFunction [Readiness]
+FromJSONKeyFunction Readiness
+FromJSONKeyFunction Readiness
+-&gt; FromJSONKeyFunction [Readiness] -&gt; FromJSONKey Readiness
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Readiness]
+$cfromJSONKeyList :: FromJSONKeyFunction [Readiness]
+fromJSONKey :: FromJSONKeyFunction Readiness
+$cfromJSONKey :: FromJSONKeyFunction Readiness
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679199108"><span id="local-6989586621679199110"><span id="local-6989586621679199112"><span id="local-6989586621679199114"><span class="annot"><span class="annottext">[Readiness] -&gt; Encoding
+[Readiness] -&gt; Value
+Readiness -&gt; Encoding
+Readiness -&gt; Value
+(Readiness -&gt; Value)
+-&gt; (Readiness -&gt; Encoding)
+-&gt; ([Readiness] -&gt; Value)
+-&gt; ([Readiness] -&gt; Encoding)
+-&gt; ToJSON Readiness
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Readiness] -&gt; Encoding
+$ctoEncodingList :: [Readiness] -&gt; Encoding
+toJSONList :: [Readiness] -&gt; Value
+$ctoJSONList :: [Readiness] -&gt; Value
+toEncoding :: Readiness -&gt; Encoding
+$ctoEncoding :: Readiness -&gt; Encoding
+toJSON :: Readiness -&gt; Value
+$ctoJSON :: Readiness -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679199103"><span id="local-6989586621679199105"><span class="annot"><span class="annottext">ToJSONKeyFunction [Readiness]
+ToJSONKeyFunction Readiness
+ToJSONKeyFunction Readiness
+-&gt; ToJSONKeyFunction [Readiness] -&gt; ToJSONKey Readiness
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Readiness]
+$ctoJSONKeyList :: ToJSONKeyFunction [Readiness]
+toJSONKey :: ToJSONKeyFunction Readiness
+$ctoJSONKey :: ToJSONKeyFunction Readiness
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679199100"><span class="annot"><span class="annottext">[Node] -&gt; Either String Readiness
+([Node] -&gt; Either String Readiness) -&gt; FromXML Readiness
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Readiness
+$cparseXML :: [Node] -&gt; Either String Readiness
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679199097"><span class="annot"><span class="annottext">Readiness -&gt; XML
+(Readiness -&gt; XML) -&gt; ToXML Readiness
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Readiness -&gt; XML
+$ctoXML :: Readiness -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_NOT_AUTHORIZED"><span class="hs-identifier hs-type">Readiness_NOT_AUTHORIZED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReadiness_NOT_AUTHORIZED"><span id="%24mReadiness_NOT_AUTHORIZED"><span id="Readiness_NOT_AUTHORIZED"><span class="annot"><span class="annottext">$bReadiness_NOT_AUTHORIZED :: Readiness
+$mReadiness_NOT_AUTHORIZED :: forall r. Readiness -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#%24bReadiness_NOT_AUTHORIZED"><span class="hs-identifier hs-var hs-var hs-var">Readiness_NOT_AUTHORIZED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness%27"><span class="hs-identifier hs-type">Readiness'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_AUTHORIZED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_NOT_READY"><span class="hs-identifier hs-type">Readiness_NOT_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReadiness_NOT_READY"><span id="%24mReadiness_NOT_READY"><span id="Readiness_NOT_READY"><span class="annot"><span class="annottext">$bReadiness_NOT_READY :: Readiness
+$mReadiness_NOT_READY :: forall r. Readiness -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#%24bReadiness_NOT_READY"><span class="hs-identifier hs-var hs-var hs-var">Readiness_NOT_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness%27"><span class="hs-identifier hs-type">Readiness'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_READY&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_READY"><span class="hs-identifier hs-type">Readiness_READY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReadiness_READY"><span id="%24mReadiness_READY"><span id="Readiness_READY"><span class="annot"><span class="annottext">$bReadiness_READY :: Readiness
+$mReadiness_READY :: forall r. Readiness -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#%24bReadiness_READY"><span class="hs-identifier hs-var hs-var hs-var">Readiness_READY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness%27"><span class="hs-identifier hs-type">Readiness'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_UNKNOWN"><span class="hs-identifier hs-type">Readiness_UNKNOWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness"><span class="hs-identifier hs-type">Readiness</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bReadiness_UNKNOWN"><span id="%24mReadiness_UNKNOWN"><span id="Readiness_UNKNOWN"><span class="annot"><span class="annottext">$bReadiness_UNKNOWN :: Readiness
+$mReadiness_UNKNOWN :: forall r. Readiness -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#%24bReadiness_UNKNOWN"><span class="hs-identifier hs-var hs-var hs-var">Readiness_UNKNOWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness%27"><span class="hs-identifier hs-type">Readiness'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_NOT_AUTHORIZED"><span class="hs-pragma hs-type">Readiness_NOT_AUTHORIZED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_NOT_READY"><span class="hs-pragma hs-type">Readiness_NOT_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_READY"><span class="hs-pragma hs-type">Readiness_READY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness_UNKNOWN"><span class="hs-pragma hs-type">Readiness_UNKNOWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryReadiness.Types.Readiness.html#Readiness%27"><span class="hs-pragma hs-type">Readiness'</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-82"></span></pre></body></html>

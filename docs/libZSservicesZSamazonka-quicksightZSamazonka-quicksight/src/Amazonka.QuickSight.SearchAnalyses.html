@@ -1,0 +1,838 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.SearchAnalyses</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Searches for analyses that belong to the user specified in the filter.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation is eventually consistent. The results are best effort and</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- may not reflect very recent updates and changes.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.SearchAnalyses</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier">SearchAnalyses</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#newSearchAnalyses"><span class="hs-identifier">newSearchAnalyses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_nextToken"><span class="hs-identifier">searchAnalyses_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_maxResults"><span class="hs-identifier">searchAnalyses_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_awsAccountId"><span class="hs-identifier">searchAnalyses_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_filters"><span class="hs-identifier">searchAnalyses_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier">SearchAnalysesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#newSearchAnalysesResponse"><span class="hs-identifier">newSearchAnalysesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_requestId"><span class="hs-identifier">searchAnalysesResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_nextToken"><span class="hs-identifier">searchAnalysesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_analysisSummaryList"><span class="hs-identifier">searchAnalysesResponse_analysisSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_status"><span class="hs-identifier">searchAnalysesResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- | /See:/ 'newSearchAnalyses' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679575547"><span id="local-6989586621679575548"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAnalyses"><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-var">SearchAnalyses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAnalyses%27"><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-var">SearchAnalyses'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token that can be used in a subsequent request.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchAnalyses%27"><span class="annot"><span class="annottext">SearchAnalyses -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AnextToken%3ASearchAnalyses%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmaxResults%3ASearchAnalyses%27"><span class="annot"><span class="annottext">SearchAnalyses -&gt; Maybe Natural
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AmaxResults%3ASearchAnalyses%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the analyses</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- that you\'re searching for.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AawsAccountId%3ASearchAnalyses%27"><span class="annot"><span class="annottext">SearchAnalyses -&gt; Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AawsAccountId%3ASearchAnalyses%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The structure for the search filters that you want to apply to your</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- search.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Afilters%3ASearchAnalyses%27"><span class="annot"><span class="annottext">SearchAnalyses -&gt; NonEmpty AnalysisSearchFilter
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3Afilters%3ASearchAnalyses%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSearchFilter.html#AnalysisSearchFilter"><span class="hs-identifier hs-type">AnalysisSearchFilter</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575538"><span id="local-6989586621679575540"><span class="annot"><span class="annottext">SearchAnalyses -&gt; SearchAnalyses -&gt; Bool
+(SearchAnalyses -&gt; SearchAnalyses -&gt; Bool)
+-&gt; (SearchAnalyses -&gt; SearchAnalyses -&gt; Bool) -&gt; Eq SearchAnalyses
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchAnalyses -&gt; SearchAnalyses -&gt; Bool
+$c/= :: SearchAnalyses -&gt; SearchAnalyses -&gt; Bool
+== :: SearchAnalyses -&gt; SearchAnalyses -&gt; Bool
+$c== :: SearchAnalyses -&gt; SearchAnalyses -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575529"><span id="local-6989586621679575531"><span id="local-6989586621679575533"><span id="local-6989586621679575535"><span class="annot"><span class="annottext">ReadPrec [SearchAnalyses]
+ReadPrec SearchAnalyses
+Int -&gt; ReadS SearchAnalyses
+ReadS [SearchAnalyses]
+(Int -&gt; ReadS SearchAnalyses)
+-&gt; ReadS [SearchAnalyses]
+-&gt; ReadPrec SearchAnalyses
+-&gt; ReadPrec [SearchAnalyses]
+-&gt; Read SearchAnalyses
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchAnalyses]
+$creadListPrec :: ReadPrec [SearchAnalyses]
+readPrec :: ReadPrec SearchAnalyses
+$creadPrec :: ReadPrec SearchAnalyses
+readList :: ReadS [SearchAnalyses]
+$creadList :: ReadS [SearchAnalyses]
+readsPrec :: Int -&gt; ReadS SearchAnalyses
+$creadsPrec :: Int -&gt; ReadS SearchAnalyses
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575522"><span id="local-6989586621679575524"><span id="local-6989586621679575526"><span class="annot"><span class="annottext">Int -&gt; SearchAnalyses -&gt; ShowS
+[SearchAnalyses] -&gt; ShowS
+SearchAnalyses -&gt; String
+(Int -&gt; SearchAnalyses -&gt; ShowS)
+-&gt; (SearchAnalyses -&gt; String)
+-&gt; ([SearchAnalyses] -&gt; ShowS)
+-&gt; Show SearchAnalyses
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchAnalyses] -&gt; ShowS
+$cshowList :: [SearchAnalyses] -&gt; ShowS
+show :: SearchAnalyses -&gt; String
+$cshow :: SearchAnalyses -&gt; String
+showsPrec :: Int -&gt; SearchAnalyses -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchAnalyses -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchAnalyses -&gt; Rep SearchAnalyses x)
+-&gt; (forall x. Rep SearchAnalyses x -&gt; SearchAnalyses)
+-&gt; Generic SearchAnalyses
+forall x. Rep SearchAnalyses x -&gt; SearchAnalyses
+forall x. SearchAnalyses -&gt; Rep SearchAnalyses x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchAnalyses x -&gt; SearchAnalyses
+$cfrom :: forall x. SearchAnalyses -&gt; Rep SearchAnalyses x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Create a value of 'SearchAnalyses' with all optional fields omitted.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'nextToken', 'searchAnalyses_nextToken' - A pagination token that can be used in a subsequent request.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'maxResults', 'searchAnalyses_maxResults' - The maximum number of results to return.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'awsAccountId', 'searchAnalyses_awsAccountId' - The ID of the Amazon Web Services account that contains the analyses</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- that you\'re searching for.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'filters', 'searchAnalyses_filters' - The structure for the search filters that you want to apply to your</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- search.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#newSearchAnalyses"><span class="hs-identifier hs-type">newSearchAnalyses</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'filters'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSearchFilter.html#AnalysisSearchFilter"><span class="hs-identifier hs-type">AnalysisSearchFilter</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span>
+</span><span id="line-97"></span><span id="newSearchAnalyses"><span class="annot"><span class="annottext">newSearchAnalyses :: Text -&gt; NonEmpty AnalysisSearchFilter -&gt; SearchAnalyses
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#newSearchAnalyses"><span class="hs-identifier hs-var hs-var">newSearchAnalyses</span></a></span></span><span> </span><span id="local-6989586621679575517"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575517"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span> </span><span id="local-6989586621679575516"><span class="annot"><span class="annottext">NonEmpty AnalysisSearchFilter
+</span><a href="#local-6989586621679575516"><span class="hs-identifier hs-var">pFilters_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">SearchAnalyses' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; NonEmpty AnalysisSearchFilter
+-&gt; SearchAnalyses
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:SearchAnalyses' :: Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AnextToken%3ASearchAnalyses%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:SearchAnalyses' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AmaxResults%3ASearchAnalyses%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsAccountId:SearchAnalyses' :: Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AawsAccountId%3ASearchAnalyses%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575517"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:SearchAnalyses' :: NonEmpty AnalysisSearchFilter
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3Afilters%3ASearchAnalyses%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty AnalysisSearchFilter)
+  (Identity (NonEmpty AnalysisSearchFilter))
+-&gt; Tagged
+     (NonEmpty AnalysisSearchFilter)
+     (Identity (NonEmpty AnalysisSearchFilter))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty AnalysisSearchFilter)
+   (Identity (NonEmpty AnalysisSearchFilter))
+ -&gt; Tagged
+      (NonEmpty AnalysisSearchFilter)
+      (Identity (NonEmpty AnalysisSearchFilter)))
+-&gt; NonEmpty AnalysisSearchFilter -&gt; NonEmpty AnalysisSearchFilter
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AnalysisSearchFilter
+</span><a href="#local-6989586621679575516"><span class="hs-identifier hs-var">pFilters_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A pagination token that can be used in a subsequent request.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_nextToken"><span class="hs-identifier hs-type">searchAnalyses_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="searchAnalyses_nextToken"><span class="annot"><span class="annottext">searchAnalyses_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAnalyses -&gt; f SearchAnalyses
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_nextToken"><span class="hs-identifier hs-var hs-var">searchAnalyses_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalyses -&gt; Maybe Text)
+-&gt; (SearchAnalyses -&gt; Maybe Text -&gt; SearchAnalyses)
+-&gt; Lens SearchAnalyses SearchAnalyses (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575512"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchAnalyses' :: SearchAnalyses -&gt; Maybe Text
+</span><a href="#local-6989586621679575512"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575512"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575511"><span class="annot"><span class="annottext">s :: SearchAnalyses
+</span><a href="#local-6989586621679575511"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575510"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575510"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalyses
+</span><a href="#local-6989586621679575511"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAnalyses' :: Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AnextToken%3ASearchAnalyses%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575510"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The maximum number of results to return.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_maxResults"><span class="hs-identifier hs-type">searchAnalyses_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="searchAnalyses_maxResults"><span class="annot"><span class="annottext">searchAnalyses_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SearchAnalyses -&gt; f SearchAnalyses
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_maxResults"><span class="hs-identifier hs-var hs-var">searchAnalyses_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalyses -&gt; Maybe Natural)
+-&gt; (SearchAnalyses -&gt; Maybe Natural -&gt; SearchAnalyses)
+-&gt; Lens
+     SearchAnalyses SearchAnalyses (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575509"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:SearchAnalyses' :: SearchAnalyses -&gt; Maybe Natural
+</span><a href="#local-6989586621679575509"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575509"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575508"><span class="annot"><span class="annottext">s :: SearchAnalyses
+</span><a href="#local-6989586621679575508"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575507"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575507"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalyses
+</span><a href="#local-6989586621679575508"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:SearchAnalyses' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AmaxResults%3ASearchAnalyses%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575507"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the analyses</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- that you\'re searching for.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_awsAccountId"><span class="hs-identifier hs-type">searchAnalyses_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="searchAnalyses_awsAccountId"><span class="annot"><span class="annottext">searchAnalyses_awsAccountId :: (Text -&gt; f Text) -&gt; SearchAnalyses -&gt; f SearchAnalyses
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_awsAccountId"><span class="hs-identifier hs-var hs-var">searchAnalyses_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalyses -&gt; Text)
+-&gt; (SearchAnalyses -&gt; Text -&gt; SearchAnalyses)
+-&gt; Lens SearchAnalyses SearchAnalyses Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575506"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:SearchAnalyses' :: SearchAnalyses -&gt; Text
+</span><a href="#local-6989586621679575506"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575506"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575505"><span class="annot"><span class="annottext">s :: SearchAnalyses
+</span><a href="#local-6989586621679575505"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575504"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575504"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalyses
+</span><a href="#local-6989586621679575505"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:SearchAnalyses' :: Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AawsAccountId%3ASearchAnalyses%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575504"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The structure for the search filters that you want to apply to your</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- search.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_filters"><span class="hs-identifier hs-type">searchAnalyses_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSearchFilter.html#AnalysisSearchFilter"><span class="hs-identifier hs-type">AnalysisSearchFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="searchAnalyses_filters"><span class="annot"><span class="annottext">searchAnalyses_filters :: (NonEmpty AnalysisSearchFilter
+ -&gt; f (NonEmpty AnalysisSearchFilter))
+-&gt; SearchAnalyses -&gt; f SearchAnalyses
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_filters"><span class="hs-identifier hs-var hs-var">searchAnalyses_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalyses -&gt; NonEmpty AnalysisSearchFilter)
+-&gt; (SearchAnalyses
+    -&gt; NonEmpty AnalysisSearchFilter -&gt; SearchAnalyses)
+-&gt; Lens
+     SearchAnalyses
+     SearchAnalyses
+     (NonEmpty AnalysisSearchFilter)
+     (NonEmpty AnalysisSearchFilter)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575503"><span class="annot"><span class="annottext">NonEmpty AnalysisSearchFilter
+filters :: NonEmpty AnalysisSearchFilter
+$sel:filters:SearchAnalyses' :: SearchAnalyses -&gt; NonEmpty AnalysisSearchFilter
+</span><a href="#local-6989586621679575503"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty AnalysisSearchFilter
+</span><a href="#local-6989586621679575503"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575502"><span class="annot"><span class="annottext">s :: SearchAnalyses
+</span><a href="#local-6989586621679575502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575501"><span class="annot"><span class="annottext">NonEmpty AnalysisSearchFilter
+</span><a href="#local-6989586621679575501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalyses
+</span><a href="#local-6989586621679575502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:SearchAnalyses' :: NonEmpty AnalysisSearchFilter
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3Afilters%3ASearchAnalyses%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty AnalysisSearchFilter
+</span><a href="#local-6989586621679575501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty AnalysisSearchFilter
+  -&gt; f (NonEmpty AnalysisSearchFilter))
+ -&gt; SearchAnalyses -&gt; f SearchAnalyses)
+-&gt; ((NonEmpty AnalysisSearchFilter
+     -&gt; f (NonEmpty AnalysisSearchFilter))
+    -&gt; NonEmpty AnalysisSearchFilter
+    -&gt; f (NonEmpty AnalysisSearchFilter))
+-&gt; (NonEmpty AnalysisSearchFilter
+    -&gt; f (NonEmpty AnalysisSearchFilter))
+-&gt; SearchAnalyses
+-&gt; f SearchAnalyses
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty AnalysisSearchFilter
+ -&gt; f (NonEmpty AnalysisSearchFilter))
+-&gt; NonEmpty AnalysisSearchFilter
+-&gt; f (NonEmpty AnalysisSearchFilter)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679575496"><span class="annot"><span class="annottext">page :: SearchAnalyses
+-&gt; AWSResponse SearchAnalyses -&gt; Maybe SearchAnalyses
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679575494"><span class="annot"><span class="annottext">SearchAnalyses
+</span><a href="#local-6989586621679575494"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679575493"><span class="annot"><span class="annottext">AWSResponse SearchAnalyses
+</span><a href="#local-6989586621679575493"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchAnalyses
+SearchAnalysesResponse
+</span><a href="#local-6989586621679575493"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">SearchAnalysesResponse
+-&gt; Getting (First Text) SearchAnalysesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchAnalysesResponse
+-&gt; Const (First Text) SearchAnalysesResponse
+Lens' SearchAnalysesResponse (Maybe Text)
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_nextToken"><span class="hs-identifier hs-var">searchAnalysesResponse_nextToken</span></a></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchAnalysesResponse
+ -&gt; Const (First Text) SearchAnalysesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchAnalysesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchAnalyses
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-132"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchAnalyses
+SearchAnalysesResponse
+</span><a href="#local-6989586621679575493"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">SearchAnalysesResponse
+-&gt; Getting
+     (First [AnalysisSummary]) SearchAnalysesResponse [AnalysisSummary]
+-&gt; Maybe [AnalysisSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [AnalysisSummary]
+ -&gt; Const (First [AnalysisSummary]) (Maybe [AnalysisSummary]))
+-&gt; SearchAnalysesResponse
+-&gt; Const (First [AnalysisSummary]) SearchAnalysesResponse
+Lens' SearchAnalysesResponse (Maybe [AnalysisSummary])
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_analysisSummaryList"><span class="hs-identifier hs-var">searchAnalysesResponse_analysisSummaryList</span></a></span><span>
+</span><span id="line-134"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [AnalysisSummary]
+  -&gt; Const (First [AnalysisSummary]) (Maybe [AnalysisSummary]))
+ -&gt; SearchAnalysesResponse
+ -&gt; Const (First [AnalysisSummary]) SearchAnalysesResponse)
+-&gt; (([AnalysisSummary]
+     -&gt; Const (First [AnalysisSummary]) [AnalysisSummary])
+    -&gt; Maybe [AnalysisSummary]
+    -&gt; Const (First [AnalysisSummary]) (Maybe [AnalysisSummary]))
+-&gt; Getting
+     (First [AnalysisSummary]) SearchAnalysesResponse [AnalysisSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AnalysisSummary]
+ -&gt; Const (First [AnalysisSummary]) [AnalysisSummary])
+-&gt; Maybe [AnalysisSummary]
+-&gt; Const (First [AnalysisSummary]) (Maybe [AnalysisSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Maybe SearchAnalyses
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">SearchAnalyses -&gt; Maybe SearchAnalyses
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(SearchAnalyses -&gt; Maybe SearchAnalyses)
+-&gt; SearchAnalyses -&gt; Maybe SearchAnalyses
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">SearchAnalyses
+</span><a href="#local-6989586621679575494"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">SearchAnalyses
+-&gt; (SearchAnalyses -&gt; SearchAnalyses) -&gt; SearchAnalyses
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; SearchAnalyses -&gt; Identity SearchAnalyses
+Lens SearchAnalyses SearchAnalyses (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalyses_nextToken"><span class="hs-identifier hs-var">searchAnalyses_nextToken</span></a></span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; SearchAnalyses -&gt; Identity SearchAnalyses)
+-&gt; Maybe Text -&gt; SearchAnalyses -&gt; SearchAnalyses
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse SearchAnalyses
+SearchAnalysesResponse
+</span><a href="#local-6989586621679575493"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">SearchAnalysesResponse
+-&gt; Getting (First Text) SearchAnalysesResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; SearchAnalysesResponse
+-&gt; Const (First Text) SearchAnalysesResponse
+Lens' SearchAnalysesResponse (Maybe Text)
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_nextToken"><span class="hs-identifier hs-var">searchAnalysesResponse_nextToken</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; SearchAnalysesResponse
+ -&gt; Const (First Text) SearchAnalysesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) SearchAnalysesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-146"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679575484"><span class="annot"><span class="annottext">request :: SearchAnalyses -&gt; Request SearchAnalyses
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SearchAnalyses -&gt; Request SearchAnalyses
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679575480"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SearchAnalyses
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchAnalyses)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse SearchAnalyses))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SearchAnalyses
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SearchAnalyses)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679575477"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575477"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679575476"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679575476"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679575475"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575475"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AnalysisSummary]
+-&gt; Int
+-&gt; SearchAnalysesResponse
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-var">SearchAnalysesResponse'</span></a></span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [AnalysisSummary]
+ -&gt; Int
+ -&gt; SearchAnalysesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [AnalysisSummary] -&gt; Int -&gt; SearchAnalysesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [AnalysisSummary] -&gt; Int -&gt; SearchAnalysesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [AnalysisSummary] -&gt; Int -&gt; SearchAnalysesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [AnalysisSummary] -&gt; Int -&gt; SearchAnalysesResponse)
+-&gt; Either String (Maybe [AnalysisSummary])
+-&gt; Either String (Int -&gt; SearchAnalysesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679575475"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AnalysisSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisSummaryList&quot;</span></span><span>
+</span><span id="line-156"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AnalysisSummary]))
+-&gt; Maybe [AnalysisSummary]
+-&gt; Either String (Maybe [AnalysisSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SearchAnalysesResponse)
+-&gt; Either String Int -&gt; Either String SearchAnalysesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575477"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575466"><span id="local-6989586621679575468"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span></span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575463"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679575459"><span class="annot"><span class="annottext">toHeaders :: SearchAnalyses -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SearchAnalyses -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-172"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575449"><span id="local-6989586621679575451"><span id="local-6989586621679575453"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679575447"><span class="annot"><span class="annottext">toJSON :: SearchAnalyses -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575442"><span id="local-6989586621679575443"><span id="local-6989586621679575444"><span id="local-6989586621679575445"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+NonEmpty AnalysisSearchFilter
+Text
+filters :: NonEmpty AnalysisSearchFilter
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filters:SearchAnalyses' :: SearchAnalyses -&gt; NonEmpty AnalysisSearchFilter
+$sel:awsAccountId:SearchAnalyses' :: SearchAnalyses -&gt; Text
+$sel:maxResults:SearchAnalyses' :: SearchAnalyses -&gt; Maybe Natural
+$sel:nextToken:SearchAnalyses' :: SearchAnalyses -&gt; Maybe Text
+</span><a href="#local-6989586621679575442"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575445"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679575444"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty AnalysisSearchFilter -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty AnalysisSearchFilter
+</span><a href="#local-6989586621679575442"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-187"></span><span>  </span><span id="local-6989586621679575436"><span class="annot"><span class="annottext">toPath :: SearchAnalyses -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses%27"><span class="hs-identifier hs-type">SearchAnalyses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575431"><span id="local-6989586621679575432"><span id="local-6989586621679575433"><span id="local-6989586621679575434"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+NonEmpty AnalysisSearchFilter
+Text
+filters :: NonEmpty AnalysisSearchFilter
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:filters:SearchAnalyses' :: SearchAnalyses -&gt; NonEmpty AnalysisSearchFilter
+$sel:awsAccountId:SearchAnalyses' :: SearchAnalyses -&gt; Text
+$sel:maxResults:SearchAnalyses' :: SearchAnalyses -&gt; Maybe Natural
+$sel:nextToken:SearchAnalyses' :: SearchAnalyses -&gt; Maybe Text
+</span><a href="#local-6989586621679575431"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679575432"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/search/analyses&quot;</span></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalyses"><span class="hs-identifier hs-type">SearchAnalyses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679575427"><span class="annot"><span class="annottext">toQuery :: SearchAnalyses -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; SearchAnalyses -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | /See:/ 'newSearchAnalysesResponse' smart constructor.</span><span>
+</span><span id="line-198"></span><span id="local-6989586621679575424"><span id="local-6989586621679575425"></span></span><span class="hs-keyword">data</span><span> </span><span id="SearchAnalysesResponse"><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-var">SearchAnalysesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SearchAnalysesResponse%27"><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-var">SearchAnalysesResponse'</span></a></span></span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3ArequestId%3ASearchAnalysesResponse%27"><span class="annot"><span class="annottext">SearchAnalysesResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3ArequestId%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- | A pagination token that can be used in a subsequent request.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AnextToken%3ASearchAnalysesResponse%27"><span class="annot"><span class="annottext">SearchAnalysesResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AnextToken%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | Metadata describing the analyses that you searched for.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AanalysisSummaryList%3ASearchAnalysesResponse%27"><span class="annot"><span class="annottext">SearchAnalysesResponse -&gt; Maybe [AnalysisSummary]
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AanalysisSummaryList%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var hs-var">analysisSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSummary.html#AnalysisSummary"><span class="hs-identifier hs-type">AnalysisSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-206"></span><span>    </span><span id="%24sel%3Astatus%3ASearchAnalysesResponse%27"><span class="annot"><span class="annottext">SearchAnalysesResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3Astatus%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679575416"><span id="local-6989586621679575418"><span class="annot"><span class="annottext">SearchAnalysesResponse -&gt; SearchAnalysesResponse -&gt; Bool
+(SearchAnalysesResponse -&gt; SearchAnalysesResponse -&gt; Bool)
+-&gt; (SearchAnalysesResponse -&gt; SearchAnalysesResponse -&gt; Bool)
+-&gt; Eq SearchAnalysesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SearchAnalysesResponse -&gt; SearchAnalysesResponse -&gt; Bool
+$c/= :: SearchAnalysesResponse -&gt; SearchAnalysesResponse -&gt; Bool
+== :: SearchAnalysesResponse -&gt; SearchAnalysesResponse -&gt; Bool
+$c== :: SearchAnalysesResponse -&gt; SearchAnalysesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575408"><span id="local-6989586621679575410"><span id="local-6989586621679575412"><span id="local-6989586621679575414"><span class="annot"><span class="annottext">ReadPrec [SearchAnalysesResponse]
+ReadPrec SearchAnalysesResponse
+Int -&gt; ReadS SearchAnalysesResponse
+ReadS [SearchAnalysesResponse]
+(Int -&gt; ReadS SearchAnalysesResponse)
+-&gt; ReadS [SearchAnalysesResponse]
+-&gt; ReadPrec SearchAnalysesResponse
+-&gt; ReadPrec [SearchAnalysesResponse]
+-&gt; Read SearchAnalysesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SearchAnalysesResponse]
+$creadListPrec :: ReadPrec [SearchAnalysesResponse]
+readPrec :: ReadPrec SearchAnalysesResponse
+$creadPrec :: ReadPrec SearchAnalysesResponse
+readList :: ReadS [SearchAnalysesResponse]
+$creadList :: ReadS [SearchAnalysesResponse]
+readsPrec :: Int -&gt; ReadS SearchAnalysesResponse
+$creadsPrec :: Int -&gt; ReadS SearchAnalysesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679575402"><span id="local-6989586621679575404"><span id="local-6989586621679575406"><span class="annot"><span class="annottext">Int -&gt; SearchAnalysesResponse -&gt; ShowS
+[SearchAnalysesResponse] -&gt; ShowS
+SearchAnalysesResponse -&gt; String
+(Int -&gt; SearchAnalysesResponse -&gt; ShowS)
+-&gt; (SearchAnalysesResponse -&gt; String)
+-&gt; ([SearchAnalysesResponse] -&gt; ShowS)
+-&gt; Show SearchAnalysesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SearchAnalysesResponse] -&gt; ShowS
+$cshowList :: [SearchAnalysesResponse] -&gt; ShowS
+show :: SearchAnalysesResponse -&gt; String
+$cshow :: SearchAnalysesResponse -&gt; String
+showsPrec :: Int -&gt; SearchAnalysesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SearchAnalysesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SearchAnalysesResponse -&gt; Rep SearchAnalysesResponse x)
+-&gt; (forall x.
+    Rep SearchAnalysesResponse x -&gt; SearchAnalysesResponse)
+-&gt; Generic SearchAnalysesResponse
+forall x. Rep SearchAnalysesResponse x -&gt; SearchAnalysesResponse
+forall x. SearchAnalysesResponse -&gt; Rep SearchAnalysesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SearchAnalysesResponse x -&gt; SearchAnalysesResponse
+$cfrom :: forall x. SearchAnalysesResponse -&gt; Rep SearchAnalysesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Create a value of 'SearchAnalysesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'requestId', 'searchAnalysesResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'nextToken', 'searchAnalysesResponse_nextToken' - A pagination token that can be used in a subsequent request.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- 'analysisSummaryList', 'searchAnalysesResponse_analysisSummaryList' - Metadata describing the analyses that you searched for.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'status', 'searchAnalysesResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#newSearchAnalysesResponse"><span class="hs-identifier hs-type">newSearchAnalysesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-228"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span>
+</span><span id="line-229"></span><span id="newSearchAnalysesResponse"><span class="annot"><span class="annottext">newSearchAnalysesResponse :: Int -&gt; SearchAnalysesResponse
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#newSearchAnalysesResponse"><span class="hs-identifier hs-var hs-var">newSearchAnalysesResponse</span></a></span></span><span> </span><span id="local-6989586621679575399"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575399"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>  </span><span class="annot"><span class="annottext">SearchAnalysesResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [AnalysisSummary]
+-&gt; Int
+-&gt; SearchAnalysesResponse
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:SearchAnalysesResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3ArequestId%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-232"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:SearchAnalysesResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AnextToken%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisSummaryList:SearchAnalysesResponse' :: Maybe [AnalysisSummary]
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AanalysisSummaryList%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">analysisSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:SearchAnalysesResponse' :: Int
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3Astatus%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575399"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_requestId"><span class="hs-identifier hs-type">searchAnalysesResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="searchAnalysesResponse_requestId"><span class="annot"><span class="annottext">searchAnalysesResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAnalysesResponse -&gt; f SearchAnalysesResponse
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_requestId"><span class="hs-identifier hs-var hs-var">searchAnalysesResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalysesResponse -&gt; Maybe Text)
+-&gt; (SearchAnalysesResponse -&gt; Maybe Text -&gt; SearchAnalysesResponse)
+-&gt; Lens' SearchAnalysesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575398"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:SearchAnalysesResponse' :: SearchAnalysesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679575398"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575398"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575397"><span class="annot"><span class="annottext">s :: SearchAnalysesResponse
+</span><a href="#local-6989586621679575397"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575396"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575396"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalysesResponse
+</span><a href="#local-6989586621679575397"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:SearchAnalysesResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3ArequestId%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575396"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | A pagination token that can be used in a subsequent request.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_nextToken"><span class="hs-identifier hs-type">searchAnalysesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="searchAnalysesResponse_nextToken"><span class="annot"><span class="annottext">searchAnalysesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SearchAnalysesResponse -&gt; f SearchAnalysesResponse
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_nextToken"><span class="hs-identifier hs-var hs-var">searchAnalysesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalysesResponse -&gt; Maybe Text)
+-&gt; (SearchAnalysesResponse -&gt; Maybe Text -&gt; SearchAnalysesResponse)
+-&gt; Lens' SearchAnalysesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575395"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:SearchAnalysesResponse' :: SearchAnalysesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679575395"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575395"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575394"><span class="annot"><span class="annottext">s :: SearchAnalysesResponse
+</span><a href="#local-6989586621679575394"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575393"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575393"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalysesResponse
+</span><a href="#local-6989586621679575394"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:SearchAnalysesResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AnextToken%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679575393"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | Metadata describing the analyses that you searched for.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_analysisSummaryList"><span class="hs-identifier hs-type">searchAnalysesResponse_analysisSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSummary.html#AnalysisSummary"><span class="hs-identifier hs-type">AnalysisSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="searchAnalysesResponse_analysisSummaryList"><span class="annot"><span class="annottext">searchAnalysesResponse_analysisSummaryList :: (Maybe [AnalysisSummary] -&gt; f (Maybe [AnalysisSummary]))
+-&gt; SearchAnalysesResponse -&gt; f SearchAnalysesResponse
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_analysisSummaryList"><span class="hs-identifier hs-var hs-var">searchAnalysesResponse_analysisSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalysesResponse -&gt; Maybe [AnalysisSummary])
+-&gt; (SearchAnalysesResponse
+    -&gt; Maybe [AnalysisSummary] -&gt; SearchAnalysesResponse)
+-&gt; Lens' SearchAnalysesResponse (Maybe [AnalysisSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575392"><span class="annot"><span class="annottext">Maybe [AnalysisSummary]
+analysisSummaryList :: Maybe [AnalysisSummary]
+$sel:analysisSummaryList:SearchAnalysesResponse' :: SearchAnalysesResponse -&gt; Maybe [AnalysisSummary]
+</span><a href="#local-6989586621679575392"><span class="hs-identifier hs-var hs-var">analysisSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisSummary]
+</span><a href="#local-6989586621679575392"><span class="hs-identifier hs-var">analysisSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575391"><span class="annot"><span class="annottext">s :: SearchAnalysesResponse
+</span><a href="#local-6989586621679575391"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575390"><span class="annot"><span class="annottext">Maybe [AnalysisSummary]
+</span><a href="#local-6989586621679575390"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalysesResponse
+</span><a href="#local-6989586621679575391"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisSummaryList:SearchAnalysesResponse' :: Maybe [AnalysisSummary]
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3AanalysisSummaryList%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">analysisSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AnalysisSummary]
+</span><a href="#local-6989586621679575390"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AnalysisSummary] -&gt; f (Maybe [AnalysisSummary]))
+ -&gt; SearchAnalysesResponse -&gt; f SearchAnalysesResponse)
+-&gt; ((Maybe [AnalysisSummary] -&gt; f (Maybe [AnalysisSummary]))
+    -&gt; Maybe [AnalysisSummary] -&gt; f (Maybe [AnalysisSummary]))
+-&gt; (Maybe [AnalysisSummary] -&gt; f (Maybe [AnalysisSummary]))
+-&gt; SearchAnalysesResponse
+-&gt; f SearchAnalysesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AnalysisSummary]
+  [AnalysisSummary]
+  [AnalysisSummary]
+  [AnalysisSummary]
+-&gt; Iso
+     (Maybe [AnalysisSummary])
+     (Maybe [AnalysisSummary])
+     (Maybe [AnalysisSummary])
+     (Maybe [AnalysisSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AnalysisSummary]
+  [AnalysisSummary]
+  [AnalysisSummary]
+  [AnalysisSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_status"><span class="hs-identifier hs-type">searchAnalysesResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="searchAnalysesResponse_status"><span class="annot"><span class="annottext">searchAnalysesResponse_status :: (Int -&gt; f Int)
+-&gt; SearchAnalysesResponse -&gt; f SearchAnalysesResponse
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#searchAnalysesResponse_status"><span class="hs-identifier hs-var hs-var">searchAnalysesResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SearchAnalysesResponse -&gt; Int)
+-&gt; (SearchAnalysesResponse -&gt; Int -&gt; SearchAnalysesResponse)
+-&gt; Lens SearchAnalysesResponse SearchAnalysesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679575388"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:SearchAnalysesResponse' :: SearchAnalysesResponse -&gt; Int
+</span><a href="#local-6989586621679575388"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575388"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679575387"><span class="annot"><span class="annottext">s :: SearchAnalysesResponse
+</span><a href="#local-6989586621679575387"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse%27"><span class="hs-identifier hs-type">SearchAnalysesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679575386"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575386"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SearchAnalysesResponse
+</span><a href="#local-6989586621679575387"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:SearchAnalysesResponse' :: Int
+</span><a href="Amazonka.QuickSight.SearchAnalyses.html#%24sel%3Astatus%3ASearchAnalysesResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679575386"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679575384"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.SearchAnalyses.html#SearchAnalysesResponse"><span class="hs-identifier hs-type">SearchAnalysesResponse</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

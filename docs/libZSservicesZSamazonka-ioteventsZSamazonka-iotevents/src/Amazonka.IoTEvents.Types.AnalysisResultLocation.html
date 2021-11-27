@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEvents.Types.AnalysisResultLocation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEvents.Types.AnalysisResultLocation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Contains information that you can use to locate the field in your</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- detector model that the analysis result references.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAnalysisResultLocation' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679238228"><span id="local-6989586621679238229"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisResultLocation"><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation"><span class="hs-identifier hs-var">AnalysisResultLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisResultLocation%27"><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation%27"><span class="hs-identifier hs-var">AnalysisResultLocation'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A &lt;https://github.com/json-path/JsonPath JsonPath&gt; expression that</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- identifies the error field in your detector model.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apath%3AAnalysisResultLocation%27"><span class="annot"><span class="annottext">AnalysisResultLocation -&gt; Maybe Text
+</span><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#%24sel%3Apath%3AAnalysisResultLocation%27"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679238222"><span id="local-6989586621679238224"><span class="annot"><span class="annottext">AnalysisResultLocation -&gt; AnalysisResultLocation -&gt; Bool
+(AnalysisResultLocation -&gt; AnalysisResultLocation -&gt; Bool)
+-&gt; (AnalysisResultLocation -&gt; AnalysisResultLocation -&gt; Bool)
+-&gt; Eq AnalysisResultLocation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalysisResultLocation -&gt; AnalysisResultLocation -&gt; Bool
+$c/= :: AnalysisResultLocation -&gt; AnalysisResultLocation -&gt; Bool
+== :: AnalysisResultLocation -&gt; AnalysisResultLocation -&gt; Bool
+$c== :: AnalysisResultLocation -&gt; AnalysisResultLocation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238213"><span id="local-6989586621679238215"><span id="local-6989586621679238217"><span id="local-6989586621679238219"><span class="annot"><span class="annottext">ReadPrec [AnalysisResultLocation]
+ReadPrec AnalysisResultLocation
+Int -&gt; ReadS AnalysisResultLocation
+ReadS [AnalysisResultLocation]
+(Int -&gt; ReadS AnalysisResultLocation)
+-&gt; ReadS [AnalysisResultLocation]
+-&gt; ReadPrec AnalysisResultLocation
+-&gt; ReadPrec [AnalysisResultLocation]
+-&gt; Read AnalysisResultLocation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalysisResultLocation]
+$creadListPrec :: ReadPrec [AnalysisResultLocation]
+readPrec :: ReadPrec AnalysisResultLocation
+$creadPrec :: ReadPrec AnalysisResultLocation
+readList :: ReadS [AnalysisResultLocation]
+$creadList :: ReadS [AnalysisResultLocation]
+readsPrec :: Int -&gt; ReadS AnalysisResultLocation
+$creadsPrec :: Int -&gt; ReadS AnalysisResultLocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679238206"><span id="local-6989586621679238208"><span id="local-6989586621679238210"><span class="annot"><span class="annottext">Int -&gt; AnalysisResultLocation -&gt; ShowS
+[AnalysisResultLocation] -&gt; ShowS
+AnalysisResultLocation -&gt; String
+(Int -&gt; AnalysisResultLocation -&gt; ShowS)
+-&gt; (AnalysisResultLocation -&gt; String)
+-&gt; ([AnalysisResultLocation] -&gt; ShowS)
+-&gt; Show AnalysisResultLocation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalysisResultLocation] -&gt; ShowS
+$cshowList :: [AnalysisResultLocation] -&gt; ShowS
+show :: AnalysisResultLocation -&gt; String
+$cshow :: AnalysisResultLocation -&gt; String
+showsPrec :: Int -&gt; AnalysisResultLocation -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalysisResultLocation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AnalysisResultLocation -&gt; Rep AnalysisResultLocation x)
+-&gt; (forall x.
+    Rep AnalysisResultLocation x -&gt; AnalysisResultLocation)
+-&gt; Generic AnalysisResultLocation
+forall x. Rep AnalysisResultLocation x -&gt; AnalysisResultLocation
+forall x. AnalysisResultLocation -&gt; Rep AnalysisResultLocation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalysisResultLocation x -&gt; AnalysisResultLocation
+$cfrom :: forall x. AnalysisResultLocation -&gt; Rep AnalysisResultLocation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'AnalysisResultLocation' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'path', 'analysisResultLocation_path' - A &lt;https://github.com/json-path/JsonPath JsonPath&gt; expression that</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- identifies the error field in your detector model.</span><span>
+</span><span id="line-47"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#newAnalysisResultLocation"><span class="hs-identifier hs-type">newAnalysisResultLocation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation"><span class="hs-identifier hs-type">AnalysisResultLocation</span></a></span><span>
+</span><span id="line-49"></span><span id="newAnalysisResultLocation"><span class="annot"><span class="annottext">newAnalysisResultLocation :: AnalysisResultLocation
+</span><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#newAnalysisResultLocation"><span class="hs-identifier hs-var hs-var">newAnalysisResultLocation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><span class="annottext">AnalysisResultLocation' :: Maybe Text -&gt; AnalysisResultLocation
+</span><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation%27"><span class="hs-identifier hs-type">AnalysisResultLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:AnalysisResultLocation' :: Maybe Text
+</span><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#%24sel%3Apath%3AAnalysisResultLocation%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | A &lt;https://github.com/json-path/JsonPath JsonPath&gt; expression that</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- identifies the error field in your detector model.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#analysisResultLocation_path"><span class="hs-identifier hs-type">analysisResultLocation_path</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation"><span class="hs-identifier hs-type">AnalysisResultLocation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span id="analysisResultLocation_path"><span class="annot"><span class="annottext">analysisResultLocation_path :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AnalysisResultLocation -&gt; f AnalysisResultLocation
+</span><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#analysisResultLocation_path"><span class="hs-identifier hs-var hs-var">analysisResultLocation_path</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisResultLocation -&gt; Maybe Text)
+-&gt; (AnalysisResultLocation -&gt; Maybe Text -&gt; AnalysisResultLocation)
+-&gt; Lens
+     AnalysisResultLocation
+     AnalysisResultLocation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation%27"><span class="hs-identifier hs-type">AnalysisResultLocation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679238197"><span class="annot"><span class="annottext">Maybe Text
+path :: Maybe Text
+$sel:path:AnalysisResultLocation' :: AnalysisResultLocation -&gt; Maybe Text
+</span><a href="#local-6989586621679238197"><span class="hs-identifier hs-var hs-var">path</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238197"><span class="hs-identifier hs-var">path</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679238196"><span class="annot"><span class="annottext">s :: AnalysisResultLocation
+</span><a href="#local-6989586621679238196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation%27"><span class="hs-identifier hs-type">AnalysisResultLocation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679238195"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisResultLocation
+</span><a href="#local-6989586621679238196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:path:AnalysisResultLocation' :: Maybe Text
+</span><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#%24sel%3Apath%3AAnalysisResultLocation%27"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679238195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation"><span class="hs-identifier hs-type">AnalysisResultLocation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238192"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation"><span class="hs-identifier hs-type">AnalysisResultLocation</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679238190"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AnalysisResultLocation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AnalysisResultLocation)
+-&gt; Value
+-&gt; Parser AnalysisResultLocation
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AnalysisResultLocation&quot;</span></span><span>
+</span><span id="line-61"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679238187"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238187"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; AnalysisResultLocation
+</span><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation%27"><span class="hs-identifier hs-var">AnalysisResultLocation'</span></a></span><span>
+</span><span id="line-63"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; AnalysisResultLocation)
+-&gt; Parser (Maybe Text) -&gt; Parser AnalysisResultLocation
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679238187"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;path&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238181"><span id="local-6989586621679238183"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation"><span class="hs-identifier hs-type">AnalysisResultLocation</span></a></span></span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679238178"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEvents.Types.AnalysisResultLocation.html#AnalysisResultLocation"><span class="hs-identifier hs-type">AnalysisResultLocation</span></a></span></span><span>
+</span><span id="line-69"></span></pre></body></html>

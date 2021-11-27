@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Connect.ListRoutingProfiles</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides summary information about the routing profiles for the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified Amazon Connect instance.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For more information about routing profiles, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html Routing Profiles&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html Create a Routing Profile&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Connect Administrator Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.ListRoutingProfiles</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier">ListRoutingProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#newListRoutingProfiles"><span class="hs-identifier">newListRoutingProfiles</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_nextToken"><span class="hs-identifier">listRoutingProfiles_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_maxResults"><span class="hs-identifier">listRoutingProfiles_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_instanceId"><span class="hs-identifier">listRoutingProfiles_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier">ListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#newListRoutingProfilesResponse"><span class="hs-identifier">newListRoutingProfilesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier">listRoutingProfilesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_httpStatus"><span class="hs-identifier">listRoutingProfilesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.html"><span class="hs-identifier">Amazonka.Connect.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newListRoutingProfiles' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679412635"><span id="local-6989586621679412636"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRoutingProfiles"><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-var">ListRoutingProfiles</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRoutingProfiles%27"><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-var">ListRoutingProfiles'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AnextToken%3AListRoutingProfiles%27"><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; Maybe Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfiles%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AmaxResults%3AListRoutingProfiles%27"><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; Maybe Natural
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AmaxResults%3AListRoutingProfiles%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412627"><span id="local-6989586621679412629"><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
+(ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool)
+-&gt; (ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool)
+-&gt; Eq ListRoutingProfiles
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
+$c/= :: ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
+== :: ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
+$c== :: ListRoutingProfiles -&gt; ListRoutingProfiles -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412618"><span id="local-6989586621679412620"><span id="local-6989586621679412622"><span id="local-6989586621679412624"><span class="annot"><span class="annottext">ReadPrec [ListRoutingProfiles]
+ReadPrec ListRoutingProfiles
+Int -&gt; ReadS ListRoutingProfiles
+ReadS [ListRoutingProfiles]
+(Int -&gt; ReadS ListRoutingProfiles)
+-&gt; ReadS [ListRoutingProfiles]
+-&gt; ReadPrec ListRoutingProfiles
+-&gt; ReadPrec [ListRoutingProfiles]
+-&gt; Read ListRoutingProfiles
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRoutingProfiles]
+$creadListPrec :: ReadPrec [ListRoutingProfiles]
+readPrec :: ReadPrec ListRoutingProfiles
+$creadPrec :: ReadPrec ListRoutingProfiles
+readList :: ReadS [ListRoutingProfiles]
+$creadList :: ReadS [ListRoutingProfiles]
+readsPrec :: Int -&gt; ReadS ListRoutingProfiles
+$creadsPrec :: Int -&gt; ReadS ListRoutingProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412611"><span id="local-6989586621679412613"><span id="local-6989586621679412615"><span class="annot"><span class="annottext">Int -&gt; ListRoutingProfiles -&gt; ShowS
+[ListRoutingProfiles] -&gt; ShowS
+ListRoutingProfiles -&gt; String
+(Int -&gt; ListRoutingProfiles -&gt; ShowS)
+-&gt; (ListRoutingProfiles -&gt; String)
+-&gt; ([ListRoutingProfiles] -&gt; ShowS)
+-&gt; Show ListRoutingProfiles
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRoutingProfiles] -&gt; ShowS
+$cshowList :: [ListRoutingProfiles] -&gt; ShowS
+show :: ListRoutingProfiles -&gt; String
+$cshow :: ListRoutingProfiles -&gt; String
+showsPrec :: Int -&gt; ListRoutingProfiles -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRoutingProfiles -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListRoutingProfiles -&gt; Rep ListRoutingProfiles x)
+-&gt; (forall x. Rep ListRoutingProfiles x -&gt; ListRoutingProfiles)
+-&gt; Generic ListRoutingProfiles
+forall x. Rep ListRoutingProfiles x -&gt; ListRoutingProfiles
+forall x. ListRoutingProfiles -&gt; Rep ListRoutingProfiles x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListRoutingProfiles x -&gt; ListRoutingProfiles
+$cfrom :: forall x. ListRoutingProfiles -&gt; Rep ListRoutingProfiles x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'ListRoutingProfiles' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listRoutingProfiles_nextToken' - The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'listRoutingProfiles_maxResults' - The maximum number of results to return per page.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'instanceId', 'listRoutingProfiles_instanceId' - The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#newListRoutingProfiles"><span class="hs-identifier hs-type">newListRoutingProfiles</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span>
+</span><span id="line-95"></span><span id="newListRoutingProfiles"><span class="annot"><span class="annottext">newListRoutingProfiles :: Text -&gt; ListRoutingProfiles
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#newListRoutingProfiles"><span class="hs-identifier hs-var hs-var">newListRoutingProfiles</span></a></span></span><span> </span><span id="local-6989586621679412606"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412606"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">ListRoutingProfiles' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListRoutingProfiles
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfiles' :: Maybe Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListRoutingProfiles' :: Maybe Natural
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AmaxResults%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:ListRoutingProfiles' :: Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412606"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The token for the next set of results. Use the value returned in the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- previous response in the next request to retrieve the next set of</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_nextToken"><span class="hs-identifier hs-type">listRoutingProfiles_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="listRoutingProfiles_nextToken"><span class="annot"><span class="annottext">listRoutingProfiles_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRoutingProfiles -&gt; f ListRoutingProfiles
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_nextToken"><span class="hs-identifier hs-var hs-var">listRoutingProfiles_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfiles -&gt; Maybe Text)
+-&gt; (ListRoutingProfiles -&gt; Maybe Text -&gt; ListRoutingProfiles)
+-&gt; Lens
+     ListRoutingProfiles ListRoutingProfiles (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412604"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679412604"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412604"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412603"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
+</span><a href="#local-6989586621679412603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfiles' :: Maybe Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The maximum number of results to return per page.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_maxResults"><span class="hs-identifier hs-type">listRoutingProfiles_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="listRoutingProfiles_maxResults"><span class="annot"><span class="annottext">listRoutingProfiles_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListRoutingProfiles -&gt; f ListRoutingProfiles
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_maxResults"><span class="hs-identifier hs-var hs-var">listRoutingProfiles_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfiles -&gt; Maybe Natural)
+-&gt; (ListRoutingProfiles -&gt; Maybe Natural -&gt; ListRoutingProfiles)
+-&gt; Lens
+     ListRoutingProfiles
+     ListRoutingProfiles
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412601"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Natural
+</span><a href="#local-6989586621679412601"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412601"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412600"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
+</span><a href="#local-6989586621679412600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412599"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRoutingProfiles' :: Maybe Natural
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AmaxResults%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The identifier of the Amazon Connect instance. You can find the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- instanceId in the ARN of the instance.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_instanceId"><span class="hs-identifier hs-type">listRoutingProfiles_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="listRoutingProfiles_instanceId"><span class="annot"><span class="annottext">listRoutingProfiles_instanceId :: (Text -&gt; f Text) -&gt; ListRoutingProfiles -&gt; f ListRoutingProfiles
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_instanceId"><span class="hs-identifier hs-var hs-var">listRoutingProfiles_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfiles -&gt; Text)
+-&gt; (ListRoutingProfiles -&gt; Text -&gt; ListRoutingProfiles)
+-&gt; Lens ListRoutingProfiles ListRoutingProfiles Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412598"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Text
+</span><a href="#local-6989586621679412598"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412598"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412597"><span class="annot"><span class="annottext">s :: ListRoutingProfiles
+</span><a href="#local-6989586621679412597"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412596"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412596"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412597"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:ListRoutingProfiles' :: Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AinstanceId%3AListRoutingProfiles%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412596"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679412592"><span class="annot"><span class="annottext">page :: ListRoutingProfiles
+-&gt; AWSResponse ListRoutingProfiles -&gt; Maybe ListRoutingProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679412590"><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412590"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679412589"><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
+</span><a href="#local-6989586621679412589"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
+ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412589"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+-&gt; Getting (First Text) ListRoutingProfilesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRoutingProfilesResponse
+-&gt; Const (First Text) ListRoutingProfilesResponse
+Lens' ListRoutingProfilesResponse (Maybe Text)
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-var">listRoutingProfilesResponse_nextToken</span></a></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRoutingProfilesResponse
+ -&gt; Const (First Text) ListRoutingProfilesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListRoutingProfilesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRoutingProfiles
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
+ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412589"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+-&gt; Getting
+     (First [RoutingProfileSummary])
+     ListRoutingProfilesResponse
+     [RoutingProfileSummary]
+-&gt; Maybe [RoutingProfileSummary]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [RoutingProfileSummary]
+ -&gt; Const
+      (First [RoutingProfileSummary]) (Maybe [RoutingProfileSummary]))
+-&gt; ListRoutingProfilesResponse
+-&gt; Const
+     (First [RoutingProfileSummary]) ListRoutingProfilesResponse
+Lens' ListRoutingProfilesResponse (Maybe [RoutingProfileSummary])
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier hs-var">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [RoutingProfileSummary]
+  -&gt; Const
+       (First [RoutingProfileSummary]) (Maybe [RoutingProfileSummary]))
+ -&gt; ListRoutingProfilesResponse
+ -&gt; Const
+      (First [RoutingProfileSummary]) ListRoutingProfilesResponse)
+-&gt; (([RoutingProfileSummary]
+     -&gt; Const (First [RoutingProfileSummary]) [RoutingProfileSummary])
+    -&gt; Maybe [RoutingProfileSummary]
+    -&gt; Const
+         (First [RoutingProfileSummary]) (Maybe [RoutingProfileSummary]))
+-&gt; Getting
+     (First [RoutingProfileSummary])
+     ListRoutingProfilesResponse
+     [RoutingProfileSummary]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RoutingProfileSummary]
+ -&gt; Const (First [RoutingProfileSummary]) [RoutingProfileSummary])
+-&gt; Maybe [RoutingProfileSummary]
+-&gt; Const
+     (First [RoutingProfileSummary]) (Maybe [RoutingProfileSummary])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRoutingProfiles
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">ListRoutingProfiles -&gt; Maybe ListRoutingProfiles
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfiles -&gt; Maybe ListRoutingProfiles)
+-&gt; ListRoutingProfiles -&gt; Maybe ListRoutingProfiles
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">ListRoutingProfiles
+</span><a href="#local-6989586621679412590"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListRoutingProfiles
+-&gt; (ListRoutingProfiles -&gt; ListRoutingProfiles)
+-&gt; ListRoutingProfiles
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListRoutingProfiles -&gt; Identity ListRoutingProfiles
+Lens
+  ListRoutingProfiles ListRoutingProfiles (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfiles_nextToken"><span class="hs-identifier hs-var">listRoutingProfiles_nextToken</span></a></span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListRoutingProfiles -&gt; Identity ListRoutingProfiles)
+-&gt; Maybe Text -&gt; ListRoutingProfiles -&gt; ListRoutingProfiles
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRoutingProfiles
+ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412589"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+-&gt; Getting (First Text) ListRoutingProfilesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRoutingProfilesResponse
+-&gt; Const (First Text) ListRoutingProfilesResponse
+Lens' ListRoutingProfilesResponse (Maybe Text)
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-var">listRoutingProfilesResponse_nextToken</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRoutingProfilesResponse
+ -&gt; Const (First Text) ListRoutingProfilesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListRoutingProfilesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679412579"><span class="annot"><span class="annottext">request :: ListRoutingProfiles -&gt; Request ListRoutingProfiles
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRoutingProfiles -&gt; Request ListRoutingProfiles
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Connect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679412575"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListRoutingProfiles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListRoutingProfiles)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListRoutingProfiles))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListRoutingProfiles
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListRoutingProfiles)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412572"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412572"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412571"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412571"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412570"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412570"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">ListRoutingProfilesResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RoutingProfileSummary]
+ -&gt; Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse)
+-&gt; Either String (Maybe [RoutingProfileSummary])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [RoutingProfileSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoutingProfileSummaryList&quot;</span></span><span>
+</span><span id="line-149"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RoutingProfileSummary]))
+-&gt; Maybe [RoutingProfileSummary]
+-&gt; Either String (Maybe [RoutingProfileSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListRoutingProfilesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679412570"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListRoutingProfilesResponse)
+-&gt; Either String Int -&gt; Either String ListRoutingProfilesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412572"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412561"><span id="local-6989586621679412563"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412558"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679412554"><span class="annot"><span class="annottext">toHeaders :: ListRoutingProfiles -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRoutingProfiles -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679412548"><span class="annot"><span class="annottext">toPath :: ListRoutingProfiles -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412544"><span id="local-6989586621679412545"><span id="local-6989586621679412546"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceId:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Text
+$sel:maxResults:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Natural
+$sel:nextToken:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679412544"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/routing-profiles-summary/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412544"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles"><span class="hs-identifier hs-type">ListRoutingProfiles</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679412540"><span class="annot"><span class="annottext">toQuery :: ListRoutingProfiles -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfiles%27"><span class="hs-identifier hs-type">ListRoutingProfiles'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412536"><span id="local-6989586621679412537"><span id="local-6989586621679412538"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+instanceId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:instanceId:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Text
+$sel:maxResults:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Natural
+$sel:nextToken:ListRoutingProfiles' :: ListRoutingProfiles -&gt; Maybe Text
+</span><a href="#local-6989586621679412536"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412538"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679412537"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | /See:/ 'newListRoutingProfilesResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679412533"><span id="local-6989586621679412534"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRoutingProfilesResponse"><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-var">ListRoutingProfilesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRoutingProfilesResponse%27"><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">ListRoutingProfilesResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the routing profiles.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Maybe [RoutingProfileSummary]
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var hs-var">routingProfileSummaryList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Connect.Types.RoutingProfileSummary.html#RoutingProfileSummary"><span class="hs-identifier hs-type">RoutingProfileSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-188"></span><span>    </span><span id="%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Maybe Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; Int
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412526"><span id="local-6989586621679412528"><span class="annot"><span class="annottext">ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
+(ListRoutingProfilesResponse
+ -&gt; ListRoutingProfilesResponse -&gt; Bool)
+-&gt; (ListRoutingProfilesResponse
+    -&gt; ListRoutingProfilesResponse -&gt; Bool)
+-&gt; Eq ListRoutingProfilesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
+$c/= :: ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
+== :: ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
+$c== :: ListRoutingProfilesResponse -&gt; ListRoutingProfilesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412518"><span id="local-6989586621679412520"><span id="local-6989586621679412522"><span id="local-6989586621679412524"><span class="annot"><span class="annottext">ReadPrec [ListRoutingProfilesResponse]
+ReadPrec ListRoutingProfilesResponse
+Int -&gt; ReadS ListRoutingProfilesResponse
+ReadS [ListRoutingProfilesResponse]
+(Int -&gt; ReadS ListRoutingProfilesResponse)
+-&gt; ReadS [ListRoutingProfilesResponse]
+-&gt; ReadPrec ListRoutingProfilesResponse
+-&gt; ReadPrec [ListRoutingProfilesResponse]
+-&gt; Read ListRoutingProfilesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRoutingProfilesResponse]
+$creadListPrec :: ReadPrec [ListRoutingProfilesResponse]
+readPrec :: ReadPrec ListRoutingProfilesResponse
+$creadPrec :: ReadPrec ListRoutingProfilesResponse
+readList :: ReadS [ListRoutingProfilesResponse]
+$creadList :: ReadS [ListRoutingProfilesResponse]
+readsPrec :: Int -&gt; ReadS ListRoutingProfilesResponse
+$creadsPrec :: Int -&gt; ReadS ListRoutingProfilesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412512"><span id="local-6989586621679412514"><span id="local-6989586621679412516"><span class="annot"><span class="annottext">Int -&gt; ListRoutingProfilesResponse -&gt; ShowS
+[ListRoutingProfilesResponse] -&gt; ShowS
+ListRoutingProfilesResponse -&gt; String
+(Int -&gt; ListRoutingProfilesResponse -&gt; ShowS)
+-&gt; (ListRoutingProfilesResponse -&gt; String)
+-&gt; ([ListRoutingProfilesResponse] -&gt; ShowS)
+-&gt; Show ListRoutingProfilesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRoutingProfilesResponse] -&gt; ShowS
+$cshowList :: [ListRoutingProfilesResponse] -&gt; ShowS
+show :: ListRoutingProfilesResponse -&gt; String
+$cshow :: ListRoutingProfilesResponse -&gt; String
+showsPrec :: Int -&gt; ListRoutingProfilesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRoutingProfilesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListRoutingProfilesResponse -&gt; Rep ListRoutingProfilesResponse x)
+-&gt; (forall x.
+    Rep ListRoutingProfilesResponse x -&gt; ListRoutingProfilesResponse)
+-&gt; Generic ListRoutingProfilesResponse
+forall x.
+Rep ListRoutingProfilesResponse x -&gt; ListRoutingProfilesResponse
+forall x.
+ListRoutingProfilesResponse -&gt; Rep ListRoutingProfilesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListRoutingProfilesResponse x -&gt; ListRoutingProfilesResponse
+$cfrom :: forall x.
+ListRoutingProfilesResponse -&gt; Rep ListRoutingProfilesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- Create a value of 'ListRoutingProfilesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- 'routingProfileSummaryList', 'listRoutingProfilesResponse_routingProfileSummaryList' - Information about the routing profiles.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- 'nextToken', 'listRoutingProfilesResponse_nextToken' - If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'httpStatus', 'listRoutingProfilesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#newListRoutingProfilesResponse"><span class="hs-identifier hs-type">newListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newListRoutingProfilesResponse"><span class="annot"><span class="annottext">newListRoutingProfilesResponse :: Int -&gt; ListRoutingProfilesResponse
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#newListRoutingProfilesResponse"><span class="hs-identifier hs-var hs-var">newListRoutingProfilesResponse</span></a></span></span><span> </span><span id="local-6989586621679412509"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
+-&gt; Maybe Text -&gt; Int -&gt; ListRoutingProfilesResponse
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>        </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfilesResponse' :: Maybe Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRoutingProfilesResponse' :: Int
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412509"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Information about the routing profiles.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier hs-type">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Connect.Types.RoutingProfileSummary.html#RoutingProfileSummary"><span class="hs-identifier hs-type">RoutingProfileSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="listRoutingProfilesResponse_routingProfileSummaryList"><span class="annot"><span class="annottext">listRoutingProfilesResponse_routingProfileSummaryList :: (Maybe [RoutingProfileSummary]
+ -&gt; f (Maybe [RoutingProfileSummary]))
+-&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_routingProfileSummaryList"><span class="hs-identifier hs-var hs-var">listRoutingProfilesResponse_routingProfileSummaryList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfilesResponse -&gt; Maybe [RoutingProfileSummary])
+-&gt; (ListRoutingProfilesResponse
+    -&gt; Maybe [RoutingProfileSummary] -&gt; ListRoutingProfilesResponse)
+-&gt; Lens'
+     ListRoutingProfilesResponse (Maybe [RoutingProfileSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412508"><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+routingProfileSummaryList :: Maybe [RoutingProfileSummary]
+$sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt; Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412508"><span class="hs-identifier hs-var hs-var">routingProfileSummaryList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412508"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412507"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412507"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412506"><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412506"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412507"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:routingProfileSummaryList:ListRoutingProfilesResponse' :: Maybe [RoutingProfileSummary]
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AroutingProfileSummaryList%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">routingProfileSummaryList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RoutingProfileSummary]
+</span><a href="#local-6989586621679412506"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RoutingProfileSummary]
+  -&gt; f (Maybe [RoutingProfileSummary]))
+ -&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse)
+-&gt; ((Maybe [RoutingProfileSummary]
+     -&gt; f (Maybe [RoutingProfileSummary]))
+    -&gt; Maybe [RoutingProfileSummary]
+    -&gt; f (Maybe [RoutingProfileSummary]))
+-&gt; (Maybe [RoutingProfileSummary]
+    -&gt; f (Maybe [RoutingProfileSummary]))
+-&gt; ListRoutingProfilesResponse
+-&gt; f ListRoutingProfilesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RoutingProfileSummary]
+  [RoutingProfileSummary]
+  [RoutingProfileSummary]
+  [RoutingProfileSummary]
+-&gt; Iso
+     (Maybe [RoutingProfileSummary])
+     (Maybe [RoutingProfileSummary])
+     (Maybe [RoutingProfileSummary])
+     (Maybe [RoutingProfileSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [RoutingProfileSummary]
+  [RoutingProfileSummary]
+  [RoutingProfileSummary]
+  [RoutingProfileSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | If there are additional results, this is the token for the next set of</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-type">listRoutingProfilesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="listRoutingProfilesResponse_nextToken"><span class="annot"><span class="annottext">listRoutingProfilesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRoutingProfilesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfilesResponse -&gt; Maybe Text)
+-&gt; (ListRoutingProfilesResponse
+    -&gt; Maybe Text -&gt; ListRoutingProfilesResponse)
+-&gt; Lens' ListRoutingProfilesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412503"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679412503"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412503"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412502"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412502"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412501"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412501"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412502"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRoutingProfilesResponse' :: Maybe Text
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AnextToken%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412501"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-230"></span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_httpStatus"><span class="hs-identifier hs-type">listRoutingProfilesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-231"></span><span id="listRoutingProfilesResponse_httpStatus"><span class="annot"><span class="annottext">listRoutingProfilesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListRoutingProfilesResponse -&gt; f ListRoutingProfilesResponse
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#listRoutingProfilesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listRoutingProfilesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRoutingProfilesResponse -&gt; Int)
+-&gt; (ListRoutingProfilesResponse
+    -&gt; Int -&gt; ListRoutingProfilesResponse)
+-&gt; Lens
+     ListRoutingProfilesResponse ListRoutingProfilesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412500"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListRoutingProfilesResponse' :: ListRoutingProfilesResponse -&gt; Int
+</span><a href="#local-6989586621679412500"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412500"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412499"><span class="annot"><span class="annottext">s :: ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412499"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse%27"><span class="hs-identifier hs-type">ListRoutingProfilesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412498"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRoutingProfilesResponse
+</span><a href="#local-6989586621679412499"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRoutingProfilesResponse' :: Int
+</span><a href="Amazonka.Connect.ListRoutingProfiles.html#%24sel%3AhttpStatus%3AListRoutingProfilesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412498"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412496"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Connect.ListRoutingProfiles.html#ListRoutingProfilesResponse"><span class="hs-identifier hs-type">ListRoutingProfilesResponse</span></a></span></span><span>
+</span><span id="line-234"></span></pre></body></html>

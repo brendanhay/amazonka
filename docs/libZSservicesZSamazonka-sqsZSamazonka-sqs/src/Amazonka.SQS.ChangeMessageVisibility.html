@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SQS.ChangeMessageVisibility</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Changes the visibility timeout of a specified message in a queue to a</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- new value. The default visibility timeout for a message is 30 seconds.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- The minimum is 0 seconds. The maximum is 12 hours. For more information,</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html Visibility Timeout&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /Amazon SQS Developer Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For example, you have a message with a visibility timeout of 5 minutes.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- After 3 minutes, you call @ChangeMessageVisibility@ with a timeout of 10</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- minutes. You can continue to call @ChangeMessageVisibility@ to extend</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- the visibility timeout to the maximum allowed time. If you try to extend</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- the visibility timeout beyond the maximum, your request is rejected.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- An Amazon SQS message has three basic states:</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- 1.  Sent to a queue by a producer.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- 2.  Received from the queue by a consumer.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- 3.  Deleted from the queue.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- A message is considered to be /stored/ after it is sent to a queue by a</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- producer, but not yet received from the queue by a consumer (that is,</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- between states 1 and 2). There is no limit to the number of stored</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- messages. A message is considered to be /in flight/ after it is received</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- from a queue by a consumer, but not yet deleted from the queue (that is,</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- between states 2 and 3). There is a limit to the number of inflight</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- messages.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Limits that apply to inflight messages are unrelated to the /unlimited/</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- number of stored messages.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- For most standard queues (depending on queue traffic and message</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- backlog), there can be a maximum of approximately 120,000 inflight</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- messages (received from a queue by a consumer, but not yet deleted from</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- the queue). If you reach this limit, Amazon SQS returns the @OverLimit@</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- error message. To avoid reaching the limit, you should delete messages</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- from the queue after they\'re processed. You can also increase the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- number of queues you use to process your messages. To request a limit</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- increase,</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- &lt;https://console.aws.amazon.com/support/home#/case/create?issueType=service-limit-increase&amp;limitType=service-code-sqs file a support request&gt;.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- For FIFO queues, there can be a maximum of 20,000 inflight messages</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- (received from a queue by a consumer, but not yet deleted from the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- queue). If you reach this limit, Amazon SQS returns no error messages.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- If you attempt to set the @VisibilityTimeout@ to a value greater than</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- the maximum time left, Amazon SQS returns an error. Amazon SQS doesn\'t</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- automatically recalculate and increase the timeout to the maximum</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- remaining time.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Unlike with a queue, when you change the visibility timeout for a</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- specific message the timeout value is applied immediately but isn\'t</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- saved in memory for that message. If you don\'t delete a message after</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- it is received, the visibility timeout for the message reverts to the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- original timeout value (not to the value you set using the</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @ChangeMessageVisibility@ action) the next time the message is received.</span><span>
+</span><span id="line-80"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SQS.ChangeMessageVisibility</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier">ChangeMessageVisibility</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#newChangeMessageVisibility"><span class="hs-identifier">newChangeMessageVisibility</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_queueUrl"><span class="hs-identifier">changeMessageVisibility_queueUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_receiptHandle"><span class="hs-identifier">changeMessageVisibility_receiptHandle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_visibilityTimeout"><span class="hs-identifier">changeMessageVisibility_visibilityTimeout</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse"><span class="hs-identifier">ChangeMessageVisibilityResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#newChangeMessageVisibilityResponse"><span class="hs-identifier">newChangeMessageVisibilityResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SQS.Types.html"><span class="hs-identifier">Amazonka.SQS.Types</span></a></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | /See:/ 'newChangeMessageVisibility' smart constructor.</span><span>
+</span><span id="line-104"></span><span id="local-6989586621679180255"><span id="local-6989586621679180256"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeMessageVisibility"><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-var">ChangeMessageVisibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeMessageVisibility%27"><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-var">ChangeMessageVisibility'</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The URL of the Amazon SQS queue whose message\'s visibility is changed.</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- Queue URLs and names are case-sensitive.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AqueueUrl%3AChangeMessageVisibility%27"><span class="annot"><span class="annottext">ChangeMessageVisibility -&gt; Text
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AqueueUrl%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- | The receipt handle associated with the message whose visibility timeout</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- is changed. This parameter is returned by the @ ReceiveMessage @ action.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AreceiptHandle%3AChangeMessageVisibility%27"><span class="annot"><span class="annottext">ChangeMessageVisibility -&gt; Text
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AreceiptHandle%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The new value for the message\'s visibility timeout (in seconds). Values</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- range: @0@ to @43200@. Maximum: 12 hours.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AvisibilityTimeout%3AChangeMessageVisibility%27"><span class="annot"><span class="annottext">ChangeMessageVisibility -&gt; Int
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AvisibilityTimeout%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var hs-var">visibilityTimeout</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180247"><span id="local-6989586621679180249"><span class="annot"><span class="annottext">ChangeMessageVisibility -&gt; ChangeMessageVisibility -&gt; Bool
+(ChangeMessageVisibility -&gt; ChangeMessageVisibility -&gt; Bool)
+-&gt; (ChangeMessageVisibility -&gt; ChangeMessageVisibility -&gt; Bool)
+-&gt; Eq ChangeMessageVisibility
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChangeMessageVisibility -&gt; ChangeMessageVisibility -&gt; Bool
+$c/= :: ChangeMessageVisibility -&gt; ChangeMessageVisibility -&gt; Bool
+== :: ChangeMessageVisibility -&gt; ChangeMessageVisibility -&gt; Bool
+$c== :: ChangeMessageVisibility -&gt; ChangeMessageVisibility -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180238"><span id="local-6989586621679180240"><span id="local-6989586621679180242"><span id="local-6989586621679180244"><span class="annot"><span class="annottext">ReadPrec [ChangeMessageVisibility]
+ReadPrec ChangeMessageVisibility
+Int -&gt; ReadS ChangeMessageVisibility
+ReadS [ChangeMessageVisibility]
+(Int -&gt; ReadS ChangeMessageVisibility)
+-&gt; ReadS [ChangeMessageVisibility]
+-&gt; ReadPrec ChangeMessageVisibility
+-&gt; ReadPrec [ChangeMessageVisibility]
+-&gt; Read ChangeMessageVisibility
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChangeMessageVisibility]
+$creadListPrec :: ReadPrec [ChangeMessageVisibility]
+readPrec :: ReadPrec ChangeMessageVisibility
+$creadPrec :: ReadPrec ChangeMessageVisibility
+readList :: ReadS [ChangeMessageVisibility]
+$creadList :: ReadS [ChangeMessageVisibility]
+readsPrec :: Int -&gt; ReadS ChangeMessageVisibility
+$creadsPrec :: Int -&gt; ReadS ChangeMessageVisibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180231"><span id="local-6989586621679180233"><span id="local-6989586621679180235"><span class="annot"><span class="annottext">Int -&gt; ChangeMessageVisibility -&gt; ShowS
+[ChangeMessageVisibility] -&gt; ShowS
+ChangeMessageVisibility -&gt; String
+(Int -&gt; ChangeMessageVisibility -&gt; ShowS)
+-&gt; (ChangeMessageVisibility -&gt; String)
+-&gt; ([ChangeMessageVisibility] -&gt; ShowS)
+-&gt; Show ChangeMessageVisibility
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChangeMessageVisibility] -&gt; ShowS
+$cshowList :: [ChangeMessageVisibility] -&gt; ShowS
+show :: ChangeMessageVisibility -&gt; String
+$cshow :: ChangeMessageVisibility -&gt; String
+showsPrec :: Int -&gt; ChangeMessageVisibility -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChangeMessageVisibility -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ChangeMessageVisibility -&gt; Rep ChangeMessageVisibility x)
+-&gt; (forall x.
+    Rep ChangeMessageVisibility x -&gt; ChangeMessageVisibility)
+-&gt; Generic ChangeMessageVisibility
+forall x. Rep ChangeMessageVisibility x -&gt; ChangeMessageVisibility
+forall x. ChangeMessageVisibility -&gt; Rep ChangeMessageVisibility x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChangeMessageVisibility x -&gt; ChangeMessageVisibility
+$cfrom :: forall x. ChangeMessageVisibility -&gt; Rep ChangeMessageVisibility x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'ChangeMessageVisibility' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'queueUrl', 'changeMessageVisibility_queueUrl' - The URL of the Amazon SQS queue whose message\'s visibility is changed.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Queue URLs and names are case-sensitive.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'receiptHandle', 'changeMessageVisibility_receiptHandle' - The receipt handle associated with the message whose visibility timeout</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- is changed. This parameter is returned by the @ ReceiveMessage @ action.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- 'visibilityTimeout', 'changeMessageVisibility_visibilityTimeout' - The new value for the message\'s visibility timeout (in seconds). Values</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- range: @0@ to @43200@. Maximum: 12 hours.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#newChangeMessageVisibility"><span class="hs-identifier hs-type">newChangeMessageVisibility</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'queueUrl'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-comment">-- | 'receiptHandle'</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'visibilityTimeout'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span>
+</span><span id="line-143"></span><span id="newChangeMessageVisibility"><span class="annot"><span class="annottext">newChangeMessageVisibility :: Text -&gt; Text -&gt; Int -&gt; ChangeMessageVisibility
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#newChangeMessageVisibility"><span class="hs-identifier hs-var hs-var">newChangeMessageVisibility</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679180226"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180226"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679180225"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180225"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679180224"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180224"><span class="hs-identifier hs-var">pVisibilityTimeout_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ChangeMessageVisibility' :: Text -&gt; Text -&gt; Int -&gt; ChangeMessageVisibility
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:queueUrl:ChangeMessageVisibility' :: Text
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AqueueUrl%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180226"><span class="hs-identifier hs-var">pQueueUrl_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">$sel:receiptHandle:ChangeMessageVisibility' :: Text
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AreceiptHandle%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180225"><span class="hs-identifier hs-var">pReceiptHandle_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">$sel:visibilityTimeout:ChangeMessageVisibility' :: Int
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AvisibilityTimeout%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180224"><span class="hs-identifier hs-var">pVisibilityTimeout_</span></a></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | The URL of the Amazon SQS queue whose message\'s visibility is changed.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Queue URLs and names are case-sensitive.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_queueUrl"><span class="hs-identifier hs-type">changeMessageVisibility_queueUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-157"></span><span id="changeMessageVisibility_queueUrl"><span class="annot"><span class="annottext">changeMessageVisibility_queueUrl :: (Text -&gt; f Text)
+-&gt; ChangeMessageVisibility -&gt; f ChangeMessageVisibility
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_queueUrl"><span class="hs-identifier hs-var hs-var">changeMessageVisibility_queueUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeMessageVisibility -&gt; Text)
+-&gt; (ChangeMessageVisibility -&gt; Text -&gt; ChangeMessageVisibility)
+-&gt; Lens ChangeMessageVisibility ChangeMessageVisibility Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180221"><span class="annot"><span class="annottext">Text
+queueUrl :: Text
+$sel:queueUrl:ChangeMessageVisibility' :: ChangeMessageVisibility -&gt; Text
+</span><a href="#local-6989586621679180221"><span class="hs-identifier hs-var hs-var">queueUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180221"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180220"><span class="annot"><span class="annottext">s :: ChangeMessageVisibility
+</span><a href="#local-6989586621679180220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeMessageVisibility
+</span><a href="#local-6989586621679180220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queueUrl:ChangeMessageVisibility' :: Text
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AqueueUrl%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var">queueUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The receipt handle associated with the message whose visibility timeout</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- is changed. This parameter is returned by the @ ReceiveMessage @ action.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_receiptHandle"><span class="hs-identifier hs-type">changeMessageVisibility_receiptHandle</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="changeMessageVisibility_receiptHandle"><span class="annot"><span class="annottext">changeMessageVisibility_receiptHandle :: (Text -&gt; f Text)
+-&gt; ChangeMessageVisibility -&gt; f ChangeMessageVisibility
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_receiptHandle"><span class="hs-identifier hs-var hs-var">changeMessageVisibility_receiptHandle</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeMessageVisibility -&gt; Text)
+-&gt; (ChangeMessageVisibility -&gt; Text -&gt; ChangeMessageVisibility)
+-&gt; Lens ChangeMessageVisibility ChangeMessageVisibility Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180218"><span class="annot"><span class="annottext">Text
+receiptHandle :: Text
+$sel:receiptHandle:ChangeMessageVisibility' :: ChangeMessageVisibility -&gt; Text
+</span><a href="#local-6989586621679180218"><span class="hs-identifier hs-var hs-var">receiptHandle</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180218"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180217"><span class="annot"><span class="annottext">s :: ChangeMessageVisibility
+</span><a href="#local-6989586621679180217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180216"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeMessageVisibility
+</span><a href="#local-6989586621679180217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:receiptHandle:ChangeMessageVisibility' :: Text
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AreceiptHandle%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The new value for the message\'s visibility timeout (in seconds). Values</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- range: @0@ to @43200@. Maximum: 12 hours.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_visibilityTimeout"><span class="hs-identifier hs-type">changeMessageVisibility_visibilityTimeout</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="changeMessageVisibility_visibilityTimeout"><span class="annot"><span class="annottext">changeMessageVisibility_visibilityTimeout :: (Int -&gt; f Int)
+-&gt; ChangeMessageVisibility -&gt; f ChangeMessageVisibility
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#changeMessageVisibility_visibilityTimeout"><span class="hs-identifier hs-var hs-var">changeMessageVisibility_visibilityTimeout</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChangeMessageVisibility -&gt; Int)
+-&gt; (ChangeMessageVisibility -&gt; Int -&gt; ChangeMessageVisibility)
+-&gt; Lens ChangeMessageVisibility ChangeMessageVisibility Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180215"><span class="annot"><span class="annottext">Int
+visibilityTimeout :: Int
+$sel:visibilityTimeout:ChangeMessageVisibility' :: ChangeMessageVisibility -&gt; Int
+</span><a href="#local-6989586621679180215"><span class="hs-identifier hs-var hs-var">visibilityTimeout</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180215"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679180214"><span class="annot"><span class="annottext">s :: ChangeMessageVisibility
+</span><a href="#local-6989586621679180214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679180213"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChangeMessageVisibility
+</span><a href="#local-6989586621679180214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:visibilityTimeout:ChangeMessageVisibility' :: Int
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#%24sel%3AvisibilityTimeout%3AChangeMessageVisibility%27"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-171"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse"><span class="hs-identifier hs-type">ChangeMessageVisibilityResponse</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679180209"><span class="annot"><span class="annottext">request :: ChangeMessageVisibility -&gt; Request ChangeMessageVisibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ChangeMessageVisibility -&gt; Request ChangeMessageVisibility
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SQS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-174"></span><span>  </span><span id="local-6989586621679180205"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ChangeMessageVisibility
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ChangeMessageVisibility)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse ChangeMessageVisibility
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ChangeMessageVisibility
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ChangeMessageVisibility)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse ChangeMessageVisibility
+ChangeMessageVisibilityResponse
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse%27"><span class="hs-identifier hs-var">ChangeMessageVisibilityResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180198"><span id="local-6989586621679180200"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span></span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679180195"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679180191"><span class="annot"><span class="annottext">toHeaders :: ChangeMessageVisibility -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ChangeMessageVisibility -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679180186"><span class="annot"><span class="annottext">toPath :: ChangeMessageVisibility -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ChangeMessageVisibility -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility"><span class="hs-identifier hs-type">ChangeMessageVisibility</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-189"></span><span>  </span><span id="local-6989586621679180182"><span class="annot"><span class="annottext">toQuery :: ChangeMessageVisibility -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibility%27"><span class="hs-identifier hs-type">ChangeMessageVisibility'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679180178"><span id="local-6989586621679180179"><span id="local-6989586621679180180"><span class="annot"><span class="annottext">Int
+Text
+visibilityTimeout :: Int
+receiptHandle :: Text
+queueUrl :: Text
+$sel:visibilityTimeout:ChangeMessageVisibility' :: ChangeMessageVisibility -&gt; Int
+$sel:receiptHandle:ChangeMessageVisibility' :: ChangeMessageVisibility -&gt; Text
+$sel:queueUrl:ChangeMessageVisibility' :: ChangeMessageVisibility -&gt; Text
+</span><a href="#local-6989586621679180178"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-191"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-192"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ChangeMessageVisibility&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-194"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2012-11-05&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;QueueUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180180"><span class="hs-identifier hs-var">queueUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ReceiptHandle&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679180179"><span class="hs-identifier hs-var">receiptHandle</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;VisibilityTimeout&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679180178"><span class="hs-identifier hs-var">visibilityTimeout</span></a></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | /See:/ 'newChangeMessageVisibilityResponse' smart constructor.</span><span>
+</span><span id="line-201"></span><span id="local-6989586621679180175"><span id="local-6989586621679180176"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChangeMessageVisibilityResponse"><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse"><span class="hs-identifier hs-var">ChangeMessageVisibilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeMessageVisibilityResponse%27"><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse%27"><span class="hs-identifier hs-var">ChangeMessageVisibilityResponse'</span></a></span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679180171"><span id="local-6989586621679180173"><span class="annot"><span class="annottext">ChangeMessageVisibilityResponse
+-&gt; ChangeMessageVisibilityResponse -&gt; Bool
+(ChangeMessageVisibilityResponse
+ -&gt; ChangeMessageVisibilityResponse -&gt; Bool)
+-&gt; (ChangeMessageVisibilityResponse
+    -&gt; ChangeMessageVisibilityResponse -&gt; Bool)
+-&gt; Eq ChangeMessageVisibilityResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChangeMessageVisibilityResponse
+-&gt; ChangeMessageVisibilityResponse -&gt; Bool
+$c/= :: ChangeMessageVisibilityResponse
+-&gt; ChangeMessageVisibilityResponse -&gt; Bool
+== :: ChangeMessageVisibilityResponse
+-&gt; ChangeMessageVisibilityResponse -&gt; Bool
+$c== :: ChangeMessageVisibilityResponse
+-&gt; ChangeMessageVisibilityResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180163"><span id="local-6989586621679180165"><span id="local-6989586621679180167"><span id="local-6989586621679180169"><span class="annot"><span class="annottext">ReadPrec [ChangeMessageVisibilityResponse]
+ReadPrec ChangeMessageVisibilityResponse
+Int -&gt; ReadS ChangeMessageVisibilityResponse
+ReadS [ChangeMessageVisibilityResponse]
+(Int -&gt; ReadS ChangeMessageVisibilityResponse)
+-&gt; ReadS [ChangeMessageVisibilityResponse]
+-&gt; ReadPrec ChangeMessageVisibilityResponse
+-&gt; ReadPrec [ChangeMessageVisibilityResponse]
+-&gt; Read ChangeMessageVisibilityResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChangeMessageVisibilityResponse]
+$creadListPrec :: ReadPrec [ChangeMessageVisibilityResponse]
+readPrec :: ReadPrec ChangeMessageVisibilityResponse
+$creadPrec :: ReadPrec ChangeMessageVisibilityResponse
+readList :: ReadS [ChangeMessageVisibilityResponse]
+$creadList :: ReadS [ChangeMessageVisibilityResponse]
+readsPrec :: Int -&gt; ReadS ChangeMessageVisibilityResponse
+$creadsPrec :: Int -&gt; ReadS ChangeMessageVisibilityResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679180157"><span id="local-6989586621679180159"><span id="local-6989586621679180161"><span class="annot"><span class="annottext">Int -&gt; ChangeMessageVisibilityResponse -&gt; ShowS
+[ChangeMessageVisibilityResponse] -&gt; ShowS
+ChangeMessageVisibilityResponse -&gt; String
+(Int -&gt; ChangeMessageVisibilityResponse -&gt; ShowS)
+-&gt; (ChangeMessageVisibilityResponse -&gt; String)
+-&gt; ([ChangeMessageVisibilityResponse] -&gt; ShowS)
+-&gt; Show ChangeMessageVisibilityResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChangeMessageVisibilityResponse] -&gt; ShowS
+$cshowList :: [ChangeMessageVisibilityResponse] -&gt; ShowS
+show :: ChangeMessageVisibilityResponse -&gt; String
+$cshow :: ChangeMessageVisibilityResponse -&gt; String
+showsPrec :: Int -&gt; ChangeMessageVisibilityResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChangeMessageVisibilityResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ChangeMessageVisibilityResponse
+ -&gt; Rep ChangeMessageVisibilityResponse x)
+-&gt; (forall x.
+    Rep ChangeMessageVisibilityResponse x
+    -&gt; ChangeMessageVisibilityResponse)
+-&gt; Generic ChangeMessageVisibilityResponse
+forall x.
+Rep ChangeMessageVisibilityResponse x
+-&gt; ChangeMessageVisibilityResponse
+forall x.
+ChangeMessageVisibilityResponse
+-&gt; Rep ChangeMessageVisibilityResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ChangeMessageVisibilityResponse x
+-&gt; ChangeMessageVisibilityResponse
+$cfrom :: forall x.
+ChangeMessageVisibilityResponse
+-&gt; Rep ChangeMessageVisibilityResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Create a value of 'ChangeMessageVisibilityResponse' with all optional fields omitted.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#newChangeMessageVisibilityResponse"><span class="hs-identifier hs-type">newChangeMessageVisibilityResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse"><span class="hs-identifier hs-type">ChangeMessageVisibilityResponse</span></a></span><span>
+</span><span id="line-212"></span><span id="newChangeMessageVisibilityResponse"><span class="annot"><span class="annottext">newChangeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#newChangeMessageVisibilityResponse"><span class="hs-identifier hs-var hs-var">newChangeMessageVisibilityResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><span class="annottext">ChangeMessageVisibilityResponse
+</span><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse%27"><span class="hs-identifier hs-var">ChangeMessageVisibilityResponse'</span></a></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-216"></span><span>  </span><span id="local-6989586621679180153"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.SQS.ChangeMessageVisibility.html#ChangeMessageVisibilityResponse"><span class="hs-identifier hs-type">ChangeMessageVisibilityResponse</span></a></span></span><span>
+</span><span id="line-218"></span></pre></body></html>

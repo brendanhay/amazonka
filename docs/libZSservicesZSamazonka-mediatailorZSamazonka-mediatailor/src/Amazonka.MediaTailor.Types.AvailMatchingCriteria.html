@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaTailor.Types.AvailMatchingCriteria</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaTailor.Types.AvailMatchingCriteria</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Operator.html"><span class="hs-identifier">Amazonka.MediaTailor.Types.Operator</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | MediaTailor only places (consumes) prefetched ads if the ad break meets</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the criteria defined by the dynamic variables. This gives you granular</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- control over which ad break to place the prefetched ads into.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- As an example, let\'s say that you set DynamicVariable to scte.event_id</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- and Operator to EQUALS, and your playback configuration has an ADS URL</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- of</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- https:\/\/my.ads.server.com\/path?&amp;podId=[scte.avail_num]&amp;event=[scte.event_id]&amp;duration=[session.avail_duration_secs].</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- And the prefetch request to the ADS contains these values</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- https:\/\/my.ads.server.com\/path?&amp;podId=3&amp;event=my-awesome-event&amp;duration=30.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- MediaTailor will only insert the prefetched ads into the ad break if has</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- a SCTE marker with an event id of my-awesome-event, since it must match</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- the event id that MediaTailor uses to query the ADS.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- You can specify up to five AvailMatchingCriteria. If you specify</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- multiple AvailMatchingCriteria, MediaTailor combines them to match using</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- a logical AND. You can model logical OR combinations by creating</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- multiple prefetch schedules.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- /See:/ 'newAvailMatchingCriteria' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679265231"><span id="local-6989586621679265232"></span></span><span class="hs-keyword">data</span><span> </span><span id="AvailMatchingCriteria"><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-var">AvailMatchingCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AvailMatchingCriteria%27"><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-var">AvailMatchingCriteria'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | For the DynamicVariable specified in AvailMatchingCriteria, the Operator</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- that is used for the comparison.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Aoperator%3AAvailMatchingCriteria%27"><span class="annot"><span class="annottext">AvailMatchingCriteria -&gt; Operator
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#%24sel%3Aoperator%3AAvailMatchingCriteria%27"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The dynamic variable(s) that MediaTailor should use as avail matching</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- criteria. MediaTailor only places the prefetched ads into the avail if</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- the avail matches the criteria defined by the dynamic variable. For</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- information about dynamic variables, see</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html Using dynamic ad variables&gt;</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- in the /MediaTailor User Guide/.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- You can include up to 100 dynamic variables.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdynamicVariable%3AAvailMatchingCriteria%27"><span class="annot"><span class="annottext">AvailMatchingCriteria -&gt; Text
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#%24sel%3AdynamicVariable%3AAvailMatchingCriteria%27"><span class="hs-identifier hs-var hs-var">dynamicVariable</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679265224"><span id="local-6989586621679265226"><span class="annot"><span class="annottext">AvailMatchingCriteria -&gt; AvailMatchingCriteria -&gt; Bool
+(AvailMatchingCriteria -&gt; AvailMatchingCriteria -&gt; Bool)
+-&gt; (AvailMatchingCriteria -&gt; AvailMatchingCriteria -&gt; Bool)
+-&gt; Eq AvailMatchingCriteria
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AvailMatchingCriteria -&gt; AvailMatchingCriteria -&gt; Bool
+$c/= :: AvailMatchingCriteria -&gt; AvailMatchingCriteria -&gt; Bool
+== :: AvailMatchingCriteria -&gt; AvailMatchingCriteria -&gt; Bool
+$c== :: AvailMatchingCriteria -&gt; AvailMatchingCriteria -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265215"><span id="local-6989586621679265217"><span id="local-6989586621679265219"><span id="local-6989586621679265221"><span class="annot"><span class="annottext">ReadPrec [AvailMatchingCriteria]
+ReadPrec AvailMatchingCriteria
+Int -&gt; ReadS AvailMatchingCriteria
+ReadS [AvailMatchingCriteria]
+(Int -&gt; ReadS AvailMatchingCriteria)
+-&gt; ReadS [AvailMatchingCriteria]
+-&gt; ReadPrec AvailMatchingCriteria
+-&gt; ReadPrec [AvailMatchingCriteria]
+-&gt; Read AvailMatchingCriteria
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AvailMatchingCriteria]
+$creadListPrec :: ReadPrec [AvailMatchingCriteria]
+readPrec :: ReadPrec AvailMatchingCriteria
+$creadPrec :: ReadPrec AvailMatchingCriteria
+readList :: ReadS [AvailMatchingCriteria]
+$creadList :: ReadS [AvailMatchingCriteria]
+readsPrec :: Int -&gt; ReadS AvailMatchingCriteria
+$creadsPrec :: Int -&gt; ReadS AvailMatchingCriteria
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679265208"><span id="local-6989586621679265210"><span id="local-6989586621679265212"><span class="annot"><span class="annottext">Int -&gt; AvailMatchingCriteria -&gt; ShowS
+[AvailMatchingCriteria] -&gt; ShowS
+AvailMatchingCriteria -&gt; String
+(Int -&gt; AvailMatchingCriteria -&gt; ShowS)
+-&gt; (AvailMatchingCriteria -&gt; String)
+-&gt; ([AvailMatchingCriteria] -&gt; ShowS)
+-&gt; Show AvailMatchingCriteria
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AvailMatchingCriteria] -&gt; ShowS
+$cshowList :: [AvailMatchingCriteria] -&gt; ShowS
+show :: AvailMatchingCriteria -&gt; String
+$cshow :: AvailMatchingCriteria -&gt; String
+showsPrec :: Int -&gt; AvailMatchingCriteria -&gt; ShowS
+$cshowsPrec :: Int -&gt; AvailMatchingCriteria -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AvailMatchingCriteria -&gt; Rep AvailMatchingCriteria x)
+-&gt; (forall x. Rep AvailMatchingCriteria x -&gt; AvailMatchingCriteria)
+-&gt; Generic AvailMatchingCriteria
+forall x. Rep AvailMatchingCriteria x -&gt; AvailMatchingCriteria
+forall x. AvailMatchingCriteria -&gt; Rep AvailMatchingCriteria x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AvailMatchingCriteria x -&gt; AvailMatchingCriteria
+$cfrom :: forall x. AvailMatchingCriteria -&gt; Rep AvailMatchingCriteria x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'AvailMatchingCriteria' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'operator', 'availMatchingCriteria_operator' - For the DynamicVariable specified in AvailMatchingCriteria, the Operator</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- that is used for the comparison.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'dynamicVariable', 'availMatchingCriteria_dynamicVariable' - The dynamic variable(s) that MediaTailor should use as avail matching</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- criteria. MediaTailor only places the prefetched ads into the avail if</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the avail matches the criteria defined by the dynamic variable. For</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- information about dynamic variables, see</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html Using dynamic ad variables&gt;</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- in the /MediaTailor User Guide/.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- You can include up to 100 dynamic variables.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#newAvailMatchingCriteria"><span class="hs-identifier hs-type">newAvailMatchingCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'operator'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'dynamicVariable'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span><span>
+</span><span id="line-88"></span><span id="newAvailMatchingCriteria"><span class="annot"><span class="annottext">newAvailMatchingCriteria :: Operator -&gt; Text -&gt; AvailMatchingCriteria
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#newAvailMatchingCriteria"><span class="hs-identifier hs-var hs-var">newAvailMatchingCriteria</span></a></span></span><span> </span><span id="local-6989586621679265202"><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679265202"><span class="hs-identifier hs-var">pOperator_</span></a></span></span><span> </span><span id="local-6989586621679265201"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265201"><span class="hs-identifier hs-var">pDynamicVariable_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="annottext">AvailMatchingCriteria' :: Operator -&gt; Text -&gt; AvailMatchingCriteria
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-type">AvailMatchingCriteria'</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operator:AvailMatchingCriteria' :: Operator
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#%24sel%3Aoperator%3AAvailMatchingCriteria%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679265202"><span class="hs-identifier hs-var">pOperator_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:dynamicVariable:AvailMatchingCriteria' :: Text
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#%24sel%3AdynamicVariable%3AAvailMatchingCriteria%27"><span class="hs-identifier hs-var">dynamicVariable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265201"><span class="hs-identifier hs-var">pDynamicVariable_</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | For the DynamicVariable specified in AvailMatchingCriteria, the Operator</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- that is used for the comparison.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#availMatchingCriteria_operator"><span class="hs-identifier hs-type">availMatchingCriteria_operator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.Operator.html#Operator"><span class="hs-identifier hs-type">Operator</span></a></span><span>
+</span><span id="line-97"></span><span id="availMatchingCriteria_operator"><span class="annot"><span class="annottext">availMatchingCriteria_operator :: (Operator -&gt; f Operator)
+-&gt; AvailMatchingCriteria -&gt; f AvailMatchingCriteria
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#availMatchingCriteria_operator"><span class="hs-identifier hs-var hs-var">availMatchingCriteria_operator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AvailMatchingCriteria -&gt; Operator)
+-&gt; (AvailMatchingCriteria -&gt; Operator -&gt; AvailMatchingCriteria)
+-&gt; Lens
+     AvailMatchingCriteria AvailMatchingCriteria Operator Operator
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-type">AvailMatchingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265197"><span class="annot"><span class="annottext">Operator
+operator :: Operator
+$sel:operator:AvailMatchingCriteria' :: AvailMatchingCriteria -&gt; Operator
+</span><a href="#local-6989586621679265197"><span class="hs-identifier hs-var hs-var">operator</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679265197"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265196"><span class="annot"><span class="annottext">s :: AvailMatchingCriteria
+</span><a href="#local-6989586621679265196"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-type">AvailMatchingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265195"><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679265195"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailMatchingCriteria
+</span><a href="#local-6989586621679265196"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operator:AvailMatchingCriteria' :: Operator
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#%24sel%3Aoperator%3AAvailMatchingCriteria%27"><span class="hs-identifier hs-var">operator</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679265195"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The dynamic variable(s) that MediaTailor should use as avail matching</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- criteria. MediaTailor only places the prefetched ads into the avail if</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- the avail matches the criteria defined by the dynamic variable. For</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- information about dynamic variables, see</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/mediatailor/latest/ug/variables.html Using dynamic ad variables&gt;</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- in the /MediaTailor User Guide/.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- You can include up to 100 dynamic variables.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#availMatchingCriteria_dynamicVariable"><span class="hs-identifier hs-type">availMatchingCriteria_dynamicVariable</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="availMatchingCriteria_dynamicVariable"><span class="annot"><span class="annottext">availMatchingCriteria_dynamicVariable :: (Text -&gt; f Text)
+-&gt; AvailMatchingCriteria -&gt; f AvailMatchingCriteria
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#availMatchingCriteria_dynamicVariable"><span class="hs-identifier hs-var hs-var">availMatchingCriteria_dynamicVariable</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AvailMatchingCriteria -&gt; Text)
+-&gt; (AvailMatchingCriteria -&gt; Text -&gt; AvailMatchingCriteria)
+-&gt; Lens AvailMatchingCriteria AvailMatchingCriteria Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-type">AvailMatchingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265193"><span class="annot"><span class="annottext">Text
+dynamicVariable :: Text
+$sel:dynamicVariable:AvailMatchingCriteria' :: AvailMatchingCriteria -&gt; Text
+</span><a href="#local-6989586621679265193"><span class="hs-identifier hs-var hs-var">dynamicVariable</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265193"><span class="hs-identifier hs-var">dynamicVariable</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679265192"><span class="annot"><span class="annottext">s :: AvailMatchingCriteria
+</span><a href="#local-6989586621679265192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-type">AvailMatchingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679265191"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AvailMatchingCriteria
+</span><a href="#local-6989586621679265192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dynamicVariable:AvailMatchingCriteria' :: Text
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#%24sel%3AdynamicVariable%3AAvailMatchingCriteria%27"><span class="hs-identifier hs-var">dynamicVariable</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265188"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679265186"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AvailMatchingCriteria
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AvailMatchingCriteria)
+-&gt; Value
+-&gt; Parser AvailMatchingCriteria
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AvailMatchingCriteria&quot;</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679265183"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Operator -&gt; Text -&gt; AvailMatchingCriteria
+</span><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-var">AvailMatchingCriteria'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Operator -&gt; Text -&gt; AvailMatchingCriteria)
+-&gt; Parser Operator -&gt; Parser (Text -&gt; AvailMatchingCriteria)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Operator
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; AvailMatchingCriteria)
+-&gt; Parser Text -&gt; Parser AvailMatchingCriteria
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679265183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DynamicVariable&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265177"><span id="local-6989586621679265179"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265174"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679265166"><span id="local-6989586621679265168"><span id="local-6989586621679265170"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria"><span class="hs-identifier hs-type">AvailMatchingCriteria</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679265164"><span class="annot"><span class="annottext">toJSON :: AvailMatchingCriteria -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.AvailMatchingCriteria.html#AvailMatchingCriteria%27"><span class="hs-identifier hs-type">AvailMatchingCriteria'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679265161"><span id="local-6989586621679265162"><span class="annot"><span class="annottext">Text
+Operator
+dynamicVariable :: Text
+operator :: Operator
+$sel:dynamicVariable:AvailMatchingCriteria' :: AvailMatchingCriteria -&gt; Text
+$sel:operator:AvailMatchingCriteria' :: AvailMatchingCriteria -&gt; Operator
+</span><a href="#local-6989586621679265161"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Operator&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Operator -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Operator
+</span><a href="#local-6989586621679265162"><span class="hs-identifier hs-var">operator</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DynamicVariable&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679265161"><span class="hs-identifier hs-var">dynamicVariable</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span></pre></body></html>

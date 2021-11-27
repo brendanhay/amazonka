@@ -1,0 +1,921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeStar.CreateUserProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a profile for a user that includes user preferences, such as the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- display name and email address assocciated with the user, in AWS</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- CodeStar. The user profile is not project-specific. Information in the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- user profile is displayed wherever the user\'s information appears to</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- other users in AWS CodeStar.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeStar.CreateUserProfile</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier">CreateUserProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#newCreateUserProfile"><span class="hs-identifier">newCreateUserProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_sshPublicKey"><span class="hs-identifier">createUserProfile_sshPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_userArn"><span class="hs-identifier">createUserProfile_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_displayName"><span class="hs-identifier">createUserProfile_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_emailAddress"><span class="hs-identifier">createUserProfile_emailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier">CreateUserProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#newCreateUserProfileResponse"><span class="hs-identifier">newCreateUserProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_lastModifiedTimestamp"><span class="hs-identifier">createUserProfileResponse_lastModifiedTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_sshPublicKey"><span class="hs-identifier">createUserProfileResponse_sshPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_emailAddress"><span class="hs-identifier">createUserProfileResponse_emailAddress</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_displayName"><span class="hs-identifier">createUserProfileResponse_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_createdTimestamp"><span class="hs-identifier">createUserProfileResponse_createdTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_httpStatus"><span class="hs-identifier">createUserProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_userArn"><span class="hs-identifier">createUserProfileResponse_userArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.Types.html"><span class="hs-identifier">Amazonka.CodeStar.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | /See:/ 'newCreateUserProfile' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679177406"><span id="local-6989586621679177407"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserProfile"><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-var">CreateUserProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserProfile%27"><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-var">CreateUserProfile'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. If a</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- access.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AsshPublicKey%3ACreateUserProfile%27"><span class="annot"><span class="annottext">CreateUserProfile -&gt; Maybe Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AsshPublicKey%3ACreateUserProfile%27"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AuserArn%3ACreateUserProfile%27"><span class="annot"><span class="annottext">CreateUserProfile -&gt; Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AuserArn%3ACreateUserProfile%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name that will be displayed as the friendly name for the user in AWS</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- CodeStar.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateUserProfile%27"><span class="annot"><span class="annottext">CreateUserProfile -&gt; Sensitive Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AdisplayName%3ACreateUserProfile%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The email address that will be displayed as part of the user\'s profile</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- in AWS CodeStar.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AemailAddress%3ACreateUserProfile%27"><span class="annot"><span class="annottext">CreateUserProfile -&gt; Sensitive Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AemailAddress%3ACreateUserProfile%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177397"><span id="local-6989586621679177399"><span class="annot"><span class="annottext">CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
+(CreateUserProfile -&gt; CreateUserProfile -&gt; Bool)
+-&gt; (CreateUserProfile -&gt; CreateUserProfile -&gt; Bool)
+-&gt; Eq CreateUserProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
+$c/= :: CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
+== :: CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
+$c== :: CreateUserProfile -&gt; CreateUserProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177390"><span id="local-6989586621679177392"><span id="local-6989586621679177394"><span class="annot"><span class="annottext">Int -&gt; CreateUserProfile -&gt; ShowS
+[CreateUserProfile] -&gt; ShowS
+CreateUserProfile -&gt; String
+(Int -&gt; CreateUserProfile -&gt; ShowS)
+-&gt; (CreateUserProfile -&gt; String)
+-&gt; ([CreateUserProfile] -&gt; ShowS)
+-&gt; Show CreateUserProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateUserProfile] -&gt; ShowS
+$cshowList :: [CreateUserProfile] -&gt; ShowS
+show :: CreateUserProfile -&gt; String
+$cshow :: CreateUserProfile -&gt; String
+showsPrec :: Int -&gt; CreateUserProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateUserProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateUserProfile -&gt; Rep CreateUserProfile x)
+-&gt; (forall x. Rep CreateUserProfile x -&gt; CreateUserProfile)
+-&gt; Generic CreateUserProfile
+forall x. Rep CreateUserProfile x -&gt; CreateUserProfile
+forall x. CreateUserProfile -&gt; Rep CreateUserProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateUserProfile x -&gt; CreateUserProfile
+$cfrom :: forall x. CreateUserProfile -&gt; Rep CreateUserProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- Create a value of 'CreateUserProfile' with all optional fields omitted.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'sshPublicKey', 'createUserProfile_sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. If a</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- access.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'userArn', 'createUserProfile_userArn' - The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'displayName', 'createUserProfile_displayName' - The name that will be displayed as the friendly name for the user in AWS</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- CodeStar.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'emailAddress', 'createUserProfile_emailAddress' - The email address that will be displayed as part of the user\'s profile</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- in AWS CodeStar.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#newCreateUserProfile"><span class="hs-identifier hs-type">newCreateUserProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-comment">-- | 'userArn'</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-comment">-- | 'displayName'</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'emailAddress'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span>
+</span><span id="line-107"></span><span id="newCreateUserProfile"><span class="annot"><span class="annottext">newCreateUserProfile :: Text -&gt; Text -&gt; Text -&gt; CreateUserProfile
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#newCreateUserProfile"><span class="hs-identifier hs-var hs-var">newCreateUserProfile</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679177385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177385"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679177384"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177384"><span class="hs-identifier hs-var">pDisplayName_</span></a></span></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679177383"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177383"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">CreateUserProfile' :: Maybe Text
+-&gt; Text -&gt; Sensitive Text -&gt; Sensitive Text -&gt; CreateUserProfile
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateUserProfile' :: Maybe Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AsshPublicKey%3ACreateUserProfile%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:userArn:CreateUserProfile' :: Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AuserArn%3ACreateUserProfile%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177385"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:displayName:CreateUserProfile' :: Sensitive Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AdisplayName%3ACreateUserProfile%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177384"><span class="hs-identifier hs-var">pDisplayName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:emailAddress:CreateUserProfile' :: Sensitive Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AemailAddress%3ACreateUserProfile%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177383"><span class="hs-identifier hs-var">pEmailAddress_</span></a></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. If a</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- project owner allows the user remote access to project resources, this</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- public key will be used along with the user\'s private key for SSH</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- access.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_sshPublicKey"><span class="hs-identifier hs-type">createUserProfile_sshPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="createUserProfile_sshPublicKey"><span class="annot"><span class="annottext">createUserProfile_sshPublicKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateUserProfile -&gt; f CreateUserProfile
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_sshPublicKey"><span class="hs-identifier hs-var hs-var">createUserProfile_sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfile -&gt; Maybe Text)
+-&gt; (CreateUserProfile -&gt; Maybe Text -&gt; CreateUserProfile)
+-&gt; Lens
+     CreateUserProfile CreateUserProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177378"><span class="annot"><span class="annottext">Maybe Text
+sshPublicKey :: Maybe Text
+$sel:sshPublicKey:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679177378"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177378"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177377"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679177377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177376"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679177377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateUserProfile' :: Maybe Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AsshPublicKey%3ACreateUserProfile%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_userArn"><span class="hs-identifier hs-type">createUserProfile_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="createUserProfile_userArn"><span class="annot"><span class="annottext">createUserProfile_userArn :: (Text -&gt; f Text) -&gt; CreateUserProfile -&gt; f CreateUserProfile
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_userArn"><span class="hs-identifier hs-var hs-var">createUserProfile_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfile -&gt; Text)
+-&gt; (CreateUserProfile -&gt; Text -&gt; CreateUserProfile)
+-&gt; Lens CreateUserProfile CreateUserProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177375"><span class="annot"><span class="annottext">Text
+userArn :: Text
+$sel:userArn:CreateUserProfile' :: CreateUserProfile -&gt; Text
+</span><a href="#local-6989586621679177375"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177375"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177374"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679177374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177373"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679177374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:CreateUserProfile' :: Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AuserArn%3ACreateUserProfile%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The name that will be displayed as the friendly name for the user in AWS</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- CodeStar.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_displayName"><span class="hs-identifier hs-type">createUserProfile_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-132"></span><span id="createUserProfile_displayName"><span class="annot"><span class="annottext">createUserProfile_displayName :: (Text -&gt; f Text) -&gt; CreateUserProfile -&gt; f CreateUserProfile
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_displayName"><span class="hs-identifier hs-var hs-var">createUserProfile_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfile -&gt; Sensitive Text)
+-&gt; (CreateUserProfile -&gt; Sensitive Text -&gt; CreateUserProfile)
+-&gt; Lens
+     CreateUserProfile
+     CreateUserProfile
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177372"><span class="annot"><span class="annottext">Sensitive Text
+displayName :: Sensitive Text
+$sel:displayName:CreateUserProfile' :: CreateUserProfile -&gt; Sensitive Text
+</span><a href="#local-6989586621679177372"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177372"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177371"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679177371"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177370"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177370"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679177371"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateUserProfile' :: Sensitive Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AdisplayName%3ACreateUserProfile%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177370"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateUserProfile -&gt; f CreateUserProfile)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateUserProfile
+-&gt; f CreateUserProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The email address that will be displayed as part of the user\'s profile</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- in AWS CodeStar.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_emailAddress"><span class="hs-identifier hs-type">createUserProfile_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-137"></span><span id="createUserProfile_emailAddress"><span class="annot"><span class="annottext">createUserProfile_emailAddress :: (Text -&gt; f Text) -&gt; CreateUserProfile -&gt; f CreateUserProfile
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfile_emailAddress"><span class="hs-identifier hs-var hs-var">createUserProfile_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfile -&gt; Sensitive Text)
+-&gt; (CreateUserProfile -&gt; Sensitive Text -&gt; CreateUserProfile)
+-&gt; Lens
+     CreateUserProfile
+     CreateUserProfile
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177368"><span class="annot"><span class="annottext">Sensitive Text
+emailAddress :: Sensitive Text
+$sel:emailAddress:CreateUserProfile' :: CreateUserProfile -&gt; Sensitive Text
+</span><a href="#local-6989586621679177368"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177368"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177367"><span class="annot"><span class="annottext">s :: CreateUserProfile
+</span><a href="#local-6989586621679177367"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177366"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177366"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfile
+</span><a href="#local-6989586621679177367"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:CreateUserProfile' :: Sensitive Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AemailAddress%3ACreateUserProfile%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177366"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateUserProfile -&gt; f CreateUserProfile)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateUserProfile
+-&gt; f CreateUserProfile
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-141"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679177362"><span class="annot"><span class="annottext">request :: CreateUserProfile -&gt; Request CreateUserProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateUserProfile -&gt; Request CreateUserProfile
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeStar.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679177358"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateUserProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateUserProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateUserProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateUserProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateUserProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177355"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177355"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177354"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177354"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177353"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177353"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; Text
+-&gt; CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-var">CreateUserProfileResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe POSIX
+ -&gt; Int
+ -&gt; Text
+ -&gt; CreateUserProfileResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; Text
+      -&gt; CreateUserProfileResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModifiedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; Text
+   -&gt; CreateUserProfileResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (Sensitive Text)
+      -&gt; Maybe (Sensitive Text)
+      -&gt; Maybe POSIX
+      -&gt; Int
+      -&gt; Text
+      -&gt; CreateUserProfileResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sshPublicKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive Text)
+   -&gt; Maybe (Sensitive Text)
+   -&gt; Maybe POSIX
+   -&gt; Int
+   -&gt; Text
+   -&gt; CreateUserProfileResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either
+     String
+     (Maybe (Sensitive Text)
+      -&gt; Maybe POSIX -&gt; Int -&gt; Text -&gt; CreateUserProfileResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;emailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (Sensitive Text)
+   -&gt; Maybe POSIX -&gt; Int -&gt; Text -&gt; CreateUserProfileResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either
+     String (Maybe POSIX -&gt; Int -&gt; Text -&gt; CreateUserProfileResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe POSIX -&gt; Int -&gt; Text -&gt; CreateUserProfileResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either String (Int -&gt; Text -&gt; CreateUserProfileResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; Text -&gt; CreateUserProfileResponse)
+-&gt; Either String Int
+-&gt; Either String (Text -&gt; CreateUserProfileResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177355"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; CreateUserProfileResponse)
+-&gt; Either String Text -&gt; Either String CreateUserProfileResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177353"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177344"><span id="local-6989586621679177346"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177341"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679177337"><span class="annot"><span class="annottext">toHeaders :: CreateUserProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateUserProfile -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-166"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeStar_20170419.CreateUserProfile&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-167"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-168"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-170"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-172"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177327"><span id="local-6989586621679177329"><span id="local-6989586621679177331"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679177325"><span class="annot"><span class="annottext">toJSON :: CreateUserProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile%27"><span class="hs-identifier hs-type">CreateUserProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177320"><span id="local-6989586621679177321"><span id="local-6989586621679177322"><span id="local-6989586621679177323"><span class="annot"><span class="annottext">Maybe Text
+Text
+Sensitive Text
+emailAddress :: Sensitive Text
+displayName :: Sensitive Text
+userArn :: Text
+sshPublicKey :: Maybe Text
+$sel:emailAddress:CreateUserProfile' :: CreateUserProfile -&gt; Sensitive Text
+$sel:displayName:CreateUserProfile' :: CreateUserProfile -&gt; Sensitive Text
+$sel:userArn:CreateUserProfile' :: CreateUserProfile -&gt; Text
+$sel:sshPublicKey:CreateUserProfile' :: CreateUserProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679177320"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-180"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sshPublicKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177323"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;userArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177322"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177321"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;emailAddress&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679177320"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679177314"><span class="annot"><span class="annottext">toPath :: CreateUserProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateUserProfile -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfile"><span class="hs-identifier hs-type">CreateUserProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-191"></span><span>  </span><span id="local-6989586621679177310"><span class="annot"><span class="annottext">toQuery :: CreateUserProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateUserProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | /See:/ 'newCreateUserProfileResponse' smart constructor.</span><span>
+</span><span id="line-194"></span><span id="local-6989586621679177307"><span id="local-6989586621679177308"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateUserProfileResponse"><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-var">CreateUserProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateUserProfileResponse%27"><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-var">CreateUserProfileResponse'</span></a></span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the user profile was last modified, in timestamp format.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AlastModifiedTimestamp%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AlastModifiedTimestamp%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. This is the</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- public portion of the public\/private keypair the user can use to access</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- project resources if a project owner allows the user remote access to</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- those resources.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AsshPublicKey%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Maybe Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AsshPublicKey%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- | The email address that is displayed as part of the user\'s profile in</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- AWS CodeStar.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3AemailAddress%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AemailAddress%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- | The name that is displayed as the friendly name for the user in AWS</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- CodeStar.</span><span>
+</span><span id="line-207"></span><span>    </span><span id="%24sel%3AdisplayName%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AdisplayName%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">-- | The date the user profile was created, in timestamp format.</span><span>
+</span><span id="line-209"></span><span>    </span><span id="%24sel%3AcreatedTimestamp%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AcreatedTimestamp%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-211"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Int
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-213"></span><span>    </span><span id="%24sel%3AuserArn%3ACreateUserProfileResponse%27"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AuserArn%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177296"><span id="local-6989586621679177298"><span class="annot"><span class="annottext">CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
+(CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool)
+-&gt; (CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool)
+-&gt; Eq CreateUserProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
+$c/= :: CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
+== :: CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
+$c== :: CreateUserProfileResponse -&gt; CreateUserProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177290"><span id="local-6989586621679177292"><span id="local-6989586621679177294"><span class="annot"><span class="annottext">Int -&gt; CreateUserProfileResponse -&gt; ShowS
+[CreateUserProfileResponse] -&gt; ShowS
+CreateUserProfileResponse -&gt; String
+(Int -&gt; CreateUserProfileResponse -&gt; ShowS)
+-&gt; (CreateUserProfileResponse -&gt; String)
+-&gt; ([CreateUserProfileResponse] -&gt; ShowS)
+-&gt; Show CreateUserProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateUserProfileResponse] -&gt; ShowS
+$cshowList :: [CreateUserProfileResponse] -&gt; ShowS
+show :: CreateUserProfileResponse -&gt; String
+$cshow :: CreateUserProfileResponse -&gt; String
+showsPrec :: Int -&gt; CreateUserProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateUserProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateUserProfileResponse -&gt; Rep CreateUserProfileResponse x)
+-&gt; (forall x.
+    Rep CreateUserProfileResponse x -&gt; CreateUserProfileResponse)
+-&gt; Generic CreateUserProfileResponse
+forall x.
+Rep CreateUserProfileResponse x -&gt; CreateUserProfileResponse
+forall x.
+CreateUserProfileResponse -&gt; Rep CreateUserProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateUserProfileResponse x -&gt; CreateUserProfileResponse
+$cfrom :: forall x.
+CreateUserProfileResponse -&gt; Rep CreateUserProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Create a value of 'CreateUserProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'lastModifiedTimestamp', 'createUserProfileResponse_lastModifiedTimestamp' - The date the user profile was last modified, in timestamp format.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'sshPublicKey', 'createUserProfileResponse_sshPublicKey' - The SSH public key associated with the user in AWS CodeStar. This is the</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- public portion of the public\/private keypair the user can use to access</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- project resources if a project owner allows the user remote access to</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- those resources.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'emailAddress', 'createUserProfileResponse_emailAddress' - The email address that is displayed as part of the user\'s profile in</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- AWS CodeStar.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'displayName', 'createUserProfileResponse_displayName' - The name that is displayed as the friendly name for the user in AWS</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- CodeStar.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- 'createdTimestamp', 'createUserProfileResponse_createdTimestamp' - The date the user profile was created, in timestamp format.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'httpStatus', 'createUserProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- 'userArn', 'createUserProfileResponse_userArn' - The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#newCreateUserProfileResponse"><span class="hs-identifier hs-type">newCreateUserProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-244"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-245"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'userArn'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newCreateUserProfileResponse"><span class="annot"><span class="annottext">newCreateUserProfileResponse :: Int -&gt; Text -&gt; CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#newCreateUserProfileResponse"><span class="hs-identifier hs-var hs-var">newCreateUserProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679177287"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679177286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177286"><span class="hs-identifier hs-var">pUserArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">CreateUserProfileResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe POSIX
+-&gt; Int
+-&gt; Text
+-&gt; CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModifiedTimestamp:CreateUserProfileResponse' :: Maybe POSIX
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AlastModifiedTimestamp%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">lastModifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateUserProfileResponse' :: Maybe Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AsshPublicKey%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:CreateUserProfileResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AemailAddress%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:displayName:CreateUserProfileResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AdisplayName%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTimestamp:CreateUserProfileResponse' :: Maybe POSIX
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AcreatedTimestamp%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserProfileResponse' :: Int
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177287"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>      </span><span class="annot"><span class="annottext">$sel:userArn:CreateUserProfileResponse' :: Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AuserArn%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177286"><span class="hs-identifier hs-var">pUserArn_</span></a></span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- | The date the user profile was last modified, in timestamp format.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_lastModifiedTimestamp"><span class="hs-identifier hs-type">createUserProfileResponse_lastModifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="createUserProfileResponse_lastModifiedTimestamp"><span class="annot"><span class="annottext">createUserProfileResponse_lastModifiedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_lastModifiedTimestamp"><span class="hs-identifier hs-var hs-var">createUserProfileResponse_lastModifiedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfileResponse -&gt; Maybe POSIX)
+-&gt; (CreateUserProfileResponse
+    -&gt; Maybe POSIX -&gt; CreateUserProfileResponse)
+-&gt; Lens
+     CreateUserProfileResponse
+     CreateUserProfileResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177285"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTimestamp :: Maybe POSIX
+$sel:lastModifiedTimestamp:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679177285"><span class="hs-identifier hs-var hs-var">lastModifiedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679177285"><span class="hs-identifier hs-var">lastModifiedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177284"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679177284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177283"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679177283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679177284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTimestamp:CreateUserProfileResponse' :: Maybe POSIX
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AlastModifiedTimestamp%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">lastModifiedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679177283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateUserProfileResponse
+-&gt; f CreateUserProfileResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The SSH public key associated with the user in AWS CodeStar. This is the</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- public portion of the public\/private keypair the user can use to access</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- project resources if a project owner allows the user remote access to</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- those resources.</span><span>
+</span><span id="line-269"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_sshPublicKey"><span class="hs-identifier hs-type">createUserProfileResponse_sshPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span id="createUserProfileResponse_sshPublicKey"><span class="annot"><span class="annottext">createUserProfileResponse_sshPublicKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_sshPublicKey"><span class="hs-identifier hs-var hs-var">createUserProfileResponse_sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfileResponse -&gt; Maybe Text)
+-&gt; (CreateUserProfileResponse
+    -&gt; Maybe Text -&gt; CreateUserProfileResponse)
+-&gt; Lens
+     CreateUserProfileResponse
+     CreateUserProfileResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177280"><span class="annot"><span class="annottext">Maybe Text
+sshPublicKey :: Maybe Text
+$sel:sshPublicKey:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679177280"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177280"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177279"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679177279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177278"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679177279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateUserProfileResponse' :: Maybe Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AsshPublicKey%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679177278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- | The email address that is displayed as part of the user\'s profile in</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- AWS CodeStar.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_emailAddress"><span class="hs-identifier hs-type">createUserProfileResponse_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="createUserProfileResponse_emailAddress"><span class="annot"><span class="annottext">createUserProfileResponse_emailAddress :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_emailAddress"><span class="hs-identifier hs-var hs-var">createUserProfileResponse_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfileResponse -&gt; Maybe (Sensitive Text))
+-&gt; (CreateUserProfileResponse
+    -&gt; Maybe (Sensitive Text) -&gt; CreateUserProfileResponse)
+-&gt; Lens
+     CreateUserProfileResponse
+     CreateUserProfileResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177277"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+emailAddress :: Maybe (Sensitive Text)
+$sel:emailAddress:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177277"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177277"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177276"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679177276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177275"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679177276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:CreateUserProfileResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AemailAddress%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateUserProfileResponse
+-&gt; f CreateUserProfileResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The name that is displayed as the friendly name for the user in AWS</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- CodeStar.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_displayName"><span class="hs-identifier hs-type">createUserProfileResponse_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="createUserProfileResponse_displayName"><span class="annot"><span class="annottext">createUserProfileResponse_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_displayName"><span class="hs-identifier hs-var hs-var">createUserProfileResponse_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfileResponse -&gt; Maybe (Sensitive Text))
+-&gt; (CreateUserProfileResponse
+    -&gt; Maybe (Sensitive Text) -&gt; CreateUserProfileResponse)
+-&gt; Lens
+     CreateUserProfileResponse
+     CreateUserProfileResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177274"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+displayName :: Maybe (Sensitive Text)
+$sel:displayName:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177274"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177274"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177273"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679177273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177272"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679177273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:CreateUserProfileResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AdisplayName%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679177272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateUserProfileResponse
+-&gt; f CreateUserProfileResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The date the user profile was created, in timestamp format.</span><span>
+</span><span id="line-283"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_createdTimestamp"><span class="hs-identifier hs-type">createUserProfileResponse_createdTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span id="createUserProfileResponse_createdTimestamp"><span class="annot"><span class="annottext">createUserProfileResponse_createdTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_createdTimestamp"><span class="hs-identifier hs-var hs-var">createUserProfileResponse_createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfileResponse -&gt; Maybe POSIX)
+-&gt; (CreateUserProfileResponse
+    -&gt; Maybe POSIX -&gt; CreateUserProfileResponse)
+-&gt; Lens
+     CreateUserProfileResponse
+     CreateUserProfileResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177271"><span class="annot"><span class="annottext">Maybe POSIX
+createdTimestamp :: Maybe POSIX
+$sel:createdTimestamp:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679177271"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679177271"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177270"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679177270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177269"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679177269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679177270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTimestamp:CreateUserProfileResponse' :: Maybe POSIX
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AcreatedTimestamp%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679177269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateUserProfileResponse
+-&gt; f CreateUserProfileResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-285"></span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-287"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_httpStatus"><span class="hs-identifier hs-type">createUserProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-288"></span><span id="createUserProfileResponse_httpStatus"><span class="annot"><span class="annottext">createUserProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createUserProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfileResponse -&gt; Int)
+-&gt; (CreateUserProfileResponse -&gt; Int -&gt; CreateUserProfileResponse)
+-&gt; Lens CreateUserProfileResponse CreateUserProfileResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177268"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Int
+</span><a href="#local-6989586621679177268"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177268"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177267"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679177267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177266"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679177267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateUserProfileResponse' :: Int
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AhttpStatus%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the user in IAM.</span><span>
+</span><span id="line-291"></span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_userArn"><span class="hs-identifier hs-type">createUserProfileResponse_userArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-292"></span><span id="createUserProfileResponse_userArn"><span class="annot"><span class="annottext">createUserProfileResponse_userArn :: (Text -&gt; f Text)
+-&gt; CreateUserProfileResponse -&gt; f CreateUserProfileResponse
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#createUserProfileResponse_userArn"><span class="hs-identifier hs-var hs-var">createUserProfileResponse_userArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateUserProfileResponse -&gt; Text)
+-&gt; (CreateUserProfileResponse -&gt; Text -&gt; CreateUserProfileResponse)
+-&gt; Lens
+     CreateUserProfileResponse CreateUserProfileResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177265"><span class="annot"><span class="annottext">Text
+userArn :: Text
+$sel:userArn:CreateUserProfileResponse' :: CreateUserProfileResponse -&gt; Text
+</span><a href="#local-6989586621679177265"><span class="hs-identifier hs-var hs-var">userArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177265"><span class="hs-identifier hs-var">userArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177264"><span class="annot"><span class="annottext">s :: CreateUserProfileResponse
+</span><a href="#local-6989586621679177264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse%27"><span class="hs-identifier hs-type">CreateUserProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateUserProfileResponse
+</span><a href="#local-6989586621679177264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userArn:CreateUserProfileResponse' :: Text
+</span><a href="Amazonka.CodeStar.CreateUserProfile.html#%24sel%3AuserArn%3ACreateUserProfileResponse%27"><span class="hs-identifier hs-var">userArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177261"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeStar.CreateUserProfile.html#CreateUserProfileResponse"><span class="hs-identifier hs-type">CreateUserProfileResponse</span></a></span></span><span>
+</span><span id="line-295"></span></pre></body></html>

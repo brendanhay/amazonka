@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KMS.Types.ConnectionStateType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KMS.Types.ConnectionStateType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType"><span class="hs-identifier">ConnectionStateType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_CONNECTED"><span class="hs-identifier">ConnectionStateType_CONNECTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_CONNECTING"><span class="hs-identifier">ConnectionStateType_CONNECTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_DISCONNECTED"><span class="hs-identifier">ConnectionStateType_DISCONNECTED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_DISCONNECTING"><span class="hs-identifier">ConnectionStateType_DISCONNECTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_FAILED"><span class="hs-identifier">ConnectionStateType_FAILED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679246498"><span id="local-6989586621679246499"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ConnectionStateType"><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType"><span class="hs-identifier hs-var">ConnectionStateType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConnectionStateType%27"><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType%27"><span class="hs-identifier hs-var">ConnectionStateType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromConnectionStateType"><span class="annot"><span class="annottext">ConnectionStateType -&gt; Text
+</span><a href="Amazonka.KMS.Types.ConnectionStateType.html#fromConnectionStateType"><span class="hs-identifier hs-var hs-var">fromConnectionStateType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246490"><span id="local-6989586621679246492"><span id="local-6989586621679246494"><span class="annot"><span class="annottext">Int -&gt; ConnectionStateType -&gt; ShowS
+[ConnectionStateType] -&gt; ShowS
+ConnectionStateType -&gt; String
+(Int -&gt; ConnectionStateType -&gt; ShowS)
+-&gt; (ConnectionStateType -&gt; String)
+-&gt; ([ConnectionStateType] -&gt; ShowS)
+-&gt; Show ConnectionStateType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConnectionStateType] -&gt; ShowS
+$cshowList :: [ConnectionStateType] -&gt; ShowS
+show :: ConnectionStateType -&gt; String
+$cshow :: ConnectionStateType -&gt; String
+showsPrec :: Int -&gt; ConnectionStateType -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConnectionStateType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679246481"><span id="local-6989586621679246483"><span id="local-6989586621679246485"><span id="local-6989586621679246487"><span class="annot"><span class="annottext">ReadPrec [ConnectionStateType]
+ReadPrec ConnectionStateType
+Int -&gt; ReadS ConnectionStateType
+ReadS [ConnectionStateType]
+(Int -&gt; ReadS ConnectionStateType)
+-&gt; ReadS [ConnectionStateType]
+-&gt; ReadPrec ConnectionStateType
+-&gt; ReadPrec [ConnectionStateType]
+-&gt; Read ConnectionStateType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConnectionStateType]
+$creadListPrec :: ReadPrec [ConnectionStateType]
+readPrec :: ReadPrec ConnectionStateType
+$creadPrec :: ReadPrec ConnectionStateType
+readList :: ReadS [ConnectionStateType]
+$creadList :: ReadS [ConnectionStateType]
+readsPrec :: Int -&gt; ReadS ConnectionStateType
+$creadsPrec :: Int -&gt; ReadS ConnectionStateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679246476"><span id="local-6989586621679246478"><span class="annot"><span class="annottext">ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+(ConnectionStateType -&gt; ConnectionStateType -&gt; Bool)
+-&gt; (ConnectionStateType -&gt; ConnectionStateType -&gt; Bool)
+-&gt; Eq ConnectionStateType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+$c/= :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+== :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+$c== :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679246460"><span id="local-6989586621679246462"><span id="local-6989586621679246464"><span id="local-6989586621679246466"><span id="local-6989586621679246468"><span id="local-6989586621679246470"><span id="local-6989586621679246472"><span class="annot"><span class="annottext">Eq ConnectionStateType
+Eq ConnectionStateType
+-&gt; (ConnectionStateType -&gt; ConnectionStateType -&gt; Ordering)
+-&gt; (ConnectionStateType -&gt; ConnectionStateType -&gt; Bool)
+-&gt; (ConnectionStateType -&gt; ConnectionStateType -&gt; Bool)
+-&gt; (ConnectionStateType -&gt; ConnectionStateType -&gt; Bool)
+-&gt; (ConnectionStateType -&gt; ConnectionStateType -&gt; Bool)
+-&gt; (ConnectionStateType
+    -&gt; ConnectionStateType -&gt; ConnectionStateType)
+-&gt; (ConnectionStateType
+    -&gt; ConnectionStateType -&gt; ConnectionStateType)
+-&gt; Ord ConnectionStateType
+ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+ConnectionStateType -&gt; ConnectionStateType -&gt; Ordering
+ConnectionStateType -&gt; ConnectionStateType -&gt; ConnectionStateType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ConnectionStateType -&gt; ConnectionStateType -&gt; ConnectionStateType
+$cmin :: ConnectionStateType -&gt; ConnectionStateType -&gt; ConnectionStateType
+max :: ConnectionStateType -&gt; ConnectionStateType -&gt; ConnectionStateType
+$cmax :: ConnectionStateType -&gt; ConnectionStateType -&gt; ConnectionStateType
+&gt;= :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+$c&gt;= :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+&gt; :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+$c&gt; :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+&lt;= :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+$c&lt;= :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+&lt; :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+$c&lt; :: ConnectionStateType -&gt; ConnectionStateType -&gt; Bool
+compare :: ConnectionStateType -&gt; ConnectionStateType -&gt; Ordering
+$ccompare :: ConnectionStateType -&gt; ConnectionStateType -&gt; Ordering
+$cp1Ord :: Eq ConnectionStateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ConnectionStateType -&gt; Rep ConnectionStateType x)
+-&gt; (forall x. Rep ConnectionStateType x -&gt; ConnectionStateType)
+-&gt; Generic ConnectionStateType
+forall x. Rep ConnectionStateType x -&gt; ConnectionStateType
+forall x. ConnectionStateType -&gt; Rep ConnectionStateType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ConnectionStateType x -&gt; ConnectionStateType
+$cfrom :: forall x. ConnectionStateType -&gt; Rep ConnectionStateType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246452"><span id="local-6989586621679246454"><span class="annot"><span class="annottext">Int -&gt; ConnectionStateType -&gt; Int
+ConnectionStateType -&gt; Int
+(Int -&gt; ConnectionStateType -&gt; Int)
+-&gt; (ConnectionStateType -&gt; Int) -&gt; Hashable ConnectionStateType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ConnectionStateType -&gt; Int
+$chash :: ConnectionStateType -&gt; Int
+hashWithSalt :: Int -&gt; ConnectionStateType -&gt; Int
+$chashWithSalt :: Int -&gt; ConnectionStateType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246449"><span class="annot"><span class="annottext">ConnectionStateType -&gt; ()
+(ConnectionStateType -&gt; ()) -&gt; NFData ConnectionStateType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ConnectionStateType -&gt; ()
+$crnf :: ConnectionStateType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246446"><span class="annot"><span class="annottext">Text -&gt; Either String ConnectionStateType
+(Text -&gt; Either String ConnectionStateType)
+-&gt; FromText ConnectionStateType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ConnectionStateType
+$cfromText :: Text -&gt; Either String ConnectionStateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246443"><span class="annot"><span class="annottext">ConnectionStateType -&gt; Text
+(ConnectionStateType -&gt; Text) -&gt; ToText ConnectionStateType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ConnectionStateType -&gt; Text
+$ctoText :: ConnectionStateType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246440"><span class="annot"><span class="annottext">ConnectionStateType -&gt; ByteString
+(ConnectionStateType -&gt; ByteString)
+-&gt; ToByteString ConnectionStateType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ConnectionStateType -&gt; ByteString
+$ctoBS :: ConnectionStateType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246437"><span class="annot"><span class="annottext">ConnectionStateType -&gt; ByteStringBuilder
+(ConnectionStateType -&gt; ByteStringBuilder)
+-&gt; ToLog ConnectionStateType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ConnectionStateType -&gt; ByteStringBuilder
+$cbuild :: ConnectionStateType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246434"><span class="annot"><span class="annottext">HeaderName -&gt; ConnectionStateType -&gt; [Header]
+(HeaderName -&gt; ConnectionStateType -&gt; [Header])
+-&gt; ToHeader ConnectionStateType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ConnectionStateType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ConnectionStateType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246431"><span class="annot"><span class="annottext">ConnectionStateType -&gt; QueryString
+(ConnectionStateType -&gt; QueryString) -&gt; ToQuery ConnectionStateType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ConnectionStateType -&gt; QueryString
+$ctoQuery :: ConnectionStateType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246426"><span id="local-6989586621679246428"><span class="annot"><span class="annottext">Value -&gt; Parser [ConnectionStateType]
+Value -&gt; Parser ConnectionStateType
+(Value -&gt; Parser ConnectionStateType)
+-&gt; (Value -&gt; Parser [ConnectionStateType])
+-&gt; FromJSON ConnectionStateType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ConnectionStateType]
+$cparseJSONList :: Value -&gt; Parser [ConnectionStateType]
+parseJSON :: Value -&gt; Parser ConnectionStateType
+$cparseJSON :: Value -&gt; Parser ConnectionStateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246421"><span id="local-6989586621679246423"><span class="annot"><span class="annottext">FromJSONKeyFunction [ConnectionStateType]
+FromJSONKeyFunction ConnectionStateType
+FromJSONKeyFunction ConnectionStateType
+-&gt; FromJSONKeyFunction [ConnectionStateType]
+-&gt; FromJSONKey ConnectionStateType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ConnectionStateType]
+$cfromJSONKeyList :: FromJSONKeyFunction [ConnectionStateType]
+fromJSONKey :: FromJSONKeyFunction ConnectionStateType
+$cfromJSONKey :: FromJSONKeyFunction ConnectionStateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679246412"><span id="local-6989586621679246414"><span id="local-6989586621679246416"><span id="local-6989586621679246418"><span class="annot"><span class="annottext">[ConnectionStateType] -&gt; Encoding
+[ConnectionStateType] -&gt; Value
+ConnectionStateType -&gt; Encoding
+ConnectionStateType -&gt; Value
+(ConnectionStateType -&gt; Value)
+-&gt; (ConnectionStateType -&gt; Encoding)
+-&gt; ([ConnectionStateType] -&gt; Value)
+-&gt; ([ConnectionStateType] -&gt; Encoding)
+-&gt; ToJSON ConnectionStateType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ConnectionStateType] -&gt; Encoding
+$ctoEncodingList :: [ConnectionStateType] -&gt; Encoding
+toJSONList :: [ConnectionStateType] -&gt; Value
+$ctoJSONList :: [ConnectionStateType] -&gt; Value
+toEncoding :: ConnectionStateType -&gt; Encoding
+$ctoEncoding :: ConnectionStateType -&gt; Encoding
+toJSON :: ConnectionStateType -&gt; Value
+$ctoJSON :: ConnectionStateType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679246407"><span id="local-6989586621679246409"><span class="annot"><span class="annottext">ToJSONKeyFunction [ConnectionStateType]
+ToJSONKeyFunction ConnectionStateType
+ToJSONKeyFunction ConnectionStateType
+-&gt; ToJSONKeyFunction [ConnectionStateType]
+-&gt; ToJSONKey ConnectionStateType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ConnectionStateType]
+$ctoJSONKeyList :: ToJSONKeyFunction [ConnectionStateType]
+toJSONKey :: ToJSONKeyFunction ConnectionStateType
+$ctoJSONKey :: ToJSONKeyFunction ConnectionStateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679246404"><span class="annot"><span class="annottext">[Node] -&gt; Either String ConnectionStateType
+([Node] -&gt; Either String ConnectionStateType)
+-&gt; FromXML ConnectionStateType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ConnectionStateType
+$cparseXML :: [Node] -&gt; Either String ConnectionStateType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679246401"><span class="annot"><span class="annottext">ConnectionStateType -&gt; XML
+(ConnectionStateType -&gt; XML) -&gt; ToXML ConnectionStateType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ConnectionStateType -&gt; XML
+$ctoXML :: ConnectionStateType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_CONNECTED"><span class="hs-identifier hs-type">ConnectionStateType_CONNECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType"><span class="hs-identifier hs-type">ConnectionStateType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionStateType_CONNECTED"><span id="%24mConnectionStateType_CONNECTED"><span id="ConnectionStateType_CONNECTED"><span class="annot"><span class="annottext">$bConnectionStateType_CONNECTED :: ConnectionStateType
+$mConnectionStateType_CONNECTED :: forall r. ConnectionStateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.ConnectionStateType.html#%24bConnectionStateType_CONNECTED"><span class="hs-identifier hs-var hs-var hs-var">ConnectionStateType_CONNECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType%27"><span class="hs-identifier hs-type">ConnectionStateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECTED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_CONNECTING"><span class="hs-identifier hs-type">ConnectionStateType_CONNECTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType"><span class="hs-identifier hs-type">ConnectionStateType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionStateType_CONNECTING"><span id="%24mConnectionStateType_CONNECTING"><span id="ConnectionStateType_CONNECTING"><span class="annot"><span class="annottext">$bConnectionStateType_CONNECTING :: ConnectionStateType
+$mConnectionStateType_CONNECTING :: forall r. ConnectionStateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.ConnectionStateType.html#%24bConnectionStateType_CONNECTING"><span class="hs-identifier hs-var hs-var hs-var">ConnectionStateType_CONNECTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType%27"><span class="hs-identifier hs-type">ConnectionStateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONNECTING&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_DISCONNECTED"><span class="hs-identifier hs-type">ConnectionStateType_DISCONNECTED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType"><span class="hs-identifier hs-type">ConnectionStateType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionStateType_DISCONNECTED"><span id="%24mConnectionStateType_DISCONNECTED"><span id="ConnectionStateType_DISCONNECTED"><span class="annot"><span class="annottext">$bConnectionStateType_DISCONNECTED :: ConnectionStateType
+$mConnectionStateType_DISCONNECTED :: forall r. ConnectionStateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.ConnectionStateType.html#%24bConnectionStateType_DISCONNECTED"><span class="hs-identifier hs-var hs-var hs-var">ConnectionStateType_DISCONNECTED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType%27"><span class="hs-identifier hs-type">ConnectionStateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISCONNECTED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_DISCONNECTING"><span class="hs-identifier hs-type">ConnectionStateType_DISCONNECTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType"><span class="hs-identifier hs-type">ConnectionStateType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionStateType_DISCONNECTING"><span id="%24mConnectionStateType_DISCONNECTING"><span id="ConnectionStateType_DISCONNECTING"><span class="annot"><span class="annottext">$bConnectionStateType_DISCONNECTING :: ConnectionStateType
+$mConnectionStateType_DISCONNECTING :: forall r. ConnectionStateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.ConnectionStateType.html#%24bConnectionStateType_DISCONNECTING"><span class="hs-identifier hs-var hs-var hs-var">ConnectionStateType_DISCONNECTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType%27"><span class="hs-identifier hs-type">ConnectionStateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISCONNECTING&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_FAILED"><span class="hs-identifier hs-type">ConnectionStateType_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType"><span class="hs-identifier hs-type">ConnectionStateType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bConnectionStateType_FAILED"><span id="%24mConnectionStateType_FAILED"><span id="ConnectionStateType_FAILED"><span class="annot"><span class="annottext">$bConnectionStateType_FAILED :: ConnectionStateType
+$mConnectionStateType_FAILED :: forall r. ConnectionStateType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.ConnectionStateType.html#%24bConnectionStateType_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ConnectionStateType_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType%27"><span class="hs-identifier hs-type">ConnectionStateType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_CONNECTED"><span class="hs-pragma hs-type">ConnectionStateType_CONNECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_CONNECTING"><span class="hs-pragma hs-type">ConnectionStateType_CONNECTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_DISCONNECTED"><span class="hs-pragma hs-type">ConnectionStateType_DISCONNECTED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_DISCONNECTING"><span class="hs-pragma hs-type">ConnectionStateType_DISCONNECTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType_FAILED"><span class="hs-pragma hs-type">ConnectionStateType_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.ConnectionStateType.html#ConnectionStateType%27"><span class="hs-pragma hs-type">ConnectionStateType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

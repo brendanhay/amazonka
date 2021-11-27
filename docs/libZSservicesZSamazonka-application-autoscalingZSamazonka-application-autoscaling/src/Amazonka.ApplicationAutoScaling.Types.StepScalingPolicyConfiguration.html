@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.AdjustmentType.html"><span class="hs-identifier">Amazonka.ApplicationAutoScaling.Types.AdjustmentType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.html"><span class="hs-identifier">Amazonka.ApplicationAutoScaling.Types.MetricAggregationType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepAdjustment.html"><span class="hs-identifier">Amazonka.ApplicationAutoScaling.Types.StepAdjustment</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Represents a step scaling policy configuration to use with Application</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Auto Scaling.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newStepScalingPolicyConfiguration' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679185607"><span id="local-6989586621679185608"></span></span><span class="hs-keyword">data</span><span> </span><span id="StepScalingPolicyConfiguration"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-var">StepScalingPolicyConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StepScalingPolicyConfiguration%27"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">StepScalingPolicyConfiguration'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A set of adjustments that enable you to scale based on the size of the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- alarm breach.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- At least one step adjustment is required if you are adding a new step</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- scaling policy configuration.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AstepAdjustments%3AStepScalingPolicyConfiguration%27"><span class="annot"><span class="annottext">StepScalingPolicyConfiguration -&gt; Maybe [StepAdjustment]
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AstepAdjustments%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var hs-var">stepAdjustments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | Specifies how the @ScalingAdjustment@ value in a</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment&gt;</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- is interpreted (for example, an absolute number or a percentage). The</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- valid values are @ChangeInCapacity@, @ExactCapacity@, and</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- @PercentChangeInCapacity@.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @AdjustmentType@ is required if you are adding a new step scaling policy</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AadjustmentType%3AStepScalingPolicyConfiguration%27"><span class="annot"><span class="annottext">StepScalingPolicyConfiguration -&gt; Maybe AdjustmentType
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AadjustmentType%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var hs-var">adjustmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The amount of time, in seconds, to wait for a previous scaling activity</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- to take effect.</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- With scale-out policies, the intention is to continuously (but not</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- excessively) scale out. After Application Auto Scaling successfully</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- scales out using a step scaling policy, it starts to calculate the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- cooldown time. The scaling policy won\'t increase the desired capacity</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- again unless either a larger scale out is triggered or the cooldown</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- period ends. While the cooldown period is in effect, capacity added by</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the initiating scale-out activity is calculated as part of the desired</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- capacity for the next scale-out activity. For example, when an alarm</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- triggers a step scaling policy to increase the capacity by 2, the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- scaling activity completes successfully, and a cooldown period starts.</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- If the alarm triggers again during the cooldown period but at a more</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- aggressive step adjustment of 3, the previous increase of 2 is</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- considered part of the current capacity. Therefore, only 1 is added to</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- the capacity.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- With scale-in policies, the intention is to scale in conservatively to</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- protect your application&#8217;s availability, so scale-in activities are</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- blocked until the cooldown period has expired. However, if another alarm</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- triggers a scale-out activity during the cooldown period after a</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- scale-in activity, Application Auto Scaling scales out the target</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- immediately. In this case, the cooldown period for the scale-in activity</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- stops and doesn\'t complete.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- Application Auto Scaling provides a default value of 600 for Amazon</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- ElastiCache replication groups and a default value of 300 for the</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- following scalable targets:</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   AppStream 2.0 fleets</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   Aurora DB clusters</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   ECS services</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   EMR clusters</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   Neptune clusters</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- -   SageMaker endpoint variants</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- -   Spot Fleets</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- -   Custom resources</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- For all other scalable targets, the default value is 0:</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- -   Amazon Comprehend document classification and entity recognizer</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     endpoints</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- -   DynamoDB tables and global secondary indexes</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- -   Amazon Keyspaces tables</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   Lambda provisioned concurrency</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   Amazon MSK broker storage</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3Acooldown%3AStepScalingPolicyConfiguration%27"><span class="annot"><span class="annottext">StepScalingPolicyConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3Acooldown%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var hs-var">cooldown</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | The aggregation type for the CloudWatch metrics. Valid values are</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- the value is treated as @Average@.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AmetricAggregationType%3AStepScalingPolicyConfiguration%27"><span class="annot"><span class="annottext">StepScalingPolicyConfiguration -&gt; Maybe MetricAggregationType
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AmetricAggregationType%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var hs-var">metricAggregationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.html#MetricAggregationType"><span class="hs-identifier hs-type">MetricAggregationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The minimum value to scale by when the adjustment type is</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- @PercentChangeInCapacity@. For example, suppose that you create a step</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- scaling policy to scale out an Amazon ECS service by 25 percent and you</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- specify a @MinAdjustmentMagnitude@ of 2. If the service has 4 tasks and</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- the scaling policy is performed, 25 percent of 4 is 1. However, because</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- scales out the service by 2 tasks.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AminAdjustmentMagnitude%3AStepScalingPolicyConfiguration%27"><span class="annot"><span class="annottext">StepScalingPolicyConfiguration -&gt; Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AminAdjustmentMagnitude%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var hs-var">minAdjustmentMagnitude</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679185597"><span id="local-6989586621679185599"><span class="annot"><span class="annottext">StepScalingPolicyConfiguration
+-&gt; StepScalingPolicyConfiguration -&gt; Bool
+(StepScalingPolicyConfiguration
+ -&gt; StepScalingPolicyConfiguration -&gt; Bool)
+-&gt; (StepScalingPolicyConfiguration
+    -&gt; StepScalingPolicyConfiguration -&gt; Bool)
+-&gt; Eq StepScalingPolicyConfiguration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StepScalingPolicyConfiguration
+-&gt; StepScalingPolicyConfiguration -&gt; Bool
+$c/= :: StepScalingPolicyConfiguration
+-&gt; StepScalingPolicyConfiguration -&gt; Bool
+== :: StepScalingPolicyConfiguration
+-&gt; StepScalingPolicyConfiguration -&gt; Bool
+$c== :: StepScalingPolicyConfiguration
+-&gt; StepScalingPolicyConfiguration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185588"><span id="local-6989586621679185590"><span id="local-6989586621679185592"><span id="local-6989586621679185594"><span class="annot"><span class="annottext">ReadPrec [StepScalingPolicyConfiguration]
+ReadPrec StepScalingPolicyConfiguration
+Int -&gt; ReadS StepScalingPolicyConfiguration
+ReadS [StepScalingPolicyConfiguration]
+(Int -&gt; ReadS StepScalingPolicyConfiguration)
+-&gt; ReadS [StepScalingPolicyConfiguration]
+-&gt; ReadPrec StepScalingPolicyConfiguration
+-&gt; ReadPrec [StepScalingPolicyConfiguration]
+-&gt; Read StepScalingPolicyConfiguration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StepScalingPolicyConfiguration]
+$creadListPrec :: ReadPrec [StepScalingPolicyConfiguration]
+readPrec :: ReadPrec StepScalingPolicyConfiguration
+$creadPrec :: ReadPrec StepScalingPolicyConfiguration
+readList :: ReadS [StepScalingPolicyConfiguration]
+$creadList :: ReadS [StepScalingPolicyConfiguration]
+readsPrec :: Int -&gt; ReadS StepScalingPolicyConfiguration
+$creadsPrec :: Int -&gt; ReadS StepScalingPolicyConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679185581"><span id="local-6989586621679185583"><span id="local-6989586621679185585"><span class="annot"><span class="annottext">Int -&gt; StepScalingPolicyConfiguration -&gt; ShowS
+[StepScalingPolicyConfiguration] -&gt; ShowS
+StepScalingPolicyConfiguration -&gt; String
+(Int -&gt; StepScalingPolicyConfiguration -&gt; ShowS)
+-&gt; (StepScalingPolicyConfiguration -&gt; String)
+-&gt; ([StepScalingPolicyConfiguration] -&gt; ShowS)
+-&gt; Show StepScalingPolicyConfiguration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StepScalingPolicyConfiguration] -&gt; ShowS
+$cshowList :: [StepScalingPolicyConfiguration] -&gt; ShowS
+show :: StepScalingPolicyConfiguration -&gt; String
+$cshow :: StepScalingPolicyConfiguration -&gt; String
+showsPrec :: Int -&gt; StepScalingPolicyConfiguration -&gt; ShowS
+$cshowsPrec :: Int -&gt; StepScalingPolicyConfiguration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StepScalingPolicyConfiguration
+ -&gt; Rep StepScalingPolicyConfiguration x)
+-&gt; (forall x.
+    Rep StepScalingPolicyConfiguration x
+    -&gt; StepScalingPolicyConfiguration)
+-&gt; Generic StepScalingPolicyConfiguration
+forall x.
+Rep StepScalingPolicyConfiguration x
+-&gt; StepScalingPolicyConfiguration
+forall x.
+StepScalingPolicyConfiguration
+-&gt; Rep StepScalingPolicyConfiguration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StepScalingPolicyConfiguration x
+-&gt; StepScalingPolicyConfiguration
+$cfrom :: forall x.
+StepScalingPolicyConfiguration
+-&gt; Rep StepScalingPolicyConfiguration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Create a value of 'StepScalingPolicyConfiguration' with all optional fields omitted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'stepAdjustments', 'stepScalingPolicyConfiguration_stepAdjustments' - A set of adjustments that enable you to scale based on the size of the</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- alarm breach.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- At least one step adjustment is required if you are adding a new step</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- scaling policy configuration.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'adjustmentType', 'stepScalingPolicyConfiguration_adjustmentType' - Specifies how the @ScalingAdjustment@ value in a</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment&gt;</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- is interpreted (for example, an absolute number or a percentage). The</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- valid values are @ChangeInCapacity@, @ExactCapacity@, and</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @PercentChangeInCapacity@.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @AdjustmentType@ is required if you are adding a new step scaling policy</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'cooldown', 'stepScalingPolicyConfiguration_cooldown' - The amount of time, in seconds, to wait for a previous scaling activity</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- to take effect.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- With scale-out policies, the intention is to continuously (but not</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- excessively) scale out. After Application Auto Scaling successfully</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- scales out using a step scaling policy, it starts to calculate the</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- cooldown time. The scaling policy won\'t increase the desired capacity</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- again unless either a larger scale out is triggered or the cooldown</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- period ends. While the cooldown period is in effect, capacity added by</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- the initiating scale-out activity is calculated as part of the desired</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- capacity for the next scale-out activity. For example, when an alarm</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- triggers a step scaling policy to increase the capacity by 2, the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- scaling activity completes successfully, and a cooldown period starts.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- If the alarm triggers again during the cooldown period but at a more</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- aggressive step adjustment of 3, the previous increase of 2 is</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- considered part of the current capacity. Therefore, only 1 is added to</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- the capacity.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- With scale-in policies, the intention is to scale in conservatively to</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- protect your application&#8217;s availability, so scale-in activities are</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- blocked until the cooldown period has expired. However, if another alarm</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- triggers a scale-out activity during the cooldown period after a</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- scale-in activity, Application Auto Scaling scales out the target</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- immediately. In this case, the cooldown period for the scale-in activity</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- stops and doesn\'t complete.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Application Auto Scaling provides a default value of 600 for Amazon</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- ElastiCache replication groups and a default value of 300 for the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- following scalable targets:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   AppStream 2.0 fleets</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   Aurora DB clusters</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- -   ECS services</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- -   EMR clusters</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- -   Neptune clusters</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- -   SageMaker endpoint variants</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- -   Spot Fleets</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- -   Custom resources</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- For all other scalable targets, the default value is 0:</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- -   Amazon Comprehend document classification and entity recognizer</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     endpoints</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- -   DynamoDB tables and global secondary indexes</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   Amazon Keyspaces tables</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   Lambda provisioned concurrency</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   Amazon MSK broker storage</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'metricAggregationType', 'stepScalingPolicyConfiguration_metricAggregationType' - The aggregation type for the CloudWatch metrics. Valid values are</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- the value is treated as @Average@.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'minAdjustmentMagnitude', 'stepScalingPolicyConfiguration_minAdjustmentMagnitude' - The minimum value to scale by when the adjustment type is</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @PercentChangeInCapacity@. For example, suppose that you create a step</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- scaling policy to scale out an Amazon ECS service by 25 percent and you</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- specify a @MinAdjustmentMagnitude@ of 2. If the service has 4 tasks and</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- the scaling policy is performed, 25 percent of 4 is 1. However, because</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- scales out the service by 2 tasks.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#newStepScalingPolicyConfiguration"><span class="hs-identifier hs-type">newStepScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span>
+</span><span id="line-218"></span><span id="newStepScalingPolicyConfiguration"><span class="annot"><span class="annottext">newStepScalingPolicyConfiguration :: StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#newStepScalingPolicyConfiguration"><span class="hs-identifier hs-var hs-var">newStepScalingPolicyConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">StepScalingPolicyConfiguration' :: Maybe [StepAdjustment]
+-&gt; Maybe AdjustmentType
+-&gt; Maybe Int
+-&gt; Maybe MetricAggregationType
+-&gt; Maybe Int
+-&gt; StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stepAdjustments:StepScalingPolicyConfiguration' :: Maybe [StepAdjustment]
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AstepAdjustments%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">stepAdjustments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>        </span><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:adjustmentType:StepScalingPolicyConfiguration' :: Maybe AdjustmentType
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AadjustmentType%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">adjustmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AdjustmentType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:cooldown:StepScalingPolicyConfiguration' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3Acooldown%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">cooldown</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:metricAggregationType:StepScalingPolicyConfiguration' :: Maybe MetricAggregationType
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AmetricAggregationType%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">metricAggregationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricAggregationType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:minAdjustmentMagnitude:StepScalingPolicyConfiguration' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AminAdjustmentMagnitude%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">minAdjustmentMagnitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | A set of adjustments that enable you to scale based on the size of the</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- alarm breach.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- At least one step adjustment is required if you are adding a new step</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- scaling policy configuration.</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_stepAdjustments"><span class="hs-identifier hs-type">stepScalingPolicyConfiguration_stepAdjustments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepAdjustment.html#StepAdjustment"><span class="hs-identifier hs-type">StepAdjustment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="stepScalingPolicyConfiguration_stepAdjustments"><span class="annot"><span class="annottext">stepScalingPolicyConfiguration_stepAdjustments :: (Maybe [StepAdjustment] -&gt; f (Maybe [StepAdjustment]))
+-&gt; StepScalingPolicyConfiguration
+-&gt; f StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_stepAdjustments"><span class="hs-identifier hs-var hs-var">stepScalingPolicyConfiguration_stepAdjustments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepScalingPolicyConfiguration -&gt; Maybe [StepAdjustment])
+-&gt; (StepScalingPolicyConfiguration
+    -&gt; Maybe [StepAdjustment] -&gt; StepScalingPolicyConfiguration)
+-&gt; Lens
+     StepScalingPolicyConfiguration
+     StepScalingPolicyConfiguration
+     (Maybe [StepAdjustment])
+     (Maybe [StepAdjustment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185572"><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+stepAdjustments :: Maybe [StepAdjustment]
+$sel:stepAdjustments:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe [StepAdjustment]
+</span><a href="#local-6989586621679185572"><span class="hs-identifier hs-var hs-var">stepAdjustments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+</span><a href="#local-6989586621679185572"><span class="hs-identifier hs-var">stepAdjustments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185571"><span class="annot"><span class="annottext">s :: StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185571"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185570"><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+</span><a href="#local-6989586621679185570"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185571"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stepAdjustments:StepScalingPolicyConfiguration' :: Maybe [StepAdjustment]
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AstepAdjustments%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">stepAdjustments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+</span><a href="#local-6989586621679185570"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [StepAdjustment] -&gt; f (Maybe [StepAdjustment]))
+ -&gt; StepScalingPolicyConfiguration
+ -&gt; f StepScalingPolicyConfiguration)
+-&gt; ((Maybe [StepAdjustment] -&gt; f (Maybe [StepAdjustment]))
+    -&gt; Maybe [StepAdjustment] -&gt; f (Maybe [StepAdjustment]))
+-&gt; (Maybe [StepAdjustment] -&gt; f (Maybe [StepAdjustment]))
+-&gt; StepScalingPolicyConfiguration
+-&gt; f StepScalingPolicyConfiguration
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StepAdjustment] [StepAdjustment] [StepAdjustment] [StepAdjustment]
+-&gt; Iso
+     (Maybe [StepAdjustment])
+     (Maybe [StepAdjustment])
+     (Maybe [StepAdjustment])
+     (Maybe [StepAdjustment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [StepAdjustment] [StepAdjustment] [StepAdjustment] [StepAdjustment]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | Specifies how the @ScalingAdjustment@ value in a</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/APIReference/API_StepAdjustment.html StepAdjustment&gt;</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- is interpreted (for example, an absolute number or a percentage). The</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- valid values are @ChangeInCapacity@, @ExactCapacity@, and</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- @PercentChangeInCapacity@.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- @AdjustmentType@ is required if you are adding a new step scaling policy</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_adjustmentType"><span class="hs-identifier hs-type">stepScalingPolicyConfiguration_adjustmentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.AdjustmentType.html#AdjustmentType"><span class="hs-identifier hs-type">AdjustmentType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="stepScalingPolicyConfiguration_adjustmentType"><span class="annot"><span class="annottext">stepScalingPolicyConfiguration_adjustmentType :: (Maybe AdjustmentType -&gt; f (Maybe AdjustmentType))
+-&gt; StepScalingPolicyConfiguration
+-&gt; f StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_adjustmentType"><span class="hs-identifier hs-var hs-var">stepScalingPolicyConfiguration_adjustmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepScalingPolicyConfiguration -&gt; Maybe AdjustmentType)
+-&gt; (StepScalingPolicyConfiguration
+    -&gt; Maybe AdjustmentType -&gt; StepScalingPolicyConfiguration)
+-&gt; Lens
+     StepScalingPolicyConfiguration
+     StepScalingPolicyConfiguration
+     (Maybe AdjustmentType)
+     (Maybe AdjustmentType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185565"><span class="annot"><span class="annottext">Maybe AdjustmentType
+adjustmentType :: Maybe AdjustmentType
+$sel:adjustmentType:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe AdjustmentType
+</span><a href="#local-6989586621679185565"><span class="hs-identifier hs-var hs-var">adjustmentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AdjustmentType
+</span><a href="#local-6989586621679185565"><span class="hs-identifier hs-var">adjustmentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185564"><span class="annot"><span class="annottext">s :: StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185564"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185563"><span class="annot"><span class="annottext">Maybe AdjustmentType
+</span><a href="#local-6989586621679185563"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185564"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:adjustmentType:StepScalingPolicyConfiguration' :: Maybe AdjustmentType
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AadjustmentType%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">adjustmentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AdjustmentType
+</span><a href="#local-6989586621679185563"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The amount of time, in seconds, to wait for a previous scaling activity</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- to take effect.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- With scale-out policies, the intention is to continuously (but not</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- excessively) scale out. After Application Auto Scaling successfully</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- scales out using a step scaling policy, it starts to calculate the</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- cooldown time. The scaling policy won\'t increase the desired capacity</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- again unless either a larger scale out is triggered or the cooldown</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- period ends. While the cooldown period is in effect, capacity added by</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- the initiating scale-out activity is calculated as part of the desired</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- capacity for the next scale-out activity. For example, when an alarm</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- triggers a step scaling policy to increase the capacity by 2, the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- scaling activity completes successfully, and a cooldown period starts.</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- If the alarm triggers again during the cooldown period but at a more</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- aggressive step adjustment of 3, the previous increase of 2 is</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- considered part of the current capacity. Therefore, only 1 is added to</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- the capacity.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- With scale-in policies, the intention is to scale in conservatively to</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- protect your application&#8217;s availability, so scale-in activities are</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- blocked until the cooldown period has expired. However, if another alarm</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- triggers a scale-out activity during the cooldown period after a</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- scale-in activity, Application Auto Scaling scales out the target</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- immediately. In this case, the cooldown period for the scale-in activity</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- stops and doesn\'t complete.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- Application Auto Scaling provides a default value of 600 for Amazon</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- ElastiCache replication groups and a default value of 300 for the</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- following scalable targets:</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   AppStream 2.0 fleets</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -   Aurora DB clusters</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   ECS services</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   EMR clusters</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- -   Neptune clusters</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- -   SageMaker endpoint variants</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- -   Spot Fleets</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- -   Custom resources</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- For all other scalable targets, the default value is 0:</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- -   Amazon Comprehend document classification and entity recognizer</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--     endpoints</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -   DynamoDB tables and global secondary indexes</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- -   Amazon Keyspaces tables</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- -   Lambda provisioned concurrency</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- -   Amazon MSK broker storage</span><span>
+</span><span id="line-305"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_cooldown"><span class="hs-identifier hs-type">stepScalingPolicyConfiguration_cooldown</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span id="stepScalingPolicyConfiguration_cooldown"><span class="annot"><span class="annottext">stepScalingPolicyConfiguration_cooldown :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StepScalingPolicyConfiguration
+-&gt; f StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_cooldown"><span class="hs-identifier hs-var hs-var">stepScalingPolicyConfiguration_cooldown</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepScalingPolicyConfiguration -&gt; Maybe Int)
+-&gt; (StepScalingPolicyConfiguration
+    -&gt; Maybe Int -&gt; StepScalingPolicyConfiguration)
+-&gt; Lens
+     StepScalingPolicyConfiguration
+     StepScalingPolicyConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185561"><span class="annot"><span class="annottext">Maybe Int
+cooldown :: Maybe Int
+$sel:cooldown:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679185561"><span class="hs-identifier hs-var hs-var">cooldown</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185561"><span class="hs-identifier hs-var">cooldown</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185560"><span class="annot"><span class="annottext">s :: StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185560"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185559"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185559"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185560"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cooldown:StepScalingPolicyConfiguration' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3Acooldown%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">cooldown</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185559"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- | The aggregation type for the CloudWatch metrics. Valid values are</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- @Minimum@, @Maximum@, and @Average@. If the aggregation type is null,</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- the value is treated as @Average@.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_metricAggregationType"><span class="hs-identifier hs-type">stepScalingPolicyConfiguration_metricAggregationType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.MetricAggregationType.html#MetricAggregationType"><span class="hs-identifier hs-type">MetricAggregationType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span id="stepScalingPolicyConfiguration_metricAggregationType"><span class="annot"><span class="annottext">stepScalingPolicyConfiguration_metricAggregationType :: (Maybe MetricAggregationType -&gt; f (Maybe MetricAggregationType))
+-&gt; StepScalingPolicyConfiguration
+-&gt; f StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_metricAggregationType"><span class="hs-identifier hs-var hs-var">stepScalingPolicyConfiguration_metricAggregationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepScalingPolicyConfiguration -&gt; Maybe MetricAggregationType)
+-&gt; (StepScalingPolicyConfiguration
+    -&gt; Maybe MetricAggregationType -&gt; StepScalingPolicyConfiguration)
+-&gt; Lens
+     StepScalingPolicyConfiguration
+     StepScalingPolicyConfiguration
+     (Maybe MetricAggregationType)
+     (Maybe MetricAggregationType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185557"><span class="annot"><span class="annottext">Maybe MetricAggregationType
+metricAggregationType :: Maybe MetricAggregationType
+$sel:metricAggregationType:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe MetricAggregationType
+</span><a href="#local-6989586621679185557"><span class="hs-identifier hs-var hs-var">metricAggregationType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MetricAggregationType
+</span><a href="#local-6989586621679185557"><span class="hs-identifier hs-var">metricAggregationType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185556"><span class="annot"><span class="annottext">s :: StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185556"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185555"><span class="annot"><span class="annottext">Maybe MetricAggregationType
+</span><a href="#local-6989586621679185555"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185556"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metricAggregationType:StepScalingPolicyConfiguration' :: Maybe MetricAggregationType
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AmetricAggregationType%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">metricAggregationType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MetricAggregationType
+</span><a href="#local-6989586621679185555"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- | The minimum value to scale by when the adjustment type is</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- @PercentChangeInCapacity@. For example, suppose that you create a step</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- scaling policy to scale out an Amazon ECS service by 25 percent and you</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- specify a @MinAdjustmentMagnitude@ of 2. If the service has 4 tasks and</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- the scaling policy is performed, 25 percent of 4 is 1. However, because</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- you specified a @MinAdjustmentMagnitude@ of 2, Application Auto Scaling</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- scales out the service by 2 tasks.</span><span>
+</span><span id="line-321"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_minAdjustmentMagnitude"><span class="hs-identifier hs-type">stepScalingPolicyConfiguration_minAdjustmentMagnitude</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span id="stepScalingPolicyConfiguration_minAdjustmentMagnitude"><span class="annot"><span class="annottext">stepScalingPolicyConfiguration_minAdjustmentMagnitude :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; StepScalingPolicyConfiguration
+-&gt; f StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#stepScalingPolicyConfiguration_minAdjustmentMagnitude"><span class="hs-identifier hs-var hs-var">stepScalingPolicyConfiguration_minAdjustmentMagnitude</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StepScalingPolicyConfiguration -&gt; Maybe Int)
+-&gt; (StepScalingPolicyConfiguration
+    -&gt; Maybe Int -&gt; StepScalingPolicyConfiguration)
+-&gt; Lens
+     StepScalingPolicyConfiguration
+     StepScalingPolicyConfiguration
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185553"><span class="annot"><span class="annottext">Maybe Int
+minAdjustmentMagnitude :: Maybe Int
+$sel:minAdjustmentMagnitude:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe Int
+</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var hs-var">minAdjustmentMagnitude</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185553"><span class="hs-identifier hs-var">minAdjustmentMagnitude</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679185552"><span class="annot"><span class="annottext">s :: StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679185551"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StepScalingPolicyConfiguration
+</span><a href="#local-6989586621679185552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minAdjustmentMagnitude:StepScalingPolicyConfiguration' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#%24sel%3AminAdjustmentMagnitude%3AStepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">minAdjustmentMagnitude</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185548"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-325"></span><span>  </span><span id="local-6989586621679185546"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StepScalingPolicyConfiguration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser StepScalingPolicyConfiguration)
+-&gt; Value
+-&gt; Parser StepScalingPolicyConfiguration
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-327"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;StepScalingPolicyConfiguration&quot;</span></span><span>
+</span><span id="line-328"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679185543"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-329"></span><span>          </span><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+-&gt; Maybe AdjustmentType
+-&gt; Maybe Int
+-&gt; Maybe MetricAggregationType
+-&gt; Maybe Int
+-&gt; StepScalingPolicyConfiguration
+</span><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-var">StepScalingPolicyConfiguration'</span></a></span><span>
+</span><span id="line-330"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [StepAdjustment]
+ -&gt; Maybe AdjustmentType
+ -&gt; Maybe Int
+ -&gt; Maybe MetricAggregationType
+ -&gt; Maybe Int
+ -&gt; StepScalingPolicyConfiguration)
+-&gt; Parser (Maybe [StepAdjustment])
+-&gt; Parser
+     (Maybe AdjustmentType
+      -&gt; Maybe Int
+      -&gt; Maybe MetricAggregationType
+      -&gt; Maybe Int
+      -&gt; StepScalingPolicyConfiguration)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [StepAdjustment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StepAdjustments&quot;</span></span><span>
+</span><span id="line-331"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [StepAdjustment]))
+-&gt; Maybe [StepAdjustment] -&gt; Parser (Maybe [StepAdjustment])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-332"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AdjustmentType
+   -&gt; Maybe Int
+   -&gt; Maybe MetricAggregationType
+   -&gt; Maybe Int
+   -&gt; StepScalingPolicyConfiguration)
+-&gt; Parser (Maybe AdjustmentType)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe MetricAggregationType
+      -&gt; Maybe Int
+      -&gt; StepScalingPolicyConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AdjustmentType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdjustmentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe MetricAggregationType
+   -&gt; Maybe Int
+   -&gt; StepScalingPolicyConfiguration)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe MetricAggregationType
+      -&gt; Maybe Int -&gt; StepScalingPolicyConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cooldown&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-335"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe MetricAggregationType
+   -&gt; Maybe Int -&gt; StepScalingPolicyConfiguration)
+-&gt; Parser (Maybe MetricAggregationType)
+-&gt; Parser (Maybe Int -&gt; StepScalingPolicyConfiguration)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe MetricAggregationType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricAggregationType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; StepScalingPolicyConfiguration)
+-&gt; Parser (Maybe Int) -&gt; Parser StepScalingPolicyConfiguration
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679185543"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinAdjustmentMagnitude&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-337"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621679185536"><span id="local-6989586621679185538"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span></span></span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-344"></span><span>  </span><span id="local-6989586621679185533"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span></span><span>
+</span><span id="line-346"></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679185525"><span id="local-6989586621679185527"><span id="local-6989586621679185529"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-348"></span><span>  </span><span id="local-6989586621679185523"><span class="annot"><span class="annottext">toJSON :: StepScalingPolicyConfiguration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.StepScalingPolicyConfiguration.html#StepScalingPolicyConfiguration%27"><span class="hs-identifier hs-type">StepScalingPolicyConfiguration'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679185517"><span id="local-6989586621679185518"><span id="local-6989586621679185519"><span id="local-6989586621679185520"><span id="local-6989586621679185521"><span class="annot"><span class="annottext">Maybe Int
+Maybe [StepAdjustment]
+Maybe AdjustmentType
+Maybe MetricAggregationType
+minAdjustmentMagnitude :: Maybe Int
+metricAggregationType :: Maybe MetricAggregationType
+cooldown :: Maybe Int
+adjustmentType :: Maybe AdjustmentType
+stepAdjustments :: Maybe [StepAdjustment]
+$sel:minAdjustmentMagnitude:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe Int
+$sel:metricAggregationType:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe MetricAggregationType
+$sel:cooldown:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe Int
+$sel:adjustmentType:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe AdjustmentType
+$sel:stepAdjustments:StepScalingPolicyConfiguration' :: StepScalingPolicyConfiguration -&gt; Maybe [StepAdjustment]
+</span><a href="#local-6989586621679185517"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-349"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-350"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-351"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StepAdjustments&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [StepAdjustment] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>              </span><span class="annot"><span class="annottext">([StepAdjustment] -&gt; Pair) -&gt; Maybe [StepAdjustment] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [StepAdjustment]
+</span><a href="#local-6989586621679185521"><span class="hs-identifier hs-var">stepAdjustments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdjustmentType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AdjustmentType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>              </span><span class="annot"><span class="annottext">(AdjustmentType -&gt; Pair) -&gt; Maybe AdjustmentType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AdjustmentType
+</span><a href="#local-6989586621679185520"><span class="hs-identifier hs-var">adjustmentType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-355"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Cooldown&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185519"><span class="hs-identifier hs-var">cooldown</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-356"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MetricAggregationType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MetricAggregationType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-357"></span><span>              </span><span class="annot"><span class="annottext">(MetricAggregationType -&gt; Pair)
+-&gt; Maybe MetricAggregationType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MetricAggregationType
+</span><a href="#local-6989586621679185518"><span class="hs-identifier hs-var">metricAggregationType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-358"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinAdjustmentMagnitude&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679185517"><span class="hs-identifier hs-var">minAdjustmentMagnitude</span></a></span><span>
+</span><span id="line-360"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-361"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span></pre></body></html>

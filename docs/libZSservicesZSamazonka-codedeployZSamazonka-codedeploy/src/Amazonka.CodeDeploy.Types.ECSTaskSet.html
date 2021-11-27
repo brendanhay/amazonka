@@ -1,0 +1,559 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CodeDeploy.Types.ECSTaskSet</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeDeploy.Types.ECSTaskSet</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.TargetGroupInfo.html"><span class="hs-identifier">Amazonka.CodeDeploy.Types.TargetGroupInfo</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.TargetLabel.html"><span class="hs-identifier">Amazonka.CodeDeploy.Types.TargetLabel</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about a set of Amazon ECS tasks in an AWS CodeDeploy</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- deployment. An Amazon ECS task set includes details such as the desired</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- number of tasks, how many tasks are running, and whether the task set</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- serves production traffic. An AWS CodeDeploy application that uses the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- Amazon ECS compute platform deploys a containerized application in an</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- Amazon ECS service as a task set.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- /See:/ 'newECSTaskSet' smart constructor.</span><span>
+</span><span id="line-36"></span><span id="local-6989586621679313527"><span id="local-6989586621679313528"></span></span><span class="hs-keyword">data</span><span> </span><span id="ECSTaskSet"><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-var">ECSTaskSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ECSTaskSet%27"><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-var">ECSTaskSet'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of tasks in the task set that are in the @RUNNING@ status</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- during an Amazon ECS deployment. A task in the @RUNNING@ state is</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- running and ready for use.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3ArunningCount%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3ArunningCount%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">runningCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The status of the task set. There are three valid task set statuses:</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- -   @PRIMARY@: Indicates the task set is serving production traffic.</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- -   @ACTIVE@: Indicates the task set is not serving production traffic.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- -   @DRAINING@: Indicates the tasks in the task set are being stopped</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     and their corresponding targets are being deregistered from their</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--     target group.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Astatus%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe Text
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3Astatus%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | A unique ID of an @ECSTaskSet@.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aidentifer%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe Text
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3Aidentifer%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">identifer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The number of tasks in a task set. During a deployment that uses the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- task set and uses this value to determine how many tasks to create.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- After the updated task set is created, CodeDeploy shifts traffic to the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- new task set.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdesiredCount%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AdesiredCount%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">desiredCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The number of tasks in the task set that are in the @PENDING@ status</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- during an Amazon ECS deployment. A task in the @PENDING@ state is</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- preparing to enter the @RUNNING@ state. A task set enters the @PENDING@</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- status when it launches for the first time, or when it is restarted</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- after being in the @STOPPED@ state.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3ApendingCount%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3ApendingCount%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">pendingCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The percentage of traffic served by this task set.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AtrafficWeight%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe Double
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtrafficWeight%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">trafficWeight</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The target group associated with the task set. The target group is used</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- by AWS CodeDeploy to manage traffic to a task set.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AtargetGroup%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe TargetGroupInfo
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtargetGroup%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">targetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.TargetGroupInfo.html#TargetGroupInfo"><span class="hs-identifier hs-type">TargetGroupInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | A label that identifies whether the ECS task set is an original target</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- (@BLUE@) or a replacement target (@GREEN@).</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AtaskSetLabel%3AECSTaskSet%27"><span class="annot"><span class="annottext">ECSTaskSet -&gt; Maybe TargetLabel
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtaskSetLabel%3AECSTaskSet%27"><span class="hs-identifier hs-var hs-var">taskSetLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.TargetLabel.html#TargetLabel"><span class="hs-identifier hs-type">TargetLabel</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679313514"><span id="local-6989586621679313516"><span class="annot"><span class="annottext">ECSTaskSet -&gt; ECSTaskSet -&gt; Bool
+(ECSTaskSet -&gt; ECSTaskSet -&gt; Bool)
+-&gt; (ECSTaskSet -&gt; ECSTaskSet -&gt; Bool) -&gt; Eq ECSTaskSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ECSTaskSet -&gt; ECSTaskSet -&gt; Bool
+$c/= :: ECSTaskSet -&gt; ECSTaskSet -&gt; Bool
+== :: ECSTaskSet -&gt; ECSTaskSet -&gt; Bool
+$c== :: ECSTaskSet -&gt; ECSTaskSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313505"><span id="local-6989586621679313507"><span id="local-6989586621679313509"><span id="local-6989586621679313511"><span class="annot"><span class="annottext">ReadPrec [ECSTaskSet]
+ReadPrec ECSTaskSet
+Int -&gt; ReadS ECSTaskSet
+ReadS [ECSTaskSet]
+(Int -&gt; ReadS ECSTaskSet)
+-&gt; ReadS [ECSTaskSet]
+-&gt; ReadPrec ECSTaskSet
+-&gt; ReadPrec [ECSTaskSet]
+-&gt; Read ECSTaskSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ECSTaskSet]
+$creadListPrec :: ReadPrec [ECSTaskSet]
+readPrec :: ReadPrec ECSTaskSet
+$creadPrec :: ReadPrec ECSTaskSet
+readList :: ReadS [ECSTaskSet]
+$creadList :: ReadS [ECSTaskSet]
+readsPrec :: Int -&gt; ReadS ECSTaskSet
+$creadsPrec :: Int -&gt; ReadS ECSTaskSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679313498"><span id="local-6989586621679313500"><span id="local-6989586621679313502"><span class="annot"><span class="annottext">Int -&gt; ECSTaskSet -&gt; ShowS
+[ECSTaskSet] -&gt; ShowS
+ECSTaskSet -&gt; String
+(Int -&gt; ECSTaskSet -&gt; ShowS)
+-&gt; (ECSTaskSet -&gt; String)
+-&gt; ([ECSTaskSet] -&gt; ShowS)
+-&gt; Show ECSTaskSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ECSTaskSet] -&gt; ShowS
+$cshowList :: [ECSTaskSet] -&gt; ShowS
+show :: ECSTaskSet -&gt; String
+$cshow :: ECSTaskSet -&gt; String
+showsPrec :: Int -&gt; ECSTaskSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; ECSTaskSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ECSTaskSet -&gt; Rep ECSTaskSet x)
+-&gt; (forall x. Rep ECSTaskSet x -&gt; ECSTaskSet) -&gt; Generic ECSTaskSet
+forall x. Rep ECSTaskSet x -&gt; ECSTaskSet
+forall x. ECSTaskSet -&gt; Rep ECSTaskSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ECSTaskSet x -&gt; ECSTaskSet
+$cfrom :: forall x. ECSTaskSet -&gt; Rep ECSTaskSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Create a value of 'ECSTaskSet' with all optional fields omitted.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'runningCount', 'eCSTaskSet_runningCount' - The number of tasks in the task set that are in the @RUNNING@ status</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- during an Amazon ECS deployment. A task in the @RUNNING@ state is</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- running and ready for use.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'status', 'eCSTaskSet_status' - The status of the task set. There are three valid task set statuses:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   @PRIMARY@: Indicates the task set is serving production traffic.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   @ACTIVE@: Indicates the task set is not serving production traffic.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @DRAINING@: Indicates the tasks in the task set are being stopped</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--     and their corresponding targets are being deregistered from their</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--     target group.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'identifer', 'eCSTaskSet_identifer' - A unique ID of an @ECSTaskSet@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'desiredCount', 'eCSTaskSet_desiredCount' - The number of tasks in a task set. During a deployment that uses the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- task set and uses this value to determine how many tasks to create.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- After the updated task set is created, CodeDeploy shifts traffic to the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- new task set.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'pendingCount', 'eCSTaskSet_pendingCount' - The number of tasks in the task set that are in the @PENDING@ status</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- during an Amazon ECS deployment. A task in the @PENDING@ state is</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- preparing to enter the @RUNNING@ state. A task set enters the @PENDING@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- status when it launches for the first time, or when it is restarted</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- after being in the @STOPPED@ state.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'trafficWeight', 'eCSTaskSet_trafficWeight' - The percentage of traffic served by this task set.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'targetGroup', 'eCSTaskSet_targetGroup' - The target group associated with the task set. The target group is used</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- by AWS CodeDeploy to manage traffic to a task set.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'taskSetLabel', 'eCSTaskSet_taskSetLabel' - A label that identifies whether the ECS task set is an original target</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- (@BLUE@) or a replacement target (@GREEN@).</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#newECSTaskSet"><span class="hs-identifier hs-type">newECSTaskSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span>
+</span><span id="line-121"></span><span id="newECSTaskSet"><span class="annot"><span class="annottext">newECSTaskSet :: ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#newECSTaskSet"><span class="hs-identifier hs-var hs-var">newECSTaskSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><span class="annottext">ECSTaskSet' :: Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe TargetGroupInfo
+-&gt; Maybe TargetLabel
+-&gt; ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:runningCount:ECSTaskSet' :: Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3ArunningCount%3AECSTaskSet%27"><span class="hs-identifier hs-var">runningCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ECSTaskSet' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3Astatus%3AECSTaskSet%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">$sel:identifer:ECSTaskSet' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3Aidentifer%3AECSTaskSet%27"><span class="hs-identifier hs-var">identifer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">$sel:desiredCount:ECSTaskSet' :: Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AdesiredCount%3AECSTaskSet%27"><span class="hs-identifier hs-var">desiredCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">$sel:pendingCount:ECSTaskSet' :: Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3ApendingCount%3AECSTaskSet%27"><span class="hs-identifier hs-var">pendingCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:trafficWeight:ECSTaskSet' :: Maybe Double
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtrafficWeight%3AECSTaskSet%27"><span class="hs-identifier hs-var">trafficWeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:targetGroup:ECSTaskSet' :: Maybe TargetGroupInfo
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtargetGroup%3AECSTaskSet%27"><span class="hs-identifier hs-var">targetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetGroupInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskSetLabel:ECSTaskSet' :: Maybe TargetLabel
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtaskSetLabel%3AECSTaskSet%27"><span class="hs-identifier hs-var">taskSetLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetLabel
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The number of tasks in the task set that are in the @RUNNING@ status</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- during an Amazon ECS deployment. A task in the @RUNNING@ state is</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- running and ready for use.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_runningCount"><span class="hs-identifier hs-type">eCSTaskSet_runningCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="eCSTaskSet_runningCount"><span class="annot"><span class="annottext">eCSTaskSet_runningCount :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_runningCount"><span class="hs-identifier hs-var hs-var">eCSTaskSet_runningCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe Integer)
+-&gt; (ECSTaskSet -&gt; Maybe Integer -&gt; ECSTaskSet)
+-&gt; Lens ECSTaskSet ECSTaskSet (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313489"><span class="annot"><span class="annottext">Maybe Integer
+runningCount :: Maybe Integer
+$sel:runningCount:ECSTaskSet' :: ECSTaskSet -&gt; Maybe Integer
+</span><a href="#local-6989586621679313489"><span class="hs-identifier hs-var hs-var">runningCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313489"><span class="hs-identifier hs-var">runningCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313488"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313487"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runningCount:ECSTaskSet' :: Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3ArunningCount%3AECSTaskSet%27"><span class="hs-identifier hs-var">runningCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The status of the task set. There are three valid task set statuses:</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   @PRIMARY@: Indicates the task set is serving production traffic.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   @ACTIVE@: Indicates the task set is not serving production traffic.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- -   @DRAINING@: Indicates the tasks in the task set are being stopped</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--     and their corresponding targets are being deregistered from their</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     target group.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_status"><span class="hs-identifier hs-type">eCSTaskSet_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span id="eCSTaskSet_status"><span class="annot"><span class="annottext">eCSTaskSet_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_status"><span class="hs-identifier hs-var hs-var">eCSTaskSet_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe Text)
+-&gt; (ECSTaskSet -&gt; Maybe Text -&gt; ECSTaskSet)
+-&gt; Lens ECSTaskSet ECSTaskSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313485"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:ECSTaskSet' :: ECSTaskSet -&gt; Maybe Text
+</span><a href="#local-6989586621679313485"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313485"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313484"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ECSTaskSet' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3Astatus%3AECSTaskSet%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | A unique ID of an @ECSTaskSet@.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_identifer"><span class="hs-identifier hs-type">eCSTaskSet_identifer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span id="eCSTaskSet_identifer"><span class="annot"><span class="annottext">eCSTaskSet_identifer :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_identifer"><span class="hs-identifier hs-var hs-var">eCSTaskSet_identifer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe Text)
+-&gt; (ECSTaskSet -&gt; Maybe Text -&gt; ECSTaskSet)
+-&gt; Lens ECSTaskSet ECSTaskSet (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313481"><span class="annot"><span class="annottext">Maybe Text
+identifer :: Maybe Text
+$sel:identifer:ECSTaskSet' :: ECSTaskSet -&gt; Maybe Text
+</span><a href="#local-6989586621679313481"><span class="hs-identifier hs-var hs-var">identifer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313481"><span class="hs-identifier hs-var">identifer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313480"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313479"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identifer:ECSTaskSet' :: Maybe Text
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3Aidentifer%3AECSTaskSet%27"><span class="hs-identifier hs-var">identifer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679313479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The number of tasks in a task set. During a deployment that uses the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Amazon ECS compute type, CodeDeploy instructs Amazon ECS to create a new</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- task set and uses this value to determine how many tasks to create.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- After the updated task set is created, CodeDeploy shifts traffic to the</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- new task set.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_desiredCount"><span class="hs-identifier hs-type">eCSTaskSet_desiredCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="eCSTaskSet_desiredCount"><span class="annot"><span class="annottext">eCSTaskSet_desiredCount :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_desiredCount"><span class="hs-identifier hs-var hs-var">eCSTaskSet_desiredCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe Integer)
+-&gt; (ECSTaskSet -&gt; Maybe Integer -&gt; ECSTaskSet)
+-&gt; Lens ECSTaskSet ECSTaskSet (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313477"><span class="annot"><span class="annottext">Maybe Integer
+desiredCount :: Maybe Integer
+$sel:desiredCount:ECSTaskSet' :: ECSTaskSet -&gt; Maybe Integer
+</span><a href="#local-6989586621679313477"><span class="hs-identifier hs-var hs-var">desiredCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313477"><span class="hs-identifier hs-var">desiredCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313476"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313476"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313475"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313475"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313476"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:desiredCount:ECSTaskSet' :: Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AdesiredCount%3AECSTaskSet%27"><span class="hs-identifier hs-var">desiredCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313475"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The number of tasks in the task set that are in the @PENDING@ status</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- during an Amazon ECS deployment. A task in the @PENDING@ state is</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- preparing to enter the @RUNNING@ state. A task set enters the @PENDING@</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- status when it launches for the first time, or when it is restarted</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- after being in the @STOPPED@ state.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_pendingCount"><span class="hs-identifier hs-type">eCSTaskSet_pendingCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="eCSTaskSet_pendingCount"><span class="annot"><span class="annottext">eCSTaskSet_pendingCount :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_pendingCount"><span class="hs-identifier hs-var hs-var">eCSTaskSet_pendingCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe Integer)
+-&gt; (ECSTaskSet -&gt; Maybe Integer -&gt; ECSTaskSet)
+-&gt; Lens ECSTaskSet ECSTaskSet (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313473"><span class="annot"><span class="annottext">Maybe Integer
+pendingCount :: Maybe Integer
+$sel:pendingCount:ECSTaskSet' :: ECSTaskSet -&gt; Maybe Integer
+</span><a href="#local-6989586621679313473"><span class="hs-identifier hs-var hs-var">pendingCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313473"><span class="hs-identifier hs-var">pendingCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313472"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313472"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313471"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313471"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313472"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pendingCount:ECSTaskSet' :: Maybe Integer
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3ApendingCount%3AECSTaskSet%27"><span class="hs-identifier hs-var">pendingCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679313471"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The percentage of traffic served by this task set.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_trafficWeight"><span class="hs-identifier hs-type">eCSTaskSet_trafficWeight</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="eCSTaskSet_trafficWeight"><span class="annot"><span class="annottext">eCSTaskSet_trafficWeight :: (Maybe Double -&gt; f (Maybe Double)) -&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_trafficWeight"><span class="hs-identifier hs-var hs-var">eCSTaskSet_trafficWeight</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe Double)
+-&gt; (ECSTaskSet -&gt; Maybe Double -&gt; ECSTaskSet)
+-&gt; Lens ECSTaskSet ECSTaskSet (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313469"><span class="annot"><span class="annottext">Maybe Double
+trafficWeight :: Maybe Double
+$sel:trafficWeight:ECSTaskSet' :: ECSTaskSet -&gt; Maybe Double
+</span><a href="#local-6989586621679313469"><span class="hs-identifier hs-var hs-var">trafficWeight</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679313469"><span class="hs-identifier hs-var">trafficWeight</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313468"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313468"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313467"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679313467"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313468"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficWeight:ECSTaskSet' :: Maybe Double
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtrafficWeight%3AECSTaskSet%27"><span class="hs-identifier hs-var">trafficWeight</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679313467"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The target group associated with the task set. The target group is used</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- by AWS CodeDeploy to manage traffic to a task set.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_targetGroup"><span class="hs-identifier hs-type">eCSTaskSet_targetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.TargetGroupInfo.html#TargetGroupInfo"><span class="hs-identifier hs-type">TargetGroupInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="eCSTaskSet_targetGroup"><span class="annot"><span class="annottext">eCSTaskSet_targetGroup :: (Maybe TargetGroupInfo -&gt; f (Maybe TargetGroupInfo))
+-&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_targetGroup"><span class="hs-identifier hs-var hs-var">eCSTaskSet_targetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe TargetGroupInfo)
+-&gt; (ECSTaskSet -&gt; Maybe TargetGroupInfo -&gt; ECSTaskSet)
+-&gt; Lens
+     ECSTaskSet
+     ECSTaskSet
+     (Maybe TargetGroupInfo)
+     (Maybe TargetGroupInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313465"><span class="annot"><span class="annottext">Maybe TargetGroupInfo
+targetGroup :: Maybe TargetGroupInfo
+$sel:targetGroup:ECSTaskSet' :: ECSTaskSet -&gt; Maybe TargetGroupInfo
+</span><a href="#local-6989586621679313465"><span class="hs-identifier hs-var hs-var">targetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetGroupInfo
+</span><a href="#local-6989586621679313465"><span class="hs-identifier hs-var">targetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313464"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313463"><span class="annot"><span class="annottext">Maybe TargetGroupInfo
+</span><a href="#local-6989586621679313463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targetGroup:ECSTaskSet' :: Maybe TargetGroupInfo
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtargetGroup%3AECSTaskSet%27"><span class="hs-identifier hs-var">targetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetGroupInfo
+</span><a href="#local-6989586621679313463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | A label that identifies whether the ECS task set is an original target</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- (@BLUE@) or a replacement target (@GREEN@).</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_taskSetLabel"><span class="hs-identifier hs-type">eCSTaskSet_taskSetLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.TargetLabel.html#TargetLabel"><span class="hs-identifier hs-type">TargetLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="eCSTaskSet_taskSetLabel"><span class="annot"><span class="annottext">eCSTaskSet_taskSetLabel :: (Maybe TargetLabel -&gt; f (Maybe TargetLabel))
+-&gt; ECSTaskSet -&gt; f ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#eCSTaskSet_taskSetLabel"><span class="hs-identifier hs-var hs-var">eCSTaskSet_taskSetLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ECSTaskSet -&gt; Maybe TargetLabel)
+-&gt; (ECSTaskSet -&gt; Maybe TargetLabel -&gt; ECSTaskSet)
+-&gt; Lens
+     ECSTaskSet ECSTaskSet (Maybe TargetLabel) (Maybe TargetLabel)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679313461"><span class="annot"><span class="annottext">Maybe TargetLabel
+taskSetLabel :: Maybe TargetLabel
+$sel:taskSetLabel:ECSTaskSet' :: ECSTaskSet -&gt; Maybe TargetLabel
+</span><a href="#local-6989586621679313461"><span class="hs-identifier hs-var hs-var">taskSetLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TargetLabel
+</span><a href="#local-6989586621679313461"><span class="hs-identifier hs-var">taskSetLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679313460"><span class="annot"><span class="annottext">s :: ECSTaskSet
+</span><a href="#local-6989586621679313460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-type">ECSTaskSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679313459"><span class="annot"><span class="annottext">Maybe TargetLabel
+</span><a href="#local-6989586621679313459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ECSTaskSet
+</span><a href="#local-6989586621679313460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskSetLabel:ECSTaskSet' :: Maybe TargetLabel
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#%24sel%3AtaskSetLabel%3AECSTaskSet%27"><span class="hs-identifier hs-var">taskSetLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TargetLabel
+</span><a href="#local-6989586621679313459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313456"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679313454"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ECSTaskSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ECSTaskSet) -&gt; Value -&gt; Parser ECSTaskSet
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ECSTaskSet&quot;</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679313451"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe TargetGroupInfo
+-&gt; Maybe TargetLabel
+-&gt; ECSTaskSet
+</span><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet%27"><span class="hs-identifier hs-var">ECSTaskSet'</span></a></span><span>
+</span><span id="line-191"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Double
+ -&gt; Maybe TargetGroupInfo
+ -&gt; Maybe TargetLabel
+ -&gt; ECSTaskSet)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe TargetGroupInfo
+      -&gt; Maybe TargetLabel
+      -&gt; ECSTaskSet)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;runningCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe TargetGroupInfo
+   -&gt; Maybe TargetLabel
+   -&gt; ECSTaskSet)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe TargetGroupInfo
+      -&gt; Maybe TargetLabel
+      -&gt; ECSTaskSet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe TargetGroupInfo
+   -&gt; Maybe TargetLabel
+   -&gt; ECSTaskSet)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe TargetGroupInfo
+      -&gt; Maybe TargetLabel
+      -&gt; ECSTaskSet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;identifer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe TargetGroupInfo
+   -&gt; Maybe TargetLabel
+   -&gt; ECSTaskSet)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe TargetGroupInfo
+      -&gt; Maybe TargetLabel
+      -&gt; ECSTaskSet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;desiredCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe TargetGroupInfo
+   -&gt; Maybe TargetLabel
+   -&gt; ECSTaskSet)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe TargetGroupInfo -&gt; Maybe TargetLabel -&gt; ECSTaskSet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;pendingCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe TargetGroupInfo -&gt; Maybe TargetLabel -&gt; ECSTaskSet)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe TargetGroupInfo -&gt; Maybe TargetLabel -&gt; ECSTaskSet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trafficWeight&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TargetGroupInfo -&gt; Maybe TargetLabel -&gt; ECSTaskSet)
+-&gt; Parser (Maybe TargetGroupInfo)
+-&gt; Parser (Maybe TargetLabel -&gt; ECSTaskSet)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetGroupInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targetGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe TargetLabel -&gt; ECSTaskSet)
+-&gt; Parser (Maybe TargetLabel) -&gt; Parser ECSTaskSet
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679313451"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe TargetLabel)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskSetLabel&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313445"><span id="local-6989586621679313447"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span></span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679313442"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeDeploy.Types.ECSTaskSet.html#ECSTaskSet"><span class="hs-identifier hs-type">ECSTaskSet</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

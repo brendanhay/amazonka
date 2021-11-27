@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Submits a request to change the health status of a custom health check</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to healthy or unhealthy.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- You can use @UpdateInstanceCustomHealthStatus@ to change the status only</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- for custom health checks, which you define using</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- @HealthCheckCustomConfig@ when you create a service. You can\'t use it</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- to change the status for Route 53 health checks, which you define using</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @HealthCheckConfig@.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/cloud-map/latest/api/API_HealthCheckCustomConfig.html HealthCheckCustomConfig&gt;.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier">UpdateInstanceCustomHealthStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#newUpdateInstanceCustomHealthStatus"><span class="hs-identifier">newUpdateInstanceCustomHealthStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_serviceId"><span class="hs-identifier">updateInstanceCustomHealthStatus_serviceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_instanceId"><span class="hs-identifier">updateInstanceCustomHealthStatus_instanceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_status"><span class="hs-identifier">updateInstanceCustomHealthStatus_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier">UpdateInstanceCustomHealthStatusResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#newUpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier">newUpdateInstanceCustomHealthStatusResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.html"><span class="hs-identifier">Amazonka.Route53AutoNaming.Types</span></a></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newUpdateInstanceCustomHealthStatus' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679231225"><span id="local-6989586621679231226"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateInstanceCustomHealthStatus"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-var">UpdateInstanceCustomHealthStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateInstanceCustomHealthStatus%27"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var">UpdateInstanceCustomHealthStatus'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the service that includes the configuration for the custom</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- health check that you want to change the status for.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AserviceId%3AUpdateInstanceCustomHealthStatus%27"><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus -&gt; Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3AserviceId%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The ID of the instance that you want to change the health status for.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AinstanceId%3AUpdateInstanceCustomHealthStatus%27"><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus -&gt; Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3AinstanceId%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The new status of the instance, @HEALTHY@ or @UNHEALTHY@.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Astatus%3AUpdateInstanceCustomHealthStatus%27"><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus -&gt; CustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3Astatus%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus"><span class="hs-identifier hs-type">CustomHealthStatus</span></a></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231217"><span id="local-6989586621679231219"><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus
+-&gt; UpdateInstanceCustomHealthStatus -&gt; Bool
+(UpdateInstanceCustomHealthStatus
+ -&gt; UpdateInstanceCustomHealthStatus -&gt; Bool)
+-&gt; (UpdateInstanceCustomHealthStatus
+    -&gt; UpdateInstanceCustomHealthStatus -&gt; Bool)
+-&gt; Eq UpdateInstanceCustomHealthStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateInstanceCustomHealthStatus
+-&gt; UpdateInstanceCustomHealthStatus -&gt; Bool
+$c/= :: UpdateInstanceCustomHealthStatus
+-&gt; UpdateInstanceCustomHealthStatus -&gt; Bool
+== :: UpdateInstanceCustomHealthStatus
+-&gt; UpdateInstanceCustomHealthStatus -&gt; Bool
+$c== :: UpdateInstanceCustomHealthStatus
+-&gt; UpdateInstanceCustomHealthStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231208"><span id="local-6989586621679231210"><span id="local-6989586621679231212"><span id="local-6989586621679231214"><span class="annot"><span class="annottext">ReadPrec [UpdateInstanceCustomHealthStatus]
+ReadPrec UpdateInstanceCustomHealthStatus
+Int -&gt; ReadS UpdateInstanceCustomHealthStatus
+ReadS [UpdateInstanceCustomHealthStatus]
+(Int -&gt; ReadS UpdateInstanceCustomHealthStatus)
+-&gt; ReadS [UpdateInstanceCustomHealthStatus]
+-&gt; ReadPrec UpdateInstanceCustomHealthStatus
+-&gt; ReadPrec [UpdateInstanceCustomHealthStatus]
+-&gt; Read UpdateInstanceCustomHealthStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateInstanceCustomHealthStatus]
+$creadListPrec :: ReadPrec [UpdateInstanceCustomHealthStatus]
+readPrec :: ReadPrec UpdateInstanceCustomHealthStatus
+$creadPrec :: ReadPrec UpdateInstanceCustomHealthStatus
+readList :: ReadS [UpdateInstanceCustomHealthStatus]
+$creadList :: ReadS [UpdateInstanceCustomHealthStatus]
+readsPrec :: Int -&gt; ReadS UpdateInstanceCustomHealthStatus
+$creadsPrec :: Int -&gt; ReadS UpdateInstanceCustomHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231201"><span id="local-6989586621679231203"><span id="local-6989586621679231205"><span class="annot"><span class="annottext">Int -&gt; UpdateInstanceCustomHealthStatus -&gt; ShowS
+[UpdateInstanceCustomHealthStatus] -&gt; ShowS
+UpdateInstanceCustomHealthStatus -&gt; String
+(Int -&gt; UpdateInstanceCustomHealthStatus -&gt; ShowS)
+-&gt; (UpdateInstanceCustomHealthStatus -&gt; String)
+-&gt; ([UpdateInstanceCustomHealthStatus] -&gt; ShowS)
+-&gt; Show UpdateInstanceCustomHealthStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateInstanceCustomHealthStatus] -&gt; ShowS
+$cshowList :: [UpdateInstanceCustomHealthStatus] -&gt; ShowS
+show :: UpdateInstanceCustomHealthStatus -&gt; String
+$cshow :: UpdateInstanceCustomHealthStatus -&gt; String
+showsPrec :: Int -&gt; UpdateInstanceCustomHealthStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateInstanceCustomHealthStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateInstanceCustomHealthStatus
+ -&gt; Rep UpdateInstanceCustomHealthStatus x)
+-&gt; (forall x.
+    Rep UpdateInstanceCustomHealthStatus x
+    -&gt; UpdateInstanceCustomHealthStatus)
+-&gt; Generic UpdateInstanceCustomHealthStatus
+forall x.
+Rep UpdateInstanceCustomHealthStatus x
+-&gt; UpdateInstanceCustomHealthStatus
+forall x.
+UpdateInstanceCustomHealthStatus
+-&gt; Rep UpdateInstanceCustomHealthStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateInstanceCustomHealthStatus x
+-&gt; UpdateInstanceCustomHealthStatus
+$cfrom :: forall x.
+UpdateInstanceCustomHealthStatus
+-&gt; Rep UpdateInstanceCustomHealthStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'UpdateInstanceCustomHealthStatus' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'serviceId', 'updateInstanceCustomHealthStatus_serviceId' - The ID of the service that includes the configuration for the custom</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- health check that you want to change the status for.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'instanceId', 'updateInstanceCustomHealthStatus_instanceId' - The ID of the instance that you want to change the health status for.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'status', 'updateInstanceCustomHealthStatus_status' - The new status of the instance, @HEALTHY@ or @UNHEALTHY@.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#newUpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">newUpdateInstanceCustomHealthStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'serviceId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'instanceId'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus"><span class="hs-identifier hs-type">CustomHealthStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span>
+</span><span id="line-91"></span><span id="newUpdateInstanceCustomHealthStatus"><span class="annot"><span class="annottext">newUpdateInstanceCustomHealthStatus :: Text
+-&gt; Text -&gt; CustomHealthStatus -&gt; UpdateInstanceCustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#newUpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-var hs-var">newUpdateInstanceCustomHealthStatus</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679231196"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231196"><span class="hs-identifier hs-var">pServiceId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679231195"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231195"><span class="hs-identifier hs-var">pInstanceId_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679231194"><span class="annot"><span class="annottext">CustomHealthStatus
+</span><a href="#local-6989586621679231194"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus' :: Text
+-&gt; Text -&gt; CustomHealthStatus -&gt; UpdateInstanceCustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceId:UpdateInstanceCustomHealthStatus' :: Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3AserviceId%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231196"><span class="hs-identifier hs-var">pServiceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:instanceId:UpdateInstanceCustomHealthStatus' :: Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3AinstanceId%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231195"><span class="hs-identifier hs-var">pInstanceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:status:UpdateInstanceCustomHealthStatus' :: CustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3Astatus%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CustomHealthStatus
+</span><a href="#local-6989586621679231194"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The ID of the service that includes the configuration for the custom</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- health check that you want to change the status for.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_serviceId"><span class="hs-identifier hs-type">updateInstanceCustomHealthStatus_serviceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="updateInstanceCustomHealthStatus_serviceId"><span class="annot"><span class="annottext">updateInstanceCustomHealthStatus_serviceId :: (Text -&gt; f Text)
+-&gt; UpdateInstanceCustomHealthStatus
+-&gt; f UpdateInstanceCustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_serviceId"><span class="hs-identifier hs-var hs-var">updateInstanceCustomHealthStatus_serviceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateInstanceCustomHealthStatus -&gt; Text)
+-&gt; (UpdateInstanceCustomHealthStatus
+    -&gt; Text -&gt; UpdateInstanceCustomHealthStatus)
+-&gt; Lens
+     UpdateInstanceCustomHealthStatus
+     UpdateInstanceCustomHealthStatus
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231191"><span class="annot"><span class="annottext">Text
+serviceId :: Text
+$sel:serviceId:UpdateInstanceCustomHealthStatus' :: UpdateInstanceCustomHealthStatus -&gt; Text
+</span><a href="#local-6989586621679231191"><span class="hs-identifier hs-var hs-var">serviceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231191"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231190"><span class="annot"><span class="annottext">s :: UpdateInstanceCustomHealthStatus
+</span><a href="#local-6989586621679231190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus
+</span><a href="#local-6989586621679231190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceId:UpdateInstanceCustomHealthStatus' :: Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3AserviceId%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var">serviceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The ID of the instance that you want to change the health status for.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_instanceId"><span class="hs-identifier hs-type">updateInstanceCustomHealthStatus_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="updateInstanceCustomHealthStatus_instanceId"><span class="annot"><span class="annottext">updateInstanceCustomHealthStatus_instanceId :: (Text -&gt; f Text)
+-&gt; UpdateInstanceCustomHealthStatus
+-&gt; f UpdateInstanceCustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_instanceId"><span class="hs-identifier hs-var hs-var">updateInstanceCustomHealthStatus_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateInstanceCustomHealthStatus -&gt; Text)
+-&gt; (UpdateInstanceCustomHealthStatus
+    -&gt; Text -&gt; UpdateInstanceCustomHealthStatus)
+-&gt; Lens
+     UpdateInstanceCustomHealthStatus
+     UpdateInstanceCustomHealthStatus
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231188"><span class="annot"><span class="annottext">Text
+instanceId :: Text
+$sel:instanceId:UpdateInstanceCustomHealthStatus' :: UpdateInstanceCustomHealthStatus -&gt; Text
+</span><a href="#local-6989586621679231188"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231188"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231187"><span class="annot"><span class="annottext">s :: UpdateInstanceCustomHealthStatus
+</span><a href="#local-6989586621679231187"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231186"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231186"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus
+</span><a href="#local-6989586621679231187"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:UpdateInstanceCustomHealthStatus' :: Text
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3AinstanceId%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231186"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The new status of the instance, @HEALTHY@ or @UNHEALTHY@.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_status"><span class="hs-identifier hs-type">updateInstanceCustomHealthStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.Types.CustomHealthStatus.html#CustomHealthStatus"><span class="hs-identifier hs-type">CustomHealthStatus</span></a></span><span>
+</span><span id="line-113"></span><span id="updateInstanceCustomHealthStatus_status"><span class="annot"><span class="annottext">updateInstanceCustomHealthStatus_status :: (CustomHealthStatus -&gt; f CustomHealthStatus)
+-&gt; UpdateInstanceCustomHealthStatus
+-&gt; f UpdateInstanceCustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#updateInstanceCustomHealthStatus_status"><span class="hs-identifier hs-var hs-var">updateInstanceCustomHealthStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateInstanceCustomHealthStatus -&gt; CustomHealthStatus)
+-&gt; (UpdateInstanceCustomHealthStatus
+    -&gt; CustomHealthStatus -&gt; UpdateInstanceCustomHealthStatus)
+-&gt; Lens
+     UpdateInstanceCustomHealthStatus
+     UpdateInstanceCustomHealthStatus
+     CustomHealthStatus
+     CustomHealthStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231185"><span class="annot"><span class="annottext">CustomHealthStatus
+status :: CustomHealthStatus
+$sel:status:UpdateInstanceCustomHealthStatus' :: UpdateInstanceCustomHealthStatus -&gt; CustomHealthStatus
+</span><a href="#local-6989586621679231185"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CustomHealthStatus
+</span><a href="#local-6989586621679231185"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679231184"><span class="annot"><span class="annottext">s :: UpdateInstanceCustomHealthStatus
+</span><a href="#local-6989586621679231184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679231183"><span class="annot"><span class="annottext">CustomHealthStatus
+</span><a href="#local-6989586621679231183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatus
+</span><a href="#local-6989586621679231184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:UpdateInstanceCustomHealthStatus' :: CustomHealthStatus
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#%24sel%3Astatus%3AUpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CustomHealthStatus
+</span><a href="#local-6989586621679231183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatusResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679231179"><span class="annot"><span class="annottext">request :: UpdateInstanceCustomHealthStatus
+-&gt; Request UpdateInstanceCustomHealthStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateInstanceCustomHealthStatus
+-&gt; Request UpdateInstanceCustomHealthStatus
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53AutoNaming.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679231175"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateInstanceCustomHealthStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateInstanceCustomHealthStatus)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse UpdateInstanceCustomHealthStatus
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateInstanceCustomHealthStatus
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse UpdateInstanceCustomHealthStatus)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse UpdateInstanceCustomHealthStatus
+UpdateInstanceCustomHealthStatusResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse%27"><span class="hs-identifier hs-var">UpdateInstanceCustomHealthStatusResponse'</span></a></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679231168"><span id="local-6989586621679231170"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679231165"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-136"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679231161"><span class="annot"><span class="annottext">toHeaders :: UpdateInstanceCustomHealthStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateInstanceCustomHealthStatus -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Route53AutoNaming_v20170314.UpdateInstanceCustomHealthStatus&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-145"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-149"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679231151"><span id="local-6989586621679231153"><span id="local-6989586621679231155"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679231149"><span class="annot"><span class="annottext">toJSON :: UpdateInstanceCustomHealthStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus%27"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679231145"><span id="local-6989586621679231146"><span id="local-6989586621679231147"><span class="annot"><span class="annottext">Text
+CustomHealthStatus
+status :: CustomHealthStatus
+instanceId :: Text
+serviceId :: Text
+$sel:status:UpdateInstanceCustomHealthStatus' :: UpdateInstanceCustomHealthStatus -&gt; CustomHealthStatus
+$sel:instanceId:UpdateInstanceCustomHealthStatus' :: UpdateInstanceCustomHealthStatus -&gt; Text
+$sel:serviceId:UpdateInstanceCustomHealthStatus' :: UpdateInstanceCustomHealthStatus -&gt; Text
+</span><a href="#local-6989586621679231145"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231147"><span class="hs-identifier hs-var">serviceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679231146"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CustomHealthStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CustomHealthStatus
+</span><a href="#local-6989586621679231145"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679231139"><span class="annot"><span class="annottext">toPath :: UpdateInstanceCustomHealthStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateInstanceCustomHealthStatus -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatus"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatus</span></a></span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-170"></span><span>  </span><span id="local-6989586621679231135"><span class="annot"><span class="annottext">toQuery :: UpdateInstanceCustomHealthStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateInstanceCustomHealthStatus -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | /See:/ 'newUpdateInstanceCustomHealthStatusResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679231132"><span id="local-6989586621679231133"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateInstanceCustomHealthStatusResponse"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier hs-var">UpdateInstanceCustomHealthStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateInstanceCustomHealthStatusResponse%27"><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse%27"><span class="hs-identifier hs-var">UpdateInstanceCustomHealthStatusResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679231128"><span id="local-6989586621679231130"><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatusResponse
+-&gt; UpdateInstanceCustomHealthStatusResponse -&gt; Bool
+(UpdateInstanceCustomHealthStatusResponse
+ -&gt; UpdateInstanceCustomHealthStatusResponse -&gt; Bool)
+-&gt; (UpdateInstanceCustomHealthStatusResponse
+    -&gt; UpdateInstanceCustomHealthStatusResponse -&gt; Bool)
+-&gt; Eq UpdateInstanceCustomHealthStatusResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateInstanceCustomHealthStatusResponse
+-&gt; UpdateInstanceCustomHealthStatusResponse -&gt; Bool
+$c/= :: UpdateInstanceCustomHealthStatusResponse
+-&gt; UpdateInstanceCustomHealthStatusResponse -&gt; Bool
+== :: UpdateInstanceCustomHealthStatusResponse
+-&gt; UpdateInstanceCustomHealthStatusResponse -&gt; Bool
+$c== :: UpdateInstanceCustomHealthStatusResponse
+-&gt; UpdateInstanceCustomHealthStatusResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231120"><span id="local-6989586621679231122"><span id="local-6989586621679231124"><span id="local-6989586621679231126"><span class="annot"><span class="annottext">ReadPrec [UpdateInstanceCustomHealthStatusResponse]
+ReadPrec UpdateInstanceCustomHealthStatusResponse
+Int -&gt; ReadS UpdateInstanceCustomHealthStatusResponse
+ReadS [UpdateInstanceCustomHealthStatusResponse]
+(Int -&gt; ReadS UpdateInstanceCustomHealthStatusResponse)
+-&gt; ReadS [UpdateInstanceCustomHealthStatusResponse]
+-&gt; ReadPrec UpdateInstanceCustomHealthStatusResponse
+-&gt; ReadPrec [UpdateInstanceCustomHealthStatusResponse]
+-&gt; Read UpdateInstanceCustomHealthStatusResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateInstanceCustomHealthStatusResponse]
+$creadListPrec :: ReadPrec [UpdateInstanceCustomHealthStatusResponse]
+readPrec :: ReadPrec UpdateInstanceCustomHealthStatusResponse
+$creadPrec :: ReadPrec UpdateInstanceCustomHealthStatusResponse
+readList :: ReadS [UpdateInstanceCustomHealthStatusResponse]
+$creadList :: ReadS [UpdateInstanceCustomHealthStatusResponse]
+readsPrec :: Int -&gt; ReadS UpdateInstanceCustomHealthStatusResponse
+$creadsPrec :: Int -&gt; ReadS UpdateInstanceCustomHealthStatusResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679231114"><span id="local-6989586621679231116"><span id="local-6989586621679231118"><span class="annot"><span class="annottext">Int -&gt; UpdateInstanceCustomHealthStatusResponse -&gt; ShowS
+[UpdateInstanceCustomHealthStatusResponse] -&gt; ShowS
+UpdateInstanceCustomHealthStatusResponse -&gt; String
+(Int -&gt; UpdateInstanceCustomHealthStatusResponse -&gt; ShowS)
+-&gt; (UpdateInstanceCustomHealthStatusResponse -&gt; String)
+-&gt; ([UpdateInstanceCustomHealthStatusResponse] -&gt; ShowS)
+-&gt; Show UpdateInstanceCustomHealthStatusResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateInstanceCustomHealthStatusResponse] -&gt; ShowS
+$cshowList :: [UpdateInstanceCustomHealthStatusResponse] -&gt; ShowS
+show :: UpdateInstanceCustomHealthStatusResponse -&gt; String
+$cshow :: UpdateInstanceCustomHealthStatusResponse -&gt; String
+showsPrec :: Int -&gt; UpdateInstanceCustomHealthStatusResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateInstanceCustomHealthStatusResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateInstanceCustomHealthStatusResponse
+ -&gt; Rep UpdateInstanceCustomHealthStatusResponse x)
+-&gt; (forall x.
+    Rep UpdateInstanceCustomHealthStatusResponse x
+    -&gt; UpdateInstanceCustomHealthStatusResponse)
+-&gt; Generic UpdateInstanceCustomHealthStatusResponse
+forall x.
+Rep UpdateInstanceCustomHealthStatusResponse x
+-&gt; UpdateInstanceCustomHealthStatusResponse
+forall x.
+UpdateInstanceCustomHealthStatusResponse
+-&gt; Rep UpdateInstanceCustomHealthStatusResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateInstanceCustomHealthStatusResponse x
+-&gt; UpdateInstanceCustomHealthStatusResponse
+$cfrom :: forall x.
+UpdateInstanceCustomHealthStatusResponse
+-&gt; Rep UpdateInstanceCustomHealthStatusResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Create a value of 'UpdateInstanceCustomHealthStatusResponse' with all optional fields omitted.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#newUpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier hs-type">newUpdateInstanceCustomHealthStatusResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatusResponse</span></a></span><span>
+</span><span id="line-184"></span><span id="newUpdateInstanceCustomHealthStatusResponse"><span class="annot"><span class="annottext">newUpdateInstanceCustomHealthStatusResponse :: UpdateInstanceCustomHealthStatusResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#newUpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier hs-var hs-var">newUpdateInstanceCustomHealthStatusResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>  </span><span class="annot"><span class="annottext">UpdateInstanceCustomHealthStatusResponse
+</span><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse%27"><span class="hs-identifier hs-var">UpdateInstanceCustomHealthStatusResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679231110"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.Route53AutoNaming.UpdateInstanceCustomHealthStatus.html#UpdateInstanceCustomHealthStatusResponse"><span class="hs-identifier hs-type">UpdateInstanceCustomHealthStatusResponse</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

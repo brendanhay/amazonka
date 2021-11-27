@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.ThreatIntelIndicator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.ThreatIntelIndicator</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicatorCategory.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.ThreatIntelIndicatorCategory</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicatorType.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.ThreatIntelIndicatorType</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Details about the threat intelligence related to a finding.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newThreatIntelIndicator' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679989574"><span id="local-6989586621679989575"></span></span><span class="hs-keyword">data</span><span> </span><span id="ThreatIntelIndicator"><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-var">ThreatIntelIndicator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ThreatIntelIndicator%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-var">ThreatIntelIndicator'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The category of a threat intelligence indicator.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acategory%3AThreatIntelIndicator%27"><span class="annot"><span class="annottext">ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorCategory
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Acategory%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicatorCategory.html#ThreatIntelIndicatorCategory"><span class="hs-identifier hs-type">ThreatIntelIndicatorCategory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The value of a threat intelligence indicator.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Avalue%3AThreatIntelIndicator%27"><span class="annot"><span class="annottext">ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Avalue%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The source of the threat intelligence indicator.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asource%3AThreatIntelIndicator%27"><span class="annot"><span class="annottext">ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Asource%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The type of threat intelligence indicator.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Atype%27%3AThreatIntelIndicator%27"><span class="annot"><span class="annottext">ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorType
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Atype%27%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The URL to the page or site where you can get more information about the</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- threat intelligence indicator.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsourceUrl%3AThreatIntelIndicator%27"><span class="annot"><span class="annottext">ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3AsourceUrl%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var hs-var">sourceUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Indicates when the most recent instance of a threat intelligence</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- indicator was observed.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AlastObservedAt%3AThreatIntelIndicator%27"><span class="annot"><span class="annottext">ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3AlastObservedAt%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var hs-var">lastObservedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679989563"><span id="local-6989586621679989565"><span class="annot"><span class="annottext">ThreatIntelIndicator -&gt; ThreatIntelIndicator -&gt; Bool
+(ThreatIntelIndicator -&gt; ThreatIntelIndicator -&gt; Bool)
+-&gt; (ThreatIntelIndicator -&gt; ThreatIntelIndicator -&gt; Bool)
+-&gt; Eq ThreatIntelIndicator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ThreatIntelIndicator -&gt; ThreatIntelIndicator -&gt; Bool
+$c/= :: ThreatIntelIndicator -&gt; ThreatIntelIndicator -&gt; Bool
+== :: ThreatIntelIndicator -&gt; ThreatIntelIndicator -&gt; Bool
+$c== :: ThreatIntelIndicator -&gt; ThreatIntelIndicator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679989554"><span id="local-6989586621679989556"><span id="local-6989586621679989558"><span id="local-6989586621679989560"><span class="annot"><span class="annottext">ReadPrec [ThreatIntelIndicator]
+ReadPrec ThreatIntelIndicator
+Int -&gt; ReadS ThreatIntelIndicator
+ReadS [ThreatIntelIndicator]
+(Int -&gt; ReadS ThreatIntelIndicator)
+-&gt; ReadS [ThreatIntelIndicator]
+-&gt; ReadPrec ThreatIntelIndicator
+-&gt; ReadPrec [ThreatIntelIndicator]
+-&gt; Read ThreatIntelIndicator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ThreatIntelIndicator]
+$creadListPrec :: ReadPrec [ThreatIntelIndicator]
+readPrec :: ReadPrec ThreatIntelIndicator
+$creadPrec :: ReadPrec ThreatIntelIndicator
+readList :: ReadS [ThreatIntelIndicator]
+$creadList :: ReadS [ThreatIntelIndicator]
+readsPrec :: Int -&gt; ReadS ThreatIntelIndicator
+$creadsPrec :: Int -&gt; ReadS ThreatIntelIndicator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679989547"><span id="local-6989586621679989549"><span id="local-6989586621679989551"><span class="annot"><span class="annottext">Int -&gt; ThreatIntelIndicator -&gt; ShowS
+[ThreatIntelIndicator] -&gt; ShowS
+ThreatIntelIndicator -&gt; String
+(Int -&gt; ThreatIntelIndicator -&gt; ShowS)
+-&gt; (ThreatIntelIndicator -&gt; String)
+-&gt; ([ThreatIntelIndicator] -&gt; ShowS)
+-&gt; Show ThreatIntelIndicator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ThreatIntelIndicator] -&gt; ShowS
+$cshowList :: [ThreatIntelIndicator] -&gt; ShowS
+show :: ThreatIntelIndicator -&gt; String
+$cshow :: ThreatIntelIndicator -&gt; String
+showsPrec :: Int -&gt; ThreatIntelIndicator -&gt; ShowS
+$cshowsPrec :: Int -&gt; ThreatIntelIndicator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ThreatIntelIndicator -&gt; Rep ThreatIntelIndicator x)
+-&gt; (forall x. Rep ThreatIntelIndicator x -&gt; ThreatIntelIndicator)
+-&gt; Generic ThreatIntelIndicator
+forall x. Rep ThreatIntelIndicator x -&gt; ThreatIntelIndicator
+forall x. ThreatIntelIndicator -&gt; Rep ThreatIntelIndicator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ThreatIntelIndicator x -&gt; ThreatIntelIndicator
+$cfrom :: forall x. ThreatIntelIndicator -&gt; Rep ThreatIntelIndicator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'ThreatIntelIndicator' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'category', 'threatIntelIndicator_category' - The category of a threat intelligence indicator.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'value', 'threatIntelIndicator_value' - The value of a threat intelligence indicator.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'source', 'threatIntelIndicator_source' - The source of the threat intelligence indicator.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'type'', 'threatIntelIndicator_type' - The type of threat intelligence indicator.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'sourceUrl', 'threatIntelIndicator_sourceUrl' - The URL to the page or site where you can get more information about the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- threat intelligence indicator.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'lastObservedAt', 'threatIntelIndicator_lastObservedAt' - Indicates when the most recent instance of a threat intelligence</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- indicator was observed.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#newThreatIntelIndicator"><span class="hs-identifier hs-type">newThreatIntelIndicator</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span>
+</span><span id="line-82"></span><span id="newThreatIntelIndicator"><span class="annot"><span class="annottext">newThreatIntelIndicator :: ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#newThreatIntelIndicator"><span class="hs-identifier hs-var hs-var">newThreatIntelIndicator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">ThreatIntelIndicator' :: Maybe ThreatIntelIndicatorCategory
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ThreatIntelIndicatorType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:category:ThreatIntelIndicator' :: Maybe ThreatIntelIndicatorCategory
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Acategory%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorCategory
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:value:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Avalue%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Asource%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ThreatIntelIndicator' :: Maybe ThreatIntelIndicatorType
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Atype%27%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceUrl:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3AsourceUrl%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">sourceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastObservedAt:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3AlastObservedAt%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">lastObservedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The category of a threat intelligence indicator.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_category"><span class="hs-identifier hs-type">threatIntelIndicator_category</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicatorCategory.html#ThreatIntelIndicatorCategory"><span class="hs-identifier hs-type">ThreatIntelIndicatorCategory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="threatIntelIndicator_category"><span class="annot"><span class="annottext">threatIntelIndicator_category :: (Maybe ThreatIntelIndicatorCategory
+ -&gt; f (Maybe ThreatIntelIndicatorCategory))
+-&gt; ThreatIntelIndicator -&gt; f ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_category"><span class="hs-identifier hs-var hs-var">threatIntelIndicator_category</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorCategory)
+-&gt; (ThreatIntelIndicator
+    -&gt; Maybe ThreatIntelIndicatorCategory -&gt; ThreatIntelIndicator)
+-&gt; Lens
+     ThreatIntelIndicator
+     ThreatIntelIndicator
+     (Maybe ThreatIntelIndicatorCategory)
+     (Maybe ThreatIntelIndicatorCategory)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989538"><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorCategory
+category :: Maybe ThreatIntelIndicatorCategory
+$sel:category:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorCategory
+</span><a href="#local-6989586621679989538"><span class="hs-identifier hs-var hs-var">category</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorCategory
+</span><a href="#local-6989586621679989538"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989537"><span class="annot"><span class="annottext">s :: ThreatIntelIndicator
+</span><a href="#local-6989586621679989537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989536"><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorCategory
+</span><a href="#local-6989586621679989536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelIndicator
+</span><a href="#local-6989586621679989537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:category:ThreatIntelIndicator' :: Maybe ThreatIntelIndicatorCategory
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Acategory%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">category</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorCategory
+</span><a href="#local-6989586621679989536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The value of a threat intelligence indicator.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_value"><span class="hs-identifier hs-type">threatIntelIndicator_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="threatIntelIndicator_value"><span class="annot"><span class="annottext">threatIntelIndicator_value :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ThreatIntelIndicator -&gt; f ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_value"><span class="hs-identifier hs-var hs-var">threatIntelIndicator_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicator -&gt; Maybe Text)
+-&gt; (ThreatIntelIndicator -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+-&gt; Lens
+     ThreatIntelIndicator ThreatIntelIndicator (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989534"><span class="annot"><span class="annottext">Maybe Text
+value :: Maybe Text
+$sel:value:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="#local-6989586621679989534"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989534"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989533"><span class="annot"><span class="annottext">s :: ThreatIntelIndicator
+</span><a href="#local-6989586621679989533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989532"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelIndicator
+</span><a href="#local-6989586621679989533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Avalue%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The source of the threat intelligence indicator.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_source"><span class="hs-identifier hs-type">threatIntelIndicator_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="threatIntelIndicator_source"><span class="annot"><span class="annottext">threatIntelIndicator_source :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ThreatIntelIndicator -&gt; f ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_source"><span class="hs-identifier hs-var hs-var">threatIntelIndicator_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicator -&gt; Maybe Text)
+-&gt; (ThreatIntelIndicator -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+-&gt; Lens
+     ThreatIntelIndicator ThreatIntelIndicator (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989530"><span class="annot"><span class="annottext">Maybe Text
+source :: Maybe Text
+$sel:source:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="#local-6989586621679989530"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989530"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989529"><span class="annot"><span class="annottext">s :: ThreatIntelIndicator
+</span><a href="#local-6989586621679989529"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989528"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989528"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelIndicator
+</span><a href="#local-6989586621679989529"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Asource%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989528"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The type of threat intelligence indicator.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_type"><span class="hs-identifier hs-type">threatIntelIndicator_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicatorType.html#ThreatIntelIndicatorType"><span class="hs-identifier hs-type">ThreatIntelIndicatorType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="threatIntelIndicator_type"><span class="annot"><span class="annottext">threatIntelIndicator_type :: (Maybe ThreatIntelIndicatorType
+ -&gt; f (Maybe ThreatIntelIndicatorType))
+-&gt; ThreatIntelIndicator -&gt; f ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_type"><span class="hs-identifier hs-var hs-var">threatIntelIndicator_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorType)
+-&gt; (ThreatIntelIndicator
+    -&gt; Maybe ThreatIntelIndicatorType -&gt; ThreatIntelIndicator)
+-&gt; Lens
+     ThreatIntelIndicator
+     ThreatIntelIndicator
+     (Maybe ThreatIntelIndicatorType)
+     (Maybe ThreatIntelIndicatorType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989526"><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorType
+type' :: Maybe ThreatIntelIndicatorType
+$sel:type':ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorType
+</span><a href="#local-6989586621679989526"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorType
+</span><a href="#local-6989586621679989526"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989525"><span class="annot"><span class="annottext">s :: ThreatIntelIndicator
+</span><a href="#local-6989586621679989525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989524"><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorType
+</span><a href="#local-6989586621679989524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelIndicator
+</span><a href="#local-6989586621679989525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ThreatIntelIndicator' :: Maybe ThreatIntelIndicatorType
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3Atype%27%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorType
+</span><a href="#local-6989586621679989524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The URL to the page or site where you can get more information about the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- threat intelligence indicator.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_sourceUrl"><span class="hs-identifier hs-type">threatIntelIndicator_sourceUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="threatIntelIndicator_sourceUrl"><span class="annot"><span class="annottext">threatIntelIndicator_sourceUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ThreatIntelIndicator -&gt; f ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_sourceUrl"><span class="hs-identifier hs-var hs-var">threatIntelIndicator_sourceUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicator -&gt; Maybe Text)
+-&gt; (ThreatIntelIndicator -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+-&gt; Lens
+     ThreatIntelIndicator ThreatIntelIndicator (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989522"><span class="annot"><span class="annottext">Maybe Text
+sourceUrl :: Maybe Text
+$sel:sourceUrl:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="#local-6989586621679989522"><span class="hs-identifier hs-var hs-var">sourceUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989522"><span class="hs-identifier hs-var">sourceUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989521"><span class="annot"><span class="annottext">s :: ThreatIntelIndicator
+</span><a href="#local-6989586621679989521"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989520"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989520"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelIndicator
+</span><a href="#local-6989586621679989521"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceUrl:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3AsourceUrl%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">sourceUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989520"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Indicates when the most recent instance of a threat intelligence</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- indicator was observed.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- Uses the @date-time@ format specified in</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- &lt;https://tools.ietf.org/html/rfc3339#section-5.6 RFC 3339 section 5.6, Internet Date\/Time Format&gt;.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- The value cannot contain spaces. For example,</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- @2020-03-22T13:22:13.933Z@.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_lastObservedAt"><span class="hs-identifier hs-type">threatIntelIndicator_lastObservedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="threatIntelIndicator_lastObservedAt"><span class="annot"><span class="annottext">threatIntelIndicator_lastObservedAt :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ThreatIntelIndicator -&gt; f ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#threatIntelIndicator_lastObservedAt"><span class="hs-identifier hs-var hs-var">threatIntelIndicator_lastObservedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicator -&gt; Maybe Text)
+-&gt; (ThreatIntelIndicator -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+-&gt; Lens
+     ThreatIntelIndicator ThreatIntelIndicator (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989518"><span class="annot"><span class="annottext">Maybe Text
+lastObservedAt :: Maybe Text
+$sel:lastObservedAt:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+</span><a href="#local-6989586621679989518"><span class="hs-identifier hs-var hs-var">lastObservedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989518"><span class="hs-identifier hs-var">lastObservedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679989517"><span class="annot"><span class="annottext">s :: ThreatIntelIndicator
+</span><a href="#local-6989586621679989517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679989516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ThreatIntelIndicator
+</span><a href="#local-6989586621679989517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastObservedAt:ThreatIntelIndicator' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#%24sel%3AlastObservedAt%3AThreatIntelIndicator%27"><span class="hs-identifier hs-var">lastObservedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989513"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679989511"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ThreatIntelIndicator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ThreatIntelIndicator)
+-&gt; Value
+-&gt; Parser ThreatIntelIndicator
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ThreatIntelIndicator&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679989508"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989508"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorCategory
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ThreatIntelIndicatorType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; ThreatIntelIndicator
+</span><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-var">ThreatIntelIndicator'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ThreatIntelIndicatorCategory
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ThreatIntelIndicatorType
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; ThreatIntelIndicator)
+-&gt; Parser (Maybe ThreatIntelIndicatorCategory)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ThreatIntelIndicatorType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ThreatIntelIndicator)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ThreatIntelIndicatorCategory)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Category&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ThreatIntelIndicatorType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ThreatIntelIndicator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ThreatIntelIndicatorType
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; ThreatIntelIndicator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ThreatIntelIndicatorType
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; ThreatIntelIndicator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ThreatIntelIndicatorType
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ThreatIntelIndicatorType
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+-&gt; Parser (Maybe ThreatIntelIndicatorType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ThreatIntelIndicatorType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; ThreatIntelIndicator)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; ThreatIntelIndicator)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ThreatIntelIndicator)
+-&gt; Parser (Maybe Text) -&gt; Parser ThreatIntelIndicator
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679989508"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastObservedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989502"><span id="local-6989586621679989504"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989499"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679989491"><span id="local-6989586621679989493"><span id="local-6989586621679989495"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator"><span class="hs-identifier hs-type">ThreatIntelIndicator</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679989489"><span class="annot"><span class="annottext">toJSON :: ThreatIntelIndicator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.ThreatIntelIndicator.html#ThreatIntelIndicator%27"><span class="hs-identifier hs-type">ThreatIntelIndicator'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679989482"><span id="local-6989586621679989483"><span id="local-6989586621679989484"><span id="local-6989586621679989485"><span id="local-6989586621679989486"><span id="local-6989586621679989487"><span class="annot"><span class="annottext">Maybe Text
+Maybe ThreatIntelIndicatorCategory
+Maybe ThreatIntelIndicatorType
+lastObservedAt :: Maybe Text
+sourceUrl :: Maybe Text
+type' :: Maybe ThreatIntelIndicatorType
+source :: Maybe Text
+value :: Maybe Text
+category :: Maybe ThreatIntelIndicatorCategory
+$sel:lastObservedAt:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+$sel:sourceUrl:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+$sel:type':ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorType
+$sel:source:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+$sel:value:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe Text
+$sel:category:ThreatIntelIndicator' :: ThreatIntelIndicator -&gt; Maybe ThreatIntelIndicatorCategory
+</span><a href="#local-6989586621679989482"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Category&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ThreatIntelIndicatorCategory -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicatorCategory -&gt; Pair)
+-&gt; Maybe ThreatIntelIndicatorCategory -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorCategory
+</span><a href="#local-6989586621679989487"><span class="hs-identifier hs-var">category</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989486"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989485"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ThreatIntelIndicatorType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ThreatIntelIndicatorType -&gt; Pair)
+-&gt; Maybe ThreatIntelIndicatorType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ThreatIntelIndicatorType
+</span><a href="#local-6989586621679989484"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceUrl&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989483"><span class="hs-identifier hs-var">sourceUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastObservedAt&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679989482"><span class="hs-identifier hs-var">lastObservedAt</span></a></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span></pre></body></html>

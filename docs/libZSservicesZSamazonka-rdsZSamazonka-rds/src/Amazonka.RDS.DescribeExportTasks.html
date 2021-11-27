@@ -1,0 +1,880 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDS.DescribeExportTasks</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about a snapshot export to Amazon S3. This API</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- operation supports pagination.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDS.DescribeExportTasks</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier">DescribeExportTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#newDescribeExportTasks"><span class="hs-identifier">newDescribeExportTasks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_sourceArn"><span class="hs-identifier">describeExportTasks_sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_filters"><span class="hs-identifier">describeExportTasks_filters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_marker"><span class="hs-identifier">describeExportTasks_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_exportTaskIdentifier"><span class="hs-identifier">describeExportTasks_exportTaskIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_maxRecords"><span class="hs-identifier">describeExportTasks_maxRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier">DescribeExportTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#newDescribeExportTasksResponse"><span class="hs-identifier">newDescribeExportTasksResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_marker"><span class="hs-identifier">describeExportTasksResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_exportTasks"><span class="hs-identifier">describeExportTasksResponse_exportTasks</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_httpStatus"><span class="hs-identifier">describeExportTasksResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDS.Types.html"><span class="hs-identifier">Amazonka.RDS.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newDescribeExportTasks' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679788451"><span id="local-6989586621679788452"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeExportTasks"><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-var">DescribeExportTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeExportTasks%27"><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-var">DescribeExportTasks'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsourceArn%3ADescribeExportTasks%27"><span class="annot"><span class="annottext">DescribeExportTasks -&gt; Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AsourceArn%3ADescribeExportTasks%27"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Filters specify one or more snapshot exports to describe. The filters</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- are specified as name-value pairs that define what to include in the</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- output. Filter names and values are case-sensitive.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Supported filters include the following:</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @export-task-identifier@ - An identifier for the snapshot export</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     task.</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- -   @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--     exported to Amazon S3</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @status@ - The status of the export task. Must be lowercase, for</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     example, @complete@.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Afilters%3ADescribeExportTasks%27"><span class="annot"><span class="annottext">DescribeExportTasks -&gt; Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Afilters%3ADescribeExportTasks%27"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @DescribeExportTasks@ request. If you specify this parameter, the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- specified by the @MaxRecords@ parameter.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeExportTasks%27"><span class="annot"><span class="annottext">DescribeExportTasks -&gt; Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Amarker%3ADescribeExportTasks%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The identifier of the snapshot export task to be described.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AexportTaskIdentifier%3ADescribeExportTasks%27"><span class="annot"><span class="annottext">DescribeExportTasks -&gt; Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AexportTaskIdentifier%3ADescribeExportTasks%27"><span class="hs-identifier hs-var hs-var">exportTaskIdentifier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- records exist than the specified value, a pagination token called a</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- marker is included in the response. You can use the marker in a later</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- @DescribeExportTasks@ request to retrieve the remaining results.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AmaxRecords%3ADescribeExportTasks%27"><span class="annot"><span class="annottext">DescribeExportTasks -&gt; Maybe Natural
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AmaxRecords%3ADescribeExportTasks%27"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788441"><span id="local-6989586621679788443"><span class="annot"><span class="annottext">DescribeExportTasks -&gt; DescribeExportTasks -&gt; Bool
+(DescribeExportTasks -&gt; DescribeExportTasks -&gt; Bool)
+-&gt; (DescribeExportTasks -&gt; DescribeExportTasks -&gt; Bool)
+-&gt; Eq DescribeExportTasks
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeExportTasks -&gt; DescribeExportTasks -&gt; Bool
+$c/= :: DescribeExportTasks -&gt; DescribeExportTasks -&gt; Bool
+== :: DescribeExportTasks -&gt; DescribeExportTasks -&gt; Bool
+$c== :: DescribeExportTasks -&gt; DescribeExportTasks -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788432"><span id="local-6989586621679788434"><span id="local-6989586621679788436"><span id="local-6989586621679788438"><span class="annot"><span class="annottext">ReadPrec [DescribeExportTasks]
+ReadPrec DescribeExportTasks
+Int -&gt; ReadS DescribeExportTasks
+ReadS [DescribeExportTasks]
+(Int -&gt; ReadS DescribeExportTasks)
+-&gt; ReadS [DescribeExportTasks]
+-&gt; ReadPrec DescribeExportTasks
+-&gt; ReadPrec [DescribeExportTasks]
+-&gt; Read DescribeExportTasks
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeExportTasks]
+$creadListPrec :: ReadPrec [DescribeExportTasks]
+readPrec :: ReadPrec DescribeExportTasks
+$creadPrec :: ReadPrec DescribeExportTasks
+readList :: ReadS [DescribeExportTasks]
+$creadList :: ReadS [DescribeExportTasks]
+readsPrec :: Int -&gt; ReadS DescribeExportTasks
+$creadsPrec :: Int -&gt; ReadS DescribeExportTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788425"><span id="local-6989586621679788427"><span id="local-6989586621679788429"><span class="annot"><span class="annottext">Int -&gt; DescribeExportTasks -&gt; ShowS
+[DescribeExportTasks] -&gt; ShowS
+DescribeExportTasks -&gt; String
+(Int -&gt; DescribeExportTasks -&gt; ShowS)
+-&gt; (DescribeExportTasks -&gt; String)
+-&gt; ([DescribeExportTasks] -&gt; ShowS)
+-&gt; Show DescribeExportTasks
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeExportTasks] -&gt; ShowS
+$cshowList :: [DescribeExportTasks] -&gt; ShowS
+show :: DescribeExportTasks -&gt; String
+$cshow :: DescribeExportTasks -&gt; String
+showsPrec :: Int -&gt; DescribeExportTasks -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeExportTasks -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeExportTasks -&gt; Rep DescribeExportTasks x)
+-&gt; (forall x. Rep DescribeExportTasks x -&gt; DescribeExportTasks)
+-&gt; Generic DescribeExportTasks
+forall x. Rep DescribeExportTasks x -&gt; DescribeExportTasks
+forall x. DescribeExportTasks -&gt; Rep DescribeExportTasks x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeExportTasks x -&gt; DescribeExportTasks
+$cfrom :: forall x. DescribeExportTasks -&gt; Rep DescribeExportTasks x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Create a value of 'DescribeExportTasks' with all optional fields omitted.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'sourceArn', 'describeExportTasks_sourceArn' - The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'filters', 'describeExportTasks_filters' - Filters specify one or more snapshot exports to describe. The filters</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- are specified as name-value pairs that define what to include in the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- output. Filter names and values are case-sensitive.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- Supported filters include the following:</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   @export-task-identifier@ - An identifier for the snapshot export</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--     task.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- -   @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--     exported to Amazon S3</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- -   @status@ - The status of the export task. Must be lowercase, for</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--     example, @complete@.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'marker', 'describeExportTasks_marker' - An optional pagination token provided by a previous</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- @DescribeExportTasks@ request. If you specify this parameter, the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- specified by the @MaxRecords@ parameter.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'exportTaskIdentifier', 'describeExportTasks_exportTaskIdentifier' - The identifier of the snapshot export task to be described.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'maxRecords', 'describeExportTasks_maxRecords' - The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- records exist than the specified value, a pagination token called a</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- marker is included in the response. You can use the marker in a later</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- @DescribeExportTasks@ request to retrieve the remaining results.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#newDescribeExportTasks"><span class="hs-identifier hs-type">newDescribeExportTasks</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span>
+</span><span id="line-141"></span><span id="newDescribeExportTasks"><span class="annot"><span class="annottext">newDescribeExportTasks :: DescribeExportTasks
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#newDescribeExportTasks"><span class="hs-identifier hs-var hs-var">newDescribeExportTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><span class="annottext">DescribeExportTasks' :: Maybe Text
+-&gt; Maybe [Filter]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; DescribeExportTasks
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceArn:DescribeExportTasks' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AsourceArn%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:filters:DescribeExportTasks' :: Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Afilters%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeExportTasks' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Amarker%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportTaskIdentifier:DescribeExportTasks' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AexportTaskIdentifier%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeExportTasks' :: Maybe Natural
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AmaxRecords%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the snapshot exported to Amazon S3.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_sourceArn"><span class="hs-identifier hs-type">describeExportTasks_sourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="describeExportTasks_sourceArn"><span class="annot"><span class="annottext">describeExportTasks_sourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeExportTasks -&gt; f DescribeExportTasks
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_sourceArn"><span class="hs-identifier hs-var hs-var">describeExportTasks_sourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasks -&gt; Maybe Text)
+-&gt; (DescribeExportTasks -&gt; Maybe Text -&gt; DescribeExportTasks)
+-&gt; Lens
+     DescribeExportTasks DescribeExportTasks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788419"><span class="annot"><span class="annottext">Maybe Text
+sourceArn :: Maybe Text
+$sel:sourceArn:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Text
+</span><a href="#local-6989586621679788419"><span class="hs-identifier hs-var hs-var">sourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788419"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788418"><span class="annot"><span class="annottext">s :: DescribeExportTasks
+</span><a href="#local-6989586621679788418"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788417"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788417"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasks
+</span><a href="#local-6989586621679788418"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceArn:DescribeExportTasks' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AsourceArn%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">sourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788417"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Filters specify one or more snapshot exports to describe. The filters</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- are specified as name-value pairs that define what to include in the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- output. Filter names and values are case-sensitive.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Supported filters include the following:</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- -   @export-task-identifier@ - An identifier for the snapshot export</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     task.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- -   @s3-bucket@ - The Amazon S3 bucket the snapshot is exported to.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- -   @source-arn@ - The Amazon Resource Name (ARN) of the snapshot</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--     exported to Amazon S3</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- -   @status@ - The status of the export task. Must be lowercase, for</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     example, @complete@.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_filters"><span class="hs-identifier hs-type">describeExportTasks_filters</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.Filter.html#Filter"><span class="hs-identifier hs-type">Filter</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="describeExportTasks_filters"><span class="annot"><span class="annottext">describeExportTasks_filters :: (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeExportTasks -&gt; f DescribeExportTasks
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_filters"><span class="hs-identifier hs-var hs-var">describeExportTasks_filters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasks -&gt; Maybe [Filter])
+-&gt; (DescribeExportTasks -&gt; Maybe [Filter] -&gt; DescribeExportTasks)
+-&gt; Lens
+     DescribeExportTasks
+     DescribeExportTasks
+     (Maybe [Filter])
+     (Maybe [Filter])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788416"><span class="annot"><span class="annottext">Maybe [Filter]
+filters :: Maybe [Filter]
+$sel:filters:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe [Filter]
+</span><a href="#local-6989586621679788416"><span class="hs-identifier hs-var hs-var">filters</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679788416"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788415"><span class="annot"><span class="annottext">s :: DescribeExportTasks
+</span><a href="#local-6989586621679788415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788414"><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679788414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasks
+</span><a href="#local-6989586621679788415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:filters:DescribeExportTasks' :: Maybe [Filter]
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Afilters%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">filters</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679788414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Filter] -&gt; f (Maybe [Filter]))
+ -&gt; DescribeExportTasks -&gt; f DescribeExportTasks)
+-&gt; ((Maybe [Filter] -&gt; f (Maybe [Filter]))
+    -&gt; Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; (Maybe [Filter] -&gt; f (Maybe [Filter]))
+-&gt; DescribeExportTasks
+-&gt; f DescribeExportTasks
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+-&gt; Iso
+     (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter]) (Maybe [Filter])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Filter] [Filter] [Filter] [Filter]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | An optional pagination token provided by a previous</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- @DescribeExportTasks@ request. If you specify this parameter, the</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- response includes only records beyond the marker, up to the value</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- specified by the @MaxRecords@ parameter.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_marker"><span class="hs-identifier hs-type">describeExportTasks_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span id="describeExportTasks_marker"><span class="annot"><span class="annottext">describeExportTasks_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeExportTasks -&gt; f DescribeExportTasks
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_marker"><span class="hs-identifier hs-var hs-var">describeExportTasks_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasks -&gt; Maybe Text)
+-&gt; (DescribeExportTasks -&gt; Maybe Text -&gt; DescribeExportTasks)
+-&gt; Lens
+     DescribeExportTasks DescribeExportTasks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788410"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Text
+</span><a href="#local-6989586621679788410"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788410"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788409"><span class="annot"><span class="annottext">s :: DescribeExportTasks
+</span><a href="#local-6989586621679788409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788408"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasks
+</span><a href="#local-6989586621679788409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeExportTasks' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Amarker%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | The identifier of the snapshot export task to be described.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_exportTaskIdentifier"><span class="hs-identifier hs-type">describeExportTasks_exportTaskIdentifier</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="describeExportTasks_exportTaskIdentifier"><span class="annot"><span class="annottext">describeExportTasks_exportTaskIdentifier :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeExportTasks -&gt; f DescribeExportTasks
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_exportTaskIdentifier"><span class="hs-identifier hs-var hs-var">describeExportTasks_exportTaskIdentifier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasks -&gt; Maybe Text)
+-&gt; (DescribeExportTasks -&gt; Maybe Text -&gt; DescribeExportTasks)
+-&gt; Lens
+     DescribeExportTasks DescribeExportTasks (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788407"><span class="annot"><span class="annottext">Maybe Text
+exportTaskIdentifier :: Maybe Text
+$sel:exportTaskIdentifier:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Text
+</span><a href="#local-6989586621679788407"><span class="hs-identifier hs-var hs-var">exportTaskIdentifier</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788407"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788406"><span class="annot"><span class="annottext">s :: DescribeExportTasks
+</span><a href="#local-6989586621679788406"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788405"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788405"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasks
+</span><a href="#local-6989586621679788406"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTaskIdentifier:DescribeExportTasks' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AexportTaskIdentifier%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788405"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | The maximum number of records to include in the response. If more</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- records exist than the specified value, a pagination token called a</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- marker is included in the response. You can use the marker in a later</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- @DescribeExportTasks@ request to retrieve the remaining results.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Default: 100</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Constraints: Minimum 20, maximum 100.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_maxRecords"><span class="hs-identifier hs-type">describeExportTasks_maxRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="describeExportTasks_maxRecords"><span class="annot"><span class="annottext">describeExportTasks_maxRecords :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeExportTasks -&gt; f DescribeExportTasks
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_maxRecords"><span class="hs-identifier hs-var hs-var">describeExportTasks_maxRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasks -&gt; Maybe Natural)
+-&gt; (DescribeExportTasks -&gt; Maybe Natural -&gt; DescribeExportTasks)
+-&gt; Lens
+     DescribeExportTasks
+     DescribeExportTasks
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788404"><span class="annot"><span class="annottext">Maybe Natural
+maxRecords :: Maybe Natural
+$sel:maxRecords:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Natural
+</span><a href="#local-6989586621679788404"><span class="hs-identifier hs-var hs-var">maxRecords</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679788404"><span class="hs-identifier hs-var">maxRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788403"><span class="annot"><span class="annottext">s :: DescribeExportTasks
+</span><a href="#local-6989586621679788403"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788402"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679788402"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasks
+</span><a href="#local-6989586621679788403"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxRecords:DescribeExportTasks' :: Maybe Natural
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AmaxRecords%3ADescribeExportTasks%27"><span class="hs-identifier hs-var">maxRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679788402"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679788398"><span class="annot"><span class="annottext">page :: DescribeExportTasks
+-&gt; AWSResponse DescribeExportTasks -&gt; Maybe DescribeExportTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679788396"><span class="annot"><span class="annottext">DescribeExportTasks
+</span><a href="#local-6989586621679788396"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679788395"><span class="annot"><span class="annottext">AWSResponse DescribeExportTasks
+</span><a href="#local-6989586621679788395"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-198"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeExportTasks
+DescribeExportTasksResponse
+</span><a href="#local-6989586621679788395"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-199"></span><span>            </span><span class="annot"><span class="annottext">DescribeExportTasksResponse
+-&gt; Getting (First Text) DescribeExportTasksResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeExportTasksResponse
+-&gt; Const (First Text) DescribeExportTasksResponse
+Lens' DescribeExportTasksResponse (Maybe Text)
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_marker"><span class="hs-identifier hs-var">describeExportTasksResponse_marker</span></a></span><span>
+</span><span id="line-200"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeExportTasksResponse
+ -&gt; Const (First Text) DescribeExportTasksResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeExportTasksResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-201"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeExportTasks
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportTask] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-204"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeExportTasks
+DescribeExportTasksResponse
+</span><a href="#local-6989586621679788395"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">DescribeExportTasksResponse
+-&gt; Getting
+     (First [ExportTask]) DescribeExportTasksResponse [ExportTask]
+-&gt; Maybe [ExportTask]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [ExportTask]
+ -&gt; Const (First [ExportTask]) (Maybe [ExportTask]))
+-&gt; DescribeExportTasksResponse
+-&gt; Const (First [ExportTask]) DescribeExportTasksResponse
+Lens' DescribeExportTasksResponse (Maybe [ExportTask])
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_exportTasks"><span class="hs-identifier hs-var">describeExportTasksResponse_exportTasks</span></a></span><span>
+</span><span id="line-206"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [ExportTask]
+  -&gt; Const (First [ExportTask]) (Maybe [ExportTask]))
+ -&gt; DescribeExportTasksResponse
+ -&gt; Const (First [ExportTask]) DescribeExportTasksResponse)
+-&gt; (([ExportTask] -&gt; Const (First [ExportTask]) [ExportTask])
+    -&gt; Maybe [ExportTask]
+    -&gt; Const (First [ExportTask]) (Maybe [ExportTask]))
+-&gt; Getting
+     (First [ExportTask]) DescribeExportTasksResponse [ExportTask]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ExportTask] -&gt; Const (First [ExportTask]) [ExportTask])
+-&gt; Maybe [ExportTask]
+-&gt; Const (First [ExportTask]) (Maybe [ExportTask])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-207"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeExportTasks
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">DescribeExportTasks -&gt; Maybe DescribeExportTasks
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasks -&gt; Maybe DescribeExportTasks)
+-&gt; DescribeExportTasks -&gt; Maybe DescribeExportTasks
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">DescribeExportTasks
+</span><a href="#local-6989586621679788396"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-212"></span><span>          </span><span class="annot"><span class="annottext">DescribeExportTasks
+-&gt; (DescribeExportTasks -&gt; DescribeExportTasks)
+-&gt; DescribeExportTasks
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeExportTasks -&gt; Identity DescribeExportTasks
+Lens
+  DescribeExportTasks DescribeExportTasks (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasks_marker"><span class="hs-identifier hs-var">describeExportTasks_marker</span></a></span><span>
+</span><span id="line-213"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeExportTasks -&gt; Identity DescribeExportTasks)
+-&gt; Maybe Text -&gt; DescribeExportTasks -&gt; DescribeExportTasks
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeExportTasks
+DescribeExportTasksResponse
+</span><a href="#local-6989586621679788395"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-214"></span><span>          </span><span class="annot"><span class="annottext">DescribeExportTasksResponse
+-&gt; Getting (First Text) DescribeExportTasksResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeExportTasksResponse
+-&gt; Const (First Text) DescribeExportTasksResponse
+Lens' DescribeExportTasksResponse (Maybe Text)
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_marker"><span class="hs-identifier hs-var">describeExportTasksResponse_marker</span></a></span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeExportTasksResponse
+ -&gt; Const (First Text) DescribeExportTasksResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeExportTasksResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-219"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679788386"><span class="annot"><span class="annottext">request :: DescribeExportTasks -&gt; Request DescribeExportTasks
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeExportTasks -&gt; Request DescribeExportTasks
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679788382"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeExportTasks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeExportTasks)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DescribeExportTasks))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeExportTasks
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeExportTasks)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DescribeExportTasksResult&quot;</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679788379"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679788379"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679788378"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679788378"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679788377"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679788377"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ExportTask] -&gt; Int -&gt; DescribeExportTasksResponse
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-var">DescribeExportTasksResponse'</span></a></span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ExportTask] -&gt; Int -&gt; DescribeExportTasksResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [ExportTask] -&gt; Int -&gt; DescribeExportTasksResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679788377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe [ExportTask] -&gt; Int -&gt; DescribeExportTasksResponse)
+-&gt; Either String (Maybe [ExportTask])
+-&gt; Either String (Int -&gt; DescribeExportTasksResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679788377"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportTasks&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-229"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [ExportTask]))
+-&gt; Either String (Maybe [ExportTask])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [ExportTask])
+-&gt; [Node] -&gt; Either String (Maybe [ExportTask])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [ExportTask]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExportTask&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeExportTasksResponse)
+-&gt; Either String Int -&gt; Either String DescribeExportTasksResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679788379"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788366"><span id="local-6989586621679788368"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788363"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span></span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679788359"><span class="annot"><span class="annottext">toHeaders :: DescribeExportTasks -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeExportTasks -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679788354"><span class="annot"><span class="annottext">toPath :: DescribeExportTasks -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeExportTasks -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks"><span class="hs-identifier hs-type">DescribeExportTasks</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-245"></span><span>  </span><span id="local-6989586621679788350"><span class="annot"><span class="annottext">toQuery :: DescribeExportTasks -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasks%27"><span class="hs-identifier hs-type">DescribeExportTasks'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788344"><span id="local-6989586621679788345"><span id="local-6989586621679788346"><span id="local-6989586621679788347"><span id="local-6989586621679788348"><span class="annot"><span class="annottext">Maybe Natural
+Maybe [Filter]
+Maybe Text
+maxRecords :: Maybe Natural
+exportTaskIdentifier :: Maybe Text
+marker :: Maybe Text
+filters :: Maybe [Filter]
+sourceArn :: Maybe Text
+$sel:maxRecords:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Natural
+$sel:exportTaskIdentifier:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Text
+$sel:marker:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Text
+$sel:filters:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe [Filter]
+$sel:sourceArn:DescribeExportTasks' :: DescribeExportTasks -&gt; Maybe Text
+</span><a href="#local-6989586621679788344"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-247"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeExportTasks&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-250"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2014-10-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788348"><span class="hs-identifier hs-var">sourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filters&quot;</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; [Filter] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Filter&quot;</span></span><span> </span><span class="annot"><span class="annottext">([Filter] -&gt; QueryString) -&gt; Maybe [Filter] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Filter]
+</span><a href="#local-6989586621679788347"><span class="hs-identifier hs-var">filters</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788346"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ExportTaskIdentifier&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788345"><span class="hs-identifier hs-var">exportTaskIdentifier</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxRecords&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679788344"><span class="hs-identifier hs-var">maxRecords</span></a></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | /See:/ 'newDescribeExportTasksResponse' smart constructor.</span><span>
+</span><span id="line-261"></span><span id="local-6989586621679788340"><span id="local-6989586621679788341"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeExportTasksResponse"><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-var">DescribeExportTasksResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeExportTasksResponse%27"><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-var">DescribeExportTasksResponse'</span></a></span></span><span>
+</span><span id="line-262"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token that can be used in a later @DescribeExportTasks@</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">-- request. A marker is used for pagination to identify the location to</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- begin output for the next response of @DescribeExportTasks@.</span><span>
+</span><span id="line-265"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeExportTasksResponse%27"><span class="annot"><span class="annottext">DescribeExportTasksResponse -&gt; Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Amarker%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">-- | Information about an export of a snapshot to Amazon S3.</span><span>
+</span><span id="line-267"></span><span>    </span><span id="%24sel%3AexportTasks%3ADescribeExportTasksResponse%27"><span class="annot"><span class="annottext">DescribeExportTasksResponse -&gt; Maybe [ExportTask]
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AexportTasks%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var hs-var">exportTasks</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeExportTasksResponse%27"><span class="annot"><span class="annottext">DescribeExportTasksResponse -&gt; Int
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AhttpStatus%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-270"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-271"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679788333"><span id="local-6989586621679788335"><span class="annot"><span class="annottext">DescribeExportTasksResponse -&gt; DescribeExportTasksResponse -&gt; Bool
+(DescribeExportTasksResponse
+ -&gt; DescribeExportTasksResponse -&gt; Bool)
+-&gt; (DescribeExportTasksResponse
+    -&gt; DescribeExportTasksResponse -&gt; Bool)
+-&gt; Eq DescribeExportTasksResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeExportTasksResponse -&gt; DescribeExportTasksResponse -&gt; Bool
+$c/= :: DescribeExportTasksResponse -&gt; DescribeExportTasksResponse -&gt; Bool
+== :: DescribeExportTasksResponse -&gt; DescribeExportTasksResponse -&gt; Bool
+$c== :: DescribeExportTasksResponse -&gt; DescribeExportTasksResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788325"><span id="local-6989586621679788327"><span id="local-6989586621679788329"><span id="local-6989586621679788331"><span class="annot"><span class="annottext">ReadPrec [DescribeExportTasksResponse]
+ReadPrec DescribeExportTasksResponse
+Int -&gt; ReadS DescribeExportTasksResponse
+ReadS [DescribeExportTasksResponse]
+(Int -&gt; ReadS DescribeExportTasksResponse)
+-&gt; ReadS [DescribeExportTasksResponse]
+-&gt; ReadPrec DescribeExportTasksResponse
+-&gt; ReadPrec [DescribeExportTasksResponse]
+-&gt; Read DescribeExportTasksResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeExportTasksResponse]
+$creadListPrec :: ReadPrec [DescribeExportTasksResponse]
+readPrec :: ReadPrec DescribeExportTasksResponse
+$creadPrec :: ReadPrec DescribeExportTasksResponse
+readList :: ReadS [DescribeExportTasksResponse]
+$creadList :: ReadS [DescribeExportTasksResponse]
+readsPrec :: Int -&gt; ReadS DescribeExportTasksResponse
+$creadsPrec :: Int -&gt; ReadS DescribeExportTasksResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679788319"><span id="local-6989586621679788321"><span id="local-6989586621679788323"><span class="annot"><span class="annottext">Int -&gt; DescribeExportTasksResponse -&gt; ShowS
+[DescribeExportTasksResponse] -&gt; ShowS
+DescribeExportTasksResponse -&gt; String
+(Int -&gt; DescribeExportTasksResponse -&gt; ShowS)
+-&gt; (DescribeExportTasksResponse -&gt; String)
+-&gt; ([DescribeExportTasksResponse] -&gt; ShowS)
+-&gt; Show DescribeExportTasksResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeExportTasksResponse] -&gt; ShowS
+$cshowList :: [DescribeExportTasksResponse] -&gt; ShowS
+show :: DescribeExportTasksResponse -&gt; String
+$cshow :: DescribeExportTasksResponse -&gt; String
+showsPrec :: Int -&gt; DescribeExportTasksResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeExportTasksResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeExportTasksResponse -&gt; Rep DescribeExportTasksResponse x)
+-&gt; (forall x.
+    Rep DescribeExportTasksResponse x -&gt; DescribeExportTasksResponse)
+-&gt; Generic DescribeExportTasksResponse
+forall x.
+Rep DescribeExportTasksResponse x -&gt; DescribeExportTasksResponse
+forall x.
+DescribeExportTasksResponse -&gt; Rep DescribeExportTasksResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeExportTasksResponse x -&gt; DescribeExportTasksResponse
+$cfrom :: forall x.
+DescribeExportTasksResponse -&gt; Rep DescribeExportTasksResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- Create a value of 'DescribeExportTasksResponse' with all optional fields omitted.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- 'marker', 'describeExportTasksResponse_marker' - A pagination token that can be used in a later @DescribeExportTasks@</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- request. A marker is used for pagination to identify the location to</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- begin output for the next response of @DescribeExportTasks@.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'exportTasks', 'describeExportTasksResponse_exportTasks' - Information about an export of a snapshot to Amazon S3.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- 'httpStatus', 'describeExportTasksResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#newDescribeExportTasksResponse"><span class="hs-identifier hs-type">newDescribeExportTasksResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-289"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-290"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span>
+</span><span id="line-292"></span><span id="newDescribeExportTasksResponse"><span class="annot"><span class="annottext">newDescribeExportTasksResponse :: Int -&gt; DescribeExportTasksResponse
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#newDescribeExportTasksResponse"><span class="hs-identifier hs-var hs-var">newDescribeExportTasksResponse</span></a></span></span><span> </span><span id="local-6989586621679788316"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679788316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>  </span><span class="annot"><span class="annottext">DescribeExportTasksResponse' :: Maybe Text
+-&gt; Maybe [ExportTask] -&gt; Int -&gt; DescribeExportTasksResponse
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-type">DescribeExportTasksResponse'</span></a></span><span>
+</span><span id="line-294"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:DescribeExportTasksResponse' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Amarker%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>      </span><span class="annot"><span class="annottext">$sel:exportTasks:DescribeExportTasksResponse' :: Maybe [ExportTask]
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AexportTasks%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var">exportTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportTask]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeExportTasksResponse' :: Int
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AhttpStatus%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679788316"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-298"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | A pagination token that can be used in a later @DescribeExportTasks@</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- request. A marker is used for pagination to identify the location to</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- begin output for the next response of @DescribeExportTasks@.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_marker"><span class="hs-identifier hs-type">describeExportTasksResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span id="describeExportTasksResponse_marker"><span class="annot"><span class="annottext">describeExportTasksResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeExportTasksResponse -&gt; f DescribeExportTasksResponse
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_marker"><span class="hs-identifier hs-var hs-var">describeExportTasksResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasksResponse -&gt; Maybe Text)
+-&gt; (DescribeExportTasksResponse
+    -&gt; Maybe Text -&gt; DescribeExportTasksResponse)
+-&gt; Lens' DescribeExportTasksResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-type">DescribeExportTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788315"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeExportTasksResponse' :: DescribeExportTasksResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679788315"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788315"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788314"><span class="annot"><span class="annottext">s :: DescribeExportTasksResponse
+</span><a href="#local-6989586621679788314"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-type">DescribeExportTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788313"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788313"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasksResponse
+</span><a href="#local-6989586621679788314"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeExportTasksResponse' :: Maybe Text
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3Amarker%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679788313"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-comment">-- | Information about an export of a snapshot to Amazon S3.</span><span>
+</span><span id="line-307"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_exportTasks"><span class="hs-identifier hs-type">describeExportTasksResponse_exportTasks</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.RDS.Types.ExportTask.html#ExportTask"><span class="hs-identifier hs-type">ExportTask</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span id="describeExportTasksResponse_exportTasks"><span class="annot"><span class="annottext">describeExportTasksResponse_exportTasks :: (Maybe [ExportTask] -&gt; f (Maybe [ExportTask]))
+-&gt; DescribeExportTasksResponse -&gt; f DescribeExportTasksResponse
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_exportTasks"><span class="hs-identifier hs-var hs-var">describeExportTasksResponse_exportTasks</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasksResponse -&gt; Maybe [ExportTask])
+-&gt; (DescribeExportTasksResponse
+    -&gt; Maybe [ExportTask] -&gt; DescribeExportTasksResponse)
+-&gt; Lens' DescribeExportTasksResponse (Maybe [ExportTask])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-type">DescribeExportTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788312"><span class="annot"><span class="annottext">Maybe [ExportTask]
+exportTasks :: Maybe [ExportTask]
+$sel:exportTasks:DescribeExportTasksResponse' :: DescribeExportTasksResponse -&gt; Maybe [ExportTask]
+</span><a href="#local-6989586621679788312"><span class="hs-identifier hs-var hs-var">exportTasks</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportTask]
+</span><a href="#local-6989586621679788312"><span class="hs-identifier hs-var">exportTasks</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788311"><span class="annot"><span class="annottext">s :: DescribeExportTasksResponse
+</span><a href="#local-6989586621679788311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-type">DescribeExportTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788310"><span class="annot"><span class="annottext">Maybe [ExportTask]
+</span><a href="#local-6989586621679788310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasksResponse
+</span><a href="#local-6989586621679788311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exportTasks:DescribeExportTasksResponse' :: Maybe [ExportTask]
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AexportTasks%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var">exportTasks</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ExportTask]
+</span><a href="#local-6989586621679788310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ExportTask] -&gt; f (Maybe [ExportTask]))
+ -&gt; DescribeExportTasksResponse -&gt; f DescribeExportTasksResponse)
+-&gt; ((Maybe [ExportTask] -&gt; f (Maybe [ExportTask]))
+    -&gt; Maybe [ExportTask] -&gt; f (Maybe [ExportTask]))
+-&gt; (Maybe [ExportTask] -&gt; f (Maybe [ExportTask]))
+-&gt; DescribeExportTasksResponse
+-&gt; f DescribeExportTasksResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ExportTask] [ExportTask] [ExportTask] [ExportTask]
+-&gt; Iso
+     (Maybe [ExportTask])
+     (Maybe [ExportTask])
+     (Maybe [ExportTask])
+     (Maybe [ExportTask])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [ExportTask] [ExportTask] [ExportTask] [ExportTask]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-309"></span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-311"></span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_httpStatus"><span class="hs-identifier hs-type">describeExportTasksResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-312"></span><span id="describeExportTasksResponse_httpStatus"><span class="annot"><span class="annottext">describeExportTasksResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeExportTasksResponse -&gt; f DescribeExportTasksResponse
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#describeExportTasksResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeExportTasksResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeExportTasksResponse -&gt; Int)
+-&gt; (DescribeExportTasksResponse
+    -&gt; Int -&gt; DescribeExportTasksResponse)
+-&gt; Lens
+     DescribeExportTasksResponse DescribeExportTasksResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-type">DescribeExportTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679788309"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeExportTasksResponse' :: DescribeExportTasksResponse -&gt; Int
+</span><a href="#local-6989586621679788309"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679788309"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679788308"><span class="annot"><span class="annottext">s :: DescribeExportTasksResponse
+</span><a href="#local-6989586621679788308"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse%27"><span class="hs-identifier hs-type">DescribeExportTasksResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679788307"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679788307"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeExportTasksResponse
+</span><a href="#local-6989586621679788308"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeExportTasksResponse' :: Int
+</span><a href="Amazonka.RDS.DescribeExportTasks.html#%24sel%3AhttpStatus%3ADescribeExportTasksResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679788307"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679788305"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDS.DescribeExportTasks.html#DescribeExportTasksResponse"><span class="hs-identifier hs-type">DescribeExportTasksResponse</span></a></span></span><span>
+</span><span id="line-315"></span></pre></body></html>

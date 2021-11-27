@@ -1,0 +1,502 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MachineLearning.DeleteRealtimeEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a real time endpoint of an @MLModel@.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MachineLearning.DeleteRealtimeEndpoint</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier">DeleteRealtimeEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#newDeleteRealtimeEndpoint"><span class="hs-identifier">newDeleteRealtimeEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpoint_mLModelId"><span class="hs-identifier">deleteRealtimeEndpoint_mLModelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier">DeleteRealtimeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#newDeleteRealtimeEndpointResponse"><span class="hs-identifier">newDeleteRealtimeEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_realtimeEndpointInfo"><span class="hs-identifier">deleteRealtimeEndpointResponse_realtimeEndpointInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_mLModelId"><span class="hs-identifier">deleteRealtimeEndpointResponse_mLModelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_httpStatus"><span class="hs-identifier">deleteRealtimeEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.html"><span class="hs-identifier">Amazonka.MachineLearning.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteRealtimeEndpoint' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679257559"><span id="local-6989586621679257560"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRealtimeEndpoint"><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-var">DeleteRealtimeEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRealtimeEndpoint%27"><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint%27"><span class="hs-identifier hs-var">DeleteRealtimeEndpoint'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID assigned to the @MLModel@ during creation.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AmLModelId%3ADeleteRealtimeEndpoint%27"><span class="annot"><span class="annottext">DeleteRealtimeEndpoint -&gt; Text
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AmLModelId%3ADeleteRealtimeEndpoint%27"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257553"><span id="local-6989586621679257555"><span class="annot"><span class="annottext">DeleteRealtimeEndpoint -&gt; DeleteRealtimeEndpoint -&gt; Bool
+(DeleteRealtimeEndpoint -&gt; DeleteRealtimeEndpoint -&gt; Bool)
+-&gt; (DeleteRealtimeEndpoint -&gt; DeleteRealtimeEndpoint -&gt; Bool)
+-&gt; Eq DeleteRealtimeEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRealtimeEndpoint -&gt; DeleteRealtimeEndpoint -&gt; Bool
+$c/= :: DeleteRealtimeEndpoint -&gt; DeleteRealtimeEndpoint -&gt; Bool
+== :: DeleteRealtimeEndpoint -&gt; DeleteRealtimeEndpoint -&gt; Bool
+$c== :: DeleteRealtimeEndpoint -&gt; DeleteRealtimeEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257544"><span id="local-6989586621679257546"><span id="local-6989586621679257548"><span id="local-6989586621679257550"><span class="annot"><span class="annottext">ReadPrec [DeleteRealtimeEndpoint]
+ReadPrec DeleteRealtimeEndpoint
+Int -&gt; ReadS DeleteRealtimeEndpoint
+ReadS [DeleteRealtimeEndpoint]
+(Int -&gt; ReadS DeleteRealtimeEndpoint)
+-&gt; ReadS [DeleteRealtimeEndpoint]
+-&gt; ReadPrec DeleteRealtimeEndpoint
+-&gt; ReadPrec [DeleteRealtimeEndpoint]
+-&gt; Read DeleteRealtimeEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRealtimeEndpoint]
+$creadListPrec :: ReadPrec [DeleteRealtimeEndpoint]
+readPrec :: ReadPrec DeleteRealtimeEndpoint
+$creadPrec :: ReadPrec DeleteRealtimeEndpoint
+readList :: ReadS [DeleteRealtimeEndpoint]
+$creadList :: ReadS [DeleteRealtimeEndpoint]
+readsPrec :: Int -&gt; ReadS DeleteRealtimeEndpoint
+$creadsPrec :: Int -&gt; ReadS DeleteRealtimeEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257537"><span id="local-6989586621679257539"><span id="local-6989586621679257541"><span class="annot"><span class="annottext">Int -&gt; DeleteRealtimeEndpoint -&gt; ShowS
+[DeleteRealtimeEndpoint] -&gt; ShowS
+DeleteRealtimeEndpoint -&gt; String
+(Int -&gt; DeleteRealtimeEndpoint -&gt; ShowS)
+-&gt; (DeleteRealtimeEndpoint -&gt; String)
+-&gt; ([DeleteRealtimeEndpoint] -&gt; ShowS)
+-&gt; Show DeleteRealtimeEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRealtimeEndpoint] -&gt; ShowS
+$cshowList :: [DeleteRealtimeEndpoint] -&gt; ShowS
+show :: DeleteRealtimeEndpoint -&gt; String
+$cshow :: DeleteRealtimeEndpoint -&gt; String
+showsPrec :: Int -&gt; DeleteRealtimeEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRealtimeEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteRealtimeEndpoint -&gt; Rep DeleteRealtimeEndpoint x)
+-&gt; (forall x.
+    Rep DeleteRealtimeEndpoint x -&gt; DeleteRealtimeEndpoint)
+-&gt; Generic DeleteRealtimeEndpoint
+forall x. Rep DeleteRealtimeEndpoint x -&gt; DeleteRealtimeEndpoint
+forall x. DeleteRealtimeEndpoint -&gt; Rep DeleteRealtimeEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteRealtimeEndpoint x -&gt; DeleteRealtimeEndpoint
+$cfrom :: forall x. DeleteRealtimeEndpoint -&gt; Rep DeleteRealtimeEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'DeleteRealtimeEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'mLModelId', 'deleteRealtimeEndpoint_mLModelId' - The ID assigned to the @MLModel@ during creation.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#newDeleteRealtimeEndpoint"><span class="hs-identifier hs-type">newDeleteRealtimeEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'mLModelId'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span>
+</span><span id="line-70"></span><span id="newDeleteRealtimeEndpoint"><span class="annot"><span class="annottext">newDeleteRealtimeEndpoint :: Text -&gt; DeleteRealtimeEndpoint
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#newDeleteRealtimeEndpoint"><span class="hs-identifier hs-var hs-var">newDeleteRealtimeEndpoint</span></a></span></span><span> </span><span id="local-6989586621679257532"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">pMLModelId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">DeleteRealtimeEndpoint' :: Text -&gt; DeleteRealtimeEndpoint
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteRealtimeEndpoint' :: Text
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AmLModelId%3ADeleteRealtimeEndpoint%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257532"><span class="hs-identifier hs-var">pMLModelId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ID assigned to the @MLModel@ during creation.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpoint_mLModelId"><span class="hs-identifier hs-type">deleteRealtimeEndpoint_mLModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="deleteRealtimeEndpoint_mLModelId"><span class="annot"><span class="annottext">deleteRealtimeEndpoint_mLModelId :: (Text -&gt; f Text)
+-&gt; DeleteRealtimeEndpoint -&gt; f DeleteRealtimeEndpoint
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpoint_mLModelId"><span class="hs-identifier hs-var hs-var">deleteRealtimeEndpoint_mLModelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRealtimeEndpoint -&gt; Text)
+-&gt; (DeleteRealtimeEndpoint -&gt; Text -&gt; DeleteRealtimeEndpoint)
+-&gt; Lens DeleteRealtimeEndpoint DeleteRealtimeEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257529"><span class="annot"><span class="annottext">Text
+mLModelId :: Text
+$sel:mLModelId:DeleteRealtimeEndpoint' :: DeleteRealtimeEndpoint -&gt; Text
+</span><a href="#local-6989586621679257529"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257529"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257528"><span class="annot"><span class="annottext">s :: DeleteRealtimeEndpoint
+</span><a href="#local-6989586621679257528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257527"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRealtimeEndpoint
+</span><a href="#local-6989586621679257528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteRealtimeEndpoint' :: Text
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AmLModelId%3ADeleteRealtimeEndpoint%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-79"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679257523"><span class="annot"><span class="annottext">request :: DeleteRealtimeEndpoint -&gt; Request DeleteRealtimeEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteRealtimeEndpoint -&gt; Request DeleteRealtimeEndpoint
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MachineLearning.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679257519"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteRealtimeEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteRealtimeEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteRealtimeEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteRealtimeEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteRealtimeEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679257516"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257516"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679257515"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679257515"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679257514"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257514"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>          </span><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+-&gt; Maybe Text -&gt; Int -&gt; DeleteRealtimeEndpointResponse
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">DeleteRealtimeEndpointResponse'</span></a></span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RealtimeEndpointInfo
+ -&gt; Maybe Text -&gt; Int -&gt; DeleteRealtimeEndpointResponse)
+-&gt; Either String (Maybe RealtimeEndpointInfo)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; DeleteRealtimeEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RealtimeEndpointInfo)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RealtimeEndpointInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DeleteRealtimeEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DeleteRealtimeEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679257514"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteRealtimeEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteRealtimeEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257516"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257506"><span id="local-6989586621679257508"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257503"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679257499"><span class="annot"><span class="annottext">toHeaders :: DeleteRealtimeEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteRealtimeEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-100"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AmazonML_20141212.DeleteRealtimeEndpoint&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-102"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-104"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-105"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-106"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679257489"><span id="local-6989586621679257491"><span id="local-6989586621679257493"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679257487"><span class="annot"><span class="annottext">toJSON :: DeleteRealtimeEndpoint -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257485"><span class="annot"><span class="annottext">Text
+mLModelId :: Text
+$sel:mLModelId:DeleteRealtimeEndpoint' :: DeleteRealtimeEndpoint -&gt; Text
+</span><a href="#local-6989586621679257485"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-114"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MLModelId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679257485"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679257479"><span class="annot"><span class="annottext">toPath :: DeleteRealtimeEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteRealtimeEndpoint -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpoint"><span class="hs-identifier hs-type">DeleteRealtimeEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679257475"><span class="annot"><span class="annottext">toQuery :: DeleteRealtimeEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteRealtimeEndpoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Represents the output of an @DeleteRealtimeEndpoint@ operation.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- The result contains the @MLModelId@ and the endpoint information for the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- @MLModel@.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- /See:/ 'newDeleteRealtimeEndpointResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679257472"><span id="local-6989586621679257473"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteRealtimeEndpointResponse"><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-var">DeleteRealtimeEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteRealtimeEndpointResponse%27"><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">DeleteRealtimeEndpointResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The endpoint information of the @MLModel@</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3ArealtimeEndpointInfo%3ADeleteRealtimeEndpointResponse%27"><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse -&gt; Maybe RealtimeEndpointInfo
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3ArealtimeEndpointInfo%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">realtimeEndpointInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RealtimeEndpointInfo.html#RealtimeEndpointInfo"><span class="hs-identifier hs-type">RealtimeEndpointInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @MLModel@. This value</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- should be identical to the value of the @MLModelId@ in the request.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AmLModelId%3ADeleteRealtimeEndpointResponse%27"><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AmLModelId%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteRealtimeEndpointResponse%27"><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse -&gt; Int
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AhttpStatus%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679257465"><span id="local-6989586621679257467"><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse
+-&gt; DeleteRealtimeEndpointResponse -&gt; Bool
+(DeleteRealtimeEndpointResponse
+ -&gt; DeleteRealtimeEndpointResponse -&gt; Bool)
+-&gt; (DeleteRealtimeEndpointResponse
+    -&gt; DeleteRealtimeEndpointResponse -&gt; Bool)
+-&gt; Eq DeleteRealtimeEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteRealtimeEndpointResponse
+-&gt; DeleteRealtimeEndpointResponse -&gt; Bool
+$c/= :: DeleteRealtimeEndpointResponse
+-&gt; DeleteRealtimeEndpointResponse -&gt; Bool
+== :: DeleteRealtimeEndpointResponse
+-&gt; DeleteRealtimeEndpointResponse -&gt; Bool
+$c== :: DeleteRealtimeEndpointResponse
+-&gt; DeleteRealtimeEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257457"><span id="local-6989586621679257459"><span id="local-6989586621679257461"><span id="local-6989586621679257463"><span class="annot"><span class="annottext">ReadPrec [DeleteRealtimeEndpointResponse]
+ReadPrec DeleteRealtimeEndpointResponse
+Int -&gt; ReadS DeleteRealtimeEndpointResponse
+ReadS [DeleteRealtimeEndpointResponse]
+(Int -&gt; ReadS DeleteRealtimeEndpointResponse)
+-&gt; ReadS [DeleteRealtimeEndpointResponse]
+-&gt; ReadPrec DeleteRealtimeEndpointResponse
+-&gt; ReadPrec [DeleteRealtimeEndpointResponse]
+-&gt; Read DeleteRealtimeEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteRealtimeEndpointResponse]
+$creadListPrec :: ReadPrec [DeleteRealtimeEndpointResponse]
+readPrec :: ReadPrec DeleteRealtimeEndpointResponse
+$creadPrec :: ReadPrec DeleteRealtimeEndpointResponse
+readList :: ReadS [DeleteRealtimeEndpointResponse]
+$creadList :: ReadS [DeleteRealtimeEndpointResponse]
+readsPrec :: Int -&gt; ReadS DeleteRealtimeEndpointResponse
+$creadsPrec :: Int -&gt; ReadS DeleteRealtimeEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679257451"><span id="local-6989586621679257453"><span id="local-6989586621679257455"><span class="annot"><span class="annottext">Int -&gt; DeleteRealtimeEndpointResponse -&gt; ShowS
+[DeleteRealtimeEndpointResponse] -&gt; ShowS
+DeleteRealtimeEndpointResponse -&gt; String
+(Int -&gt; DeleteRealtimeEndpointResponse -&gt; ShowS)
+-&gt; (DeleteRealtimeEndpointResponse -&gt; String)
+-&gt; ([DeleteRealtimeEndpointResponse] -&gt; ShowS)
+-&gt; Show DeleteRealtimeEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteRealtimeEndpointResponse] -&gt; ShowS
+$cshowList :: [DeleteRealtimeEndpointResponse] -&gt; ShowS
+show :: DeleteRealtimeEndpointResponse -&gt; String
+$cshow :: DeleteRealtimeEndpointResponse -&gt; String
+showsPrec :: Int -&gt; DeleteRealtimeEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteRealtimeEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteRealtimeEndpointResponse
+ -&gt; Rep DeleteRealtimeEndpointResponse x)
+-&gt; (forall x.
+    Rep DeleteRealtimeEndpointResponse x
+    -&gt; DeleteRealtimeEndpointResponse)
+-&gt; Generic DeleteRealtimeEndpointResponse
+forall x.
+Rep DeleteRealtimeEndpointResponse x
+-&gt; DeleteRealtimeEndpointResponse
+forall x.
+DeleteRealtimeEndpointResponse
+-&gt; Rep DeleteRealtimeEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteRealtimeEndpointResponse x
+-&gt; DeleteRealtimeEndpointResponse
+$cfrom :: forall x.
+DeleteRealtimeEndpointResponse
+-&gt; Rep DeleteRealtimeEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Create a value of 'DeleteRealtimeEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'realtimeEndpointInfo', 'deleteRealtimeEndpointResponse_realtimeEndpointInfo' - The endpoint information of the @MLModel@</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'mLModelId', 'deleteRealtimeEndpointResponse_mLModelId' - A user-supplied ID that uniquely identifies the @MLModel@. This value</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- should be identical to the value of the @MLModelId@ in the request.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'httpStatus', 'deleteRealtimeEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#newDeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">newDeleteRealtimeEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span>
+</span><span id="line-158"></span><span id="newDeleteRealtimeEndpointResponse"><span class="annot"><span class="annottext">newDeleteRealtimeEndpointResponse :: Int -&gt; DeleteRealtimeEndpointResponse
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#newDeleteRealtimeEndpointResponse"><span class="hs-identifier hs-var hs-var">newDeleteRealtimeEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679257448"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse' :: Maybe RealtimeEndpointInfo
+-&gt; Maybe Text -&gt; Int -&gt; DeleteRealtimeEndpointResponse
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse'</span></a></span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:realtimeEndpointInfo:DeleteRealtimeEndpointResponse' :: Maybe RealtimeEndpointInfo
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3ArealtimeEndpointInfo%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">realtimeEndpointInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>        </span><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteRealtimeEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AmLModelId%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRealtimeEndpointResponse' :: Int
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AhttpStatus%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257448"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The endpoint information of the @MLModel@</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_realtimeEndpointInfo"><span class="hs-identifier hs-type">deleteRealtimeEndpointResponse_realtimeEndpointInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.Types.RealtimeEndpointInfo.html#RealtimeEndpointInfo"><span class="hs-identifier hs-type">RealtimeEndpointInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="deleteRealtimeEndpointResponse_realtimeEndpointInfo"><span class="annot"><span class="annottext">deleteRealtimeEndpointResponse_realtimeEndpointInfo :: (Maybe RealtimeEndpointInfo -&gt; f (Maybe RealtimeEndpointInfo))
+-&gt; DeleteRealtimeEndpointResponse
+-&gt; f DeleteRealtimeEndpointResponse
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_realtimeEndpointInfo"><span class="hs-identifier hs-var hs-var">deleteRealtimeEndpointResponse_realtimeEndpointInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRealtimeEndpointResponse -&gt; Maybe RealtimeEndpointInfo)
+-&gt; (DeleteRealtimeEndpointResponse
+    -&gt; Maybe RealtimeEndpointInfo -&gt; DeleteRealtimeEndpointResponse)
+-&gt; Lens
+     DeleteRealtimeEndpointResponse
+     DeleteRealtimeEndpointResponse
+     (Maybe RealtimeEndpointInfo)
+     (Maybe RealtimeEndpointInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257447"><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+realtimeEndpointInfo :: Maybe RealtimeEndpointInfo
+$sel:realtimeEndpointInfo:DeleteRealtimeEndpointResponse' :: DeleteRealtimeEndpointResponse -&gt; Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679257447"><span class="hs-identifier hs-var hs-var">realtimeEndpointInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679257447"><span class="hs-identifier hs-var">realtimeEndpointInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257446"><span class="annot"><span class="annottext">s :: DeleteRealtimeEndpointResponse
+</span><a href="#local-6989586621679257446"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257445"><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679257445"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse
+</span><a href="#local-6989586621679257446"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:realtimeEndpointInfo:DeleteRealtimeEndpointResponse' :: Maybe RealtimeEndpointInfo
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3ArealtimeEndpointInfo%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">realtimeEndpointInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RealtimeEndpointInfo
+</span><a href="#local-6989586621679257445"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | A user-supplied ID that uniquely identifies the @MLModel@. This value</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- should be identical to the value of the @MLModelId@ in the request.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_mLModelId"><span class="hs-identifier hs-type">deleteRealtimeEndpointResponse_mLModelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="deleteRealtimeEndpointResponse_mLModelId"><span class="annot"><span class="annottext">deleteRealtimeEndpointResponse_mLModelId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteRealtimeEndpointResponse
+-&gt; f DeleteRealtimeEndpointResponse
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_mLModelId"><span class="hs-identifier hs-var hs-var">deleteRealtimeEndpointResponse_mLModelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRealtimeEndpointResponse -&gt; Maybe Text)
+-&gt; (DeleteRealtimeEndpointResponse
+    -&gt; Maybe Text -&gt; DeleteRealtimeEndpointResponse)
+-&gt; Lens
+     DeleteRealtimeEndpointResponse
+     DeleteRealtimeEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257444"><span class="annot"><span class="annottext">Maybe Text
+mLModelId :: Maybe Text
+$sel:mLModelId:DeleteRealtimeEndpointResponse' :: DeleteRealtimeEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679257444"><span class="hs-identifier hs-var hs-var">mLModelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257444"><span class="hs-identifier hs-var">mLModelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257443"><span class="annot"><span class="annottext">s :: DeleteRealtimeEndpointResponse
+</span><a href="#local-6989586621679257443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse
+</span><a href="#local-6989586621679257443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mLModelId:DeleteRealtimeEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AmLModelId%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">mLModelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679257442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_httpStatus"><span class="hs-identifier hs-type">deleteRealtimeEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span id="deleteRealtimeEndpointResponse_httpStatus"><span class="annot"><span class="annottext">deleteRealtimeEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteRealtimeEndpointResponse
+-&gt; f DeleteRealtimeEndpointResponse
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#deleteRealtimeEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteRealtimeEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteRealtimeEndpointResponse -&gt; Int)
+-&gt; (DeleteRealtimeEndpointResponse
+    -&gt; Int -&gt; DeleteRealtimeEndpointResponse)
+-&gt; Lens
+     DeleteRealtimeEndpointResponse
+     DeleteRealtimeEndpointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679257441"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteRealtimeEndpointResponse' :: DeleteRealtimeEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679257441"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257441"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679257440"><span class="annot"><span class="annottext">s :: DeleteRealtimeEndpointResponse
+</span><a href="#local-6989586621679257440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679257439"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteRealtimeEndpointResponse
+</span><a href="#local-6989586621679257440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteRealtimeEndpointResponse' :: Int
+</span><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#%24sel%3AhttpStatus%3ADeleteRealtimeEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679257439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679257437"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.MachineLearning.DeleteRealtimeEndpoint.html#DeleteRealtimeEndpointResponse"><span class="hs-identifier hs-type">DeleteRealtimeEndpointResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

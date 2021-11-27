@@ -1,0 +1,694 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.GetLaunchProfileInitialization</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Get a launch profile initialization.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.GetLaunchProfileInitialization</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier">GetLaunchProfileInitialization</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#newGetLaunchProfileInitialization"><span class="hs-identifier">newGetLaunchProfileInitialization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_studioId"><span class="hs-identifier">getLaunchProfileInitialization_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchProfileProtocolVersions"><span class="hs-identifier">getLaunchProfileInitialization_launchProfileProtocolVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchPurpose"><span class="hs-identifier">getLaunchProfileInitialization_launchPurpose</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchProfileId"><span class="hs-identifier">getLaunchProfileInitialization_launchProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_platform"><span class="hs-identifier">getLaunchProfileInitialization_platform</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier">GetLaunchProfileInitializationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#newGetLaunchProfileInitializationResponse"><span class="hs-identifier">newGetLaunchProfileInitializationResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitializationResponse_launchProfileInitialization"><span class="hs-identifier">getLaunchProfileInitializationResponse_launchProfileInitialization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitializationResponse_httpStatus"><span class="hs-identifier">getLaunchProfileInitializationResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.html"><span class="hs-identifier">Amazonka.Nimble.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newGetLaunchProfileInitialization' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679294762"><span id="local-6989586621679294763"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLaunchProfileInitialization"><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-var">GetLaunchProfileInitialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLaunchProfileInitialization%27"><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">GetLaunchProfileInitialization'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AstudioId%3AGetLaunchProfileInitialization%27"><span class="annot"><span class="annottext">GetLaunchProfileInitialization -&gt; Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AstudioId%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A collection of launch profile protocol versions.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AlaunchProfileProtocolVersions%3AGetLaunchProfileInitialization%27"><span class="annot"><span class="annottext">GetLaunchProfileInitialization -&gt; [Text]
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileProtocolVersions%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var hs-var">launchProfileProtocolVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The launch purpose.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlaunchPurpose%3AGetLaunchProfileInitialization%27"><span class="annot"><span class="annottext">GetLaunchProfileInitialization -&gt; Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchPurpose%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var hs-var">launchPurpose</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AlaunchProfileId%3AGetLaunchProfileInitialization%27"><span class="annot"><span class="annottext">GetLaunchProfileInitialization -&gt; Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileId%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The platform.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aplatform%3AGetLaunchProfileInitialization%27"><span class="annot"><span class="annottext">GetLaunchProfileInitialization -&gt; Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3Aplatform%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294752"><span id="local-6989586621679294754"><span class="annot"><span class="annottext">GetLaunchProfileInitialization
+-&gt; GetLaunchProfileInitialization -&gt; Bool
+(GetLaunchProfileInitialization
+ -&gt; GetLaunchProfileInitialization -&gt; Bool)
+-&gt; (GetLaunchProfileInitialization
+    -&gt; GetLaunchProfileInitialization -&gt; Bool)
+-&gt; Eq GetLaunchProfileInitialization
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLaunchProfileInitialization
+-&gt; GetLaunchProfileInitialization -&gt; Bool
+$c/= :: GetLaunchProfileInitialization
+-&gt; GetLaunchProfileInitialization -&gt; Bool
+== :: GetLaunchProfileInitialization
+-&gt; GetLaunchProfileInitialization -&gt; Bool
+$c== :: GetLaunchProfileInitialization
+-&gt; GetLaunchProfileInitialization -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294743"><span id="local-6989586621679294745"><span id="local-6989586621679294747"><span id="local-6989586621679294749"><span class="annot"><span class="annottext">ReadPrec [GetLaunchProfileInitialization]
+ReadPrec GetLaunchProfileInitialization
+Int -&gt; ReadS GetLaunchProfileInitialization
+ReadS [GetLaunchProfileInitialization]
+(Int -&gt; ReadS GetLaunchProfileInitialization)
+-&gt; ReadS [GetLaunchProfileInitialization]
+-&gt; ReadPrec GetLaunchProfileInitialization
+-&gt; ReadPrec [GetLaunchProfileInitialization]
+-&gt; Read GetLaunchProfileInitialization
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLaunchProfileInitialization]
+$creadListPrec :: ReadPrec [GetLaunchProfileInitialization]
+readPrec :: ReadPrec GetLaunchProfileInitialization
+$creadPrec :: ReadPrec GetLaunchProfileInitialization
+readList :: ReadS [GetLaunchProfileInitialization]
+$creadList :: ReadS [GetLaunchProfileInitialization]
+readsPrec :: Int -&gt; ReadS GetLaunchProfileInitialization
+$creadsPrec :: Int -&gt; ReadS GetLaunchProfileInitialization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294736"><span id="local-6989586621679294738"><span id="local-6989586621679294740"><span class="annot"><span class="annottext">Int -&gt; GetLaunchProfileInitialization -&gt; ShowS
+[GetLaunchProfileInitialization] -&gt; ShowS
+GetLaunchProfileInitialization -&gt; String
+(Int -&gt; GetLaunchProfileInitialization -&gt; ShowS)
+-&gt; (GetLaunchProfileInitialization -&gt; String)
+-&gt; ([GetLaunchProfileInitialization] -&gt; ShowS)
+-&gt; Show GetLaunchProfileInitialization
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLaunchProfileInitialization] -&gt; ShowS
+$cshowList :: [GetLaunchProfileInitialization] -&gt; ShowS
+show :: GetLaunchProfileInitialization -&gt; String
+$cshow :: GetLaunchProfileInitialization -&gt; String
+showsPrec :: Int -&gt; GetLaunchProfileInitialization -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLaunchProfileInitialization -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetLaunchProfileInitialization
+ -&gt; Rep GetLaunchProfileInitialization x)
+-&gt; (forall x.
+    Rep GetLaunchProfileInitialization x
+    -&gt; GetLaunchProfileInitialization)
+-&gt; Generic GetLaunchProfileInitialization
+forall x.
+Rep GetLaunchProfileInitialization x
+-&gt; GetLaunchProfileInitialization
+forall x.
+GetLaunchProfileInitialization
+-&gt; Rep GetLaunchProfileInitialization x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetLaunchProfileInitialization x
+-&gt; GetLaunchProfileInitialization
+$cfrom :: forall x.
+GetLaunchProfileInitialization
+-&gt; Rep GetLaunchProfileInitialization x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'GetLaunchProfileInitialization' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'studioId', 'getLaunchProfileInitialization_studioId' - The studio ID.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'launchProfileProtocolVersions', 'getLaunchProfileInitialization_launchProfileProtocolVersions' - A collection of launch profile protocol versions.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'launchPurpose', 'getLaunchProfileInitialization_launchPurpose' - The launch purpose.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'launchProfileId', 'getLaunchProfileInitialization_launchProfileId' - The launch profile ID.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'platform', 'getLaunchProfileInitialization_platform' - The platform.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#newGetLaunchProfileInitialization"><span class="hs-identifier hs-type">newGetLaunchProfileInitialization</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'launchPurpose'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'launchProfileId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'platform'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span>
+</span><span id="line-95"></span><span id="newGetLaunchProfileInitialization"><span class="annot"><span class="annottext">newGetLaunchProfileInitialization :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; GetLaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#newGetLaunchProfileInitialization"><span class="hs-identifier hs-var hs-var">newGetLaunchProfileInitialization</span></a></span></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679294731"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294731"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621679294730"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294730"><span class="hs-identifier hs-var">pLaunchPurpose_</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679294729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294729"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679294728"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294728"><span class="hs-identifier hs-var">pPlatform_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="annottext">GetLaunchProfileInitialization' :: Text
+-&gt; [Text] -&gt; Text -&gt; Text -&gt; Text -&gt; GetLaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:studioId:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AstudioId%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294731"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>        </span><span class="annot"><span class="annottext">$sel:launchProfileProtocolVersions:GetLaunchProfileInitialization' :: [Text]
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileProtocolVersions%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>          </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:launchPurpose:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchPurpose%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">launchPurpose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294730"><span class="hs-identifier hs-var">pLaunchPurpose_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:launchProfileId:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileId%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294729"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:platform:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3Aplatform%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294728"><span class="hs-identifier hs-var">pPlatform_</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_studioId"><span class="hs-identifier hs-type">getLaunchProfileInitialization_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="getLaunchProfileInitialization_studioId"><span class="annot"><span class="annottext">getLaunchProfileInitialization_studioId :: (Text -&gt; f Text)
+-&gt; GetLaunchProfileInitialization
+-&gt; f GetLaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_studioId"><span class="hs-identifier hs-var hs-var">getLaunchProfileInitialization_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchProfileInitialization -&gt; Text)
+-&gt; (GetLaunchProfileInitialization
+    -&gt; Text -&gt; GetLaunchProfileInitialization)
+-&gt; Lens
+     GetLaunchProfileInitialization
+     GetLaunchProfileInitialization
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294725"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+</span><a href="#local-6989586621679294725"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294725"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294724"><span class="annot"><span class="annottext">s :: GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294724"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294723"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294723"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294724"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AstudioId%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294723"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | A collection of launch profile protocol versions.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchProfileProtocolVersions"><span class="hs-identifier hs-type">getLaunchProfileInitialization_launchProfileProtocolVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span id="getLaunchProfileInitialization_launchProfileProtocolVersions"><span class="annot"><span class="annottext">getLaunchProfileInitialization_launchProfileProtocolVersions :: ([Text] -&gt; f [Text])
+-&gt; GetLaunchProfileInitialization
+-&gt; f GetLaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchProfileProtocolVersions"><span class="hs-identifier hs-var hs-var">getLaunchProfileInitialization_launchProfileProtocolVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchProfileInitialization -&gt; [Text])
+-&gt; (GetLaunchProfileInitialization
+    -&gt; [Text] -&gt; GetLaunchProfileInitialization)
+-&gt; Lens
+     GetLaunchProfileInitialization
+     GetLaunchProfileInitialization
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294722"><span class="annot"><span class="annottext">[Text]
+launchProfileProtocolVersions :: [Text]
+$sel:launchProfileProtocolVersions:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; [Text]
+</span><a href="#local-6989586621679294722"><span class="hs-identifier hs-var hs-var">launchProfileProtocolVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294722"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294721"><span class="annot"><span class="annottext">s :: GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294721"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294720"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294720"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294721"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfileProtocolVersions:GetLaunchProfileInitialization' :: [Text]
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileProtocolVersions%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294720"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GetLaunchProfileInitialization
+ -&gt; f GetLaunchProfileInitialization)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetLaunchProfileInitialization
+-&gt; f GetLaunchProfileInitialization
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The launch purpose.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchPurpose"><span class="hs-identifier hs-type">getLaunchProfileInitialization_launchPurpose</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-120"></span><span id="getLaunchProfileInitialization_launchPurpose"><span class="annot"><span class="annottext">getLaunchProfileInitialization_launchPurpose :: (Text -&gt; f Text)
+-&gt; GetLaunchProfileInitialization
+-&gt; f GetLaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchPurpose"><span class="hs-identifier hs-var hs-var">getLaunchProfileInitialization_launchPurpose</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchProfileInitialization -&gt; Text)
+-&gt; (GetLaunchProfileInitialization
+    -&gt; Text -&gt; GetLaunchProfileInitialization)
+-&gt; Lens
+     GetLaunchProfileInitialization
+     GetLaunchProfileInitialization
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294717"><span class="annot"><span class="annottext">Text
+launchPurpose :: Text
+$sel:launchPurpose:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+</span><a href="#local-6989586621679294717"><span class="hs-identifier hs-var hs-var">launchPurpose</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294717"><span class="hs-identifier hs-var">launchPurpose</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294716"><span class="annot"><span class="annottext">s :: GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchPurpose:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchPurpose%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">launchPurpose</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchProfileId"><span class="hs-identifier hs-type">getLaunchProfileInitialization_launchProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span id="getLaunchProfileInitialization_launchProfileId"><span class="annot"><span class="annottext">getLaunchProfileInitialization_launchProfileId :: (Text -&gt; f Text)
+-&gt; GetLaunchProfileInitialization
+-&gt; f GetLaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_launchProfileId"><span class="hs-identifier hs-var hs-var">getLaunchProfileInitialization_launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchProfileInitialization -&gt; Text)
+-&gt; (GetLaunchProfileInitialization
+    -&gt; Text -&gt; GetLaunchProfileInitialization)
+-&gt; Lens
+     GetLaunchProfileInitialization
+     GetLaunchProfileInitialization
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294714"><span class="annot"><span class="annottext">Text
+launchProfileId :: Text
+$sel:launchProfileId:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+</span><a href="#local-6989586621679294714"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294714"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294713"><span class="annot"><span class="annottext">s :: GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294713"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294712"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294712"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294713"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfileId:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileId%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294712"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The platform.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_platform"><span class="hs-identifier hs-type">getLaunchProfileInitialization_platform</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-128"></span><span id="getLaunchProfileInitialization_platform"><span class="annot"><span class="annottext">getLaunchProfileInitialization_platform :: (Text -&gt; f Text)
+-&gt; GetLaunchProfileInitialization
+-&gt; f GetLaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitialization_platform"><span class="hs-identifier hs-var hs-var">getLaunchProfileInitialization_platform</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchProfileInitialization -&gt; Text)
+-&gt; (GetLaunchProfileInitialization
+    -&gt; Text -&gt; GetLaunchProfileInitialization)
+-&gt; Lens
+     GetLaunchProfileInitialization
+     GetLaunchProfileInitialization
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294711"><span class="annot"><span class="annottext">Text
+platform :: Text
+$sel:platform:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+</span><a href="#local-6989586621679294711"><span class="hs-identifier hs-var hs-var">platform</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294711"><span class="hs-identifier hs-var">platform</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294710"><span class="annot"><span class="annottext">s :: GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294710"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294709"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294709"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchProfileInitialization
+</span><a href="#local-6989586621679294710"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:platform:GetLaunchProfileInitialization' :: Text
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3Aplatform%3AGetLaunchProfileInitialization%27"><span class="hs-identifier hs-var">platform</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294709"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-135"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse</span></a></span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679294705"><span class="annot"><span class="annottext">request :: GetLaunchProfileInitialization
+-&gt; Request GetLaunchProfileInitialization
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetLaunchProfileInitialization
+-&gt; Request GetLaunchProfileInitialization
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679294701"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetLaunchProfileInitialization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetLaunchProfileInitialization)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetLaunchProfileInitialization))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetLaunchProfileInitialization
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse GetLaunchProfileInitialization)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679294698"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294698"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679294697"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679294697"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679294696"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294696"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-141"></span><span>          </span><span class="annot"><span class="annottext">Maybe LaunchProfileInitialization
+-&gt; Int -&gt; GetLaunchProfileInitializationResponse
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var">GetLaunchProfileInitializationResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LaunchProfileInitialization
+ -&gt; Int -&gt; GetLaunchProfileInitializationResponse)
+-&gt; Either String (Maybe LaunchProfileInitialization)
+-&gt; Either String (Int -&gt; GetLaunchProfileInitializationResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679294696"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LaunchProfileInitialization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchProfileInitialization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetLaunchProfileInitializationResponse)
+-&gt; Either String Int
+-&gt; Either String GetLaunchProfileInitializationResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294698"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679294688"><span id="local-6989586621679294690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679294685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679294681"><span class="annot"><span class="annottext">toHeaders :: GetLaunchProfileInitialization -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; GetLaunchProfileInitialization -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-163"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-164"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679294675"><span class="annot"><span class="annottext">toPath :: GetLaunchProfileInitialization -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294669"><span id="local-6989586621679294670"><span id="local-6989586621679294671"><span id="local-6989586621679294672"><span id="local-6989586621679294673"><span class="annot"><span class="annottext">[Text]
+Text
+platform :: Text
+launchProfileId :: Text
+launchPurpose :: Text
+launchProfileProtocolVersions :: [Text]
+studioId :: Text
+$sel:platform:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+$sel:launchProfileId:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+$sel:launchPurpose:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+$sel:launchProfileProtocolVersions:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; [Text]
+$sel:studioId:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+</span><a href="#local-6989586621679294669"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294673"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/launch-profiles/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294670"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/init&quot;</span></span><span>
+</span><span id="line-176"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization"><span class="hs-identifier hs-type">GetLaunchProfileInitialization</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679294665"><span class="annot"><span class="annottext">toQuery :: GetLaunchProfileInitialization -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitialization%27"><span class="hs-identifier hs-type">GetLaunchProfileInitialization'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294659"><span id="local-6989586621679294660"><span id="local-6989586621679294661"><span id="local-6989586621679294662"><span id="local-6989586621679294663"><span class="annot"><span class="annottext">[Text]
+Text
+platform :: Text
+launchProfileId :: Text
+launchPurpose :: Text
+launchProfileProtocolVersions :: [Text]
+studioId :: Text
+$sel:platform:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+$sel:launchProfileId:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+$sel:launchPurpose:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+$sel:launchProfileProtocolVersions:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; [Text]
+$sel:studioId:GetLaunchProfileInitialization' :: GetLaunchProfileInitialization -&gt; Text
+</span><a href="#local-6989586621679294659"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;launchProfileProtocolVersions&quot;</span></span><span>
+</span><span id="line-182"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679294662"><span class="hs-identifier hs-var">launchProfileProtocolVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;launchPurpose&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294661"><span class="hs-identifier hs-var">launchPurpose</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;platform&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679294659"><span class="hs-identifier hs-var">platform</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | /See:/ 'newGetLaunchProfileInitializationResponse' smart constructor.</span><span>
+</span><span id="line-190"></span><span id="local-6989586621679294655"><span id="local-6989586621679294656"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetLaunchProfileInitializationResponse"><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-var">GetLaunchProfileInitializationResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetLaunchProfileInitializationResponse%27"><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var">GetLaunchProfileInitializationResponse'</span></a></span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch profile initialization.</span><span>
+</span><span id="line-192"></span><span>    </span><span id="%24sel%3AlaunchProfileInitialization%3AGetLaunchProfileInitializationResponse%27"><span class="annot"><span class="annottext">GetLaunchProfileInitializationResponse
+-&gt; Maybe LaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileInitialization%3AGetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var hs-var">launchProfileInitialization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.LaunchProfileInitialization.html#LaunchProfileInitialization"><span class="hs-identifier hs-type">LaunchProfileInitialization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetLaunchProfileInitializationResponse%27"><span class="annot"><span class="annottext">GetLaunchProfileInitializationResponse -&gt; Int
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AhttpStatus%3AGetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679294649"><span id="local-6989586621679294651"><span class="annot"><span class="annottext">GetLaunchProfileInitializationResponse
+-&gt; GetLaunchProfileInitializationResponse -&gt; Bool
+(GetLaunchProfileInitializationResponse
+ -&gt; GetLaunchProfileInitializationResponse -&gt; Bool)
+-&gt; (GetLaunchProfileInitializationResponse
+    -&gt; GetLaunchProfileInitializationResponse -&gt; Bool)
+-&gt; Eq GetLaunchProfileInitializationResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetLaunchProfileInitializationResponse
+-&gt; GetLaunchProfileInitializationResponse -&gt; Bool
+$c/= :: GetLaunchProfileInitializationResponse
+-&gt; GetLaunchProfileInitializationResponse -&gt; Bool
+== :: GetLaunchProfileInitializationResponse
+-&gt; GetLaunchProfileInitializationResponse -&gt; Bool
+$c== :: GetLaunchProfileInitializationResponse
+-&gt; GetLaunchProfileInitializationResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294641"><span id="local-6989586621679294643"><span id="local-6989586621679294645"><span id="local-6989586621679294647"><span class="annot"><span class="annottext">ReadPrec [GetLaunchProfileInitializationResponse]
+ReadPrec GetLaunchProfileInitializationResponse
+Int -&gt; ReadS GetLaunchProfileInitializationResponse
+ReadS [GetLaunchProfileInitializationResponse]
+(Int -&gt; ReadS GetLaunchProfileInitializationResponse)
+-&gt; ReadS [GetLaunchProfileInitializationResponse]
+-&gt; ReadPrec GetLaunchProfileInitializationResponse
+-&gt; ReadPrec [GetLaunchProfileInitializationResponse]
+-&gt; Read GetLaunchProfileInitializationResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetLaunchProfileInitializationResponse]
+$creadListPrec :: ReadPrec [GetLaunchProfileInitializationResponse]
+readPrec :: ReadPrec GetLaunchProfileInitializationResponse
+$creadPrec :: ReadPrec GetLaunchProfileInitializationResponse
+readList :: ReadS [GetLaunchProfileInitializationResponse]
+$creadList :: ReadS [GetLaunchProfileInitializationResponse]
+readsPrec :: Int -&gt; ReadS GetLaunchProfileInitializationResponse
+$creadsPrec :: Int -&gt; ReadS GetLaunchProfileInitializationResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679294635"><span id="local-6989586621679294637"><span id="local-6989586621679294639"><span class="annot"><span class="annottext">Int -&gt; GetLaunchProfileInitializationResponse -&gt; ShowS
+[GetLaunchProfileInitializationResponse] -&gt; ShowS
+GetLaunchProfileInitializationResponse -&gt; String
+(Int -&gt; GetLaunchProfileInitializationResponse -&gt; ShowS)
+-&gt; (GetLaunchProfileInitializationResponse -&gt; String)
+-&gt; ([GetLaunchProfileInitializationResponse] -&gt; ShowS)
+-&gt; Show GetLaunchProfileInitializationResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetLaunchProfileInitializationResponse] -&gt; ShowS
+$cshowList :: [GetLaunchProfileInitializationResponse] -&gt; ShowS
+show :: GetLaunchProfileInitializationResponse -&gt; String
+$cshow :: GetLaunchProfileInitializationResponse -&gt; String
+showsPrec :: Int -&gt; GetLaunchProfileInitializationResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetLaunchProfileInitializationResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetLaunchProfileInitializationResponse
+ -&gt; Rep GetLaunchProfileInitializationResponse x)
+-&gt; (forall x.
+    Rep GetLaunchProfileInitializationResponse x
+    -&gt; GetLaunchProfileInitializationResponse)
+-&gt; Generic GetLaunchProfileInitializationResponse
+forall x.
+Rep GetLaunchProfileInitializationResponse x
+-&gt; GetLaunchProfileInitializationResponse
+forall x.
+GetLaunchProfileInitializationResponse
+-&gt; Rep GetLaunchProfileInitializationResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetLaunchProfileInitializationResponse x
+-&gt; GetLaunchProfileInitializationResponse
+$cfrom :: forall x.
+GetLaunchProfileInitializationResponse
+-&gt; Rep GetLaunchProfileInitializationResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- Create a value of 'GetLaunchProfileInitializationResponse' with all optional fields omitted.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- 'launchProfileInitialization', 'getLaunchProfileInitializationResponse_launchProfileInitialization' - The launch profile initialization.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- 'httpStatus', 'getLaunchProfileInitializationResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#newGetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">newGetLaunchProfileInitializationResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse</span></a></span><span>
+</span><span id="line-213"></span><span id="newGetLaunchProfileInitializationResponse"><span class="annot"><span class="annottext">newGetLaunchProfileInitializationResponse :: Int -&gt; GetLaunchProfileInitializationResponse
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#newGetLaunchProfileInitializationResponse"><span class="hs-identifier hs-var hs-var">newGetLaunchProfileInitializationResponse</span></a></span></span><span>
+</span><span id="line-214"></span><span>  </span><span id="local-6989586621679294632"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="annottext">GetLaunchProfileInitializationResponse' :: Maybe LaunchProfileInitialization
+-&gt; Int -&gt; GetLaunchProfileInitializationResponse
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse'</span></a></span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchProfileInitialization:GetLaunchProfileInitializationResponse' :: Maybe LaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileInitialization%3AGetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var">launchProfileInitialization</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-217"></span><span>          </span><span class="annot"><span class="annottext">Maybe LaunchProfileInitialization
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:GetLaunchProfileInitializationResponse' :: Int
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AhttpStatus%3AGetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294632"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-219"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The launch profile initialization.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitializationResponse_launchProfileInitialization"><span class="hs-identifier hs-type">getLaunchProfileInitializationResponse_launchProfileInitialization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.LaunchProfileInitialization.html#LaunchProfileInitialization"><span class="hs-identifier hs-type">LaunchProfileInitialization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span id="getLaunchProfileInitializationResponse_launchProfileInitialization"><span class="annot"><span class="annottext">getLaunchProfileInitializationResponse_launchProfileInitialization :: (Maybe LaunchProfileInitialization
+ -&gt; f (Maybe LaunchProfileInitialization))
+-&gt; GetLaunchProfileInitializationResponse
+-&gt; f GetLaunchProfileInitializationResponse
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitializationResponse_launchProfileInitialization"><span class="hs-identifier hs-var hs-var">getLaunchProfileInitializationResponse_launchProfileInitialization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchProfileInitializationResponse
+ -&gt; Maybe LaunchProfileInitialization)
+-&gt; (GetLaunchProfileInitializationResponse
+    -&gt; Maybe LaunchProfileInitialization
+    -&gt; GetLaunchProfileInitializationResponse)
+-&gt; Lens
+     GetLaunchProfileInitializationResponse
+     GetLaunchProfileInitializationResponse
+     (Maybe LaunchProfileInitialization)
+     (Maybe LaunchProfileInitialization)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294631"><span class="annot"><span class="annottext">Maybe LaunchProfileInitialization
+launchProfileInitialization :: Maybe LaunchProfileInitialization
+$sel:launchProfileInitialization:GetLaunchProfileInitializationResponse' :: GetLaunchProfileInitializationResponse
+-&gt; Maybe LaunchProfileInitialization
+</span><a href="#local-6989586621679294631"><span class="hs-identifier hs-var hs-var">launchProfileInitialization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchProfileInitialization
+</span><a href="#local-6989586621679294631"><span class="hs-identifier hs-var">launchProfileInitialization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294630"><span class="annot"><span class="annottext">s :: GetLaunchProfileInitializationResponse
+</span><a href="#local-6989586621679294630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294629"><span class="annot"><span class="annottext">Maybe LaunchProfileInitialization
+</span><a href="#local-6989586621679294629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchProfileInitializationResponse
+</span><a href="#local-6989586621679294630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfileInitialization:GetLaunchProfileInitializationResponse' :: Maybe LaunchProfileInitialization
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AlaunchProfileInitialization%3AGetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var">launchProfileInitialization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchProfileInitialization
+</span><a href="#local-6989586621679294629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitializationResponse_httpStatus"><span class="hs-identifier hs-type">getLaunchProfileInitializationResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-227"></span><span id="getLaunchProfileInitializationResponse_httpStatus"><span class="annot"><span class="annottext">getLaunchProfileInitializationResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetLaunchProfileInitializationResponse
+-&gt; f GetLaunchProfileInitializationResponse
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#getLaunchProfileInitializationResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getLaunchProfileInitializationResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetLaunchProfileInitializationResponse -&gt; Int)
+-&gt; (GetLaunchProfileInitializationResponse
+    -&gt; Int -&gt; GetLaunchProfileInitializationResponse)
+-&gt; Lens
+     GetLaunchProfileInitializationResponse
+     GetLaunchProfileInitializationResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679294628"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetLaunchProfileInitializationResponse' :: GetLaunchProfileInitializationResponse -&gt; Int
+</span><a href="#local-6989586621679294628"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294628"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679294627"><span class="annot"><span class="annottext">s :: GetLaunchProfileInitializationResponse
+</span><a href="#local-6989586621679294627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679294626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetLaunchProfileInitializationResponse
+</span><a href="#local-6989586621679294627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetLaunchProfileInitializationResponse' :: Int
+</span><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#%24sel%3AhttpStatus%3AGetLaunchProfileInitializationResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679294626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679294624"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetLaunchProfileInitialization.html#GetLaunchProfileInitializationResponse"><span class="hs-identifier hs-type">GetLaunchProfileInitializationResponse</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

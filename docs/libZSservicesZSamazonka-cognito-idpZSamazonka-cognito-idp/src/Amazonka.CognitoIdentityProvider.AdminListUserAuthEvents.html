@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists a history of user activity and any risks detected as part of</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Amazon Cognito advanced security.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#newAdminListUserAuthEvents"><span class="hs-identifier">newAdminListUserAuthEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_nextToken"><span class="hs-identifier">adminListUserAuthEvents_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_maxResults"><span class="hs-identifier">adminListUserAuthEvents_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_userPoolId"><span class="hs-identifier">adminListUserAuthEvents_userPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_username"><span class="hs-identifier">adminListUserAuthEvents_username</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier">AdminListUserAuthEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#newAdminListUserAuthEventsResponse"><span class="hs-identifier">newAdminListUserAuthEventsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_nextToken"><span class="hs-identifier">adminListUserAuthEventsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_authEvents"><span class="hs-identifier">adminListUserAuthEventsResponse_authEvents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_httpStatus"><span class="hs-identifier">adminListUserAuthEventsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.html"><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newAdminListUserAuthEvents' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679456182"><span id="local-6989586621679456183"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminListUserAuthEvents"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-var">AdminListUserAuthEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminListUserAuthEvents%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-var">AdminListUserAuthEvents'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AAdminListUserAuthEvents%27"><span class="annot"><span class="annottext">AdminListUserAuthEvents -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AnextToken%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of authentication events to return.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AAdminListUserAuthEvents%27"><span class="annot"><span class="annottext">AdminListUserAuthEvents -&gt; Maybe Natural
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AmaxResults%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AuserPoolId%3AAdminListUserAuthEvents%27"><span class="annot"><span class="annottext">AdminListUserAuthEvents -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AuserPoolId%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The user pool username or an alias.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3Ausername%3AAdminListUserAuthEvents%27"><span class="annot"><span class="annottext">AdminListUserAuthEvents -&gt; Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3Ausername%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456173"><span id="local-6989586621679456175"><span class="annot"><span class="annottext">AdminListUserAuthEvents -&gt; AdminListUserAuthEvents -&gt; Bool
+(AdminListUserAuthEvents -&gt; AdminListUserAuthEvents -&gt; Bool)
+-&gt; (AdminListUserAuthEvents -&gt; AdminListUserAuthEvents -&gt; Bool)
+-&gt; Eq AdminListUserAuthEvents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AdminListUserAuthEvents -&gt; AdminListUserAuthEvents -&gt; Bool
+$c/= :: AdminListUserAuthEvents -&gt; AdminListUserAuthEvents -&gt; Bool
+== :: AdminListUserAuthEvents -&gt; AdminListUserAuthEvents -&gt; Bool
+$c== :: AdminListUserAuthEvents -&gt; AdminListUserAuthEvents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456166"><span id="local-6989586621679456168"><span id="local-6989586621679456170"><span class="annot"><span class="annottext">Int -&gt; AdminListUserAuthEvents -&gt; ShowS
+[AdminListUserAuthEvents] -&gt; ShowS
+AdminListUserAuthEvents -&gt; String
+(Int -&gt; AdminListUserAuthEvents -&gt; ShowS)
+-&gt; (AdminListUserAuthEvents -&gt; String)
+-&gt; ([AdminListUserAuthEvents] -&gt; ShowS)
+-&gt; Show AdminListUserAuthEvents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AdminListUserAuthEvents] -&gt; ShowS
+$cshowList :: [AdminListUserAuthEvents] -&gt; ShowS
+show :: AdminListUserAuthEvents -&gt; String
+$cshow :: AdminListUserAuthEvents -&gt; String
+showsPrec :: Int -&gt; AdminListUserAuthEvents -&gt; ShowS
+$cshowsPrec :: Int -&gt; AdminListUserAuthEvents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AdminListUserAuthEvents -&gt; Rep AdminListUserAuthEvents x)
+-&gt; (forall x.
+    Rep AdminListUserAuthEvents x -&gt; AdminListUserAuthEvents)
+-&gt; Generic AdminListUserAuthEvents
+forall x. Rep AdminListUserAuthEvents x -&gt; AdminListUserAuthEvents
+forall x. AdminListUserAuthEvents -&gt; Rep AdminListUserAuthEvents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AdminListUserAuthEvents x -&gt; AdminListUserAuthEvents
+$cfrom :: forall x. AdminListUserAuthEvents -&gt; Rep AdminListUserAuthEvents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'AdminListUserAuthEvents' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'nextToken', 'adminListUserAuthEvents_nextToken' - A pagination token.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxResults', 'adminListUserAuthEvents_maxResults' - The maximum number of authentication events to return.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'userPoolId', 'adminListUserAuthEvents_userPoolId' - The user pool ID.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'username', 'adminListUserAuthEvents_username' - The user pool username or an alias.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#newAdminListUserAuthEvents"><span class="hs-identifier hs-type">newAdminListUserAuthEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'userPoolId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'username'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span>
+</span><span id="line-90"></span><span id="newAdminListUserAuthEvents"><span class="annot"><span class="annottext">newAdminListUserAuthEvents :: Text -&gt; Text -&gt; AdminListUserAuthEvents
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#newAdminListUserAuthEvents"><span class="hs-identifier hs-var hs-var">newAdminListUserAuthEvents</span></a></span></span><span> </span><span id="local-6989586621679456161"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456161"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span></span><span> </span><span id="local-6989586621679456160"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456160"><span class="hs-identifier hs-var">pUsername_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="annottext">AdminListUserAuthEvents' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; AdminListUserAuthEvents
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:AdminListUserAuthEvents' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AnextToken%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:AdminListUserAuthEvents' :: Maybe Natural
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AmaxResults%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:userPoolId:AdminListUserAuthEvents' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AuserPoolId%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456161"><span class="hs-identifier hs-var">pUserPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:username:AdminListUserAuthEvents' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3Ausername%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456160"><span class="hs-identifier hs-var">pUsername_</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A pagination token.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_nextToken"><span class="hs-identifier hs-type">adminListUserAuthEvents_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="adminListUserAuthEvents_nextToken"><span class="annot"><span class="annottext">adminListUserAuthEvents_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AdminListUserAuthEvents -&gt; f AdminListUserAuthEvents
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_nextToken"><span class="hs-identifier hs-var hs-var">adminListUserAuthEvents_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEvents -&gt; Maybe Text)
+-&gt; (AdminListUserAuthEvents
+    -&gt; Maybe Text -&gt; AdminListUserAuthEvents)
+-&gt; Lens
+     AdminListUserAuthEvents
+     AdminListUserAuthEvents
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456156"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679456156"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456156"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456155"><span class="annot"><span class="annottext">s :: AdminListUserAuthEvents
+</span><a href="#local-6989586621679456155"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456154"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456154"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminListUserAuthEvents
+</span><a href="#local-6989586621679456155"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:AdminListUserAuthEvents' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AnextToken%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456154"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The maximum number of authentication events to return.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_maxResults"><span class="hs-identifier hs-type">adminListUserAuthEvents_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="adminListUserAuthEvents_maxResults"><span class="annot"><span class="annottext">adminListUserAuthEvents_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; AdminListUserAuthEvents -&gt; f AdminListUserAuthEvents
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_maxResults"><span class="hs-identifier hs-var hs-var">adminListUserAuthEvents_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEvents -&gt; Maybe Natural)
+-&gt; (AdminListUserAuthEvents
+    -&gt; Maybe Natural -&gt; AdminListUserAuthEvents)
+-&gt; Lens
+     AdminListUserAuthEvents
+     AdminListUserAuthEvents
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456153"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Maybe Natural
+</span><a href="#local-6989586621679456153"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679456153"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456152"><span class="annot"><span class="annottext">s :: AdminListUserAuthEvents
+</span><a href="#local-6989586621679456152"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456151"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679456151"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminListUserAuthEvents
+</span><a href="#local-6989586621679456152"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:AdminListUserAuthEvents' :: Maybe Natural
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AmaxResults%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679456151"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The user pool ID.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_userPoolId"><span class="hs-identifier hs-type">adminListUserAuthEvents_userPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="adminListUserAuthEvents_userPoolId"><span class="annot"><span class="annottext">adminListUserAuthEvents_userPoolId :: (Text -&gt; f Text)
+-&gt; AdminListUserAuthEvents -&gt; f AdminListUserAuthEvents
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_userPoolId"><span class="hs-identifier hs-var hs-var">adminListUserAuthEvents_userPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEvents -&gt; Text)
+-&gt; (AdminListUserAuthEvents -&gt; Text -&gt; AdminListUserAuthEvents)
+-&gt; Lens AdminListUserAuthEvents AdminListUserAuthEvents Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456150"><span class="annot"><span class="annottext">Text
+userPoolId :: Text
+$sel:userPoolId:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Text
+</span><a href="#local-6989586621679456150"><span class="hs-identifier hs-var hs-var">userPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456150"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456149"><span class="annot"><span class="annottext">s :: AdminListUserAuthEvents
+</span><a href="#local-6989586621679456149"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456148"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456148"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminListUserAuthEvents
+</span><a href="#local-6989586621679456149"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userPoolId:AdminListUserAuthEvents' :: Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AuserPoolId%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">userPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456148"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The user pool username or an alias.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_username"><span class="hs-identifier hs-type">adminListUserAuthEvents_username</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="adminListUserAuthEvents_username"><span class="annot"><span class="annottext">adminListUserAuthEvents_username :: (Text -&gt; f Text)
+-&gt; AdminListUserAuthEvents -&gt; f AdminListUserAuthEvents
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_username"><span class="hs-identifier hs-var hs-var">adminListUserAuthEvents_username</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEvents -&gt; Sensitive Text)
+-&gt; (AdminListUserAuthEvents
+    -&gt; Sensitive Text -&gt; AdminListUserAuthEvents)
+-&gt; Lens
+     AdminListUserAuthEvents
+     AdminListUserAuthEvents
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456147"><span class="annot"><span class="annottext">Sensitive Text
+username :: Sensitive Text
+$sel:username:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Sensitive Text
+</span><a href="#local-6989586621679456147"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679456147"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456146"><span class="annot"><span class="annottext">s :: AdminListUserAuthEvents
+</span><a href="#local-6989586621679456146"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456145"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679456145"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminListUserAuthEvents
+</span><a href="#local-6989586621679456146"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:username:AdminListUserAuthEvents' :: Sensitive Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3Ausername%3AAdminListUserAuthEvents%27"><span class="hs-identifier hs-var">username</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679456145"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; AdminListUserAuthEvents -&gt; f AdminListUserAuthEvents)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; AdminListUserAuthEvents
+-&gt; f AdminListUserAuthEvents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679456140"><span class="annot"><span class="annottext">page :: AdminListUserAuthEvents
+-&gt; AWSResponse AdminListUserAuthEvents
+-&gt; Maybe AdminListUserAuthEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679456138"><span class="annot"><span class="annottext">AdminListUserAuthEvents
+</span><a href="#local-6989586621679456138"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679456137"><span class="annot"><span class="annottext">AWSResponse AdminListUserAuthEvents
+</span><a href="#local-6989586621679456137"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse AdminListUserAuthEvents
+AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456137"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse
+-&gt; Getting (First Text) AdminListUserAuthEventsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; AdminListUserAuthEventsResponse
+-&gt; Const (First Text) AdminListUserAuthEventsResponse
+Lens' AdminListUserAuthEventsResponse (Maybe Text)
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_nextToken"><span class="hs-identifier hs-var">adminListUserAuthEventsResponse_nextToken</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; AdminListUserAuthEventsResponse
+ -&gt; Const (First Text) AdminListUserAuthEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) AdminListUserAuthEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe AdminListUserAuthEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthEventType] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse AdminListUserAuthEvents
+AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456137"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse
+-&gt; Getting
+     (First [AuthEventType])
+     AdminListUserAuthEventsResponse
+     [AuthEventType]
+-&gt; Maybe [AuthEventType]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [AuthEventType]
+ -&gt; Const (First [AuthEventType]) (Maybe [AuthEventType]))
+-&gt; AdminListUserAuthEventsResponse
+-&gt; Const (First [AuthEventType]) AdminListUserAuthEventsResponse
+Lens' AdminListUserAuthEventsResponse (Maybe [AuthEventType])
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_authEvents"><span class="hs-identifier hs-var">adminListUserAuthEventsResponse_authEvents</span></a></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [AuthEventType]
+  -&gt; Const (First [AuthEventType]) (Maybe [AuthEventType]))
+ -&gt; AdminListUserAuthEventsResponse
+ -&gt; Const (First [AuthEventType]) AdminListUserAuthEventsResponse)
+-&gt; (([AuthEventType]
+     -&gt; Const (First [AuthEventType]) [AuthEventType])
+    -&gt; Maybe [AuthEventType]
+    -&gt; Const (First [AuthEventType]) (Maybe [AuthEventType]))
+-&gt; Getting
+     (First [AuthEventType])
+     AdminListUserAuthEventsResponse
+     [AuthEventType]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([AuthEventType] -&gt; Const (First [AuthEventType]) [AuthEventType])
+-&gt; Maybe [AuthEventType]
+-&gt; Const (First [AuthEventType]) (Maybe [AuthEventType])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe AdminListUserAuthEvents
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">AdminListUserAuthEvents -&gt; Maybe AdminListUserAuthEvents
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEvents -&gt; Maybe AdminListUserAuthEvents)
+-&gt; AdminListUserAuthEvents -&gt; Maybe AdminListUserAuthEvents
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">AdminListUserAuthEvents
+</span><a href="#local-6989586621679456138"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">AdminListUserAuthEvents
+-&gt; (AdminListUserAuthEvents -&gt; AdminListUserAuthEvents)
+-&gt; AdminListUserAuthEvents
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; AdminListUserAuthEvents -&gt; Identity AdminListUserAuthEvents
+Lens
+  AdminListUserAuthEvents
+  AdminListUserAuthEvents
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEvents_nextToken"><span class="hs-identifier hs-var">adminListUserAuthEvents_nextToken</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; AdminListUserAuthEvents -&gt; Identity AdminListUserAuthEvents)
+-&gt; Maybe Text -&gt; AdminListUserAuthEvents -&gt; AdminListUserAuthEvents
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse AdminListUserAuthEvents
+AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456137"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse
+-&gt; Getting (First Text) AdminListUserAuthEventsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; AdminListUserAuthEventsResponse
+-&gt; Const (First Text) AdminListUserAuthEventsResponse
+Lens' AdminListUserAuthEventsResponse (Maybe Text)
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_nextToken"><span class="hs-identifier hs-var">adminListUserAuthEventsResponse_nextToken</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; AdminListUserAuthEventsResponse
+ -&gt; Const (First Text) AdminListUserAuthEventsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) AdminListUserAuthEventsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679456128"><span class="annot"><span class="annottext">request :: AdminListUserAuthEvents -&gt; Request AdminListUserAuthEvents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; AdminListUserAuthEvents -&gt; Request AdminListUserAuthEvents
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoIdentityProvider.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679456124"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy AdminListUserAuthEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AdminListUserAuthEvents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse AdminListUserAuthEvents))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy AdminListUserAuthEvents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse AdminListUserAuthEvents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679456121"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679456121"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679456120"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679456120"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679456119"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679456119"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [AuthEventType] -&gt; Int -&gt; AdminListUserAuthEventsResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">AdminListUserAuthEventsResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [AuthEventType] -&gt; Int -&gt; AdminListUserAuthEventsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [AuthEventType] -&gt; Int -&gt; AdminListUserAuthEventsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679456119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [AuthEventType] -&gt; Int -&gt; AdminListUserAuthEventsResponse)
+-&gt; Either String (Maybe [AuthEventType])
+-&gt; Either String (Int -&gt; AdminListUserAuthEventsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679456119"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [AuthEventType]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthEvents&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AuthEventType]))
+-&gt; Maybe [AuthEventType] -&gt; Either String (Maybe [AuthEventType])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AuthEventType]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; AdminListUserAuthEventsResponse)
+-&gt; Either String Int
+-&gt; Either String AdminListUserAuthEventsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679456121"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456110"><span id="local-6989586621679456112"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456107"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679456103"><span class="annot"><span class="annottext">toHeaders :: AdminListUserAuthEvents -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; AdminListUserAuthEvents -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSCognitoIdentityProviderService.AdminListUserAuthEvents&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-162"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679456093"><span id="local-6989586621679456095"><span id="local-6989586621679456097"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679456091"><span class="annot"><span class="annottext">toJSON :: AdminListUserAuthEvents -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents%27"><span class="hs-identifier hs-type">AdminListUserAuthEvents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456086"><span id="local-6989586621679456087"><span id="local-6989586621679456088"><span id="local-6989586621679456089"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+Sensitive Text
+username :: Sensitive Text
+userPoolId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:username:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Sensitive Text
+$sel:userPoolId:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Text
+$sel:maxResults:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Maybe Natural
+$sel:nextToken:AdminListUserAuthEvents' :: AdminListUserAuthEvents -&gt; Maybe Text
+</span><a href="#local-6989586621679456086"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456089"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679456088"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserPoolId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679456087"><span class="hs-identifier hs-var">userPoolId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Username&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679456086"><span class="hs-identifier hs-var">username</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679456080"><span class="annot"><span class="annottext">toPath :: AdminListUserAuthEvents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; AdminListUserAuthEvents -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEvents"><span class="hs-identifier hs-type">AdminListUserAuthEvents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679456076"><span class="annot"><span class="annottext">toQuery :: AdminListUserAuthEvents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; AdminListUserAuthEvents -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | /See:/ 'newAdminListUserAuthEventsResponse' smart constructor.</span><span>
+</span><span id="line-188"></span><span id="local-6989586621679456073"><span id="local-6989586621679456074"></span></span><span class="hs-keyword">data</span><span> </span><span id="AdminListUserAuthEventsResponse"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-var">AdminListUserAuthEventsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminListUserAuthEventsResponse%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">AdminListUserAuthEventsResponse'</span></a></span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A pagination token.</span><span>
+</span><span id="line-190"></span><span>    </span><span id="%24sel%3AnextToken%3AAdminListUserAuthEventsResponse%27"><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AnextToken%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">-- | The response object. It includes the @EventID@, @EventType@,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- @CreationDate@, @EventRisk@, and @EventResponse@.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3AauthEvents%3AAdminListUserAuthEventsResponse%27"><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse -&gt; Maybe [AuthEventType]
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AauthEvents%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var hs-var">authEvents</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3AAdminListUserAuthEventsResponse%27"><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse -&gt; Int
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AhttpStatus%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679456066"><span id="local-6989586621679456068"><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse
+-&gt; AdminListUserAuthEventsResponse -&gt; Bool
+(AdminListUserAuthEventsResponse
+ -&gt; AdminListUserAuthEventsResponse -&gt; Bool)
+-&gt; (AdminListUserAuthEventsResponse
+    -&gt; AdminListUserAuthEventsResponse -&gt; Bool)
+-&gt; Eq AdminListUserAuthEventsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AdminListUserAuthEventsResponse
+-&gt; AdminListUserAuthEventsResponse -&gt; Bool
+$c/= :: AdminListUserAuthEventsResponse
+-&gt; AdminListUserAuthEventsResponse -&gt; Bool
+== :: AdminListUserAuthEventsResponse
+-&gt; AdminListUserAuthEventsResponse -&gt; Bool
+$c== :: AdminListUserAuthEventsResponse
+-&gt; AdminListUserAuthEventsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456058"><span id="local-6989586621679456060"><span id="local-6989586621679456062"><span id="local-6989586621679456064"><span class="annot"><span class="annottext">ReadPrec [AdminListUserAuthEventsResponse]
+ReadPrec AdminListUserAuthEventsResponse
+Int -&gt; ReadS AdminListUserAuthEventsResponse
+ReadS [AdminListUserAuthEventsResponse]
+(Int -&gt; ReadS AdminListUserAuthEventsResponse)
+-&gt; ReadS [AdminListUserAuthEventsResponse]
+-&gt; ReadPrec AdminListUserAuthEventsResponse
+-&gt; ReadPrec [AdminListUserAuthEventsResponse]
+-&gt; Read AdminListUserAuthEventsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AdminListUserAuthEventsResponse]
+$creadListPrec :: ReadPrec [AdminListUserAuthEventsResponse]
+readPrec :: ReadPrec AdminListUserAuthEventsResponse
+$creadPrec :: ReadPrec AdminListUserAuthEventsResponse
+readList :: ReadS [AdminListUserAuthEventsResponse]
+$creadList :: ReadS [AdminListUserAuthEventsResponse]
+readsPrec :: Int -&gt; ReadS AdminListUserAuthEventsResponse
+$creadsPrec :: Int -&gt; ReadS AdminListUserAuthEventsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679456051"><span id="local-6989586621679456053"><span id="local-6989586621679456055"><span class="annot"><span class="annottext">Int -&gt; AdminListUserAuthEventsResponse -&gt; ShowS
+[AdminListUserAuthEventsResponse] -&gt; ShowS
+AdminListUserAuthEventsResponse -&gt; String
+(Int -&gt; AdminListUserAuthEventsResponse -&gt; ShowS)
+-&gt; (AdminListUserAuthEventsResponse -&gt; String)
+-&gt; ([AdminListUserAuthEventsResponse] -&gt; ShowS)
+-&gt; Show AdminListUserAuthEventsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AdminListUserAuthEventsResponse] -&gt; ShowS
+$cshowList :: [AdminListUserAuthEventsResponse] -&gt; ShowS
+show :: AdminListUserAuthEventsResponse -&gt; String
+$cshow :: AdminListUserAuthEventsResponse -&gt; String
+showsPrec :: Int -&gt; AdminListUserAuthEventsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; AdminListUserAuthEventsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AdminListUserAuthEventsResponse
+ -&gt; Rep AdminListUserAuthEventsResponse x)
+-&gt; (forall x.
+    Rep AdminListUserAuthEventsResponse x
+    -&gt; AdminListUserAuthEventsResponse)
+-&gt; Generic AdminListUserAuthEventsResponse
+forall x.
+Rep AdminListUserAuthEventsResponse x
+-&gt; AdminListUserAuthEventsResponse
+forall x.
+AdminListUserAuthEventsResponse
+-&gt; Rep AdminListUserAuthEventsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AdminListUserAuthEventsResponse x
+-&gt; AdminListUserAuthEventsResponse
+$cfrom :: forall x.
+AdminListUserAuthEventsResponse
+-&gt; Rep AdminListUserAuthEventsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'AdminListUserAuthEventsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'nextToken', 'adminListUserAuthEventsResponse_nextToken' - A pagination token.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'authEvents', 'adminListUserAuthEventsResponse_authEvents' - The response object. It includes the @EventID@, @EventType@,</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- @CreationDate@, @EventRisk@, and @EventResponse@.</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'httpStatus', 'adminListUserAuthEventsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#newAdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">newAdminListUserAuthEventsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span>
+</span><span id="line-217"></span><span id="newAdminListUserAuthEventsResponse"><span class="annot"><span class="annottext">newAdminListUserAuthEventsResponse :: Int -&gt; AdminListUserAuthEventsResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#newAdminListUserAuthEventsResponse"><span class="hs-identifier hs-var hs-var">newAdminListUserAuthEventsResponse</span></a></span></span><span> </span><span id="local-6989586621679456048"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679456048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse' :: Maybe Text
+-&gt; Maybe [AuthEventType] -&gt; Int -&gt; AdminListUserAuthEventsResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse'</span></a></span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:AdminListUserAuthEventsResponse' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AnextToken%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:authEvents:AdminListUserAuthEventsResponse' :: Maybe [AuthEventType]
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AauthEvents%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">authEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthEventType]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:AdminListUserAuthEventsResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AhttpStatus%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679456048"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | A pagination token.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_nextToken"><span class="hs-identifier hs-type">adminListUserAuthEventsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="adminListUserAuthEventsResponse_nextToken"><span class="annot"><span class="annottext">adminListUserAuthEventsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AdminListUserAuthEventsResponse
+-&gt; f AdminListUserAuthEventsResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_nextToken"><span class="hs-identifier hs-var hs-var">adminListUserAuthEventsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEventsResponse -&gt; Maybe Text)
+-&gt; (AdminListUserAuthEventsResponse
+    -&gt; Maybe Text -&gt; AdminListUserAuthEventsResponse)
+-&gt; Lens' AdminListUserAuthEventsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456047"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:AdminListUserAuthEventsResponse' :: AdminListUserAuthEventsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679456047"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456047"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456046"><span class="annot"><span class="annottext">s :: AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456045"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:AdminListUserAuthEventsResponse' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AnextToken%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679456045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The response object. It includes the @EventID@, @EventType@,</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- @CreationDate@, @EventRisk@, and @EventResponse@.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_authEvents"><span class="hs-identifier hs-type">adminListUserAuthEventsResponse_authEvents</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.AuthEventType.html#AuthEventType"><span class="hs-identifier hs-type">AuthEventType</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="adminListUserAuthEventsResponse_authEvents"><span class="annot"><span class="annottext">adminListUserAuthEventsResponse_authEvents :: (Maybe [AuthEventType] -&gt; f (Maybe [AuthEventType]))
+-&gt; AdminListUserAuthEventsResponse
+-&gt; f AdminListUserAuthEventsResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_authEvents"><span class="hs-identifier hs-var hs-var">adminListUserAuthEventsResponse_authEvents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEventsResponse -&gt; Maybe [AuthEventType])
+-&gt; (AdminListUserAuthEventsResponse
+    -&gt; Maybe [AuthEventType] -&gt; AdminListUserAuthEventsResponse)
+-&gt; Lens' AdminListUserAuthEventsResponse (Maybe [AuthEventType])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456044"><span class="annot"><span class="annottext">Maybe [AuthEventType]
+authEvents :: Maybe [AuthEventType]
+$sel:authEvents:AdminListUserAuthEventsResponse' :: AdminListUserAuthEventsResponse -&gt; Maybe [AuthEventType]
+</span><a href="#local-6989586621679456044"><span class="hs-identifier hs-var hs-var">authEvents</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthEventType]
+</span><a href="#local-6989586621679456044"><span class="hs-identifier hs-var">authEvents</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456043"><span class="annot"><span class="annottext">s :: AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456043"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456042"><span class="annot"><span class="annottext">Maybe [AuthEventType]
+</span><a href="#local-6989586621679456042"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456043"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authEvents:AdminListUserAuthEventsResponse' :: Maybe [AuthEventType]
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AauthEvents%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">authEvents</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AuthEventType]
+</span><a href="#local-6989586621679456042"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AuthEventType] -&gt; f (Maybe [AuthEventType]))
+ -&gt; AdminListUserAuthEventsResponse
+ -&gt; f AdminListUserAuthEventsResponse)
+-&gt; ((Maybe [AuthEventType] -&gt; f (Maybe [AuthEventType]))
+    -&gt; Maybe [AuthEventType] -&gt; f (Maybe [AuthEventType]))
+-&gt; (Maybe [AuthEventType] -&gt; f (Maybe [AuthEventType]))
+-&gt; AdminListUserAuthEventsResponse
+-&gt; f AdminListUserAuthEventsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AuthEventType] [AuthEventType] [AuthEventType] [AuthEventType]
+-&gt; Iso
+     (Maybe [AuthEventType])
+     (Maybe [AuthEventType])
+     (Maybe [AuthEventType])
+     (Maybe [AuthEventType])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AuthEventType] [AuthEventType] [AuthEventType] [AuthEventType]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_httpStatus"><span class="hs-identifier hs-type">adminListUserAuthEventsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-236"></span><span id="adminListUserAuthEventsResponse_httpStatus"><span class="annot"><span class="annottext">adminListUserAuthEventsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; AdminListUserAuthEventsResponse
+-&gt; f AdminListUserAuthEventsResponse
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#adminListUserAuthEventsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">adminListUserAuthEventsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AdminListUserAuthEventsResponse -&gt; Int)
+-&gt; (AdminListUserAuthEventsResponse
+    -&gt; Int -&gt; AdminListUserAuthEventsResponse)
+-&gt; Lens
+     AdminListUserAuthEventsResponse
+     AdminListUserAuthEventsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679456039"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:AdminListUserAuthEventsResponse' :: AdminListUserAuthEventsResponse -&gt; Int
+</span><a href="#local-6989586621679456039"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679456039"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679456038"><span class="annot"><span class="annottext">s :: AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679456037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679456037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AdminListUserAuthEventsResponse
+</span><a href="#local-6989586621679456038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:AdminListUserAuthEventsResponse' :: Int
+</span><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#%24sel%3AhttpStatus%3AAdminListUserAuthEventsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679456037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-239"></span><span>  </span><span id="local-6989586621679456035"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-240"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.AdminListUserAuthEvents.html#AdminListUserAuthEventsResponse"><span class="hs-identifier hs-type">AdminListUserAuthEventsResponse</span></a></span></span><span>
+</span><span id="line-241"></span></pre></body></html>

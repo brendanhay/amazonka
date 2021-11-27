@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Glue.Types.Logical</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glue.Types.Logical</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical"><span class="hs-identifier">Logical</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical_AND"><span class="hs-identifier">Logical_AND</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical_ANY"><span class="hs-identifier">Logical_ANY</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679690028"><span id="local-6989586621679690029"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Logical"><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical"><span class="hs-identifier hs-var">Logical</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Logical%27"><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical%27"><span class="hs-identifier hs-var">Logical'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromLogical"><span class="annot"><span class="annottext">Logical -&gt; Text
+</span><a href="Amazonka.Glue.Types.Logical.html#fromLogical"><span class="hs-identifier hs-var hs-var">fromLogical</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679690020"><span id="local-6989586621679690022"><span id="local-6989586621679690024"><span class="annot"><span class="annottext">Int -&gt; Logical -&gt; ShowS
+[Logical] -&gt; ShowS
+Logical -&gt; String
+(Int -&gt; Logical -&gt; ShowS)
+-&gt; (Logical -&gt; String) -&gt; ([Logical] -&gt; ShowS) -&gt; Show Logical
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Logical] -&gt; ShowS
+$cshowList :: [Logical] -&gt; ShowS
+show :: Logical -&gt; String
+$cshow :: Logical -&gt; String
+showsPrec :: Int -&gt; Logical -&gt; ShowS
+$cshowsPrec :: Int -&gt; Logical -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>      </span><span id="local-6989586621679690011"><span id="local-6989586621679690013"><span id="local-6989586621679690015"><span id="local-6989586621679690017"><span class="annot"><span class="annottext">ReadPrec [Logical]
+ReadPrec Logical
+Int -&gt; ReadS Logical
+ReadS [Logical]
+(Int -&gt; ReadS Logical)
+-&gt; ReadS [Logical]
+-&gt; ReadPrec Logical
+-&gt; ReadPrec [Logical]
+-&gt; Read Logical
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Logical]
+$creadListPrec :: ReadPrec [Logical]
+readPrec :: ReadPrec Logical
+$creadPrec :: ReadPrec Logical
+readList :: ReadS [Logical]
+$creadList :: ReadS [Logical]
+readsPrec :: Int -&gt; ReadS Logical
+$creadsPrec :: Int -&gt; ReadS Logical
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>      </span><span id="local-6989586621679690006"><span id="local-6989586621679690008"><span class="annot"><span class="annottext">Logical -&gt; Logical -&gt; Bool
+(Logical -&gt; Logical -&gt; Bool)
+-&gt; (Logical -&gt; Logical -&gt; Bool) -&gt; Eq Logical
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Logical -&gt; Logical -&gt; Bool
+$c/= :: Logical -&gt; Logical -&gt; Bool
+== :: Logical -&gt; Logical -&gt; Bool
+$c== :: Logical -&gt; Logical -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679689990"><span id="local-6989586621679689992"><span id="local-6989586621679689994"><span id="local-6989586621679689996"><span id="local-6989586621679689998"><span id="local-6989586621679690000"><span id="local-6989586621679690002"><span class="annot"><span class="annottext">Eq Logical
+Eq Logical
+-&gt; (Logical -&gt; Logical -&gt; Ordering)
+-&gt; (Logical -&gt; Logical -&gt; Bool)
+-&gt; (Logical -&gt; Logical -&gt; Bool)
+-&gt; (Logical -&gt; Logical -&gt; Bool)
+-&gt; (Logical -&gt; Logical -&gt; Bool)
+-&gt; (Logical -&gt; Logical -&gt; Logical)
+-&gt; (Logical -&gt; Logical -&gt; Logical)
+-&gt; Ord Logical
+Logical -&gt; Logical -&gt; Bool
+Logical -&gt; Logical -&gt; Ordering
+Logical -&gt; Logical -&gt; Logical
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Logical -&gt; Logical -&gt; Logical
+$cmin :: Logical -&gt; Logical -&gt; Logical
+max :: Logical -&gt; Logical -&gt; Logical
+$cmax :: Logical -&gt; Logical -&gt; Logical
+&gt;= :: Logical -&gt; Logical -&gt; Bool
+$c&gt;= :: Logical -&gt; Logical -&gt; Bool
+&gt; :: Logical -&gt; Logical -&gt; Bool
+$c&gt; :: Logical -&gt; Logical -&gt; Bool
+&lt;= :: Logical -&gt; Logical -&gt; Bool
+$c&lt;= :: Logical -&gt; Logical -&gt; Bool
+&lt; :: Logical -&gt; Logical -&gt; Bool
+$c&lt; :: Logical -&gt; Logical -&gt; Bool
+compare :: Logical -&gt; Logical -&gt; Ordering
+$ccompare :: Logical -&gt; Logical -&gt; Ordering
+$cp1Ord :: Eq Logical
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Logical -&gt; Rep Logical x)
+-&gt; (forall x. Rep Logical x -&gt; Logical) -&gt; Generic Logical
+forall x. Rep Logical x -&gt; Logical
+forall x. Logical -&gt; Rep Logical x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Logical x -&gt; Logical
+$cfrom :: forall x. Logical -&gt; Rep Logical x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679689982"><span id="local-6989586621679689984"><span class="annot"><span class="annottext">Int -&gt; Logical -&gt; Int
+Logical -&gt; Int
+(Int -&gt; Logical -&gt; Int) -&gt; (Logical -&gt; Int) -&gt; Hashable Logical
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Logical -&gt; Int
+$chash :: Logical -&gt; Int
+hashWithSalt :: Int -&gt; Logical -&gt; Int
+$chashWithSalt :: Int -&gt; Logical -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679689979"><span class="annot"><span class="annottext">Logical -&gt; ()
+(Logical -&gt; ()) -&gt; NFData Logical
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Logical -&gt; ()
+$crnf :: Logical -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679689976"><span class="annot"><span class="annottext">Text -&gt; Either String Logical
+(Text -&gt; Either String Logical) -&gt; FromText Logical
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Logical
+$cfromText :: Text -&gt; Either String Logical
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679689973"><span class="annot"><span class="annottext">Logical -&gt; Text
+(Logical -&gt; Text) -&gt; ToText Logical
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Logical -&gt; Text
+$ctoText :: Logical -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679689970"><span class="annot"><span class="annottext">Logical -&gt; ByteString
+(Logical -&gt; ByteString) -&gt; ToByteString Logical
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Logical -&gt; ByteString
+$ctoBS :: Logical -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679689967"><span class="annot"><span class="annottext">Logical -&gt; ByteStringBuilder
+(Logical -&gt; ByteStringBuilder) -&gt; ToLog Logical
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Logical -&gt; ByteStringBuilder
+$cbuild :: Logical -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679689964"><span class="annot"><span class="annottext">HeaderName -&gt; Logical -&gt; [Header]
+(HeaderName -&gt; Logical -&gt; [Header]) -&gt; ToHeader Logical
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Logical -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Logical -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679689961"><span class="annot"><span class="annottext">Logical -&gt; QueryString
+(Logical -&gt; QueryString) -&gt; ToQuery Logical
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Logical -&gt; QueryString
+$ctoQuery :: Logical -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679689956"><span id="local-6989586621679689958"><span class="annot"><span class="annottext">Value -&gt; Parser [Logical]
+Value -&gt; Parser Logical
+(Value -&gt; Parser Logical)
+-&gt; (Value -&gt; Parser [Logical]) -&gt; FromJSON Logical
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Logical]
+$cparseJSONList :: Value -&gt; Parser [Logical]
+parseJSON :: Value -&gt; Parser Logical
+$cparseJSON :: Value -&gt; Parser Logical
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679689951"><span id="local-6989586621679689953"><span class="annot"><span class="annottext">FromJSONKeyFunction [Logical]
+FromJSONKeyFunction Logical
+FromJSONKeyFunction Logical
+-&gt; FromJSONKeyFunction [Logical] -&gt; FromJSONKey Logical
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Logical]
+$cfromJSONKeyList :: FromJSONKeyFunction [Logical]
+fromJSONKey :: FromJSONKeyFunction Logical
+$cfromJSONKey :: FromJSONKeyFunction Logical
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679689942"><span id="local-6989586621679689944"><span id="local-6989586621679689946"><span id="local-6989586621679689948"><span class="annot"><span class="annottext">[Logical] -&gt; Encoding
+[Logical] -&gt; Value
+Logical -&gt; Encoding
+Logical -&gt; Value
+(Logical -&gt; Value)
+-&gt; (Logical -&gt; Encoding)
+-&gt; ([Logical] -&gt; Value)
+-&gt; ([Logical] -&gt; Encoding)
+-&gt; ToJSON Logical
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Logical] -&gt; Encoding
+$ctoEncodingList :: [Logical] -&gt; Encoding
+toJSONList :: [Logical] -&gt; Value
+$ctoJSONList :: [Logical] -&gt; Value
+toEncoding :: Logical -&gt; Encoding
+$ctoEncoding :: Logical -&gt; Encoding
+toJSON :: Logical -&gt; Value
+$ctoJSON :: Logical -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679689937"><span id="local-6989586621679689939"><span class="annot"><span class="annottext">ToJSONKeyFunction [Logical]
+ToJSONKeyFunction Logical
+ToJSONKeyFunction Logical
+-&gt; ToJSONKeyFunction [Logical] -&gt; ToJSONKey Logical
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Logical]
+$ctoJSONKeyList :: ToJSONKeyFunction [Logical]
+toJSONKey :: ToJSONKeyFunction Logical
+$ctoJSONKey :: ToJSONKeyFunction Logical
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679689934"><span class="annot"><span class="annottext">[Node] -&gt; Either String Logical
+([Node] -&gt; Either String Logical) -&gt; FromXML Logical
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Logical
+$cparseXML :: [Node] -&gt; Either String Logical
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679689931"><span class="annot"><span class="annottext">Logical -&gt; XML
+(Logical -&gt; XML) -&gt; ToXML Logical
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Logical -&gt; XML
+$ctoXML :: Logical -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical_AND"><span class="hs-identifier hs-type">Logical_AND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical"><span class="hs-identifier hs-type">Logical</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLogical_AND"><span id="%24mLogical_AND"><span id="Logical_AND"><span class="annot"><span class="annottext">$bLogical_AND :: Logical
+$mLogical_AND :: forall r. Logical -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.Logical.html#%24bLogical_AND"><span class="hs-identifier hs-var hs-var hs-var">Logical_AND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical%27"><span class="hs-identifier hs-type">Logical'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AND&quot;</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical_ANY"><span class="hs-identifier hs-type">Logical_ANY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical"><span class="hs-identifier hs-type">Logical</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bLogical_ANY"><span id="%24mLogical_ANY"><span id="Logical_ANY"><span class="annot"><span class="annottext">$bLogical_ANY :: Logical
+$mLogical_ANY :: forall r. Logical -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Glue.Types.Logical.html#%24bLogical_ANY"><span class="hs-identifier hs-var hs-var hs-var">Logical_ANY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical%27"><span class="hs-identifier hs-type">Logical'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ANY&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical_AND"><span class="hs-pragma hs-type">Logical_AND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical_ANY"><span class="hs-pragma hs-type">Logical_ANY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.Glue.Types.Logical.html#Logical%27"><span class="hs-pragma hs-type">Logical'</span></a></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-68"></span></pre></body></html>

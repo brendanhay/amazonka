@@ -1,0 +1,553 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Proton.UpdateEnvironmentTemplate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update an environment template.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Proton.UpdateEnvironmentTemplate</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#newUpdateEnvironmentTemplate"><span class="hs-identifier">newUpdateEnvironmentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_displayName"><span class="hs-identifier">updateEnvironmentTemplate_displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_description"><span class="hs-identifier">updateEnvironmentTemplate_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_name"><span class="hs-identifier">updateEnvironmentTemplate_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier">UpdateEnvironmentTemplateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#newUpdateEnvironmentTemplateResponse"><span class="hs-identifier">newUpdateEnvironmentTemplateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplateResponse_httpStatus"><span class="hs-identifier">updateEnvironmentTemplateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplateResponse_environmentTemplate"><span class="hs-identifier">updateEnvironmentTemplateResponse_environmentTemplate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.html"><span class="hs-identifier">Amazonka.Proton.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateEnvironmentTemplate' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679275749"><span id="local-6989586621679275750"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEnvironmentTemplate"><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-var">UpdateEnvironmentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEnvironmentTemplate%27"><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var">UpdateEnvironmentTemplate'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the environment template to update as displayed in the</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- developer interface.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdisplayName%3AUpdateEnvironmentTemplate%27"><span class="annot"><span class="annottext">UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AdisplayName%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | A description of the environment template update.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateEnvironmentTemplate%27"><span class="annot"><span class="annottext">UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3Adescription%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The name of the environment template to update.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Aname%3AUpdateEnvironmentTemplate%27"><span class="annot"><span class="annottext">UpdateEnvironmentTemplate -&gt; Text
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3Aname%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275741"><span id="local-6989586621679275743"><span class="annot"><span class="annottext">UpdateEnvironmentTemplate -&gt; UpdateEnvironmentTemplate -&gt; Bool
+(UpdateEnvironmentTemplate -&gt; UpdateEnvironmentTemplate -&gt; Bool)
+-&gt; (UpdateEnvironmentTemplate -&gt; UpdateEnvironmentTemplate -&gt; Bool)
+-&gt; Eq UpdateEnvironmentTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEnvironmentTemplate -&gt; UpdateEnvironmentTemplate -&gt; Bool
+$c/= :: UpdateEnvironmentTemplate -&gt; UpdateEnvironmentTemplate -&gt; Bool
+== :: UpdateEnvironmentTemplate -&gt; UpdateEnvironmentTemplate -&gt; Bool
+$c== :: UpdateEnvironmentTemplate -&gt; UpdateEnvironmentTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275734"><span id="local-6989586621679275736"><span id="local-6989586621679275738"><span class="annot"><span class="annottext">Int -&gt; UpdateEnvironmentTemplate -&gt; ShowS
+[UpdateEnvironmentTemplate] -&gt; ShowS
+UpdateEnvironmentTemplate -&gt; String
+(Int -&gt; UpdateEnvironmentTemplate -&gt; ShowS)
+-&gt; (UpdateEnvironmentTemplate -&gt; String)
+-&gt; ([UpdateEnvironmentTemplate] -&gt; ShowS)
+-&gt; Show UpdateEnvironmentTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEnvironmentTemplate] -&gt; ShowS
+$cshowList :: [UpdateEnvironmentTemplate] -&gt; ShowS
+show :: UpdateEnvironmentTemplate -&gt; String
+$cshow :: UpdateEnvironmentTemplate -&gt; String
+showsPrec :: Int -&gt; UpdateEnvironmentTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEnvironmentTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateEnvironmentTemplate -&gt; Rep UpdateEnvironmentTemplate x)
+-&gt; (forall x.
+    Rep UpdateEnvironmentTemplate x -&gt; UpdateEnvironmentTemplate)
+-&gt; Generic UpdateEnvironmentTemplate
+forall x.
+Rep UpdateEnvironmentTemplate x -&gt; UpdateEnvironmentTemplate
+forall x.
+UpdateEnvironmentTemplate -&gt; Rep UpdateEnvironmentTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateEnvironmentTemplate x -&gt; UpdateEnvironmentTemplate
+$cfrom :: forall x.
+UpdateEnvironmentTemplate -&gt; Rep UpdateEnvironmentTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Create a value of 'UpdateEnvironmentTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'displayName', 'updateEnvironmentTemplate_displayName' - The name of the environment template to update as displayed in the</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- developer interface.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'updateEnvironmentTemplate_description' - A description of the environment template update.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'name', 'updateEnvironmentTemplate_name' - The name of the environment template to update.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#newUpdateEnvironmentTemplate"><span class="hs-identifier hs-type">newUpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span>
+</span><span id="line-81"></span><span id="newUpdateEnvironmentTemplate"><span class="annot"><span class="annottext">newUpdateEnvironmentTemplate :: Text -&gt; UpdateEnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#newUpdateEnvironmentTemplate"><span class="hs-identifier hs-var hs-var">newUpdateEnvironmentTemplate</span></a></span></span><span> </span><span id="local-6989586621679275729"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275729"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">UpdateEnvironmentTemplate' :: Maybe (Sensitive Text)
+-&gt; Maybe (Sensitive Text) -&gt; Text -&gt; UpdateEnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:displayName:UpdateEnvironmentTemplate' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AdisplayName%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateEnvironmentTemplate' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3Adescription%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateEnvironmentTemplate' :: Text
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3Aname%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275729"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The name of the environment template to update as displayed in the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- developer interface.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_displayName"><span class="hs-identifier hs-type">updateEnvironmentTemplate_displayName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="updateEnvironmentTemplate_displayName"><span class="annot"><span class="annottext">updateEnvironmentTemplate_displayName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironmentTemplate -&gt; f UpdateEnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_displayName"><span class="hs-identifier hs-var hs-var">updateEnvironmentTemplate_displayName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text))
+-&gt; (UpdateEnvironmentTemplate
+    -&gt; Maybe (Sensitive Text) -&gt; UpdateEnvironmentTemplate)
+-&gt; Lens
+     UpdateEnvironmentTemplate
+     UpdateEnvironmentTemplate
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275726"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+displayName :: Maybe (Sensitive Text)
+$sel:displayName:UpdateEnvironmentTemplate' :: UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275726"><span class="hs-identifier hs-var hs-var">displayName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275726"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275725"><span class="annot"><span class="annottext">s :: UpdateEnvironmentTemplate
+</span><a href="#local-6989586621679275725"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275724"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275724"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironmentTemplate
+</span><a href="#local-6989586621679275725"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:displayName:UpdateEnvironmentTemplate' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AdisplayName%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var">displayName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275724"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; UpdateEnvironmentTemplate -&gt; f UpdateEnvironmentTemplate)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironmentTemplate
+-&gt; f UpdateEnvironmentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | A description of the environment template update.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_description"><span class="hs-identifier hs-type">updateEnvironmentTemplate_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="updateEnvironmentTemplate_description"><span class="annot"><span class="annottext">updateEnvironmentTemplate_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironmentTemplate -&gt; f UpdateEnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_description"><span class="hs-identifier hs-var hs-var">updateEnvironmentTemplate_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text))
+-&gt; (UpdateEnvironmentTemplate
+    -&gt; Maybe (Sensitive Text) -&gt; UpdateEnvironmentTemplate)
+-&gt; Lens
+     UpdateEnvironmentTemplate
+     UpdateEnvironmentTemplate
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275720"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+description :: Maybe (Sensitive Text)
+$sel:description:UpdateEnvironmentTemplate' :: UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275720"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275720"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275719"><span class="annot"><span class="annottext">s :: UpdateEnvironmentTemplate
+</span><a href="#local-6989586621679275719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275718"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironmentTemplate
+</span><a href="#local-6989586621679275719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateEnvironmentTemplate' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3Adescription%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; UpdateEnvironmentTemplate -&gt; f UpdateEnvironmentTemplate)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEnvironmentTemplate
+-&gt; f UpdateEnvironmentTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The name of the environment template to update.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_name"><span class="hs-identifier hs-type">updateEnvironmentTemplate_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-100"></span><span id="updateEnvironmentTemplate_name"><span class="annot"><span class="annottext">updateEnvironmentTemplate_name :: (Text -&gt; f Text)
+-&gt; UpdateEnvironmentTemplate -&gt; f UpdateEnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplate_name"><span class="hs-identifier hs-var hs-var">updateEnvironmentTemplate_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironmentTemplate -&gt; Text)
+-&gt; (UpdateEnvironmentTemplate -&gt; Text -&gt; UpdateEnvironmentTemplate)
+-&gt; Lens
+     UpdateEnvironmentTemplate UpdateEnvironmentTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275717"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:UpdateEnvironmentTemplate' :: UpdateEnvironmentTemplate -&gt; Text
+</span><a href="#local-6989586621679275717"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275717"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275716"><span class="annot"><span class="annottext">s :: UpdateEnvironmentTemplate
+</span><a href="#local-6989586621679275716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275715"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironmentTemplate
+</span><a href="#local-6989586621679275716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateEnvironmentTemplate' :: Text
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3Aname%3AUpdateEnvironmentTemplate%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679275711"><span class="annot"><span class="annottext">request :: UpdateEnvironmentTemplate -&gt; Request UpdateEnvironmentTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; UpdateEnvironmentTemplate -&gt; Request UpdateEnvironmentTemplate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Proton.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679275707"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateEnvironmentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateEnvironmentTemplate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateEnvironmentTemplate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateEnvironmentTemplate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateEnvironmentTemplate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275704"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275704"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275703"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679275703"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275702"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275702"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; EnvironmentTemplate -&gt; UpdateEnvironmentTemplateResponse
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var">UpdateEnvironmentTemplateResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; EnvironmentTemplate -&gt; UpdateEnvironmentTemplateResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (EnvironmentTemplate -&gt; UpdateEnvironmentTemplateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275704"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (EnvironmentTemplate -&gt; UpdateEnvironmentTemplateResponse)
+-&gt; Either String EnvironmentTemplate
+-&gt; Either String UpdateEnvironmentTemplateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275702"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String EnvironmentTemplate
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;environmentTemplate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275694"><span id="local-6989586621679275696"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275691"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679275687"><span class="annot"><span class="annottext">toHeaders :: UpdateEnvironmentTemplate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateEnvironmentTemplate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-124"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AwsProton20200720.UpdateEnvironmentTemplate&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-126"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275677"><span id="local-6989586621679275679"><span id="local-6989586621679275681"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679275675"><span class="annot"><span class="annottext">toJSON :: UpdateEnvironmentTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275671"><span id="local-6989586621679275672"><span id="local-6989586621679275673"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Text
+name :: Text
+description :: Maybe (Sensitive Text)
+displayName :: Maybe (Sensitive Text)
+$sel:name:UpdateEnvironmentTemplate' :: UpdateEnvironmentTemplate -&gt; Text
+$sel:description:UpdateEnvironmentTemplate' :: UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text)
+$sel:displayName:UpdateEnvironmentTemplate' :: UpdateEnvironmentTemplate -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275671"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-138"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;displayName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275673"><span class="hs-identifier hs-var">displayName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Sensitive Text -&gt; Pair) -&gt; Maybe (Sensitive Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679275672"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275671"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679275665"><span class="annot"><span class="annottext">toPath :: UpdateEnvironmentTemplate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateEnvironmentTemplate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplate"><span class="hs-identifier hs-type">UpdateEnvironmentTemplate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679275661"><span class="annot"><span class="annottext">toQuery :: UpdateEnvironmentTemplate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateEnvironmentTemplate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | /See:/ 'newUpdateEnvironmentTemplateResponse' smart constructor.</span><span>
+</span><span id="line-151"></span><span id="local-6989586621679275658"><span id="local-6989586621679275659"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEnvironmentTemplateResponse"><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-var">UpdateEnvironmentTemplateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEnvironmentTemplateResponse%27"><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var">UpdateEnvironmentTemplateResponse'</span></a></span></span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateEnvironmentTemplateResponse%27"><span class="annot"><span class="annottext">UpdateEnvironmentTemplateResponse -&gt; Int
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AhttpStatus%3AUpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The environment template detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AenvironmentTemplate%3AUpdateEnvironmentTemplateResponse%27"><span class="annot"><span class="annottext">UpdateEnvironmentTemplateResponse -&gt; EnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AenvironmentTemplate%3AUpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var hs-var">environmentTemplate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentTemplate.html#EnvironmentTemplate"><span class="hs-identifier hs-type">EnvironmentTemplate</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275652"><span id="local-6989586621679275654"><span class="annot"><span class="annottext">UpdateEnvironmentTemplateResponse
+-&gt; UpdateEnvironmentTemplateResponse -&gt; Bool
+(UpdateEnvironmentTemplateResponse
+ -&gt; UpdateEnvironmentTemplateResponse -&gt; Bool)
+-&gt; (UpdateEnvironmentTemplateResponse
+    -&gt; UpdateEnvironmentTemplateResponse -&gt; Bool)
+-&gt; Eq UpdateEnvironmentTemplateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEnvironmentTemplateResponse
+-&gt; UpdateEnvironmentTemplateResponse -&gt; Bool
+$c/= :: UpdateEnvironmentTemplateResponse
+-&gt; UpdateEnvironmentTemplateResponse -&gt; Bool
+== :: UpdateEnvironmentTemplateResponse
+-&gt; UpdateEnvironmentTemplateResponse -&gt; Bool
+$c== :: UpdateEnvironmentTemplateResponse
+-&gt; UpdateEnvironmentTemplateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275646"><span id="local-6989586621679275648"><span id="local-6989586621679275650"><span class="annot"><span class="annottext">Int -&gt; UpdateEnvironmentTemplateResponse -&gt; ShowS
+[UpdateEnvironmentTemplateResponse] -&gt; ShowS
+UpdateEnvironmentTemplateResponse -&gt; String
+(Int -&gt; UpdateEnvironmentTemplateResponse -&gt; ShowS)
+-&gt; (UpdateEnvironmentTemplateResponse -&gt; String)
+-&gt; ([UpdateEnvironmentTemplateResponse] -&gt; ShowS)
+-&gt; Show UpdateEnvironmentTemplateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEnvironmentTemplateResponse] -&gt; ShowS
+$cshowList :: [UpdateEnvironmentTemplateResponse] -&gt; ShowS
+show :: UpdateEnvironmentTemplateResponse -&gt; String
+$cshow :: UpdateEnvironmentTemplateResponse -&gt; String
+showsPrec :: Int -&gt; UpdateEnvironmentTemplateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEnvironmentTemplateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateEnvironmentTemplateResponse
+ -&gt; Rep UpdateEnvironmentTemplateResponse x)
+-&gt; (forall x.
+    Rep UpdateEnvironmentTemplateResponse x
+    -&gt; UpdateEnvironmentTemplateResponse)
+-&gt; Generic UpdateEnvironmentTemplateResponse
+forall x.
+Rep UpdateEnvironmentTemplateResponse x
+-&gt; UpdateEnvironmentTemplateResponse
+forall x.
+UpdateEnvironmentTemplateResponse
+-&gt; Rep UpdateEnvironmentTemplateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateEnvironmentTemplateResponse x
+-&gt; UpdateEnvironmentTemplateResponse
+$cfrom :: forall x.
+UpdateEnvironmentTemplateResponse
+-&gt; Rep UpdateEnvironmentTemplateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'UpdateEnvironmentTemplateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'updateEnvironmentTemplateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'environmentTemplate', 'updateEnvironmentTemplateResponse_environmentTemplate' - The environment template detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#newUpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">newUpdateEnvironmentTemplateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'environmentTemplate'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentTemplate.html#EnvironmentTemplate"><span class="hs-identifier hs-type">EnvironmentTemplate</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newUpdateEnvironmentTemplateResponse"><span class="annot"><span class="annottext">newUpdateEnvironmentTemplateResponse :: Int -&gt; EnvironmentTemplate -&gt; UpdateEnvironmentTemplateResponse
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#newUpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-var hs-var">newUpdateEnvironmentTemplateResponse</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span id="local-6989586621679275643"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679275642"><span class="annot"><span class="annottext">EnvironmentTemplate
+</span><a href="#local-6989586621679275642"><span class="hs-identifier hs-var">pEnvironmentTemplate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">UpdateEnvironmentTemplateResponse' :: Int -&gt; EnvironmentTemplate -&gt; UpdateEnvironmentTemplateResponse
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse'</span></a></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEnvironmentTemplateResponse' :: Int
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AhttpStatus%3AUpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275643"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:environmentTemplate:UpdateEnvironmentTemplateResponse' :: EnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AenvironmentTemplate%3AUpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var">environmentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">EnvironmentTemplate
+</span><a href="#local-6989586621679275642"><span class="hs-identifier hs-var">pEnvironmentTemplate_</span></a></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplateResponse_httpStatus"><span class="hs-identifier hs-type">updateEnvironmentTemplateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span id="updateEnvironmentTemplateResponse_httpStatus"><span class="annot"><span class="annottext">updateEnvironmentTemplateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateEnvironmentTemplateResponse
+-&gt; f UpdateEnvironmentTemplateResponse
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateEnvironmentTemplateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironmentTemplateResponse -&gt; Int)
+-&gt; (UpdateEnvironmentTemplateResponse
+    -&gt; Int -&gt; UpdateEnvironmentTemplateResponse)
+-&gt; Lens
+     UpdateEnvironmentTemplateResponse
+     UpdateEnvironmentTemplateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275641"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateEnvironmentTemplateResponse' :: UpdateEnvironmentTemplateResponse -&gt; Int
+</span><a href="#local-6989586621679275641"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275641"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275640"><span class="annot"><span class="annottext">s :: UpdateEnvironmentTemplateResponse
+</span><a href="#local-6989586621679275640"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275639"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275639"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironmentTemplateResponse
+</span><a href="#local-6989586621679275640"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEnvironmentTemplateResponse' :: Int
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AhttpStatus%3AUpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275639"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The environment template detail data that\'s returned by AWS Proton.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplateResponse_environmentTemplate"><span class="hs-identifier hs-type">updateEnvironmentTemplateResponse_environmentTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Proton.Types.EnvironmentTemplate.html#EnvironmentTemplate"><span class="hs-identifier hs-type">EnvironmentTemplate</span></a></span><span>
+</span><span id="line-192"></span><span id="updateEnvironmentTemplateResponse_environmentTemplate"><span class="annot"><span class="annottext">updateEnvironmentTemplateResponse_environmentTemplate :: (EnvironmentTemplate -&gt; f EnvironmentTemplate)
+-&gt; UpdateEnvironmentTemplateResponse
+-&gt; f UpdateEnvironmentTemplateResponse
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#updateEnvironmentTemplateResponse_environmentTemplate"><span class="hs-identifier hs-var hs-var">updateEnvironmentTemplateResponse_environmentTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEnvironmentTemplateResponse -&gt; EnvironmentTemplate)
+-&gt; (UpdateEnvironmentTemplateResponse
+    -&gt; EnvironmentTemplate -&gt; UpdateEnvironmentTemplateResponse)
+-&gt; Lens
+     UpdateEnvironmentTemplateResponse
+     UpdateEnvironmentTemplateResponse
+     EnvironmentTemplate
+     EnvironmentTemplate
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275638"><span class="annot"><span class="annottext">EnvironmentTemplate
+environmentTemplate :: EnvironmentTemplate
+$sel:environmentTemplate:UpdateEnvironmentTemplateResponse' :: UpdateEnvironmentTemplateResponse -&gt; EnvironmentTemplate
+</span><a href="#local-6989586621679275638"><span class="hs-identifier hs-var hs-var">environmentTemplate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">EnvironmentTemplate
+</span><a href="#local-6989586621679275638"><span class="hs-identifier hs-var">environmentTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275637"><span class="annot"><span class="annottext">s :: UpdateEnvironmentTemplateResponse
+</span><a href="#local-6989586621679275637"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275636"><span class="annot"><span class="annottext">EnvironmentTemplate
+</span><a href="#local-6989586621679275636"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEnvironmentTemplateResponse
+</span><a href="#local-6989586621679275637"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:environmentTemplate:UpdateEnvironmentTemplateResponse' :: EnvironmentTemplate
+</span><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#%24sel%3AenvironmentTemplate%3AUpdateEnvironmentTemplateResponse%27"><span class="hs-identifier hs-var">environmentTemplate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EnvironmentTemplate
+</span><a href="#local-6989586621679275636"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-195"></span><span>  </span><span id="local-6989586621679275634"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.Proton.UpdateEnvironmentTemplate.html#UpdateEnvironmentTemplateResponse"><span class="hs-identifier hs-type">UpdateEnvironmentTemplateResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

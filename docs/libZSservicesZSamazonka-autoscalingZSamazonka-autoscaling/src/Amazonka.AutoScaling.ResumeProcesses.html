@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AutoScaling.ResumeProcesses</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Resumes the specified suspended auto scaling processes, or all suspended</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- process, for the specified Auto Scaling group.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html Suspending and resuming scaling processes&gt;</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- in the /Amazon EC2 Auto Scaling User Guide/.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScaling.ResumeProcesses</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier">ResumeProcesses</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#newResumeProcesses"><span class="hs-identifier">newResumeProcesses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#resumeProcesses_scalingProcesses"><span class="hs-identifier">resumeProcesses_scalingProcesses</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#resumeProcesses_autoScalingGroupName"><span class="hs-identifier">resumeProcesses_autoScalingGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse"><span class="hs-identifier">ResumeProcessesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#newResumeProcessesResponse"><span class="hs-identifier">newResumeProcessesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.Types.html"><span class="hs-identifier">Amazonka.AutoScaling.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newResumeProcesses' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679336325"><span id="local-6989586621679336326"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeProcesses"><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-var">ResumeProcesses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeProcesses%27"><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses%27"><span class="hs-identifier hs-var">ResumeProcesses'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more of the following processes:</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   @Launch@</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- -   @Terminate@</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- -   @AddToLoadBalancer@</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- -   @AlarmNotification@</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- -   @AZRebalance@</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- -   @HealthCheck@</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- -   @InstanceRefresh@</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- -   @ReplaceUnhealthy@</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- -   @ScheduledActions@</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- If you omit this parameter, all processes are specified.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AscalingProcesses%3AResumeProcesses%27"><span class="annot"><span class="annottext">ResumeProcesses -&gt; Maybe [Text]
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#%24sel%3AscalingProcesses%3AResumeProcesses%27"><span class="hs-identifier hs-var hs-var">scalingProcesses</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AautoScalingGroupName%3AResumeProcesses%27"><span class="annot"><span class="annottext">ResumeProcesses -&gt; Text
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#%24sel%3AautoScalingGroupName%3AResumeProcesses%27"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336318"><span id="local-6989586621679336320"><span class="annot"><span class="annottext">ResumeProcesses -&gt; ResumeProcesses -&gt; Bool
+(ResumeProcesses -&gt; ResumeProcesses -&gt; Bool)
+-&gt; (ResumeProcesses -&gt; ResumeProcesses -&gt; Bool)
+-&gt; Eq ResumeProcesses
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResumeProcesses -&gt; ResumeProcesses -&gt; Bool
+$c/= :: ResumeProcesses -&gt; ResumeProcesses -&gt; Bool
+== :: ResumeProcesses -&gt; ResumeProcesses -&gt; Bool
+$c== :: ResumeProcesses -&gt; ResumeProcesses -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336309"><span id="local-6989586621679336311"><span id="local-6989586621679336313"><span id="local-6989586621679336315"><span class="annot"><span class="annottext">ReadPrec [ResumeProcesses]
+ReadPrec ResumeProcesses
+Int -&gt; ReadS ResumeProcesses
+ReadS [ResumeProcesses]
+(Int -&gt; ReadS ResumeProcesses)
+-&gt; ReadS [ResumeProcesses]
+-&gt; ReadPrec ResumeProcesses
+-&gt; ReadPrec [ResumeProcesses]
+-&gt; Read ResumeProcesses
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResumeProcesses]
+$creadListPrec :: ReadPrec [ResumeProcesses]
+readPrec :: ReadPrec ResumeProcesses
+$creadPrec :: ReadPrec ResumeProcesses
+readList :: ReadS [ResumeProcesses]
+$creadList :: ReadS [ResumeProcesses]
+readsPrec :: Int -&gt; ReadS ResumeProcesses
+$creadsPrec :: Int -&gt; ReadS ResumeProcesses
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336302"><span id="local-6989586621679336304"><span id="local-6989586621679336306"><span class="annot"><span class="annottext">Int -&gt; ResumeProcesses -&gt; ShowS
+[ResumeProcesses] -&gt; ShowS
+ResumeProcesses -&gt; String
+(Int -&gt; ResumeProcesses -&gt; ShowS)
+-&gt; (ResumeProcesses -&gt; String)
+-&gt; ([ResumeProcesses] -&gt; ShowS)
+-&gt; Show ResumeProcesses
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResumeProcesses] -&gt; ShowS
+$cshowList :: [ResumeProcesses] -&gt; ShowS
+show :: ResumeProcesses -&gt; String
+$cshow :: ResumeProcesses -&gt; String
+showsPrec :: Int -&gt; ResumeProcesses -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResumeProcesses -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ResumeProcesses -&gt; Rep ResumeProcesses x)
+-&gt; (forall x. Rep ResumeProcesses x -&gt; ResumeProcesses)
+-&gt; Generic ResumeProcesses
+forall x. Rep ResumeProcesses x -&gt; ResumeProcesses
+forall x. ResumeProcesses -&gt; Rep ResumeProcesses x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResumeProcesses x -&gt; ResumeProcesses
+$cfrom :: forall x. ResumeProcesses -&gt; Rep ResumeProcesses x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Create a value of 'ResumeProcesses' with all optional fields omitted.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'scalingProcesses', 'resumeProcesses_scalingProcesses' - One or more of the following processes:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- -   @Launch@</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- -   @Terminate@</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- -   @AddToLoadBalancer@</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- -   @AlarmNotification@</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- -   @AZRebalance@</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- -   @HealthCheck@</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- -   @InstanceRefresh@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- -   @ReplaceUnhealthy@</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- -   @ScheduledActions@</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- If you omit this parameter, all processes are specified.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'autoScalingGroupName', 'resumeProcesses_autoScalingGroupName' - The name of the Auto Scaling group.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#newResumeProcesses"><span class="hs-identifier hs-type">newResumeProcesses</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'autoScalingGroupName'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span>
+</span><span id="line-115"></span><span id="newResumeProcesses"><span class="annot"><span class="annottext">newResumeProcesses :: Text -&gt; ResumeProcesses
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#newResumeProcesses"><span class="hs-identifier hs-var hs-var">newResumeProcesses</span></a></span></span><span> </span><span id="local-6989586621679336297"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336297"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="annottext">ResumeProcesses' :: Maybe [Text] -&gt; Text -&gt; ResumeProcesses
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses%27"><span class="hs-identifier hs-type">ResumeProcesses'</span></a></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scalingProcesses:ResumeProcesses' :: Maybe [Text]
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#%24sel%3AscalingProcesses%3AResumeProcesses%27"><span class="hs-identifier hs-var">scalingProcesses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:ResumeProcesses' :: Text
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#%24sel%3AautoScalingGroupName%3AResumeProcesses%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336297"><span class="hs-identifier hs-var">pAutoScalingGroupName_</span></a></span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | One or more of the following processes:</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- -   @Launch@</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- -   @Terminate@</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- -   @AddToLoadBalancer@</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- -   @AlarmNotification@</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- -   @AZRebalance@</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- -   @HealthCheck@</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- -   @InstanceRefresh@</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- -   @ReplaceUnhealthy@</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- -   @ScheduledActions@</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- If you omit this parameter, all processes are specified.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#resumeProcesses_scalingProcesses"><span class="hs-identifier hs-type">resumeProcesses_scalingProcesses</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="resumeProcesses_scalingProcesses"><span class="annot"><span class="annottext">resumeProcesses_scalingProcesses :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ResumeProcesses -&gt; f ResumeProcesses
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#resumeProcesses_scalingProcesses"><span class="hs-identifier hs-var hs-var">resumeProcesses_scalingProcesses</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResumeProcesses -&gt; Maybe [Text])
+-&gt; (ResumeProcesses -&gt; Maybe [Text] -&gt; ResumeProcesses)
+-&gt; Lens
+     ResumeProcesses ResumeProcesses (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses%27"><span class="hs-identifier hs-type">ResumeProcesses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336294"><span class="annot"><span class="annottext">Maybe [Text]
+scalingProcesses :: Maybe [Text]
+$sel:scalingProcesses:ResumeProcesses' :: ResumeProcesses -&gt; Maybe [Text]
+</span><a href="#local-6989586621679336294"><span class="hs-identifier hs-var hs-var">scalingProcesses</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679336294"><span class="hs-identifier hs-var">scalingProcesses</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336293"><span class="annot"><span class="annottext">s :: ResumeProcesses
+</span><a href="#local-6989586621679336293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses%27"><span class="hs-identifier hs-type">ResumeProcesses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336292"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679336292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeProcesses
+</span><a href="#local-6989586621679336293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalingProcesses:ResumeProcesses' :: Maybe [Text]
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#%24sel%3AscalingProcesses%3AResumeProcesses%27"><span class="hs-identifier hs-var">scalingProcesses</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679336292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ResumeProcesses -&gt; f ResumeProcesses)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ResumeProcesses
+-&gt; f ResumeProcesses
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The name of the Auto Scaling group.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#resumeProcesses_autoScalingGroupName"><span class="hs-identifier hs-type">resumeProcesses_autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-148"></span><span id="resumeProcesses_autoScalingGroupName"><span class="annot"><span class="annottext">resumeProcesses_autoScalingGroupName :: (Text -&gt; f Text) -&gt; ResumeProcesses -&gt; f ResumeProcesses
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#resumeProcesses_autoScalingGroupName"><span class="hs-identifier hs-var hs-var">resumeProcesses_autoScalingGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ResumeProcesses -&gt; Text)
+-&gt; (ResumeProcesses -&gt; Text -&gt; ResumeProcesses)
+-&gt; Lens ResumeProcesses ResumeProcesses Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses%27"><span class="hs-identifier hs-type">ResumeProcesses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336288"><span class="annot"><span class="annottext">Text
+autoScalingGroupName :: Text
+$sel:autoScalingGroupName:ResumeProcesses' :: ResumeProcesses -&gt; Text
+</span><a href="#local-6989586621679336288"><span class="hs-identifier hs-var hs-var">autoScalingGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336288"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679336287"><span class="annot"><span class="annottext">s :: ResumeProcesses
+</span><a href="#local-6989586621679336287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses%27"><span class="hs-identifier hs-type">ResumeProcesses'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679336286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResumeProcesses
+</span><a href="#local-6989586621679336287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoScalingGroupName:ResumeProcesses' :: Text
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#%24sel%3AautoScalingGroupName%3AResumeProcesses%27"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-152"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse"><span class="hs-identifier hs-type">ResumeProcessesResponse</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679336282"><span class="annot"><span class="annottext">request :: ResumeProcesses -&gt; Request ResumeProcesses
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ResumeProcesses -&gt; Request ResumeProcesses
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679336278"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ResumeProcesses
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ResumeProcesses)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse ResumeProcesses
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ResumeProcesses
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ResumeProcesses)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ResumeProcesses
+ResumeProcessesResponse
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse%27"><span class="hs-identifier hs-var">ResumeProcessesResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336271"><span id="local-6989586621679336273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span></span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span></span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621679336264"><span class="annot"><span class="annottext">toHeaders :: ResumeProcesses -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; ResumeProcesses -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679336259"><span class="annot"><span class="annottext">toPath :: ResumeProcesses -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ResumeProcesses -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses"><span class="hs-identifier hs-type">ResumeProcesses</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span id="local-6989586621679336255"><span class="annot"><span class="annottext">toQuery :: ResumeProcesses -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcesses%27"><span class="hs-identifier hs-type">ResumeProcesses'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679336252"><span id="local-6989586621679336253"><span class="annot"><span class="annottext">Maybe [Text]
+Text
+autoScalingGroupName :: Text
+scalingProcesses :: Maybe [Text]
+$sel:autoScalingGroupName:ResumeProcesses' :: ResumeProcesses -&gt; Text
+$sel:scalingProcesses:ResumeProcesses' :: ResumeProcesses -&gt; Maybe [Text]
+</span><a href="#local-6989586621679336252"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-172"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ResumeProcesses&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-174"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2011-01-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ScalingProcesses&quot;</span></span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-177"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-178"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679336253"><span class="hs-identifier hs-var">scalingProcesses</span></a></span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AutoScalingGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679336252"><span class="hs-identifier hs-var">autoScalingGroupName</span></a></span><span>
+</span><span id="line-181"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | /See:/ 'newResumeProcessesResponse' smart constructor.</span><span>
+</span><span id="line-184"></span><span id="local-6989586621679336247"><span id="local-6989586621679336248"></span></span><span class="hs-keyword">data</span><span> </span><span id="ResumeProcessesResponse"><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse"><span class="hs-identifier hs-var">ResumeProcessesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ResumeProcessesResponse%27"><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse%27"><span class="hs-identifier hs-var">ResumeProcessesResponse'</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679336243"><span id="local-6989586621679336245"><span class="annot"><span class="annottext">ResumeProcessesResponse -&gt; ResumeProcessesResponse -&gt; Bool
+(ResumeProcessesResponse -&gt; ResumeProcessesResponse -&gt; Bool)
+-&gt; (ResumeProcessesResponse -&gt; ResumeProcessesResponse -&gt; Bool)
+-&gt; Eq ResumeProcessesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ResumeProcessesResponse -&gt; ResumeProcessesResponse -&gt; Bool
+$c/= :: ResumeProcessesResponse -&gt; ResumeProcessesResponse -&gt; Bool
+== :: ResumeProcessesResponse -&gt; ResumeProcessesResponse -&gt; Bool
+$c== :: ResumeProcessesResponse -&gt; ResumeProcessesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336235"><span id="local-6989586621679336237"><span id="local-6989586621679336239"><span id="local-6989586621679336241"><span class="annot"><span class="annottext">ReadPrec [ResumeProcessesResponse]
+ReadPrec ResumeProcessesResponse
+Int -&gt; ReadS ResumeProcessesResponse
+ReadS [ResumeProcessesResponse]
+(Int -&gt; ReadS ResumeProcessesResponse)
+-&gt; ReadS [ResumeProcessesResponse]
+-&gt; ReadPrec ResumeProcessesResponse
+-&gt; ReadPrec [ResumeProcessesResponse]
+-&gt; Read ResumeProcessesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ResumeProcessesResponse]
+$creadListPrec :: ReadPrec [ResumeProcessesResponse]
+readPrec :: ReadPrec ResumeProcessesResponse
+$creadPrec :: ReadPrec ResumeProcessesResponse
+readList :: ReadS [ResumeProcessesResponse]
+$creadList :: ReadS [ResumeProcessesResponse]
+readsPrec :: Int -&gt; ReadS ResumeProcessesResponse
+$creadsPrec :: Int -&gt; ReadS ResumeProcessesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679336229"><span id="local-6989586621679336231"><span id="local-6989586621679336233"><span class="annot"><span class="annottext">Int -&gt; ResumeProcessesResponse -&gt; ShowS
+[ResumeProcessesResponse] -&gt; ShowS
+ResumeProcessesResponse -&gt; String
+(Int -&gt; ResumeProcessesResponse -&gt; ShowS)
+-&gt; (ResumeProcessesResponse -&gt; String)
+-&gt; ([ResumeProcessesResponse] -&gt; ShowS)
+-&gt; Show ResumeProcessesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ResumeProcessesResponse] -&gt; ShowS
+$cshowList :: [ResumeProcessesResponse] -&gt; ShowS
+show :: ResumeProcessesResponse -&gt; String
+$cshow :: ResumeProcessesResponse -&gt; String
+showsPrec :: Int -&gt; ResumeProcessesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ResumeProcessesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ResumeProcessesResponse -&gt; Rep ResumeProcessesResponse x)
+-&gt; (forall x.
+    Rep ResumeProcessesResponse x -&gt; ResumeProcessesResponse)
+-&gt; Generic ResumeProcessesResponse
+forall x. Rep ResumeProcessesResponse x -&gt; ResumeProcessesResponse
+forall x. ResumeProcessesResponse -&gt; Rep ResumeProcessesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ResumeProcessesResponse x -&gt; ResumeProcessesResponse
+$cfrom :: forall x. ResumeProcessesResponse -&gt; Rep ResumeProcessesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Create a value of 'ResumeProcessesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#newResumeProcessesResponse"><span class="hs-identifier hs-type">newResumeProcessesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse"><span class="hs-identifier hs-type">ResumeProcessesResponse</span></a></span><span>
+</span><span id="line-195"></span><span id="newResumeProcessesResponse"><span class="annot"><span class="annottext">newResumeProcessesResponse :: ResumeProcessesResponse
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#newResumeProcessesResponse"><span class="hs-identifier hs-var hs-var">newResumeProcessesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResumeProcessesResponse
+</span><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse%27"><span class="hs-identifier hs-var">ResumeProcessesResponse'</span></a></span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679336225"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AutoScaling.ResumeProcesses.html#ResumeProcessesResponse"><span class="hs-identifier hs-type">ResumeProcessesResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

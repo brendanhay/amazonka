@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.RedshiftData.Types.ColumnMetadata
+module Amazonka.RedshiftData.Types.ColumnMetadata
 
 -- | The properties (metadata) of a column.
 --   
@@ -144,16 +144,16 @@ columnMetadata_nullable :: Lens' ColumnMetadata (Maybe Int)
 
 -- | The name of the table that includes the column.
 columnMetadata_tableName :: Lens' ColumnMetadata (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.ColumnMetadata.ColumnMetadata
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.ColumnMetadata.ColumnMetadata
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.ColumnMetadata.ColumnMetadata
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.ColumnMetadata.ColumnMetadata
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Show.Show Amazonka.RedshiftData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Read.Read Amazonka.RedshiftData.Types.ColumnMetadata.ColumnMetadata
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.ColumnMetadata.ColumnMetadata
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.ColumnMetadata.ColumnMetadata
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.ColumnMetadata.ColumnMetadata
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.ColumnMetadata.ColumnMetadata
 
 
-module Network.AWS.RedshiftData.Types.Field
+module Amazonka.RedshiftData.Types.Field
 
 -- | A data value in a column.
 --   
@@ -232,16 +232,16 @@ field_blobValue :: Lens' Field (Maybe ByteString)
 
 -- | A value that indicates whether the data is NULL.
 field_isNull :: Lens' Field (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.Field.Field
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.Field.Field
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.Field.Field
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.Field.Field
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.Field.Field
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.Field.Field
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.Field.Field
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.Field.Field
+instance GHC.Show.Show Amazonka.RedshiftData.Types.Field.Field
+instance GHC.Read.Read Amazonka.RedshiftData.Types.Field.Field
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.Field.Field
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.Field.Field
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.Field.Field
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.Field.Field
 
 
-module Network.AWS.RedshiftData.Types.SqlParameter
+module Amazonka.RedshiftData.Types.SqlParameter
 
 -- | A parameter used in a SQL statement.
 --   
@@ -282,17 +282,17 @@ sqlParameter_name :: Lens' SqlParameter Text
 --   proper data type. For more inforation, see <a>Data types</a> in the
 --   <i>Amazon Redshift Database Developer Guide</i>.
 sqlParameter_value :: Lens' SqlParameter Text
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.Types.SqlParameter.SqlParameter
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
+instance GHC.Show.Show Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
+instance GHC.Read.Read Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.Types.SqlParameter.SqlParameter
 
 
-module Network.AWS.RedshiftData.Types.StatementStatusString
+module Amazonka.RedshiftData.Types.StatementStatusString
 newtype StatementStatusString
 StatementStatusString' :: Text -> StatementStatusString
 [fromStatementStatusString] :: StatementStatusString -> Text
@@ -302,28 +302,28 @@ pattern StatementStatusString_FINISHED :: StatementStatusString
 pattern StatementStatusString_PICKED :: StatementStatusString
 pattern StatementStatusString_STARTED :: StatementStatusString
 pattern StatementStatusString_SUBMITTED :: StatementStatusString
-instance Network.AWS.Data.XML.ToXML Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Network.AWS.Data.XML.FromXML Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Network.AWS.Data.Log.ToLog Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Network.AWS.Data.Text.ToText Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Network.AWS.Data.Text.FromText Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance GHC.Classes.Ord Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.XML.ToXML Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.XML.FromXML Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.Headers.ToHeader Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.Log.ToLog Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.Text.ToText Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Amazonka.Data.Text.FromText Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance GHC.Classes.Ord Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance GHC.Read.Read Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
+instance GHC.Show.Show Amazonka.RedshiftData.Types.StatementStatusString.StatementStatusString
 
 
-module Network.AWS.RedshiftData.Types.StatusString
+module Amazonka.RedshiftData.Types.StatusString
 newtype StatusString
 StatusString' :: Text -> StatusString
 [fromStatusString] :: StatusString -> Text
@@ -334,28 +334,28 @@ pattern StatusString_FINISHED :: StatusString
 pattern StatusString_PICKED :: StatusString
 pattern StatusString_STARTED :: StatusString
 pattern StatusString_SUBMITTED :: StatusString
-instance Network.AWS.Data.XML.ToXML Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Network.AWS.Data.XML.FromXML Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Network.AWS.Data.Log.ToLog Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Network.AWS.Data.Text.ToText Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Network.AWS.Data.Text.FromText Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance GHC.Classes.Ord Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.StatusString.StatusString
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.XML.ToXML Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.XML.FromXML Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.Headers.ToHeader Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.Log.ToLog Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.ByteString.ToByteString Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.Text.ToText Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Amazonka.Data.Text.FromText Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.StatusString.StatusString
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.StatusString.StatusString
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.StatusString.StatusString
+instance GHC.Classes.Ord Amazonka.RedshiftData.Types.StatusString.StatusString
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.StatusString.StatusString
+instance GHC.Read.Read Amazonka.RedshiftData.Types.StatusString.StatusString
+instance GHC.Show.Show Amazonka.RedshiftData.Types.StatusString.StatusString
 
 
-module Network.AWS.RedshiftData.Types.StatementData
+module Amazonka.RedshiftData.Types.StatementData
 
 -- | The SQL statement to run.
 --   
@@ -477,16 +477,16 @@ statementData_isBatchStatement :: Lens' StatementData (Maybe Bool)
 -- | The SQL statement identifier. This value is a universally unique
 --   identifier (UUID) generated by Amazon Redshift Data API.
 statementData_id :: Lens' StatementData Text
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.StatementData.StatementData
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.StatementData.StatementData
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.StatementData.StatementData
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.StatementData.StatementData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.StatementData.StatementData
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.StatementData.StatementData
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.StatementData.StatementData
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.StatementData.StatementData
+instance GHC.Show.Show Amazonka.RedshiftData.Types.StatementData.StatementData
+instance GHC.Read.Read Amazonka.RedshiftData.Types.StatementData.StatementData
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.StatementData.StatementData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.StatementData.StatementData
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.StatementData.StatementData
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.StatementData.StatementData
 
 
-module Network.AWS.RedshiftData.Types.SubStatementData
+module Amazonka.RedshiftData.Types.SubStatementData
 
 -- | Information about an SQL statement.
 --   
@@ -645,16 +645,16 @@ subStatementData_duration :: Lens' SubStatementData (Maybe Integer)
 --   <tt>d9b6c0c9-0747-4bf4-b142-e8883122f766:2</tt> has a suffix of
 --   <tt>:2</tt> that indicates the second SQL statement of a batch query.
 subStatementData_id :: Lens' SubStatementData Text
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.SubStatementData.SubStatementData
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.SubStatementData.SubStatementData
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.SubStatementData.SubStatementData
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.SubStatementData.SubStatementData
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.SubStatementData.SubStatementData
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.SubStatementData.SubStatementData
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.SubStatementData.SubStatementData
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.SubStatementData.SubStatementData
+instance GHC.Show.Show Amazonka.RedshiftData.Types.SubStatementData.SubStatementData
+instance GHC.Read.Read Amazonka.RedshiftData.Types.SubStatementData.SubStatementData
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.SubStatementData.SubStatementData
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.SubStatementData.SubStatementData
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.SubStatementData.SubStatementData
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.SubStatementData.SubStatementData
 
 
-module Network.AWS.RedshiftData.Types.TableMember
+module Amazonka.RedshiftData.Types.TableMember
 
 -- | The properties of a table.
 --   
@@ -700,16 +700,16 @@ tableMember_name :: Lens' TableMember (Maybe Text)
 -- | The type of the table. Possible values include TABLE, VIEW, SYSTEM
 --   TABLE, GLOBAL TEMPORARY, LOCAL TEMPORARY, ALIAS, and SYNONYM.
 tableMember_type :: Lens' TableMember (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.RedshiftData.Types.TableMember.TableMember
-instance GHC.Show.Show Network.AWS.RedshiftData.Types.TableMember.TableMember
-instance GHC.Read.Read Network.AWS.RedshiftData.Types.TableMember.TableMember
-instance GHC.Classes.Eq Network.AWS.RedshiftData.Types.TableMember.TableMember
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.RedshiftData.Types.TableMember.TableMember
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.Types.TableMember.TableMember
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.Types.TableMember.TableMember
+instance GHC.Generics.Generic Amazonka.RedshiftData.Types.TableMember.TableMember
+instance GHC.Show.Show Amazonka.RedshiftData.Types.TableMember.TableMember
+instance GHC.Read.Read Amazonka.RedshiftData.Types.TableMember.TableMember
+instance GHC.Classes.Eq Amazonka.RedshiftData.Types.TableMember.TableMember
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.RedshiftData.Types.TableMember.TableMember
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.Types.TableMember.TableMember
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.Types.TableMember.TableMember
 
 
-module Network.AWS.RedshiftData.Types
+module Amazonka.RedshiftData.Types
 
 -- | API version <tt>2019-12-20</tt> of the Amazon Redshift Data API
 --   Service SDK configuration.
@@ -1351,7 +1351,7 @@ tableMember_type :: Lens' TableMember (Maybe Text)
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.RedshiftData.ListTables
+module Amazonka.RedshiftData.ListTables
 
 -- | <i>See:</i> <a>newListTables</a> smart constructor.
 data ListTables
@@ -1581,30 +1581,30 @@ listTablesResponse_tables :: Lens' ListTablesResponse (Maybe [TableMember])
 
 -- | The response's http status code.
 listTablesResponse_httpStatus :: Lens' ListTablesResponse Int
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListTables.ListTables
-instance GHC.Show.Show Network.AWS.RedshiftData.ListTables.ListTables
-instance GHC.Read.Read Network.AWS.RedshiftData.ListTables.ListTables
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListTables.ListTables
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListTables.ListTablesResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.ListTables.ListTablesResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.ListTables.ListTablesResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListTables.ListTablesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.ListTables.ListTables
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListTables.ListTablesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RedshiftData.ListTables.ListTables
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.ListTables.ListTables
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListTables.ListTables
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.ListTables.ListTables
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.ListTables.ListTables
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.ListTables.ListTables
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ListTables.ListTables
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListTables.ListTables
+instance GHC.Show.Show Amazonka.RedshiftData.ListTables.ListTables
+instance GHC.Read.Read Amazonka.RedshiftData.ListTables.ListTables
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListTables.ListTables
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListTables.ListTablesResponse
+instance GHC.Show.Show Amazonka.RedshiftData.ListTables.ListTablesResponse
+instance GHC.Read.Read Amazonka.RedshiftData.ListTables.ListTablesResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListTables.ListTablesResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.ListTables.ListTables
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListTables.ListTablesResponse
+instance Amazonka.Pager.AWSPager Amazonka.RedshiftData.ListTables.ListTables
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.ListTables.ListTables
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListTables.ListTables
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.ListTables.ListTables
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.ListTables.ListTables
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.ListTables.ListTables
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.ListTables.ListTables
 
 
 -- | List of SQL statements. By default, only finished statements are
 --   shown. A token is returned to page through the statement list.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RedshiftData.ListStatements
+module Amazonka.RedshiftData.ListStatements
 
 -- | <i>See:</i> <a>newListStatements</a> smart constructor.
 data ListStatements
@@ -1810,23 +1810,23 @@ listStatementsResponse_httpStatus :: Lens' ListStatementsResponse Int
 
 -- | The SQL statements.
 listStatementsResponse_statements :: Lens' ListStatementsResponse [StatementData]
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListStatements.ListStatements
-instance GHC.Show.Show Network.AWS.RedshiftData.ListStatements.ListStatements
-instance GHC.Read.Read Network.AWS.RedshiftData.ListStatements.ListStatements
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListStatements.ListStatements
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListStatements.ListStatementsResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.ListStatements.ListStatementsResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.ListStatements.ListStatementsResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListStatements.ListStatementsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.ListStatements.ListStatements
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListStatements.ListStatementsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RedshiftData.ListStatements.ListStatements
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.ListStatements.ListStatements
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListStatements.ListStatements
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.ListStatements.ListStatements
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.ListStatements.ListStatements
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.ListStatements.ListStatements
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ListStatements.ListStatements
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListStatements.ListStatements
+instance GHC.Show.Show Amazonka.RedshiftData.ListStatements.ListStatements
+instance GHC.Read.Read Amazonka.RedshiftData.ListStatements.ListStatements
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListStatements.ListStatements
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListStatements.ListStatementsResponse
+instance GHC.Show.Show Amazonka.RedshiftData.ListStatements.ListStatementsResponse
+instance GHC.Read.Read Amazonka.RedshiftData.ListStatements.ListStatementsResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListStatements.ListStatementsResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.ListStatements.ListStatements
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListStatements.ListStatementsResponse
+instance Amazonka.Pager.AWSPager Amazonka.RedshiftData.ListStatements.ListStatements
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.ListStatements.ListStatements
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListStatements.ListStatements
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.ListStatements.ListStatements
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.ListStatements.ListStatements
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.ListStatements.ListStatements
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.ListStatements.ListStatements
 
 
 -- | Lists the schemas in a database. A token is returned to page through
@@ -1844,7 +1844,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ListStatements.
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.RedshiftData.ListSchemas
+module Amazonka.RedshiftData.ListSchemas
 
 -- | <i>See:</i> <a>newListSchemas</a> smart constructor.
 data ListSchemas
@@ -2039,23 +2039,23 @@ listSchemasResponse_nextToken :: Lens' ListSchemasResponse (Maybe Text)
 
 -- | The response's http status code.
 listSchemasResponse_httpStatus :: Lens' ListSchemasResponse Int
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance GHC.Show.Show Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance GHC.Read.Read Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListSchemas.ListSchemasResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.ListSchemas.ListSchemasResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.ListSchemas.ListSchemasResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListSchemas.ListSchemasResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListSchemas.ListSchemasResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.ListSchemas.ListSchemas
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ListSchemas.ListSchemas
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance GHC.Show.Show Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance GHC.Read.Read Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListSchemas.ListSchemasResponse
+instance GHC.Show.Show Amazonka.RedshiftData.ListSchemas.ListSchemasResponse
+instance GHC.Read.Read Amazonka.RedshiftData.ListSchemas.ListSchemasResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListSchemas.ListSchemasResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListSchemas.ListSchemasResponse
+instance Amazonka.Pager.AWSPager Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.ListSchemas.ListSchemas
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.ListSchemas.ListSchemas
 
 
 -- | List the databases in a cluster. A token is returned to page through
@@ -2073,7 +2073,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ListSchemas.Lis
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.RedshiftData.ListDatabases
+module Amazonka.RedshiftData.ListDatabases
 
 -- | <i>See:</i> <a>newListDatabases</a> smart constructor.
 data ListDatabases
@@ -2234,30 +2234,30 @@ listDatabasesResponse_databases :: Lens' ListDatabasesResponse (Maybe [Text])
 
 -- | The response's http status code.
 listDatabasesResponse_httpStatus :: Lens' ListDatabasesResponse Int
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance GHC.Show.Show Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance GHC.Read.Read Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ListDatabases.ListDatabasesResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.ListDatabases.ListDatabasesResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.ListDatabases.ListDatabasesResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ListDatabases.ListDatabasesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListDatabases.ListDatabasesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.ListDatabases.ListDatabases
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ListDatabases.ListDatabases
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance GHC.Show.Show Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance GHC.Read.Read Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance GHC.Generics.Generic Amazonka.RedshiftData.ListDatabases.ListDatabasesResponse
+instance GHC.Show.Show Amazonka.RedshiftData.ListDatabases.ListDatabasesResponse
+instance GHC.Read.Read Amazonka.RedshiftData.ListDatabases.ListDatabasesResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.ListDatabases.ListDatabasesResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListDatabases.ListDatabasesResponse
+instance Amazonka.Pager.AWSPager Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.ListDatabases.ListDatabases
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.ListDatabases.ListDatabases
 
 
 -- | Fetches the temporarily cached result of an SQL statement. A token is
 --   returned to page through the statement results.
 --   
 --   This operation returns paginated results.
-module Network.AWS.RedshiftData.GetStatementResult
+module Amazonka.RedshiftData.GetStatementResult
 
 -- | <i>See:</i> <a>newGetStatementResult</a> smart constructor.
 data GetStatementResult
@@ -2414,23 +2414,23 @@ getStatementResultResponse_httpStatus :: Lens' GetStatementResultResponse Int
 
 -- | The results of the SQL statement.
 getStatementResultResponse_records :: Lens' GetStatementResultResponse [[Field]]
-instance GHC.Generics.Generic Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance GHC.Show.Show Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance GHC.Read.Read Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance GHC.Classes.Eq Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance GHC.Generics.Generic Network.AWS.RedshiftData.GetStatementResult.GetStatementResultResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.GetStatementResult.GetStatementResultResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.GetStatementResult.GetStatementResultResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.GetStatementResult.GetStatementResultResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.GetStatementResult.GetStatementResultResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.GetStatementResult.GetStatementResult
+instance GHC.Generics.Generic Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance GHC.Show.Show Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance GHC.Read.Read Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance GHC.Classes.Eq Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance GHC.Generics.Generic Amazonka.RedshiftData.GetStatementResult.GetStatementResultResponse
+instance GHC.Show.Show Amazonka.RedshiftData.GetStatementResult.GetStatementResultResponse
+instance GHC.Read.Read Amazonka.RedshiftData.GetStatementResult.GetStatementResultResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.GetStatementResult.GetStatementResultResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.GetStatementResult.GetStatementResultResponse
+instance Amazonka.Pager.AWSPager Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.GetStatementResult.GetStatementResult
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.GetStatementResult.GetStatementResult
 
 
 -- | Runs an SQL statement, which can be data manipulation language (DML)
@@ -2447,7 +2447,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.GetStatementRes
 --   <tt>redshift:GetClusterCredentials</tt> operation is required to use
 --   this method.</li>
 --   </ul>
-module Network.AWS.RedshiftData.ExecuteStatement
+module Amazonka.RedshiftData.ExecuteStatement
 
 -- | <i>See:</i> <a>newExecuteStatement</a> smart constructor.
 data ExecuteStatement
@@ -2645,22 +2645,22 @@ executeStatementResponse_secretArn :: Lens' ExecuteStatementResponse (Maybe Text
 
 -- | The response's http status code.
 executeStatementResponse_httpStatus :: Lens' ExecuteStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance GHC.Show.Show Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance GHC.Read.Read Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance GHC.Generics.Generic Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatementResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatementResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatementResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ExecuteStatement.ExecuteStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance GHC.Show.Show Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance GHC.Read.Read Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance GHC.Classes.Eq Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.ExecuteStatement.ExecuteStatementResponse
+instance GHC.Show.Show Amazonka.RedshiftData.ExecuteStatement.ExecuteStatementResponse
+instance GHC.Read.Read Amazonka.RedshiftData.ExecuteStatement.ExecuteStatementResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.ExecuteStatement.ExecuteStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ExecuteStatement.ExecuteStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.ExecuteStatement.ExecuteStatement
 
 
 -- | Describes the detailed information about a table from metadata in the
@@ -2679,7 +2679,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.ExecuteStatemen
 --   </ul>
 --   
 --   This operation returns paginated results.
-module Network.AWS.RedshiftData.DescribeTable
+module Amazonka.RedshiftData.DescribeTable
 
 -- | <i>See:</i> <a>newDescribeTable</a> smart constructor.
 data DescribeTable
@@ -2893,30 +2893,30 @@ describeTableResponse_tableName :: Lens' DescribeTableResponse (Maybe Text)
 
 -- | The response's http status code.
 describeTableResponse_httpStatus :: Lens' DescribeTableResponse Int
-instance GHC.Generics.Generic Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance GHC.Show.Show Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance GHC.Read.Read Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance GHC.Classes.Eq Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance GHC.Generics.Generic Network.AWS.RedshiftData.DescribeTable.DescribeTableResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.DescribeTable.DescribeTableResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.DescribeTable.DescribeTableResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.DescribeTable.DescribeTableResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.DescribeTable.DescribeTableResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.DescribeTable.DescribeTable
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.DescribeTable.DescribeTable
+instance GHC.Generics.Generic Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance GHC.Show.Show Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance GHC.Read.Read Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance GHC.Classes.Eq Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance GHC.Generics.Generic Amazonka.RedshiftData.DescribeTable.DescribeTableResponse
+instance GHC.Show.Show Amazonka.RedshiftData.DescribeTable.DescribeTableResponse
+instance GHC.Read.Read Amazonka.RedshiftData.DescribeTable.DescribeTableResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.DescribeTable.DescribeTableResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.DescribeTable.DescribeTableResponse
+instance Amazonka.Pager.AWSPager Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.DescribeTable.DescribeTable
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.DescribeTable.DescribeTable
 
 
 -- | Describes the details about a specific instance when a query was run
 --   by the Amazon Redshift Data API. The information includes when the
 --   query started, when it finished, the query status, the number of rows
 --   returned, and the SQL statement.
-module Network.AWS.RedshiftData.DescribeStatement
+module Amazonka.RedshiftData.DescribeStatement
 
 -- | <i>See:</i> <a>newDescribeStatement</a> smart constructor.
 data DescribeStatement
@@ -3227,26 +3227,26 @@ describeStatementResponse_httpStatus :: Lens' DescribeStatementResponse Int
 --   universally unique identifier (UUID) generated by Amazon Redshift Data
 --   API.
 describeStatementResponse_id :: Lens' DescribeStatementResponse Text
-instance GHC.Generics.Generic Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance GHC.Show.Show Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance GHC.Read.Read Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance GHC.Classes.Eq Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance GHC.Generics.Generic Network.AWS.RedshiftData.DescribeStatement.DescribeStatementResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.DescribeStatement.DescribeStatementResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.DescribeStatement.DescribeStatementResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.DescribeStatement.DescribeStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.DescribeStatement.DescribeStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.DescribeStatement.DescribeStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance GHC.Show.Show Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance GHC.Read.Read Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance GHC.Classes.Eq Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.DescribeStatement.DescribeStatementResponse
+instance GHC.Show.Show Amazonka.RedshiftData.DescribeStatement.DescribeStatementResponse
+instance GHC.Read.Read Amazonka.RedshiftData.DescribeStatement.DescribeStatementResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.DescribeStatement.DescribeStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.DescribeStatement.DescribeStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.DescribeStatement.DescribeStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.DescribeStatement.DescribeStatement
 
 
 -- | Cancels a running query. To be canceled, a query must be running.
-module Network.AWS.RedshiftData.CancelStatement
+module Amazonka.RedshiftData.CancelStatement
 
 -- | <i>See:</i> <a>newCancelStatement</a> smart constructor.
 data CancelStatement
@@ -3313,22 +3313,22 @@ cancelStatementResponse_status :: Lens' CancelStatementResponse (Maybe Bool)
 
 -- | The response's http status code.
 cancelStatementResponse_httpStatus :: Lens' CancelStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance GHC.Show.Show Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance GHC.Read.Read Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance GHC.Classes.Eq Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance GHC.Generics.Generic Network.AWS.RedshiftData.CancelStatement.CancelStatementResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.CancelStatement.CancelStatementResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.CancelStatement.CancelStatementResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.CancelStatement.CancelStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.CancelStatement.CancelStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.CancelStatement.CancelStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.CancelStatement.CancelStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance GHC.Show.Show Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance GHC.Read.Read Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance GHC.Classes.Eq Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.CancelStatement.CancelStatementResponse
+instance GHC.Show.Show Amazonka.RedshiftData.CancelStatement.CancelStatementResponse
+instance GHC.Read.Read Amazonka.RedshiftData.CancelStatement.CancelStatementResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.CancelStatement.CancelStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.CancelStatement.CancelStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.CancelStatement.CancelStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.CancelStatement.CancelStatement
 
 
 -- | Runs one or more SQL statements, which can be data manipulation
@@ -3345,7 +3345,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.CancelStatement
 --   <tt>redshift:GetClusterCredentials</tt> operation is required to use
 --   this method.</li>
 --   </ul>
-module Network.AWS.RedshiftData.BatchExecuteStatement
+module Amazonka.RedshiftData.BatchExecuteStatement
 
 -- | <i>See:</i> <a>newBatchExecuteStatement</a> smart constructor.
 data BatchExecuteStatement
@@ -3537,25 +3537,25 @@ batchExecuteStatementResponse_secretArn :: Lens' BatchExecuteStatementResponse (
 
 -- | The response's http status code.
 batchExecuteStatementResponse_httpStatus :: Lens' BatchExecuteStatementResponse Int
-instance GHC.Generics.Generic Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Show.Show Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Read.Read Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Classes.Eq Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance GHC.Generics.Generic Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance GHC.Show.Show Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance GHC.Read.Read Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance GHC.Classes.Eq Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance Control.DeepSeq.NFData Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance Network.AWS.Data.Path.ToPath Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Show.Show Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Read.Read Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Classes.Eq Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance GHC.Generics.Generic Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance GHC.Show.Show Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance GHC.Read.Read Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance GHC.Classes.Eq Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance Amazonka.Types.AWSRequest Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatementResponse
+instance Data.Hashable.Class.Hashable Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance Control.DeepSeq.NFData Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance Amazonka.Data.Path.ToPath Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
+instance Amazonka.Data.Query.ToQuery Amazonka.RedshiftData.BatchExecuteStatement.BatchExecuteStatement
 
 
-module Network.AWS.RedshiftData.Lens
+module Amazonka.RedshiftData.Lens
 
 -- | The status of the SQL statement to list. Status values are defined as
 --   follows:
@@ -4248,7 +4248,7 @@ tableMember_name :: Lens' TableMember (Maybe Text)
 tableMember_type :: Lens' TableMember (Maybe Text)
 
 
-module Network.AWS.RedshiftData.Waiters
+module Amazonka.RedshiftData.Waiters
 
 
 -- | Derived from API version <tt>2019-12-20</tt> of the AWS service
@@ -4261,7 +4261,7 @@ module Network.AWS.RedshiftData.Waiters
 --   For more information about the Amazon Redshift Data API, see <a>Using
 --   the Amazon Redshift Data API</a> in the <i>Amazon Redshift Cluster
 --   Management Guide</i>.
-module Network.AWS.RedshiftData
+module Amazonka.RedshiftData
 
 -- | API version <tt>2019-12-20</tt> of the Amazon Redshift Data API
 --   Service SDK configuration.

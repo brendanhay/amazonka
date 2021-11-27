@@ -1,0 +1,766 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackageVOD.ListPackagingConfigurations</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns a collection of MediaPackage VOD PackagingConfiguration</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- resources.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackageVOD.ListPackagingConfigurations</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#newListPackagingConfigurations"><span class="hs-identifier">newListPackagingConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_packagingGroupId"><span class="hs-identifier">listPackagingConfigurations_packagingGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_nextToken"><span class="hs-identifier">listPackagingConfigurations_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_maxResults"><span class="hs-identifier">listPackagingConfigurations_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier">ListPackagingConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#newListPackagingConfigurationsResponse"><span class="hs-identifier">newListPackagingConfigurationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_packagingConfigurations"><span class="hs-identifier">listPackagingConfigurationsResponse_packagingConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_nextToken"><span class="hs-identifier">listPackagingConfigurationsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_httpStatus"><span class="hs-identifier">listPackagingConfigurationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.html"><span class="hs-identifier">Amazonka.MediaPackageVOD.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newListPackagingConfigurations' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679198265"><span id="local-6989586621679198266"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPackagingConfigurations"><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-var">ListPackagingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPackagingConfigurations%27"><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-var">ListPackagingConfigurations'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Returns MediaPackage VOD PackagingConfigurations associated with the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- specified PackagingGroup.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3ApackagingGroupId%3AListPackagingConfigurations%27"><span class="annot"><span class="annottext">ListPackagingConfigurations -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3ApackagingGroupId%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A token used to resume pagination from the end of a previous request.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListPackagingConfigurations%27"><span class="annot"><span class="annottext">ListPackagingConfigurations -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AnextToken%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | Upper bound on number of records to return.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPackagingConfigurations%27"><span class="annot"><span class="annottext">ListPackagingConfigurations -&gt; Maybe Natural
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AmaxResults%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198257"><span id="local-6989586621679198259"><span class="annot"><span class="annottext">ListPackagingConfigurations -&gt; ListPackagingConfigurations -&gt; Bool
+(ListPackagingConfigurations
+ -&gt; ListPackagingConfigurations -&gt; Bool)
+-&gt; (ListPackagingConfigurations
+    -&gt; ListPackagingConfigurations -&gt; Bool)
+-&gt; Eq ListPackagingConfigurations
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPackagingConfigurations -&gt; ListPackagingConfigurations -&gt; Bool
+$c/= :: ListPackagingConfigurations -&gt; ListPackagingConfigurations -&gt; Bool
+== :: ListPackagingConfigurations -&gt; ListPackagingConfigurations -&gt; Bool
+$c== :: ListPackagingConfigurations -&gt; ListPackagingConfigurations -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198248"><span id="local-6989586621679198250"><span id="local-6989586621679198252"><span id="local-6989586621679198254"><span class="annot"><span class="annottext">ReadPrec [ListPackagingConfigurations]
+ReadPrec ListPackagingConfigurations
+Int -&gt; ReadS ListPackagingConfigurations
+ReadS [ListPackagingConfigurations]
+(Int -&gt; ReadS ListPackagingConfigurations)
+-&gt; ReadS [ListPackagingConfigurations]
+-&gt; ReadPrec ListPackagingConfigurations
+-&gt; ReadPrec [ListPackagingConfigurations]
+-&gt; Read ListPackagingConfigurations
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPackagingConfigurations]
+$creadListPrec :: ReadPrec [ListPackagingConfigurations]
+readPrec :: ReadPrec ListPackagingConfigurations
+$creadPrec :: ReadPrec ListPackagingConfigurations
+readList :: ReadS [ListPackagingConfigurations]
+$creadList :: ReadS [ListPackagingConfigurations]
+readsPrec :: Int -&gt; ReadS ListPackagingConfigurations
+$creadsPrec :: Int -&gt; ReadS ListPackagingConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198241"><span id="local-6989586621679198243"><span id="local-6989586621679198245"><span class="annot"><span class="annottext">Int -&gt; ListPackagingConfigurations -&gt; ShowS
+[ListPackagingConfigurations] -&gt; ShowS
+ListPackagingConfigurations -&gt; String
+(Int -&gt; ListPackagingConfigurations -&gt; ShowS)
+-&gt; (ListPackagingConfigurations -&gt; String)
+-&gt; ([ListPackagingConfigurations] -&gt; ShowS)
+-&gt; Show ListPackagingConfigurations
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPackagingConfigurations] -&gt; ShowS
+$cshowList :: [ListPackagingConfigurations] -&gt; ShowS
+show :: ListPackagingConfigurations -&gt; String
+$cshow :: ListPackagingConfigurations -&gt; String
+showsPrec :: Int -&gt; ListPackagingConfigurations -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPackagingConfigurations -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPackagingConfigurations -&gt; Rep ListPackagingConfigurations x)
+-&gt; (forall x.
+    Rep ListPackagingConfigurations x -&gt; ListPackagingConfigurations)
+-&gt; Generic ListPackagingConfigurations
+forall x.
+Rep ListPackagingConfigurations x -&gt; ListPackagingConfigurations
+forall x.
+ListPackagingConfigurations -&gt; Rep ListPackagingConfigurations x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPackagingConfigurations x -&gt; ListPackagingConfigurations
+$cfrom :: forall x.
+ListPackagingConfigurations -&gt; Rep ListPackagingConfigurations x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'ListPackagingConfigurations' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'packagingGroupId', 'listPackagingConfigurations_packagingGroupId' - Returns MediaPackage VOD PackagingConfigurations associated with the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- specified PackagingGroup.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'nextToken', 'listPackagingConfigurations_nextToken' - A token used to resume pagination from the end of a previous request.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'maxResults', 'listPackagingConfigurations_maxResults' - Upper bound on number of records to return.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#newListPackagingConfigurations"><span class="hs-identifier hs-type">newListPackagingConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span>
+</span><span id="line-83"></span><span id="newListPackagingConfigurations"><span class="annot"><span class="annottext">newListPackagingConfigurations :: ListPackagingConfigurations
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#newListPackagingConfigurations"><span class="hs-identifier hs-var hs-var">newListPackagingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ListPackagingConfigurations' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Natural -&gt; ListPackagingConfigurations
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:packagingGroupId:ListPackagingConfigurations' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3ApackagingGroupId%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPackagingConfigurations' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AnextToken%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPackagingConfigurations' :: Maybe Natural
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AmaxResults%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | Returns MediaPackage VOD PackagingConfigurations associated with the</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- specified PackagingGroup.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_packagingGroupId"><span class="hs-identifier hs-type">listPackagingConfigurations_packagingGroupId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="listPackagingConfigurations_packagingGroupId"><span class="annot"><span class="annottext">listPackagingConfigurations_packagingGroupId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPackagingConfigurations -&gt; f ListPackagingConfigurations
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_packagingGroupId"><span class="hs-identifier hs-var hs-var">listPackagingConfigurations_packagingGroupId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPackagingConfigurations -&gt; Maybe Text)
+-&gt; (ListPackagingConfigurations
+    -&gt; Maybe Text -&gt; ListPackagingConfigurations)
+-&gt; Lens
+     ListPackagingConfigurations
+     ListPackagingConfigurations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198235"><span class="annot"><span class="annottext">Maybe Text
+packagingGroupId :: Maybe Text
+$sel:packagingGroupId:ListPackagingConfigurations' :: ListPackagingConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679198235"><span class="hs-identifier hs-var hs-var">packagingGroupId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198235"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198234"><span class="annot"><span class="annottext">s :: ListPackagingConfigurations
+</span><a href="#local-6989586621679198234"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198233"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198233"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPackagingConfigurations
+</span><a href="#local-6989586621679198234"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packagingGroupId:ListPackagingConfigurations' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3ApackagingGroupId%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198233"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | A token used to resume pagination from the end of a previous request.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_nextToken"><span class="hs-identifier hs-type">listPackagingConfigurations_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="listPackagingConfigurations_nextToken"><span class="annot"><span class="annottext">listPackagingConfigurations_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPackagingConfigurations -&gt; f ListPackagingConfigurations
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_nextToken"><span class="hs-identifier hs-var hs-var">listPackagingConfigurations_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPackagingConfigurations -&gt; Maybe Text)
+-&gt; (ListPackagingConfigurations
+    -&gt; Maybe Text -&gt; ListPackagingConfigurations)
+-&gt; Lens
+     ListPackagingConfigurations
+     ListPackagingConfigurations
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198232"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPackagingConfigurations' :: ListPackagingConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679198232"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198232"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198231"><span class="annot"><span class="annottext">s :: ListPackagingConfigurations
+</span><a href="#local-6989586621679198231"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198230"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198230"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPackagingConfigurations
+</span><a href="#local-6989586621679198231"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPackagingConfigurations' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AnextToken%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198230"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Upper bound on number of records to return.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_maxResults"><span class="hs-identifier hs-type">listPackagingConfigurations_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="listPackagingConfigurations_maxResults"><span class="annot"><span class="annottext">listPackagingConfigurations_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPackagingConfigurations -&gt; f ListPackagingConfigurations
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_maxResults"><span class="hs-identifier hs-var hs-var">listPackagingConfigurations_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPackagingConfigurations -&gt; Maybe Natural)
+-&gt; (ListPackagingConfigurations
+    -&gt; Maybe Natural -&gt; ListPackagingConfigurations)
+-&gt; Lens
+     ListPackagingConfigurations
+     ListPackagingConfigurations
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198229"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPackagingConfigurations' :: ListPackagingConfigurations -&gt; Maybe Natural
+</span><a href="#local-6989586621679198229"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198229"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198228"><span class="annot"><span class="annottext">s :: ListPackagingConfigurations
+</span><a href="#local-6989586621679198228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198227"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPackagingConfigurations
+</span><a href="#local-6989586621679198228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPackagingConfigurations' :: Maybe Natural
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AmaxResults%3AListPackagingConfigurations%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679198223"><span class="annot"><span class="annottext">page :: ListPackagingConfigurations
+-&gt; AWSResponse ListPackagingConfigurations
+-&gt; Maybe ListPackagingConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679198221"><span class="annot"><span class="annottext">ListPackagingConfigurations
+</span><a href="#local-6989586621679198221"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679198220"><span class="annot"><span class="annottext">AWSResponse ListPackagingConfigurations
+</span><a href="#local-6989586621679198220"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPackagingConfigurations
+ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198220"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+-&gt; Getting (First Text) ListPackagingConfigurationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPackagingConfigurationsResponse
+-&gt; Const (First Text) ListPackagingConfigurationsResponse
+Lens' ListPackagingConfigurationsResponse (Maybe Text)
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_nextToken"><span class="hs-identifier hs-var">listPackagingConfigurationsResponse_nextToken</span></a></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPackagingConfigurationsResponse
+ -&gt; Const (First Text) ListPackagingConfigurationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPackagingConfigurationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPackagingConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [PackagingConfiguration] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPackagingConfigurations
+ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198220"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+-&gt; Getting
+     (First [PackagingConfiguration])
+     ListPackagingConfigurationsResponse
+     [PackagingConfiguration]
+-&gt; Maybe [PackagingConfiguration]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [PackagingConfiguration]
+ -&gt; Const
+      (First [PackagingConfiguration]) (Maybe [PackagingConfiguration]))
+-&gt; ListPackagingConfigurationsResponse
+-&gt; Const
+     (First [PackagingConfiguration])
+     ListPackagingConfigurationsResponse
+Lens'
+  ListPackagingConfigurationsResponse
+  (Maybe [PackagingConfiguration])
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_packagingConfigurations"><span class="hs-identifier hs-var">listPackagingConfigurationsResponse_packagingConfigurations</span></a></span><span>
+</span><span id="line-115"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [PackagingConfiguration]
+  -&gt; Const
+       (First [PackagingConfiguration]) (Maybe [PackagingConfiguration]))
+ -&gt; ListPackagingConfigurationsResponse
+ -&gt; Const
+      (First [PackagingConfiguration])
+      ListPackagingConfigurationsResponse)
+-&gt; (([PackagingConfiguration]
+     -&gt; Const (First [PackagingConfiguration]) [PackagingConfiguration])
+    -&gt; Maybe [PackagingConfiguration]
+    -&gt; Const
+         (First [PackagingConfiguration]) (Maybe [PackagingConfiguration]))
+-&gt; Getting
+     (First [PackagingConfiguration])
+     ListPackagingConfigurationsResponse
+     [PackagingConfiguration]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([PackagingConfiguration]
+ -&gt; Const (First [PackagingConfiguration]) [PackagingConfiguration])
+-&gt; Maybe [PackagingConfiguration]
+-&gt; Const
+     (First [PackagingConfiguration]) (Maybe [PackagingConfiguration])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-116"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPackagingConfigurations
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><span class="annottext">ListPackagingConfigurations -&gt; Maybe ListPackagingConfigurations
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListPackagingConfigurations -&gt; Maybe ListPackagingConfigurations)
+-&gt; ListPackagingConfigurations -&gt; Maybe ListPackagingConfigurations
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">ListPackagingConfigurations
+</span><a href="#local-6989586621679198221"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">ListPackagingConfigurations
+-&gt; (ListPackagingConfigurations -&gt; ListPackagingConfigurations)
+-&gt; ListPackagingConfigurations
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListPackagingConfigurations
+-&gt; Identity ListPackagingConfigurations
+Lens
+  ListPackagingConfigurations
+  ListPackagingConfigurations
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurations_nextToken"><span class="hs-identifier hs-var">listPackagingConfigurations_nextToken</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListPackagingConfigurations
+ -&gt; Identity ListPackagingConfigurations)
+-&gt; Maybe Text
+-&gt; ListPackagingConfigurations
+-&gt; ListPackagingConfigurations
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPackagingConfigurations
+ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198220"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+-&gt; Getting (First Text) ListPackagingConfigurationsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPackagingConfigurationsResponse
+-&gt; Const (First Text) ListPackagingConfigurationsResponse
+Lens' ListPackagingConfigurationsResponse (Maybe Text)
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_nextToken"><span class="hs-identifier hs-var">listPackagingConfigurationsResponse_nextToken</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPackagingConfigurationsResponse
+ -&gt; Const (First Text) ListPackagingConfigurationsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPackagingConfigurationsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-128"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679198210"><span class="annot"><span class="annottext">request :: ListPackagingConfigurations -&gt; Request ListPackagingConfigurations
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListPackagingConfigurations
+-&gt; Request ListPackagingConfigurations
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaPackageVOD.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679198206"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPackagingConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPackagingConfigurations)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPackagingConfigurations))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPackagingConfigurations
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPackagingConfigurations)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679198203"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198203"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679198202"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679198202"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679198201"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198201"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [PackagingConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; ListPackagingConfigurationsResponse
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">ListPackagingConfigurationsResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [PackagingConfiguration]
+ -&gt; Maybe Text -&gt; Int -&gt; ListPackagingConfigurationsResponse)
+-&gt; Either String (Maybe [PackagingConfiguration])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListPackagingConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [PackagingConfiguration]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;packagingConfigurations&quot;</span></span><span>
+</span><span id="line-136"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [PackagingConfiguration]))
+-&gt; Maybe [PackagingConfiguration]
+-&gt; Either String (Maybe [PackagingConfiguration])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PackagingConfiguration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-137"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListPackagingConfigurationsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListPackagingConfigurationsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679198201"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPackagingConfigurationsResponse)
+-&gt; Either String Int
+-&gt; Either String ListPackagingConfigurationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198203"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198192"><span id="local-6989586621679198194"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679198189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679198185"><span class="annot"><span class="annottext">toHeaders :: ListPackagingConfigurations -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListPackagingConfigurations -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679198179"><span class="annot"><span class="annottext">toPath :: ListPackagingConfigurations -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPackagingConfigurations -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/packaging_configurations&quot;</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations"><span class="hs-identifier hs-type">ListPackagingConfigurations</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679198175"><span class="annot"><span class="annottext">toQuery :: ListPackagingConfigurations -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurations%27"><span class="hs-identifier hs-type">ListPackagingConfigurations'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198171"><span id="local-6989586621679198172"><span id="local-6989586621679198173"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+packagingGroupId :: Maybe Text
+$sel:maxResults:ListPackagingConfigurations' :: ListPackagingConfigurations -&gt; Maybe Natural
+$sel:nextToken:ListPackagingConfigurations' :: ListPackagingConfigurations -&gt; Maybe Text
+$sel:packagingGroupId:ListPackagingConfigurations' :: ListPackagingConfigurations -&gt; Maybe Text
+</span><a href="#local-6989586621679198171"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;packagingGroupId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198173"><span class="hs-identifier hs-var">packagingGroupId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198172"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679198171"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newListPackagingConfigurationsResponse' smart constructor.</span><span>
+</span><span id="line-169"></span><span id="local-6989586621679198168"><span id="local-6989586621679198169"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPackagingConfigurationsResponse"><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-var">ListPackagingConfigurationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPackagingConfigurationsResponse%27"><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">ListPackagingConfigurationsResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of MediaPackage VOD PackagingConfiguration resources.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3ApackagingConfigurations%3AListPackagingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+-&gt; Maybe [PackagingConfiguration]
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3ApackagingConfigurations%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">packagingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.PackagingConfiguration.html#PackagingConfiguration"><span class="hs-identifier hs-type">PackagingConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | A token that can be used to resume pagination from the end of the</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- collection.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AnextToken%3AListPackagingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AnextToken%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPackagingConfigurationsResponse%27"><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse -&gt; Int
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AhttpStatus%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679198161"><span id="local-6989586621679198163"><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+-&gt; ListPackagingConfigurationsResponse -&gt; Bool
+(ListPackagingConfigurationsResponse
+ -&gt; ListPackagingConfigurationsResponse -&gt; Bool)
+-&gt; (ListPackagingConfigurationsResponse
+    -&gt; ListPackagingConfigurationsResponse -&gt; Bool)
+-&gt; Eq ListPackagingConfigurationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPackagingConfigurationsResponse
+-&gt; ListPackagingConfigurationsResponse -&gt; Bool
+$c/= :: ListPackagingConfigurationsResponse
+-&gt; ListPackagingConfigurationsResponse -&gt; Bool
+== :: ListPackagingConfigurationsResponse
+-&gt; ListPackagingConfigurationsResponse -&gt; Bool
+$c== :: ListPackagingConfigurationsResponse
+-&gt; ListPackagingConfigurationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198153"><span id="local-6989586621679198155"><span id="local-6989586621679198157"><span id="local-6989586621679198159"><span class="annot"><span class="annottext">ReadPrec [ListPackagingConfigurationsResponse]
+ReadPrec ListPackagingConfigurationsResponse
+Int -&gt; ReadS ListPackagingConfigurationsResponse
+ReadS [ListPackagingConfigurationsResponse]
+(Int -&gt; ReadS ListPackagingConfigurationsResponse)
+-&gt; ReadS [ListPackagingConfigurationsResponse]
+-&gt; ReadPrec ListPackagingConfigurationsResponse
+-&gt; ReadPrec [ListPackagingConfigurationsResponse]
+-&gt; Read ListPackagingConfigurationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPackagingConfigurationsResponse]
+$creadListPrec :: ReadPrec [ListPackagingConfigurationsResponse]
+readPrec :: ReadPrec ListPackagingConfigurationsResponse
+$creadPrec :: ReadPrec ListPackagingConfigurationsResponse
+readList :: ReadS [ListPackagingConfigurationsResponse]
+$creadList :: ReadS [ListPackagingConfigurationsResponse]
+readsPrec :: Int -&gt; ReadS ListPackagingConfigurationsResponse
+$creadsPrec :: Int -&gt; ReadS ListPackagingConfigurationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679198147"><span id="local-6989586621679198149"><span id="local-6989586621679198151"><span class="annot"><span class="annottext">Int -&gt; ListPackagingConfigurationsResponse -&gt; ShowS
+[ListPackagingConfigurationsResponse] -&gt; ShowS
+ListPackagingConfigurationsResponse -&gt; String
+(Int -&gt; ListPackagingConfigurationsResponse -&gt; ShowS)
+-&gt; (ListPackagingConfigurationsResponse -&gt; String)
+-&gt; ([ListPackagingConfigurationsResponse] -&gt; ShowS)
+-&gt; Show ListPackagingConfigurationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPackagingConfigurationsResponse] -&gt; ShowS
+$cshowList :: [ListPackagingConfigurationsResponse] -&gt; ShowS
+show :: ListPackagingConfigurationsResponse -&gt; String
+$cshow :: ListPackagingConfigurationsResponse -&gt; String
+showsPrec :: Int -&gt; ListPackagingConfigurationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPackagingConfigurationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPackagingConfigurationsResponse
+ -&gt; Rep ListPackagingConfigurationsResponse x)
+-&gt; (forall x.
+    Rep ListPackagingConfigurationsResponse x
+    -&gt; ListPackagingConfigurationsResponse)
+-&gt; Generic ListPackagingConfigurationsResponse
+forall x.
+Rep ListPackagingConfigurationsResponse x
+-&gt; ListPackagingConfigurationsResponse
+forall x.
+ListPackagingConfigurationsResponse
+-&gt; Rep ListPackagingConfigurationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPackagingConfigurationsResponse x
+-&gt; ListPackagingConfigurationsResponse
+$cfrom :: forall x.
+ListPackagingConfigurationsResponse
+-&gt; Rep ListPackagingConfigurationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'ListPackagingConfigurationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'packagingConfigurations', 'listPackagingConfigurationsResponse_packagingConfigurations' - A list of MediaPackage VOD PackagingConfiguration resources.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'nextToken', 'listPackagingConfigurationsResponse_nextToken' - A token that can be used to resume pagination from the end of the</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- collection.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'httpStatus', 'listPackagingConfigurationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#newListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">newListPackagingConfigurationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span>
+</span><span id="line-198"></span><span id="newListPackagingConfigurationsResponse"><span class="annot"><span class="annottext">newListPackagingConfigurationsResponse :: Int -&gt; ListPackagingConfigurationsResponse
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#newListPackagingConfigurationsResponse"><span class="hs-identifier hs-var hs-var">newListPackagingConfigurationsResponse</span></a></span></span><span> </span><span id="local-6989586621679198144"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse' :: Maybe [PackagingConfiguration]
+-&gt; Maybe Text -&gt; Int -&gt; ListPackagingConfigurationsResponse
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse'</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:packagingConfigurations:ListPackagingConfigurationsResponse' :: Maybe [PackagingConfiguration]
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3ApackagingConfigurations%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">packagingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>        </span><span class="annot"><span class="annottext">Maybe [PackagingConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListPackagingConfigurationsResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AnextToken%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPackagingConfigurationsResponse' :: Int
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AhttpStatus%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198144"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A list of MediaPackage VOD PackagingConfiguration resources.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_packagingConfigurations"><span class="hs-identifier hs-type">listPackagingConfigurationsResponse_packagingConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaPackageVOD.Types.PackagingConfiguration.html#PackagingConfiguration"><span class="hs-identifier hs-type">PackagingConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="listPackagingConfigurationsResponse_packagingConfigurations"><span class="annot"><span class="annottext">listPackagingConfigurationsResponse_packagingConfigurations :: (Maybe [PackagingConfiguration]
+ -&gt; f (Maybe [PackagingConfiguration]))
+-&gt; ListPackagingConfigurationsResponse
+-&gt; f ListPackagingConfigurationsResponse
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_packagingConfigurations"><span class="hs-identifier hs-var hs-var">listPackagingConfigurationsResponse_packagingConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPackagingConfigurationsResponse
+ -&gt; Maybe [PackagingConfiguration])
+-&gt; (ListPackagingConfigurationsResponse
+    -&gt; Maybe [PackagingConfiguration]
+    -&gt; ListPackagingConfigurationsResponse)
+-&gt; Lens'
+     ListPackagingConfigurationsResponse
+     (Maybe [PackagingConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198143"><span class="annot"><span class="annottext">Maybe [PackagingConfiguration]
+packagingConfigurations :: Maybe [PackagingConfiguration]
+$sel:packagingConfigurations:ListPackagingConfigurationsResponse' :: ListPackagingConfigurationsResponse
+-&gt; Maybe [PackagingConfiguration]
+</span><a href="#local-6989586621679198143"><span class="hs-identifier hs-var hs-var">packagingConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PackagingConfiguration]
+</span><a href="#local-6989586621679198143"><span class="hs-identifier hs-var">packagingConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198142"><span class="annot"><span class="annottext">s :: ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198141"><span class="annot"><span class="annottext">Maybe [PackagingConfiguration]
+</span><a href="#local-6989586621679198141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packagingConfigurations:ListPackagingConfigurationsResponse' :: Maybe [PackagingConfiguration]
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3ApackagingConfigurations%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">packagingConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PackagingConfiguration]
+</span><a href="#local-6989586621679198141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PackagingConfiguration]
+  -&gt; f (Maybe [PackagingConfiguration]))
+ -&gt; ListPackagingConfigurationsResponse
+ -&gt; f ListPackagingConfigurationsResponse)
+-&gt; ((Maybe [PackagingConfiguration]
+     -&gt; f (Maybe [PackagingConfiguration]))
+    -&gt; Maybe [PackagingConfiguration]
+    -&gt; f (Maybe [PackagingConfiguration]))
+-&gt; (Maybe [PackagingConfiguration]
+    -&gt; f (Maybe [PackagingConfiguration]))
+-&gt; ListPackagingConfigurationsResponse
+-&gt; f ListPackagingConfigurationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PackagingConfiguration]
+  [PackagingConfiguration]
+  [PackagingConfiguration]
+  [PackagingConfiguration]
+-&gt; Iso
+     (Maybe [PackagingConfiguration])
+     (Maybe [PackagingConfiguration])
+     (Maybe [PackagingConfiguration])
+     (Maybe [PackagingConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [PackagingConfiguration]
+  [PackagingConfiguration]
+  [PackagingConfiguration]
+  [PackagingConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | A token that can be used to resume pagination from the end of the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- collection.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_nextToken"><span class="hs-identifier hs-type">listPackagingConfigurationsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="listPackagingConfigurationsResponse_nextToken"><span class="annot"><span class="annottext">listPackagingConfigurationsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPackagingConfigurationsResponse
+-&gt; f ListPackagingConfigurationsResponse
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPackagingConfigurationsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPackagingConfigurationsResponse -&gt; Maybe Text)
+-&gt; (ListPackagingConfigurationsResponse
+    -&gt; Maybe Text -&gt; ListPackagingConfigurationsResponse)
+-&gt; Lens' ListPackagingConfigurationsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198138"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPackagingConfigurationsResponse' :: ListPackagingConfigurationsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679198138"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198138"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198137"><span class="annot"><span class="annottext">s :: ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198137"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198136"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198136"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198137"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPackagingConfigurationsResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AnextToken%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679198136"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_httpStatus"><span class="hs-identifier hs-type">listPackagingConfigurationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-217"></span><span id="listPackagingConfigurationsResponse_httpStatus"><span class="annot"><span class="annottext">listPackagingConfigurationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPackagingConfigurationsResponse
+-&gt; f ListPackagingConfigurationsResponse
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#listPackagingConfigurationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPackagingConfigurationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPackagingConfigurationsResponse -&gt; Int)
+-&gt; (ListPackagingConfigurationsResponse
+    -&gt; Int -&gt; ListPackagingConfigurationsResponse)
+-&gt; Lens
+     ListPackagingConfigurationsResponse
+     ListPackagingConfigurationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679198135"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPackagingConfigurationsResponse' :: ListPackagingConfigurationsResponse -&gt; Int
+</span><a href="#local-6989586621679198135"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198135"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679198134"><span class="annot"><span class="annottext">s :: ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198134"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679198133"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198133"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPackagingConfigurationsResponse
+</span><a href="#local-6989586621679198134"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPackagingConfigurationsResponse' :: Int
+</span><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#%24sel%3AhttpStatus%3AListPackagingConfigurationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679198133"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679198131"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackageVOD.ListPackagingConfigurations.html#ListPackagingConfigurationsResponse"><span class="hs-identifier hs-type">ListPackagingConfigurationsResponse</span></a></span></span><span>
+</span><span id="line-222"></span></pre></body></html>

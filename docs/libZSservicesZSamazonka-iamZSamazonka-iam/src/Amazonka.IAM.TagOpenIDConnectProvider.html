@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.TagOpenIDConnectProvider</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Adds one or more tags to an OpenID Connect (OIDC)-compatible identity</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- provider. For more information about these providers, see</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_oidc.html About web identity federation&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- If a tag with the same key name already exists, then that tag is</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- overwritten with the new value.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- A tag consists of a key name and an associated value. By assigning tags</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- to your resources, you can do the following:</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- -   __Administrative grouping and discovery__ - Attach tags to resources</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--     to aid in organization and search. For example, you could search for</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--     all resources with the key name /Project/ and the value</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     /MyImportantProject/. Or search for all resources with the key name</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     /Cost Center/ and the value /41200/.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- -   __Access control__ - Include tags in IAM user-based and</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     resource-based policies. You can use tags to restrict access to only</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--     an OIDC provider that has a specified tag attached. For examples of</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--     policies that show how to use tags to control access, see</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html Control access using IAM tags&gt;</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     in the /IAM User Guide/.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   If any one of the tags is invalid or if you exceed the allowed</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--     maximum number of tags, then the entire request fails and the</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--     resource is not created. For more information about tagging, see</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html Tagging IAM resources&gt;</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--     in the /IAM User Guide/.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- -   Amazon Web Services always interprets the tag @Value@ as a single</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--     string. If you need to store an array, you can store comma-separated</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--     values in the string. However, you must interpret the value in your</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--     code.</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.TagOpenIDConnectProvider</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier">TagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#newTagOpenIDConnectProvider"><span class="hs-identifier">newTagOpenIDConnectProvider</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#tagOpenIDConnectProvider_openIDConnectProviderArn"><span class="hs-identifier">tagOpenIDConnectProvider_openIDConnectProviderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#tagOpenIDConnectProvider_tags"><span class="hs-identifier">tagOpenIDConnectProvider_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse"><span class="hs-identifier">TagOpenIDConnectProviderResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#newTagOpenIDConnectProviderResponse"><span class="hs-identifier">newTagOpenIDConnectProviderResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | /See:/ 'newTagOpenIDConnectProvider' smart constructor.</span><span>
+</span><span id="line-78"></span><span id="local-6989586621679435495"><span id="local-6989586621679435496"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagOpenIDConnectProvider"><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-var">TagOpenIDConnectProvider</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagOpenIDConnectProvider%27"><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider%27"><span class="hs-identifier hs-var">TagOpenIDConnectProvider'</span></a></span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the OIDC identity provider in IAM to which you want to add</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- tags.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AopenIDConnectProviderArn%3ATagOpenIDConnectProvider%27"><span class="annot"><span class="annottext">TagOpenIDConnectProvider -&gt; Text
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#%24sel%3AopenIDConnectProviderArn%3ATagOpenIDConnectProvider%27"><span class="hs-identifier hs-var hs-var">openIDConnectProviderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The list of tags that you want to attach to the OIDC identity provider</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- in IAM. Each tag consists of a key name and an associated value.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Atags%3ATagOpenIDConnectProvider%27"><span class="annot"><span class="annottext">TagOpenIDConnectProvider -&gt; [Tag]
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#%24sel%3Atags%3ATagOpenIDConnectProvider%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435488"><span id="local-6989586621679435490"><span class="annot"><span class="annottext">TagOpenIDConnectProvider -&gt; TagOpenIDConnectProvider -&gt; Bool
+(TagOpenIDConnectProvider -&gt; TagOpenIDConnectProvider -&gt; Bool)
+-&gt; (TagOpenIDConnectProvider -&gt; TagOpenIDConnectProvider -&gt; Bool)
+-&gt; Eq TagOpenIDConnectProvider
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagOpenIDConnectProvider -&gt; TagOpenIDConnectProvider -&gt; Bool
+$c/= :: TagOpenIDConnectProvider -&gt; TagOpenIDConnectProvider -&gt; Bool
+== :: TagOpenIDConnectProvider -&gt; TagOpenIDConnectProvider -&gt; Bool
+$c== :: TagOpenIDConnectProvider -&gt; TagOpenIDConnectProvider -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435479"><span id="local-6989586621679435481"><span id="local-6989586621679435483"><span id="local-6989586621679435485"><span class="annot"><span class="annottext">ReadPrec [TagOpenIDConnectProvider]
+ReadPrec TagOpenIDConnectProvider
+Int -&gt; ReadS TagOpenIDConnectProvider
+ReadS [TagOpenIDConnectProvider]
+(Int -&gt; ReadS TagOpenIDConnectProvider)
+-&gt; ReadS [TagOpenIDConnectProvider]
+-&gt; ReadPrec TagOpenIDConnectProvider
+-&gt; ReadPrec [TagOpenIDConnectProvider]
+-&gt; Read TagOpenIDConnectProvider
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagOpenIDConnectProvider]
+$creadListPrec :: ReadPrec [TagOpenIDConnectProvider]
+readPrec :: ReadPrec TagOpenIDConnectProvider
+$creadPrec :: ReadPrec TagOpenIDConnectProvider
+readList :: ReadS [TagOpenIDConnectProvider]
+$creadList :: ReadS [TagOpenIDConnectProvider]
+readsPrec :: Int -&gt; ReadS TagOpenIDConnectProvider
+$creadsPrec :: Int -&gt; ReadS TagOpenIDConnectProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435472"><span id="local-6989586621679435474"><span id="local-6989586621679435476"><span class="annot"><span class="annottext">Int -&gt; TagOpenIDConnectProvider -&gt; ShowS
+[TagOpenIDConnectProvider] -&gt; ShowS
+TagOpenIDConnectProvider -&gt; String
+(Int -&gt; TagOpenIDConnectProvider -&gt; ShowS)
+-&gt; (TagOpenIDConnectProvider -&gt; String)
+-&gt; ([TagOpenIDConnectProvider] -&gt; ShowS)
+-&gt; Show TagOpenIDConnectProvider
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagOpenIDConnectProvider] -&gt; ShowS
+$cshowList :: [TagOpenIDConnectProvider] -&gt; ShowS
+show :: TagOpenIDConnectProvider -&gt; String
+$cshow :: TagOpenIDConnectProvider -&gt; String
+showsPrec :: Int -&gt; TagOpenIDConnectProvider -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagOpenIDConnectProvider -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TagOpenIDConnectProvider -&gt; Rep TagOpenIDConnectProvider x)
+-&gt; (forall x.
+    Rep TagOpenIDConnectProvider x -&gt; TagOpenIDConnectProvider)
+-&gt; Generic TagOpenIDConnectProvider
+forall x.
+Rep TagOpenIDConnectProvider x -&gt; TagOpenIDConnectProvider
+forall x.
+TagOpenIDConnectProvider -&gt; Rep TagOpenIDConnectProvider x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TagOpenIDConnectProvider x -&gt; TagOpenIDConnectProvider
+$cfrom :: forall x.
+TagOpenIDConnectProvider -&gt; Rep TagOpenIDConnectProvider x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Create a value of 'TagOpenIDConnectProvider' with all optional fields omitted.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'openIDConnectProviderArn', 'tagOpenIDConnectProvider_openIDConnectProviderArn' - The ARN of the OIDC identity provider in IAM to which you want to add</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- tags.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'tags', 'tagOpenIDConnectProvider_tags' - The list of tags that you want to attach to the OIDC identity provider</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- in IAM. Each tag consists of a key name and an associated value.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#newTagOpenIDConnectProvider"><span class="hs-identifier hs-type">newTagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'openIDConnectProviderArn'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span>
+</span><span id="line-115"></span><span id="newTagOpenIDConnectProvider"><span class="annot"><span class="annottext">newTagOpenIDConnectProvider :: Text -&gt; TagOpenIDConnectProvider
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#newTagOpenIDConnectProvider"><span class="hs-identifier hs-var hs-var">newTagOpenIDConnectProvider</span></a></span></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679435467"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435467"><span class="hs-identifier hs-var">pOpenIDConnectProviderArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">TagOpenIDConnectProvider' :: Text -&gt; [Tag] -&gt; TagOpenIDConnectProvider
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider%27"><span class="hs-identifier hs-type">TagOpenIDConnectProvider'</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:openIDConnectProviderArn:TagOpenIDConnectProvider' :: Text
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#%24sel%3AopenIDConnectProviderArn%3ATagOpenIDConnectProvider%27"><span class="hs-identifier hs-var">openIDConnectProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435467"><span class="hs-identifier hs-var">pOpenIDConnectProviderArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:TagOpenIDConnectProvider' :: [Tag]
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#%24sel%3Atags%3ATagOpenIDConnectProvider%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The ARN of the OIDC identity provider in IAM to which you want to add</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- tags.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- This parameter allows (through its</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- &lt;http://wikipedia.org/wiki/regex regex pattern&gt;) a string of characters</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- consisting of upper and lowercase alphanumeric characters with no</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- spaces. You can also include any of the following characters: _+=,.\@-</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#tagOpenIDConnectProvider_openIDConnectProviderArn"><span class="hs-identifier hs-type">tagOpenIDConnectProvider_openIDConnectProviderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="tagOpenIDConnectProvider_openIDConnectProviderArn"><span class="annot"><span class="annottext">tagOpenIDConnectProvider_openIDConnectProviderArn :: (Text -&gt; f Text)
+-&gt; TagOpenIDConnectProvider -&gt; f TagOpenIDConnectProvider
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#tagOpenIDConnectProvider_openIDConnectProviderArn"><span class="hs-identifier hs-var hs-var">tagOpenIDConnectProvider_openIDConnectProviderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagOpenIDConnectProvider -&gt; Text)
+-&gt; (TagOpenIDConnectProvider -&gt; Text -&gt; TagOpenIDConnectProvider)
+-&gt; Lens TagOpenIDConnectProvider TagOpenIDConnectProvider Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider%27"><span class="hs-identifier hs-type">TagOpenIDConnectProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435464"><span class="annot"><span class="annottext">Text
+openIDConnectProviderArn :: Text
+$sel:openIDConnectProviderArn:TagOpenIDConnectProvider' :: TagOpenIDConnectProvider -&gt; Text
+</span><a href="#local-6989586621679435464"><span class="hs-identifier hs-var hs-var">openIDConnectProviderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435464"><span class="hs-identifier hs-var">openIDConnectProviderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435463"><span class="annot"><span class="annottext">s :: TagOpenIDConnectProvider
+</span><a href="#local-6989586621679435463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider%27"><span class="hs-identifier hs-type">TagOpenIDConnectProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435462"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagOpenIDConnectProvider
+</span><a href="#local-6989586621679435463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:openIDConnectProviderArn:TagOpenIDConnectProvider' :: Text
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#%24sel%3AopenIDConnectProviderArn%3ATagOpenIDConnectProvider%27"><span class="hs-identifier hs-var">openIDConnectProviderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The list of tags that you want to attach to the OIDC identity provider</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- in IAM. Each tag consists of a key name and an associated value.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#tagOpenIDConnectProvider_tags"><span class="hs-identifier hs-type">tagOpenIDConnectProvider_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IAM.Types.Tag.html#Tag"><span class="hs-identifier hs-type">Tag</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-136"></span><span id="tagOpenIDConnectProvider_tags"><span class="annot"><span class="annottext">tagOpenIDConnectProvider_tags :: ([Tag] -&gt; f [Tag])
+-&gt; TagOpenIDConnectProvider -&gt; f TagOpenIDConnectProvider
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#tagOpenIDConnectProvider_tags"><span class="hs-identifier hs-var hs-var">tagOpenIDConnectProvider_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TagOpenIDConnectProvider -&gt; [Tag])
+-&gt; (TagOpenIDConnectProvider -&gt; [Tag] -&gt; TagOpenIDConnectProvider)
+-&gt; Lens
+     TagOpenIDConnectProvider TagOpenIDConnectProvider [Tag] [Tag]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider%27"><span class="hs-identifier hs-type">TagOpenIDConnectProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435461"><span class="annot"><span class="annottext">[Tag]
+tags :: [Tag]
+$sel:tags:TagOpenIDConnectProvider' :: TagOpenIDConnectProvider -&gt; [Tag]
+</span><a href="#local-6989586621679435461"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435461"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679435460"><span class="annot"><span class="annottext">s :: TagOpenIDConnectProvider
+</span><a href="#local-6989586621679435460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider%27"><span class="hs-identifier hs-type">TagOpenIDConnectProvider'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679435459"><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TagOpenIDConnectProvider
+</span><a href="#local-6989586621679435460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:TagOpenIDConnectProvider' :: [Tag]
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#%24sel%3Atags%3ATagOpenIDConnectProvider%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Tag] -&gt; f [Tag])
+ -&gt; TagOpenIDConnectProvider -&gt; f TagOpenIDConnectProvider)
+-&gt; (([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag])
+-&gt; ([Tag] -&gt; f [Tag])
+-&gt; TagOpenIDConnectProvider
+-&gt; f TagOpenIDConnectProvider
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Tag] -&gt; f [Tag]) -&gt; [Tag] -&gt; f [Tag]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-140"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse"><span class="hs-identifier hs-type">TagOpenIDConnectProviderResponse</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679435453"><span class="annot"><span class="annottext">request :: TagOpenIDConnectProvider -&gt; Request TagOpenIDConnectProvider
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; TagOpenIDConnectProvider -&gt; Request TagOpenIDConnectProvider
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679435449"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy TagOpenIDConnectProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TagOpenIDConnectProvider)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse TagOpenIDConnectProvider
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy TagOpenIDConnectProvider
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse TagOpenIDConnectProvider)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse TagOpenIDConnectProvider
+TagOpenIDConnectProviderResponse
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse%27"><span class="hs-identifier hs-var">TagOpenIDConnectProviderResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435442"><span id="local-6989586621679435444"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span></span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679435439"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679435435"><span class="annot"><span class="annottext">toHeaders :: TagOpenIDConnectProvider -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Header] -&gt; TagOpenIDConnectProvider -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">[Header]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679435430"><span class="annot"><span class="annottext">toPath :: TagOpenIDConnectProvider -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TagOpenIDConnectProvider -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider"><span class="hs-identifier hs-type">TagOpenIDConnectProvider</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679435426"><span class="annot"><span class="annottext">toQuery :: TagOpenIDConnectProvider -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProvider%27"><span class="hs-identifier hs-type">TagOpenIDConnectProvider'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679435423"><span id="local-6989586621679435424"><span class="annot"><span class="annottext">[Tag]
+Text
+tags :: [Tag]
+openIDConnectProviderArn :: Text
+$sel:tags:TagOpenIDConnectProvider' :: TagOpenIDConnectProvider -&gt; [Tag]
+$sel:openIDConnectProviderArn:TagOpenIDConnectProvider' :: TagOpenIDConnectProvider -&gt; Text
+</span><a href="#local-6989586621679435423"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TagOpenIDConnectProvider&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpenIDConnectProviderArn&quot;</span></span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679435424"><span class="hs-identifier hs-var">openIDConnectProviderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Tag] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[Tag]
+</span><a href="#local-6989586621679435423"><span class="hs-identifier hs-var">tags</span></a></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newTagOpenIDConnectProviderResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679435419"><span id="local-6989586621679435420"></span></span><span class="hs-keyword">data</span><span> </span><span id="TagOpenIDConnectProviderResponse"><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse"><span class="hs-identifier hs-var">TagOpenIDConnectProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TagOpenIDConnectProviderResponse%27"><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse%27"><span class="hs-identifier hs-var">TagOpenIDConnectProviderResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679435415"><span id="local-6989586621679435417"><span class="annot"><span class="annottext">TagOpenIDConnectProviderResponse
+-&gt; TagOpenIDConnectProviderResponse -&gt; Bool
+(TagOpenIDConnectProviderResponse
+ -&gt; TagOpenIDConnectProviderResponse -&gt; Bool)
+-&gt; (TagOpenIDConnectProviderResponse
+    -&gt; TagOpenIDConnectProviderResponse -&gt; Bool)
+-&gt; Eq TagOpenIDConnectProviderResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TagOpenIDConnectProviderResponse
+-&gt; TagOpenIDConnectProviderResponse -&gt; Bool
+$c/= :: TagOpenIDConnectProviderResponse
+-&gt; TagOpenIDConnectProviderResponse -&gt; Bool
+== :: TagOpenIDConnectProviderResponse
+-&gt; TagOpenIDConnectProviderResponse -&gt; Bool
+$c== :: TagOpenIDConnectProviderResponse
+-&gt; TagOpenIDConnectProviderResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435407"><span id="local-6989586621679435409"><span id="local-6989586621679435411"><span id="local-6989586621679435413"><span class="annot"><span class="annottext">ReadPrec [TagOpenIDConnectProviderResponse]
+ReadPrec TagOpenIDConnectProviderResponse
+Int -&gt; ReadS TagOpenIDConnectProviderResponse
+ReadS [TagOpenIDConnectProviderResponse]
+(Int -&gt; ReadS TagOpenIDConnectProviderResponse)
+-&gt; ReadS [TagOpenIDConnectProviderResponse]
+-&gt; ReadPrec TagOpenIDConnectProviderResponse
+-&gt; ReadPrec [TagOpenIDConnectProviderResponse]
+-&gt; Read TagOpenIDConnectProviderResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TagOpenIDConnectProviderResponse]
+$creadListPrec :: ReadPrec [TagOpenIDConnectProviderResponse]
+readPrec :: ReadPrec TagOpenIDConnectProviderResponse
+$creadPrec :: ReadPrec TagOpenIDConnectProviderResponse
+readList :: ReadS [TagOpenIDConnectProviderResponse]
+$creadList :: ReadS [TagOpenIDConnectProviderResponse]
+readsPrec :: Int -&gt; ReadS TagOpenIDConnectProviderResponse
+$creadsPrec :: Int -&gt; ReadS TagOpenIDConnectProviderResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679435401"><span id="local-6989586621679435403"><span id="local-6989586621679435405"><span class="annot"><span class="annottext">Int -&gt; TagOpenIDConnectProviderResponse -&gt; ShowS
+[TagOpenIDConnectProviderResponse] -&gt; ShowS
+TagOpenIDConnectProviderResponse -&gt; String
+(Int -&gt; TagOpenIDConnectProviderResponse -&gt; ShowS)
+-&gt; (TagOpenIDConnectProviderResponse -&gt; String)
+-&gt; ([TagOpenIDConnectProviderResponse] -&gt; ShowS)
+-&gt; Show TagOpenIDConnectProviderResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TagOpenIDConnectProviderResponse] -&gt; ShowS
+$cshowList :: [TagOpenIDConnectProviderResponse] -&gt; ShowS
+show :: TagOpenIDConnectProviderResponse -&gt; String
+$cshow :: TagOpenIDConnectProviderResponse -&gt; String
+showsPrec :: Int -&gt; TagOpenIDConnectProviderResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; TagOpenIDConnectProviderResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ TagOpenIDConnectProviderResponse
+ -&gt; Rep TagOpenIDConnectProviderResponse x)
+-&gt; (forall x.
+    Rep TagOpenIDConnectProviderResponse x
+    -&gt; TagOpenIDConnectProviderResponse)
+-&gt; Generic TagOpenIDConnectProviderResponse
+forall x.
+Rep TagOpenIDConnectProviderResponse x
+-&gt; TagOpenIDConnectProviderResponse
+forall x.
+TagOpenIDConnectProviderResponse
+-&gt; Rep TagOpenIDConnectProviderResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TagOpenIDConnectProviderResponse x
+-&gt; TagOpenIDConnectProviderResponse
+$cfrom :: forall x.
+TagOpenIDConnectProviderResponse
+-&gt; Rep TagOpenIDConnectProviderResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- Create a value of 'TagOpenIDConnectProviderResponse' with all optional fields omitted.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#newTagOpenIDConnectProviderResponse"><span class="hs-identifier hs-type">newTagOpenIDConnectProviderResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse"><span class="hs-identifier hs-type">TagOpenIDConnectProviderResponse</span></a></span><span>
+</span><span id="line-181"></span><span id="newTagOpenIDConnectProviderResponse"><span class="annot"><span class="annottext">newTagOpenIDConnectProviderResponse :: TagOpenIDConnectProviderResponse
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#newTagOpenIDConnectProviderResponse"><span class="hs-identifier hs-var hs-var">newTagOpenIDConnectProviderResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">TagOpenIDConnectProviderResponse
+</span><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse%27"><span class="hs-identifier hs-var">TagOpenIDConnectProviderResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679435397"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.TagOpenIDConnectProvider.html#TagOpenIDConnectProviderResponse"><span class="hs-identifier hs-type">TagOpenIDConnectProviderResponse</span></a></span></span><span>
+</span><span id="line-187"></span></pre></body></html>

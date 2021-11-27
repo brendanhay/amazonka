@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Transcribe.Types.TranscriptionJobStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transcribe.Types.TranscriptionJobStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier">TranscriptionJobStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_COMPLETED"><span class="hs-identifier">TranscriptionJobStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_FAILED"><span class="hs-identifier">TranscriptionJobStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_IN_PROGRESS"><span class="hs-identifier">TranscriptionJobStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_QUEUED"><span class="hs-identifier">TranscriptionJobStatus_QUEUED</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679276223"><span id="local-6989586621679276224"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TranscriptionJobStatus"><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-var">TranscriptionJobStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TranscriptionJobStatus%27"><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-identifier hs-var">TranscriptionJobStatus'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTranscriptionJobStatus"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; Text
+</span><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#fromTranscriptionJobStatus"><span class="hs-identifier hs-var hs-var">fromTranscriptionJobStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276215"><span id="local-6989586621679276217"><span id="local-6989586621679276219"><span class="annot"><span class="annottext">Int -&gt; TranscriptionJobStatus -&gt; ShowS
+[TranscriptionJobStatus] -&gt; ShowS
+TranscriptionJobStatus -&gt; String
+(Int -&gt; TranscriptionJobStatus -&gt; ShowS)
+-&gt; (TranscriptionJobStatus -&gt; String)
+-&gt; ([TranscriptionJobStatus] -&gt; ShowS)
+-&gt; Show TranscriptionJobStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TranscriptionJobStatus] -&gt; ShowS
+$cshowList :: [TranscriptionJobStatus] -&gt; ShowS
+show :: TranscriptionJobStatus -&gt; String
+$cshow :: TranscriptionJobStatus -&gt; String
+showsPrec :: Int -&gt; TranscriptionJobStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; TranscriptionJobStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679276206"><span id="local-6989586621679276208"><span id="local-6989586621679276210"><span id="local-6989586621679276212"><span class="annot"><span class="annottext">ReadPrec [TranscriptionJobStatus]
+ReadPrec TranscriptionJobStatus
+Int -&gt; ReadS TranscriptionJobStatus
+ReadS [TranscriptionJobStatus]
+(Int -&gt; ReadS TranscriptionJobStatus)
+-&gt; ReadS [TranscriptionJobStatus]
+-&gt; ReadPrec TranscriptionJobStatus
+-&gt; ReadPrec [TranscriptionJobStatus]
+-&gt; Read TranscriptionJobStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TranscriptionJobStatus]
+$creadListPrec :: ReadPrec [TranscriptionJobStatus]
+readPrec :: ReadPrec TranscriptionJobStatus
+$creadPrec :: ReadPrec TranscriptionJobStatus
+readList :: ReadS [TranscriptionJobStatus]
+$creadList :: ReadS [TranscriptionJobStatus]
+readsPrec :: Int -&gt; ReadS TranscriptionJobStatus
+$creadsPrec :: Int -&gt; ReadS TranscriptionJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679276201"><span id="local-6989586621679276203"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+(TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
+-&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
+-&gt; Eq TranscriptionJobStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+$c/= :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+== :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+$c== :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679276185"><span id="local-6989586621679276187"><span id="local-6989586621679276189"><span id="local-6989586621679276191"><span id="local-6989586621679276193"><span id="local-6989586621679276195"><span id="local-6989586621679276197"><span class="annot"><span class="annottext">Eq TranscriptionJobStatus
+Eq TranscriptionJobStatus
+-&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Ordering)
+-&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
+-&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
+-&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
+-&gt; (TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool)
+-&gt; (TranscriptionJobStatus
+    -&gt; TranscriptionJobStatus -&gt; TranscriptionJobStatus)
+-&gt; (TranscriptionJobStatus
+    -&gt; TranscriptionJobStatus -&gt; TranscriptionJobStatus)
+-&gt; Ord TranscriptionJobStatus
+TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Ordering
+TranscriptionJobStatus
+-&gt; TranscriptionJobStatus -&gt; TranscriptionJobStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TranscriptionJobStatus
+-&gt; TranscriptionJobStatus -&gt; TranscriptionJobStatus
+$cmin :: TranscriptionJobStatus
+-&gt; TranscriptionJobStatus -&gt; TranscriptionJobStatus
+max :: TranscriptionJobStatus
+-&gt; TranscriptionJobStatus -&gt; TranscriptionJobStatus
+$cmax :: TranscriptionJobStatus
+-&gt; TranscriptionJobStatus -&gt; TranscriptionJobStatus
+&gt;= :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+$c&gt;= :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+&gt; :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+$c&gt; :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+&lt;= :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+$c&lt;= :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+&lt; :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+$c&lt; :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Bool
+compare :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Ordering
+$ccompare :: TranscriptionJobStatus -&gt; TranscriptionJobStatus -&gt; Ordering
+$cp1Ord :: Eq TranscriptionJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TranscriptionJobStatus -&gt; Rep TranscriptionJobStatus x)
+-&gt; (forall x.
+    Rep TranscriptionJobStatus x -&gt; TranscriptionJobStatus)
+-&gt; Generic TranscriptionJobStatus
+forall x. Rep TranscriptionJobStatus x -&gt; TranscriptionJobStatus
+forall x. TranscriptionJobStatus -&gt; Rep TranscriptionJobStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TranscriptionJobStatus x -&gt; TranscriptionJobStatus
+$cfrom :: forall x. TranscriptionJobStatus -&gt; Rep TranscriptionJobStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679276177"><span id="local-6989586621679276179"><span class="annot"><span class="annottext">Int -&gt; TranscriptionJobStatus -&gt; Int
+TranscriptionJobStatus -&gt; Int
+(Int -&gt; TranscriptionJobStatus -&gt; Int)
+-&gt; (TranscriptionJobStatus -&gt; Int)
+-&gt; Hashable TranscriptionJobStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TranscriptionJobStatus -&gt; Int
+$chash :: TranscriptionJobStatus -&gt; Int
+hashWithSalt :: Int -&gt; TranscriptionJobStatus -&gt; Int
+$chashWithSalt :: Int -&gt; TranscriptionJobStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679276174"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ()
+(TranscriptionJobStatus -&gt; ()) -&gt; NFData TranscriptionJobStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TranscriptionJobStatus -&gt; ()
+$crnf :: TranscriptionJobStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679276171"><span class="annot"><span class="annottext">Text -&gt; Either String TranscriptionJobStatus
+(Text -&gt; Either String TranscriptionJobStatus)
+-&gt; FromText TranscriptionJobStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TranscriptionJobStatus
+$cfromText :: Text -&gt; Either String TranscriptionJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679276168"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; Text
+(TranscriptionJobStatus -&gt; Text) -&gt; ToText TranscriptionJobStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TranscriptionJobStatus -&gt; Text
+$ctoText :: TranscriptionJobStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679276165"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ByteString
+(TranscriptionJobStatus -&gt; ByteString)
+-&gt; ToByteString TranscriptionJobStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TranscriptionJobStatus -&gt; ByteString
+$ctoBS :: TranscriptionJobStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679276162"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; ByteStringBuilder
+(TranscriptionJobStatus -&gt; ByteStringBuilder)
+-&gt; ToLog TranscriptionJobStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TranscriptionJobStatus -&gt; ByteStringBuilder
+$cbuild :: TranscriptionJobStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679276159"><span class="annot"><span class="annottext">HeaderName -&gt; TranscriptionJobStatus -&gt; [Header]
+(HeaderName -&gt; TranscriptionJobStatus -&gt; [Header])
+-&gt; ToHeader TranscriptionJobStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TranscriptionJobStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TranscriptionJobStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679276156"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; QueryString
+(TranscriptionJobStatus -&gt; QueryString)
+-&gt; ToQuery TranscriptionJobStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TranscriptionJobStatus -&gt; QueryString
+$ctoQuery :: TranscriptionJobStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679276151"><span id="local-6989586621679276153"><span class="annot"><span class="annottext">Value -&gt; Parser [TranscriptionJobStatus]
+Value -&gt; Parser TranscriptionJobStatus
+(Value -&gt; Parser TranscriptionJobStatus)
+-&gt; (Value -&gt; Parser [TranscriptionJobStatus])
+-&gt; FromJSON TranscriptionJobStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TranscriptionJobStatus]
+$cparseJSONList :: Value -&gt; Parser [TranscriptionJobStatus]
+parseJSON :: Value -&gt; Parser TranscriptionJobStatus
+$cparseJSON :: Value -&gt; Parser TranscriptionJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679276146"><span id="local-6989586621679276148"><span class="annot"><span class="annottext">FromJSONKeyFunction [TranscriptionJobStatus]
+FromJSONKeyFunction TranscriptionJobStatus
+FromJSONKeyFunction TranscriptionJobStatus
+-&gt; FromJSONKeyFunction [TranscriptionJobStatus]
+-&gt; FromJSONKey TranscriptionJobStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TranscriptionJobStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [TranscriptionJobStatus]
+fromJSONKey :: FromJSONKeyFunction TranscriptionJobStatus
+$cfromJSONKey :: FromJSONKeyFunction TranscriptionJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679276137"><span id="local-6989586621679276139"><span id="local-6989586621679276141"><span id="local-6989586621679276143"><span class="annot"><span class="annottext">[TranscriptionJobStatus] -&gt; Encoding
+[TranscriptionJobStatus] -&gt; Value
+TranscriptionJobStatus -&gt; Encoding
+TranscriptionJobStatus -&gt; Value
+(TranscriptionJobStatus -&gt; Value)
+-&gt; (TranscriptionJobStatus -&gt; Encoding)
+-&gt; ([TranscriptionJobStatus] -&gt; Value)
+-&gt; ([TranscriptionJobStatus] -&gt; Encoding)
+-&gt; ToJSON TranscriptionJobStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TranscriptionJobStatus] -&gt; Encoding
+$ctoEncodingList :: [TranscriptionJobStatus] -&gt; Encoding
+toJSONList :: [TranscriptionJobStatus] -&gt; Value
+$ctoJSONList :: [TranscriptionJobStatus] -&gt; Value
+toEncoding :: TranscriptionJobStatus -&gt; Encoding
+$ctoEncoding :: TranscriptionJobStatus -&gt; Encoding
+toJSON :: TranscriptionJobStatus -&gt; Value
+$ctoJSON :: TranscriptionJobStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679276132"><span id="local-6989586621679276134"><span class="annot"><span class="annottext">ToJSONKeyFunction [TranscriptionJobStatus]
+ToJSONKeyFunction TranscriptionJobStatus
+ToJSONKeyFunction TranscriptionJobStatus
+-&gt; ToJSONKeyFunction [TranscriptionJobStatus]
+-&gt; ToJSONKey TranscriptionJobStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TranscriptionJobStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [TranscriptionJobStatus]
+toJSONKey :: ToJSONKeyFunction TranscriptionJobStatus
+$ctoJSONKey :: ToJSONKeyFunction TranscriptionJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679276129"><span class="annot"><span class="annottext">[Node] -&gt; Either String TranscriptionJobStatus
+([Node] -&gt; Either String TranscriptionJobStatus)
+-&gt; FromXML TranscriptionJobStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TranscriptionJobStatus
+$cparseXML :: [Node] -&gt; Either String TranscriptionJobStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679276126"><span class="annot"><span class="annottext">TranscriptionJobStatus -&gt; XML
+(TranscriptionJobStatus -&gt; XML) -&gt; ToXML TranscriptionJobStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TranscriptionJobStatus -&gt; XML
+$ctoXML :: TranscriptionJobStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_COMPLETED"><span class="hs-identifier hs-type">TranscriptionJobStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-type">TranscriptionJobStatus</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTranscriptionJobStatus_COMPLETED"><span id="%24mTranscriptionJobStatus_COMPLETED"><span id="TranscriptionJobStatus_COMPLETED"><span class="annot"><span class="annottext">$bTranscriptionJobStatus_COMPLETED :: TranscriptionJobStatus
+$mTranscriptionJobStatus_COMPLETED :: forall r.
+TranscriptionJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#%24bTranscriptionJobStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">TranscriptionJobStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-identifier hs-type">TranscriptionJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_FAILED"><span class="hs-identifier hs-type">TranscriptionJobStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-type">TranscriptionJobStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTranscriptionJobStatus_FAILED"><span id="%24mTranscriptionJobStatus_FAILED"><span id="TranscriptionJobStatus_FAILED"><span class="annot"><span class="annottext">$bTranscriptionJobStatus_FAILED :: TranscriptionJobStatus
+$mTranscriptionJobStatus_FAILED :: forall r.
+TranscriptionJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#%24bTranscriptionJobStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">TranscriptionJobStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-identifier hs-type">TranscriptionJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_IN_PROGRESS"><span class="hs-identifier hs-type">TranscriptionJobStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-type">TranscriptionJobStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTranscriptionJobStatus_IN_PROGRESS"><span id="%24mTranscriptionJobStatus_IN_PROGRESS"><span id="TranscriptionJobStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bTranscriptionJobStatus_IN_PROGRESS :: TranscriptionJobStatus
+$mTranscriptionJobStatus_IN_PROGRESS :: forall r.
+TranscriptionJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#%24bTranscriptionJobStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">TranscriptionJobStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-identifier hs-type">TranscriptionJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_QUEUED"><span class="hs-identifier hs-type">TranscriptionJobStatus_QUEUED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus"><span class="hs-identifier hs-type">TranscriptionJobStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTranscriptionJobStatus_QUEUED"><span id="%24mTranscriptionJobStatus_QUEUED"><span id="TranscriptionJobStatus_QUEUED"><span class="annot"><span class="annottext">$bTranscriptionJobStatus_QUEUED :: TranscriptionJobStatus
+$mTranscriptionJobStatus_QUEUED :: forall r.
+TranscriptionJobStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#%24bTranscriptionJobStatus_QUEUED"><span class="hs-identifier hs-var hs-var hs-var">TranscriptionJobStatus_QUEUED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-identifier hs-type">TranscriptionJobStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;QUEUED&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_COMPLETED"><span class="hs-pragma hs-type">TranscriptionJobStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_FAILED"><span class="hs-pragma hs-type">TranscriptionJobStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_IN_PROGRESS"><span class="hs-pragma hs-type">TranscriptionJobStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus_QUEUED"><span class="hs-pragma hs-type">TranscriptionJobStatus_QUEUED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.TranscriptionJobStatus.html#TranscriptionJobStatus%27"><span class="hs-pragma hs-type">TranscriptionJobStatus'</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-81"></span></pre></body></html>

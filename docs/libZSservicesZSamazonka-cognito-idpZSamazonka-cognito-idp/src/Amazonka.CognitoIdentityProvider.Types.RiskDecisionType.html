@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.Types.RiskDecisionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types.RiskDecisionType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType"><span class="hs-identifier">RiskDecisionType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_AccountTakeover"><span class="hs-identifier">RiskDecisionType_AccountTakeover</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_Block"><span class="hs-identifier">RiskDecisionType_Block</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_NoRisk"><span class="hs-identifier">RiskDecisionType_NoRisk</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679432954"><span id="local-6989586621679432955"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RiskDecisionType"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType"><span class="hs-identifier hs-var">RiskDecisionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RiskDecisionType%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType%27"><span class="hs-identifier hs-var">RiskDecisionType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRiskDecisionType"><span class="annot"><span class="annottext">RiskDecisionType -&gt; Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#fromRiskDecisionType"><span class="hs-identifier hs-var hs-var">fromRiskDecisionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432946"><span id="local-6989586621679432948"><span id="local-6989586621679432950"><span class="annot"><span class="annottext">Int -&gt; RiskDecisionType -&gt; ShowS
+[RiskDecisionType] -&gt; ShowS
+RiskDecisionType -&gt; String
+(Int -&gt; RiskDecisionType -&gt; ShowS)
+-&gt; (RiskDecisionType -&gt; String)
+-&gt; ([RiskDecisionType] -&gt; ShowS)
+-&gt; Show RiskDecisionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RiskDecisionType] -&gt; ShowS
+$cshowList :: [RiskDecisionType] -&gt; ShowS
+show :: RiskDecisionType -&gt; String
+$cshow :: RiskDecisionType -&gt; String
+showsPrec :: Int -&gt; RiskDecisionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; RiskDecisionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679432937"><span id="local-6989586621679432939"><span id="local-6989586621679432941"><span id="local-6989586621679432943"><span class="annot"><span class="annottext">ReadPrec [RiskDecisionType]
+ReadPrec RiskDecisionType
+Int -&gt; ReadS RiskDecisionType
+ReadS [RiskDecisionType]
+(Int -&gt; ReadS RiskDecisionType)
+-&gt; ReadS [RiskDecisionType]
+-&gt; ReadPrec RiskDecisionType
+-&gt; ReadPrec [RiskDecisionType]
+-&gt; Read RiskDecisionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RiskDecisionType]
+$creadListPrec :: ReadPrec [RiskDecisionType]
+readPrec :: ReadPrec RiskDecisionType
+$creadPrec :: ReadPrec RiskDecisionType
+readList :: ReadS [RiskDecisionType]
+$creadList :: ReadS [RiskDecisionType]
+readsPrec :: Int -&gt; ReadS RiskDecisionType
+$creadsPrec :: Int -&gt; ReadS RiskDecisionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679432932"><span id="local-6989586621679432934"><span class="annot"><span class="annottext">RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+(RiskDecisionType -&gt; RiskDecisionType -&gt; Bool)
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; Bool)
+-&gt; Eq RiskDecisionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+$c/= :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+== :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+$c== :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679432916"><span id="local-6989586621679432918"><span id="local-6989586621679432920"><span id="local-6989586621679432922"><span id="local-6989586621679432924"><span id="local-6989586621679432926"><span id="local-6989586621679432928"><span class="annot"><span class="annottext">Eq RiskDecisionType
+Eq RiskDecisionType
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; Ordering)
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; Bool)
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; Bool)
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; Bool)
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; Bool)
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; RiskDecisionType)
+-&gt; (RiskDecisionType -&gt; RiskDecisionType -&gt; RiskDecisionType)
+-&gt; Ord RiskDecisionType
+RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+RiskDecisionType -&gt; RiskDecisionType -&gt; Ordering
+RiskDecisionType -&gt; RiskDecisionType -&gt; RiskDecisionType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RiskDecisionType -&gt; RiskDecisionType -&gt; RiskDecisionType
+$cmin :: RiskDecisionType -&gt; RiskDecisionType -&gt; RiskDecisionType
+max :: RiskDecisionType -&gt; RiskDecisionType -&gt; RiskDecisionType
+$cmax :: RiskDecisionType -&gt; RiskDecisionType -&gt; RiskDecisionType
+&gt;= :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+$c&gt;= :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+&gt; :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+$c&gt; :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+&lt;= :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+$c&lt;= :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+&lt; :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+$c&lt; :: RiskDecisionType -&gt; RiskDecisionType -&gt; Bool
+compare :: RiskDecisionType -&gt; RiskDecisionType -&gt; Ordering
+$ccompare :: RiskDecisionType -&gt; RiskDecisionType -&gt; Ordering
+$cp1Ord :: Eq RiskDecisionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RiskDecisionType -&gt; Rep RiskDecisionType x)
+-&gt; (forall x. Rep RiskDecisionType x -&gt; RiskDecisionType)
+-&gt; Generic RiskDecisionType
+forall x. Rep RiskDecisionType x -&gt; RiskDecisionType
+forall x. RiskDecisionType -&gt; Rep RiskDecisionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RiskDecisionType x -&gt; RiskDecisionType
+$cfrom :: forall x. RiskDecisionType -&gt; Rep RiskDecisionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679432908"><span id="local-6989586621679432910"><span class="annot"><span class="annottext">Int -&gt; RiskDecisionType -&gt; Int
+RiskDecisionType -&gt; Int
+(Int -&gt; RiskDecisionType -&gt; Int)
+-&gt; (RiskDecisionType -&gt; Int) -&gt; Hashable RiskDecisionType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RiskDecisionType -&gt; Int
+$chash :: RiskDecisionType -&gt; Int
+hashWithSalt :: Int -&gt; RiskDecisionType -&gt; Int
+$chashWithSalt :: Int -&gt; RiskDecisionType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679432905"><span class="annot"><span class="annottext">RiskDecisionType -&gt; ()
+(RiskDecisionType -&gt; ()) -&gt; NFData RiskDecisionType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RiskDecisionType -&gt; ()
+$crnf :: RiskDecisionType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679432902"><span class="annot"><span class="annottext">Text -&gt; Either String RiskDecisionType
+(Text -&gt; Either String RiskDecisionType)
+-&gt; FromText RiskDecisionType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RiskDecisionType
+$cfromText :: Text -&gt; Either String RiskDecisionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679432899"><span class="annot"><span class="annottext">RiskDecisionType -&gt; Text
+(RiskDecisionType -&gt; Text) -&gt; ToText RiskDecisionType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RiskDecisionType -&gt; Text
+$ctoText :: RiskDecisionType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679432896"><span class="annot"><span class="annottext">RiskDecisionType -&gt; ByteString
+(RiskDecisionType -&gt; ByteString) -&gt; ToByteString RiskDecisionType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RiskDecisionType -&gt; ByteString
+$ctoBS :: RiskDecisionType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679432893"><span class="annot"><span class="annottext">RiskDecisionType -&gt; ByteStringBuilder
+(RiskDecisionType -&gt; ByteStringBuilder) -&gt; ToLog RiskDecisionType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RiskDecisionType -&gt; ByteStringBuilder
+$cbuild :: RiskDecisionType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679432890"><span class="annot"><span class="annottext">HeaderName -&gt; RiskDecisionType -&gt; [Header]
+(HeaderName -&gt; RiskDecisionType -&gt; [Header])
+-&gt; ToHeader RiskDecisionType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RiskDecisionType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RiskDecisionType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679432887"><span class="annot"><span class="annottext">RiskDecisionType -&gt; QueryString
+(RiskDecisionType -&gt; QueryString) -&gt; ToQuery RiskDecisionType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RiskDecisionType -&gt; QueryString
+$ctoQuery :: RiskDecisionType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679432882"><span id="local-6989586621679432884"><span class="annot"><span class="annottext">Value -&gt; Parser [RiskDecisionType]
+Value -&gt; Parser RiskDecisionType
+(Value -&gt; Parser RiskDecisionType)
+-&gt; (Value -&gt; Parser [RiskDecisionType])
+-&gt; FromJSON RiskDecisionType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RiskDecisionType]
+$cparseJSONList :: Value -&gt; Parser [RiskDecisionType]
+parseJSON :: Value -&gt; Parser RiskDecisionType
+$cparseJSON :: Value -&gt; Parser RiskDecisionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679432877"><span id="local-6989586621679432879"><span class="annot"><span class="annottext">FromJSONKeyFunction [RiskDecisionType]
+FromJSONKeyFunction RiskDecisionType
+FromJSONKeyFunction RiskDecisionType
+-&gt; FromJSONKeyFunction [RiskDecisionType]
+-&gt; FromJSONKey RiskDecisionType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RiskDecisionType]
+$cfromJSONKeyList :: FromJSONKeyFunction [RiskDecisionType]
+fromJSONKey :: FromJSONKeyFunction RiskDecisionType
+$cfromJSONKey :: FromJSONKeyFunction RiskDecisionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679432868"><span id="local-6989586621679432870"><span id="local-6989586621679432872"><span id="local-6989586621679432874"><span class="annot"><span class="annottext">[RiskDecisionType] -&gt; Encoding
+[RiskDecisionType] -&gt; Value
+RiskDecisionType -&gt; Encoding
+RiskDecisionType -&gt; Value
+(RiskDecisionType -&gt; Value)
+-&gt; (RiskDecisionType -&gt; Encoding)
+-&gt; ([RiskDecisionType] -&gt; Value)
+-&gt; ([RiskDecisionType] -&gt; Encoding)
+-&gt; ToJSON RiskDecisionType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RiskDecisionType] -&gt; Encoding
+$ctoEncodingList :: [RiskDecisionType] -&gt; Encoding
+toJSONList :: [RiskDecisionType] -&gt; Value
+$ctoJSONList :: [RiskDecisionType] -&gt; Value
+toEncoding :: RiskDecisionType -&gt; Encoding
+$ctoEncoding :: RiskDecisionType -&gt; Encoding
+toJSON :: RiskDecisionType -&gt; Value
+$ctoJSON :: RiskDecisionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679432863"><span id="local-6989586621679432865"><span class="annot"><span class="annottext">ToJSONKeyFunction [RiskDecisionType]
+ToJSONKeyFunction RiskDecisionType
+ToJSONKeyFunction RiskDecisionType
+-&gt; ToJSONKeyFunction [RiskDecisionType]
+-&gt; ToJSONKey RiskDecisionType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RiskDecisionType]
+$ctoJSONKeyList :: ToJSONKeyFunction [RiskDecisionType]
+toJSONKey :: ToJSONKeyFunction RiskDecisionType
+$ctoJSONKey :: ToJSONKeyFunction RiskDecisionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679432860"><span class="annot"><span class="annottext">[Node] -&gt; Either String RiskDecisionType
+([Node] -&gt; Either String RiskDecisionType)
+-&gt; FromXML RiskDecisionType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RiskDecisionType
+$cparseXML :: [Node] -&gt; Either String RiskDecisionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679432857"><span class="annot"><span class="annottext">RiskDecisionType -&gt; XML
+(RiskDecisionType -&gt; XML) -&gt; ToXML RiskDecisionType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RiskDecisionType -&gt; XML
+$ctoXML :: RiskDecisionType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_AccountTakeover"><span class="hs-identifier hs-type">RiskDecisionType_AccountTakeover</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType"><span class="hs-identifier hs-type">RiskDecisionType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRiskDecisionType_AccountTakeover"><span id="%24mRiskDecisionType_AccountTakeover"><span id="RiskDecisionType_AccountTakeover"><span class="annot"><span class="annottext">$bRiskDecisionType_AccountTakeover :: RiskDecisionType
+$mRiskDecisionType_AccountTakeover :: forall r. RiskDecisionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#%24bRiskDecisionType_AccountTakeover"><span class="hs-identifier hs-var hs-var hs-var">RiskDecisionType_AccountTakeover</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType%27"><span class="hs-identifier hs-type">RiskDecisionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AccountTakeover&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_Block"><span class="hs-identifier hs-type">RiskDecisionType_Block</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType"><span class="hs-identifier hs-type">RiskDecisionType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRiskDecisionType_Block"><span id="%24mRiskDecisionType_Block"><span id="RiskDecisionType_Block"><span class="annot"><span class="annottext">$bRiskDecisionType_Block :: RiskDecisionType
+$mRiskDecisionType_Block :: forall r. RiskDecisionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#%24bRiskDecisionType_Block"><span class="hs-identifier hs-var hs-var hs-var">RiskDecisionType_Block</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType%27"><span class="hs-identifier hs-type">RiskDecisionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Block&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_NoRisk"><span class="hs-identifier hs-type">RiskDecisionType_NoRisk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType"><span class="hs-identifier hs-type">RiskDecisionType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRiskDecisionType_NoRisk"><span id="%24mRiskDecisionType_NoRisk"><span id="RiskDecisionType_NoRisk"><span class="annot"><span class="annottext">$bRiskDecisionType_NoRisk :: RiskDecisionType
+$mRiskDecisionType_NoRisk :: forall r. RiskDecisionType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#%24bRiskDecisionType_NoRisk"><span class="hs-identifier hs-var hs-var hs-var">RiskDecisionType_NoRisk</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType%27"><span class="hs-identifier hs-type">RiskDecisionType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NoRisk&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_AccountTakeover"><span class="hs-pragma hs-type">RiskDecisionType_AccountTakeover</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_Block"><span class="hs-pragma hs-type">RiskDecisionType_Block</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType_NoRisk"><span class="hs-pragma hs-type">RiskDecisionType_NoRisk</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.RiskDecisionType.html#RiskDecisionType%27"><span class="hs-pragma hs-type">RiskDecisionType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

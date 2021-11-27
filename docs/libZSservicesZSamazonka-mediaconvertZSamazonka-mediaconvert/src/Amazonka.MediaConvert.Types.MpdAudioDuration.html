@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.MpdAudioDuration</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.MpdAudioDuration</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration"><span class="hs-identifier">MpdAudioDuration</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-identifier">MpdAudioDuration_DEFAULT_CODEC_DURATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration_MATCH_VIDEO_DURATION"><span class="hs-identifier">MpdAudioDuration_MATCH_VIDEO_DURATION</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Specify this setting only when your output will be consumed by a</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- downstream repackaging workflow that is sensitive to very small duration</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- differences between video and audio. For this situation, choose Match</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- video duration (MATCH_VIDEO_DURATION). In all other cases, keep the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- default value, Default codec duration (DEFAULT_CODEC_DURATION). When you</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- choose Match video duration, MediaConvert pads the output audio streams</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- with silence or trims them to ensure that the total duration of each</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- audio stream is at least as long as the total duration of the video</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- stream. After padding or trimming, the audio stream duration is no more</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- than one frame longer than the video stream. MediaConvert applies audio</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- padding or trimming only to the end of the last segment of the output.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- For unsegmented outputs, MediaConvert adds padding only to the end of</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- the file. When you keep the default value, any minor discrepancies</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- between audio and video duration will depend on your output audio codec.</span><span>
+</span><span id="line-46"></span><span id="local-6989586621679991210"><span id="local-6989586621679991211"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="MpdAudioDuration"><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration"><span class="hs-identifier hs-var">MpdAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MpdAudioDuration%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration%27"><span class="hs-identifier hs-var">MpdAudioDuration'</span></a></span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromMpdAudioDuration"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#fromMpdAudioDuration"><span class="hs-identifier hs-var hs-var">fromMpdAudioDuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991202"><span id="local-6989586621679991204"><span id="local-6989586621679991206"><span class="annot"><span class="annottext">Int -&gt; MpdAudioDuration -&gt; ShowS
+[MpdAudioDuration] -&gt; ShowS
+MpdAudioDuration -&gt; String
+(Int -&gt; MpdAudioDuration -&gt; ShowS)
+-&gt; (MpdAudioDuration -&gt; String)
+-&gt; ([MpdAudioDuration] -&gt; ShowS)
+-&gt; Show MpdAudioDuration
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MpdAudioDuration] -&gt; ShowS
+$cshowList :: [MpdAudioDuration] -&gt; ShowS
+show :: MpdAudioDuration -&gt; String
+$cshow :: MpdAudioDuration -&gt; String
+showsPrec :: Int -&gt; MpdAudioDuration -&gt; ShowS
+$cshowsPrec :: Int -&gt; MpdAudioDuration -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679991193"><span id="local-6989586621679991195"><span id="local-6989586621679991197"><span id="local-6989586621679991199"><span class="annot"><span class="annottext">ReadPrec [MpdAudioDuration]
+ReadPrec MpdAudioDuration
+Int -&gt; ReadS MpdAudioDuration
+ReadS [MpdAudioDuration]
+(Int -&gt; ReadS MpdAudioDuration)
+-&gt; ReadS [MpdAudioDuration]
+-&gt; ReadPrec MpdAudioDuration
+-&gt; ReadPrec [MpdAudioDuration]
+-&gt; Read MpdAudioDuration
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MpdAudioDuration]
+$creadListPrec :: ReadPrec [MpdAudioDuration]
+readPrec :: ReadPrec MpdAudioDuration
+$creadPrec :: ReadPrec MpdAudioDuration
+readList :: ReadS [MpdAudioDuration]
+$creadList :: ReadS [MpdAudioDuration]
+readsPrec :: Int -&gt; ReadS MpdAudioDuration
+$creadsPrec :: Int -&gt; ReadS MpdAudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679991188"><span id="local-6989586621679991190"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+(MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool)
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool)
+-&gt; Eq MpdAudioDuration
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+$c/= :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+== :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+$c== :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679991172"><span id="local-6989586621679991174"><span id="local-6989586621679991176"><span id="local-6989586621679991178"><span id="local-6989586621679991180"><span id="local-6989586621679991182"><span id="local-6989586621679991184"><span class="annot"><span class="annottext">Eq MpdAudioDuration
+Eq MpdAudioDuration
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; Ordering)
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool)
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool)
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool)
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool)
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; MpdAudioDuration)
+-&gt; (MpdAudioDuration -&gt; MpdAudioDuration -&gt; MpdAudioDuration)
+-&gt; Ord MpdAudioDuration
+MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+MpdAudioDuration -&gt; MpdAudioDuration -&gt; Ordering
+MpdAudioDuration -&gt; MpdAudioDuration -&gt; MpdAudioDuration
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; MpdAudioDuration
+$cmin :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; MpdAudioDuration
+max :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; MpdAudioDuration
+$cmax :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; MpdAudioDuration
+&gt;= :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+$c&gt;= :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+&gt; :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+$c&gt; :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+&lt;= :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+$c&lt;= :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+&lt; :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+$c&lt; :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Bool
+compare :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Ordering
+$ccompare :: MpdAudioDuration -&gt; MpdAudioDuration -&gt; Ordering
+$cp1Ord :: Eq MpdAudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">(forall x. MpdAudioDuration -&gt; Rep MpdAudioDuration x)
+-&gt; (forall x. Rep MpdAudioDuration x -&gt; MpdAudioDuration)
+-&gt; Generic MpdAudioDuration
+forall x. Rep MpdAudioDuration x -&gt; MpdAudioDuration
+forall x. MpdAudioDuration -&gt; Rep MpdAudioDuration x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MpdAudioDuration x -&gt; MpdAudioDuration
+$cfrom :: forall x. MpdAudioDuration -&gt; Rep MpdAudioDuration x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679991164"><span id="local-6989586621679991166"><span class="annot"><span class="annottext">Int -&gt; MpdAudioDuration -&gt; Int
+MpdAudioDuration -&gt; Int
+(Int -&gt; MpdAudioDuration -&gt; Int)
+-&gt; (MpdAudioDuration -&gt; Int) -&gt; Hashable MpdAudioDuration
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: MpdAudioDuration -&gt; Int
+$chash :: MpdAudioDuration -&gt; Int
+hashWithSalt :: Int -&gt; MpdAudioDuration -&gt; Int
+$chashWithSalt :: Int -&gt; MpdAudioDuration -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679991161"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; ()
+(MpdAudioDuration -&gt; ()) -&gt; NFData MpdAudioDuration
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: MpdAudioDuration -&gt; ()
+$crnf :: MpdAudioDuration -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679991158"><span class="annot"><span class="annottext">Text -&gt; Either String MpdAudioDuration
+(Text -&gt; Either String MpdAudioDuration)
+-&gt; FromText MpdAudioDuration
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String MpdAudioDuration
+$cfromText :: Text -&gt; Either String MpdAudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679991155"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; Text
+(MpdAudioDuration -&gt; Text) -&gt; ToText MpdAudioDuration
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: MpdAudioDuration -&gt; Text
+$ctoText :: MpdAudioDuration -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679991152"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; ByteString
+(MpdAudioDuration -&gt; ByteString) -&gt; ToByteString MpdAudioDuration
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: MpdAudioDuration -&gt; ByteString
+$ctoBS :: MpdAudioDuration -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679991149"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; ByteStringBuilder
+(MpdAudioDuration -&gt; ByteStringBuilder) -&gt; ToLog MpdAudioDuration
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: MpdAudioDuration -&gt; ByteStringBuilder
+$cbuild :: MpdAudioDuration -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679991146"><span class="annot"><span class="annottext">HeaderName -&gt; MpdAudioDuration -&gt; [Header]
+(HeaderName -&gt; MpdAudioDuration -&gt; [Header])
+-&gt; ToHeader MpdAudioDuration
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; MpdAudioDuration -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; MpdAudioDuration -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679991143"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; QueryString
+(MpdAudioDuration -&gt; QueryString) -&gt; ToQuery MpdAudioDuration
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: MpdAudioDuration -&gt; QueryString
+$ctoQuery :: MpdAudioDuration -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679991138"><span id="local-6989586621679991140"><span class="annot"><span class="annottext">Value -&gt; Parser [MpdAudioDuration]
+Value -&gt; Parser MpdAudioDuration
+(Value -&gt; Parser MpdAudioDuration)
+-&gt; (Value -&gt; Parser [MpdAudioDuration])
+-&gt; FromJSON MpdAudioDuration
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [MpdAudioDuration]
+$cparseJSONList :: Value -&gt; Parser [MpdAudioDuration]
+parseJSON :: Value -&gt; Parser MpdAudioDuration
+$cparseJSON :: Value -&gt; Parser MpdAudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679991133"><span id="local-6989586621679991135"><span class="annot"><span class="annottext">FromJSONKeyFunction [MpdAudioDuration]
+FromJSONKeyFunction MpdAudioDuration
+FromJSONKeyFunction MpdAudioDuration
+-&gt; FromJSONKeyFunction [MpdAudioDuration]
+-&gt; FromJSONKey MpdAudioDuration
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [MpdAudioDuration]
+$cfromJSONKeyList :: FromJSONKeyFunction [MpdAudioDuration]
+fromJSONKey :: FromJSONKeyFunction MpdAudioDuration
+$cfromJSONKey :: FromJSONKeyFunction MpdAudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679991124"><span id="local-6989586621679991126"><span id="local-6989586621679991128"><span id="local-6989586621679991130"><span class="annot"><span class="annottext">[MpdAudioDuration] -&gt; Encoding
+[MpdAudioDuration] -&gt; Value
+MpdAudioDuration -&gt; Encoding
+MpdAudioDuration -&gt; Value
+(MpdAudioDuration -&gt; Value)
+-&gt; (MpdAudioDuration -&gt; Encoding)
+-&gt; ([MpdAudioDuration] -&gt; Value)
+-&gt; ([MpdAudioDuration] -&gt; Encoding)
+-&gt; ToJSON MpdAudioDuration
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [MpdAudioDuration] -&gt; Encoding
+$ctoEncodingList :: [MpdAudioDuration] -&gt; Encoding
+toJSONList :: [MpdAudioDuration] -&gt; Value
+$ctoJSONList :: [MpdAudioDuration] -&gt; Value
+toEncoding :: MpdAudioDuration -&gt; Encoding
+$ctoEncoding :: MpdAudioDuration -&gt; Encoding
+toJSON :: MpdAudioDuration -&gt; Value
+$ctoJSON :: MpdAudioDuration -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679991119"><span id="local-6989586621679991121"><span class="annot"><span class="annottext">ToJSONKeyFunction [MpdAudioDuration]
+ToJSONKeyFunction MpdAudioDuration
+ToJSONKeyFunction MpdAudioDuration
+-&gt; ToJSONKeyFunction [MpdAudioDuration]
+-&gt; ToJSONKey MpdAudioDuration
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [MpdAudioDuration]
+$ctoJSONKeyList :: ToJSONKeyFunction [MpdAudioDuration]
+toJSONKey :: ToJSONKeyFunction MpdAudioDuration
+$ctoJSONKey :: ToJSONKeyFunction MpdAudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679991116"><span class="annot"><span class="annottext">[Node] -&gt; Either String MpdAudioDuration
+([Node] -&gt; Either String MpdAudioDuration)
+-&gt; FromXML MpdAudioDuration
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String MpdAudioDuration
+$cparseXML :: [Node] -&gt; Either String MpdAudioDuration
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679991113"><span class="annot"><span class="annottext">MpdAudioDuration -&gt; XML
+(MpdAudioDuration -&gt; XML) -&gt; ToXML MpdAudioDuration
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: MpdAudioDuration -&gt; XML
+$ctoXML :: MpdAudioDuration -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-identifier hs-type">MpdAudioDuration_DEFAULT_CODEC_DURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration"><span class="hs-identifier hs-type">MpdAudioDuration</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpdAudioDuration_DEFAULT_CODEC_DURATION"><span id="%24mMpdAudioDuration_DEFAULT_CODEC_DURATION"><span id="MpdAudioDuration_DEFAULT_CODEC_DURATION"><span class="annot"><span class="annottext">$bMpdAudioDuration_DEFAULT_CODEC_DURATION :: MpdAudioDuration
+$mMpdAudioDuration_DEFAULT_CODEC_DURATION :: forall r. MpdAudioDuration -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#%24bMpdAudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-identifier hs-var hs-var hs-var">MpdAudioDuration_DEFAULT_CODEC_DURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration%27"><span class="hs-identifier hs-type">MpdAudioDuration'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT_CODEC_DURATION&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration_MATCH_VIDEO_DURATION"><span class="hs-identifier hs-type">MpdAudioDuration_MATCH_VIDEO_DURATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration"><span class="hs-identifier hs-type">MpdAudioDuration</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bMpdAudioDuration_MATCH_VIDEO_DURATION"><span id="%24mMpdAudioDuration_MATCH_VIDEO_DURATION"><span id="MpdAudioDuration_MATCH_VIDEO_DURATION"><span class="annot"><span class="annottext">$bMpdAudioDuration_MATCH_VIDEO_DURATION :: MpdAudioDuration
+$mMpdAudioDuration_MATCH_VIDEO_DURATION :: forall r. MpdAudioDuration -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#%24bMpdAudioDuration_MATCH_VIDEO_DURATION"><span class="hs-identifier hs-var hs-var hs-var">MpdAudioDuration_MATCH_VIDEO_DURATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration%27"><span class="hs-identifier hs-type">MpdAudioDuration'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MATCH_VIDEO_DURATION&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration_DEFAULT_CODEC_DURATION"><span class="hs-pragma hs-type">MpdAudioDuration_DEFAULT_CODEC_DURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration_MATCH_VIDEO_DURATION"><span class="hs-pragma hs-type">MpdAudioDuration_MATCH_VIDEO_DURATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.MpdAudioDuration.html#MpdAudioDuration%27"><span class="hs-pragma hs-type">MpdAudioDuration'</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-85"></span></pre></body></html>

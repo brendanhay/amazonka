@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Batch.Types.AttemptContainerDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Batch.Types.AttemptContainerDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html"><span class="hs-identifier">Amazonka.Batch.Types.NetworkInterface</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object representing the details of a container that\'s part of a job</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- attempt.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAttemptContainerDetail' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679262764"><span id="local-6989586621679262765"></span></span><span class="hs-keyword">data</span><span> </span><span id="AttemptContainerDetail"><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-var">AttemptContainerDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AttemptContainerDetail%27"><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-var">AttemptContainerDetail'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The network interfaces associated with the job attempt.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AnetworkInterfaces%3AAttemptContainerDetail%27"><span class="annot"><span class="annottext">AttemptContainerDetail -&gt; Maybe [NetworkInterface]
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AnetworkInterfaces%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- with the job attempt. Each container attempt receives a task ARN when</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- they reach the @STARTING@ status.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtaskArn%3AAttemptContainerDetail%27"><span class="annot"><span class="annottext">AttemptContainerDetail -&gt; Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AtaskArn%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- hosts the job attempt.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AcontainerInstanceArn%3AAttemptContainerDetail%27"><span class="annot"><span class="annottext">AttemptContainerDetail -&gt; Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AcontainerInstanceArn%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var hs-var">containerInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | A short (255 max characters) human-readable string to provide additional</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- details about a running or stopped container.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Areason%3AAttemptContainerDetail%27"><span class="annot"><span class="annottext">AttemptContainerDetail -&gt; Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3Areason%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The name of the CloudWatch Logs log stream associated with the</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- container attempt receives a log stream name when they reach the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- @RUNNING@ status.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AlogStreamName%3AAttemptContainerDetail%27"><span class="annot"><span class="annottext">AttemptContainerDetail -&gt; Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AlogStreamName%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The exit code for the job attempt. A non-zero exit code is considered a</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AexitCode%3AAttemptContainerDetail%27"><span class="annot"><span class="annottext">AttemptContainerDetail -&gt; Maybe Int
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AexitCode%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var hs-var">exitCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262753"><span id="local-6989586621679262755"><span class="annot"><span class="annottext">AttemptContainerDetail -&gt; AttemptContainerDetail -&gt; Bool
+(AttemptContainerDetail -&gt; AttemptContainerDetail -&gt; Bool)
+-&gt; (AttemptContainerDetail -&gt; AttemptContainerDetail -&gt; Bool)
+-&gt; Eq AttemptContainerDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AttemptContainerDetail -&gt; AttemptContainerDetail -&gt; Bool
+$c/= :: AttemptContainerDetail -&gt; AttemptContainerDetail -&gt; Bool
+== :: AttemptContainerDetail -&gt; AttemptContainerDetail -&gt; Bool
+$c== :: AttemptContainerDetail -&gt; AttemptContainerDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262744"><span id="local-6989586621679262746"><span id="local-6989586621679262748"><span id="local-6989586621679262750"><span class="annot"><span class="annottext">ReadPrec [AttemptContainerDetail]
+ReadPrec AttemptContainerDetail
+Int -&gt; ReadS AttemptContainerDetail
+ReadS [AttemptContainerDetail]
+(Int -&gt; ReadS AttemptContainerDetail)
+-&gt; ReadS [AttemptContainerDetail]
+-&gt; ReadPrec AttemptContainerDetail
+-&gt; ReadPrec [AttemptContainerDetail]
+-&gt; Read AttemptContainerDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AttemptContainerDetail]
+$creadListPrec :: ReadPrec [AttemptContainerDetail]
+readPrec :: ReadPrec AttemptContainerDetail
+$creadPrec :: ReadPrec AttemptContainerDetail
+readList :: ReadS [AttemptContainerDetail]
+$creadList :: ReadS [AttemptContainerDetail]
+readsPrec :: Int -&gt; ReadS AttemptContainerDetail
+$creadsPrec :: Int -&gt; ReadS AttemptContainerDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262737"><span id="local-6989586621679262739"><span id="local-6989586621679262741"><span class="annot"><span class="annottext">Int -&gt; AttemptContainerDetail -&gt; ShowS
+[AttemptContainerDetail] -&gt; ShowS
+AttemptContainerDetail -&gt; String
+(Int -&gt; AttemptContainerDetail -&gt; ShowS)
+-&gt; (AttemptContainerDetail -&gt; String)
+-&gt; ([AttemptContainerDetail] -&gt; ShowS)
+-&gt; Show AttemptContainerDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AttemptContainerDetail] -&gt; ShowS
+$cshowList :: [AttemptContainerDetail] -&gt; ShowS
+show :: AttemptContainerDetail -&gt; String
+$cshow :: AttemptContainerDetail -&gt; String
+showsPrec :: Int -&gt; AttemptContainerDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; AttemptContainerDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AttemptContainerDetail -&gt; Rep AttemptContainerDetail x)
+-&gt; (forall x.
+    Rep AttemptContainerDetail x -&gt; AttemptContainerDetail)
+-&gt; Generic AttemptContainerDetail
+forall x. Rep AttemptContainerDetail x -&gt; AttemptContainerDetail
+forall x. AttemptContainerDetail -&gt; Rep AttemptContainerDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AttemptContainerDetail x -&gt; AttemptContainerDetail
+$cfrom :: forall x. AttemptContainerDetail -&gt; Rep AttemptContainerDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'AttemptContainerDetail' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'networkInterfaces', 'attemptContainerDetail_networkInterfaces' - The network interfaces associated with the job attempt.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'taskArn', 'attemptContainerDetail_taskArn' - The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- with the job attempt. Each container attempt receives a task ARN when</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- they reach the @STARTING@ status.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'containerInstanceArn', 'attemptContainerDetail_containerInstanceArn' - The Amazon Resource Name (ARN) of the Amazon ECS container instance that</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- hosts the job attempt.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'reason', 'attemptContainerDetail_reason' - A short (255 max characters) human-readable string to provide additional</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- details about a running or stopped container.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'logStreamName', 'attemptContainerDetail_logStreamName' - The name of the CloudWatch Logs log stream associated with the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- container attempt receives a log stream name when they reach the</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- @RUNNING@ status.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'exitCode', 'attemptContainerDetail_exitCode' - The exit code for the job attempt. A non-zero exit code is considered a</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#newAttemptContainerDetail"><span class="hs-identifier hs-type">newAttemptContainerDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span>
+</span><span id="line-84"></span><span id="newAttemptContainerDetail"><span class="annot"><span class="annottext">newAttemptContainerDetail :: AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#newAttemptContainerDetail"><span class="hs-identifier hs-var hs-var">newAttemptContainerDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">AttemptContainerDetail' :: Maybe [NetworkInterface]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:networkInterfaces:AttemptContainerDetail' :: Maybe [NetworkInterface]
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AnetworkInterfaces%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskArn:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AtaskArn%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerInstanceArn:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AcontainerInstanceArn%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">containerInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:reason:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3Areason%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:logStreamName:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AlogStreamName%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:exitCode:AttemptContainerDetail' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AexitCode%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">exitCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The network interfaces associated with the job attempt.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_networkInterfaces"><span class="hs-identifier hs-type">attemptContainerDetail_networkInterfaces</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Batch.Types.NetworkInterface.html#NetworkInterface"><span class="hs-identifier hs-type">NetworkInterface</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="attemptContainerDetail_networkInterfaces"><span class="annot"><span class="annottext">attemptContainerDetail_networkInterfaces :: (Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+-&gt; AttemptContainerDetail -&gt; f AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_networkInterfaces"><span class="hs-identifier hs-var hs-var">attemptContainerDetail_networkInterfaces</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttemptContainerDetail -&gt; Maybe [NetworkInterface])
+-&gt; (AttemptContainerDetail
+    -&gt; Maybe [NetworkInterface] -&gt; AttemptContainerDetail)
+-&gt; Lens
+     AttemptContainerDetail
+     AttemptContainerDetail
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262728"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+networkInterfaces :: Maybe [NetworkInterface]
+$sel:networkInterfaces:AttemptContainerDetail' :: AttemptContainerDetail -&gt; Maybe [NetworkInterface]
+</span><a href="#local-6989586621679262728"><span class="hs-identifier hs-var hs-var">networkInterfaces</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679262728"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262727"><span class="annot"><span class="annottext">s :: AttemptContainerDetail
+</span><a href="#local-6989586621679262727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262726"><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679262726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptContainerDetail
+</span><a href="#local-6989586621679262727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:networkInterfaces:AttemptContainerDetail' :: Maybe [NetworkInterface]
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AnetworkInterfaces%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">networkInterfaces</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+</span><a href="#local-6989586621679262726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+ -&gt; AttemptContainerDetail -&gt; f AttemptContainerDetail)
+-&gt; ((Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+    -&gt; Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+-&gt; (Maybe [NetworkInterface] -&gt; f (Maybe [NetworkInterface]))
+-&gt; AttemptContainerDetail
+-&gt; f AttemptContainerDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+-&gt; Iso
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+     (Maybe [NetworkInterface])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+  [NetworkInterface]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon ECS task that\'s associated</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- with the job attempt. Each container attempt receives a task ARN when</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- they reach the @STARTING@ status.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_taskArn"><span class="hs-identifier hs-type">attemptContainerDetail_taskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="attemptContainerDetail_taskArn"><span class="annot"><span class="annottext">attemptContainerDetail_taskArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AttemptContainerDetail -&gt; f AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_taskArn"><span class="hs-identifier hs-var hs-var">attemptContainerDetail_taskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttemptContainerDetail -&gt; Maybe Text)
+-&gt; (AttemptContainerDetail -&gt; Maybe Text -&gt; AttemptContainerDetail)
+-&gt; Lens
+     AttemptContainerDetail
+     AttemptContainerDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262721"><span class="annot"><span class="annottext">Maybe Text
+taskArn :: Maybe Text
+$sel:taskArn:AttemptContainerDetail' :: AttemptContainerDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679262721"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262721"><span class="hs-identifier hs-var">taskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262720"><span class="annot"><span class="annottext">s :: AttemptContainerDetail
+</span><a href="#local-6989586621679262720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262719"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptContainerDetail
+</span><a href="#local-6989586621679262720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskArn:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AtaskArn%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Amazon ECS container instance that</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- hosts the job attempt.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_containerInstanceArn"><span class="hs-identifier hs-type">attemptContainerDetail_containerInstanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="attemptContainerDetail_containerInstanceArn"><span class="annot"><span class="annottext">attemptContainerDetail_containerInstanceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AttemptContainerDetail -&gt; f AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_containerInstanceArn"><span class="hs-identifier hs-var hs-var">attemptContainerDetail_containerInstanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttemptContainerDetail -&gt; Maybe Text)
+-&gt; (AttemptContainerDetail -&gt; Maybe Text -&gt; AttemptContainerDetail)
+-&gt; Lens
+     AttemptContainerDetail
+     AttemptContainerDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262717"><span class="annot"><span class="annottext">Maybe Text
+containerInstanceArn :: Maybe Text
+$sel:containerInstanceArn:AttemptContainerDetail' :: AttemptContainerDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var hs-var">containerInstanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262717"><span class="hs-identifier hs-var">containerInstanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262716"><span class="annot"><span class="annottext">s :: AttemptContainerDetail
+</span><a href="#local-6989586621679262716"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262715"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262715"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptContainerDetail
+</span><a href="#local-6989586621679262716"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerInstanceArn:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AcontainerInstanceArn%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">containerInstanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262715"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | A short (255 max characters) human-readable string to provide additional</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- details about a running or stopped container.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_reason"><span class="hs-identifier hs-type">attemptContainerDetail_reason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="attemptContainerDetail_reason"><span class="annot"><span class="annottext">attemptContainerDetail_reason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AttemptContainerDetail -&gt; f AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_reason"><span class="hs-identifier hs-var hs-var">attemptContainerDetail_reason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttemptContainerDetail -&gt; Maybe Text)
+-&gt; (AttemptContainerDetail -&gt; Maybe Text -&gt; AttemptContainerDetail)
+-&gt; Lens
+     AttemptContainerDetail
+     AttemptContainerDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262713"><span class="annot"><span class="annottext">Maybe Text
+reason :: Maybe Text
+$sel:reason:AttemptContainerDetail' :: AttemptContainerDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679262713"><span class="hs-identifier hs-var hs-var">reason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262713"><span class="hs-identifier hs-var">reason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262712"><span class="annot"><span class="annottext">s :: AttemptContainerDetail
+</span><a href="#local-6989586621679262712"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262711"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262711"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptContainerDetail
+</span><a href="#local-6989586621679262712"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reason:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3Areason%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">reason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262711"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The name of the CloudWatch Logs log stream associated with the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- container. The log group for Batch jobs is @\/aws\/batch\/job@. Each</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- container attempt receives a log stream name when they reach the</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- @RUNNING@ status.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_logStreamName"><span class="hs-identifier hs-type">attemptContainerDetail_logStreamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="attemptContainerDetail_logStreamName"><span class="annot"><span class="annottext">attemptContainerDetail_logStreamName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AttemptContainerDetail -&gt; f AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_logStreamName"><span class="hs-identifier hs-var hs-var">attemptContainerDetail_logStreamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttemptContainerDetail -&gt; Maybe Text)
+-&gt; (AttemptContainerDetail -&gt; Maybe Text -&gt; AttemptContainerDetail)
+-&gt; Lens
+     AttemptContainerDetail
+     AttemptContainerDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262709"><span class="annot"><span class="annottext">Maybe Text
+logStreamName :: Maybe Text
+$sel:logStreamName:AttemptContainerDetail' :: AttemptContainerDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679262709"><span class="hs-identifier hs-var hs-var">logStreamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262709"><span class="hs-identifier hs-var">logStreamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262708"><span class="annot"><span class="annottext">s :: AttemptContainerDetail
+</span><a href="#local-6989586621679262708"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262707"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262707"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptContainerDetail
+</span><a href="#local-6989586621679262708"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logStreamName:AttemptContainerDetail' :: Maybe Text
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AlogStreamName%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">logStreamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262707"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The exit code for the job attempt. A non-zero exit code is considered a</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- failure.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_exitCode"><span class="hs-identifier hs-type">attemptContainerDetail_exitCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="attemptContainerDetail_exitCode"><span class="annot"><span class="annottext">attemptContainerDetail_exitCode :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AttemptContainerDetail -&gt; f AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#attemptContainerDetail_exitCode"><span class="hs-identifier hs-var hs-var">attemptContainerDetail_exitCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AttemptContainerDetail -&gt; Maybe Int)
+-&gt; (AttemptContainerDetail -&gt; Maybe Int -&gt; AttemptContainerDetail)
+-&gt; Lens
+     AttemptContainerDetail
+     AttemptContainerDetail
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262705"><span class="annot"><span class="annottext">Maybe Int
+exitCode :: Maybe Int
+$sel:exitCode:AttemptContainerDetail' :: AttemptContainerDetail -&gt; Maybe Int
+</span><a href="#local-6989586621679262705"><span class="hs-identifier hs-var hs-var">exitCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262705"><span class="hs-identifier hs-var">exitCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262704"><span class="annot"><span class="annottext">s :: AttemptContainerDetail
+</span><a href="#local-6989586621679262704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-type">AttemptContainerDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262703"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AttemptContainerDetail
+</span><a href="#local-6989586621679262704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:exitCode:AttemptContainerDetail' :: Maybe Int
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#%24sel%3AexitCode%3AAttemptContainerDetail%27"><span class="hs-identifier hs-var">exitCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679262703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262700"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679262698"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AttemptContainerDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AttemptContainerDetail)
+-&gt; Value
+-&gt; Parser AttemptContainerDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AttemptContainerDetail&quot;</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262695"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; AttemptContainerDetail
+</span><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail%27"><span class="hs-identifier hs-var">AttemptContainerDetail'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [NetworkInterface]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; AttemptContainerDetail)
+-&gt; Parser (Maybe [NetworkInterface])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; AttemptContainerDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [NetworkInterface]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;networkInterfaces&quot;</span></span><span>
+</span><span id="line-134"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [NetworkInterface]))
+-&gt; Maybe [NetworkInterface] -&gt; Parser (Maybe [NetworkInterface])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [NetworkInterface]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-135"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; AttemptContainerDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; AttemptContainerDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;taskArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; AttemptContainerDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; AttemptContainerDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerInstanceArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; AttemptContainerDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Int -&gt; AttemptContainerDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Int -&gt; AttemptContainerDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Int -&gt; AttemptContainerDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;logStreamName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Int -&gt; AttemptContainerDetail)
+-&gt; Parser (Maybe Int) -&gt; Parser AttemptContainerDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679262695"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;exitCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262688"><span id="local-6989586621679262690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Batch.Types.AttemptContainerDetail.html#AttemptContainerDetail"><span class="hs-identifier hs-type">AttemptContainerDetail</span></a></span></span><span>
+</span><span id="line-146"></span></pre></body></html>

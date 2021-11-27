@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.NetworkAclEntry</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.NetworkAclEntry</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IcmpTypeCode.html"><span class="hs-identifier">Amazonka.EC2.Types.IcmpTypeCode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PortRange.html"><span class="hs-identifier">Amazonka.EC2.Types.PortRange</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RuleAction.html"><span class="hs-identifier">Amazonka.EC2.Types.RuleAction</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Describes an entry in a network ACL.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newNetworkAclEntry' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621681146089"><span id="local-6989586621681146090"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkAclEntry"><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-var">NetworkAclEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkAclEntry%27"><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-var">NetworkAclEntry'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IPv6 network range to allow or deny, in CIDR notation.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aipv6CidrBlock%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | ICMP protocol: The ICMP type and code.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AicmpTypeCode%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe IcmpTypeCode
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AicmpTypeCode%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">icmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The rule number for the entry. ACL entries are processed in ascending</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- order by rule number.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AruleNumber%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe Int
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AruleNumber%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Indicates whether to allow or deny the traffic that matches the rule.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AruleAction%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe RuleAction
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AruleAction%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RuleAction.html#RuleAction"><span class="hs-identifier hs-type">RuleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The protocol number. A value of \&quot;-1\&quot; means all protocols.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aprotocol%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aprotocol%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | TCP or UDP protocols: The range of ports the rule applies to.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AportRange%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe PortRange
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AportRange%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The IPv4 network range to allow or deny, in CIDR notation.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AcidrBlock%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AcidrBlock%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Indicates whether the rule is an egress rule (applied to traffic leaving</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the subnet).</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Aegress%3ANetworkAclEntry%27"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aegress%3ANetworkAclEntry%27"><span class="hs-identifier hs-var hs-var">egress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681146076"><span id="local-6989586621681146078"><span class="annot"><span class="annottext">NetworkAclEntry -&gt; NetworkAclEntry -&gt; Bool
+(NetworkAclEntry -&gt; NetworkAclEntry -&gt; Bool)
+-&gt; (NetworkAclEntry -&gt; NetworkAclEntry -&gt; Bool)
+-&gt; Eq NetworkAclEntry
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkAclEntry -&gt; NetworkAclEntry -&gt; Bool
+$c/= :: NetworkAclEntry -&gt; NetworkAclEntry -&gt; Bool
+== :: NetworkAclEntry -&gt; NetworkAclEntry -&gt; Bool
+$c== :: NetworkAclEntry -&gt; NetworkAclEntry -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146067"><span id="local-6989586621681146069"><span id="local-6989586621681146071"><span id="local-6989586621681146073"><span class="annot"><span class="annottext">ReadPrec [NetworkAclEntry]
+ReadPrec NetworkAclEntry
+Int -&gt; ReadS NetworkAclEntry
+ReadS [NetworkAclEntry]
+(Int -&gt; ReadS NetworkAclEntry)
+-&gt; ReadS [NetworkAclEntry]
+-&gt; ReadPrec NetworkAclEntry
+-&gt; ReadPrec [NetworkAclEntry]
+-&gt; Read NetworkAclEntry
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkAclEntry]
+$creadListPrec :: ReadPrec [NetworkAclEntry]
+readPrec :: ReadPrec NetworkAclEntry
+$creadPrec :: ReadPrec NetworkAclEntry
+readList :: ReadS [NetworkAclEntry]
+$creadList :: ReadS [NetworkAclEntry]
+readsPrec :: Int -&gt; ReadS NetworkAclEntry
+$creadsPrec :: Int -&gt; ReadS NetworkAclEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681146060"><span id="local-6989586621681146062"><span id="local-6989586621681146064"><span class="annot"><span class="annottext">Int -&gt; NetworkAclEntry -&gt; ShowS
+[NetworkAclEntry] -&gt; ShowS
+NetworkAclEntry -&gt; String
+(Int -&gt; NetworkAclEntry -&gt; ShowS)
+-&gt; (NetworkAclEntry -&gt; String)
+-&gt; ([NetworkAclEntry] -&gt; ShowS)
+-&gt; Show NetworkAclEntry
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkAclEntry] -&gt; ShowS
+$cshowList :: [NetworkAclEntry] -&gt; ShowS
+show :: NetworkAclEntry -&gt; String
+$cshow :: NetworkAclEntry -&gt; String
+showsPrec :: Int -&gt; NetworkAclEntry -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkAclEntry -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NetworkAclEntry -&gt; Rep NetworkAclEntry x)
+-&gt; (forall x. Rep NetworkAclEntry x -&gt; NetworkAclEntry)
+-&gt; Generic NetworkAclEntry
+forall x. Rep NetworkAclEntry x -&gt; NetworkAclEntry
+forall x. NetworkAclEntry -&gt; Rep NetworkAclEntry x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NetworkAclEntry x -&gt; NetworkAclEntry
+$cfrom :: forall x. NetworkAclEntry -&gt; Rep NetworkAclEntry x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'NetworkAclEntry' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'ipv6CidrBlock', 'networkAclEntry_ipv6CidrBlock' - The IPv6 network range to allow or deny, in CIDR notation.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'icmpTypeCode', 'networkAclEntry_icmpTypeCode' - ICMP protocol: The ICMP type and code.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'ruleNumber', 'networkAclEntry_ruleNumber' - The rule number for the entry. ACL entries are processed in ascending</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- order by rule number.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'ruleAction', 'networkAclEntry_ruleAction' - Indicates whether to allow or deny the traffic that matches the rule.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'protocol', 'networkAclEntry_protocol' - The protocol number. A value of \&quot;-1\&quot; means all protocols.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'portRange', 'networkAclEntry_portRange' - TCP or UDP protocols: The range of ports the rule applies to.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'cidrBlock', 'networkAclEntry_cidrBlock' - The IPv4 network range to allow or deny, in CIDR notation.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'egress', 'networkAclEntry_egress' - Indicates whether the rule is an egress rule (applied to traffic leaving</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- the subnet).</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#newNetworkAclEntry"><span class="hs-identifier hs-type">newNetworkAclEntry</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span>
+</span><span id="line-82"></span><span id="newNetworkAclEntry"><span class="annot"><span class="annottext">newNetworkAclEntry :: NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#newNetworkAclEntry"><span class="hs-identifier hs-var hs-var">newNetworkAclEntry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">NetworkAclEntry' :: Maybe Text
+-&gt; Maybe IcmpTypeCode
+-&gt; Maybe Int
+-&gt; Maybe RuleAction
+-&gt; Maybe Text
+-&gt; Maybe PortRange
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:NetworkAclEntry' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:icmpTypeCode:NetworkAclEntry' :: Maybe IcmpTypeCode
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AicmpTypeCode%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleNumber:NetworkAclEntry' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AruleNumber%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleAction:NetworkAclEntry' :: Maybe RuleAction
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AruleAction%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleAction
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:NetworkAclEntry' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aprotocol%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:portRange:NetworkAclEntry' :: Maybe PortRange
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AportRange%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrBlock:NetworkAclEntry' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AcidrBlock%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">$sel:egress:NetworkAclEntry' :: Maybe Bool
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aegress%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">egress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The IPv6 network range to allow or deny, in CIDR notation.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_ipv6CidrBlock"><span class="hs-identifier hs-type">networkAclEntry_ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="networkAclEntry_ipv6CidrBlock"><span class="annot"><span class="annottext">networkAclEntry_ipv6CidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_ipv6CidrBlock"><span class="hs-identifier hs-var hs-var">networkAclEntry_ipv6CidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe Text)
+-&gt; (NetworkAclEntry -&gt; Maybe Text -&gt; NetworkAclEntry)
+-&gt; Lens NetworkAclEntry NetworkAclEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146051"><span class="annot"><span class="annottext">Maybe Text
+ipv6CidrBlock :: Maybe Text
+$sel:ipv6CidrBlock:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621681146051"><span class="hs-identifier hs-var hs-var">ipv6CidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146051"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146050"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146050"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146049"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146049"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146050"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ipv6CidrBlock:NetworkAclEntry' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aipv6CidrBlock%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">ipv6CidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146049"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | ICMP protocol: The ICMP type and code.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_icmpTypeCode"><span class="hs-identifier hs-type">networkAclEntry_icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IcmpTypeCode.html#IcmpTypeCode"><span class="hs-identifier hs-type">IcmpTypeCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="networkAclEntry_icmpTypeCode"><span class="annot"><span class="annottext">networkAclEntry_icmpTypeCode :: (Maybe IcmpTypeCode -&gt; f (Maybe IcmpTypeCode))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_icmpTypeCode"><span class="hs-identifier hs-var hs-var">networkAclEntry_icmpTypeCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe IcmpTypeCode)
+-&gt; (NetworkAclEntry -&gt; Maybe IcmpTypeCode -&gt; NetworkAclEntry)
+-&gt; Lens
+     NetworkAclEntry
+     NetworkAclEntry
+     (Maybe IcmpTypeCode)
+     (Maybe IcmpTypeCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146047"><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+icmpTypeCode :: Maybe IcmpTypeCode
+$sel:icmpTypeCode:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe IcmpTypeCode
+</span><a href="#local-6989586621681146047"><span class="hs-identifier hs-var hs-var">icmpTypeCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621681146047"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146046"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146046"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146045"><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621681146045"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146046"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:icmpTypeCode:NetworkAclEntry' :: Maybe IcmpTypeCode
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AicmpTypeCode%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">icmpTypeCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IcmpTypeCode
+</span><a href="#local-6989586621681146045"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The rule number for the entry. ACL entries are processed in ascending</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- order by rule number.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_ruleNumber"><span class="hs-identifier hs-type">networkAclEntry_ruleNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="networkAclEntry_ruleNumber"><span class="annot"><span class="annottext">networkAclEntry_ruleNumber :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_ruleNumber"><span class="hs-identifier hs-var hs-var">networkAclEntry_ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe Int)
+-&gt; (NetworkAclEntry -&gt; Maybe Int -&gt; NetworkAclEntry)
+-&gt; Lens NetworkAclEntry NetworkAclEntry (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146043"><span class="annot"><span class="annottext">Maybe Int
+ruleNumber :: Maybe Int
+$sel:ruleNumber:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe Int
+</span><a href="#local-6989586621681146043"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146043"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146042"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146042"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146041"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146041"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146042"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNumber:NetworkAclEntry' :: Maybe Int
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AruleNumber%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681146041"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Indicates whether to allow or deny the traffic that matches the rule.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_ruleAction"><span class="hs-identifier hs-type">networkAclEntry_ruleAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.RuleAction.html#RuleAction"><span class="hs-identifier hs-type">RuleAction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="networkAclEntry_ruleAction"><span class="annot"><span class="annottext">networkAclEntry_ruleAction :: (Maybe RuleAction -&gt; f (Maybe RuleAction))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_ruleAction"><span class="hs-identifier hs-var hs-var">networkAclEntry_ruleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe RuleAction)
+-&gt; (NetworkAclEntry -&gt; Maybe RuleAction -&gt; NetworkAclEntry)
+-&gt; Lens
+     NetworkAclEntry
+     NetworkAclEntry
+     (Maybe RuleAction)
+     (Maybe RuleAction)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146039"><span class="annot"><span class="annottext">Maybe RuleAction
+ruleAction :: Maybe RuleAction
+$sel:ruleAction:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe RuleAction
+</span><a href="#local-6989586621681146039"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleAction
+</span><a href="#local-6989586621681146039"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146038"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146038"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146037"><span class="annot"><span class="annottext">Maybe RuleAction
+</span><a href="#local-6989586621681146037"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146038"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleAction:NetworkAclEntry' :: Maybe RuleAction
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AruleAction%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleAction
+</span><a href="#local-6989586621681146037"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The protocol number. A value of \&quot;-1\&quot; means all protocols.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_protocol"><span class="hs-identifier hs-type">networkAclEntry_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="networkAclEntry_protocol"><span class="annot"><span class="annottext">networkAclEntry_protocol :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_protocol"><span class="hs-identifier hs-var hs-var">networkAclEntry_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe Text)
+-&gt; (NetworkAclEntry -&gt; Maybe Text -&gt; NetworkAclEntry)
+-&gt; Lens NetworkAclEntry NetworkAclEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146035"><span class="annot"><span class="annottext">Maybe Text
+protocol :: Maybe Text
+$sel:protocol:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621681146035"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146035"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146034"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146033"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:NetworkAclEntry' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aprotocol%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | TCP or UDP protocols: The range of ports the rule applies to.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_portRange"><span class="hs-identifier hs-type">networkAclEntry_portRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.PortRange.html#PortRange"><span class="hs-identifier hs-type">PortRange</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="networkAclEntry_portRange"><span class="annot"><span class="annottext">networkAclEntry_portRange :: (Maybe PortRange -&gt; f (Maybe PortRange))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_portRange"><span class="hs-identifier hs-var hs-var">networkAclEntry_portRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe PortRange)
+-&gt; (NetworkAclEntry -&gt; Maybe PortRange -&gt; NetworkAclEntry)
+-&gt; Lens
+     NetworkAclEntry NetworkAclEntry (Maybe PortRange) (Maybe PortRange)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146031"><span class="annot"><span class="annottext">Maybe PortRange
+portRange :: Maybe PortRange
+$sel:portRange:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe PortRange
+</span><a href="#local-6989586621681146031"><span class="hs-identifier hs-var hs-var">portRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681146031"><span class="hs-identifier hs-var">portRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146030"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146029"><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681146029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portRange:NetworkAclEntry' :: Maybe PortRange
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AportRange%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">portRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PortRange
+</span><a href="#local-6989586621681146029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The IPv4 network range to allow or deny, in CIDR notation.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_cidrBlock"><span class="hs-identifier hs-type">networkAclEntry_cidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="networkAclEntry_cidrBlock"><span class="annot"><span class="annottext">networkAclEntry_cidrBlock :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_cidrBlock"><span class="hs-identifier hs-var hs-var">networkAclEntry_cidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe Text)
+-&gt; (NetworkAclEntry -&gt; Maybe Text -&gt; NetworkAclEntry)
+-&gt; Lens NetworkAclEntry NetworkAclEntry (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146027"><span class="annot"><span class="annottext">Maybe Text
+cidrBlock :: Maybe Text
+$sel:cidrBlock:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe Text
+</span><a href="#local-6989586621681146027"><span class="hs-identifier hs-var hs-var">cidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146027"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146026"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrBlock:NetworkAclEntry' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3AcidrBlock%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">cidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681146025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | Indicates whether the rule is an egress rule (applied to traffic leaving</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- the subnet).</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_egress"><span class="hs-identifier hs-type">networkAclEntry_egress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="networkAclEntry_egress"><span class="annot"><span class="annottext">networkAclEntry_egress :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; NetworkAclEntry -&gt; f NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#networkAclEntry_egress"><span class="hs-identifier hs-var hs-var">networkAclEntry_egress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkAclEntry -&gt; Maybe Bool)
+-&gt; (NetworkAclEntry -&gt; Maybe Bool -&gt; NetworkAclEntry)
+-&gt; Lens NetworkAclEntry NetworkAclEntry (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681146023"><span class="annot"><span class="annottext">Maybe Bool
+egress :: Maybe Bool
+$sel:egress:NetworkAclEntry' :: NetworkAclEntry -&gt; Maybe Bool
+</span><a href="#local-6989586621681146023"><span class="hs-identifier hs-var hs-var">egress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681146023"><span class="hs-identifier hs-var">egress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681146022"><span class="annot"><span class="annottext">s :: NetworkAclEntry
+</span><a href="#local-6989586621681146022"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-type">NetworkAclEntry'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681146021"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681146021"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkAclEntry
+</span><a href="#local-6989586621681146022"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:egress:NetworkAclEntry' :: Maybe Bool
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#%24sel%3Aegress%3ANetworkAclEntry%27"><span class="hs-identifier hs-var">egress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681146021"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621681146018"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NetworkAclEntry
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681146016"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe IcmpTypeCode
+-&gt; Maybe Int
+-&gt; Maybe RuleAction
+-&gt; Maybe Text
+-&gt; Maybe PortRange
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; NetworkAclEntry
+</span><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry%27"><span class="hs-identifier hs-var">NetworkAclEntry'</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe IcmpTypeCode
+ -&gt; Maybe Int
+ -&gt; Maybe RuleAction
+ -&gt; Maybe Text
+ -&gt; Maybe PortRange
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe IcmpTypeCode
+      -&gt; Maybe Int
+      -&gt; Maybe RuleAction
+      -&gt; Maybe Text
+      -&gt; Maybe PortRange
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ipv6CidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe IcmpTypeCode
+   -&gt; Maybe Int
+   -&gt; Maybe RuleAction
+   -&gt; Maybe Text
+   -&gt; Maybe PortRange
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe IcmpTypeCode)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe RuleAction
+      -&gt; Maybe Text
+      -&gt; Maybe PortRange
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IcmpTypeCode)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;icmpTypeCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe RuleAction
+   -&gt; Maybe Text
+   -&gt; Maybe PortRange
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe RuleAction
+      -&gt; Maybe Text
+      -&gt; Maybe PortRange
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleNumber&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe RuleAction
+   -&gt; Maybe Text
+   -&gt; Maybe PortRange
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe RuleAction)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe PortRange -&gt; Maybe Text -&gt; Maybe Bool -&gt; NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe RuleAction)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleAction&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe PortRange -&gt; Maybe Text -&gt; Maybe Bool -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe PortRange -&gt; Maybe Text -&gt; Maybe Bool -&gt; NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe PortRange -&gt; Maybe Text -&gt; Maybe Bool -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe PortRange)
+-&gt; Either String (Maybe Text -&gt; Maybe Bool -&gt; NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe PortRange)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;portRange&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Maybe Bool -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Bool -&gt; NetworkAclEntry)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cidrBlock&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; NetworkAclEntry)
+-&gt; Either String (Maybe Bool) -&gt; Either String NetworkAclEntry
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681146016"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;egress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146010"><span id="local-6989586621681146012"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681146007"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.NetworkAclEntry.html#NetworkAclEntry"><span class="hs-identifier hs-type">NetworkAclEntry</span></a></span></span><span>
+</span><span id="line-143"></span></pre></body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ServiceState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ServiceState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier">ServiceState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Available"><span class="hs-identifier">ServiceState_Available</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Deleted"><span class="hs-identifier">ServiceState_Deleted</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Deleting"><span class="hs-identifier">ServiceState_Deleting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Failed"><span class="hs-identifier">ServiceState_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Pending"><span class="hs-identifier">ServiceState_Pending</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621681149440"><span id="local-6989586621681149441"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ServiceState"><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-var">ServiceState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ServiceState%27"><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-var">ServiceState'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromServiceState"><span class="annot"><span class="annottext">ServiceState -&gt; Text
+</span><a href="Amazonka.EC2.Types.ServiceState.html#fromServiceState"><span class="hs-identifier hs-var hs-var">fromServiceState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149432"><span id="local-6989586621681149434"><span id="local-6989586621681149436"><span class="annot"><span class="annottext">Int -&gt; ServiceState -&gt; ShowS
+[ServiceState] -&gt; ShowS
+ServiceState -&gt; String
+(Int -&gt; ServiceState -&gt; ShowS)
+-&gt; (ServiceState -&gt; String)
+-&gt; ([ServiceState] -&gt; ShowS)
+-&gt; Show ServiceState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ServiceState] -&gt; ShowS
+$cshowList :: [ServiceState] -&gt; ShowS
+show :: ServiceState -&gt; String
+$cshow :: ServiceState -&gt; String
+showsPrec :: Int -&gt; ServiceState -&gt; ShowS
+$cshowsPrec :: Int -&gt; ServiceState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621681149423"><span id="local-6989586621681149425"><span id="local-6989586621681149427"><span id="local-6989586621681149429"><span class="annot"><span class="annottext">ReadPrec [ServiceState]
+ReadPrec ServiceState
+Int -&gt; ReadS ServiceState
+ReadS [ServiceState]
+(Int -&gt; ReadS ServiceState)
+-&gt; ReadS [ServiceState]
+-&gt; ReadPrec ServiceState
+-&gt; ReadPrec [ServiceState]
+-&gt; Read ServiceState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ServiceState]
+$creadListPrec :: ReadPrec [ServiceState]
+readPrec :: ReadPrec ServiceState
+$creadPrec :: ReadPrec ServiceState
+readList :: ReadS [ServiceState]
+$creadList :: ReadS [ServiceState]
+readsPrec :: Int -&gt; ReadS ServiceState
+$creadsPrec :: Int -&gt; ReadS ServiceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621681149418"><span id="local-6989586621681149420"><span class="annot"><span class="annottext">ServiceState -&gt; ServiceState -&gt; Bool
+(ServiceState -&gt; ServiceState -&gt; Bool)
+-&gt; (ServiceState -&gt; ServiceState -&gt; Bool) -&gt; Eq ServiceState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ServiceState -&gt; ServiceState -&gt; Bool
+$c/= :: ServiceState -&gt; ServiceState -&gt; Bool
+== :: ServiceState -&gt; ServiceState -&gt; Bool
+$c== :: ServiceState -&gt; ServiceState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681149402"><span id="local-6989586621681149404"><span id="local-6989586621681149406"><span id="local-6989586621681149408"><span id="local-6989586621681149410"><span id="local-6989586621681149412"><span id="local-6989586621681149414"><span class="annot"><span class="annottext">Eq ServiceState
+Eq ServiceState
+-&gt; (ServiceState -&gt; ServiceState -&gt; Ordering)
+-&gt; (ServiceState -&gt; ServiceState -&gt; Bool)
+-&gt; (ServiceState -&gt; ServiceState -&gt; Bool)
+-&gt; (ServiceState -&gt; ServiceState -&gt; Bool)
+-&gt; (ServiceState -&gt; ServiceState -&gt; Bool)
+-&gt; (ServiceState -&gt; ServiceState -&gt; ServiceState)
+-&gt; (ServiceState -&gt; ServiceState -&gt; ServiceState)
+-&gt; Ord ServiceState
+ServiceState -&gt; ServiceState -&gt; Bool
+ServiceState -&gt; ServiceState -&gt; Ordering
+ServiceState -&gt; ServiceState -&gt; ServiceState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ServiceState -&gt; ServiceState -&gt; ServiceState
+$cmin :: ServiceState -&gt; ServiceState -&gt; ServiceState
+max :: ServiceState -&gt; ServiceState -&gt; ServiceState
+$cmax :: ServiceState -&gt; ServiceState -&gt; ServiceState
+&gt;= :: ServiceState -&gt; ServiceState -&gt; Bool
+$c&gt;= :: ServiceState -&gt; ServiceState -&gt; Bool
+&gt; :: ServiceState -&gt; ServiceState -&gt; Bool
+$c&gt; :: ServiceState -&gt; ServiceState -&gt; Bool
+&lt;= :: ServiceState -&gt; ServiceState -&gt; Bool
+$c&lt;= :: ServiceState -&gt; ServiceState -&gt; Bool
+&lt; :: ServiceState -&gt; ServiceState -&gt; Bool
+$c&lt; :: ServiceState -&gt; ServiceState -&gt; Bool
+compare :: ServiceState -&gt; ServiceState -&gt; Ordering
+$ccompare :: ServiceState -&gt; ServiceState -&gt; Ordering
+$cp1Ord :: Eq ServiceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ServiceState -&gt; Rep ServiceState x)
+-&gt; (forall x. Rep ServiceState x -&gt; ServiceState)
+-&gt; Generic ServiceState
+forall x. Rep ServiceState x -&gt; ServiceState
+forall x. ServiceState -&gt; Rep ServiceState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ServiceState x -&gt; ServiceState
+$cfrom :: forall x. ServiceState -&gt; Rep ServiceState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681149394"><span id="local-6989586621681149396"><span class="annot"><span class="annottext">Int -&gt; ServiceState -&gt; Int
+ServiceState -&gt; Int
+(Int -&gt; ServiceState -&gt; Int)
+-&gt; (ServiceState -&gt; Int) -&gt; Hashable ServiceState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ServiceState -&gt; Int
+$chash :: ServiceState -&gt; Int
+hashWithSalt :: Int -&gt; ServiceState -&gt; Int
+$chashWithSalt :: Int -&gt; ServiceState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621681149391"><span class="annot"><span class="annottext">ServiceState -&gt; ()
+(ServiceState -&gt; ()) -&gt; NFData ServiceState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ServiceState -&gt; ()
+$crnf :: ServiceState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621681149388"><span class="annot"><span class="annottext">Text -&gt; Either String ServiceState
+(Text -&gt; Either String ServiceState) -&gt; FromText ServiceState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ServiceState
+$cfromText :: Text -&gt; Either String ServiceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681149385"><span class="annot"><span class="annottext">ServiceState -&gt; Text
+(ServiceState -&gt; Text) -&gt; ToText ServiceState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ServiceState -&gt; Text
+$ctoText :: ServiceState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681149382"><span class="annot"><span class="annottext">ServiceState -&gt; ByteString
+(ServiceState -&gt; ByteString) -&gt; ToByteString ServiceState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ServiceState -&gt; ByteString
+$ctoBS :: ServiceState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681149379"><span class="annot"><span class="annottext">ServiceState -&gt; ByteStringBuilder
+(ServiceState -&gt; ByteStringBuilder) -&gt; ToLog ServiceState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ServiceState -&gt; ByteStringBuilder
+$cbuild :: ServiceState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681149376"><span class="annot"><span class="annottext">HeaderName -&gt; ServiceState -&gt; [Header]
+(HeaderName -&gt; ServiceState -&gt; [Header]) -&gt; ToHeader ServiceState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ServiceState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ServiceState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681149373"><span class="annot"><span class="annottext">ServiceState -&gt; QueryString
+(ServiceState -&gt; QueryString) -&gt; ToQuery ServiceState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ServiceState -&gt; QueryString
+$ctoQuery :: ServiceState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681149368"><span id="local-6989586621681149370"><span class="annot"><span class="annottext">Value -&gt; Parser [ServiceState]
+Value -&gt; Parser ServiceState
+(Value -&gt; Parser ServiceState)
+-&gt; (Value -&gt; Parser [ServiceState]) -&gt; FromJSON ServiceState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ServiceState]
+$cparseJSONList :: Value -&gt; Parser [ServiceState]
+parseJSON :: Value -&gt; Parser ServiceState
+$cparseJSON :: Value -&gt; Parser ServiceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681149363"><span id="local-6989586621681149365"><span class="annot"><span class="annottext">FromJSONKeyFunction [ServiceState]
+FromJSONKeyFunction ServiceState
+FromJSONKeyFunction ServiceState
+-&gt; FromJSONKeyFunction [ServiceState] -&gt; FromJSONKey ServiceState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ServiceState]
+$cfromJSONKeyList :: FromJSONKeyFunction [ServiceState]
+fromJSONKey :: FromJSONKeyFunction ServiceState
+$cfromJSONKey :: FromJSONKeyFunction ServiceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681149354"><span id="local-6989586621681149356"><span id="local-6989586621681149358"><span id="local-6989586621681149360"><span class="annot"><span class="annottext">[ServiceState] -&gt; Encoding
+[ServiceState] -&gt; Value
+ServiceState -&gt; Encoding
+ServiceState -&gt; Value
+(ServiceState -&gt; Value)
+-&gt; (ServiceState -&gt; Encoding)
+-&gt; ([ServiceState] -&gt; Value)
+-&gt; ([ServiceState] -&gt; Encoding)
+-&gt; ToJSON ServiceState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ServiceState] -&gt; Encoding
+$ctoEncodingList :: [ServiceState] -&gt; Encoding
+toJSONList :: [ServiceState] -&gt; Value
+$ctoJSONList :: [ServiceState] -&gt; Value
+toEncoding :: ServiceState -&gt; Encoding
+$ctoEncoding :: ServiceState -&gt; Encoding
+toJSON :: ServiceState -&gt; Value
+$ctoJSON :: ServiceState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681149349"><span id="local-6989586621681149351"><span class="annot"><span class="annottext">ToJSONKeyFunction [ServiceState]
+ToJSONKeyFunction ServiceState
+ToJSONKeyFunction ServiceState
+-&gt; ToJSONKeyFunction [ServiceState] -&gt; ToJSONKey ServiceState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ServiceState]
+$ctoJSONKeyList :: ToJSONKeyFunction [ServiceState]
+toJSONKey :: ToJSONKeyFunction ServiceState
+$ctoJSONKey :: ToJSONKeyFunction ServiceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681149346"><span class="annot"><span class="annottext">[Node] -&gt; Either String ServiceState
+([Node] -&gt; Either String ServiceState) -&gt; FromXML ServiceState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ServiceState
+$cparseXML :: [Node] -&gt; Either String ServiceState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681149343"><span class="annot"><span class="annottext">ServiceState -&gt; XML
+(ServiceState -&gt; XML) -&gt; ToXML ServiceState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ServiceState -&gt; XML
+$ctoXML :: ServiceState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Available"><span class="hs-identifier hs-type">ServiceState_Available</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-type">ServiceState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceState_Available"><span id="%24mServiceState_Available"><span id="ServiceState_Available"><span class="annot"><span class="annottext">$bServiceState_Available :: ServiceState
+$mServiceState_Available :: forall r. ServiceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceState.html#%24bServiceState_Available"><span class="hs-identifier hs-var hs-var hs-var">ServiceState_Available</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-type">ServiceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Available&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Deleted"><span class="hs-identifier hs-type">ServiceState_Deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-type">ServiceState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceState_Deleted"><span id="%24mServiceState_Deleted"><span id="ServiceState_Deleted"><span class="annot"><span class="annottext">$bServiceState_Deleted :: ServiceState
+$mServiceState_Deleted :: forall r. ServiceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceState.html#%24bServiceState_Deleted"><span class="hs-identifier hs-var hs-var hs-var">ServiceState_Deleted</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-type">ServiceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleted&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Deleting"><span class="hs-identifier hs-type">ServiceState_Deleting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-type">ServiceState</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceState_Deleting"><span id="%24mServiceState_Deleting"><span id="ServiceState_Deleting"><span class="annot"><span class="annottext">$bServiceState_Deleting :: ServiceState
+$mServiceState_Deleting :: forall r. ServiceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceState.html#%24bServiceState_Deleting"><span class="hs-identifier hs-var hs-var hs-var">ServiceState_Deleting</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-type">ServiceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Deleting&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Failed"><span class="hs-identifier hs-type">ServiceState_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-type">ServiceState</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceState_Failed"><span id="%24mServiceState_Failed"><span id="ServiceState_Failed"><span class="annot"><span class="annottext">$bServiceState_Failed :: ServiceState
+$mServiceState_Failed :: forall r. ServiceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceState.html#%24bServiceState_Failed"><span class="hs-identifier hs-var hs-var hs-var">ServiceState_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-type">ServiceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Failed&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Pending"><span class="hs-identifier hs-type">ServiceState_Pending</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState"><span class="hs-identifier hs-type">ServiceState</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bServiceState_Pending"><span id="%24mServiceState_Pending"><span id="ServiceState_Pending"><span class="annot"><span class="annottext">$bServiceState_Pending :: ServiceState
+$mServiceState_Pending :: forall r. ServiceState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.ServiceState.html#%24bServiceState_Pending"><span class="hs-identifier hs-var hs-var hs-var">ServiceState_Pending</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-identifier hs-type">ServiceState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Pending&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Available"><span class="hs-pragma hs-type">ServiceState_Available</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Deleted"><span class="hs-pragma hs-type">ServiceState_Deleted</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Deleting"><span class="hs-pragma hs-type">ServiceState_Deleting</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Failed"><span class="hs-pragma hs-type">ServiceState_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState_Pending"><span class="hs-pragma hs-type">ServiceState_Pending</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ServiceState.html#ServiceState%27"><span class="hs-pragma hs-type">ServiceState'</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-87"></span></pre></body></html>

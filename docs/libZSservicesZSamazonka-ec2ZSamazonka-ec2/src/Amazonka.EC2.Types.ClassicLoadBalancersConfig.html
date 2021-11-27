@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ClassicLoadBalancersConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ClassicLoadBalancersConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancer.html"><span class="hs-identifier">Amazonka.EC2.Types.ClassicLoadBalancer</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the Classic Load Balancers to attach to a Spot Fleet. Spot</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- Fleet registers the running Spot Instances with these Classic Load</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Balancers.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newClassicLoadBalancersConfig' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621681092838"><span id="local-6989586621681092839"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClassicLoadBalancersConfig"><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClassicLoadBalancersConfig%27"><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more Classic Load Balancers.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AclassicLoadBalancers%3AClassicLoadBalancersConfig%27"><span class="annot"><span class="annottext">ClassicLoadBalancersConfig -&gt; Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#%24sel%3AclassicLoadBalancers%3AClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var hs-var">classicLoadBalancers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancer.html#ClassicLoadBalancer"><span class="hs-identifier hs-type">ClassicLoadBalancer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681092832"><span id="local-6989586621681092834"><span class="annot"><span class="annottext">ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
+(ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool)
+-&gt; (ClassicLoadBalancersConfig
+    -&gt; ClassicLoadBalancersConfig -&gt; Bool)
+-&gt; Eq ClassicLoadBalancersConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
+$c/= :: ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
+== :: ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
+$c== :: ClassicLoadBalancersConfig -&gt; ClassicLoadBalancersConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092823"><span id="local-6989586621681092825"><span id="local-6989586621681092827"><span id="local-6989586621681092829"><span class="annot"><span class="annottext">ReadPrec [ClassicLoadBalancersConfig]
+ReadPrec ClassicLoadBalancersConfig
+Int -&gt; ReadS ClassicLoadBalancersConfig
+ReadS [ClassicLoadBalancersConfig]
+(Int -&gt; ReadS ClassicLoadBalancersConfig)
+-&gt; ReadS [ClassicLoadBalancersConfig]
+-&gt; ReadPrec ClassicLoadBalancersConfig
+-&gt; ReadPrec [ClassicLoadBalancersConfig]
+-&gt; Read ClassicLoadBalancersConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClassicLoadBalancersConfig]
+$creadListPrec :: ReadPrec [ClassicLoadBalancersConfig]
+readPrec :: ReadPrec ClassicLoadBalancersConfig
+$creadPrec :: ReadPrec ClassicLoadBalancersConfig
+readList :: ReadS [ClassicLoadBalancersConfig]
+$creadList :: ReadS [ClassicLoadBalancersConfig]
+readsPrec :: Int -&gt; ReadS ClassicLoadBalancersConfig
+$creadsPrec :: Int -&gt; ReadS ClassicLoadBalancersConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681092816"><span id="local-6989586621681092818"><span id="local-6989586621681092820"><span class="annot"><span class="annottext">Int -&gt; ClassicLoadBalancersConfig -&gt; ShowS
+[ClassicLoadBalancersConfig] -&gt; ShowS
+ClassicLoadBalancersConfig -&gt; String
+(Int -&gt; ClassicLoadBalancersConfig -&gt; ShowS)
+-&gt; (ClassicLoadBalancersConfig -&gt; String)
+-&gt; ([ClassicLoadBalancersConfig] -&gt; ShowS)
+-&gt; Show ClassicLoadBalancersConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClassicLoadBalancersConfig] -&gt; ShowS
+$cshowList :: [ClassicLoadBalancersConfig] -&gt; ShowS
+show :: ClassicLoadBalancersConfig -&gt; String
+$cshow :: ClassicLoadBalancersConfig -&gt; String
+showsPrec :: Int -&gt; ClassicLoadBalancersConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClassicLoadBalancersConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ClassicLoadBalancersConfig -&gt; Rep ClassicLoadBalancersConfig x)
+-&gt; (forall x.
+    Rep ClassicLoadBalancersConfig x -&gt; ClassicLoadBalancersConfig)
+-&gt; Generic ClassicLoadBalancersConfig
+forall x.
+Rep ClassicLoadBalancersConfig x -&gt; ClassicLoadBalancersConfig
+forall x.
+ClassicLoadBalancersConfig -&gt; Rep ClassicLoadBalancersConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ClassicLoadBalancersConfig x -&gt; ClassicLoadBalancersConfig
+$cfrom :: forall x.
+ClassicLoadBalancersConfig -&gt; Rep ClassicLoadBalancersConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Create a value of 'ClassicLoadBalancersConfig' with all optional fields omitted.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'classicLoadBalancers', 'classicLoadBalancersConfig_classicLoadBalancers' - One or more Classic Load Balancers.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#newClassicLoadBalancersConfig"><span class="hs-identifier hs-type">newClassicLoadBalancersConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span>
+</span><span id="line-50"></span><span id="newClassicLoadBalancersConfig"><span class="annot"><span class="annottext">newClassicLoadBalancersConfig :: ClassicLoadBalancersConfig
+</span><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#newClassicLoadBalancersConfig"><span class="hs-identifier hs-var hs-var">newClassicLoadBalancersConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ClassicLoadBalancersConfig' :: Maybe (NonEmpty ClassicLoadBalancer) -&gt; ClassicLoadBalancersConfig
+</span><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#%24sel%3AclassicLoadBalancers%3AClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | One or more Classic Load Balancers.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#classicLoadBalancersConfig_classicLoadBalancers"><span class="hs-identifier hs-type">classicLoadBalancersConfig_classicLoadBalancers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancer.html#ClassicLoadBalancer"><span class="hs-identifier hs-type">ClassicLoadBalancer</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="classicLoadBalancersConfig_classicLoadBalancers"><span class="annot"><span class="annottext">classicLoadBalancersConfig_classicLoadBalancers :: (Maybe (NonEmpty ClassicLoadBalancer)
+ -&gt; f (Maybe (NonEmpty ClassicLoadBalancer)))
+-&gt; ClassicLoadBalancersConfig -&gt; f ClassicLoadBalancersConfig
+</span><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#classicLoadBalancersConfig_classicLoadBalancers"><span class="hs-identifier hs-var hs-var">classicLoadBalancersConfig_classicLoadBalancers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClassicLoadBalancersConfig
+ -&gt; Maybe (NonEmpty ClassicLoadBalancer))
+-&gt; (ClassicLoadBalancersConfig
+    -&gt; Maybe (NonEmpty ClassicLoadBalancer)
+    -&gt; ClassicLoadBalancersConfig)
+-&gt; Lens
+     ClassicLoadBalancersConfig
+     ClassicLoadBalancersConfig
+     (Maybe (NonEmpty ClassicLoadBalancer))
+     (Maybe (NonEmpty ClassicLoadBalancer))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092807"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+classicLoadBalancers :: Maybe (NonEmpty ClassicLoadBalancer)
+$sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: ClassicLoadBalancersConfig -&gt; Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681092807"><span class="hs-identifier hs-var hs-var">classicLoadBalancers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681092807"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681092806"><span class="annot"><span class="annottext">s :: ClassicLoadBalancersConfig
+</span><a href="#local-6989586621681092806"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681092805"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681092805"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClassicLoadBalancersConfig
+</span><a href="#local-6989586621681092806"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#%24sel%3AclassicLoadBalancers%3AClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681092805"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ClassicLoadBalancer)
+  -&gt; f (Maybe (NonEmpty ClassicLoadBalancer)))
+ -&gt; ClassicLoadBalancersConfig -&gt; f ClassicLoadBalancersConfig)
+-&gt; ((Maybe (NonEmpty ClassicLoadBalancer)
+     -&gt; f (Maybe (NonEmpty ClassicLoadBalancer)))
+    -&gt; Maybe (NonEmpty ClassicLoadBalancer)
+    -&gt; f (Maybe (NonEmpty ClassicLoadBalancer)))
+-&gt; (Maybe (NonEmpty ClassicLoadBalancer)
+    -&gt; f (Maybe (NonEmpty ClassicLoadBalancer)))
+-&gt; ClassicLoadBalancersConfig
+-&gt; f ClassicLoadBalancersConfig
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ClassicLoadBalancer)
+  (NonEmpty ClassicLoadBalancer)
+  (NonEmpty ClassicLoadBalancer)
+  (NonEmpty ClassicLoadBalancer)
+-&gt; Iso
+     (Maybe (NonEmpty ClassicLoadBalancer))
+     (Maybe (NonEmpty ClassicLoadBalancer))
+     (Maybe (NonEmpty ClassicLoadBalancer))
+     (Maybe (NonEmpty ClassicLoadBalancer))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ClassicLoadBalancer)
+  (NonEmpty ClassicLoadBalancer)
+  (NonEmpty ClassicLoadBalancer)
+  (NonEmpty ClassicLoadBalancer)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621681092799"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClassicLoadBalancersConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681092797"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092797"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer) -&gt; ClassicLoadBalancersConfig
+</span><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-var">ClassicLoadBalancersConfig'</span></a></span><span>
+</span><span id="line-63"></span><span>      </span><span class="annot"><span class="annottext">(Maybe (NonEmpty ClassicLoadBalancer)
+ -&gt; ClassicLoadBalancersConfig)
+-&gt; Either String (Maybe (NonEmpty ClassicLoadBalancer))
+-&gt; Either String ClassicLoadBalancersConfig
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681092797"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;classicLoadBalancers&quot;</span></span><span>
+</span><span id="line-64"></span><span>                      </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-65"></span><span>                      </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe (NonEmpty ClassicLoadBalancer)))
+-&gt; Either String (Maybe (NonEmpty ClassicLoadBalancer))
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String (NonEmpty ClassicLoadBalancer))
+-&gt; [Node] -&gt; Either String (Maybe (NonEmpty ClassicLoadBalancer))
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String (NonEmpty ClassicLoadBalancer)
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String (NonEmpty a)
+</span><span class="hs-identifier hs-var">Core.parseXMLList1</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>                  </span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092788"><span id="local-6989586621681092790"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681092785"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621681092781"><span class="annot"><span class="annottext">toQuery :: ClassicLoadBalancersConfig -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClassicLoadBalancersConfig.html#ClassicLoadBalancersConfig%27"><span class="hs-identifier hs-type">ClassicLoadBalancersConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681092779"><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+classicLoadBalancers :: Maybe (NonEmpty ClassicLoadBalancer)
+$sel:classicLoadBalancers:ClassicLoadBalancersConfig' :: ClassicLoadBalancersConfig -&gt; Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681092779"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-76"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; NonEmpty ClassicLoadBalancer -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClassicLoadBalancers&quot;</span></span><span>
+</span><span id="line-77"></span><span>              </span><span class="annot"><span class="annottext">(NonEmpty ClassicLoadBalancer -&gt; QueryString)
+-&gt; Maybe (NonEmpty ClassicLoadBalancer) -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ClassicLoadBalancer)
+</span><a href="#local-6989586621681092779"><span class="hs-identifier hs-var">classicLoadBalancers</span></a></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-80"></span></pre></body></html>

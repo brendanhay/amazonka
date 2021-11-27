@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.Types.DestinationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.Types.DestinationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier">DestinationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ACTIVE"><span class="hs-identifier">DestinationStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_DISABLED"><span class="hs-identifier">DestinationStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_DISABLING"><span class="hs-identifier">DestinationStatus_DISABLING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ENABLE_FAILED"><span class="hs-identifier">DestinationStatus_ENABLE_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ENABLING"><span class="hs-identifier">DestinationStatus_ENABLING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679371726"><span id="local-6989586621679371727"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DestinationStatus"><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-var">DestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DestinationStatus%27"><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus%27"><span class="hs-identifier hs-var">DestinationStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDestinationStatus"><span class="annot"><span class="annottext">DestinationStatus -&gt; Text
+</span><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#fromDestinationStatus"><span class="hs-identifier hs-var hs-var">fromDestinationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371718"><span id="local-6989586621679371720"><span id="local-6989586621679371722"><span class="annot"><span class="annottext">Int -&gt; DestinationStatus -&gt; ShowS
+[DestinationStatus] -&gt; ShowS
+DestinationStatus -&gt; String
+(Int -&gt; DestinationStatus -&gt; ShowS)
+-&gt; (DestinationStatus -&gt; String)
+-&gt; ([DestinationStatus] -&gt; ShowS)
+-&gt; Show DestinationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DestinationStatus] -&gt; ShowS
+$cshowList :: [DestinationStatus] -&gt; ShowS
+show :: DestinationStatus -&gt; String
+$cshow :: DestinationStatus -&gt; String
+showsPrec :: Int -&gt; DestinationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DestinationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679371709"><span id="local-6989586621679371711"><span id="local-6989586621679371713"><span id="local-6989586621679371715"><span class="annot"><span class="annottext">ReadPrec [DestinationStatus]
+ReadPrec DestinationStatus
+Int -&gt; ReadS DestinationStatus
+ReadS [DestinationStatus]
+(Int -&gt; ReadS DestinationStatus)
+-&gt; ReadS [DestinationStatus]
+-&gt; ReadPrec DestinationStatus
+-&gt; ReadPrec [DestinationStatus]
+-&gt; Read DestinationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DestinationStatus]
+$creadListPrec :: ReadPrec [DestinationStatus]
+readPrec :: ReadPrec DestinationStatus
+$creadPrec :: ReadPrec DestinationStatus
+readList :: ReadS [DestinationStatus]
+$creadList :: ReadS [DestinationStatus]
+readsPrec :: Int -&gt; ReadS DestinationStatus
+$creadsPrec :: Int -&gt; ReadS DestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679371704"><span id="local-6989586621679371706"><span class="annot"><span class="annottext">DestinationStatus -&gt; DestinationStatus -&gt; Bool
+(DestinationStatus -&gt; DestinationStatus -&gt; Bool)
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; Bool)
+-&gt; Eq DestinationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+$c/= :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+== :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+$c== :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679371688"><span id="local-6989586621679371690"><span id="local-6989586621679371692"><span id="local-6989586621679371694"><span id="local-6989586621679371696"><span id="local-6989586621679371698"><span id="local-6989586621679371700"><span class="annot"><span class="annottext">Eq DestinationStatus
+Eq DestinationStatus
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; Ordering)
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; Bool)
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; Bool)
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; Bool)
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; Bool)
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; DestinationStatus)
+-&gt; (DestinationStatus -&gt; DestinationStatus -&gt; DestinationStatus)
+-&gt; Ord DestinationStatus
+DestinationStatus -&gt; DestinationStatus -&gt; Bool
+DestinationStatus -&gt; DestinationStatus -&gt; Ordering
+DestinationStatus -&gt; DestinationStatus -&gt; DestinationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DestinationStatus -&gt; DestinationStatus -&gt; DestinationStatus
+$cmin :: DestinationStatus -&gt; DestinationStatus -&gt; DestinationStatus
+max :: DestinationStatus -&gt; DestinationStatus -&gt; DestinationStatus
+$cmax :: DestinationStatus -&gt; DestinationStatus -&gt; DestinationStatus
+&gt;= :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+$c&gt;= :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+&gt; :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+$c&gt; :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+&lt;= :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+$c&lt;= :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+&lt; :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+$c&lt; :: DestinationStatus -&gt; DestinationStatus -&gt; Bool
+compare :: DestinationStatus -&gt; DestinationStatus -&gt; Ordering
+$ccompare :: DestinationStatus -&gt; DestinationStatus -&gt; Ordering
+$cp1Ord :: Eq DestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DestinationStatus -&gt; Rep DestinationStatus x)
+-&gt; (forall x. Rep DestinationStatus x -&gt; DestinationStatus)
+-&gt; Generic DestinationStatus
+forall x. Rep DestinationStatus x -&gt; DestinationStatus
+forall x. DestinationStatus -&gt; Rep DestinationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DestinationStatus x -&gt; DestinationStatus
+$cfrom :: forall x. DestinationStatus -&gt; Rep DestinationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371680"><span id="local-6989586621679371682"><span class="annot"><span class="annottext">Int -&gt; DestinationStatus -&gt; Int
+DestinationStatus -&gt; Int
+(Int -&gt; DestinationStatus -&gt; Int)
+-&gt; (DestinationStatus -&gt; Int) -&gt; Hashable DestinationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DestinationStatus -&gt; Int
+$chash :: DestinationStatus -&gt; Int
+hashWithSalt :: Int -&gt; DestinationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; DestinationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371677"><span class="annot"><span class="annottext">DestinationStatus -&gt; ()
+(DestinationStatus -&gt; ()) -&gt; NFData DestinationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DestinationStatus -&gt; ()
+$crnf :: DestinationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371674"><span class="annot"><span class="annottext">Text -&gt; Either String DestinationStatus
+(Text -&gt; Either String DestinationStatus)
+-&gt; FromText DestinationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DestinationStatus
+$cfromText :: Text -&gt; Either String DestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371671"><span class="annot"><span class="annottext">DestinationStatus -&gt; Text
+(DestinationStatus -&gt; Text) -&gt; ToText DestinationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DestinationStatus -&gt; Text
+$ctoText :: DestinationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371668"><span class="annot"><span class="annottext">DestinationStatus -&gt; ByteString
+(DestinationStatus -&gt; ByteString) -&gt; ToByteString DestinationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DestinationStatus -&gt; ByteString
+$ctoBS :: DestinationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371665"><span class="annot"><span class="annottext">DestinationStatus -&gt; ByteStringBuilder
+(DestinationStatus -&gt; ByteStringBuilder) -&gt; ToLog DestinationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DestinationStatus -&gt; ByteStringBuilder
+$cbuild :: DestinationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371662"><span class="annot"><span class="annottext">HeaderName -&gt; DestinationStatus -&gt; [Header]
+(HeaderName -&gt; DestinationStatus -&gt; [Header])
+-&gt; ToHeader DestinationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DestinationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DestinationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371659"><span class="annot"><span class="annottext">DestinationStatus -&gt; QueryString
+(DestinationStatus -&gt; QueryString) -&gt; ToQuery DestinationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DestinationStatus -&gt; QueryString
+$ctoQuery :: DestinationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371654"><span id="local-6989586621679371656"><span class="annot"><span class="annottext">Value -&gt; Parser [DestinationStatus]
+Value -&gt; Parser DestinationStatus
+(Value -&gt; Parser DestinationStatus)
+-&gt; (Value -&gt; Parser [DestinationStatus])
+-&gt; FromJSON DestinationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DestinationStatus]
+$cparseJSONList :: Value -&gt; Parser [DestinationStatus]
+parseJSON :: Value -&gt; Parser DestinationStatus
+$cparseJSON :: Value -&gt; Parser DestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371649"><span id="local-6989586621679371651"><span class="annot"><span class="annottext">FromJSONKeyFunction [DestinationStatus]
+FromJSONKeyFunction DestinationStatus
+FromJSONKeyFunction DestinationStatus
+-&gt; FromJSONKeyFunction [DestinationStatus]
+-&gt; FromJSONKey DestinationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DestinationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [DestinationStatus]
+fromJSONKey :: FromJSONKeyFunction DestinationStatus
+$cfromJSONKey :: FromJSONKeyFunction DestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371640"><span id="local-6989586621679371642"><span id="local-6989586621679371644"><span id="local-6989586621679371646"><span class="annot"><span class="annottext">[DestinationStatus] -&gt; Encoding
+[DestinationStatus] -&gt; Value
+DestinationStatus -&gt; Encoding
+DestinationStatus -&gt; Value
+(DestinationStatus -&gt; Value)
+-&gt; (DestinationStatus -&gt; Encoding)
+-&gt; ([DestinationStatus] -&gt; Value)
+-&gt; ([DestinationStatus] -&gt; Encoding)
+-&gt; ToJSON DestinationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DestinationStatus] -&gt; Encoding
+$ctoEncodingList :: [DestinationStatus] -&gt; Encoding
+toJSONList :: [DestinationStatus] -&gt; Value
+$ctoJSONList :: [DestinationStatus] -&gt; Value
+toEncoding :: DestinationStatus -&gt; Encoding
+$ctoEncoding :: DestinationStatus -&gt; Encoding
+toJSON :: DestinationStatus -&gt; Value
+$ctoJSON :: DestinationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679371635"><span id="local-6989586621679371637"><span class="annot"><span class="annottext">ToJSONKeyFunction [DestinationStatus]
+ToJSONKeyFunction DestinationStatus
+ToJSONKeyFunction DestinationStatus
+-&gt; ToJSONKeyFunction [DestinationStatus]
+-&gt; ToJSONKey DestinationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DestinationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [DestinationStatus]
+toJSONKey :: ToJSONKeyFunction DestinationStatus
+$ctoJSONKey :: ToJSONKeyFunction DestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679371632"><span class="annot"><span class="annottext">[Node] -&gt; Either String DestinationStatus
+([Node] -&gt; Either String DestinationStatus)
+-&gt; FromXML DestinationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DestinationStatus
+$cparseXML :: [Node] -&gt; Either String DestinationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679371629"><span class="annot"><span class="annottext">DestinationStatus -&gt; XML
+(DestinationStatus -&gt; XML) -&gt; ToXML DestinationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DestinationStatus -&gt; XML
+$ctoXML :: DestinationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ACTIVE"><span class="hs-identifier hs-type">DestinationStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-type">DestinationStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDestinationStatus_ACTIVE"><span id="%24mDestinationStatus_ACTIVE"><span id="DestinationStatus_ACTIVE"><span class="annot"><span class="annottext">$bDestinationStatus_ACTIVE :: DestinationStatus
+$mDestinationStatus_ACTIVE :: forall r. DestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#%24bDestinationStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">DestinationStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus%27"><span class="hs-identifier hs-type">DestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_DISABLED"><span class="hs-identifier hs-type">DestinationStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-type">DestinationStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDestinationStatus_DISABLED"><span id="%24mDestinationStatus_DISABLED"><span id="DestinationStatus_DISABLED"><span class="annot"><span class="annottext">$bDestinationStatus_DISABLED :: DestinationStatus
+$mDestinationStatus_DISABLED :: forall r. DestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#%24bDestinationStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">DestinationStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus%27"><span class="hs-identifier hs-type">DestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_DISABLING"><span class="hs-identifier hs-type">DestinationStatus_DISABLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-type">DestinationStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDestinationStatus_DISABLING"><span id="%24mDestinationStatus_DISABLING"><span id="DestinationStatus_DISABLING"><span class="annot"><span class="annottext">$bDestinationStatus_DISABLING :: DestinationStatus
+$mDestinationStatus_DISABLING :: forall r. DestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#%24bDestinationStatus_DISABLING"><span class="hs-identifier hs-var hs-var hs-var">DestinationStatus_DISABLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus%27"><span class="hs-identifier hs-type">DestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ENABLE_FAILED"><span class="hs-identifier hs-type">DestinationStatus_ENABLE_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-type">DestinationStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDestinationStatus_ENABLE_FAILED"><span id="%24mDestinationStatus_ENABLE_FAILED"><span id="DestinationStatus_ENABLE_FAILED"><span class="annot"><span class="annottext">$bDestinationStatus_ENABLE_FAILED :: DestinationStatus
+$mDestinationStatus_ENABLE_FAILED :: forall r. DestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#%24bDestinationStatus_ENABLE_FAILED"><span class="hs-identifier hs-var hs-var hs-var">DestinationStatus_ENABLE_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus%27"><span class="hs-identifier hs-type">DestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLE_FAILED&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ENABLING"><span class="hs-identifier hs-type">DestinationStatus_ENABLING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus"><span class="hs-identifier hs-type">DestinationStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDestinationStatus_ENABLING"><span id="%24mDestinationStatus_ENABLING"><span id="DestinationStatus_ENABLING"><span class="annot"><span class="annottext">$bDestinationStatus_ENABLING :: DestinationStatus
+$mDestinationStatus_ENABLING :: forall r. DestinationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#%24bDestinationStatus_ENABLING"><span class="hs-identifier hs-var hs-var hs-var">DestinationStatus_ENABLING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus%27"><span class="hs-identifier hs-type">DestinationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ACTIVE"><span class="hs-pragma hs-type">DestinationStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_DISABLED"><span class="hs-pragma hs-type">DestinationStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_DISABLING"><span class="hs-pragma hs-type">DestinationStatus_DISABLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ENABLE_FAILED"><span class="hs-pragma hs-type">DestinationStatus_ENABLE_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus_ENABLING"><span class="hs-pragma hs-type">DestinationStatus_ENABLING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.DestinationStatus.html#DestinationStatus%27"><span class="hs-pragma hs-type">DestinationStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode"><span class="hs-identifier">DASHPlaybackMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_LIVE"><span class="hs-identifier">DASHPlaybackMode_LIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_LIVE_REPLAY"><span class="hs-identifier">DASHPlaybackMode_LIVE_REPLAY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_ON_DEMAND"><span class="hs-identifier">DASHPlaybackMode_ON_DEMAND</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679163315"><span id="local-6989586621679163316"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DASHPlaybackMode"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode"><span class="hs-identifier hs-var">DASHPlaybackMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DASHPlaybackMode%27"><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode%27"><span class="hs-identifier hs-var">DASHPlaybackMode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDASHPlaybackMode"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; Text
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#fromDASHPlaybackMode"><span class="hs-identifier hs-var hs-var">fromDASHPlaybackMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163307"><span id="local-6989586621679163309"><span id="local-6989586621679163311"><span class="annot"><span class="annottext">Int -&gt; DASHPlaybackMode -&gt; ShowS
+[DASHPlaybackMode] -&gt; ShowS
+DASHPlaybackMode -&gt; String
+(Int -&gt; DASHPlaybackMode -&gt; ShowS)
+-&gt; (DASHPlaybackMode -&gt; String)
+-&gt; ([DASHPlaybackMode] -&gt; ShowS)
+-&gt; Show DASHPlaybackMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DASHPlaybackMode] -&gt; ShowS
+$cshowList :: [DASHPlaybackMode] -&gt; ShowS
+show :: DASHPlaybackMode -&gt; String
+$cshow :: DASHPlaybackMode -&gt; String
+showsPrec :: Int -&gt; DASHPlaybackMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; DASHPlaybackMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679163298"><span id="local-6989586621679163300"><span id="local-6989586621679163302"><span id="local-6989586621679163304"><span class="annot"><span class="annottext">ReadPrec [DASHPlaybackMode]
+ReadPrec DASHPlaybackMode
+Int -&gt; ReadS DASHPlaybackMode
+ReadS [DASHPlaybackMode]
+(Int -&gt; ReadS DASHPlaybackMode)
+-&gt; ReadS [DASHPlaybackMode]
+-&gt; ReadPrec DASHPlaybackMode
+-&gt; ReadPrec [DASHPlaybackMode]
+-&gt; Read DASHPlaybackMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DASHPlaybackMode]
+$creadListPrec :: ReadPrec [DASHPlaybackMode]
+readPrec :: ReadPrec DASHPlaybackMode
+$creadPrec :: ReadPrec DASHPlaybackMode
+readList :: ReadS [DASHPlaybackMode]
+$creadList :: ReadS [DASHPlaybackMode]
+readsPrec :: Int -&gt; ReadS DASHPlaybackMode
+$creadsPrec :: Int -&gt; ReadS DASHPlaybackMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679163293"><span id="local-6989586621679163295"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+(DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool)
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool)
+-&gt; Eq DASHPlaybackMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+$c/= :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+== :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+$c== :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679163277"><span id="local-6989586621679163279"><span id="local-6989586621679163281"><span id="local-6989586621679163283"><span id="local-6989586621679163285"><span id="local-6989586621679163287"><span id="local-6989586621679163289"><span class="annot"><span class="annottext">Eq DASHPlaybackMode
+Eq DASHPlaybackMode
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Ordering)
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool)
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool)
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool)
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool)
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; DASHPlaybackMode)
+-&gt; (DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; DASHPlaybackMode)
+-&gt; Ord DASHPlaybackMode
+DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Ordering
+DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; DASHPlaybackMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; DASHPlaybackMode
+$cmin :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; DASHPlaybackMode
+max :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; DASHPlaybackMode
+$cmax :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; DASHPlaybackMode
+&gt;= :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+$c&gt;= :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+&gt; :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+$c&gt; :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+&lt;= :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+$c&lt;= :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+&lt; :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+$c&lt; :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Bool
+compare :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Ordering
+$ccompare :: DASHPlaybackMode -&gt; DASHPlaybackMode -&gt; Ordering
+$cp1Ord :: Eq DASHPlaybackMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DASHPlaybackMode -&gt; Rep DASHPlaybackMode x)
+-&gt; (forall x. Rep DASHPlaybackMode x -&gt; DASHPlaybackMode)
+-&gt; Generic DASHPlaybackMode
+forall x. Rep DASHPlaybackMode x -&gt; DASHPlaybackMode
+forall x. DASHPlaybackMode -&gt; Rep DASHPlaybackMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DASHPlaybackMode x -&gt; DASHPlaybackMode
+$cfrom :: forall x. DASHPlaybackMode -&gt; Rep DASHPlaybackMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679163269"><span id="local-6989586621679163271"><span class="annot"><span class="annottext">Int -&gt; DASHPlaybackMode -&gt; Int
+DASHPlaybackMode -&gt; Int
+(Int -&gt; DASHPlaybackMode -&gt; Int)
+-&gt; (DASHPlaybackMode -&gt; Int) -&gt; Hashable DASHPlaybackMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DASHPlaybackMode -&gt; Int
+$chash :: DASHPlaybackMode -&gt; Int
+hashWithSalt :: Int -&gt; DASHPlaybackMode -&gt; Int
+$chashWithSalt :: Int -&gt; DASHPlaybackMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679163266"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; ()
+(DASHPlaybackMode -&gt; ()) -&gt; NFData DASHPlaybackMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DASHPlaybackMode -&gt; ()
+$crnf :: DASHPlaybackMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679163263"><span class="annot"><span class="annottext">Text -&gt; Either String DASHPlaybackMode
+(Text -&gt; Either String DASHPlaybackMode)
+-&gt; FromText DASHPlaybackMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DASHPlaybackMode
+$cfromText :: Text -&gt; Either String DASHPlaybackMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679163260"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; Text
+(DASHPlaybackMode -&gt; Text) -&gt; ToText DASHPlaybackMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DASHPlaybackMode -&gt; Text
+$ctoText :: DASHPlaybackMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679163257"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; ByteString
+(DASHPlaybackMode -&gt; ByteString) -&gt; ToByteString DASHPlaybackMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DASHPlaybackMode -&gt; ByteString
+$ctoBS :: DASHPlaybackMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679163254"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; ByteStringBuilder
+(DASHPlaybackMode -&gt; ByteStringBuilder) -&gt; ToLog DASHPlaybackMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DASHPlaybackMode -&gt; ByteStringBuilder
+$cbuild :: DASHPlaybackMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679163251"><span class="annot"><span class="annottext">HeaderName -&gt; DASHPlaybackMode -&gt; [Header]
+(HeaderName -&gt; DASHPlaybackMode -&gt; [Header])
+-&gt; ToHeader DASHPlaybackMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DASHPlaybackMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DASHPlaybackMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679163248"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; QueryString
+(DASHPlaybackMode -&gt; QueryString) -&gt; ToQuery DASHPlaybackMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DASHPlaybackMode -&gt; QueryString
+$ctoQuery :: DASHPlaybackMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679163243"><span id="local-6989586621679163245"><span class="annot"><span class="annottext">Value -&gt; Parser [DASHPlaybackMode]
+Value -&gt; Parser DASHPlaybackMode
+(Value -&gt; Parser DASHPlaybackMode)
+-&gt; (Value -&gt; Parser [DASHPlaybackMode])
+-&gt; FromJSON DASHPlaybackMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DASHPlaybackMode]
+$cparseJSONList :: Value -&gt; Parser [DASHPlaybackMode]
+parseJSON :: Value -&gt; Parser DASHPlaybackMode
+$cparseJSON :: Value -&gt; Parser DASHPlaybackMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679163238"><span id="local-6989586621679163240"><span class="annot"><span class="annottext">FromJSONKeyFunction [DASHPlaybackMode]
+FromJSONKeyFunction DASHPlaybackMode
+FromJSONKeyFunction DASHPlaybackMode
+-&gt; FromJSONKeyFunction [DASHPlaybackMode]
+-&gt; FromJSONKey DASHPlaybackMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DASHPlaybackMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [DASHPlaybackMode]
+fromJSONKey :: FromJSONKeyFunction DASHPlaybackMode
+$cfromJSONKey :: FromJSONKeyFunction DASHPlaybackMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679163229"><span id="local-6989586621679163231"><span id="local-6989586621679163233"><span id="local-6989586621679163235"><span class="annot"><span class="annottext">[DASHPlaybackMode] -&gt; Encoding
+[DASHPlaybackMode] -&gt; Value
+DASHPlaybackMode -&gt; Encoding
+DASHPlaybackMode -&gt; Value
+(DASHPlaybackMode -&gt; Value)
+-&gt; (DASHPlaybackMode -&gt; Encoding)
+-&gt; ([DASHPlaybackMode] -&gt; Value)
+-&gt; ([DASHPlaybackMode] -&gt; Encoding)
+-&gt; ToJSON DASHPlaybackMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DASHPlaybackMode] -&gt; Encoding
+$ctoEncodingList :: [DASHPlaybackMode] -&gt; Encoding
+toJSONList :: [DASHPlaybackMode] -&gt; Value
+$ctoJSONList :: [DASHPlaybackMode] -&gt; Value
+toEncoding :: DASHPlaybackMode -&gt; Encoding
+$ctoEncoding :: DASHPlaybackMode -&gt; Encoding
+toJSON :: DASHPlaybackMode -&gt; Value
+$ctoJSON :: DASHPlaybackMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679163224"><span id="local-6989586621679163226"><span class="annot"><span class="annottext">ToJSONKeyFunction [DASHPlaybackMode]
+ToJSONKeyFunction DASHPlaybackMode
+ToJSONKeyFunction DASHPlaybackMode
+-&gt; ToJSONKeyFunction [DASHPlaybackMode]
+-&gt; ToJSONKey DASHPlaybackMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DASHPlaybackMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [DASHPlaybackMode]
+toJSONKey :: ToJSONKeyFunction DASHPlaybackMode
+$ctoJSONKey :: ToJSONKeyFunction DASHPlaybackMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679163221"><span class="annot"><span class="annottext">[Node] -&gt; Either String DASHPlaybackMode
+([Node] -&gt; Either String DASHPlaybackMode)
+-&gt; FromXML DASHPlaybackMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DASHPlaybackMode
+$cparseXML :: [Node] -&gt; Either String DASHPlaybackMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679163218"><span class="annot"><span class="annottext">DASHPlaybackMode -&gt; XML
+(DASHPlaybackMode -&gt; XML) -&gt; ToXML DASHPlaybackMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DASHPlaybackMode -&gt; XML
+$ctoXML :: DASHPlaybackMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_LIVE"><span class="hs-identifier hs-type">DASHPlaybackMode_LIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode"><span class="hs-identifier hs-type">DASHPlaybackMode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDASHPlaybackMode_LIVE"><span id="%24mDASHPlaybackMode_LIVE"><span id="DASHPlaybackMode_LIVE"><span class="annot"><span class="annottext">$bDASHPlaybackMode_LIVE :: DASHPlaybackMode
+$mDASHPlaybackMode_LIVE :: forall r. DASHPlaybackMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#%24bDASHPlaybackMode_LIVE"><span class="hs-identifier hs-var hs-var hs-var">DASHPlaybackMode_LIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode%27"><span class="hs-identifier hs-type">DASHPlaybackMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_LIVE_REPLAY"><span class="hs-identifier hs-type">DASHPlaybackMode_LIVE_REPLAY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode"><span class="hs-identifier hs-type">DASHPlaybackMode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDASHPlaybackMode_LIVE_REPLAY"><span id="%24mDASHPlaybackMode_LIVE_REPLAY"><span id="DASHPlaybackMode_LIVE_REPLAY"><span class="annot"><span class="annottext">$bDASHPlaybackMode_LIVE_REPLAY :: DASHPlaybackMode
+$mDASHPlaybackMode_LIVE_REPLAY :: forall r. DASHPlaybackMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#%24bDASHPlaybackMode_LIVE_REPLAY"><span class="hs-identifier hs-var hs-var hs-var">DASHPlaybackMode_LIVE_REPLAY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode%27"><span class="hs-identifier hs-type">DASHPlaybackMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LIVE_REPLAY&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_ON_DEMAND"><span class="hs-identifier hs-type">DASHPlaybackMode_ON_DEMAND</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode"><span class="hs-identifier hs-type">DASHPlaybackMode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDASHPlaybackMode_ON_DEMAND"><span id="%24mDASHPlaybackMode_ON_DEMAND"><span id="DASHPlaybackMode_ON_DEMAND"><span class="annot"><span class="annottext">$bDASHPlaybackMode_ON_DEMAND :: DASHPlaybackMode
+$mDASHPlaybackMode_ON_DEMAND :: forall r. DASHPlaybackMode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#%24bDASHPlaybackMode_ON_DEMAND"><span class="hs-identifier hs-var hs-var hs-var">DASHPlaybackMode_ON_DEMAND</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode%27"><span class="hs-identifier hs-type">DASHPlaybackMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ON_DEMAND&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_LIVE"><span class="hs-pragma hs-type">DASHPlaybackMode_LIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_LIVE_REPLAY"><span class="hs-pragma hs-type">DASHPlaybackMode_LIVE_REPLAY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode_ON_DEMAND"><span class="hs-pragma hs-type">DASHPlaybackMode_ON_DEMAND</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisVideoArchivedMedia.Types.DASHPlaybackMode.html#DASHPlaybackMode%27"><span class="hs-pragma hs-type">DASHPlaybackMode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

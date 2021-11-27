@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CloudSearchDomains.Types.Bucket
+module Amazonka.CloudSearchDomains.Types.Bucket
 
 -- | A container for facet information.
 --   
@@ -41,16 +41,16 @@ bucket_value :: Lens' Bucket (Maybe Text)
 -- | The number of hits that contain the facet value in the specified facet
 --   field.
 bucket_count :: Lens' Bucket (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.Bucket.Bucket
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.Bucket.Bucket
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.Bucket.Bucket
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.Bucket.Bucket
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.Bucket.Bucket
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.Bucket.Bucket
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.Bucket.Bucket
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.Bucket.Bucket
 
 
-module Network.AWS.CloudSearchDomains.Types.BucketInfo
+module Amazonka.CloudSearchDomains.Types.BucketInfo
 
 -- | A container for the calculated facet values and counts.
 --   
@@ -75,43 +75,43 @@ newBucketInfo :: BucketInfo
 
 -- | A list of the calculated facet values and counts.
 bucketInfo_buckets :: Lens' BucketInfo (Maybe [Bucket])
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.BucketInfo.BucketInfo
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.BucketInfo.BucketInfo
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.BucketInfo.BucketInfo
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.BucketInfo.BucketInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.BucketInfo.BucketInfo
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.BucketInfo.BucketInfo
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.BucketInfo.BucketInfo
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.BucketInfo.BucketInfo
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.BucketInfo.BucketInfo
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.BucketInfo.BucketInfo
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.BucketInfo.BucketInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.BucketInfo.BucketInfo
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.BucketInfo.BucketInfo
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.BucketInfo.BucketInfo
 
 
-module Network.AWS.CloudSearchDomains.Types.ContentType
+module Amazonka.CloudSearchDomains.Types.ContentType
 newtype ContentType
 ContentType' :: Text -> ContentType
 [fromContentType] :: ContentType -> Text
 pattern ContentType_Application_json :: ContentType
 pattern ContentType_Application_xml :: ContentType
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance GHC.Classes.Ord Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance GHC.Classes.Ord Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.ContentType.ContentType
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.ContentType.ContentType
 
 
-module Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning
+module Amazonka.CloudSearchDomains.Types.DocumentServiceWarning
 
 -- | A warning returned by the document service when an issue is discovered
 --   while processing an upload request.
@@ -139,16 +139,16 @@ newDocumentServiceWarning :: DocumentServiceWarning
 
 -- | The description for a warning returned by the document service.
 documentServiceWarning_message :: Lens' DocumentServiceWarning (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.DocumentServiceWarning.DocumentServiceWarning
 
 
-module Network.AWS.CloudSearchDomains.Types.FieldStats
+module Amazonka.CloudSearchDomains.Types.FieldStats
 
 -- | The statistics for a field calculated in the request.
 --   
@@ -313,16 +313,16 @@ fieldStats_sumOfSquares :: Lens' FieldStats (Maybe Double)
 -- | The sum of the field values across the documents in the result set.
 --   <tt>null</tt> for date fields.
 fieldStats_sum :: Lens' FieldStats (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.FieldStats.FieldStats
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.FieldStats.FieldStats
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.FieldStats.FieldStats
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.FieldStats.FieldStats
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.FieldStats.FieldStats
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.FieldStats.FieldStats
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.FieldStats.FieldStats
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.FieldStats.FieldStats
 
 
-module Network.AWS.CloudSearchDomains.Types.Hit
+module Amazonka.CloudSearchDomains.Types.Hit
 
 -- | Information about a document that matches the search request.
 --   
@@ -378,16 +378,16 @@ hit_highlights :: Lens' Hit (Maybe (HashMap Text Text))
 
 -- | The fields returned from a document that matches the search request.
 hit_fields :: Lens' Hit (Maybe (HashMap Text [Text]))
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.Hit.Hit
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.Hit.Hit
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.Hit.Hit
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.Hit.Hit
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.Hit.Hit
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.Hit.Hit
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.Hit.Hit
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.Hit.Hit
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.Hit.Hit
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.Hit.Hit
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.Hit.Hit
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.Hit.Hit
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.Hit.Hit
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.Hit.Hit
 
 
-module Network.AWS.CloudSearchDomains.Types.Hits
+module Amazonka.CloudSearchDomains.Types.Hits
 
 -- | The collection of documents that match the search request.
 --   
@@ -442,16 +442,16 @@ hits_start :: Lens' Hits (Maybe Integer)
 
 -- | The total number of documents that match the search request.
 hits_found :: Lens' Hits (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.Hits.Hits
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.Hits.Hits
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.Hits.Hits
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.Hits.Hits
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.Hits.Hits
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.Hits.Hits
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.Hits.Hits
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.Hits.Hits
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.Hits.Hits
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.Hits.Hits
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.Hits.Hits
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.Hits.Hits
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.Hits.Hits
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.Hits.Hits
 
 
-module Network.AWS.CloudSearchDomains.Types.QueryParser
+module Amazonka.CloudSearchDomains.Types.QueryParser
 newtype QueryParser
 QueryParser' :: Text -> QueryParser
 [fromQueryParser] :: QueryParser -> Text
@@ -459,28 +459,28 @@ pattern QueryParser_Dismax :: QueryParser
 pattern QueryParser_Lucene :: QueryParser
 pattern QueryParser_Simple :: QueryParser
 pattern QueryParser_Structured :: QueryParser
-instance Network.AWS.Data.XML.ToXML Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Network.AWS.Data.XML.FromXML Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Network.AWS.Data.Log.ToLog Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Network.AWS.Data.Text.ToText Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Network.AWS.Data.Text.FromText Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance GHC.Classes.Ord Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.XML.ToXML Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.XML.FromXML Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.Headers.ToHeader Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.Log.ToLog Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.ByteString.ToByteString Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.Text.ToText Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Amazonka.Data.Text.FromText Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance GHC.Classes.Ord Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.QueryParser.QueryParser
 
 
-module Network.AWS.CloudSearchDomains.Types.SearchStatus
+module Amazonka.CloudSearchDomains.Types.SearchStatus
 
 -- | Contains the resource id (<tt>rid</tt>) and the time it took to
 --   process the request (<tt>timems</tt>).
@@ -516,16 +516,16 @@ searchStatus_rid :: Lens' SearchStatus (Maybe Text)
 
 -- | How long it took to process the request, in milliseconds.
 searchStatus_timems :: Lens' SearchStatus (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.SearchStatus.SearchStatus
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.SearchStatus.SearchStatus
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.SearchStatus.SearchStatus
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.SearchStatus.SearchStatus
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.SearchStatus.SearchStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.SearchStatus.SearchStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.SearchStatus.SearchStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.SearchStatus.SearchStatus
 
 
-module Network.AWS.CloudSearchDomains.Types.SuggestStatus
+module Amazonka.CloudSearchDomains.Types.SuggestStatus
 
 -- | Contains the resource id (<tt>rid</tt>) and the time it took to
 --   process the request (<tt>timems</tt>).
@@ -561,16 +561,16 @@ suggestStatus_rid :: Lens' SuggestStatus (Maybe Text)
 
 -- | How long it took to process the request, in milliseconds.
 suggestStatus_timems :: Lens' SuggestStatus (Maybe Integer)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.SuggestStatus.SuggestStatus
 
 
-module Network.AWS.CloudSearchDomains.Types.SuggestionMatch
+module Amazonka.CloudSearchDomains.Types.SuggestionMatch
 
 -- | An autocomplete suggestion that matches the query string specified in
 --   a <tt>SuggestRequest</tt>.
@@ -618,16 +618,16 @@ suggestionMatch_score :: Lens' SuggestionMatch (Maybe Integer)
 
 -- | The document ID of the suggested document.
 suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.SuggestionMatch.SuggestionMatch
 
 
-module Network.AWS.CloudSearchDomains.Types.SuggestModel
+module Amazonka.CloudSearchDomains.Types.SuggestModel
 
 -- | Container for the suggestion information returned in a
 --   <tt>SuggestResponse</tt>.
@@ -672,16 +672,16 @@ suggestModel_suggestions :: Lens' SuggestModel (Maybe [SuggestionMatch])
 
 -- | The query string specified in the suggest request.
 suggestModel_query :: Lens' SuggestModel (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Types.SuggestModel.SuggestModel
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Types.SuggestModel.SuggestModel
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Types.SuggestModel.SuggestModel
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Types.SuggestModel.SuggestModel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CloudSearchDomains.Types.SuggestModel.SuggestModel
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Types.SuggestModel.SuggestModel
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Types.SuggestModel.SuggestModel
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Types.SuggestModel.SuggestModel
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Types.SuggestModel.SuggestModel
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Types.SuggestModel.SuggestModel
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Types.SuggestModel.SuggestModel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CloudSearchDomains.Types.SuggestModel.SuggestModel
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Types.SuggestModel.SuggestModel
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Types.SuggestModel.SuggestModel
 
 
-module Network.AWS.CloudSearchDomains.Types
+module Amazonka.CloudSearchDomains.Types
 
 -- | API version <tt>2013-01-01</tt> of the Amazon CloudSearch Domain SDK
 --   configuration.
@@ -1246,7 +1246,7 @@ suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
 --   CloudSearch configuration service <tt>DescribeDomains</tt> action. A
 --   domain's endpoints are also displayed on the domain dashboard in the
 --   Amazon CloudSearch console.
-module Network.AWS.CloudSearchDomains.Suggest
+module Amazonka.CloudSearchDomains.Suggest
 
 -- | Container for the parameters to the <tt>Suggest</tt> request.
 --   
@@ -1338,21 +1338,21 @@ suggestResponse_status :: Lens' SuggestResponse (Maybe SuggestStatus)
 
 -- | The response's http status code.
 suggestResponse_httpStatus :: Lens' SuggestResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Suggest.SuggestResponse
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Suggest.SuggestResponse
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Suggest.SuggestResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Suggest.SuggestResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Suggest.SuggestResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearchDomains.Suggest.Suggest
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.Suggest.Suggest
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Suggest.Suggest
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Suggest.Suggest
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Suggest.Suggest
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Suggest.Suggest
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Suggest.SuggestResponse
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Suggest.SuggestResponse
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Suggest.SuggestResponse
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Suggest.SuggestResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearchDomains.Suggest.Suggest
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Suggest.SuggestResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Suggest.Suggest
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Suggest.Suggest
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearchDomains.Suggest.Suggest
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearchDomains.Suggest.Suggest
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearchDomains.Suggest.Suggest
 
 
 -- | Retrieves a list of documents that match the specified search
@@ -1382,7 +1382,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.Suggest.S
 --   CloudSearch configuration service <tt>DescribeDomains</tt> action. A
 --   domain's endpoints are also displayed on the domain dashboard in the
 --   Amazon CloudSearch console.
-module Network.AWS.CloudSearchDomains.Search
+module Amazonka.CloudSearchDomains.Search
 
 -- | Container for the parameters to the <tt>Search</tt> request.
 --   
@@ -2547,21 +2547,21 @@ searchResponse_hits :: Lens' SearchResponse (Maybe Hits)
 
 -- | The response's http status code.
 searchResponse_httpStatus :: Lens' SearchResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Search.Search
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Search.Search
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Search.Search
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Search.Search
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.Search.SearchResponse
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.Search.SearchResponse
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.Search.SearchResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.Search.SearchResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearchDomains.Search.Search
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Search.SearchResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CloudSearchDomains.Search.Search
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.Search.Search
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearchDomains.Search.Search
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearchDomains.Search.Search
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.Search.Search
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Search.Search
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Search.Search
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Search.Search
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Search.Search
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.Search.SearchResponse
+instance GHC.Show.Show Amazonka.CloudSearchDomains.Search.SearchResponse
+instance GHC.Read.Read Amazonka.CloudSearchDomains.Search.SearchResponse
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.Search.SearchResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearchDomains.Search.Search
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Search.SearchResponse
+instance Data.Hashable.Class.Hashable Amazonka.CloudSearchDomains.Search.Search
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.Search.Search
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearchDomains.Search.Search
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearchDomains.Search.Search
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearchDomains.Search.Search
 
 
 -- | Posts a batch of documents to a search domain for indexing. A document
@@ -2588,7 +2588,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.Search.Se
 --   CloudSearch Developer Guide</i>. For more information about uploading
 --   data for indexing, see <a>Uploading Data</a> in the <i>Amazon
 --   CloudSearch Developer Guide</i>.
-module Network.AWS.CloudSearchDomains.UploadDocuments
+module Amazonka.CloudSearchDomains.UploadDocuments
 
 -- | Container for the parameters to the <tt>UploadDocuments</tt> request.
 --   
@@ -2710,21 +2710,21 @@ uploadDocumentsResponse_deletes :: Lens' UploadDocumentsResponse (Maybe Integer)
 
 -- | The response's http status code.
 uploadDocumentsResponse_httpStatus :: Lens' UploadDocumentsResponse Int
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocuments
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocuments
-instance GHC.Generics.Generic Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
-instance GHC.Show.Show Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
-instance GHC.Read.Read Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
-instance GHC.Classes.Eq Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocuments
-instance Control.DeepSeq.NFData Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
-instance Network.AWS.Data.Body.ToBody Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocuments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocuments
-instance Network.AWS.Data.Path.ToPath Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocuments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CloudSearchDomains.UploadDocuments.UploadDocuments
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.UploadDocuments.UploadDocuments
+instance GHC.Show.Show Amazonka.CloudSearchDomains.UploadDocuments.UploadDocuments
+instance GHC.Generics.Generic Amazonka.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
+instance GHC.Show.Show Amazonka.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
+instance GHC.Read.Read Amazonka.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
+instance GHC.Classes.Eq Amazonka.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CloudSearchDomains.UploadDocuments.UploadDocuments
+instance Control.DeepSeq.NFData Amazonka.CloudSearchDomains.UploadDocuments.UploadDocumentsResponse
+instance Amazonka.Data.Body.ToBody Amazonka.CloudSearchDomains.UploadDocuments.UploadDocuments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CloudSearchDomains.UploadDocuments.UploadDocuments
+instance Amazonka.Data.Path.ToPath Amazonka.CloudSearchDomains.UploadDocuments.UploadDocuments
+instance Amazonka.Data.Query.ToQuery Amazonka.CloudSearchDomains.UploadDocuments.UploadDocuments
 
 
-module Network.AWS.CloudSearchDomains.Lens
+module Amazonka.CloudSearchDomains.Lens
 
 -- | Specifies the maximum number of suggestions to return.
 suggest_size :: Lens' Suggest (Maybe Integer)
@@ -3274,7 +3274,7 @@ suggestionMatch_score :: Lens' SuggestionMatch (Maybe Integer)
 suggestionMatch_id :: Lens' SuggestionMatch (Maybe Text)
 
 
-module Network.AWS.CloudSearchDomains.Waiters
+module Amazonka.CloudSearchDomains.Waiters
 
 
 -- | Derived from API version <tt>2013-01-01</tt> of the AWS service
@@ -3293,7 +3293,7 @@ module Network.AWS.CloudSearchDomains.Waiters
 --   
 --   For more information, see the <a>Amazon CloudSearch Developer
 --   Guide</a>.
-module Network.AWS.CloudSearchDomains
+module Amazonka.CloudSearchDomains
 
 -- | API version <tt>2013-01-01</tt> of the Amazon CloudSearch Domain SDK
 --   configuration.

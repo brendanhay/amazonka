@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.Types.TableStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.Types.TableStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier">TableStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ACTIVE"><span class="hs-identifier">TableStatus_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ARCHIVED"><span class="hs-identifier">TableStatus_ARCHIVED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ARCHIVING"><span class="hs-identifier">TableStatus_ARCHIVING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_CREATING"><span class="hs-identifier">TableStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_DELETING"><span class="hs-identifier">TableStatus_DELETING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS"><span class="hs-identifier">TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_UPDATING"><span class="hs-identifier">TableStatus_UPDATING</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679382033"><span id="local-6989586621679382034"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TableStatus"><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-var">TableStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TableStatus%27"><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-var">TableStatus'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTableStatus"><span class="annot"><span class="annottext">TableStatus -&gt; Text
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#fromTableStatus"><span class="hs-identifier hs-var hs-var">fromTableStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679382025"><span id="local-6989586621679382027"><span id="local-6989586621679382029"><span class="annot"><span class="annottext">Int -&gt; TableStatus -&gt; ShowS
+[TableStatus] -&gt; ShowS
+TableStatus -&gt; String
+(Int -&gt; TableStatus -&gt; ShowS)
+-&gt; (TableStatus -&gt; String)
+-&gt; ([TableStatus] -&gt; ShowS)
+-&gt; Show TableStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TableStatus] -&gt; ShowS
+$cshowList :: [TableStatus] -&gt; ShowS
+show :: TableStatus -&gt; String
+$cshow :: TableStatus -&gt; String
+showsPrec :: Int -&gt; TableStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; TableStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679382016"><span id="local-6989586621679382018"><span id="local-6989586621679382020"><span id="local-6989586621679382022"><span class="annot"><span class="annottext">ReadPrec [TableStatus]
+ReadPrec TableStatus
+Int -&gt; ReadS TableStatus
+ReadS [TableStatus]
+(Int -&gt; ReadS TableStatus)
+-&gt; ReadS [TableStatus]
+-&gt; ReadPrec TableStatus
+-&gt; ReadPrec [TableStatus]
+-&gt; Read TableStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TableStatus]
+$creadListPrec :: ReadPrec [TableStatus]
+readPrec :: ReadPrec TableStatus
+$creadPrec :: ReadPrec TableStatus
+readList :: ReadS [TableStatus]
+$creadList :: ReadS [TableStatus]
+readsPrec :: Int -&gt; ReadS TableStatus
+$creadsPrec :: Int -&gt; ReadS TableStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679382011"><span id="local-6989586621679382013"><span class="annot"><span class="annottext">TableStatus -&gt; TableStatus -&gt; Bool
+(TableStatus -&gt; TableStatus -&gt; Bool)
+-&gt; (TableStatus -&gt; TableStatus -&gt; Bool) -&gt; Eq TableStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TableStatus -&gt; TableStatus -&gt; Bool
+$c/= :: TableStatus -&gt; TableStatus -&gt; Bool
+== :: TableStatus -&gt; TableStatus -&gt; Bool
+$c== :: TableStatus -&gt; TableStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679381995"><span id="local-6989586621679381997"><span id="local-6989586621679381999"><span id="local-6989586621679382001"><span id="local-6989586621679382003"><span id="local-6989586621679382005"><span id="local-6989586621679382007"><span class="annot"><span class="annottext">Eq TableStatus
+Eq TableStatus
+-&gt; (TableStatus -&gt; TableStatus -&gt; Ordering)
+-&gt; (TableStatus -&gt; TableStatus -&gt; Bool)
+-&gt; (TableStatus -&gt; TableStatus -&gt; Bool)
+-&gt; (TableStatus -&gt; TableStatus -&gt; Bool)
+-&gt; (TableStatus -&gt; TableStatus -&gt; Bool)
+-&gt; (TableStatus -&gt; TableStatus -&gt; TableStatus)
+-&gt; (TableStatus -&gt; TableStatus -&gt; TableStatus)
+-&gt; Ord TableStatus
+TableStatus -&gt; TableStatus -&gt; Bool
+TableStatus -&gt; TableStatus -&gt; Ordering
+TableStatus -&gt; TableStatus -&gt; TableStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TableStatus -&gt; TableStatus -&gt; TableStatus
+$cmin :: TableStatus -&gt; TableStatus -&gt; TableStatus
+max :: TableStatus -&gt; TableStatus -&gt; TableStatus
+$cmax :: TableStatus -&gt; TableStatus -&gt; TableStatus
+&gt;= :: TableStatus -&gt; TableStatus -&gt; Bool
+$c&gt;= :: TableStatus -&gt; TableStatus -&gt; Bool
+&gt; :: TableStatus -&gt; TableStatus -&gt; Bool
+$c&gt; :: TableStatus -&gt; TableStatus -&gt; Bool
+&lt;= :: TableStatus -&gt; TableStatus -&gt; Bool
+$c&lt;= :: TableStatus -&gt; TableStatus -&gt; Bool
+&lt; :: TableStatus -&gt; TableStatus -&gt; Bool
+$c&lt; :: TableStatus -&gt; TableStatus -&gt; Bool
+compare :: TableStatus -&gt; TableStatus -&gt; Ordering
+$ccompare :: TableStatus -&gt; TableStatus -&gt; Ordering
+$cp1Ord :: Eq TableStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TableStatus -&gt; Rep TableStatus x)
+-&gt; (forall x. Rep TableStatus x -&gt; TableStatus)
+-&gt; Generic TableStatus
+forall x. Rep TableStatus x -&gt; TableStatus
+forall x. TableStatus -&gt; Rep TableStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TableStatus x -&gt; TableStatus
+$cfrom :: forall x. TableStatus -&gt; Rep TableStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679381987"><span id="local-6989586621679381989"><span class="annot"><span class="annottext">Int -&gt; TableStatus -&gt; Int
+TableStatus -&gt; Int
+(Int -&gt; TableStatus -&gt; Int)
+-&gt; (TableStatus -&gt; Int) -&gt; Hashable TableStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TableStatus -&gt; Int
+$chash :: TableStatus -&gt; Int
+hashWithSalt :: Int -&gt; TableStatus -&gt; Int
+$chashWithSalt :: Int -&gt; TableStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679381984"><span class="annot"><span class="annottext">TableStatus -&gt; ()
+(TableStatus -&gt; ()) -&gt; NFData TableStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TableStatus -&gt; ()
+$crnf :: TableStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679381981"><span class="annot"><span class="annottext">Text -&gt; Either String TableStatus
+(Text -&gt; Either String TableStatus) -&gt; FromText TableStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TableStatus
+$cfromText :: Text -&gt; Either String TableStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679381978"><span class="annot"><span class="annottext">TableStatus -&gt; Text
+(TableStatus -&gt; Text) -&gt; ToText TableStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TableStatus -&gt; Text
+$ctoText :: TableStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679381975"><span class="annot"><span class="annottext">TableStatus -&gt; ByteString
+(TableStatus -&gt; ByteString) -&gt; ToByteString TableStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TableStatus -&gt; ByteString
+$ctoBS :: TableStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679381972"><span class="annot"><span class="annottext">TableStatus -&gt; ByteStringBuilder
+(TableStatus -&gt; ByteStringBuilder) -&gt; ToLog TableStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TableStatus -&gt; ByteStringBuilder
+$cbuild :: TableStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679381969"><span class="annot"><span class="annottext">HeaderName -&gt; TableStatus -&gt; [Header]
+(HeaderName -&gt; TableStatus -&gt; [Header]) -&gt; ToHeader TableStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TableStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TableStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679381966"><span class="annot"><span class="annottext">TableStatus -&gt; QueryString
+(TableStatus -&gt; QueryString) -&gt; ToQuery TableStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TableStatus -&gt; QueryString
+$ctoQuery :: TableStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679381961"><span id="local-6989586621679381963"><span class="annot"><span class="annottext">Value -&gt; Parser [TableStatus]
+Value -&gt; Parser TableStatus
+(Value -&gt; Parser TableStatus)
+-&gt; (Value -&gt; Parser [TableStatus]) -&gt; FromJSON TableStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TableStatus]
+$cparseJSONList :: Value -&gt; Parser [TableStatus]
+parseJSON :: Value -&gt; Parser TableStatus
+$cparseJSON :: Value -&gt; Parser TableStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679381956"><span id="local-6989586621679381958"><span class="annot"><span class="annottext">FromJSONKeyFunction [TableStatus]
+FromJSONKeyFunction TableStatus
+FromJSONKeyFunction TableStatus
+-&gt; FromJSONKeyFunction [TableStatus] -&gt; FromJSONKey TableStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TableStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [TableStatus]
+fromJSONKey :: FromJSONKeyFunction TableStatus
+$cfromJSONKey :: FromJSONKeyFunction TableStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679381947"><span id="local-6989586621679381949"><span id="local-6989586621679381951"><span id="local-6989586621679381953"><span class="annot"><span class="annottext">[TableStatus] -&gt; Encoding
+[TableStatus] -&gt; Value
+TableStatus -&gt; Encoding
+TableStatus -&gt; Value
+(TableStatus -&gt; Value)
+-&gt; (TableStatus -&gt; Encoding)
+-&gt; ([TableStatus] -&gt; Value)
+-&gt; ([TableStatus] -&gt; Encoding)
+-&gt; ToJSON TableStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TableStatus] -&gt; Encoding
+$ctoEncodingList :: [TableStatus] -&gt; Encoding
+toJSONList :: [TableStatus] -&gt; Value
+$ctoJSONList :: [TableStatus] -&gt; Value
+toEncoding :: TableStatus -&gt; Encoding
+$ctoEncoding :: TableStatus -&gt; Encoding
+toJSON :: TableStatus -&gt; Value
+$ctoJSON :: TableStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679381942"><span id="local-6989586621679381944"><span class="annot"><span class="annottext">ToJSONKeyFunction [TableStatus]
+ToJSONKeyFunction TableStatus
+ToJSONKeyFunction TableStatus
+-&gt; ToJSONKeyFunction [TableStatus] -&gt; ToJSONKey TableStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TableStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [TableStatus]
+toJSONKey :: ToJSONKeyFunction TableStatus
+$ctoJSONKey :: ToJSONKeyFunction TableStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679381939"><span class="annot"><span class="annottext">[Node] -&gt; Either String TableStatus
+([Node] -&gt; Either String TableStatus) -&gt; FromXML TableStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TableStatus
+$cparseXML :: [Node] -&gt; Either String TableStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679381936"><span class="annot"><span class="annottext">TableStatus -&gt; XML
+(TableStatus -&gt; XML) -&gt; ToXML TableStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TableStatus -&gt; XML
+$ctoXML :: TableStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ACTIVE"><span class="hs-identifier hs-type">TableStatus_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableStatus_ACTIVE"><span id="%24mTableStatus_ACTIVE"><span id="TableStatus_ACTIVE"><span class="annot"><span class="annottext">$bTableStatus_ACTIVE :: TableStatus
+$mTableStatus_ACTIVE :: forall r. TableStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#%24bTableStatus_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">TableStatus_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-type">TableStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ARCHIVED"><span class="hs-identifier hs-type">TableStatus_ARCHIVED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableStatus_ARCHIVED"><span id="%24mTableStatus_ARCHIVED"><span id="TableStatus_ARCHIVED"><span class="annot"><span class="annottext">$bTableStatus_ARCHIVED :: TableStatus
+$mTableStatus_ARCHIVED :: forall r. TableStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#%24bTableStatus_ARCHIVED"><span class="hs-identifier hs-var hs-var hs-var">TableStatus_ARCHIVED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-type">TableStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARCHIVED&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ARCHIVING"><span class="hs-identifier hs-type">TableStatus_ARCHIVING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableStatus_ARCHIVING"><span id="%24mTableStatus_ARCHIVING"><span id="TableStatus_ARCHIVING"><span class="annot"><span class="annottext">$bTableStatus_ARCHIVING :: TableStatus
+$mTableStatus_ARCHIVING :: forall r. TableStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#%24bTableStatus_ARCHIVING"><span class="hs-identifier hs-var hs-var hs-var">TableStatus_ARCHIVING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-type">TableStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ARCHIVING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_CREATING"><span class="hs-identifier hs-type">TableStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableStatus_CREATING"><span id="%24mTableStatus_CREATING"><span id="TableStatus_CREATING"><span class="annot"><span class="annottext">$bTableStatus_CREATING :: TableStatus
+$mTableStatus_CREATING :: forall r. TableStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#%24bTableStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">TableStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-type">TableStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_DELETING"><span class="hs-identifier hs-type">TableStatus_DELETING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableStatus_DELETING"><span id="%24mTableStatus_DELETING"><span id="TableStatus_DELETING"><span class="annot"><span class="annottext">$bTableStatus_DELETING :: TableStatus
+$mTableStatus_DELETING :: forall r. TableStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#%24bTableStatus_DELETING"><span class="hs-identifier hs-var hs-var hs-var">TableStatus_DELETING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-type">TableStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETING&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS"><span class="hs-identifier hs-type">TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS"><span id="%24mTableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS"><span id="TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS"><span class="annot"><span class="annottext">$bTableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS :: TableStatus
+$mTableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS :: forall r. TableStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#%24bTableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS"><span class="hs-identifier hs-var hs-var hs-var">TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-type">TableStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACCESSIBLE_ENCRYPTION_CREDENTIALS&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_UPDATING"><span class="hs-identifier hs-type">TableStatus_UPDATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus"><span class="hs-identifier hs-type">TableStatus</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTableStatus_UPDATING"><span id="%24mTableStatus_UPDATING"><span id="TableStatus_UPDATING"><span class="annot"><span class="annottext">$bTableStatus_UPDATING :: TableStatus
+$mTableStatus_UPDATING :: forall r. TableStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DynamoDB.Types.TableStatus.html#%24bTableStatus_UPDATING"><span class="hs-identifier hs-var hs-var hs-var">TableStatus_UPDATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-identifier hs-type">TableStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UPDATING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ACTIVE"><span class="hs-pragma hs-type">TableStatus_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ARCHIVED"><span class="hs-pragma hs-type">TableStatus_ARCHIVED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_ARCHIVING"><span class="hs-pragma hs-type">TableStatus_ARCHIVING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_CREATING"><span class="hs-pragma hs-type">TableStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_DELETING"><span class="hs-pragma hs-type">TableStatus_DELETING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS"><span class="hs-pragma hs-type">TableStatus_INACCESSIBLE_ENCRYPTION_CREDENTIALS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus_UPDATING"><span class="hs-pragma hs-type">TableStatus_UPDATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.TableStatus.html#TableStatus%27"><span class="hs-pragma hs-type">TableStatus'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

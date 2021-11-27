@@ -1,0 +1,563 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Glacier.InitiateVaultLock</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This operation initiates the vault locking process by doing the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- following:</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- -   Installing a vault lock policy on the specified vault.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- -   Setting the lock state of vault lock to @InProgress@.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   Returning a lock ID, which is used to complete the vault locking</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     process.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- You can set one vault lock policy for each vault and this policy can be</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- up to 20 KB in size. For more information about vault lock policies, see</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock-policy.html Amazon Glacier Access Control with Vault Lock Policies&gt;.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- You must complete the vault locking process within 24 hours after the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- vault lock enters the @InProgress@ state. After the 24 hour window ends,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- the lock ID expires, the vault automatically exits the @InProgress@</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- state, and the vault lock policy is removed from the vault. You call</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- CompleteVaultLock to complete the vault locking process by setting the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- state of the vault lock to @Locked@.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- After a vault lock is in the @Locked@ state, you cannot initiate a new</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- vault lock for the vault.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- You can abort the vault locking process by calling AbortVaultLock. You</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- can get the state of the vault lock by calling GetVaultLock. For more</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- information about the vault locking process,</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/amazonglacier/latest/dev/vault-lock.html Amazon Glacier Vault Lock&gt;.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- If this operation is called when the vault lock is in the @InProgress@</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- state, the operation returns an @AccessDeniedException@ error. When the</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- vault lock is in the @InProgress@ state you must call AbortVaultLock</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- before you can initiate a new vault lock policy.</span><span>
+</span><span id="line-56"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Glacier.InitiateVaultLock</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier">InitiateVaultLock</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#newInitiateVaultLock"><span class="hs-identifier">newInitiateVaultLock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_policy"><span class="hs-identifier">initiateVaultLock_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_accountId"><span class="hs-identifier">initiateVaultLock_accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_vaultName"><span class="hs-identifier">initiateVaultLock_vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier">InitiateVaultLockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#newInitiateVaultLockResponse"><span class="hs-identifier">newInitiateVaultLockResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLockResponse_lockId"><span class="hs-identifier">initiateVaultLockResponse_lockId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLockResponse_httpStatus"><span class="hs-identifier">initiateVaultLockResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.html"><span class="hs-identifier">Amazonka.Glacier.Types</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | The input values for @InitiateVaultLock@.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- /See:/ 'newInitiateVaultLock' smart constructor.</span><span>
+</span><span id="line-86"></span><span id="local-6989586621679222349"><span id="local-6989586621679222350"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateVaultLock"><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-var">InitiateVaultLock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateVaultLock%27"><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-var">InitiateVaultLock'</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The vault lock policy as a JSON string, which uses \&quot;\\\&quot; as an escape</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- character.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Apolicy%3AInitiateVaultLock%27"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; Maybe VaultLockPolicy
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3Apolicy%3AInitiateVaultLock%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.VaultLockPolicy.html#VaultLockPolicy"><span class="hs-identifier hs-type">VaultLockPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- You can either specify an AWS account ID or optionally a single \'@-@\'</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- (hyphen), in which case Amazon Glacier uses the AWS account ID</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- associated with the credentials used to sign the request. If you specify</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- your account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AaccountId%3AInitiateVaultLock%27"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AaccountId%3AInitiateVaultLock%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222341"><span id="local-6989586621679222343"><span class="annot"><span class="annottext">InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
+(InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool)
+-&gt; (InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool)
+-&gt; Eq InitiateVaultLock
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
+$c/= :: InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
+== :: InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
+$c== :: InitiateVaultLock -&gt; InitiateVaultLock -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222332"><span id="local-6989586621679222334"><span id="local-6989586621679222336"><span id="local-6989586621679222338"><span class="annot"><span class="annottext">ReadPrec [InitiateVaultLock]
+ReadPrec InitiateVaultLock
+Int -&gt; ReadS InitiateVaultLock
+ReadS [InitiateVaultLock]
+(Int -&gt; ReadS InitiateVaultLock)
+-&gt; ReadS [InitiateVaultLock]
+-&gt; ReadPrec InitiateVaultLock
+-&gt; ReadPrec [InitiateVaultLock]
+-&gt; Read InitiateVaultLock
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InitiateVaultLock]
+$creadListPrec :: ReadPrec [InitiateVaultLock]
+readPrec :: ReadPrec InitiateVaultLock
+$creadPrec :: ReadPrec InitiateVaultLock
+readList :: ReadS [InitiateVaultLock]
+$creadList :: ReadS [InitiateVaultLock]
+readsPrec :: Int -&gt; ReadS InitiateVaultLock
+$creadsPrec :: Int -&gt; ReadS InitiateVaultLock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222325"><span id="local-6989586621679222327"><span id="local-6989586621679222329"><span class="annot"><span class="annottext">Int -&gt; InitiateVaultLock -&gt; ShowS
+[InitiateVaultLock] -&gt; ShowS
+InitiateVaultLock -&gt; String
+(Int -&gt; InitiateVaultLock -&gt; ShowS)
+-&gt; (InitiateVaultLock -&gt; String)
+-&gt; ([InitiateVaultLock] -&gt; ShowS)
+-&gt; Show InitiateVaultLock
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InitiateVaultLock] -&gt; ShowS
+$cshowList :: [InitiateVaultLock] -&gt; ShowS
+show :: InitiateVaultLock -&gt; String
+$cshow :: InitiateVaultLock -&gt; String
+showsPrec :: Int -&gt; InitiateVaultLock -&gt; ShowS
+$cshowsPrec :: Int -&gt; InitiateVaultLock -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. InitiateVaultLock -&gt; Rep InitiateVaultLock x)
+-&gt; (forall x. Rep InitiateVaultLock x -&gt; InitiateVaultLock)
+-&gt; Generic InitiateVaultLock
+forall x. Rep InitiateVaultLock x -&gt; InitiateVaultLock
+forall x. InitiateVaultLock -&gt; Rep InitiateVaultLock x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InitiateVaultLock x -&gt; InitiateVaultLock
+$cfrom :: forall x. InitiateVaultLock -&gt; Rep InitiateVaultLock x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- Create a value of 'InitiateVaultLock' with all optional fields omitted.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'policy', 'initiateVaultLock_policy' - The vault lock policy as a JSON string, which uses \&quot;\\\&quot; as an escape</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- character.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'accountId', 'initiateVaultLock_accountId' - The @AccountId@ value is the AWS account ID. This value must match the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- You can either specify an AWS account ID or optionally a single \'@-@\'</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- (hyphen), in which case Amazon Glacier uses the AWS account ID</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- associated with the credentials used to sign the request. If you specify</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- your account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'vaultName', 'initiateVaultLock_vaultName' - The name of the vault.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#newInitiateVaultLock"><span class="hs-identifier hs-type">newInitiateVaultLock</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'accountId'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-comment">-- | 'vaultName'</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span>
+</span><span id="line-127"></span><span id="newInitiateVaultLock"><span class="annot"><span class="annottext">newInitiateVaultLock :: Text -&gt; Text -&gt; InitiateVaultLock
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#newInitiateVaultLock"><span class="hs-identifier hs-var hs-var">newInitiateVaultLock</span></a></span></span><span> </span><span id="local-6989586621679222320"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222320"><span class="hs-identifier hs-var">pAccountId_</span></a></span></span><span> </span><span id="local-6989586621679222319"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222319"><span class="hs-identifier hs-var">pVaultName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">InitiateVaultLock' :: Maybe VaultLockPolicy -&gt; Text -&gt; Text -&gt; InitiateVaultLock
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:InitiateVaultLock' :: Maybe VaultLockPolicy
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3Apolicy%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountId:InitiateVaultLock' :: Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AaccountId%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222320"><span class="hs-identifier hs-var">pAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:vaultName:InitiateVaultLock' :: Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222319"><span class="hs-identifier hs-var">pVaultName_</span></a></span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The vault lock policy as a JSON string, which uses \&quot;\\\&quot; as an escape</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- character.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_policy"><span class="hs-identifier hs-type">initiateVaultLock_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.Types.VaultLockPolicy.html#VaultLockPolicy"><span class="hs-identifier hs-type">VaultLockPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="initiateVaultLock_policy"><span class="annot"><span class="annottext">initiateVaultLock_policy :: (Maybe VaultLockPolicy -&gt; f (Maybe VaultLockPolicy))
+-&gt; InitiateVaultLock -&gt; f InitiateVaultLock
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_policy"><span class="hs-identifier hs-var hs-var">initiateVaultLock_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateVaultLock -&gt; Maybe VaultLockPolicy)
+-&gt; (InitiateVaultLock
+    -&gt; Maybe VaultLockPolicy -&gt; InitiateVaultLock)
+-&gt; Lens
+     InitiateVaultLock
+     InitiateVaultLock
+     (Maybe VaultLockPolicy)
+     (Maybe VaultLockPolicy)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222316"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+policy :: Maybe VaultLockPolicy
+$sel:policy:InitiateVaultLock' :: InitiateVaultLock -&gt; Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222316"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222316"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222315"><span class="annot"><span class="annottext">s :: InitiateVaultLock
+</span><a href="#local-6989586621679222315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222314"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
+</span><a href="#local-6989586621679222315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:InitiateVaultLock' :: Maybe VaultLockPolicy
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3Apolicy%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The @AccountId@ value is the AWS account ID. This value must match the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- AWS account ID associated with the credentials used to sign the request.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- You can either specify an AWS account ID or optionally a single \'@-@\'</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- (hyphen), in which case Amazon Glacier uses the AWS account ID</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- associated with the credentials used to sign the request. If you specify</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- your account ID, do not include any hyphens (\'-\') in the ID.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_accountId"><span class="hs-identifier hs-type">initiateVaultLock_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-146"></span><span id="initiateVaultLock_accountId"><span class="annot"><span class="annottext">initiateVaultLock_accountId :: (Text -&gt; f Text) -&gt; InitiateVaultLock -&gt; f InitiateVaultLock
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_accountId"><span class="hs-identifier hs-var hs-var">initiateVaultLock_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateVaultLock -&gt; Text)
+-&gt; (InitiateVaultLock -&gt; Text -&gt; InitiateVaultLock)
+-&gt; Lens InitiateVaultLock InitiateVaultLock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222313"><span class="annot"><span class="annottext">Text
+accountId :: Text
+$sel:accountId:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
+</span><a href="#local-6989586621679222313"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222313"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222312"><span class="annot"><span class="annottext">s :: InitiateVaultLock
+</span><a href="#local-6989586621679222312"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222311"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222311"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
+</span><a href="#local-6989586621679222312"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:InitiateVaultLock' :: Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AaccountId%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222311"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The name of the vault.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_vaultName"><span class="hs-identifier hs-type">initiateVaultLock_vaultName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-150"></span><span id="initiateVaultLock_vaultName"><span class="annot"><span class="annottext">initiateVaultLock_vaultName :: (Text -&gt; f Text) -&gt; InitiateVaultLock -&gt; f InitiateVaultLock
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLock_vaultName"><span class="hs-identifier hs-var hs-var">initiateVaultLock_vaultName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateVaultLock -&gt; Text)
+-&gt; (InitiateVaultLock -&gt; Text -&gt; InitiateVaultLock)
+-&gt; Lens InitiateVaultLock InitiateVaultLock Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222310"><span class="annot"><span class="annottext">Text
+vaultName :: Text
+$sel:vaultName:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
+</span><a href="#local-6989586621679222310"><span class="hs-identifier hs-var hs-var">vaultName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222310"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222309"><span class="annot"><span class="annottext">s :: InitiateVaultLock
+</span><a href="#local-6989586621679222309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222308"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLock
+</span><a href="#local-6989586621679222309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vaultName:InitiateVaultLock' :: Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AvaultName%3AInitiateVaultLock%27"><span class="hs-identifier hs-var">vaultName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-154"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679222304"><span class="annot"><span class="annottext">request :: InitiateVaultLock -&gt; Request InitiateVaultLock
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">ByteString
+-&gt; Request InitiateVaultLock -&gt; Request InitiateVaultLock
+forall a. ByteString -&gt; Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.glacierVersionHeader</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Service -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var">Core._serviceVersion</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">(Request InitiateVaultLock -&gt; Request InitiateVaultLock)
+-&gt; (InitiateVaultLock -&gt; Request InitiateVaultLock)
+-&gt; InitiateVaultLock
+-&gt; Request InitiateVaultLock
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; InitiateVaultLock -&gt; Request InitiateVaultLock
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Glacier.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679222297"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy InitiateVaultLock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InitiateVaultLock)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse InitiateVaultLock))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy InitiateVaultLock
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse InitiateVaultLock)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222294"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222294"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222293"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222293"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222292"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679222292"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-162"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; InitiateVaultLockResponse
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-var">InitiateVaultLockResponse'</span></a></span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; InitiateVaultLockResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; InitiateVaultLockResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222293"><span class="hs-identifier hs-var">h</span></a></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe Text)
+forall a.
+FromText a =&gt;
+ResponseHeaders -&gt; HeaderName -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..#?</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-lock-id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; InitiateVaultLockResponse)
+-&gt; Either String Int -&gt; Either String InitiateVaultLockResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222294"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222284"><span id="local-6989586621679222286"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222281"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679222277"><span class="annot"><span class="annottext">toHeaders :: InitiateVaultLock -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; InitiateVaultLock -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222268"><span id="local-6989586621679222270"><span id="local-6989586621679222272"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679222266"><span class="annot"><span class="annottext">toJSON :: InitiateVaultLock -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222262"><span id="local-6989586621679222263"><span id="local-6989586621679222264"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+Text
+vaultName :: Text
+accountId :: Text
+policy :: Maybe VaultLockPolicy
+$sel:vaultName:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
+$sel:accountId:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
+$sel:policy:InitiateVaultLock' :: InitiateVaultLock -&gt; Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222262"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policy&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VaultLockPolicy -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(VaultLockPolicy -&gt; Pair) -&gt; Maybe VaultLockPolicy -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222264"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679222256"><span class="annot"><span class="annottext">toPath :: InitiateVaultLock -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock%27"><span class="hs-identifier hs-type">InitiateVaultLock'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222252"><span id="local-6989586621679222253"><span id="local-6989586621679222254"><span class="annot"><span class="annottext">Maybe VaultLockPolicy
+Text
+vaultName :: Text
+accountId :: Text
+policy :: Maybe VaultLockPolicy
+$sel:vaultName:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
+$sel:accountId:InitiateVaultLock' :: InitiateVaultLock -&gt; Text
+$sel:policy:InitiateVaultLock' :: InitiateVaultLock -&gt; Maybe VaultLockPolicy
+</span><a href="#local-6989586621679222252"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222253"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vaults/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222252"><span class="hs-identifier hs-var">vaultName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/lock-policy&quot;</span></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLock"><span class="hs-identifier hs-type">InitiateVaultLock</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679222248"><span class="annot"><span class="annottext">toQuery :: InitiateVaultLock -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; InitiateVaultLock -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | Contains the Amazon S3 Glacier response to your request.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- /See:/ 'newInitiateVaultLockResponse' smart constructor.</span><span>
+</span><span id="line-197"></span><span id="local-6989586621679222245"><span id="local-6989586621679222246"></span></span><span class="hs-keyword">data</span><span> </span><span id="InitiateVaultLockResponse"><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-var">InitiateVaultLockResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InitiateVaultLockResponse%27"><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-var">InitiateVaultLockResponse'</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The lock ID, which is used to complete the vault locking process.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AlockId%3AInitiateVaultLockResponse%27"><span class="annot"><span class="annottext">InitiateVaultLockResponse -&gt; Maybe Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AlockId%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var hs-var">lockId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-201"></span><span>    </span><span id="%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="annot"><span class="annottext">InitiateVaultLockResponse -&gt; Int
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222239"><span id="local-6989586621679222241"><span class="annot"><span class="annottext">InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
+(InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool)
+-&gt; (InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool)
+-&gt; Eq InitiateVaultLockResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
+$c/= :: InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
+== :: InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
+$c== :: InitiateVaultLockResponse -&gt; InitiateVaultLockResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222231"><span id="local-6989586621679222233"><span id="local-6989586621679222235"><span id="local-6989586621679222237"><span class="annot"><span class="annottext">ReadPrec [InitiateVaultLockResponse]
+ReadPrec InitiateVaultLockResponse
+Int -&gt; ReadS InitiateVaultLockResponse
+ReadS [InitiateVaultLockResponse]
+(Int -&gt; ReadS InitiateVaultLockResponse)
+-&gt; ReadS [InitiateVaultLockResponse]
+-&gt; ReadPrec InitiateVaultLockResponse
+-&gt; ReadPrec [InitiateVaultLockResponse]
+-&gt; Read InitiateVaultLockResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InitiateVaultLockResponse]
+$creadListPrec :: ReadPrec [InitiateVaultLockResponse]
+readPrec :: ReadPrec InitiateVaultLockResponse
+$creadPrec :: ReadPrec InitiateVaultLockResponse
+readList :: ReadS [InitiateVaultLockResponse]
+$creadList :: ReadS [InitiateVaultLockResponse]
+readsPrec :: Int -&gt; ReadS InitiateVaultLockResponse
+$creadsPrec :: Int -&gt; ReadS InitiateVaultLockResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222225"><span id="local-6989586621679222227"><span id="local-6989586621679222229"><span class="annot"><span class="annottext">Int -&gt; InitiateVaultLockResponse -&gt; ShowS
+[InitiateVaultLockResponse] -&gt; ShowS
+InitiateVaultLockResponse -&gt; String
+(Int -&gt; InitiateVaultLockResponse -&gt; ShowS)
+-&gt; (InitiateVaultLockResponse -&gt; String)
+-&gt; ([InitiateVaultLockResponse] -&gt; ShowS)
+-&gt; Show InitiateVaultLockResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InitiateVaultLockResponse] -&gt; ShowS
+$cshowList :: [InitiateVaultLockResponse] -&gt; ShowS
+show :: InitiateVaultLockResponse -&gt; String
+$cshow :: InitiateVaultLockResponse -&gt; String
+showsPrec :: Int -&gt; InitiateVaultLockResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; InitiateVaultLockResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ InitiateVaultLockResponse -&gt; Rep InitiateVaultLockResponse x)
+-&gt; (forall x.
+    Rep InitiateVaultLockResponse x -&gt; InitiateVaultLockResponse)
+-&gt; Generic InitiateVaultLockResponse
+forall x.
+Rep InitiateVaultLockResponse x -&gt; InitiateVaultLockResponse
+forall x.
+InitiateVaultLockResponse -&gt; Rep InitiateVaultLockResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep InitiateVaultLockResponse x -&gt; InitiateVaultLockResponse
+$cfrom :: forall x.
+InitiateVaultLockResponse -&gt; Rep InitiateVaultLockResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Create a value of 'InitiateVaultLockResponse' with all optional fields omitted.</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'lockId', 'initiateVaultLockResponse_lockId' - The lock ID, which is used to complete the vault locking process.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'httpStatus', 'initiateVaultLockResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#newInitiateVaultLockResponse"><span class="hs-identifier hs-type">newInitiateVaultLockResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-217"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-218"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span>
+</span><span id="line-220"></span><span id="newInitiateVaultLockResponse"><span class="annot"><span class="annottext">newInitiateVaultLockResponse :: Int -&gt; InitiateVaultLockResponse
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#newInitiateVaultLockResponse"><span class="hs-identifier hs-var hs-var">newInitiateVaultLockResponse</span></a></span></span><span> </span><span id="local-6989586621679222222"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>  </span><span class="annot"><span class="annottext">InitiateVaultLockResponse' :: Maybe Text -&gt; Int -&gt; InitiateVaultLockResponse
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lockId:InitiateVaultLockResponse' :: Maybe Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AlockId%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var">lockId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateVaultLockResponse' :: Int
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222222"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | The lock ID, which is used to complete the vault locking process.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLockResponse_lockId"><span class="hs-identifier hs-type">initiateVaultLockResponse_lockId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="initiateVaultLockResponse_lockId"><span class="annot"><span class="annottext">initiateVaultLockResponse_lockId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; InitiateVaultLockResponse -&gt; f InitiateVaultLockResponse
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLockResponse_lockId"><span class="hs-identifier hs-var hs-var">initiateVaultLockResponse_lockId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateVaultLockResponse -&gt; Maybe Text)
+-&gt; (InitiateVaultLockResponse
+    -&gt; Maybe Text -&gt; InitiateVaultLockResponse)
+-&gt; Lens
+     InitiateVaultLockResponse
+     InitiateVaultLockResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222221"><span class="annot"><span class="annottext">Maybe Text
+lockId :: Maybe Text
+$sel:lockId:InitiateVaultLockResponse' :: InitiateVaultLockResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679222221"><span class="hs-identifier hs-var hs-var">lockId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222221"><span class="hs-identifier hs-var">lockId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222220"><span class="annot"><span class="annottext">s :: InitiateVaultLockResponse
+</span><a href="#local-6989586621679222220"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222219"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222219"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLockResponse
+</span><a href="#local-6989586621679222220"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lockId:InitiateVaultLockResponse' :: Maybe Text
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AlockId%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var">lockId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679222219"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLockResponse_httpStatus"><span class="hs-identifier hs-type">initiateVaultLockResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="initiateVaultLockResponse_httpStatus"><span class="annot"><span class="annottext">initiateVaultLockResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; InitiateVaultLockResponse -&gt; f InitiateVaultLockResponse
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#initiateVaultLockResponse_httpStatus"><span class="hs-identifier hs-var hs-var">initiateVaultLockResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(InitiateVaultLockResponse -&gt; Int)
+-&gt; (InitiateVaultLockResponse -&gt; Int -&gt; InitiateVaultLockResponse)
+-&gt; Lens InitiateVaultLockResponse InitiateVaultLockResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222218"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:InitiateVaultLockResponse' :: InitiateVaultLockResponse -&gt; Int
+</span><a href="#local-6989586621679222218"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222218"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222217"><span class="annot"><span class="annottext">s :: InitiateVaultLockResponse
+</span><a href="#local-6989586621679222217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse%27"><span class="hs-identifier hs-type">InitiateVaultLockResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222216"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InitiateVaultLockResponse
+</span><a href="#local-6989586621679222217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:InitiateVaultLockResponse' :: Int
+</span><a href="Amazonka.Glacier.InitiateVaultLock.html#%24sel%3AhttpStatus%3AInitiateVaultLockResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222214"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Glacier.InitiateVaultLock.html#InitiateVaultLockResponse"><span class="hs-identifier hs-type">InitiateVaultLockResponse</span></a></span></span><span>
+</span><span id="line-236"></span></pre></body></html>

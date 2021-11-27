@@ -1,0 +1,419 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTData.GetThingShadow</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets the shadow for the specified thing.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions GetThingShadow&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html GetThingShadow&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the IoT Developer Guide.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTData.GetThingShadow</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier">GetThingShadow</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#newGetThingShadow"><span class="hs-identifier">newGetThingShadow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadow_shadowName"><span class="hs-identifier">getThingShadow_shadowName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadow_thingName"><span class="hs-identifier">getThingShadow_thingName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier">GetThingShadowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#newGetThingShadowResponse"><span class="hs-identifier">newGetThingShadowResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadowResponse_payload"><span class="hs-identifier">getThingShadowResponse_payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadowResponse_httpStatus"><span class="hs-identifier">getThingShadowResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTData.Types.html"><span class="hs-identifier">Amazonka.IoTData.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The input for the GetThingShadow operation.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- /See:/ 'newGetThingShadow' smart constructor.</span><span>
+</span><span id="line-61"></span><span id="local-6989586621679144157"><span id="local-6989586621679144158"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetThingShadow"><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-var">GetThingShadow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetThingShadow%27"><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-var">GetThingShadow'</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the shadow.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AshadowName%3AGetThingShadow%27"><span class="annot"><span class="annottext">GetThingShadow -&gt; Maybe Text
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AshadowName%3AGetThingShadow%27"><span class="hs-identifier hs-var hs-var">shadowName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The name of the thing.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AthingName%3AGetThingShadow%27"><span class="annot"><span class="annottext">GetThingShadow -&gt; Text
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AthingName%3AGetThingShadow%27"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144150"><span id="local-6989586621679144152"><span class="annot"><span class="annottext">GetThingShadow -&gt; GetThingShadow -&gt; Bool
+(GetThingShadow -&gt; GetThingShadow -&gt; Bool)
+-&gt; (GetThingShadow -&gt; GetThingShadow -&gt; Bool) -&gt; Eq GetThingShadow
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetThingShadow -&gt; GetThingShadow -&gt; Bool
+$c/= :: GetThingShadow -&gt; GetThingShadow -&gt; Bool
+== :: GetThingShadow -&gt; GetThingShadow -&gt; Bool
+$c== :: GetThingShadow -&gt; GetThingShadow -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144141"><span id="local-6989586621679144143"><span id="local-6989586621679144145"><span id="local-6989586621679144147"><span class="annot"><span class="annottext">ReadPrec [GetThingShadow]
+ReadPrec GetThingShadow
+Int -&gt; ReadS GetThingShadow
+ReadS [GetThingShadow]
+(Int -&gt; ReadS GetThingShadow)
+-&gt; ReadS [GetThingShadow]
+-&gt; ReadPrec GetThingShadow
+-&gt; ReadPrec [GetThingShadow]
+-&gt; Read GetThingShadow
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetThingShadow]
+$creadListPrec :: ReadPrec [GetThingShadow]
+readPrec :: ReadPrec GetThingShadow
+$creadPrec :: ReadPrec GetThingShadow
+readList :: ReadS [GetThingShadow]
+$creadList :: ReadS [GetThingShadow]
+readsPrec :: Int -&gt; ReadS GetThingShadow
+$creadsPrec :: Int -&gt; ReadS GetThingShadow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144134"><span id="local-6989586621679144136"><span id="local-6989586621679144138"><span class="annot"><span class="annottext">Int -&gt; GetThingShadow -&gt; ShowS
+[GetThingShadow] -&gt; ShowS
+GetThingShadow -&gt; String
+(Int -&gt; GetThingShadow -&gt; ShowS)
+-&gt; (GetThingShadow -&gt; String)
+-&gt; ([GetThingShadow] -&gt; ShowS)
+-&gt; Show GetThingShadow
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetThingShadow] -&gt; ShowS
+$cshowList :: [GetThingShadow] -&gt; ShowS
+show :: GetThingShadow -&gt; String
+$cshow :: GetThingShadow -&gt; String
+showsPrec :: Int -&gt; GetThingShadow -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetThingShadow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetThingShadow -&gt; Rep GetThingShadow x)
+-&gt; (forall x. Rep GetThingShadow x -&gt; GetThingShadow)
+-&gt; Generic GetThingShadow
+forall x. Rep GetThingShadow x -&gt; GetThingShadow
+forall x. GetThingShadow -&gt; Rep GetThingShadow x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetThingShadow x -&gt; GetThingShadow
+$cfrom :: forall x. GetThingShadow -&gt; Rep GetThingShadow x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'GetThingShadow' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'shadowName', 'getThingShadow_shadowName' - The name of the shadow.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'thingName', 'getThingShadow_thingName' - The name of the thing.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#newGetThingShadow"><span class="hs-identifier hs-type">newGetThingShadow</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'thingName'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span>
+</span><span id="line-84"></span><span id="newGetThingShadow"><span class="annot"><span class="annottext">newGetThingShadow :: Text -&gt; GetThingShadow
+</span><a href="Amazonka.IoTData.GetThingShadow.html#newGetThingShadow"><span class="hs-identifier hs-var hs-var">newGetThingShadow</span></a></span></span><span> </span><span id="local-6989586621679144129"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144129"><span class="hs-identifier hs-var">pThingName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">GetThingShadow' :: Maybe Text -&gt; Text -&gt; GetThingShadow
+</span><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-type">GetThingShadow'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:shadowName:GetThingShadow' :: Maybe Text
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AshadowName%3AGetThingShadow%27"><span class="hs-identifier hs-var">shadowName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:thingName:GetThingShadow' :: Text
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AthingName%3AGetThingShadow%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144129"><span class="hs-identifier hs-var">pThingName_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the shadow.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadow_shadowName"><span class="hs-identifier hs-type">getThingShadow_shadowName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="getThingShadow_shadowName"><span class="annot"><span class="annottext">getThingShadow_shadowName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetThingShadow -&gt; f GetThingShadow
+</span><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadow_shadowName"><span class="hs-identifier hs-var hs-var">getThingShadow_shadowName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetThingShadow -&gt; Maybe Text)
+-&gt; (GetThingShadow -&gt; Maybe Text -&gt; GetThingShadow)
+-&gt; Lens GetThingShadow GetThingShadow (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-type">GetThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144126"><span class="annot"><span class="annottext">Maybe Text
+shadowName :: Maybe Text
+$sel:shadowName:GetThingShadow' :: GetThingShadow -&gt; Maybe Text
+</span><a href="#local-6989586621679144126"><span class="hs-identifier hs-var hs-var">shadowName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144126"><span class="hs-identifier hs-var">shadowName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144125"><span class="annot"><span class="annottext">s :: GetThingShadow
+</span><a href="#local-6989586621679144125"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-type">GetThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144124"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144124"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetThingShadow
+</span><a href="#local-6989586621679144125"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shadowName:GetThingShadow' :: Maybe Text
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AshadowName%3AGetThingShadow%27"><span class="hs-identifier hs-var">shadowName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144124"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The name of the thing.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadow_thingName"><span class="hs-identifier hs-type">getThingShadow_thingName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="getThingShadow_thingName"><span class="annot"><span class="annottext">getThingShadow_thingName :: (Text -&gt; f Text) -&gt; GetThingShadow -&gt; f GetThingShadow
+</span><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadow_thingName"><span class="hs-identifier hs-var hs-var">getThingShadow_thingName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetThingShadow -&gt; Text)
+-&gt; (GetThingShadow -&gt; Text -&gt; GetThingShadow)
+-&gt; Lens GetThingShadow GetThingShadow Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-type">GetThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144123"><span class="annot"><span class="annottext">Text
+thingName :: Text
+$sel:thingName:GetThingShadow' :: GetThingShadow -&gt; Text
+</span><a href="#local-6989586621679144123"><span class="hs-identifier hs-var hs-var">thingName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144123"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144122"><span class="annot"><span class="annottext">s :: GetThingShadow
+</span><a href="#local-6989586621679144122"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-type">GetThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144121"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144121"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetThingShadow
+</span><a href="#local-6989586621679144122"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thingName:GetThingShadow' :: Text
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AthingName%3AGetThingShadow%27"><span class="hs-identifier hs-var">thingName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144121"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-100"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-type">GetThingShadowResponse</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679144117"><span class="annot"><span class="annottext">request :: GetThingShadow -&gt; Request GetThingShadow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetThingShadow -&gt; Request GetThingShadow
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679144113"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetThingShadow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetThingShadow)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ByteString
+ -&gt; Either String (AWSResponse GetThingShadow))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetThingShadow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetThingShadow)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int
+ -&gt; ResponseHeaders -&gt; ByteString -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveBytes</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679144110"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144110"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679144109"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679144109"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679144108"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679144108"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; Int -&gt; GetThingShadowResponse
+</span><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse%27"><span class="hs-identifier hs-var">GetThingShadowResponse'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ByteString -&gt; Int -&gt; GetThingShadowResponse)
+-&gt; Either String (Maybe ByteString)
+-&gt; Either String (Int -&gt; GetThingShadowResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Maybe ByteString -&gt; Either String (Maybe ByteString)
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ByteString
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+</span><span class="hs-identifier hs-var">Prelude.coerce</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679144108"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetThingShadowResponse)
+-&gt; Either String Int -&gt; Either String GetThingShadowResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144110"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144101"><span id="local-6989586621679144103"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span></span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144098"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679144094"><span class="annot"><span class="annottext">toHeaders :: GetThingShadow -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetThingShadow -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679144089"><span class="annot"><span class="annottext">toPath :: GetThingShadow -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-type">GetThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144086"><span id="local-6989586621679144087"><span class="annot"><span class="annottext">Maybe Text
+Text
+thingName :: Text
+shadowName :: Maybe Text
+$sel:thingName:GetThingShadow' :: GetThingShadow -&gt; Text
+$sel:shadowName:GetThingShadow' :: GetThingShadow -&gt; Maybe Text
+</span><a href="#local-6989586621679144086"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/things/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679144086"><span class="hs-identifier hs-var">thingName</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/shadow&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow"><span class="hs-identifier hs-type">GetThingShadow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679144082"><span class="annot"><span class="annottext">toQuery :: GetThingShadow -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadow%27"><span class="hs-identifier hs-type">GetThingShadow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144079"><span id="local-6989586621679144080"><span class="annot"><span class="annottext">Maybe Text
+Text
+thingName :: Text
+shadowName :: Maybe Text
+$sel:thingName:GetThingShadow' :: GetThingShadow -&gt; Text
+$sel:shadowName:GetThingShadow' :: GetThingShadow -&gt; Maybe Text
+</span><a href="#local-6989586621679144079"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679144080"><span class="hs-identifier hs-var">shadowName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | The output from the GetThingShadow operation.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- /See:/ 'newGetThingShadowResponse' smart constructor.</span><span>
+</span><span id="line-130"></span><span id="local-6989586621679144076"><span id="local-6989586621679144077"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetThingShadowResponse"><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-var">GetThingShadowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetThingShadowResponse%27"><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse%27"><span class="hs-identifier hs-var">GetThingShadowResponse'</span></a></span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state information, in JSON format.</span><span>
+</span><span id="line-132"></span><span>    </span><span id="%24sel%3Apayload%3AGetThingShadowResponse%27"><span class="annot"><span class="annottext">GetThingShadowResponse -&gt; Maybe ByteString
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3Apayload%3AGetThingShadowResponse%27"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-134"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetThingShadowResponse%27"><span class="annot"><span class="annottext">GetThingShadowResponse -&gt; Int
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AhttpStatus%3AGetThingShadowResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679144070"><span id="local-6989586621679144072"><span class="annot"><span class="annottext">GetThingShadowResponse -&gt; GetThingShadowResponse -&gt; Bool
+(GetThingShadowResponse -&gt; GetThingShadowResponse -&gt; Bool)
+-&gt; (GetThingShadowResponse -&gt; GetThingShadowResponse -&gt; Bool)
+-&gt; Eq GetThingShadowResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetThingShadowResponse -&gt; GetThingShadowResponse -&gt; Bool
+$c/= :: GetThingShadowResponse -&gt; GetThingShadowResponse -&gt; Bool
+== :: GetThingShadowResponse -&gt; GetThingShadowResponse -&gt; Bool
+$c== :: GetThingShadowResponse -&gt; GetThingShadowResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679144064"><span id="local-6989586621679144066"><span id="local-6989586621679144068"><span class="annot"><span class="annottext">Int -&gt; GetThingShadowResponse -&gt; ShowS
+[GetThingShadowResponse] -&gt; ShowS
+GetThingShadowResponse -&gt; String
+(Int -&gt; GetThingShadowResponse -&gt; ShowS)
+-&gt; (GetThingShadowResponse -&gt; String)
+-&gt; ([GetThingShadowResponse] -&gt; ShowS)
+-&gt; Show GetThingShadowResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetThingShadowResponse] -&gt; ShowS
+$cshowList :: [GetThingShadowResponse] -&gt; ShowS
+show :: GetThingShadowResponse -&gt; String
+$cshow :: GetThingShadowResponse -&gt; String
+showsPrec :: Int -&gt; GetThingShadowResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetThingShadowResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetThingShadowResponse -&gt; Rep GetThingShadowResponse x)
+-&gt; (forall x.
+    Rep GetThingShadowResponse x -&gt; GetThingShadowResponse)
+-&gt; Generic GetThingShadowResponse
+forall x. Rep GetThingShadowResponse x -&gt; GetThingShadowResponse
+forall x. GetThingShadowResponse -&gt; Rep GetThingShadowResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetThingShadowResponse x -&gt; GetThingShadowResponse
+$cfrom :: forall x. GetThingShadowResponse -&gt; Rep GetThingShadowResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Create a value of 'GetThingShadowResponse' with all optional fields omitted.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'payload', 'getThingShadowResponse_payload' - The state information, in JSON format.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'httpStatus', 'getThingShadowResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#newGetThingShadowResponse"><span class="hs-identifier hs-type">newGetThingShadowResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-type">GetThingShadowResponse</span></a></span><span>
+</span><span id="line-153"></span><span id="newGetThingShadowResponse"><span class="annot"><span class="annottext">newGetThingShadowResponse :: Int -&gt; GetThingShadowResponse
+</span><a href="Amazonka.IoTData.GetThingShadow.html#newGetThingShadowResponse"><span class="hs-identifier hs-var hs-var">newGetThingShadowResponse</span></a></span></span><span> </span><span id="local-6989586621679144061"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">GetThingShadowResponse' :: Maybe ByteString -&gt; Int -&gt; GetThingShadowResponse
+</span><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse%27"><span class="hs-identifier hs-type">GetThingShadowResponse'</span></a></span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:payload:GetThingShadowResponse' :: Maybe ByteString
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3Apayload%3AGetThingShadowResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetThingShadowResponse' :: Int
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AhttpStatus%3AGetThingShadowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144061"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The state information, in JSON format.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadowResponse_payload"><span class="hs-identifier hs-type">getThingShadowResponse_payload</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-type">GetThingShadowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="getThingShadowResponse_payload"><span class="annot"><span class="annottext">getThingShadowResponse_payload :: (Maybe ByteString -&gt; f (Maybe ByteString))
+-&gt; GetThingShadowResponse -&gt; f GetThingShadowResponse
+</span><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadowResponse_payload"><span class="hs-identifier hs-var hs-var">getThingShadowResponse_payload</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetThingShadowResponse -&gt; Maybe ByteString)
+-&gt; (GetThingShadowResponse
+    -&gt; Maybe ByteString -&gt; GetThingShadowResponse)
+-&gt; Lens
+     GetThingShadowResponse
+     GetThingShadowResponse
+     (Maybe ByteString)
+     (Maybe ByteString)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse%27"><span class="hs-identifier hs-type">GetThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144060"><span class="annot"><span class="annottext">Maybe ByteString
+payload :: Maybe ByteString
+$sel:payload:GetThingShadowResponse' :: GetThingShadowResponse -&gt; Maybe ByteString
+</span><a href="#local-6989586621679144060"><span class="hs-identifier hs-var hs-var">payload</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679144060"><span class="hs-identifier hs-var">payload</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144059"><span class="annot"><span class="annottext">s :: GetThingShadowResponse
+</span><a href="#local-6989586621679144059"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse%27"><span class="hs-identifier hs-type">GetThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144058"><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679144058"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetThingShadowResponse
+</span><a href="#local-6989586621679144059"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:payload:GetThingShadowResponse' :: Maybe ByteString
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3Apayload%3AGetThingShadowResponse%27"><span class="hs-identifier hs-var">payload</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679144058"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-type">GetThingShadowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadowResponse_httpStatus"><span class="hs-identifier hs-type">getThingShadowResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-type">GetThingShadowResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span id="getThingShadowResponse_httpStatus"><span class="annot"><span class="annottext">getThingShadowResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetThingShadowResponse -&gt; f GetThingShadowResponse
+</span><a href="Amazonka.IoTData.GetThingShadow.html#getThingShadowResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getThingShadowResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetThingShadowResponse -&gt; Int)
+-&gt; (GetThingShadowResponse -&gt; Int -&gt; GetThingShadowResponse)
+-&gt; Lens GetThingShadowResponse GetThingShadowResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse%27"><span class="hs-identifier hs-type">GetThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679144057"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetThingShadowResponse' :: GetThingShadowResponse -&gt; Int
+</span><a href="#local-6989586621679144057"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144057"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679144056"><span class="annot"><span class="annottext">s :: GetThingShadowResponse
+</span><a href="#local-6989586621679144056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse%27"><span class="hs-identifier hs-type">GetThingShadowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679144055"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetThingShadowResponse
+</span><a href="#local-6989586621679144056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetThingShadowResponse' :: Int
+</span><a href="Amazonka.IoTData.GetThingShadow.html#%24sel%3AhttpStatus%3AGetThingShadowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679144055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-type">GetThingShadowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679144053"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTData.GetThingShadow.html#GetThingShadowResponse"><span class="hs-identifier hs-type">GetThingShadowResponse</span></a></span></span><span>
+</span><span id="line-168"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Rekognition.Types.SegmentType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Rekognition.Types.SegmentType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier">SegmentType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType_SHOT"><span class="hs-identifier">SegmentType_SHOT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType_TECHNICAL_CUE"><span class="hs-identifier">SegmentType_TECHNICAL_CUE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679329869"><span id="local-6989586621679329870"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SegmentType"><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-var">SegmentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SegmentType%27"><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType%27"><span class="hs-identifier hs-var">SegmentType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSegmentType"><span class="annot"><span class="annottext">SegmentType -&gt; Text
+</span><a href="Amazonka.Rekognition.Types.SegmentType.html#fromSegmentType"><span class="hs-identifier hs-var hs-var">fromSegmentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329861"><span id="local-6989586621679329863"><span id="local-6989586621679329865"><span class="annot"><span class="annottext">Int -&gt; SegmentType -&gt; ShowS
+[SegmentType] -&gt; ShowS
+SegmentType -&gt; String
+(Int -&gt; SegmentType -&gt; ShowS)
+-&gt; (SegmentType -&gt; String)
+-&gt; ([SegmentType] -&gt; ShowS)
+-&gt; Show SegmentType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SegmentType] -&gt; ShowS
+$cshowList :: [SegmentType] -&gt; ShowS
+show :: SegmentType -&gt; String
+$cshow :: SegmentType -&gt; String
+showsPrec :: Int -&gt; SegmentType -&gt; ShowS
+$cshowsPrec :: Int -&gt; SegmentType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679329852"><span id="local-6989586621679329854"><span id="local-6989586621679329856"><span id="local-6989586621679329858"><span class="annot"><span class="annottext">ReadPrec [SegmentType]
+ReadPrec SegmentType
+Int -&gt; ReadS SegmentType
+ReadS [SegmentType]
+(Int -&gt; ReadS SegmentType)
+-&gt; ReadS [SegmentType]
+-&gt; ReadPrec SegmentType
+-&gt; ReadPrec [SegmentType]
+-&gt; Read SegmentType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SegmentType]
+$creadListPrec :: ReadPrec [SegmentType]
+readPrec :: ReadPrec SegmentType
+$creadPrec :: ReadPrec SegmentType
+readList :: ReadS [SegmentType]
+$creadList :: ReadS [SegmentType]
+readsPrec :: Int -&gt; ReadS SegmentType
+$creadsPrec :: Int -&gt; ReadS SegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679329847"><span id="local-6989586621679329849"><span class="annot"><span class="annottext">SegmentType -&gt; SegmentType -&gt; Bool
+(SegmentType -&gt; SegmentType -&gt; Bool)
+-&gt; (SegmentType -&gt; SegmentType -&gt; Bool) -&gt; Eq SegmentType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SegmentType -&gt; SegmentType -&gt; Bool
+$c/= :: SegmentType -&gt; SegmentType -&gt; Bool
+== :: SegmentType -&gt; SegmentType -&gt; Bool
+$c== :: SegmentType -&gt; SegmentType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679329831"><span id="local-6989586621679329833"><span id="local-6989586621679329835"><span id="local-6989586621679329837"><span id="local-6989586621679329839"><span id="local-6989586621679329841"><span id="local-6989586621679329843"><span class="annot"><span class="annottext">Eq SegmentType
+Eq SegmentType
+-&gt; (SegmentType -&gt; SegmentType -&gt; Ordering)
+-&gt; (SegmentType -&gt; SegmentType -&gt; Bool)
+-&gt; (SegmentType -&gt; SegmentType -&gt; Bool)
+-&gt; (SegmentType -&gt; SegmentType -&gt; Bool)
+-&gt; (SegmentType -&gt; SegmentType -&gt; Bool)
+-&gt; (SegmentType -&gt; SegmentType -&gt; SegmentType)
+-&gt; (SegmentType -&gt; SegmentType -&gt; SegmentType)
+-&gt; Ord SegmentType
+SegmentType -&gt; SegmentType -&gt; Bool
+SegmentType -&gt; SegmentType -&gt; Ordering
+SegmentType -&gt; SegmentType -&gt; SegmentType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SegmentType -&gt; SegmentType -&gt; SegmentType
+$cmin :: SegmentType -&gt; SegmentType -&gt; SegmentType
+max :: SegmentType -&gt; SegmentType -&gt; SegmentType
+$cmax :: SegmentType -&gt; SegmentType -&gt; SegmentType
+&gt;= :: SegmentType -&gt; SegmentType -&gt; Bool
+$c&gt;= :: SegmentType -&gt; SegmentType -&gt; Bool
+&gt; :: SegmentType -&gt; SegmentType -&gt; Bool
+$c&gt; :: SegmentType -&gt; SegmentType -&gt; Bool
+&lt;= :: SegmentType -&gt; SegmentType -&gt; Bool
+$c&lt;= :: SegmentType -&gt; SegmentType -&gt; Bool
+&lt; :: SegmentType -&gt; SegmentType -&gt; Bool
+$c&lt; :: SegmentType -&gt; SegmentType -&gt; Bool
+compare :: SegmentType -&gt; SegmentType -&gt; Ordering
+$ccompare :: SegmentType -&gt; SegmentType -&gt; Ordering
+$cp1Ord :: Eq SegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. SegmentType -&gt; Rep SegmentType x)
+-&gt; (forall x. Rep SegmentType x -&gt; SegmentType)
+-&gt; Generic SegmentType
+forall x. Rep SegmentType x -&gt; SegmentType
+forall x. SegmentType -&gt; Rep SegmentType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SegmentType x -&gt; SegmentType
+$cfrom :: forall x. SegmentType -&gt; Rep SegmentType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679329823"><span id="local-6989586621679329825"><span class="annot"><span class="annottext">Int -&gt; SegmentType -&gt; Int
+SegmentType -&gt; Int
+(Int -&gt; SegmentType -&gt; Int)
+-&gt; (SegmentType -&gt; Int) -&gt; Hashable SegmentType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SegmentType -&gt; Int
+$chash :: SegmentType -&gt; Int
+hashWithSalt :: Int -&gt; SegmentType -&gt; Int
+$chashWithSalt :: Int -&gt; SegmentType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679329820"><span class="annot"><span class="annottext">SegmentType -&gt; ()
+(SegmentType -&gt; ()) -&gt; NFData SegmentType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SegmentType -&gt; ()
+$crnf :: SegmentType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679329817"><span class="annot"><span class="annottext">Text -&gt; Either String SegmentType
+(Text -&gt; Either String SegmentType) -&gt; FromText SegmentType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SegmentType
+$cfromText :: Text -&gt; Either String SegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679329814"><span class="annot"><span class="annottext">SegmentType -&gt; Text
+(SegmentType -&gt; Text) -&gt; ToText SegmentType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SegmentType -&gt; Text
+$ctoText :: SegmentType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679329811"><span class="annot"><span class="annottext">SegmentType -&gt; ByteString
+(SegmentType -&gt; ByteString) -&gt; ToByteString SegmentType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SegmentType -&gt; ByteString
+$ctoBS :: SegmentType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679329808"><span class="annot"><span class="annottext">SegmentType -&gt; ByteStringBuilder
+(SegmentType -&gt; ByteStringBuilder) -&gt; ToLog SegmentType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SegmentType -&gt; ByteStringBuilder
+$cbuild :: SegmentType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679329805"><span class="annot"><span class="annottext">HeaderName -&gt; SegmentType -&gt; [Header]
+(HeaderName -&gt; SegmentType -&gt; [Header]) -&gt; ToHeader SegmentType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SegmentType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SegmentType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679329802"><span class="annot"><span class="annottext">SegmentType -&gt; QueryString
+(SegmentType -&gt; QueryString) -&gt; ToQuery SegmentType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SegmentType -&gt; QueryString
+$ctoQuery :: SegmentType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679329797"><span id="local-6989586621679329799"><span class="annot"><span class="annottext">Value -&gt; Parser [SegmentType]
+Value -&gt; Parser SegmentType
+(Value -&gt; Parser SegmentType)
+-&gt; (Value -&gt; Parser [SegmentType]) -&gt; FromJSON SegmentType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SegmentType]
+$cparseJSONList :: Value -&gt; Parser [SegmentType]
+parseJSON :: Value -&gt; Parser SegmentType
+$cparseJSON :: Value -&gt; Parser SegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679329792"><span id="local-6989586621679329794"><span class="annot"><span class="annottext">FromJSONKeyFunction [SegmentType]
+FromJSONKeyFunction SegmentType
+FromJSONKeyFunction SegmentType
+-&gt; FromJSONKeyFunction [SegmentType] -&gt; FromJSONKey SegmentType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SegmentType]
+$cfromJSONKeyList :: FromJSONKeyFunction [SegmentType]
+fromJSONKey :: FromJSONKeyFunction SegmentType
+$cfromJSONKey :: FromJSONKeyFunction SegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679329783"><span id="local-6989586621679329785"><span id="local-6989586621679329787"><span id="local-6989586621679329789"><span class="annot"><span class="annottext">[SegmentType] -&gt; Encoding
+[SegmentType] -&gt; Value
+SegmentType -&gt; Encoding
+SegmentType -&gt; Value
+(SegmentType -&gt; Value)
+-&gt; (SegmentType -&gt; Encoding)
+-&gt; ([SegmentType] -&gt; Value)
+-&gt; ([SegmentType] -&gt; Encoding)
+-&gt; ToJSON SegmentType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SegmentType] -&gt; Encoding
+$ctoEncodingList :: [SegmentType] -&gt; Encoding
+toJSONList :: [SegmentType] -&gt; Value
+$ctoJSONList :: [SegmentType] -&gt; Value
+toEncoding :: SegmentType -&gt; Encoding
+$ctoEncoding :: SegmentType -&gt; Encoding
+toJSON :: SegmentType -&gt; Value
+$ctoJSON :: SegmentType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679329778"><span id="local-6989586621679329780"><span class="annot"><span class="annottext">ToJSONKeyFunction [SegmentType]
+ToJSONKeyFunction SegmentType
+ToJSONKeyFunction SegmentType
+-&gt; ToJSONKeyFunction [SegmentType] -&gt; ToJSONKey SegmentType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SegmentType]
+$ctoJSONKeyList :: ToJSONKeyFunction [SegmentType]
+toJSONKey :: ToJSONKeyFunction SegmentType
+$ctoJSONKey :: ToJSONKeyFunction SegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679329775"><span class="annot"><span class="annottext">[Node] -&gt; Either String SegmentType
+([Node] -&gt; Either String SegmentType) -&gt; FromXML SegmentType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SegmentType
+$cparseXML :: [Node] -&gt; Either String SegmentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679329772"><span class="annot"><span class="annottext">SegmentType -&gt; XML
+(SegmentType -&gt; XML) -&gt; ToXML SegmentType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SegmentType -&gt; XML
+$ctoXML :: SegmentType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType_SHOT"><span class="hs-identifier hs-type">SegmentType_SHOT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSegmentType_SHOT"><span id="%24mSegmentType_SHOT"><span id="SegmentType_SHOT"><span class="annot"><span class="annottext">$bSegmentType_SHOT :: SegmentType
+$mSegmentType_SHOT :: forall r. SegmentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Rekognition.Types.SegmentType.html#%24bSegmentType_SHOT"><span class="hs-identifier hs-var hs-var hs-var">SegmentType_SHOT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType%27"><span class="hs-identifier hs-type">SegmentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SHOT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType_TECHNICAL_CUE"><span class="hs-identifier hs-type">SegmentType_TECHNICAL_CUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType"><span class="hs-identifier hs-type">SegmentType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSegmentType_TECHNICAL_CUE"><span id="%24mSegmentType_TECHNICAL_CUE"><span id="SegmentType_TECHNICAL_CUE"><span class="annot"><span class="annottext">$bSegmentType_TECHNICAL_CUE :: SegmentType
+$mSegmentType_TECHNICAL_CUE :: forall r. SegmentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Rekognition.Types.SegmentType.html#%24bSegmentType_TECHNICAL_CUE"><span class="hs-identifier hs-var hs-var hs-var">SegmentType_TECHNICAL_CUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType%27"><span class="hs-identifier hs-type">SegmentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TECHNICAL_CUE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType_SHOT"><span class="hs-pragma hs-type">SegmentType_SHOT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType_TECHNICAL_CUE"><span class="hs-pragma hs-type">SegmentType_TECHNICAL_CUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Rekognition.Types.SegmentType.html#SegmentType%27"><span class="hs-pragma hs-type">SegmentType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

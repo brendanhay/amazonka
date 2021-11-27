@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IAM.ListAccountAliases</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the account alias associated with the Amazon Web Services account</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (Note: you can have only one). For information about using an Amazon Web</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Services account alias, see</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an alias for your Amazon Web Services account ID&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IAM.ListAccountAliases</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier">ListAccountAliases</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#newListAccountAliases"><span class="hs-identifier">newListAccountAliases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliases_marker"><span class="hs-identifier">listAccountAliases_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliases_maxItems"><span class="hs-identifier">listAccountAliases_maxItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier">ListAccountAliasesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#newListAccountAliasesResponse"><span class="hs-identifier">newListAccountAliasesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_marker"><span class="hs-identifier">listAccountAliasesResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_isTruncated"><span class="hs-identifier">listAccountAliasesResponse_isTruncated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_httpStatus"><span class="hs-identifier">listAccountAliasesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_accountAliases"><span class="hs-identifier">listAccountAliasesResponse_accountAliases</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IAM.Types.html"><span class="hs-identifier">Amazonka.IAM.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListAccountAliases' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679446753"><span id="local-6989586621679446754"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountAliases"><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-var">ListAccountAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountAliases%27"><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases%27"><span class="hs-identifier hs-var">ListAccountAliases'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Amarker%3AListAccountAliases%27"><span class="annot"><span class="annottext">ListAccountAliases -&gt; Maybe Text
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3Amarker%3AListAccountAliases%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmaxItems%3AListAccountAliases%27"><span class="annot"><span class="annottext">ListAccountAliases -&gt; Maybe Natural
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AmaxItems%3AListAccountAliases%27"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446746"><span id="local-6989586621679446748"><span class="annot"><span class="annottext">ListAccountAliases -&gt; ListAccountAliases -&gt; Bool
+(ListAccountAliases -&gt; ListAccountAliases -&gt; Bool)
+-&gt; (ListAccountAliases -&gt; ListAccountAliases -&gt; Bool)
+-&gt; Eq ListAccountAliases
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountAliases -&gt; ListAccountAliases -&gt; Bool
+$c/= :: ListAccountAliases -&gt; ListAccountAliases -&gt; Bool
+== :: ListAccountAliases -&gt; ListAccountAliases -&gt; Bool
+$c== :: ListAccountAliases -&gt; ListAccountAliases -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446737"><span id="local-6989586621679446739"><span id="local-6989586621679446741"><span id="local-6989586621679446743"><span class="annot"><span class="annottext">ReadPrec [ListAccountAliases]
+ReadPrec ListAccountAliases
+Int -&gt; ReadS ListAccountAliases
+ReadS [ListAccountAliases]
+(Int -&gt; ReadS ListAccountAliases)
+-&gt; ReadS [ListAccountAliases]
+-&gt; ReadPrec ListAccountAliases
+-&gt; ReadPrec [ListAccountAliases]
+-&gt; Read ListAccountAliases
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAccountAliases]
+$creadListPrec :: ReadPrec [ListAccountAliases]
+readPrec :: ReadPrec ListAccountAliases
+$creadPrec :: ReadPrec ListAccountAliases
+readList :: ReadS [ListAccountAliases]
+$creadList :: ReadS [ListAccountAliases]
+readsPrec :: Int -&gt; ReadS ListAccountAliases
+$creadsPrec :: Int -&gt; ReadS ListAccountAliases
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446730"><span id="local-6989586621679446732"><span id="local-6989586621679446734"><span class="annot"><span class="annottext">Int -&gt; ListAccountAliases -&gt; ShowS
+[ListAccountAliases] -&gt; ShowS
+ListAccountAliases -&gt; String
+(Int -&gt; ListAccountAliases -&gt; ShowS)
+-&gt; (ListAccountAliases -&gt; String)
+-&gt; ([ListAccountAliases] -&gt; ShowS)
+-&gt; Show ListAccountAliases
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountAliases] -&gt; ShowS
+$cshowList :: [ListAccountAliases] -&gt; ShowS
+show :: ListAccountAliases -&gt; String
+$cshow :: ListAccountAliases -&gt; String
+showsPrec :: Int -&gt; ListAccountAliases -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountAliases -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAccountAliases -&gt; Rep ListAccountAliases x)
+-&gt; (forall x. Rep ListAccountAliases x -&gt; ListAccountAliases)
+-&gt; Generic ListAccountAliases
+forall x. Rep ListAccountAliases x -&gt; ListAccountAliases
+forall x. ListAccountAliases -&gt; Rep ListAccountAliases x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAccountAliases x -&gt; ListAccountAliases
+$cfrom :: forall x. ListAccountAliases -&gt; Rep ListAccountAliases x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'ListAccountAliases' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'marker', 'listAccountAliases_marker' - Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'maxItems', 'listAccountAliases_maxItems' - Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#newListAccountAliases"><span class="hs-identifier hs-type">newListAccountAliases</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span>
+</span><span id="line-102"></span><span id="newListAccountAliases"><span class="annot"><span class="annottext">newListAccountAliases :: ListAccountAliases
+</span><a href="Amazonka.IAM.ListAccountAliases.html#newListAccountAliases"><span class="hs-identifier hs-var hs-var">newListAccountAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">ListAccountAliases' :: Maybe Text -&gt; Maybe Natural -&gt; ListAccountAliases
+</span><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases%27"><span class="hs-identifier hs-type">ListAccountAliases'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListAccountAliases' :: Maybe Text
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3Amarker%3AListAccountAliases%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxItems:ListAccountAliases' :: Maybe Natural
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AmaxItems%3AListAccountAliases%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Use this parameter only when paginating results and only after you</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- receive a response indicating that the results are truncated. Set it to</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the value of the @Marker@ element in the response that you received to</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- indicate where the next call should start.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliases_marker"><span class="hs-identifier hs-type">listAccountAliases_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listAccountAliases_marker"><span class="annot"><span class="annottext">listAccountAliases_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountAliases -&gt; f ListAccountAliases
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliases_marker"><span class="hs-identifier hs-var hs-var">listAccountAliases_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountAliases -&gt; Maybe Text)
+-&gt; (ListAccountAliases -&gt; Maybe Text -&gt; ListAccountAliases)
+-&gt; Lens
+     ListAccountAliases ListAccountAliases (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases%27"><span class="hs-identifier hs-type">ListAccountAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446724"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListAccountAliases' :: ListAccountAliases -&gt; Maybe Text
+</span><a href="#local-6989586621679446724"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446724"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446723"><span class="annot"><span class="annottext">s :: ListAccountAliases
+</span><a href="#local-6989586621679446723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases%27"><span class="hs-identifier hs-type">ListAccountAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountAliases
+</span><a href="#local-6989586621679446723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAccountAliases' :: Maybe Text
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3Amarker%3AListAccountAliases%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Use this only when paginating results to indicate the maximum number of</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- items you want in the response. If additional items exist beyond the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- maximum you specify, the @IsTruncated@ response element is @true@.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- If you do not include this parameter, the number of items defaults to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 100. Note that IAM might return fewer results, even when there are more</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- results available. In that case, the @IsTruncated@ response element</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- returns @true@, and @Marker@ contains a value to include in the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- subsequent call that tells the service where to continue from.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliases_maxItems"><span class="hs-identifier hs-type">listAccountAliases_maxItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="listAccountAliases_maxItems"><span class="annot"><span class="annottext">listAccountAliases_maxItems :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAccountAliases -&gt; f ListAccountAliases
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliases_maxItems"><span class="hs-identifier hs-var hs-var">listAccountAliases_maxItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountAliases -&gt; Maybe Natural)
+-&gt; (ListAccountAliases -&gt; Maybe Natural -&gt; ListAccountAliases)
+-&gt; Lens
+     ListAccountAliases
+     ListAccountAliases
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases%27"><span class="hs-identifier hs-type">ListAccountAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446721"><span class="annot"><span class="annottext">Maybe Natural
+maxItems :: Maybe Natural
+$sel:maxItems:ListAccountAliases' :: ListAccountAliases -&gt; Maybe Natural
+</span><a href="#local-6989586621679446721"><span class="hs-identifier hs-var hs-var">maxItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446721"><span class="hs-identifier hs-var">maxItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446720"><span class="annot"><span class="annottext">s :: ListAccountAliases
+</span><a href="#local-6989586621679446720"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases%27"><span class="hs-identifier hs-type">ListAccountAliases'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446719"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446719"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountAliases
+</span><a href="#local-6989586621679446720"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxItems:ListAccountAliases' :: Maybe Natural
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AmaxItems%3AListAccountAliases%27"><span class="hs-identifier hs-var">maxItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446719"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679446715"><span class="annot"><span class="annottext">page :: ListAccountAliases
+-&gt; AWSResponse ListAccountAliases -&gt; Maybe ListAccountAliases
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679446713"><span class="annot"><span class="annottext">ListAccountAliases
+</span><a href="#local-6989586621679446713"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679446712"><span class="annot"><span class="annottext">AWSResponse ListAccountAliases
+</span><a href="#local-6989586621679446712"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Bool -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountAliases
+ListAccountAliasesResponse
+</span><a href="#local-6989586621679446712"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">ListAccountAliasesResponse
+-&gt; Getting (First Bool) ListAccountAliasesResponse Bool
+-&gt; Maybe Bool
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Bool -&gt; Const (First Bool) (Maybe Bool))
+-&gt; ListAccountAliasesResponse
+-&gt; Const (First Bool) ListAccountAliasesResponse
+Lens' ListAccountAliasesResponse (Maybe Bool)
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_isTruncated"><span class="hs-identifier hs-var">listAccountAliasesResponse_isTruncated</span></a></span><span>
+</span><span id="line-132"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Bool -&gt; Const (First Bool) (Maybe Bool))
+ -&gt; ListAccountAliasesResponse
+ -&gt; Const (First Bool) ListAccountAliasesResponse)
+-&gt; ((Bool -&gt; Const (First Bool) Bool)
+    -&gt; Maybe Bool -&gt; Const (First Bool) (Maybe Bool))
+-&gt; Getting (First Bool) ListAccountAliasesResponse Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Const (First Bool) Bool)
+-&gt; Maybe Bool -&gt; Const (First Bool) (Maybe Bool)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-133"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountAliases
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. Maybe a -&gt; Bool
+</span><span class="hs-identifier hs-var">Prelude.isNothing</span></span><span>
+</span><span id="line-136"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountAliases
+ListAccountAliasesResponse
+</span><a href="#local-6989586621679446712"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">ListAccountAliasesResponse
+-&gt; Getting (First Text) ListAccountAliasesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountAliasesResponse
+-&gt; Const (First Text) ListAccountAliasesResponse
+Lens' ListAccountAliasesResponse (Maybe Text)
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_marker"><span class="hs-identifier hs-var">listAccountAliasesResponse_marker</span></a></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountAliasesResponse
+ -&gt; Const (First Text) ListAccountAliasesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountAliasesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-139"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListAccountAliases
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">ListAccountAliases -&gt; Maybe ListAccountAliases
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListAccountAliases -&gt; Maybe ListAccountAliases)
+-&gt; ListAccountAliases -&gt; Maybe ListAccountAliases
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ListAccountAliases
+</span><a href="#local-6989586621679446713"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">ListAccountAliases
+-&gt; (ListAccountAliases -&gt; ListAccountAliases) -&gt; ListAccountAliases
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListAccountAliases -&gt; Identity ListAccountAliases
+Lens
+  ListAccountAliases ListAccountAliases (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliases_marker"><span class="hs-identifier hs-var">listAccountAliases_marker</span></a></span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListAccountAliases -&gt; Identity ListAccountAliases)
+-&gt; Maybe Text -&gt; ListAccountAliases -&gt; ListAccountAliases
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListAccountAliases
+ListAccountAliasesResponse
+</span><a href="#local-6989586621679446712"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-146"></span><span>          </span><span class="annot"><span class="annottext">ListAccountAliasesResponse
+-&gt; Getting (First Text) ListAccountAliasesResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListAccountAliasesResponse
+-&gt; Const (First Text) ListAccountAliasesResponse
+Lens' ListAccountAliasesResponse (Maybe Text)
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_marker"><span class="hs-identifier hs-var">listAccountAliasesResponse_marker</span></a></span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListAccountAliasesResponse
+ -&gt; Const (First Text) ListAccountAliasesResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListAccountAliasesResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-151"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679446701"><span class="annot"><span class="annottext">request :: ListAccountAliases -&gt; Request ListAccountAliases
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAccountAliases -&gt; Request ListAccountAliases
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IAM.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679446697"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAccountAliases
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAccountAliases)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ListAccountAliases))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAccountAliases
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListAccountAliases)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ListAccountAliasesResult&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679446694"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446694"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679446693"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679446693"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679446692"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679446692"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Bool -&gt; Int -&gt; [Text] -&gt; ListAccountAliasesResponse
+</span><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-var">ListAccountAliasesResponse'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Bool -&gt; Int -&gt; [Text] -&gt; ListAccountAliasesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe Bool -&gt; Int -&gt; [Text] -&gt; ListAccountAliasesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679446692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Bool -&gt; Int -&gt; [Text] -&gt; ListAccountAliasesResponse)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Int -&gt; [Text] -&gt; ListAccountAliasesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679446692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IsTruncated&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [Text] -&gt; ListAccountAliasesResponse)
+-&gt; Either String Int
+-&gt; Either String ([Text] -&gt; ListAccountAliasesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446694"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; ListAccountAliasesResponse)
+-&gt; Either String [Text] -&gt; Either String ListAccountAliasesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679446692"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountAliases&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String [Text]) -&gt; Either String [Text]
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-164"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446682"><span id="local-6989586621679446684"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446679"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679446675"><span class="annot"><span class="annottext">toHeaders :: ListAccountAliases -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAccountAliases -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679446670"><span class="annot"><span class="annottext">toPath :: ListAccountAliases -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAccountAliases -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases"><span class="hs-identifier hs-type">ListAccountAliases</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679446666"><span class="annot"><span class="annottext">toQuery :: ListAccountAliases -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliases%27"><span class="hs-identifier hs-type">ListAccountAliases'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446663"><span id="local-6989586621679446664"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxItems :: Maybe Natural
+marker :: Maybe Text
+$sel:maxItems:ListAccountAliases' :: ListAccountAliases -&gt; Maybe Natural
+$sel:marker:ListAccountAliases' :: ListAccountAliases -&gt; Maybe Text
+</span><a href="#local-6989586621679446663"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-180"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-181"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ListAccountAliases&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-05-08&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446664"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679446663"><span class="hs-identifier hs-var">maxItems</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Contains the response to a successful ListAccountAliases request.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- /See:/ 'newListAccountAliasesResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679446660"><span id="local-6989586621679446661"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAccountAliasesResponse"><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-var">ListAccountAliasesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAccountAliasesResponse%27"><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-var">ListAccountAliasesResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3Amarker%3AListAccountAliasesResponse%27"><span class="annot"><span class="annottext">ListAccountAliasesResponse -&gt; Maybe Text
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3Amarker%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-203"></span><span>    </span><span id="%24sel%3AisTruncated%3AListAccountAliasesResponse%27"><span class="annot"><span class="annottext">ListAccountAliasesResponse -&gt; Maybe Bool
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AisTruncated%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-205"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAccountAliasesResponse%27"><span class="annot"><span class="annottext">ListAccountAliasesResponse -&gt; Int
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AhttpStatus%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">-- | A list of aliases associated with the account. Amazon Web Services</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">-- supports only one alias per account.</span><span>
+</span><span id="line-208"></span><span>    </span><span id="%24sel%3AaccountAliases%3AListAccountAliasesResponse%27"><span class="annot"><span class="annottext">ListAccountAliasesResponse -&gt; [Text]
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AaccountAliases%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var hs-var">accountAliases</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679446652"><span id="local-6989586621679446654"><span class="annot"><span class="annottext">ListAccountAliasesResponse -&gt; ListAccountAliasesResponse -&gt; Bool
+(ListAccountAliasesResponse -&gt; ListAccountAliasesResponse -&gt; Bool)
+-&gt; (ListAccountAliasesResponse
+    -&gt; ListAccountAliasesResponse -&gt; Bool)
+-&gt; Eq ListAccountAliasesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAccountAliasesResponse -&gt; ListAccountAliasesResponse -&gt; Bool
+$c/= :: ListAccountAliasesResponse -&gt; ListAccountAliasesResponse -&gt; Bool
+== :: ListAccountAliasesResponse -&gt; ListAccountAliasesResponse -&gt; Bool
+$c== :: ListAccountAliasesResponse -&gt; ListAccountAliasesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446644"><span id="local-6989586621679446646"><span id="local-6989586621679446648"><span id="local-6989586621679446650"><span class="annot"><span class="annottext">ReadPrec [ListAccountAliasesResponse]
+ReadPrec ListAccountAliasesResponse
+Int -&gt; ReadS ListAccountAliasesResponse
+ReadS [ListAccountAliasesResponse]
+(Int -&gt; ReadS ListAccountAliasesResponse)
+-&gt; ReadS [ListAccountAliasesResponse]
+-&gt; ReadPrec ListAccountAliasesResponse
+-&gt; ReadPrec [ListAccountAliasesResponse]
+-&gt; Read ListAccountAliasesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListAccountAliasesResponse]
+$creadListPrec :: ReadPrec [ListAccountAliasesResponse]
+readPrec :: ReadPrec ListAccountAliasesResponse
+$creadPrec :: ReadPrec ListAccountAliasesResponse
+readList :: ReadS [ListAccountAliasesResponse]
+$creadList :: ReadS [ListAccountAliasesResponse]
+readsPrec :: Int -&gt; ReadS ListAccountAliasesResponse
+$creadsPrec :: Int -&gt; ReadS ListAccountAliasesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679446638"><span id="local-6989586621679446640"><span id="local-6989586621679446642"><span class="annot"><span class="annottext">Int -&gt; ListAccountAliasesResponse -&gt; ShowS
+[ListAccountAliasesResponse] -&gt; ShowS
+ListAccountAliasesResponse -&gt; String
+(Int -&gt; ListAccountAliasesResponse -&gt; ShowS)
+-&gt; (ListAccountAliasesResponse -&gt; String)
+-&gt; ([ListAccountAliasesResponse] -&gt; ShowS)
+-&gt; Show ListAccountAliasesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAccountAliasesResponse] -&gt; ShowS
+$cshowList :: [ListAccountAliasesResponse] -&gt; ShowS
+show :: ListAccountAliasesResponse -&gt; String
+$cshow :: ListAccountAliasesResponse -&gt; String
+showsPrec :: Int -&gt; ListAccountAliasesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAccountAliasesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAccountAliasesResponse -&gt; Rep ListAccountAliasesResponse x)
+-&gt; (forall x.
+    Rep ListAccountAliasesResponse x -&gt; ListAccountAliasesResponse)
+-&gt; Generic ListAccountAliasesResponse
+forall x.
+Rep ListAccountAliasesResponse x -&gt; ListAccountAliasesResponse
+forall x.
+ListAccountAliasesResponse -&gt; Rep ListAccountAliasesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAccountAliasesResponse x -&gt; ListAccountAliasesResponse
+$cfrom :: forall x.
+ListAccountAliasesResponse -&gt; Rep ListAccountAliasesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- Create a value of 'ListAccountAliasesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'marker', 'listAccountAliasesResponse_marker' - When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- 'isTruncated', 'listAccountAliasesResponse_isTruncated' - A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- 'httpStatus', 'listAccountAliasesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- 'accountAliases', 'listAccountAliasesResponse_accountAliases' - A list of aliases associated with the account. Amazon Web Services</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- supports only one alias per account.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#newListAccountAliasesResponse"><span class="hs-identifier hs-type">newListAccountAliasesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span>
+</span><span id="line-240"></span><span id="newListAccountAliasesResponse"><span class="annot"><span class="annottext">newListAccountAliasesResponse :: Int -&gt; ListAccountAliasesResponse
+</span><a href="Amazonka.IAM.ListAccountAliases.html#newListAccountAliasesResponse"><span class="hs-identifier hs-var hs-var">newListAccountAliasesResponse</span></a></span></span><span> </span><span id="local-6989586621679446635"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">ListAccountAliasesResponse' :: Maybe Text
+-&gt; Maybe Bool -&gt; Int -&gt; [Text] -&gt; ListAccountAliasesResponse
+</span><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListAccountAliasesResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3Amarker%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:isTruncated:ListAccountAliasesResponse' :: Maybe Bool
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AisTruncated%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountAliasesResponse' :: Int
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AhttpStatus%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446635"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:accountAliases:ListAccountAliasesResponse' :: [Text]
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AaccountAliases%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">accountAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-248"></span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- | When @IsTruncated@ is @true@, this element is present and contains the</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- value to use for the @Marker@ parameter in a subsequent pagination</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_marker"><span class="hs-identifier hs-type">listAccountAliasesResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="listAccountAliasesResponse_marker"><span class="annot"><span class="annottext">listAccountAliasesResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAccountAliasesResponse -&gt; f ListAccountAliasesResponse
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_marker"><span class="hs-identifier hs-var hs-var">listAccountAliasesResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountAliasesResponse -&gt; Maybe Text)
+-&gt; (ListAccountAliasesResponse
+    -&gt; Maybe Text -&gt; ListAccountAliasesResponse)
+-&gt; Lens' ListAccountAliasesResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446634"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListAccountAliasesResponse' :: ListAccountAliasesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679446634"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446634"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446633"><span class="annot"><span class="annottext">s :: ListAccountAliasesResponse
+</span><a href="#local-6989586621679446633"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446632"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446632"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountAliasesResponse
+</span><a href="#local-6989586621679446633"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListAccountAliasesResponse' :: Maybe Text
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3Amarker%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679446632"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | A flag that indicates whether there are more items to return. If your</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- results were truncated, you can make a subsequent pagination request</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- using the @Marker@ request parameter to retrieve more items. Note that</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- IAM might return fewer than the @MaxItems@ number of results even when</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- there are more results available. We recommend that you check</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- @IsTruncated@ after every call to ensure that you receive all your</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_isTruncated"><span class="hs-identifier hs-type">listAccountAliasesResponse_isTruncated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="listAccountAliasesResponse_isTruncated"><span class="annot"><span class="annottext">listAccountAliasesResponse_isTruncated :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ListAccountAliasesResponse -&gt; f ListAccountAliasesResponse
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_isTruncated"><span class="hs-identifier hs-var hs-var">listAccountAliasesResponse_isTruncated</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountAliasesResponse -&gt; Maybe Bool)
+-&gt; (ListAccountAliasesResponse
+    -&gt; Maybe Bool -&gt; ListAccountAliasesResponse)
+-&gt; Lens' ListAccountAliasesResponse (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446631"><span class="annot"><span class="annottext">Maybe Bool
+isTruncated :: Maybe Bool
+$sel:isTruncated:ListAccountAliasesResponse' :: ListAccountAliasesResponse -&gt; Maybe Bool
+</span><a href="#local-6989586621679446631"><span class="hs-identifier hs-var hs-var">isTruncated</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679446631"><span class="hs-identifier hs-var">isTruncated</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446630"><span class="annot"><span class="annottext">s :: ListAccountAliasesResponse
+</span><a href="#local-6989586621679446630"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446629"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679446629"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountAliasesResponse
+</span><a href="#local-6989586621679446630"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isTruncated:ListAccountAliasesResponse' :: Maybe Bool
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AisTruncated%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">isTruncated</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679446629"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_httpStatus"><span class="hs-identifier hs-type">listAccountAliasesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-267"></span><span id="listAccountAliasesResponse_httpStatus"><span class="annot"><span class="annottext">listAccountAliasesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAccountAliasesResponse -&gt; f ListAccountAliasesResponse
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAccountAliasesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountAliasesResponse -&gt; Int)
+-&gt; (ListAccountAliasesResponse
+    -&gt; Int -&gt; ListAccountAliasesResponse)
+-&gt; Lens
+     ListAccountAliasesResponse ListAccountAliasesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446628"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAccountAliasesResponse' :: ListAccountAliasesResponse -&gt; Int
+</span><a href="#local-6989586621679446628"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446628"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446627"><span class="annot"><span class="annottext">s :: ListAccountAliasesResponse
+</span><a href="#local-6989586621679446627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446626"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountAliasesResponse
+</span><a href="#local-6989586621679446627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAccountAliasesResponse' :: Int
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AhttpStatus%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679446626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | A list of aliases associated with the account. Amazon Web Services</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- supports only one alias per account.</span><span>
+</span><span id="line-271"></span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_accountAliases"><span class="hs-identifier hs-type">listAccountAliasesResponse_accountAliases</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-272"></span><span id="listAccountAliasesResponse_accountAliases"><span class="annot"><span class="annottext">listAccountAliasesResponse_accountAliases :: ([Text] -&gt; f [Text])
+-&gt; ListAccountAliasesResponse -&gt; f ListAccountAliasesResponse
+</span><a href="Amazonka.IAM.ListAccountAliases.html#listAccountAliasesResponse_accountAliases"><span class="hs-identifier hs-var hs-var">listAccountAliasesResponse_accountAliases</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAccountAliasesResponse -&gt; [Text])
+-&gt; (ListAccountAliasesResponse
+    -&gt; [Text] -&gt; ListAccountAliasesResponse)
+-&gt; Lens
+     ListAccountAliasesResponse ListAccountAliasesResponse [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679446625"><span class="annot"><span class="annottext">[Text]
+accountAliases :: [Text]
+$sel:accountAliases:ListAccountAliasesResponse' :: ListAccountAliasesResponse -&gt; [Text]
+</span><a href="#local-6989586621679446625"><span class="hs-identifier hs-var hs-var">accountAliases</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679446625"><span class="hs-identifier hs-var">accountAliases</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679446624"><span class="annot"><span class="annottext">s :: ListAccountAliasesResponse
+</span><a href="#local-6989586621679446624"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse%27"><span class="hs-identifier hs-type">ListAccountAliasesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679446623"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679446623"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAccountAliasesResponse
+</span><a href="#local-6989586621679446624"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountAliases:ListAccountAliasesResponse' :: [Text]
+</span><a href="Amazonka.IAM.ListAccountAliases.html#%24sel%3AaccountAliases%3AListAccountAliasesResponse%27"><span class="hs-identifier hs-var">accountAliases</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679446623"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; ListAccountAliasesResponse -&gt; f ListAccountAliasesResponse)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; ListAccountAliasesResponse
+-&gt; f ListAccountAliasesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679446620"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IAM.ListAccountAliases.html#ListAccountAliasesResponse"><span class="hs-identifier hs-type">ListAccountAliasesResponse</span></a></span></span><span>
+</span><span id="line-275"></span></pre></body></html>

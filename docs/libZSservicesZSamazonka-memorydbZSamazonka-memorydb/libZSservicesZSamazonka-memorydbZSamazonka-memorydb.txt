@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.MemoryDb.Types.ACLPendingChanges
+module Amazonka.MemoryDb.Types.ACLPendingChanges
 
 -- | Returns the updates being applied to the ACL.
 --   
@@ -42,16 +42,16 @@ aCLPendingChanges_userNamesToAdd :: Lens' ACLPendingChanges (Maybe [Text])
 
 -- | A list of user names being removed from the ACL
 aCLPendingChanges_userNamesToRemove :: Lens' ACLPendingChanges (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ACLPendingChanges.ACLPendingChanges
 
 
-module Network.AWS.MemoryDb.Types.ACL
+module Amazonka.MemoryDb.Types.ACL
 
 -- | An Access Control List. You can authenticate users with Access Contol
 --   Lists. ACLs enable you to control cluster access by grouping users.
@@ -135,16 +135,16 @@ acl_minimumEngineVersion :: Lens' ACL (Maybe Text)
 
 -- | A list of clusters associated with the ACL.
 acl_clusters :: Lens' ACL (Maybe [Text])
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ACL.ACL
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ACL.ACL
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ACL.ACL
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ACL.ACL
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ACL.ACL
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ACL.ACL
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ACL.ACL
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ACL.ACL
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ACL.ACL
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ACL.ACL
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ACL.ACL
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ACL.ACL
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ACL.ACL
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ACL.ACL
 
 
-module Network.AWS.MemoryDb.Types.ACLsUpdateStatus
+module Amazonka.MemoryDb.Types.ACLsUpdateStatus
 
 -- | The status of the ACL update
 --   
@@ -171,70 +171,70 @@ newACLsUpdateStatus :: ACLsUpdateStatus
 
 -- | A list of ACLs pending to be applied.
 aCLsUpdateStatus_aCLToApply :: Lens' ACLsUpdateStatus (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ACLsUpdateStatus.ACLsUpdateStatus
 
 
-module Network.AWS.MemoryDb.Types.AZStatus
+module Amazonka.MemoryDb.Types.AZStatus
 newtype AZStatus
 AZStatus' :: Text -> AZStatus
 [fromAZStatus] :: AZStatus -> Text
 pattern AZStatus_Multiaz :: AZStatus
 pattern AZStatus_Singleaz :: AZStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance GHC.Classes.Ord Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.AZStatus.AZStatus
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.Text.ToText Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Amazonka.Data.Text.FromText Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance GHC.Classes.Ord Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance GHC.Read.Read Amazonka.MemoryDb.Types.AZStatus.AZStatus
+instance GHC.Show.Show Amazonka.MemoryDb.Types.AZStatus.AZStatus
 
 
-module Network.AWS.MemoryDb.Types.AuthenticationType
+module Amazonka.MemoryDb.Types.AuthenticationType
 newtype AuthenticationType
 AuthenticationType' :: Text -> AuthenticationType
 [fromAuthenticationType] :: AuthenticationType -> Text
 pattern AuthenticationType_No_password :: AuthenticationType
 pattern AuthenticationType_Password :: AuthenticationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Network.AWS.Data.Text.ToText Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Network.AWS.Data.Text.FromText Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance GHC.Classes.Ord Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.XML.ToXML Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.XML.FromXML Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.Log.ToLog Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.Text.ToText Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Amazonka.Data.Text.FromText Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance GHC.Classes.Ord Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance GHC.Read.Read Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
+instance GHC.Show.Show Amazonka.MemoryDb.Types.AuthenticationType.AuthenticationType
 
 
-module Network.AWS.MemoryDb.Types.Authentication
+module Amazonka.MemoryDb.Types.Authentication
 
 -- | Denotes the user's authentication properties, such as whether it
 --   requires a password to authenticate. Used in output responses.
@@ -271,16 +271,16 @@ authentication_passwordCount :: Lens' Authentication (Maybe Int)
 
 -- | Indicates whether the user requires a password to authenticate.
 authentication_type :: Lens' Authentication (Maybe AuthenticationType)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Authentication.Authentication
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Authentication.Authentication
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Authentication.Authentication
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Authentication.Authentication
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Authentication.Authentication
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Authentication.Authentication
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Authentication.Authentication
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Authentication.Authentication
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Authentication.Authentication
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Authentication.Authentication
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Authentication.Authentication
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Authentication.Authentication
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Authentication.Authentication
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Authentication.Authentication
 
 
-module Network.AWS.MemoryDb.Types.AvailabilityZone
+module Amazonka.MemoryDb.Types.AvailabilityZone
 
 -- | Indicates if the cluster has a Multi-AZ configuration (multiaz) or not
 --   (singleaz).
@@ -307,16 +307,16 @@ newAvailabilityZone :: AvailabilityZone
 
 -- | The name of the Availability Zone.
 availabilityZone_name :: Lens' AvailabilityZone (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.AvailabilityZone.AvailabilityZone
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.AvailabilityZone.AvailabilityZone
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.AvailabilityZone.AvailabilityZone
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.AvailabilityZone.AvailabilityZone
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.AvailabilityZone.AvailabilityZone
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.AvailabilityZone.AvailabilityZone
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Show.Show Amazonka.MemoryDb.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Read.Read Amazonka.MemoryDb.Types.AvailabilityZone.AvailabilityZone
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.AvailabilityZone.AvailabilityZone
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.AvailabilityZone.AvailabilityZone
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.AvailabilityZone.AvailabilityZone
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.AvailabilityZone.AvailabilityZone
 
 
-module Network.AWS.MemoryDb.Types.Endpoint
+module Amazonka.MemoryDb.Types.Endpoint
 
 -- | Represents the information required for client programs to connect to
 --   the cluster and its nodes.
@@ -351,16 +351,16 @@ endpoint_address :: Lens' Endpoint (Maybe Text)
 
 -- | The port number that the engine is listening on.
 endpoint_port :: Lens' Endpoint (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Endpoint.Endpoint
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Endpoint.Endpoint
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Endpoint.Endpoint
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Endpoint.Endpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Endpoint.Endpoint
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Endpoint.Endpoint
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Endpoint.Endpoint
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Endpoint.Endpoint
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Endpoint.Endpoint
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Endpoint.Endpoint
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Endpoint.Endpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Endpoint.Endpoint
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Endpoint.Endpoint
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Endpoint.Endpoint
 
 
-module Network.AWS.MemoryDb.Types.EngineVersionInfo
+module Amazonka.MemoryDb.Types.EngineVersionInfo
 
 -- | Provides details of the Redis engine version
 --   
@@ -409,16 +409,16 @@ engineVersionInfo_enginePatchVersion :: Lens' EngineVersionInfo (Maybe Text)
 -- | Specifies the name of the parameter group family to which the engine
 --   default parameters apply.
 engineVersionInfo_parameterGroupFamily :: Lens' EngineVersionInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
+instance GHC.Show.Show Amazonka.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
+instance GHC.Read.Read Amazonka.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.EngineVersionInfo.EngineVersionInfo
 
 
-module Network.AWS.MemoryDb.Types.Filter
+module Amazonka.MemoryDb.Types.Filter
 
 -- | Used to streamline results of a search based on the property being
 --   filtered.
@@ -453,42 +453,42 @@ filter_name :: Lens' Filter Text
 
 -- | The property values to filter on. For example, "user-123".
 filter_values :: Lens' Filter (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Filter.Filter
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Filter.Filter
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.Filter.Filter
 
 
-module Network.AWS.MemoryDb.Types.InputAuthenticationType
+module Amazonka.MemoryDb.Types.InputAuthenticationType
 newtype InputAuthenticationType
 InputAuthenticationType' :: Text -> InputAuthenticationType
 [fromInputAuthenticationType] :: InputAuthenticationType -> Text
 pattern InputAuthenticationType_Password :: InputAuthenticationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Network.AWS.Data.Text.ToText Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Network.AWS.Data.Text.FromText Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance GHC.Classes.Ord Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.XML.ToXML Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.XML.FromXML Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.Log.ToLog Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.Text.ToText Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Amazonka.Data.Text.FromText Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance GHC.Classes.Ord Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance GHC.Read.Read Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
+instance GHC.Show.Show Amazonka.MemoryDb.Types.InputAuthenticationType.InputAuthenticationType
 
 
-module Network.AWS.MemoryDb.Types.AuthenticationMode
+module Amazonka.MemoryDb.Types.AuthenticationMode
 
 -- | Denotes the user's authentication properties, such as whether it
 --   requires a password to authenticate. Used in output responses.
@@ -528,16 +528,16 @@ authenticationMode_passwords :: Lens' AuthenticationMode (Maybe (NonEmpty Text))
 -- | Indicates whether the user requires a password to authenticate. All
 --   newly-created users require a password.
 authenticationMode_type :: Lens' AuthenticationMode (Maybe InputAuthenticationType)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.AuthenticationMode.AuthenticationMode
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.AuthenticationMode.AuthenticationMode
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.AuthenticationMode.AuthenticationMode
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.AuthenticationMode.AuthenticationMode
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.AuthenticationMode.AuthenticationMode
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.AuthenticationMode.AuthenticationMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.AuthenticationMode.AuthenticationMode
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.AuthenticationMode.AuthenticationMode
+instance GHC.Show.Show Amazonka.MemoryDb.Types.AuthenticationMode.AuthenticationMode
+instance GHC.Read.Read Amazonka.MemoryDb.Types.AuthenticationMode.AuthenticationMode
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.AuthenticationMode.AuthenticationMode
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.AuthenticationMode.AuthenticationMode
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.AuthenticationMode.AuthenticationMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.AuthenticationMode.AuthenticationMode
 
 
-module Network.AWS.MemoryDb.Types.Node
+module Amazonka.MemoryDb.Types.Node
 
 -- | Represents an individual node within a cluster. Each node runs its own
 --   instance of the cluster's protocol-compliant caching software.
@@ -605,16 +605,16 @@ node_endpoint :: Lens' Node (Maybe Endpoint)
 
 -- | The date and time when the node was created.
 node_createTime :: Lens' Node (Maybe UTCTime)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Node.Node
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Node.Node
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Node.Node
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Node.Node
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Node.Node
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Node.Node
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Node.Node
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Node.Node
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Node.Node
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Node.Node
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Node.Node
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Node.Node
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Node.Node
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Node.Node
 
 
-module Network.AWS.MemoryDb.Types.Parameter
+module Amazonka.MemoryDb.Types.Parameter
 
 -- | Describes an individual setting that controls some aspect of MemoryDB
 --   behavior.
@@ -686,16 +686,16 @@ parameter_allowedValues :: Lens' Parameter (Maybe Text)
 
 -- | A description of the parameter
 parameter_description :: Lens' Parameter (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Parameter.Parameter
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Parameter.Parameter
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Parameter.Parameter
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Parameter.Parameter
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Parameter.Parameter
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Parameter.Parameter
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Parameter.Parameter
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Parameter.Parameter
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Parameter.Parameter
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Parameter.Parameter
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Parameter.Parameter
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Parameter.Parameter
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Parameter.Parameter
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Parameter.Parameter
 
 
-module Network.AWS.MemoryDb.Types.ParameterGroup
+module Amazonka.MemoryDb.Types.ParameterGroup
 
 -- | Represents the output of a CreateParameterGroup operation. A parameter
 --   group represents a combination of specific values for the parameters
@@ -754,16 +754,16 @@ parameterGroup_name :: Lens' ParameterGroup (Maybe Text)
 
 -- | A description of the parameter group
 parameterGroup_description :: Lens' ParameterGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ParameterGroup.ParameterGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ParameterGroup.ParameterGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ParameterGroup.ParameterGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ParameterGroup.ParameterGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ParameterGroup.ParameterGroup
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ParameterGroup.ParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ParameterGroup.ParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ParameterGroup.ParameterGroup
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ParameterGroup.ParameterGroup
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ParameterGroup.ParameterGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ParameterGroup.ParameterGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ParameterGroup.ParameterGroup
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ParameterGroup.ParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ParameterGroup.ParameterGroup
 
 
-module Network.AWS.MemoryDb.Types.ParameterNameValue
+module Amazonka.MemoryDb.Types.ParameterNameValue
 
 -- | Describes a name-value pair that is used to update the value of a
 --   parameter.
@@ -799,16 +799,16 @@ parameterNameValue_parameterValue :: Lens' ParameterNameValue (Maybe Text)
 
 -- | The name of the parameter
 parameterNameValue_parameterName :: Lens' ParameterNameValue (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ParameterNameValue.ParameterNameValue
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ParameterNameValue.ParameterNameValue
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ParameterNameValue.ParameterNameValue
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ParameterNameValue.ParameterNameValue
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ParameterNameValue.ParameterNameValue
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ParameterNameValue.ParameterNameValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ParameterNameValue.ParameterNameValue
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ParameterNameValue.ParameterNameValue
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ParameterNameValue.ParameterNameValue
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ParameterNameValue.ParameterNameValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.ParameterNameValue.ParameterNameValue
 
 
-module Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest
+module Amazonka.MemoryDb.Types.ReplicaConfigurationRequest
 
 -- | A request to configure the number of replicas in a shard
 --   
@@ -835,16 +835,16 @@ newReplicaConfigurationRequest :: ReplicaConfigurationRequest
 
 -- | The number of replicas to scale up or down to
 replicaConfigurationRequest_replicaCount :: Lens' ReplicaConfigurationRequest (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.ReplicaConfigurationRequest.ReplicaConfigurationRequest
 
 
-module Network.AWS.MemoryDb.Types.SecurityGroupMembership
+module Amazonka.MemoryDb.Types.SecurityGroupMembership
 
 -- | Represents a single security group and its status.
 --   
@@ -887,16 +887,16 @@ securityGroupMembership_status :: Lens' SecurityGroupMembership (Maybe Text)
 
 -- | The identifier of the security group.
 securityGroupMembership_securityGroupId :: Lens' SecurityGroupMembership (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Show.Show Amazonka.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Read.Read Amazonka.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.SecurityGroupMembership.SecurityGroupMembership
 
 
-module Network.AWS.MemoryDb.Types.ServiceUpdateRequest
+module Amazonka.MemoryDb.Types.ServiceUpdateRequest
 
 -- | A request to apply a service update
 --   
@@ -923,16 +923,16 @@ newServiceUpdateRequest :: ServiceUpdateRequest
 
 -- | The unique ID of the service update
 serviceUpdateRequest_serviceUpdateNameToApply :: Lens' ServiceUpdateRequest (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.ServiceUpdateRequest.ServiceUpdateRequest
 
 
-module Network.AWS.MemoryDb.Types.ServiceUpdateStatus
+module Amazonka.MemoryDb.Types.ServiceUpdateStatus
 newtype ServiceUpdateStatus
 ServiceUpdateStatus' :: Text -> ServiceUpdateStatus
 [fromServiceUpdateStatus] :: ServiceUpdateStatus -> Text
@@ -940,28 +940,28 @@ pattern ServiceUpdateStatus_Available :: ServiceUpdateStatus
 pattern ServiceUpdateStatus_Complete :: ServiceUpdateStatus
 pattern ServiceUpdateStatus_In_progress :: ServiceUpdateStatus
 pattern ServiceUpdateStatus_Scheduled :: ServiceUpdateStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance GHC.Classes.Ord Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.XML.ToXML Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.XML.FromXML Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.Log.ToLog Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.Text.ToText Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Amazonka.Data.Text.FromText Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance GHC.Classes.Ord Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ServiceUpdateStatus.ServiceUpdateStatus
 
 
-module Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate
+module Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate
 
 -- | Update action that has yet to be processed for the corresponding
 --   apply/stop request
@@ -999,42 +999,42 @@ pendingModifiedServiceUpdate_status :: Lens' PendingModifiedServiceUpdate (Maybe
 
 -- | The unique ID of the service update
 pendingModifiedServiceUpdate_serviceUpdateName :: Lens' PendingModifiedServiceUpdate (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
+instance GHC.Show.Show Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
+instance GHC.Read.Read Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.PendingModifiedServiceUpdate.PendingModifiedServiceUpdate
 
 
-module Network.AWS.MemoryDb.Types.ServiceUpdateType
+module Amazonka.MemoryDb.Types.ServiceUpdateType
 newtype ServiceUpdateType
 ServiceUpdateType' :: Text -> ServiceUpdateType
 [fromServiceUpdateType] :: ServiceUpdateType -> Text
 pattern ServiceUpdateType_Security_update :: ServiceUpdateType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Network.AWS.Data.Text.ToText Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Network.AWS.Data.Text.FromText Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance GHC.Classes.Ord Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.XML.ToXML Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.XML.FromXML Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.Log.ToLog Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.Text.ToText Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Amazonka.Data.Text.FromText Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance GHC.Classes.Ord Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ServiceUpdateType.ServiceUpdateType
 
 
-module Network.AWS.MemoryDb.Types.ServiceUpdate
+module Amazonka.MemoryDb.Types.ServiceUpdate
 
 -- | An update that you can apply to your MemoryDB clusters.
 --   
@@ -1129,16 +1129,16 @@ serviceUpdate_type :: Lens' ServiceUpdate (Maybe ServiceUpdateType)
 
 -- | Provides details of the service update
 serviceUpdate_description :: Lens' ServiceUpdate (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ServiceUpdate.ServiceUpdate
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ServiceUpdate.ServiceUpdate
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ServiceUpdate.ServiceUpdate
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ServiceUpdate.ServiceUpdate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ServiceUpdate.ServiceUpdate
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ServiceUpdate.ServiceUpdate
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ServiceUpdate.ServiceUpdate
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ServiceUpdate.ServiceUpdate
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ServiceUpdate.ServiceUpdate
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ServiceUpdate.ServiceUpdate
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ServiceUpdate.ServiceUpdate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ServiceUpdate.ServiceUpdate
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ServiceUpdate.ServiceUpdate
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ServiceUpdate.ServiceUpdate
 
 
-module Network.AWS.MemoryDb.Types.Shard
+module Amazonka.MemoryDb.Types.Shard
 
 -- | Represents a collection of nodes in a cluster. One node in the node
 --   group is the read/write primary node. All the other nodes are
@@ -1202,16 +1202,16 @@ shard_name :: Lens' Shard (Maybe Text)
 
 -- | A list containing information about individual nodes within the shard
 shard_nodes :: Lens' Shard (Maybe [Node])
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Shard.Shard
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Shard.Shard
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Shard.Shard
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Shard.Shard
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Shard.Shard
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Shard.Shard
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Shard.Shard
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Shard.Shard
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Shard.Shard
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Shard.Shard
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Shard.Shard
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Shard.Shard
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Shard.Shard
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Shard.Shard
 
 
-module Network.AWS.MemoryDb.Types.ShardConfiguration
+module Amazonka.MemoryDb.Types.ShardConfiguration
 
 -- | Shard configuration options. Each shard configuration has the
 --   following: Slots and ReplicaCount.
@@ -1254,16 +1254,16 @@ shardConfiguration_slots :: Lens' ShardConfiguration (Maybe Text)
 
 -- | The number of read replica nodes in this shard.
 shardConfiguration_replicaCount :: Lens' ShardConfiguration (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ShardConfiguration.ShardConfiguration
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ShardConfiguration.ShardConfiguration
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ShardConfiguration.ShardConfiguration
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ShardConfiguration.ShardConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ShardConfiguration.ShardConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ShardConfiguration.ShardConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ShardConfiguration.ShardConfiguration
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ShardConfiguration.ShardConfiguration
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ShardConfiguration.ShardConfiguration
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ShardConfiguration.ShardConfiguration
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ShardConfiguration.ShardConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ShardConfiguration.ShardConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ShardConfiguration.ShardConfiguration
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ShardConfiguration.ShardConfiguration
 
 
-module Network.AWS.MemoryDb.Types.ShardConfigurationRequest
+module Amazonka.MemoryDb.Types.ShardConfigurationRequest
 
 -- | A request to configure the sharding properties of a cluster
 --   
@@ -1290,16 +1290,16 @@ newShardConfigurationRequest :: ShardConfigurationRequest
 
 -- | The number of shards in the cluster
 shardConfigurationRequest_shardCount :: Lens' ShardConfigurationRequest (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.ShardConfigurationRequest.ShardConfigurationRequest
 
 
-module Network.AWS.MemoryDb.Types.ShardDetail
+module Amazonka.MemoryDb.Types.ShardDetail
 
 -- | Provides details of a shard in a snapshot
 --   
@@ -1353,16 +1353,16 @@ shardDetail_name :: Lens' ShardDetail (Maybe Text)
 
 -- | The configuration details of the shard
 shardDetail_configuration :: Lens' ShardDetail (Maybe ShardConfiguration)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ShardDetail.ShardDetail
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ShardDetail.ShardDetail
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ShardDetail.ShardDetail
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ShardDetail.ShardDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ShardDetail.ShardDetail
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ShardDetail.ShardDetail
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ShardDetail.ShardDetail
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ShardDetail.ShardDetail
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ShardDetail.ShardDetail
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ShardDetail.ShardDetail
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ShardDetail.ShardDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ShardDetail.ShardDetail
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ShardDetail.ShardDetail
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ShardDetail.ShardDetail
 
 
-module Network.AWS.MemoryDb.Types.ClusterConfiguration
+module Amazonka.MemoryDb.Types.ClusterConfiguration
 
 -- | A list of cluster configuration options.
 --   
@@ -1518,16 +1518,16 @@ clusterConfiguration_port :: Lens' ClusterConfiguration (Maybe Int)
 
 -- | The name of parameter group used by the cluster
 clusterConfiguration_parameterGroupName :: Lens' ClusterConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ClusterConfiguration.ClusterConfiguration
 
 
-module Network.AWS.MemoryDb.Types.SlotMigration
+module Amazonka.MemoryDb.Types.SlotMigration
 
 -- | Represents the progress of an online resharding operation.
 --   
@@ -1554,16 +1554,16 @@ newSlotMigration :: SlotMigration
 
 -- | The percentage of the slot migration that is complete.
 slotMigration_progressPercentage :: Lens' SlotMigration (Maybe Double)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.SlotMigration.SlotMigration
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.SlotMigration.SlotMigration
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.SlotMigration.SlotMigration
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.SlotMigration.SlotMigration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.SlotMigration.SlotMigration
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.SlotMigration.SlotMigration
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.SlotMigration.SlotMigration
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.SlotMigration.SlotMigration
+instance GHC.Show.Show Amazonka.MemoryDb.Types.SlotMigration.SlotMigration
+instance GHC.Read.Read Amazonka.MemoryDb.Types.SlotMigration.SlotMigration
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.SlotMigration.SlotMigration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.SlotMigration.SlotMigration
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.SlotMigration.SlotMigration
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.SlotMigration.SlotMigration
 
 
-module Network.AWS.MemoryDb.Types.ReshardingStatus
+module Amazonka.MemoryDb.Types.ReshardingStatus
 
 -- | The status of the online resharding
 --   
@@ -1590,16 +1590,16 @@ newReshardingStatus :: ReshardingStatus
 
 -- | The status of the online resharding slot migration
 reshardingStatus_slotMigration :: Lens' ReshardingStatus (Maybe SlotMigration)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ReshardingStatus.ReshardingStatus
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ReshardingStatus.ReshardingStatus
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ReshardingStatus.ReshardingStatus
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ReshardingStatus.ReshardingStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ReshardingStatus.ReshardingStatus
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ReshardingStatus.ReshardingStatus
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ReshardingStatus.ReshardingStatus
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ReshardingStatus.ReshardingStatus
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ReshardingStatus.ReshardingStatus
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ReshardingStatus.ReshardingStatus
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ReshardingStatus.ReshardingStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ReshardingStatus.ReshardingStatus
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ReshardingStatus.ReshardingStatus
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ReshardingStatus.ReshardingStatus
 
 
-module Network.AWS.MemoryDb.Types.ClusterPendingUpdates
+module Amazonka.MemoryDb.Types.ClusterPendingUpdates
 
 -- | A list of updates being applied to the cluster
 --   
@@ -1646,16 +1646,16 @@ clusterPendingUpdates_resharding :: Lens' ClusterPendingUpdates (Maybe Reshardin
 
 -- | A list of ACLs associated with the cluster that are being updated
 clusterPendingUpdates_aCLs :: Lens' ClusterPendingUpdates (Maybe ACLsUpdateStatus)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
+instance GHC.Show.Show Amazonka.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
+instance GHC.Read.Read Amazonka.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.ClusterPendingUpdates.ClusterPendingUpdates
 
 
-module Network.AWS.MemoryDb.Types.Cluster
+module Amazonka.MemoryDb.Types.Cluster
 
 -- | Contains all of the attributes of a specific cluster.
 --   
@@ -1937,16 +1937,16 @@ cluster_clusterEndpoint :: Lens' Cluster (Maybe Endpoint)
 
 -- | The name of the parameter group used by the cluster
 cluster_parameterGroupName :: Lens' Cluster (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Cluster.Cluster
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Cluster.Cluster
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Cluster.Cluster
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Cluster.Cluster
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Cluster.Cluster
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Cluster.Cluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Cluster.Cluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Cluster.Cluster
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Cluster.Cluster
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Cluster.Cluster
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Cluster.Cluster
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Cluster.Cluster
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Cluster.Cluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Cluster.Cluster
 
 
-module Network.AWS.MemoryDb.Types.Snapshot
+module Amazonka.MemoryDb.Types.Snapshot
 
 -- | Represents a copy of an entire cluster as of the time when the
 --   snapshot was taken.
@@ -2024,16 +2024,16 @@ snapshot_clusterConfiguration :: Lens' Snapshot (Maybe ClusterConfiguration)
 -- | Indicates whether the snapshot is from an automatic backup (automated)
 --   or was created manually (manual).
 snapshot_source :: Lens' Snapshot (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Snapshot.Snapshot
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Snapshot.Snapshot
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Snapshot.Snapshot
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Snapshot.Snapshot
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Snapshot.Snapshot
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Snapshot.Snapshot
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Snapshot.Snapshot
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Snapshot.Snapshot
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Snapshot.Snapshot
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Snapshot.Snapshot
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Snapshot.Snapshot
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Snapshot.Snapshot
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Snapshot.Snapshot
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Snapshot.Snapshot
 
 
-module Network.AWS.MemoryDb.Types.SourceType
+module Amazonka.MemoryDb.Types.SourceType
 newtype SourceType
 SourceType' :: Text -> SourceType
 [fromSourceType] :: SourceType -> Text
@@ -2043,28 +2043,28 @@ pattern SourceType_Node :: SourceType
 pattern SourceType_Parameter_group :: SourceType
 pattern SourceType_Subnet_group :: SourceType
 pattern SourceType_User :: SourceType
-instance Network.AWS.Data.XML.ToXML Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Network.AWS.Data.XML.FromXML Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Network.AWS.Data.Log.ToLog Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Network.AWS.Data.Text.ToText Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Network.AWS.Data.Text.FromText Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance GHC.Classes.Ord Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.SourceType.SourceType
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.XML.ToXML Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.XML.FromXML Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.Headers.ToHeader Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.Log.ToLog Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.Text.ToText Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Amazonka.Data.Text.FromText Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.SourceType.SourceType
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.SourceType.SourceType
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.SourceType.SourceType
+instance GHC.Classes.Ord Amazonka.MemoryDb.Types.SourceType.SourceType
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.SourceType.SourceType
+instance GHC.Read.Read Amazonka.MemoryDb.Types.SourceType.SourceType
+instance GHC.Show.Show Amazonka.MemoryDb.Types.SourceType.SourceType
 
 
-module Network.AWS.MemoryDb.Types.Event
+module Amazonka.MemoryDb.Types.Event
 
 -- | Represents a single occurrence of something interesting within the
 --   system. Some examples of events are creating a cluster or adding or
@@ -2126,16 +2126,16 @@ event_date :: Lens' Event (Maybe UTCTime)
 
 -- | The text of the event.
 event_message :: Lens' Event (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Event.Event
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Event.Event
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Event.Event
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Event.Event
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Event.Event
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Event.Event
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Event.Event
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Event.Event
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Event.Event
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Event.Event
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Event.Event
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Event.Event
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Event.Event
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Event.Event
 
 
-module Network.AWS.MemoryDb.Types.Subnet
+module Amazonka.MemoryDb.Types.Subnet
 
 -- | Represents the subnet associated with a cluster. This parameter refers
 --   to subnets defined in Amazon Virtual Private Cloud (Amazon VPC) and
@@ -2171,16 +2171,16 @@ subnet_identifier :: Lens' Subnet (Maybe Text)
 
 -- | The Availability Zone where the subnet resides
 subnet_availabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Subnet.Subnet
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Subnet.Subnet
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Subnet.Subnet
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Subnet.Subnet
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Subnet.Subnet
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Subnet.Subnet
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Subnet.Subnet
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Subnet.Subnet
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Subnet.Subnet
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Subnet.Subnet
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Subnet.Subnet
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Subnet.Subnet
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Subnet.Subnet
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Subnet.Subnet
 
 
-module Network.AWS.MemoryDb.Types.SubnetGroup
+module Amazonka.MemoryDb.Types.SubnetGroup
 
 -- | Represents the output of one of the following operations:
 --   
@@ -2252,16 +2252,16 @@ subnetGroup_name :: Lens' SubnetGroup (Maybe Text)
 
 -- | A description of the subnet group
 subnetGroup_description :: Lens' SubnetGroup (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.SubnetGroup.SubnetGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.SubnetGroup.SubnetGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.SubnetGroup.SubnetGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.SubnetGroup.SubnetGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.SubnetGroup.SubnetGroup
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.SubnetGroup.SubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.SubnetGroup.SubnetGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.SubnetGroup.SubnetGroup
+instance GHC.Show.Show Amazonka.MemoryDb.Types.SubnetGroup.SubnetGroup
+instance GHC.Read.Read Amazonka.MemoryDb.Types.SubnetGroup.SubnetGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.SubnetGroup.SubnetGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.SubnetGroup.SubnetGroup
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.SubnetGroup.SubnetGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.SubnetGroup.SubnetGroup
 
 
-module Network.AWS.MemoryDb.Types.Tag
+module Amazonka.MemoryDb.Types.Tag
 
 -- | A tag that can be added to an MemoryDB resource. Tags are composed of
 --   a Key/Value pair. You can use tags to categorize and track all your
@@ -2300,17 +2300,17 @@ tag_value :: Lens' Tag (Maybe Text)
 
 -- | The key for the tag. May not be null.
 tag_key :: Lens' Tag (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.MemoryDb.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.MemoryDb.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.Types.Tag.Tag
 
 
-module Network.AWS.MemoryDb.Types.UnprocessedCluster
+module Amazonka.MemoryDb.Types.UnprocessedCluster
 
 -- | A cluster whose updates have failed
 --   
@@ -2356,16 +2356,16 @@ unprocessedCluster_errorType :: Lens' UnprocessedCluster (Maybe Text)
 
 -- | The error message associated with the update failure
 unprocessedCluster_errorMessage :: Lens' UnprocessedCluster (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
+instance GHC.Show.Show Amazonka.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
+instance GHC.Read.Read Amazonka.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.UnprocessedCluster.UnprocessedCluster
 
 
-module Network.AWS.MemoryDb.Types.User
+module Amazonka.MemoryDb.Types.User
 
 -- | You create users and assign them specific permissions by using an
 --   access string. You assign the users to Access Control Lists aligned
@@ -2447,16 +2447,16 @@ user_aCLNames :: Lens' User (Maybe [Text])
 
 -- | The minimum engine version supported for the user
 user_minimumEngineVersion :: Lens' User (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MemoryDb.Types.User.User
-instance GHC.Show.Show Network.AWS.MemoryDb.Types.User.User
-instance GHC.Read.Read Network.AWS.MemoryDb.Types.User.User
-instance GHC.Classes.Eq Network.AWS.MemoryDb.Types.User.User
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MemoryDb.Types.User.User
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.Types.User.User
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.Types.User.User
+instance GHC.Generics.Generic Amazonka.MemoryDb.Types.User.User
+instance GHC.Show.Show Amazonka.MemoryDb.Types.User.User
+instance GHC.Read.Read Amazonka.MemoryDb.Types.User.User
+instance GHC.Classes.Eq Amazonka.MemoryDb.Types.User.User
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MemoryDb.Types.User.User
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.Types.User.User
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.Types.User.User
 
 
-module Network.AWS.MemoryDb.Types
+module Amazonka.MemoryDb.Types
 
 -- | API version <tt>2021-01-01</tt> of the Amazon MemoryDB SDK
 --   configuration.
@@ -4552,7 +4552,7 @@ user_minimumEngineVersion :: Lens' User (Maybe Text)
 --   (such as cost centers, application names, or owners) to organize your
 --   costs across multiple services. For more information, see <a>Using
 --   Cost Allocation Tags</a>.
-module Network.AWS.MemoryDb.TagResource
+module Amazonka.MemoryDb.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -4626,29 +4626,29 @@ tagResourceResponse_tagList :: Lens' TagResourceResponse (Maybe [Tag])
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.MemoryDb.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.MemoryDb.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.MemoryDb.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.MemoryDb.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MemoryDb.TagResource.TagResource
+instance GHC.Show.Show Amazonka.MemoryDb.TagResource.TagResource
+instance GHC.Read.Read Amazonka.MemoryDb.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.MemoryDb.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MemoryDb.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.MemoryDb.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.MemoryDb.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.TagResource.TagResource
 
 
 -- | Modifies the parameters of a parameter group to the engine or system
 --   default value. You can reset specific parameters by submitting a list
 --   of parameter names. To reset the entire parameter group, specify the
 --   AllParameters and ParameterGroupName parameters.
-module Network.AWS.MemoryDb.ResetParameterGroup
+module Amazonka.MemoryDb.ResetParameterGroup
 
 -- | <i>See:</i> <a>newResetParameterGroup</a> smart constructor.
 data ResetParameterGroup
@@ -4739,29 +4739,29 @@ resetParameterGroupResponse_parameterGroup :: Lens' ResetParameterGroupResponse 
 
 -- | The response's http status code.
 resetParameterGroupResponse_httpStatus :: Lens' ResetParameterGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance GHC.Generics.Generic Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance GHC.Show.Show Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance GHC.Read.Read Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
+instance GHC.Show.Show Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
+instance GHC.Read.Read Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.ResetParameterGroup.ResetParameterGroup
 
 
 -- | Lists all tags currently on a named resource. A tag is a key-value
 --   pair where the key and value are case-sensitive. You can use tags to
 --   categorize and track your MemoryDB resources. For more information,
 --   see <a>Tagging your MemoryDB resources</a>
-module Network.AWS.MemoryDb.ListTags
+module Amazonka.MemoryDb.ListTags
 
 -- | <i>See:</i> <a>newListTags</a> smart constructor.
 data ListTags
@@ -4819,29 +4819,29 @@ listTagsResponse_tagList :: Lens' ListTagsResponse (Maybe [Tag])
 
 -- | The response's http status code.
 listTagsResponse_httpStatus :: Lens' ListTagsResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.ListTags.ListTags
-instance GHC.Show.Show Network.AWS.MemoryDb.ListTags.ListTags
-instance GHC.Read.Read Network.AWS.MemoryDb.ListTags.ListTags
-instance GHC.Classes.Eq Network.AWS.MemoryDb.ListTags.ListTags
-instance GHC.Generics.Generic Network.AWS.MemoryDb.ListTags.ListTagsResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.ListTags.ListTagsResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.ListTags.ListTagsResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.ListTags.ListTagsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.ListTags.ListTagsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.ListTags.ListTags
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.ListTags.ListTags
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.ListTags.ListTags
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.ListTags.ListTags
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.ListTags.ListTags
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.MemoryDb.ListTags.ListTags
+instance GHC.Show.Show Amazonka.MemoryDb.ListTags.ListTags
+instance GHC.Read.Read Amazonka.MemoryDb.ListTags.ListTags
+instance GHC.Classes.Eq Amazonka.MemoryDb.ListTags.ListTags
+instance GHC.Generics.Generic Amazonka.MemoryDb.ListTags.ListTagsResponse
+instance GHC.Show.Show Amazonka.MemoryDb.ListTags.ListTagsResponse
+instance GHC.Read.Read Amazonka.MemoryDb.ListTags.ListTagsResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.ListTags.ListTagsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.ListTags.ListTagsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.ListTags.ListTags
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.ListTags.ListTags
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.ListTags.ListTags
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.ListTags.ListTags
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.ListTags.ListTags
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.ListTags.ListTags
 
 
 -- | Lists all available node types that you can scale to from your
 --   cluster's current node type. When you use the UpdateCluster operation
 --   to scale your cluster, the value of the NodeType parameter must be one
 --   of the node types returned by this operation.
-module Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates
+module Amazonka.MemoryDb.ListAllowedNodeTypeUpdates
 
 -- | <i>See:</i> <a>newListAllowedNodeTypeUpdates</a> smart constructor.
 data ListAllowedNodeTypeUpdates
@@ -4917,26 +4917,26 @@ listAllowedNodeTypeUpdatesResponse_scaleDownNodeTypes :: Lens' ListAllowedNodeTy
 
 -- | The response's http status code.
 listAllowedNodeTypeUpdatesResponse_httpStatus :: Lens' ListAllowedNodeTypeUpdatesResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance GHC.Show.Show Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance GHC.Read.Read Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance GHC.Classes.Eq Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance GHC.Generics.Generic Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance GHC.Generics.Generic Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance GHC.Show.Show Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance GHC.Read.Read Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance GHC.Classes.Eq Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance GHC.Generics.Generic Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
+instance GHC.Show.Show Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
+instance GHC.Read.Read Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.ListAllowedNodeTypeUpdates.ListAllowedNodeTypeUpdates
 
 
 -- | Used to failover a shard
-module Network.AWS.MemoryDb.FailoverShard
+module Amazonka.MemoryDb.FailoverShard
 
 -- | <i>See:</i> <a>newFailoverShard</a> smart constructor.
 data FailoverShard
@@ -5002,26 +5002,26 @@ failoverShardResponse_cluster :: Lens' FailoverShardResponse (Maybe Cluster)
 
 -- | The response's http status code.
 failoverShardResponse_httpStatus :: Lens' FailoverShardResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance GHC.Show.Show Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance GHC.Read.Read Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance GHC.Classes.Eq Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance GHC.Generics.Generic Network.AWS.MemoryDb.FailoverShard.FailoverShardResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.FailoverShard.FailoverShardResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.FailoverShard.FailoverShardResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.FailoverShard.FailoverShardResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.FailoverShard.FailoverShardResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.FailoverShard.FailoverShard
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.FailoverShard.FailoverShard
+instance GHC.Generics.Generic Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance GHC.Show.Show Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance GHC.Read.Read Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance GHC.Classes.Eq Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance GHC.Generics.Generic Amazonka.MemoryDb.FailoverShard.FailoverShardResponse
+instance GHC.Show.Show Amazonka.MemoryDb.FailoverShard.FailoverShardResponse
+instance GHC.Read.Read Amazonka.MemoryDb.FailoverShard.FailoverShardResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.FailoverShard.FailoverShardResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.FailoverShard.FailoverShardResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.FailoverShard.FailoverShard
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.FailoverShard.FailoverShard
 
 
 -- | Returns a list of users.
-module Network.AWS.MemoryDb.DescribeUsers
+module Amazonka.MemoryDb.DescribeUsers
 
 -- | <i>See:</i> <a>newDescribeUsers</a> smart constructor.
 data DescribeUsers
@@ -5145,27 +5145,27 @@ describeUsersResponse_nextToken :: Lens' DescribeUsersResponse (Maybe Text)
 
 -- | The response's http status code.
 describeUsersResponse_httpStatus :: Lens' DescribeUsersResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeUsers.DescribeUsersResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeUsers.DescribeUsersResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeUsers.DescribeUsersResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeUsers.DescribeUsersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeUsers.DescribeUsersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeUsers.DescribeUsers
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeUsers.DescribeUsersResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeUsers.DescribeUsersResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeUsers.DescribeUsersResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeUsers.DescribeUsersResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeUsers.DescribeUsersResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeUsers.DescribeUsers
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeUsers.DescribeUsers
 
 
 -- | Returns a list of subnet group descriptions. If a subnet group name is
 --   specified, the list contains only the description of that group.
-module Network.AWS.MemoryDb.DescribeSubnetGroups
+module Amazonka.MemoryDb.DescribeSubnetGroups
 
 -- | <i>See:</i> <a>newDescribeSubnetGroups</a> smart constructor.
 data DescribeSubnetGroups
@@ -5287,29 +5287,29 @@ describeSubnetGroupsResponse_nextToken :: Lens' DescribeSubnetGroupsResponse (Ma
 
 -- | The response's http status code.
 describeSubnetGroupsResponse_httpStatus :: Lens' DescribeSubnetGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroupsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeSubnetGroups.DescribeSubnetGroups
 
 
 -- | Returns information about cluster snapshots. By default,
 --   DescribeSnapshots lists all of your snapshots; it can optionally
 --   describe a single snapshot, or just the snapshots associated with a
 --   particular cluster.
-module Network.AWS.MemoryDb.DescribeSnapshots
+module Amazonka.MemoryDb.DescribeSnapshots
 
 -- | <i>See:</i> <a>newDescribeSnapshots</a> smart constructor.
 data DescribeSnapshots
@@ -5476,26 +5476,26 @@ describeSnapshotsResponse_snapshots :: Lens' DescribeSnapshotsResponse (Maybe [S
 
 -- | The response's http status code.
 describeSnapshotsResponse_httpStatus :: Lens' DescribeSnapshotsResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshotsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeSnapshots.DescribeSnapshots
 
 
 -- | Returns details of the service updates
-module Network.AWS.MemoryDb.DescribeServiceUpdates
+module Amazonka.MemoryDb.DescribeServiceUpdates
 
 -- | <i>See:</i> <a>newDescribeServiceUpdates</a> smart constructor.
 data DescribeServiceUpdates
@@ -5635,26 +5635,26 @@ describeServiceUpdatesResponse_nextToken :: Lens' DescribeServiceUpdatesResponse
 
 -- | The response's http status code.
 describeServiceUpdatesResponse_httpStatus :: Lens' DescribeServiceUpdatesResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeServiceUpdates.DescribeServiceUpdates
 
 
 -- | Returns the detailed parameter list for a particular parameter group.
-module Network.AWS.MemoryDb.DescribeParameters
+module Amazonka.MemoryDb.DescribeParameters
 
 -- | <i>See:</i> <a>newDescribeParameters</a> smart constructor.
 data DescribeParameters
@@ -5776,28 +5776,28 @@ describeParametersResponse_parameters :: Lens' DescribeParametersResponse (Maybe
 
 -- | The response's http status code.
 describeParametersResponse_httpStatus :: Lens' DescribeParametersResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeParameters.DescribeParametersResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeParameters.DescribeParametersResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeParameters.DescribeParametersResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeParameters.DescribeParametersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeParameters.DescribeParametersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeParameters.DescribeParameters
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeParameters.DescribeParametersResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeParameters.DescribeParametersResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeParameters.DescribeParametersResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeParameters.DescribeParametersResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeParameters.DescribeParametersResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeParameters.DescribeParameters
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeParameters.DescribeParameters
 
 
 -- | Returns a list of parameter group descriptions. If a parameter group
 --   name is specified, the list contains only the descriptions for that
 --   group.
-module Network.AWS.MemoryDb.DescribeParameterGroups
+module Amazonka.MemoryDb.DescribeParameterGroups
 
 -- | <i>See:</i> <a>newDescribeParameterGroups</a> smart constructor.
 data DescribeParameterGroups
@@ -5920,22 +5920,22 @@ describeParameterGroupsResponse_parameterGroups :: Lens' DescribeParameterGroups
 
 -- | The response's http status code.
 describeParameterGroupsResponse_httpStatus :: Lens' DescribeParameterGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroupsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeParameterGroups.DescribeParameterGroups
 
 
 -- | Returns events related to clusters, security groups, and parameter
@@ -5944,7 +5944,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeParameterGr
 --   parameter. By default, only the events occurring within the last hour
 --   are returned; however, you can retrieve up to 14 days' worth of events
 --   if necessary.
-module Network.AWS.MemoryDb.DescribeEvents
+module Amazonka.MemoryDb.DescribeEvents
 
 -- | <i>See:</i> <a>newDescribeEvents</a> smart constructor.
 data DescribeEvents
@@ -6112,26 +6112,26 @@ describeEventsResponse_events :: Lens' DescribeEventsResponse (Maybe [Event])
 
 -- | The response's http status code.
 describeEventsResponse_httpStatus :: Lens' DescribeEventsResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeEvents.DescribeEventsResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeEvents.DescribeEventsResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeEvents.DescribeEventsResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeEvents.DescribeEventsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeEvents.DescribeEventsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeEvents.DescribeEventsResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeEvents.DescribeEventsResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeEvents.DescribeEventsResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeEvents.DescribeEventsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeEvents.DescribeEventsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeEvents.DescribeEvents
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeEvents.DescribeEvents
 
 
 -- | Returns a list of the available Redis engine versions.
-module Network.AWS.MemoryDb.DescribeEngineVersions
+module Amazonka.MemoryDb.DescribeEngineVersions
 
 -- | <i>See:</i> <a>newDescribeEngineVersions</a> smart constructor.
 data DescribeEngineVersions
@@ -6276,28 +6276,28 @@ describeEngineVersionsResponse_engineVersions :: Lens' DescribeEngineVersionsRes
 
 -- | The response's http status code.
 describeEngineVersionsResponse_httpStatus :: Lens' DescribeEngineVersionsResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeEngineVersions.DescribeEngineVersions
 
 
 -- | Returns information about all provisioned clusters if no cluster
 --   identifier is specified, or about a specific cluster if a cluster name
 --   is supplied.
-module Network.AWS.MemoryDb.DescribeClusters
+module Amazonka.MemoryDb.DescribeClusters
 
 -- | <i>See:</i> <a>newDescribeClusters</a> smart constructor.
 data DescribeClusters
@@ -6427,26 +6427,26 @@ describeClustersResponse_clusters :: Lens' DescribeClustersResponse (Maybe [Clus
 
 -- | The response's http status code.
 describeClustersResponse_httpStatus :: Lens' DescribeClustersResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeClusters.DescribeClustersResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeClusters.DescribeClustersResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeClusters.DescribeClustersResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeClusters.DescribeClustersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeClusters.DescribeClustersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeClusters.DescribeClusters
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeClusters.DescribeClustersResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeClusters.DescribeClustersResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeClusters.DescribeClustersResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeClusters.DescribeClustersResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeClusters.DescribeClustersResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeClusters.DescribeClusters
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeClusters.DescribeClusters
 
 
 -- | Returns a list of ACLs
-module Network.AWS.MemoryDb.DescribeACLs
+module Amazonka.MemoryDb.DescribeACLs
 
 -- | <i>See:</i> <a>newDescribeACLs</a> smart constructor.
 data DescribeACLs
@@ -6557,27 +6557,27 @@ describeACLsResponse_aCLs :: Lens' DescribeACLsResponse (Maybe [ACL])
 
 -- | The response's http status code.
 describeACLsResponse_httpStatus :: Lens' DescribeACLsResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DescribeACLs.DescribeACLsResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DescribeACLs.DescribeACLsResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DescribeACLs.DescribeACLsResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DescribeACLs.DescribeACLsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeACLs.DescribeACLsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DescribeACLs.DescribeACLs
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance GHC.Generics.Generic Amazonka.MemoryDb.DescribeACLs.DescribeACLsResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DescribeACLs.DescribeACLsResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DescribeACLs.DescribeACLsResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DescribeACLs.DescribeACLsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeACLs.DescribeACLsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DescribeACLs.DescribeACLs
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DescribeACLs.DescribeACLs
 
 
 -- | Deletes a user. The user will be removed from all ACLs and in turn
 --   removed from all clusters.
-module Network.AWS.MemoryDb.DeleteUser
+module Amazonka.MemoryDb.DeleteUser
 
 -- | <i>See:</i> <a>newDeleteUser</a> smart constructor.
 data DeleteUser
@@ -6633,27 +6633,27 @@ deleteUserResponse_user :: Lens' DeleteUserResponse (Maybe User)
 
 -- | The response's http status code.
 deleteUserResponse_httpStatus :: Lens' DeleteUserResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteUser.DeleteUserResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteUser.DeleteUserResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteUser.DeleteUserResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteUser.DeleteUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteUser.DeleteUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DeleteUser.DeleteUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DeleteUser.DeleteUser
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteUser.DeleteUserResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteUser.DeleteUserResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteUser.DeleteUserResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteUser.DeleteUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteUser.DeleteUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DeleteUser.DeleteUser
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DeleteUser.DeleteUser
 
 
 -- | Deletes a subnet group. You cannot delete a default subnet group or
 --   one that is associated with any clusters.
-module Network.AWS.MemoryDb.DeleteSubnetGroup
+module Amazonka.MemoryDb.DeleteSubnetGroup
 
 -- | <i>See:</i> <a>newDeleteSubnetGroup</a> smart constructor.
 data DeleteSubnetGroup
@@ -6712,28 +6712,28 @@ deleteSubnetGroupResponse_subnetGroup :: Lens' DeleteSubnetGroupResponse (Maybe 
 
 -- | The response's http status code.
 deleteSubnetGroupResponse_httpStatus :: Lens' DeleteSubnetGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DeleteSubnetGroup.DeleteSubnetGroup
 
 
 -- | Deletes an existing snapshot. When you receive a successful response
 --   from this operation, MemoryDB immediately begins deleting the
 --   snapshot; you cannot cancel or revert this operation.
-module Network.AWS.MemoryDb.DeleteSnapshot
+module Amazonka.MemoryDb.DeleteSnapshot
 
 -- | <i>See:</i> <a>newDeleteSnapshot</a> smart constructor.
 data DeleteSnapshot
@@ -6792,28 +6792,28 @@ deleteSnapshotResponse_snapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 
 -- | The response's http status code.
 deleteSnapshotResponse_httpStatus :: Lens' DeleteSnapshotResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshotResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DeleteSnapshot.DeleteSnapshot
 
 
 -- | Deletes the specified parameter group. You cannot delete a parameter
 --   group if it is associated with any clusters. You cannot delete the
 --   default parameter groups in your account.
-module Network.AWS.MemoryDb.DeleteParameterGroup
+module Amazonka.MemoryDb.DeleteParameterGroup
 
 -- | <i>See:</i> <a>newDeleteParameterGroup</a> smart constructor.
 data DeleteParameterGroup
@@ -6872,27 +6872,27 @@ deleteParameterGroupResponse_parameterGroup :: Lens' DeleteParameterGroupRespons
 
 -- | The response's http status code.
 deleteParameterGroupResponse_httpStatus :: Lens' DeleteParameterGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DeleteParameterGroup.DeleteParameterGroup
 
 
 -- | Deletes a cluster. It also deletes all associated nodes and node
 --   endpoints
-module Network.AWS.MemoryDb.DeleteCluster
+module Amazonka.MemoryDb.DeleteCluster
 
 -- | <i>See:</i> <a>newDeleteCluster</a> smart constructor.
 data DeleteCluster
@@ -6967,28 +6967,28 @@ deleteClusterResponse_cluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 deleteClusterResponse_httpStatus :: Lens' DeleteClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteCluster.DeleteClusterResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteCluster.DeleteClusterResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteCluster.DeleteClusterResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteCluster.DeleteClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteCluster.DeleteClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DeleteCluster.DeleteCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteCluster.DeleteClusterResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteCluster.DeleteClusterResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteCluster.DeleteClusterResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteCluster.DeleteClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteCluster.DeleteClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DeleteCluster.DeleteCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DeleteCluster.DeleteCluster
 
 
 -- | Deletes an Access Control List. The ACL must first be disassociated
 --   from the cluster before it can be deleted. For more information, see
 --   <a>Authenticating users with Access Contol Lists (ACLs)</a>.
-module Network.AWS.MemoryDb.DeleteACL
+module Amazonka.MemoryDb.DeleteACL
 
 -- | <i>See:</i> <a>newDeleteACL</a> smart constructor.
 data DeleteACL
@@ -7043,27 +7043,27 @@ deleteACLResponse_acl :: Lens' DeleteACLResponse (Maybe ACL)
 
 -- | The response's http status code.
 deleteACLResponse_httpStatus :: Lens' DeleteACLResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance GHC.Generics.Generic Network.AWS.MemoryDb.DeleteACL.DeleteACLResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.DeleteACL.DeleteACLResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.DeleteACL.DeleteACLResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.DeleteACL.DeleteACLResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteACL.DeleteACLResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.DeleteACL.DeleteACL
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.DeleteACL.DeleteACL
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance GHC.Generics.Generic Amazonka.MemoryDb.DeleteACL.DeleteACLResponse
+instance GHC.Show.Show Amazonka.MemoryDb.DeleteACL.DeleteACLResponse
+instance GHC.Read.Read Amazonka.MemoryDb.DeleteACL.DeleteACLResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.DeleteACL.DeleteACLResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteACL.DeleteACLResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.DeleteACL.DeleteACL
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.DeleteACL.DeleteACL
 
 
 -- | Creates a MemoryDB user. For more information, see <a>Authenticating
 --   users with Access Contol Lists (ACLs)</a>.
-module Network.AWS.MemoryDb.CreateUser
+module Amazonka.MemoryDb.CreateUser
 
 -- | <i>See:</i> <a>newCreateUser</a> smart constructor.
 data CreateUser
@@ -7158,22 +7158,22 @@ createUserResponse_user :: Lens' CreateUserResponse (Maybe User)
 
 -- | The response's http status code.
 createUserResponse_httpStatus :: Lens' CreateUserResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateUser.CreateUser
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateUser.CreateUser
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateUser.CreateUser
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateUser.CreateUser
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateUser.CreateUserResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateUser.CreateUserResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateUser.CreateUserResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateUser.CreateUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.CreateUser.CreateUser
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateUser.CreateUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.CreateUser.CreateUser
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateUser.CreateUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.CreateUser.CreateUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.CreateUser.CreateUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.CreateUser.CreateUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CreateUser.CreateUser
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateUser.CreateUser
+instance GHC.Show.Show Amazonka.MemoryDb.CreateUser.CreateUser
+instance GHC.Read.Read Amazonka.MemoryDb.CreateUser.CreateUser
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateUser.CreateUser
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateUser.CreateUserResponse
+instance GHC.Show.Show Amazonka.MemoryDb.CreateUser.CreateUserResponse
+instance GHC.Read.Read Amazonka.MemoryDb.CreateUser.CreateUserResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateUser.CreateUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.CreateUser.CreateUser
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateUser.CreateUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.CreateUser.CreateUser
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateUser.CreateUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.CreateUser.CreateUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.CreateUser.CreateUser
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.CreateUser.CreateUser
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.CreateUser.CreateUser
 
 
 -- | Creates a subnet group. A subnet group is a collection of subnets
@@ -7183,7 +7183,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CreateUser.CreateUs
 --   uses that subnet group to choose a subnet and IP addresses within that
 --   subnet to associate with your nodes. For more information, see
 --   <a>Subnets and subnet groups</a>.
-module Network.AWS.MemoryDb.CreateSubnetGroup
+module Amazonka.MemoryDb.CreateSubnetGroup
 
 -- | <i>See:</i> <a>newCreateSubnetGroup</a> smart constructor.
 data CreateSubnetGroup
@@ -7277,26 +7277,26 @@ createSubnetGroupResponse_subnetGroup :: Lens' CreateSubnetGroupResponse (Maybe 
 
 -- | The response's http status code.
 createSubnetGroupResponse_httpStatus :: Lens' CreateSubnetGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Show.Show Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Read.Read Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
+instance GHC.Show.Show Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
+instance GHC.Read.Read Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.CreateSubnetGroup.CreateSubnetGroup
 
 
 -- | Creates a copy of an entire cluster at a specific moment in time.
-module Network.AWS.MemoryDb.CreateSnapshot
+module Amazonka.MemoryDb.CreateSnapshot
 
 -- | <i>See:</i> <a>newCreateSnapshot</a> smart constructor.
 data CreateSnapshot
@@ -7387,29 +7387,29 @@ createSnapshotResponse_snapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 
 -- | The response's http status code.
 createSnapshotResponse_httpStatus :: Lens' CreateSnapshotResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshotResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshotResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshotResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshotResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshotResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CreateSnapshot.CreateSnapshot
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance GHC.Show.Show Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance GHC.Read.Read Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateSnapshot.CreateSnapshotResponse
+instance GHC.Show.Show Amazonka.MemoryDb.CreateSnapshot.CreateSnapshotResponse
+instance GHC.Read.Read Amazonka.MemoryDb.CreateSnapshot.CreateSnapshotResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateSnapshot.CreateSnapshotResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateSnapshot.CreateSnapshotResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.CreateSnapshot.CreateSnapshot
 
 
 -- | Creates a new MemoryDB parameter group. A parameter group is a
 --   collection of parameters and their values that are applied to all of
 --   the nodes in any cluster. For more information, see <a>Configuring
 --   engine parameters using parameter groups</a>.
-module Network.AWS.MemoryDb.CreateParameterGroup
+module Amazonka.MemoryDb.CreateParameterGroup
 
 -- | <i>See:</i> <a>newCreateParameterGroup</a> smart constructor.
 data CreateParameterGroup
@@ -7505,27 +7505,27 @@ createParameterGroupResponse_parameterGroup :: Lens' CreateParameterGroupRespons
 
 -- | The response's http status code.
 createParameterGroupResponse_httpStatus :: Lens' CreateParameterGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance GHC.Show.Show Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance GHC.Read.Read Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
+instance GHC.Show.Show Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
+instance GHC.Read.Read Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.CreateParameterGroup.CreateParameterGroup
 
 
 -- | Creates a cluster. All nodes in the cluster run the same
 --   protocol-compliant engine software.
-module Network.AWS.MemoryDb.CreateCluster
+module Amazonka.MemoryDb.CreateCluster
 
 -- | <i>See:</i> <a>newCreateCluster</a> smart constructor.
 data CreateCluster
@@ -7841,27 +7841,27 @@ createClusterResponse_cluster :: Lens' CreateClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 createClusterResponse_httpStatus :: Lens' CreateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateCluster.CreateClusterResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateCluster.CreateClusterResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateCluster.CreateClusterResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateCluster.CreateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateCluster.CreateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.CreateCluster.CreateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance GHC.Show.Show Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance GHC.Read.Read Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateCluster.CreateClusterResponse
+instance GHC.Show.Show Amazonka.MemoryDb.CreateCluster.CreateClusterResponse
+instance GHC.Read.Read Amazonka.MemoryDb.CreateCluster.CreateClusterResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateCluster.CreateClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateCluster.CreateClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.CreateCluster.CreateCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.CreateCluster.CreateCluster
 
 
 -- | Creates an Access Control List. For more information, see
 --   <a>Authenticating users with Access Contol Lists (ACLs)</a>.
-module Network.AWS.MemoryDb.CreateACL
+module Amazonka.MemoryDb.CreateACL
 
 -- | <i>See:</i> <a>newCreateACL</a> smart constructor.
 data CreateACL
@@ -7939,26 +7939,26 @@ createACLResponse_acl :: Lens' CreateACLResponse (Maybe ACL)
 
 -- | The response's http status code.
 createACLResponse_httpStatus :: Lens' CreateACLResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateACL.CreateACL
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateACL.CreateACL
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateACL.CreateACL
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateACL.CreateACL
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CreateACL.CreateACLResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.CreateACL.CreateACLResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.CreateACL.CreateACLResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CreateACL.CreateACLResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.CreateACL.CreateACL
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateACL.CreateACLResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.CreateACL.CreateACL
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CreateACL.CreateACL
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.CreateACL.CreateACL
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.CreateACL.CreateACL
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.CreateACL.CreateACL
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CreateACL.CreateACL
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateACL.CreateACL
+instance GHC.Show.Show Amazonka.MemoryDb.CreateACL.CreateACL
+instance GHC.Read.Read Amazonka.MemoryDb.CreateACL.CreateACL
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateACL.CreateACL
+instance GHC.Generics.Generic Amazonka.MemoryDb.CreateACL.CreateACLResponse
+instance GHC.Show.Show Amazonka.MemoryDb.CreateACL.CreateACLResponse
+instance GHC.Read.Read Amazonka.MemoryDb.CreateACL.CreateACLResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.CreateACL.CreateACLResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.CreateACL.CreateACL
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateACL.CreateACLResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.CreateACL.CreateACL
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CreateACL.CreateACL
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.CreateACL.CreateACL
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.CreateACL.CreateACL
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.CreateACL.CreateACL
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.CreateACL.CreateACL
 
 
 -- | Makes a copy of an existing snapshot.
-module Network.AWS.MemoryDb.CopySnapshot
+module Amazonka.MemoryDb.CopySnapshot
 
 -- | <i>See:</i> <a>newCopySnapshot</a> smart constructor.
 data CopySnapshot
@@ -8080,28 +8080,28 @@ copySnapshotResponse_snapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 
 -- | The response's http status code.
 copySnapshotResponse_httpStatus :: Lens' CopySnapshotResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance GHC.Show.Show Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance GHC.Read.Read Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance GHC.Generics.Generic Network.AWS.MemoryDb.CopySnapshot.CopySnapshotResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.CopySnapshot.CopySnapshotResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.CopySnapshot.CopySnapshotResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.CopySnapshot.CopySnapshotResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CopySnapshot.CopySnapshotResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.CopySnapshot.CopySnapshot
+instance GHC.Generics.Generic Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance GHC.Show.Show Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance GHC.Read.Read Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance GHC.Classes.Eq Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance GHC.Generics.Generic Amazonka.MemoryDb.CopySnapshot.CopySnapshotResponse
+instance GHC.Show.Show Amazonka.MemoryDb.CopySnapshot.CopySnapshotResponse
+instance GHC.Read.Read Amazonka.MemoryDb.CopySnapshot.CopySnapshotResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.CopySnapshot.CopySnapshotResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CopySnapshot.CopySnapshotResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.CopySnapshot.CopySnapshot
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.CopySnapshot.CopySnapshot
 
 
 -- | Apply the service update to a list of clusters supplied. For more
 --   information on service updates and applying them, see <a>Applying the
 --   service updates</a>.
-module Network.AWS.MemoryDb.BatchUpdateCluster
+module Amazonka.MemoryDb.BatchUpdateCluster
 
 -- | <i>See:</i> <a>newBatchUpdateCluster</a> smart constructor.
 data BatchUpdateCluster
@@ -8180,26 +8180,26 @@ batchUpdateClusterResponse_processedClusters :: Lens' BatchUpdateClusterResponse
 
 -- | The response's http status code.
 batchUpdateClusterResponse_httpStatus :: Lens' BatchUpdateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance GHC.Show.Show Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance GHC.Read.Read Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance GHC.Classes.Eq Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance GHC.Generics.Generic Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance GHC.Show.Show Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance GHC.Read.Read Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance GHC.Classes.Eq Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
+instance GHC.Show.Show Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
+instance GHC.Read.Read Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.BatchUpdateCluster.BatchUpdateCluster
 
 
 -- | Use this operation to remove tags on a resource
-module Network.AWS.MemoryDb.UntagResource
+module Amazonka.MemoryDb.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -8268,26 +8268,26 @@ untagResourceResponse_tagList :: Lens' UntagResourceResponse (Maybe [Tag])
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.MemoryDb.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.MemoryDb.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MemoryDb.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.MemoryDb.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.MemoryDb.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.MemoryDb.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MemoryDb.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.MemoryDb.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.MemoryDb.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.UntagResource.UntagResource
 
 
 -- | Changes the list of users that belong to the Access Control List.
-module Network.AWS.MemoryDb.UpdateACL
+module Amazonka.MemoryDb.UpdateACL
 
 -- | <i>See:</i> <a>newUpdateACL</a> smart constructor.
 data UpdateACL
@@ -8361,28 +8361,28 @@ updateACLResponse_acl :: Lens' UpdateACLResponse (Maybe ACL)
 
 -- | The response's http status code.
 updateACLResponse_httpStatus :: Lens' UpdateACLResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateACL.UpdateACLResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateACL.UpdateACLResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateACL.UpdateACLResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateACL.UpdateACLResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateACL.UpdateACLResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.UpdateACL.UpdateACL
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.UpdateACL.UpdateACL
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateACL.UpdateACLResponse
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateACL.UpdateACLResponse
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateACL.UpdateACLResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateACL.UpdateACLResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateACL.UpdateACLResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.UpdateACL.UpdateACL
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.UpdateACL.UpdateACL
 
 
 -- | Modifies the settings for a cluster. You can use this operation to
 --   change one or more cluster configuration settings by specifying the
 --   settings and the new values.
-module Network.AWS.MemoryDb.UpdateCluster
+module Amazonka.MemoryDb.UpdateCluster
 
 -- | <i>See:</i> <a>newUpdateCluster</a> smart constructor.
 data UpdateCluster
@@ -8589,28 +8589,28 @@ updateClusterResponse_cluster :: Lens' UpdateClusterResponse (Maybe Cluster)
 
 -- | The response's http status code.
 updateClusterResponse_httpStatus :: Lens' UpdateClusterResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateCluster.UpdateClusterResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateCluster.UpdateClusterResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateCluster.UpdateClusterResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateCluster.UpdateClusterResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateCluster.UpdateClusterResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.UpdateCluster.UpdateCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateCluster.UpdateClusterResponse
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateCluster.UpdateClusterResponse
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateCluster.UpdateClusterResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateCluster.UpdateClusterResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateCluster.UpdateClusterResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.UpdateCluster.UpdateCluster
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.UpdateCluster.UpdateCluster
 
 
 -- | Updates the parameters of a parameter group. You can modify up to 20
 --   parameters in a single request by submitting a list parameter name and
 --   value pairs.
-module Network.AWS.MemoryDb.UpdateParameterGroup
+module Amazonka.MemoryDb.UpdateParameterGroup
 
 -- | <i>See:</i> <a>newUpdateParameterGroup</a> smart constructor.
 data UpdateParameterGroup
@@ -8687,27 +8687,27 @@ updateParameterGroupResponse_parameterGroup :: Lens' UpdateParameterGroupRespons
 
 -- | The response's http status code.
 updateParameterGroupResponse_httpStatus :: Lens' UpdateParameterGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.UpdateParameterGroup.UpdateParameterGroup
 
 
 -- | Updates a subnet group. For more information, see <a>Updating a subnet
 --   group</a>
-module Network.AWS.MemoryDb.UpdateSubnetGroup
+module Amazonka.MemoryDb.UpdateSubnetGroup
 
 -- | <i>See:</i> <a>newUpdateSubnetGroup</a> smart constructor.
 data UpdateSubnetGroup
@@ -8786,26 +8786,26 @@ updateSubnetGroupResponse_subnetGroup :: Lens' UpdateSubnetGroupResponse (Maybe 
 
 -- | The response's http status code.
 updateSubnetGroupResponse_httpStatus :: Lens' UpdateSubnetGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.UpdateSubnetGroup.UpdateSubnetGroup
 
 
 -- | Changes user password(s) and/or access string.
-module Network.AWS.MemoryDb.UpdateUser
+module Amazonka.MemoryDb.UpdateUser
 
 -- | <i>See:</i> <a>newUpdateUser</a> smart constructor.
 data UpdateUser
@@ -8883,25 +8883,25 @@ updateUserResponse_user :: Lens' UpdateUserResponse (Maybe User)
 
 -- | The response's http status code.
 updateUserResponse_httpStatus :: Lens' UpdateUserResponse Int
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance GHC.Generics.Generic Network.AWS.MemoryDb.UpdateUser.UpdateUserResponse
-instance GHC.Show.Show Network.AWS.MemoryDb.UpdateUser.UpdateUserResponse
-instance GHC.Read.Read Network.AWS.MemoryDb.UpdateUser.UpdateUserResponse
-instance GHC.Classes.Eq Network.AWS.MemoryDb.UpdateUser.UpdateUserResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateUser.UpdateUserResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance Control.DeepSeq.NFData Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance Network.AWS.Data.Path.ToPath Network.AWS.MemoryDb.UpdateUser.UpdateUser
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MemoryDb.UpdateUser.UpdateUser
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance GHC.Generics.Generic Amazonka.MemoryDb.UpdateUser.UpdateUserResponse
+instance GHC.Show.Show Amazonka.MemoryDb.UpdateUser.UpdateUserResponse
+instance GHC.Read.Read Amazonka.MemoryDb.UpdateUser.UpdateUserResponse
+instance GHC.Classes.Eq Amazonka.MemoryDb.UpdateUser.UpdateUserResponse
+instance Amazonka.Types.AWSRequest Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateUser.UpdateUserResponse
+instance Data.Hashable.Class.Hashable Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance Control.DeepSeq.NFData Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance Amazonka.Data.Path.ToPath Amazonka.MemoryDb.UpdateUser.UpdateUser
+instance Amazonka.Data.Query.ToQuery Amazonka.MemoryDb.UpdateUser.UpdateUser
 
 
-module Network.AWS.MemoryDb.Lens
+module Amazonka.MemoryDb.Lens
 
 -- | An optional flag that can be included in the request to retrieve
 --   information about the individual shard(s).
@@ -10183,7 +10183,7 @@ user_aCLNames :: Lens' User (Maybe [Text])
 user_minimumEngineVersion :: Lens' User (Maybe Text)
 
 
-module Network.AWS.MemoryDb.Waiters
+module Amazonka.MemoryDb.Waiters
 
 
 -- | Derived from API version <tt>2021-01-01</tt> of the AWS service
@@ -10196,7 +10196,7 @@ module Network.AWS.MemoryDb.Waiters
 --   and high throughput data access. It is compatible with Redis, a
 --   popular open source data store, enabling you to leverage Redis’
 --   flexible and friendly data structures, APIs, and commands.
-module Network.AWS.MemoryDb
+module Amazonka.MemoryDb
 
 -- | API version <tt>2021-01-01</tt> of the Amazon MemoryDB SDK
 --   configuration.

@@ -1,0 +1,585 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.AutoScalingPlans.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AutoScalingPlans.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_InvalidNextTokenException"><span class="hs-identifier">_InvalidNextTokenException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_ConcurrentUpdateException"><span class="hs-identifier">_ConcurrentUpdateException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_InternalServiceException"><span class="hs-identifier">_InternalServiceException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_ObjectNotFoundException"><span class="hs-identifier">_ObjectNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_LimitExceededException"><span class="hs-identifier">_LimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ForecastDataType</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ForecastDataType.html#ForecastDataType"><span class="hs-identifier">ForecastDataType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * LoadMetricType</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.LoadMetricType.html#LoadMetricType"><span class="hs-identifier">LoadMetricType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricStatistic</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.MetricStatistic.html#MetricStatistic"><span class="hs-identifier">MetricStatistic</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PolicyType</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PolicyType.html#PolicyType"><span class="hs-identifier">PolicyType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PredictiveScalingMaxCapacityBehavior</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior.html#PredictiveScalingMaxCapacityBehavior"><span class="hs-identifier">PredictiveScalingMaxCapacityBehavior</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PredictiveScalingMode</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredictiveScalingMode.html#PredictiveScalingMode"><span class="hs-identifier">PredictiveScalingMode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalableDimension</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier">ScalableDimension</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingMetricType</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html#ScalingMetricType"><span class="hs-identifier">ScalingMetricType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingPlanStatusCode</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanStatusCode.html#ScalingPlanStatusCode"><span class="hs-identifier">ScalingPlanStatusCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingPolicyUpdateBehavior</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior.html#ScalingPolicyUpdateBehavior"><span class="hs-identifier">ScalingPolicyUpdateBehavior</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingStatusCode</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingStatusCode.html#ScalingStatusCode"><span class="hs-identifier">ScalingStatusCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServiceNamespace</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier">ServiceNamespace</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ApplicationSource</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ApplicationSource.html#ApplicationSource"><span class="hs-identifier">ApplicationSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ApplicationSource.html#newApplicationSource"><span class="hs-identifier">newApplicationSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ApplicationSource.html#applicationSource_tagFilters"><span class="hs-identifier">applicationSource_tagFilters</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ApplicationSource.html#applicationSource_cloudFormationStackARN"><span class="hs-identifier">applicationSource_cloudFormationStackARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomizedLoadMetricSpecification</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#CustomizedLoadMetricSpecification"><span class="hs-identifier">CustomizedLoadMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#newCustomizedLoadMetricSpecification"><span class="hs-identifier">newCustomizedLoadMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_dimensions"><span class="hs-identifier">customizedLoadMetricSpecification_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_unit"><span class="hs-identifier">customizedLoadMetricSpecification_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_metricName"><span class="hs-identifier">customizedLoadMetricSpecification_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_namespace"><span class="hs-identifier">customizedLoadMetricSpecification_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html#customizedLoadMetricSpecification_statistic"><span class="hs-identifier">customizedLoadMetricSpecification_statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomizedScalingMetricSpecification</span></span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html#CustomizedScalingMetricSpecification"><span class="hs-identifier">CustomizedScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html#newCustomizedScalingMetricSpecification"><span class="hs-identifier">newCustomizedScalingMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html#customizedScalingMetricSpecification_dimensions"><span class="hs-identifier">customizedScalingMetricSpecification_dimensions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html#customizedScalingMetricSpecification_unit"><span class="hs-identifier">customizedScalingMetricSpecification_unit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html#customizedScalingMetricSpecification_metricName"><span class="hs-identifier">customizedScalingMetricSpecification_metricName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html#customizedScalingMetricSpecification_namespace"><span class="hs-identifier">customizedScalingMetricSpecification_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html#customizedScalingMetricSpecification_statistic"><span class="hs-identifier">customizedScalingMetricSpecification_statistic</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Datapoint</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.Datapoint.html#Datapoint"><span class="hs-identifier">Datapoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.Datapoint.html#newDatapoint"><span class="hs-identifier">newDatapoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.Datapoint.html#datapoint_value"><span class="hs-identifier">datapoint_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.Datapoint.html#datapoint_timestamp"><span class="hs-identifier">datapoint_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * MetricDimension</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.MetricDimension.html#MetricDimension"><span class="hs-identifier">MetricDimension</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.MetricDimension.html#newMetricDimension"><span class="hs-identifier">newMetricDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.MetricDimension.html#metricDimension_name"><span class="hs-identifier">metricDimension_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.MetricDimension.html#metricDimension_value"><span class="hs-identifier">metricDimension_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PredefinedLoadMetricSpecification</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification.html#PredefinedLoadMetricSpecification"><span class="hs-identifier">PredefinedLoadMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification.html#newPredefinedLoadMetricSpecification"><span class="hs-identifier">newPredefinedLoadMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification.html#predefinedLoadMetricSpecification_resourceLabel"><span class="hs-identifier">predefinedLoadMetricSpecification_resourceLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification.html#predefinedLoadMetricSpecification_predefinedLoadMetricType"><span class="hs-identifier">predefinedLoadMetricSpecification_predefinedLoadMetricType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="hs-comment">-- * PredefinedScalingMetricSpecification</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification.html#PredefinedScalingMetricSpecification"><span class="hs-identifier">PredefinedScalingMetricSpecification</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification.html#newPredefinedScalingMetricSpecification"><span class="hs-identifier">newPredefinedScalingMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification.html#predefinedScalingMetricSpecification_resourceLabel"><span class="hs-identifier">predefinedScalingMetricSpecification_resourceLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification.html#predefinedScalingMetricSpecification_predefinedScalingMetricType"><span class="hs-identifier">predefinedScalingMetricSpecification_predefinedScalingMetricType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingInstruction</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#ScalingInstruction"><span class="hs-identifier">ScalingInstruction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#newScalingInstruction"><span class="hs-identifier">newScalingInstruction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_scheduledActionBufferTime"><span class="hs-identifier">scalingInstruction_scheduledActionBufferTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_predictiveScalingMaxCapacityBuffer"><span class="hs-identifier">scalingInstruction_predictiveScalingMaxCapacityBuffer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_scalingPolicyUpdateBehavior"><span class="hs-identifier">scalingInstruction_scalingPolicyUpdateBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_customizedLoadMetricSpecification"><span class="hs-identifier">scalingInstruction_customizedLoadMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_predictiveScalingMode"><span class="hs-identifier">scalingInstruction_predictiveScalingMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_disableDynamicScaling"><span class="hs-identifier">scalingInstruction_disableDynamicScaling</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_predictiveScalingMaxCapacityBehavior"><span class="hs-identifier">scalingInstruction_predictiveScalingMaxCapacityBehavior</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_predefinedLoadMetricSpecification"><span class="hs-identifier">scalingInstruction_predefinedLoadMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_serviceNamespace"><span class="hs-identifier">scalingInstruction_serviceNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_resourceId"><span class="hs-identifier">scalingInstruction_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_scalableDimension"><span class="hs-identifier">scalingInstruction_scalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_minCapacity"><span class="hs-identifier">scalingInstruction_minCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_maxCapacity"><span class="hs-identifier">scalingInstruction_maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html#scalingInstruction_targetTrackingConfigurations"><span class="hs-identifier">scalingInstruction_targetTrackingConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingPlan</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#ScalingPlan"><span class="hs-identifier">ScalingPlan</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#newScalingPlan"><span class="hs-identifier">newScalingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_creationTime"><span class="hs-identifier">scalingPlan_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_statusStartTime"><span class="hs-identifier">scalingPlan_statusStartTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_statusMessage"><span class="hs-identifier">scalingPlan_statusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_scalingPlanName"><span class="hs-identifier">scalingPlan_scalingPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_scalingPlanVersion"><span class="hs-identifier">scalingPlan_scalingPlanVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_applicationSource"><span class="hs-identifier">scalingPlan_applicationSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_scalingInstructions"><span class="hs-identifier">scalingPlan_scalingInstructions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html#scalingPlan_statusCode"><span class="hs-identifier">scalingPlan_statusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingPlanResource</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#ScalingPlanResource"><span class="hs-identifier">ScalingPlanResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#newScalingPlanResource"><span class="hs-identifier">newScalingPlanResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingStatusMessage"><span class="hs-identifier">scalingPlanResource_scalingStatusMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPolicies"><span class="hs-identifier">scalingPlanResource_scalingPolicies</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPlanName"><span class="hs-identifier">scalingPlanResource_scalingPlanName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingPlanVersion"><span class="hs-identifier">scalingPlanResource_scalingPlanVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_serviceNamespace"><span class="hs-identifier">scalingPlanResource_serviceNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_resourceId"><span class="hs-identifier">scalingPlanResource_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalableDimension"><span class="hs-identifier">scalingPlanResource_scalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html#scalingPlanResource_scalingStatusCode"><span class="hs-identifier">scalingPlanResource_scalingStatusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ScalingPolicy</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicy.html#ScalingPolicy"><span class="hs-identifier">ScalingPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicy.html#newScalingPolicy"><span class="hs-identifier">newScalingPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicy.html#scalingPolicy_targetTrackingConfiguration"><span class="hs-identifier">scalingPolicy_targetTrackingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicy.html#scalingPolicy_policyName"><span class="hs-identifier">scalingPolicy_policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicy.html#scalingPolicy_policyType"><span class="hs-identifier">scalingPolicy_policyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TagFilter</span></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TagFilter.html#TagFilter"><span class="hs-identifier">TagFilter</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TagFilter.html#newTagFilter"><span class="hs-identifier">newTagFilter</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TagFilter.html#tagFilter_values"><span class="hs-identifier">tagFilter_values</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TagFilter.html#tagFilter_key"><span class="hs-identifier">tagFilter_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TargetTrackingConfiguration</span></span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#TargetTrackingConfiguration"><span class="hs-identifier">TargetTrackingConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#newTargetTrackingConfiguration"><span class="hs-identifier">newTargetTrackingConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#targetTrackingConfiguration_estimatedInstanceWarmup"><span class="hs-identifier">targetTrackingConfiguration_estimatedInstanceWarmup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#targetTrackingConfiguration_predefinedScalingMetricSpecification"><span class="hs-identifier">targetTrackingConfiguration_predefinedScalingMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#targetTrackingConfiguration_scaleInCooldown"><span class="hs-identifier">targetTrackingConfiguration_scaleInCooldown</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#targetTrackingConfiguration_disableScaleIn"><span class="hs-identifier">targetTrackingConfiguration_disableScaleIn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#targetTrackingConfiguration_customizedScalingMetricSpecification"><span class="hs-identifier">targetTrackingConfiguration_customizedScalingMetricSpecification</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#targetTrackingConfiguration_scaleOutCooldown"><span class="hs-identifier">targetTrackingConfiguration_scaleOutCooldown</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html#targetTrackingConfiguration_targetValue"><span class="hs-identifier">targetTrackingConfiguration_targetValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ApplicationSource.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ApplicationSource</span></a></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.CustomizedLoadMetricSpecification</span></a></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.CustomizedScalingMetricSpecification</span></a></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.Datapoint.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.Datapoint</span></a></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ForecastDataType.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ForecastDataType</span></a></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.LoadMetricType.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.LoadMetricType</span></a></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.MetricDimension.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.MetricDimension</span></a></span><span>
+</span><span id="line-186"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.MetricStatistic.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.MetricStatistic</span></a></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PolicyType.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.PolicyType</span></a></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.PredefinedLoadMetricSpecification</span></a></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.PredefinedScalingMetricSpecification</span></a></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.PredictiveScalingMaxCapacityBehavior</span></a></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.PredictiveScalingMode.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.PredictiveScalingMode</span></a></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalableDimension.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalableDimension</span></a></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingInstruction.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingInstruction</span></a></span><span>
+</span><span id="line-194"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingMetricType.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingMetricType</span></a></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlan.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingPlan</span></a></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanResource.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingPlanResource</span></a></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPlanStatusCode.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingPlanStatusCode</span></a></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicy.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingPolicy</span></a></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingPolicyUpdateBehavior</span></a></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ScalingStatusCode.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ScalingStatusCode</span></a></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.ServiceNamespace.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.ServiceNamespace</span></a></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TagFilter.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.TagFilter</span></a></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration.html"><span class="hs-identifier">Amazonka.AutoScalingPlans.Types.TargetTrackingConfiguration</span></a></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | API version @2018-01-06@ of the Amazon Auto Scaling Plans SDK configuration.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-211"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-214"></span><span>        </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;AutoScalingPlans&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;autoscaling-plans&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;autoscaling-plans&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2018-01-06&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-220"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;AutoScalingPlans&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679179547"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-228"></span><span>    </span><span id="local-6989586621679179547"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679179547"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-230"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679179541"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-234"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>    </span><span id="local-6989586621679179541"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679179541"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679179540"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-237"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-238"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-239"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-242"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-244"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-245"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-246"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-247"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-251"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-252"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-253"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-257"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-258"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-259"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-260"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-264"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-265"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-266"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-267"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-268"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-271"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-274"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-275"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679179540"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | An exception was thrown for a validation issue. Review the parameters</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- provided.</span><span>
+</span><span id="line-283"></span><span id="local-6989586621679179535"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679179535"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679179535"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-284"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AutoScalingPlans.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-285"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The token provided is not valid.</span><span>
+</span><span id="line-290"></span><span id="local-6989586621679179533"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-type">_InvalidNextTokenException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679179533"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679179533"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-291"></span><span id="_InvalidNextTokenException"><span class="annot"><span class="annottext">_InvalidNextTokenException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AutoScalingPlans.Types.html#_InvalidNextTokenException"><span class="hs-identifier hs-var hs-var">_InvalidNextTokenException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-292"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidNextTokenException&quot;</span></span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | Concurrent updates caused an exception, for example, if you request an</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- update to a scaling plan that already has a pending update.</span><span>
+</span><span id="line-298"></span><span id="local-6989586621679179532"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_ConcurrentUpdateException"><span class="hs-identifier hs-type">_ConcurrentUpdateException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679179532"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679179532"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-299"></span><span id="_ConcurrentUpdateException"><span class="annot"><span class="annottext">_ConcurrentUpdateException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AutoScalingPlans.Types.html#_ConcurrentUpdateException"><span class="hs-identifier hs-var hs-var">_ConcurrentUpdateException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-300"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConcurrentUpdateException&quot;</span></span><span>
+</span><span id="line-303"></span><span>
+</span><span id="line-304"></span><span class="hs-comment">-- | The service encountered an internal error.</span><span>
+</span><span id="line-305"></span><span id="local-6989586621679179531"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_InternalServiceException"><span class="hs-identifier hs-type">_InternalServiceException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679179531"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679179531"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-306"></span><span id="_InternalServiceException"><span class="annot"><span class="annottext">_InternalServiceException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AutoScalingPlans.Types.html#_InternalServiceException"><span class="hs-identifier hs-var hs-var">_InternalServiceException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServiceException&quot;</span></span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | The specified object could not be found.</span><span>
+</span><span id="line-312"></span><span id="local-6989586621679179530"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_ObjectNotFoundException"><span class="hs-identifier hs-type">_ObjectNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679179530"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679179530"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-313"></span><span id="_ObjectNotFoundException"><span class="annot"><span class="annottext">_ObjectNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AutoScalingPlans.Types.html#_ObjectNotFoundException"><span class="hs-identifier hs-var hs-var">_ObjectNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-314"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ObjectNotFoundException&quot;</span></span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- | Your account exceeded a limit. This exception is thrown when a</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- per-account resource limit is exceeded.</span><span>
+</span><span id="line-320"></span><span id="local-6989586621679179529"><span class="annot"><a href="Amazonka.AutoScalingPlans.Types.html#_LimitExceededException"><span class="hs-identifier hs-type">_LimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679179529"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679179529"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-321"></span><span id="_LimitExceededException"><span class="annot"><span class="annottext">_LimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.AutoScalingPlans.Types.html#_LimitExceededException"><span class="hs-identifier hs-var hs-var">_LimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AutoScalingPlans.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;LimitExceededException&quot;</span></span><span>
+</span><span id="line-325"></span></pre></body></html>

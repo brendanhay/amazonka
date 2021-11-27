@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.OriginGroup</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.OriginGroup</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupFailoverCriteria.html"><span class="hs-identifier">Amazonka.CloudFront.Types.OriginGroupFailoverCriteria</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupMembers.html"><span class="hs-identifier">Amazonka.CloudFront.Types.OriginGroupMembers</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | An origin group includes two origins (a primary origin and a second</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- origin to failover to) and a failover criteria that you specify. You</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- create an origin group to support origin failover in CloudFront. When</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- you create or update a distribution, you can specifiy the origin group</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- instead of a single origin, and CloudFront will failover from the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- primary origin to the second origin under the failover conditions that</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- you\'ve chosen.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- /See:/ 'newOriginGroup' smart constructor.</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679402898"><span id="local-6989586621679402899"></span></span><span class="hs-keyword">data</span><span> </span><span id="OriginGroup"><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-var">OriginGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OriginGroup%27"><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-var">OriginGroup'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The origin group\'s ID.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aid%3AOriginGroup%27"><span class="annot"><span class="annottext">OriginGroup -&gt; Text
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3Aid%3AOriginGroup%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A complex type that contains information about the failover criteria for</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- an origin group.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AfailoverCriteria%3AOriginGroup%27"><span class="annot"><span class="annottext">OriginGroup -&gt; OriginGroupFailoverCriteria
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3AfailoverCriteria%3AOriginGroup%27"><span class="hs-identifier hs-var hs-var">failoverCriteria</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupFailoverCriteria.html#OriginGroupFailoverCriteria"><span class="hs-identifier hs-type">OriginGroupFailoverCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A complex type that contains information about the origins in an origin</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Amembers%3AOriginGroup%27"><span class="annot"><span class="annottext">OriginGroup -&gt; OriginGroupMembers
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3Amembers%3AOriginGroup%27"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupMembers.html#OriginGroupMembers"><span class="hs-identifier hs-type">OriginGroupMembers</span></a></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679402890"><span id="local-6989586621679402892"><span class="annot"><span class="annottext">OriginGroup -&gt; OriginGroup -&gt; Bool
+(OriginGroup -&gt; OriginGroup -&gt; Bool)
+-&gt; (OriginGroup -&gt; OriginGroup -&gt; Bool) -&gt; Eq OriginGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OriginGroup -&gt; OriginGroup -&gt; Bool
+$c/= :: OriginGroup -&gt; OriginGroup -&gt; Bool
+== :: OriginGroup -&gt; OriginGroup -&gt; Bool
+$c== :: OriginGroup -&gt; OriginGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402881"><span id="local-6989586621679402883"><span id="local-6989586621679402885"><span id="local-6989586621679402887"><span class="annot"><span class="annottext">ReadPrec [OriginGroup]
+ReadPrec OriginGroup
+Int -&gt; ReadS OriginGroup
+ReadS [OriginGroup]
+(Int -&gt; ReadS OriginGroup)
+-&gt; ReadS [OriginGroup]
+-&gt; ReadPrec OriginGroup
+-&gt; ReadPrec [OriginGroup]
+-&gt; Read OriginGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OriginGroup]
+$creadListPrec :: ReadPrec [OriginGroup]
+readPrec :: ReadPrec OriginGroup
+$creadPrec :: ReadPrec OriginGroup
+readList :: ReadS [OriginGroup]
+$creadList :: ReadS [OriginGroup]
+readsPrec :: Int -&gt; ReadS OriginGroup
+$creadsPrec :: Int -&gt; ReadS OriginGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679402874"><span id="local-6989586621679402876"><span id="local-6989586621679402878"><span class="annot"><span class="annottext">Int -&gt; OriginGroup -&gt; ShowS
+[OriginGroup] -&gt; ShowS
+OriginGroup -&gt; String
+(Int -&gt; OriginGroup -&gt; ShowS)
+-&gt; (OriginGroup -&gt; String)
+-&gt; ([OriginGroup] -&gt; ShowS)
+-&gt; Show OriginGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OriginGroup] -&gt; ShowS
+$cshowList :: [OriginGroup] -&gt; ShowS
+show :: OriginGroup -&gt; String
+$cshow :: OriginGroup -&gt; String
+showsPrec :: Int -&gt; OriginGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; OriginGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. OriginGroup -&gt; Rep OriginGroup x)
+-&gt; (forall x. Rep OriginGroup x -&gt; OriginGroup)
+-&gt; Generic OriginGroup
+forall x. Rep OriginGroup x -&gt; OriginGroup
+forall x. OriginGroup -&gt; Rep OriginGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OriginGroup x -&gt; OriginGroup
+$cfrom :: forall x. OriginGroup -&gt; Rep OriginGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Create a value of 'OriginGroup' with all optional fields omitted.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'id', 'originGroup_id' - The origin group\'s ID.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'failoverCriteria', 'originGroup_failoverCriteria' - A complex type that contains information about the failover criteria for</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- an origin group.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'members', 'originGroup_members' - A complex type that contains information about the origins in an origin</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#newOriginGroup"><span class="hs-identifier hs-type">newOriginGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'failoverCriteria'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupFailoverCriteria.html#OriginGroupFailoverCriteria"><span class="hs-identifier hs-type">OriginGroupFailoverCriteria</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'members'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupMembers.html#OriginGroupMembers"><span class="hs-identifier hs-type">OriginGroupMembers</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span>
+</span><span id="line-72"></span><span id="newOriginGroup"><span class="annot"><span class="annottext">newOriginGroup :: Text
+-&gt; OriginGroupFailoverCriteria -&gt; OriginGroupMembers -&gt; OriginGroup
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#newOriginGroup"><span class="hs-identifier hs-var hs-var">newOriginGroup</span></a></span></span><span> </span><span id="local-6989586621679402868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402868"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span id="local-6989586621679402867"><span class="annot"><span class="annottext">OriginGroupFailoverCriteria
+</span><a href="#local-6989586621679402867"><span class="hs-identifier hs-var">pFailoverCriteria_</span></a></span></span><span> </span><span id="local-6989586621679402866"><span class="annot"><span class="annottext">OriginGroupMembers
+</span><a href="#local-6989586621679402866"><span class="hs-identifier hs-var">pMembers_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">OriginGroup' :: Text
+-&gt; OriginGroupFailoverCriteria -&gt; OriginGroupMembers -&gt; OriginGroup
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:id:OriginGroup' :: Text
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3Aid%3AOriginGroup%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402868"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:failoverCriteria:OriginGroup' :: OriginGroupFailoverCriteria
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3AfailoverCriteria%3AOriginGroup%27"><span class="hs-identifier hs-var">failoverCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginGroupFailoverCriteria
+</span><a href="#local-6989586621679402867"><span class="hs-identifier hs-var">pFailoverCriteria_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:members:OriginGroup' :: OriginGroupMembers
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3Amembers%3AOriginGroup%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginGroupMembers
+</span><a href="#local-6989586621679402866"><span class="hs-identifier hs-var">pMembers_</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The origin group\'s ID.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#originGroup_id"><span class="hs-identifier hs-type">originGroup_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="originGroup_id"><span class="annot"><span class="annottext">originGroup_id :: (Text -&gt; f Text) -&gt; OriginGroup -&gt; f OriginGroup
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#originGroup_id"><span class="hs-identifier hs-var hs-var">originGroup_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginGroup -&gt; Text)
+-&gt; (OriginGroup -&gt; Text -&gt; OriginGroup)
+-&gt; Lens OriginGroup OriginGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402862"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:OriginGroup' :: OriginGroup -&gt; Text
+</span><a href="#local-6989586621679402862"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402862"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402861"><span class="annot"><span class="annottext">s :: OriginGroup
+</span><a href="#local-6989586621679402861"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402860"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402860"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroup
+</span><a href="#local-6989586621679402861"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:OriginGroup' :: Text
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3Aid%3AOriginGroup%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402860"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- | A complex type that contains information about the failover criteria for</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- an origin group.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#originGroup_failoverCriteria"><span class="hs-identifier hs-type">originGroup_failoverCriteria</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupFailoverCriteria.html#OriginGroupFailoverCriteria"><span class="hs-identifier hs-type">OriginGroupFailoverCriteria</span></a></span><span>
+</span><span id="line-86"></span><span id="originGroup_failoverCriteria"><span class="annot"><span class="annottext">originGroup_failoverCriteria :: (OriginGroupFailoverCriteria -&gt; f OriginGroupFailoverCriteria)
+-&gt; OriginGroup -&gt; f OriginGroup
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#originGroup_failoverCriteria"><span class="hs-identifier hs-var hs-var">originGroup_failoverCriteria</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginGroup -&gt; OriginGroupFailoverCriteria)
+-&gt; (OriginGroup -&gt; OriginGroupFailoverCriteria -&gt; OriginGroup)
+-&gt; Lens
+     OriginGroup
+     OriginGroup
+     OriginGroupFailoverCriteria
+     OriginGroupFailoverCriteria
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402858"><span class="annot"><span class="annottext">OriginGroupFailoverCriteria
+failoverCriteria :: OriginGroupFailoverCriteria
+$sel:failoverCriteria:OriginGroup' :: OriginGroup -&gt; OriginGroupFailoverCriteria
+</span><a href="#local-6989586621679402858"><span class="hs-identifier hs-var hs-var">failoverCriteria</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroupFailoverCriteria
+</span><a href="#local-6989586621679402858"><span class="hs-identifier hs-var">failoverCriteria</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402857"><span class="annot"><span class="annottext">s :: OriginGroup
+</span><a href="#local-6989586621679402857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402856"><span class="annot"><span class="annottext">OriginGroupFailoverCriteria
+</span><a href="#local-6989586621679402856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroup
+</span><a href="#local-6989586621679402857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failoverCriteria:OriginGroup' :: OriginGroupFailoverCriteria
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3AfailoverCriteria%3AOriginGroup%27"><span class="hs-identifier hs-var">failoverCriteria</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginGroupFailoverCriteria
+</span><a href="#local-6989586621679402856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | A complex type that contains information about the origins in an origin</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- group.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#originGroup_members"><span class="hs-identifier hs-type">originGroup_members</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroupMembers.html#OriginGroupMembers"><span class="hs-identifier hs-type">OriginGroupMembers</span></a></span><span>
+</span><span id="line-91"></span><span id="originGroup_members"><span class="annot"><span class="annottext">originGroup_members :: (OriginGroupMembers -&gt; f OriginGroupMembers)
+-&gt; OriginGroup -&gt; f OriginGroup
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#originGroup_members"><span class="hs-identifier hs-var hs-var">originGroup_members</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(OriginGroup -&gt; OriginGroupMembers)
+-&gt; (OriginGroup -&gt; OriginGroupMembers -&gt; OriginGroup)
+-&gt; Lens
+     OriginGroup OriginGroup OriginGroupMembers OriginGroupMembers
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402854"><span class="annot"><span class="annottext">OriginGroupMembers
+members :: OriginGroupMembers
+$sel:members:OriginGroup' :: OriginGroup -&gt; OriginGroupMembers
+</span><a href="#local-6989586621679402854"><span class="hs-identifier hs-var hs-var">members</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroupMembers
+</span><a href="#local-6989586621679402854"><span class="hs-identifier hs-var">members</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679402853"><span class="annot"><span class="annottext">s :: OriginGroup
+</span><a href="#local-6989586621679402853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679402852"><span class="annot"><span class="annottext">OriginGroupMembers
+</span><a href="#local-6989586621679402852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OriginGroup
+</span><a href="#local-6989586621679402853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:members:OriginGroup' :: OriginGroupMembers
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#%24sel%3Amembers%3AOriginGroup%27"><span class="hs-identifier hs-var">members</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OriginGroupMembers
+</span><a href="#local-6989586621679402852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679402849"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String OriginGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679402847"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402847"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; OriginGroupFailoverCriteria -&gt; OriginGroupMembers -&gt; OriginGroup
+</span><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-var">OriginGroup'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">(Text
+ -&gt; OriginGroupFailoverCriteria
+ -&gt; OriginGroupMembers
+ -&gt; OriginGroup)
+-&gt; Either String Text
+-&gt; Either
+     String
+     (OriginGroupFailoverCriteria -&gt; OriginGroupMembers -&gt; OriginGroup)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (OriginGroupFailoverCriteria -&gt; OriginGroupMembers -&gt; OriginGroup)
+-&gt; Either String OriginGroupFailoverCriteria
+-&gt; Either String (OriginGroupMembers -&gt; OriginGroup)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OriginGroupFailoverCriteria
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailoverCriteria&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either String (OriginGroupMembers -&gt; OriginGroup)
+-&gt; Either String OriginGroupMembers -&gt; Either String OriginGroup
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679402847"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String OriginGroupMembers
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Members&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402841"><span id="local-6989586621679402843"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679402838"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup"><span class="hs-identifier hs-type">OriginGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679402834"><span class="annot"><span class="annottext">toXML :: OriginGroup -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.OriginGroup.html#OriginGroup%27"><span class="hs-identifier hs-type">OriginGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679402830"><span id="local-6989586621679402831"><span id="local-6989586621679402832"><span class="annot"><span class="annottext">Text
+OriginGroupMembers
+OriginGroupFailoverCriteria
+members :: OriginGroupMembers
+failoverCriteria :: OriginGroupFailoverCriteria
+id :: Text
+$sel:members:OriginGroup' :: OriginGroup -&gt; OriginGroupMembers
+$sel:failoverCriteria:OriginGroup' :: OriginGroup -&gt; OriginGroupFailoverCriteria
+$sel:id:OriginGroup' :: OriginGroup -&gt; Text
+</span><a href="#local-6989586621679402830"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Id&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Text -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679402832"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;FailoverCriteria&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; OriginGroupFailoverCriteria -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">OriginGroupFailoverCriteria
+</span><a href="#local-6989586621679402831"><span class="hs-identifier hs-var">failoverCriteria</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;Members&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; OriginGroupMembers -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">OriginGroupMembers
+</span><a href="#local-6989586621679402830"><span class="hs-identifier hs-var">members</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span></pre></body></html>

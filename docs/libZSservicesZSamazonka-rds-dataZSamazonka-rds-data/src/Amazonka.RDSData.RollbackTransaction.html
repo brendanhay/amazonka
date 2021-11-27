@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.RDSData.RollbackTransaction</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Performs a rollback of a transaction. Rolling back a transaction cancels</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- its changes.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RDSData.RollbackTransaction</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier">RollbackTransaction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#newRollbackTransaction"><span class="hs-identifier">newRollbackTransaction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_resourceArn"><span class="hs-identifier">rollbackTransaction_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_secretArn"><span class="hs-identifier">rollbackTransaction_secretArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_transactionId"><span class="hs-identifier">rollbackTransaction_transactionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier">RollbackTransactionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#newRollbackTransactionResponse"><span class="hs-identifier">newRollbackTransactionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransactionResponse_transactionStatus"><span class="hs-identifier">rollbackTransactionResponse_transactionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransactionResponse_httpStatus"><span class="hs-identifier">rollbackTransactionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RDSData.Types.html"><span class="hs-identifier">Amazonka.RDSData.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | The request parameters represent the input of a request to perform a</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- rollback of a transaction.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newRollbackTransaction' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679156620"><span id="local-6989586621679156621"></span></span><span class="hs-keyword">data</span><span> </span><span id="RollbackTransaction"><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-var">RollbackTransaction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RollbackTransaction%27"><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-var">RollbackTransaction'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AresourceArn%3ARollbackTransaction%27"><span class="annot"><span class="annottext">RollbackTransaction -&gt; Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AresourceArn%3ARollbackTransaction%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the DB cluster.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AsecretArn%3ARollbackTransaction%27"><span class="annot"><span class="annottext">RollbackTransaction -&gt; Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AsecretArn%3ARollbackTransaction%27"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The identifier of the transaction to roll back.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AtransactionId%3ARollbackTransaction%27"><span class="annot"><span class="annottext">RollbackTransaction -&gt; Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AtransactionId%3ARollbackTransaction%27"><span class="hs-identifier hs-var hs-var">transactionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156612"><span id="local-6989586621679156614"><span class="annot"><span class="annottext">RollbackTransaction -&gt; RollbackTransaction -&gt; Bool
+(RollbackTransaction -&gt; RollbackTransaction -&gt; Bool)
+-&gt; (RollbackTransaction -&gt; RollbackTransaction -&gt; Bool)
+-&gt; Eq RollbackTransaction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RollbackTransaction -&gt; RollbackTransaction -&gt; Bool
+$c/= :: RollbackTransaction -&gt; RollbackTransaction -&gt; Bool
+== :: RollbackTransaction -&gt; RollbackTransaction -&gt; Bool
+$c== :: RollbackTransaction -&gt; RollbackTransaction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156603"><span id="local-6989586621679156605"><span id="local-6989586621679156607"><span id="local-6989586621679156609"><span class="annot"><span class="annottext">ReadPrec [RollbackTransaction]
+ReadPrec RollbackTransaction
+Int -&gt; ReadS RollbackTransaction
+ReadS [RollbackTransaction]
+(Int -&gt; ReadS RollbackTransaction)
+-&gt; ReadS [RollbackTransaction]
+-&gt; ReadPrec RollbackTransaction
+-&gt; ReadPrec [RollbackTransaction]
+-&gt; Read RollbackTransaction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RollbackTransaction]
+$creadListPrec :: ReadPrec [RollbackTransaction]
+readPrec :: ReadPrec RollbackTransaction
+$creadPrec :: ReadPrec RollbackTransaction
+readList :: ReadS [RollbackTransaction]
+$creadList :: ReadS [RollbackTransaction]
+readsPrec :: Int -&gt; ReadS RollbackTransaction
+$creadsPrec :: Int -&gt; ReadS RollbackTransaction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156596"><span id="local-6989586621679156598"><span id="local-6989586621679156600"><span class="annot"><span class="annottext">Int -&gt; RollbackTransaction -&gt; ShowS
+[RollbackTransaction] -&gt; ShowS
+RollbackTransaction -&gt; String
+(Int -&gt; RollbackTransaction -&gt; ShowS)
+-&gt; (RollbackTransaction -&gt; String)
+-&gt; ([RollbackTransaction] -&gt; ShowS)
+-&gt; Show RollbackTransaction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RollbackTransaction] -&gt; ShowS
+$cshowList :: [RollbackTransaction] -&gt; ShowS
+show :: RollbackTransaction -&gt; String
+$cshow :: RollbackTransaction -&gt; String
+showsPrec :: Int -&gt; RollbackTransaction -&gt; ShowS
+$cshowsPrec :: Int -&gt; RollbackTransaction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RollbackTransaction -&gt; Rep RollbackTransaction x)
+-&gt; (forall x. Rep RollbackTransaction x -&gt; RollbackTransaction)
+-&gt; Generic RollbackTransaction
+forall x. Rep RollbackTransaction x -&gt; RollbackTransaction
+forall x. RollbackTransaction -&gt; Rep RollbackTransaction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RollbackTransaction x -&gt; RollbackTransaction
+$cfrom :: forall x. RollbackTransaction -&gt; Rep RollbackTransaction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'RollbackTransaction' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'resourceArn', 'rollbackTransaction_resourceArn' - The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'secretArn', 'rollbackTransaction_secretArn' - The name or ARN of the secret that enables access to the DB cluster.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'transactionId', 'rollbackTransaction_transactionId' - The identifier of the transaction to roll back.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#newRollbackTransaction"><span class="hs-identifier hs-type">newRollbackTransaction</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'secretArn'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'transactionId'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span>
+</span><span id="line-87"></span><span id="newRollbackTransaction"><span class="annot"><span class="annottext">newRollbackTransaction :: Text -&gt; Text -&gt; Text -&gt; RollbackTransaction
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#newRollbackTransaction"><span class="hs-identifier hs-var hs-var">newRollbackTransaction</span></a></span></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679156591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156591"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679156590"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156590"><span class="hs-identifier hs-var">pSecretArn_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679156589"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156589"><span class="hs-identifier hs-var">pTransactionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">RollbackTransaction' :: Text -&gt; Text -&gt; Text -&gt; RollbackTransaction
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceArn:RollbackTransaction' :: Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AresourceArn%3ARollbackTransaction%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156591"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">$sel:secretArn:RollbackTransaction' :: Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AsecretArn%3ARollbackTransaction%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156590"><span class="hs-identifier hs-var">pSecretArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:transactionId:RollbackTransaction' :: Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AtransactionId%3ARollbackTransaction%27"><span class="hs-identifier hs-var">transactionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156589"><span class="hs-identifier hs-var">pTransactionId_</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the Aurora Serverless DB cluster.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_resourceArn"><span class="hs-identifier hs-type">rollbackTransaction_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="rollbackTransaction_resourceArn"><span class="annot"><span class="annottext">rollbackTransaction_resourceArn :: (Text -&gt; f Text) -&gt; RollbackTransaction -&gt; f RollbackTransaction
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_resourceArn"><span class="hs-identifier hs-var hs-var">rollbackTransaction_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackTransaction -&gt; Text)
+-&gt; (RollbackTransaction -&gt; Text -&gt; RollbackTransaction)
+-&gt; Lens RollbackTransaction RollbackTransaction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156586"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:RollbackTransaction' :: RollbackTransaction -&gt; Text
+</span><a href="#local-6989586621679156586"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156586"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156585"><span class="annot"><span class="annottext">s :: RollbackTransaction
+</span><a href="#local-6989586621679156585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156584"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackTransaction
+</span><a href="#local-6989586621679156585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:RollbackTransaction' :: Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AresourceArn%3ARollbackTransaction%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The name or ARN of the secret that enables access to the DB cluster.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_secretArn"><span class="hs-identifier hs-type">rollbackTransaction_secretArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="rollbackTransaction_secretArn"><span class="annot"><span class="annottext">rollbackTransaction_secretArn :: (Text -&gt; f Text) -&gt; RollbackTransaction -&gt; f RollbackTransaction
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_secretArn"><span class="hs-identifier hs-var hs-var">rollbackTransaction_secretArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackTransaction -&gt; Text)
+-&gt; (RollbackTransaction -&gt; Text -&gt; RollbackTransaction)
+-&gt; Lens RollbackTransaction RollbackTransaction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156583"><span class="annot"><span class="annottext">Text
+secretArn :: Text
+$sel:secretArn:RollbackTransaction' :: RollbackTransaction -&gt; Text
+</span><a href="#local-6989586621679156583"><span class="hs-identifier hs-var hs-var">secretArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156583"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156582"><span class="annot"><span class="annottext">s :: RollbackTransaction
+</span><a href="#local-6989586621679156582"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156581"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156581"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackTransaction
+</span><a href="#local-6989586621679156582"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretArn:RollbackTransaction' :: Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AsecretArn%3ARollbackTransaction%27"><span class="hs-identifier hs-var">secretArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156581"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The identifier of the transaction to roll back.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_transactionId"><span class="hs-identifier hs-type">rollbackTransaction_transactionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="rollbackTransaction_transactionId"><span class="annot"><span class="annottext">rollbackTransaction_transactionId :: (Text -&gt; f Text) -&gt; RollbackTransaction -&gt; f RollbackTransaction
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransaction_transactionId"><span class="hs-identifier hs-var hs-var">rollbackTransaction_transactionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackTransaction -&gt; Text)
+-&gt; (RollbackTransaction -&gt; Text -&gt; RollbackTransaction)
+-&gt; Lens RollbackTransaction RollbackTransaction Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156580"><span class="annot"><span class="annottext">Text
+transactionId :: Text
+$sel:transactionId:RollbackTransaction' :: RollbackTransaction -&gt; Text
+</span><a href="#local-6989586621679156580"><span class="hs-identifier hs-var hs-var">transactionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156580"><span class="hs-identifier hs-var">transactionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156579"><span class="annot"><span class="annottext">s :: RollbackTransaction
+</span><a href="#local-6989586621679156579"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156578"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156578"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackTransaction
+</span><a href="#local-6989586621679156579"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transactionId:RollbackTransaction' :: Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AtransactionId%3ARollbackTransaction%27"><span class="hs-identifier hs-var">transactionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156578"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-111"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-type">RollbackTransactionResponse</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679156574"><span class="annot"><span class="annottext">request :: RollbackTransaction -&gt; Request RollbackTransaction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RollbackTransaction -&gt; Request RollbackTransaction
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.RDSData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679156570"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RollbackTransaction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RollbackTransaction)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RollbackTransaction))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RollbackTransaction
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RollbackTransaction)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679156567"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156567"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679156566"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679156566"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679156565"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156565"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RollbackTransactionResponse
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse%27"><span class="hs-identifier hs-var">RollbackTransactionResponse'</span></a></span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RollbackTransactionResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RollbackTransactionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679156565"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transactionStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RollbackTransactionResponse)
+-&gt; Either String Int -&gt; Either String RollbackTransactionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156567"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156557"><span id="local-6989586621679156559"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156554"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679156550"><span class="annot"><span class="annottext">toHeaders :: RollbackTransaction -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RollbackTransaction -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-129"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-131"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-132"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-133"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156540"><span id="local-6989586621679156542"><span id="local-6989586621679156544"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679156538"><span class="annot"><span class="annottext">toJSON :: RollbackTransaction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction%27"><span class="hs-identifier hs-type">RollbackTransaction'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156534"><span id="local-6989586621679156535"><span id="local-6989586621679156536"><span class="annot"><span class="annottext">Text
+transactionId :: Text
+secretArn :: Text
+resourceArn :: Text
+$sel:transactionId:RollbackTransaction' :: RollbackTransaction -&gt; Text
+$sel:secretArn:RollbackTransaction' :: RollbackTransaction -&gt; Text
+$sel:resourceArn:RollbackTransaction' :: RollbackTransaction -&gt; Text
+</span><a href="#local-6989586621679156534"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156536"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156535"><span class="hs-identifier hs-var">secretArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-144"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;transactionId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679156534"><span class="hs-identifier hs-var">transactionId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679156528"><span class="annot"><span class="annottext">toPath :: RollbackTransaction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RollbackTransaction -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/RollbackTransaction&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransaction"><span class="hs-identifier hs-type">RollbackTransaction</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679156524"><span class="annot"><span class="annottext">toQuery :: RollbackTransaction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RollbackTransaction -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The response elements represent the output of a request to perform a</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- rollback of a transaction.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- /See:/ 'newRollbackTransactionResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679156521"><span id="local-6989586621679156522"></span></span><span class="hs-keyword">data</span><span> </span><span id="RollbackTransactionResponse"><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-var">RollbackTransactionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RollbackTransactionResponse%27"><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse%27"><span class="hs-identifier hs-var">RollbackTransactionResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the rollback operation.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AtransactionStatus%3ARollbackTransactionResponse%27"><span class="annot"><span class="annottext">RollbackTransactionResponse -&gt; Maybe Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AtransactionStatus%3ARollbackTransactionResponse%27"><span class="hs-identifier hs-var hs-var">transactionStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARollbackTransactionResponse%27"><span class="annot"><span class="annottext">RollbackTransactionResponse -&gt; Int
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AhttpStatus%3ARollbackTransactionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679156515"><span id="local-6989586621679156517"><span class="annot"><span class="annottext">RollbackTransactionResponse -&gt; RollbackTransactionResponse -&gt; Bool
+(RollbackTransactionResponse
+ -&gt; RollbackTransactionResponse -&gt; Bool)
+-&gt; (RollbackTransactionResponse
+    -&gt; RollbackTransactionResponse -&gt; Bool)
+-&gt; Eq RollbackTransactionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RollbackTransactionResponse -&gt; RollbackTransactionResponse -&gt; Bool
+$c/= :: RollbackTransactionResponse -&gt; RollbackTransactionResponse -&gt; Bool
+== :: RollbackTransactionResponse -&gt; RollbackTransactionResponse -&gt; Bool
+$c== :: RollbackTransactionResponse -&gt; RollbackTransactionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156507"><span id="local-6989586621679156509"><span id="local-6989586621679156511"><span id="local-6989586621679156513"><span class="annot"><span class="annottext">ReadPrec [RollbackTransactionResponse]
+ReadPrec RollbackTransactionResponse
+Int -&gt; ReadS RollbackTransactionResponse
+ReadS [RollbackTransactionResponse]
+(Int -&gt; ReadS RollbackTransactionResponse)
+-&gt; ReadS [RollbackTransactionResponse]
+-&gt; ReadPrec RollbackTransactionResponse
+-&gt; ReadPrec [RollbackTransactionResponse]
+-&gt; Read RollbackTransactionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RollbackTransactionResponse]
+$creadListPrec :: ReadPrec [RollbackTransactionResponse]
+readPrec :: ReadPrec RollbackTransactionResponse
+$creadPrec :: ReadPrec RollbackTransactionResponse
+readList :: ReadS [RollbackTransactionResponse]
+$creadList :: ReadS [RollbackTransactionResponse]
+readsPrec :: Int -&gt; ReadS RollbackTransactionResponse
+$creadsPrec :: Int -&gt; ReadS RollbackTransactionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679156501"><span id="local-6989586621679156503"><span id="local-6989586621679156505"><span class="annot"><span class="annottext">Int -&gt; RollbackTransactionResponse -&gt; ShowS
+[RollbackTransactionResponse] -&gt; ShowS
+RollbackTransactionResponse -&gt; String
+(Int -&gt; RollbackTransactionResponse -&gt; ShowS)
+-&gt; (RollbackTransactionResponse -&gt; String)
+-&gt; ([RollbackTransactionResponse] -&gt; ShowS)
+-&gt; Show RollbackTransactionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RollbackTransactionResponse] -&gt; ShowS
+$cshowList :: [RollbackTransactionResponse] -&gt; ShowS
+show :: RollbackTransactionResponse -&gt; String
+$cshow :: RollbackTransactionResponse -&gt; String
+showsPrec :: Int -&gt; RollbackTransactionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RollbackTransactionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RollbackTransactionResponse -&gt; Rep RollbackTransactionResponse x)
+-&gt; (forall x.
+    Rep RollbackTransactionResponse x -&gt; RollbackTransactionResponse)
+-&gt; Generic RollbackTransactionResponse
+forall x.
+Rep RollbackTransactionResponse x -&gt; RollbackTransactionResponse
+forall x.
+RollbackTransactionResponse -&gt; Rep RollbackTransactionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RollbackTransactionResponse x -&gt; RollbackTransactionResponse
+$cfrom :: forall x.
+RollbackTransactionResponse -&gt; Rep RollbackTransactionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'RollbackTransactionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'transactionStatus', 'rollbackTransactionResponse_transactionStatus' - The status of the rollback operation.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'httpStatus', 'rollbackTransactionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-177"></span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#newRollbackTransactionResponse"><span class="hs-identifier hs-type">newRollbackTransactionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-type">RollbackTransactionResponse</span></a></span><span>
+</span><span id="line-181"></span><span id="newRollbackTransactionResponse"><span class="annot"><span class="annottext">newRollbackTransactionResponse :: Int -&gt; RollbackTransactionResponse
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#newRollbackTransactionResponse"><span class="hs-identifier hs-var hs-var">newRollbackTransactionResponse</span></a></span></span><span> </span><span id="local-6989586621679156498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">RollbackTransactionResponse' :: Maybe Text -&gt; Int -&gt; RollbackTransactionResponse
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse%27"><span class="hs-identifier hs-type">RollbackTransactionResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:transactionStatus:RollbackTransactionResponse' :: Maybe Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AtransactionStatus%3ARollbackTransactionResponse%27"><span class="hs-identifier hs-var">transactionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RollbackTransactionResponse' :: Int
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AhttpStatus%3ARollbackTransactionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156498"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The status of the rollback operation.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransactionResponse_transactionStatus"><span class="hs-identifier hs-type">rollbackTransactionResponse_transactionStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-type">RollbackTransactionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="rollbackTransactionResponse_transactionStatus"><span class="annot"><span class="annottext">rollbackTransactionResponse_transactionStatus :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RollbackTransactionResponse -&gt; f RollbackTransactionResponse
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransactionResponse_transactionStatus"><span class="hs-identifier hs-var hs-var">rollbackTransactionResponse_transactionStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackTransactionResponse -&gt; Maybe Text)
+-&gt; (RollbackTransactionResponse
+    -&gt; Maybe Text -&gt; RollbackTransactionResponse)
+-&gt; Lens
+     RollbackTransactionResponse
+     RollbackTransactionResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse%27"><span class="hs-identifier hs-type">RollbackTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156497"><span class="annot"><span class="annottext">Maybe Text
+transactionStatus :: Maybe Text
+$sel:transactionStatus:RollbackTransactionResponse' :: RollbackTransactionResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679156497"><span class="hs-identifier hs-var hs-var">transactionStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156497"><span class="hs-identifier hs-var">transactionStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156496"><span class="annot"><span class="annottext">s :: RollbackTransactionResponse
+</span><a href="#local-6989586621679156496"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse%27"><span class="hs-identifier hs-type">RollbackTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156495"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156495"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackTransactionResponse
+</span><a href="#local-6989586621679156496"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:transactionStatus:RollbackTransactionResponse' :: Maybe Text
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AtransactionStatus%3ARollbackTransactionResponse%27"><span class="hs-identifier hs-var">transactionStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679156495"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-type">RollbackTransactionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransactionResponse_httpStatus"><span class="hs-identifier hs-type">rollbackTransactionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-type">RollbackTransactionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-194"></span><span id="rollbackTransactionResponse_httpStatus"><span class="annot"><span class="annottext">rollbackTransactionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RollbackTransactionResponse -&gt; f RollbackTransactionResponse
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#rollbackTransactionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">rollbackTransactionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RollbackTransactionResponse -&gt; Int)
+-&gt; (RollbackTransactionResponse
+    -&gt; Int -&gt; RollbackTransactionResponse)
+-&gt; Lens
+     RollbackTransactionResponse RollbackTransactionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse%27"><span class="hs-identifier hs-type">RollbackTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679156494"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RollbackTransactionResponse' :: RollbackTransactionResponse -&gt; Int
+</span><a href="#local-6989586621679156494"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156494"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679156493"><span class="annot"><span class="annottext">s :: RollbackTransactionResponse
+</span><a href="#local-6989586621679156493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse%27"><span class="hs-identifier hs-type">RollbackTransactionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679156492"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RollbackTransactionResponse
+</span><a href="#local-6989586621679156493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RollbackTransactionResponse' :: Int
+</span><a href="Amazonka.RDSData.RollbackTransaction.html#%24sel%3AhttpStatus%3ARollbackTransactionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679156492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-type">RollbackTransactionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679156490"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RDSData.RollbackTransaction.html#RollbackTransactionResponse"><span class="hs-identifier hs-type">RollbackTransactionResponse</span></a></span></span><span>
+</span><span id="line-197"></span></pre></body></html>

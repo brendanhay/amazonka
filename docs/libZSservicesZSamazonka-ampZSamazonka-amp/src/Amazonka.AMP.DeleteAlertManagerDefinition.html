@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AMP.DeleteAlertManagerDefinition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an alert manager definition.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AMP.DeleteAlertManagerDefinition</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#newDeleteAlertManagerDefinition"><span class="hs-identifier">newDeleteAlertManagerDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#deleteAlertManagerDefinition_clientToken"><span class="hs-identifier">deleteAlertManagerDefinition_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#deleteAlertManagerDefinition_workspaceId"><span class="hs-identifier">deleteAlertManagerDefinition_workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse"><span class="hs-identifier">DeleteAlertManagerDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#newDeleteAlertManagerDefinitionResponse"><span class="hs-identifier">newDeleteAlertManagerDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AMP.Types.html"><span class="hs-identifier">Amazonka.AMP.Types</span></a></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | Represents the input of a DeleteAlertManagerDefinition operation.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- /See:/ 'newDeleteAlertManagerDefinition' smart constructor.</span><span>
+</span><span id="line-49"></span><span id="local-6989586621679174063"><span id="local-6989586621679174064"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlertManagerDefinition"><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-var">DeleteAlertManagerDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlertManagerDefinition%27"><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-var">DeleteAlertManagerDefinition'</span></a></span></span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AclientToken%3ADeleteAlertManagerDefinition%27"><span class="annot"><span class="annottext">DeleteAlertManagerDefinition -&gt; Maybe Text
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#%24sel%3AclientToken%3ADeleteAlertManagerDefinition%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | The ID of the workspace in which to delete the alert manager definition.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AworkspaceId%3ADeleteAlertManagerDefinition%27"><span class="annot"><span class="annottext">DeleteAlertManagerDefinition -&gt; Text
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#%24sel%3AworkspaceId%3ADeleteAlertManagerDefinition%27"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174056"><span id="local-6989586621679174058"><span class="annot"><span class="annottext">DeleteAlertManagerDefinition
+-&gt; DeleteAlertManagerDefinition -&gt; Bool
+(DeleteAlertManagerDefinition
+ -&gt; DeleteAlertManagerDefinition -&gt; Bool)
+-&gt; (DeleteAlertManagerDefinition
+    -&gt; DeleteAlertManagerDefinition -&gt; Bool)
+-&gt; Eq DeleteAlertManagerDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlertManagerDefinition
+-&gt; DeleteAlertManagerDefinition -&gt; Bool
+$c/= :: DeleteAlertManagerDefinition
+-&gt; DeleteAlertManagerDefinition -&gt; Bool
+== :: DeleteAlertManagerDefinition
+-&gt; DeleteAlertManagerDefinition -&gt; Bool
+$c== :: DeleteAlertManagerDefinition
+-&gt; DeleteAlertManagerDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174047"><span id="local-6989586621679174049"><span id="local-6989586621679174051"><span id="local-6989586621679174053"><span class="annot"><span class="annottext">ReadPrec [DeleteAlertManagerDefinition]
+ReadPrec DeleteAlertManagerDefinition
+Int -&gt; ReadS DeleteAlertManagerDefinition
+ReadS [DeleteAlertManagerDefinition]
+(Int -&gt; ReadS DeleteAlertManagerDefinition)
+-&gt; ReadS [DeleteAlertManagerDefinition]
+-&gt; ReadPrec DeleteAlertManagerDefinition
+-&gt; ReadPrec [DeleteAlertManagerDefinition]
+-&gt; Read DeleteAlertManagerDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlertManagerDefinition]
+$creadListPrec :: ReadPrec [DeleteAlertManagerDefinition]
+readPrec :: ReadPrec DeleteAlertManagerDefinition
+$creadPrec :: ReadPrec DeleteAlertManagerDefinition
+readList :: ReadS [DeleteAlertManagerDefinition]
+$creadList :: ReadS [DeleteAlertManagerDefinition]
+readsPrec :: Int -&gt; ReadS DeleteAlertManagerDefinition
+$creadsPrec :: Int -&gt; ReadS DeleteAlertManagerDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174040"><span id="local-6989586621679174042"><span id="local-6989586621679174044"><span class="annot"><span class="annottext">Int -&gt; DeleteAlertManagerDefinition -&gt; ShowS
+[DeleteAlertManagerDefinition] -&gt; ShowS
+DeleteAlertManagerDefinition -&gt; String
+(Int -&gt; DeleteAlertManagerDefinition -&gt; ShowS)
+-&gt; (DeleteAlertManagerDefinition -&gt; String)
+-&gt; ([DeleteAlertManagerDefinition] -&gt; ShowS)
+-&gt; Show DeleteAlertManagerDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlertManagerDefinition] -&gt; ShowS
+$cshowList :: [DeleteAlertManagerDefinition] -&gt; ShowS
+show :: DeleteAlertManagerDefinition -&gt; String
+$cshow :: DeleteAlertManagerDefinition -&gt; String
+showsPrec :: Int -&gt; DeleteAlertManagerDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlertManagerDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAlertManagerDefinition -&gt; Rep DeleteAlertManagerDefinition x)
+-&gt; (forall x.
+    Rep DeleteAlertManagerDefinition x -&gt; DeleteAlertManagerDefinition)
+-&gt; Generic DeleteAlertManagerDefinition
+forall x.
+Rep DeleteAlertManagerDefinition x -&gt; DeleteAlertManagerDefinition
+forall x.
+DeleteAlertManagerDefinition -&gt; Rep DeleteAlertManagerDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAlertManagerDefinition x -&gt; DeleteAlertManagerDefinition
+$cfrom :: forall x.
+DeleteAlertManagerDefinition -&gt; Rep DeleteAlertManagerDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'DeleteAlertManagerDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'clientToken', 'deleteAlertManagerDefinition_clientToken' - Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'workspaceId', 'deleteAlertManagerDefinition_workspaceId' - The ID of the workspace in which to delete the alert manager definition.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#newDeleteAlertManagerDefinition"><span class="hs-identifier hs-type">newDeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'workspaceId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span>
+</span><span id="line-74"></span><span id="newDeleteAlertManagerDefinition"><span class="annot"><span class="annottext">newDeleteAlertManagerDefinition :: Text -&gt; DeleteAlertManagerDefinition
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#newDeleteAlertManagerDefinition"><span class="hs-identifier hs-var hs-var">newDeleteAlertManagerDefinition</span></a></span></span><span> </span><span id="local-6989586621679174035"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174035"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlertManagerDefinition' :: Maybe Text -&gt; Text -&gt; DeleteAlertManagerDefinition
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition'</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:DeleteAlertManagerDefinition' :: Maybe Text
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#%24sel%3AclientToken%3ADeleteAlertManagerDefinition%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:workspaceId:DeleteAlertManagerDefinition' :: Text
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#%24sel%3AworkspaceId%3ADeleteAlertManagerDefinition%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174035"><span class="hs-identifier hs-var">pWorkspaceId_</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Optional, unique, case-sensitive, user-provided identifier to ensure the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#deleteAlertManagerDefinition_clientToken"><span class="hs-identifier hs-type">deleteAlertManagerDefinition_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="deleteAlertManagerDefinition_clientToken"><span class="annot"><span class="annottext">deleteAlertManagerDefinition_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteAlertManagerDefinition -&gt; f DeleteAlertManagerDefinition
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#deleteAlertManagerDefinition_clientToken"><span class="hs-identifier hs-var hs-var">deleteAlertManagerDefinition_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlertManagerDefinition -&gt; Maybe Text)
+-&gt; (DeleteAlertManagerDefinition
+    -&gt; Maybe Text -&gt; DeleteAlertManagerDefinition)
+-&gt; Lens
+     DeleteAlertManagerDefinition
+     DeleteAlertManagerDefinition
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174032"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:DeleteAlertManagerDefinition' :: DeleteAlertManagerDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679174032"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174032"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174031"><span class="annot"><span class="annottext">s :: DeleteAlertManagerDefinition
+</span><a href="#local-6989586621679174031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174030"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlertManagerDefinition
+</span><a href="#local-6989586621679174031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:DeleteAlertManagerDefinition' :: Maybe Text
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#%24sel%3AclientToken%3ADeleteAlertManagerDefinition%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The ID of the workspace in which to delete the alert manager definition.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#deleteAlertManagerDefinition_workspaceId"><span class="hs-identifier hs-type">deleteAlertManagerDefinition_workspaceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="deleteAlertManagerDefinition_workspaceId"><span class="annot"><span class="annottext">deleteAlertManagerDefinition_workspaceId :: (Text -&gt; f Text)
+-&gt; DeleteAlertManagerDefinition -&gt; f DeleteAlertManagerDefinition
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#deleteAlertManagerDefinition_workspaceId"><span class="hs-identifier hs-var hs-var">deleteAlertManagerDefinition_workspaceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAlertManagerDefinition -&gt; Text)
+-&gt; (DeleteAlertManagerDefinition
+    -&gt; Text -&gt; DeleteAlertManagerDefinition)
+-&gt; Lens
+     DeleteAlertManagerDefinition DeleteAlertManagerDefinition Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174029"><span class="annot"><span class="annottext">Text
+workspaceId :: Text
+$sel:workspaceId:DeleteAlertManagerDefinition' :: DeleteAlertManagerDefinition -&gt; Text
+</span><a href="#local-6989586621679174029"><span class="hs-identifier hs-var hs-var">workspaceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174029"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174028"><span class="annot"><span class="annottext">s :: DeleteAlertManagerDefinition
+</span><a href="#local-6989586621679174028"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174027"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174027"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAlertManagerDefinition
+</span><a href="#local-6989586621679174028"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:workspaceId:DeleteAlertManagerDefinition' :: Text
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#%24sel%3AworkspaceId%3ADeleteAlertManagerDefinition%27"><span class="hs-identifier hs-var">workspaceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174027"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse"><span class="hs-identifier hs-type">DeleteAlertManagerDefinitionResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679174023"><span class="annot"><span class="annottext">request :: DeleteAlertManagerDefinition
+-&gt; Request DeleteAlertManagerDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteAlertManagerDefinition
+-&gt; Request DeleteAlertManagerDefinition
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AMP.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679174019"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAlertManagerDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAlertManagerDefinition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteAlertManagerDefinition
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAlertManagerDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAlertManagerDefinition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">AWSResponse DeleteAlertManagerDefinition
+DeleteAlertManagerDefinitionResponse
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteAlertManagerDefinitionResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679174012"><span id="local-6989586621679174014"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174009"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679174005"><span class="annot"><span class="annottext">toHeaders :: DeleteAlertManagerDefinition -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; DeleteAlertManagerDefinition -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-109"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-112"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679173999"><span class="annot"><span class="annottext">toPath :: DeleteAlertManagerDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173996"><span id="local-6989586621679173997"><span class="annot"><span class="annottext">Maybe Text
+Text
+workspaceId :: Text
+clientToken :: Maybe Text
+$sel:workspaceId:DeleteAlertManagerDefinition' :: DeleteAlertManagerDefinition -&gt; Text
+$sel:clientToken:DeleteAlertManagerDefinition' :: DeleteAlertManagerDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679173996"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/workspaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679173996"><span class="hs-identifier hs-var">workspaceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/alertmanager/definition&quot;</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679173992"><span class="annot"><span class="annottext">toQuery :: DeleteAlertManagerDefinition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinition%27"><span class="hs-identifier hs-type">DeleteAlertManagerDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679173989"><span id="local-6989586621679173990"><span class="annot"><span class="annottext">Maybe Text
+Text
+workspaceId :: Text
+clientToken :: Maybe Text
+$sel:workspaceId:DeleteAlertManagerDefinition' :: DeleteAlertManagerDefinition -&gt; Text
+$sel:clientToken:DeleteAlertManagerDefinition' :: DeleteAlertManagerDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679173989"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679173990"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | /See:/ 'newDeleteAlertManagerDefinitionResponse' smart constructor.</span><span>
+</span><span id="line-129"></span><span id="local-6989586621679173986"><span id="local-6989586621679173987"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAlertManagerDefinitionResponse"><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse"><span class="hs-identifier hs-var">DeleteAlertManagerDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAlertManagerDefinitionResponse%27"><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteAlertManagerDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679173982"><span id="local-6989586621679173984"><span class="annot"><span class="annottext">DeleteAlertManagerDefinitionResponse
+-&gt; DeleteAlertManagerDefinitionResponse -&gt; Bool
+(DeleteAlertManagerDefinitionResponse
+ -&gt; DeleteAlertManagerDefinitionResponse -&gt; Bool)
+-&gt; (DeleteAlertManagerDefinitionResponse
+    -&gt; DeleteAlertManagerDefinitionResponse -&gt; Bool)
+-&gt; Eq DeleteAlertManagerDefinitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAlertManagerDefinitionResponse
+-&gt; DeleteAlertManagerDefinitionResponse -&gt; Bool
+$c/= :: DeleteAlertManagerDefinitionResponse
+-&gt; DeleteAlertManagerDefinitionResponse -&gt; Bool
+== :: DeleteAlertManagerDefinitionResponse
+-&gt; DeleteAlertManagerDefinitionResponse -&gt; Bool
+$c== :: DeleteAlertManagerDefinitionResponse
+-&gt; DeleteAlertManagerDefinitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173974"><span id="local-6989586621679173976"><span id="local-6989586621679173978"><span id="local-6989586621679173980"><span class="annot"><span class="annottext">ReadPrec [DeleteAlertManagerDefinitionResponse]
+ReadPrec DeleteAlertManagerDefinitionResponse
+Int -&gt; ReadS DeleteAlertManagerDefinitionResponse
+ReadS [DeleteAlertManagerDefinitionResponse]
+(Int -&gt; ReadS DeleteAlertManagerDefinitionResponse)
+-&gt; ReadS [DeleteAlertManagerDefinitionResponse]
+-&gt; ReadPrec DeleteAlertManagerDefinitionResponse
+-&gt; ReadPrec [DeleteAlertManagerDefinitionResponse]
+-&gt; Read DeleteAlertManagerDefinitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAlertManagerDefinitionResponse]
+$creadListPrec :: ReadPrec [DeleteAlertManagerDefinitionResponse]
+readPrec :: ReadPrec DeleteAlertManagerDefinitionResponse
+$creadPrec :: ReadPrec DeleteAlertManagerDefinitionResponse
+readList :: ReadS [DeleteAlertManagerDefinitionResponse]
+$creadList :: ReadS [DeleteAlertManagerDefinitionResponse]
+readsPrec :: Int -&gt; ReadS DeleteAlertManagerDefinitionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAlertManagerDefinitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679173968"><span id="local-6989586621679173970"><span id="local-6989586621679173972"><span class="annot"><span class="annottext">Int -&gt; DeleteAlertManagerDefinitionResponse -&gt; ShowS
+[DeleteAlertManagerDefinitionResponse] -&gt; ShowS
+DeleteAlertManagerDefinitionResponse -&gt; String
+(Int -&gt; DeleteAlertManagerDefinitionResponse -&gt; ShowS)
+-&gt; (DeleteAlertManagerDefinitionResponse -&gt; String)
+-&gt; ([DeleteAlertManagerDefinitionResponse] -&gt; ShowS)
+-&gt; Show DeleteAlertManagerDefinitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAlertManagerDefinitionResponse] -&gt; ShowS
+$cshowList :: [DeleteAlertManagerDefinitionResponse] -&gt; ShowS
+show :: DeleteAlertManagerDefinitionResponse -&gt; String
+$cshow :: DeleteAlertManagerDefinitionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAlertManagerDefinitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAlertManagerDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAlertManagerDefinitionResponse
+ -&gt; Rep DeleteAlertManagerDefinitionResponse x)
+-&gt; (forall x.
+    Rep DeleteAlertManagerDefinitionResponse x
+    -&gt; DeleteAlertManagerDefinitionResponse)
+-&gt; Generic DeleteAlertManagerDefinitionResponse
+forall x.
+Rep DeleteAlertManagerDefinitionResponse x
+-&gt; DeleteAlertManagerDefinitionResponse
+forall x.
+DeleteAlertManagerDefinitionResponse
+-&gt; Rep DeleteAlertManagerDefinitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAlertManagerDefinitionResponse x
+-&gt; DeleteAlertManagerDefinitionResponse
+$cfrom :: forall x.
+DeleteAlertManagerDefinitionResponse
+-&gt; Rep DeleteAlertManagerDefinitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'DeleteAlertManagerDefinitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#newDeleteAlertManagerDefinitionResponse"><span class="hs-identifier hs-type">newDeleteAlertManagerDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse"><span class="hs-identifier hs-type">DeleteAlertManagerDefinitionResponse</span></a></span><span>
+</span><span id="line-140"></span><span id="newDeleteAlertManagerDefinitionResponse"><span class="annot"><span class="annottext">newDeleteAlertManagerDefinitionResponse :: DeleteAlertManagerDefinitionResponse
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#newDeleteAlertManagerDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteAlertManagerDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">DeleteAlertManagerDefinitionResponse
+</span><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteAlertManagerDefinitionResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679173964"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.AMP.DeleteAlertManagerDefinition.html#DeleteAlertManagerDefinitionResponse"><span class="hs-identifier hs-type">DeleteAlertManagerDefinitionResponse</span></a></span></span><span>
+</span><span id="line-146"></span></pre></body></html>

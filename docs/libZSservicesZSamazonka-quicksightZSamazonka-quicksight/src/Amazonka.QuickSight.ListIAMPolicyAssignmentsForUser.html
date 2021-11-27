@@ -1,0 +1,836 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all the IAMpolicy assignments, including the Amazon Resource Names</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (ARNs) for the IAM policies assigned to the specified user and group or</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- groups that the user belongs to.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#newListIAMPolicyAssignmentsForUser"><span class="hs-identifier">newListIAMPolicyAssignmentsForUser</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_nextToken"><span class="hs-identifier">listIAMPolicyAssignmentsForUser_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_maxResults"><span class="hs-identifier">listIAMPolicyAssignmentsForUser_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_awsAccountId"><span class="hs-identifier">listIAMPolicyAssignmentsForUser_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_userName"><span class="hs-identifier">listIAMPolicyAssignmentsForUser_userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_namespace"><span class="hs-identifier">listIAMPolicyAssignmentsForUser_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#newListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier">newListIAMPolicyAssignmentsForUserResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_requestId"><span class="hs-identifier">listIAMPolicyAssignmentsForUserResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_activeAssignments"><span class="hs-identifier">listIAMPolicyAssignmentsForUserResponse_activeAssignments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_nextToken"><span class="hs-identifier">listIAMPolicyAssignmentsForUserResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_status"><span class="hs-identifier">listIAMPolicyAssignmentsForUserResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newListIAMPolicyAssignmentsForUser' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679579333"><span id="local-6989586621679579334"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIAMPolicyAssignmentsForUser"><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-var">ListIAMPolicyAssignmentsForUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIAMPolicyAssignmentsForUser%27"><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">ListIAMPolicyAssignmentsForUser'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUser%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AmaxResults%3AListIAMPolicyAssignmentsForUser%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser -&gt; Maybe Natural
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AmaxResults%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the assignments.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AawsAccountId%3AListIAMPolicyAssignmentsForUser%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser -&gt; Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AawsAccountId%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | The name of the user.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AuserName%3AListIAMPolicyAssignmentsForUser%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser -&gt; Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AuserName%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The namespace of the assignment.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Anamespace%3AListIAMPolicyAssignmentsForUser%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser -&gt; Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3Anamespace%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579323"><span id="local-6989586621679579325"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser
+-&gt; ListIAMPolicyAssignmentsForUser -&gt; Bool
+(ListIAMPolicyAssignmentsForUser
+ -&gt; ListIAMPolicyAssignmentsForUser -&gt; Bool)
+-&gt; (ListIAMPolicyAssignmentsForUser
+    -&gt; ListIAMPolicyAssignmentsForUser -&gt; Bool)
+-&gt; Eq ListIAMPolicyAssignmentsForUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListIAMPolicyAssignmentsForUser
+-&gt; ListIAMPolicyAssignmentsForUser -&gt; Bool
+$c/= :: ListIAMPolicyAssignmentsForUser
+-&gt; ListIAMPolicyAssignmentsForUser -&gt; Bool
+== :: ListIAMPolicyAssignmentsForUser
+-&gt; ListIAMPolicyAssignmentsForUser -&gt; Bool
+$c== :: ListIAMPolicyAssignmentsForUser
+-&gt; ListIAMPolicyAssignmentsForUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579314"><span id="local-6989586621679579316"><span id="local-6989586621679579318"><span id="local-6989586621679579320"><span class="annot"><span class="annottext">ReadPrec [ListIAMPolicyAssignmentsForUser]
+ReadPrec ListIAMPolicyAssignmentsForUser
+Int -&gt; ReadS ListIAMPolicyAssignmentsForUser
+ReadS [ListIAMPolicyAssignmentsForUser]
+(Int -&gt; ReadS ListIAMPolicyAssignmentsForUser)
+-&gt; ReadS [ListIAMPolicyAssignmentsForUser]
+-&gt; ReadPrec ListIAMPolicyAssignmentsForUser
+-&gt; ReadPrec [ListIAMPolicyAssignmentsForUser]
+-&gt; Read ListIAMPolicyAssignmentsForUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListIAMPolicyAssignmentsForUser]
+$creadListPrec :: ReadPrec [ListIAMPolicyAssignmentsForUser]
+readPrec :: ReadPrec ListIAMPolicyAssignmentsForUser
+$creadPrec :: ReadPrec ListIAMPolicyAssignmentsForUser
+readList :: ReadS [ListIAMPolicyAssignmentsForUser]
+$creadList :: ReadS [ListIAMPolicyAssignmentsForUser]
+readsPrec :: Int -&gt; ReadS ListIAMPolicyAssignmentsForUser
+$creadsPrec :: Int -&gt; ReadS ListIAMPolicyAssignmentsForUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579307"><span id="local-6989586621679579309"><span id="local-6989586621679579311"><span class="annot"><span class="annottext">Int -&gt; ListIAMPolicyAssignmentsForUser -&gt; ShowS
+[ListIAMPolicyAssignmentsForUser] -&gt; ShowS
+ListIAMPolicyAssignmentsForUser -&gt; String
+(Int -&gt; ListIAMPolicyAssignmentsForUser -&gt; ShowS)
+-&gt; (ListIAMPolicyAssignmentsForUser -&gt; String)
+-&gt; ([ListIAMPolicyAssignmentsForUser] -&gt; ShowS)
+-&gt; Show ListIAMPolicyAssignmentsForUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListIAMPolicyAssignmentsForUser] -&gt; ShowS
+$cshowList :: [ListIAMPolicyAssignmentsForUser] -&gt; ShowS
+show :: ListIAMPolicyAssignmentsForUser -&gt; String
+$cshow :: ListIAMPolicyAssignmentsForUser -&gt; String
+showsPrec :: Int -&gt; ListIAMPolicyAssignmentsForUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListIAMPolicyAssignmentsForUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListIAMPolicyAssignmentsForUser
+ -&gt; Rep ListIAMPolicyAssignmentsForUser x)
+-&gt; (forall x.
+    Rep ListIAMPolicyAssignmentsForUser x
+    -&gt; ListIAMPolicyAssignmentsForUser)
+-&gt; Generic ListIAMPolicyAssignmentsForUser
+forall x.
+Rep ListIAMPolicyAssignmentsForUser x
+-&gt; ListIAMPolicyAssignmentsForUser
+forall x.
+ListIAMPolicyAssignmentsForUser
+-&gt; Rep ListIAMPolicyAssignmentsForUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListIAMPolicyAssignmentsForUser x
+-&gt; ListIAMPolicyAssignmentsForUser
+$cfrom :: forall x.
+ListIAMPolicyAssignmentsForUser
+-&gt; Rep ListIAMPolicyAssignmentsForUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'ListIAMPolicyAssignmentsForUser' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'nextToken', 'listIAMPolicyAssignmentsForUser_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'maxResults', 'listIAMPolicyAssignmentsForUser_maxResults' - The maximum number of results to be returned per request.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'awsAccountId', 'listIAMPolicyAssignmentsForUser_awsAccountId' - The ID of the Amazon Web Services account that contains the assignments.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'userName', 'listIAMPolicyAssignmentsForUser_userName' - The name of the user.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'namespace', 'listIAMPolicyAssignmentsForUser_namespace' - The namespace of the assignment.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#newListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">newListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'userName'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'namespace'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span>
+</span><span id="line-99"></span><span id="newListIAMPolicyAssignmentsForUser"><span class="annot"><span class="annottext">newListIAMPolicyAssignmentsForUser :: Text -&gt; Text -&gt; Text -&gt; ListIAMPolicyAssignmentsForUser
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#newListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-var hs-var">newListIAMPolicyAssignmentsForUser</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679579302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579302"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679579301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579301"><span class="hs-identifier hs-var">pUserName_</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679579300"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579300"><span class="hs-identifier hs-var">pNamespace_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; ListIAMPolicyAssignmentsForUser
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListIAMPolicyAssignmentsForUser' :: Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxResults:ListIAMPolicyAssignmentsForUser' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AmaxResults%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>        </span><span class="annot"><span class="annottext">$sel:awsAccountId:ListIAMPolicyAssignmentsForUser' :: Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AawsAccountId%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579302"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">$sel:userName:ListIAMPolicyAssignmentsForUser' :: Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AuserName%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579301"><span class="hs-identifier hs-var">pUserName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:ListIAMPolicyAssignmentsForUser' :: Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3Anamespace%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579300"><span class="hs-identifier hs-var">pNamespace_</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_nextToken"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUser_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="listIAMPolicyAssignmentsForUser_nextToken"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUser_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListIAMPolicyAssignmentsForUser
+-&gt; f ListIAMPolicyAssignmentsForUser
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_nextToken"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUser_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUser -&gt; Maybe Text)
+-&gt; (ListIAMPolicyAssignmentsForUser
+    -&gt; Maybe Text -&gt; ListIAMPolicyAssignmentsForUser)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUser
+     ListIAMPolicyAssignmentsForUser
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579297"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Maybe Text
+</span><a href="#local-6989586621679579297"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579297"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579296"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579296"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579295"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579295"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579296"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIAMPolicyAssignmentsForUser' :: Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579295"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_maxResults"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUser_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="listIAMPolicyAssignmentsForUser_maxResults"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUser_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListIAMPolicyAssignmentsForUser
+-&gt; f ListIAMPolicyAssignmentsForUser
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_maxResults"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUser_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUser -&gt; Maybe Natural)
+-&gt; (ListIAMPolicyAssignmentsForUser
+    -&gt; Maybe Natural -&gt; ListIAMPolicyAssignmentsForUser)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUser
+     ListIAMPolicyAssignmentsForUser
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579294"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Maybe Natural
+</span><a href="#local-6989586621679579294"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679579294"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579293"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579292"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679579292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListIAMPolicyAssignmentsForUser' :: Maybe Natural
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AmaxResults%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679579292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the assignments.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_awsAccountId"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUser_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-123"></span><span id="listIAMPolicyAssignmentsForUser_awsAccountId"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUser_awsAccountId :: (Text -&gt; f Text)
+-&gt; ListIAMPolicyAssignmentsForUser
+-&gt; f ListIAMPolicyAssignmentsForUser
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_awsAccountId"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUser_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUser -&gt; Text)
+-&gt; (ListIAMPolicyAssignmentsForUser
+    -&gt; Text -&gt; ListIAMPolicyAssignmentsForUser)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUser
+     ListIAMPolicyAssignmentsForUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579291"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+</span><a href="#local-6989586621679579291"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579291"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579290"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579289"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:ListIAMPolicyAssignmentsForUser' :: Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AawsAccountId%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The name of the user.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_userName"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUser_userName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-127"></span><span id="listIAMPolicyAssignmentsForUser_userName"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUser_userName :: (Text -&gt; f Text)
+-&gt; ListIAMPolicyAssignmentsForUser
+-&gt; f ListIAMPolicyAssignmentsForUser
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_userName"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUser_userName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUser -&gt; Text)
+-&gt; (ListIAMPolicyAssignmentsForUser
+    -&gt; Text -&gt; ListIAMPolicyAssignmentsForUser)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUser
+     ListIAMPolicyAssignmentsForUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579288"><span class="annot"><span class="annottext">Text
+userName :: Text
+$sel:userName:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+</span><a href="#local-6989586621679579288"><span class="hs-identifier hs-var hs-var">userName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579288"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579287"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579286"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userName:ListIAMPolicyAssignmentsForUser' :: Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AuserName%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">userName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The namespace of the assignment.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_namespace"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUser_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-131"></span><span id="listIAMPolicyAssignmentsForUser_namespace"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUser_namespace :: (Text -&gt; f Text)
+-&gt; ListIAMPolicyAssignmentsForUser
+-&gt; f ListIAMPolicyAssignmentsForUser
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUser_namespace"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUser_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUser -&gt; Text)
+-&gt; (ListIAMPolicyAssignmentsForUser
+    -&gt; Text -&gt; ListIAMPolicyAssignmentsForUser)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUser
+     ListIAMPolicyAssignmentsForUser
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579285"><span class="annot"><span class="annottext">Text
+namespace :: Text
+$sel:namespace:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+</span><a href="#local-6989586621679579285"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579285"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579284"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUser
+</span><a href="#local-6989586621679579284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:ListIAMPolicyAssignmentsForUser' :: Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3Anamespace%3AListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-134"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-138"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-139"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679579279"><span class="annot"><span class="annottext">request :: ListIAMPolicyAssignmentsForUser
+-&gt; Request ListIAMPolicyAssignmentsForUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListIAMPolicyAssignmentsForUser
+-&gt; Request ListIAMPolicyAssignmentsForUser
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679579275"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListIAMPolicyAssignmentsForUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListIAMPolicyAssignmentsForUser)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListIAMPolicyAssignmentsForUser))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListIAMPolicyAssignmentsForUser
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse ListIAMPolicyAssignmentsForUser)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679579272"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679579272"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679579271"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679579271"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679579270"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679579270"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [ActiveIAMPolicyAssignment]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [ActiveIAMPolicyAssignment]
+ -&gt; Maybe Text
+ -&gt; Int
+ -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [ActiveIAMPolicyAssignment]
+      -&gt; Maybe Text -&gt; Int -&gt; ListIAMPolicyAssignmentsForUserResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679579270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [ActiveIAMPolicyAssignment]
+   -&gt; Maybe Text -&gt; Int -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Either String (Maybe [ActiveIAMPolicyAssignment])
+-&gt; Either
+     String
+     (Maybe Text -&gt; Int -&gt; ListIAMPolicyAssignmentsForUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679579270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe [ActiveIAMPolicyAssignment]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ActiveAssignments&quot;</span></span><span>
+</span><span id="line-147"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ActiveIAMPolicyAssignment]))
+-&gt; Maybe [ActiveIAMPolicyAssignment]
+-&gt; Either String (Maybe [ActiveIAMPolicyAssignment])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveIAMPolicyAssignment]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text -&gt; Int -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListIAMPolicyAssignmentsForUserResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679579270"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Either String Int
+-&gt; Either String ListIAMPolicyAssignmentsForUserResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679579272"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679579261"><span id="local-6989586621679579263"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679579258"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679579254"><span class="annot"><span class="annottext">toHeaders :: ListIAMPolicyAssignmentsForUser -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; ListIAMPolicyAssignmentsForUser -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-169"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-171"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679579248"><span class="annot"><span class="annottext">toPath :: ListIAMPolicyAssignmentsForUser -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579242"><span id="local-6989586621679579243"><span id="local-6989586621679579244"><span id="local-6989586621679579245"><span id="local-6989586621679579246"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+namespace :: Text
+userName :: Text
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:namespace:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+$sel:userName:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+$sel:awsAccountId:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+$sel:maxResults:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Maybe Natural
+$sel:nextToken:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Maybe Text
+</span><a href="#local-6989586621679579242"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579244"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/namespaces/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579242"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/users/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679579243"><span class="hs-identifier hs-var">userName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/iam-policy-assignments&quot;</span></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679579238"><span class="annot"><span class="annottext">toQuery :: ListIAMPolicyAssignmentsForUser -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUser%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579232"><span id="local-6989586621679579233"><span id="local-6989586621679579234"><span id="local-6989586621679579235"><span id="local-6989586621679579236"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+namespace :: Text
+userName :: Text
+awsAccountId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:namespace:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+$sel:userName:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+$sel:awsAccountId:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Text
+$sel:maxResults:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Maybe Natural
+$sel:nextToken:ListIAMPolicyAssignmentsForUser' :: ListIAMPolicyAssignmentsForUser -&gt; Maybe Text
+</span><a href="#local-6989586621679579232"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-190"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579236"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max-results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679579235"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | /See:/ 'newListIAMPolicyAssignmentsForUserResponse' smart constructor.</span><span>
+</span><span id="line-195"></span><span id="local-6989586621679579229"><span id="local-6989586621679579230"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListIAMPolicyAssignmentsForUserResponse"><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-var">ListIAMPolicyAssignmentsForUserResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListIAMPolicyAssignmentsForUserResponse%27"><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">ListIAMPolicyAssignmentsForUserResponse'</span></a></span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-197"></span><span>    </span><span id="%24sel%3ArequestId%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3ArequestId%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">-- | The active assignments for this user.</span><span>
+</span><span id="line-199"></span><span>    </span><span id="%24sel%3AactiveAssignments%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse
+-&gt; Maybe [ActiveIAMPolicyAssignment]
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AactiveAssignments%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var hs-var">activeAssignments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.ActiveIAMPolicyAssignment.html#ActiveIAMPolicyAssignment"><span class="hs-identifier hs-type">ActiveIAMPolicyAssignment</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-202"></span><span>    </span><span id="%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-204"></span><span>    </span><span id="%24sel%3Astatus%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3Astatus%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579221"><span id="local-6989586621679579223"><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse
+-&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; Bool
+(ListIAMPolicyAssignmentsForUserResponse
+ -&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; Bool)
+-&gt; (ListIAMPolicyAssignmentsForUserResponse
+    -&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; Bool)
+-&gt; Eq ListIAMPolicyAssignmentsForUserResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListIAMPolicyAssignmentsForUserResponse
+-&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; Bool
+$c/= :: ListIAMPolicyAssignmentsForUserResponse
+-&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; Bool
+== :: ListIAMPolicyAssignmentsForUserResponse
+-&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; Bool
+$c== :: ListIAMPolicyAssignmentsForUserResponse
+-&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579213"><span id="local-6989586621679579215"><span id="local-6989586621679579217"><span id="local-6989586621679579219"><span class="annot"><span class="annottext">ReadPrec [ListIAMPolicyAssignmentsForUserResponse]
+ReadPrec ListIAMPolicyAssignmentsForUserResponse
+Int -&gt; ReadS ListIAMPolicyAssignmentsForUserResponse
+ReadS [ListIAMPolicyAssignmentsForUserResponse]
+(Int -&gt; ReadS ListIAMPolicyAssignmentsForUserResponse)
+-&gt; ReadS [ListIAMPolicyAssignmentsForUserResponse]
+-&gt; ReadPrec ListIAMPolicyAssignmentsForUserResponse
+-&gt; ReadPrec [ListIAMPolicyAssignmentsForUserResponse]
+-&gt; Read ListIAMPolicyAssignmentsForUserResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListIAMPolicyAssignmentsForUserResponse]
+$creadListPrec :: ReadPrec [ListIAMPolicyAssignmentsForUserResponse]
+readPrec :: ReadPrec ListIAMPolicyAssignmentsForUserResponse
+$creadPrec :: ReadPrec ListIAMPolicyAssignmentsForUserResponse
+readList :: ReadS [ListIAMPolicyAssignmentsForUserResponse]
+$creadList :: ReadS [ListIAMPolicyAssignmentsForUserResponse]
+readsPrec :: Int -&gt; ReadS ListIAMPolicyAssignmentsForUserResponse
+$creadsPrec :: Int -&gt; ReadS ListIAMPolicyAssignmentsForUserResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579207"><span id="local-6989586621679579209"><span id="local-6989586621679579211"><span class="annot"><span class="annottext">Int -&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; ShowS
+[ListIAMPolicyAssignmentsForUserResponse] -&gt; ShowS
+ListIAMPolicyAssignmentsForUserResponse -&gt; String
+(Int -&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; ShowS)
+-&gt; (ListIAMPolicyAssignmentsForUserResponse -&gt; String)
+-&gt; ([ListIAMPolicyAssignmentsForUserResponse] -&gt; ShowS)
+-&gt; Show ListIAMPolicyAssignmentsForUserResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListIAMPolicyAssignmentsForUserResponse] -&gt; ShowS
+$cshowList :: [ListIAMPolicyAssignmentsForUserResponse] -&gt; ShowS
+show :: ListIAMPolicyAssignmentsForUserResponse -&gt; String
+$cshow :: ListIAMPolicyAssignmentsForUserResponse -&gt; String
+showsPrec :: Int -&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListIAMPolicyAssignmentsForUserResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListIAMPolicyAssignmentsForUserResponse
+ -&gt; Rep ListIAMPolicyAssignmentsForUserResponse x)
+-&gt; (forall x.
+    Rep ListIAMPolicyAssignmentsForUserResponse x
+    -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Generic ListIAMPolicyAssignmentsForUserResponse
+forall x.
+Rep ListIAMPolicyAssignmentsForUserResponse x
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+forall x.
+ListIAMPolicyAssignmentsForUserResponse
+-&gt; Rep ListIAMPolicyAssignmentsForUserResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListIAMPolicyAssignmentsForUserResponse x
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+$cfrom :: forall x.
+ListIAMPolicyAssignmentsForUserResponse
+-&gt; Rep ListIAMPolicyAssignmentsForUserResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Create a value of 'ListIAMPolicyAssignmentsForUserResponse' with all optional fields omitted.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- 'requestId', 'listIAMPolicyAssignmentsForUserResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-217"></span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- 'activeAssignments', 'listIAMPolicyAssignmentsForUserResponse_activeAssignments' - The active assignments for this user.</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- 'nextToken', 'listIAMPolicyAssignmentsForUserResponse_nextToken' - The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'status', 'listIAMPolicyAssignmentsForUserResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#newListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">newListIAMPolicyAssignmentsForUserResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-225"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-226"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span>
+</span><span id="line-228"></span><span id="newListIAMPolicyAssignmentsForUserResponse"><span class="annot"><span class="annottext">newListIAMPolicyAssignmentsForUserResponse :: Int -&gt; ListIAMPolicyAssignmentsForUserResponse
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#newListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-var hs-var">newListIAMPolicyAssignmentsForUserResponse</span></a></span></span><span> </span><span id="local-6989586621679579204"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679579204"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>  </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse' :: Maybe Text
+-&gt; Maybe [ActiveIAMPolicyAssignment]
+-&gt; Maybe Text
+-&gt; Int
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:ListIAMPolicyAssignmentsForUserResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3ArequestId%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-231"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:activeAssignments:ListIAMPolicyAssignmentsForUserResponse' :: Maybe [ActiveIAMPolicyAssignment]
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AactiveAssignments%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">activeAssignments</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-233"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ActiveIAMPolicyAssignment]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListIAMPolicyAssignmentsForUserResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:ListIAMPolicyAssignmentsForUserResponse' :: Int
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3Astatus%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679579204"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_requestId"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUserResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="listIAMPolicyAssignmentsForUserResponse_requestId"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUserResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+-&gt; f ListIAMPolicyAssignmentsForUserResponse
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_requestId"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUserResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUserResponse -&gt; Maybe Text)
+-&gt; (ListIAMPolicyAssignmentsForUserResponse
+    -&gt; Maybe Text -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUserResponse
+     ListIAMPolicyAssignmentsForUserResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579203"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:ListIAMPolicyAssignmentsForUserResponse' :: ListIAMPolicyAssignmentsForUserResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679579203"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579203"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579202"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579202"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579201"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579201"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579202"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:ListIAMPolicyAssignmentsForUserResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3ArequestId%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579201"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The active assignments for this user.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_activeAssignments"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUserResponse_activeAssignments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.QuickSight.Types.ActiveIAMPolicyAssignment.html#ActiveIAMPolicyAssignment"><span class="hs-identifier hs-type">ActiveIAMPolicyAssignment</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="listIAMPolicyAssignmentsForUserResponse_activeAssignments"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUserResponse_activeAssignments :: (Maybe [ActiveIAMPolicyAssignment]
+ -&gt; f (Maybe [ActiveIAMPolicyAssignment]))
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+-&gt; f ListIAMPolicyAssignmentsForUserResponse
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_activeAssignments"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUserResponse_activeAssignments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUserResponse
+ -&gt; Maybe [ActiveIAMPolicyAssignment])
+-&gt; (ListIAMPolicyAssignmentsForUserResponse
+    -&gt; Maybe [ActiveIAMPolicyAssignment]
+    -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUserResponse
+     ListIAMPolicyAssignmentsForUserResponse
+     (Maybe [ActiveIAMPolicyAssignment])
+     (Maybe [ActiveIAMPolicyAssignment])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579200"><span class="annot"><span class="annottext">Maybe [ActiveIAMPolicyAssignment]
+activeAssignments :: Maybe [ActiveIAMPolicyAssignment]
+$sel:activeAssignments:ListIAMPolicyAssignmentsForUserResponse' :: ListIAMPolicyAssignmentsForUserResponse
+-&gt; Maybe [ActiveIAMPolicyAssignment]
+</span><a href="#local-6989586621679579200"><span class="hs-identifier hs-var hs-var">activeAssignments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveIAMPolicyAssignment]
+</span><a href="#local-6989586621679579200"><span class="hs-identifier hs-var">activeAssignments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579199"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579198"><span class="annot"><span class="annottext">Maybe [ActiveIAMPolicyAssignment]
+</span><a href="#local-6989586621679579198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:activeAssignments:ListIAMPolicyAssignmentsForUserResponse' :: Maybe [ActiveIAMPolicyAssignment]
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AactiveAssignments%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">activeAssignments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ActiveIAMPolicyAssignment]
+</span><a href="#local-6989586621679579198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ActiveIAMPolicyAssignment]
+  -&gt; f (Maybe [ActiveIAMPolicyAssignment]))
+ -&gt; ListIAMPolicyAssignmentsForUserResponse
+ -&gt; f ListIAMPolicyAssignmentsForUserResponse)
+-&gt; ((Maybe [ActiveIAMPolicyAssignment]
+     -&gt; f (Maybe [ActiveIAMPolicyAssignment]))
+    -&gt; Maybe [ActiveIAMPolicyAssignment]
+    -&gt; f (Maybe [ActiveIAMPolicyAssignment]))
+-&gt; (Maybe [ActiveIAMPolicyAssignment]
+    -&gt; f (Maybe [ActiveIAMPolicyAssignment]))
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+-&gt; f ListIAMPolicyAssignmentsForUserResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActiveIAMPolicyAssignment]
+  [ActiveIAMPolicyAssignment]
+  [ActiveIAMPolicyAssignment]
+  [ActiveIAMPolicyAssignment]
+-&gt; Iso
+     (Maybe [ActiveIAMPolicyAssignment])
+     (Maybe [ActiveIAMPolicyAssignment])
+     (Maybe [ActiveIAMPolicyAssignment])
+     (Maybe [ActiveIAMPolicyAssignment])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ActiveIAMPolicyAssignment]
+  [ActiveIAMPolicyAssignment]
+  [ActiveIAMPolicyAssignment]
+  [ActiveIAMPolicyAssignment]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The token for the next set of results, or null if there are no more</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_nextToken"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUserResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="listIAMPolicyAssignmentsForUserResponse_nextToken"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUserResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+-&gt; f ListIAMPolicyAssignmentsForUserResponse
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_nextToken"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUserResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUserResponse -&gt; Maybe Text)
+-&gt; (ListIAMPolicyAssignmentsForUserResponse
+    -&gt; Maybe Text -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUserResponse
+     ListIAMPolicyAssignmentsForUserResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579194"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListIAMPolicyAssignmentsForUserResponse' :: ListIAMPolicyAssignmentsForUserResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679579194"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579194"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579193"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579192"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListIAMPolicyAssignmentsForUserResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3AnextToken%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_status"><span class="hs-identifier hs-type">listIAMPolicyAssignmentsForUserResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-253"></span><span id="listIAMPolicyAssignmentsForUserResponse_status"><span class="annot"><span class="annottext">listIAMPolicyAssignmentsForUserResponse_status :: (Int -&gt; f Int)
+-&gt; ListIAMPolicyAssignmentsForUserResponse
+-&gt; f ListIAMPolicyAssignmentsForUserResponse
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#listIAMPolicyAssignmentsForUserResponse_status"><span class="hs-identifier hs-var hs-var">listIAMPolicyAssignmentsForUserResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListIAMPolicyAssignmentsForUserResponse -&gt; Int)
+-&gt; (ListIAMPolicyAssignmentsForUserResponse
+    -&gt; Int -&gt; ListIAMPolicyAssignmentsForUserResponse)
+-&gt; Lens
+     ListIAMPolicyAssignmentsForUserResponse
+     ListIAMPolicyAssignmentsForUserResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579191"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:ListIAMPolicyAssignmentsForUserResponse' :: ListIAMPolicyAssignmentsForUserResponse -&gt; Int
+</span><a href="#local-6989586621679579191"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679579191"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579190"><span class="annot"><span class="annottext">s :: ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579189"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679579189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListIAMPolicyAssignmentsForUserResponse
+</span><a href="#local-6989586621679579190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:ListIAMPolicyAssignmentsForUserResponse' :: Int
+</span><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#%24sel%3Astatus%3AListIAMPolicyAssignmentsForUserResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679579189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679579187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.ListIAMPolicyAssignmentsForUser.html#ListIAMPolicyAssignmentsForUserResponse"><span class="hs-identifier hs-type">ListIAMPolicyAssignmentsForUserResponse</span></a></span></span><span>
+</span><span id="line-258"></span></pre></body></html>

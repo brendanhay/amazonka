@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.ChannelMembership</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.ChannelMembership</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembershipType.html"><span class="hs-identifier">Amazonka.Chime.Types.ChannelMembershipType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html"><span class="hs-identifier">Amazonka.Chime.Types.Identity</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The details of a channel member.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newChannelMembership' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679510335"><span id="local-6989586621679510336"></span></span><span class="hs-keyword">data</span><span> </span><span id="ChannelMembership"><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-var">ChannelMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChannelMembership%27"><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-var">ChannelMembership'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the member\'s channel.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AchannelArn%3AChannelMembership%27"><span class="annot"><span class="annottext">ChannelMembership -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AchannelArn%3AChannelMembership%27"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The data of the channel member.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Amember%3AChannelMembership%27"><span class="annot"><span class="annottext">ChannelMembership -&gt; Maybe Identity
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3Amember%3AChannelMembership%27"><span class="hs-identifier hs-var hs-var">member</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The membership type set for the channel member.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atype%27%3AChannelMembership%27"><span class="annot"><span class="annottext">ChannelMembership -&gt; Maybe ChannelMembershipType
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3Atype%27%3AChannelMembership%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier hs-type">ChannelMembershipType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The identifier of the member who invited another member.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AinvitedBy%3AChannelMembership%27"><span class="annot"><span class="annottext">ChannelMembership -&gt; Maybe Identity
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AinvitedBy%3AChannelMembership%27"><span class="hs-identifier hs-var hs-var">invitedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The time at which the channel membership was created.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AcreatedTimestamp%3AChannelMembership%27"><span class="annot"><span class="annottext">ChannelMembership -&gt; Maybe POSIX
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AcreatedTimestamp%3AChannelMembership%27"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time at which a channel membership was last updated.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3AChannelMembership%27"><span class="annot"><span class="annottext">ChannelMembership -&gt; Maybe POSIX
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AlastUpdatedTimestamp%3AChannelMembership%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679510324"><span id="local-6989586621679510326"><span class="annot"><span class="annottext">ChannelMembership -&gt; ChannelMembership -&gt; Bool
+(ChannelMembership -&gt; ChannelMembership -&gt; Bool)
+-&gt; (ChannelMembership -&gt; ChannelMembership -&gt; Bool)
+-&gt; Eq ChannelMembership
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChannelMembership -&gt; ChannelMembership -&gt; Bool
+$c/= :: ChannelMembership -&gt; ChannelMembership -&gt; Bool
+== :: ChannelMembership -&gt; ChannelMembership -&gt; Bool
+$c== :: ChannelMembership -&gt; ChannelMembership -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679510317"><span id="local-6989586621679510319"><span id="local-6989586621679510321"><span class="annot"><span class="annottext">Int -&gt; ChannelMembership -&gt; ShowS
+[ChannelMembership] -&gt; ShowS
+ChannelMembership -&gt; String
+(Int -&gt; ChannelMembership -&gt; ShowS)
+-&gt; (ChannelMembership -&gt; String)
+-&gt; ([ChannelMembership] -&gt; ShowS)
+-&gt; Show ChannelMembership
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChannelMembership] -&gt; ShowS
+$cshowList :: [ChannelMembership] -&gt; ShowS
+show :: ChannelMembership -&gt; String
+$cshow :: ChannelMembership -&gt; String
+showsPrec :: Int -&gt; ChannelMembership -&gt; ShowS
+$cshowsPrec :: Int -&gt; ChannelMembership -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ChannelMembership -&gt; Rep ChannelMembership x)
+-&gt; (forall x. Rep ChannelMembership x -&gt; ChannelMembership)
+-&gt; Generic ChannelMembership
+forall x. Rep ChannelMembership x -&gt; ChannelMembership
+forall x. ChannelMembership -&gt; Rep ChannelMembership x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ChannelMembership x -&gt; ChannelMembership
+$cfrom :: forall x. ChannelMembership -&gt; Rep ChannelMembership x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'ChannelMembership' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'channelArn', 'channelMembership_channelArn' - The ARN of the member\'s channel.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'member', 'channelMembership_member' - The data of the channel member.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'type'', 'channelMembership_type' - The membership type set for the channel member.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'invitedBy', 'channelMembership_invitedBy' - The identifier of the member who invited another member.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'createdTimestamp', 'channelMembership_createdTimestamp' - The time at which the channel membership was created.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'channelMembership_lastUpdatedTimestamp' - The time at which a channel membership was last updated.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#newChannelMembership"><span class="hs-identifier hs-type">newChannelMembership</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span>
+</span><span id="line-68"></span><span id="newChannelMembership"><span class="annot"><span class="annottext">newChannelMembership :: ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#newChannelMembership"><span class="hs-identifier hs-var hs-var">newChannelMembership</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="annottext">ChannelMembership' :: Maybe Text
+-&gt; Maybe Identity
+-&gt; Maybe ChannelMembershipType
+-&gt; Maybe Identity
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:channelArn:ChannelMembership' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AchannelArn%3AChannelMembership%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:member:ChannelMembership' :: Maybe Identity
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3Amember%3AChannelMembership%27"><span class="hs-identifier hs-var">member</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':ChannelMembership' :: Maybe ChannelMembershipType
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3Atype%27%3AChannelMembership%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:invitedBy:ChannelMembership' :: Maybe Identity
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AinvitedBy%3AChannelMembership%27"><span class="hs-identifier hs-var">invitedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdTimestamp:ChannelMembership' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AcreatedTimestamp%3AChannelMembership%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:ChannelMembership' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AlastUpdatedTimestamp%3AChannelMembership%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | The ARN of the member\'s channel.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_channelArn"><span class="hs-identifier hs-type">channelMembership_channelArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="channelMembership_channelArn"><span class="annot"><span class="annottext">channelMembership_channelArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ChannelMembership -&gt; f ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_channelArn"><span class="hs-identifier hs-var hs-var">channelMembership_channelArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelMembership -&gt; Maybe Text)
+-&gt; (ChannelMembership -&gt; Maybe Text -&gt; ChannelMembership)
+-&gt; Lens
+     ChannelMembership ChannelMembership (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510308"><span class="annot"><span class="annottext">Maybe Text
+channelArn :: Maybe Text
+$sel:channelArn:ChannelMembership' :: ChannelMembership -&gt; Maybe Text
+</span><a href="#local-6989586621679510308"><span class="hs-identifier hs-var hs-var">channelArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679510308"><span class="hs-identifier hs-var">channelArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510307"><span class="annot"><span class="annottext">s :: ChannelMembership
+</span><a href="#local-6989586621679510307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679510306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMembership
+</span><a href="#local-6989586621679510307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelArn:ChannelMembership' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AchannelArn%3AChannelMembership%27"><span class="hs-identifier hs-var">channelArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679510306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The data of the channel member.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_member"><span class="hs-identifier hs-type">channelMembership_member</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span id="channelMembership_member"><span class="annot"><span class="annottext">channelMembership_member :: (Maybe Identity -&gt; f (Maybe Identity))
+-&gt; ChannelMembership -&gt; f ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_member"><span class="hs-identifier hs-var hs-var">channelMembership_member</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelMembership -&gt; Maybe Identity)
+-&gt; (ChannelMembership -&gt; Maybe Identity -&gt; ChannelMembership)
+-&gt; Lens
+     ChannelMembership
+     ChannelMembership
+     (Maybe Identity)
+     (Maybe Identity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510304"><span class="annot"><span class="annottext">Maybe Identity
+member :: Maybe Identity
+$sel:member:ChannelMembership' :: ChannelMembership -&gt; Maybe Identity
+</span><a href="#local-6989586621679510304"><span class="hs-identifier hs-var hs-var">member</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510304"><span class="hs-identifier hs-var">member</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510303"><span class="annot"><span class="annottext">s :: ChannelMembership
+</span><a href="#local-6989586621679510303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510302"><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMembership
+</span><a href="#local-6989586621679510303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:member:ChannelMembership' :: Maybe Identity
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3Amember%3AChannelMembership%27"><span class="hs-identifier hs-var">member</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The membership type set for the channel member.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_type"><span class="hs-identifier hs-type">channelMembership_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembershipType.html#ChannelMembershipType"><span class="hs-identifier hs-type">ChannelMembershipType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="channelMembership_type"><span class="annot"><span class="annottext">channelMembership_type :: (Maybe ChannelMembershipType -&gt; f (Maybe ChannelMembershipType))
+-&gt; ChannelMembership -&gt; f ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_type"><span class="hs-identifier hs-var hs-var">channelMembership_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelMembership -&gt; Maybe ChannelMembershipType)
+-&gt; (ChannelMembership
+    -&gt; Maybe ChannelMembershipType -&gt; ChannelMembership)
+-&gt; Lens
+     ChannelMembership
+     ChannelMembership
+     (Maybe ChannelMembershipType)
+     (Maybe ChannelMembershipType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510300"><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+type' :: Maybe ChannelMembershipType
+$sel:type':ChannelMembership' :: ChannelMembership -&gt; Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510300"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510300"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510299"><span class="annot"><span class="annottext">s :: ChannelMembership
+</span><a href="#local-6989586621679510299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510298"><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMembership
+</span><a href="#local-6989586621679510299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ChannelMembership' :: Maybe ChannelMembershipType
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3Atype%27%3AChannelMembership%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ChannelMembershipType
+</span><a href="#local-6989586621679510298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The identifier of the member who invited another member.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_invitedBy"><span class="hs-identifier hs-type">channelMembership_invitedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Identity.html#Identity"><span class="hs-identifier hs-type">Identity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="channelMembership_invitedBy"><span class="annot"><span class="annottext">channelMembership_invitedBy :: (Maybe Identity -&gt; f (Maybe Identity))
+-&gt; ChannelMembership -&gt; f ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_invitedBy"><span class="hs-identifier hs-var hs-var">channelMembership_invitedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelMembership -&gt; Maybe Identity)
+-&gt; (ChannelMembership -&gt; Maybe Identity -&gt; ChannelMembership)
+-&gt; Lens
+     ChannelMembership
+     ChannelMembership
+     (Maybe Identity)
+     (Maybe Identity)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510296"><span class="annot"><span class="annottext">Maybe Identity
+invitedBy :: Maybe Identity
+$sel:invitedBy:ChannelMembership' :: ChannelMembership -&gt; Maybe Identity
+</span><a href="#local-6989586621679510296"><span class="hs-identifier hs-var hs-var">invitedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510296"><span class="hs-identifier hs-var">invitedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510295"><span class="annot"><span class="annottext">s :: ChannelMembership
+</span><a href="#local-6989586621679510295"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510294"><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510294"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMembership
+</span><a href="#local-6989586621679510295"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:invitedBy:ChannelMembership' :: Maybe Identity
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AinvitedBy%3AChannelMembership%27"><span class="hs-identifier hs-var">invitedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Identity
+</span><a href="#local-6989586621679510294"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The time at which the channel membership was created.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_createdTimestamp"><span class="hs-identifier hs-type">channelMembership_createdTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="channelMembership_createdTimestamp"><span class="annot"><span class="annottext">channelMembership_createdTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelMembership -&gt; f ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_createdTimestamp"><span class="hs-identifier hs-var hs-var">channelMembership_createdTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelMembership -&gt; Maybe POSIX)
+-&gt; (ChannelMembership -&gt; Maybe POSIX -&gt; ChannelMembership)
+-&gt; Lens
+     ChannelMembership ChannelMembership (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510292"><span class="annot"><span class="annottext">Maybe POSIX
+createdTimestamp :: Maybe POSIX
+$sel:createdTimestamp:ChannelMembership' :: ChannelMembership -&gt; Maybe POSIX
+</span><a href="#local-6989586621679510292"><span class="hs-identifier hs-var hs-var">createdTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679510292"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510291"><span class="annot"><span class="annottext">s :: ChannelMembership
+</span><a href="#local-6989586621679510291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510290"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679510290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMembership
+</span><a href="#local-6989586621679510291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdTimestamp:ChannelMembership' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AcreatedTimestamp%3AChannelMembership%27"><span class="hs-identifier hs-var">createdTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679510290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ChannelMembership -&gt; f ChannelMembership)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelMembership
+-&gt; f ChannelMembership
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The time at which a channel membership was last updated.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_lastUpdatedTimestamp"><span class="hs-identifier hs-type">channelMembership_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="channelMembership_lastUpdatedTimestamp"><span class="annot"><span class="annottext">channelMembership_lastUpdatedTimestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelMembership -&gt; f ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#channelMembership_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">channelMembership_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ChannelMembership -&gt; Maybe POSIX)
+-&gt; (ChannelMembership -&gt; Maybe POSIX -&gt; ChannelMembership)
+-&gt; Lens
+     ChannelMembership ChannelMembership (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679510285"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedTimestamp :: Maybe POSIX
+$sel:lastUpdatedTimestamp:ChannelMembership' :: ChannelMembership -&gt; Maybe POSIX
+</span><a href="#local-6989586621679510285"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679510285"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679510284"><span class="annot"><span class="annottext">s :: ChannelMembership
+</span><a href="#local-6989586621679510284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-type">ChannelMembership'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679510283"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679510283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ChannelMembership
+</span><a href="#local-6989586621679510284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:ChannelMembership' :: Maybe POSIX
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#%24sel%3AlastUpdatedTimestamp%3AChannelMembership%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679510283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ChannelMembership -&gt; f ChannelMembership)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ChannelMembership
+-&gt; f ChannelMembership
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679510280"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679510278"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ChannelMembership
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ChannelMembership)
+-&gt; Value
+-&gt; Parser ChannelMembership
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ChannelMembership&quot;</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679510275"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510275"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Identity
+-&gt; Maybe ChannelMembershipType
+-&gt; Maybe Identity
+-&gt; Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; ChannelMembership
+</span><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership%27"><span class="hs-identifier hs-var">ChannelMembership'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Identity
+ -&gt; Maybe ChannelMembershipType
+ -&gt; Maybe Identity
+ -&gt; Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; ChannelMembership)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Identity
+      -&gt; Maybe ChannelMembershipType
+      -&gt; Maybe Identity
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; ChannelMembership)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ChannelArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Identity
+   -&gt; Maybe ChannelMembershipType
+   -&gt; Maybe Identity
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; ChannelMembership)
+-&gt; Parser (Maybe Identity)
+-&gt; Parser
+     (Maybe ChannelMembershipType
+      -&gt; Maybe Identity
+      -&gt; Maybe POSIX
+      -&gt; Maybe POSIX
+      -&gt; ChannelMembership)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Identity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Member&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ChannelMembershipType
+   -&gt; Maybe Identity
+   -&gt; Maybe POSIX
+   -&gt; Maybe POSIX
+   -&gt; ChannelMembership)
+-&gt; Parser (Maybe ChannelMembershipType)
+-&gt; Parser
+     (Maybe Identity -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; ChannelMembership)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ChannelMembershipType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Identity -&gt; Maybe POSIX -&gt; Maybe POSIX -&gt; ChannelMembership)
+-&gt; Parser (Maybe Identity)
+-&gt; Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; ChannelMembership)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Identity)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InvitedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe POSIX -&gt; ChannelMembership)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe POSIX -&gt; ChannelMembership)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ChannelMembership)
+-&gt; Parser (Maybe POSIX) -&gt; Parser ChannelMembership
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679510275"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679510269"><span id="local-6989586621679510271"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679510266"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.ChannelMembership.html#ChannelMembership"><span class="hs-identifier hs-type">ChannelMembership</span></a></span></span><span>
+</span><span id="line-119"></span></pre></body></html>

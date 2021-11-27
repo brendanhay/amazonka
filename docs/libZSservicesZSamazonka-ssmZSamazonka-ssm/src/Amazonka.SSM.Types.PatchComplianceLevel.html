@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.PatchComplianceLevel</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.PatchComplianceLevel</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier">PatchComplianceLevel</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_CRITICAL"><span class="hs-identifier">PatchComplianceLevel_CRITICAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_HIGH"><span class="hs-identifier">PatchComplianceLevel_HIGH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_INFORMATIONAL"><span class="hs-identifier">PatchComplianceLevel_INFORMATIONAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_LOW"><span class="hs-identifier">PatchComplianceLevel_LOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_MEDIUM"><span class="hs-identifier">PatchComplianceLevel_MEDIUM</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_UNSPECIFIED"><span class="hs-identifier">PatchComplianceLevel_UNSPECIFIED</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679807982"><span id="local-6989586621679807983"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PatchComplianceLevel"><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-var">PatchComplianceLevel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PatchComplianceLevel%27"><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-var">PatchComplianceLevel'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPatchComplianceLevel"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; Text
+</span><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#fromPatchComplianceLevel"><span class="hs-identifier hs-var hs-var">fromPatchComplianceLevel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679807974"><span id="local-6989586621679807976"><span id="local-6989586621679807978"><span class="annot"><span class="annottext">Int -&gt; PatchComplianceLevel -&gt; ShowS
+[PatchComplianceLevel] -&gt; ShowS
+PatchComplianceLevel -&gt; String
+(Int -&gt; PatchComplianceLevel -&gt; ShowS)
+-&gt; (PatchComplianceLevel -&gt; String)
+-&gt; ([PatchComplianceLevel] -&gt; ShowS)
+-&gt; Show PatchComplianceLevel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PatchComplianceLevel] -&gt; ShowS
+$cshowList :: [PatchComplianceLevel] -&gt; ShowS
+show :: PatchComplianceLevel -&gt; String
+$cshow :: PatchComplianceLevel -&gt; String
+showsPrec :: Int -&gt; PatchComplianceLevel -&gt; ShowS
+$cshowsPrec :: Int -&gt; PatchComplianceLevel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679807965"><span id="local-6989586621679807967"><span id="local-6989586621679807969"><span id="local-6989586621679807971"><span class="annot"><span class="annottext">ReadPrec [PatchComplianceLevel]
+ReadPrec PatchComplianceLevel
+Int -&gt; ReadS PatchComplianceLevel
+ReadS [PatchComplianceLevel]
+(Int -&gt; ReadS PatchComplianceLevel)
+-&gt; ReadS [PatchComplianceLevel]
+-&gt; ReadPrec PatchComplianceLevel
+-&gt; ReadPrec [PatchComplianceLevel]
+-&gt; Read PatchComplianceLevel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PatchComplianceLevel]
+$creadListPrec :: ReadPrec [PatchComplianceLevel]
+readPrec :: ReadPrec PatchComplianceLevel
+$creadPrec :: ReadPrec PatchComplianceLevel
+readList :: ReadS [PatchComplianceLevel]
+$creadList :: ReadS [PatchComplianceLevel]
+readsPrec :: Int -&gt; ReadS PatchComplianceLevel
+$creadsPrec :: Int -&gt; ReadS PatchComplianceLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679807960"><span id="local-6989586621679807962"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+(PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
+-&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
+-&gt; Eq PatchComplianceLevel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+$c/= :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+== :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+$c== :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679807944"><span id="local-6989586621679807946"><span id="local-6989586621679807948"><span id="local-6989586621679807950"><span id="local-6989586621679807952"><span id="local-6989586621679807954"><span id="local-6989586621679807956"><span class="annot"><span class="annottext">Eq PatchComplianceLevel
+Eq PatchComplianceLevel
+-&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Ordering)
+-&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
+-&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
+-&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
+-&gt; (PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool)
+-&gt; (PatchComplianceLevel
+    -&gt; PatchComplianceLevel -&gt; PatchComplianceLevel)
+-&gt; (PatchComplianceLevel
+    -&gt; PatchComplianceLevel -&gt; PatchComplianceLevel)
+-&gt; Ord PatchComplianceLevel
+PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Ordering
+PatchComplianceLevel
+-&gt; PatchComplianceLevel -&gt; PatchComplianceLevel
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PatchComplianceLevel
+-&gt; PatchComplianceLevel -&gt; PatchComplianceLevel
+$cmin :: PatchComplianceLevel
+-&gt; PatchComplianceLevel -&gt; PatchComplianceLevel
+max :: PatchComplianceLevel
+-&gt; PatchComplianceLevel -&gt; PatchComplianceLevel
+$cmax :: PatchComplianceLevel
+-&gt; PatchComplianceLevel -&gt; PatchComplianceLevel
+&gt;= :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+$c&gt;= :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+&gt; :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+$c&gt; :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+&lt;= :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+$c&lt;= :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+&lt; :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+$c&lt; :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Bool
+compare :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Ordering
+$ccompare :: PatchComplianceLevel -&gt; PatchComplianceLevel -&gt; Ordering
+$cp1Ord :: Eq PatchComplianceLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PatchComplianceLevel -&gt; Rep PatchComplianceLevel x)
+-&gt; (forall x. Rep PatchComplianceLevel x -&gt; PatchComplianceLevel)
+-&gt; Generic PatchComplianceLevel
+forall x. Rep PatchComplianceLevel x -&gt; PatchComplianceLevel
+forall x. PatchComplianceLevel -&gt; Rep PatchComplianceLevel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PatchComplianceLevel x -&gt; PatchComplianceLevel
+$cfrom :: forall x. PatchComplianceLevel -&gt; Rep PatchComplianceLevel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679807936"><span id="local-6989586621679807938"><span class="annot"><span class="annottext">Int -&gt; PatchComplianceLevel -&gt; Int
+PatchComplianceLevel -&gt; Int
+(Int -&gt; PatchComplianceLevel -&gt; Int)
+-&gt; (PatchComplianceLevel -&gt; Int) -&gt; Hashable PatchComplianceLevel
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PatchComplianceLevel -&gt; Int
+$chash :: PatchComplianceLevel -&gt; Int
+hashWithSalt :: Int -&gt; PatchComplianceLevel -&gt; Int
+$chashWithSalt :: Int -&gt; PatchComplianceLevel -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679807933"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ()
+(PatchComplianceLevel -&gt; ()) -&gt; NFData PatchComplianceLevel
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PatchComplianceLevel -&gt; ()
+$crnf :: PatchComplianceLevel -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679807930"><span class="annot"><span class="annottext">Text -&gt; Either String PatchComplianceLevel
+(Text -&gt; Either String PatchComplianceLevel)
+-&gt; FromText PatchComplianceLevel
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PatchComplianceLevel
+$cfromText :: Text -&gt; Either String PatchComplianceLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679807927"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; Text
+(PatchComplianceLevel -&gt; Text) -&gt; ToText PatchComplianceLevel
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PatchComplianceLevel -&gt; Text
+$ctoText :: PatchComplianceLevel -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679807924"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ByteString
+(PatchComplianceLevel -&gt; ByteString)
+-&gt; ToByteString PatchComplianceLevel
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PatchComplianceLevel -&gt; ByteString
+$ctoBS :: PatchComplianceLevel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679807921"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; ByteStringBuilder
+(PatchComplianceLevel -&gt; ByteStringBuilder)
+-&gt; ToLog PatchComplianceLevel
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PatchComplianceLevel -&gt; ByteStringBuilder
+$cbuild :: PatchComplianceLevel -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679807918"><span class="annot"><span class="annottext">HeaderName -&gt; PatchComplianceLevel -&gt; [Header]
+(HeaderName -&gt; PatchComplianceLevel -&gt; [Header])
+-&gt; ToHeader PatchComplianceLevel
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PatchComplianceLevel -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PatchComplianceLevel -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679807915"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; QueryString
+(PatchComplianceLevel -&gt; QueryString)
+-&gt; ToQuery PatchComplianceLevel
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PatchComplianceLevel -&gt; QueryString
+$ctoQuery :: PatchComplianceLevel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679807910"><span id="local-6989586621679807912"><span class="annot"><span class="annottext">Value -&gt; Parser [PatchComplianceLevel]
+Value -&gt; Parser PatchComplianceLevel
+(Value -&gt; Parser PatchComplianceLevel)
+-&gt; (Value -&gt; Parser [PatchComplianceLevel])
+-&gt; FromJSON PatchComplianceLevel
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PatchComplianceLevel]
+$cparseJSONList :: Value -&gt; Parser [PatchComplianceLevel]
+parseJSON :: Value -&gt; Parser PatchComplianceLevel
+$cparseJSON :: Value -&gt; Parser PatchComplianceLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679807905"><span id="local-6989586621679807907"><span class="annot"><span class="annottext">FromJSONKeyFunction [PatchComplianceLevel]
+FromJSONKeyFunction PatchComplianceLevel
+FromJSONKeyFunction PatchComplianceLevel
+-&gt; FromJSONKeyFunction [PatchComplianceLevel]
+-&gt; FromJSONKey PatchComplianceLevel
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PatchComplianceLevel]
+$cfromJSONKeyList :: FromJSONKeyFunction [PatchComplianceLevel]
+fromJSONKey :: FromJSONKeyFunction PatchComplianceLevel
+$cfromJSONKey :: FromJSONKeyFunction PatchComplianceLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679807896"><span id="local-6989586621679807898"><span id="local-6989586621679807900"><span id="local-6989586621679807902"><span class="annot"><span class="annottext">[PatchComplianceLevel] -&gt; Encoding
+[PatchComplianceLevel] -&gt; Value
+PatchComplianceLevel -&gt; Encoding
+PatchComplianceLevel -&gt; Value
+(PatchComplianceLevel -&gt; Value)
+-&gt; (PatchComplianceLevel -&gt; Encoding)
+-&gt; ([PatchComplianceLevel] -&gt; Value)
+-&gt; ([PatchComplianceLevel] -&gt; Encoding)
+-&gt; ToJSON PatchComplianceLevel
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PatchComplianceLevel] -&gt; Encoding
+$ctoEncodingList :: [PatchComplianceLevel] -&gt; Encoding
+toJSONList :: [PatchComplianceLevel] -&gt; Value
+$ctoJSONList :: [PatchComplianceLevel] -&gt; Value
+toEncoding :: PatchComplianceLevel -&gt; Encoding
+$ctoEncoding :: PatchComplianceLevel -&gt; Encoding
+toJSON :: PatchComplianceLevel -&gt; Value
+$ctoJSON :: PatchComplianceLevel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679807891"><span id="local-6989586621679807893"><span class="annot"><span class="annottext">ToJSONKeyFunction [PatchComplianceLevel]
+ToJSONKeyFunction PatchComplianceLevel
+ToJSONKeyFunction PatchComplianceLevel
+-&gt; ToJSONKeyFunction [PatchComplianceLevel]
+-&gt; ToJSONKey PatchComplianceLevel
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PatchComplianceLevel]
+$ctoJSONKeyList :: ToJSONKeyFunction [PatchComplianceLevel]
+toJSONKey :: ToJSONKeyFunction PatchComplianceLevel
+$ctoJSONKey :: ToJSONKeyFunction PatchComplianceLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679807888"><span class="annot"><span class="annottext">[Node] -&gt; Either String PatchComplianceLevel
+([Node] -&gt; Either String PatchComplianceLevel)
+-&gt; FromXML PatchComplianceLevel
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PatchComplianceLevel
+$cparseXML :: [Node] -&gt; Either String PatchComplianceLevel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679807885"><span class="annot"><span class="annottext">PatchComplianceLevel -&gt; XML
+(PatchComplianceLevel -&gt; XML) -&gt; ToXML PatchComplianceLevel
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PatchComplianceLevel -&gt; XML
+$ctoXML :: PatchComplianceLevel -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_CRITICAL"><span class="hs-identifier hs-type">PatchComplianceLevel_CRITICAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchComplianceLevel_CRITICAL"><span id="%24mPatchComplianceLevel_CRITICAL"><span id="PatchComplianceLevel_CRITICAL"><span class="annot"><span class="annottext">$bPatchComplianceLevel_CRITICAL :: PatchComplianceLevel
+$mPatchComplianceLevel_CRITICAL :: forall r. PatchComplianceLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#%24bPatchComplianceLevel_CRITICAL"><span class="hs-identifier hs-var hs-var hs-var">PatchComplianceLevel_CRITICAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-type">PatchComplianceLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CRITICAL&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_HIGH"><span class="hs-identifier hs-type">PatchComplianceLevel_HIGH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchComplianceLevel_HIGH"><span id="%24mPatchComplianceLevel_HIGH"><span id="PatchComplianceLevel_HIGH"><span class="annot"><span class="annottext">$bPatchComplianceLevel_HIGH :: PatchComplianceLevel
+$mPatchComplianceLevel_HIGH :: forall r. PatchComplianceLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#%24bPatchComplianceLevel_HIGH"><span class="hs-identifier hs-var hs-var hs-var">PatchComplianceLevel_HIGH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-type">PatchComplianceLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HIGH&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_INFORMATIONAL"><span class="hs-identifier hs-type">PatchComplianceLevel_INFORMATIONAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchComplianceLevel_INFORMATIONAL"><span id="%24mPatchComplianceLevel_INFORMATIONAL"><span id="PatchComplianceLevel_INFORMATIONAL"><span class="annot"><span class="annottext">$bPatchComplianceLevel_INFORMATIONAL :: PatchComplianceLevel
+$mPatchComplianceLevel_INFORMATIONAL :: forall r. PatchComplianceLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#%24bPatchComplianceLevel_INFORMATIONAL"><span class="hs-identifier hs-var hs-var hs-var">PatchComplianceLevel_INFORMATIONAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-type">PatchComplianceLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INFORMATIONAL&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_LOW"><span class="hs-identifier hs-type">PatchComplianceLevel_LOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchComplianceLevel_LOW"><span id="%24mPatchComplianceLevel_LOW"><span id="PatchComplianceLevel_LOW"><span class="annot"><span class="annottext">$bPatchComplianceLevel_LOW :: PatchComplianceLevel
+$mPatchComplianceLevel_LOW :: forall r. PatchComplianceLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#%24bPatchComplianceLevel_LOW"><span class="hs-identifier hs-var hs-var hs-var">PatchComplianceLevel_LOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-type">PatchComplianceLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;LOW&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_MEDIUM"><span class="hs-identifier hs-type">PatchComplianceLevel_MEDIUM</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchComplianceLevel_MEDIUM"><span id="%24mPatchComplianceLevel_MEDIUM"><span id="PatchComplianceLevel_MEDIUM"><span class="annot"><span class="annottext">$bPatchComplianceLevel_MEDIUM :: PatchComplianceLevel
+$mPatchComplianceLevel_MEDIUM :: forall r. PatchComplianceLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#%24bPatchComplianceLevel_MEDIUM"><span class="hs-identifier hs-var hs-var hs-var">PatchComplianceLevel_MEDIUM</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-type">PatchComplianceLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MEDIUM&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_UNSPECIFIED"><span class="hs-identifier hs-type">PatchComplianceLevel_UNSPECIFIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel"><span class="hs-identifier hs-type">PatchComplianceLevel</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPatchComplianceLevel_UNSPECIFIED"><span id="%24mPatchComplianceLevel_UNSPECIFIED"><span id="PatchComplianceLevel_UNSPECIFIED"><span class="annot"><span class="annottext">$bPatchComplianceLevel_UNSPECIFIED :: PatchComplianceLevel
+$mPatchComplianceLevel_UNSPECIFIED :: forall r. PatchComplianceLevel -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#%24bPatchComplianceLevel_UNSPECIFIED"><span class="hs-identifier hs-var hs-var hs-var">PatchComplianceLevel_UNSPECIFIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-identifier hs-type">PatchComplianceLevel'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNSPECIFIED&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_CRITICAL"><span class="hs-pragma hs-type">PatchComplianceLevel_CRITICAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_HIGH"><span class="hs-pragma hs-type">PatchComplianceLevel_HIGH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_INFORMATIONAL"><span class="hs-pragma hs-type">PatchComplianceLevel_INFORMATIONAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_LOW"><span class="hs-pragma hs-type">PatchComplianceLevel_LOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_MEDIUM"><span class="hs-pragma hs-type">PatchComplianceLevel_MEDIUM</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel_UNSPECIFIED"><span class="hs-pragma hs-type">PatchComplianceLevel_UNSPECIFIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.PatchComplianceLevel.html#PatchComplianceLevel%27"><span class="hs-pragma hs-type">PatchComplianceLevel'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

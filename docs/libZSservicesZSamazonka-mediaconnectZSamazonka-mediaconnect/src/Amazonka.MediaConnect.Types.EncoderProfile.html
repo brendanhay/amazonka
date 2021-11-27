@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.Types.EncoderProfile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.Types.EncoderProfile</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile"><span class="hs-identifier">EncoderProfile</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile_High"><span class="hs-identifier">EncoderProfile_High</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile_Main"><span class="hs-identifier">EncoderProfile_Main</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679265103"><span id="local-6989586621679265104"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="EncoderProfile"><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile"><span class="hs-identifier hs-var">EncoderProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="EncoderProfile%27"><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile%27"><span class="hs-identifier hs-var">EncoderProfile'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromEncoderProfile"><span class="annot"><span class="annottext">EncoderProfile -&gt; Text
+</span><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#fromEncoderProfile"><span class="hs-identifier hs-var hs-var">fromEncoderProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265095"><span id="local-6989586621679265097"><span id="local-6989586621679265099"><span class="annot"><span class="annottext">Int -&gt; EncoderProfile -&gt; ShowS
+[EncoderProfile] -&gt; ShowS
+EncoderProfile -&gt; String
+(Int -&gt; EncoderProfile -&gt; ShowS)
+-&gt; (EncoderProfile -&gt; String)
+-&gt; ([EncoderProfile] -&gt; ShowS)
+-&gt; Show EncoderProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [EncoderProfile] -&gt; ShowS
+$cshowList :: [EncoderProfile] -&gt; ShowS
+show :: EncoderProfile -&gt; String
+$cshow :: EncoderProfile -&gt; String
+showsPrec :: Int -&gt; EncoderProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; EncoderProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679265086"><span id="local-6989586621679265088"><span id="local-6989586621679265090"><span id="local-6989586621679265092"><span class="annot"><span class="annottext">ReadPrec [EncoderProfile]
+ReadPrec EncoderProfile
+Int -&gt; ReadS EncoderProfile
+ReadS [EncoderProfile]
+(Int -&gt; ReadS EncoderProfile)
+-&gt; ReadS [EncoderProfile]
+-&gt; ReadPrec EncoderProfile
+-&gt; ReadPrec [EncoderProfile]
+-&gt; Read EncoderProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [EncoderProfile]
+$creadListPrec :: ReadPrec [EncoderProfile]
+readPrec :: ReadPrec EncoderProfile
+$creadPrec :: ReadPrec EncoderProfile
+readList :: ReadS [EncoderProfile]
+$creadList :: ReadS [EncoderProfile]
+readsPrec :: Int -&gt; ReadS EncoderProfile
+$creadsPrec :: Int -&gt; ReadS EncoderProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679265081"><span id="local-6989586621679265083"><span class="annot"><span class="annottext">EncoderProfile -&gt; EncoderProfile -&gt; Bool
+(EncoderProfile -&gt; EncoderProfile -&gt; Bool)
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; Bool) -&gt; Eq EncoderProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+$c/= :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+== :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+$c== :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679265065"><span id="local-6989586621679265067"><span id="local-6989586621679265069"><span id="local-6989586621679265071"><span id="local-6989586621679265073"><span id="local-6989586621679265075"><span id="local-6989586621679265077"><span class="annot"><span class="annottext">Eq EncoderProfile
+Eq EncoderProfile
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; Ordering)
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; Bool)
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; Bool)
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; Bool)
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; Bool)
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; EncoderProfile)
+-&gt; (EncoderProfile -&gt; EncoderProfile -&gt; EncoderProfile)
+-&gt; Ord EncoderProfile
+EncoderProfile -&gt; EncoderProfile -&gt; Bool
+EncoderProfile -&gt; EncoderProfile -&gt; Ordering
+EncoderProfile -&gt; EncoderProfile -&gt; EncoderProfile
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: EncoderProfile -&gt; EncoderProfile -&gt; EncoderProfile
+$cmin :: EncoderProfile -&gt; EncoderProfile -&gt; EncoderProfile
+max :: EncoderProfile -&gt; EncoderProfile -&gt; EncoderProfile
+$cmax :: EncoderProfile -&gt; EncoderProfile -&gt; EncoderProfile
+&gt;= :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+$c&gt;= :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+&gt; :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+$c&gt; :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+&lt;= :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+$c&lt;= :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+&lt; :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+$c&lt; :: EncoderProfile -&gt; EncoderProfile -&gt; Bool
+compare :: EncoderProfile -&gt; EncoderProfile -&gt; Ordering
+$ccompare :: EncoderProfile -&gt; EncoderProfile -&gt; Ordering
+$cp1Ord :: Eq EncoderProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. EncoderProfile -&gt; Rep EncoderProfile x)
+-&gt; (forall x. Rep EncoderProfile x -&gt; EncoderProfile)
+-&gt; Generic EncoderProfile
+forall x. Rep EncoderProfile x -&gt; EncoderProfile
+forall x. EncoderProfile -&gt; Rep EncoderProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep EncoderProfile x -&gt; EncoderProfile
+$cfrom :: forall x. EncoderProfile -&gt; Rep EncoderProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265057"><span id="local-6989586621679265059"><span class="annot"><span class="annottext">Int -&gt; EncoderProfile -&gt; Int
+EncoderProfile -&gt; Int
+(Int -&gt; EncoderProfile -&gt; Int)
+-&gt; (EncoderProfile -&gt; Int) -&gt; Hashable EncoderProfile
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: EncoderProfile -&gt; Int
+$chash :: EncoderProfile -&gt; Int
+hashWithSalt :: Int -&gt; EncoderProfile -&gt; Int
+$chashWithSalt :: Int -&gt; EncoderProfile -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679265054"><span class="annot"><span class="annottext">EncoderProfile -&gt; ()
+(EncoderProfile -&gt; ()) -&gt; NFData EncoderProfile
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: EncoderProfile -&gt; ()
+$crnf :: EncoderProfile -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679265051"><span class="annot"><span class="annottext">Text -&gt; Either String EncoderProfile
+(Text -&gt; Either String EncoderProfile) -&gt; FromText EncoderProfile
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String EncoderProfile
+$cfromText :: Text -&gt; Either String EncoderProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679265048"><span class="annot"><span class="annottext">EncoderProfile -&gt; Text
+(EncoderProfile -&gt; Text) -&gt; ToText EncoderProfile
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: EncoderProfile -&gt; Text
+$ctoText :: EncoderProfile -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265045"><span class="annot"><span class="annottext">EncoderProfile -&gt; ByteString
+(EncoderProfile -&gt; ByteString) -&gt; ToByteString EncoderProfile
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: EncoderProfile -&gt; ByteString
+$ctoBS :: EncoderProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265042"><span class="annot"><span class="annottext">EncoderProfile -&gt; ByteStringBuilder
+(EncoderProfile -&gt; ByteStringBuilder) -&gt; ToLog EncoderProfile
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: EncoderProfile -&gt; ByteStringBuilder
+$cbuild :: EncoderProfile -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265039"><span class="annot"><span class="annottext">HeaderName -&gt; EncoderProfile -&gt; [Header]
+(HeaderName -&gt; EncoderProfile -&gt; [Header])
+-&gt; ToHeader EncoderProfile
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; EncoderProfile -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; EncoderProfile -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265036"><span class="annot"><span class="annottext">EncoderProfile -&gt; QueryString
+(EncoderProfile -&gt; QueryString) -&gt; ToQuery EncoderProfile
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: EncoderProfile -&gt; QueryString
+$ctoQuery :: EncoderProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265031"><span id="local-6989586621679265033"><span class="annot"><span class="annottext">Value -&gt; Parser [EncoderProfile]
+Value -&gt; Parser EncoderProfile
+(Value -&gt; Parser EncoderProfile)
+-&gt; (Value -&gt; Parser [EncoderProfile]) -&gt; FromJSON EncoderProfile
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [EncoderProfile]
+$cparseJSONList :: Value -&gt; Parser [EncoderProfile]
+parseJSON :: Value -&gt; Parser EncoderProfile
+$cparseJSON :: Value -&gt; Parser EncoderProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265026"><span id="local-6989586621679265028"><span class="annot"><span class="annottext">FromJSONKeyFunction [EncoderProfile]
+FromJSONKeyFunction EncoderProfile
+FromJSONKeyFunction EncoderProfile
+-&gt; FromJSONKeyFunction [EncoderProfile]
+-&gt; FromJSONKey EncoderProfile
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [EncoderProfile]
+$cfromJSONKeyList :: FromJSONKeyFunction [EncoderProfile]
+fromJSONKey :: FromJSONKeyFunction EncoderProfile
+$cfromJSONKey :: FromJSONKeyFunction EncoderProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265017"><span id="local-6989586621679265019"><span id="local-6989586621679265021"><span id="local-6989586621679265023"><span class="annot"><span class="annottext">[EncoderProfile] -&gt; Encoding
+[EncoderProfile] -&gt; Value
+EncoderProfile -&gt; Encoding
+EncoderProfile -&gt; Value
+(EncoderProfile -&gt; Value)
+-&gt; (EncoderProfile -&gt; Encoding)
+-&gt; ([EncoderProfile] -&gt; Value)
+-&gt; ([EncoderProfile] -&gt; Encoding)
+-&gt; ToJSON EncoderProfile
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [EncoderProfile] -&gt; Encoding
+$ctoEncodingList :: [EncoderProfile] -&gt; Encoding
+toJSONList :: [EncoderProfile] -&gt; Value
+$ctoJSONList :: [EncoderProfile] -&gt; Value
+toEncoding :: EncoderProfile -&gt; Encoding
+$ctoEncoding :: EncoderProfile -&gt; Encoding
+toJSON :: EncoderProfile -&gt; Value
+$ctoJSON :: EncoderProfile -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265012"><span id="local-6989586621679265014"><span class="annot"><span class="annottext">ToJSONKeyFunction [EncoderProfile]
+ToJSONKeyFunction EncoderProfile
+ToJSONKeyFunction EncoderProfile
+-&gt; ToJSONKeyFunction [EncoderProfile] -&gt; ToJSONKey EncoderProfile
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [EncoderProfile]
+$ctoJSONKeyList :: ToJSONKeyFunction [EncoderProfile]
+toJSONKey :: ToJSONKeyFunction EncoderProfile
+$ctoJSONKey :: ToJSONKeyFunction EncoderProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265009"><span class="annot"><span class="annottext">[Node] -&gt; Either String EncoderProfile
+([Node] -&gt; Either String EncoderProfile) -&gt; FromXML EncoderProfile
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String EncoderProfile
+$cparseXML :: [Node] -&gt; Either String EncoderProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265006"><span class="annot"><span class="annottext">EncoderProfile -&gt; XML
+(EncoderProfile -&gt; XML) -&gt; ToXML EncoderProfile
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: EncoderProfile -&gt; XML
+$ctoXML :: EncoderProfile -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile_High"><span class="hs-identifier hs-type">EncoderProfile_High</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile"><span class="hs-identifier hs-type">EncoderProfile</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEncoderProfile_High"><span id="%24mEncoderProfile_High"><span id="EncoderProfile_High"><span class="annot"><span class="annottext">$bEncoderProfile_High :: EncoderProfile
+$mEncoderProfile_High :: forall r. EncoderProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#%24bEncoderProfile_High"><span class="hs-identifier hs-var hs-var hs-var">EncoderProfile_High</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile%27"><span class="hs-identifier hs-type">EncoderProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;high&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile_Main"><span class="hs-identifier hs-type">EncoderProfile_Main</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile"><span class="hs-identifier hs-type">EncoderProfile</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bEncoderProfile_Main"><span id="%24mEncoderProfile_Main"><span id="EncoderProfile_Main"><span class="annot"><span class="annottext">$bEncoderProfile_Main :: EncoderProfile
+$mEncoderProfile_Main :: forall r. EncoderProfile -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#%24bEncoderProfile_Main"><span class="hs-identifier hs-var hs-var hs-var">EncoderProfile_Main</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile%27"><span class="hs-identifier hs-type">EncoderProfile'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;main&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile_High"><span class="hs-pragma hs-type">EncoderProfile_High</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile_Main"><span class="hs-pragma hs-type">EncoderProfile_Main</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.Types.EncoderProfile.html#EncoderProfile%27"><span class="hs-pragma hs-type">EncoderProfile'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

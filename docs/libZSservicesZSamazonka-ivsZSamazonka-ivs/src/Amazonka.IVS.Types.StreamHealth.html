@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IVS.Types.StreamHealth</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IVS.Types.StreamHealth</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth"><span class="hs-identifier">StreamHealth</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_HEALTHY"><span class="hs-identifier">StreamHealth_HEALTHY</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_STARVING"><span class="hs-identifier">StreamHealth_STARVING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_UNKNOWN"><span class="hs-identifier">StreamHealth_UNKNOWN</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679186283"><span id="local-6989586621679186284"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="StreamHealth"><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth"><span class="hs-identifier hs-var">StreamHealth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StreamHealth%27"><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth%27"><span class="hs-identifier hs-var">StreamHealth'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromStreamHealth"><span class="annot"><span class="annottext">StreamHealth -&gt; Text
+</span><a href="Amazonka.IVS.Types.StreamHealth.html#fromStreamHealth"><span class="hs-identifier hs-var hs-var">fromStreamHealth</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186275"><span id="local-6989586621679186277"><span id="local-6989586621679186279"><span class="annot"><span class="annottext">Int -&gt; StreamHealth -&gt; ShowS
+[StreamHealth] -&gt; ShowS
+StreamHealth -&gt; String
+(Int -&gt; StreamHealth -&gt; ShowS)
+-&gt; (StreamHealth -&gt; String)
+-&gt; ([StreamHealth] -&gt; ShowS)
+-&gt; Show StreamHealth
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StreamHealth] -&gt; ShowS
+$cshowList :: [StreamHealth] -&gt; ShowS
+show :: StreamHealth -&gt; String
+$cshow :: StreamHealth -&gt; String
+showsPrec :: Int -&gt; StreamHealth -&gt; ShowS
+$cshowsPrec :: Int -&gt; StreamHealth -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679186266"><span id="local-6989586621679186268"><span id="local-6989586621679186270"><span id="local-6989586621679186272"><span class="annot"><span class="annottext">ReadPrec [StreamHealth]
+ReadPrec StreamHealth
+Int -&gt; ReadS StreamHealth
+ReadS [StreamHealth]
+(Int -&gt; ReadS StreamHealth)
+-&gt; ReadS [StreamHealth]
+-&gt; ReadPrec StreamHealth
+-&gt; ReadPrec [StreamHealth]
+-&gt; Read StreamHealth
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StreamHealth]
+$creadListPrec :: ReadPrec [StreamHealth]
+readPrec :: ReadPrec StreamHealth
+$creadPrec :: ReadPrec StreamHealth
+readList :: ReadS [StreamHealth]
+$creadList :: ReadS [StreamHealth]
+readsPrec :: Int -&gt; ReadS StreamHealth
+$creadsPrec :: Int -&gt; ReadS StreamHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679186261"><span id="local-6989586621679186263"><span class="annot"><span class="annottext">StreamHealth -&gt; StreamHealth -&gt; Bool
+(StreamHealth -&gt; StreamHealth -&gt; Bool)
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; Bool) -&gt; Eq StreamHealth
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StreamHealth -&gt; StreamHealth -&gt; Bool
+$c/= :: StreamHealth -&gt; StreamHealth -&gt; Bool
+== :: StreamHealth -&gt; StreamHealth -&gt; Bool
+$c== :: StreamHealth -&gt; StreamHealth -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679186245"><span id="local-6989586621679186247"><span id="local-6989586621679186249"><span id="local-6989586621679186251"><span id="local-6989586621679186253"><span id="local-6989586621679186255"><span id="local-6989586621679186257"><span class="annot"><span class="annottext">Eq StreamHealth
+Eq StreamHealth
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; Ordering)
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; Bool)
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; Bool)
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; Bool)
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; Bool)
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; StreamHealth)
+-&gt; (StreamHealth -&gt; StreamHealth -&gt; StreamHealth)
+-&gt; Ord StreamHealth
+StreamHealth -&gt; StreamHealth -&gt; Bool
+StreamHealth -&gt; StreamHealth -&gt; Ordering
+StreamHealth -&gt; StreamHealth -&gt; StreamHealth
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: StreamHealth -&gt; StreamHealth -&gt; StreamHealth
+$cmin :: StreamHealth -&gt; StreamHealth -&gt; StreamHealth
+max :: StreamHealth -&gt; StreamHealth -&gt; StreamHealth
+$cmax :: StreamHealth -&gt; StreamHealth -&gt; StreamHealth
+&gt;= :: StreamHealth -&gt; StreamHealth -&gt; Bool
+$c&gt;= :: StreamHealth -&gt; StreamHealth -&gt; Bool
+&gt; :: StreamHealth -&gt; StreamHealth -&gt; Bool
+$c&gt; :: StreamHealth -&gt; StreamHealth -&gt; Bool
+&lt;= :: StreamHealth -&gt; StreamHealth -&gt; Bool
+$c&lt;= :: StreamHealth -&gt; StreamHealth -&gt; Bool
+&lt; :: StreamHealth -&gt; StreamHealth -&gt; Bool
+$c&lt; :: StreamHealth -&gt; StreamHealth -&gt; Bool
+compare :: StreamHealth -&gt; StreamHealth -&gt; Ordering
+$ccompare :: StreamHealth -&gt; StreamHealth -&gt; Ordering
+$cp1Ord :: Eq StreamHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. StreamHealth -&gt; Rep StreamHealth x)
+-&gt; (forall x. Rep StreamHealth x -&gt; StreamHealth)
+-&gt; Generic StreamHealth
+forall x. Rep StreamHealth x -&gt; StreamHealth
+forall x. StreamHealth -&gt; Rep StreamHealth x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StreamHealth x -&gt; StreamHealth
+$cfrom :: forall x. StreamHealth -&gt; Rep StreamHealth x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679186237"><span id="local-6989586621679186239"><span class="annot"><span class="annottext">Int -&gt; StreamHealth -&gt; Int
+StreamHealth -&gt; Int
+(Int -&gt; StreamHealth -&gt; Int)
+-&gt; (StreamHealth -&gt; Int) -&gt; Hashable StreamHealth
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: StreamHealth -&gt; Int
+$chash :: StreamHealth -&gt; Int
+hashWithSalt :: Int -&gt; StreamHealth -&gt; Int
+$chashWithSalt :: Int -&gt; StreamHealth -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679186234"><span class="annot"><span class="annottext">StreamHealth -&gt; ()
+(StreamHealth -&gt; ()) -&gt; NFData StreamHealth
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: StreamHealth -&gt; ()
+$crnf :: StreamHealth -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679186231"><span class="annot"><span class="annottext">Text -&gt; Either String StreamHealth
+(Text -&gt; Either String StreamHealth) -&gt; FromText StreamHealth
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String StreamHealth
+$cfromText :: Text -&gt; Either String StreamHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679186228"><span class="annot"><span class="annottext">StreamHealth -&gt; Text
+(StreamHealth -&gt; Text) -&gt; ToText StreamHealth
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: StreamHealth -&gt; Text
+$ctoText :: StreamHealth -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679186225"><span class="annot"><span class="annottext">StreamHealth -&gt; ByteString
+(StreamHealth -&gt; ByteString) -&gt; ToByteString StreamHealth
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: StreamHealth -&gt; ByteString
+$ctoBS :: StreamHealth -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679186222"><span class="annot"><span class="annottext">StreamHealth -&gt; ByteStringBuilder
+(StreamHealth -&gt; ByteStringBuilder) -&gt; ToLog StreamHealth
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: StreamHealth -&gt; ByteStringBuilder
+$cbuild :: StreamHealth -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679186219"><span class="annot"><span class="annottext">HeaderName -&gt; StreamHealth -&gt; [Header]
+(HeaderName -&gt; StreamHealth -&gt; [Header]) -&gt; ToHeader StreamHealth
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; StreamHealth -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; StreamHealth -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679186216"><span class="annot"><span class="annottext">StreamHealth -&gt; QueryString
+(StreamHealth -&gt; QueryString) -&gt; ToQuery StreamHealth
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: StreamHealth -&gt; QueryString
+$ctoQuery :: StreamHealth -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679186211"><span id="local-6989586621679186213"><span class="annot"><span class="annottext">Value -&gt; Parser [StreamHealth]
+Value -&gt; Parser StreamHealth
+(Value -&gt; Parser StreamHealth)
+-&gt; (Value -&gt; Parser [StreamHealth]) -&gt; FromJSON StreamHealth
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [StreamHealth]
+$cparseJSONList :: Value -&gt; Parser [StreamHealth]
+parseJSON :: Value -&gt; Parser StreamHealth
+$cparseJSON :: Value -&gt; Parser StreamHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679186206"><span id="local-6989586621679186208"><span class="annot"><span class="annottext">FromJSONKeyFunction [StreamHealth]
+FromJSONKeyFunction StreamHealth
+FromJSONKeyFunction StreamHealth
+-&gt; FromJSONKeyFunction [StreamHealth] -&gt; FromJSONKey StreamHealth
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [StreamHealth]
+$cfromJSONKeyList :: FromJSONKeyFunction [StreamHealth]
+fromJSONKey :: FromJSONKeyFunction StreamHealth
+$cfromJSONKey :: FromJSONKeyFunction StreamHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679186197"><span id="local-6989586621679186199"><span id="local-6989586621679186201"><span id="local-6989586621679186203"><span class="annot"><span class="annottext">[StreamHealth] -&gt; Encoding
+[StreamHealth] -&gt; Value
+StreamHealth -&gt; Encoding
+StreamHealth -&gt; Value
+(StreamHealth -&gt; Value)
+-&gt; (StreamHealth -&gt; Encoding)
+-&gt; ([StreamHealth] -&gt; Value)
+-&gt; ([StreamHealth] -&gt; Encoding)
+-&gt; ToJSON StreamHealth
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [StreamHealth] -&gt; Encoding
+$ctoEncodingList :: [StreamHealth] -&gt; Encoding
+toJSONList :: [StreamHealth] -&gt; Value
+$ctoJSONList :: [StreamHealth] -&gt; Value
+toEncoding :: StreamHealth -&gt; Encoding
+$ctoEncoding :: StreamHealth -&gt; Encoding
+toJSON :: StreamHealth -&gt; Value
+$ctoJSON :: StreamHealth -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679186192"><span id="local-6989586621679186194"><span class="annot"><span class="annottext">ToJSONKeyFunction [StreamHealth]
+ToJSONKeyFunction StreamHealth
+ToJSONKeyFunction StreamHealth
+-&gt; ToJSONKeyFunction [StreamHealth] -&gt; ToJSONKey StreamHealth
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [StreamHealth]
+$ctoJSONKeyList :: ToJSONKeyFunction [StreamHealth]
+toJSONKey :: ToJSONKeyFunction StreamHealth
+$ctoJSONKey :: ToJSONKeyFunction StreamHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679186189"><span class="annot"><span class="annottext">[Node] -&gt; Either String StreamHealth
+([Node] -&gt; Either String StreamHealth) -&gt; FromXML StreamHealth
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String StreamHealth
+$cparseXML :: [Node] -&gt; Either String StreamHealth
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679186186"><span class="annot"><span class="annottext">StreamHealth -&gt; XML
+(StreamHealth -&gt; XML) -&gt; ToXML StreamHealth
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: StreamHealth -&gt; XML
+$ctoXML :: StreamHealth -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_HEALTHY"><span class="hs-identifier hs-type">StreamHealth_HEALTHY</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth"><span class="hs-identifier hs-type">StreamHealth</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamHealth_HEALTHY"><span id="%24mStreamHealth_HEALTHY"><span id="StreamHealth_HEALTHY"><span class="annot"><span class="annottext">$bStreamHealth_HEALTHY :: StreamHealth
+$mStreamHealth_HEALTHY :: forall r. StreamHealth -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IVS.Types.StreamHealth.html#%24bStreamHealth_HEALTHY"><span class="hs-identifier hs-var hs-var hs-var">StreamHealth_HEALTHY</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth%27"><span class="hs-identifier hs-type">StreamHealth'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HEALTHY&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_STARVING"><span class="hs-identifier hs-type">StreamHealth_STARVING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth"><span class="hs-identifier hs-type">StreamHealth</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamHealth_STARVING"><span id="%24mStreamHealth_STARVING"><span id="StreamHealth_STARVING"><span class="annot"><span class="annottext">$bStreamHealth_STARVING :: StreamHealth
+$mStreamHealth_STARVING :: forall r. StreamHealth -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IVS.Types.StreamHealth.html#%24bStreamHealth_STARVING"><span class="hs-identifier hs-var hs-var hs-var">StreamHealth_STARVING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth%27"><span class="hs-identifier hs-type">StreamHealth'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STARVING&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_UNKNOWN"><span class="hs-identifier hs-type">StreamHealth_UNKNOWN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth"><span class="hs-identifier hs-type">StreamHealth</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bStreamHealth_UNKNOWN"><span id="%24mStreamHealth_UNKNOWN"><span id="StreamHealth_UNKNOWN"><span class="annot"><span class="annottext">$bStreamHealth_UNKNOWN :: StreamHealth
+$mStreamHealth_UNKNOWN :: forall r. StreamHealth -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.IVS.Types.StreamHealth.html#%24bStreamHealth_UNKNOWN"><span class="hs-identifier hs-var hs-var hs-var">StreamHealth_UNKNOWN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth%27"><span class="hs-identifier hs-type">StreamHealth'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;UNKNOWN&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_HEALTHY"><span class="hs-pragma hs-type">StreamHealth_HEALTHY</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_STARVING"><span class="hs-pragma hs-type">StreamHealth_STARVING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth_UNKNOWN"><span class="hs-pragma hs-type">StreamHealth_UNKNOWN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.IVS.Types.StreamHealth.html#StreamHealth%27"><span class="hs-pragma hs-type">StreamHealth'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

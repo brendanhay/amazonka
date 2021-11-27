@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudWatchEvents.Types.Rule</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.Rule</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html"><span class="hs-identifier">Amazonka.CloudWatchEvents.Types.RuleState</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains information about a rule in Amazon EventBridge.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRule' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679305775"><span id="local-6989586621679305776"></span></span><span class="hs-keyword">data</span><span> </span><span id="Rule"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-var">Rule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Rule%27"><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The event pattern of the rule. For more information, see</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns&gt;</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- in the /Amazon EventBridge User Guide/.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AeventPattern%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AeventPattern%3ARule%27"><span class="hs-identifier hs-var hs-var">eventPattern</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The state of the rule.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astate%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe RuleState
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Astate%3ARule%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState"><span class="hs-identifier hs-type">RuleState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aarn%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Aarn%3ARule%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The name or ARN of the event bus associated with the rule. If you omit</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- this, the default event bus is used.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AeventBusName%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AeventBusName%3ARule%27"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The scheduling expression. For example, \&quot;cron(0 20 * * ? *)\&quot;, \&quot;rate(5</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- minutes)\&quot;. For more information, see</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html Creating an Amazon EventBridge rule that runs on a schedule&gt;.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AscheduleExpression%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AscheduleExpression%3ARule%27"><span class="hs-identifier hs-var hs-var">scheduleExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The name of the rule.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Aname%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Aname%3ARule%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The description of the rule.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Adescription%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Adescription%3ARule%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | If the rule was created on behalf of your account by an Amazon Web</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- Services service, this field displays the principal name of the service</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- that created the rule.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AmanagedBy%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AmanagedBy%3ARule%27"><span class="hs-identifier hs-var hs-var">managedBy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role that is used for target</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- invocation.</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- If you\'re setting an event bus in another account as the target and</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- that account granted permission to your account through an organization</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- instead of directly by the account ID, you must specify a @RoleArn@ with</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- proper permissions in the @Target@ structure, instead of here in this</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AroleArn%3ARule%27"><span class="annot"><span class="annottext">Rule -&gt; Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AroleArn%3ARule%27"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679305761"><span id="local-6989586621679305763"><span class="annot"><span class="annottext">Rule -&gt; Rule -&gt; Bool
+(Rule -&gt; Rule -&gt; Bool) -&gt; (Rule -&gt; Rule -&gt; Bool) -&gt; Eq Rule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Rule -&gt; Rule -&gt; Bool
+$c/= :: Rule -&gt; Rule -&gt; Bool
+== :: Rule -&gt; Rule -&gt; Bool
+$c== :: Rule -&gt; Rule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305752"><span id="local-6989586621679305754"><span id="local-6989586621679305756"><span id="local-6989586621679305758"><span class="annot"><span class="annottext">ReadPrec [Rule]
+ReadPrec Rule
+Int -&gt; ReadS Rule
+ReadS [Rule]
+(Int -&gt; ReadS Rule)
+-&gt; ReadS [Rule] -&gt; ReadPrec Rule -&gt; ReadPrec [Rule] -&gt; Read Rule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Rule]
+$creadListPrec :: ReadPrec [Rule]
+readPrec :: ReadPrec Rule
+$creadPrec :: ReadPrec Rule
+readList :: ReadS [Rule]
+$creadList :: ReadS [Rule]
+readsPrec :: Int -&gt; ReadS Rule
+$creadsPrec :: Int -&gt; ReadS Rule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679305745"><span id="local-6989586621679305747"><span id="local-6989586621679305749"><span class="annot"><span class="annottext">Int -&gt; Rule -&gt; ShowS
+[Rule] -&gt; ShowS
+Rule -&gt; String
+(Int -&gt; Rule -&gt; ShowS)
+-&gt; (Rule -&gt; String) -&gt; ([Rule] -&gt; ShowS) -&gt; Show Rule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Rule] -&gt; ShowS
+$cshowList :: [Rule] -&gt; ShowS
+show :: Rule -&gt; String
+$cshow :: Rule -&gt; String
+showsPrec :: Int -&gt; Rule -&gt; ShowS
+$cshowsPrec :: Int -&gt; Rule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Rule -&gt; Rep Rule x)
+-&gt; (forall x. Rep Rule x -&gt; Rule) -&gt; Generic Rule
+forall x. Rep Rule x -&gt; Rule
+forall x. Rule -&gt; Rep Rule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Rule x -&gt; Rule
+$cfrom :: forall x. Rule -&gt; Rep Rule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'Rule' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'eventPattern', 'rule_eventPattern' - The event pattern of the rule. For more information, see</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns&gt;</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- in the /Amazon EventBridge User Guide/.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'state', 'rule_state' - The state of the rule.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'arn', 'rule_arn' - The Amazon Resource Name (ARN) of the rule.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'eventBusName', 'rule_eventBusName' - The name or ARN of the event bus associated with the rule. If you omit</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- this, the default event bus is used.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'scheduleExpression', 'rule_scheduleExpression' - The scheduling expression. For example, \&quot;cron(0 20 * * ? *)\&quot;, \&quot;rate(5</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- minutes)\&quot;. For more information, see</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html Creating an Amazon EventBridge rule that runs on a schedule&gt;.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'name', 'rule_name' - The name of the rule.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'description', 'rule_description' - The description of the rule.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'managedBy', 'rule_managedBy' - If the rule was created on behalf of your account by an Amazon Web</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- Services service, this field displays the principal name of the service</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- that created the rule.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'roleArn', 'rule_roleArn' - The Amazon Resource Name (ARN) of the role that is used for target</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- invocation.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- If you\'re setting an event bus in another account as the target and</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- that account granted permission to your account through an organization</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- instead of directly by the account ID, you must specify a @RoleArn@ with</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- proper permissions in the @Target@ structure, instead of here in this</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#newRule"><span class="hs-identifier hs-type">newRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span>
+</span><span id="line-107"></span><span id="newRule"><span class="annot"><span class="annottext">newRule :: Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#newRule"><span class="hs-identifier hs-var hs-var">newRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">Rule' :: Maybe Text
+-&gt; Maybe RuleState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventPattern:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AeventPattern%3ARule%27"><span class="hs-identifier hs-var">eventPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:Rule' :: Maybe RuleState
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Astate%3ARule%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Aarn%3ARule%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:eventBusName:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AeventBusName%3ARule%27"><span class="hs-identifier hs-var">eventBusName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:scheduleExpression:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AscheduleExpression%3ARule%27"><span class="hs-identifier hs-var">scheduleExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Aname%3ARule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Adescription%3ARule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">$sel:managedBy:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AmanagedBy%3ARule%27"><span class="hs-identifier hs-var">managedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">$sel:roleArn:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AroleArn%3ARule%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The event pattern of the rule. For more information, see</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-and-event-patterns.html Events and Event Patterns&gt;</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- in the /Amazon EventBridge User Guide/.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_eventPattern"><span class="hs-identifier hs-type">rule_eventPattern</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="rule_eventPattern"><span class="annot"><span class="annottext">rule_eventPattern :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_eventPattern"><span class="hs-identifier hs-var hs-var">rule_eventPattern</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305736"><span class="annot"><span class="annottext">Maybe Text
+eventPattern :: Maybe Text
+$sel:eventPattern:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305736"><span class="hs-identifier hs-var hs-var">eventPattern</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305736"><span class="hs-identifier hs-var">eventPattern</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305735"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305735"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305734"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305734"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305735"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventPattern:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AeventPattern%3ARule%27"><span class="hs-identifier hs-var">eventPattern</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305734"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | The state of the rule.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_state"><span class="hs-identifier hs-type">rule_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.RuleState.html#RuleState"><span class="hs-identifier hs-type">RuleState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="rule_state"><span class="annot"><span class="annottext">rule_state :: (Maybe RuleState -&gt; f (Maybe RuleState)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_state"><span class="hs-identifier hs-var hs-var">rule_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe RuleState)
+-&gt; (Rule -&gt; Maybe RuleState -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe RuleState) (Maybe RuleState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305732"><span class="annot"><span class="annottext">Maybe RuleState
+state :: Maybe RuleState
+$sel:state:Rule' :: Rule -&gt; Maybe RuleState
+</span><a href="#local-6989586621679305732"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RuleState
+</span><a href="#local-6989586621679305732"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305731"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305731"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305730"><span class="annot"><span class="annottext">Maybe RuleState
+</span><a href="#local-6989586621679305730"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305731"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:Rule' :: Maybe RuleState
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Astate%3ARule%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RuleState
+</span><a href="#local-6989586621679305730"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the rule.</span><span>
+</span><span id="line-131"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_arn"><span class="hs-identifier hs-type">rule_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span id="rule_arn"><span class="annot"><span class="annottext">rule_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_arn"><span class="hs-identifier hs-var hs-var">rule_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305728"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305728"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305728"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305727"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305727"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305726"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305726"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305727"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Aarn%3ARule%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305726"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | The name or ARN of the event bus associated with the rule. If you omit</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- this, the default event bus is used.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_eventBusName"><span class="hs-identifier hs-type">rule_eventBusName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="rule_eventBusName"><span class="annot"><span class="annottext">rule_eventBusName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_eventBusName"><span class="hs-identifier hs-var hs-var">rule_eventBusName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305724"><span class="annot"><span class="annottext">Maybe Text
+eventBusName :: Maybe Text
+$sel:eventBusName:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305724"><span class="hs-identifier hs-var hs-var">eventBusName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305724"><span class="hs-identifier hs-var">eventBusName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305723"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305723"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305722"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305722"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305723"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventBusName:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AeventBusName%3ARule%27"><span class="hs-identifier hs-var">eventBusName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305722"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The scheduling expression. For example, \&quot;cron(0 20 * * ? *)\&quot;, \&quot;rate(5</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- minutes)\&quot;. For more information, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-create-rule-schedule.html Creating an Amazon EventBridge rule that runs on a schedule&gt;.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_scheduleExpression"><span class="hs-identifier hs-type">rule_scheduleExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="rule_scheduleExpression"><span class="annot"><span class="annottext">rule_scheduleExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_scheduleExpression"><span class="hs-identifier hs-var hs-var">rule_scheduleExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305720"><span class="annot"><span class="annottext">Maybe Text
+scheduleExpression :: Maybe Text
+$sel:scheduleExpression:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305720"><span class="hs-identifier hs-var hs-var">scheduleExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305720"><span class="hs-identifier hs-var">scheduleExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305719"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305719"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305718"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305718"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305719"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scheduleExpression:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AscheduleExpression%3ARule%27"><span class="hs-identifier hs-var">scheduleExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305718"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The name of the rule.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_name"><span class="hs-identifier hs-type">rule_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="rule_name"><span class="annot"><span class="annottext">rule_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_name"><span class="hs-identifier hs-var hs-var">rule_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305716"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305716"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305716"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305715"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305714"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305715"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Aname%3ARule%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305714"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The description of the rule.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_description"><span class="hs-identifier hs-type">rule_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="rule_description"><span class="annot"><span class="annottext">rule_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_description"><span class="hs-identifier hs-var hs-var">rule_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305712"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305712"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305712"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305711"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305711"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305710"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305710"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305711"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3Adescription%3ARule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305710"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | If the rule was created on behalf of your account by an Amazon Web</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Services service, this field displays the principal name of the service</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- that created the rule.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_managedBy"><span class="hs-identifier hs-type">rule_managedBy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="rule_managedBy"><span class="annot"><span class="annottext">rule_managedBy :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_managedBy"><span class="hs-identifier hs-var hs-var">rule_managedBy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305708"><span class="annot"><span class="annottext">Maybe Text
+managedBy :: Maybe Text
+$sel:managedBy:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305708"><span class="hs-identifier hs-var hs-var">managedBy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305708"><span class="hs-identifier hs-var">managedBy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305707"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305707"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305706"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305706"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305707"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:managedBy:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AmanagedBy%3ARule%27"><span class="hs-identifier hs-var">managedBy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305706"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the role that is used for target</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- invocation.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- If you\'re setting an event bus in another account as the target and</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- that account granted permission to your account through an organization</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- instead of directly by the account ID, you must specify a @RoleArn@ with</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- proper permissions in the @Target@ structure, instead of here in this</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_roleArn"><span class="hs-identifier hs-type">rule_roleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="rule_roleArn"><span class="annot"><span class="annottext">rule_roleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Rule -&gt; f Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#rule_roleArn"><span class="hs-identifier hs-var hs-var">rule_roleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Rule -&gt; Maybe Text)
+-&gt; (Rule -&gt; Maybe Text -&gt; Rule)
+-&gt; Lens Rule Rule (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679305704"><span class="annot"><span class="annottext">Maybe Text
+roleArn :: Maybe Text
+$sel:roleArn:Rule' :: Rule -&gt; Maybe Text
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var hs-var">roleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305704"><span class="hs-identifier hs-var">roleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679305703"><span class="annot"><span class="annottext">s :: Rule
+</span><a href="#local-6989586621679305703"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-type">Rule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679305702"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305702"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Rule
+</span><a href="#local-6989586621679305703"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleArn:Rule' :: Maybe Text
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#%24sel%3AroleArn%3ARule%27"><span class="hs-identifier hs-var">roleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679305702"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305699"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-171"></span><span>  </span><span id="local-6989586621679305697"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Rule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Rule) -&gt; Value -&gt; Parser Rule
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Rule&quot;</span></span><span>
+</span><span id="line-174"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679305694"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe RuleState
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Rule
+</span><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule%27"><span class="hs-identifier hs-var">Rule'</span></a></span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe RuleState
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Rule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe RuleState
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Rule)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventPattern&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe RuleState
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Rule)
+-&gt; Parser (Maybe RuleState)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe RuleState)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;State&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Rule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Rule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EventBusName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Rule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScheduleExpression&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Rule)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Rule)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Rule)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Rule)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ManagedBy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Rule) -&gt; Parser (Maybe Text) -&gt; Parser Rule
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679305694"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305688"><span id="local-6989586621679305690"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679305685"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudWatchEvents.Types.Rule.html#Rule"><span class="hs-identifier hs-type">Rule</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

@@ -1,0 +1,1074 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.CreateRemoteAccessSession</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Specifies and starts a remote access session.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.CreateRemoteAccessSession</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#newCreateRemoteAccessSession"><span class="hs-identifier">newCreateRemoteAccessSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_clientId"><span class="hs-identifier">createRemoteAccessSession_clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_skipAppResign"><span class="hs-identifier">createRemoteAccessSession_skipAppResign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_instanceArn"><span class="hs-identifier">createRemoteAccessSession_instanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteRecordEnabled"><span class="hs-identifier">createRemoteAccessSession_remoteRecordEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteRecordAppArn"><span class="hs-identifier">createRemoteAccessSession_remoteRecordAppArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_sshPublicKey"><span class="hs-identifier">createRemoteAccessSession_sshPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_name"><span class="hs-identifier">createRemoteAccessSession_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteDebugEnabled"><span class="hs-identifier">createRemoteAccessSession_remoteDebugEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_configuration"><span class="hs-identifier">createRemoteAccessSession_configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_interactionMode"><span class="hs-identifier">createRemoteAccessSession_interactionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_projectArn"><span class="hs-identifier">createRemoteAccessSession_projectArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_deviceArn"><span class="hs-identifier">createRemoteAccessSession_deviceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier">CreateRemoteAccessSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#newCreateRemoteAccessSessionResponse"><span class="hs-identifier">newCreateRemoteAccessSessionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSessionResponse_remoteAccessSession"><span class="hs-identifier">createRemoteAccessSessionResponse_remoteAccessSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSessionResponse_httpStatus"><span class="hs-identifier">createRemoteAccessSessionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.html"><span class="hs-identifier">Amazonka.DeviceFarm.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | Creates and submits a request to start a remote access session.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newCreateRemoteAccessSession' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679387885"><span id="local-6989586621679387886"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRemoteAccessSession"><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-var">CreateRemoteAccessSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRemoteAccessSession%27"><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-var">CreateRemoteAccessSession'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique identifier for the client. If you want access to multiple devices</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- on the same client, you should pass the same @clientId@ value in each</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- call to @CreateRemoteAccessSession@. This identifier is required only if</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @remoteDebugEnabled@ is set to @true@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AclientId%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AclientId%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | When set to @true@, for private devices, Device Farm does not sign your</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- For more information on how Device Farm modifies your uploads during</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- tests, see</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt;</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AskipAppResign%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AskipAppResign%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">skipAppResign</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the device instance for which you want</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- to create a remote access session.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AinstanceArn%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AinstanceArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | Set to @true@ to enable remote recording for the remote access session.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AremoteRecordEnabled%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteRecordEnabled%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">remoteRecordEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the app to be recorded in the remote</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- access session.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AremoteRecordAppArn%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteRecordAppArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">remoteRecordAppArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | Ignored. The public key of the @ssh@ key pair you want to use for</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- connecting to remote devices in your remote debugging session. This key</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- is required only if @remoteDebugEnabled@ is set to @true@.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-93"></span><span>    </span><span id="%24sel%3AsshPublicKey%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AsshPublicKey%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- | The name of the remote access session to create.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Aname%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3Aname%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | Set to @true@ if you want to access devices remotely for debugging in</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- your remote access session.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AremoteDebugEnabled%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteDebugEnabled%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">remoteDebugEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The configuration information for the remote access session request.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3Aconfiguration%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession
+-&gt; Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3Aconfiguration%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration.html#CreateRemoteAccessSessionConfiguration"><span class="hs-identifier hs-type">CreateRemoteAccessSessionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- | The interaction mode of the remote access session. Valid values are:</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   INTERACTIVE: You can interact with the iOS device by viewing,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     touching, and rotating the screen. You cannot run XCUITest</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     framework-based tests in this mode.</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   NO_VIDEO: You are connected to the device, but cannot interact with</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--     it or view the screen. This mode has the fastest test execution</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     speed. You can run XCUITest framework-based tests in this mode.</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- -   VIDEO_ONLY: You can view the screen, but cannot touch or rotate it.</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     You can run XCUITest framework-based tests and watch the screen in</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--     this mode.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3AinteractionMode%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Maybe InteractionMode
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AinteractionMode%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">interactionMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.InteractionMode.html#InteractionMode"><span class="hs-identifier hs-type">InteractionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project for which you want to</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- create a remote access session.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AprojectArn%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AprojectArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The ARN of the device for which you want to create a remote access</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- session.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AdeviceArn%3ACreateRemoteAccessSession%27"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AdeviceArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387868"><span id="local-6989586621679387870"><span class="annot"><span class="annottext">CreateRemoteAccessSession -&gt; CreateRemoteAccessSession -&gt; Bool
+(CreateRemoteAccessSession -&gt; CreateRemoteAccessSession -&gt; Bool)
+-&gt; (CreateRemoteAccessSession -&gt; CreateRemoteAccessSession -&gt; Bool)
+-&gt; Eq CreateRemoteAccessSession
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRemoteAccessSession -&gt; CreateRemoteAccessSession -&gt; Bool
+$c/= :: CreateRemoteAccessSession -&gt; CreateRemoteAccessSession -&gt; Bool
+== :: CreateRemoteAccessSession -&gt; CreateRemoteAccessSession -&gt; Bool
+$c== :: CreateRemoteAccessSession -&gt; CreateRemoteAccessSession -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387859"><span id="local-6989586621679387861"><span id="local-6989586621679387863"><span id="local-6989586621679387865"><span class="annot"><span class="annottext">ReadPrec [CreateRemoteAccessSession]
+ReadPrec CreateRemoteAccessSession
+Int -&gt; ReadS CreateRemoteAccessSession
+ReadS [CreateRemoteAccessSession]
+(Int -&gt; ReadS CreateRemoteAccessSession)
+-&gt; ReadS [CreateRemoteAccessSession]
+-&gt; ReadPrec CreateRemoteAccessSession
+-&gt; ReadPrec [CreateRemoteAccessSession]
+-&gt; Read CreateRemoteAccessSession
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRemoteAccessSession]
+$creadListPrec :: ReadPrec [CreateRemoteAccessSession]
+readPrec :: ReadPrec CreateRemoteAccessSession
+$creadPrec :: ReadPrec CreateRemoteAccessSession
+readList :: ReadS [CreateRemoteAccessSession]
+$creadList :: ReadS [CreateRemoteAccessSession]
+readsPrec :: Int -&gt; ReadS CreateRemoteAccessSession
+$creadsPrec :: Int -&gt; ReadS CreateRemoteAccessSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387852"><span id="local-6989586621679387854"><span id="local-6989586621679387856"><span class="annot"><span class="annottext">Int -&gt; CreateRemoteAccessSession -&gt; ShowS
+[CreateRemoteAccessSession] -&gt; ShowS
+CreateRemoteAccessSession -&gt; String
+(Int -&gt; CreateRemoteAccessSession -&gt; ShowS)
+-&gt; (CreateRemoteAccessSession -&gt; String)
+-&gt; ([CreateRemoteAccessSession] -&gt; ShowS)
+-&gt; Show CreateRemoteAccessSession
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRemoteAccessSession] -&gt; ShowS
+$cshowList :: [CreateRemoteAccessSession] -&gt; ShowS
+show :: CreateRemoteAccessSession -&gt; String
+$cshow :: CreateRemoteAccessSession -&gt; String
+showsPrec :: Int -&gt; CreateRemoteAccessSession -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRemoteAccessSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateRemoteAccessSession -&gt; Rep CreateRemoteAccessSession x)
+-&gt; (forall x.
+    Rep CreateRemoteAccessSession x -&gt; CreateRemoteAccessSession)
+-&gt; Generic CreateRemoteAccessSession
+forall x.
+Rep CreateRemoteAccessSession x -&gt; CreateRemoteAccessSession
+forall x.
+CreateRemoteAccessSession -&gt; Rep CreateRemoteAccessSession x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateRemoteAccessSession x -&gt; CreateRemoteAccessSession
+$cfrom :: forall x.
+CreateRemoteAccessSession -&gt; Rep CreateRemoteAccessSession x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- Create a value of 'CreateRemoteAccessSession' with all optional fields omitted.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'clientId', 'createRemoteAccessSession_clientId' - Unique identifier for the client. If you want access to multiple devices</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- on the same client, you should pass the same @clientId@ value in each</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- call to @CreateRemoteAccessSession@. This identifier is required only if</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @remoteDebugEnabled@ is set to @true@.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'skipAppResign', 'createRemoteAccessSession_skipAppResign' - When set to @true@, for private devices, Device Farm does not sign your</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- For more information on how Device Farm modifies your uploads during</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- tests, see</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt;</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'instanceArn', 'createRemoteAccessSession_instanceArn' - The Amazon Resource Name (ARN) of the device instance for which you want</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- to create a remote access session.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'remoteRecordEnabled', 'createRemoteAccessSession_remoteRecordEnabled' - Set to @true@ to enable remote recording for the remote access session.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'remoteRecordAppArn', 'createRemoteAccessSession_remoteRecordAppArn' - The Amazon Resource Name (ARN) for the app to be recorded in the remote</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- access session.</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- 'sshPublicKey', 'createRemoteAccessSession_sshPublicKey' - Ignored. The public key of the @ssh@ key pair you want to use for</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- connecting to remote devices in your remote debugging session. This key</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- is required only if @remoteDebugEnabled@ is set to @true@.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'name', 'createRemoteAccessSession_name' - The name of the remote access session to create.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'remoteDebugEnabled', 'createRemoteAccessSession_remoteDebugEnabled' - Set to @true@ if you want to access devices remotely for debugging in</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- your remote access session.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'configuration', 'createRemoteAccessSession_configuration' - The configuration information for the remote access session request.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'interactionMode', 'createRemoteAccessSession_interactionMode' - The interaction mode of the remote access session. Valid values are:</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- -   INTERACTIVE: You can interact with the iOS device by viewing,</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--     touching, and rotating the screen. You cannot run XCUITest</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     framework-based tests in this mode.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   NO_VIDEO: You are connected to the device, but cannot interact with</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--     it or view the screen. This mode has the fastest test execution</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     speed. You can run XCUITest framework-based tests in this mode.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- -   VIDEO_ONLY: You can view the screen, but cannot touch or rotate it.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--     You can run XCUITest framework-based tests and watch the screen in</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     this mode.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'projectArn', 'createRemoteAccessSession_projectArn' - The Amazon Resource Name (ARN) of the project for which you want to</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- create a remote access session.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'deviceArn', 'createRemoteAccessSession_deviceArn' - The ARN of the device for which you want to create a remote access</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- session.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#newCreateRemoteAccessSession"><span class="hs-identifier hs-type">newCreateRemoteAccessSession</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>  </span><span class="hs-comment">-- | 'projectArn'</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-comment">-- | 'deviceArn'</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-199"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span>
+</span><span id="line-200"></span><span id="newCreateRemoteAccessSession"><span class="annot"><span class="annottext">newCreateRemoteAccessSession :: Text -&gt; Text -&gt; CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#newCreateRemoteAccessSession"><span class="hs-identifier hs-var hs-var">newCreateRemoteAccessSession</span></a></span></span><span> </span><span id="local-6989586621679387847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387847"><span class="hs-identifier hs-var">pProjectArn_</span></a></span></span><span> </span><span id="local-6989586621679387846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387846"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="annottext">CreateRemoteAccessSession' :: Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe CreateRemoteAccessSessionConfiguration
+-&gt; Maybe InteractionMode
+-&gt; Text
+-&gt; Text
+-&gt; CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientId:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AclientId%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:skipAppResign:CreateRemoteAccessSession' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AskipAppResign%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceArn:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AinstanceArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteRecordEnabled:CreateRemoteAccessSession' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteRecordEnabled%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteRecordEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteRecordAppArn:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteRecordAppArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteRecordAppArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AsshPublicKey%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3Aname%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteDebugEnabled:CreateRemoteAccessSession' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteDebugEnabled%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteDebugEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:CreateRemoteAccessSession' :: Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3Aconfiguration%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateRemoteAccessSessionConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:interactionMode:CreateRemoteAccessSession' :: Maybe InteractionMode
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AinteractionMode%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">interactionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InteractionMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:projectArn:CreateRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AprojectArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387847"><span class="hs-identifier hs-var">pProjectArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:deviceArn:CreateRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AdeviceArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387846"><span class="hs-identifier hs-var">pDeviceArn_</span></a></span><span>
+</span><span id="line-215"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | Unique identifier for the client. If you want access to multiple devices</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- on the same client, you should pass the same @clientId@ value in each</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- call to @CreateRemoteAccessSession@. This identifier is required only if</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- @remoteDebugEnabled@ is set to @true@.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-224"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_clientId"><span class="hs-identifier hs-type">createRemoteAccessSession_clientId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span id="createRemoteAccessSession_clientId"><span class="annot"><span class="annottext">createRemoteAccessSession_clientId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_clientId"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_clientId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Text)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Text -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387843"><span class="annot"><span class="annottext">Maybe Text
+clientId :: Maybe Text
+$sel:clientId:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="#local-6989586621679387843"><span class="hs-identifier hs-var hs-var">clientId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387843"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387842"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387841"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientId:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AclientId%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">clientId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- | When set to @true@, for private devices, Device Farm does not sign your</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- app again. For public devices, Device Farm always signs your apps again.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- For more information on how Device Farm modifies your uploads during</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- tests, see</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/device-farm/faq/ Do you modify my app?&gt;</span><span>
+</span><span id="line-233"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_skipAppResign"><span class="hs-identifier hs-type">createRemoteAccessSession_skipAppResign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span id="createRemoteAccessSession_skipAppResign"><span class="annot"><span class="annottext">createRemoteAccessSession_skipAppResign :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_skipAppResign"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_skipAppResign</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Bool)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Bool -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387840"><span class="annot"><span class="annottext">Maybe Bool
+skipAppResign :: Maybe Bool
+$sel:skipAppResign:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Bool
+</span><a href="#local-6989586621679387840"><span class="hs-identifier hs-var hs-var">skipAppResign</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387840"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387839"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387838"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:skipAppResign:CreateRemoteAccessSession' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AskipAppResign%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the device instance for which you want</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- to create a remote access session.</span><span>
+</span><span id="line-238"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_instanceArn"><span class="hs-identifier hs-type">createRemoteAccessSession_instanceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span id="createRemoteAccessSession_instanceArn"><span class="annot"><span class="annottext">createRemoteAccessSession_instanceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_instanceArn"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_instanceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Text)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Text -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387837"><span class="annot"><span class="annottext">Maybe Text
+instanceArn :: Maybe Text
+$sel:instanceArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="#local-6989586621679387837"><span class="hs-identifier hs-var hs-var">instanceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387837"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387836"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387835"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceArn:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AinstanceArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">instanceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- | Set to @true@ to enable remote recording for the remote access session.</span><span>
+</span><span id="line-242"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteRecordEnabled"><span class="hs-identifier hs-type">createRemoteAccessSession_remoteRecordEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span id="createRemoteAccessSession_remoteRecordEnabled"><span class="annot"><span class="annottext">createRemoteAccessSession_remoteRecordEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteRecordEnabled"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_remoteRecordEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Bool)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Bool -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387834"><span class="annot"><span class="annottext">Maybe Bool
+remoteRecordEnabled :: Maybe Bool
+$sel:remoteRecordEnabled:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Bool
+</span><a href="#local-6989586621679387834"><span class="hs-identifier hs-var hs-var">remoteRecordEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387834"><span class="hs-identifier hs-var">remoteRecordEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387833"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387832"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteRecordEnabled:CreateRemoteAccessSession' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteRecordEnabled%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteRecordEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the app to be recorded in the remote</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- access session.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteRecordAppArn"><span class="hs-identifier hs-type">createRemoteAccessSession_remoteRecordAppArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="createRemoteAccessSession_remoteRecordAppArn"><span class="annot"><span class="annottext">createRemoteAccessSession_remoteRecordAppArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteRecordAppArn"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_remoteRecordAppArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Text)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Text -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387831"><span class="annot"><span class="annottext">Maybe Text
+remoteRecordAppArn :: Maybe Text
+$sel:remoteRecordAppArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="#local-6989586621679387831"><span class="hs-identifier hs-var hs-var">remoteRecordAppArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387831"><span class="hs-identifier hs-var">remoteRecordAppArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387830"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387830"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387829"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387829"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387830"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteRecordAppArn:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteRecordAppArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteRecordAppArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387829"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Ignored. The public key of the @ssh@ key pair you want to use for</span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- connecting to remote devices in your remote debugging session. This key</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- is required only if @remoteDebugEnabled@ is set to @true@.</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_sshPublicKey"><span class="hs-identifier hs-type">createRemoteAccessSession_sshPublicKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="createRemoteAccessSession_sshPublicKey"><span class="annot"><span class="annottext">createRemoteAccessSession_sshPublicKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_sshPublicKey"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_sshPublicKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Text)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Text -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387828"><span class="annot"><span class="annottext">Maybe Text
+sshPublicKey :: Maybe Text
+$sel:sshPublicKey:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="#local-6989586621679387828"><span class="hs-identifier hs-var hs-var">sshPublicKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387828"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387827"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387827"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387826"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387826"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387827"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sshPublicKey:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AsshPublicKey%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387826"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The name of the remote access session to create.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_name"><span class="hs-identifier hs-type">createRemoteAccessSession_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="createRemoteAccessSession_name"><span class="annot"><span class="annottext">createRemoteAccessSession_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_name"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Text)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Text -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387825"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="#local-6989586621679387825"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387825"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387824"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387824"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387823"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387823"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387824"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateRemoteAccessSession' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3Aname%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387823"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | Set to @true@ if you want to access devices remotely for debugging in</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- your remote access session.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- Remote debugging is</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/devicefarm/latest/developerguide/history.html no longer supported&gt;.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteDebugEnabled"><span class="hs-identifier hs-type">createRemoteAccessSession_remoteDebugEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span id="createRemoteAccessSession_remoteDebugEnabled"><span class="annot"><span class="annottext">createRemoteAccessSession_remoteDebugEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_remoteDebugEnabled"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_remoteDebugEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe Bool)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe Bool -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387822"><span class="annot"><span class="annottext">Maybe Bool
+remoteDebugEnabled :: Maybe Bool
+$sel:remoteDebugEnabled:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Bool
+</span><a href="#local-6989586621679387822"><span class="hs-identifier hs-var hs-var">remoteDebugEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387822"><span class="hs-identifier hs-var">remoteDebugEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387821"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387820"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteDebugEnabled:CreateRemoteAccessSession' :: Maybe Bool
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteDebugEnabled%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">remoteDebugEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- | The configuration information for the remote access session request.</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_configuration"><span class="hs-identifier hs-type">createRemoteAccessSession_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.CreateRemoteAccessSessionConfiguration.html#CreateRemoteAccessSessionConfiguration"><span class="hs-identifier hs-type">CreateRemoteAccessSessionConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="createRemoteAccessSession_configuration"><span class="annot"><span class="annottext">createRemoteAccessSession_configuration :: (Maybe CreateRemoteAccessSessionConfiguration
+ -&gt; f (Maybe CreateRemoteAccessSessionConfiguration))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_configuration"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession
+ -&gt; Maybe CreateRemoteAccessSessionConfiguration)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe CreateRemoteAccessSessionConfiguration
+    -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe CreateRemoteAccessSessionConfiguration)
+     (Maybe CreateRemoteAccessSessionConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387819"><span class="annot"><span class="annottext">Maybe CreateRemoteAccessSessionConfiguration
+configuration :: Maybe CreateRemoteAccessSessionConfiguration
+$sel:configuration:CreateRemoteAccessSession' :: CreateRemoteAccessSession
+-&gt; Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="#local-6989586621679387819"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="#local-6989586621679387819"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387818"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387818"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387817"><span class="annot"><span class="annottext">Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="#local-6989586621679387817"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387818"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:CreateRemoteAccessSession' :: Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3Aconfiguration%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="#local-6989586621679387817"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | The interaction mode of the remote access session. Valid values are:</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   INTERACTIVE: You can interact with the iOS device by viewing,</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     touching, and rotating the screen. You cannot run XCUITest</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     framework-based tests in this mode.</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   NO_VIDEO: You are connected to the device, but cannot interact with</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--     it or view the screen. This mode has the fastest test execution</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--     speed. You can run XCUITest framework-based tests in this mode.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- -   VIDEO_ONLY: You can view the screen, but cannot touch or rotate it.</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--     You can run XCUITest framework-based tests and watch the screen in</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     this mode.</span><span>
+</span><span id="line-288"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_interactionMode"><span class="hs-identifier hs-type">createRemoteAccessSession_interactionMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.InteractionMode.html#InteractionMode"><span class="hs-identifier hs-type">InteractionMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-289"></span><span id="createRemoteAccessSession_interactionMode"><span class="annot"><span class="annottext">createRemoteAccessSession_interactionMode :: (Maybe InteractionMode -&gt; f (Maybe InteractionMode))
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_interactionMode"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_interactionMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Maybe InteractionMode)
+-&gt; (CreateRemoteAccessSession
+    -&gt; Maybe InteractionMode -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession
+     CreateRemoteAccessSession
+     (Maybe InteractionMode)
+     (Maybe InteractionMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387816"><span class="annot"><span class="annottext">Maybe InteractionMode
+interactionMode :: Maybe InteractionMode
+$sel:interactionMode:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe InteractionMode
+</span><a href="#local-6989586621679387816"><span class="hs-identifier hs-var hs-var">interactionMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InteractionMode
+</span><a href="#local-6989586621679387816"><span class="hs-identifier hs-var">interactionMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387815"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387815"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387814"><span class="annot"><span class="annottext">Maybe InteractionMode
+</span><a href="#local-6989586621679387814"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387815"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:interactionMode:CreateRemoteAccessSession' :: Maybe InteractionMode
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AinteractionMode%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">interactionMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InteractionMode
+</span><a href="#local-6989586621679387814"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the project for which you want to</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- create a remote access session.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_projectArn"><span class="hs-identifier hs-type">createRemoteAccessSession_projectArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-294"></span><span id="createRemoteAccessSession_projectArn"><span class="annot"><span class="annottext">createRemoteAccessSession_projectArn :: (Text -&gt; f Text)
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_projectArn"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_projectArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Text)
+-&gt; (CreateRemoteAccessSession -&gt; Text -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession CreateRemoteAccessSession Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387813"><span class="annot"><span class="annottext">Text
+projectArn :: Text
+$sel:projectArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Text
+</span><a href="#local-6989586621679387813"><span class="hs-identifier hs-var hs-var">projectArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387813"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387812"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387812"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387811"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387811"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387812"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projectArn:CreateRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AprojectArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">projectArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387811"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | The ARN of the device for which you want to create a remote access</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- session.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_deviceArn"><span class="hs-identifier hs-type">createRemoteAccessSession_deviceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-299"></span><span id="createRemoteAccessSession_deviceArn"><span class="annot"><span class="annottext">createRemoteAccessSession_deviceArn :: (Text -&gt; f Text)
+-&gt; CreateRemoteAccessSession -&gt; f CreateRemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSession_deviceArn"><span class="hs-identifier hs-var hs-var">createRemoteAccessSession_deviceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSession -&gt; Text)
+-&gt; (CreateRemoteAccessSession -&gt; Text -&gt; CreateRemoteAccessSession)
+-&gt; Lens
+     CreateRemoteAccessSession CreateRemoteAccessSession Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387810"><span class="annot"><span class="annottext">Text
+deviceArn :: Text
+$sel:deviceArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Text
+</span><a href="#local-6989586621679387810"><span class="hs-identifier hs-var hs-var">deviceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387810"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387809"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSession
+</span><a href="#local-6989586621679387809"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387808"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387808"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSession
+</span><a href="#local-6989586621679387809"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deviceArn:CreateRemoteAccessSession' :: Text
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AdeviceArn%3ACreateRemoteAccessSession%27"><span class="hs-identifier hs-var">deviceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387808"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-302"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-303"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-304"></span><span>      </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse</span></a></span><span>
+</span><span id="line-305"></span><span>  </span><span id="local-6989586621679387804"><span class="annot"><span class="annottext">request :: CreateRemoteAccessSession -&gt; Request CreateRemoteAccessSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateRemoteAccessSession -&gt; Request CreateRemoteAccessSession
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DeviceFarm.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679387800"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateRemoteAccessSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRemoteAccessSession)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateRemoteAccessSession))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateRemoteAccessSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateRemoteAccessSession)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-308"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679387797"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387797"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679387796"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679387796"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679387795"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387795"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-309"></span><span>          </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+-&gt; Int -&gt; CreateRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">CreateRemoteAccessSessionResponse'</span></a></span><span>
+</span><span id="line-310"></span><span>            </span><span class="annot"><span class="annottext">(Maybe RemoteAccessSession
+ -&gt; Int -&gt; CreateRemoteAccessSessionResponse)
+-&gt; Either String (Maybe RemoteAccessSession)
+-&gt; Either String (Int -&gt; CreateRemoteAccessSessionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679387795"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe RemoteAccessSession)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteAccessSession&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateRemoteAccessSessionResponse)
+-&gt; Either String Int
+-&gt; Either String CreateRemoteAccessSessionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387797"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387787"><span id="local-6989586621679387789"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span></span></span><span>
+</span><span id="line-315"></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387784"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span></span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-319"></span><span>  </span><span id="local-6989586621679387780"><span class="annot"><span class="annottext">toHeaders :: CreateRemoteAccessSession -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateRemoteAccessSession -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-321"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-322"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-323"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeviceFarm_20150623.CreateRemoteAccessSession&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-324"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-325"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-327"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-328"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-329"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-331"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679387770"><span id="local-6989586621679387772"><span id="local-6989586621679387774"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-334"></span><span>  </span><span id="local-6989586621679387768"><span class="annot"><span class="annottext">toJSON :: CreateRemoteAccessSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession%27"><span class="hs-identifier hs-type">CreateRemoteAccessSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387755"><span id="local-6989586621679387756"><span id="local-6989586621679387757"><span id="local-6989586621679387758"><span id="local-6989586621679387759"><span id="local-6989586621679387760"><span id="local-6989586621679387761"><span id="local-6989586621679387762"><span id="local-6989586621679387763"><span id="local-6989586621679387764"><span id="local-6989586621679387765"><span id="local-6989586621679387766"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Text
+Maybe CreateRemoteAccessSessionConfiguration
+Maybe InteractionMode
+Text
+deviceArn :: Text
+projectArn :: Text
+interactionMode :: Maybe InteractionMode
+configuration :: Maybe CreateRemoteAccessSessionConfiguration
+remoteDebugEnabled :: Maybe Bool
+name :: Maybe Text
+sshPublicKey :: Maybe Text
+remoteRecordAppArn :: Maybe Text
+remoteRecordEnabled :: Maybe Bool
+instanceArn :: Maybe Text
+skipAppResign :: Maybe Bool
+clientId :: Maybe Text
+$sel:deviceArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Text
+$sel:projectArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Text
+$sel:interactionMode:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe InteractionMode
+$sel:configuration:CreateRemoteAccessSession' :: CreateRemoteAccessSession
+-&gt; Maybe CreateRemoteAccessSessionConfiguration
+$sel:remoteDebugEnabled:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Bool
+$sel:name:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+$sel:sshPublicKey:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+$sel:remoteRecordAppArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+$sel:remoteRecordEnabled:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Bool
+$sel:instanceArn:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+$sel:skipAppResign:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Bool
+$sel:clientId:CreateRemoteAccessSession' :: CreateRemoteAccessSession -&gt; Maybe Text
+</span><a href="#local-6989586621679387755"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-335"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-336"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-337"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387766"><span class="hs-identifier hs-var">clientId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;skipAppResign&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387765"><span class="hs-identifier hs-var">skipAppResign</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387764"><span class="hs-identifier hs-var">instanceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-340"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteRecordEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387763"><span class="hs-identifier hs-var">remoteRecordEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-342"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteRecordAppArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-343"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387762"><span class="hs-identifier hs-var">remoteRecordAppArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-344"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sshPublicKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387761"><span class="hs-identifier hs-var">sshPublicKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679387760"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteDebugEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679387759"><span class="hs-identifier hs-var">remoteDebugEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;configuration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CreateRemoteAccessSessionConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSessionConfiguration -&gt; Pair)
+-&gt; Maybe CreateRemoteAccessSessionConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CreateRemoteAccessSessionConfiguration
+</span><a href="#local-6989586621679387758"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-349"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;interactionMode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InteractionMode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>              </span><span class="annot"><span class="annottext">(InteractionMode -&gt; Pair) -&gt; Maybe InteractionMode -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe InteractionMode
+</span><a href="#local-6989586621679387757"><span class="hs-identifier hs-var">interactionMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;projectArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387756"><span class="hs-identifier hs-var">projectArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;deviceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679387755"><span class="hs-identifier hs-var">deviceArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-354"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-357"></span><span>  </span><span id="local-6989586621679387749"><span class="annot"><span class="annottext">toPath :: CreateRemoteAccessSession -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateRemoteAccessSession -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-358"></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSession"><span class="hs-identifier hs-type">CreateRemoteAccessSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-360"></span><span>  </span><span id="local-6989586621679387745"><span class="annot"><span class="annottext">toQuery :: CreateRemoteAccessSession -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateRemoteAccessSession -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-361"></span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- | Represents the server response from a request to create a remote access</span><span>
+</span><span id="line-363"></span><span class="hs-comment">-- session.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- /See:/ 'newCreateRemoteAccessSessionResponse' smart constructor.</span><span>
+</span><span id="line-366"></span><span id="local-6989586621679387742"><span id="local-6989586621679387743"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateRemoteAccessSessionResponse"><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-var">CreateRemoteAccessSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateRemoteAccessSessionResponse%27"><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">CreateRemoteAccessSessionResponse'</span></a></span></span><span>
+</span><span id="line-367"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A container that describes the remote access session when the request to</span><span>
+</span><span id="line-368"></span><span>    </span><span class="hs-comment">-- create a remote access session is sent.</span><span>
+</span><span id="line-369"></span><span>    </span><span id="%24sel%3AremoteAccessSession%3ACreateRemoteAccessSessionResponse%27"><span class="annot"><span class="annottext">CreateRemoteAccessSessionResponse -&gt; Maybe RemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteAccessSession%3ACreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var hs-var">remoteAccessSession</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RemoteAccessSession.html#RemoteAccessSession"><span class="hs-identifier hs-type">RemoteAccessSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-371"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateRemoteAccessSessionResponse%27"><span class="annot"><span class="annottext">CreateRemoteAccessSessionResponse -&gt; Int
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AhttpStatus%3ACreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-372"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-373"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679387736"><span id="local-6989586621679387738"><span class="annot"><span class="annottext">CreateRemoteAccessSessionResponse
+-&gt; CreateRemoteAccessSessionResponse -&gt; Bool
+(CreateRemoteAccessSessionResponse
+ -&gt; CreateRemoteAccessSessionResponse -&gt; Bool)
+-&gt; (CreateRemoteAccessSessionResponse
+    -&gt; CreateRemoteAccessSessionResponse -&gt; Bool)
+-&gt; Eq CreateRemoteAccessSessionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateRemoteAccessSessionResponse
+-&gt; CreateRemoteAccessSessionResponse -&gt; Bool
+$c/= :: CreateRemoteAccessSessionResponse
+-&gt; CreateRemoteAccessSessionResponse -&gt; Bool
+== :: CreateRemoteAccessSessionResponse
+-&gt; CreateRemoteAccessSessionResponse -&gt; Bool
+$c== :: CreateRemoteAccessSessionResponse
+-&gt; CreateRemoteAccessSessionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387728"><span id="local-6989586621679387730"><span id="local-6989586621679387732"><span id="local-6989586621679387734"><span class="annot"><span class="annottext">ReadPrec [CreateRemoteAccessSessionResponse]
+ReadPrec CreateRemoteAccessSessionResponse
+Int -&gt; ReadS CreateRemoteAccessSessionResponse
+ReadS [CreateRemoteAccessSessionResponse]
+(Int -&gt; ReadS CreateRemoteAccessSessionResponse)
+-&gt; ReadS [CreateRemoteAccessSessionResponse]
+-&gt; ReadPrec CreateRemoteAccessSessionResponse
+-&gt; ReadPrec [CreateRemoteAccessSessionResponse]
+-&gt; Read CreateRemoteAccessSessionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateRemoteAccessSessionResponse]
+$creadListPrec :: ReadPrec [CreateRemoteAccessSessionResponse]
+readPrec :: ReadPrec CreateRemoteAccessSessionResponse
+$creadPrec :: ReadPrec CreateRemoteAccessSessionResponse
+readList :: ReadS [CreateRemoteAccessSessionResponse]
+$creadList :: ReadS [CreateRemoteAccessSessionResponse]
+readsPrec :: Int -&gt; ReadS CreateRemoteAccessSessionResponse
+$creadsPrec :: Int -&gt; ReadS CreateRemoteAccessSessionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679387722"><span id="local-6989586621679387724"><span id="local-6989586621679387726"><span class="annot"><span class="annottext">Int -&gt; CreateRemoteAccessSessionResponse -&gt; ShowS
+[CreateRemoteAccessSessionResponse] -&gt; ShowS
+CreateRemoteAccessSessionResponse -&gt; String
+(Int -&gt; CreateRemoteAccessSessionResponse -&gt; ShowS)
+-&gt; (CreateRemoteAccessSessionResponse -&gt; String)
+-&gt; ([CreateRemoteAccessSessionResponse] -&gt; ShowS)
+-&gt; Show CreateRemoteAccessSessionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateRemoteAccessSessionResponse] -&gt; ShowS
+$cshowList :: [CreateRemoteAccessSessionResponse] -&gt; ShowS
+show :: CreateRemoteAccessSessionResponse -&gt; String
+$cshow :: CreateRemoteAccessSessionResponse -&gt; String
+showsPrec :: Int -&gt; CreateRemoteAccessSessionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateRemoteAccessSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateRemoteAccessSessionResponse
+ -&gt; Rep CreateRemoteAccessSessionResponse x)
+-&gt; (forall x.
+    Rep CreateRemoteAccessSessionResponse x
+    -&gt; CreateRemoteAccessSessionResponse)
+-&gt; Generic CreateRemoteAccessSessionResponse
+forall x.
+Rep CreateRemoteAccessSessionResponse x
+-&gt; CreateRemoteAccessSessionResponse
+forall x.
+CreateRemoteAccessSessionResponse
+-&gt; Rep CreateRemoteAccessSessionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateRemoteAccessSessionResponse x
+-&gt; CreateRemoteAccessSessionResponse
+$cfrom :: forall x.
+CreateRemoteAccessSessionResponse
+-&gt; Rep CreateRemoteAccessSessionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-376"></span><span class="hs-comment">-- Create a value of 'CreateRemoteAccessSessionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--</span><span>
+</span><span id="line-378"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-379"></span><span class="hs-comment">--</span><span>
+</span><span id="line-380"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-382"></span><span class="hs-comment">--</span><span>
+</span><span id="line-383"></span><span class="hs-comment">-- 'remoteAccessSession', 'createRemoteAccessSessionResponse_remoteAccessSession' - A container that describes the remote access session when the request to</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- create a remote access session is sent.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- 'httpStatus', 'createRemoteAccessSessionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-387"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#newCreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">newCreateRemoteAccessSessionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-388"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-389"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-390"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse</span></a></span><span>
+</span><span id="line-391"></span><span id="newCreateRemoteAccessSessionResponse"><span class="annot"><span class="annottext">newCreateRemoteAccessSessionResponse :: Int -&gt; CreateRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#newCreateRemoteAccessSessionResponse"><span class="hs-identifier hs-var hs-var">newCreateRemoteAccessSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679387719"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-392"></span><span>  </span><span class="annot"><span class="annottext">CreateRemoteAccessSessionResponse' :: Maybe RemoteAccessSession
+-&gt; Int -&gt; CreateRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse'</span></a></span><span>
+</span><span id="line-393"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:remoteAccessSession:CreateRemoteAccessSessionResponse' :: Maybe RemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteAccessSession%3ACreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">remoteAccessSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-394"></span><span>        </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-395"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRemoteAccessSessionResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AhttpStatus%3ACreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387719"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-396"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- | A container that describes the remote access session when the request to</span><span>
+</span><span id="line-399"></span><span class="hs-comment">-- create a remote access session is sent.</span><span>
+</span><span id="line-400"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSessionResponse_remoteAccessSession"><span class="hs-identifier hs-type">createRemoteAccessSessionResponse_remoteAccessSession</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.RemoteAccessSession.html#RemoteAccessSession"><span class="hs-identifier hs-type">RemoteAccessSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-401"></span><span id="createRemoteAccessSessionResponse_remoteAccessSession"><span class="annot"><span class="annottext">createRemoteAccessSessionResponse_remoteAccessSession :: (Maybe RemoteAccessSession -&gt; f (Maybe RemoteAccessSession))
+-&gt; CreateRemoteAccessSessionResponse
+-&gt; f CreateRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSessionResponse_remoteAccessSession"><span class="hs-identifier hs-var hs-var">createRemoteAccessSessionResponse_remoteAccessSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSessionResponse -&gt; Maybe RemoteAccessSession)
+-&gt; (CreateRemoteAccessSessionResponse
+    -&gt; Maybe RemoteAccessSession -&gt; CreateRemoteAccessSessionResponse)
+-&gt; Lens
+     CreateRemoteAccessSessionResponse
+     CreateRemoteAccessSessionResponse
+     (Maybe RemoteAccessSession)
+     (Maybe RemoteAccessSession)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387718"><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+remoteAccessSession :: Maybe RemoteAccessSession
+$sel:remoteAccessSession:CreateRemoteAccessSessionResponse' :: CreateRemoteAccessSessionResponse -&gt; Maybe RemoteAccessSession
+</span><a href="#local-6989586621679387718"><span class="hs-identifier hs-var hs-var">remoteAccessSession</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+</span><a href="#local-6989586621679387718"><span class="hs-identifier hs-var">remoteAccessSession</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387717"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSessionResponse
+</span><a href="#local-6989586621679387717"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387716"><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+</span><a href="#local-6989586621679387716"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSessionResponse
+</span><a href="#local-6989586621679387717"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteAccessSession:CreateRemoteAccessSessionResponse' :: Maybe RemoteAccessSession
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AremoteAccessSession%3ACreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">remoteAccessSession</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe RemoteAccessSession
+</span><a href="#local-6989586621679387716"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-402"></span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-404"></span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSessionResponse_httpStatus"><span class="hs-identifier hs-type">createRemoteAccessSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-405"></span><span id="createRemoteAccessSessionResponse_httpStatus"><span class="annot"><span class="annottext">createRemoteAccessSessionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateRemoteAccessSessionResponse
+-&gt; f CreateRemoteAccessSessionResponse
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#createRemoteAccessSessionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createRemoteAccessSessionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateRemoteAccessSessionResponse -&gt; Int)
+-&gt; (CreateRemoteAccessSessionResponse
+    -&gt; Int -&gt; CreateRemoteAccessSessionResponse)
+-&gt; Lens
+     CreateRemoteAccessSessionResponse
+     CreateRemoteAccessSessionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679387715"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateRemoteAccessSessionResponse' :: CreateRemoteAccessSessionResponse -&gt; Int
+</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387715"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679387714"><span class="annot"><span class="annottext">s :: CreateRemoteAccessSessionResponse
+</span><a href="#local-6989586621679387714"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679387713"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387713"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateRemoteAccessSessionResponse
+</span><a href="#local-6989586621679387714"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateRemoteAccessSessionResponse' :: Int
+</span><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#%24sel%3AhttpStatus%3ACreateRemoteAccessSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679387713"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-406"></span><span>
+</span><span id="line-407"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-408"></span><span>  </span><span id="local-6989586621679387711"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><a href="Amazonka.DeviceFarm.CreateRemoteAccessSession.html#CreateRemoteAccessSessionResponse"><span class="hs-identifier hs-type">CreateRemoteAccessSessionResponse</span></a></span></span><span>
+</span><span id="line-410"></span></pre></body></html>

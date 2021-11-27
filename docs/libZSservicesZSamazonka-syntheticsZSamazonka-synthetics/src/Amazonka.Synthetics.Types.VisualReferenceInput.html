@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Synthetics.Types.VisualReferenceInput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Synthetics.Types.VisualReferenceInput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.BaseScreenshot.html"><span class="hs-identifier">Amazonka.Synthetics.Types.BaseScreenshot</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | An object that specifies what screenshots to use as a baseline for</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- visual monitoring by this canary, and optionally the parts of the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- screenshots to ignore during the visual monitoring comparison.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- Visual monitoring is supported only on canaries running the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- __syn-puppeteer-node-3.2__ runtime or later. For more information, see</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Library_SyntheticsLogger_VisualTesting.html Visual monitoring&gt;</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- and</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Blueprints_VisualTesting.html Visual monitoring blueprint&gt;</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newVisualReferenceInput' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679182141"><span id="local-6989586621679182142"></span></span><span class="hs-keyword">data</span><span> </span><span id="VisualReferenceInput"><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-var">VisualReferenceInput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VisualReferenceInput%27"><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput%27"><span class="hs-identifier hs-var">VisualReferenceInput'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of screenshots that will be used as the baseline for visual</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- monitoring in future runs of this canary. If there is a screenshot that</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- you don\'t want to be used for visual monitoring, remove it from this</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- array.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AbaseScreenshots%3AVisualReferenceInput%27"><span class="annot"><span class="annottext">VisualReferenceInput -&gt; Maybe [BaseScreenshot]
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#%24sel%3AbaseScreenshots%3AVisualReferenceInput%27"><span class="hs-identifier hs-var hs-var">baseScreenshots</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Synthetics.Types.BaseScreenshot.html#BaseScreenshot"><span class="hs-identifier hs-type">BaseScreenshot</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Specifies which canary run to use the screenshots from as the baseline</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- for future visual monitoring with this canary. Valid values are</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @nextrun@ to use the screenshots from the next run after this update is</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- made, @lastrun@ to use the screenshots from the most recent run before</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- this update was made, or the value of @Id@ in the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html CanaryRun&gt;</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- from any past run of this canary.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AbaseCanaryRunId%3AVisualReferenceInput%27"><span class="annot"><span class="annottext">VisualReferenceInput -&gt; Text
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#%24sel%3AbaseCanaryRunId%3AVisualReferenceInput%27"><span class="hs-identifier hs-var hs-var">baseCanaryRunId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182134"><span id="local-6989586621679182136"><span class="annot"><span class="annottext">VisualReferenceInput -&gt; VisualReferenceInput -&gt; Bool
+(VisualReferenceInput -&gt; VisualReferenceInput -&gt; Bool)
+-&gt; (VisualReferenceInput -&gt; VisualReferenceInput -&gt; Bool)
+-&gt; Eq VisualReferenceInput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VisualReferenceInput -&gt; VisualReferenceInput -&gt; Bool
+$c/= :: VisualReferenceInput -&gt; VisualReferenceInput -&gt; Bool
+== :: VisualReferenceInput -&gt; VisualReferenceInput -&gt; Bool
+$c== :: VisualReferenceInput -&gt; VisualReferenceInput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182125"><span id="local-6989586621679182127"><span id="local-6989586621679182129"><span id="local-6989586621679182131"><span class="annot"><span class="annottext">ReadPrec [VisualReferenceInput]
+ReadPrec VisualReferenceInput
+Int -&gt; ReadS VisualReferenceInput
+ReadS [VisualReferenceInput]
+(Int -&gt; ReadS VisualReferenceInput)
+-&gt; ReadS [VisualReferenceInput]
+-&gt; ReadPrec VisualReferenceInput
+-&gt; ReadPrec [VisualReferenceInput]
+-&gt; Read VisualReferenceInput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VisualReferenceInput]
+$creadListPrec :: ReadPrec [VisualReferenceInput]
+readPrec :: ReadPrec VisualReferenceInput
+$creadPrec :: ReadPrec VisualReferenceInput
+readList :: ReadS [VisualReferenceInput]
+$creadList :: ReadS [VisualReferenceInput]
+readsPrec :: Int -&gt; ReadS VisualReferenceInput
+$creadsPrec :: Int -&gt; ReadS VisualReferenceInput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182118"><span id="local-6989586621679182120"><span id="local-6989586621679182122"><span class="annot"><span class="annottext">Int -&gt; VisualReferenceInput -&gt; ShowS
+[VisualReferenceInput] -&gt; ShowS
+VisualReferenceInput -&gt; String
+(Int -&gt; VisualReferenceInput -&gt; ShowS)
+-&gt; (VisualReferenceInput -&gt; String)
+-&gt; ([VisualReferenceInput] -&gt; ShowS)
+-&gt; Show VisualReferenceInput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VisualReferenceInput] -&gt; ShowS
+$cshowList :: [VisualReferenceInput] -&gt; ShowS
+show :: VisualReferenceInput -&gt; String
+$cshow :: VisualReferenceInput -&gt; String
+showsPrec :: Int -&gt; VisualReferenceInput -&gt; ShowS
+$cshowsPrec :: Int -&gt; VisualReferenceInput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. VisualReferenceInput -&gt; Rep VisualReferenceInput x)
+-&gt; (forall x. Rep VisualReferenceInput x -&gt; VisualReferenceInput)
+-&gt; Generic VisualReferenceInput
+forall x. Rep VisualReferenceInput x -&gt; VisualReferenceInput
+forall x. VisualReferenceInput -&gt; Rep VisualReferenceInput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep VisualReferenceInput x -&gt; VisualReferenceInput
+$cfrom :: forall x. VisualReferenceInput -&gt; Rep VisualReferenceInput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'VisualReferenceInput' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'baseScreenshots', 'visualReferenceInput_baseScreenshots' - An array of screenshots that will be used as the baseline for visual</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- monitoring in future runs of this canary. If there is a screenshot that</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- you don\'t want to be used for visual monitoring, remove it from this</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- array.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'baseCanaryRunId', 'visualReferenceInput_baseCanaryRunId' - Specifies which canary run to use the screenshots from as the baseline</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- for future visual monitoring with this canary. Valid values are</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- @nextrun@ to use the screenshots from the next run after this update is</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- made, @lastrun@ to use the screenshots from the most recent run before</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- this update was made, or the value of @Id@ in the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html CanaryRun&gt;</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- from any past run of this canary.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#newVisualReferenceInput"><span class="hs-identifier hs-type">newVisualReferenceInput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-comment">-- | 'baseCanaryRunId'</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span><span>
+</span><span id="line-79"></span><span id="newVisualReferenceInput"><span class="annot"><span class="annottext">newVisualReferenceInput :: Text -&gt; VisualReferenceInput
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#newVisualReferenceInput"><span class="hs-identifier hs-var hs-var">newVisualReferenceInput</span></a></span></span><span> </span><span id="local-6989586621679182112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182112"><span class="hs-identifier hs-var">pBaseCanaryRunId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="annottext">VisualReferenceInput' :: Maybe [BaseScreenshot] -&gt; Text -&gt; VisualReferenceInput
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput%27"><span class="hs-identifier hs-type">VisualReferenceInput'</span></a></span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:baseScreenshots:VisualReferenceInput' :: Maybe [BaseScreenshot]
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#%24sel%3AbaseScreenshots%3AVisualReferenceInput%27"><span class="hs-identifier hs-var">baseScreenshots</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BaseScreenshot]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:baseCanaryRunId:VisualReferenceInput' :: Text
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#%24sel%3AbaseCanaryRunId%3AVisualReferenceInput%27"><span class="hs-identifier hs-var">baseCanaryRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182112"><span class="hs-identifier hs-var">pBaseCanaryRunId_</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | An array of screenshots that will be used as the baseline for visual</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- monitoring in future runs of this canary. If there is a screenshot that</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- you don\'t want to be used for visual monitoring, remove it from this</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- array.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#visualReferenceInput_baseScreenshots"><span class="hs-identifier hs-type">visualReferenceInput_baseScreenshots</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Synthetics.Types.BaseScreenshot.html#BaseScreenshot"><span class="hs-identifier hs-type">BaseScreenshot</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="visualReferenceInput_baseScreenshots"><span class="annot"><span class="annottext">visualReferenceInput_baseScreenshots :: (Maybe [BaseScreenshot] -&gt; f (Maybe [BaseScreenshot]))
+-&gt; VisualReferenceInput -&gt; f VisualReferenceInput
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#visualReferenceInput_baseScreenshots"><span class="hs-identifier hs-var hs-var">visualReferenceInput_baseScreenshots</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VisualReferenceInput -&gt; Maybe [BaseScreenshot])
+-&gt; (VisualReferenceInput
+    -&gt; Maybe [BaseScreenshot] -&gt; VisualReferenceInput)
+-&gt; Lens
+     VisualReferenceInput
+     VisualReferenceInput
+     (Maybe [BaseScreenshot])
+     (Maybe [BaseScreenshot])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput%27"><span class="hs-identifier hs-type">VisualReferenceInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182108"><span class="annot"><span class="annottext">Maybe [BaseScreenshot]
+baseScreenshots :: Maybe [BaseScreenshot]
+$sel:baseScreenshots:VisualReferenceInput' :: VisualReferenceInput -&gt; Maybe [BaseScreenshot]
+</span><a href="#local-6989586621679182108"><span class="hs-identifier hs-var hs-var">baseScreenshots</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BaseScreenshot]
+</span><a href="#local-6989586621679182108"><span class="hs-identifier hs-var">baseScreenshots</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182107"><span class="annot"><span class="annottext">s :: VisualReferenceInput
+</span><a href="#local-6989586621679182107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput%27"><span class="hs-identifier hs-type">VisualReferenceInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182106"><span class="annot"><span class="annottext">Maybe [BaseScreenshot]
+</span><a href="#local-6989586621679182106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VisualReferenceInput
+</span><a href="#local-6989586621679182107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseScreenshots:VisualReferenceInput' :: Maybe [BaseScreenshot]
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#%24sel%3AbaseScreenshots%3AVisualReferenceInput%27"><span class="hs-identifier hs-var">baseScreenshots</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BaseScreenshot]
+</span><a href="#local-6989586621679182106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BaseScreenshot] -&gt; f (Maybe [BaseScreenshot]))
+ -&gt; VisualReferenceInput -&gt; f VisualReferenceInput)
+-&gt; ((Maybe [BaseScreenshot] -&gt; f (Maybe [BaseScreenshot]))
+    -&gt; Maybe [BaseScreenshot] -&gt; f (Maybe [BaseScreenshot]))
+-&gt; (Maybe [BaseScreenshot] -&gt; f (Maybe [BaseScreenshot]))
+-&gt; VisualReferenceInput
+-&gt; f VisualReferenceInput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BaseScreenshot] [BaseScreenshot] [BaseScreenshot] [BaseScreenshot]
+-&gt; Iso
+     (Maybe [BaseScreenshot])
+     (Maybe [BaseScreenshot])
+     (Maybe [BaseScreenshot])
+     (Maybe [BaseScreenshot])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BaseScreenshot] [BaseScreenshot] [BaseScreenshot] [BaseScreenshot]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | Specifies which canary run to use the screenshots from as the baseline</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- for future visual monitoring with this canary. Valid values are</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- @nextrun@ to use the screenshots from the next run after this update is</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- made, @lastrun@ to use the screenshots from the most recent run before</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- this update was made, or the value of @Id@ in the</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CanaryRun.html CanaryRun&gt;</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- from any past run of this canary.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#visualReferenceInput_baseCanaryRunId"><span class="hs-identifier hs-type">visualReferenceInput_baseCanaryRunId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="visualReferenceInput_baseCanaryRunId"><span class="annot"><span class="annottext">visualReferenceInput_baseCanaryRunId :: (Text -&gt; f Text) -&gt; VisualReferenceInput -&gt; f VisualReferenceInput
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#visualReferenceInput_baseCanaryRunId"><span class="hs-identifier hs-var hs-var">visualReferenceInput_baseCanaryRunId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VisualReferenceInput -&gt; Text)
+-&gt; (VisualReferenceInput -&gt; Text -&gt; VisualReferenceInput)
+-&gt; Lens VisualReferenceInput VisualReferenceInput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput%27"><span class="hs-identifier hs-type">VisualReferenceInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182101"><span class="annot"><span class="annottext">Text
+baseCanaryRunId :: Text
+$sel:baseCanaryRunId:VisualReferenceInput' :: VisualReferenceInput -&gt; Text
+</span><a href="#local-6989586621679182101"><span class="hs-identifier hs-var hs-var">baseCanaryRunId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182101"><span class="hs-identifier hs-var">baseCanaryRunId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182100"><span class="annot"><span class="annottext">s :: VisualReferenceInput
+</span><a href="#local-6989586621679182100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput%27"><span class="hs-identifier hs-type">VisualReferenceInput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VisualReferenceInput
+</span><a href="#local-6989586621679182100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:baseCanaryRunId:VisualReferenceInput' :: Text
+</span><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#%24sel%3AbaseCanaryRunId%3AVisualReferenceInput%27"><span class="hs-identifier hs-var">baseCanaryRunId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182095"><span id="local-6989586621679182097"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182092"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182084"><span id="local-6989586621679182086"><span id="local-6989586621679182088"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput"><span class="hs-identifier hs-type">VisualReferenceInput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679182082"><span class="annot"><span class="annottext">toJSON :: VisualReferenceInput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceInput.html#VisualReferenceInput%27"><span class="hs-identifier hs-type">VisualReferenceInput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182079"><span id="local-6989586621679182080"><span class="annot"><span class="annottext">Maybe [BaseScreenshot]
+Text
+baseCanaryRunId :: Text
+baseScreenshots :: Maybe [BaseScreenshot]
+$sel:baseCanaryRunId:VisualReferenceInput' :: VisualReferenceInput -&gt; Text
+$sel:baseScreenshots:VisualReferenceInput' :: VisualReferenceInput -&gt; Maybe [BaseScreenshot]
+</span><a href="#local-6989586621679182079"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseScreenshots&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [BaseScreenshot] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">([BaseScreenshot] -&gt; Pair) -&gt; Maybe [BaseScreenshot] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BaseScreenshot]
+</span><a href="#local-6989586621679182080"><span class="hs-identifier hs-var">baseScreenshots</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-114"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;BaseCanaryRunId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679182079"><span class="hs-identifier hs-var">baseCanaryRunId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span></pre></body></html>

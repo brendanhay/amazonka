@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.OutputSdt</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.OutputSdt</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier">OutputSdt</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_FOLLOW"><span class="hs-identifier">OutputSdt_SDT_FOLLOW</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_FOLLOW_IF_PRESENT"><span class="hs-identifier">OutputSdt_SDT_FOLLOW_IF_PRESENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_MANUAL"><span class="hs-identifier">OutputSdt_SDT_MANUAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_NONE"><span class="hs-identifier">OutputSdt_SDT_NONE</span></a></span><span>
+</span><span id="line-27"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | Selects method of inserting SDT information into output stream. \&quot;Follow</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- input SDT\&quot; copies SDT information from input stream to output stream.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- \&quot;Follow input SDT if present\&quot; copies SDT information from input stream</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- to output stream if SDT information is present in the input, otherwise</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- it will fall back on the user-defined values. Enter \&quot;SDT Manually\&quot;</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- means user will enter the SDT information. \&quot;No SDT\&quot; means output</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- stream will not contain SDT information.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679999263"><span id="local-6989586621679999264"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="OutputSdt"><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier hs-var">OutputSdt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="OutputSdt%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-identifier hs-var">OutputSdt'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromOutputSdt"><span class="annot"><span class="annottext">OutputSdt -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.OutputSdt.html#fromOutputSdt"><span class="hs-identifier hs-var hs-var">fromOutputSdt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999255"><span id="local-6989586621679999257"><span id="local-6989586621679999259"><span class="annot"><span class="annottext">Int -&gt; OutputSdt -&gt; ShowS
+[OutputSdt] -&gt; ShowS
+OutputSdt -&gt; String
+(Int -&gt; OutputSdt -&gt; ShowS)
+-&gt; (OutputSdt -&gt; String)
+-&gt; ([OutputSdt] -&gt; ShowS)
+-&gt; Show OutputSdt
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [OutputSdt] -&gt; ShowS
+$cshowList :: [OutputSdt] -&gt; ShowS
+show :: OutputSdt -&gt; String
+$cshow :: OutputSdt -&gt; String
+showsPrec :: Int -&gt; OutputSdt -&gt; ShowS
+$cshowsPrec :: Int -&gt; OutputSdt -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679999246"><span id="local-6989586621679999248"><span id="local-6989586621679999250"><span id="local-6989586621679999252"><span class="annot"><span class="annottext">ReadPrec [OutputSdt]
+ReadPrec OutputSdt
+Int -&gt; ReadS OutputSdt
+ReadS [OutputSdt]
+(Int -&gt; ReadS OutputSdt)
+-&gt; ReadS [OutputSdt]
+-&gt; ReadPrec OutputSdt
+-&gt; ReadPrec [OutputSdt]
+-&gt; Read OutputSdt
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [OutputSdt]
+$creadListPrec :: ReadPrec [OutputSdt]
+readPrec :: ReadPrec OutputSdt
+$creadPrec :: ReadPrec OutputSdt
+readList :: ReadS [OutputSdt]
+$creadList :: ReadS [OutputSdt]
+readsPrec :: Int -&gt; ReadS OutputSdt
+$creadsPrec :: Int -&gt; ReadS OutputSdt
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679999241"><span id="local-6989586621679999243"><span class="annot"><span class="annottext">OutputSdt -&gt; OutputSdt -&gt; Bool
+(OutputSdt -&gt; OutputSdt -&gt; Bool)
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; Bool) -&gt; Eq OutputSdt
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: OutputSdt -&gt; OutputSdt -&gt; Bool
+$c/= :: OutputSdt -&gt; OutputSdt -&gt; Bool
+== :: OutputSdt -&gt; OutputSdt -&gt; Bool
+$c== :: OutputSdt -&gt; OutputSdt -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679999225"><span id="local-6989586621679999227"><span id="local-6989586621679999229"><span id="local-6989586621679999231"><span id="local-6989586621679999233"><span id="local-6989586621679999235"><span id="local-6989586621679999237"><span class="annot"><span class="annottext">Eq OutputSdt
+Eq OutputSdt
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; Ordering)
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; Bool)
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; Bool)
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; Bool)
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; Bool)
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; OutputSdt)
+-&gt; (OutputSdt -&gt; OutputSdt -&gt; OutputSdt)
+-&gt; Ord OutputSdt
+OutputSdt -&gt; OutputSdt -&gt; Bool
+OutputSdt -&gt; OutputSdt -&gt; Ordering
+OutputSdt -&gt; OutputSdt -&gt; OutputSdt
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: OutputSdt -&gt; OutputSdt -&gt; OutputSdt
+$cmin :: OutputSdt -&gt; OutputSdt -&gt; OutputSdt
+max :: OutputSdt -&gt; OutputSdt -&gt; OutputSdt
+$cmax :: OutputSdt -&gt; OutputSdt -&gt; OutputSdt
+&gt;= :: OutputSdt -&gt; OutputSdt -&gt; Bool
+$c&gt;= :: OutputSdt -&gt; OutputSdt -&gt; Bool
+&gt; :: OutputSdt -&gt; OutputSdt -&gt; Bool
+$c&gt; :: OutputSdt -&gt; OutputSdt -&gt; Bool
+&lt;= :: OutputSdt -&gt; OutputSdt -&gt; Bool
+$c&lt;= :: OutputSdt -&gt; OutputSdt -&gt; Bool
+&lt; :: OutputSdt -&gt; OutputSdt -&gt; Bool
+$c&lt; :: OutputSdt -&gt; OutputSdt -&gt; Bool
+compare :: OutputSdt -&gt; OutputSdt -&gt; Ordering
+$ccompare :: OutputSdt -&gt; OutputSdt -&gt; Ordering
+$cp1Ord :: Eq OutputSdt
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. OutputSdt -&gt; Rep OutputSdt x)
+-&gt; (forall x. Rep OutputSdt x -&gt; OutputSdt) -&gt; Generic OutputSdt
+forall x. Rep OutputSdt x -&gt; OutputSdt
+forall x. OutputSdt -&gt; Rep OutputSdt x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep OutputSdt x -&gt; OutputSdt
+$cfrom :: forall x. OutputSdt -&gt; Rep OutputSdt x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679999217"><span id="local-6989586621679999219"><span class="annot"><span class="annottext">Int -&gt; OutputSdt -&gt; Int
+OutputSdt -&gt; Int
+(Int -&gt; OutputSdt -&gt; Int)
+-&gt; (OutputSdt -&gt; Int) -&gt; Hashable OutputSdt
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: OutputSdt -&gt; Int
+$chash :: OutputSdt -&gt; Int
+hashWithSalt :: Int -&gt; OutputSdt -&gt; Int
+$chashWithSalt :: Int -&gt; OutputSdt -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679999214"><span class="annot"><span class="annottext">OutputSdt -&gt; ()
+(OutputSdt -&gt; ()) -&gt; NFData OutputSdt
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: OutputSdt -&gt; ()
+$crnf :: OutputSdt -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679999211"><span class="annot"><span class="annottext">Text -&gt; Either String OutputSdt
+(Text -&gt; Either String OutputSdt) -&gt; FromText OutputSdt
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String OutputSdt
+$cfromText :: Text -&gt; Either String OutputSdt
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679999208"><span class="annot"><span class="annottext">OutputSdt -&gt; Text
+(OutputSdt -&gt; Text) -&gt; ToText OutputSdt
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: OutputSdt -&gt; Text
+$ctoText :: OutputSdt -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679999205"><span class="annot"><span class="annottext">OutputSdt -&gt; ByteString
+(OutputSdt -&gt; ByteString) -&gt; ToByteString OutputSdt
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: OutputSdt -&gt; ByteString
+$ctoBS :: OutputSdt -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679999202"><span class="annot"><span class="annottext">OutputSdt -&gt; ByteStringBuilder
+(OutputSdt -&gt; ByteStringBuilder) -&gt; ToLog OutputSdt
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: OutputSdt -&gt; ByteStringBuilder
+$cbuild :: OutputSdt -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679999199"><span class="annot"><span class="annottext">HeaderName -&gt; OutputSdt -&gt; [Header]
+(HeaderName -&gt; OutputSdt -&gt; [Header]) -&gt; ToHeader OutputSdt
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; OutputSdt -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; OutputSdt -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679999196"><span class="annot"><span class="annottext">OutputSdt -&gt; QueryString
+(OutputSdt -&gt; QueryString) -&gt; ToQuery OutputSdt
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: OutputSdt -&gt; QueryString
+$ctoQuery :: OutputSdt -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679999191"><span id="local-6989586621679999193"><span class="annot"><span class="annottext">Value -&gt; Parser [OutputSdt]
+Value -&gt; Parser OutputSdt
+(Value -&gt; Parser OutputSdt)
+-&gt; (Value -&gt; Parser [OutputSdt]) -&gt; FromJSON OutputSdt
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [OutputSdt]
+$cparseJSONList :: Value -&gt; Parser [OutputSdt]
+parseJSON :: Value -&gt; Parser OutputSdt
+$cparseJSON :: Value -&gt; Parser OutputSdt
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679999186"><span id="local-6989586621679999188"><span class="annot"><span class="annottext">FromJSONKeyFunction [OutputSdt]
+FromJSONKeyFunction OutputSdt
+FromJSONKeyFunction OutputSdt
+-&gt; FromJSONKeyFunction [OutputSdt] -&gt; FromJSONKey OutputSdt
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [OutputSdt]
+$cfromJSONKeyList :: FromJSONKeyFunction [OutputSdt]
+fromJSONKey :: FromJSONKeyFunction OutputSdt
+$cfromJSONKey :: FromJSONKeyFunction OutputSdt
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679999177"><span id="local-6989586621679999179"><span id="local-6989586621679999181"><span id="local-6989586621679999183"><span class="annot"><span class="annottext">[OutputSdt] -&gt; Encoding
+[OutputSdt] -&gt; Value
+OutputSdt -&gt; Encoding
+OutputSdt -&gt; Value
+(OutputSdt -&gt; Value)
+-&gt; (OutputSdt -&gt; Encoding)
+-&gt; ([OutputSdt] -&gt; Value)
+-&gt; ([OutputSdt] -&gt; Encoding)
+-&gt; ToJSON OutputSdt
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [OutputSdt] -&gt; Encoding
+$ctoEncodingList :: [OutputSdt] -&gt; Encoding
+toJSONList :: [OutputSdt] -&gt; Value
+$ctoJSONList :: [OutputSdt] -&gt; Value
+toEncoding :: OutputSdt -&gt; Encoding
+$ctoEncoding :: OutputSdt -&gt; Encoding
+toJSON :: OutputSdt -&gt; Value
+$ctoJSON :: OutputSdt -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679999172"><span id="local-6989586621679999174"><span class="annot"><span class="annottext">ToJSONKeyFunction [OutputSdt]
+ToJSONKeyFunction OutputSdt
+ToJSONKeyFunction OutputSdt
+-&gt; ToJSONKeyFunction [OutputSdt] -&gt; ToJSONKey OutputSdt
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [OutputSdt]
+$ctoJSONKeyList :: ToJSONKeyFunction [OutputSdt]
+toJSONKey :: ToJSONKeyFunction OutputSdt
+$ctoJSONKey :: ToJSONKeyFunction OutputSdt
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679999169"><span class="annot"><span class="annottext">[Node] -&gt; Either String OutputSdt
+([Node] -&gt; Either String OutputSdt) -&gt; FromXML OutputSdt
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String OutputSdt
+$cparseXML :: [Node] -&gt; Either String OutputSdt
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679999166"><span class="annot"><span class="annottext">OutputSdt -&gt; XML
+(OutputSdt -&gt; XML) -&gt; ToXML OutputSdt
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: OutputSdt -&gt; XML
+$ctoXML :: OutputSdt -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_FOLLOW"><span class="hs-identifier hs-type">OutputSdt_SDT_FOLLOW</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier hs-type">OutputSdt</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutputSdt_SDT_FOLLOW"><span id="%24mOutputSdt_SDT_FOLLOW"><span id="OutputSdt_SDT_FOLLOW"><span class="annot"><span class="annottext">$bOutputSdt_SDT_FOLLOW :: OutputSdt
+$mOutputSdt_SDT_FOLLOW :: forall r. OutputSdt -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.OutputSdt.html#%24bOutputSdt_SDT_FOLLOW"><span class="hs-identifier hs-var hs-var hs-var">OutputSdt_SDT_FOLLOW</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-identifier hs-type">OutputSdt'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SDT_FOLLOW&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_FOLLOW_IF_PRESENT"><span class="hs-identifier hs-type">OutputSdt_SDT_FOLLOW_IF_PRESENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier hs-type">OutputSdt</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutputSdt_SDT_FOLLOW_IF_PRESENT"><span id="%24mOutputSdt_SDT_FOLLOW_IF_PRESENT"><span id="OutputSdt_SDT_FOLLOW_IF_PRESENT"><span class="annot"><span class="annottext">$bOutputSdt_SDT_FOLLOW_IF_PRESENT :: OutputSdt
+$mOutputSdt_SDT_FOLLOW_IF_PRESENT :: forall r. OutputSdt -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.OutputSdt.html#%24bOutputSdt_SDT_FOLLOW_IF_PRESENT"><span class="hs-identifier hs-var hs-var hs-var">OutputSdt_SDT_FOLLOW_IF_PRESENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-identifier hs-type">OutputSdt'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SDT_FOLLOW_IF_PRESENT&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_MANUAL"><span class="hs-identifier hs-type">OutputSdt_SDT_MANUAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier hs-type">OutputSdt</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutputSdt_SDT_MANUAL"><span id="%24mOutputSdt_SDT_MANUAL"><span id="OutputSdt_SDT_MANUAL"><span class="annot"><span class="annottext">$bOutputSdt_SDT_MANUAL :: OutputSdt
+$mOutputSdt_SDT_MANUAL :: forall r. OutputSdt -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.OutputSdt.html#%24bOutputSdt_SDT_MANUAL"><span class="hs-identifier hs-var hs-var hs-var">OutputSdt_SDT_MANUAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-identifier hs-type">OutputSdt'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SDT_MANUAL&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_NONE"><span class="hs-identifier hs-type">OutputSdt_SDT_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt"><span class="hs-identifier hs-type">OutputSdt</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bOutputSdt_SDT_NONE"><span id="%24mOutputSdt_SDT_NONE"><span id="OutputSdt_SDT_NONE"><span class="annot"><span class="annottext">$bOutputSdt_SDT_NONE :: OutputSdt
+$mOutputSdt_SDT_NONE :: forall r. OutputSdt -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.OutputSdt.html#%24bOutputSdt_SDT_NONE"><span class="hs-identifier hs-var hs-var hs-var">OutputSdt_SDT_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-identifier hs-type">OutputSdt'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SDT_NONE&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_FOLLOW"><span class="hs-pragma hs-type">OutputSdt_SDT_FOLLOW</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_FOLLOW_IF_PRESENT"><span class="hs-pragma hs-type">OutputSdt_SDT_FOLLOW_IF_PRESENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_MANUAL"><span class="hs-pragma hs-type">OutputSdt_SDT_MANUAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt_SDT_NONE"><span class="hs-pragma hs-type">OutputSdt_SDT_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.OutputSdt.html#OutputSdt%27"><span class="hs-pragma hs-type">OutputSdt'</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-88"></span></pre></body></html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53Resolver.Types.FirewallFailOpenStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53Resolver.Types.FirewallFailOpenStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus"><span class="hs-identifier">FirewallFailOpenStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus_DISABLED"><span class="hs-identifier">FirewallFailOpenStatus_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus_ENABLED"><span class="hs-identifier">FirewallFailOpenStatus_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679282570"><span id="local-6989586621679282571"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FirewallFailOpenStatus"><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus"><span class="hs-identifier hs-var">FirewallFailOpenStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FirewallFailOpenStatus%27"><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus%27"><span class="hs-identifier hs-var">FirewallFailOpenStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFirewallFailOpenStatus"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; Text
+</span><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#fromFirewallFailOpenStatus"><span class="hs-identifier hs-var hs-var">fromFirewallFailOpenStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282562"><span id="local-6989586621679282564"><span id="local-6989586621679282566"><span class="annot"><span class="annottext">Int -&gt; FirewallFailOpenStatus -&gt; ShowS
+[FirewallFailOpenStatus] -&gt; ShowS
+FirewallFailOpenStatus -&gt; String
+(Int -&gt; FirewallFailOpenStatus -&gt; ShowS)
+-&gt; (FirewallFailOpenStatus -&gt; String)
+-&gt; ([FirewallFailOpenStatus] -&gt; ShowS)
+-&gt; Show FirewallFailOpenStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FirewallFailOpenStatus] -&gt; ShowS
+$cshowList :: [FirewallFailOpenStatus] -&gt; ShowS
+show :: FirewallFailOpenStatus -&gt; String
+$cshow :: FirewallFailOpenStatus -&gt; String
+showsPrec :: Int -&gt; FirewallFailOpenStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; FirewallFailOpenStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679282553"><span id="local-6989586621679282555"><span id="local-6989586621679282557"><span id="local-6989586621679282559"><span class="annot"><span class="annottext">ReadPrec [FirewallFailOpenStatus]
+ReadPrec FirewallFailOpenStatus
+Int -&gt; ReadS FirewallFailOpenStatus
+ReadS [FirewallFailOpenStatus]
+(Int -&gt; ReadS FirewallFailOpenStatus)
+-&gt; ReadS [FirewallFailOpenStatus]
+-&gt; ReadPrec FirewallFailOpenStatus
+-&gt; ReadPrec [FirewallFailOpenStatus]
+-&gt; Read FirewallFailOpenStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FirewallFailOpenStatus]
+$creadListPrec :: ReadPrec [FirewallFailOpenStatus]
+readPrec :: ReadPrec FirewallFailOpenStatus
+$creadPrec :: ReadPrec FirewallFailOpenStatus
+readList :: ReadS [FirewallFailOpenStatus]
+$creadList :: ReadS [FirewallFailOpenStatus]
+readsPrec :: Int -&gt; ReadS FirewallFailOpenStatus
+$creadsPrec :: Int -&gt; ReadS FirewallFailOpenStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679282548"><span id="local-6989586621679282550"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+(FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool)
+-&gt; (FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool)
+-&gt; Eq FirewallFailOpenStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+$c/= :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+== :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+$c== :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679282532"><span id="local-6989586621679282534"><span id="local-6989586621679282536"><span id="local-6989586621679282538"><span id="local-6989586621679282540"><span id="local-6989586621679282542"><span id="local-6989586621679282544"><span class="annot"><span class="annottext">Eq FirewallFailOpenStatus
+Eq FirewallFailOpenStatus
+-&gt; (FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Ordering)
+-&gt; (FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool)
+-&gt; (FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool)
+-&gt; (FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool)
+-&gt; (FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool)
+-&gt; (FirewallFailOpenStatus
+    -&gt; FirewallFailOpenStatus -&gt; FirewallFailOpenStatus)
+-&gt; (FirewallFailOpenStatus
+    -&gt; FirewallFailOpenStatus -&gt; FirewallFailOpenStatus)
+-&gt; Ord FirewallFailOpenStatus
+FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Ordering
+FirewallFailOpenStatus
+-&gt; FirewallFailOpenStatus -&gt; FirewallFailOpenStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FirewallFailOpenStatus
+-&gt; FirewallFailOpenStatus -&gt; FirewallFailOpenStatus
+$cmin :: FirewallFailOpenStatus
+-&gt; FirewallFailOpenStatus -&gt; FirewallFailOpenStatus
+max :: FirewallFailOpenStatus
+-&gt; FirewallFailOpenStatus -&gt; FirewallFailOpenStatus
+$cmax :: FirewallFailOpenStatus
+-&gt; FirewallFailOpenStatus -&gt; FirewallFailOpenStatus
+&gt;= :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+$c&gt;= :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+&gt; :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+$c&gt; :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+&lt;= :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+$c&lt;= :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+&lt; :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+$c&lt; :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Bool
+compare :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Ordering
+$ccompare :: FirewallFailOpenStatus -&gt; FirewallFailOpenStatus -&gt; Ordering
+$cp1Ord :: Eq FirewallFailOpenStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FirewallFailOpenStatus -&gt; Rep FirewallFailOpenStatus x)
+-&gt; (forall x.
+    Rep FirewallFailOpenStatus x -&gt; FirewallFailOpenStatus)
+-&gt; Generic FirewallFailOpenStatus
+forall x. Rep FirewallFailOpenStatus x -&gt; FirewallFailOpenStatus
+forall x. FirewallFailOpenStatus -&gt; Rep FirewallFailOpenStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FirewallFailOpenStatus x -&gt; FirewallFailOpenStatus
+$cfrom :: forall x. FirewallFailOpenStatus -&gt; Rep FirewallFailOpenStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679282524"><span id="local-6989586621679282526"><span class="annot"><span class="annottext">Int -&gt; FirewallFailOpenStatus -&gt; Int
+FirewallFailOpenStatus -&gt; Int
+(Int -&gt; FirewallFailOpenStatus -&gt; Int)
+-&gt; (FirewallFailOpenStatus -&gt; Int)
+-&gt; Hashable FirewallFailOpenStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FirewallFailOpenStatus -&gt; Int
+$chash :: FirewallFailOpenStatus -&gt; Int
+hashWithSalt :: Int -&gt; FirewallFailOpenStatus -&gt; Int
+$chashWithSalt :: Int -&gt; FirewallFailOpenStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679282521"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; ()
+(FirewallFailOpenStatus -&gt; ()) -&gt; NFData FirewallFailOpenStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FirewallFailOpenStatus -&gt; ()
+$crnf :: FirewallFailOpenStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679282518"><span class="annot"><span class="annottext">Text -&gt; Either String FirewallFailOpenStatus
+(Text -&gt; Either String FirewallFailOpenStatus)
+-&gt; FromText FirewallFailOpenStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FirewallFailOpenStatus
+$cfromText :: Text -&gt; Either String FirewallFailOpenStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679282515"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; Text
+(FirewallFailOpenStatus -&gt; Text) -&gt; ToText FirewallFailOpenStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FirewallFailOpenStatus -&gt; Text
+$ctoText :: FirewallFailOpenStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679282512"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; ByteString
+(FirewallFailOpenStatus -&gt; ByteString)
+-&gt; ToByteString FirewallFailOpenStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FirewallFailOpenStatus -&gt; ByteString
+$ctoBS :: FirewallFailOpenStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679282509"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; ByteStringBuilder
+(FirewallFailOpenStatus -&gt; ByteStringBuilder)
+-&gt; ToLog FirewallFailOpenStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FirewallFailOpenStatus -&gt; ByteStringBuilder
+$cbuild :: FirewallFailOpenStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679282506"><span class="annot"><span class="annottext">HeaderName -&gt; FirewallFailOpenStatus -&gt; [Header]
+(HeaderName -&gt; FirewallFailOpenStatus -&gt; [Header])
+-&gt; ToHeader FirewallFailOpenStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FirewallFailOpenStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FirewallFailOpenStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679282503"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; QueryString
+(FirewallFailOpenStatus -&gt; QueryString)
+-&gt; ToQuery FirewallFailOpenStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FirewallFailOpenStatus -&gt; QueryString
+$ctoQuery :: FirewallFailOpenStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679282498"><span id="local-6989586621679282500"><span class="annot"><span class="annottext">Value -&gt; Parser [FirewallFailOpenStatus]
+Value -&gt; Parser FirewallFailOpenStatus
+(Value -&gt; Parser FirewallFailOpenStatus)
+-&gt; (Value -&gt; Parser [FirewallFailOpenStatus])
+-&gt; FromJSON FirewallFailOpenStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FirewallFailOpenStatus]
+$cparseJSONList :: Value -&gt; Parser [FirewallFailOpenStatus]
+parseJSON :: Value -&gt; Parser FirewallFailOpenStatus
+$cparseJSON :: Value -&gt; Parser FirewallFailOpenStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679282493"><span id="local-6989586621679282495"><span class="annot"><span class="annottext">FromJSONKeyFunction [FirewallFailOpenStatus]
+FromJSONKeyFunction FirewallFailOpenStatus
+FromJSONKeyFunction FirewallFailOpenStatus
+-&gt; FromJSONKeyFunction [FirewallFailOpenStatus]
+-&gt; FromJSONKey FirewallFailOpenStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FirewallFailOpenStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [FirewallFailOpenStatus]
+fromJSONKey :: FromJSONKeyFunction FirewallFailOpenStatus
+$cfromJSONKey :: FromJSONKeyFunction FirewallFailOpenStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679282484"><span id="local-6989586621679282486"><span id="local-6989586621679282488"><span id="local-6989586621679282490"><span class="annot"><span class="annottext">[FirewallFailOpenStatus] -&gt; Encoding
+[FirewallFailOpenStatus] -&gt; Value
+FirewallFailOpenStatus -&gt; Encoding
+FirewallFailOpenStatus -&gt; Value
+(FirewallFailOpenStatus -&gt; Value)
+-&gt; (FirewallFailOpenStatus -&gt; Encoding)
+-&gt; ([FirewallFailOpenStatus] -&gt; Value)
+-&gt; ([FirewallFailOpenStatus] -&gt; Encoding)
+-&gt; ToJSON FirewallFailOpenStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FirewallFailOpenStatus] -&gt; Encoding
+$ctoEncodingList :: [FirewallFailOpenStatus] -&gt; Encoding
+toJSONList :: [FirewallFailOpenStatus] -&gt; Value
+$ctoJSONList :: [FirewallFailOpenStatus] -&gt; Value
+toEncoding :: FirewallFailOpenStatus -&gt; Encoding
+$ctoEncoding :: FirewallFailOpenStatus -&gt; Encoding
+toJSON :: FirewallFailOpenStatus -&gt; Value
+$ctoJSON :: FirewallFailOpenStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679282479"><span id="local-6989586621679282481"><span class="annot"><span class="annottext">ToJSONKeyFunction [FirewallFailOpenStatus]
+ToJSONKeyFunction FirewallFailOpenStatus
+ToJSONKeyFunction FirewallFailOpenStatus
+-&gt; ToJSONKeyFunction [FirewallFailOpenStatus]
+-&gt; ToJSONKey FirewallFailOpenStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FirewallFailOpenStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [FirewallFailOpenStatus]
+toJSONKey :: ToJSONKeyFunction FirewallFailOpenStatus
+$ctoJSONKey :: ToJSONKeyFunction FirewallFailOpenStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679282476"><span class="annot"><span class="annottext">[Node] -&gt; Either String FirewallFailOpenStatus
+([Node] -&gt; Either String FirewallFailOpenStatus)
+-&gt; FromXML FirewallFailOpenStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FirewallFailOpenStatus
+$cparseXML :: [Node] -&gt; Either String FirewallFailOpenStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679282473"><span class="annot"><span class="annottext">FirewallFailOpenStatus -&gt; XML
+(FirewallFailOpenStatus -&gt; XML) -&gt; ToXML FirewallFailOpenStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FirewallFailOpenStatus -&gt; XML
+$ctoXML :: FirewallFailOpenStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus_DISABLED"><span class="hs-identifier hs-type">FirewallFailOpenStatus_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus"><span class="hs-identifier hs-type">FirewallFailOpenStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFirewallFailOpenStatus_DISABLED"><span id="%24mFirewallFailOpenStatus_DISABLED"><span id="FirewallFailOpenStatus_DISABLED"><span class="annot"><span class="annottext">$bFirewallFailOpenStatus_DISABLED :: FirewallFailOpenStatus
+$mFirewallFailOpenStatus_DISABLED :: forall r.
+FirewallFailOpenStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#%24bFirewallFailOpenStatus_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">FirewallFailOpenStatus_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus%27"><span class="hs-identifier hs-type">FirewallFailOpenStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus_ENABLED"><span class="hs-identifier hs-type">FirewallFailOpenStatus_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus"><span class="hs-identifier hs-type">FirewallFailOpenStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFirewallFailOpenStatus_ENABLED"><span id="%24mFirewallFailOpenStatus_ENABLED"><span id="FirewallFailOpenStatus_ENABLED"><span class="annot"><span class="annottext">$bFirewallFailOpenStatus_ENABLED :: FirewallFailOpenStatus
+$mFirewallFailOpenStatus_ENABLED :: forall r.
+FirewallFailOpenStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#%24bFirewallFailOpenStatus_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">FirewallFailOpenStatus_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus%27"><span class="hs-identifier hs-type">FirewallFailOpenStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus_DISABLED"><span class="hs-pragma hs-type">FirewallFailOpenStatus_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus_ENABLED"><span class="hs-pragma hs-type">FirewallFailOpenStatus_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Route53Resolver.Types.FirewallFailOpenStatus.html#FirewallFailOpenStatus%27"><span class="hs-pragma hs-type">FirewallFailOpenStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.CreateThemeAlias</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a theme alias for a theme.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.CreateThemeAlias</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier">CreateThemeAlias</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#newCreateThemeAlias"><span class="hs-identifier">newCreateThemeAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_awsAccountId"><span class="hs-identifier">createThemeAlias_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_themeId"><span class="hs-identifier">createThemeAlias_themeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_aliasName"><span class="hs-identifier">createThemeAlias_aliasName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_themeVersionNumber"><span class="hs-identifier">createThemeAlias_themeVersionNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier">CreateThemeAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#newCreateThemeAliasResponse"><span class="hs-identifier">newCreateThemeAliasResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_requestId"><span class="hs-identifier">createThemeAliasResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_themeAlias"><span class="hs-identifier">createThemeAliasResponse_themeAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_status"><span class="hs-identifier">createThemeAliasResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newCreateThemeAlias' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679592382"><span id="local-6989586621679592383"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateThemeAlias"><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-var">CreateThemeAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateThemeAlias%27"><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-var">CreateThemeAlias'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the theme for</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the new theme alias.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AawsAccountId%3ACreateThemeAlias%27"><span class="annot"><span class="annottext">CreateThemeAlias -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AawsAccountId%3ACreateThemeAlias%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | An ID for the theme alias.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AthemeId%3ACreateThemeAlias%27"><span class="annot"><span class="annottext">CreateThemeAlias -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeId%3ACreateThemeAlias%27"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The name that you want to give to the theme alias that you are creating.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- The alias name can\'t begin with a @$@. Alias names that start with @$@</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- are reserved by Amazon QuickSight.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AaliasName%3ACreateThemeAlias%27"><span class="annot"><span class="annottext">CreateThemeAlias -&gt; Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AaliasName%3ACreateThemeAlias%27"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The version number of the theme.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AthemeVersionNumber%3ACreateThemeAlias%27"><span class="annot"><span class="annottext">CreateThemeAlias -&gt; Natural
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeVersionNumber%3ACreateThemeAlias%27"><span class="hs-identifier hs-var hs-var">themeVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679592373"><span id="local-6989586621679592375"><span class="annot"><span class="annottext">CreateThemeAlias -&gt; CreateThemeAlias -&gt; Bool
+(CreateThemeAlias -&gt; CreateThemeAlias -&gt; Bool)
+-&gt; (CreateThemeAlias -&gt; CreateThemeAlias -&gt; Bool)
+-&gt; Eq CreateThemeAlias
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateThemeAlias -&gt; CreateThemeAlias -&gt; Bool
+$c/= :: CreateThemeAlias -&gt; CreateThemeAlias -&gt; Bool
+== :: CreateThemeAlias -&gt; CreateThemeAlias -&gt; Bool
+$c== :: CreateThemeAlias -&gt; CreateThemeAlias -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592364"><span id="local-6989586621679592366"><span id="local-6989586621679592368"><span id="local-6989586621679592370"><span class="annot"><span class="annottext">ReadPrec [CreateThemeAlias]
+ReadPrec CreateThemeAlias
+Int -&gt; ReadS CreateThemeAlias
+ReadS [CreateThemeAlias]
+(Int -&gt; ReadS CreateThemeAlias)
+-&gt; ReadS [CreateThemeAlias]
+-&gt; ReadPrec CreateThemeAlias
+-&gt; ReadPrec [CreateThemeAlias]
+-&gt; Read CreateThemeAlias
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateThemeAlias]
+$creadListPrec :: ReadPrec [CreateThemeAlias]
+readPrec :: ReadPrec CreateThemeAlias
+$creadPrec :: ReadPrec CreateThemeAlias
+readList :: ReadS [CreateThemeAlias]
+$creadList :: ReadS [CreateThemeAlias]
+readsPrec :: Int -&gt; ReadS CreateThemeAlias
+$creadsPrec :: Int -&gt; ReadS CreateThemeAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592357"><span id="local-6989586621679592359"><span id="local-6989586621679592361"><span class="annot"><span class="annottext">Int -&gt; CreateThemeAlias -&gt; ShowS
+[CreateThemeAlias] -&gt; ShowS
+CreateThemeAlias -&gt; String
+(Int -&gt; CreateThemeAlias -&gt; ShowS)
+-&gt; (CreateThemeAlias -&gt; String)
+-&gt; ([CreateThemeAlias] -&gt; ShowS)
+-&gt; Show CreateThemeAlias
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateThemeAlias] -&gt; ShowS
+$cshowList :: [CreateThemeAlias] -&gt; ShowS
+show :: CreateThemeAlias -&gt; String
+$cshow :: CreateThemeAlias -&gt; String
+showsPrec :: Int -&gt; CreateThemeAlias -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateThemeAlias -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateThemeAlias -&gt; Rep CreateThemeAlias x)
+-&gt; (forall x. Rep CreateThemeAlias x -&gt; CreateThemeAlias)
+-&gt; Generic CreateThemeAlias
+forall x. Rep CreateThemeAlias x -&gt; CreateThemeAlias
+forall x. CreateThemeAlias -&gt; Rep CreateThemeAlias x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateThemeAlias x -&gt; CreateThemeAlias
+$cfrom :: forall x. CreateThemeAlias -&gt; Rep CreateThemeAlias x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'CreateThemeAlias' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'awsAccountId', 'createThemeAlias_awsAccountId' - The ID of the Amazon Web Services account that contains the theme for</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- the new theme alias.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'themeId', 'createThemeAlias_themeId' - An ID for the theme alias.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'aliasName', 'createThemeAlias_aliasName' - The name that you want to give to the theme alias that you are creating.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The alias name can\'t begin with a @$@. Alias names that start with @$@</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- are reserved by Amazon QuickSight.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'themeVersionNumber', 'createThemeAlias_themeVersionNumber' - The version number of the theme.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#newCreateThemeAlias"><span class="hs-identifier hs-type">newCreateThemeAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'themeId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'aliasName'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'themeVersionNumber'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span>
+</span><span id="line-97"></span><span id="newCreateThemeAlias"><span class="annot"><span class="annottext">newCreateThemeAlias :: Text -&gt; Text -&gt; Text -&gt; Natural -&gt; CreateThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#newCreateThemeAlias"><span class="hs-identifier hs-var hs-var">newCreateThemeAlias</span></a></span></span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679592352"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592352"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-99"></span><span>  </span><span id="local-6989586621679592351"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592351"><span class="hs-identifier hs-var">pThemeId_</span></a></span></span><span>
+</span><span id="line-100"></span><span>  </span><span id="local-6989586621679592350"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592350"><span class="hs-identifier hs-var">pAliasName_</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679592349"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679592349"><span class="hs-identifier hs-var">pThemeVersionNumber_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">CreateThemeAlias' :: Text -&gt; Text -&gt; Text -&gt; Natural -&gt; CreateThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:CreateThemeAlias' :: Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AawsAccountId%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592352"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">$sel:themeId:CreateThemeAlias' :: Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeId%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592351"><span class="hs-identifier hs-var">pThemeId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>        </span><span class="annot"><span class="annottext">$sel:aliasName:CreateThemeAlias' :: Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AaliasName%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592350"><span class="hs-identifier hs-var">pAliasName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">$sel:themeVersionNumber:CreateThemeAlias' :: Natural
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeVersionNumber%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679592349"><span class="hs-identifier hs-var">pThemeVersionNumber_</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the theme for</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- the new theme alias.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_awsAccountId"><span class="hs-identifier hs-type">createThemeAlias_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="createThemeAlias_awsAccountId"><span class="annot"><span class="annottext">createThemeAlias_awsAccountId :: (Text -&gt; f Text) -&gt; CreateThemeAlias -&gt; f CreateThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_awsAccountId"><span class="hs-identifier hs-var hs-var">createThemeAlias_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThemeAlias -&gt; Text)
+-&gt; (CreateThemeAlias -&gt; Text -&gt; CreateThemeAlias)
+-&gt; Lens CreateThemeAlias CreateThemeAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592346"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679592346"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592346"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592345"><span class="annot"><span class="annottext">s :: CreateThemeAlias
+</span><a href="#local-6989586621679592345"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592344"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592344"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThemeAlias
+</span><a href="#local-6989586621679592345"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:CreateThemeAlias' :: Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AawsAccountId%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592344"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | An ID for the theme alias.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_themeId"><span class="hs-identifier hs-type">createThemeAlias_themeId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-116"></span><span id="createThemeAlias_themeId"><span class="annot"><span class="annottext">createThemeAlias_themeId :: (Text -&gt; f Text) -&gt; CreateThemeAlias -&gt; f CreateThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_themeId"><span class="hs-identifier hs-var hs-var">createThemeAlias_themeId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThemeAlias -&gt; Text)
+-&gt; (CreateThemeAlias -&gt; Text -&gt; CreateThemeAlias)
+-&gt; Lens CreateThemeAlias CreateThemeAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592343"><span class="annot"><span class="annottext">Text
+themeId :: Text
+$sel:themeId:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679592343"><span class="hs-identifier hs-var hs-var">themeId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592343"><span class="hs-identifier hs-var">themeId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592342"><span class="annot"><span class="annottext">s :: CreateThemeAlias
+</span><a href="#local-6989586621679592342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592341"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThemeAlias
+</span><a href="#local-6989586621679592342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeId:CreateThemeAlias' :: Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeId%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">themeId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The name that you want to give to the theme alias that you are creating.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The alias name can\'t begin with a @$@. Alias names that start with @$@</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- are reserved by Amazon QuickSight.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_aliasName"><span class="hs-identifier hs-type">createThemeAlias_aliasName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="createThemeAlias_aliasName"><span class="annot"><span class="annottext">createThemeAlias_aliasName :: (Text -&gt; f Text) -&gt; CreateThemeAlias -&gt; f CreateThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_aliasName"><span class="hs-identifier hs-var hs-var">createThemeAlias_aliasName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThemeAlias -&gt; Text)
+-&gt; (CreateThemeAlias -&gt; Text -&gt; CreateThemeAlias)
+-&gt; Lens CreateThemeAlias CreateThemeAlias Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592340"><span class="annot"><span class="annottext">Text
+aliasName :: Text
+$sel:aliasName:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679592340"><span class="hs-identifier hs-var hs-var">aliasName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592340"><span class="hs-identifier hs-var">aliasName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592339"><span class="annot"><span class="annottext">s :: CreateThemeAlias
+</span><a href="#local-6989586621679592339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592338"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThemeAlias
+</span><a href="#local-6989586621679592339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:aliasName:CreateThemeAlias' :: Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AaliasName%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">aliasName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The version number of the theme.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_themeVersionNumber"><span class="hs-identifier hs-type">createThemeAlias_themeVersionNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-126"></span><span id="createThemeAlias_themeVersionNumber"><span class="annot"><span class="annottext">createThemeAlias_themeVersionNumber :: (Natural -&gt; f Natural) -&gt; CreateThemeAlias -&gt; f CreateThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAlias_themeVersionNumber"><span class="hs-identifier hs-var hs-var">createThemeAlias_themeVersionNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThemeAlias -&gt; Natural)
+-&gt; (CreateThemeAlias -&gt; Natural -&gt; CreateThemeAlias)
+-&gt; Lens CreateThemeAlias CreateThemeAlias Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592337"><span class="annot"><span class="annottext">Natural
+themeVersionNumber :: Natural
+$sel:themeVersionNumber:CreateThemeAlias' :: CreateThemeAlias -&gt; Natural
+</span><a href="#local-6989586621679592337"><span class="hs-identifier hs-var hs-var">themeVersionNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679592337"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592336"><span class="annot"><span class="annottext">s :: CreateThemeAlias
+</span><a href="#local-6989586621679592336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592335"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679592335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThemeAlias
+</span><a href="#local-6989586621679592336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeVersionNumber:CreateThemeAlias' :: Natural
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeVersionNumber%3ACreateThemeAlias%27"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679592335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679592331"><span class="annot"><span class="annottext">request :: CreateThemeAlias -&gt; Request CreateThemeAlias
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateThemeAlias -&gt; Request CreateThemeAlias
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679592327"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateThemeAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateThemeAlias)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateThemeAlias))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateThemeAlias
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateThemeAlias)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679592324"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679592324"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679592323"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679592323"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679592322"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592322"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe ThemeAlias -&gt; Int -&gt; CreateThemeAliasResponse
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-var">CreateThemeAliasResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe ThemeAlias -&gt; Int -&gt; CreateThemeAliasResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe ThemeAlias -&gt; Int -&gt; CreateThemeAliasResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe ThemeAlias -&gt; Int -&gt; CreateThemeAliasResponse)
+-&gt; Either String (Maybe ThemeAlias)
+-&gt; Either String (Int -&gt; CreateThemeAliasResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679592322"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ThemeAlias)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThemeAlias&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateThemeAliasResponse)
+-&gt; Either String Int -&gt; Either String CreateThemeAliasResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679592324"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592314"><span id="local-6989586621679592316"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592311"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span></span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679592307"><span class="annot"><span class="annottext">toHeaders :: CreateThemeAlias -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateThemeAlias -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-151"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-152"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-153"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592297"><span id="local-6989586621679592299"><span id="local-6989586621679592301"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-158"></span><span>  </span><span id="local-6989586621679592295"><span class="annot"><span class="annottext">toJSON :: CreateThemeAlias -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592290"><span id="local-6989586621679592291"><span id="local-6989586621679592292"><span id="local-6989586621679592293"><span class="annot"><span class="annottext">Natural
+Text
+themeVersionNumber :: Natural
+aliasName :: Text
+themeId :: Text
+awsAccountId :: Text
+$sel:themeVersionNumber:CreateThemeAlias' :: CreateThemeAlias -&gt; Natural
+$sel:aliasName:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+$sel:themeId:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+$sel:awsAccountId:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679592290"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-160"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-161"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThemeVersionNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679592290"><span class="hs-identifier hs-var">themeVersionNumber</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679592284"><span class="annot"><span class="annottext">toPath :: CreateThemeAlias -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias%27"><span class="hs-identifier hs-type">CreateThemeAlias'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592279"><span id="local-6989586621679592280"><span id="local-6989586621679592281"><span id="local-6989586621679592282"><span class="annot"><span class="annottext">Natural
+Text
+themeVersionNumber :: Natural
+aliasName :: Text
+themeId :: Text
+awsAccountId :: Text
+$sel:themeVersionNumber:CreateThemeAlias' :: CreateThemeAlias -&gt; Natural
+$sel:aliasName:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+$sel:themeId:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+$sel:awsAccountId:CreateThemeAlias' :: CreateThemeAlias -&gt; Text
+</span><a href="#local-6989586621679592279"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592282"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/themes/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592281"><span class="hs-identifier hs-var">themeId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/aliases/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679592280"><span class="hs-identifier hs-var">aliasName</span></a></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAlias"><span class="hs-identifier hs-type">CreateThemeAlias</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679592275"><span class="annot"><span class="annottext">toQuery :: CreateThemeAlias -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateThemeAlias -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- | /See:/ 'newCreateThemeAliasResponse' smart constructor.</span><span>
+</span><span id="line-181"></span><span id="local-6989586621679592272"><span id="local-6989586621679592273"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateThemeAliasResponse"><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-var">CreateThemeAliasResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateThemeAliasResponse%27"><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-var">CreateThemeAliasResponse'</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3ArequestId%3ACreateThemeAliasResponse%27"><span class="annot"><span class="annottext">CreateThemeAliasResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3ArequestId%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | Information about the theme alias.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AthemeAlias%3ACreateThemeAliasResponse%27"><span class="annot"><span class="annottext">CreateThemeAliasResponse -&gt; Maybe ThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeAlias%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var hs-var">themeAlias</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ThemeAlias.html#ThemeAlias"><span class="hs-identifier hs-type">ThemeAlias</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Astatus%3ACreateThemeAliasResponse%27"><span class="annot"><span class="annottext">CreateThemeAliasResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3Astatus%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679592265"><span id="local-6989586621679592267"><span class="annot"><span class="annottext">CreateThemeAliasResponse -&gt; CreateThemeAliasResponse -&gt; Bool
+(CreateThemeAliasResponse -&gt; CreateThemeAliasResponse -&gt; Bool)
+-&gt; (CreateThemeAliasResponse -&gt; CreateThemeAliasResponse -&gt; Bool)
+-&gt; Eq CreateThemeAliasResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateThemeAliasResponse -&gt; CreateThemeAliasResponse -&gt; Bool
+$c/= :: CreateThemeAliasResponse -&gt; CreateThemeAliasResponse -&gt; Bool
+== :: CreateThemeAliasResponse -&gt; CreateThemeAliasResponse -&gt; Bool
+$c== :: CreateThemeAliasResponse -&gt; CreateThemeAliasResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592257"><span id="local-6989586621679592259"><span id="local-6989586621679592261"><span id="local-6989586621679592263"><span class="annot"><span class="annottext">ReadPrec [CreateThemeAliasResponse]
+ReadPrec CreateThemeAliasResponse
+Int -&gt; ReadS CreateThemeAliasResponse
+ReadS [CreateThemeAliasResponse]
+(Int -&gt; ReadS CreateThemeAliasResponse)
+-&gt; ReadS [CreateThemeAliasResponse]
+-&gt; ReadPrec CreateThemeAliasResponse
+-&gt; ReadPrec [CreateThemeAliasResponse]
+-&gt; Read CreateThemeAliasResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateThemeAliasResponse]
+$creadListPrec :: ReadPrec [CreateThemeAliasResponse]
+readPrec :: ReadPrec CreateThemeAliasResponse
+$creadPrec :: ReadPrec CreateThemeAliasResponse
+readList :: ReadS [CreateThemeAliasResponse]
+$creadList :: ReadS [CreateThemeAliasResponse]
+readsPrec :: Int -&gt; ReadS CreateThemeAliasResponse
+$creadsPrec :: Int -&gt; ReadS CreateThemeAliasResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679592251"><span id="local-6989586621679592253"><span id="local-6989586621679592255"><span class="annot"><span class="annottext">Int -&gt; CreateThemeAliasResponse -&gt; ShowS
+[CreateThemeAliasResponse] -&gt; ShowS
+CreateThemeAliasResponse -&gt; String
+(Int -&gt; CreateThemeAliasResponse -&gt; ShowS)
+-&gt; (CreateThemeAliasResponse -&gt; String)
+-&gt; ([CreateThemeAliasResponse] -&gt; ShowS)
+-&gt; Show CreateThemeAliasResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateThemeAliasResponse] -&gt; ShowS
+$cshowList :: [CreateThemeAliasResponse] -&gt; ShowS
+show :: CreateThemeAliasResponse -&gt; String
+$cshow :: CreateThemeAliasResponse -&gt; String
+showsPrec :: Int -&gt; CreateThemeAliasResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateThemeAliasResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateThemeAliasResponse -&gt; Rep CreateThemeAliasResponse x)
+-&gt; (forall x.
+    Rep CreateThemeAliasResponse x -&gt; CreateThemeAliasResponse)
+-&gt; Generic CreateThemeAliasResponse
+forall x.
+Rep CreateThemeAliasResponse x -&gt; CreateThemeAliasResponse
+forall x.
+CreateThemeAliasResponse -&gt; Rep CreateThemeAliasResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateThemeAliasResponse x -&gt; CreateThemeAliasResponse
+$cfrom :: forall x.
+CreateThemeAliasResponse -&gt; Rep CreateThemeAliasResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Create a value of 'CreateThemeAliasResponse' with all optional fields omitted.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'requestId', 'createThemeAliasResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'themeAlias', 'createThemeAliasResponse_themeAlias' - Information about the theme alias.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'status', 'createThemeAliasResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#newCreateThemeAliasResponse"><span class="hs-identifier hs-type">newCreateThemeAliasResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span>
+</span><span id="line-208"></span><span id="newCreateThemeAliasResponse"><span class="annot"><span class="annottext">newCreateThemeAliasResponse :: Int -&gt; CreateThemeAliasResponse
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#newCreateThemeAliasResponse"><span class="hs-identifier hs-var hs-var">newCreateThemeAliasResponse</span></a></span></span><span> </span><span id="local-6989586621679592248"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679592248"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">CreateThemeAliasResponse' :: Maybe Text -&gt; Maybe ThemeAlias -&gt; Int -&gt; CreateThemeAliasResponse
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-type">CreateThemeAliasResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:CreateThemeAliasResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3ArequestId%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">$sel:themeAlias:CreateThemeAliasResponse' :: Maybe ThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeAlias%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var">themeAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThemeAlias
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CreateThemeAliasResponse' :: Int
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3Astatus%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679592248"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_requestId"><span class="hs-identifier hs-type">createThemeAliasResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="createThemeAliasResponse_requestId"><span class="annot"><span class="annottext">createThemeAliasResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateThemeAliasResponse -&gt; f CreateThemeAliasResponse
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_requestId"><span class="hs-identifier hs-var hs-var">createThemeAliasResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThemeAliasResponse -&gt; Maybe Text)
+-&gt; (CreateThemeAliasResponse
+    -&gt; Maybe Text -&gt; CreateThemeAliasResponse)
+-&gt; Lens
+     CreateThemeAliasResponse
+     CreateThemeAliasResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-type">CreateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592247"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:CreateThemeAliasResponse' :: CreateThemeAliasResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679592247"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592247"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592246"><span class="annot"><span class="annottext">s :: CreateThemeAliasResponse
+</span><a href="#local-6989586621679592246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-type">CreateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592245"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThemeAliasResponse
+</span><a href="#local-6989586621679592246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:CreateThemeAliasResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3ArequestId%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679592245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | Information about the theme alias.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_themeAlias"><span class="hs-identifier hs-type">createThemeAliasResponse_themeAlias</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ThemeAlias.html#ThemeAlias"><span class="hs-identifier hs-type">ThemeAlias</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="createThemeAliasResponse_themeAlias"><span class="annot"><span class="annottext">createThemeAliasResponse_themeAlias :: (Maybe ThemeAlias -&gt; f (Maybe ThemeAlias))
+-&gt; CreateThemeAliasResponse -&gt; f CreateThemeAliasResponse
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_themeAlias"><span class="hs-identifier hs-var hs-var">createThemeAliasResponse_themeAlias</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThemeAliasResponse -&gt; Maybe ThemeAlias)
+-&gt; (CreateThemeAliasResponse
+    -&gt; Maybe ThemeAlias -&gt; CreateThemeAliasResponse)
+-&gt; Lens
+     CreateThemeAliasResponse
+     CreateThemeAliasResponse
+     (Maybe ThemeAlias)
+     (Maybe ThemeAlias)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-type">CreateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592244"><span class="annot"><span class="annottext">Maybe ThemeAlias
+themeAlias :: Maybe ThemeAlias
+$sel:themeAlias:CreateThemeAliasResponse' :: CreateThemeAliasResponse -&gt; Maybe ThemeAlias
+</span><a href="#local-6989586621679592244"><span class="hs-identifier hs-var hs-var">themeAlias</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ThemeAlias
+</span><a href="#local-6989586621679592244"><span class="hs-identifier hs-var">themeAlias</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592243"><span class="annot"><span class="annottext">s :: CreateThemeAliasResponse
+</span><a href="#local-6989586621679592243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-type">CreateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592242"><span class="annot"><span class="annottext">Maybe ThemeAlias
+</span><a href="#local-6989586621679592242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThemeAliasResponse
+</span><a href="#local-6989586621679592243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:themeAlias:CreateThemeAliasResponse' :: Maybe ThemeAlias
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3AthemeAlias%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var">themeAlias</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ThemeAlias
+</span><a href="#local-6989586621679592242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_status"><span class="hs-identifier hs-type">createThemeAliasResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-226"></span><span id="createThemeAliasResponse_status"><span class="annot"><span class="annottext">createThemeAliasResponse_status :: (Int -&gt; f Int)
+-&gt; CreateThemeAliasResponse -&gt; f CreateThemeAliasResponse
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#createThemeAliasResponse_status"><span class="hs-identifier hs-var hs-var">createThemeAliasResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateThemeAliasResponse -&gt; Int)
+-&gt; (CreateThemeAliasResponse -&gt; Int -&gt; CreateThemeAliasResponse)
+-&gt; Lens CreateThemeAliasResponse CreateThemeAliasResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-type">CreateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679592241"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:CreateThemeAliasResponse' :: CreateThemeAliasResponse -&gt; Int
+</span><a href="#local-6989586621679592241"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679592241"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679592240"><span class="annot"><span class="annottext">s :: CreateThemeAliasResponse
+</span><a href="#local-6989586621679592240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse%27"><span class="hs-identifier hs-type">CreateThemeAliasResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679592239"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679592239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateThemeAliasResponse
+</span><a href="#local-6989586621679592240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CreateThemeAliasResponse' :: Int
+</span><a href="Amazonka.QuickSight.CreateThemeAlias.html#%24sel%3Astatus%3ACreateThemeAliasResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679592239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679592237"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.CreateThemeAlias.html#CreateThemeAliasResponse"><span class="hs-identifier hs-type">CreateThemeAliasResponse</span></a></span></span><span>
+</span><span id="line-229"></span></pre></body></html>

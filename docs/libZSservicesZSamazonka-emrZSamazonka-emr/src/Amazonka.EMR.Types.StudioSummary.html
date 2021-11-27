@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMR.Types.StudioSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.Types.StudioSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AuthMode.html"><span class="hs-identifier">Amazonka.EMR.Types.AuthMode</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Details for an Amazon EMR Studio, including ID, Name, VPC, and</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Description. The details do not include subnets, IAM roles, security</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- groups, or tags associated with the Studio.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newStudioSummary' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679377886"><span id="local-6989586621679377887"></span></span><span class="hs-keyword">data</span><span> </span><span id="StudioSummary"><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-var">StudioSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StudioSummary%27"><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-var">StudioSummary'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The time when the Amazon EMR Studio was created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcreationTime%3AStudioSummary%27"><span class="annot"><span class="annottext">StudioSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AcreationTime%3AStudioSummary%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ID of the Amazon EMR Studio.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AstudioId%3AStudioSummary%27"><span class="annot"><span class="annottext">StudioSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AstudioId%3AStudioSummary%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Amazon EMR Studio.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AvpcId%3AStudioSummary%27"><span class="annot"><span class="annottext">StudioSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AvpcId%3AStudioSummary%27"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The unique access URL of the Amazon EMR Studio.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Aurl%3AStudioSummary%27"><span class="annot"><span class="annottext">StudioSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Aurl%3AStudioSummary%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Specifies whether the Studio authenticates users using IAM or Amazon Web</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- Services SSO.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AauthMode%3AStudioSummary%27"><span class="annot"><span class="annottext">StudioSummary -&gt; Maybe AuthMode
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AauthMode%3AStudioSummary%27"><span class="hs-identifier hs-var hs-var">authMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-type">AuthMode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The name of the Amazon EMR Studio.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Aname%3AStudioSummary%27"><span class="annot"><span class="annottext">StudioSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Aname%3AStudioSummary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The detailed description of the Amazon EMR Studio.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Adescription%3AStudioSummary%27"><span class="annot"><span class="annottext">StudioSummary -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Adescription%3AStudioSummary%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679377874"><span id="local-6989586621679377876"><span class="annot"><span class="annottext">StudioSummary -&gt; StudioSummary -&gt; Bool
+(StudioSummary -&gt; StudioSummary -&gt; Bool)
+-&gt; (StudioSummary -&gt; StudioSummary -&gt; Bool) -&gt; Eq StudioSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StudioSummary -&gt; StudioSummary -&gt; Bool
+$c/= :: StudioSummary -&gt; StudioSummary -&gt; Bool
+== :: StudioSummary -&gt; StudioSummary -&gt; Bool
+$c== :: StudioSummary -&gt; StudioSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377865"><span id="local-6989586621679377867"><span id="local-6989586621679377869"><span id="local-6989586621679377871"><span class="annot"><span class="annottext">ReadPrec [StudioSummary]
+ReadPrec StudioSummary
+Int -&gt; ReadS StudioSummary
+ReadS [StudioSummary]
+(Int -&gt; ReadS StudioSummary)
+-&gt; ReadS [StudioSummary]
+-&gt; ReadPrec StudioSummary
+-&gt; ReadPrec [StudioSummary]
+-&gt; Read StudioSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StudioSummary]
+$creadListPrec :: ReadPrec [StudioSummary]
+readPrec :: ReadPrec StudioSummary
+$creadPrec :: ReadPrec StudioSummary
+readList :: ReadS [StudioSummary]
+$creadList :: ReadS [StudioSummary]
+readsPrec :: Int -&gt; ReadS StudioSummary
+$creadsPrec :: Int -&gt; ReadS StudioSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679377858"><span id="local-6989586621679377860"><span id="local-6989586621679377862"><span class="annot"><span class="annottext">Int -&gt; StudioSummary -&gt; ShowS
+[StudioSummary] -&gt; ShowS
+StudioSummary -&gt; String
+(Int -&gt; StudioSummary -&gt; ShowS)
+-&gt; (StudioSummary -&gt; String)
+-&gt; ([StudioSummary] -&gt; ShowS)
+-&gt; Show StudioSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StudioSummary] -&gt; ShowS
+$cshowList :: [StudioSummary] -&gt; ShowS
+show :: StudioSummary -&gt; String
+$cshow :: StudioSummary -&gt; String
+showsPrec :: Int -&gt; StudioSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; StudioSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StudioSummary -&gt; Rep StudioSummary x)
+-&gt; (forall x. Rep StudioSummary x -&gt; StudioSummary)
+-&gt; Generic StudioSummary
+forall x. Rep StudioSummary x -&gt; StudioSummary
+forall x. StudioSummary -&gt; Rep StudioSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StudioSummary x -&gt; StudioSummary
+$cfrom :: forall x. StudioSummary -&gt; Rep StudioSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Create a value of 'StudioSummary' with all optional fields omitted.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'creationTime', 'studioSummary_creationTime' - The time when the Amazon EMR Studio was created.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'studioId', 'studioSummary_studioId' - The ID of the Amazon EMR Studio.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'vpcId', 'studioSummary_vpcId' - The ID of the Virtual Private Cloud (Amazon VPC) associated with the</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Amazon EMR Studio.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'url', 'studioSummary_url' - The unique access URL of the Amazon EMR Studio.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'authMode', 'studioSummary_authMode' - Specifies whether the Studio authenticates users using IAM or Amazon Web</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Services SSO.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'name', 'studioSummary_name' - The name of the Amazon EMR Studio.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'description', 'studioSummary_description' - The detailed description of the Amazon EMR Studio.</span><span>
+</span><span id="line-75"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#newStudioSummary"><span class="hs-identifier hs-type">newStudioSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span>
+</span><span id="line-77"></span><span id="newStudioSummary"><span class="annot"><span class="annottext">newStudioSummary :: StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#newStudioSummary"><span class="hs-identifier hs-var hs-var">newStudioSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">StudioSummary' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AuthMode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:StudioSummary' :: Maybe POSIX
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AcreationTime%3AStudioSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioId:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AstudioId%3AStudioSummary%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcId:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AvpcId%3AStudioSummary%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Aurl%3AStudioSummary%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:authMode:StudioSummary' :: Maybe AuthMode
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AauthMode%3AStudioSummary%27"><span class="hs-identifier hs-var">authMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Aname%3AStudioSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Adescription%3AStudioSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The time when the Amazon EMR Studio was created.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_creationTime"><span class="hs-identifier hs-type">studioSummary_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="studioSummary_creationTime"><span class="annot"><span class="annottext">studioSummary_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StudioSummary -&gt; f StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_creationTime"><span class="hs-identifier hs-var hs-var">studioSummary_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioSummary -&gt; Maybe POSIX)
+-&gt; (StudioSummary -&gt; Maybe POSIX -&gt; StudioSummary)
+-&gt; Lens StudioSummary StudioSummary (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377849"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:StudioSummary' :: StudioSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679377849"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377849"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377848"><span class="annot"><span class="annottext">s :: StudioSummary
+</span><a href="#local-6989586621679377848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377847"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioSummary
+</span><a href="#local-6989586621679377848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:StudioSummary' :: Maybe POSIX
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AcreationTime%3AStudioSummary%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679377847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; StudioSummary -&gt; f StudioSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; StudioSummary
+-&gt; f StudioSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The ID of the Amazon EMR Studio.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_studioId"><span class="hs-identifier hs-type">studioSummary_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="studioSummary_studioId"><span class="annot"><span class="annottext">studioSummary_studioId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StudioSummary -&gt; f StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_studioId"><span class="hs-identifier hs-var hs-var">studioSummary_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioSummary -&gt; Maybe Text)
+-&gt; (StudioSummary -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Lens StudioSummary StudioSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377842"><span class="annot"><span class="annottext">Maybe Text
+studioId :: Maybe Text
+$sel:studioId:StudioSummary' :: StudioSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679377842"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377842"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377841"><span class="annot"><span class="annottext">s :: StudioSummary
+</span><a href="#local-6989586621679377841"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377840"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioSummary
+</span><a href="#local-6989586621679377841"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AstudioId%3AStudioSummary%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377840"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The ID of the Virtual Private Cloud (Amazon VPC) associated with the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Amazon EMR Studio.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_vpcId"><span class="hs-identifier hs-type">studioSummary_vpcId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="studioSummary_vpcId"><span class="annot"><span class="annottext">studioSummary_vpcId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StudioSummary -&gt; f StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_vpcId"><span class="hs-identifier hs-var hs-var">studioSummary_vpcId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioSummary -&gt; Maybe Text)
+-&gt; (StudioSummary -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Lens StudioSummary StudioSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377838"><span class="annot"><span class="annottext">Maybe Text
+vpcId :: Maybe Text
+$sel:vpcId:StudioSummary' :: StudioSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679377838"><span class="hs-identifier hs-var hs-var">vpcId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377838"><span class="hs-identifier hs-var">vpcId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377837"><span class="annot"><span class="annottext">s :: StudioSummary
+</span><a href="#local-6989586621679377837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377836"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioSummary
+</span><a href="#local-6989586621679377837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcId:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AvpcId%3AStudioSummary%27"><span class="hs-identifier hs-var">vpcId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The unique access URL of the Amazon EMR Studio.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_url"><span class="hs-identifier hs-type">studioSummary_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="studioSummary_url"><span class="annot"><span class="annottext">studioSummary_url :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StudioSummary -&gt; f StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_url"><span class="hs-identifier hs-var hs-var">studioSummary_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioSummary -&gt; Maybe Text)
+-&gt; (StudioSummary -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Lens StudioSummary StudioSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377834"><span class="annot"><span class="annottext">Maybe Text
+url :: Maybe Text
+$sel:url:StudioSummary' :: StudioSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679377834"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377834"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377833"><span class="annot"><span class="annottext">s :: StudioSummary
+</span><a href="#local-6989586621679377833"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377832"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377832"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioSummary
+</span><a href="#local-6989586621679377833"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Aurl%3AStudioSummary%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377832"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | Specifies whether the Studio authenticates users using IAM or Amazon Web</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- Services SSO.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_authMode"><span class="hs-identifier hs-type">studioSummary_authMode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.AuthMode.html#AuthMode"><span class="hs-identifier hs-type">AuthMode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="studioSummary_authMode"><span class="annot"><span class="annottext">studioSummary_authMode :: (Maybe AuthMode -&gt; f (Maybe AuthMode))
+-&gt; StudioSummary -&gt; f StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_authMode"><span class="hs-identifier hs-var hs-var">studioSummary_authMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioSummary -&gt; Maybe AuthMode)
+-&gt; (StudioSummary -&gt; Maybe AuthMode -&gt; StudioSummary)
+-&gt; Lens
+     StudioSummary StudioSummary (Maybe AuthMode) (Maybe AuthMode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377830"><span class="annot"><span class="annottext">Maybe AuthMode
+authMode :: Maybe AuthMode
+$sel:authMode:StudioSummary' :: StudioSummary -&gt; Maybe AuthMode
+</span><a href="#local-6989586621679377830"><span class="hs-identifier hs-var hs-var">authMode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMode
+</span><a href="#local-6989586621679377830"><span class="hs-identifier hs-var">authMode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377829"><span class="annot"><span class="annottext">s :: StudioSummary
+</span><a href="#local-6989586621679377829"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377828"><span class="annot"><span class="annottext">Maybe AuthMode
+</span><a href="#local-6989586621679377828"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioSummary
+</span><a href="#local-6989586621679377829"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authMode:StudioSummary' :: Maybe AuthMode
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3AauthMode%3AStudioSummary%27"><span class="hs-identifier hs-var">authMode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthMode
+</span><a href="#local-6989586621679377828"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The name of the Amazon EMR Studio.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_name"><span class="hs-identifier hs-type">studioSummary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="studioSummary_name"><span class="annot"><span class="annottext">studioSummary_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StudioSummary -&gt; f StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_name"><span class="hs-identifier hs-var hs-var">studioSummary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioSummary -&gt; Maybe Text)
+-&gt; (StudioSummary -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Lens StudioSummary StudioSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377826"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:StudioSummary' :: StudioSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679377826"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377826"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377825"><span class="annot"><span class="annottext">s :: StudioSummary
+</span><a href="#local-6989586621679377825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377824"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioSummary
+</span><a href="#local-6989586621679377825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Aname%3AStudioSummary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The detailed description of the Amazon EMR Studio.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_description"><span class="hs-identifier hs-type">studioSummary_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="studioSummary_description"><span class="annot"><span class="annottext">studioSummary_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; StudioSummary -&gt; f StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#studioSummary_description"><span class="hs-identifier hs-var hs-var">studioSummary_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StudioSummary -&gt; Maybe Text)
+-&gt; (StudioSummary -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Lens StudioSummary StudioSummary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679377822"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:StudioSummary' :: StudioSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679377822"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377822"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679377821"><span class="annot"><span class="annottext">s :: StudioSummary
+</span><a href="#local-6989586621679377821"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-type">StudioSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679377820"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377820"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StudioSummary
+</span><a href="#local-6989586621679377821"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:StudioSummary' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#%24sel%3Adescription%3AStudioSummary%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679377820"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377817"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679377815"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser StudioSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser StudioSummary)
+-&gt; Value
+-&gt; Parser StudioSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;StudioSummary&quot;</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679377812"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe AuthMode
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; StudioSummary
+</span><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary%27"><span class="hs-identifier hs-var">StudioSummary'</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe AuthMode
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; StudioSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AuthMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; StudioSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AuthMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; StudioSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe AuthMode
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; StudioSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StudioId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe AuthMode
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; StudioSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AuthMode -&gt; Maybe Text -&gt; Maybe Text -&gt; StudioSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AuthMode -&gt; Maybe Text -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AuthMode -&gt; Maybe Text -&gt; Maybe Text -&gt; StudioSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AuthMode -&gt; Maybe Text -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Parser (Maybe AuthMode)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; StudioSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthMode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthMode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; StudioSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; StudioSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; StudioSummary)
+-&gt; Parser (Maybe Text) -&gt; Parser StudioSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679377812"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377806"><span id="local-6989586621679377808"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679377803"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.StudioSummary.html#StudioSummary"><span class="hs-identifier hs-type">StudioSummary</span></a></span></span><span>
+</span><span id="line-136"></span></pre></body></html>

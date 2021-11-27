@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.STS.Types.AssumedRoleUser</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.STS.Types.AssumedRoleUser</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The identifiers for the temporary security credentials that the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- operation returns.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAssumedRoleUser' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679150783"><span id="local-6989586621679150784"></span></span><span class="hs-keyword">data</span><span> </span><span id="AssumedRoleUser"><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-var">AssumedRoleUser</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssumedRoleUser%27"><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser%27"><span class="hs-identifier hs-var">AssumedRoleUser'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique identifier that contains the role ID and the role session name</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- of the role that is being assumed. The role ID is generated by Amazon</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Web Services when the role is created.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AassumedRoleId%3AAssumedRoleUser%27"><span class="annot"><span class="annottext">AssumedRoleUser -&gt; Text
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#%24sel%3AassumedRoleId%3AAssumedRoleUser%27"><span class="hs-identifier hs-var hs-var">assumedRoleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The ARN of the temporary security credentials that are returned from the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- AssumeRole action. For more information about ARNs and how to use them</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- in policies, see</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers&gt;</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aarn%3AAssumedRoleUser%27"><span class="annot"><span class="annottext">AssumedRoleUser -&gt; Text
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#%24sel%3Aarn%3AAssumedRoleUser%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679150776"><span id="local-6989586621679150778"><span class="annot"><span class="annottext">AssumedRoleUser -&gt; AssumedRoleUser -&gt; Bool
+(AssumedRoleUser -&gt; AssumedRoleUser -&gt; Bool)
+-&gt; (AssumedRoleUser -&gt; AssumedRoleUser -&gt; Bool)
+-&gt; Eq AssumedRoleUser
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssumedRoleUser -&gt; AssumedRoleUser -&gt; Bool
+$c/= :: AssumedRoleUser -&gt; AssumedRoleUser -&gt; Bool
+== :: AssumedRoleUser -&gt; AssumedRoleUser -&gt; Bool
+$c== :: AssumedRoleUser -&gt; AssumedRoleUser -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150767"><span id="local-6989586621679150769"><span id="local-6989586621679150771"><span id="local-6989586621679150773"><span class="annot"><span class="annottext">ReadPrec [AssumedRoleUser]
+ReadPrec AssumedRoleUser
+Int -&gt; ReadS AssumedRoleUser
+ReadS [AssumedRoleUser]
+(Int -&gt; ReadS AssumedRoleUser)
+-&gt; ReadS [AssumedRoleUser]
+-&gt; ReadPrec AssumedRoleUser
+-&gt; ReadPrec [AssumedRoleUser]
+-&gt; Read AssumedRoleUser
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssumedRoleUser]
+$creadListPrec :: ReadPrec [AssumedRoleUser]
+readPrec :: ReadPrec AssumedRoleUser
+$creadPrec :: ReadPrec AssumedRoleUser
+readList :: ReadS [AssumedRoleUser]
+$creadList :: ReadS [AssumedRoleUser]
+readsPrec :: Int -&gt; ReadS AssumedRoleUser
+$creadsPrec :: Int -&gt; ReadS AssumedRoleUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150760"><span id="local-6989586621679150762"><span id="local-6989586621679150764"><span class="annot"><span class="annottext">Int -&gt; AssumedRoleUser -&gt; ShowS
+[AssumedRoleUser] -&gt; ShowS
+AssumedRoleUser -&gt; String
+(Int -&gt; AssumedRoleUser -&gt; ShowS)
+-&gt; (AssumedRoleUser -&gt; String)
+-&gt; ([AssumedRoleUser] -&gt; ShowS)
+-&gt; Show AssumedRoleUser
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssumedRoleUser] -&gt; ShowS
+$cshowList :: [AssumedRoleUser] -&gt; ShowS
+show :: AssumedRoleUser -&gt; String
+$cshow :: AssumedRoleUser -&gt; String
+showsPrec :: Int -&gt; AssumedRoleUser -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssumedRoleUser -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AssumedRoleUser -&gt; Rep AssumedRoleUser x)
+-&gt; (forall x. Rep AssumedRoleUser x -&gt; AssumedRoleUser)
+-&gt; Generic AssumedRoleUser
+forall x. Rep AssumedRoleUser x -&gt; AssumedRoleUser
+forall x. AssumedRoleUser -&gt; Rep AssumedRoleUser x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssumedRoleUser x -&gt; AssumedRoleUser
+$cfrom :: forall x. AssumedRoleUser -&gt; Rep AssumedRoleUser x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'AssumedRoleUser' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'assumedRoleId', 'assumedRoleUser_assumedRoleId' - A unique identifier that contains the role ID and the role session name</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- of the role that is being assumed. The role ID is generated by Amazon</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Web Services when the role is created.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'arn', 'assumedRoleUser_arn' - The ARN of the temporary security credentials that are returned from the</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- AssumeRole action. For more information about ARNs and how to use them</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- in policies, see</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers&gt;</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#newAssumedRoleUser"><span class="hs-identifier hs-type">newAssumedRoleUser</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-comment">-- | 'assumedRoleId'</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span><span>
+</span><span id="line-67"></span><span id="newAssumedRoleUser"><span class="annot"><span class="annottext">newAssumedRoleUser :: Text -&gt; Text -&gt; AssumedRoleUser
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#newAssumedRoleUser"><span class="hs-identifier hs-var hs-var">newAssumedRoleUser</span></a></span></span><span> </span><span id="local-6989586621679150754"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150754"><span class="hs-identifier hs-var">pAssumedRoleId_</span></a></span></span><span> </span><span id="local-6989586621679150753"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150753"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">AssumedRoleUser' :: Text -&gt; Text -&gt; AssumedRoleUser
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser%27"><span class="hs-identifier hs-type">AssumedRoleUser'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assumedRoleId:AssumedRoleUser' :: Text
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#%24sel%3AassumedRoleId%3AAssumedRoleUser%27"><span class="hs-identifier hs-var">assumedRoleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150754"><span class="hs-identifier hs-var">pAssumedRoleId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:AssumedRoleUser' :: Text
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#%24sel%3Aarn%3AAssumedRoleUser%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150753"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | A unique identifier that contains the role ID and the role session name</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- of the role that is being assumed. The role ID is generated by Amazon</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Web Services when the role is created.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#assumedRoleUser_assumedRoleId"><span class="hs-identifier hs-type">assumedRoleUser_assumedRoleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-77"></span><span id="assumedRoleUser_assumedRoleId"><span class="annot"><span class="annottext">assumedRoleUser_assumedRoleId :: (Text -&gt; f Text) -&gt; AssumedRoleUser -&gt; f AssumedRoleUser
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#assumedRoleUser_assumedRoleId"><span class="hs-identifier hs-var hs-var">assumedRoleUser_assumedRoleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssumedRoleUser -&gt; Text)
+-&gt; (AssumedRoleUser -&gt; Text -&gt; AssumedRoleUser)
+-&gt; Lens AssumedRoleUser AssumedRoleUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser%27"><span class="hs-identifier hs-type">AssumedRoleUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150749"><span class="annot"><span class="annottext">Text
+assumedRoleId :: Text
+$sel:assumedRoleId:AssumedRoleUser' :: AssumedRoleUser -&gt; Text
+</span><a href="#local-6989586621679150749"><span class="hs-identifier hs-var hs-var">assumedRoleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150749"><span class="hs-identifier hs-var">assumedRoleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150748"><span class="annot"><span class="annottext">s :: AssumedRoleUser
+</span><a href="#local-6989586621679150748"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser%27"><span class="hs-identifier hs-type">AssumedRoleUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150747"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150747"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumedRoleUser
+</span><a href="#local-6989586621679150748"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assumedRoleId:AssumedRoleUser' :: Text
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#%24sel%3AassumedRoleId%3AAssumedRoleUser%27"><span class="hs-identifier hs-var">assumedRoleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150747"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The ARN of the temporary security credentials that are returned from the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- AssumeRole action. For more information about ARNs and how to use them</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- in policies, see</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers&gt;</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- in the /IAM User Guide/.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#assumedRoleUser_arn"><span class="hs-identifier hs-type">assumedRoleUser_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="assumedRoleUser_arn"><span class="annot"><span class="annottext">assumedRoleUser_arn :: (Text -&gt; f Text) -&gt; AssumedRoleUser -&gt; f AssumedRoleUser
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#assumedRoleUser_arn"><span class="hs-identifier hs-var hs-var">assumedRoleUser_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AssumedRoleUser -&gt; Text)
+-&gt; (AssumedRoleUser -&gt; Text -&gt; AssumedRoleUser)
+-&gt; Lens AssumedRoleUser AssumedRoleUser Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser%27"><span class="hs-identifier hs-type">AssumedRoleUser'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150745"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:AssumedRoleUser' :: AssumedRoleUser -&gt; Text
+</span><a href="#local-6989586621679150745"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150745"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150744"><span class="annot"><span class="annottext">s :: AssumedRoleUser
+</span><a href="#local-6989586621679150744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser%27"><span class="hs-identifier hs-type">AssumedRoleUser'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150743"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AssumedRoleUser
+</span><a href="#local-6989586621679150744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AssumedRoleUser' :: Text
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#%24sel%3Aarn%3AAssumedRoleUser%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679150743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679150740"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String AssumedRoleUser
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679150738"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679150738"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; AssumedRoleUser
+</span><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser%27"><span class="hs-identifier hs-var">AssumedRoleUser'</span></a></span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">(Text -&gt; Text -&gt; AssumedRoleUser)
+-&gt; Either String Text -&gt; Either String (Text -&gt; AssumedRoleUser)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679150738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssumedRoleId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; AssumedRoleUser)
+-&gt; Either String Text -&gt; Either String AssumedRoleUser
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679150738"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150732"><span id="local-6989586621679150734"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150729"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.STS.Types.AssumedRoleUser.html#AssumedRoleUser"><span class="hs-identifier hs-type">AssumedRoleUser</span></a></span></span><span>
+</span><span id="line-96"></span></pre></body></html>

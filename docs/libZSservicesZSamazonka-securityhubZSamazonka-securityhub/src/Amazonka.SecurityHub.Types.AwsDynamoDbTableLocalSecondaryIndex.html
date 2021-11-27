@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableKeySchema.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsDynamoDbTableKeySchema</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about a local secondary index for a DynamoDB table.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newAwsDynamoDbTableLocalSecondaryIndex' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679940968"><span id="local-6989586621679940969"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsDynamoDbTableLocalSecondaryIndex"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-var">AwsDynamoDbTableLocalSecondaryIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsDynamoDbTableLocalSecondaryIndex%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the index.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AindexArn%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AindexArn%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var hs-var">indexArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The complete key schema for the index.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AkeySchema%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AkeySchema%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableKeySchema.html#AwsDynamoDbTableKeySchema"><span class="hs-identifier hs-type">AwsDynamoDbTableKeySchema</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Attributes that are copied from the table into the index. These are in</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- addition to the primary key attributes and index key attributes, which</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- are automatically projected.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aprojection%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Maybe AwsDynamoDbTableProjection
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3Aprojection%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection.html#AwsDynamoDbTableProjection"><span class="hs-identifier hs-type">AwsDynamoDbTableProjection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The name of the index.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AindexName%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AindexName%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679940959"><span id="local-6989586621679940961"><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex
+-&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; Bool
+(AwsDynamoDbTableLocalSecondaryIndex
+ -&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; Bool)
+-&gt; (AwsDynamoDbTableLocalSecondaryIndex
+    -&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; Bool)
+-&gt; Eq AwsDynamoDbTableLocalSecondaryIndex
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; Bool
+$c/= :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; Bool
+== :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; Bool
+$c== :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679940950"><span id="local-6989586621679940952"><span id="local-6989586621679940954"><span id="local-6989586621679940956"><span class="annot"><span class="annottext">ReadPrec [AwsDynamoDbTableLocalSecondaryIndex]
+ReadPrec AwsDynamoDbTableLocalSecondaryIndex
+Int -&gt; ReadS AwsDynamoDbTableLocalSecondaryIndex
+ReadS [AwsDynamoDbTableLocalSecondaryIndex]
+(Int -&gt; ReadS AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; ReadS [AwsDynamoDbTableLocalSecondaryIndex]
+-&gt; ReadPrec AwsDynamoDbTableLocalSecondaryIndex
+-&gt; ReadPrec [AwsDynamoDbTableLocalSecondaryIndex]
+-&gt; Read AwsDynamoDbTableLocalSecondaryIndex
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AwsDynamoDbTableLocalSecondaryIndex]
+$creadListPrec :: ReadPrec [AwsDynamoDbTableLocalSecondaryIndex]
+readPrec :: ReadPrec AwsDynamoDbTableLocalSecondaryIndex
+$creadPrec :: ReadPrec AwsDynamoDbTableLocalSecondaryIndex
+readList :: ReadS [AwsDynamoDbTableLocalSecondaryIndex]
+$creadList :: ReadS [AwsDynamoDbTableLocalSecondaryIndex]
+readsPrec :: Int -&gt; ReadS AwsDynamoDbTableLocalSecondaryIndex
+$creadsPrec :: Int -&gt; ReadS AwsDynamoDbTableLocalSecondaryIndex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679940943"><span id="local-6989586621679940945"><span id="local-6989586621679940947"><span class="annot"><span class="annottext">Int -&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; ShowS
+[AwsDynamoDbTableLocalSecondaryIndex] -&gt; ShowS
+AwsDynamoDbTableLocalSecondaryIndex -&gt; String
+(Int -&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; ShowS)
+-&gt; (AwsDynamoDbTableLocalSecondaryIndex -&gt; String)
+-&gt; ([AwsDynamoDbTableLocalSecondaryIndex] -&gt; ShowS)
+-&gt; Show AwsDynamoDbTableLocalSecondaryIndex
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsDynamoDbTableLocalSecondaryIndex] -&gt; ShowS
+$cshowList :: [AwsDynamoDbTableLocalSecondaryIndex] -&gt; ShowS
+show :: AwsDynamoDbTableLocalSecondaryIndex -&gt; String
+$cshow :: AwsDynamoDbTableLocalSecondaryIndex -&gt; String
+showsPrec :: Int -&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; ShowS
+$cshowsPrec :: Int -&gt; AwsDynamoDbTableLocalSecondaryIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsDynamoDbTableLocalSecondaryIndex
+ -&gt; Rep AwsDynamoDbTableLocalSecondaryIndex x)
+-&gt; (forall x.
+    Rep AwsDynamoDbTableLocalSecondaryIndex x
+    -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Generic AwsDynamoDbTableLocalSecondaryIndex
+forall x.
+Rep AwsDynamoDbTableLocalSecondaryIndex x
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+forall x.
+AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Rep AwsDynamoDbTableLocalSecondaryIndex x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AwsDynamoDbTableLocalSecondaryIndex x
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+$cfrom :: forall x.
+AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Rep AwsDynamoDbTableLocalSecondaryIndex x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Create a value of 'AwsDynamoDbTableLocalSecondaryIndex' with all optional fields omitted.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'indexArn', 'awsDynamoDbTableLocalSecondaryIndex_indexArn' - The ARN of the index.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'keySchema', 'awsDynamoDbTableLocalSecondaryIndex_keySchema' - The complete key schema for the index.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'projection', 'awsDynamoDbTableLocalSecondaryIndex_projection' - Attributes that are copied from the table into the index. These are in</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- addition to the primary key attributes and index key attributes, which</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- are automatically projected.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'indexName', 'awsDynamoDbTableLocalSecondaryIndex_indexName' - The name of the index.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#newAwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">newAwsDynamoDbTableLocalSecondaryIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span>
+</span><span id="line-64"></span><span id="newAwsDynamoDbTableLocalSecondaryIndex"><span class="annot"><span class="annottext">newAwsDynamoDbTableLocalSecondaryIndex :: AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#newAwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-var hs-var">newAwsDynamoDbTableLocalSecondaryIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex' :: Maybe Text
+-&gt; Maybe [AwsDynamoDbTableKeySchema]
+-&gt; Maybe AwsDynamoDbTableProjection
+-&gt; Maybe Text
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:indexArn:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AindexArn%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">indexArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:keySchema:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AkeySchema%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:projection:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe AwsDynamoDbTableProjection
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3Aprojection%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsDynamoDbTableProjection
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexName:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AindexName%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ARN of the index.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_indexArn"><span class="hs-identifier hs-type">awsDynamoDbTableLocalSecondaryIndex_indexArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="awsDynamoDbTableLocalSecondaryIndex_indexArn"><span class="annot"><span class="annottext">awsDynamoDbTableLocalSecondaryIndex_indexArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+-&gt; f AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_indexArn"><span class="hs-identifier hs-var hs-var">awsDynamoDbTableLocalSecondaryIndex_indexArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text)
+-&gt; (AwsDynamoDbTableLocalSecondaryIndex
+    -&gt; Maybe Text -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Lens
+     AwsDynamoDbTableLocalSecondaryIndex
+     AwsDynamoDbTableLocalSecondaryIndex
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679940934"><span class="annot"><span class="annottext">Maybe Text
+indexArn :: Maybe Text
+$sel:indexArn:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text
+</span><a href="#local-6989586621679940934"><span class="hs-identifier hs-var hs-var">indexArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940934"><span class="hs-identifier hs-var">indexArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679940933"><span class="annot"><span class="annottext">s :: AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940933"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679940932"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940932"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940933"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexArn:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AindexArn%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">indexArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940932"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The complete key schema for the index.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_keySchema"><span class="hs-identifier hs-type">awsDynamoDbTableLocalSecondaryIndex_keySchema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableKeySchema.html#AwsDynamoDbTableKeySchema"><span class="hs-identifier hs-type">AwsDynamoDbTableKeySchema</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="awsDynamoDbTableLocalSecondaryIndex_keySchema"><span class="annot"><span class="annottext">awsDynamoDbTableLocalSecondaryIndex_keySchema :: (Maybe [AwsDynamoDbTableKeySchema]
+ -&gt; f (Maybe [AwsDynamoDbTableKeySchema]))
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+-&gt; f AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_keySchema"><span class="hs-identifier hs-var hs-var">awsDynamoDbTableLocalSecondaryIndex_keySchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsDynamoDbTableLocalSecondaryIndex
+ -&gt; Maybe [AwsDynamoDbTableKeySchema])
+-&gt; (AwsDynamoDbTableLocalSecondaryIndex
+    -&gt; Maybe [AwsDynamoDbTableKeySchema]
+    -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Lens
+     AwsDynamoDbTableLocalSecondaryIndex
+     AwsDynamoDbTableLocalSecondaryIndex
+     (Maybe [AwsDynamoDbTableKeySchema])
+     (Maybe [AwsDynamoDbTableKeySchema])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679940930"><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+keySchema :: Maybe [AwsDynamoDbTableKeySchema]
+$sel:keySchema:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="#local-6989586621679940930"><span class="hs-identifier hs-var hs-var">keySchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="#local-6989586621679940930"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679940929"><span class="annot"><span class="annottext">s :: AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940929"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679940928"><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="#local-6989586621679940928"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940929"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:keySchema:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AkeySchema%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">keySchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="#local-6989586621679940928"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AwsDynamoDbTableKeySchema]
+  -&gt; f (Maybe [AwsDynamoDbTableKeySchema]))
+ -&gt; AwsDynamoDbTableLocalSecondaryIndex
+ -&gt; f AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; ((Maybe [AwsDynamoDbTableKeySchema]
+     -&gt; f (Maybe [AwsDynamoDbTableKeySchema]))
+    -&gt; Maybe [AwsDynamoDbTableKeySchema]
+    -&gt; f (Maybe [AwsDynamoDbTableKeySchema]))
+-&gt; (Maybe [AwsDynamoDbTableKeySchema]
+    -&gt; f (Maybe [AwsDynamoDbTableKeySchema]))
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+-&gt; f AwsDynamoDbTableLocalSecondaryIndex
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsDynamoDbTableKeySchema]
+  [AwsDynamoDbTableKeySchema]
+  [AwsDynamoDbTableKeySchema]
+  [AwsDynamoDbTableKeySchema]
+-&gt; Iso
+     (Maybe [AwsDynamoDbTableKeySchema])
+     (Maybe [AwsDynamoDbTableKeySchema])
+     (Maybe [AwsDynamoDbTableKeySchema])
+     (Maybe [AwsDynamoDbTableKeySchema])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsDynamoDbTableKeySchema]
+  [AwsDynamoDbTableKeySchema]
+  [AwsDynamoDbTableKeySchema]
+  [AwsDynamoDbTableKeySchema]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | Attributes that are copied from the table into the index. These are in</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- addition to the primary key attributes and index key attributes, which</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- are automatically projected.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_projection"><span class="hs-identifier hs-type">awsDynamoDbTableLocalSecondaryIndex_projection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableProjection.html#AwsDynamoDbTableProjection"><span class="hs-identifier hs-type">AwsDynamoDbTableProjection</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="awsDynamoDbTableLocalSecondaryIndex_projection"><span class="annot"><span class="annottext">awsDynamoDbTableLocalSecondaryIndex_projection :: (Maybe AwsDynamoDbTableProjection
+ -&gt; f (Maybe AwsDynamoDbTableProjection))
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+-&gt; f AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_projection"><span class="hs-identifier hs-var hs-var">awsDynamoDbTableLocalSecondaryIndex_projection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsDynamoDbTableLocalSecondaryIndex
+ -&gt; Maybe AwsDynamoDbTableProjection)
+-&gt; (AwsDynamoDbTableLocalSecondaryIndex
+    -&gt; Maybe AwsDynamoDbTableProjection
+    -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Lens
+     AwsDynamoDbTableLocalSecondaryIndex
+     AwsDynamoDbTableLocalSecondaryIndex
+     (Maybe AwsDynamoDbTableProjection)
+     (Maybe AwsDynamoDbTableProjection)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679940923"><span class="annot"><span class="annottext">Maybe AwsDynamoDbTableProjection
+projection :: Maybe AwsDynamoDbTableProjection
+$sel:projection:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Maybe AwsDynamoDbTableProjection
+</span><a href="#local-6989586621679940923"><span class="hs-identifier hs-var hs-var">projection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AwsDynamoDbTableProjection
+</span><a href="#local-6989586621679940923"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679940922"><span class="annot"><span class="annottext">s :: AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940922"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679940921"><span class="annot"><span class="annottext">Maybe AwsDynamoDbTableProjection
+</span><a href="#local-6989586621679940921"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940922"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:projection:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe AwsDynamoDbTableProjection
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3Aprojection%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">projection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AwsDynamoDbTableProjection
+</span><a href="#local-6989586621679940921"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The name of the index.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_indexName"><span class="hs-identifier hs-type">awsDynamoDbTableLocalSecondaryIndex_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="awsDynamoDbTableLocalSecondaryIndex_indexName"><span class="annot"><span class="annottext">awsDynamoDbTableLocalSecondaryIndex_indexName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+-&gt; f AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#awsDynamoDbTableLocalSecondaryIndex_indexName"><span class="hs-identifier hs-var hs-var">awsDynamoDbTableLocalSecondaryIndex_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text)
+-&gt; (AwsDynamoDbTableLocalSecondaryIndex
+    -&gt; Maybe Text -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Lens
+     AwsDynamoDbTableLocalSecondaryIndex
+     AwsDynamoDbTableLocalSecondaryIndex
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679940919"><span class="annot"><span class="annottext">Maybe Text
+indexName :: Maybe Text
+$sel:indexName:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text
+</span><a href="#local-6989586621679940919"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940919"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679940918"><span class="annot"><span class="annottext">s :: AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679940917"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="#local-6989586621679940918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:AwsDynamoDbTableLocalSecondaryIndex' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#%24sel%3AindexName%3AAwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679940914"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679940912"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AwsDynamoDbTableLocalSecondaryIndex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Value
+-&gt; Parser AwsDynamoDbTableLocalSecondaryIndex
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsDynamoDbTableLocalSecondaryIndex&quot;</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679940909"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679940909"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe [AwsDynamoDbTableKeySchema]
+-&gt; Maybe AwsDynamoDbTableProjection
+-&gt; Maybe Text
+-&gt; AwsDynamoDbTableLocalSecondaryIndex
+</span><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-var">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe [AwsDynamoDbTableKeySchema]
+ -&gt; Maybe AwsDynamoDbTableProjection
+ -&gt; Maybe Text
+ -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [AwsDynamoDbTableKeySchema]
+      -&gt; Maybe AwsDynamoDbTableProjection
+      -&gt; Maybe Text
+      -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679940909"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [AwsDynamoDbTableKeySchema]
+   -&gt; Maybe AwsDynamoDbTableProjection
+   -&gt; Maybe Text
+   -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Parser (Maybe [AwsDynamoDbTableKeySchema])
+-&gt; Parser
+     (Maybe AwsDynamoDbTableProjection
+      -&gt; Maybe Text -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679940909"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe [AwsDynamoDbTableKeySchema]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeySchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [AwsDynamoDbTableKeySchema]))
+-&gt; Maybe [AwsDynamoDbTableKeySchema]
+-&gt; Parser (Maybe [AwsDynamoDbTableKeySchema])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AwsDynamoDbTableProjection
+   -&gt; Maybe Text -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Parser (Maybe AwsDynamoDbTableProjection)
+-&gt; Parser (Maybe Text -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679940909"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AwsDynamoDbTableProjection)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Projection&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; AwsDynamoDbTableLocalSecondaryIndex)
+-&gt; Parser (Maybe Text)
+-&gt; Parser AwsDynamoDbTableLocalSecondaryIndex
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679940909"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679940902"><span id="local-6989586621679940904"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span></span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679940899"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679940891"><span id="local-6989586621679940893"><span id="local-6989586621679940895"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex</span></a></span></span></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679940889"><span class="annot"><span class="annottext">toJSON :: AwsDynamoDbTableLocalSecondaryIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsDynamoDbTableLocalSecondaryIndex.html#AwsDynamoDbTableLocalSecondaryIndex%27"><span class="hs-identifier hs-type">AwsDynamoDbTableLocalSecondaryIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679940884"><span id="local-6989586621679940885"><span id="local-6989586621679940886"><span id="local-6989586621679940887"><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+Maybe Text
+Maybe AwsDynamoDbTableProjection
+indexName :: Maybe Text
+projection :: Maybe AwsDynamoDbTableProjection
+keySchema :: Maybe [AwsDynamoDbTableKeySchema]
+indexArn :: Maybe Text
+$sel:indexName:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text
+$sel:projection:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Maybe AwsDynamoDbTableProjection
+$sel:keySchema:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex
+-&gt; Maybe [AwsDynamoDbTableKeySchema]
+$sel:indexArn:AwsDynamoDbTableLocalSecondaryIndex' :: AwsDynamoDbTableLocalSecondaryIndex -&gt; Maybe Text
+</span><a href="#local-6989586621679940884"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940887"><span class="hs-identifier hs-var">indexArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KeySchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [AwsDynamoDbTableKeySchema] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsDynamoDbTableKeySchema] -&gt; Pair)
+-&gt; Maybe [AwsDynamoDbTableKeySchema] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AwsDynamoDbTableKeySchema]
+</span><a href="#local-6989586621679940886"><span class="hs-identifier hs-var">keySchema</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Projection&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AwsDynamoDbTableProjection -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AwsDynamoDbTableProjection -&gt; Pair)
+-&gt; Maybe AwsDynamoDbTableProjection -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AwsDynamoDbTableProjection
+</span><a href="#local-6989586621679940885"><span class="hs-identifier hs-var">projection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679940884"><span class="hs-identifier hs-var">indexName</span></a></span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span></pre></body></html>

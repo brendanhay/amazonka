@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier
+module Amazonka.SageMakerA2IRuntime.Types.ContentClassifier
 newtype ContentClassifier
 ContentClassifier' :: Text -> ContentClassifier
 [fromContentClassifier] :: ContentClassifier -> Text
 pattern ContentClassifier_FreeOfAdultContent :: ContentClassifier
 pattern ContentClassifier_FreeOfPersonallyIdentifiableInformation :: ContentClassifier
-instance Network.AWS.Data.XML.ToXML Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.XML.FromXML Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Log.ToLog Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Text.ToText Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Network.AWS.Data.Text.FromText Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance GHC.Classes.Ord Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.XML.ToXML Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.XML.FromXML Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Headers.ToHeader Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Log.ToLog Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Text.ToText Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Amazonka.Data.Text.FromText Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance GHC.Classes.Ord Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.Types.ContentClassifier.ContentClassifier
 
 
-module Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
+module Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes
 
 -- | Attributes of the data specified by the customer. Use these to
 --   describe the data to be labeled.
@@ -72,16 +72,16 @@ newHumanLoopDataAttributes :: HumanLoopDataAttributes
 --   Amazon SageMaker can restrict the Amazon Mechanical Turk workers who
 --   can view your task based on this information.
 humanLoopDataAttributes_contentClassifiers :: Lens' HumanLoopDataAttributes [ContentClassifier]
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerA2IRuntime.Types.HumanLoopDataAttributes.HumanLoopDataAttributes
 
 
-module Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput
+module Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput
 
 -- | An object containing the human loop input in JSON format.
 --   
@@ -111,16 +111,16 @@ newHumanLoopInput :: Text -> HumanLoopInput
 -- | Serialized input from the human loop. The input must be a string
 --   representation of a file in JSON format.
 humanLoopInput_inputContent :: Lens' HumanLoopInput Text
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerA2IRuntime.Types.HumanLoopInput.HumanLoopInput
 
 
-module Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput
+module Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput
 
 -- | Information about where the human output will be stored.
 --   
@@ -149,16 +149,16 @@ newHumanLoopOutput :: Text -> HumanLoopOutput
 -- | The location of the Amazon S3 object where Amazon Augmented AI stores
 --   your human loop output.
 humanLoopOutput_outputS3Uri :: Lens' HumanLoopOutput Text
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.Types.HumanLoopOutput.HumanLoopOutput
 
 
-module Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus
+module Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus
 newtype HumanLoopStatus
 HumanLoopStatus' :: Text -> HumanLoopStatus
 [fromHumanLoopStatus] :: HumanLoopStatus -> Text
@@ -167,28 +167,28 @@ pattern HumanLoopStatus_Failed :: HumanLoopStatus
 pattern HumanLoopStatus_InProgress :: HumanLoopStatus
 pattern HumanLoopStatus_Stopped :: HumanLoopStatus
 pattern HumanLoopStatus_Stopping :: HumanLoopStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance GHC.Classes.Ord Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.XML.ToXML Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.XML.FromXML Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.Log.ToLog Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.Text.ToText Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Amazonka.Data.Text.FromText Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance GHC.Classes.Ord Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.Types.HumanLoopStatus.HumanLoopStatus
 
 
-module Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary
+module Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary
 
 -- | Summary information about the human loop.
 --   
@@ -259,43 +259,43 @@ humanLoopSummary_humanLoopName :: Lens' HumanLoopSummary (Maybe Text)
 -- | The Amazon Resource Name (ARN) of the flow definition used to
 --   configure the human loop.
 humanLoopSummary_flowDefinitionArn :: Lens' HumanLoopSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.Types.HumanLoopSummary.HumanLoopSummary
 
 
-module Network.AWS.SageMakerA2IRuntime.Types.SortOrder
+module Amazonka.SageMakerA2IRuntime.Types.SortOrder
 newtype SortOrder
 SortOrder' :: Text -> SortOrder
 [fromSortOrder] :: SortOrder -> Text
 pattern SortOrder_Ascending :: SortOrder
 pattern SortOrder_Descending :: SortOrder
-instance Network.AWS.Data.XML.ToXML Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Network.AWS.Data.XML.FromXML Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Log.ToLog Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.ToText Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Network.AWS.Data.Text.FromText Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance GHC.Classes.Ord Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.ToXML Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.XML.FromXML Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.Headers.ToHeader Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.Log.ToLog Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.ByteString.ToByteString Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.ToText Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Amazonka.Data.Text.FromText Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance GHC.Classes.Ord Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.Types.SortOrder.SortOrder
 
 
-module Network.AWS.SageMakerA2IRuntime.Types
+module Amazonka.SageMakerA2IRuntime.Types
 
 -- | API version <tt>2019-11-07</tt> of the Amazon Augmented AI Runtime SDK
 --   configuration.
@@ -517,7 +517,7 @@ humanLoopSummary_flowDefinitionArn :: Lens' HumanLoopSummary (Maybe Text)
 
 
 -- | Stops the specified human loop.
-module Network.AWS.SageMakerA2IRuntime.StopHumanLoop
+module Amazonka.SageMakerA2IRuntime.StopHumanLoop
 
 -- | <i>See:</i> <a>newStopHumanLoop</a> smart constructor.
 data StopHumanLoop
@@ -566,27 +566,27 @@ newStopHumanLoopResponse :: Int -> StopHumanLoopResponse
 
 -- | The response's http status code.
 stopHumanLoopResponse_httpStatus :: Lens' StopHumanLoopResponse Int
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoopResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.StopHumanLoop.StopHumanLoop
 
 
 -- | Starts a human loop, provided that at least one activation condition
 --   is met.
-module Network.AWS.SageMakerA2IRuntime.StartHumanLoop
+module Amazonka.SageMakerA2IRuntime.StartHumanLoop
 
 -- | <i>See:</i> <a>newStartHumanLoop</a> smart constructor.
 data StartHumanLoop
@@ -681,29 +681,29 @@ startHumanLoopResponse_humanLoopArn :: Lens' StartHumanLoopResponse (Maybe Text)
 
 -- | The response's http status code.
 startHumanLoopResponse_httpStatus :: Lens' StartHumanLoopResponse Int
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoopResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.StartHumanLoop.StartHumanLoop
 
 
 -- | Returns information about human loops, given the specified parameters.
 --   If a human loop was deleted, it will not be included.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SageMakerA2IRuntime.ListHumanLoops
+module Amazonka.SageMakerA2IRuntime.ListHumanLoops
 
 -- | <i>See:</i> <a>newListHumanLoops</a> smart constructor.
 data ListHumanLoops
@@ -838,28 +838,28 @@ listHumanLoopsResponse_httpStatus :: Lens' ListHumanLoopsResponse Int
 
 -- | An array of objects that contain information about the human loops.
 listHumanLoopsResponse_humanLoopSummaries :: Lens' ListHumanLoopsResponse [HumanLoopSummary]
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoopsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.ListHumanLoops.ListHumanLoops
 
 
 -- | Returns information about the specified human loop. If the human loop
 --   was deleted, this operation will return a
 --   <tt>ResourceNotFoundException</tt> error.
-module Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop
+module Amazonka.SageMakerA2IRuntime.DescribeHumanLoop
 
 -- | <i>See:</i> <a>newDescribeHumanLoop</a> smart constructor.
 data DescribeHumanLoop
@@ -1008,28 +1008,28 @@ describeHumanLoopResponse_humanLoopArn :: Lens' DescribeHumanLoopResponse Text
 
 -- | The Amazon Resource Name (ARN) of the flow definition.
 describeHumanLoopResponse_flowDefinitionArn :: Lens' DescribeHumanLoopResponse Text
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoopResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.DescribeHumanLoop.DescribeHumanLoop
 
 
 -- | Deletes the specified human loop for a flow definition.
 --   
 --   If the human loop was deleted, this operation will return a
 --   <tt>ResourceNotFoundException</tt>.
-module Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop
+module Amazonka.SageMakerA2IRuntime.DeleteHumanLoop
 
 -- | <i>See:</i> <a>newDeleteHumanLoop</a> smart constructor.
 data DeleteHumanLoop
@@ -1078,24 +1078,24 @@ newDeleteHumanLoopResponse :: Int -> DeleteHumanLoopResponse
 
 -- | The response's http status code.
 deleteHumanLoopResponse_httpStatus :: Lens' DeleteHumanLoopResponse Int
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance GHC.Generics.Generic Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
-instance GHC.Show.Show Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
-instance GHC.Read.Read Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance Control.DeepSeq.NFData Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance GHC.Generics.Generic Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
+instance GHC.Show.Show Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
+instance GHC.Read.Read Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
+instance GHC.Classes.Eq Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoopResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance Control.DeepSeq.NFData Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerA2IRuntime.DeleteHumanLoop.DeleteHumanLoop
 
 
-module Network.AWS.SageMakerA2IRuntime.Lens
+module Amazonka.SageMakerA2IRuntime.Lens
 
 -- | (Optional) The timestamp of the date when you want the human loops to
 --   begin in ISO 8601 format. For example, <tt>2020-02-24</tt>.
@@ -1233,7 +1233,7 @@ humanLoopSummary_humanLoopName :: Lens' HumanLoopSummary (Maybe Text)
 humanLoopSummary_flowDefinitionArn :: Lens' HumanLoopSummary (Maybe Text)
 
 
-module Network.AWS.SageMakerA2IRuntime.Waiters
+module Amazonka.SageMakerA2IRuntime.Waiters
 
 
 -- | Derived from API version <tt>2019-11-07</tt> of the AWS service
@@ -1272,7 +1272,7 @@ module Network.AWS.SageMakerA2IRuntime.Waiters
 --   start human review workflows for those services. To learn how Amazon
 --   A2I uses these APIs, see <a>Use APIs in Amazon A2I</a> in the Amazon
 --   SageMaker Developer Guide.
-module Network.AWS.SageMakerA2IRuntime
+module Amazonka.SageMakerA2IRuntime
 
 -- | API version <tt>2019-11-07</tt> of the Amazon Augmented AI Runtime SDK
 --   configuration.

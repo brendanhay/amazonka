@@ -1,0 +1,1131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeArtifact.DisposePackageVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the assets in package versions and sets the package versions\'</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- status to @Disposed@. A disposed package version cannot be restored in</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- your repository because its assets are deleted.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- To view all disposed package versions in a repository, use</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html ListPackageVersions&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- and set the</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_ListPackageVersions.html#API_ListPackageVersions_RequestSyntax status&gt;</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- parameter to @Disposed@.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- To view information about a disposed package version, use</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_DescribePackageVersion.html DescribePackageVersion&gt;.</span><span>
+</span><span id="line-35"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeArtifact.DisposePackageVersions</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier">DisposePackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#newDisposePackageVersions"><span class="hs-identifier">newDisposePackageVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_expectedStatus"><span class="hs-identifier">disposePackageVersions_expectedStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_versionRevisions"><span class="hs-identifier">disposePackageVersions_versionRevisions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_namespace"><span class="hs-identifier">disposePackageVersions_namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_domainOwner"><span class="hs-identifier">disposePackageVersions_domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_domain"><span class="hs-identifier">disposePackageVersions_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_repository"><span class="hs-identifier">disposePackageVersions_repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_format"><span class="hs-identifier">disposePackageVersions_format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_package"><span class="hs-identifier">disposePackageVersions_package</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_versions"><span class="hs-identifier">disposePackageVersions_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier">DisposePackageVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#newDisposePackageVersionsResponse"><span class="hs-identifier">newDisposePackageVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_failedVersions"><span class="hs-identifier">disposePackageVersionsResponse_failedVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_successfulVersions"><span class="hs-identifier">disposePackageVersionsResponse_successfulVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_httpStatus"><span class="hs-identifier">disposePackageVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.html"><span class="hs-identifier">Amazonka.CodeArtifact.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | /See:/ 'newDisposePackageVersions' smart constructor.</span><span>
+</span><span id="line-70"></span><span id="local-6989586621679237318"><span id="local-6989586621679237319"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisposePackageVersions"><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-var">DisposePackageVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisposePackageVersions%27"><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-var">DisposePackageVersions'</span></a></span></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The expected status of the package version to dispose. Valid values are:</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- -   @Published@</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- -   @Unfinished@</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- -   @Unlisted@</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- -   @Archived@</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- -   @Disposed@</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AexpectedStatus%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; Maybe PackageVersionStatus
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AexpectedStatus%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">expectedStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The revisions of the package versions you want to dispose.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AversionRevisions%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AversionRevisions%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">versionRevisions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3Anamespace%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Anamespace%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AdomainOwner%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; Maybe Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AdomainOwner%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The name of the domain that contains the repository you want to dispose.</span><span>
+</span><span id="line-99"></span><span>    </span><span id="%24sel%3Adomain%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Adomain%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- | The name of the repository that contains the package versions you want</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- to dispose.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3Arepository%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Arepository%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | A format that specifies the type of package versions you want to</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- dispose. The valid values are:</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3Aformat%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; PackageFormat
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Aformat%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | The name of the package with the versions you want to dispose.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Apackage%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Apackage%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | The versions of the package you want to dispose.</span><span>
+</span><span id="line-115"></span><span>    </span><span id="%24sel%3Aversions%3ADisposePackageVersions%27"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; [Text]
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Aversions%3ADisposePackageVersions%27"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237304"><span id="local-6989586621679237306"><span class="annot"><span class="annottext">DisposePackageVersions -&gt; DisposePackageVersions -&gt; Bool
+(DisposePackageVersions -&gt; DisposePackageVersions -&gt; Bool)
+-&gt; (DisposePackageVersions -&gt; DisposePackageVersions -&gt; Bool)
+-&gt; Eq DisposePackageVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisposePackageVersions -&gt; DisposePackageVersions -&gt; Bool
+$c/= :: DisposePackageVersions -&gt; DisposePackageVersions -&gt; Bool
+== :: DisposePackageVersions -&gt; DisposePackageVersions -&gt; Bool
+$c== :: DisposePackageVersions -&gt; DisposePackageVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237295"><span id="local-6989586621679237297"><span id="local-6989586621679237299"><span id="local-6989586621679237301"><span class="annot"><span class="annottext">ReadPrec [DisposePackageVersions]
+ReadPrec DisposePackageVersions
+Int -&gt; ReadS DisposePackageVersions
+ReadS [DisposePackageVersions]
+(Int -&gt; ReadS DisposePackageVersions)
+-&gt; ReadS [DisposePackageVersions]
+-&gt; ReadPrec DisposePackageVersions
+-&gt; ReadPrec [DisposePackageVersions]
+-&gt; Read DisposePackageVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisposePackageVersions]
+$creadListPrec :: ReadPrec [DisposePackageVersions]
+readPrec :: ReadPrec DisposePackageVersions
+$creadPrec :: ReadPrec DisposePackageVersions
+readList :: ReadS [DisposePackageVersions]
+$creadList :: ReadS [DisposePackageVersions]
+readsPrec :: Int -&gt; ReadS DisposePackageVersions
+$creadsPrec :: Int -&gt; ReadS DisposePackageVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237288"><span id="local-6989586621679237290"><span id="local-6989586621679237292"><span class="annot"><span class="annottext">Int -&gt; DisposePackageVersions -&gt; ShowS
+[DisposePackageVersions] -&gt; ShowS
+DisposePackageVersions -&gt; String
+(Int -&gt; DisposePackageVersions -&gt; ShowS)
+-&gt; (DisposePackageVersions -&gt; String)
+-&gt; ([DisposePackageVersions] -&gt; ShowS)
+-&gt; Show DisposePackageVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisposePackageVersions] -&gt; ShowS
+$cshowList :: [DisposePackageVersions] -&gt; ShowS
+show :: DisposePackageVersions -&gt; String
+$cshow :: DisposePackageVersions -&gt; String
+showsPrec :: Int -&gt; DisposePackageVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisposePackageVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DisposePackageVersions -&gt; Rep DisposePackageVersions x)
+-&gt; (forall x.
+    Rep DisposePackageVersions x -&gt; DisposePackageVersions)
+-&gt; Generic DisposePackageVersions
+forall x. Rep DisposePackageVersions x -&gt; DisposePackageVersions
+forall x. DisposePackageVersions -&gt; Rep DisposePackageVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DisposePackageVersions x -&gt; DisposePackageVersions
+$cfrom :: forall x. DisposePackageVersions -&gt; Rep DisposePackageVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Create a value of 'DisposePackageVersions' with all optional fields omitted.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'expectedStatus', 'disposePackageVersions_expectedStatus' - The expected status of the package version to dispose. Valid values are:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- -   @Published@</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- -   @Unfinished@</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   @Unlisted@</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- -   @Archived@</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   @Disposed@</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'versionRevisions', 'disposePackageVersions_versionRevisions' - The revisions of the package versions you want to dispose.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'namespace', 'disposePackageVersions_namespace' - The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- 'domainOwner', 'disposePackageVersions_domainOwner' - The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- 'domain', 'disposePackageVersions_domain' - The name of the domain that contains the repository you want to dispose.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- 'repository', 'disposePackageVersions_repository' - The name of the repository that contains the package versions you want</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- to dispose.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'format', 'disposePackageVersions_format' - A format that specifies the type of package versions you want to</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- dispose. The valid values are:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'package', 'disposePackageVersions_package' - The name of the package with the versions you want to dispose.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'versions', 'disposePackageVersions_versions' - The versions of the package you want to dispose.</span><span>
+</span><span id="line-171"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#newDisposePackageVersions"><span class="hs-identifier hs-type">newDisposePackageVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'domain'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'repository'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'format'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-comment">-- | 'package'</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span>
+</span><span id="line-181"></span><span id="newDisposePackageVersions"><span class="annot"><span class="annottext">newDisposePackageVersions :: Text -&gt; Text -&gt; PackageFormat -&gt; Text -&gt; DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#newDisposePackageVersions"><span class="hs-identifier hs-var hs-var">newDisposePackageVersions</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679237283"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237283"><span class="hs-identifier hs-var">pDomain_</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679237282"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237282"><span class="hs-identifier hs-var">pRepository_</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679237281"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679237281"><span class="hs-identifier hs-var">pFormat_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679237280"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237280"><span class="hs-identifier hs-var">pPackage_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><span class="annottext">DisposePackageVersions' :: Maybe PackageVersionStatus
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; PackageFormat
+-&gt; Text
+-&gt; [Text]
+-&gt; DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span>
+</span><span id="line-187"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedStatus:DisposePackageVersions' :: Maybe PackageVersionStatus
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AexpectedStatus%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">expectedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-188"></span><span>          </span><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:versionRevisions:DisposePackageVersions' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AversionRevisions%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:namespace:DisposePackageVersions' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Anamespace%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainOwner:DisposePackageVersions' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AdomainOwner%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:domain:DisposePackageVersions' :: Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Adomain%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237283"><span class="hs-identifier hs-var">pDomain_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:repository:DisposePackageVersions' :: Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Arepository%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237282"><span class="hs-identifier hs-var">pRepository_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:format:DisposePackageVersions' :: PackageFormat
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Aformat%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679237281"><span class="hs-identifier hs-var">pFormat_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>        </span><span class="annot"><span class="annottext">$sel:package:DisposePackageVersions' :: Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Apackage%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237280"><span class="hs-identifier hs-var">pPackage_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:versions:DisposePackageVersions' :: [Text]
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Aversions%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-197"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The expected status of the package version to dispose. Valid values are:</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- -   @Published@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- -   @Unfinished@</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   @Unlisted@</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   @Archived@</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -   @Disposed@</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_expectedStatus"><span class="hs-identifier hs-type">disposePackageVersions_expectedStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionStatus.html#PackageVersionStatus"><span class="hs-identifier hs-type">PackageVersionStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="disposePackageVersions_expectedStatus"><span class="annot"><span class="annottext">disposePackageVersions_expectedStatus :: (Maybe PackageVersionStatus -&gt; f (Maybe PackageVersionStatus))
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_expectedStatus"><span class="hs-identifier hs-var hs-var">disposePackageVersions_expectedStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; Maybe PackageVersionStatus)
+-&gt; (DisposePackageVersions
+    -&gt; Maybe PackageVersionStatus -&gt; DisposePackageVersions)
+-&gt; Lens
+     DisposePackageVersions
+     DisposePackageVersions
+     (Maybe PackageVersionStatus)
+     (Maybe PackageVersionStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237277"><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+expectedStatus :: Maybe PackageVersionStatus
+$sel:expectedStatus:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe PackageVersionStatus
+</span><a href="#local-6989586621679237277"><span class="hs-identifier hs-var hs-var">expectedStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+</span><a href="#local-6989586621679237277"><span class="hs-identifier hs-var">expectedStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237276"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237275"><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+</span><a href="#local-6989586621679237275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedStatus:DisposePackageVersions' :: Maybe PackageVersionStatus
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AexpectedStatus%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">expectedStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+</span><a href="#local-6989586621679237275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The revisions of the package versions you want to dispose.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_versionRevisions"><span class="hs-identifier hs-type">disposePackageVersions_versionRevisions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="disposePackageVersions_versionRevisions"><span class="annot"><span class="annottext">disposePackageVersions_versionRevisions :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_versionRevisions"><span class="hs-identifier hs-var hs-var">disposePackageVersions_versionRevisions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; Maybe (HashMap Text Text))
+-&gt; (DisposePackageVersions
+    -&gt; Maybe (HashMap Text Text) -&gt; DisposePackageVersions)
+-&gt; Lens
+     DisposePackageVersions
+     DisposePackageVersions
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237274"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+versionRevisions :: Maybe (HashMap Text Text)
+$sel:versionRevisions:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679237274"><span class="hs-identifier hs-var hs-var">versionRevisions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679237274"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237273"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237272"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679237272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versionRevisions:DisposePackageVersions' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AversionRevisions%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679237272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DisposePackageVersions -&gt; f DisposePackageVersions)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DisposePackageVersions
+-&gt; f DisposePackageVersions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The namespace of the package. The package component that specifies its</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- namespace depends on its type. For example:</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- -   The namespace of a Maven package is its @groupId@.</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- -   The namespace of an npm package is its @scope@.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   A Python package does not contain a corresponding component, so</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--     Python packages do not have a namespace.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_namespace"><span class="hs-identifier hs-type">disposePackageVersions_namespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span id="disposePackageVersions_namespace"><span class="annot"><span class="annottext">disposePackageVersions_namespace :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_namespace"><span class="hs-identifier hs-var hs-var">disposePackageVersions_namespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; Maybe Text)
+-&gt; (DisposePackageVersions -&gt; Maybe Text -&gt; DisposePackageVersions)
+-&gt; Lens
+     DisposePackageVersions
+     DisposePackageVersions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237268"><span class="annot"><span class="annottext">Maybe Text
+namespace :: Maybe Text
+$sel:namespace:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679237268"><span class="hs-identifier hs-var hs-var">namespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237268"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237267"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237267"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237266"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237266"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237267"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:namespace:DisposePackageVersions' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Anamespace%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">namespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237266"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The 12-digit account number of the AWS account that owns the domain. It</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- does not include dashes or spaces.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_domainOwner"><span class="hs-identifier hs-type">disposePackageVersions_domainOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="disposePackageVersions_domainOwner"><span class="annot"><span class="annottext">disposePackageVersions_domainOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_domainOwner"><span class="hs-identifier hs-var hs-var">disposePackageVersions_domainOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; Maybe Text)
+-&gt; (DisposePackageVersions -&gt; Maybe Text -&gt; DisposePackageVersions)
+-&gt; Lens
+     DisposePackageVersions
+     DisposePackageVersions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237265"><span class="annot"><span class="annottext">Maybe Text
+domainOwner :: Maybe Text
+$sel:domainOwner:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679237265"><span class="hs-identifier hs-var hs-var">domainOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237265"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237264"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainOwner:DisposePackageVersions' :: Maybe Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AdomainOwner%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">domainOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The name of the domain that contains the repository you want to dispose.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_domain"><span class="hs-identifier hs-type">disposePackageVersions_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-236"></span><span id="disposePackageVersions_domain"><span class="annot"><span class="annottext">disposePackageVersions_domain :: (Text -&gt; f Text)
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_domain"><span class="hs-identifier hs-var hs-var">disposePackageVersions_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; Text)
+-&gt; (DisposePackageVersions -&gt; Text -&gt; DisposePackageVersions)
+-&gt; Lens DisposePackageVersions DisposePackageVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237262"><span class="annot"><span class="annottext">Text
+domain :: Text
+$sel:domain:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+</span><a href="#local-6989586621679237262"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237262"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237261"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237261"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237260"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237260"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237261"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:DisposePackageVersions' :: Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Adomain%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237260"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The name of the repository that contains the package versions you want</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- to dispose.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_repository"><span class="hs-identifier hs-type">disposePackageVersions_repository</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-241"></span><span id="disposePackageVersions_repository"><span class="annot"><span class="annottext">disposePackageVersions_repository :: (Text -&gt; f Text)
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_repository"><span class="hs-identifier hs-var hs-var">disposePackageVersions_repository</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; Text)
+-&gt; (DisposePackageVersions -&gt; Text -&gt; DisposePackageVersions)
+-&gt; Lens DisposePackageVersions DisposePackageVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237259"><span class="annot"><span class="annottext">Text
+repository :: Text
+$sel:repository:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+</span><a href="#local-6989586621679237259"><span class="hs-identifier hs-var hs-var">repository</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237259"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237258"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237257"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:repository:DisposePackageVersions' :: Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Arepository%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">repository</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | A format that specifies the type of package versions you want to</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- dispose. The valid values are:</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- -   @npm@</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @pypi@</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   @maven@</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_format"><span class="hs-identifier hs-type">disposePackageVersions_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageFormat.html#PackageFormat"><span class="hs-identifier hs-type">PackageFormat</span></a></span><span>
+</span><span id="line-252"></span><span id="disposePackageVersions_format"><span class="annot"><span class="annottext">disposePackageVersions_format :: (PackageFormat -&gt; f PackageFormat)
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_format"><span class="hs-identifier hs-var hs-var">disposePackageVersions_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; PackageFormat)
+-&gt; (DisposePackageVersions
+    -&gt; PackageFormat -&gt; DisposePackageVersions)
+-&gt; Lens
+     DisposePackageVersions
+     DisposePackageVersions
+     PackageFormat
+     PackageFormat
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237256"><span class="annot"><span class="annottext">PackageFormat
+format :: PackageFormat
+$sel:format:DisposePackageVersions' :: DisposePackageVersions -&gt; PackageFormat
+</span><a href="#local-6989586621679237256"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679237256"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237255"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237254"><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679237254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:DisposePackageVersions' :: PackageFormat
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Aformat%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679237254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The name of the package with the versions you want to dispose.</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_package"><span class="hs-identifier hs-type">disposePackageVersions_package</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-256"></span><span id="disposePackageVersions_package"><span class="annot"><span class="annottext">disposePackageVersions_package :: (Text -&gt; f Text)
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_package"><span class="hs-identifier hs-var hs-var">disposePackageVersions_package</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; Text)
+-&gt; (DisposePackageVersions -&gt; Text -&gt; DisposePackageVersions)
+-&gt; Lens DisposePackageVersions DisposePackageVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237253"><span class="annot"><span class="annottext">Text
+package :: Text
+$sel:package:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+</span><a href="#local-6989586621679237253"><span class="hs-identifier hs-var hs-var">package</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237253"><span class="hs-identifier hs-var">package</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237252"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237251"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:package:DisposePackageVersions' :: Text
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Apackage%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">package</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | The versions of the package you want to dispose.</span><span>
+</span><span id="line-259"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_versions"><span class="hs-identifier hs-type">disposePackageVersions_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-260"></span><span id="disposePackageVersions_versions"><span class="annot"><span class="annottext">disposePackageVersions_versions :: ([Text] -&gt; f [Text])
+-&gt; DisposePackageVersions -&gt; f DisposePackageVersions
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersions_versions"><span class="hs-identifier hs-var hs-var">disposePackageVersions_versions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersions -&gt; [Text])
+-&gt; (DisposePackageVersions -&gt; [Text] -&gt; DisposePackageVersions)
+-&gt; Lens DisposePackageVersions DisposePackageVersions [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237250"><span class="annot"><span class="annottext">[Text]
+versions :: [Text]
+$sel:versions:DisposePackageVersions' :: DisposePackageVersions -&gt; [Text]
+</span><a href="#local-6989586621679237250"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237250"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237249"><span class="annot"><span class="annottext">s :: DisposePackageVersions
+</span><a href="#local-6989586621679237249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237248"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersions
+</span><a href="#local-6989586621679237249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:DisposePackageVersions' :: [Text]
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3Aversions%3ADisposePackageVersions%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DisposePackageVersions -&gt; f DisposePackageVersions)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DisposePackageVersions
+-&gt; f DisposePackageVersions
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-261"></span><span>
+</span><span id="line-262"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-263"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-264"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-265"></span><span>      </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span>
+</span><span id="line-266"></span><span>  </span><span id="local-6989586621679237244"><span class="annot"><span class="annottext">request :: DisposePackageVersions -&gt; Request DisposePackageVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DisposePackageVersions -&gt; Request DisposePackageVersions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeArtifact.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679237240"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DisposePackageVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisposePackageVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DisposePackageVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DisposePackageVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DisposePackageVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-269"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679237237"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237237"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679237236"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679237236"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679237235"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237235"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-270"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Int
+-&gt; DisposePackageVersionsResponse
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">DisposePackageVersionsResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text PackageVersionError)
+ -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+ -&gt; Int
+ -&gt; DisposePackageVersionsResponse)
+-&gt; Either String (Maybe (HashMap Text PackageVersionError))
+-&gt; Either
+     String
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+      -&gt; Int -&gt; DisposePackageVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either String (Maybe (Maybe (HashMap Text PackageVersionError)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;failedVersions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text PackageVersionError)))
+-&gt; Maybe (HashMap Text PackageVersionError)
+-&gt; Either String (Maybe (HashMap Text PackageVersionError))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+   -&gt; Int -&gt; DisposePackageVersionsResponse)
+-&gt; Either
+     String (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+-&gt; Either String (Int -&gt; DisposePackageVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679237235"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Either
+     String (Maybe (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;successfulVersions&quot;</span></span><span>
+</span><span id="line-273"></span><span>                            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Either
+     String (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-274"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DisposePackageVersionsResponse)
+-&gt; Either String Int
+-&gt; Either String DisposePackageVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237237"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237226"><span id="local-6989586621679237228"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span></span></span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237223"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span></span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-283"></span><span>  </span><span id="local-6989586621679237219"><span class="annot"><span class="annottext">toHeaders :: DisposePackageVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DisposePackageVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-285"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-286"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-288"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-289"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-291"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679237209"><span id="local-6989586621679237211"><span id="local-6989586621679237213"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-294"></span><span>  </span><span id="local-6989586621679237207"><span class="annot"><span class="annottext">toJSON :: DisposePackageVersions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237197"><span id="local-6989586621679237198"><span id="local-6989586621679237199"><span id="local-6989586621679237200"><span id="local-6989586621679237201"><span id="local-6989586621679237202"><span id="local-6989586621679237203"><span id="local-6989586621679237204"><span id="local-6989586621679237205"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe PackageVersionStatus
+Text
+PackageFormat
+versions :: [Text]
+package :: Text
+format :: PackageFormat
+repository :: Text
+domain :: Text
+domainOwner :: Maybe Text
+namespace :: Maybe Text
+versionRevisions :: Maybe (HashMap Text Text)
+expectedStatus :: Maybe PackageVersionStatus
+$sel:versions:DisposePackageVersions' :: DisposePackageVersions -&gt; [Text]
+$sel:package:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+$sel:format:DisposePackageVersions' :: DisposePackageVersions -&gt; PackageFormat
+$sel:repository:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+$sel:domain:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+$sel:domainOwner:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe Text
+$sel:namespace:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe Text
+$sel:versionRevisions:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe (HashMap Text Text)
+$sel:expectedStatus:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe PackageVersionStatus
+</span><a href="#local-6989586621679237197"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-296"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-297"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;expectedStatus&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PackageVersionStatus -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>              </span><span class="annot"><span class="annottext">(PackageVersionStatus -&gt; Pair)
+-&gt; Maybe PackageVersionStatus -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PackageVersionStatus
+</span><a href="#local-6989586621679237205"><span class="hs-identifier hs-var">expectedStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versionRevisions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679237204"><span class="hs-identifier hs-var">versionRevisions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;versions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679237197"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679237191"><span class="annot"><span class="annottext">toPath :: DisposePackageVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DisposePackageVersions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/package/versions/dispose&quot;</span></span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions"><span class="hs-identifier hs-type">DisposePackageVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-309"></span><span>  </span><span id="local-6989586621679237187"><span class="annot"><span class="annottext">toQuery :: DisposePackageVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersions%27"><span class="hs-identifier hs-type">DisposePackageVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237177"><span id="local-6989586621679237178"><span id="local-6989586621679237179"><span id="local-6989586621679237180"><span id="local-6989586621679237181"><span id="local-6989586621679237182"><span id="local-6989586621679237183"><span id="local-6989586621679237184"><span id="local-6989586621679237185"><span class="annot"><span class="annottext">[Text]
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe PackageVersionStatus
+Text
+PackageFormat
+versions :: [Text]
+package :: Text
+format :: PackageFormat
+repository :: Text
+domain :: Text
+domainOwner :: Maybe Text
+namespace :: Maybe Text
+versionRevisions :: Maybe (HashMap Text Text)
+expectedStatus :: Maybe PackageVersionStatus
+$sel:versions:DisposePackageVersions' :: DisposePackageVersions -&gt; [Text]
+$sel:package:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+$sel:format:DisposePackageVersions' :: DisposePackageVersions -&gt; PackageFormat
+$sel:repository:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+$sel:domain:DisposePackageVersions' :: DisposePackageVersions -&gt; Text
+$sel:domainOwner:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe Text
+$sel:namespace:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe Text
+$sel:versionRevisions:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe (HashMap Text Text)
+$sel:expectedStatus:DisposePackageVersions' :: DisposePackageVersions -&gt; Maybe PackageVersionStatus
+</span><a href="#local-6989586621679237177"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-311"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;namespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237183"><span class="hs-identifier hs-var">namespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain-owner&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679237182"><span class="hs-identifier hs-var">domainOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237181"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;repository&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237180"><span class="hs-identifier hs-var">repository</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;format&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PackageFormat -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">PackageFormat
+</span><a href="#local-6989586621679237179"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;package&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679237178"><span class="hs-identifier hs-var">package</span></a></span><span>
+</span><span id="line-317"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | /See:/ 'newDisposePackageVersionsResponse' smart constructor.</span><span>
+</span><span id="line-320"></span><span id="local-6989586621679237174"><span id="local-6989586621679237175"></span></span><span class="hs-keyword">data</span><span> </span><span id="DisposePackageVersionsResponse"><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-var">DisposePackageVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DisposePackageVersionsResponse%27"><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">DisposePackageVersionsResponse'</span></a></span></span><span>
+</span><span id="line-321"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A @PackageVersionError@ object that contains a map of errors codes for</span><span>
+</span><span id="line-322"></span><span>    </span><span class="hs-comment">-- the disposed package versions that failed. The possible error codes are:</span><span>
+</span><span id="line-323"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- -   @ALREADY_EXISTS@</span><span>
+</span><span id="line-325"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- -   @MISMATCHED_REVISION@</span><span>
+</span><span id="line-327"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-comment">-- -   @MISMATCHED_STATUS@</span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-330"></span><span>    </span><span class="hs-comment">-- -   @NOT_ALLOWED@</span><span>
+</span><span id="line-331"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-332"></span><span>    </span><span class="hs-comment">-- -   @NOT_FOUND@</span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span>    </span><span class="hs-comment">-- -   @SKIPPED@</span><span>
+</span><span id="line-335"></span><span>    </span><span id="%24sel%3AfailedVersions%3ADisposePackageVersionsResponse%27"><span class="annot"><span class="annottext">DisposePackageVersionsResponse
+-&gt; Maybe (HashMap Text PackageVersionError)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AfailedVersions%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var hs-var">failedVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionError.html#PackageVersionError"><span class="hs-identifier hs-type">PackageVersionError</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>    </span><span class="hs-comment">-- | A list of the package versions that were successfully disposed.</span><span>
+</span><span id="line-337"></span><span>    </span><span id="%24sel%3AsuccessfulVersions%3ADisposePackageVersionsResponse%27"><span class="annot"><span class="annottext">DisposePackageVersionsResponse
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AsuccessfulVersions%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var hs-var">successfulVersions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.SuccessfulPackageVersionInfo.html#SuccessfulPackageVersionInfo"><span class="hs-identifier hs-type">SuccessfulPackageVersionInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-338"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-339"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADisposePackageVersionsResponse%27"><span class="annot"><span class="annottext">DisposePackageVersionsResponse -&gt; Int
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AhttpStatus%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-340"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-341"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679237167"><span id="local-6989586621679237169"><span class="annot"><span class="annottext">DisposePackageVersionsResponse
+-&gt; DisposePackageVersionsResponse -&gt; Bool
+(DisposePackageVersionsResponse
+ -&gt; DisposePackageVersionsResponse -&gt; Bool)
+-&gt; (DisposePackageVersionsResponse
+    -&gt; DisposePackageVersionsResponse -&gt; Bool)
+-&gt; Eq DisposePackageVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DisposePackageVersionsResponse
+-&gt; DisposePackageVersionsResponse -&gt; Bool
+$c/= :: DisposePackageVersionsResponse
+-&gt; DisposePackageVersionsResponse -&gt; Bool
+== :: DisposePackageVersionsResponse
+-&gt; DisposePackageVersionsResponse -&gt; Bool
+$c== :: DisposePackageVersionsResponse
+-&gt; DisposePackageVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237159"><span id="local-6989586621679237161"><span id="local-6989586621679237163"><span id="local-6989586621679237165"><span class="annot"><span class="annottext">ReadPrec [DisposePackageVersionsResponse]
+ReadPrec DisposePackageVersionsResponse
+Int -&gt; ReadS DisposePackageVersionsResponse
+ReadS [DisposePackageVersionsResponse]
+(Int -&gt; ReadS DisposePackageVersionsResponse)
+-&gt; ReadS [DisposePackageVersionsResponse]
+-&gt; ReadPrec DisposePackageVersionsResponse
+-&gt; ReadPrec [DisposePackageVersionsResponse]
+-&gt; Read DisposePackageVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DisposePackageVersionsResponse]
+$creadListPrec :: ReadPrec [DisposePackageVersionsResponse]
+readPrec :: ReadPrec DisposePackageVersionsResponse
+$creadPrec :: ReadPrec DisposePackageVersionsResponse
+readList :: ReadS [DisposePackageVersionsResponse]
+$creadList :: ReadS [DisposePackageVersionsResponse]
+readsPrec :: Int -&gt; ReadS DisposePackageVersionsResponse
+$creadsPrec :: Int -&gt; ReadS DisposePackageVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679237153"><span id="local-6989586621679237155"><span id="local-6989586621679237157"><span class="annot"><span class="annottext">Int -&gt; DisposePackageVersionsResponse -&gt; ShowS
+[DisposePackageVersionsResponse] -&gt; ShowS
+DisposePackageVersionsResponse -&gt; String
+(Int -&gt; DisposePackageVersionsResponse -&gt; ShowS)
+-&gt; (DisposePackageVersionsResponse -&gt; String)
+-&gt; ([DisposePackageVersionsResponse] -&gt; ShowS)
+-&gt; Show DisposePackageVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DisposePackageVersionsResponse] -&gt; ShowS
+$cshowList :: [DisposePackageVersionsResponse] -&gt; ShowS
+show :: DisposePackageVersionsResponse -&gt; String
+$cshow :: DisposePackageVersionsResponse -&gt; String
+showsPrec :: Int -&gt; DisposePackageVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DisposePackageVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DisposePackageVersionsResponse
+ -&gt; Rep DisposePackageVersionsResponse x)
+-&gt; (forall x.
+    Rep DisposePackageVersionsResponse x
+    -&gt; DisposePackageVersionsResponse)
+-&gt; Generic DisposePackageVersionsResponse
+forall x.
+Rep DisposePackageVersionsResponse x
+-&gt; DisposePackageVersionsResponse
+forall x.
+DisposePackageVersionsResponse
+-&gt; Rep DisposePackageVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DisposePackageVersionsResponse x
+-&gt; DisposePackageVersionsResponse
+$cfrom :: forall x.
+DisposePackageVersionsResponse
+-&gt; Rep DisposePackageVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- Create a value of 'DisposePackageVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-345"></span><span class="hs-comment">--</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">--</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-350"></span><span class="hs-comment">--</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- 'failedVersions', 'disposePackageVersionsResponse_failedVersions' - A @PackageVersionError@ object that contains a map of errors codes for</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- the disposed package versions that failed. The possible error codes are:</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- -   @ALREADY_EXISTS@</span><span>
+</span><span id="line-355"></span><span class="hs-comment">--</span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- -   @MISMATCHED_REVISION@</span><span>
+</span><span id="line-357"></span><span class="hs-comment">--</span><span>
+</span><span id="line-358"></span><span class="hs-comment">-- -   @MISMATCHED_STATUS@</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--</span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- -   @NOT_ALLOWED@</span><span>
+</span><span id="line-361"></span><span class="hs-comment">--</span><span>
+</span><span id="line-362"></span><span class="hs-comment">-- -   @NOT_FOUND@</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--</span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- -   @SKIPPED@</span><span>
+</span><span id="line-365"></span><span class="hs-comment">--</span><span>
+</span><span id="line-366"></span><span class="hs-comment">-- 'successfulVersions', 'disposePackageVersionsResponse_successfulVersions' - A list of the package versions that were successfully disposed.</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--</span><span>
+</span><span id="line-368"></span><span class="hs-comment">-- 'httpStatus', 'disposePackageVersionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-369"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#newDisposePackageVersionsResponse"><span class="hs-identifier hs-type">newDisposePackageVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-370"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-371"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-372"></span><span>  </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span>
+</span><span id="line-373"></span><span id="newDisposePackageVersionsResponse"><span class="annot"><span class="annottext">newDisposePackageVersionsResponse :: Int -&gt; DisposePackageVersionsResponse
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#newDisposePackageVersionsResponse"><span class="hs-identifier hs-var hs-var">newDisposePackageVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679237150"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-374"></span><span>  </span><span class="annot"><span class="annottext">DisposePackageVersionsResponse' :: Maybe (HashMap Text PackageVersionError)
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Int
+-&gt; DisposePackageVersionsResponse
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-type">DisposePackageVersionsResponse'</span></a></span><span>
+</span><span id="line-375"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:failedVersions:DisposePackageVersionsResponse' :: Maybe (HashMap Text PackageVersionError)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AfailedVersions%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">failedVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-376"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>      </span><span class="annot"><span class="annottext">$sel:successfulVersions:DisposePackageVersionsResponse' :: Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AsuccessfulVersions%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">successfulVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DisposePackageVersionsResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AhttpStatus%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237150"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-379"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-380"></span><span>
+</span><span id="line-381"></span><span class="hs-comment">-- | A @PackageVersionError@ object that contains a map of errors codes for</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- the disposed package versions that failed. The possible error codes are:</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--</span><span>
+</span><span id="line-384"></span><span class="hs-comment">-- -   @ALREADY_EXISTS@</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- -   @MISMATCHED_REVISION@</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--</span><span>
+</span><span id="line-388"></span><span class="hs-comment">-- -   @MISMATCHED_STATUS@</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--</span><span>
+</span><span id="line-390"></span><span class="hs-comment">-- -   @NOT_ALLOWED@</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--</span><span>
+</span><span id="line-392"></span><span class="hs-comment">-- -   @NOT_FOUND@</span><span>
+</span><span id="line-393"></span><span class="hs-comment">--</span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- -   @SKIPPED@</span><span>
+</span><span id="line-395"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_failedVersions"><span class="hs-identifier hs-type">disposePackageVersionsResponse_failedVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.PackageVersionError.html#PackageVersionError"><span class="hs-identifier hs-type">PackageVersionError</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-396"></span><span id="disposePackageVersionsResponse_failedVersions"><span class="annot"><span class="annottext">disposePackageVersionsResponse_failedVersions :: (Maybe (HashMap Text PackageVersionError)
+ -&gt; f (Maybe (HashMap Text PackageVersionError)))
+-&gt; DisposePackageVersionsResponse
+-&gt; f DisposePackageVersionsResponse
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_failedVersions"><span class="hs-identifier hs-var hs-var">disposePackageVersionsResponse_failedVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersionsResponse
+ -&gt; Maybe (HashMap Text PackageVersionError))
+-&gt; (DisposePackageVersionsResponse
+    -&gt; Maybe (HashMap Text PackageVersionError)
+    -&gt; DisposePackageVersionsResponse)
+-&gt; Lens
+     DisposePackageVersionsResponse
+     DisposePackageVersionsResponse
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-type">DisposePackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237149"><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+failedVersions :: Maybe (HashMap Text PackageVersionError)
+$sel:failedVersions:DisposePackageVersionsResponse' :: DisposePackageVersionsResponse
+-&gt; Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679237149"><span class="hs-identifier hs-var hs-var">failedVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679237149"><span class="hs-identifier hs-var">failedVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237148"><span class="annot"><span class="annottext">s :: DisposePackageVersionsResponse
+</span><a href="#local-6989586621679237148"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-type">DisposePackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237147"><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679237147"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersionsResponse
+</span><a href="#local-6989586621679237148"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedVersions:DisposePackageVersionsResponse' :: Maybe (HashMap Text PackageVersionError)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AfailedVersions%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">failedVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text PackageVersionError)
+</span><a href="#local-6989586621679237147"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text PackageVersionError)
+  -&gt; f (Maybe (HashMap Text PackageVersionError)))
+ -&gt; DisposePackageVersionsResponse
+ -&gt; f DisposePackageVersionsResponse)
+-&gt; ((Maybe (HashMap Text PackageVersionError)
+     -&gt; f (Maybe (HashMap Text PackageVersionError)))
+    -&gt; Maybe (HashMap Text PackageVersionError)
+    -&gt; f (Maybe (HashMap Text PackageVersionError)))
+-&gt; (Maybe (HashMap Text PackageVersionError)
+    -&gt; f (Maybe (HashMap Text PackageVersionError)))
+-&gt; DisposePackageVersionsResponse
+-&gt; f DisposePackageVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+-&gt; Iso
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+     (Maybe (HashMap Text PackageVersionError))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+  (HashMap Text PackageVersionError)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-397"></span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- | A list of the package versions that were successfully disposed.</span><span>
+</span><span id="line-399"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_successfulVersions"><span class="hs-identifier hs-type">disposePackageVersionsResponse_successfulVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.Types.SuccessfulPackageVersionInfo.html#SuccessfulPackageVersionInfo"><span class="hs-identifier hs-type">SuccessfulPackageVersionInfo</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-400"></span><span id="disposePackageVersionsResponse_successfulVersions"><span class="annot"><span class="annottext">disposePackageVersionsResponse_successfulVersions :: (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+ -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; DisposePackageVersionsResponse
+-&gt; f DisposePackageVersionsResponse
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_successfulVersions"><span class="hs-identifier hs-var hs-var">disposePackageVersionsResponse_successfulVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersionsResponse
+ -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo))
+-&gt; (DisposePackageVersionsResponse
+    -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+    -&gt; DisposePackageVersionsResponse)
+-&gt; Lens
+     DisposePackageVersionsResponse
+     DisposePackageVersionsResponse
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-type">DisposePackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237146"><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+successfulVersions :: Maybe (HashMap Text SuccessfulPackageVersionInfo)
+$sel:successfulVersions:DisposePackageVersionsResponse' :: DisposePackageVersionsResponse
+-&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679237146"><span class="hs-identifier hs-var hs-var">successfulVersions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679237146"><span class="hs-identifier hs-var">successfulVersions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237145"><span class="annot"><span class="annottext">s :: DisposePackageVersionsResponse
+</span><a href="#local-6989586621679237145"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-type">DisposePackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237144"><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679237144"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersionsResponse
+</span><a href="#local-6989586621679237145"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successfulVersions:DisposePackageVersionsResponse' :: Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AsuccessfulVersions%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">successfulVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text SuccessfulPackageVersionInfo)
+</span><a href="#local-6989586621679237144"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text SuccessfulPackageVersionInfo)
+  -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+ -&gt; DisposePackageVersionsResponse
+ -&gt; f DisposePackageVersionsResponse)
+-&gt; ((Maybe (HashMap Text SuccessfulPackageVersionInfo)
+     -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+    -&gt; Maybe (HashMap Text SuccessfulPackageVersionInfo)
+    -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; (Maybe (HashMap Text SuccessfulPackageVersionInfo)
+    -&gt; f (Maybe (HashMap Text SuccessfulPackageVersionInfo)))
+-&gt; DisposePackageVersionsResponse
+-&gt; f DisposePackageVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+-&gt; Iso
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+     (Maybe (HashMap Text SuccessfulPackageVersionInfo))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+  (HashMap Text SuccessfulPackageVersionInfo)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-401"></span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-403"></span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_httpStatus"><span class="hs-identifier hs-type">disposePackageVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-404"></span><span id="disposePackageVersionsResponse_httpStatus"><span class="annot"><span class="annottext">disposePackageVersionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DisposePackageVersionsResponse
+-&gt; f DisposePackageVersionsResponse
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#disposePackageVersionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">disposePackageVersionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DisposePackageVersionsResponse -&gt; Int)
+-&gt; (DisposePackageVersionsResponse
+    -&gt; Int -&gt; DisposePackageVersionsResponse)
+-&gt; Lens
+     DisposePackageVersionsResponse
+     DisposePackageVersionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-type">DisposePackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679237143"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DisposePackageVersionsResponse' :: DisposePackageVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679237143"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237143"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679237142"><span class="annot"><span class="annottext">s :: DisposePackageVersionsResponse
+</span><a href="#local-6989586621679237142"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse%27"><span class="hs-identifier hs-type">DisposePackageVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679237141"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237141"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DisposePackageVersionsResponse
+</span><a href="#local-6989586621679237142"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DisposePackageVersionsResponse' :: Int
+</span><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#%24sel%3AhttpStatus%3ADisposePackageVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679237141"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-405"></span><span>
+</span><span id="line-406"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-407"></span><span>  </span><span id="local-6989586621679237139"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-408"></span><span>    </span><span class="annot"><a href="Amazonka.CodeArtifact.DisposePackageVersions.html#DisposePackageVersionsResponse"><span class="hs-identifier hs-type">DisposePackageVersionsResponse</span></a></span></span><span>
+</span><span id="line-409"></span></pre></body></html>

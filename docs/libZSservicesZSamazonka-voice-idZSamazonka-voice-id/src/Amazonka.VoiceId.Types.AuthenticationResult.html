@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.VoiceId.Types.AuthenticationResult</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.VoiceId.Types.AuthenticationResult</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationConfiguration.html"><span class="hs-identifier">Amazonka.VoiceId.Types.AuthenticationConfiguration</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html"><span class="hs-identifier">Amazonka.VoiceId.Types.AuthenticationDecision</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The authentication result produced by Voice ID, processed against the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newAuthenticationResult' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679200400"><span id="local-6989586621679200401"></span></span><span class="hs-keyword">data</span><span> </span><span id="AuthenticationResult"><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-var">AuthenticationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthenticationResult%27"><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-var">AuthenticationResult'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The client-provided identifier for the speaker whose authentication</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- result is produced. Only present if a @SpeakerId@ is provided for the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- session.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcustomerSpeakerId%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AcustomerSpeakerId%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">customerSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The authentication score for the speaker whose authentication result is</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- produced. This value is only present if the authentication decision is</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- either @ACCEPT@ or @REJECT@.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Ascore%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe Natural
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Ascore%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The unique identifier for this authentication result. Because there can</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- be multiple authentications for a given session, this field helps to</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- identify if the returned result is from a previous streaming activity or</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- a new result. Note that in absence of any new streaming activity,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @AcceptanceThreshold@ changes, or @SpeakerId@ changes, Voice ID always</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- returns cached Authentication Result for this API.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AauthenticationResultId%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe Text
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AauthenticationResultId%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">authenticationResultId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The authentication decision produced by Voice ID, processed against the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3Adecision%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe AuthenticationDecision
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Adecision%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">decision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The @AuthenticationConfiguration@ used to generate this authentication</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aconfiguration%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe AuthenticationConfiguration
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Aconfiguration%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationConfiguration.html#AuthenticationConfiguration"><span class="hs-identifier hs-type">AuthenticationConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A timestamp indicating when audio aggregation started for this</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- authentication result.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AaudioAggregationStartedAt%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe POSIX
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AaudioAggregationStartedAt%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">audioAggregationStartedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The service-generated identifier for the speaker whose authentication</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- result is produced.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AgeneratedSpeakerId%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe Text
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AgeneratedSpeakerId%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">generatedSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A timestamp indicating when audio aggregation ended for this</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- authentication result.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AaudioAggregationEndedAt%3AAuthenticationResult%27"><span class="annot"><span class="annottext">AuthenticationResult -&gt; Maybe POSIX
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AaudioAggregationEndedAt%3AAuthenticationResult%27"><span class="hs-identifier hs-var hs-var">audioAggregationEndedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200387"><span id="local-6989586621679200389"><span class="annot"><span class="annottext">AuthenticationResult -&gt; AuthenticationResult -&gt; Bool
+(AuthenticationResult -&gt; AuthenticationResult -&gt; Bool)
+-&gt; (AuthenticationResult -&gt; AuthenticationResult -&gt; Bool)
+-&gt; Eq AuthenticationResult
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthenticationResult -&gt; AuthenticationResult -&gt; Bool
+$c/= :: AuthenticationResult -&gt; AuthenticationResult -&gt; Bool
+== :: AuthenticationResult -&gt; AuthenticationResult -&gt; Bool
+$c== :: AuthenticationResult -&gt; AuthenticationResult -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200380"><span id="local-6989586621679200382"><span id="local-6989586621679200384"><span class="annot"><span class="annottext">Int -&gt; AuthenticationResult -&gt; ShowS
+[AuthenticationResult] -&gt; ShowS
+AuthenticationResult -&gt; String
+(Int -&gt; AuthenticationResult -&gt; ShowS)
+-&gt; (AuthenticationResult -&gt; String)
+-&gt; ([AuthenticationResult] -&gt; ShowS)
+-&gt; Show AuthenticationResult
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthenticationResult] -&gt; ShowS
+$cshowList :: [AuthenticationResult] -&gt; ShowS
+show :: AuthenticationResult -&gt; String
+$cshow :: AuthenticationResult -&gt; String
+showsPrec :: Int -&gt; AuthenticationResult -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthenticationResult -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AuthenticationResult -&gt; Rep AuthenticationResult x)
+-&gt; (forall x. Rep AuthenticationResult x -&gt; AuthenticationResult)
+-&gt; Generic AuthenticationResult
+forall x. Rep AuthenticationResult x -&gt; AuthenticationResult
+forall x. AuthenticationResult -&gt; Rep AuthenticationResult x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthenticationResult x -&gt; AuthenticationResult
+$cfrom :: forall x. AuthenticationResult -&gt; Rep AuthenticationResult x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'AuthenticationResult' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'customerSpeakerId', 'authenticationResult_customerSpeakerId' - The client-provided identifier for the speaker whose authentication</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- result is produced. Only present if a @SpeakerId@ is provided for the</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- session.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'score', 'authenticationResult_score' - The authentication score for the speaker whose authentication result is</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- produced. This value is only present if the authentication decision is</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- either @ACCEPT@ or @REJECT@.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'authenticationResultId', 'authenticationResult_authenticationResultId' - The unique identifier for this authentication result. Because there can</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- be multiple authentications for a given session, this field helps to</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- identify if the returned result is from a previous streaming activity or</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- a new result. Note that in absence of any new streaming activity,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @AcceptanceThreshold@ changes, or @SpeakerId@ changes, Voice ID always</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- returns cached Authentication Result for this API.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'decision', 'authenticationResult_decision' - The authentication decision produced by Voice ID, processed against the</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'configuration', 'authenticationResult_configuration' - The @AuthenticationConfiguration@ used to generate this authentication</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'audioAggregationStartedAt', 'authenticationResult_audioAggregationStartedAt' - A timestamp indicating when audio aggregation started for this</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- authentication result.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'generatedSpeakerId', 'authenticationResult_generatedSpeakerId' - The service-generated identifier for the speaker whose authentication</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- result is produced.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'audioAggregationEndedAt', 'authenticationResult_audioAggregationEndedAt' - A timestamp indicating when audio aggregation ended for this</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- authentication result.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#newAuthenticationResult"><span class="hs-identifier hs-type">newAuthenticationResult</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span>
+</span><span id="line-105"></span><span id="newAuthenticationResult"><span class="annot"><span class="annottext">newAuthenticationResult :: AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#newAuthenticationResult"><span class="hs-identifier hs-var hs-var">newAuthenticationResult</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="annottext">AuthenticationResult' :: Maybe (Sensitive Text)
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe AuthenticationDecision
+-&gt; Maybe AuthenticationConfiguration
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customerSpeakerId:AuthenticationResult' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AcustomerSpeakerId%3AAuthenticationResult%27"><span class="hs-identifier hs-var">customerSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:score:AuthenticationResult' :: Maybe Natural
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Ascore%3AAuthenticationResult%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationResultId:AuthenticationResult' :: Maybe Text
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AauthenticationResultId%3AAuthenticationResult%27"><span class="hs-identifier hs-var">authenticationResultId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:decision:AuthenticationResult' :: Maybe AuthenticationDecision
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Adecision%3AAuthenticationResult%27"><span class="hs-identifier hs-var">decision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationDecision
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:configuration:AuthenticationResult' :: Maybe AuthenticationConfiguration
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Aconfiguration%3AAuthenticationResult%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioAggregationStartedAt:AuthenticationResult' :: Maybe POSIX
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AaudioAggregationStartedAt%3AAuthenticationResult%27"><span class="hs-identifier hs-var">audioAggregationStartedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">$sel:generatedSpeakerId:AuthenticationResult' :: Maybe Text
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AgeneratedSpeakerId%3AAuthenticationResult%27"><span class="hs-identifier hs-var">generatedSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>      </span><span class="annot"><span class="annottext">$sel:audioAggregationEndedAt:AuthenticationResult' :: Maybe POSIX
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AaudioAggregationEndedAt%3AAuthenticationResult%27"><span class="hs-identifier hs-var">audioAggregationEndedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The client-provided identifier for the speaker whose authentication</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- result is produced. Only present if a @SpeakerId@ is provided for the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- session.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_customerSpeakerId"><span class="hs-identifier hs-type">authenticationResult_customerSpeakerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="authenticationResult_customerSpeakerId"><span class="annot"><span class="annottext">authenticationResult_customerSpeakerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_customerSpeakerId"><span class="hs-identifier hs-var hs-var">authenticationResult_customerSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe (Sensitive Text))
+-&gt; (AuthenticationResult
+    -&gt; Maybe (Sensitive Text) -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult
+     AuthenticationResult
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200371"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+customerSpeakerId :: Maybe (Sensitive Text)
+$sel:customerSpeakerId:AuthenticationResult' :: AuthenticationResult -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679200371"><span class="hs-identifier hs-var hs-var">customerSpeakerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679200371"><span class="hs-identifier hs-var">customerSpeakerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200370"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200369"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679200369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customerSpeakerId:AuthenticationResult' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AcustomerSpeakerId%3AAuthenticationResult%27"><span class="hs-identifier hs-var">customerSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679200369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; AuthenticationResult -&gt; f AuthenticationResult)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthenticationResult
+-&gt; f AuthenticationResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The authentication score for the speaker whose authentication result is</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- produced. This value is only present if the authentication decision is</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- either @ACCEPT@ or @REJECT@.</span><span>
+</span><span id="line-127"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_score"><span class="hs-identifier hs-type">authenticationResult_score</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span id="authenticationResult_score"><span class="annot"><span class="annottext">authenticationResult_score :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_score"><span class="hs-identifier hs-var hs-var">authenticationResult_score</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe Natural)
+-&gt; (AuthenticationResult -&gt; Maybe Natural -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult
+     AuthenticationResult
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200364"><span class="annot"><span class="annottext">Maybe Natural
+score :: Maybe Natural
+$sel:score:AuthenticationResult' :: AuthenticationResult -&gt; Maybe Natural
+</span><a href="#local-6989586621679200364"><span class="hs-identifier hs-var hs-var">score</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679200364"><span class="hs-identifier hs-var">score</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200363"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200363"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200362"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679200362"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200363"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:score:AuthenticationResult' :: Maybe Natural
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Ascore%3AAuthenticationResult%27"><span class="hs-identifier hs-var">score</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679200362"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | The unique identifier for this authentication result. Because there can</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- be multiple authentications for a given session, this field helps to</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- identify if the returned result is from a previous streaming activity or</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- a new result. Note that in absence of any new streaming activity,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- @AcceptanceThreshold@ changes, or @SpeakerId@ changes, Voice ID always</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- returns cached Authentication Result for this API.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_authenticationResultId"><span class="hs-identifier hs-type">authenticationResult_authenticationResultId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="authenticationResult_authenticationResultId"><span class="annot"><span class="annottext">authenticationResult_authenticationResultId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_authenticationResultId"><span class="hs-identifier hs-var hs-var">authenticationResult_authenticationResultId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe Text)
+-&gt; (AuthenticationResult -&gt; Maybe Text -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult AuthenticationResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200360"><span class="annot"><span class="annottext">Maybe Text
+authenticationResultId :: Maybe Text
+$sel:authenticationResultId:AuthenticationResult' :: AuthenticationResult -&gt; Maybe Text
+</span><a href="#local-6989586621679200360"><span class="hs-identifier hs-var hs-var">authenticationResultId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200360"><span class="hs-identifier hs-var">authenticationResultId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200359"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200359"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200358"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200358"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200359"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationResultId:AuthenticationResult' :: Maybe Text
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AauthenticationResultId%3AAuthenticationResult%27"><span class="hs-identifier hs-var">authenticationResultId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200358"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The authentication decision produced by Voice ID, processed against the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- current session state and streamed audio of the speaker.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_decision"><span class="hs-identifier hs-type">authenticationResult_decision</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="authenticationResult_decision"><span class="annot"><span class="annottext">authenticationResult_decision :: (Maybe AuthenticationDecision -&gt; f (Maybe AuthenticationDecision))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_decision"><span class="hs-identifier hs-var hs-var">authenticationResult_decision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe AuthenticationDecision)
+-&gt; (AuthenticationResult
+    -&gt; Maybe AuthenticationDecision -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult
+     AuthenticationResult
+     (Maybe AuthenticationDecision)
+     (Maybe AuthenticationDecision)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200356"><span class="annot"><span class="annottext">Maybe AuthenticationDecision
+decision :: Maybe AuthenticationDecision
+$sel:decision:AuthenticationResult' :: AuthenticationResult -&gt; Maybe AuthenticationDecision
+</span><a href="#local-6989586621679200356"><span class="hs-identifier hs-var hs-var">decision</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationDecision
+</span><a href="#local-6989586621679200356"><span class="hs-identifier hs-var">decision</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200355"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200355"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200354"><span class="annot"><span class="annottext">Maybe AuthenticationDecision
+</span><a href="#local-6989586621679200354"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200355"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:decision:AuthenticationResult' :: Maybe AuthenticationDecision
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Adecision%3AAuthenticationResult%27"><span class="hs-identifier hs-var">decision</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationDecision
+</span><a href="#local-6989586621679200354"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The @AuthenticationConfiguration@ used to generate this authentication</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- result.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_configuration"><span class="hs-identifier hs-type">authenticationResult_configuration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationConfiguration.html#AuthenticationConfiguration"><span class="hs-identifier hs-type">AuthenticationConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="authenticationResult_configuration"><span class="annot"><span class="annottext">authenticationResult_configuration :: (Maybe AuthenticationConfiguration
+ -&gt; f (Maybe AuthenticationConfiguration))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_configuration"><span class="hs-identifier hs-var hs-var">authenticationResult_configuration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe AuthenticationConfiguration)
+-&gt; (AuthenticationResult
+    -&gt; Maybe AuthenticationConfiguration -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult
+     AuthenticationResult
+     (Maybe AuthenticationConfiguration)
+     (Maybe AuthenticationConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200352"><span class="annot"><span class="annottext">Maybe AuthenticationConfiguration
+configuration :: Maybe AuthenticationConfiguration
+$sel:configuration:AuthenticationResult' :: AuthenticationResult -&gt; Maybe AuthenticationConfiguration
+</span><a href="#local-6989586621679200352"><span class="hs-identifier hs-var hs-var">configuration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationConfiguration
+</span><a href="#local-6989586621679200352"><span class="hs-identifier hs-var">configuration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200351"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200351"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200350"><span class="annot"><span class="annottext">Maybe AuthenticationConfiguration
+</span><a href="#local-6989586621679200350"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200351"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:configuration:AuthenticationResult' :: Maybe AuthenticationConfiguration
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3Aconfiguration%3AAuthenticationResult%27"><span class="hs-identifier hs-var">configuration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AuthenticationConfiguration
+</span><a href="#local-6989586621679200350"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | A timestamp indicating when audio aggregation started for this</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- authentication result.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_audioAggregationStartedAt"><span class="hs-identifier hs-type">authenticationResult_audioAggregationStartedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="authenticationResult_audioAggregationStartedAt"><span class="annot"><span class="annottext">authenticationResult_audioAggregationStartedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_audioAggregationStartedAt"><span class="hs-identifier hs-var hs-var">authenticationResult_audioAggregationStartedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe POSIX)
+-&gt; (AuthenticationResult -&gt; Maybe POSIX -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult
+     AuthenticationResult
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200348"><span class="annot"><span class="annottext">Maybe POSIX
+audioAggregationStartedAt :: Maybe POSIX
+$sel:audioAggregationStartedAt:AuthenticationResult' :: AuthenticationResult -&gt; Maybe POSIX
+</span><a href="#local-6989586621679200348"><span class="hs-identifier hs-var hs-var">audioAggregationStartedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200348"><span class="hs-identifier hs-var">audioAggregationStartedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200347"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200346"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioAggregationStartedAt:AuthenticationResult' :: Maybe POSIX
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AaudioAggregationStartedAt%3AAuthenticationResult%27"><span class="hs-identifier hs-var">audioAggregationStartedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AuthenticationResult -&gt; f AuthenticationResult)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthenticationResult
+-&gt; f AuthenticationResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The service-generated identifier for the speaker whose authentication</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- result is produced.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_generatedSpeakerId"><span class="hs-identifier hs-type">authenticationResult_generatedSpeakerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="authenticationResult_generatedSpeakerId"><span class="annot"><span class="annottext">authenticationResult_generatedSpeakerId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_generatedSpeakerId"><span class="hs-identifier hs-var hs-var">authenticationResult_generatedSpeakerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe Text)
+-&gt; (AuthenticationResult -&gt; Maybe Text -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult AuthenticationResult (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200343"><span class="annot"><span class="annottext">Maybe Text
+generatedSpeakerId :: Maybe Text
+$sel:generatedSpeakerId:AuthenticationResult' :: AuthenticationResult -&gt; Maybe Text
+</span><a href="#local-6989586621679200343"><span class="hs-identifier hs-var hs-var">generatedSpeakerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200343"><span class="hs-identifier hs-var">generatedSpeakerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200342"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200342"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200341"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200341"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200342"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:generatedSpeakerId:AuthenticationResult' :: Maybe Text
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AgeneratedSpeakerId%3AAuthenticationResult%27"><span class="hs-identifier hs-var">generatedSpeakerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679200341"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | A timestamp indicating when audio aggregation ended for this</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- authentication result.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_audioAggregationEndedAt"><span class="hs-identifier hs-type">authenticationResult_audioAggregationEndedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="authenticationResult_audioAggregationEndedAt"><span class="annot"><span class="annottext">authenticationResult_audioAggregationEndedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthenticationResult -&gt; f AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#authenticationResult_audioAggregationEndedAt"><span class="hs-identifier hs-var hs-var">authenticationResult_audioAggregationEndedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AuthenticationResult -&gt; Maybe POSIX)
+-&gt; (AuthenticationResult -&gt; Maybe POSIX -&gt; AuthenticationResult)
+-&gt; Lens
+     AuthenticationResult
+     AuthenticationResult
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200339"><span class="annot"><span class="annottext">Maybe POSIX
+audioAggregationEndedAt :: Maybe POSIX
+$sel:audioAggregationEndedAt:AuthenticationResult' :: AuthenticationResult -&gt; Maybe POSIX
+</span><a href="#local-6989586621679200339"><span class="hs-identifier hs-var hs-var">audioAggregationEndedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200339"><span class="hs-identifier hs-var">audioAggregationEndedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200338"><span class="annot"><span class="annottext">s :: AuthenticationResult
+</span><a href="#local-6989586621679200338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-type">AuthenticationResult'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200337"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AuthenticationResult
+</span><a href="#local-6989586621679200338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:audioAggregationEndedAt:AuthenticationResult' :: Maybe POSIX
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#%24sel%3AaudioAggregationEndedAt%3AAuthenticationResult%27"><span class="hs-identifier hs-var">audioAggregationEndedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679200337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; AuthenticationResult -&gt; f AuthenticationResult)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AuthenticationResult
+-&gt; f AuthenticationResult
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200334"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679200332"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AuthenticationResult
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser AuthenticationResult)
+-&gt; Value
+-&gt; Parser AuthenticationResult
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AuthenticationResult&quot;</span></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200329"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-169"></span><span>          </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe AuthenticationDecision
+-&gt; Maybe AuthenticationConfiguration
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; AuthenticationResult
+</span><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult%27"><span class="hs-identifier hs-var">AuthenticationResult'</span></a></span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (Sensitive Text)
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe AuthenticationDecision
+ -&gt; Maybe AuthenticationConfiguration
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; AuthenticationResult)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe AuthenticationDecision
+      -&gt; Maybe AuthenticationConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; AuthenticationResult)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomerSpeakerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe AuthenticationDecision
+   -&gt; Maybe AuthenticationConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; AuthenticationResult)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AuthenticationDecision
+      -&gt; Maybe AuthenticationConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; AuthenticationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Score&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AuthenticationDecision
+   -&gt; Maybe AuthenticationConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; AuthenticationResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AuthenticationDecision
+      -&gt; Maybe AuthenticationConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; AuthenticationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AuthenticationResultId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AuthenticationDecision
+   -&gt; Maybe AuthenticationConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; AuthenticationResult)
+-&gt; Parser (Maybe AuthenticationDecision)
+-&gt; Parser
+     (Maybe AuthenticationConfiguration
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; AuthenticationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthenticationDecision)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Decision&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AuthenticationConfiguration
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; AuthenticationResult)
+-&gt; Parser (Maybe AuthenticationConfiguration)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AuthenticationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AuthenticationConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Configuration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe Text -&gt; Maybe POSIX -&gt; AuthenticationResult)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; AuthenticationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AudioAggregationStartedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; AuthenticationResult)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; AuthenticationResult)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GeneratedSpeakerId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; AuthenticationResult)
+-&gt; Parser (Maybe POSIX) -&gt; Parser AuthenticationResult
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200329"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AudioAggregationEndedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200323"><span id="local-6989586621679200325"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span></span></span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200320"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationResult.html#AuthenticationResult"><span class="hs-identifier hs-type">AuthenticationResult</span></a></span></span><span>
+</span><span id="line-183"></span></pre></body></html>

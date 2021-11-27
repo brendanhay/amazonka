@@ -1,0 +1,461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMaker.Types.TransformOutput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMaker.Types.TransformOutput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssemblyType.html"><span class="hs-identifier">Amazonka.SageMaker.Types.AssemblyType</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes the results of a transform job.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newTransformOutput' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680351528"><span id="local-6989586621680351529"></span></span><span class="hs-keyword">data</span><span> </span><span id="TransformOutput"><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-var">TransformOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransformOutput%27"><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-var">TransformOutput'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Defines how to assemble the results of the transform job as a single S3</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AassembleWith%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Maybe AssemblyType
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3AassembleWith%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">assembleWith</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssemblyType.html#AssemblyType"><span class="hs-identifier hs-type">AssemblyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Aaccept%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt the model artifacts at rest</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- following formats:</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   Alias name ARN:</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- KMS key for Amazon S3 for your role\'s account. For more information,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- see</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys&gt;</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- in the /Amazon Simple Storage Service Developer Guide./</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- The KMS key policy must grant permission to the IAM role that you</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- specify in your CreateModel request. For more information, see</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS&gt;</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services Key Management Service Developer Guide/.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AkmsKeyId%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Maybe Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3AkmsKeyId%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 path where you want Amazon SageMaker to store the results</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- of the transform job. For example,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- @s3:\/\/bucket-name\/key-name-prefix@.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- For every S3 object used as input for the transform job, batch transform</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- stores the transformed data with an .@out@ suffix in a corresponding</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- subfolder in the location in the output prefix. For example, for the</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- input data stored at</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @s3:\/\/bucket-name\/input-name-prefix\/dataset01\/data.csv@, batch</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- transform stores the transformed data at</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @s3:\/\/bucket-name\/output-name-prefix\/input-name-prefix\/data.csv.out@.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- Batch transform doesn\'t upload partially processed objects. For an</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- input S3 object that contains multiple records, it creates an .@out@</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- file only if the transform job succeeds on the entire file. When the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- input contains multiple S3 objects, the batch transform job processes</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- the listed S3 objects and uploads only the output for successfully</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- processed objects. If any object fails in the transform job batch</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- transform marks the job as failed to prompt investigation.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3As3OutputPath%3ATransformOutput%27"><span class="annot"><span class="annottext">TransformOutput -&gt; Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3As3OutputPath%3ATransformOutput%27"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680351519"><span id="local-6989586621680351521"><span class="annot"><span class="annottext">TransformOutput -&gt; TransformOutput -&gt; Bool
+(TransformOutput -&gt; TransformOutput -&gt; Bool)
+-&gt; (TransformOutput -&gt; TransformOutput -&gt; Bool)
+-&gt; Eq TransformOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransformOutput -&gt; TransformOutput -&gt; Bool
+$c/= :: TransformOutput -&gt; TransformOutput -&gt; Bool
+== :: TransformOutput -&gt; TransformOutput -&gt; Bool
+$c== :: TransformOutput -&gt; TransformOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351510"><span id="local-6989586621680351512"><span id="local-6989586621680351514"><span id="local-6989586621680351516"><span class="annot"><span class="annottext">ReadPrec [TransformOutput]
+ReadPrec TransformOutput
+Int -&gt; ReadS TransformOutput
+ReadS [TransformOutput]
+(Int -&gt; ReadS TransformOutput)
+-&gt; ReadS [TransformOutput]
+-&gt; ReadPrec TransformOutput
+-&gt; ReadPrec [TransformOutput]
+-&gt; Read TransformOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransformOutput]
+$creadListPrec :: ReadPrec [TransformOutput]
+readPrec :: ReadPrec TransformOutput
+$creadPrec :: ReadPrec TransformOutput
+readList :: ReadS [TransformOutput]
+$creadList :: ReadS [TransformOutput]
+readsPrec :: Int -&gt; ReadS TransformOutput
+$creadsPrec :: Int -&gt; ReadS TransformOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680351503"><span id="local-6989586621680351505"><span id="local-6989586621680351507"><span class="annot"><span class="annottext">Int -&gt; TransformOutput -&gt; ShowS
+[TransformOutput] -&gt; ShowS
+TransformOutput -&gt; String
+(Int -&gt; TransformOutput -&gt; ShowS)
+-&gt; (TransformOutput -&gt; String)
+-&gt; ([TransformOutput] -&gt; ShowS)
+-&gt; Show TransformOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransformOutput] -&gt; ShowS
+$cshowList :: [TransformOutput] -&gt; ShowS
+show :: TransformOutput -&gt; String
+$cshow :: TransformOutput -&gt; String
+showsPrec :: Int -&gt; TransformOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransformOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. TransformOutput -&gt; Rep TransformOutput x)
+-&gt; (forall x. Rep TransformOutput x -&gt; TransformOutput)
+-&gt; Generic TransformOutput
+forall x. Rep TransformOutput x -&gt; TransformOutput
+forall x. TransformOutput -&gt; Rep TransformOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TransformOutput x -&gt; TransformOutput
+$cfrom :: forall x. TransformOutput -&gt; Rep TransformOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'TransformOutput' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'assembleWith', 'transformOutput_assembleWith' - Defines how to assemble the results of the transform job as a single S3</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'accept', 'transformOutput_accept' - The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'kmsKeyId', 'transformOutput_kmsKeyId' - The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt the model artifacts at rest</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- following formats:</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- -   Alias name ARN:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- KMS key for Amazon S3 for your role\'s account. For more information,</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys&gt;</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- in the /Amazon Simple Storage Service Developer Guide./</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- The KMS key policy must grant permission to the IAM role that you</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- specify in your CreateModel request. For more information, see</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS&gt;</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- in the /Amazon Web Services Key Management Service Developer Guide/.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 's3OutputPath', 'transformOutput_s3OutputPath' - The Amazon S3 path where you want Amazon SageMaker to store the results</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- of the transform job. For example,</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/key-name-prefix@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- For every S3 object used as input for the transform job, batch transform</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- stores the transformed data with an .@out@ suffix in a corresponding</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- subfolder in the location in the output prefix. For example, for the</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- input data stored at</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/input-name-prefix\/dataset01\/data.csv@, batch</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- transform stores the transformed data at</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/output-name-prefix\/input-name-prefix\/data.csv.out@.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Batch transform doesn\'t upload partially processed objects. For an</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- input S3 object that contains multiple records, it creates an .@out@</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- file only if the transform job succeeds on the entire file. When the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- input contains multiple S3 objects, the batch transform job processes</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- the listed S3 objects and uploads only the output for successfully</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- processed objects. If any object fails in the transform job batch</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- transform marks the job as failed to prompt investigation.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#newTransformOutput"><span class="hs-identifier hs-type">newTransformOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-148"></span><span>  </span><span class="hs-comment">-- | 's3OutputPath'</span><span>
+</span><span id="line-149"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span>
+</span><span id="line-151"></span><span id="newTransformOutput"><span class="annot"><span class="annottext">newTransformOutput :: Text -&gt; TransformOutput
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#newTransformOutput"><span class="hs-identifier hs-var hs-var">newTransformOutput</span></a></span></span><span> </span><span id="local-6989586621680351497"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351497"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="annottext">TransformOutput' :: Maybe AssemblyType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:assembleWith:TransformOutput' :: Maybe AssemblyType
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3AassembleWith%3ATransformOutput%27"><span class="hs-identifier hs-var">assembleWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:accept:TransformOutput' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:kmsKeyId:TransformOutput' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3AkmsKeyId%3ATransformOutput%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3OutputPath:TransformOutput' :: Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3As3OutputPath%3ATransformOutput%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351497"><span class="hs-identifier hs-var">pS3OutputPath_</span></a></span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | Defines how to assemble the results of the transform job as a single S3</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- object. Choose a format that is most convenient to you. To concatenate</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- the results in binary format, specify @None@. To add a newline character</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- at the end of every transformed record, specify @Line@.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_assembleWith"><span class="hs-identifier hs-type">transformOutput_assembleWith</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.AssemblyType.html#AssemblyType"><span class="hs-identifier hs-type">AssemblyType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="transformOutput_assembleWith"><span class="annot"><span class="annottext">transformOutput_assembleWith :: (Maybe AssemblyType -&gt; f (Maybe AssemblyType))
+-&gt; TransformOutput -&gt; f TransformOutput
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_assembleWith"><span class="hs-identifier hs-var hs-var">transformOutput_assembleWith</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOutput -&gt; Maybe AssemblyType)
+-&gt; (TransformOutput -&gt; Maybe AssemblyType -&gt; TransformOutput)
+-&gt; Lens
+     TransformOutput
+     TransformOutput
+     (Maybe AssemblyType)
+     (Maybe AssemblyType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351493"><span class="annot"><span class="annottext">Maybe AssemblyType
+assembleWith :: Maybe AssemblyType
+$sel:assembleWith:TransformOutput' :: TransformOutput -&gt; Maybe AssemblyType
+</span><a href="#local-6989586621680351493"><span class="hs-identifier hs-var hs-var">assembleWith</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><a href="#local-6989586621680351493"><span class="hs-identifier hs-var">assembleWith</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351492"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351492"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351491"><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><a href="#local-6989586621680351491"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351492"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assembleWith:TransformOutput' :: Maybe AssemblyType
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3AassembleWith%3ATransformOutput%27"><span class="hs-identifier hs-var">assembleWith</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><a href="#local-6989586621680351491"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The MIME type used to specify the output data. Amazon SageMaker uses the</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- MIME type with each http call to transfer data from the transform job.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_accept"><span class="hs-identifier hs-type">transformOutput_accept</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="transformOutput_accept"><span class="annot"><span class="annottext">transformOutput_accept :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransformOutput -&gt; f TransformOutput
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_accept"><span class="hs-identifier hs-var hs-var">transformOutput_accept</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOutput -&gt; Maybe Text)
+-&gt; (TransformOutput -&gt; Maybe Text -&gt; TransformOutput)
+-&gt; Lens TransformOutput TransformOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351489"><span class="annot"><span class="annottext">Maybe Text
+accept :: Maybe Text
+$sel:accept:TransformOutput' :: TransformOutput -&gt; Maybe Text
+</span><a href="#local-6989586621680351489"><span class="hs-identifier hs-var hs-var">accept</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351489"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351488"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351488"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351487"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351487"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351488"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accept:TransformOutput' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3Aaccept%3ATransformOutput%27"><span class="hs-identifier hs-var">accept</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351487"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The Amazon Web Services Key Management Service (Amazon Web Services KMS)</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- key that Amazon SageMaker uses to encrypt the model artifacts at rest</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- using Amazon S3 server-side encryption. The @KmsKeyId@ can be any of the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- following formats:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- -   Key ID: @1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- -   Key ARN:</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     @arn:aws:kms:us-west-2:111122223333:key\/1234abcd-12ab-34cd-56ef-1234567890ab@</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- -   Alias name: @alias\/ExampleAlias@</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- -   Alias name ARN:</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--     @arn:aws:kms:us-west-2:111122223333:alias\/ExampleAlias@</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- If you don\'t provide a KMS key ID, Amazon SageMaker uses the default</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- KMS key for Amazon S3 for your role\'s account. For more information,</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html KMS-Managed Encryption Keys&gt;</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- in the /Amazon Simple Storage Service Developer Guide./</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The KMS key policy must grant permission to the IAM role that you</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- specify in your CreateModel request. For more information, see</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html Using Key Policies in Amazon Web Services KMS&gt;</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- in the /Amazon Web Services Key Management Service Developer Guide/.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_kmsKeyId"><span class="hs-identifier hs-type">transformOutput_kmsKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="transformOutput_kmsKeyId"><span class="annot"><span class="annottext">transformOutput_kmsKeyId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; TransformOutput -&gt; f TransformOutput
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_kmsKeyId"><span class="hs-identifier hs-var hs-var">transformOutput_kmsKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOutput -&gt; Maybe Text)
+-&gt; (TransformOutput -&gt; Maybe Text -&gt; TransformOutput)
+-&gt; Lens TransformOutput TransformOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351485"><span class="annot"><span class="annottext">Maybe Text
+kmsKeyId :: Maybe Text
+$sel:kmsKeyId:TransformOutput' :: TransformOutput -&gt; Maybe Text
+</span><a href="#local-6989586621680351485"><span class="hs-identifier hs-var hs-var">kmsKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351485"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351484"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351484"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351483"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351483"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351484"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKeyId:TransformOutput' :: Maybe Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3AkmsKeyId%3ATransformOutput%27"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351483"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The Amazon S3 path where you want Amazon SageMaker to store the results</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- of the transform job. For example,</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/key-name-prefix@.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- For every S3 object used as input for the transform job, batch transform</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- stores the transformed data with an .@out@ suffix in a corresponding</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- subfolder in the location in the output prefix. For example, for the</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- input data stored at</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/input-name-prefix\/dataset01\/data.csv@, batch</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- transform stores the transformed data at</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- @s3:\/\/bucket-name\/output-name-prefix\/input-name-prefix\/data.csv.out@.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- Batch transform doesn\'t upload partially processed objects. For an</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- input S3 object that contains multiple records, it creates an .@out@</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- file only if the transform job succeeds on the entire file. When the</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- input contains multiple S3 objects, the batch transform job processes</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- the listed S3 objects and uploads only the output for successfully</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- processed objects. If any object fails in the transform job batch</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- transform marks the job as failed to prompt investigation.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_s3OutputPath"><span class="hs-identifier hs-type">transformOutput_s3OutputPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-218"></span><span id="transformOutput_s3OutputPath"><span class="annot"><span class="annottext">transformOutput_s3OutputPath :: (Text -&gt; f Text) -&gt; TransformOutput -&gt; f TransformOutput
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#transformOutput_s3OutputPath"><span class="hs-identifier hs-var hs-var">transformOutput_s3OutputPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(TransformOutput -&gt; Text)
+-&gt; (TransformOutput -&gt; Text -&gt; TransformOutput)
+-&gt; Lens TransformOutput TransformOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351481"><span class="annot"><span class="annottext">Text
+s3OutputPath :: Text
+$sel:s3OutputPath:TransformOutput' :: TransformOutput -&gt; Text
+</span><a href="#local-6989586621680351481"><span class="hs-identifier hs-var hs-var">s3OutputPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351481"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680351480"><span class="annot"><span class="annottext">s :: TransformOutput
+</span><a href="#local-6989586621680351480"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680351479"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351479"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransformOutput
+</span><a href="#local-6989586621680351480"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3OutputPath:TransformOutput' :: Text
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#%24sel%3As3OutputPath%3ATransformOutput%27"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351479"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351476"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621680351474"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser TransformOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser TransformOutput)
+-&gt; Value
+-&gt; Parser TransformOutput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;TransformOutput&quot;</span></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680351471"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351471"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Maybe AssemblyType
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput
+</span><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-var">TransformOutput'</span></a></span><span>
+</span><span id="line-226"></span><span>            </span><span class="annot"><span class="annottext">(Maybe AssemblyType
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
+-&gt; Parser (Maybe AssemblyType)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AssemblyType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssembleWith&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Text -&gt; TransformOutput)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Text -&gt; TransformOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Text -&gt; TransformOutput)
+-&gt; Parser (Maybe Text) -&gt; Parser (Text -&gt; TransformOutput)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; TransformOutput)
+-&gt; Parser Text -&gt; Parser TransformOutput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680351471"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351464"><span id="local-6989586621680351466"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span><span>
+</span><span id="line-235"></span><span>
+</span><span id="line-236"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680351453"><span id="local-6989586621680351455"><span id="local-6989586621680351457"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput"><span class="hs-identifier hs-type">TransformOutput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-237"></span><span>  </span><span id="local-6989586621680351451"><span class="annot"><span class="annottext">toJSON :: TransformOutput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SageMaker.Types.TransformOutput.html#TransformOutput%27"><span class="hs-identifier hs-type">TransformOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680351446"><span id="local-6989586621680351447"><span id="local-6989586621680351448"><span id="local-6989586621680351449"><span class="annot"><span class="annottext">Maybe Text
+Maybe AssemblyType
+Text
+s3OutputPath :: Text
+kmsKeyId :: Maybe Text
+accept :: Maybe Text
+assembleWith :: Maybe AssemblyType
+$sel:s3OutputPath:TransformOutput' :: TransformOutput -&gt; Text
+$sel:kmsKeyId:TransformOutput' :: TransformOutput -&gt; Maybe Text
+$sel:accept:TransformOutput' :: TransformOutput -&gt; Maybe Text
+$sel:assembleWith:TransformOutput' :: TransformOutput -&gt; Maybe AssemblyType
+</span><a href="#local-6989586621680351446"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-239"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-240"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AssembleWith&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; AssemblyType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AssemblyType -&gt; Pair) -&gt; Maybe AssemblyType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe AssemblyType
+</span><a href="#local-6989586621680351449"><span class="hs-identifier hs-var">assembleWith</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Accept&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351448"><span class="hs-identifier hs-var">accept</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KmsKeyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680351447"><span class="hs-identifier hs-var">kmsKeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3OutputPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621680351446"><span class="hs-identifier hs-var">s3OutputPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span></pre></body></html>

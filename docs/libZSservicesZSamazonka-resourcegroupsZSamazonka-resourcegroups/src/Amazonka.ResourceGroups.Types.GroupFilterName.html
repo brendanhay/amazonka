@@ -1,0 +1,277 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ResourceGroups.Types.GroupFilterName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ResourceGroups.Types.GroupFilterName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier">GroupFilterName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName_Configuration_type"><span class="hs-identifier">GroupFilterName_Configuration_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName_Resource_type"><span class="hs-identifier">GroupFilterName_Resource_type</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679175695"><span id="local-6989586621679175696"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="GroupFilterName"><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-var">GroupFilterName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GroupFilterName%27"><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName%27"><span class="hs-identifier hs-var">GroupFilterName'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromGroupFilterName"><span class="annot"><span class="annottext">GroupFilterName -&gt; Text
+</span><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#fromGroupFilterName"><span class="hs-identifier hs-var hs-var">fromGroupFilterName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175687"><span id="local-6989586621679175689"><span id="local-6989586621679175691"><span class="annot"><span class="annottext">Int -&gt; GroupFilterName -&gt; ShowS
+[GroupFilterName] -&gt; ShowS
+GroupFilterName -&gt; String
+(Int -&gt; GroupFilterName -&gt; ShowS)
+-&gt; (GroupFilterName -&gt; String)
+-&gt; ([GroupFilterName] -&gt; ShowS)
+-&gt; Show GroupFilterName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GroupFilterName] -&gt; ShowS
+$cshowList :: [GroupFilterName] -&gt; ShowS
+show :: GroupFilterName -&gt; String
+$cshow :: GroupFilterName -&gt; String
+showsPrec :: Int -&gt; GroupFilterName -&gt; ShowS
+$cshowsPrec :: Int -&gt; GroupFilterName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679175678"><span id="local-6989586621679175680"><span id="local-6989586621679175682"><span id="local-6989586621679175684"><span class="annot"><span class="annottext">ReadPrec [GroupFilterName]
+ReadPrec GroupFilterName
+Int -&gt; ReadS GroupFilterName
+ReadS [GroupFilterName]
+(Int -&gt; ReadS GroupFilterName)
+-&gt; ReadS [GroupFilterName]
+-&gt; ReadPrec GroupFilterName
+-&gt; ReadPrec [GroupFilterName]
+-&gt; Read GroupFilterName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GroupFilterName]
+$creadListPrec :: ReadPrec [GroupFilterName]
+readPrec :: ReadPrec GroupFilterName
+$creadPrec :: ReadPrec GroupFilterName
+readList :: ReadS [GroupFilterName]
+$creadList :: ReadS [GroupFilterName]
+readsPrec :: Int -&gt; ReadS GroupFilterName
+$creadsPrec :: Int -&gt; ReadS GroupFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679175673"><span id="local-6989586621679175675"><span class="annot"><span class="annottext">GroupFilterName -&gt; GroupFilterName -&gt; Bool
+(GroupFilterName -&gt; GroupFilterName -&gt; Bool)
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
+-&gt; Eq GroupFilterName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+$c/= :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+== :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+$c== :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679175657"><span id="local-6989586621679175659"><span id="local-6989586621679175661"><span id="local-6989586621679175663"><span id="local-6989586621679175665"><span id="local-6989586621679175667"><span id="local-6989586621679175669"><span class="annot"><span class="annottext">Eq GroupFilterName
+Eq GroupFilterName
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Ordering)
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; Bool)
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; GroupFilterName)
+-&gt; (GroupFilterName -&gt; GroupFilterName -&gt; GroupFilterName)
+-&gt; Ord GroupFilterName
+GroupFilterName -&gt; GroupFilterName -&gt; Bool
+GroupFilterName -&gt; GroupFilterName -&gt; Ordering
+GroupFilterName -&gt; GroupFilterName -&gt; GroupFilterName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: GroupFilterName -&gt; GroupFilterName -&gt; GroupFilterName
+$cmin :: GroupFilterName -&gt; GroupFilterName -&gt; GroupFilterName
+max :: GroupFilterName -&gt; GroupFilterName -&gt; GroupFilterName
+$cmax :: GroupFilterName -&gt; GroupFilterName -&gt; GroupFilterName
+&gt;= :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+$c&gt;= :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+&gt; :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+$c&gt; :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+&lt;= :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+$c&lt;= :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+&lt; :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+$c&lt; :: GroupFilterName -&gt; GroupFilterName -&gt; Bool
+compare :: GroupFilterName -&gt; GroupFilterName -&gt; Ordering
+$ccompare :: GroupFilterName -&gt; GroupFilterName -&gt; Ordering
+$cp1Ord :: Eq GroupFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. GroupFilterName -&gt; Rep GroupFilterName x)
+-&gt; (forall x. Rep GroupFilterName x -&gt; GroupFilterName)
+-&gt; Generic GroupFilterName
+forall x. Rep GroupFilterName x -&gt; GroupFilterName
+forall x. GroupFilterName -&gt; Rep GroupFilterName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GroupFilterName x -&gt; GroupFilterName
+$cfrom :: forall x. GroupFilterName -&gt; Rep GroupFilterName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679175649"><span id="local-6989586621679175651"><span class="annot"><span class="annottext">Int -&gt; GroupFilterName -&gt; Int
+GroupFilterName -&gt; Int
+(Int -&gt; GroupFilterName -&gt; Int)
+-&gt; (GroupFilterName -&gt; Int) -&gt; Hashable GroupFilterName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: GroupFilterName -&gt; Int
+$chash :: GroupFilterName -&gt; Int
+hashWithSalt :: Int -&gt; GroupFilterName -&gt; Int
+$chashWithSalt :: Int -&gt; GroupFilterName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679175646"><span class="annot"><span class="annottext">GroupFilterName -&gt; ()
+(GroupFilterName -&gt; ()) -&gt; NFData GroupFilterName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: GroupFilterName -&gt; ()
+$crnf :: GroupFilterName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679175643"><span class="annot"><span class="annottext">Text -&gt; Either String GroupFilterName
+(Text -&gt; Either String GroupFilterName) -&gt; FromText GroupFilterName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String GroupFilterName
+$cfromText :: Text -&gt; Either String GroupFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679175640"><span class="annot"><span class="annottext">GroupFilterName -&gt; Text
+(GroupFilterName -&gt; Text) -&gt; ToText GroupFilterName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: GroupFilterName -&gt; Text
+$ctoText :: GroupFilterName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679175637"><span class="annot"><span class="annottext">GroupFilterName -&gt; ByteString
+(GroupFilterName -&gt; ByteString) -&gt; ToByteString GroupFilterName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: GroupFilterName -&gt; ByteString
+$ctoBS :: GroupFilterName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679175634"><span class="annot"><span class="annottext">GroupFilterName -&gt; ByteStringBuilder
+(GroupFilterName -&gt; ByteStringBuilder) -&gt; ToLog GroupFilterName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: GroupFilterName -&gt; ByteStringBuilder
+$cbuild :: GroupFilterName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679175631"><span class="annot"><span class="annottext">HeaderName -&gt; GroupFilterName -&gt; [Header]
+(HeaderName -&gt; GroupFilterName -&gt; [Header])
+-&gt; ToHeader GroupFilterName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; GroupFilterName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; GroupFilterName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679175628"><span class="annot"><span class="annottext">GroupFilterName -&gt; QueryString
+(GroupFilterName -&gt; QueryString) -&gt; ToQuery GroupFilterName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: GroupFilterName -&gt; QueryString
+$ctoQuery :: GroupFilterName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679175623"><span id="local-6989586621679175625"><span class="annot"><span class="annottext">Value -&gt; Parser [GroupFilterName]
+Value -&gt; Parser GroupFilterName
+(Value -&gt; Parser GroupFilterName)
+-&gt; (Value -&gt; Parser [GroupFilterName]) -&gt; FromJSON GroupFilterName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [GroupFilterName]
+$cparseJSONList :: Value -&gt; Parser [GroupFilterName]
+parseJSON :: Value -&gt; Parser GroupFilterName
+$cparseJSON :: Value -&gt; Parser GroupFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679175618"><span id="local-6989586621679175620"><span class="annot"><span class="annottext">FromJSONKeyFunction [GroupFilterName]
+FromJSONKeyFunction GroupFilterName
+FromJSONKeyFunction GroupFilterName
+-&gt; FromJSONKeyFunction [GroupFilterName]
+-&gt; FromJSONKey GroupFilterName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [GroupFilterName]
+$cfromJSONKeyList :: FromJSONKeyFunction [GroupFilterName]
+fromJSONKey :: FromJSONKeyFunction GroupFilterName
+$cfromJSONKey :: FromJSONKeyFunction GroupFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679175609"><span id="local-6989586621679175611"><span id="local-6989586621679175613"><span id="local-6989586621679175615"><span class="annot"><span class="annottext">[GroupFilterName] -&gt; Encoding
+[GroupFilterName] -&gt; Value
+GroupFilterName -&gt; Encoding
+GroupFilterName -&gt; Value
+(GroupFilterName -&gt; Value)
+-&gt; (GroupFilterName -&gt; Encoding)
+-&gt; ([GroupFilterName] -&gt; Value)
+-&gt; ([GroupFilterName] -&gt; Encoding)
+-&gt; ToJSON GroupFilterName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [GroupFilterName] -&gt; Encoding
+$ctoEncodingList :: [GroupFilterName] -&gt; Encoding
+toJSONList :: [GroupFilterName] -&gt; Value
+$ctoJSONList :: [GroupFilterName] -&gt; Value
+toEncoding :: GroupFilterName -&gt; Encoding
+$ctoEncoding :: GroupFilterName -&gt; Encoding
+toJSON :: GroupFilterName -&gt; Value
+$ctoJSON :: GroupFilterName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679175604"><span id="local-6989586621679175606"><span class="annot"><span class="annottext">ToJSONKeyFunction [GroupFilterName]
+ToJSONKeyFunction GroupFilterName
+ToJSONKeyFunction GroupFilterName
+-&gt; ToJSONKeyFunction [GroupFilterName] -&gt; ToJSONKey GroupFilterName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [GroupFilterName]
+$ctoJSONKeyList :: ToJSONKeyFunction [GroupFilterName]
+toJSONKey :: ToJSONKeyFunction GroupFilterName
+$ctoJSONKey :: ToJSONKeyFunction GroupFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679175601"><span class="annot"><span class="annottext">[Node] -&gt; Either String GroupFilterName
+([Node] -&gt; Either String GroupFilterName)
+-&gt; FromXML GroupFilterName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String GroupFilterName
+$cparseXML :: [Node] -&gt; Either String GroupFilterName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679175598"><span class="annot"><span class="annottext">GroupFilterName -&gt; XML
+(GroupFilterName -&gt; XML) -&gt; ToXML GroupFilterName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: GroupFilterName -&gt; XML
+$ctoXML :: GroupFilterName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName_Configuration_type"><span class="hs-identifier hs-type">GroupFilterName_Configuration_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-type">GroupFilterName</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGroupFilterName_Configuration_type"><span id="%24mGroupFilterName_Configuration_type"><span id="GroupFilterName_Configuration_type"><span class="annot"><span class="annottext">$bGroupFilterName_Configuration_type :: GroupFilterName
+$mGroupFilterName_Configuration_type :: forall r. GroupFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#%24bGroupFilterName_Configuration_type"><span class="hs-identifier hs-var hs-var hs-var">GroupFilterName_Configuration_type</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName%27"><span class="hs-identifier hs-type">GroupFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;configuration-type&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName_Resource_type"><span class="hs-identifier hs-type">GroupFilterName_Resource_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName"><span class="hs-identifier hs-type">GroupFilterName</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bGroupFilterName_Resource_type"><span id="%24mGroupFilterName_Resource_type"><span id="GroupFilterName_Resource_type"><span class="annot"><span class="annottext">$bGroupFilterName_Resource_type :: GroupFilterName
+$mGroupFilterName_Resource_type :: forall r. GroupFilterName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#%24bGroupFilterName_Resource_type"><span class="hs-identifier hs-var hs-var hs-var">GroupFilterName_Resource_type</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName%27"><span class="hs-identifier hs-type">GroupFilterName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;resource-type&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName_Configuration_type"><span class="hs-pragma hs-type">GroupFilterName_Configuration_type</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName_Resource_type"><span class="hs-pragma hs-type">GroupFilterName_Resource_type</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ResourceGroups.Types.GroupFilterName.html#GroupFilterName%27"><span class="hs-pragma hs-type">GroupFilterName'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

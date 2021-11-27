@@ -1,0 +1,517 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ChimeSDKIdentity.ListAppInstances</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all Amazon Chime @AppInstance@s created under a single AWS</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ChimeSDKIdentity.ListAppInstances</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier">ListAppInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#newListAppInstances"><span class="hs-identifier">newListAppInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstances_nextToken"><span class="hs-identifier">listAppInstances_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstances_maxResults"><span class="hs-identifier">listAppInstances_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier">ListAppInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#newListAppInstancesResponse"><span class="hs-identifier">newListAppInstancesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_appInstances"><span class="hs-identifier">listAppInstancesResponse_appInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_nextToken"><span class="hs-identifier">listAppInstancesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_httpStatus"><span class="hs-identifier">listAppInstancesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.Types.html"><span class="hs-identifier">Amazonka.ChimeSDKIdentity.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newListAppInstances' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679160989"><span id="local-6989586621679160990"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppInstances"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-var">ListAppInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppInstances%27"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances%27"><span class="hs-identifier hs-var">ListAppInstances'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token passed by previous API requests until you reach the maximum</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- number of @AppInstances@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AnextToken%3AListAppInstances%27"><span class="annot"><span class="annottext">ListAppInstances -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AnextToken%3AListAppInstances%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The maximum number of @AppInstance@s that you want to return.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AmaxResults%3AListAppInstances%27"><span class="annot"><span class="annottext">ListAppInstances -&gt; Maybe Natural
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AmaxResults%3AListAppInstances%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679160982"><span id="local-6989586621679160984"><span class="annot"><span class="annottext">ListAppInstances -&gt; ListAppInstances -&gt; Bool
+(ListAppInstances -&gt; ListAppInstances -&gt; Bool)
+-&gt; (ListAppInstances -&gt; ListAppInstances -&gt; Bool)
+-&gt; Eq ListAppInstances
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAppInstances -&gt; ListAppInstances -&gt; Bool
+$c/= :: ListAppInstances -&gt; ListAppInstances -&gt; Bool
+== :: ListAppInstances -&gt; ListAppInstances -&gt; Bool
+$c== :: ListAppInstances -&gt; ListAppInstances -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160975"><span id="local-6989586621679160977"><span id="local-6989586621679160979"><span class="annot"><span class="annottext">Int -&gt; ListAppInstances -&gt; ShowS
+[ListAppInstances] -&gt; ShowS
+ListAppInstances -&gt; String
+(Int -&gt; ListAppInstances -&gt; ShowS)
+-&gt; (ListAppInstances -&gt; String)
+-&gt; ([ListAppInstances] -&gt; ShowS)
+-&gt; Show ListAppInstances
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAppInstances] -&gt; ShowS
+$cshowList :: [ListAppInstances] -&gt; ShowS
+show :: ListAppInstances -&gt; String
+$cshow :: ListAppInstances -&gt; String
+showsPrec :: Int -&gt; ListAppInstances -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAppInstances -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListAppInstances -&gt; Rep ListAppInstances x)
+-&gt; (forall x. Rep ListAppInstances x -&gt; ListAppInstances)
+-&gt; Generic ListAppInstances
+forall x. Rep ListAppInstances x -&gt; ListAppInstances
+forall x. ListAppInstances -&gt; Rep ListAppInstances x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListAppInstances x -&gt; ListAppInstances
+$cfrom :: forall x. ListAppInstances -&gt; Rep ListAppInstances x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'ListAppInstances' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'nextToken', 'listAppInstances_nextToken' - The token passed by previous API requests until you reach the maximum</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- number of @AppInstances@.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'maxResults', 'listAppInstances_maxResults' - The maximum number of @AppInstance@s that you want to return.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#newListAppInstances"><span class="hs-identifier hs-type">newListAppInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span>
+</span><span id="line-76"></span><span id="newListAppInstances"><span class="annot"><span class="annottext">newListAppInstances :: ListAppInstances
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#newListAppInstances"><span class="hs-identifier hs-var hs-var">newListAppInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">ListAppInstances' :: Maybe (Sensitive Text) -&gt; Maybe Natural -&gt; ListAppInstances
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances%27"><span class="hs-identifier hs-type">ListAppInstances'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListAppInstances' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AnextToken%3AListAppInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListAppInstances' :: Maybe Natural
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AmaxResults%3AListAppInstances%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The token passed by previous API requests until you reach the maximum</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- number of @AppInstances@.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstances_nextToken"><span class="hs-identifier hs-type">listAppInstances_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="listAppInstances_nextToken"><span class="annot"><span class="annottext">listAppInstances_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppInstances -&gt; f ListAppInstances
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstances_nextToken"><span class="hs-identifier hs-var hs-var">listAppInstances_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppInstances -&gt; Maybe (Sensitive Text))
+-&gt; (ListAppInstances -&gt; Maybe (Sensitive Text) -&gt; ListAppInstances)
+-&gt; Lens
+     ListAppInstances
+     ListAppInstances
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances%27"><span class="hs-identifier hs-type">ListAppInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160968"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+nextToken :: Maybe (Sensitive Text)
+$sel:nextToken:ListAppInstances' :: ListAppInstances -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160968"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160968"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160967"><span class="annot"><span class="annottext">s :: ListAppInstances
+</span><a href="#local-6989586621679160967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances%27"><span class="hs-identifier hs-type">ListAppInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160966"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppInstances
+</span><a href="#local-6989586621679160967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppInstances' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AnextToken%3AListAppInstances%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; ListAppInstances -&gt; f ListAppInstances)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppInstances
+-&gt; f ListAppInstances
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The maximum number of @AppInstance@s that you want to return.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstances_maxResults"><span class="hs-identifier hs-type">listAppInstances_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span id="listAppInstances_maxResults"><span class="annot"><span class="annottext">listAppInstances_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListAppInstances -&gt; f ListAppInstances
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstances_maxResults"><span class="hs-identifier hs-var hs-var">listAppInstances_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppInstances -&gt; Maybe Natural)
+-&gt; (ListAppInstances -&gt; Maybe Natural -&gt; ListAppInstances)
+-&gt; Lens
+     ListAppInstances ListAppInstances (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances%27"><span class="hs-identifier hs-type">ListAppInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160962"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListAppInstances' :: ListAppInstances -&gt; Maybe Natural
+</span><a href="#local-6989586621679160962"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679160962"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160961"><span class="annot"><span class="annottext">s :: ListAppInstances
+</span><a href="#local-6989586621679160961"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances%27"><span class="hs-identifier hs-type">ListAppInstances'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160960"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679160960"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppInstances
+</span><a href="#local-6989586621679160961"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListAppInstances' :: Maybe Natural
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AmaxResults%3AListAppInstances%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679160960"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679160956"><span class="annot"><span class="annottext">request :: ListAppInstances -&gt; Request ListAppInstances
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListAppInstances -&gt; Request ListAppInstances
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ChimeSDKIdentity.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679160952"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListAppInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAppInstances)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListAppInstances))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListAppInstances
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListAppInstances)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679160949"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160949"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679160948"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679160948"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679160947"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160947"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [AppInstanceSummary]
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; ListAppInstancesResponse
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-var">ListAppInstancesResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [AppInstanceSummary]
+ -&gt; Maybe (Sensitive Text) -&gt; Int -&gt; ListAppInstancesResponse)
+-&gt; Either String (Maybe [AppInstanceSummary])
+-&gt; Either
+     String (Maybe (Sensitive Text) -&gt; Int -&gt; ListAppInstancesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [AppInstanceSummary]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AppInstances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [AppInstanceSummary]))
+-&gt; Maybe [AppInstanceSummary]
+-&gt; Either String (Maybe [AppInstanceSummary])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [AppInstanceSummary]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe (Sensitive Text) -&gt; Int -&gt; ListAppInstancesResponse)
+-&gt; Either String (Maybe (Sensitive Text))
+-&gt; Either String (Int -&gt; ListAppInstancesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679160947"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListAppInstancesResponse)
+-&gt; Either String Int -&gt; Either String ListAppInstancesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160949"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160938"><span id="local-6989586621679160940"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160935"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679160931"><span class="annot"><span class="annottext">toHeaders :: ListAppInstances -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListAppInstances -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679160926"><span class="annot"><span class="annottext">toPath :: ListAppInstances -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListAppInstances -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/app-instances&quot;</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances"><span class="hs-identifier hs-type">ListAppInstances</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679160922"><span class="annot"><span class="annottext">toQuery :: ListAppInstances -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstances%27"><span class="hs-identifier hs-type">ListAppInstances'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160919"><span id="local-6989586621679160920"><span class="annot"><span class="annottext">Maybe Natural
+Maybe (Sensitive Text)
+maxResults :: Maybe Natural
+nextToken :: Maybe (Sensitive Text)
+$sel:maxResults:ListAppInstances' :: ListAppInstances -&gt; Maybe Natural
+$sel:nextToken:ListAppInstances' :: ListAppInstances -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160919"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;next-token&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe (Sensitive Text) -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160920"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;max-results&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679160919"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newListAppInstancesResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679160916"><span id="local-6989586621679160917"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListAppInstancesResponse"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-var">ListAppInstancesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListAppInstancesResponse%27"><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-var">ListAppInstancesResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information for each @AppInstance@.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AappInstances%3AListAppInstancesResponse%27"><span class="annot"><span class="annottext">ListAppInstancesResponse -&gt; Maybe [AppInstanceSummary]
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AappInstances%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var hs-var">appInstances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.html#AppInstanceSummary"><span class="hs-identifier hs-type">AppInstanceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The token passed by previous API requests until the maximum number of</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- @AppInstance@s is reached.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AnextToken%3AListAppInstancesResponse%27"><span class="annot"><span class="annottext">ListAppInstancesResponse -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AnextToken%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListAppInstancesResponse%27"><span class="annot"><span class="annottext">ListAppInstancesResponse -&gt; Int
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AhttpStatus%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679160909"><span id="local-6989586621679160911"><span class="annot"><span class="annottext">ListAppInstancesResponse -&gt; ListAppInstancesResponse -&gt; Bool
+(ListAppInstancesResponse -&gt; ListAppInstancesResponse -&gt; Bool)
+-&gt; (ListAppInstancesResponse -&gt; ListAppInstancesResponse -&gt; Bool)
+-&gt; Eq ListAppInstancesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListAppInstancesResponse -&gt; ListAppInstancesResponse -&gt; Bool
+$c/= :: ListAppInstancesResponse -&gt; ListAppInstancesResponse -&gt; Bool
+== :: ListAppInstancesResponse -&gt; ListAppInstancesResponse -&gt; Bool
+$c== :: ListAppInstancesResponse -&gt; ListAppInstancesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679160903"><span id="local-6989586621679160905"><span id="local-6989586621679160907"><span class="annot"><span class="annottext">Int -&gt; ListAppInstancesResponse -&gt; ShowS
+[ListAppInstancesResponse] -&gt; ShowS
+ListAppInstancesResponse -&gt; String
+(Int -&gt; ListAppInstancesResponse -&gt; ShowS)
+-&gt; (ListAppInstancesResponse -&gt; String)
+-&gt; ([ListAppInstancesResponse] -&gt; ShowS)
+-&gt; Show ListAppInstancesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListAppInstancesResponse] -&gt; ShowS
+$cshowList :: [ListAppInstancesResponse] -&gt; ShowS
+show :: ListAppInstancesResponse -&gt; String
+$cshow :: ListAppInstancesResponse -&gt; String
+showsPrec :: Int -&gt; ListAppInstancesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListAppInstancesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListAppInstancesResponse -&gt; Rep ListAppInstancesResponse x)
+-&gt; (forall x.
+    Rep ListAppInstancesResponse x -&gt; ListAppInstancesResponse)
+-&gt; Generic ListAppInstancesResponse
+forall x.
+Rep ListAppInstancesResponse x -&gt; ListAppInstancesResponse
+forall x.
+ListAppInstancesResponse -&gt; Rep ListAppInstancesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListAppInstancesResponse x -&gt; ListAppInstancesResponse
+$cfrom :: forall x.
+ListAppInstancesResponse -&gt; Rep ListAppInstancesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'ListAppInstancesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'appInstances', 'listAppInstancesResponse_appInstances' - The information for each @AppInstance@.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'nextToken', 'listAppInstancesResponse_nextToken' - The token passed by previous API requests until the maximum number of</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @AppInstance@s is reached.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'httpStatus', 'listAppInstancesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#newListAppInstancesResponse"><span class="hs-identifier hs-type">newListAppInstancesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span>
+</span><span id="line-152"></span><span id="newListAppInstancesResponse"><span class="annot"><span class="annottext">newListAppInstancesResponse :: Int -&gt; ListAppInstancesResponse
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#newListAppInstancesResponse"><span class="hs-identifier hs-var hs-var">newListAppInstancesResponse</span></a></span></span><span> </span><span id="local-6989586621679160900"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><span class="annottext">ListAppInstancesResponse' :: Maybe [AppInstanceSummary]
+-&gt; Maybe (Sensitive Text) -&gt; Int -&gt; ListAppInstancesResponse
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-type">ListAppInstancesResponse'</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:appInstances:ListAppInstancesResponse' :: Maybe [AppInstanceSummary]
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AappInstances%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var">appInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">Maybe [AppInstanceSummary]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListAppInstancesResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AnextToken%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppInstancesResponse' :: Int
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AhttpStatus%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160900"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The information for each @AppInstance@.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_appInstances"><span class="hs-identifier hs-type">listAppInstancesResponse_appInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.Types.AppInstanceSummary.html#AppInstanceSummary"><span class="hs-identifier hs-type">AppInstanceSummary</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="listAppInstancesResponse_appInstances"><span class="annot"><span class="annottext">listAppInstancesResponse_appInstances :: (Maybe [AppInstanceSummary] -&gt; f (Maybe [AppInstanceSummary]))
+-&gt; ListAppInstancesResponse -&gt; f ListAppInstancesResponse
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_appInstances"><span class="hs-identifier hs-var hs-var">listAppInstancesResponse_appInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppInstancesResponse -&gt; Maybe [AppInstanceSummary])
+-&gt; (ListAppInstancesResponse
+    -&gt; Maybe [AppInstanceSummary] -&gt; ListAppInstancesResponse)
+-&gt; Lens
+     ListAppInstancesResponse
+     ListAppInstancesResponse
+     (Maybe [AppInstanceSummary])
+     (Maybe [AppInstanceSummary])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-type">ListAppInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160899"><span class="annot"><span class="annottext">Maybe [AppInstanceSummary]
+appInstances :: Maybe [AppInstanceSummary]
+$sel:appInstances:ListAppInstancesResponse' :: ListAppInstancesResponse -&gt; Maybe [AppInstanceSummary]
+</span><a href="#local-6989586621679160899"><span class="hs-identifier hs-var hs-var">appInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [AppInstanceSummary]
+</span><a href="#local-6989586621679160899"><span class="hs-identifier hs-var">appInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160898"><span class="annot"><span class="annottext">s :: ListAppInstancesResponse
+</span><a href="#local-6989586621679160898"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-type">ListAppInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160897"><span class="annot"><span class="annottext">Maybe [AppInstanceSummary]
+</span><a href="#local-6989586621679160897"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppInstancesResponse
+</span><a href="#local-6989586621679160898"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:appInstances:ListAppInstancesResponse' :: Maybe [AppInstanceSummary]
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AappInstances%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var">appInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [AppInstanceSummary]
+</span><a href="#local-6989586621679160897"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [AppInstanceSummary] -&gt; f (Maybe [AppInstanceSummary]))
+ -&gt; ListAppInstancesResponse -&gt; f ListAppInstancesResponse)
+-&gt; ((Maybe [AppInstanceSummary] -&gt; f (Maybe [AppInstanceSummary]))
+    -&gt; Maybe [AppInstanceSummary] -&gt; f (Maybe [AppInstanceSummary]))
+-&gt; (Maybe [AppInstanceSummary] -&gt; f (Maybe [AppInstanceSummary]))
+-&gt; ListAppInstancesResponse
+-&gt; f ListAppInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AppInstanceSummary]
+  [AppInstanceSummary]
+  [AppInstanceSummary]
+  [AppInstanceSummary]
+-&gt; Iso
+     (Maybe [AppInstanceSummary])
+     (Maybe [AppInstanceSummary])
+     (Maybe [AppInstanceSummary])
+     (Maybe [AppInstanceSummary])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AppInstanceSummary]
+  [AppInstanceSummary]
+  [AppInstanceSummary]
+  [AppInstanceSummary]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The token passed by previous API requests until the maximum number of</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- @AppInstance@s is reached.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_nextToken"><span class="hs-identifier hs-type">listAppInstancesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="listAppInstancesResponse_nextToken"><span class="annot"><span class="annottext">listAppInstancesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppInstancesResponse -&gt; f ListAppInstancesResponse
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listAppInstancesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppInstancesResponse -&gt; Maybe (Sensitive Text))
+-&gt; (ListAppInstancesResponse
+    -&gt; Maybe (Sensitive Text) -&gt; ListAppInstancesResponse)
+-&gt; Lens
+     ListAppInstancesResponse
+     ListAppInstancesResponse
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-type">ListAppInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160895"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+nextToken :: Maybe (Sensitive Text)
+$sel:nextToken:ListAppInstancesResponse' :: ListAppInstancesResponse -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160895"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160895"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160894"><span class="annot"><span class="annottext">s :: ListAppInstancesResponse
+</span><a href="#local-6989586621679160894"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-type">ListAppInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160893"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160893"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppInstancesResponse
+</span><a href="#local-6989586621679160894"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListAppInstancesResponse' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AnextToken%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679160893"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; ListAppInstancesResponse -&gt; f ListAppInstancesResponse)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListAppInstancesResponse
+-&gt; f ListAppInstancesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_httpStatus"><span class="hs-identifier hs-type">listAppInstancesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span id="listAppInstancesResponse_httpStatus"><span class="annot"><span class="annottext">listAppInstancesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListAppInstancesResponse -&gt; f ListAppInstancesResponse
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#listAppInstancesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listAppInstancesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListAppInstancesResponse -&gt; Int)
+-&gt; (ListAppInstancesResponse -&gt; Int -&gt; ListAppInstancesResponse)
+-&gt; Lens ListAppInstancesResponse ListAppInstancesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-type">ListAppInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679160892"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListAppInstancesResponse' :: ListAppInstancesResponse -&gt; Int
+</span><a href="#local-6989586621679160892"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160892"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679160891"><span class="annot"><span class="annottext">s :: ListAppInstancesResponse
+</span><a href="#local-6989586621679160891"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse%27"><span class="hs-identifier hs-type">ListAppInstancesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679160890"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160890"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListAppInstancesResponse
+</span><a href="#local-6989586621679160891"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListAppInstancesResponse' :: Int
+</span><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#%24sel%3AhttpStatus%3AListAppInstancesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679160890"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679160888"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKIdentity.ListAppInstances.html#ListAppInstancesResponse"><span class="hs-identifier hs-type">ListAppInstancesResponse</span></a></span></span><span>
+</span><span id="line-174"></span></pre></body></html>

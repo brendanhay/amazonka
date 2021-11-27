@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ExportToS3Task</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ExportToS3Task</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ContainerFormat.html"><span class="hs-identifier">Amazonka.EC2.Types.ContainerFormat</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html"><span class="hs-identifier">Amazonka.EC2.Types.DiskImageFormat</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes the format and location for the export task.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newExportToS3Task' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621681105313"><span id="local-6989586621681105314"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportToS3Task"><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-var">ExportToS3Task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportToS3Task%27"><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-var">ExportToS3Task'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption key for your S3 bucket.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3As3Key%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The container format used to combine disk images with metadata (such as</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe ContainerFormat
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">containerFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-type">ContainerFormat</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket for the destination image. The destination bucket</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Services account @vm-import-export\@amazon.com@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3As3Bucket%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3As3Bucket%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The format for the exported image.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="annot"><span class="annottext">ExportToS3Task -&gt; Maybe DiskImageFormat
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var hs-var">diskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681105304"><span id="local-6989586621681105306"><span class="annot"><span class="annottext">ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
+(ExportToS3Task -&gt; ExportToS3Task -&gt; Bool)
+-&gt; (ExportToS3Task -&gt; ExportToS3Task -&gt; Bool) -&gt; Eq ExportToS3Task
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
+$c/= :: ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
+== :: ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
+$c== :: ExportToS3Task -&gt; ExportToS3Task -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105295"><span id="local-6989586621681105297"><span id="local-6989586621681105299"><span id="local-6989586621681105301"><span class="annot"><span class="annottext">ReadPrec [ExportToS3Task]
+ReadPrec ExportToS3Task
+Int -&gt; ReadS ExportToS3Task
+ReadS [ExportToS3Task]
+(Int -&gt; ReadS ExportToS3Task)
+-&gt; ReadS [ExportToS3Task]
+-&gt; ReadPrec ExportToS3Task
+-&gt; ReadPrec [ExportToS3Task]
+-&gt; Read ExportToS3Task
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportToS3Task]
+$creadListPrec :: ReadPrec [ExportToS3Task]
+readPrec :: ReadPrec ExportToS3Task
+$creadPrec :: ReadPrec ExportToS3Task
+readList :: ReadS [ExportToS3Task]
+$creadList :: ReadS [ExportToS3Task]
+readsPrec :: Int -&gt; ReadS ExportToS3Task
+$creadsPrec :: Int -&gt; ReadS ExportToS3Task
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681105288"><span id="local-6989586621681105290"><span id="local-6989586621681105292"><span class="annot"><span class="annottext">Int -&gt; ExportToS3Task -&gt; ShowS
+[ExportToS3Task] -&gt; ShowS
+ExportToS3Task -&gt; String
+(Int -&gt; ExportToS3Task -&gt; ShowS)
+-&gt; (ExportToS3Task -&gt; String)
+-&gt; ([ExportToS3Task] -&gt; ShowS)
+-&gt; Show ExportToS3Task
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportToS3Task] -&gt; ShowS
+$cshowList :: [ExportToS3Task] -&gt; ShowS
+show :: ExportToS3Task -&gt; String
+$cshow :: ExportToS3Task -&gt; String
+showsPrec :: Int -&gt; ExportToS3Task -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportToS3Task -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExportToS3Task -&gt; Rep ExportToS3Task x)
+-&gt; (forall x. Rep ExportToS3Task x -&gt; ExportToS3Task)
+-&gt; Generic ExportToS3Task
+forall x. Rep ExportToS3Task x -&gt; ExportToS3Task
+forall x. ExportToS3Task -&gt; Rep ExportToS3Task x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExportToS3Task x -&gt; ExportToS3Task
+$cfrom :: forall x. ExportToS3Task -&gt; Rep ExportToS3Task x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'ExportToS3Task' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 's3Key', 'exportToS3Task_s3Key' - The encryption key for your S3 bucket.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'containerFormat', 'exportToS3Task_containerFormat' - The container format used to combine disk images with metadata (such as</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 's3Bucket', 'exportToS3Task_s3Bucket' - The Amazon S3 bucket for the destination image. The destination bucket</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Services account @vm-import-export\@amazon.com@.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'diskImageFormat', 'exportToS3Task_diskImageFormat' - The format for the exported image.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#newExportToS3Task"><span class="hs-identifier hs-type">newExportToS3Task</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span>
+</span><span id="line-67"></span><span id="newExportToS3Task"><span class="annot"><span class="annottext">newExportToS3Task :: ExportToS3Task
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#newExportToS3Task"><span class="hs-identifier hs-var hs-var">newExportToS3Task</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">ExportToS3Task' :: Maybe Text
+-&gt; Maybe ContainerFormat
+-&gt; Maybe Text
+-&gt; Maybe DiskImageFormat
+-&gt; ExportToS3Task
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Key:ExportToS3Task' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:containerFormat:ExportToS3Task' :: Maybe ContainerFormat
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">containerFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportToS3Task' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3As3Bucket%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskImageFormat:ExportToS3Task' :: Maybe DiskImageFormat
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- | The encryption key for your S3 bucket.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Key"><span class="hs-identifier hs-type">exportToS3Task_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span id="exportToS3Task_s3Key"><span class="annot"><span class="annottext">exportToS3Task_s3Key :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportToS3Task -&gt; f ExportToS3Task
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Key"><span class="hs-identifier hs-var hs-var">exportToS3Task_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe Text)
+-&gt; (ExportToS3Task -&gt; Maybe Text -&gt; ExportToS3Task)
+-&gt; Lens ExportToS3Task ExportToS3Task (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105279"><span class="annot"><span class="annottext">Maybe Text
+s3Key :: Maybe Text
+$sel:s3Key:ExportToS3Task' :: ExportToS3Task -&gt; Maybe Text
+</span><a href="#local-6989586621681105279"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105279"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105278"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105278"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105277"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105277"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105278"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:ExportToS3Task' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3As3Key%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105277"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | The container format used to combine disk images with metadata (such as</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- OVF). If absent, only the disk image is exported.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_containerFormat"><span class="hs-identifier hs-type">exportToS3Task_containerFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ContainerFormat.html#ContainerFormat"><span class="hs-identifier hs-type">ContainerFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="exportToS3Task_containerFormat"><span class="annot"><span class="annottext">exportToS3Task_containerFormat :: (Maybe ContainerFormat -&gt; f (Maybe ContainerFormat))
+-&gt; ExportToS3Task -&gt; f ExportToS3Task
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_containerFormat"><span class="hs-identifier hs-var hs-var">exportToS3Task_containerFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe ContainerFormat)
+-&gt; (ExportToS3Task -&gt; Maybe ContainerFormat -&gt; ExportToS3Task)
+-&gt; Lens
+     ExportToS3Task
+     ExportToS3Task
+     (Maybe ContainerFormat)
+     (Maybe ContainerFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105275"><span class="annot"><span class="annottext">Maybe ContainerFormat
+containerFormat :: Maybe ContainerFormat
+$sel:containerFormat:ExportToS3Task' :: ExportToS3Task -&gt; Maybe ContainerFormat
+</span><a href="#local-6989586621681105275"><span class="hs-identifier hs-var hs-var">containerFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><a href="#local-6989586621681105275"><span class="hs-identifier hs-var">containerFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105274"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105273"><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><a href="#local-6989586621681105273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerFormat:ExportToS3Task' :: Maybe ContainerFormat
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3AcontainerFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">containerFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerFormat
+</span><a href="#local-6989586621681105273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The Amazon S3 bucket for the destination image. The destination bucket</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- must exist and grant WRITE and READ_ACP permissions to the Amazon Web</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Services account @vm-import-export\@amazon.com@.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Bucket"><span class="hs-identifier hs-type">exportToS3Task_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="exportToS3Task_s3Bucket"><span class="annot"><span class="annottext">exportToS3Task_s3Bucket :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportToS3Task -&gt; f ExportToS3Task
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_s3Bucket"><span class="hs-identifier hs-var hs-var">exportToS3Task_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe Text)
+-&gt; (ExportToS3Task -&gt; Maybe Text -&gt; ExportToS3Task)
+-&gt; Lens ExportToS3Task ExportToS3Task (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105271"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:ExportToS3Task' :: ExportToS3Task -&gt; Maybe Text
+</span><a href="#local-6989586621681105271"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105271"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105270"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105270"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105269"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105269"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105270"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:ExportToS3Task' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3As3Bucket%3AExportToS3Task%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681105269"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The format for the exported image.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_diskImageFormat"><span class="hs-identifier hs-type">exportToS3Task_diskImageFormat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.DiskImageFormat.html#DiskImageFormat"><span class="hs-identifier hs-type">DiskImageFormat</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="exportToS3Task_diskImageFormat"><span class="annot"><span class="annottext">exportToS3Task_diskImageFormat :: (Maybe DiskImageFormat -&gt; f (Maybe DiskImageFormat))
+-&gt; ExportToS3Task -&gt; f ExportToS3Task
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#exportToS3Task_diskImageFormat"><span class="hs-identifier hs-var hs-var">exportToS3Task_diskImageFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportToS3Task -&gt; Maybe DiskImageFormat)
+-&gt; (ExportToS3Task -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Lens
+     ExportToS3Task
+     ExportToS3Task
+     (Maybe DiskImageFormat)
+     (Maybe DiskImageFormat)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681105267"><span class="annot"><span class="annottext">Maybe DiskImageFormat
+diskImageFormat :: Maybe DiskImageFormat
+$sel:diskImageFormat:ExportToS3Task' :: ExportToS3Task -&gt; Maybe DiskImageFormat
+</span><a href="#local-6989586621681105267"><span class="hs-identifier hs-var hs-var">diskImageFormat</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
+</span><a href="#local-6989586621681105267"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681105266"><span class="annot"><span class="annottext">s :: ExportToS3Task
+</span><a href="#local-6989586621681105266"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-type">ExportToS3Task'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681105265"><span class="annot"><span class="annottext">Maybe DiskImageFormat
+</span><a href="#local-6989586621681105265"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportToS3Task
+</span><a href="#local-6989586621681105266"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskImageFormat:ExportToS3Task' :: Maybe DiskImageFormat
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#%24sel%3AdiskImageFormat%3AExportToS3Task%27"><span class="hs-identifier hs-var">diskImageFormat</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DiskImageFormat
+</span><a href="#local-6989586621681105265"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621681105262"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ExportToS3Task
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681105260"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105260"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe ContainerFormat
+-&gt; Maybe Text
+-&gt; Maybe DiskImageFormat
+-&gt; ExportToS3Task
+</span><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task%27"><span class="hs-identifier hs-var">ExportToS3Task'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe ContainerFormat
+ -&gt; Maybe Text
+ -&gt; Maybe DiskImageFormat
+ -&gt; ExportToS3Task)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ContainerFormat
+      -&gt; Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Key&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ContainerFormat
+   -&gt; Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Either String (Maybe ContainerFormat)
+-&gt; Either
+     String (Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ContainerFormat)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe DiskImageFormat -&gt; ExportToS3Task)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe DiskImageFormat -&gt; ExportToS3Task)
+-&gt; Either String (Maybe DiskImageFormat)
+-&gt; Either String ExportToS3Task
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681105260"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe DiskImageFormat)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;diskImageFormat&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681105254"><span id="local-6989586621681105256"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681105251"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ExportToS3Task.html#ExportToS3Task"><span class="hs-identifier hs-type">ExportToS3Task</span></a></span></span><span>
+</span><span id="line-105"></span></pre></body></html>

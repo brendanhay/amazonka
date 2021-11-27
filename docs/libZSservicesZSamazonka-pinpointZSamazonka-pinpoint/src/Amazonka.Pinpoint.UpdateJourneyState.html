@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.UpdateJourneyState</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Cancels (stops) an active journey.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.UpdateJourneyState</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier">UpdateJourneyState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#newUpdateJourneyState"><span class="hs-identifier">newUpdateJourneyState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_journeyId"><span class="hs-identifier">updateJourneyState_journeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_applicationId"><span class="hs-identifier">updateJourneyState_applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_journeyStateRequest"><span class="hs-identifier">updateJourneyState_journeyStateRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier">UpdateJourneyStateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#newUpdateJourneyStateResponse"><span class="hs-identifier">newUpdateJourneyStateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyStateResponse_httpStatus"><span class="hs-identifier">updateJourneyStateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyStateResponse_journeyResponse"><span class="hs-identifier">updateJourneyStateResponse_journeyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.html"><span class="hs-identifier">Amazonka.Pinpoint.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateJourneyState' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679645680"><span id="local-6989586621679645681"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJourneyState"><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-var">UpdateJourneyState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJourneyState%27"><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-var">UpdateJourneyState'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AjourneyId%3AUpdateJourneyState%27"><span class="annot"><span class="annottext">UpdateJourneyState -&gt; Text
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyId%3AUpdateJourneyState%27"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AapplicationId%3AUpdateJourneyState%27"><span class="annot"><span class="annottext">UpdateJourneyState -&gt; Text
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AapplicationId%3AUpdateJourneyState%27"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AjourneyStateRequest%3AUpdateJourneyState%27"><span class="annot"><span class="annottext">UpdateJourneyState -&gt; JourneyStateRequest
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyStateRequest%3AUpdateJourneyState%27"><span class="hs-identifier hs-var hs-var">journeyStateRequest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.JourneyStateRequest.html#JourneyStateRequest"><span class="hs-identifier hs-type">JourneyStateRequest</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645672"><span id="local-6989586621679645674"><span class="annot"><span class="annottext">UpdateJourneyState -&gt; UpdateJourneyState -&gt; Bool
+(UpdateJourneyState -&gt; UpdateJourneyState -&gt; Bool)
+-&gt; (UpdateJourneyState -&gt; UpdateJourneyState -&gt; Bool)
+-&gt; Eq UpdateJourneyState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateJourneyState -&gt; UpdateJourneyState -&gt; Bool
+$c/= :: UpdateJourneyState -&gt; UpdateJourneyState -&gt; Bool
+== :: UpdateJourneyState -&gt; UpdateJourneyState -&gt; Bool
+$c== :: UpdateJourneyState -&gt; UpdateJourneyState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645663"><span id="local-6989586621679645665"><span id="local-6989586621679645667"><span id="local-6989586621679645669"><span class="annot"><span class="annottext">ReadPrec [UpdateJourneyState]
+ReadPrec UpdateJourneyState
+Int -&gt; ReadS UpdateJourneyState
+ReadS [UpdateJourneyState]
+(Int -&gt; ReadS UpdateJourneyState)
+-&gt; ReadS [UpdateJourneyState]
+-&gt; ReadPrec UpdateJourneyState
+-&gt; ReadPrec [UpdateJourneyState]
+-&gt; Read UpdateJourneyState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateJourneyState]
+$creadListPrec :: ReadPrec [UpdateJourneyState]
+readPrec :: ReadPrec UpdateJourneyState
+$creadPrec :: ReadPrec UpdateJourneyState
+readList :: ReadS [UpdateJourneyState]
+$creadList :: ReadS [UpdateJourneyState]
+readsPrec :: Int -&gt; ReadS UpdateJourneyState
+$creadsPrec :: Int -&gt; ReadS UpdateJourneyState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645656"><span id="local-6989586621679645658"><span id="local-6989586621679645660"><span class="annot"><span class="annottext">Int -&gt; UpdateJourneyState -&gt; ShowS
+[UpdateJourneyState] -&gt; ShowS
+UpdateJourneyState -&gt; String
+(Int -&gt; UpdateJourneyState -&gt; ShowS)
+-&gt; (UpdateJourneyState -&gt; String)
+-&gt; ([UpdateJourneyState] -&gt; ShowS)
+-&gt; Show UpdateJourneyState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateJourneyState] -&gt; ShowS
+$cshowList :: [UpdateJourneyState] -&gt; ShowS
+show :: UpdateJourneyState -&gt; String
+$cshow :: UpdateJourneyState -&gt; String
+showsPrec :: Int -&gt; UpdateJourneyState -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateJourneyState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateJourneyState -&gt; Rep UpdateJourneyState x)
+-&gt; (forall x. Rep UpdateJourneyState x -&gt; UpdateJourneyState)
+-&gt; Generic UpdateJourneyState
+forall x. Rep UpdateJourneyState x -&gt; UpdateJourneyState
+forall x. UpdateJourneyState -&gt; Rep UpdateJourneyState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateJourneyState x -&gt; UpdateJourneyState
+$cfrom :: forall x. UpdateJourneyState -&gt; Rep UpdateJourneyState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'UpdateJourneyState' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'journeyId', 'updateJourneyState_journeyId' - The unique identifier for the journey.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'applicationId', 'updateJourneyState_applicationId' - The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'journeyStateRequest', 'updateJourneyState_journeyStateRequest' - Undocumented member.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#newUpdateJourneyState"><span class="hs-identifier hs-type">newUpdateJourneyState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-comment">-- | 'journeyId'</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'applicationId'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'journeyStateRequest'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.JourneyStateRequest.html#JourneyStateRequest"><span class="hs-identifier hs-type">JourneyStateRequest</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span>
+</span><span id="line-84"></span><span id="newUpdateJourneyState"><span class="annot"><span class="annottext">newUpdateJourneyState :: Text -&gt; Text -&gt; JourneyStateRequest -&gt; UpdateJourneyState
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#newUpdateJourneyState"><span class="hs-identifier hs-var hs-var">newUpdateJourneyState</span></a></span></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679645651"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645651"><span class="hs-identifier hs-var">pJourneyId_</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679645650"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645650"><span class="hs-identifier hs-var">pApplicationId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679645649"><span class="annot"><span class="annottext">JourneyStateRequest
+</span><a href="#local-6989586621679645649"><span class="hs-identifier hs-var">pJourneyStateRequest_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">UpdateJourneyState' :: Text -&gt; Text -&gt; JourneyStateRequest -&gt; UpdateJourneyState
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:journeyId:UpdateJourneyState' :: Text
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyId%3AUpdateJourneyState%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645651"><span class="hs-identifier hs-var">pJourneyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>        </span><span class="annot"><span class="annottext">$sel:applicationId:UpdateJourneyState' :: Text
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AapplicationId%3AUpdateJourneyState%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645650"><span class="hs-identifier hs-var">pApplicationId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:journeyStateRequest:UpdateJourneyState' :: JourneyStateRequest
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyStateRequest%3AUpdateJourneyState%27"><span class="hs-identifier hs-var">journeyStateRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyStateRequest
+</span><a href="#local-6989586621679645649"><span class="hs-identifier hs-var">pJourneyStateRequest_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The unique identifier for the journey.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_journeyId"><span class="hs-identifier hs-type">updateJourneyState_journeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="updateJourneyState_journeyId"><span class="annot"><span class="annottext">updateJourneyState_journeyId :: (Text -&gt; f Text) -&gt; UpdateJourneyState -&gt; f UpdateJourneyState
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_journeyId"><span class="hs-identifier hs-var hs-var">updateJourneyState_journeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJourneyState -&gt; Text)
+-&gt; (UpdateJourneyState -&gt; Text -&gt; UpdateJourneyState)
+-&gt; Lens UpdateJourneyState UpdateJourneyState Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645646"><span class="annot"><span class="annottext">Text
+journeyId :: Text
+$sel:journeyId:UpdateJourneyState' :: UpdateJourneyState -&gt; Text
+</span><a href="#local-6989586621679645646"><span class="hs-identifier hs-var hs-var">journeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645646"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645645"><span class="annot"><span class="annottext">s :: UpdateJourneyState
+</span><a href="#local-6989586621679645645"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645644"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645644"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJourneyState
+</span><a href="#local-6989586621679645645"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyId:UpdateJourneyState' :: Text
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyId%3AUpdateJourneyState%27"><span class="hs-identifier hs-var">journeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645644"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The unique identifier for the application. This identifier is displayed</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- as the __Project ID__ on the Amazon Pinpoint console.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_applicationId"><span class="hs-identifier hs-type">updateJourneyState_applicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-101"></span><span id="updateJourneyState_applicationId"><span class="annot"><span class="annottext">updateJourneyState_applicationId :: (Text -&gt; f Text) -&gt; UpdateJourneyState -&gt; f UpdateJourneyState
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_applicationId"><span class="hs-identifier hs-var hs-var">updateJourneyState_applicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJourneyState -&gt; Text)
+-&gt; (UpdateJourneyState -&gt; Text -&gt; UpdateJourneyState)
+-&gt; Lens UpdateJourneyState UpdateJourneyState Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645643"><span class="annot"><span class="annottext">Text
+applicationId :: Text
+$sel:applicationId:UpdateJourneyState' :: UpdateJourneyState -&gt; Text
+</span><a href="#local-6989586621679645643"><span class="hs-identifier hs-var hs-var">applicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645643"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645642"><span class="annot"><span class="annottext">s :: UpdateJourneyState
+</span><a href="#local-6989586621679645642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645641"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJourneyState
+</span><a href="#local-6989586621679645642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:applicationId:UpdateJourneyState' :: Text
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AapplicationId%3AUpdateJourneyState%27"><span class="hs-identifier hs-var">applicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_journeyStateRequest"><span class="hs-identifier hs-type">updateJourneyState_journeyStateRequest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.JourneyStateRequest.html#JourneyStateRequest"><span class="hs-identifier hs-type">JourneyStateRequest</span></a></span><span>
+</span><span id="line-105"></span><span id="updateJourneyState_journeyStateRequest"><span class="annot"><span class="annottext">updateJourneyState_journeyStateRequest :: (JourneyStateRequest -&gt; f JourneyStateRequest)
+-&gt; UpdateJourneyState -&gt; f UpdateJourneyState
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyState_journeyStateRequest"><span class="hs-identifier hs-var hs-var">updateJourneyState_journeyStateRequest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJourneyState -&gt; JourneyStateRequest)
+-&gt; (UpdateJourneyState
+    -&gt; JourneyStateRequest -&gt; UpdateJourneyState)
+-&gt; Lens
+     UpdateJourneyState
+     UpdateJourneyState
+     JourneyStateRequest
+     JourneyStateRequest
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645640"><span class="annot"><span class="annottext">JourneyStateRequest
+journeyStateRequest :: JourneyStateRequest
+$sel:journeyStateRequest:UpdateJourneyState' :: UpdateJourneyState -&gt; JourneyStateRequest
+</span><a href="#local-6989586621679645640"><span class="hs-identifier hs-var hs-var">journeyStateRequest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyStateRequest
+</span><a href="#local-6989586621679645640"><span class="hs-identifier hs-var">journeyStateRequest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645639"><span class="annot"><span class="annottext">s :: UpdateJourneyState
+</span><a href="#local-6989586621679645639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645638"><span class="annot"><span class="annottext">JourneyStateRequest
+</span><a href="#local-6989586621679645638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJourneyState
+</span><a href="#local-6989586621679645639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyStateRequest:UpdateJourneyState' :: JourneyStateRequest
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyStateRequest%3AUpdateJourneyState%27"><span class="hs-identifier hs-var">journeyStateRequest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyStateRequest
+</span><a href="#local-6989586621679645638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-109"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-type">UpdateJourneyStateResponse</span></a></span><span>
+</span><span id="line-111"></span><span>  </span><span id="local-6989586621679645634"><span class="annot"><span class="annottext">request :: UpdateJourneyState -&gt; Request UpdateJourneyState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateJourneyState -&gt; Request UpdateJourneyState
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Pinpoint.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679645630"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateJourneyState
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateJourneyState)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateJourneyState))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateJourneyState
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateJourneyState)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679645627"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645627"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679645626"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679645626"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679645625"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679645625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; JourneyResponse -&gt; UpdateJourneyStateResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse%27"><span class="hs-identifier hs-var">UpdateJourneyStateResponse'</span></a></span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; JourneyResponse -&gt; UpdateJourneyStateResponse)
+-&gt; Either String Int
+-&gt; Either String (JourneyResponse -&gt; UpdateJourneyStateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645627"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either String (JourneyResponse -&gt; UpdateJourneyStateResponse)
+-&gt; Either String JourneyResponse
+-&gt; Either String UpdateJourneyStateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String JourneyResponse
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679645625"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645617"><span id="local-6989586621679645619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679645610"><span class="annot"><span class="annottext">toHeaders :: UpdateJourneyState -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateJourneyState -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645600"><span id="local-6989586621679645602"><span id="local-6989586621679645604"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679645598"><span class="annot"><span class="annottext">toJSON :: UpdateJourneyState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645594"><span id="local-6989586621679645595"><span id="local-6989586621679645596"><span class="annot"><span class="annottext">Text
+JourneyStateRequest
+journeyStateRequest :: JourneyStateRequest
+applicationId :: Text
+journeyId :: Text
+$sel:journeyStateRequest:UpdateJourneyState' :: UpdateJourneyState -&gt; JourneyStateRequest
+$sel:applicationId:UpdateJourneyState' :: UpdateJourneyState -&gt; Text
+$sel:journeyId:UpdateJourneyState' :: UpdateJourneyState -&gt; Text
+</span><a href="#local-6989586621679645594"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-140"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JourneyStateRequest&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; JourneyStateRequest -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">JourneyStateRequest
+</span><a href="#local-6989586621679645594"><span class="hs-identifier hs-var">journeyStateRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679645588"><span class="annot"><span class="annottext">toPath :: UpdateJourneyState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState%27"><span class="hs-identifier hs-type">UpdateJourneyState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645584"><span id="local-6989586621679645585"><span id="local-6989586621679645586"><span class="annot"><span class="annottext">Text
+JourneyStateRequest
+journeyStateRequest :: JourneyStateRequest
+applicationId :: Text
+journeyId :: Text
+$sel:journeyStateRequest:UpdateJourneyState' :: UpdateJourneyState -&gt; JourneyStateRequest
+$sel:applicationId:UpdateJourneyState' :: UpdateJourneyState -&gt; Text
+$sel:journeyId:UpdateJourneyState' :: UpdateJourneyState -&gt; Text
+</span><a href="#local-6989586621679645584"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/apps/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645585"><span class="hs-identifier hs-var">applicationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/journeys/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679645586"><span class="hs-identifier hs-var">journeyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/state&quot;</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyState"><span class="hs-identifier hs-type">UpdateJourneyState</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679645580"><span class="annot"><span class="annottext">toQuery :: UpdateJourneyState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateJourneyState -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | /See:/ 'newUpdateJourneyStateResponse' smart constructor.</span><span>
+</span><span id="line-158"></span><span id="local-6989586621679645577"><span id="local-6989586621679645578"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateJourneyStateResponse"><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-var">UpdateJourneyStateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateJourneyStateResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse%27"><span class="hs-identifier hs-var">UpdateJourneyStateResponse'</span></a></span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateJourneyStateResponse%27"><span class="annot"><span class="annottext">UpdateJourneyStateResponse -&gt; Int
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AhttpStatus%3AUpdateJourneyStateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AjourneyResponse%3AUpdateJourneyStateResponse%27"><span class="annot"><span class="annottext">UpdateJourneyStateResponse -&gt; JourneyResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyResponse%3AUpdateJourneyStateResponse%27"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679645571"><span id="local-6989586621679645573"><span class="annot"><span class="annottext">UpdateJourneyStateResponse -&gt; UpdateJourneyStateResponse -&gt; Bool
+(UpdateJourneyStateResponse -&gt; UpdateJourneyStateResponse -&gt; Bool)
+-&gt; (UpdateJourneyStateResponse
+    -&gt; UpdateJourneyStateResponse -&gt; Bool)
+-&gt; Eq UpdateJourneyStateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateJourneyStateResponse -&gt; UpdateJourneyStateResponse -&gt; Bool
+$c/= :: UpdateJourneyStateResponse -&gt; UpdateJourneyStateResponse -&gt; Bool
+== :: UpdateJourneyStateResponse -&gt; UpdateJourneyStateResponse -&gt; Bool
+$c== :: UpdateJourneyStateResponse -&gt; UpdateJourneyStateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645563"><span id="local-6989586621679645565"><span id="local-6989586621679645567"><span id="local-6989586621679645569"><span class="annot"><span class="annottext">ReadPrec [UpdateJourneyStateResponse]
+ReadPrec UpdateJourneyStateResponse
+Int -&gt; ReadS UpdateJourneyStateResponse
+ReadS [UpdateJourneyStateResponse]
+(Int -&gt; ReadS UpdateJourneyStateResponse)
+-&gt; ReadS [UpdateJourneyStateResponse]
+-&gt; ReadPrec UpdateJourneyStateResponse
+-&gt; ReadPrec [UpdateJourneyStateResponse]
+-&gt; Read UpdateJourneyStateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateJourneyStateResponse]
+$creadListPrec :: ReadPrec [UpdateJourneyStateResponse]
+readPrec :: ReadPrec UpdateJourneyStateResponse
+$creadPrec :: ReadPrec UpdateJourneyStateResponse
+readList :: ReadS [UpdateJourneyStateResponse]
+$creadList :: ReadS [UpdateJourneyStateResponse]
+readsPrec :: Int -&gt; ReadS UpdateJourneyStateResponse
+$creadsPrec :: Int -&gt; ReadS UpdateJourneyStateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679645557"><span id="local-6989586621679645559"><span id="local-6989586621679645561"><span class="annot"><span class="annottext">Int -&gt; UpdateJourneyStateResponse -&gt; ShowS
+[UpdateJourneyStateResponse] -&gt; ShowS
+UpdateJourneyStateResponse -&gt; String
+(Int -&gt; UpdateJourneyStateResponse -&gt; ShowS)
+-&gt; (UpdateJourneyStateResponse -&gt; String)
+-&gt; ([UpdateJourneyStateResponse] -&gt; ShowS)
+-&gt; Show UpdateJourneyStateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateJourneyStateResponse] -&gt; ShowS
+$cshowList :: [UpdateJourneyStateResponse] -&gt; ShowS
+show :: UpdateJourneyStateResponse -&gt; String
+$cshow :: UpdateJourneyStateResponse -&gt; String
+showsPrec :: Int -&gt; UpdateJourneyStateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateJourneyStateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateJourneyStateResponse -&gt; Rep UpdateJourneyStateResponse x)
+-&gt; (forall x.
+    Rep UpdateJourneyStateResponse x -&gt; UpdateJourneyStateResponse)
+-&gt; Generic UpdateJourneyStateResponse
+forall x.
+Rep UpdateJourneyStateResponse x -&gt; UpdateJourneyStateResponse
+forall x.
+UpdateJourneyStateResponse -&gt; Rep UpdateJourneyStateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateJourneyStateResponse x -&gt; UpdateJourneyStateResponse
+$cfrom :: forall x.
+UpdateJourneyStateResponse -&gt; Rep UpdateJourneyStateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- Create a value of 'UpdateJourneyStateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- 'httpStatus', 'updateJourneyStateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'journeyResponse', 'updateJourneyStateResponse_journeyResponse' - Undocumented member.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#newUpdateJourneyStateResponse"><span class="hs-identifier hs-type">newUpdateJourneyStateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'journeyResponse'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-type">UpdateJourneyStateResponse</span></a></span><span>
+</span><span id="line-182"></span><span id="newUpdateJourneyStateResponse"><span class="annot"><span class="annottext">newUpdateJourneyStateResponse :: Int -&gt; JourneyResponse -&gt; UpdateJourneyStateResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#newUpdateJourneyStateResponse"><span class="hs-identifier hs-var hs-var">newUpdateJourneyStateResponse</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679645554"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679645553"><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679645553"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><span class="annottext">UpdateJourneyStateResponse' :: Int -&gt; JourneyResponse -&gt; UpdateJourneyStateResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse%27"><span class="hs-identifier hs-type">UpdateJourneyStateResponse'</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateJourneyStateResponse' :: Int
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AhttpStatus%3AUpdateJourneyStateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645554"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:journeyResponse:UpdateJourneyStateResponse' :: JourneyResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyResponse%3AUpdateJourneyStateResponse%27"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679645553"><span class="hs-identifier hs-var">pJourneyResponse_</span></a></span><span>
+</span><span id="line-189"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyStateResponse_httpStatus"><span class="hs-identifier hs-type">updateJourneyStateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-type">UpdateJourneyStateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-193"></span><span id="updateJourneyStateResponse_httpStatus"><span class="annot"><span class="annottext">updateJourneyStateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateJourneyStateResponse -&gt; f UpdateJourneyStateResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyStateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateJourneyStateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJourneyStateResponse -&gt; Int)
+-&gt; (UpdateJourneyStateResponse
+    -&gt; Int -&gt; UpdateJourneyStateResponse)
+-&gt; Lens
+     UpdateJourneyStateResponse UpdateJourneyStateResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse%27"><span class="hs-identifier hs-type">UpdateJourneyStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645552"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateJourneyStateResponse' :: UpdateJourneyStateResponse -&gt; Int
+</span><a href="#local-6989586621679645552"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645552"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645551"><span class="annot"><span class="annottext">s :: UpdateJourneyStateResponse
+</span><a href="#local-6989586621679645551"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse%27"><span class="hs-identifier hs-type">UpdateJourneyStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645550"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645550"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJourneyStateResponse
+</span><a href="#local-6989586621679645551"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateJourneyStateResponse' :: Int
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AhttpStatus%3AUpdateJourneyStateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679645550"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-type">UpdateJourneyStateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyStateResponse_journeyResponse"><span class="hs-identifier hs-type">updateJourneyStateResponse_journeyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-type">UpdateJourneyStateResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.JourneyResponse.html#JourneyResponse"><span class="hs-identifier hs-type">JourneyResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="updateJourneyStateResponse_journeyResponse"><span class="annot"><span class="annottext">updateJourneyStateResponse_journeyResponse :: (JourneyResponse -&gt; f JourneyResponse)
+-&gt; UpdateJourneyStateResponse -&gt; f UpdateJourneyStateResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#updateJourneyStateResponse_journeyResponse"><span class="hs-identifier hs-var hs-var">updateJourneyStateResponse_journeyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateJourneyStateResponse -&gt; JourneyResponse)
+-&gt; (UpdateJourneyStateResponse
+    -&gt; JourneyResponse -&gt; UpdateJourneyStateResponse)
+-&gt; Lens
+     UpdateJourneyStateResponse
+     UpdateJourneyStateResponse
+     JourneyResponse
+     JourneyResponse
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse%27"><span class="hs-identifier hs-type">UpdateJourneyStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679645549"><span class="annot"><span class="annottext">JourneyResponse
+journeyResponse :: JourneyResponse
+$sel:journeyResponse:UpdateJourneyStateResponse' :: UpdateJourneyStateResponse -&gt; JourneyResponse
+</span><a href="#local-6989586621679645549"><span class="hs-identifier hs-var hs-var">journeyResponse</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679645549"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679645548"><span class="annot"><span class="annottext">s :: UpdateJourneyStateResponse
+</span><a href="#local-6989586621679645548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse%27"><span class="hs-identifier hs-type">UpdateJourneyStateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679645547"><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679645547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateJourneyStateResponse
+</span><a href="#local-6989586621679645548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:journeyResponse:UpdateJourneyStateResponse' :: JourneyResponse
+</span><a href="Amazonka.Pinpoint.UpdateJourneyState.html#%24sel%3AjourneyResponse%3AUpdateJourneyStateResponse%27"><span class="hs-identifier hs-var">journeyResponse</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">JourneyResponse
+</span><a href="#local-6989586621679645547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-type">UpdateJourneyStateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679645545"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.UpdateJourneyState.html#UpdateJourneyStateResponse"><span class="hs-identifier hs-type">UpdateJourneyStateResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

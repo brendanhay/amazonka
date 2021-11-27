@@ -1,0 +1,920 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.GlobalAccelerator.UpdateEndpointGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Update an endpoint group. A resource must be valid and active when you</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- add it as an endpoint.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GlobalAccelerator.UpdateEndpointGroup</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#newUpdateEndpointGroup"><span class="hs-identifier">newUpdateEndpointGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_thresholdCount"><span class="hs-identifier">updateEndpointGroup_thresholdCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckPath"><span class="hs-identifier">updateEndpointGroup_healthCheckPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckIntervalSeconds"><span class="hs-identifier">updateEndpointGroup_healthCheckIntervalSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckProtocol"><span class="hs-identifier">updateEndpointGroup_healthCheckProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_trafficDialPercentage"><span class="hs-identifier">updateEndpointGroup_trafficDialPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_endpointConfigurations"><span class="hs-identifier">updateEndpointGroup_endpointConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckPort"><span class="hs-identifier">updateEndpointGroup_healthCheckPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_portOverrides"><span class="hs-identifier">updateEndpointGroup_portOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_endpointGroupArn"><span class="hs-identifier">updateEndpointGroup_endpointGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier">UpdateEndpointGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#newUpdateEndpointGroupResponse"><span class="hs-identifier">newUpdateEndpointGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroupResponse_endpointGroup"><span class="hs-identifier">updateEndpointGroupResponse_endpointGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroupResponse_httpStatus"><span class="hs-identifier">updateEndpointGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.html"><span class="hs-identifier">Amazonka.GlobalAccelerator.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newUpdateEndpointGroup' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679250054"><span id="local-6989586621679250055"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpointGroup"><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-var">UpdateEndpointGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpointGroup%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-var">UpdateEndpointGroup'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of consecutive health checks required to set the state of a</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- healthy endpoint to unhealthy, or to set an unhealthy endpoint to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- healthy. The default value is 3.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AthresholdCount%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AthresholdCount%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">thresholdCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | If the protocol is HTTP\/S, then this specifies the path that is the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- destination for health check targets. The default value is slash (\/).</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AhealthCheckPath%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe Text
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckPath%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">healthCheckPath</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The time&#8212;10 seconds or 30 seconds&#8212;between each health check for an</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- endpoint. The default value is 30.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AhealthCheckIntervalSeconds%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckIntervalSeconds%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">healthCheckIntervalSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The protocol that AWS Global Accelerator uses to check the health of</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- endpoints that are part of this endpoint group. The default value is</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- TCP.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3AhealthCheckProtocol%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe HealthCheckProtocol
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckProtocol%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">healthCheckProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.HealthCheckProtocol.html#HealthCheckProtocol"><span class="hs-identifier hs-type">HealthCheckProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The percentage of traffic to send to an AWS Region. Additional traffic</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- is distributed to other endpoint groups for this listener.</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- Use this action to increase (dial up) or decrease (dial down) traffic to</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- a specific Region. The percentage is applied to the traffic that would</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- otherwise have been routed to the Region based on optimal routing.</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- The default value is 100.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3AtrafficDialPercentage%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe Double
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AtrafficDialPercentage%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">trafficDialPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The list of endpoint objects. A resource must be valid and active when</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- you add it as an endpoint.</span><span>
+</span><span id="line-85"></span><span>    </span><span id="%24sel%3AendpointConfigurations%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe [EndpointConfiguration]
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointConfigurations%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">endpointConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier hs-type">EndpointConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- | The port that AWS Global Accelerator uses to check the health of</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- endpoints that are part of this endpoint group. The default port is the</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- listener port that this endpoint group is associated with. If the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- listener port is a list of ports, Global Accelerator uses the first port</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- in the list.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AhealthCheckPort%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckPort%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">healthCheckPort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- | Override specific listener ports used to route traffic to endpoints that</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- are part of this endpoint group. For example, you can create a port</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- override in which the listener receives user traffic on ports 80 and</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- 443, but your accelerator routes that traffic to ports 1080 and 1443,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- respectively, on the endpoints.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides&gt;</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AportOverrides%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Maybe [PortOverride]
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AportOverrides%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">portOverrides</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.PortOverride.html#PortOverride"><span class="hs-identifier hs-type">PortOverride</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the endpoint group.</span><span>
+</span><span id="line-103"></span><span>    </span><span id="%24sel%3AendpointGroupArn%3AUpdateEndpointGroup%27"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; Text
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointGroupArn%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var hs-var">endpointGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679250040"><span id="local-6989586621679250042"><span class="annot"><span class="annottext">UpdateEndpointGroup -&gt; UpdateEndpointGroup -&gt; Bool
+(UpdateEndpointGroup -&gt; UpdateEndpointGroup -&gt; Bool)
+-&gt; (UpdateEndpointGroup -&gt; UpdateEndpointGroup -&gt; Bool)
+-&gt; Eq UpdateEndpointGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEndpointGroup -&gt; UpdateEndpointGroup -&gt; Bool
+$c/= :: UpdateEndpointGroup -&gt; UpdateEndpointGroup -&gt; Bool
+== :: UpdateEndpointGroup -&gt; UpdateEndpointGroup -&gt; Bool
+$c== :: UpdateEndpointGroup -&gt; UpdateEndpointGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250031"><span id="local-6989586621679250033"><span id="local-6989586621679250035"><span id="local-6989586621679250037"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpointGroup]
+ReadPrec UpdateEndpointGroup
+Int -&gt; ReadS UpdateEndpointGroup
+ReadS [UpdateEndpointGroup]
+(Int -&gt; ReadS UpdateEndpointGroup)
+-&gt; ReadS [UpdateEndpointGroup]
+-&gt; ReadPrec UpdateEndpointGroup
+-&gt; ReadPrec [UpdateEndpointGroup]
+-&gt; Read UpdateEndpointGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateEndpointGroup]
+$creadListPrec :: ReadPrec [UpdateEndpointGroup]
+readPrec :: ReadPrec UpdateEndpointGroup
+$creadPrec :: ReadPrec UpdateEndpointGroup
+readList :: ReadS [UpdateEndpointGroup]
+$creadList :: ReadS [UpdateEndpointGroup]
+readsPrec :: Int -&gt; ReadS UpdateEndpointGroup
+$creadsPrec :: Int -&gt; ReadS UpdateEndpointGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679250024"><span id="local-6989586621679250026"><span id="local-6989586621679250028"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpointGroup -&gt; ShowS
+[UpdateEndpointGroup] -&gt; ShowS
+UpdateEndpointGroup -&gt; String
+(Int -&gt; UpdateEndpointGroup -&gt; ShowS)
+-&gt; (UpdateEndpointGroup -&gt; String)
+-&gt; ([UpdateEndpointGroup] -&gt; ShowS)
+-&gt; Show UpdateEndpointGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEndpointGroup] -&gt; ShowS
+$cshowList :: [UpdateEndpointGroup] -&gt; ShowS
+show :: UpdateEndpointGroup -&gt; String
+$cshow :: UpdateEndpointGroup -&gt; String
+showsPrec :: Int -&gt; UpdateEndpointGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEndpointGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateEndpointGroup -&gt; Rep UpdateEndpointGroup x)
+-&gt; (forall x. Rep UpdateEndpointGroup x -&gt; UpdateEndpointGroup)
+-&gt; Generic UpdateEndpointGroup
+forall x. Rep UpdateEndpointGroup x -&gt; UpdateEndpointGroup
+forall x. UpdateEndpointGroup -&gt; Rep UpdateEndpointGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateEndpointGroup x -&gt; UpdateEndpointGroup
+$cfrom :: forall x. UpdateEndpointGroup -&gt; Rep UpdateEndpointGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- Create a value of 'UpdateEndpointGroup' with all optional fields omitted.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'thresholdCount', 'updateEndpointGroup_thresholdCount' - The number of consecutive health checks required to set the state of a</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- healthy endpoint to unhealthy, or to set an unhealthy endpoint to</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- healthy. The default value is 3.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'healthCheckPath', 'updateEndpointGroup_healthCheckPath' - If the protocol is HTTP\/S, then this specifies the path that is the</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- destination for health check targets. The default value is slash (\/).</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'healthCheckIntervalSeconds', 'updateEndpointGroup_healthCheckIntervalSeconds' - The time&#8212;10 seconds or 30 seconds&#8212;between each health check for an</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- endpoint. The default value is 30.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- 'healthCheckProtocol', 'updateEndpointGroup_healthCheckProtocol' - The protocol that AWS Global Accelerator uses to check the health of</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- endpoints that are part of this endpoint group. The default value is</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- TCP.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'trafficDialPercentage', 'updateEndpointGroup_trafficDialPercentage' - The percentage of traffic to send to an AWS Region. Additional traffic</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- is distributed to other endpoint groups for this listener.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Use this action to increase (dial up) or decrease (dial down) traffic to</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- a specific Region. The percentage is applied to the traffic that would</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- otherwise have been routed to the Region based on optimal routing.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The default value is 100.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'endpointConfigurations', 'updateEndpointGroup_endpointConfigurations' - The list of endpoint objects. A resource must be valid and active when</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- you add it as an endpoint.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'healthCheckPort', 'updateEndpointGroup_healthCheckPort' - The port that AWS Global Accelerator uses to check the health of</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- endpoints that are part of this endpoint group. The default port is the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- listener port that this endpoint group is associated with. If the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- listener port is a list of ports, Global Accelerator uses the first port</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- in the list.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'portOverrides', 'updateEndpointGroup_portOverrides' - Override specific listener ports used to route traffic to endpoints that</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- are part of this endpoint group. For example, you can create a port</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- override in which the listener receives user traffic on ports 80 and</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 443, but your accelerator routes that traffic to ports 1080 and 1443,</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- respectively, on the endpoints.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides&gt;</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'endpointGroupArn', 'updateEndpointGroup_endpointGroupArn' - The Amazon Resource Name (ARN) of the endpoint group.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#newUpdateEndpointGroup"><span class="hs-identifier hs-type">newUpdateEndpointGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'endpointGroupArn'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span>
+</span><span id="line-162"></span><span id="newUpdateEndpointGroup"><span class="annot"><span class="annottext">newUpdateEndpointGroup :: Text -&gt; UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#newUpdateEndpointGroup"><span class="hs-identifier hs-var hs-var">newUpdateEndpointGroup</span></a></span></span><span> </span><span id="local-6989586621679250019"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250019"><span class="hs-identifier hs-var">pEndpointGroupArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">UpdateEndpointGroup' :: Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe HealthCheckProtocol
+-&gt; Maybe Double
+-&gt; Maybe [EndpointConfiguration]
+-&gt; Maybe Natural
+-&gt; Maybe [PortOverride]
+-&gt; Text
+-&gt; UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:thresholdCount:UpdateEndpointGroup' :: Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AthresholdCount%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">thresholdCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthCheckPath:UpdateEndpointGroup' :: Maybe Text
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckPath%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthCheckIntervalSeconds:UpdateEndpointGroup' :: Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckIntervalSeconds%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckIntervalSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthCheckProtocol:UpdateEndpointGroup' :: Maybe HealthCheckProtocol
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckProtocol%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckProtocol
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:trafficDialPercentage:UpdateEndpointGroup' :: Maybe Double
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AtrafficDialPercentage%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">trafficDialPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointConfigurations:UpdateEndpointGroup' :: Maybe [EndpointConfiguration]
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointConfigurations%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">endpointConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EndpointConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:healthCheckPort:UpdateEndpointGroup' :: Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckPort%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:portOverrides:UpdateEndpointGroup' :: Maybe [PortOverride]
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AportOverrides%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">portOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PortOverride]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpointGroupArn:UpdateEndpointGroup' :: Text
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointGroupArn%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">endpointGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679250019"><span class="hs-identifier hs-var">pEndpointGroupArn_</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The number of consecutive health checks required to set the state of a</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- healthy endpoint to unhealthy, or to set an unhealthy endpoint to</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- healthy. The default value is 3.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_thresholdCount"><span class="hs-identifier hs-type">updateEndpointGroup_thresholdCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span id="updateEndpointGroup_thresholdCount"><span class="annot"><span class="annottext">updateEndpointGroup_thresholdCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_thresholdCount"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_thresholdCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe Natural)
+-&gt; (UpdateEndpointGroup -&gt; Maybe Natural -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup
+     UpdateEndpointGroup
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250016"><span class="annot"><span class="annottext">Maybe Natural
+thresholdCount :: Maybe Natural
+$sel:thresholdCount:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679250016"><span class="hs-identifier hs-var hs-var">thresholdCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679250016"><span class="hs-identifier hs-var">thresholdCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250015"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679250015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250014"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679250014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679250015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:thresholdCount:UpdateEndpointGroup' :: Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AthresholdCount%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">thresholdCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679250014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- | If the protocol is HTTP\/S, then this specifies the path that is the</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- destination for health check targets. The default value is slash (\/).</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckPath"><span class="hs-identifier hs-type">updateEndpointGroup_healthCheckPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="updateEndpointGroup_healthCheckPath"><span class="annot"><span class="annottext">updateEndpointGroup_healthCheckPath :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckPath"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_healthCheckPath</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe Text)
+-&gt; (UpdateEndpointGroup -&gt; Maybe Text -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup UpdateEndpointGroup (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250013"><span class="annot"><span class="annottext">Maybe Text
+healthCheckPath :: Maybe Text
+$sel:healthCheckPath:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679250013"><span class="hs-identifier hs-var hs-var">healthCheckPath</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250013"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250012"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679250012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250011"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679250012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckPath:UpdateEndpointGroup' :: Maybe Text
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckPath%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679250011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The time&#8212;10 seconds or 30 seconds&#8212;between each health check for an</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- endpoint. The default value is 30.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckIntervalSeconds"><span class="hs-identifier hs-type">updateEndpointGroup_healthCheckIntervalSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="updateEndpointGroup_healthCheckIntervalSeconds"><span class="annot"><span class="annottext">updateEndpointGroup_healthCheckIntervalSeconds :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckIntervalSeconds"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_healthCheckIntervalSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe Natural)
+-&gt; (UpdateEndpointGroup -&gt; Maybe Natural -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup
+     UpdateEndpointGroup
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250010"><span class="annot"><span class="annottext">Maybe Natural
+healthCheckIntervalSeconds :: Maybe Natural
+$sel:healthCheckIntervalSeconds:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679250010"><span class="hs-identifier hs-var hs-var">healthCheckIntervalSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679250010"><span class="hs-identifier hs-var">healthCheckIntervalSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250009"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679250009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250008"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679250008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679250009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckIntervalSeconds:UpdateEndpointGroup' :: Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckIntervalSeconds%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckIntervalSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679250008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | The protocol that AWS Global Accelerator uses to check the health of</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- endpoints that are part of this endpoint group. The default value is</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- TCP.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckProtocol"><span class="hs-identifier hs-type">updateEndpointGroup_healthCheckProtocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.HealthCheckProtocol.html#HealthCheckProtocol"><span class="hs-identifier hs-type">HealthCheckProtocol</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="updateEndpointGroup_healthCheckProtocol"><span class="annot"><span class="annottext">updateEndpointGroup_healthCheckProtocol :: (Maybe HealthCheckProtocol -&gt; f (Maybe HealthCheckProtocol))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckProtocol"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_healthCheckProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe HealthCheckProtocol)
+-&gt; (UpdateEndpointGroup
+    -&gt; Maybe HealthCheckProtocol -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup
+     UpdateEndpointGroup
+     (Maybe HealthCheckProtocol)
+     (Maybe HealthCheckProtocol)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250007"><span class="annot"><span class="annottext">Maybe HealthCheckProtocol
+healthCheckProtocol :: Maybe HealthCheckProtocol
+$sel:healthCheckProtocol:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe HealthCheckProtocol
+</span><a href="#local-6989586621679250007"><span class="hs-identifier hs-var hs-var">healthCheckProtocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckProtocol
+</span><a href="#local-6989586621679250007"><span class="hs-identifier hs-var">healthCheckProtocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250006"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679250006"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250005"><span class="annot"><span class="annottext">Maybe HealthCheckProtocol
+</span><a href="#local-6989586621679250005"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679250006"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckProtocol:UpdateEndpointGroup' :: Maybe HealthCheckProtocol
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckProtocol%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckProtocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckProtocol
+</span><a href="#local-6989586621679250005"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The percentage of traffic to send to an AWS Region. Additional traffic</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- is distributed to other endpoint groups for this listener.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- Use this action to increase (dial up) or decrease (dial down) traffic to</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- a specific Region. The percentage is applied to the traffic that would</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- otherwise have been routed to the Region based on optimal routing.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- The default value is 100.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_trafficDialPercentage"><span class="hs-identifier hs-type">updateEndpointGroup_trafficDialPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="updateEndpointGroup_trafficDialPercentage"><span class="annot"><span class="annottext">updateEndpointGroup_trafficDialPercentage :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_trafficDialPercentage"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_trafficDialPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe Double)
+-&gt; (UpdateEndpointGroup -&gt; Maybe Double -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup
+     UpdateEndpointGroup
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250004"><span class="annot"><span class="annottext">Maybe Double
+trafficDialPercentage :: Maybe Double
+$sel:trafficDialPercentage:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Double
+</span><a href="#local-6989586621679250004"><span class="hs-identifier hs-var hs-var">trafficDialPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250004"><span class="hs-identifier hs-var">trafficDialPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250003"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679250003"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679250002"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250002"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679250003"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficDialPercentage:UpdateEndpointGroup' :: Maybe Double
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AtrafficDialPercentage%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">trafficDialPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679250002"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The list of endpoint objects. A resource must be valid and active when</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- you add it as an endpoint.</span><span>
+</span><span id="line-211"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_endpointConfigurations"><span class="hs-identifier hs-type">updateEndpointGroup_endpointConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.EndpointConfiguration.html#EndpointConfiguration"><span class="hs-identifier hs-type">EndpointConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span id="updateEndpointGroup_endpointConfigurations"><span class="annot"><span class="annottext">updateEndpointGroup_endpointConfigurations :: (Maybe [EndpointConfiguration]
+ -&gt; f (Maybe [EndpointConfiguration]))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_endpointConfigurations"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_endpointConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe [EndpointConfiguration])
+-&gt; (UpdateEndpointGroup
+    -&gt; Maybe [EndpointConfiguration] -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup
+     UpdateEndpointGroup
+     (Maybe [EndpointConfiguration])
+     (Maybe [EndpointConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679250001"><span class="annot"><span class="annottext">Maybe [EndpointConfiguration]
+endpointConfigurations :: Maybe [EndpointConfiguration]
+$sel:endpointConfigurations:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe [EndpointConfiguration]
+</span><a href="#local-6989586621679250001"><span class="hs-identifier hs-var hs-var">endpointConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [EndpointConfiguration]
+</span><a href="#local-6989586621679250001"><span class="hs-identifier hs-var">endpointConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679250000"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679250000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249999"><span class="annot"><span class="annottext">Maybe [EndpointConfiguration]
+</span><a href="#local-6989586621679249999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679250000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointConfigurations:UpdateEndpointGroup' :: Maybe [EndpointConfiguration]
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointConfigurations%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">endpointConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [EndpointConfiguration]
+</span><a href="#local-6989586621679249999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [EndpointConfiguration]
+  -&gt; f (Maybe [EndpointConfiguration]))
+ -&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup)
+-&gt; ((Maybe [EndpointConfiguration]
+     -&gt; f (Maybe [EndpointConfiguration]))
+    -&gt; Maybe [EndpointConfiguration]
+    -&gt; f (Maybe [EndpointConfiguration]))
+-&gt; (Maybe [EndpointConfiguration]
+    -&gt; f (Maybe [EndpointConfiguration]))
+-&gt; UpdateEndpointGroup
+-&gt; f UpdateEndpointGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EndpointConfiguration]
+  [EndpointConfiguration]
+  [EndpointConfiguration]
+  [EndpointConfiguration]
+-&gt; Iso
+     (Maybe [EndpointConfiguration])
+     (Maybe [EndpointConfiguration])
+     (Maybe [EndpointConfiguration])
+     (Maybe [EndpointConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [EndpointConfiguration]
+  [EndpointConfiguration]
+  [EndpointConfiguration]
+  [EndpointConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The port that AWS Global Accelerator uses to check the health of</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- endpoints that are part of this endpoint group. The default port is the</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- listener port that this endpoint group is associated with. If the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- listener port is a list of ports, Global Accelerator uses the first port</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- in the list.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckPort"><span class="hs-identifier hs-type">updateEndpointGroup_healthCheckPort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="updateEndpointGroup_healthCheckPort"><span class="annot"><span class="annottext">updateEndpointGroup_healthCheckPort :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_healthCheckPort"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_healthCheckPort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe Natural)
+-&gt; (UpdateEndpointGroup -&gt; Maybe Natural -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup
+     UpdateEndpointGroup
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249995"><span class="annot"><span class="annottext">Maybe Natural
+healthCheckPort :: Maybe Natural
+$sel:healthCheckPort:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679249995"><span class="hs-identifier hs-var hs-var">healthCheckPort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249995"><span class="hs-identifier hs-var">healthCheckPort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249994"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679249994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249993"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679249994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:healthCheckPort:UpdateEndpointGroup' :: Maybe Natural
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhealthCheckPort%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">healthCheckPort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | Override specific listener ports used to route traffic to endpoints that</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- are part of this endpoint group. For example, you can create a port</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- override in which the listener receives user traffic on ports 80 and</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 443, but your accelerator routes that traffic to ports 1080 and 1443,</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- respectively, on the endpoints.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/global-accelerator/latest/dg/about-endpoint-groups-port-override.html Port overrides&gt;</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- in the /AWS Global Accelerator Developer Guide/.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_portOverrides"><span class="hs-identifier hs-type">updateEndpointGroup_portOverrides</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.PortOverride.html#PortOverride"><span class="hs-identifier hs-type">PortOverride</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="updateEndpointGroup_portOverrides"><span class="annot"><span class="annottext">updateEndpointGroup_portOverrides :: (Maybe [PortOverride] -&gt; f (Maybe [PortOverride]))
+-&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_portOverrides"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_portOverrides</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Maybe [PortOverride])
+-&gt; (UpdateEndpointGroup
+    -&gt; Maybe [PortOverride] -&gt; UpdateEndpointGroup)
+-&gt; Lens
+     UpdateEndpointGroup
+     UpdateEndpointGroup
+     (Maybe [PortOverride])
+     (Maybe [PortOverride])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249992"><span class="annot"><span class="annottext">Maybe [PortOverride]
+portOverrides :: Maybe [PortOverride]
+$sel:portOverrides:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe [PortOverride]
+</span><a href="#local-6989586621679249992"><span class="hs-identifier hs-var hs-var">portOverrides</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [PortOverride]
+</span><a href="#local-6989586621679249992"><span class="hs-identifier hs-var">portOverrides</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249991"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679249991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249990"><span class="annot"><span class="annottext">Maybe [PortOverride]
+</span><a href="#local-6989586621679249990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679249991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:portOverrides:UpdateEndpointGroup' :: Maybe [PortOverride]
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AportOverrides%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">portOverrides</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [PortOverride]
+</span><a href="#local-6989586621679249990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [PortOverride] -&gt; f (Maybe [PortOverride]))
+ -&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup)
+-&gt; ((Maybe [PortOverride] -&gt; f (Maybe [PortOverride]))
+    -&gt; Maybe [PortOverride] -&gt; f (Maybe [PortOverride]))
+-&gt; (Maybe [PortOverride] -&gt; f (Maybe [PortOverride]))
+-&gt; UpdateEndpointGroup
+-&gt; f UpdateEndpointGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PortOverride] [PortOverride] [PortOverride] [PortOverride]
+-&gt; Iso
+     (Maybe [PortOverride])
+     (Maybe [PortOverride])
+     (Maybe [PortOverride])
+     (Maybe [PortOverride])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [PortOverride] [PortOverride] [PortOverride] [PortOverride]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the endpoint group.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_endpointGroupArn"><span class="hs-identifier hs-type">updateEndpointGroup_endpointGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-236"></span><span id="updateEndpointGroup_endpointGroupArn"><span class="annot"><span class="annottext">updateEndpointGroup_endpointGroupArn :: (Text -&gt; f Text) -&gt; UpdateEndpointGroup -&gt; f UpdateEndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroup_endpointGroupArn"><span class="hs-identifier hs-var hs-var">updateEndpointGroup_endpointGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroup -&gt; Text)
+-&gt; (UpdateEndpointGroup -&gt; Text -&gt; UpdateEndpointGroup)
+-&gt; Lens UpdateEndpointGroup UpdateEndpointGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249989"><span class="annot"><span class="annottext">Text
+endpointGroupArn :: Text
+$sel:endpointGroupArn:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Text
+</span><a href="#local-6989586621679249989"><span class="hs-identifier hs-var hs-var">endpointGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249989"><span class="hs-identifier hs-var">endpointGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249988"><span class="annot"><span class="annottext">s :: UpdateEndpointGroup
+</span><a href="#local-6989586621679249988"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249987"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249987"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroup
+</span><a href="#local-6989586621679249988"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointGroupArn:UpdateEndpointGroup' :: Text
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointGroupArn%3AUpdateEndpointGroup%27"><span class="hs-identifier hs-var">endpointGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249987"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-239"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-240"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>      </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse</span></a></span><span>
+</span><span id="line-242"></span><span>  </span><span id="local-6989586621679249983"><span class="annot"><span class="annottext">request :: UpdateEndpointGroup -&gt; Request UpdateEndpointGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateEndpointGroup -&gt; Request UpdateEndpointGroup
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.GlobalAccelerator.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-243"></span><span>  </span><span id="local-6989586621679249979"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateEndpointGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateEndpointGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateEndpointGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateEndpointGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateEndpointGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679249976"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249976"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679249975"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679249975"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679249974"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249974"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-246"></span><span>          </span><span class="annot"><span class="annottext">Maybe EndpointGroup -&gt; Int -&gt; UpdateEndpointGroupResponse
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var">UpdateEndpointGroupResponse'</span></a></span><span>
+</span><span id="line-247"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EndpointGroup -&gt; Int -&gt; UpdateEndpointGroupResponse)
+-&gt; Either String (Maybe EndpointGroup)
+-&gt; Either String (Int -&gt; UpdateEndpointGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679249974"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EndpointGroup)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateEndpointGroupResponse)
+-&gt; Either String Int -&gt; Either String UpdateEndpointGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249976"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249966"><span id="local-6989586621679249968"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span></span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249963"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-256"></span><span>  </span><span id="local-6989586621679249959"><span class="annot"><span class="annottext">toHeaders :: UpdateEndpointGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateEndpointGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-259"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-260"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GlobalAccelerator_V20180706.UpdateEndpointGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-261"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-262"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-264"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-265"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-266"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249949"><span id="local-6989586621679249951"><span id="local-6989586621679249953"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-271"></span><span>  </span><span id="local-6989586621679249947"><span class="annot"><span class="annottext">toJSON :: UpdateEndpointGroup -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup%27"><span class="hs-identifier hs-type">UpdateEndpointGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249937"><span id="local-6989586621679249938"><span id="local-6989586621679249939"><span id="local-6989586621679249940"><span id="local-6989586621679249941"><span id="local-6989586621679249942"><span id="local-6989586621679249943"><span id="local-6989586621679249944"><span id="local-6989586621679249945"><span class="annot"><span class="annottext">Maybe Double
+Maybe Natural
+Maybe [EndpointConfiguration]
+Maybe [PortOverride]
+Maybe Text
+Maybe HealthCheckProtocol
+Text
+endpointGroupArn :: Text
+portOverrides :: Maybe [PortOverride]
+healthCheckPort :: Maybe Natural
+endpointConfigurations :: Maybe [EndpointConfiguration]
+trafficDialPercentage :: Maybe Double
+healthCheckProtocol :: Maybe HealthCheckProtocol
+healthCheckIntervalSeconds :: Maybe Natural
+healthCheckPath :: Maybe Text
+thresholdCount :: Maybe Natural
+$sel:endpointGroupArn:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Text
+$sel:portOverrides:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe [PortOverride]
+$sel:healthCheckPort:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Natural
+$sel:endpointConfigurations:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe [EndpointConfiguration]
+$sel:trafficDialPercentage:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Double
+$sel:healthCheckProtocol:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe HealthCheckProtocol
+$sel:healthCheckIntervalSeconds:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Natural
+$sel:healthCheckPath:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Text
+$sel:thresholdCount:UpdateEndpointGroup' :: UpdateEndpointGroup -&gt; Maybe Natural
+</span><a href="#local-6989586621679249937"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-273"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-274"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ThresholdCount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249945"><span class="hs-identifier hs-var">thresholdCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthCheckPath&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-277"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679249944"><span class="hs-identifier hs-var">healthCheckPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthCheckIntervalSeconds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249943"><span class="hs-identifier hs-var">healthCheckIntervalSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-280"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthCheckProtocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HealthCheckProtocol -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">(HealthCheckProtocol -&gt; Pair)
+-&gt; Maybe HealthCheckProtocol -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe HealthCheckProtocol
+</span><a href="#local-6989586621679249942"><span class="hs-identifier hs-var">healthCheckProtocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TrafficDialPercentage&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679249941"><span class="hs-identifier hs-var">trafficDialPercentage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [EndpointConfiguration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span>              </span><span class="annot"><span class="annottext">([EndpointConfiguration] -&gt; Pair)
+-&gt; Maybe [EndpointConfiguration] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [EndpointConfiguration]
+</span><a href="#local-6989586621679249940"><span class="hs-identifier hs-var">endpointConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HealthCheckPort&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679249939"><span class="hs-identifier hs-var">healthCheckPort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PortOverrides&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [PortOverride] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([PortOverride] -&gt; Pair) -&gt; Maybe [PortOverride] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [PortOverride]
+</span><a href="#local-6989586621679249938"><span class="hs-identifier hs-var">portOverrides</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-290"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EndpointGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679249937"><span class="hs-identifier hs-var">endpointGroupArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-295"></span><span>  </span><span id="local-6989586621679249931"><span class="annot"><span class="annottext">toPath :: UpdateEndpointGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateEndpointGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroup"><span class="hs-identifier hs-type">UpdateEndpointGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-298"></span><span>  </span><span id="local-6989586621679249927"><span class="annot"><span class="annottext">toQuery :: UpdateEndpointGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateEndpointGroup -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | /See:/ 'newUpdateEndpointGroupResponse' smart constructor.</span><span>
+</span><span id="line-301"></span><span id="local-6989586621679249924"><span id="local-6989586621679249925"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEndpointGroupResponse"><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-var">UpdateEndpointGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEndpointGroupResponse%27"><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var">UpdateEndpointGroupResponse'</span></a></span></span><span>
+</span><span id="line-302"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The information about the endpoint group that was updated.</span><span>
+</span><span id="line-303"></span><span>    </span><span id="%24sel%3AendpointGroup%3AUpdateEndpointGroupResponse%27"><span class="annot"><span class="annottext">UpdateEndpointGroupResponse -&gt; Maybe EndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointGroup%3AUpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var hs-var">endpointGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.EndpointGroup.html#EndpointGroup"><span class="hs-identifier hs-type">EndpointGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-305"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateEndpointGroupResponse%27"><span class="annot"><span class="annottext">UpdateEndpointGroupResponse -&gt; Int
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhttpStatus%3AUpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-306"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-307"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679249918"><span id="local-6989586621679249920"><span class="annot"><span class="annottext">UpdateEndpointGroupResponse -&gt; UpdateEndpointGroupResponse -&gt; Bool
+(UpdateEndpointGroupResponse
+ -&gt; UpdateEndpointGroupResponse -&gt; Bool)
+-&gt; (UpdateEndpointGroupResponse
+    -&gt; UpdateEndpointGroupResponse -&gt; Bool)
+-&gt; Eq UpdateEndpointGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEndpointGroupResponse -&gt; UpdateEndpointGroupResponse -&gt; Bool
+$c/= :: UpdateEndpointGroupResponse -&gt; UpdateEndpointGroupResponse -&gt; Bool
+== :: UpdateEndpointGroupResponse -&gt; UpdateEndpointGroupResponse -&gt; Bool
+$c== :: UpdateEndpointGroupResponse -&gt; UpdateEndpointGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249910"><span id="local-6989586621679249912"><span id="local-6989586621679249914"><span id="local-6989586621679249916"><span class="annot"><span class="annottext">ReadPrec [UpdateEndpointGroupResponse]
+ReadPrec UpdateEndpointGroupResponse
+Int -&gt; ReadS UpdateEndpointGroupResponse
+ReadS [UpdateEndpointGroupResponse]
+(Int -&gt; ReadS UpdateEndpointGroupResponse)
+-&gt; ReadS [UpdateEndpointGroupResponse]
+-&gt; ReadPrec UpdateEndpointGroupResponse
+-&gt; ReadPrec [UpdateEndpointGroupResponse]
+-&gt; Read UpdateEndpointGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateEndpointGroupResponse]
+$creadListPrec :: ReadPrec [UpdateEndpointGroupResponse]
+readPrec :: ReadPrec UpdateEndpointGroupResponse
+$creadPrec :: ReadPrec UpdateEndpointGroupResponse
+readList :: ReadS [UpdateEndpointGroupResponse]
+$creadList :: ReadS [UpdateEndpointGroupResponse]
+readsPrec :: Int -&gt; ReadS UpdateEndpointGroupResponse
+$creadsPrec :: Int -&gt; ReadS UpdateEndpointGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679249904"><span id="local-6989586621679249906"><span id="local-6989586621679249908"><span class="annot"><span class="annottext">Int -&gt; UpdateEndpointGroupResponse -&gt; ShowS
+[UpdateEndpointGroupResponse] -&gt; ShowS
+UpdateEndpointGroupResponse -&gt; String
+(Int -&gt; UpdateEndpointGroupResponse -&gt; ShowS)
+-&gt; (UpdateEndpointGroupResponse -&gt; String)
+-&gt; ([UpdateEndpointGroupResponse] -&gt; ShowS)
+-&gt; Show UpdateEndpointGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEndpointGroupResponse] -&gt; ShowS
+$cshowList :: [UpdateEndpointGroupResponse] -&gt; ShowS
+show :: UpdateEndpointGroupResponse -&gt; String
+$cshow :: UpdateEndpointGroupResponse -&gt; String
+showsPrec :: Int -&gt; UpdateEndpointGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEndpointGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateEndpointGroupResponse -&gt; Rep UpdateEndpointGroupResponse x)
+-&gt; (forall x.
+    Rep UpdateEndpointGroupResponse x -&gt; UpdateEndpointGroupResponse)
+-&gt; Generic UpdateEndpointGroupResponse
+forall x.
+Rep UpdateEndpointGroupResponse x -&gt; UpdateEndpointGroupResponse
+forall x.
+UpdateEndpointGroupResponse -&gt; Rep UpdateEndpointGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateEndpointGroupResponse x -&gt; UpdateEndpointGroupResponse
+$cfrom :: forall x.
+UpdateEndpointGroupResponse -&gt; Rep UpdateEndpointGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- Create a value of 'UpdateEndpointGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-313"></span><span class="hs-comment">--</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- 'endpointGroup', 'updateEndpointGroupResponse_endpointGroup' - The information about the endpoint group that was updated.</span><span>
+</span><span id="line-318"></span><span class="hs-comment">--</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- 'httpStatus', 'updateEndpointGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-320"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#newUpdateEndpointGroupResponse"><span class="hs-identifier hs-type">newUpdateEndpointGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-321"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-322"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-323"></span><span>  </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse</span></a></span><span>
+</span><span id="line-324"></span><span id="newUpdateEndpointGroupResponse"><span class="annot"><span class="annottext">newUpdateEndpointGroupResponse :: Int -&gt; UpdateEndpointGroupResponse
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#newUpdateEndpointGroupResponse"><span class="hs-identifier hs-var hs-var">newUpdateEndpointGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679249901"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-325"></span><span>  </span><span class="annot"><span class="annottext">UpdateEndpointGroupResponse' :: Maybe EndpointGroup -&gt; Int -&gt; UpdateEndpointGroupResponse
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse%27"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse'</span></a></span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:endpointGroup:UpdateEndpointGroupResponse' :: Maybe EndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointGroup%3AUpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var">endpointGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">Maybe EndpointGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-328"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEndpointGroupResponse' :: Int
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhttpStatus%3AUpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249901"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-329"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- | The information about the endpoint group that was updated.</span><span>
+</span><span id="line-332"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroupResponse_endpointGroup"><span class="hs-identifier hs-type">updateEndpointGroupResponse_endpointGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.Types.EndpointGroup.html#EndpointGroup"><span class="hs-identifier hs-type">EndpointGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-333"></span><span id="updateEndpointGroupResponse_endpointGroup"><span class="annot"><span class="annottext">updateEndpointGroupResponse_endpointGroup :: (Maybe EndpointGroup -&gt; f (Maybe EndpointGroup))
+-&gt; UpdateEndpointGroupResponse -&gt; f UpdateEndpointGroupResponse
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroupResponse_endpointGroup"><span class="hs-identifier hs-var hs-var">updateEndpointGroupResponse_endpointGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroupResponse -&gt; Maybe EndpointGroup)
+-&gt; (UpdateEndpointGroupResponse
+    -&gt; Maybe EndpointGroup -&gt; UpdateEndpointGroupResponse)
+-&gt; Lens
+     UpdateEndpointGroupResponse
+     UpdateEndpointGroupResponse
+     (Maybe EndpointGroup)
+     (Maybe EndpointGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse%27"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249900"><span class="annot"><span class="annottext">Maybe EndpointGroup
+endpointGroup :: Maybe EndpointGroup
+$sel:endpointGroup:UpdateEndpointGroupResponse' :: UpdateEndpointGroupResponse -&gt; Maybe EndpointGroup
+</span><a href="#local-6989586621679249900"><span class="hs-identifier hs-var hs-var">endpointGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointGroup
+</span><a href="#local-6989586621679249900"><span class="hs-identifier hs-var">endpointGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249899"><span class="annot"><span class="annottext">s :: UpdateEndpointGroupResponse
+</span><a href="#local-6989586621679249899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse%27"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249898"><span class="annot"><span class="annottext">Maybe EndpointGroup
+</span><a href="#local-6989586621679249898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroupResponse
+</span><a href="#local-6989586621679249899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpointGroup:UpdateEndpointGroupResponse' :: Maybe EndpointGroup
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AendpointGroup%3AUpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var">endpointGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EndpointGroup
+</span><a href="#local-6989586621679249898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-336"></span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroupResponse_httpStatus"><span class="hs-identifier hs-type">updateEndpointGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-337"></span><span id="updateEndpointGroupResponse_httpStatus"><span class="annot"><span class="annottext">updateEndpointGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateEndpointGroupResponse -&gt; f UpdateEndpointGroupResponse
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#updateEndpointGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateEndpointGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEndpointGroupResponse -&gt; Int)
+-&gt; (UpdateEndpointGroupResponse
+    -&gt; Int -&gt; UpdateEndpointGroupResponse)
+-&gt; Lens
+     UpdateEndpointGroupResponse UpdateEndpointGroupResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse%27"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679249897"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateEndpointGroupResponse' :: UpdateEndpointGroupResponse -&gt; Int
+</span><a href="#local-6989586621679249897"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249897"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679249896"><span class="annot"><span class="annottext">s :: UpdateEndpointGroupResponse
+</span><a href="#local-6989586621679249896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse%27"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679249895"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEndpointGroupResponse
+</span><a href="#local-6989586621679249896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEndpointGroupResponse' :: Int
+</span><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#%24sel%3AhttpStatus%3AUpdateEndpointGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679249895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679249893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GlobalAccelerator.UpdateEndpointGroup.html#UpdateEndpointGroupResponse"><span class="hs-identifier hs-type">UpdateEndpointGroupResponse</span></a></span></span><span>
+</span><span id="line-340"></span></pre></body></html>

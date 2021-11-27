@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SSO.Types.AccountInfo
+module Amazonka.SSO.Types.AccountInfo
 
 -- | Provides information about your AWS account.
 --   
@@ -48,16 +48,16 @@ accountInfo_accountId :: Lens' AccountInfo (Maybe Text)
 
 -- | The email address of the AWS account that is assigned to the user.
 accountInfo_emailAddress :: Lens' AccountInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSO.Types.AccountInfo.AccountInfo
-instance GHC.Show.Show Network.AWS.SSO.Types.AccountInfo.AccountInfo
-instance GHC.Read.Read Network.AWS.SSO.Types.AccountInfo.AccountInfo
-instance GHC.Classes.Eq Network.AWS.SSO.Types.AccountInfo.AccountInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSO.Types.AccountInfo.AccountInfo
-instance Data.Hashable.Class.Hashable Network.AWS.SSO.Types.AccountInfo.AccountInfo
-instance Control.DeepSeq.NFData Network.AWS.SSO.Types.AccountInfo.AccountInfo
+instance GHC.Generics.Generic Amazonka.SSO.Types.AccountInfo.AccountInfo
+instance GHC.Show.Show Amazonka.SSO.Types.AccountInfo.AccountInfo
+instance GHC.Read.Read Amazonka.SSO.Types.AccountInfo.AccountInfo
+instance GHC.Classes.Eq Amazonka.SSO.Types.AccountInfo.AccountInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSO.Types.AccountInfo.AccountInfo
+instance Data.Hashable.Class.Hashable Amazonka.SSO.Types.AccountInfo.AccountInfo
+instance Control.DeepSeq.NFData Amazonka.SSO.Types.AccountInfo.AccountInfo
 
 
-module Network.AWS.SSO.Types.RoleCredentials
+module Amazonka.SSO.Types.RoleCredentials
 
 -- | Provides information about the role credentials that are assigned to
 --   the user.
@@ -133,15 +133,15 @@ roleCredentials_expiration :: Lens' RoleCredentials (Maybe Integer)
 --   information, see <a>Using Temporary Security Credentials to Request
 --   Access to AWS Resources</a> in the <i>AWS IAM User Guide</i>.
 roleCredentials_accessKeyId :: Lens' RoleCredentials (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSO.Types.RoleCredentials.RoleCredentials
-instance GHC.Show.Show Network.AWS.SSO.Types.RoleCredentials.RoleCredentials
-instance GHC.Classes.Eq Network.AWS.SSO.Types.RoleCredentials.RoleCredentials
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSO.Types.RoleCredentials.RoleCredentials
-instance Data.Hashable.Class.Hashable Network.AWS.SSO.Types.RoleCredentials.RoleCredentials
-instance Control.DeepSeq.NFData Network.AWS.SSO.Types.RoleCredentials.RoleCredentials
+instance GHC.Generics.Generic Amazonka.SSO.Types.RoleCredentials.RoleCredentials
+instance GHC.Show.Show Amazonka.SSO.Types.RoleCredentials.RoleCredentials
+instance GHC.Classes.Eq Amazonka.SSO.Types.RoleCredentials.RoleCredentials
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSO.Types.RoleCredentials.RoleCredentials
+instance Data.Hashable.Class.Hashable Amazonka.SSO.Types.RoleCredentials.RoleCredentials
+instance Control.DeepSeq.NFData Amazonka.SSO.Types.RoleCredentials.RoleCredentials
 
 
-module Network.AWS.SSO.Types.RoleInfo
+module Amazonka.SSO.Types.RoleInfo
 
 -- | Provides information about the role that is assigned to the user.
 --   
@@ -175,16 +175,16 @@ roleInfo_roleName :: Lens' RoleInfo (Maybe Text)
 
 -- | The identifier of the AWS account assigned to the user.
 roleInfo_accountId :: Lens' RoleInfo (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.SSO.Types.RoleInfo.RoleInfo
-instance GHC.Show.Show Network.AWS.SSO.Types.RoleInfo.RoleInfo
-instance GHC.Read.Read Network.AWS.SSO.Types.RoleInfo.RoleInfo
-instance GHC.Classes.Eq Network.AWS.SSO.Types.RoleInfo.RoleInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SSO.Types.RoleInfo.RoleInfo
-instance Data.Hashable.Class.Hashable Network.AWS.SSO.Types.RoleInfo.RoleInfo
-instance Control.DeepSeq.NFData Network.AWS.SSO.Types.RoleInfo.RoleInfo
+instance GHC.Generics.Generic Amazonka.SSO.Types.RoleInfo.RoleInfo
+instance GHC.Show.Show Amazonka.SSO.Types.RoleInfo.RoleInfo
+instance GHC.Read.Read Amazonka.SSO.Types.RoleInfo.RoleInfo
+instance GHC.Classes.Eq Amazonka.SSO.Types.RoleInfo.RoleInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SSO.Types.RoleInfo.RoleInfo
+instance Data.Hashable.Class.Hashable Amazonka.SSO.Types.RoleInfo.RoleInfo
+instance Control.DeepSeq.NFData Amazonka.SSO.Types.RoleInfo.RoleInfo
 
 
-module Network.AWS.SSO.Types
+module Amazonka.SSO.Types
 
 -- | API version <tt>2019-06-10</tt> of the Amazon Single Sign-On SDK
 --   configuration.
@@ -358,7 +358,7 @@ roleInfo_accountId :: Lens' RoleInfo (Maybe Text)
 
 -- | Removes the client- and server-side session that is associated with
 --   the user.
-module Network.AWS.SSO.Logout
+module Amazonka.SSO.Logout
 
 -- | <i>See:</i> <a>newLogout</a> smart constructor.
 data Logout
@@ -397,21 +397,21 @@ LogoutResponse' :: LogoutResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newLogoutResponse :: LogoutResponse
-instance GHC.Generics.Generic Network.AWS.SSO.Logout.Logout
-instance GHC.Show.Show Network.AWS.SSO.Logout.Logout
-instance GHC.Classes.Eq Network.AWS.SSO.Logout.Logout
-instance GHC.Generics.Generic Network.AWS.SSO.Logout.LogoutResponse
-instance GHC.Show.Show Network.AWS.SSO.Logout.LogoutResponse
-instance GHC.Read.Read Network.AWS.SSO.Logout.LogoutResponse
-instance GHC.Classes.Eq Network.AWS.SSO.Logout.LogoutResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSO.Logout.Logout
-instance Control.DeepSeq.NFData Network.AWS.SSO.Logout.LogoutResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSO.Logout.Logout
-instance Control.DeepSeq.NFData Network.AWS.SSO.Logout.Logout
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSO.Logout.Logout
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SSO.Logout.Logout
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSO.Logout.Logout
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSO.Logout.Logout
+instance GHC.Generics.Generic Amazonka.SSO.Logout.Logout
+instance GHC.Show.Show Amazonka.SSO.Logout.Logout
+instance GHC.Classes.Eq Amazonka.SSO.Logout.Logout
+instance GHC.Generics.Generic Amazonka.SSO.Logout.LogoutResponse
+instance GHC.Show.Show Amazonka.SSO.Logout.LogoutResponse
+instance GHC.Read.Read Amazonka.SSO.Logout.LogoutResponse
+instance GHC.Classes.Eq Amazonka.SSO.Logout.LogoutResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSO.Logout.Logout
+instance Control.DeepSeq.NFData Amazonka.SSO.Logout.LogoutResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSO.Logout.Logout
+instance Control.DeepSeq.NFData Amazonka.SSO.Logout.Logout
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSO.Logout.Logout
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SSO.Logout.Logout
+instance Amazonka.Data.Path.ToPath Amazonka.SSO.Logout.Logout
+instance Amazonka.Data.Query.ToQuery Amazonka.SSO.Logout.Logout
 
 
 -- | Lists all AWS accounts assigned to the user. These AWS accounts are
@@ -420,7 +420,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.SSO.Logout.Logout
 --   operation returns a paginated response.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSO.ListAccounts
+module Amazonka.SSO.ListAccounts
 
 -- | <i>See:</i> <a>newListAccounts</a> smart constructor.
 data ListAccounts
@@ -518,27 +518,27 @@ listAccountsResponse_nextToken :: Lens' ListAccountsResponse (Maybe Text)
 
 -- | The response's http status code.
 listAccountsResponse_httpStatus :: Lens' ListAccountsResponse Int
-instance GHC.Generics.Generic Network.AWS.SSO.ListAccounts.ListAccounts
-instance GHC.Show.Show Network.AWS.SSO.ListAccounts.ListAccounts
-instance GHC.Classes.Eq Network.AWS.SSO.ListAccounts.ListAccounts
-instance GHC.Generics.Generic Network.AWS.SSO.ListAccounts.ListAccountsResponse
-instance GHC.Show.Show Network.AWS.SSO.ListAccounts.ListAccountsResponse
-instance GHC.Read.Read Network.AWS.SSO.ListAccounts.ListAccountsResponse
-instance GHC.Classes.Eq Network.AWS.SSO.ListAccounts.ListAccountsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSO.ListAccounts.ListAccounts
-instance Control.DeepSeq.NFData Network.AWS.SSO.ListAccounts.ListAccountsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSO.ListAccounts.ListAccounts
-instance Data.Hashable.Class.Hashable Network.AWS.SSO.ListAccounts.ListAccounts
-instance Control.DeepSeq.NFData Network.AWS.SSO.ListAccounts.ListAccounts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSO.ListAccounts.ListAccounts
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSO.ListAccounts.ListAccounts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSO.ListAccounts.ListAccounts
+instance GHC.Generics.Generic Amazonka.SSO.ListAccounts.ListAccounts
+instance GHC.Show.Show Amazonka.SSO.ListAccounts.ListAccounts
+instance GHC.Classes.Eq Amazonka.SSO.ListAccounts.ListAccounts
+instance GHC.Generics.Generic Amazonka.SSO.ListAccounts.ListAccountsResponse
+instance GHC.Show.Show Amazonka.SSO.ListAccounts.ListAccountsResponse
+instance GHC.Read.Read Amazonka.SSO.ListAccounts.ListAccountsResponse
+instance GHC.Classes.Eq Amazonka.SSO.ListAccounts.ListAccountsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSO.ListAccounts.ListAccounts
+instance Control.DeepSeq.NFData Amazonka.SSO.ListAccounts.ListAccountsResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSO.ListAccounts.ListAccounts
+instance Data.Hashable.Class.Hashable Amazonka.SSO.ListAccounts.ListAccounts
+instance Control.DeepSeq.NFData Amazonka.SSO.ListAccounts.ListAccounts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSO.ListAccounts.ListAccounts
+instance Amazonka.Data.Path.ToPath Amazonka.SSO.ListAccounts.ListAccounts
+instance Amazonka.Data.Query.ToQuery Amazonka.SSO.ListAccounts.ListAccounts
 
 
 -- | Lists all roles that are assigned to the user for a given AWS account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.SSO.ListAccountRoles
+module Amazonka.SSO.ListAccountRoles
 
 -- | <i>See:</i> <a>newListAccountRoles</a> smart constructor.
 data ListAccountRoles
@@ -646,26 +646,26 @@ listAccountRolesResponse_nextToken :: Lens' ListAccountRolesResponse (Maybe Text
 
 -- | The response's http status code.
 listAccountRolesResponse_httpStatus :: Lens' ListAccountRolesResponse Int
-instance GHC.Generics.Generic Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance GHC.Show.Show Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance GHC.Classes.Eq Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance GHC.Generics.Generic Network.AWS.SSO.ListAccountRoles.ListAccountRolesResponse
-instance GHC.Show.Show Network.AWS.SSO.ListAccountRoles.ListAccountRolesResponse
-instance GHC.Read.Read Network.AWS.SSO.ListAccountRoles.ListAccountRolesResponse
-instance GHC.Classes.Eq Network.AWS.SSO.ListAccountRoles.ListAccountRolesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance Control.DeepSeq.NFData Network.AWS.SSO.ListAccountRoles.ListAccountRolesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance Data.Hashable.Class.Hashable Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance Control.DeepSeq.NFData Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSO.ListAccountRoles.ListAccountRoles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSO.ListAccountRoles.ListAccountRoles
+instance GHC.Generics.Generic Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance GHC.Show.Show Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance GHC.Classes.Eq Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance GHC.Generics.Generic Amazonka.SSO.ListAccountRoles.ListAccountRolesResponse
+instance GHC.Show.Show Amazonka.SSO.ListAccountRoles.ListAccountRolesResponse
+instance GHC.Read.Read Amazonka.SSO.ListAccountRoles.ListAccountRolesResponse
+instance GHC.Classes.Eq Amazonka.SSO.ListAccountRoles.ListAccountRolesResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance Control.DeepSeq.NFData Amazonka.SSO.ListAccountRoles.ListAccountRolesResponse
+instance Amazonka.Pager.AWSPager Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance Data.Hashable.Class.Hashable Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance Control.DeepSeq.NFData Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance Amazonka.Data.Path.ToPath Amazonka.SSO.ListAccountRoles.ListAccountRoles
+instance Amazonka.Data.Query.ToQuery Amazonka.SSO.ListAccountRoles.ListAccountRoles
 
 
 -- | Returns the STS short-term credentials for a given role name that is
 --   assigned to the user.
-module Network.AWS.SSO.GetRoleCredentials
+module Amazonka.SSO.GetRoleCredentials
 
 -- | <i>See:</i> <a>newGetRoleCredentials</a> smart constructor.
 data GetRoleCredentials
@@ -749,22 +749,22 @@ getRoleCredentialsResponse_roleCredentials :: Lens' GetRoleCredentialsResponse (
 
 -- | The response's http status code.
 getRoleCredentialsResponse_httpStatus :: Lens' GetRoleCredentialsResponse Int
-instance GHC.Generics.Generic Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance GHC.Show.Show Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance GHC.Classes.Eq Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance GHC.Generics.Generic Network.AWS.SSO.GetRoleCredentials.GetRoleCredentialsResponse
-instance GHC.Show.Show Network.AWS.SSO.GetRoleCredentials.GetRoleCredentialsResponse
-instance GHC.Classes.Eq Network.AWS.SSO.GetRoleCredentials.GetRoleCredentialsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance Control.DeepSeq.NFData Network.AWS.SSO.GetRoleCredentials.GetRoleCredentialsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance Control.DeepSeq.NFData Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance Network.AWS.Data.Path.ToPath Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SSO.GetRoleCredentials.GetRoleCredentials
+instance GHC.Generics.Generic Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance GHC.Show.Show Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance GHC.Classes.Eq Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance GHC.Generics.Generic Amazonka.SSO.GetRoleCredentials.GetRoleCredentialsResponse
+instance GHC.Show.Show Amazonka.SSO.GetRoleCredentials.GetRoleCredentialsResponse
+instance GHC.Classes.Eq Amazonka.SSO.GetRoleCredentials.GetRoleCredentialsResponse
+instance Amazonka.Types.AWSRequest Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance Control.DeepSeq.NFData Amazonka.SSO.GetRoleCredentials.GetRoleCredentialsResponse
+instance Data.Hashable.Class.Hashable Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance Control.DeepSeq.NFData Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance Amazonka.Data.Path.ToPath Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
+instance Amazonka.Data.Query.ToQuery Amazonka.SSO.GetRoleCredentials.GetRoleCredentials
 
 
-module Network.AWS.SSO.Lens
+module Amazonka.SSO.Lens
 
 -- | The token issued by the <tt>CreateToken</tt> API call. For more
 --   information, see <a>CreateToken</a> in the <i>AWS SSO OIDC API
@@ -869,7 +869,7 @@ roleInfo_roleName :: Lens' RoleInfo (Maybe Text)
 roleInfo_accountId :: Lens' RoleInfo (Maybe Text)
 
 
-module Network.AWS.SSO.Waiters
+module Amazonka.SSO.Waiters
 
 
 -- | Derived from API version <tt>2019-06-10</tt> of the AWS service
@@ -893,7 +893,7 @@ module Network.AWS.SSO.Waiters
 --   programmatic access to AWS SSO and other AWS services. For more
 --   information about the AWS SDKs, including how to download and install
 --   them, see <a>Tools for Amazon Web Services</a>.
-module Network.AWS.SSO
+module Amazonka.SSO
 
 -- | API version <tt>2019-06-10</tt> of the Amazon Single Sign-On SDK
 --   configuration.

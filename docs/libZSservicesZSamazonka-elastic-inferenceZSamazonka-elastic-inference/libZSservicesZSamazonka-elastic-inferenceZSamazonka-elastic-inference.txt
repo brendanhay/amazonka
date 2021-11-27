@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth
+module Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth
 
 -- | The health details of an Elastic Inference Accelerator.
 --   
@@ -33,16 +33,16 @@ newElasticInferenceAcceleratorHealth :: ElasticInferenceAcceleratorHealth
 
 -- | The health status of the Elastic Inference Accelerator.
 elasticInferenceAcceleratorHealth_status :: Lens' ElasticInferenceAcceleratorHealth (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
+instance GHC.Show.Show Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
+instance GHC.Read.Read Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.ElasticInferenceAcceleratorHealth.ElasticInferenceAcceleratorHealth
 
 
-module Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator
+module Amazonka.ElasticInference.Types.ElasticInferenceAccelerator
 
 -- | The details of an Elastic Inference Accelerator.
 --   
@@ -113,16 +113,16 @@ elasticInferenceAccelerator_acceleratorHealth :: Lens' ElasticInferenceAccelerat
 -- | The availability zone where the Elastic Inference Accelerator is
 --   present.
 elasticInferenceAccelerator_availabilityZone :: Lens' ElasticInferenceAccelerator (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
+instance GHC.Show.Show Amazonka.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
+instance GHC.Read.Read Amazonka.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.ElasticInferenceAccelerator.ElasticInferenceAccelerator
 
 
-module Network.AWS.ElasticInference.Types.Filter
+module Amazonka.ElasticInference.Types.Filter
 
 -- | A filter expression for the Elastic Inference Accelerator list.
 --   
@@ -164,16 +164,16 @@ filter_values :: Lens' Filter (Maybe [Text])
 --   Inference Accelerator to filter for. instance-id: an EC2 instance id
 --   to filter for.
 filter_name :: Lens' Filter (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.Filter.Filter
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticInference.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.ElasticInference.Types.Filter.Filter
+instance GHC.Read.Read Amazonka.ElasticInference.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticInference.Types.Filter.Filter
 
 
-module Network.AWS.ElasticInference.Types.KeyValuePair
+module Amazonka.ElasticInference.Types.KeyValuePair
 
 -- | A throughput entry for an Elastic Inference Accelerator type.
 --   
@@ -217,44 +217,44 @@ keyValuePair_value :: Lens' KeyValuePair (Maybe Int)
 --   16bit TeraFLOPS. TFLOPS32bit: the throughput expressed in 32bit
 --   TeraFLOPS.
 keyValuePair_key :: Lens' KeyValuePair (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.KeyValuePair.KeyValuePair
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.KeyValuePair.KeyValuePair
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.KeyValuePair.KeyValuePair
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.KeyValuePair.KeyValuePair
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticInference.Types.KeyValuePair.KeyValuePair
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.KeyValuePair.KeyValuePair
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.KeyValuePair.KeyValuePair
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.KeyValuePair.KeyValuePair
+instance GHC.Show.Show Amazonka.ElasticInference.Types.KeyValuePair.KeyValuePair
+instance GHC.Read.Read Amazonka.ElasticInference.Types.KeyValuePair.KeyValuePair
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.KeyValuePair.KeyValuePair
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticInference.Types.KeyValuePair.KeyValuePair
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.KeyValuePair.KeyValuePair
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.KeyValuePair.KeyValuePair
 
 
-module Network.AWS.ElasticInference.Types.LocationType
+module Amazonka.ElasticInference.Types.LocationType
 newtype LocationType
 LocationType' :: Text -> LocationType
 [fromLocationType] :: LocationType -> Text
 pattern LocationType_Availability_zone :: LocationType
 pattern LocationType_Availability_zone_id :: LocationType
 pattern LocationType_Region :: LocationType
-instance Network.AWS.Data.XML.ToXML Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Network.AWS.Data.XML.FromXML Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Network.AWS.Data.Log.ToLog Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Network.AWS.Data.Text.ToText Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Network.AWS.Data.Text.FromText Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance GHC.Classes.Ord Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.LocationType.LocationType
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.XML.ToXML Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.XML.FromXML Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.Headers.ToHeader Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.Log.ToLog Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.Text.ToText Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Amazonka.Data.Text.FromText Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.LocationType.LocationType
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.LocationType.LocationType
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.LocationType.LocationType
+instance GHC.Classes.Ord Amazonka.ElasticInference.Types.LocationType.LocationType
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.LocationType.LocationType
+instance GHC.Read.Read Amazonka.ElasticInference.Types.LocationType.LocationType
+instance GHC.Show.Show Amazonka.ElasticInference.Types.LocationType.LocationType
 
 
-module Network.AWS.ElasticInference.Types.AcceleratorTypeOffering
+module Amazonka.ElasticInference.Types.AcceleratorTypeOffering
 
 -- | The offering for an Elastic Inference Accelerator type.
 --   
@@ -319,16 +319,16 @@ acceleratorTypeOffering_location :: Lens' AcceleratorTypeOffering (Maybe Text)
 --   zone level. availability-zone-id: defines that the offering is at the
 --   availability zone level, defined by the availability zone id.
 acceleratorTypeOffering_locationType :: Lens' AcceleratorTypeOffering (Maybe LocationType)
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
+instance GHC.Show.Show Amazonka.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
+instance GHC.Read.Read Amazonka.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.AcceleratorTypeOffering.AcceleratorTypeOffering
 
 
-module Network.AWS.ElasticInference.Types.MemoryInfo
+module Amazonka.ElasticInference.Types.MemoryInfo
 
 -- | The memory information of an Elastic Inference Accelerator type.
 --   
@@ -353,16 +353,16 @@ newMemoryInfo :: MemoryInfo
 
 -- | The size in mebibytes of the Elastic Inference Accelerator type.
 memoryInfo_sizeInMiB :: Lens' MemoryInfo (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.MemoryInfo.MemoryInfo
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.MemoryInfo.MemoryInfo
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.MemoryInfo.MemoryInfo
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.MemoryInfo.MemoryInfo
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticInference.Types.MemoryInfo.MemoryInfo
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.MemoryInfo.MemoryInfo
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.MemoryInfo.MemoryInfo
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.MemoryInfo.MemoryInfo
+instance GHC.Show.Show Amazonka.ElasticInference.Types.MemoryInfo.MemoryInfo
+instance GHC.Read.Read Amazonka.ElasticInference.Types.MemoryInfo.MemoryInfo
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.MemoryInfo.MemoryInfo
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticInference.Types.MemoryInfo.MemoryInfo
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.MemoryInfo.MemoryInfo
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.MemoryInfo.MemoryInfo
 
 
-module Network.AWS.ElasticInference.Types.AcceleratorType
+module Amazonka.ElasticInference.Types.AcceleratorType
 
 -- | The details of an Elastic Inference Accelerator type.
 --   
@@ -409,16 +409,16 @@ acceleratorType_memoryInfo :: Lens' AcceleratorType (Maybe MemoryInfo)
 
 -- | The name of the Elastic Inference Accelerator type.
 acceleratorType_acceleratorTypeName :: Lens' AcceleratorType (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.ElasticInference.Types.AcceleratorType.AcceleratorType
-instance GHC.Show.Show Network.AWS.ElasticInference.Types.AcceleratorType.AcceleratorType
-instance GHC.Read.Read Network.AWS.ElasticInference.Types.AcceleratorType.AcceleratorType
-instance GHC.Classes.Eq Network.AWS.ElasticInference.Types.AcceleratorType.AcceleratorType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.ElasticInference.Types.AcceleratorType.AcceleratorType
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.Types.AcceleratorType.AcceleratorType
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.Types.AcceleratorType.AcceleratorType
+instance GHC.Generics.Generic Amazonka.ElasticInference.Types.AcceleratorType.AcceleratorType
+instance GHC.Show.Show Amazonka.ElasticInference.Types.AcceleratorType.AcceleratorType
+instance GHC.Read.Read Amazonka.ElasticInference.Types.AcceleratorType.AcceleratorType
+instance GHC.Classes.Eq Amazonka.ElasticInference.Types.AcceleratorType.AcceleratorType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.ElasticInference.Types.AcceleratorType.AcceleratorType
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.Types.AcceleratorType.AcceleratorType
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.Types.AcceleratorType.AcceleratorType
 
 
-module Network.AWS.ElasticInference.Types
+module Amazonka.ElasticInference.Types
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Elastic Inference SDK
 --   configuration.
@@ -756,7 +756,7 @@ memoryInfo_sizeInMiB :: Lens' MemoryInfo (Maybe Int)
 
 
 -- | Adds the specified tags to an Elastic Inference Accelerator.
-module Network.AWS.ElasticInference.TagResource
+module Amazonka.ElasticInference.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -812,26 +812,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticInference.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.ElasticInference.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.ElasticInference.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.ElasticInference.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.ElasticInference.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.ElasticInference.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.ElasticInference.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ElasticInference.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticInference.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticInference.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticInference.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticInference.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticInference.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ElasticInference.TagResource.TagResource
+instance GHC.Show.Show Amazonka.ElasticInference.TagResource.TagResource
+instance GHC.Read.Read Amazonka.ElasticInference.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.ElasticInference.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.ElasticInference.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.ElasticInference.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.ElasticInference.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.ElasticInference.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticInference.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticInference.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticInference.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticInference.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticInference.TagResource.TagResource
 
 
 -- | Returns all tags of an Elastic Inference Accelerator.
-module Network.AWS.ElasticInference.ListTagsForResource
+module Amazonka.ElasticInference.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -890,28 +890,28 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticInference.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticInference.ListTagsForResource.ListTagsForResource
 
 
 -- | Describes information over a provided set of accelerators belonging to
 --   an account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.ElasticInference.DescribeAccelerators
+module Amazonka.ElasticInference.DescribeAccelerators
 
 -- | <i>See:</i> <a>newDescribeAccelerators</a> smart constructor.
 data DescribeAccelerators
@@ -1039,28 +1039,28 @@ describeAcceleratorsResponse_nextToken :: Lens' DescribeAcceleratorsResponse (Ma
 
 -- | The response's http status code.
 describeAcceleratorsResponse_httpStatus :: Lens' DescribeAcceleratorsResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance GHC.Show.Show Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance GHC.Read.Read Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance GHC.Classes.Eq Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance GHC.Generics.Generic Network.AWS.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
-instance GHC.Show.Show Network.AWS.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
-instance GHC.Read.Read Network.AWS.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
-instance GHC.Classes.Eq Network.AWS.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance GHC.Generics.Generic Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance GHC.Show.Show Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance GHC.Read.Read Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance GHC.Classes.Eq Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance GHC.Generics.Generic Amazonka.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
+instance GHC.Show.Show Amazonka.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
+instance GHC.Read.Read Amazonka.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
+instance GHC.Classes.Eq Amazonka.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.DescribeAccelerators.DescribeAcceleratorsResponse
+instance Amazonka.Pager.AWSPager Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticInference.DescribeAccelerators.DescribeAccelerators
 
 
 -- | Describes the accelerator types available in a given region, as well
 --   as their characteristics, such as memory and throughput.
-module Network.AWS.ElasticInference.DescribeAcceleratorTypes
+module Amazonka.ElasticInference.DescribeAcceleratorTypes
 
 -- | <i>See:</i> <a>newDescribeAcceleratorTypes</a> smart constructor.
 data DescribeAcceleratorTypes
@@ -1107,26 +1107,26 @@ describeAcceleratorTypesResponse_acceleratorTypes :: Lens' DescribeAcceleratorTy
 
 -- | The response's http status code.
 describeAcceleratorTypesResponse_httpStatus :: Lens' DescribeAcceleratorTypesResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance GHC.Show.Show Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance GHC.Read.Read Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance GHC.Classes.Eq Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance GHC.Generics.Generic Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
-instance GHC.Show.Show Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
-instance GHC.Read.Read Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
-instance GHC.Classes.Eq Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance GHC.Generics.Generic Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance GHC.Show.Show Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance GHC.Read.Read Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance GHC.Classes.Eq Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance GHC.Generics.Generic Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
+instance GHC.Show.Show Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
+instance GHC.Read.Read Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
+instance GHC.Classes.Eq Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypesResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticInference.DescribeAcceleratorTypes.DescribeAcceleratorTypes
 
 
 -- | Describes the locations in which a given accelerator type or set of
 --   types is present in a given region.
-module Network.AWS.ElasticInference.DescribeAcceleratorOfferings
+module Amazonka.ElasticInference.DescribeAcceleratorOfferings
 
 -- | <i>See:</i> <a>newDescribeAcceleratorOfferings</a> smart constructor.
 data DescribeAcceleratorOfferings
@@ -1212,26 +1212,26 @@ describeAcceleratorOfferingsResponse_acceleratorTypeOfferings :: Lens' DescribeA
 
 -- | The response's http status code.
 describeAcceleratorOfferingsResponse_httpStatus :: Lens' DescribeAcceleratorOfferingsResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance GHC.Show.Show Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance GHC.Read.Read Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance GHC.Classes.Eq Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance GHC.Generics.Generic Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
-instance GHC.Show.Show Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
-instance GHC.Read.Read Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
-instance GHC.Classes.Eq Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance GHC.Generics.Generic Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance GHC.Show.Show Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance GHC.Read.Read Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance GHC.Classes.Eq Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance GHC.Generics.Generic Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
+instance GHC.Show.Show Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
+instance GHC.Read.Read Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
+instance GHC.Classes.Eq Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferingsResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticInference.DescribeAcceleratorOfferings.DescribeAcceleratorOfferings
 
 
 -- | Removes the specified tags from an Elastic Inference Accelerator.
-module Network.AWS.ElasticInference.UntagResource
+module Amazonka.ElasticInference.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -1289,24 +1289,24 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.ElasticInference.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.ElasticInference.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.ElasticInference.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.ElasticInference.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.ElasticInference.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.ElasticInference.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.ElasticInference.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.ElasticInference.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.ElasticInference.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.ElasticInference.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.ElasticInference.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.ElasticInference.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.ElasticInference.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.ElasticInference.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ElasticInference.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.ElasticInference.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.ElasticInference.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.ElasticInference.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.ElasticInference.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.ElasticInference.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.ElasticInference.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.ElasticInference.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.ElasticInference.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.ElasticInference.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.ElasticInference.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.ElasticInference.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.ElasticInference.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.ElasticInference.UntagResource.UntagResource
 
 
-module Network.AWS.ElasticInference.Lens
+module Amazonka.ElasticInference.Lens
 
 -- | The ARN of the Elastic Inference Accelerator to list the tags for.
 listTagsForResource_resourceArn :: Lens' ListTagsForResource Text
@@ -1455,14 +1455,14 @@ keyValuePair_key :: Lens' KeyValuePair (Maybe Text)
 memoryInfo_sizeInMiB :: Lens' MemoryInfo (Maybe Int)
 
 
-module Network.AWS.ElasticInference.Waiters
+module Amazonka.ElasticInference.Waiters
 
 
 -- | Derived from API version <tt>2017-07-25</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   Elastic Inference public APIs.
-module Network.AWS.ElasticInference
+module Amazonka.ElasticInference
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Elastic Inference SDK
 --   configuration.

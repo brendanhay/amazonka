@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.NetworkFirewall.Types.TargetType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.NetworkFirewall.Types.TargetType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType"><span class="hs-identifier">TargetType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType_HTTP_HOST"><span class="hs-identifier">TargetType_HTTP_HOST</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType_TLS_SNI"><span class="hs-identifier">TargetType_TLS_SNI</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679242921"><span id="local-6989586621679242922"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TargetType"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType"><span class="hs-identifier hs-var">TargetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TargetType%27"><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType%27"><span class="hs-identifier hs-var">TargetType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTargetType"><span class="annot"><span class="annottext">TargetType -&gt; Text
+</span><a href="Amazonka.NetworkFirewall.Types.TargetType.html#fromTargetType"><span class="hs-identifier hs-var hs-var">fromTargetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242913"><span id="local-6989586621679242915"><span id="local-6989586621679242917"><span class="annot"><span class="annottext">Int -&gt; TargetType -&gt; ShowS
+[TargetType] -&gt; ShowS
+TargetType -&gt; String
+(Int -&gt; TargetType -&gt; ShowS)
+-&gt; (TargetType -&gt; String)
+-&gt; ([TargetType] -&gt; ShowS)
+-&gt; Show TargetType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TargetType] -&gt; ShowS
+$cshowList :: [TargetType] -&gt; ShowS
+show :: TargetType -&gt; String
+$cshow :: TargetType -&gt; String
+showsPrec :: Int -&gt; TargetType -&gt; ShowS
+$cshowsPrec :: Int -&gt; TargetType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679242904"><span id="local-6989586621679242906"><span id="local-6989586621679242908"><span id="local-6989586621679242910"><span class="annot"><span class="annottext">ReadPrec [TargetType]
+ReadPrec TargetType
+Int -&gt; ReadS TargetType
+ReadS [TargetType]
+(Int -&gt; ReadS TargetType)
+-&gt; ReadS [TargetType]
+-&gt; ReadPrec TargetType
+-&gt; ReadPrec [TargetType]
+-&gt; Read TargetType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TargetType]
+$creadListPrec :: ReadPrec [TargetType]
+readPrec :: ReadPrec TargetType
+$creadPrec :: ReadPrec TargetType
+readList :: ReadS [TargetType]
+$creadList :: ReadS [TargetType]
+readsPrec :: Int -&gt; ReadS TargetType
+$creadsPrec :: Int -&gt; ReadS TargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679242899"><span id="local-6989586621679242901"><span class="annot"><span class="annottext">TargetType -&gt; TargetType -&gt; Bool
+(TargetType -&gt; TargetType -&gt; Bool)
+-&gt; (TargetType -&gt; TargetType -&gt; Bool) -&gt; Eq TargetType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TargetType -&gt; TargetType -&gt; Bool
+$c/= :: TargetType -&gt; TargetType -&gt; Bool
+== :: TargetType -&gt; TargetType -&gt; Bool
+$c== :: TargetType -&gt; TargetType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679242883"><span id="local-6989586621679242885"><span id="local-6989586621679242887"><span id="local-6989586621679242889"><span id="local-6989586621679242891"><span id="local-6989586621679242893"><span id="local-6989586621679242895"><span class="annot"><span class="annottext">Eq TargetType
+Eq TargetType
+-&gt; (TargetType -&gt; TargetType -&gt; Ordering)
+-&gt; (TargetType -&gt; TargetType -&gt; Bool)
+-&gt; (TargetType -&gt; TargetType -&gt; Bool)
+-&gt; (TargetType -&gt; TargetType -&gt; Bool)
+-&gt; (TargetType -&gt; TargetType -&gt; Bool)
+-&gt; (TargetType -&gt; TargetType -&gt; TargetType)
+-&gt; (TargetType -&gt; TargetType -&gt; TargetType)
+-&gt; Ord TargetType
+TargetType -&gt; TargetType -&gt; Bool
+TargetType -&gt; TargetType -&gt; Ordering
+TargetType -&gt; TargetType -&gt; TargetType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TargetType -&gt; TargetType -&gt; TargetType
+$cmin :: TargetType -&gt; TargetType -&gt; TargetType
+max :: TargetType -&gt; TargetType -&gt; TargetType
+$cmax :: TargetType -&gt; TargetType -&gt; TargetType
+&gt;= :: TargetType -&gt; TargetType -&gt; Bool
+$c&gt;= :: TargetType -&gt; TargetType -&gt; Bool
+&gt; :: TargetType -&gt; TargetType -&gt; Bool
+$c&gt; :: TargetType -&gt; TargetType -&gt; Bool
+&lt;= :: TargetType -&gt; TargetType -&gt; Bool
+$c&lt;= :: TargetType -&gt; TargetType -&gt; Bool
+&lt; :: TargetType -&gt; TargetType -&gt; Bool
+$c&lt; :: TargetType -&gt; TargetType -&gt; Bool
+compare :: TargetType -&gt; TargetType -&gt; Ordering
+$ccompare :: TargetType -&gt; TargetType -&gt; Ordering
+$cp1Ord :: Eq TargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. TargetType -&gt; Rep TargetType x)
+-&gt; (forall x. Rep TargetType x -&gt; TargetType) -&gt; Generic TargetType
+forall x. Rep TargetType x -&gt; TargetType
+forall x. TargetType -&gt; Rep TargetType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep TargetType x -&gt; TargetType
+$cfrom :: forall x. TargetType -&gt; Rep TargetType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679242875"><span id="local-6989586621679242877"><span class="annot"><span class="annottext">Int -&gt; TargetType -&gt; Int
+TargetType -&gt; Int
+(Int -&gt; TargetType -&gt; Int)
+-&gt; (TargetType -&gt; Int) -&gt; Hashable TargetType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TargetType -&gt; Int
+$chash :: TargetType -&gt; Int
+hashWithSalt :: Int -&gt; TargetType -&gt; Int
+$chashWithSalt :: Int -&gt; TargetType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679242872"><span class="annot"><span class="annottext">TargetType -&gt; ()
+(TargetType -&gt; ()) -&gt; NFData TargetType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TargetType -&gt; ()
+$crnf :: TargetType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679242869"><span class="annot"><span class="annottext">Text -&gt; Either String TargetType
+(Text -&gt; Either String TargetType) -&gt; FromText TargetType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TargetType
+$cfromText :: Text -&gt; Either String TargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679242866"><span class="annot"><span class="annottext">TargetType -&gt; Text
+(TargetType -&gt; Text) -&gt; ToText TargetType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TargetType -&gt; Text
+$ctoText :: TargetType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679242863"><span class="annot"><span class="annottext">TargetType -&gt; ByteString
+(TargetType -&gt; ByteString) -&gt; ToByteString TargetType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TargetType -&gt; ByteString
+$ctoBS :: TargetType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679242860"><span class="annot"><span class="annottext">TargetType -&gt; ByteStringBuilder
+(TargetType -&gt; ByteStringBuilder) -&gt; ToLog TargetType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TargetType -&gt; ByteStringBuilder
+$cbuild :: TargetType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679242857"><span class="annot"><span class="annottext">HeaderName -&gt; TargetType -&gt; [Header]
+(HeaderName -&gt; TargetType -&gt; [Header]) -&gt; ToHeader TargetType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TargetType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TargetType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679242854"><span class="annot"><span class="annottext">TargetType -&gt; QueryString
+(TargetType -&gt; QueryString) -&gt; ToQuery TargetType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TargetType -&gt; QueryString
+$ctoQuery :: TargetType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679242849"><span id="local-6989586621679242851"><span class="annot"><span class="annottext">Value -&gt; Parser [TargetType]
+Value -&gt; Parser TargetType
+(Value -&gt; Parser TargetType)
+-&gt; (Value -&gt; Parser [TargetType]) -&gt; FromJSON TargetType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TargetType]
+$cparseJSONList :: Value -&gt; Parser [TargetType]
+parseJSON :: Value -&gt; Parser TargetType
+$cparseJSON :: Value -&gt; Parser TargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679242844"><span id="local-6989586621679242846"><span class="annot"><span class="annottext">FromJSONKeyFunction [TargetType]
+FromJSONKeyFunction TargetType
+FromJSONKeyFunction TargetType
+-&gt; FromJSONKeyFunction [TargetType] -&gt; FromJSONKey TargetType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TargetType]
+$cfromJSONKeyList :: FromJSONKeyFunction [TargetType]
+fromJSONKey :: FromJSONKeyFunction TargetType
+$cfromJSONKey :: FromJSONKeyFunction TargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679242835"><span id="local-6989586621679242837"><span id="local-6989586621679242839"><span id="local-6989586621679242841"><span class="annot"><span class="annottext">[TargetType] -&gt; Encoding
+[TargetType] -&gt; Value
+TargetType -&gt; Encoding
+TargetType -&gt; Value
+(TargetType -&gt; Value)
+-&gt; (TargetType -&gt; Encoding)
+-&gt; ([TargetType] -&gt; Value)
+-&gt; ([TargetType] -&gt; Encoding)
+-&gt; ToJSON TargetType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TargetType] -&gt; Encoding
+$ctoEncodingList :: [TargetType] -&gt; Encoding
+toJSONList :: [TargetType] -&gt; Value
+$ctoJSONList :: [TargetType] -&gt; Value
+toEncoding :: TargetType -&gt; Encoding
+$ctoEncoding :: TargetType -&gt; Encoding
+toJSON :: TargetType -&gt; Value
+$ctoJSON :: TargetType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679242830"><span id="local-6989586621679242832"><span class="annot"><span class="annottext">ToJSONKeyFunction [TargetType]
+ToJSONKeyFunction TargetType
+ToJSONKeyFunction TargetType
+-&gt; ToJSONKeyFunction [TargetType] -&gt; ToJSONKey TargetType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TargetType]
+$ctoJSONKeyList :: ToJSONKeyFunction [TargetType]
+toJSONKey :: ToJSONKeyFunction TargetType
+$ctoJSONKey :: ToJSONKeyFunction TargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679242827"><span class="annot"><span class="annottext">[Node] -&gt; Either String TargetType
+([Node] -&gt; Either String TargetType) -&gt; FromXML TargetType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TargetType
+$cparseXML :: [Node] -&gt; Either String TargetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679242824"><span class="annot"><span class="annottext">TargetType -&gt; XML
+(TargetType -&gt; XML) -&gt; ToXML TargetType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TargetType -&gt; XML
+$ctoXML :: TargetType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType_HTTP_HOST"><span class="hs-identifier hs-type">TargetType_HTTP_HOST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetType_HTTP_HOST"><span id="%24mTargetType_HTTP_HOST"><span id="TargetType_HTTP_HOST"><span class="annot"><span class="annottext">$bTargetType_HTTP_HOST :: TargetType
+$mTargetType_HTTP_HOST :: forall r. TargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TargetType.html#%24bTargetType_HTTP_HOST"><span class="hs-identifier hs-var hs-var hs-var">TargetType_HTTP_HOST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType%27"><span class="hs-identifier hs-type">TargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;HTTP_HOST&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType_TLS_SNI"><span class="hs-identifier hs-type">TargetType_TLS_SNI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType"><span class="hs-identifier hs-type">TargetType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTargetType_TLS_SNI"><span id="%24mTargetType_TLS_SNI"><span id="TargetType_TLS_SNI"><span class="annot"><span class="annottext">$bTargetType_TLS_SNI :: TargetType
+$mTargetType_TLS_SNI :: forall r. TargetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.NetworkFirewall.Types.TargetType.html#%24bTargetType_TLS_SNI"><span class="hs-identifier hs-var hs-var hs-var">TargetType_TLS_SNI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType%27"><span class="hs-identifier hs-type">TargetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TLS_SNI&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType_HTTP_HOST"><span class="hs-pragma hs-type">TargetType_HTTP_HOST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType_TLS_SNI"><span class="hs-pragma hs-type">TargetType_TLS_SNI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.NetworkFirewall.Types.TargetType.html#TargetType%27"><span class="hs-pragma hs-type">TargetType'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.HealthLake.Types.DatastoreProperties</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.HealthLake.Types.DatastoreProperties</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreStatus.html"><span class="hs-identifier">Amazonka.HealthLake.Types.DatastoreStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.FHIRVersion.html"><span class="hs-identifier">Amazonka.HealthLake.Types.FHIRVersion</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataConfig.html"><span class="hs-identifier">Amazonka.HealthLake.Types.PreloadDataConfig</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.SseConfiguration.html"><span class="hs-identifier">Amazonka.HealthLake.Types.SseConfiguration</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | Displays the properties of the Data Store, including the ID, Arn, name,</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- and the status of the Data Store.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newDatastoreProperties' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679174672"><span id="local-6989586621679174673"></span></span><span class="hs-keyword">data</span><span> </span><span id="DatastoreProperties"><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-var">DatastoreProperties</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DatastoreProperties%27"><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-var">DatastoreProperties'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The server-side encryption key configuration for a customer provided</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- encryption key (CMK).</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsseConfiguration%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; Maybe SseConfiguration
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AsseConfiguration%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">sseConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.SseConfiguration.html#SseConfiguration"><span class="hs-identifier hs-type">SseConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time that a Data Store was created.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AcreatedAt%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; Maybe POSIX
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AcreatedAt%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The user-generated name for the Data Store.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdatastoreName%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; Maybe Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreName%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The preloaded data configuration for the Data Store. Only data preloaded</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- from Synthea is supported.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3ApreloadDataConfig%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; Maybe PreloadDataConfig
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3ApreloadDataConfig%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">preloadDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataConfig.html#PreloadDataConfig"><span class="hs-identifier hs-type">PreloadDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The AWS-generated ID number for the Data Store.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AdatastoreId%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreId%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name used in the creation of the Data Store.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AdatastoreArn%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreArn%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">datastoreArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The status of the Data Store. Possible statuses are \'CREATING\',</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- \'ACTIVE\', \'DELETING\', or \'DELETED\'.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdatastoreStatus%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; DatastoreStatus
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreStatus%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">datastoreStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier hs-type">DatastoreStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The FHIR version. Only R4 version data is supported.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AdatastoreTypeVersion%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; FHIRVersion
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreTypeVersion%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">datastoreTypeVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.FHIRVersion.html#FHIRVersion"><span class="hs-identifier hs-type">FHIRVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The AWS endpoint for the Data Store. Each Data Store will have it\'s own</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- endpoint with Data Store ID in the endpoint URL.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdatastoreEndpoint%3ADatastoreProperties%27"><span class="annot"><span class="annottext">DatastoreProperties -&gt; Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreEndpoint%3ADatastoreProperties%27"><span class="hs-identifier hs-var hs-var">datastoreEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679174658"><span id="local-6989586621679174660"><span class="annot"><span class="annottext">DatastoreProperties -&gt; DatastoreProperties -&gt; Bool
+(DatastoreProperties -&gt; DatastoreProperties -&gt; Bool)
+-&gt; (DatastoreProperties -&gt; DatastoreProperties -&gt; Bool)
+-&gt; Eq DatastoreProperties
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DatastoreProperties -&gt; DatastoreProperties -&gt; Bool
+$c/= :: DatastoreProperties -&gt; DatastoreProperties -&gt; Bool
+== :: DatastoreProperties -&gt; DatastoreProperties -&gt; Bool
+$c== :: DatastoreProperties -&gt; DatastoreProperties -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174649"><span id="local-6989586621679174651"><span id="local-6989586621679174653"><span id="local-6989586621679174655"><span class="annot"><span class="annottext">ReadPrec [DatastoreProperties]
+ReadPrec DatastoreProperties
+Int -&gt; ReadS DatastoreProperties
+ReadS [DatastoreProperties]
+(Int -&gt; ReadS DatastoreProperties)
+-&gt; ReadS [DatastoreProperties]
+-&gt; ReadPrec DatastoreProperties
+-&gt; ReadPrec [DatastoreProperties]
+-&gt; Read DatastoreProperties
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DatastoreProperties]
+$creadListPrec :: ReadPrec [DatastoreProperties]
+readPrec :: ReadPrec DatastoreProperties
+$creadPrec :: ReadPrec DatastoreProperties
+readList :: ReadS [DatastoreProperties]
+$creadList :: ReadS [DatastoreProperties]
+readsPrec :: Int -&gt; ReadS DatastoreProperties
+$creadsPrec :: Int -&gt; ReadS DatastoreProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679174642"><span id="local-6989586621679174644"><span id="local-6989586621679174646"><span class="annot"><span class="annottext">Int -&gt; DatastoreProperties -&gt; ShowS
+[DatastoreProperties] -&gt; ShowS
+DatastoreProperties -&gt; String
+(Int -&gt; DatastoreProperties -&gt; ShowS)
+-&gt; (DatastoreProperties -&gt; String)
+-&gt; ([DatastoreProperties] -&gt; ShowS)
+-&gt; Show DatastoreProperties
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DatastoreProperties] -&gt; ShowS
+$cshowList :: [DatastoreProperties] -&gt; ShowS
+show :: DatastoreProperties -&gt; String
+$cshow :: DatastoreProperties -&gt; String
+showsPrec :: Int -&gt; DatastoreProperties -&gt; ShowS
+$cshowsPrec :: Int -&gt; DatastoreProperties -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DatastoreProperties -&gt; Rep DatastoreProperties x)
+-&gt; (forall x. Rep DatastoreProperties x -&gt; DatastoreProperties)
+-&gt; Generic DatastoreProperties
+forall x. Rep DatastoreProperties x -&gt; DatastoreProperties
+forall x. DatastoreProperties -&gt; Rep DatastoreProperties x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DatastoreProperties x -&gt; DatastoreProperties
+$cfrom :: forall x. DatastoreProperties -&gt; Rep DatastoreProperties x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Create a value of 'DatastoreProperties' with all optional fields omitted.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'sseConfiguration', 'datastoreProperties_sseConfiguration' - The server-side encryption key configuration for a customer provided</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- encryption key (CMK).</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'createdAt', 'datastoreProperties_createdAt' - The time that a Data Store was created.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'datastoreName', 'datastoreProperties_datastoreName' - The user-generated name for the Data Store.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'preloadDataConfig', 'datastoreProperties_preloadDataConfig' - The preloaded data configuration for the Data Store. Only data preloaded</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- from Synthea is supported.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'datastoreId', 'datastoreProperties_datastoreId' - The AWS-generated ID number for the Data Store.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'datastoreArn', 'datastoreProperties_datastoreArn' - The Amazon Resource Name used in the creation of the Data Store.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'datastoreStatus', 'datastoreProperties_datastoreStatus' - The status of the Data Store. Possible statuses are \'CREATING\',</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- \'ACTIVE\', \'DELETING\', or \'DELETED\'.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'datastoreTypeVersion', 'datastoreProperties_datastoreTypeVersion' - The FHIR version. Only R4 version data is supported.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'datastoreEndpoint', 'datastoreProperties_datastoreEndpoint' - The AWS endpoint for the Data Store. Each Data Store will have it\'s own</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- endpoint with Data Store ID in the endpoint URL.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#newDatastoreProperties"><span class="hs-identifier hs-type">newDatastoreProperties</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'datastoreId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'datastoreArn'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'datastoreStatus'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier hs-type">DatastoreStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'datastoreTypeVersion'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.FHIRVersion.html#FHIRVersion"><span class="hs-identifier hs-type">FHIRVersion</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-comment">-- | 'datastoreEndpoint'</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span>
+</span><span id="line-101"></span><span id="newDatastoreProperties"><span class="annot"><span class="annottext">newDatastoreProperties :: Text
+-&gt; Text
+-&gt; DatastoreStatus
+-&gt; FHIRVersion
+-&gt; Text
+-&gt; DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#newDatastoreProperties"><span class="hs-identifier hs-var hs-var">newDatastoreProperties</span></a></span></span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679174636"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174636"><span class="hs-identifier hs-var">pDatastoreId_</span></a></span></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679174635"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174635"><span class="hs-identifier hs-var">pDatastoreArn_</span></a></span></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679174634"><span class="annot"><span class="annottext">DatastoreStatus
+</span><a href="#local-6989586621679174634"><span class="hs-identifier hs-var">pDatastoreStatus_</span></a></span></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679174633"><span class="annot"><span class="annottext">FHIRVersion
+</span><a href="#local-6989586621679174633"><span class="hs-identifier hs-var">pDatastoreTypeVersion_</span></a></span></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679174632"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174632"><span class="hs-identifier hs-var">pDatastoreEndpoint_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">DatastoreProperties' :: Maybe SseConfiguration
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe PreloadDataConfig
+-&gt; Text
+-&gt; Text
+-&gt; DatastoreStatus
+-&gt; FHIRVersion
+-&gt; Text
+-&gt; DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sseConfiguration:DatastoreProperties' :: Maybe SseConfiguration
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AsseConfiguration%3ADatastoreProperties%27"><span class="hs-identifier hs-var">sseConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe SseConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>        </span><span class="annot"><span class="annottext">$sel:createdAt:DatastoreProperties' :: Maybe POSIX
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AcreatedAt%3ADatastoreProperties%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>        </span><span class="annot"><span class="annottext">$sel:datastoreName:DatastoreProperties' :: Maybe Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreName%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:preloadDataConfig:DatastoreProperties' :: Maybe PreloadDataConfig
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3ApreloadDataConfig%3ADatastoreProperties%27"><span class="hs-identifier hs-var">preloadDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PreloadDataConfig
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:datastoreId:DatastoreProperties' :: Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreId%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174636"><span class="hs-identifier hs-var">pDatastoreId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:datastoreArn:DatastoreProperties' :: Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreArn%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174635"><span class="hs-identifier hs-var">pDatastoreArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:datastoreStatus:DatastoreProperties' :: DatastoreStatus
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreStatus%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DatastoreStatus
+</span><a href="#local-6989586621679174634"><span class="hs-identifier hs-var">pDatastoreStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">$sel:datastoreTypeVersion:DatastoreProperties' :: FHIRVersion
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreTypeVersion%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreTypeVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FHIRVersion
+</span><a href="#local-6989586621679174633"><span class="hs-identifier hs-var">pDatastoreTypeVersion_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:datastoreEndpoint:DatastoreProperties' :: Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreEndpoint%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174632"><span class="hs-identifier hs-var">pDatastoreEndpoint_</span></a></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The server-side encryption key configuration for a customer provided</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- encryption key (CMK).</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_sseConfiguration"><span class="hs-identifier hs-type">datastoreProperties_sseConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.SseConfiguration.html#SseConfiguration"><span class="hs-identifier hs-type">SseConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="datastoreProperties_sseConfiguration"><span class="annot"><span class="annottext">datastoreProperties_sseConfiguration :: (Maybe SseConfiguration -&gt; f (Maybe SseConfiguration))
+-&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_sseConfiguration"><span class="hs-identifier hs-var hs-var">datastoreProperties_sseConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; Maybe SseConfiguration)
+-&gt; (DatastoreProperties
+    -&gt; Maybe SseConfiguration -&gt; DatastoreProperties)
+-&gt; Lens
+     DatastoreProperties
+     DatastoreProperties
+     (Maybe SseConfiguration)
+     (Maybe SseConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174628"><span class="annot"><span class="annottext">Maybe SseConfiguration
+sseConfiguration :: Maybe SseConfiguration
+$sel:sseConfiguration:DatastoreProperties' :: DatastoreProperties -&gt; Maybe SseConfiguration
+</span><a href="#local-6989586621679174628"><span class="hs-identifier hs-var hs-var">sseConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SseConfiguration
+</span><a href="#local-6989586621679174628"><span class="hs-identifier hs-var">sseConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174627"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174626"><span class="annot"><span class="annottext">Maybe SseConfiguration
+</span><a href="#local-6989586621679174626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sseConfiguration:DatastoreProperties' :: Maybe SseConfiguration
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AsseConfiguration%3ADatastoreProperties%27"><span class="hs-identifier hs-var">sseConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SseConfiguration
+</span><a href="#local-6989586621679174626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | The time that a Data Store was created.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_createdAt"><span class="hs-identifier hs-type">datastoreProperties_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span id="datastoreProperties_createdAt"><span class="annot"><span class="annottext">datastoreProperties_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_createdAt"><span class="hs-identifier hs-var hs-var">datastoreProperties_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; Maybe POSIX)
+-&gt; (DatastoreProperties -&gt; Maybe POSIX -&gt; DatastoreProperties)
+-&gt; Lens
+     DatastoreProperties DatastoreProperties (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174624"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:DatastoreProperties' :: DatastoreProperties -&gt; Maybe POSIX
+</span><a href="#local-6989586621679174624"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174624"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174623"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174622"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:DatastoreProperties' :: Maybe POSIX
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AcreatedAt%3ADatastoreProperties%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679174622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; DatastoreProperties -&gt; f DatastoreProperties)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; DatastoreProperties
+-&gt; f DatastoreProperties
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- | The user-generated name for the Data Store.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreName"><span class="hs-identifier hs-type">datastoreProperties_datastoreName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="datastoreProperties_datastoreName"><span class="annot"><span class="annottext">datastoreProperties_datastoreName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreName"><span class="hs-identifier hs-var hs-var">datastoreProperties_datastoreName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; Maybe Text)
+-&gt; (DatastoreProperties -&gt; Maybe Text -&gt; DatastoreProperties)
+-&gt; Lens
+     DatastoreProperties DatastoreProperties (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174617"><span class="annot"><span class="annottext">Maybe Text
+datastoreName :: Maybe Text
+$sel:datastoreName:DatastoreProperties' :: DatastoreProperties -&gt; Maybe Text
+</span><a href="#local-6989586621679174617"><span class="hs-identifier hs-var hs-var">datastoreName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174617"><span class="hs-identifier hs-var">datastoreName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174616"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174615"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreName:DatastoreProperties' :: Maybe Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreName%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679174615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The preloaded data configuration for the Data Store. Only data preloaded</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- from Synthea is supported.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_preloadDataConfig"><span class="hs-identifier hs-type">datastoreProperties_preloadDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.PreloadDataConfig.html#PreloadDataConfig"><span class="hs-identifier hs-type">PreloadDataConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="datastoreProperties_preloadDataConfig"><span class="annot"><span class="annottext">datastoreProperties_preloadDataConfig :: (Maybe PreloadDataConfig -&gt; f (Maybe PreloadDataConfig))
+-&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_preloadDataConfig"><span class="hs-identifier hs-var hs-var">datastoreProperties_preloadDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; Maybe PreloadDataConfig)
+-&gt; (DatastoreProperties
+    -&gt; Maybe PreloadDataConfig -&gt; DatastoreProperties)
+-&gt; Lens
+     DatastoreProperties
+     DatastoreProperties
+     (Maybe PreloadDataConfig)
+     (Maybe PreloadDataConfig)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174613"><span class="annot"><span class="annottext">Maybe PreloadDataConfig
+preloadDataConfig :: Maybe PreloadDataConfig
+$sel:preloadDataConfig:DatastoreProperties' :: DatastoreProperties -&gt; Maybe PreloadDataConfig
+</span><a href="#local-6989586621679174613"><span class="hs-identifier hs-var hs-var">preloadDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PreloadDataConfig
+</span><a href="#local-6989586621679174613"><span class="hs-identifier hs-var">preloadDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174612"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174612"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174611"><span class="annot"><span class="annottext">Maybe PreloadDataConfig
+</span><a href="#local-6989586621679174611"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174612"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:preloadDataConfig:DatastoreProperties' :: Maybe PreloadDataConfig
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3ApreloadDataConfig%3ADatastoreProperties%27"><span class="hs-identifier hs-var">preloadDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PreloadDataConfig
+</span><a href="#local-6989586621679174611"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The AWS-generated ID number for the Data Store.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreId"><span class="hs-identifier hs-type">datastoreProperties_datastoreId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-140"></span><span id="datastoreProperties_datastoreId"><span class="annot"><span class="annottext">datastoreProperties_datastoreId :: (Text -&gt; f Text) -&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreId"><span class="hs-identifier hs-var hs-var">datastoreProperties_datastoreId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; Text)
+-&gt; (DatastoreProperties -&gt; Text -&gt; DatastoreProperties)
+-&gt; Lens DatastoreProperties DatastoreProperties Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174609"><span class="annot"><span class="annottext">Text
+datastoreId :: Text
+$sel:datastoreId:DatastoreProperties' :: DatastoreProperties -&gt; Text
+</span><a href="#local-6989586621679174609"><span class="hs-identifier hs-var hs-var">datastoreId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174609"><span class="hs-identifier hs-var">datastoreId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174608"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174608"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174607"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174608"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreId:DatastoreProperties' :: Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreId%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174607"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The Amazon Resource Name used in the creation of the Data Store.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreArn"><span class="hs-identifier hs-type">datastoreProperties_datastoreArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-144"></span><span id="datastoreProperties_datastoreArn"><span class="annot"><span class="annottext">datastoreProperties_datastoreArn :: (Text -&gt; f Text) -&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreArn"><span class="hs-identifier hs-var hs-var">datastoreProperties_datastoreArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; Text)
+-&gt; (DatastoreProperties -&gt; Text -&gt; DatastoreProperties)
+-&gt; Lens DatastoreProperties DatastoreProperties Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174605"><span class="annot"><span class="annottext">Text
+datastoreArn :: Text
+$sel:datastoreArn:DatastoreProperties' :: DatastoreProperties -&gt; Text
+</span><a href="#local-6989586621679174605"><span class="hs-identifier hs-var hs-var">datastoreArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174605"><span class="hs-identifier hs-var">datastoreArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174604"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174603"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreArn:DatastoreProperties' :: Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreArn%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The status of the Data Store. Possible statuses are \'CREATING\',</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- \'ACTIVE\', \'DELETING\', or \'DELETED\'.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreStatus"><span class="hs-identifier hs-type">datastoreProperties_datastoreStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreStatus.html#DatastoreStatus"><span class="hs-identifier hs-type">DatastoreStatus</span></a></span><span>
+</span><span id="line-149"></span><span id="datastoreProperties_datastoreStatus"><span class="annot"><span class="annottext">datastoreProperties_datastoreStatus :: (DatastoreStatus -&gt; f DatastoreStatus)
+-&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreStatus"><span class="hs-identifier hs-var hs-var">datastoreProperties_datastoreStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; DatastoreStatus)
+-&gt; (DatastoreProperties -&gt; DatastoreStatus -&gt; DatastoreProperties)
+-&gt; Lens
+     DatastoreProperties
+     DatastoreProperties
+     DatastoreStatus
+     DatastoreStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174601"><span class="annot"><span class="annottext">DatastoreStatus
+datastoreStatus :: DatastoreStatus
+$sel:datastoreStatus:DatastoreProperties' :: DatastoreProperties -&gt; DatastoreStatus
+</span><a href="#local-6989586621679174601"><span class="hs-identifier hs-var hs-var">datastoreStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreStatus
+</span><a href="#local-6989586621679174601"><span class="hs-identifier hs-var">datastoreStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174600"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174599"><span class="annot"><span class="annottext">DatastoreStatus
+</span><a href="#local-6989586621679174599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreStatus:DatastoreProperties' :: DatastoreStatus
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreStatus%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">DatastoreStatus
+</span><a href="#local-6989586621679174599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The FHIR version. Only R4 version data is supported.</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreTypeVersion"><span class="hs-identifier hs-type">datastoreProperties_datastoreTypeVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.FHIRVersion.html#FHIRVersion"><span class="hs-identifier hs-type">FHIRVersion</span></a></span><span>
+</span><span id="line-153"></span><span id="datastoreProperties_datastoreTypeVersion"><span class="annot"><span class="annottext">datastoreProperties_datastoreTypeVersion :: (FHIRVersion -&gt; f FHIRVersion)
+-&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreTypeVersion"><span class="hs-identifier hs-var hs-var">datastoreProperties_datastoreTypeVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; FHIRVersion)
+-&gt; (DatastoreProperties -&gt; FHIRVersion -&gt; DatastoreProperties)
+-&gt; Lens
+     DatastoreProperties DatastoreProperties FHIRVersion FHIRVersion
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174597"><span class="annot"><span class="annottext">FHIRVersion
+datastoreTypeVersion :: FHIRVersion
+$sel:datastoreTypeVersion:DatastoreProperties' :: DatastoreProperties -&gt; FHIRVersion
+</span><a href="#local-6989586621679174597"><span class="hs-identifier hs-var hs-var">datastoreTypeVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FHIRVersion
+</span><a href="#local-6989586621679174597"><span class="hs-identifier hs-var">datastoreTypeVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174596"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174595"><span class="annot"><span class="annottext">FHIRVersion
+</span><a href="#local-6989586621679174595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreTypeVersion:DatastoreProperties' :: FHIRVersion
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreTypeVersion%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreTypeVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FHIRVersion
+</span><a href="#local-6989586621679174595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- | The AWS endpoint for the Data Store. Each Data Store will have it\'s own</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- endpoint with Data Store ID in the endpoint URL.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreEndpoint"><span class="hs-identifier hs-type">datastoreProperties_datastoreEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-158"></span><span id="datastoreProperties_datastoreEndpoint"><span class="annot"><span class="annottext">datastoreProperties_datastoreEndpoint :: (Text -&gt; f Text) -&gt; DatastoreProperties -&gt; f DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#datastoreProperties_datastoreEndpoint"><span class="hs-identifier hs-var hs-var">datastoreProperties_datastoreEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DatastoreProperties -&gt; Text)
+-&gt; (DatastoreProperties -&gt; Text -&gt; DatastoreProperties)
+-&gt; Lens DatastoreProperties DatastoreProperties Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679174593"><span class="annot"><span class="annottext">Text
+datastoreEndpoint :: Text
+$sel:datastoreEndpoint:DatastoreProperties' :: DatastoreProperties -&gt; Text
+</span><a href="#local-6989586621679174593"><span class="hs-identifier hs-var hs-var">datastoreEndpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174593"><span class="hs-identifier hs-var">datastoreEndpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679174592"><span class="annot"><span class="annottext">s :: DatastoreProperties
+</span><a href="#local-6989586621679174592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-type">DatastoreProperties'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679174591"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DatastoreProperties
+</span><a href="#local-6989586621679174592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datastoreEndpoint:DatastoreProperties' :: Text
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#%24sel%3AdatastoreEndpoint%3ADatastoreProperties%27"><span class="hs-identifier hs-var">datastoreEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679174591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174588"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679174586"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DatastoreProperties
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DatastoreProperties)
+-&gt; Value
+-&gt; Parser DatastoreProperties
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DatastoreProperties&quot;</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679174583"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>          </span><span class="annot"><span class="annottext">Maybe SseConfiguration
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe PreloadDataConfig
+-&gt; Text
+-&gt; Text
+-&gt; DatastoreStatus
+-&gt; FHIRVersion
+-&gt; Text
+-&gt; DatastoreProperties
+</span><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties%27"><span class="hs-identifier hs-var">DatastoreProperties'</span></a></span><span>
+</span><span id="line-166"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SseConfiguration
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe PreloadDataConfig
+ -&gt; Text
+ -&gt; Text
+ -&gt; DatastoreStatus
+ -&gt; FHIRVersion
+ -&gt; Text
+ -&gt; DatastoreProperties)
+-&gt; Parser (Maybe SseConfiguration)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe PreloadDataConfig
+      -&gt; Text
+      -&gt; Text
+      -&gt; DatastoreStatus
+      -&gt; FHIRVersion
+      -&gt; Text
+      -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe SseConfiguration)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SseConfiguration&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe PreloadDataConfig
+   -&gt; Text
+   -&gt; Text
+   -&gt; DatastoreStatus
+   -&gt; FHIRVersion
+   -&gt; Text
+   -&gt; DatastoreProperties)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe PreloadDataConfig
+      -&gt; Text
+      -&gt; Text
+      -&gt; DatastoreStatus
+      -&gt; FHIRVersion
+      -&gt; Text
+      -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe PreloadDataConfig
+   -&gt; Text
+   -&gt; Text
+   -&gt; DatastoreStatus
+   -&gt; FHIRVersion
+   -&gt; Text
+   -&gt; DatastoreProperties)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe PreloadDataConfig
+      -&gt; Text
+      -&gt; Text
+      -&gt; DatastoreStatus
+      -&gt; FHIRVersion
+      -&gt; Text
+      -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe PreloadDataConfig
+   -&gt; Text
+   -&gt; Text
+   -&gt; DatastoreStatus
+   -&gt; FHIRVersion
+   -&gt; Text
+   -&gt; DatastoreProperties)
+-&gt; Parser (Maybe PreloadDataConfig)
+-&gt; Parser
+     (Text
+      -&gt; Text
+      -&gt; DatastoreStatus
+      -&gt; FHIRVersion
+      -&gt; Text
+      -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe PreloadDataConfig)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PreloadDataConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; Text
+   -&gt; DatastoreStatus
+   -&gt; FHIRVersion
+   -&gt; Text
+   -&gt; DatastoreProperties)
+-&gt; Parser Text
+-&gt; Parser
+     (Text
+      -&gt; DatastoreStatus -&gt; FHIRVersion -&gt; Text -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text
+   -&gt; DatastoreStatus -&gt; FHIRVersion -&gt; Text -&gt; DatastoreProperties)
+-&gt; Parser Text
+-&gt; Parser
+     (DatastoreStatus -&gt; FHIRVersion -&gt; Text -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (DatastoreStatus -&gt; FHIRVersion -&gt; Text -&gt; DatastoreProperties)
+-&gt; Parser DatastoreStatus
+-&gt; Parser (FHIRVersion -&gt; Text -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser DatastoreStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Parser (FHIRVersion -&gt; Text -&gt; DatastoreProperties)
+-&gt; Parser FHIRVersion -&gt; Parser (Text -&gt; DatastoreProperties)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser FHIRVersion
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreTypeVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; DatastoreProperties)
+-&gt; Parser Text -&gt; Parser DatastoreProperties
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679174583"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DatastoreEndpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174576"><span id="local-6989586621679174578"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679174573"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.HealthLake.Types.DatastoreProperties.html#DatastoreProperties"><span class="hs-identifier hs-type">DatastoreProperties</span></a></span></span><span>
+</span><span id="line-180"></span></pre></body></html>

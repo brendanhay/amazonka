@@ -1,0 +1,645 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SSMIncidents.ListRelatedItems</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List all related items for an incident record.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSMIncidents.ListRelatedItems</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier">ListRelatedItems</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#newListRelatedItems"><span class="hs-identifier">newListRelatedItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_nextToken"><span class="hs-identifier">listRelatedItems_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_maxResults"><span class="hs-identifier">listRelatedItems_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_incidentRecordArn"><span class="hs-identifier">listRelatedItems_incidentRecordArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier">ListRelatedItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#newListRelatedItemsResponse"><span class="hs-identifier">newListRelatedItemsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_nextToken"><span class="hs-identifier">listRelatedItemsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_httpStatus"><span class="hs-identifier">listRelatedItemsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_relatedItems"><span class="hs-identifier">listRelatedItemsResponse_relatedItems</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.Types.html"><span class="hs-identifier">Amazonka.SSMIncidents.Types</span></a></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListRelatedItems' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679219152"><span id="local-6989586621679219153"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRelatedItems"><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-var">ListRelatedItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRelatedItems%27"><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-var">ListRelatedItems'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to continue to the next page of results.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AnextToken%3AListRelatedItems%27"><span class="annot"><span class="annottext">ListRelatedItems -&gt; Maybe Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AnextToken%3AListRelatedItems%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The maximum number of related items per page.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AmaxResults%3AListRelatedItems%27"><span class="annot"><span class="annottext">ListRelatedItems -&gt; Maybe Natural
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AmaxResults%3AListRelatedItems%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the incident record that you are</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- listing related items for.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AincidentRecordArn%3AListRelatedItems%27"><span class="annot"><span class="annottext">ListRelatedItems -&gt; Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AincidentRecordArn%3AListRelatedItems%27"><span class="hs-identifier hs-var hs-var">incidentRecordArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219144"><span id="local-6989586621679219146"><span class="annot"><span class="annottext">ListRelatedItems -&gt; ListRelatedItems -&gt; Bool
+(ListRelatedItems -&gt; ListRelatedItems -&gt; Bool)
+-&gt; (ListRelatedItems -&gt; ListRelatedItems -&gt; Bool)
+-&gt; Eq ListRelatedItems
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRelatedItems -&gt; ListRelatedItems -&gt; Bool
+$c/= :: ListRelatedItems -&gt; ListRelatedItems -&gt; Bool
+== :: ListRelatedItems -&gt; ListRelatedItems -&gt; Bool
+$c== :: ListRelatedItems -&gt; ListRelatedItems -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219135"><span id="local-6989586621679219137"><span id="local-6989586621679219139"><span id="local-6989586621679219141"><span class="annot"><span class="annottext">ReadPrec [ListRelatedItems]
+ReadPrec ListRelatedItems
+Int -&gt; ReadS ListRelatedItems
+ReadS [ListRelatedItems]
+(Int -&gt; ReadS ListRelatedItems)
+-&gt; ReadS [ListRelatedItems]
+-&gt; ReadPrec ListRelatedItems
+-&gt; ReadPrec [ListRelatedItems]
+-&gt; Read ListRelatedItems
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRelatedItems]
+$creadListPrec :: ReadPrec [ListRelatedItems]
+readPrec :: ReadPrec ListRelatedItems
+$creadPrec :: ReadPrec ListRelatedItems
+readList :: ReadS [ListRelatedItems]
+$creadList :: ReadS [ListRelatedItems]
+readsPrec :: Int -&gt; ReadS ListRelatedItems
+$creadsPrec :: Int -&gt; ReadS ListRelatedItems
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219128"><span id="local-6989586621679219130"><span id="local-6989586621679219132"><span class="annot"><span class="annottext">Int -&gt; ListRelatedItems -&gt; ShowS
+[ListRelatedItems] -&gt; ShowS
+ListRelatedItems -&gt; String
+(Int -&gt; ListRelatedItems -&gt; ShowS)
+-&gt; (ListRelatedItems -&gt; String)
+-&gt; ([ListRelatedItems] -&gt; ShowS)
+-&gt; Show ListRelatedItems
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRelatedItems] -&gt; ShowS
+$cshowList :: [ListRelatedItems] -&gt; ShowS
+show :: ListRelatedItems -&gt; String
+$cshow :: ListRelatedItems -&gt; String
+showsPrec :: Int -&gt; ListRelatedItems -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRelatedItems -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListRelatedItems -&gt; Rep ListRelatedItems x)
+-&gt; (forall x. Rep ListRelatedItems x -&gt; ListRelatedItems)
+-&gt; Generic ListRelatedItems
+forall x. Rep ListRelatedItems x -&gt; ListRelatedItems
+forall x. ListRelatedItems -&gt; Rep ListRelatedItems x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListRelatedItems x -&gt; ListRelatedItems
+$cfrom :: forall x. ListRelatedItems -&gt; Rep ListRelatedItems x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ListRelatedItems' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listRelatedItems_nextToken' - The pagination token to continue to the next page of results.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'maxResults', 'listRelatedItems_maxResults' - The maximum number of related items per page.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'incidentRecordArn', 'listRelatedItems_incidentRecordArn' - The Amazon Resource Name (ARN) of the incident record that you are</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- listing related items for.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#newListRelatedItems"><span class="hs-identifier hs-type">newListRelatedItems</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'incidentRecordArn'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span>
+</span><span id="line-84"></span><span id="newListRelatedItems"><span class="annot"><span class="annottext">newListRelatedItems :: Text -&gt; ListRelatedItems
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#newListRelatedItems"><span class="hs-identifier hs-var hs-var">newListRelatedItems</span></a></span></span><span> </span><span id="local-6989586621679219123"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219123"><span class="hs-identifier hs-var">pIncidentRecordArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListRelatedItems' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListRelatedItems
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRelatedItems' :: Maybe Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AnextToken%3AListRelatedItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListRelatedItems' :: Maybe Natural
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AmaxResults%3AListRelatedItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:incidentRecordArn:ListRelatedItems' :: Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AincidentRecordArn%3AListRelatedItems%27"><span class="hs-identifier hs-var">incidentRecordArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219123"><span class="hs-identifier hs-var">pIncidentRecordArn_</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- | The pagination token to continue to the next page of results.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_nextToken"><span class="hs-identifier hs-type">listRelatedItems_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listRelatedItems_nextToken"><span class="annot"><span class="annottext">listRelatedItems_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRelatedItems -&gt; f ListRelatedItems
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_nextToken"><span class="hs-identifier hs-var hs-var">listRelatedItems_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRelatedItems -&gt; Maybe Text)
+-&gt; (ListRelatedItems -&gt; Maybe Text -&gt; ListRelatedItems)
+-&gt; Lens ListRelatedItems ListRelatedItems (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219121"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRelatedItems' :: ListRelatedItems -&gt; Maybe Text
+</span><a href="#local-6989586621679219121"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219121"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219120"><span class="annot"><span class="annottext">s :: ListRelatedItems
+</span><a href="#local-6989586621679219120"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219119"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219119"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRelatedItems
+</span><a href="#local-6989586621679219120"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRelatedItems' :: Maybe Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AnextToken%3AListRelatedItems%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219119"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The maximum number of related items per page.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_maxResults"><span class="hs-identifier hs-type">listRelatedItems_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listRelatedItems_maxResults"><span class="annot"><span class="annottext">listRelatedItems_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListRelatedItems -&gt; f ListRelatedItems
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_maxResults"><span class="hs-identifier hs-var hs-var">listRelatedItems_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRelatedItems -&gt; Maybe Natural)
+-&gt; (ListRelatedItems -&gt; Maybe Natural -&gt; ListRelatedItems)
+-&gt; Lens
+     ListRelatedItems ListRelatedItems (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219118"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListRelatedItems' :: ListRelatedItems -&gt; Maybe Natural
+</span><a href="#local-6989586621679219118"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219118"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219117"><span class="annot"><span class="annottext">s :: ListRelatedItems
+</span><a href="#local-6989586621679219117"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219116"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219116"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRelatedItems
+</span><a href="#local-6989586621679219117"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListRelatedItems' :: Maybe Natural
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AmaxResults%3AListRelatedItems%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219116"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the incident record that you are</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- listing related items for.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_incidentRecordArn"><span class="hs-identifier hs-type">listRelatedItems_incidentRecordArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-102"></span><span id="listRelatedItems_incidentRecordArn"><span class="annot"><span class="annottext">listRelatedItems_incidentRecordArn :: (Text -&gt; f Text) -&gt; ListRelatedItems -&gt; f ListRelatedItems
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_incidentRecordArn"><span class="hs-identifier hs-var hs-var">listRelatedItems_incidentRecordArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRelatedItems -&gt; Text)
+-&gt; (ListRelatedItems -&gt; Text -&gt; ListRelatedItems)
+-&gt; Lens ListRelatedItems ListRelatedItems Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219115"><span class="annot"><span class="annottext">Text
+incidentRecordArn :: Text
+$sel:incidentRecordArn:ListRelatedItems' :: ListRelatedItems -&gt; Text
+</span><a href="#local-6989586621679219115"><span class="hs-identifier hs-var hs-var">incidentRecordArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219115"><span class="hs-identifier hs-var">incidentRecordArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219114"><span class="annot"><span class="annottext">s :: ListRelatedItems
+</span><a href="#local-6989586621679219114"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219113"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRelatedItems
+</span><a href="#local-6989586621679219114"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:incidentRecordArn:ListRelatedItems' :: Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AincidentRecordArn%3AListRelatedItems%27"><span class="hs-identifier hs-var">incidentRecordArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219113"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679219109"><span class="annot"><span class="annottext">page :: ListRelatedItems
+-&gt; AWSResponse ListRelatedItems -&gt; Maybe ListRelatedItems
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679219107"><span class="annot"><span class="annottext">ListRelatedItems
+</span><a href="#local-6989586621679219107"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679219106"><span class="annot"><span class="annottext">AWSResponse ListRelatedItems
+</span><a href="#local-6989586621679219106"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-107"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRelatedItems
+ListRelatedItemsResponse
+</span><a href="#local-6989586621679219106"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">ListRelatedItemsResponse
+-&gt; Getting (First Text) ListRelatedItemsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRelatedItemsResponse
+-&gt; Const (First Text) ListRelatedItemsResponse
+Lens' ListRelatedItemsResponse (Maybe Text)
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_nextToken"><span class="hs-identifier hs-var">listRelatedItemsResponse_nextToken</span></a></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRelatedItemsResponse
+ -&gt; Const (First Text) ListRelatedItemsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListRelatedItemsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRelatedItems
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[RelatedItem] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AWSResponse ListRelatedItems
+ListRelatedItemsResponse
+</span><a href="#local-6989586621679219106"><span class="hs-identifier hs-var">rs</span></a></span><span> </span><span class="annot"><span class="annottext">ListRelatedItemsResponse
+-&gt; Getting [RelatedItem] ListRelatedItemsResponse [RelatedItem]
+-&gt; [RelatedItem]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting [RelatedItem] ListRelatedItemsResponse [RelatedItem]
+Lens' ListRelatedItemsResponse [RelatedItem]
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_relatedItems"><span class="hs-identifier hs-var">listRelatedItemsResponse_relatedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListRelatedItems
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><span class="annottext">ListRelatedItems -&gt; Maybe ListRelatedItems
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListRelatedItems -&gt; Maybe ListRelatedItems)
+-&gt; ListRelatedItems -&gt; Maybe ListRelatedItems
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">ListRelatedItems
+</span><a href="#local-6989586621679219107"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-118"></span><span>          </span><span class="annot"><span class="annottext">ListRelatedItems
+-&gt; (ListRelatedItems -&gt; ListRelatedItems) -&gt; ListRelatedItems
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListRelatedItems -&gt; Identity ListRelatedItems
+Lens ListRelatedItems ListRelatedItems (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItems_nextToken"><span class="hs-identifier hs-var">listRelatedItems_nextToken</span></a></span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListRelatedItems -&gt; Identity ListRelatedItems)
+-&gt; Maybe Text -&gt; ListRelatedItems -&gt; ListRelatedItems
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListRelatedItems
+ListRelatedItemsResponse
+</span><a href="#local-6989586621679219106"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">ListRelatedItemsResponse
+-&gt; Getting (First Text) ListRelatedItemsResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListRelatedItemsResponse
+-&gt; Const (First Text) ListRelatedItemsResponse
+Lens' ListRelatedItemsResponse (Maybe Text)
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_nextToken"><span class="hs-identifier hs-var">listRelatedItemsResponse_nextToken</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListRelatedItemsResponse
+ -&gt; Const (First Text) ListRelatedItemsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListRelatedItemsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-125"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679219095"><span class="annot"><span class="annottext">request :: ListRelatedItems -&gt; Request ListRelatedItems
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListRelatedItems -&gt; Request ListRelatedItems
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SSMIncidents.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679219091"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListRelatedItems
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListRelatedItems)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListRelatedItems))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListRelatedItems
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse ListRelatedItems)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679219088"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679219087"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679219087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679219086"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; [RelatedItem] -&gt; ListRelatedItemsResponse
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-var">ListRelatedItemsResponse'</span></a></span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; [RelatedItem] -&gt; ListRelatedItemsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; [RelatedItem] -&gt; ListRelatedItemsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; [RelatedItem] -&gt; ListRelatedItemsResponse)
+-&gt; Either String Int
+-&gt; Either String ([RelatedItem] -&gt; ListRelatedItemsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either String ([RelatedItem] -&gt; ListRelatedItemsResponse)
+-&gt; Either String [RelatedItem]
+-&gt; Either String ListRelatedItemsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679219086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [RelatedItem])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;relatedItems&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [RelatedItem])
+-&gt; [RelatedItem] -&gt; Either String [RelatedItem]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[RelatedItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219077"><span id="local-6989586621679219079"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span></span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219074"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679219070"><span class="annot"><span class="annottext">toHeaders :: ListRelatedItems -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListRelatedItems -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-147"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-148"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219060"><span id="local-6989586621679219062"><span id="local-6989586621679219064"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679219058"><span class="annot"><span class="annottext">toJSON :: ListRelatedItems -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems%27"><span class="hs-identifier hs-type">ListRelatedItems'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219054"><span id="local-6989586621679219055"><span id="local-6989586621679219056"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+incidentRecordArn :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:incidentRecordArn:ListRelatedItems' :: ListRelatedItems -&gt; Text
+$sel:maxResults:ListRelatedItems' :: ListRelatedItems -&gt; Maybe Natural
+$sel:nextToken:ListRelatedItems' :: ListRelatedItems -&gt; Maybe Text
+</span><a href="#local-6989586621679219054"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219056"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679219055"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;incidentRecordArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679219054"><span class="hs-identifier hs-var">incidentRecordArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679219048"><span class="annot"><span class="annottext">toPath :: ListRelatedItems -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListRelatedItems -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/listRelatedItems&quot;</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItems"><span class="hs-identifier hs-type">ListRelatedItems</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679219044"><span class="annot"><span class="annottext">toQuery :: ListRelatedItems -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListRelatedItems -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newListRelatedItemsResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679219041"><span id="local-6989586621679219042"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListRelatedItemsResponse"><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-var">ListRelatedItemsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListRelatedItemsResponse%27"><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-var">ListRelatedItemsResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The pagination token to continue to the next page of results.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AnextToken%3AListRelatedItemsResponse%27"><span class="annot"><span class="annottext">ListRelatedItemsResponse -&gt; Maybe Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AnextToken%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-174"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListRelatedItemsResponse%27"><span class="annot"><span class="annottext">ListRelatedItemsResponse -&gt; Int
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AhttpStatus%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- | Details about each related item.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3ArelatedItems%3AListRelatedItemsResponse%27"><span class="annot"><span class="annottext">ListRelatedItemsResponse -&gt; [RelatedItem]
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3ArelatedItems%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var hs-var">relatedItems</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679219034"><span id="local-6989586621679219036"><span class="annot"><span class="annottext">ListRelatedItemsResponse -&gt; ListRelatedItemsResponse -&gt; Bool
+(ListRelatedItemsResponse -&gt; ListRelatedItemsResponse -&gt; Bool)
+-&gt; (ListRelatedItemsResponse -&gt; ListRelatedItemsResponse -&gt; Bool)
+-&gt; Eq ListRelatedItemsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListRelatedItemsResponse -&gt; ListRelatedItemsResponse -&gt; Bool
+$c/= :: ListRelatedItemsResponse -&gt; ListRelatedItemsResponse -&gt; Bool
+== :: ListRelatedItemsResponse -&gt; ListRelatedItemsResponse -&gt; Bool
+$c== :: ListRelatedItemsResponse -&gt; ListRelatedItemsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219026"><span id="local-6989586621679219028"><span id="local-6989586621679219030"><span id="local-6989586621679219032"><span class="annot"><span class="annottext">ReadPrec [ListRelatedItemsResponse]
+ReadPrec ListRelatedItemsResponse
+Int -&gt; ReadS ListRelatedItemsResponse
+ReadS [ListRelatedItemsResponse]
+(Int -&gt; ReadS ListRelatedItemsResponse)
+-&gt; ReadS [ListRelatedItemsResponse]
+-&gt; ReadPrec ListRelatedItemsResponse
+-&gt; ReadPrec [ListRelatedItemsResponse]
+-&gt; Read ListRelatedItemsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListRelatedItemsResponse]
+$creadListPrec :: ReadPrec [ListRelatedItemsResponse]
+readPrec :: ReadPrec ListRelatedItemsResponse
+$creadPrec :: ReadPrec ListRelatedItemsResponse
+readList :: ReadS [ListRelatedItemsResponse]
+$creadList :: ReadS [ListRelatedItemsResponse]
+readsPrec :: Int -&gt; ReadS ListRelatedItemsResponse
+$creadsPrec :: Int -&gt; ReadS ListRelatedItemsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679219020"><span id="local-6989586621679219022"><span id="local-6989586621679219024"><span class="annot"><span class="annottext">Int -&gt; ListRelatedItemsResponse -&gt; ShowS
+[ListRelatedItemsResponse] -&gt; ShowS
+ListRelatedItemsResponse -&gt; String
+(Int -&gt; ListRelatedItemsResponse -&gt; ShowS)
+-&gt; (ListRelatedItemsResponse -&gt; String)
+-&gt; ([ListRelatedItemsResponse] -&gt; ShowS)
+-&gt; Show ListRelatedItemsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListRelatedItemsResponse] -&gt; ShowS
+$cshowList :: [ListRelatedItemsResponse] -&gt; ShowS
+show :: ListRelatedItemsResponse -&gt; String
+$cshow :: ListRelatedItemsResponse -&gt; String
+showsPrec :: Int -&gt; ListRelatedItemsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListRelatedItemsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListRelatedItemsResponse -&gt; Rep ListRelatedItemsResponse x)
+-&gt; (forall x.
+    Rep ListRelatedItemsResponse x -&gt; ListRelatedItemsResponse)
+-&gt; Generic ListRelatedItemsResponse
+forall x.
+Rep ListRelatedItemsResponse x -&gt; ListRelatedItemsResponse
+forall x.
+ListRelatedItemsResponse -&gt; Rep ListRelatedItemsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListRelatedItemsResponse x -&gt; ListRelatedItemsResponse
+$cfrom :: forall x.
+ListRelatedItemsResponse -&gt; Rep ListRelatedItemsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Create a value of 'ListRelatedItemsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- 'nextToken', 'listRelatedItemsResponse_nextToken' - The pagination token to continue to the next page of results.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- 'httpStatus', 'listRelatedItemsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'relatedItems', 'listRelatedItemsResponse_relatedItems' - Details about each related item.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#newListRelatedItemsResponse"><span class="hs-identifier hs-type">newListRelatedItemsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-195"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span>
+</span><span id="line-197"></span><span id="newListRelatedItemsResponse"><span class="annot"><span class="annottext">newListRelatedItemsResponse :: Int -&gt; ListRelatedItemsResponse
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#newListRelatedItemsResponse"><span class="hs-identifier hs-var hs-var">newListRelatedItemsResponse</span></a></span></span><span> </span><span id="local-6989586621679219017"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219017"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><span class="annottext">ListRelatedItemsResponse' :: Maybe Text -&gt; Int -&gt; [RelatedItem] -&gt; ListRelatedItemsResponse
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-type">ListRelatedItemsResponse'</span></a></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListRelatedItemsResponse' :: Maybe Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AnextToken%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListRelatedItemsResponse' :: Int
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AhttpStatus%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219017"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:relatedItems:ListRelatedItemsResponse' :: [RelatedItem]
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3ArelatedItems%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var">relatedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RelatedItem]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The pagination token to continue to the next page of results.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_nextToken"><span class="hs-identifier hs-type">listRelatedItemsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="listRelatedItemsResponse_nextToken"><span class="annot"><span class="annottext">listRelatedItemsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListRelatedItemsResponse -&gt; f ListRelatedItemsResponse
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listRelatedItemsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRelatedItemsResponse -&gt; Maybe Text)
+-&gt; (ListRelatedItemsResponse
+    -&gt; Maybe Text -&gt; ListRelatedItemsResponse)
+-&gt; Lens' ListRelatedItemsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-type">ListRelatedItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219016"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListRelatedItemsResponse' :: ListRelatedItemsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679219016"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219016"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219015"><span class="annot"><span class="annottext">s :: ListRelatedItemsResponse
+</span><a href="#local-6989586621679219015"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-type">ListRelatedItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219014"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219014"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRelatedItemsResponse
+</span><a href="#local-6989586621679219015"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListRelatedItemsResponse' :: Maybe Text
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AnextToken%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679219014"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_httpStatus"><span class="hs-identifier hs-type">listRelatedItemsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="listRelatedItemsResponse_httpStatus"><span class="annot"><span class="annottext">listRelatedItemsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListRelatedItemsResponse -&gt; f ListRelatedItemsResponse
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listRelatedItemsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRelatedItemsResponse -&gt; Int)
+-&gt; (ListRelatedItemsResponse -&gt; Int -&gt; ListRelatedItemsResponse)
+-&gt; Lens ListRelatedItemsResponse ListRelatedItemsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-type">ListRelatedItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219013"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListRelatedItemsResponse' :: ListRelatedItemsResponse -&gt; Int
+</span><a href="#local-6989586621679219013"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219013"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219012"><span class="annot"><span class="annottext">s :: ListRelatedItemsResponse
+</span><a href="#local-6989586621679219012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-type">ListRelatedItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219011"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRelatedItemsResponse
+</span><a href="#local-6989586621679219012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListRelatedItemsResponse' :: Int
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3AhttpStatus%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679219011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Details about each related item.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_relatedItems"><span class="hs-identifier hs-type">listRelatedItemsResponse_relatedItems</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SSMIncidents.Types.RelatedItem.html#RelatedItem"><span class="hs-identifier hs-type">RelatedItem</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-215"></span><span id="listRelatedItemsResponse_relatedItems"><span class="annot"><span class="annottext">listRelatedItemsResponse_relatedItems :: ([RelatedItem] -&gt; f [RelatedItem])
+-&gt; ListRelatedItemsResponse -&gt; f ListRelatedItemsResponse
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#listRelatedItemsResponse_relatedItems"><span class="hs-identifier hs-var hs-var">listRelatedItemsResponse_relatedItems</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListRelatedItemsResponse -&gt; [RelatedItem])
+-&gt; (ListRelatedItemsResponse
+    -&gt; [RelatedItem] -&gt; ListRelatedItemsResponse)
+-&gt; Lens' ListRelatedItemsResponse [RelatedItem]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-type">ListRelatedItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679219010"><span class="annot"><span class="annottext">[RelatedItem]
+relatedItems :: [RelatedItem]
+$sel:relatedItems:ListRelatedItemsResponse' :: ListRelatedItemsResponse -&gt; [RelatedItem]
+</span><a href="#local-6989586621679219010"><span class="hs-identifier hs-var hs-var">relatedItems</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[RelatedItem]
+</span><a href="#local-6989586621679219010"><span class="hs-identifier hs-var">relatedItems</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679219009"><span class="annot"><span class="annottext">s :: ListRelatedItemsResponse
+</span><a href="#local-6989586621679219009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse%27"><span class="hs-identifier hs-type">ListRelatedItemsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679219008"><span class="annot"><span class="annottext">[RelatedItem]
+</span><a href="#local-6989586621679219008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListRelatedItemsResponse
+</span><a href="#local-6989586621679219009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:relatedItems:ListRelatedItemsResponse' :: [RelatedItem]
+</span><a href="Amazonka.SSMIncidents.ListRelatedItems.html#%24sel%3ArelatedItems%3AListRelatedItemsResponse%27"><span class="hs-identifier hs-var">relatedItems</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[RelatedItem]
+</span><a href="#local-6989586621679219008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([RelatedItem] -&gt; f [RelatedItem])
+ -&gt; ListRelatedItemsResponse -&gt; f ListRelatedItemsResponse)
+-&gt; (([RelatedItem] -&gt; f [RelatedItem])
+    -&gt; [RelatedItem] -&gt; f [RelatedItem])
+-&gt; ([RelatedItem] -&gt; f [RelatedItem])
+-&gt; ListRelatedItemsResponse
+-&gt; f ListRelatedItemsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([RelatedItem] -&gt; f [RelatedItem])
+-&gt; [RelatedItem] -&gt; f [RelatedItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679219005"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSMIncidents.ListRelatedItems.html#ListRelatedItemsResponse"><span class="hs-identifier hs-type">ListRelatedItemsResponse</span></a></span></span><span>
+</span><span id="line-218"></span></pre></body></html>

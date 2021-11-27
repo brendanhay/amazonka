@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTEventsData.BatchPutMessage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Sends a set of messages to the AWS IoT Events system. Each message</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- payload is transformed into the input you specify (@\&quot;inputName\&quot;@) and</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- ingested into any detectors that monitor that input. If multiple</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- messages are sent, the order in which the messages are processed isn\'t</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- guaranteed. To guarantee ordering, you must send messages one at a time</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- and wait for a successful response.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEventsData.BatchPutMessage</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier">BatchPutMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#newBatchPutMessage"><span class="hs-identifier">newBatchPutMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessage_messages"><span class="hs-identifier">batchPutMessage_messages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier">BatchPutMessageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#newBatchPutMessageResponse"><span class="hs-identifier">newBatchPutMessageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessageResponse_batchPutMessageErrorEntries"><span class="hs-identifier">batchPutMessageResponse_batchPutMessageErrorEntries</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessageResponse_httpStatus"><span class="hs-identifier">batchPutMessageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newBatchPutMessage' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679186890"><span id="local-6989586621679186891"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutMessage"><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-var">BatchPutMessage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutMessage%27"><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-var">BatchPutMessage'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The list of messages to send. Each message has the following format:</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- @\'{ \&quot;messageId\&quot;: \&quot;string\&quot;, \&quot;inputName\&quot;: \&quot;string\&quot;, \&quot;payload\&quot;: \&quot;string\&quot;}\'@</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Amessages%3ABatchPutMessage%27"><span class="annot"><span class="annottext">BatchPutMessage -&gt; NonEmpty Message
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3Amessages%3ABatchPutMessage%27"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186884"><span id="local-6989586621679186886"><span class="annot"><span class="annottext">BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
+(BatchPutMessage -&gt; BatchPutMessage -&gt; Bool)
+-&gt; (BatchPutMessage -&gt; BatchPutMessage -&gt; Bool)
+-&gt; Eq BatchPutMessage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
+$c/= :: BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
+== :: BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
+$c== :: BatchPutMessage -&gt; BatchPutMessage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186875"><span id="local-6989586621679186877"><span id="local-6989586621679186879"><span id="local-6989586621679186881"><span class="annot"><span class="annottext">ReadPrec [BatchPutMessage]
+ReadPrec BatchPutMessage
+Int -&gt; ReadS BatchPutMessage
+ReadS [BatchPutMessage]
+(Int -&gt; ReadS BatchPutMessage)
+-&gt; ReadS [BatchPutMessage]
+-&gt; ReadPrec BatchPutMessage
+-&gt; ReadPrec [BatchPutMessage]
+-&gt; Read BatchPutMessage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchPutMessage]
+$creadListPrec :: ReadPrec [BatchPutMessage]
+readPrec :: ReadPrec BatchPutMessage
+$creadPrec :: ReadPrec BatchPutMessage
+readList :: ReadS [BatchPutMessage]
+$creadList :: ReadS [BatchPutMessage]
+readsPrec :: Int -&gt; ReadS BatchPutMessage
+$creadsPrec :: Int -&gt; ReadS BatchPutMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186868"><span id="local-6989586621679186870"><span id="local-6989586621679186872"><span class="annot"><span class="annottext">Int -&gt; BatchPutMessage -&gt; ShowS
+[BatchPutMessage] -&gt; ShowS
+BatchPutMessage -&gt; String
+(Int -&gt; BatchPutMessage -&gt; ShowS)
+-&gt; (BatchPutMessage -&gt; String)
+-&gt; ([BatchPutMessage] -&gt; ShowS)
+-&gt; Show BatchPutMessage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchPutMessage] -&gt; ShowS
+$cshowList :: [BatchPutMessage] -&gt; ShowS
+show :: BatchPutMessage -&gt; String
+$cshow :: BatchPutMessage -&gt; String
+showsPrec :: Int -&gt; BatchPutMessage -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchPutMessage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BatchPutMessage -&gt; Rep BatchPutMessage x)
+-&gt; (forall x. Rep BatchPutMessage x -&gt; BatchPutMessage)
+-&gt; Generic BatchPutMessage
+forall x. Rep BatchPutMessage x -&gt; BatchPutMessage
+forall x. BatchPutMessage -&gt; Rep BatchPutMessage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchPutMessage x -&gt; BatchPutMessage
+$cfrom :: forall x. BatchPutMessage -&gt; Rep BatchPutMessage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'BatchPutMessage' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'messages', 'batchPutMessage_messages' - The list of messages to send. Each message has the following format:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- @\'{ \&quot;messageId\&quot;: \&quot;string\&quot;, \&quot;inputName\&quot;: \&quot;string\&quot;, \&quot;payload\&quot;: \&quot;string\&quot;}\'@</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#newBatchPutMessage"><span class="hs-identifier hs-type">newBatchPutMessage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'messages'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span>
+</span><span id="line-76"></span><span id="newBatchPutMessage"><span class="annot"><span class="annottext">newBatchPutMessage :: NonEmpty Message -&gt; BatchPutMessage
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#newBatchPutMessage"><span class="hs-identifier hs-var hs-var">newBatchPutMessage</span></a></span></span><span> </span><span id="local-6989586621679186863"><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679186863"><span class="hs-identifier hs-var">pMessages_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">BatchPutMessage' :: NonEmpty Message -&gt; BatchPutMessage
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messages:BatchPutMessage' :: NonEmpty Message
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3Amessages%3ABatchPutMessage%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Tagged (NonEmpty Message) (Identity (NonEmpty Message))
+-&gt; Tagged (NonEmpty Message) (Identity (NonEmpty Message))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Message) (Identity (NonEmpty Message))
+ -&gt; Tagged (NonEmpty Message) (Identity (NonEmpty Message)))
+-&gt; NonEmpty Message -&gt; NonEmpty Message
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679186863"><span class="hs-identifier hs-var">pMessages_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The list of messages to send. Each message has the following format:</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- @\'{ \&quot;messageId\&quot;: \&quot;string\&quot;, \&quot;inputName\&quot;: \&quot;string\&quot;, \&quot;payload\&quot;: \&quot;string\&quot;}\'@</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessage_messages"><span class="hs-identifier hs-type">batchPutMessage_messages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#Message"><span class="hs-identifier hs-type">Message</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span id="batchPutMessage_messages"><span class="annot"><span class="annottext">batchPutMessage_messages :: (NonEmpty Message -&gt; f (NonEmpty Message))
+-&gt; BatchPutMessage -&gt; f BatchPutMessage
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessage_messages"><span class="hs-identifier hs-var hs-var">batchPutMessage_messages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchPutMessage -&gt; NonEmpty Message)
+-&gt; (BatchPutMessage -&gt; NonEmpty Message -&gt; BatchPutMessage)
+-&gt; Lens
+     BatchPutMessage
+     BatchPutMessage
+     (NonEmpty Message)
+     (NonEmpty Message)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186858"><span class="annot"><span class="annottext">NonEmpty Message
+messages :: NonEmpty Message
+$sel:messages:BatchPutMessage' :: BatchPutMessage -&gt; NonEmpty Message
+</span><a href="#local-6989586621679186858"><span class="hs-identifier hs-var hs-var">messages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679186858"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186857"><span class="annot"><span class="annottext">s :: BatchPutMessage
+</span><a href="#local-6989586621679186857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186856"><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679186856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessage
+</span><a href="#local-6989586621679186857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messages:BatchPutMessage' :: NonEmpty Message
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3Amessages%3ABatchPutMessage%27"><span class="hs-identifier hs-var">messages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679186856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Message -&gt; f (NonEmpty Message))
+ -&gt; BatchPutMessage -&gt; f BatchPutMessage)
+-&gt; ((NonEmpty Message -&gt; f (NonEmpty Message))
+    -&gt; NonEmpty Message -&gt; f (NonEmpty Message))
+-&gt; (NonEmpty Message -&gt; f (NonEmpty Message))
+-&gt; BatchPutMessage
+-&gt; f BatchPutMessage
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Message -&gt; f (NonEmpty Message))
+-&gt; NonEmpty Message -&gt; f (NonEmpty Message)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679186851"><span class="annot"><span class="annottext">request :: BatchPutMessage -&gt; Request BatchPutMessage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; BatchPutMessage -&gt; Request BatchPutMessage
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679186847"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy BatchPutMessage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchPutMessage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse BatchPutMessage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy BatchPutMessage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse BatchPutMessage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186844"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186844"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186843"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679186843"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186842"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186842"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry] -&gt; Int -&gt; BatchPutMessageResponse
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-var">BatchPutMessageResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [BatchPutMessageErrorEntry]
+ -&gt; Int -&gt; BatchPutMessageResponse)
+-&gt; Either String (Maybe [BatchPutMessageErrorEntry])
+-&gt; Either String (Int -&gt; BatchPutMessageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679186842"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Key -&gt; Either String (Maybe (Maybe [BatchPutMessageErrorEntry]))
+forall a. FromJSON a =&gt; Object -&gt; Key -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;BatchPutMessageErrorEntries&quot;</span></span><span>
+</span><span id="line-97"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [BatchPutMessageErrorEntry]))
+-&gt; Maybe [BatchPutMessageErrorEntry]
+-&gt; Either String (Maybe [BatchPutMessageErrorEntry])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-98"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; BatchPutMessageResponse)
+-&gt; Either String Int -&gt; Either String BatchPutMessageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186844"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186833"><span id="local-6989586621679186835"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186830"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679186826"><span class="annot"><span class="annottext">toHeaders :: BatchPutMessage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; BatchPutMessage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186817"><span id="local-6989586621679186819"><span id="local-6989586621679186821"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679186815"><span class="annot"><span class="annottext">toJSON :: BatchPutMessage -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage%27"><span class="hs-identifier hs-type">BatchPutMessage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186813"><span class="annot"><span class="annottext">NonEmpty Message
+messages :: NonEmpty Message
+$sel:messages:BatchPutMessage' :: BatchPutMessage -&gt; NonEmpty Message
+</span><a href="#local-6989586621679186813"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Key
+</span><span class="hs-string">&quot;messages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Key -&gt; NonEmpty Message -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Key -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Message
+</span><a href="#local-6989586621679186813"><span class="hs-identifier hs-var">messages</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679186807"><span class="annot"><span class="annottext">toPath :: BatchPutMessage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; BatchPutMessage -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/inputs/messages&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessage"><span class="hs-identifier hs-type">BatchPutMessage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679186803"><span class="annot"><span class="annottext">toQuery :: BatchPutMessage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; BatchPutMessage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | /See:/ 'newBatchPutMessageResponse' smart constructor.</span><span>
+</span><span id="line-123"></span><span id="local-6989586621679186800"><span id="local-6989586621679186801"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchPutMessageResponse"><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-var">BatchPutMessageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchPutMessageResponse%27"><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-var">BatchPutMessageResponse'</span></a></span></span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of any errors encountered when sending the messages.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3AbatchPutMessageErrorEntries%3ABatchPutMessageResponse%27"><span class="annot"><span class="annottext">BatchPutMessageResponse -&gt; Maybe [BatchPutMessageErrorEntry]
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3AbatchPutMessageErrorEntries%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var hs-var">batchPutMessageErrorEntries</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html#BatchPutMessageErrorEntry"><span class="hs-identifier hs-type">BatchPutMessageErrorEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="annot"><span class="annottext">BatchPutMessageResponse -&gt; Int
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186794"><span id="local-6989586621679186796"><span class="annot"><span class="annottext">BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
+(BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool)
+-&gt; (BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool)
+-&gt; Eq BatchPutMessageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
+$c/= :: BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
+== :: BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
+$c== :: BatchPutMessageResponse -&gt; BatchPutMessageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186786"><span id="local-6989586621679186788"><span id="local-6989586621679186790"><span id="local-6989586621679186792"><span class="annot"><span class="annottext">ReadPrec [BatchPutMessageResponse]
+ReadPrec BatchPutMessageResponse
+Int -&gt; ReadS BatchPutMessageResponse
+ReadS [BatchPutMessageResponse]
+(Int -&gt; ReadS BatchPutMessageResponse)
+-&gt; ReadS [BatchPutMessageResponse]
+-&gt; ReadPrec BatchPutMessageResponse
+-&gt; ReadPrec [BatchPutMessageResponse]
+-&gt; Read BatchPutMessageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchPutMessageResponse]
+$creadListPrec :: ReadPrec [BatchPutMessageResponse]
+readPrec :: ReadPrec BatchPutMessageResponse
+$creadPrec :: ReadPrec BatchPutMessageResponse
+readList :: ReadS [BatchPutMessageResponse]
+$creadList :: ReadS [BatchPutMessageResponse]
+readsPrec :: Int -&gt; ReadS BatchPutMessageResponse
+$creadsPrec :: Int -&gt; ReadS BatchPutMessageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186780"><span id="local-6989586621679186782"><span id="local-6989586621679186784"><span class="annot"><span class="annottext">Int -&gt; BatchPutMessageResponse -&gt; ShowS
+[BatchPutMessageResponse] -&gt; ShowS
+BatchPutMessageResponse -&gt; String
+(Int -&gt; BatchPutMessageResponse -&gt; ShowS)
+-&gt; (BatchPutMessageResponse -&gt; String)
+-&gt; ([BatchPutMessageResponse] -&gt; ShowS)
+-&gt; Show BatchPutMessageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchPutMessageResponse] -&gt; ShowS
+$cshowList :: [BatchPutMessageResponse] -&gt; ShowS
+show :: BatchPutMessageResponse -&gt; String
+$cshow :: BatchPutMessageResponse -&gt; String
+showsPrec :: Int -&gt; BatchPutMessageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchPutMessageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchPutMessageResponse -&gt; Rep BatchPutMessageResponse x)
+-&gt; (forall x.
+    Rep BatchPutMessageResponse x -&gt; BatchPutMessageResponse)
+-&gt; Generic BatchPutMessageResponse
+forall x. Rep BatchPutMessageResponse x -&gt; BatchPutMessageResponse
+forall x. BatchPutMessageResponse -&gt; Rep BatchPutMessageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BatchPutMessageResponse x -&gt; BatchPutMessageResponse
+$cfrom :: forall x. BatchPutMessageResponse -&gt; Rep BatchPutMessageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'BatchPutMessageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'batchPutMessageErrorEntries', 'batchPutMessageResponse_batchPutMessageErrorEntries' - A list of any errors encountered when sending the messages.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'httpStatus', 'batchPutMessageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#newBatchPutMessageResponse"><span class="hs-identifier hs-type">newBatchPutMessageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span>
+</span><span id="line-146"></span><span id="newBatchPutMessageResponse"><span class="annot"><span class="annottext">newBatchPutMessageResponse :: Int -&gt; BatchPutMessageResponse
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#newBatchPutMessageResponse"><span class="hs-identifier hs-var hs-var">newBatchPutMessageResponse</span></a></span></span><span> </span><span id="local-6989586621679186777"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186777"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="annottext">BatchPutMessageResponse' :: Maybe [BatchPutMessageErrorEntry] -&gt; Int -&gt; BatchPutMessageResponse
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:batchPutMessageErrorEntries:BatchPutMessageResponse' :: Maybe [BatchPutMessageErrorEntry]
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3AbatchPutMessageErrorEntries%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var">batchPutMessageErrorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutMessageResponse' :: Int
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186777"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- | A list of any errors encountered when sending the messages.</span><span>
+</span><span id="line-154"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessageResponse_batchPutMessageErrorEntries"><span class="hs-identifier hs-type">batchPutMessageResponse_batchPutMessageErrorEntries</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html#BatchPutMessageErrorEntry"><span class="hs-identifier hs-type">BatchPutMessageErrorEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span id="batchPutMessageResponse_batchPutMessageErrorEntries"><span class="annot"><span class="annottext">batchPutMessageResponse_batchPutMessageErrorEntries :: (Maybe [BatchPutMessageErrorEntry]
+ -&gt; f (Maybe [BatchPutMessageErrorEntry]))
+-&gt; BatchPutMessageResponse -&gt; f BatchPutMessageResponse
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessageResponse_batchPutMessageErrorEntries"><span class="hs-identifier hs-var hs-var">batchPutMessageResponse_batchPutMessageErrorEntries</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchPutMessageResponse -&gt; Maybe [BatchPutMessageErrorEntry])
+-&gt; (BatchPutMessageResponse
+    -&gt; Maybe [BatchPutMessageErrorEntry] -&gt; BatchPutMessageResponse)
+-&gt; Lens
+     BatchPutMessageResponse
+     BatchPutMessageResponse
+     (Maybe [BatchPutMessageErrorEntry])
+     (Maybe [BatchPutMessageErrorEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186776"><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+batchPutMessageErrorEntries :: Maybe [BatchPutMessageErrorEntry]
+$sel:batchPutMessageErrorEntries:BatchPutMessageResponse' :: BatchPutMessageResponse -&gt; Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679186776"><span class="hs-identifier hs-var hs-var">batchPutMessageErrorEntries</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679186776"><span class="hs-identifier hs-var">batchPutMessageErrorEntries</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186775"><span class="annot"><span class="annottext">s :: BatchPutMessageResponse
+</span><a href="#local-6989586621679186775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186774"><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679186774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessageResponse
+</span><a href="#local-6989586621679186775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:batchPutMessageErrorEntries:BatchPutMessageResponse' :: Maybe [BatchPutMessageErrorEntry]
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3AbatchPutMessageErrorEntries%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var">batchPutMessageErrorEntries</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [BatchPutMessageErrorEntry]
+</span><a href="#local-6989586621679186774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [BatchPutMessageErrorEntry]
+  -&gt; f (Maybe [BatchPutMessageErrorEntry]))
+ -&gt; BatchPutMessageResponse -&gt; f BatchPutMessageResponse)
+-&gt; ((Maybe [BatchPutMessageErrorEntry]
+     -&gt; f (Maybe [BatchPutMessageErrorEntry]))
+    -&gt; Maybe [BatchPutMessageErrorEntry]
+    -&gt; f (Maybe [BatchPutMessageErrorEntry]))
+-&gt; (Maybe [BatchPutMessageErrorEntry]
+    -&gt; f (Maybe [BatchPutMessageErrorEntry]))
+-&gt; BatchPutMessageResponse
+-&gt; f BatchPutMessageResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchPutMessageErrorEntry]
+  [BatchPutMessageErrorEntry]
+  [BatchPutMessageErrorEntry]
+  [BatchPutMessageErrorEntry]
+-&gt; Iso
+     (Maybe [BatchPutMessageErrorEntry])
+     (Maybe [BatchPutMessageErrorEntry])
+     (Maybe [BatchPutMessageErrorEntry])
+     (Maybe [BatchPutMessageErrorEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [BatchPutMessageErrorEntry]
+  [BatchPutMessageErrorEntry]
+  [BatchPutMessageErrorEntry]
+  [BatchPutMessageErrorEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessageResponse_httpStatus"><span class="hs-identifier hs-type">batchPutMessageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span id="batchPutMessageResponse_httpStatus"><span class="annot"><span class="annottext">batchPutMessageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; BatchPutMessageResponse -&gt; f BatchPutMessageResponse
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#batchPutMessageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">batchPutMessageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchPutMessageResponse -&gt; Int)
+-&gt; (BatchPutMessageResponse -&gt; Int -&gt; BatchPutMessageResponse)
+-&gt; Lens BatchPutMessageResponse BatchPutMessageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186772"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:BatchPutMessageResponse' :: BatchPutMessageResponse -&gt; Int
+</span><a href="#local-6989586621679186772"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186772"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186771"><span class="annot"><span class="annottext">s :: BatchPutMessageResponse
+</span><a href="#local-6989586621679186771"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse%27"><span class="hs-identifier hs-type">BatchPutMessageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186770"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186770"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchPutMessageResponse
+</span><a href="#local-6989586621679186771"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:BatchPutMessageResponse' :: Int
+</span><a href="Amazonka.IoTEventsData.BatchPutMessage.html#%24sel%3AhttpStatus%3ABatchPutMessageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186770"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186768"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.BatchPutMessage.html#BatchPutMessageResponse"><span class="hs-identifier hs-type">BatchPutMessageResponse</span></a></span></span><span>
+</span><span id="line-162"></span></pre></body></html>

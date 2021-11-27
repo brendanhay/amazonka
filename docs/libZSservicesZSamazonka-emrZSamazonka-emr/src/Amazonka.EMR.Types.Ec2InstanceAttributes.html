@@ -1,0 +1,887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMR.Types.Ec2InstanceAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.Types.Ec2InstanceAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Provides information about the EC2 instances in a cluster grouped by</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- category. For example, key name, subnet ID, IAM instance profile, and so</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- on.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newEc2InstanceAttributes' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679367657"><span id="local-6989586621679367658"></span></span><span class="hs-keyword">data</span><span> </span><span id="Ec2InstanceAttributes"><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-var">Ec2InstanceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Ec2InstanceAttributes%27"><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-var">Ec2InstanceAttributes'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Amazon EC2 key pair to use when connecting with SSH into</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- the master node as a user named \&quot;hadoop\&quot;.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aec2KeyName%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2KeyName%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">ec2KeyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon EC2 security group for the core and task</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AemrManagedSlaveSecurityGroup%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AemrManagedSlaveSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">emrManagedSlaveSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | A list of additional Amazon EC2 security group IDs for the core and task</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AadditionalSlaveSecurityGroups%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AadditionalSlaveSecurityGroups%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">additionalSlaveSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Applies to clusters configured with the instance fleets option.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- Specifies the unique identifier of one or more Amazon EC2 subnets in</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- which to launch EC2 cluster instances. Subnets must exist within the</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- the list of @RequestedEc2SubnetIds@, and then launches all cluster</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- instances within that Subnet. If this value is not specified, and the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- account and Region support EC2-Classic networks, the cluster launches</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- instances in the EC2-Classic network and uses</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- is not supported, and no Subnet is specified, Amazon EMR chooses the</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- subnet for you. @RequestedEc2SubnetIDs@ and</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @RequestedEc2AvailabilityZones@ cannot be specified together.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3ArequestedEc2SubnetIds%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3ArequestedEc2SubnetIds%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">requestedEc2SubnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A list of additional Amazon EC2 security group IDs for the master node.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AadditionalMasterSecurityGroups%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AadditionalMasterSecurityGroups%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">additionalMasterSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The IAM role that was specified when the cluster was launched. The EC2</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- instances of the cluster assume this role.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AiamInstanceProfile%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AiamInstanceProfile%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon EC2 security group for the master node.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AemrManagedMasterSecurityGroup%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AemrManagedMasterSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">emrManagedMasterSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Set this parameter to the identifier of the Amazon VPC subnet where you</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- want the cluster to launch. If you do not specify this value, and your</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- account supports EC2-Classic, the cluster launches in EC2-Classic.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aec2SubnetId%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2SubnetId%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">ec2SubnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Applies to clusters configured with the instance fleets option.</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- Specifies one or more Availability Zones in which to launch EC2 cluster</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- instances when the EC2-Classic network configuration is supported.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- Amazon EMR chooses the Availability Zone with the best fit from among</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- the list of @RequestedEc2AvailabilityZones@, and then launches all</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- cluster instances within that Availability Zone. If you do not specify</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- this value, Amazon EMR chooses the Availability Zone for you.</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- specified together.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3ArequestedEc2AvailabilityZones%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3ArequestedEc2AvailabilityZones%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">requestedEc2AvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The identifier of the Amazon EC2 security group for the Amazon EMR</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- service to access clusters in VPC private subnets.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AserviceAccessSecurityGroup%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AserviceAccessSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">serviceAccessSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The Availability Zone in which the cluster will run.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aec2AvailabilityZone%3AEc2InstanceAttributes%27"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2AvailabilityZone%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var hs-var">ec2AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679367641"><span id="local-6989586621679367643"><span class="annot"><span class="annottext">Ec2InstanceAttributes -&gt; Ec2InstanceAttributes -&gt; Bool
+(Ec2InstanceAttributes -&gt; Ec2InstanceAttributes -&gt; Bool)
+-&gt; (Ec2InstanceAttributes -&gt; Ec2InstanceAttributes -&gt; Bool)
+-&gt; Eq Ec2InstanceAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Ec2InstanceAttributes -&gt; Ec2InstanceAttributes -&gt; Bool
+$c/= :: Ec2InstanceAttributes -&gt; Ec2InstanceAttributes -&gt; Bool
+== :: Ec2InstanceAttributes -&gt; Ec2InstanceAttributes -&gt; Bool
+$c== :: Ec2InstanceAttributes -&gt; Ec2InstanceAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367632"><span id="local-6989586621679367634"><span id="local-6989586621679367636"><span id="local-6989586621679367638"><span class="annot"><span class="annottext">ReadPrec [Ec2InstanceAttributes]
+ReadPrec Ec2InstanceAttributes
+Int -&gt; ReadS Ec2InstanceAttributes
+ReadS [Ec2InstanceAttributes]
+(Int -&gt; ReadS Ec2InstanceAttributes)
+-&gt; ReadS [Ec2InstanceAttributes]
+-&gt; ReadPrec Ec2InstanceAttributes
+-&gt; ReadPrec [Ec2InstanceAttributes]
+-&gt; Read Ec2InstanceAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Ec2InstanceAttributes]
+$creadListPrec :: ReadPrec [Ec2InstanceAttributes]
+readPrec :: ReadPrec Ec2InstanceAttributes
+$creadPrec :: ReadPrec Ec2InstanceAttributes
+readList :: ReadS [Ec2InstanceAttributes]
+$creadList :: ReadS [Ec2InstanceAttributes]
+readsPrec :: Int -&gt; ReadS Ec2InstanceAttributes
+$creadsPrec :: Int -&gt; ReadS Ec2InstanceAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679367625"><span id="local-6989586621679367627"><span id="local-6989586621679367629"><span class="annot"><span class="annottext">Int -&gt; Ec2InstanceAttributes -&gt; ShowS
+[Ec2InstanceAttributes] -&gt; ShowS
+Ec2InstanceAttributes -&gt; String
+(Int -&gt; Ec2InstanceAttributes -&gt; ShowS)
+-&gt; (Ec2InstanceAttributes -&gt; String)
+-&gt; ([Ec2InstanceAttributes] -&gt; ShowS)
+-&gt; Show Ec2InstanceAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Ec2InstanceAttributes] -&gt; ShowS
+$cshowList :: [Ec2InstanceAttributes] -&gt; ShowS
+show :: Ec2InstanceAttributes -&gt; String
+$cshow :: Ec2InstanceAttributes -&gt; String
+showsPrec :: Int -&gt; Ec2InstanceAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; Ec2InstanceAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Ec2InstanceAttributes -&gt; Rep Ec2InstanceAttributes x)
+-&gt; (forall x. Rep Ec2InstanceAttributes x -&gt; Ec2InstanceAttributes)
+-&gt; Generic Ec2InstanceAttributes
+forall x. Rep Ec2InstanceAttributes x -&gt; Ec2InstanceAttributes
+forall x. Ec2InstanceAttributes -&gt; Rep Ec2InstanceAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Ec2InstanceAttributes x -&gt; Ec2InstanceAttributes
+$cfrom :: forall x. Ec2InstanceAttributes -&gt; Rep Ec2InstanceAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Create a value of 'Ec2InstanceAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'ec2KeyName', 'ec2InstanceAttributes_ec2KeyName' - The name of the Amazon EC2 key pair to use when connecting with SSH into</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- the master node as a user named \&quot;hadoop\&quot;.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'emrManagedSlaveSecurityGroup', 'ec2InstanceAttributes_emrManagedSlaveSecurityGroup' - The identifier of the Amazon EC2 security group for the core and task</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'additionalSlaveSecurityGroups', 'ec2InstanceAttributes_additionalSlaveSecurityGroups' - A list of additional Amazon EC2 security group IDs for the core and task</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'requestedEc2SubnetIds', 'ec2InstanceAttributes_requestedEc2SubnetIds' - Applies to clusters configured with the instance fleets option.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Specifies the unique identifier of one or more Amazon EC2 subnets in</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- which to launch EC2 cluster instances. Subnets must exist within the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- the list of @RequestedEc2SubnetIds@, and then launches all cluster</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- instances within that Subnet. If this value is not specified, and the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- account and Region support EC2-Classic networks, the cluster launches</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- instances in the EC2-Classic network and uses</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- is not supported, and no Subnet is specified, Amazon EMR chooses the</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- subnet for you. @RequestedEc2SubnetIDs@ and</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- @RequestedEc2AvailabilityZones@ cannot be specified together.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- 'additionalMasterSecurityGroups', 'ec2InstanceAttributes_additionalMasterSecurityGroups' - A list of additional Amazon EC2 security group IDs for the master node.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'iamInstanceProfile', 'ec2InstanceAttributes_iamInstanceProfile' - The IAM role that was specified when the cluster was launched. The EC2</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- instances of the cluster assume this role.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'emrManagedMasterSecurityGroup', 'ec2InstanceAttributes_emrManagedMasterSecurityGroup' - The identifier of the Amazon EC2 security group for the master node.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'ec2SubnetId', 'ec2InstanceAttributes_ec2SubnetId' - Set this parameter to the identifier of the Amazon VPC subnet where you</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- want the cluster to launch. If you do not specify this value, and your</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- account supports EC2-Classic, the cluster launches in EC2-Classic.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'requestedEc2AvailabilityZones', 'ec2InstanceAttributes_requestedEc2AvailabilityZones' - Applies to clusters configured with the instance fleets option.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Specifies one or more Availability Zones in which to launch EC2 cluster</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- instances when the EC2-Classic network configuration is supported.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Amazon EMR chooses the Availability Zone with the best fit from among</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- the list of @RequestedEc2AvailabilityZones@, and then launches all</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- cluster instances within that Availability Zone. If you do not specify</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- this value, Amazon EMR chooses the Availability Zone for you.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- specified together.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'serviceAccessSecurityGroup', 'ec2InstanceAttributes_serviceAccessSecurityGroup' - The identifier of the Amazon EC2 security group for the Amazon EMR</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- service to access clusters in VPC private subnets.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'ec2AvailabilityZone', 'ec2InstanceAttributes_ec2AvailabilityZone' - The Availability Zone in which the cluster will run.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#newEc2InstanceAttributes"><span class="hs-identifier hs-type">newEc2InstanceAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span>
+</span><span id="line-140"></span><span id="newEc2InstanceAttributes"><span class="annot"><span class="annottext">newEc2InstanceAttributes :: Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#newEc2InstanceAttributes"><span class="hs-identifier hs-var hs-var">newEc2InstanceAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="annottext">Ec2InstanceAttributes' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ec2KeyName:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2KeyName%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">ec2KeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><span class="annottext">$sel:emrManagedSlaveSecurityGroup:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AemrManagedSlaveSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">emrManagedSlaveSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalSlaveSecurityGroups:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AadditionalSlaveSecurityGroups%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">additionalSlaveSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestedEc2SubnetIds:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3ArequestedEc2SubnetIds%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">requestedEc2SubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:additionalMasterSecurityGroups:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AadditionalMasterSecurityGroups%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">additionalMasterSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AiamInstanceProfile%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:emrManagedMasterSecurityGroup:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AemrManagedMasterSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">emrManagedMasterSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:ec2SubnetId:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2SubnetId%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">ec2SubnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:requestedEc2AvailabilityZones:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3ArequestedEc2AvailabilityZones%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">requestedEc2AvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceAccessSecurityGroup:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AserviceAccessSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">serviceAccessSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:ec2AvailabilityZone:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2AvailabilityZone%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">ec2AvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The name of the Amazon EC2 key pair to use when connecting with SSH into</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- the master node as a user named \&quot;hadoop\&quot;.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_ec2KeyName"><span class="hs-identifier hs-type">ec2InstanceAttributes_ec2KeyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="ec2InstanceAttributes_ec2KeyName"><span class="annot"><span class="annottext">ec2InstanceAttributes_ec2KeyName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_ec2KeyName"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_ec2KeyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe Text)
+-&gt; (Ec2InstanceAttributes -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367616"><span class="annot"><span class="annottext">Maybe Text
+ec2KeyName :: Maybe Text
+$sel:ec2KeyName:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679367616"><span class="hs-identifier hs-var hs-var">ec2KeyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367616"><span class="hs-identifier hs-var">ec2KeyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367615"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367614"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2KeyName:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2KeyName%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">ec2KeyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The identifier of the Amazon EC2 security group for the core and task</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_emrManagedSlaveSecurityGroup"><span class="hs-identifier hs-type">ec2InstanceAttributes_emrManagedSlaveSecurityGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="ec2InstanceAttributes_emrManagedSlaveSecurityGroup"><span class="annot"><span class="annottext">ec2InstanceAttributes_emrManagedSlaveSecurityGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_emrManagedSlaveSecurityGroup"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_emrManagedSlaveSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe Text)
+-&gt; (Ec2InstanceAttributes -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367612"><span class="annot"><span class="annottext">Maybe Text
+emrManagedSlaveSecurityGroup :: Maybe Text
+$sel:emrManagedSlaveSecurityGroup:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679367612"><span class="hs-identifier hs-var hs-var">emrManagedSlaveSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367612"><span class="hs-identifier hs-var">emrManagedSlaveSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367611"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367610"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emrManagedSlaveSecurityGroup:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AemrManagedSlaveSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">emrManagedSlaveSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | A list of additional Amazon EC2 security group IDs for the core and task</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- nodes.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_additionalSlaveSecurityGroups"><span class="hs-identifier hs-type">ec2InstanceAttributes_additionalSlaveSecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="ec2InstanceAttributes_additionalSlaveSecurityGroups"><span class="annot"><span class="annottext">ec2InstanceAttributes_additionalSlaveSecurityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_additionalSlaveSecurityGroups"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_additionalSlaveSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe [Text])
+-&gt; (Ec2InstanceAttributes -&gt; Maybe [Text] -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367608"><span class="annot"><span class="annottext">Maybe [Text]
+additionalSlaveSecurityGroups :: Maybe [Text]
+$sel:additionalSlaveSecurityGroups:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="#local-6989586621679367608"><span class="hs-identifier hs-var hs-var">additionalSlaveSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367608"><span class="hs-identifier hs-var">additionalSlaveSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367607"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367606"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalSlaveSecurityGroups:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AadditionalSlaveSecurityGroups%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">additionalSlaveSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes
+-&gt; f Ec2InstanceAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Applies to clusters configured with the instance fleets option.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- Specifies the unique identifier of one or more Amazon EC2 subnets in</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- which to launch EC2 cluster instances. Subnets must exist within the</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- same VPC. Amazon EMR chooses the EC2 subnet with the best fit from among</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- the list of @RequestedEc2SubnetIds@, and then launches all cluster</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- instances within that Subnet. If this value is not specified, and the</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- account and Region support EC2-Classic networks, the cluster launches</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- instances in the EC2-Classic network and uses</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- @RequestedEc2AvailabilityZones@ instead of this setting. If EC2-Classic</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- is not supported, and no Subnet is specified, Amazon EMR chooses the</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- subnet for you. @RequestedEc2SubnetIDs@ and</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- @RequestedEc2AvailabilityZones@ cannot be specified together.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_requestedEc2SubnetIds"><span class="hs-identifier hs-type">ec2InstanceAttributes_requestedEc2SubnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="ec2InstanceAttributes_requestedEc2SubnetIds"><span class="annot"><span class="annottext">ec2InstanceAttributes_requestedEc2SubnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_requestedEc2SubnetIds"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_requestedEc2SubnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe [Text])
+-&gt; (Ec2InstanceAttributes -&gt; Maybe [Text] -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367601"><span class="annot"><span class="annottext">Maybe [Text]
+requestedEc2SubnetIds :: Maybe [Text]
+$sel:requestedEc2SubnetIds:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="#local-6989586621679367601"><span class="hs-identifier hs-var hs-var">requestedEc2SubnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367601"><span class="hs-identifier hs-var">requestedEc2SubnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367600"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367600"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367599"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367599"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367600"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedEc2SubnetIds:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3ArequestedEc2SubnetIds%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">requestedEc2SubnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367599"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes
+-&gt; f Ec2InstanceAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A list of additional Amazon EC2 security group IDs for the master node.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_additionalMasterSecurityGroups"><span class="hs-identifier hs-type">ec2InstanceAttributes_additionalMasterSecurityGroups</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="ec2InstanceAttributes_additionalMasterSecurityGroups"><span class="annot"><span class="annottext">ec2InstanceAttributes_additionalMasterSecurityGroups :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_additionalMasterSecurityGroups"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_additionalMasterSecurityGroups</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe [Text])
+-&gt; (Ec2InstanceAttributes -&gt; Maybe [Text] -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367597"><span class="annot"><span class="annottext">Maybe [Text]
+additionalMasterSecurityGroups :: Maybe [Text]
+$sel:additionalMasterSecurityGroups:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="#local-6989586621679367597"><span class="hs-identifier hs-var hs-var">additionalMasterSecurityGroups</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367597"><span class="hs-identifier hs-var">additionalMasterSecurityGroups</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367596"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367596"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367595"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367595"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367596"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:additionalMasterSecurityGroups:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AadditionalMasterSecurityGroups%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">additionalMasterSecurityGroups</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367595"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes
+-&gt; f Ec2InstanceAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The IAM role that was specified when the cluster was launched. The EC2</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- instances of the cluster assume this role.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_iamInstanceProfile"><span class="hs-identifier hs-type">ec2InstanceAttributes_iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span id="ec2InstanceAttributes_iamInstanceProfile"><span class="annot"><span class="annottext">ec2InstanceAttributes_iamInstanceProfile :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_iamInstanceProfile"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_iamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe Text)
+-&gt; (Ec2InstanceAttributes -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367593"><span class="annot"><span class="annottext">Maybe Text
+iamInstanceProfile :: Maybe Text
+$sel:iamInstanceProfile:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679367593"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367593"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367592"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367592"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367591"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367591"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367592"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AiamInstanceProfile%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367591"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The identifier of the Amazon EC2 security group for the master node.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_emrManagedMasterSecurityGroup"><span class="hs-identifier hs-type">ec2InstanceAttributes_emrManagedMasterSecurityGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="ec2InstanceAttributes_emrManagedMasterSecurityGroup"><span class="annot"><span class="annottext">ec2InstanceAttributes_emrManagedMasterSecurityGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_emrManagedMasterSecurityGroup"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_emrManagedMasterSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe Text)
+-&gt; (Ec2InstanceAttributes -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367589"><span class="annot"><span class="annottext">Maybe Text
+emrManagedMasterSecurityGroup :: Maybe Text
+$sel:emrManagedMasterSecurityGroup:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679367589"><span class="hs-identifier hs-var hs-var">emrManagedMasterSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367589"><span class="hs-identifier hs-var">emrManagedMasterSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367588"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emrManagedMasterSecurityGroup:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AemrManagedMasterSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">emrManagedMasterSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Set this parameter to the identifier of the Amazon VPC subnet where you</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- want the cluster to launch. If you do not specify this value, and your</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- account supports EC2-Classic, the cluster launches in EC2-Classic.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_ec2SubnetId"><span class="hs-identifier hs-type">ec2InstanceAttributes_ec2SubnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="ec2InstanceAttributes_ec2SubnetId"><span class="annot"><span class="annottext">ec2InstanceAttributes_ec2SubnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_ec2SubnetId"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_ec2SubnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe Text)
+-&gt; (Ec2InstanceAttributes -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367585"><span class="annot"><span class="annottext">Maybe Text
+ec2SubnetId :: Maybe Text
+$sel:ec2SubnetId:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679367585"><span class="hs-identifier hs-var hs-var">ec2SubnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367585"><span class="hs-identifier hs-var">ec2SubnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367584"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367584"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367583"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367583"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367584"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2SubnetId:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2SubnetId%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">ec2SubnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367583"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | Applies to clusters configured with the instance fleets option.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- Specifies one or more Availability Zones in which to launch EC2 cluster</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- instances when the EC2-Classic network configuration is supported.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- Amazon EMR chooses the Availability Zone with the best fit from among</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- the list of @RequestedEc2AvailabilityZones@, and then launches all</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- cluster instances within that Availability Zone. If you do not specify</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- this value, Amazon EMR chooses the Availability Zone for you.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @RequestedEc2SubnetIDs@ and @RequestedEc2AvailabilityZones@ cannot be</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- specified together.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_requestedEc2AvailabilityZones"><span class="hs-identifier hs-type">ec2InstanceAttributes_requestedEc2AvailabilityZones</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="ec2InstanceAttributes_requestedEc2AvailabilityZones"><span class="annot"><span class="annottext">ec2InstanceAttributes_requestedEc2AvailabilityZones :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_requestedEc2AvailabilityZones"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_requestedEc2AvailabilityZones</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe [Text])
+-&gt; (Ec2InstanceAttributes -&gt; Maybe [Text] -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367581"><span class="annot"><span class="annottext">Maybe [Text]
+requestedEc2AvailabilityZones :: Maybe [Text]
+$sel:requestedEc2AvailabilityZones:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe [Text]
+</span><a href="#local-6989586621679367581"><span class="hs-identifier hs-var hs-var">requestedEc2AvailabilityZones</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367581"><span class="hs-identifier hs-var">requestedEc2AvailabilityZones</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367580"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367580"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367579"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367579"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367580"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestedEc2AvailabilityZones:Ec2InstanceAttributes' :: Maybe [Text]
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3ArequestedEc2AvailabilityZones%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">requestedEc2AvailabilityZones</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679367579"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; Ec2InstanceAttributes
+-&gt; f Ec2InstanceAttributes
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The identifier of the Amazon EC2 security group for the Amazon EMR</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- service to access clusters in VPC private subnets.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_serviceAccessSecurityGroup"><span class="hs-identifier hs-type">ec2InstanceAttributes_serviceAccessSecurityGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span id="ec2InstanceAttributes_serviceAccessSecurityGroup"><span class="annot"><span class="annottext">ec2InstanceAttributes_serviceAccessSecurityGroup :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_serviceAccessSecurityGroup"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_serviceAccessSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe Text)
+-&gt; (Ec2InstanceAttributes -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367577"><span class="annot"><span class="annottext">Maybe Text
+serviceAccessSecurityGroup :: Maybe Text
+$sel:serviceAccessSecurityGroup:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679367577"><span class="hs-identifier hs-var hs-var">serviceAccessSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367577"><span class="hs-identifier hs-var">serviceAccessSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367576"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367576"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367575"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367575"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367576"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceAccessSecurityGroup:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3AserviceAccessSecurityGroup%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">serviceAccessSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367575"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- | The Availability Zone in which the cluster will run.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_ec2AvailabilityZone"><span class="hs-identifier hs-type">ec2InstanceAttributes_ec2AvailabilityZone</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="ec2InstanceAttributes_ec2AvailabilityZone"><span class="annot"><span class="annottext">ec2InstanceAttributes_ec2AvailabilityZone :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; Ec2InstanceAttributes -&gt; f Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#ec2InstanceAttributes_ec2AvailabilityZone"><span class="hs-identifier hs-var hs-var">ec2InstanceAttributes_ec2AvailabilityZone</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Ec2InstanceAttributes -&gt; Maybe Text)
+-&gt; (Ec2InstanceAttributes -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Lens
+     Ec2InstanceAttributes
+     Ec2InstanceAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679367573"><span class="annot"><span class="annottext">Maybe Text
+ec2AvailabilityZone :: Maybe Text
+$sel:ec2AvailabilityZone:Ec2InstanceAttributes' :: Ec2InstanceAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679367573"><span class="hs-identifier hs-var hs-var">ec2AvailabilityZone</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367573"><span class="hs-identifier hs-var">ec2AvailabilityZone</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679367572"><span class="annot"><span class="annottext">s :: Ec2InstanceAttributes
+</span><a href="#local-6989586621679367572"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-type">Ec2InstanceAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679367571"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367571"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Ec2InstanceAttributes
+</span><a href="#local-6989586621679367572"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ec2AvailabilityZone:Ec2InstanceAttributes' :: Maybe Text
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#%24sel%3Aec2AvailabilityZone%3AEc2InstanceAttributes%27"><span class="hs-identifier hs-var">ec2AvailabilityZone</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679367571"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367568"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-227"></span><span>  </span><span id="local-6989586621679367566"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Ec2InstanceAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser Ec2InstanceAttributes)
+-&gt; Value
+-&gt; Parser Ec2InstanceAttributes
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Ec2InstanceAttributes&quot;</span></span><span>
+</span><span id="line-230"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679367563"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-231"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Ec2InstanceAttributes
+</span><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes%27"><span class="hs-identifier hs-var">Ec2InstanceAttributes'</span></a></span><span>
+</span><span id="line-232"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ec2KeyName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmrManagedSlaveSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdditionalSlaveSecurityGroups&quot;</span></span><span>
+</span><span id="line-235"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-236"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestedEc2SubnetIds&quot;</span></span><span>
+</span><span id="line-238"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-239"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AdditionalMasterSecurityGroups&quot;</span></span><span>
+</span><span id="line-241"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-242"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IamInstanceProfile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmrManagedMasterSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ec2SubnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text] -&gt; Maybe Text -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestedEc2AvailabilityZones&quot;</span></span><span>
+</span><span id="line-247"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-248"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Ec2InstanceAttributes)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceAccessSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Ec2InstanceAttributes)
+-&gt; Parser (Maybe Text) -&gt; Parser Ec2InstanceAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679367563"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Ec2AvailabilityZone&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367556"><span id="local-6989586621679367558"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span></span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679367553"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.Ec2InstanceAttributes.html#Ec2InstanceAttributes"><span class="hs-identifier hs-type">Ec2InstanceAttributes</span></a></span></span><span>
+</span><span id="line-256"></span></pre></body></html>

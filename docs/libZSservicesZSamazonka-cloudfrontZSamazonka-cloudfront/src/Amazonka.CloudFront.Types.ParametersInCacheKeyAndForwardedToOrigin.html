@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyCookiesConfig.html"><span class="hs-identifier">Amazonka.CloudFront.Types.CachePolicyCookiesConfig</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyHeadersConfig.html"><span class="hs-identifier">Amazonka.CloudFront.Types.CachePolicyHeadersConfig</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig.html"><span class="hs-identifier">Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | This object determines the values that CloudFront includes in the cache</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- key. These values can include HTTP headers, cookies, and URL query</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- strings. CloudFront uses the cache key to find an object in its cache</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- that it can return to the viewer.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- The headers, cookies, and query strings that are included in the cache</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- key are automatically included in requests that CloudFront sends to the</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- origin. CloudFront sends a request when it can&#8217;t find an object in its</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- cache that matches the request&#8217;s cache key. If you want to send values</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- to the origin but /not/ include them in the cache key, use</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- @OriginRequestPolicy@.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- /See:/ 'newParametersInCacheKeyAndForwardedToOrigin' smart constructor.</span><span>
+</span><span id="line-42"></span><span id="local-6989586621679400011"><span id="local-6989586621679400012"></span></span><span class="hs-keyword">data</span><span> </span><span id="ParametersInCacheKeyAndForwardedToOrigin"><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-var">ParametersInCacheKeyAndForwardedToOrigin</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ParametersInCacheKeyAndForwardedToOrigin%27"><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A flag that can affect whether the @Accept-Encoding@ HTTP header is</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- included in the cache key and included in requests that CloudFront sends</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- to the origin.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- This field is related to the @EnableAcceptEncodingGzip@ field. If one or</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- both of these fields is @true@ /and/ the viewer request includes the</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ header, then CloudFront does the following:</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- -   Normalizes the value of the viewer&#8217;s @Accept-Encoding@ header</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- -   Includes the normalized header in the cache key</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- -   Includes the normalized header in the request to the origin, if a</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     request is necessary</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects Compression support&gt;</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- If you set this value to @true@, and this cache behavior also has an</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- origin request policy attached, do not include the @Accept-Encoding@</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- header in the origin request policy. CloudFront always includes the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ header in origin requests when the value of this field</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- is @true@, so including this header in an origin request policy has no</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- effect.</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- If both of these fields are @false@, then CloudFront treats the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ header the same as any other HTTP header in the viewer</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- request. By default, it&#8217;s not included in the cache key and it&#8217;s not</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- included in origin requests. In this case, you can manually add</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ to the headers whitelist like any other HTTP header.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AenableAcceptEncodingBrotli%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin -&gt; Maybe Bool
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AenableAcceptEncodingBrotli%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var hs-var">enableAcceptEncodingBrotli</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A flag that can affect whether the @Accept-Encoding@ HTTP header is</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- included in the cache key and included in requests that CloudFront sends</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- to the origin.</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- This field is related to the @EnableAcceptEncodingBrotli@ field. If one</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- or both of these fields is @true@ /and/ the viewer request includes the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ header, then CloudFront does the following:</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- -   Normalizes the value of the viewer&#8217;s @Accept-Encoding@ header</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- -   Includes the normalized header in the cache key</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- -   Includes the normalized header in the request to the origin, if a</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     request is necessary</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects Compression support&gt;</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- If you set this value to @true@, and this cache behavior also has an</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- origin request policy attached, do not include the @Accept-Encoding@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- header in the origin request policy. CloudFront always includes the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ header in origin requests when the value of this field</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- is @true@, so including this header in an origin request policy has no</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- effect.</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- If both of these fields are @false@, then CloudFront treats the</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ header the same as any other HTTP header in the viewer</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- request. By default, it&#8217;s not included in the cache key and it&#8217;s not</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- included in origin requests. In this case, you can manually add</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- @Accept-Encoding@ to the headers whitelist like any other HTTP header.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AenableAcceptEncodingGzip%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AenableAcceptEncodingGzip%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var hs-var">enableAcceptEncodingGzip</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | An object that determines whether any HTTP headers (and if so, which</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- headers) are included in the cache key and automatically included in</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">-- requests that CloudFront sends to the origin.</span><span>
+</span><span id="line-110"></span><span>    </span><span id="%24sel%3AheadersConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyHeadersConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AheadersConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var hs-var">headersConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- | An object that determines whether any cookies in viewer requests (and if</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- so, which cookies) are included in the cache key and automatically</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- included in requests that CloudFront sends to the origin.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AcookiesConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyCookiesConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AcookiesConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var hs-var">cookiesConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyCookiesConfig.html#CachePolicyCookiesConfig"><span class="hs-identifier hs-type">CachePolicyCookiesConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- | An object that determines whether any URL query strings in viewer</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- requests (and if so, which query strings) are included in the cache key</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- and automatically included in requests that CloudFront sends to the</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- origin.</span><span>
+</span><span id="line-119"></span><span>    </span><span id="%24sel%3AqueryStringsConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyQueryStringsConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AqueryStringsConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var hs-var">queryStringsConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig.html#CachePolicyQueryStringsConfig"><span class="hs-identifier hs-type">CachePolicyQueryStringsConfig</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400001"><span id="local-6989586621679400003"><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+-&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+(ParametersInCacheKeyAndForwardedToOrigin
+ -&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool)
+-&gt; (ParametersInCacheKeyAndForwardedToOrigin
+    -&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool)
+-&gt; Eq ParametersInCacheKeyAndForwardedToOrigin
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+$c/= :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+== :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+$c== :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399992"><span id="local-6989586621679399994"><span id="local-6989586621679399996"><span id="local-6989586621679399998"><span class="annot"><span class="annottext">ReadPrec [ParametersInCacheKeyAndForwardedToOrigin]
+ReadPrec ParametersInCacheKeyAndForwardedToOrigin
+Int -&gt; ReadS ParametersInCacheKeyAndForwardedToOrigin
+ReadS [ParametersInCacheKeyAndForwardedToOrigin]
+(Int -&gt; ReadS ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; ReadS [ParametersInCacheKeyAndForwardedToOrigin]
+-&gt; ReadPrec ParametersInCacheKeyAndForwardedToOrigin
+-&gt; ReadPrec [ParametersInCacheKeyAndForwardedToOrigin]
+-&gt; Read ParametersInCacheKeyAndForwardedToOrigin
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ParametersInCacheKeyAndForwardedToOrigin]
+$creadListPrec :: ReadPrec [ParametersInCacheKeyAndForwardedToOrigin]
+readPrec :: ReadPrec ParametersInCacheKeyAndForwardedToOrigin
+$creadPrec :: ReadPrec ParametersInCacheKeyAndForwardedToOrigin
+readList :: ReadS [ParametersInCacheKeyAndForwardedToOrigin]
+$creadList :: ReadS [ParametersInCacheKeyAndForwardedToOrigin]
+readsPrec :: Int -&gt; ReadS ParametersInCacheKeyAndForwardedToOrigin
+$creadsPrec :: Int -&gt; ReadS ParametersInCacheKeyAndForwardedToOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679399985"><span id="local-6989586621679399987"><span id="local-6989586621679399989"><span class="annot"><span class="annottext">Int -&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; ShowS
+[ParametersInCacheKeyAndForwardedToOrigin] -&gt; ShowS
+ParametersInCacheKeyAndForwardedToOrigin -&gt; String
+(Int -&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; ShowS)
+-&gt; (ParametersInCacheKeyAndForwardedToOrigin -&gt; String)
+-&gt; ([ParametersInCacheKeyAndForwardedToOrigin] -&gt; ShowS)
+-&gt; Show ParametersInCacheKeyAndForwardedToOrigin
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ParametersInCacheKeyAndForwardedToOrigin] -&gt; ShowS
+$cshowList :: [ParametersInCacheKeyAndForwardedToOrigin] -&gt; ShowS
+show :: ParametersInCacheKeyAndForwardedToOrigin -&gt; String
+$cshow :: ParametersInCacheKeyAndForwardedToOrigin -&gt; String
+showsPrec :: Int -&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; ShowS
+$cshowsPrec :: Int -&gt; ParametersInCacheKeyAndForwardedToOrigin -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ParametersInCacheKeyAndForwardedToOrigin
+ -&gt; Rep ParametersInCacheKeyAndForwardedToOrigin x)
+-&gt; (forall x.
+    Rep ParametersInCacheKeyAndForwardedToOrigin x
+    -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Generic ParametersInCacheKeyAndForwardedToOrigin
+forall x.
+Rep ParametersInCacheKeyAndForwardedToOrigin x
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+forall x.
+ParametersInCacheKeyAndForwardedToOrigin
+-&gt; Rep ParametersInCacheKeyAndForwardedToOrigin x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ParametersInCacheKeyAndForwardedToOrigin x
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+$cfrom :: forall x.
+ParametersInCacheKeyAndForwardedToOrigin
+-&gt; Rep ParametersInCacheKeyAndForwardedToOrigin x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Create a value of 'ParametersInCacheKeyAndForwardedToOrigin' with all optional fields omitted.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'enableAcceptEncodingBrotli', 'parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli' - A flag that can affect whether the @Accept-Encoding@ HTTP header is</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- included in the cache key and included in requests that CloudFront sends</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- to the origin.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- This field is related to the @EnableAcceptEncodingGzip@ field. If one or</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- both of these fields is @true@ /and/ the viewer request includes the</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @Accept-Encoding@ header, then CloudFront does the following:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- -   Normalizes the value of the viewer&#8217;s @Accept-Encoding@ header</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   Includes the normalized header in the cache key</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- -   Includes the normalized header in the request to the origin, if a</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--     request is necessary</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects Compression support&gt;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- If you set this value to @true@, and this cache behavior also has an</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- origin request policy attached, do not include the @Accept-Encoding@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- header in the origin request policy. CloudFront always includes the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @Accept-Encoding@ header in origin requests when the value of this field</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- is @true@, so including this header in an origin request policy has no</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- effect.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- If both of these fields are @false@, then CloudFront treats the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @Accept-Encoding@ header the same as any other HTTP header in the viewer</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- request. By default, it&#8217;s not included in the cache key and it&#8217;s not</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- included in origin requests. In this case, you can manually add</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- @Accept-Encoding@ to the headers whitelist like any other HTTP header.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'enableAcceptEncodingGzip', 'parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip' - A flag that can affect whether the @Accept-Encoding@ HTTP header is</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- included in the cache key and included in requests that CloudFront sends</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- to the origin.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- This field is related to the @EnableAcceptEncodingBrotli@ field. If one</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- or both of these fields is @true@ /and/ the viewer request includes the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- @Accept-Encoding@ header, then CloudFront does the following:</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- -   Normalizes the value of the viewer&#8217;s @Accept-Encoding@ header</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- -   Includes the normalized header in the cache key</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- -   Includes the normalized header in the request to the origin, if a</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--     request is necessary</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects Compression support&gt;</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- If you set this value to @true@, and this cache behavior also has an</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- origin request policy attached, do not include the @Accept-Encoding@</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- header in the origin request policy. CloudFront always includes the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- @Accept-Encoding@ header in origin requests when the value of this field</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- is @true@, so including this header in an origin request policy has no</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- effect.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- If both of these fields are @false@, then CloudFront treats the</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- @Accept-Encoding@ header the same as any other HTTP header in the viewer</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- request. By default, it&#8217;s not included in the cache key and it&#8217;s not</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- included in origin requests. In this case, you can manually add</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- @Accept-Encoding@ to the headers whitelist like any other HTTP header.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'headersConfig', 'parametersInCacheKeyAndForwardedToOrigin_headersConfig' - An object that determines whether any HTTP headers (and if so, which</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- headers) are included in the cache key and automatically included in</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- requests that CloudFront sends to the origin.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'cookiesConfig', 'parametersInCacheKeyAndForwardedToOrigin_cookiesConfig' - An object that determines whether any cookies in viewer requests (and if</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- so, which cookies) are included in the cache key and automatically</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- included in requests that CloudFront sends to the origin.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'queryStringsConfig', 'parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig' - An object that determines whether any URL query strings in viewer</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- requests (and if so, which query strings) are included in the cache key</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- and automatically included in requests that CloudFront sends to the</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- origin.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#newParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">newParametersInCacheKeyAndForwardedToOrigin</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-208"></span><span>  </span><span class="hs-comment">-- | 'enableAcceptEncodingGzip'</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-comment">-- | 'headersConfig'</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-212"></span><span>  </span><span class="hs-comment">-- | 'cookiesConfig'</span><span>
+</span><span id="line-213"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyCookiesConfig.html#CachePolicyCookiesConfig"><span class="hs-identifier hs-type">CachePolicyCookiesConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-214"></span><span>  </span><span class="hs-comment">-- | 'queryStringsConfig'</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig.html#CachePolicyQueryStringsConfig"><span class="hs-identifier hs-type">CachePolicyQueryStringsConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span>
+</span><span id="line-217"></span><span id="newParametersInCacheKeyAndForwardedToOrigin"><span class="annot"><span class="annottext">newParametersInCacheKeyAndForwardedToOrigin :: Bool
+-&gt; CachePolicyHeadersConfig
+-&gt; CachePolicyCookiesConfig
+-&gt; CachePolicyQueryStringsConfig
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#newParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-var hs-var">newParametersInCacheKeyAndForwardedToOrigin</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span id="local-6989586621679399979"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399979"><span class="hs-identifier hs-var">pEnableAcceptEncodingGzip_</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679399978"><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679399978"><span class="hs-identifier hs-var">pHeadersConfig_</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679399977"><span class="annot"><span class="annottext">CachePolicyCookiesConfig
+</span><a href="#local-6989586621679399977"><span class="hs-identifier hs-var">pCookiesConfig_</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679399976"><span class="annot"><span class="annottext">CachePolicyQueryStringsConfig
+</span><a href="#local-6989586621679399976"><span class="hs-identifier hs-var">pQueryStringsConfig_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin' :: Maybe Bool
+-&gt; Bool
+-&gt; CachePolicyHeadersConfig
+-&gt; CachePolicyCookiesConfig
+-&gt; CachePolicyQueryStringsConfig
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:enableAcceptEncodingBrotli:ParametersInCacheKeyAndForwardedToOrigin' :: Maybe Bool
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AenableAcceptEncodingBrotli%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">enableAcceptEncodingBrotli</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>        </span><span class="annot"><span class="annottext">$sel:enableAcceptEncodingGzip:ParametersInCacheKeyAndForwardedToOrigin' :: Bool
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AenableAcceptEncodingGzip%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">enableAcceptEncodingGzip</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-226"></span><span>          </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399979"><span class="hs-identifier hs-var">pEnableAcceptEncodingGzip_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:headersConfig:ParametersInCacheKeyAndForwardedToOrigin' :: CachePolicyHeadersConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AheadersConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">headersConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679399978"><span class="hs-identifier hs-var">pHeadersConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:cookiesConfig:ParametersInCacheKeyAndForwardedToOrigin' :: CachePolicyCookiesConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AcookiesConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">cookiesConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyCookiesConfig
+</span><a href="#local-6989586621679399977"><span class="hs-identifier hs-var">pCookiesConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">$sel:queryStringsConfig:ParametersInCacheKeyAndForwardedToOrigin' :: CachePolicyQueryStringsConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AqueryStringsConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">queryStringsConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-230"></span><span>          </span><span class="annot"><span class="annottext">CachePolicyQueryStringsConfig
+</span><a href="#local-6989586621679399976"><span class="hs-identifier hs-var">pQueryStringsConfig_</span></a></span><span>
+</span><span id="line-231"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- | A flag that can affect whether the @Accept-Encoding@ HTTP header is</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- included in the cache key and included in requests that CloudFront sends</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- to the origin.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- This field is related to the @EnableAcceptEncodingGzip@ field. If one or</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- both of these fields is @true@ /and/ the viewer request includes the</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- @Accept-Encoding@ header, then CloudFront does the following:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- -   Normalizes the value of the viewer&#8217;s @Accept-Encoding@ header</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- -   Includes the normalized header in the cache key</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- -   Includes the normalized header in the request to the origin, if a</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--     request is necessary</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects Compression support&gt;</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- If you set this value to @true@, and this cache behavior also has an</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- origin request policy attached, do not include the @Accept-Encoding@</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- header in the origin request policy. CloudFront always includes the</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- @Accept-Encoding@ header in origin requests when the value of this field</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- is @true@, so including this header in an origin request policy has no</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- effect.</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- If both of these fields are @false@, then CloudFront treats the</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- @Accept-Encoding@ header the same as any other HTTP header in the viewer</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- request. By default, it&#8217;s not included in the cache key and it&#8217;s not</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- included in origin requests. In this case, you can manually add</span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- @Accept-Encoding@ to the headers whitelist like any other HTTP header.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli"><span class="hs-identifier hs-type">parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli"><span class="annot"><span class="annottext">parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+-&gt; f ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli"><span class="hs-identifier hs-var hs-var">parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingBrotli</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParametersInCacheKeyAndForwardedToOrigin -&gt; Maybe Bool)
+-&gt; (ParametersInCacheKeyAndForwardedToOrigin
+    -&gt; Maybe Bool -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Lens
+     ParametersInCacheKeyAndForwardedToOrigin
+     ParametersInCacheKeyAndForwardedToOrigin
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399972"><span class="annot"><span class="annottext">Maybe Bool
+enableAcceptEncodingBrotli :: Maybe Bool
+$sel:enableAcceptEncodingBrotli:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin -&gt; Maybe Bool
+</span><a href="#local-6989586621679399972"><span class="hs-identifier hs-var hs-var">enableAcceptEncodingBrotli</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679399972"><span class="hs-identifier hs-var">enableAcceptEncodingBrotli</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399971"><span class="annot"><span class="annottext">s :: ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399971"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399970"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679399970"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399971"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableAcceptEncodingBrotli:ParametersInCacheKeyAndForwardedToOrigin' :: Maybe Bool
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AenableAcceptEncodingBrotli%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">enableAcceptEncodingBrotli</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679399970"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | A flag that can affect whether the @Accept-Encoding@ HTTP header is</span><span>
+</span><span id="line-268"></span><span class="hs-comment">-- included in the cache key and included in requests that CloudFront sends</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- to the origin.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- This field is related to the @EnableAcceptEncodingBrotli@ field. If one</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- or both of these fields is @true@ /and/ the viewer request includes the</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- @Accept-Encoding@ header, then CloudFront does the following:</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- -   Normalizes the value of the viewer&#8217;s @Accept-Encoding@ header</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- -   Includes the normalized header in the cache key</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- -   Includes the normalized header in the request to the origin, if a</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--     request is necessary</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-policy-compressed-objects Compression support&gt;</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- in the /Amazon CloudFront Developer Guide/.</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- If you set this value to @true@, and this cache behavior also has an</span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- origin request policy attached, do not include the @Accept-Encoding@</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- header in the origin request policy. CloudFront always includes the</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- @Accept-Encoding@ header in origin requests when the value of this field</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- is @true@, so including this header in an origin request policy has no</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- effect.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- If both of these fields are @false@, then CloudFront treats the</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- @Accept-Encoding@ header the same as any other HTTP header in the viewer</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- request. By default, it&#8217;s not included in the cache key and it&#8217;s not</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- included in origin requests. In this case, you can manually add</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- @Accept-Encoding@ to the headers whitelist like any other HTTP header.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip"><span class="hs-identifier hs-type">parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-299"></span><span id="parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip"><span class="annot"><span class="annottext">parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip :: (Bool -&gt; f Bool)
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+-&gt; f ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip"><span class="hs-identifier hs-var hs-var">parametersInCacheKeyAndForwardedToOrigin_enableAcceptEncodingGzip</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool)
+-&gt; (ParametersInCacheKeyAndForwardedToOrigin
+    -&gt; Bool -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Lens
+     ParametersInCacheKeyAndForwardedToOrigin
+     ParametersInCacheKeyAndForwardedToOrigin
+     Bool
+     Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399968"><span class="annot"><span class="annottext">Bool
+enableAcceptEncodingGzip :: Bool
+$sel:enableAcceptEncodingGzip:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+</span><a href="#local-6989586621679399968"><span class="hs-identifier hs-var hs-var">enableAcceptEncodingGzip</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399968"><span class="hs-identifier hs-var">enableAcceptEncodingGzip</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399967"><span class="annot"><span class="annottext">s :: ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399967"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399966"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399966"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399967"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableAcceptEncodingGzip:ParametersInCacheKeyAndForwardedToOrigin' :: Bool
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AenableAcceptEncodingGzip%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">enableAcceptEncodingGzip</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399966"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | An object that determines whether any HTTP headers (and if so, which</span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- headers) are included in the cache key and automatically included in</span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- requests that CloudFront sends to the origin.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_headersConfig"><span class="hs-identifier hs-type">parametersInCacheKeyAndForwardedToOrigin_headersConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyHeadersConfig.html#CachePolicyHeadersConfig"><span class="hs-identifier hs-type">CachePolicyHeadersConfig</span></a></span><span>
+</span><span id="line-305"></span><span id="parametersInCacheKeyAndForwardedToOrigin_headersConfig"><span class="annot"><span class="annottext">parametersInCacheKeyAndForwardedToOrigin_headersConfig :: (CachePolicyHeadersConfig -&gt; f CachePolicyHeadersConfig)
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+-&gt; f ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_headersConfig"><span class="hs-identifier hs-var hs-var">parametersInCacheKeyAndForwardedToOrigin_headersConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParametersInCacheKeyAndForwardedToOrigin
+ -&gt; CachePolicyHeadersConfig)
+-&gt; (ParametersInCacheKeyAndForwardedToOrigin
+    -&gt; CachePolicyHeadersConfig
+    -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Lens
+     ParametersInCacheKeyAndForwardedToOrigin
+     ParametersInCacheKeyAndForwardedToOrigin
+     CachePolicyHeadersConfig
+     CachePolicyHeadersConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399964"><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+headersConfig :: CachePolicyHeadersConfig
+$sel:headersConfig:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyHeadersConfig
+</span><a href="#local-6989586621679399964"><span class="hs-identifier hs-var hs-var">headersConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679399964"><span class="hs-identifier hs-var">headersConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399963"><span class="annot"><span class="annottext">s :: ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399962"><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679399962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:headersConfig:ParametersInCacheKeyAndForwardedToOrigin' :: CachePolicyHeadersConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AheadersConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">headersConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679399962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | An object that determines whether any cookies in viewer requests (and if</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- so, which cookies) are included in the cache key and automatically</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- included in requests that CloudFront sends to the origin.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_cookiesConfig"><span class="hs-identifier hs-type">parametersInCacheKeyAndForwardedToOrigin_cookiesConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyCookiesConfig.html#CachePolicyCookiesConfig"><span class="hs-identifier hs-type">CachePolicyCookiesConfig</span></a></span><span>
+</span><span id="line-311"></span><span id="parametersInCacheKeyAndForwardedToOrigin_cookiesConfig"><span class="annot"><span class="annottext">parametersInCacheKeyAndForwardedToOrigin_cookiesConfig :: (CachePolicyCookiesConfig -&gt; f CachePolicyCookiesConfig)
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+-&gt; f ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_cookiesConfig"><span class="hs-identifier hs-var hs-var">parametersInCacheKeyAndForwardedToOrigin_cookiesConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParametersInCacheKeyAndForwardedToOrigin
+ -&gt; CachePolicyCookiesConfig)
+-&gt; (ParametersInCacheKeyAndForwardedToOrigin
+    -&gt; CachePolicyCookiesConfig
+    -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Lens
+     ParametersInCacheKeyAndForwardedToOrigin
+     ParametersInCacheKeyAndForwardedToOrigin
+     CachePolicyCookiesConfig
+     CachePolicyCookiesConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399960"><span class="annot"><span class="annottext">CachePolicyCookiesConfig
+cookiesConfig :: CachePolicyCookiesConfig
+$sel:cookiesConfig:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyCookiesConfig
+</span><a href="#local-6989586621679399960"><span class="hs-identifier hs-var hs-var">cookiesConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyCookiesConfig
+</span><a href="#local-6989586621679399960"><span class="hs-identifier hs-var">cookiesConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399959"><span class="annot"><span class="annottext">s :: ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399958"><span class="annot"><span class="annottext">CachePolicyCookiesConfig
+</span><a href="#local-6989586621679399958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cookiesConfig:ParametersInCacheKeyAndForwardedToOrigin' :: CachePolicyCookiesConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AcookiesConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">cookiesConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyCookiesConfig
+</span><a href="#local-6989586621679399958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | An object that determines whether any URL query strings in viewer</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- requests (and if so, which query strings) are included in the cache key</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- and automatically included in requests that CloudFront sends to the</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- origin.</span><span>
+</span><span id="line-317"></span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig"><span class="hs-identifier hs-type">parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyQueryStringsConfig.html#CachePolicyQueryStringsConfig"><span class="hs-identifier hs-type">CachePolicyQueryStringsConfig</span></a></span><span>
+</span><span id="line-318"></span><span id="parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig"><span class="annot"><span class="annottext">parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig :: (CachePolicyQueryStringsConfig -&gt; f CachePolicyQueryStringsConfig)
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+-&gt; f ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig"><span class="hs-identifier hs-var hs-var">parametersInCacheKeyAndForwardedToOrigin_queryStringsConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ParametersInCacheKeyAndForwardedToOrigin
+ -&gt; CachePolicyQueryStringsConfig)
+-&gt; (ParametersInCacheKeyAndForwardedToOrigin
+    -&gt; CachePolicyQueryStringsConfig
+    -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Lens
+     ParametersInCacheKeyAndForwardedToOrigin
+     ParametersInCacheKeyAndForwardedToOrigin
+     CachePolicyQueryStringsConfig
+     CachePolicyQueryStringsConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399956"><span class="annot"><span class="annottext">CachePolicyQueryStringsConfig
+queryStringsConfig :: CachePolicyQueryStringsConfig
+$sel:queryStringsConfig:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyQueryStringsConfig
+</span><a href="#local-6989586621679399956"><span class="hs-identifier hs-var hs-var">queryStringsConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyQueryStringsConfig
+</span><a href="#local-6989586621679399956"><span class="hs-identifier hs-var">queryStringsConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679399955"><span class="annot"><span class="annottext">s :: ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399955"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679399954"><span class="annot"><span class="annottext">CachePolicyQueryStringsConfig
+</span><a href="#local-6989586621679399954"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="#local-6989586621679399955"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:queryStringsConfig:ParametersInCacheKeyAndForwardedToOrigin' :: CachePolicyQueryStringsConfig
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#%24sel%3AqueryStringsConfig%3AParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">queryStringsConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyQueryStringsConfig
+</span><a href="#local-6989586621679399954"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-321"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-322"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span>
+</span><span id="line-323"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-324"></span><span>  </span><span id="local-6989586621679399951"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ParametersInCacheKeyAndForwardedToOrigin
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679399949"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399949"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Bool
+-&gt; CachePolicyHeadersConfig
+-&gt; CachePolicyCookiesConfig
+-&gt; CachePolicyQueryStringsConfig
+-&gt; ParametersInCacheKeyAndForwardedToOrigin
+</span><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-var">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span>
+</span><span id="line-326"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Bool
+ -&gt; CachePolicyHeadersConfig
+ -&gt; CachePolicyCookiesConfig
+ -&gt; CachePolicyQueryStringsConfig
+ -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Bool
+      -&gt; CachePolicyHeadersConfig
+      -&gt; CachePolicyCookiesConfig
+      -&gt; CachePolicyQueryStringsConfig
+      -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableAcceptEncodingBrotli&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
+  (Bool
+   -&gt; CachePolicyHeadersConfig
+   -&gt; CachePolicyCookiesConfig
+   -&gt; CachePolicyQueryStringsConfig
+   -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Either String Bool
+-&gt; Either
+     String
+     (CachePolicyHeadersConfig
+      -&gt; CachePolicyCookiesConfig
+      -&gt; CachePolicyQueryStringsConfig
+      -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableAcceptEncodingGzip&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
+  (CachePolicyHeadersConfig
+   -&gt; CachePolicyCookiesConfig
+   -&gt; CachePolicyQueryStringsConfig
+   -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Either String CachePolicyHeadersConfig
+-&gt; Either
+     String
+     (CachePolicyCookiesConfig
+      -&gt; CachePolicyQueryStringsConfig
+      -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyHeadersConfig
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HeadersConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
+  (CachePolicyCookiesConfig
+   -&gt; CachePolicyQueryStringsConfig
+   -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Either String CachePolicyCookiesConfig
+-&gt; Either
+     String
+     (CachePolicyQueryStringsConfig
+      -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyCookiesConfig
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CookiesConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>        </span><span class="annot"><span class="annottext">Either
+  String
+  (CachePolicyQueryStringsConfig
+   -&gt; ParametersInCacheKeyAndForwardedToOrigin)
+-&gt; Either String CachePolicyQueryStringsConfig
+-&gt; Either String ParametersInCacheKeyAndForwardedToOrigin
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679399949"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyQueryStringsConfig
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;QueryStringsConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621679399942"><span id="local-6989586621679399944"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-334"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span></span></span><span>
+</span><span id="line-335"></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-337"></span><span>  </span><span id="local-6989586621679399939"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-338"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span></span><span>
+</span><span id="line-339"></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-341"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span>
+</span><span id="line-342"></span><span>    </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin</span></a></span><span>
+</span><span id="line-343"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-344"></span><span>  </span><span id="local-6989586621679399935"><span class="annot"><span class="annottext">toXML :: ParametersInCacheKeyAndForwardedToOrigin -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.ParametersInCacheKeyAndForwardedToOrigin.html#ParametersInCacheKeyAndForwardedToOrigin%27"><span class="hs-identifier hs-type">ParametersInCacheKeyAndForwardedToOrigin'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679399929"><span id="local-6989586621679399930"><span id="local-6989586621679399931"><span id="local-6989586621679399932"><span id="local-6989586621679399933"><span class="annot"><span class="annottext">Bool
+Maybe Bool
+CachePolicyCookiesConfig
+CachePolicyHeadersConfig
+CachePolicyQueryStringsConfig
+queryStringsConfig :: CachePolicyQueryStringsConfig
+cookiesConfig :: CachePolicyCookiesConfig
+headersConfig :: CachePolicyHeadersConfig
+enableAcceptEncodingGzip :: Bool
+enableAcceptEncodingBrotli :: Maybe Bool
+$sel:queryStringsConfig:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyQueryStringsConfig
+$sel:cookiesConfig:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyCookiesConfig
+$sel:headersConfig:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin
+-&gt; CachePolicyHeadersConfig
+$sel:enableAcceptEncodingGzip:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin -&gt; Bool
+$sel:enableAcceptEncodingBrotli:ParametersInCacheKeyAndForwardedToOrigin' :: ParametersInCacheKeyAndForwardedToOrigin -&gt; Maybe Bool
+</span><a href="#local-6989586621679399929"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-345"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-346"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;EnableAcceptEncodingBrotli&quot;</span></span><span>
+</span><span id="line-347"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Maybe Bool -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679399933"><span class="hs-identifier hs-var">enableAcceptEncodingBrotli</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-348"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;EnableAcceptEncodingGzip&quot;</span></span><span>
+</span><span id="line-349"></span><span>          </span><span class="annot"><span class="annottext">Name -&gt; Bool -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679399932"><span class="hs-identifier hs-var">enableAcceptEncodingGzip</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-350"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;HeadersConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; CachePolicyHeadersConfig -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">CachePolicyHeadersConfig
+</span><a href="#local-6989586621679399931"><span class="hs-identifier hs-var">headersConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-351"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;CookiesConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; CachePolicyCookiesConfig -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">CachePolicyCookiesConfig
+</span><a href="#local-6989586621679399930"><span class="hs-identifier hs-var">cookiesConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;QueryStringsConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; CachePolicyQueryStringsConfig -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">CachePolicyQueryStringsConfig
+</span><a href="#local-6989586621679399929"><span class="hs-identifier hs-var">queryStringsConfig</span></a></span><span>
+</span><span id="line-353"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-354"></span></pre></body></html>

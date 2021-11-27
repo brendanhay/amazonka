@@ -1,0 +1,295 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.H264ForceFieldPictures</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.H264ForceFieldPictures</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures"><span class="hs-identifier">H264ForceFieldPictures</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures_DISABLED"><span class="hs-identifier">H264ForceFieldPictures_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures_ENABLED"><span class="hs-identifier">H264ForceFieldPictures_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | H264 Force Field Pictures</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679879505"><span id="local-6989586621679879506"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="H264ForceFieldPictures"><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures"><span class="hs-identifier hs-var">H264ForceFieldPictures</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="H264ForceFieldPictures%27"><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures%27"><span class="hs-identifier hs-var">H264ForceFieldPictures'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromH264ForceFieldPictures"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#fromH264ForceFieldPictures"><span class="hs-identifier hs-var hs-var">fromH264ForceFieldPictures</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879497"><span id="local-6989586621679879499"><span id="local-6989586621679879501"><span class="annot"><span class="annottext">Int -&gt; H264ForceFieldPictures -&gt; ShowS
+[H264ForceFieldPictures] -&gt; ShowS
+H264ForceFieldPictures -&gt; String
+(Int -&gt; H264ForceFieldPictures -&gt; ShowS)
+-&gt; (H264ForceFieldPictures -&gt; String)
+-&gt; ([H264ForceFieldPictures] -&gt; ShowS)
+-&gt; Show H264ForceFieldPictures
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [H264ForceFieldPictures] -&gt; ShowS
+$cshowList :: [H264ForceFieldPictures] -&gt; ShowS
+show :: H264ForceFieldPictures -&gt; String
+$cshow :: H264ForceFieldPictures -&gt; String
+showsPrec :: Int -&gt; H264ForceFieldPictures -&gt; ShowS
+$cshowsPrec :: Int -&gt; H264ForceFieldPictures -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679879488"><span id="local-6989586621679879490"><span id="local-6989586621679879492"><span id="local-6989586621679879494"><span class="annot"><span class="annottext">ReadPrec [H264ForceFieldPictures]
+ReadPrec H264ForceFieldPictures
+Int -&gt; ReadS H264ForceFieldPictures
+ReadS [H264ForceFieldPictures]
+(Int -&gt; ReadS H264ForceFieldPictures)
+-&gt; ReadS [H264ForceFieldPictures]
+-&gt; ReadPrec H264ForceFieldPictures
+-&gt; ReadPrec [H264ForceFieldPictures]
+-&gt; Read H264ForceFieldPictures
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [H264ForceFieldPictures]
+$creadListPrec :: ReadPrec [H264ForceFieldPictures]
+readPrec :: ReadPrec H264ForceFieldPictures
+$creadPrec :: ReadPrec H264ForceFieldPictures
+readList :: ReadS [H264ForceFieldPictures]
+$creadList :: ReadS [H264ForceFieldPictures]
+readsPrec :: Int -&gt; ReadS H264ForceFieldPictures
+$creadsPrec :: Int -&gt; ReadS H264ForceFieldPictures
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679879483"><span id="local-6989586621679879485"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+(H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool)
+-&gt; (H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool)
+-&gt; Eq H264ForceFieldPictures
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+$c/= :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+== :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+$c== :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679879467"><span id="local-6989586621679879469"><span id="local-6989586621679879471"><span id="local-6989586621679879473"><span id="local-6989586621679879475"><span id="local-6989586621679879477"><span id="local-6989586621679879479"><span class="annot"><span class="annottext">Eq H264ForceFieldPictures
+Eq H264ForceFieldPictures
+-&gt; (H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Ordering)
+-&gt; (H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool)
+-&gt; (H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool)
+-&gt; (H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool)
+-&gt; (H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool)
+-&gt; (H264ForceFieldPictures
+    -&gt; H264ForceFieldPictures -&gt; H264ForceFieldPictures)
+-&gt; (H264ForceFieldPictures
+    -&gt; H264ForceFieldPictures -&gt; H264ForceFieldPictures)
+-&gt; Ord H264ForceFieldPictures
+H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Ordering
+H264ForceFieldPictures
+-&gt; H264ForceFieldPictures -&gt; H264ForceFieldPictures
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: H264ForceFieldPictures
+-&gt; H264ForceFieldPictures -&gt; H264ForceFieldPictures
+$cmin :: H264ForceFieldPictures
+-&gt; H264ForceFieldPictures -&gt; H264ForceFieldPictures
+max :: H264ForceFieldPictures
+-&gt; H264ForceFieldPictures -&gt; H264ForceFieldPictures
+$cmax :: H264ForceFieldPictures
+-&gt; H264ForceFieldPictures -&gt; H264ForceFieldPictures
+&gt;= :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+$c&gt;= :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+&gt; :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+$c&gt; :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+&lt;= :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+$c&lt;= :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+&lt; :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+$c&lt; :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Bool
+compare :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Ordering
+$ccompare :: H264ForceFieldPictures -&gt; H264ForceFieldPictures -&gt; Ordering
+$cp1Ord :: Eq H264ForceFieldPictures
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. H264ForceFieldPictures -&gt; Rep H264ForceFieldPictures x)
+-&gt; (forall x.
+    Rep H264ForceFieldPictures x -&gt; H264ForceFieldPictures)
+-&gt; Generic H264ForceFieldPictures
+forall x. Rep H264ForceFieldPictures x -&gt; H264ForceFieldPictures
+forall x. H264ForceFieldPictures -&gt; Rep H264ForceFieldPictures x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep H264ForceFieldPictures x -&gt; H264ForceFieldPictures
+$cfrom :: forall x. H264ForceFieldPictures -&gt; Rep H264ForceFieldPictures x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679879459"><span id="local-6989586621679879461"><span class="annot"><span class="annottext">Int -&gt; H264ForceFieldPictures -&gt; Int
+H264ForceFieldPictures -&gt; Int
+(Int -&gt; H264ForceFieldPictures -&gt; Int)
+-&gt; (H264ForceFieldPictures -&gt; Int)
+-&gt; Hashable H264ForceFieldPictures
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: H264ForceFieldPictures -&gt; Int
+$chash :: H264ForceFieldPictures -&gt; Int
+hashWithSalt :: Int -&gt; H264ForceFieldPictures -&gt; Int
+$chashWithSalt :: Int -&gt; H264ForceFieldPictures -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679879456"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; ()
+(H264ForceFieldPictures -&gt; ()) -&gt; NFData H264ForceFieldPictures
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: H264ForceFieldPictures -&gt; ()
+$crnf :: H264ForceFieldPictures -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679879453"><span class="annot"><span class="annottext">Text -&gt; Either String H264ForceFieldPictures
+(Text -&gt; Either String H264ForceFieldPictures)
+-&gt; FromText H264ForceFieldPictures
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String H264ForceFieldPictures
+$cfromText :: Text -&gt; Either String H264ForceFieldPictures
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679879450"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; Text
+(H264ForceFieldPictures -&gt; Text) -&gt; ToText H264ForceFieldPictures
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: H264ForceFieldPictures -&gt; Text
+$ctoText :: H264ForceFieldPictures -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679879447"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; ByteString
+(H264ForceFieldPictures -&gt; ByteString)
+-&gt; ToByteString H264ForceFieldPictures
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: H264ForceFieldPictures -&gt; ByteString
+$ctoBS :: H264ForceFieldPictures -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679879444"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; ByteStringBuilder
+(H264ForceFieldPictures -&gt; ByteStringBuilder)
+-&gt; ToLog H264ForceFieldPictures
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: H264ForceFieldPictures -&gt; ByteStringBuilder
+$cbuild :: H264ForceFieldPictures -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679879441"><span class="annot"><span class="annottext">HeaderName -&gt; H264ForceFieldPictures -&gt; [Header]
+(HeaderName -&gt; H264ForceFieldPictures -&gt; [Header])
+-&gt; ToHeader H264ForceFieldPictures
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; H264ForceFieldPictures -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; H264ForceFieldPictures -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679879438"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; QueryString
+(H264ForceFieldPictures -&gt; QueryString)
+-&gt; ToQuery H264ForceFieldPictures
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: H264ForceFieldPictures -&gt; QueryString
+$ctoQuery :: H264ForceFieldPictures -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679879433"><span id="local-6989586621679879435"><span class="annot"><span class="annottext">Value -&gt; Parser [H264ForceFieldPictures]
+Value -&gt; Parser H264ForceFieldPictures
+(Value -&gt; Parser H264ForceFieldPictures)
+-&gt; (Value -&gt; Parser [H264ForceFieldPictures])
+-&gt; FromJSON H264ForceFieldPictures
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [H264ForceFieldPictures]
+$cparseJSONList :: Value -&gt; Parser [H264ForceFieldPictures]
+parseJSON :: Value -&gt; Parser H264ForceFieldPictures
+$cparseJSON :: Value -&gt; Parser H264ForceFieldPictures
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679879428"><span id="local-6989586621679879430"><span class="annot"><span class="annottext">FromJSONKeyFunction [H264ForceFieldPictures]
+FromJSONKeyFunction H264ForceFieldPictures
+FromJSONKeyFunction H264ForceFieldPictures
+-&gt; FromJSONKeyFunction [H264ForceFieldPictures]
+-&gt; FromJSONKey H264ForceFieldPictures
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [H264ForceFieldPictures]
+$cfromJSONKeyList :: FromJSONKeyFunction [H264ForceFieldPictures]
+fromJSONKey :: FromJSONKeyFunction H264ForceFieldPictures
+$cfromJSONKey :: FromJSONKeyFunction H264ForceFieldPictures
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679879419"><span id="local-6989586621679879421"><span id="local-6989586621679879423"><span id="local-6989586621679879425"><span class="annot"><span class="annottext">[H264ForceFieldPictures] -&gt; Encoding
+[H264ForceFieldPictures] -&gt; Value
+H264ForceFieldPictures -&gt; Encoding
+H264ForceFieldPictures -&gt; Value
+(H264ForceFieldPictures -&gt; Value)
+-&gt; (H264ForceFieldPictures -&gt; Encoding)
+-&gt; ([H264ForceFieldPictures] -&gt; Value)
+-&gt; ([H264ForceFieldPictures] -&gt; Encoding)
+-&gt; ToJSON H264ForceFieldPictures
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [H264ForceFieldPictures] -&gt; Encoding
+$ctoEncodingList :: [H264ForceFieldPictures] -&gt; Encoding
+toJSONList :: [H264ForceFieldPictures] -&gt; Value
+$ctoJSONList :: [H264ForceFieldPictures] -&gt; Value
+toEncoding :: H264ForceFieldPictures -&gt; Encoding
+$ctoEncoding :: H264ForceFieldPictures -&gt; Encoding
+toJSON :: H264ForceFieldPictures -&gt; Value
+$ctoJSON :: H264ForceFieldPictures -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679879414"><span id="local-6989586621679879416"><span class="annot"><span class="annottext">ToJSONKeyFunction [H264ForceFieldPictures]
+ToJSONKeyFunction H264ForceFieldPictures
+ToJSONKeyFunction H264ForceFieldPictures
+-&gt; ToJSONKeyFunction [H264ForceFieldPictures]
+-&gt; ToJSONKey H264ForceFieldPictures
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [H264ForceFieldPictures]
+$ctoJSONKeyList :: ToJSONKeyFunction [H264ForceFieldPictures]
+toJSONKey :: ToJSONKeyFunction H264ForceFieldPictures
+$ctoJSONKey :: ToJSONKeyFunction H264ForceFieldPictures
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679879411"><span class="annot"><span class="annottext">[Node] -&gt; Either String H264ForceFieldPictures
+([Node] -&gt; Either String H264ForceFieldPictures)
+-&gt; FromXML H264ForceFieldPictures
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String H264ForceFieldPictures
+$cparseXML :: [Node] -&gt; Either String H264ForceFieldPictures
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679879408"><span class="annot"><span class="annottext">H264ForceFieldPictures -&gt; XML
+(H264ForceFieldPictures -&gt; XML) -&gt; ToXML H264ForceFieldPictures
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: H264ForceFieldPictures -&gt; XML
+$ctoXML :: H264ForceFieldPictures -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures_DISABLED"><span class="hs-identifier hs-type">H264ForceFieldPictures_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures"><span class="hs-identifier hs-type">H264ForceFieldPictures</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264ForceFieldPictures_DISABLED"><span id="%24mH264ForceFieldPictures_DISABLED"><span id="H264ForceFieldPictures_DISABLED"><span class="annot"><span class="annottext">$bH264ForceFieldPictures_DISABLED :: H264ForceFieldPictures
+$mH264ForceFieldPictures_DISABLED :: forall r.
+H264ForceFieldPictures -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#%24bH264ForceFieldPictures_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">H264ForceFieldPictures_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures%27"><span class="hs-identifier hs-type">H264ForceFieldPictures'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures_ENABLED"><span class="hs-identifier hs-type">H264ForceFieldPictures_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures"><span class="hs-identifier hs-type">H264ForceFieldPictures</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bH264ForceFieldPictures_ENABLED"><span id="%24mH264ForceFieldPictures_ENABLED"><span id="H264ForceFieldPictures_ENABLED"><span class="annot"><span class="annottext">$bH264ForceFieldPictures_ENABLED :: H264ForceFieldPictures
+$mH264ForceFieldPictures_ENABLED :: forall r.
+H264ForceFieldPictures -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#%24bH264ForceFieldPictures_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">H264ForceFieldPictures_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures%27"><span class="hs-identifier hs-type">H264ForceFieldPictures'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures_DISABLED"><span class="hs-pragma hs-type">H264ForceFieldPictures_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures_ENABLED"><span class="hs-pragma hs-type">H264ForceFieldPictures_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.H264ForceFieldPictures.html#H264ForceFieldPictures%27"><span class="hs-pragma hs-type">H264ForceFieldPictures'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

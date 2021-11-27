@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Wisdom.CreateSession</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a session. A session is a contextual container used for</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- generating recommendations. Amazon Connect creates a new Wisdom session</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- for each contact on which Wisdom is enabled.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Wisdom.CreateSession</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier">CreateSession</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#newCreateSession"><span class="hs-identifier">newCreateSession</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_clientToken"><span class="hs-identifier">createSession_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_description"><span class="hs-identifier">createSession_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_tags"><span class="hs-identifier">createSession_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_assistantId"><span class="hs-identifier">createSession_assistantId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_name"><span class="hs-identifier">createSession_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier">CreateSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#newCreateSessionResponse"><span class="hs-identifier">newCreateSessionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSessionResponse_session"><span class="hs-identifier">createSessionResponse_session</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSessionResponse_httpStatus"><span class="hs-identifier">createSessionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.html"><span class="hs-identifier">Amazonka.Wisdom.Types</span></a></span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- | /See:/ 'newCreateSession' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679229144"><span id="local-6989586621679229145"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSession"><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-var">CreateSession</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSession%27"><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-var">CreateSession'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateSession%27"><span class="annot"><span class="annottext">CreateSession -&gt; Maybe Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AclientToken%3ACreateSession%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Adescription%3ACreateSession%27"><span class="annot"><span class="annottext">CreateSession -&gt; Maybe Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Adescription%3ACreateSession%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Atags%3ACreateSession%27"><span class="annot"><span class="annottext">CreateSession -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Atags%3ACreateSession%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- URLs cannot contain the ARN.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AassistantId%3ACreateSession%27"><span class="annot"><span class="annottext">CreateSession -&gt; Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AassistantId%3ACreateSession%27"><span class="hs-identifier hs-var hs-var">assistantId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The name of the session.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Aname%3ACreateSession%27"><span class="annot"><span class="annottext">CreateSession -&gt; Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Aname%3ACreateSession%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229134"><span id="local-6989586621679229136"><span class="annot"><span class="annottext">CreateSession -&gt; CreateSession -&gt; Bool
+(CreateSession -&gt; CreateSession -&gt; Bool)
+-&gt; (CreateSession -&gt; CreateSession -&gt; Bool) -&gt; Eq CreateSession
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSession -&gt; CreateSession -&gt; Bool
+$c/= :: CreateSession -&gt; CreateSession -&gt; Bool
+== :: CreateSession -&gt; CreateSession -&gt; Bool
+$c== :: CreateSession -&gt; CreateSession -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229125"><span id="local-6989586621679229127"><span id="local-6989586621679229129"><span id="local-6989586621679229131"><span class="annot"><span class="annottext">ReadPrec [CreateSession]
+ReadPrec CreateSession
+Int -&gt; ReadS CreateSession
+ReadS [CreateSession]
+(Int -&gt; ReadS CreateSession)
+-&gt; ReadS [CreateSession]
+-&gt; ReadPrec CreateSession
+-&gt; ReadPrec [CreateSession]
+-&gt; Read CreateSession
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSession]
+$creadListPrec :: ReadPrec [CreateSession]
+readPrec :: ReadPrec CreateSession
+$creadPrec :: ReadPrec CreateSession
+readList :: ReadS [CreateSession]
+$creadList :: ReadS [CreateSession]
+readsPrec :: Int -&gt; ReadS CreateSession
+$creadsPrec :: Int -&gt; ReadS CreateSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229118"><span id="local-6989586621679229120"><span id="local-6989586621679229122"><span class="annot"><span class="annottext">Int -&gt; CreateSession -&gt; ShowS
+[CreateSession] -&gt; ShowS
+CreateSession -&gt; String
+(Int -&gt; CreateSession -&gt; ShowS)
+-&gt; (CreateSession -&gt; String)
+-&gt; ([CreateSession] -&gt; ShowS)
+-&gt; Show CreateSession
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSession] -&gt; ShowS
+$cshowList :: [CreateSession] -&gt; ShowS
+show :: CreateSession -&gt; String
+$cshow :: CreateSession -&gt; String
+showsPrec :: Int -&gt; CreateSession -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSession -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSession -&gt; Rep CreateSession x)
+-&gt; (forall x. Rep CreateSession x -&gt; CreateSession)
+-&gt; Generic CreateSession
+forall x. Rep CreateSession x -&gt; CreateSession
+forall x. CreateSession -&gt; Rep CreateSession x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSession x -&gt; CreateSession
+$cfrom :: forall x. CreateSession -&gt; Rep CreateSession x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'CreateSession' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'clientToken', 'createSession_clientToken' - A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'description', 'createSession_description' - The description.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'tags', 'createSession_tags' - The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'assistantId', 'createSession_assistantId' - The identifier of the Wisdom assistant. Can be either the ID or the ARN.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- URLs cannot contain the ARN.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'name', 'createSession_name' - The name of the session.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#newCreateSession"><span class="hs-identifier hs-type">newCreateSession</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'assistantId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span>
+</span><span id="line-97"></span><span id="newCreateSession"><span class="annot"><span class="annottext">newCreateSession :: Text -&gt; Text -&gt; CreateSession
+</span><a href="Amazonka.Wisdom.CreateSession.html#newCreateSession"><span class="hs-identifier hs-var hs-var">newCreateSession</span></a></span></span><span> </span><span id="local-6989586621679229113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229113"><span class="hs-identifier hs-var">pAssistantId_</span></a></span></span><span> </span><span id="local-6989586621679229112"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229112"><span class="hs-identifier hs-var">pName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="annottext">CreateSession' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Text
+-&gt; CreateSession
+</span><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateSession' :: Maybe Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AclientToken%3ACreateSession%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:CreateSession' :: Maybe Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Adescription%3ACreateSession%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateSession' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Atags%3ACreateSession%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:assistantId:CreateSession' :: Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AassistantId%3ACreateSession%27"><span class="hs-identifier hs-var">assistantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229113"><span class="hs-identifier hs-var">pAssistantId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:CreateSession' :: Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Aname%3ACreateSession%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229112"><span class="hs-identifier hs-var">pName_</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | A unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- idempotency of the request.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_clientToken"><span class="hs-identifier hs-type">createSession_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="createSession_clientToken"><span class="annot"><span class="annottext">createSession_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateSession -&gt; f CreateSession
+</span><a href="Amazonka.Wisdom.CreateSession.html#createSession_clientToken"><span class="hs-identifier hs-var hs-var">createSession_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSession -&gt; Maybe Text)
+-&gt; (CreateSession -&gt; Maybe Text -&gt; CreateSession)
+-&gt; Lens CreateSession CreateSession (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229109"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateSession' :: CreateSession -&gt; Maybe Text
+</span><a href="#local-6989586621679229109"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229109"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229108"><span class="annot"><span class="annottext">s :: CreateSession
+</span><a href="#local-6989586621679229108"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229107"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229107"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSession
+</span><a href="#local-6989586621679229108"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateSession' :: Maybe Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AclientToken%3ACreateSession%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229107"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The description.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_description"><span class="hs-identifier hs-type">createSession_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="createSession_description"><span class="annot"><span class="annottext">createSession_description :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateSession -&gt; f CreateSession
+</span><a href="Amazonka.Wisdom.CreateSession.html#createSession_description"><span class="hs-identifier hs-var hs-var">createSession_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSession -&gt; Maybe Text)
+-&gt; (CreateSession -&gt; Maybe Text -&gt; CreateSession)
+-&gt; Lens CreateSession CreateSession (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229106"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateSession' :: CreateSession -&gt; Maybe Text
+</span><a href="#local-6989586621679229106"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229106"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229105"><span class="annot"><span class="annottext">s :: CreateSession
+</span><a href="#local-6989586621679229105"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229104"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229104"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSession
+</span><a href="#local-6989586621679229105"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateSession' :: Maybe Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Adescription%3ACreateSession%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229104"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The tags used to organize, track, or control access for this resource.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_tags"><span class="hs-identifier hs-type">createSession_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="createSession_tags"><span class="annot"><span class="annottext">createSession_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateSession -&gt; f CreateSession
+</span><a href="Amazonka.Wisdom.CreateSession.html#createSession_tags"><span class="hs-identifier hs-var hs-var">createSession_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSession -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateSession -&gt; Maybe (HashMap Text Text) -&gt; CreateSession)
+-&gt; Lens
+     CreateSession
+     CreateSession
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229103"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateSession' :: CreateSession -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229103"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229103"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229102"><span class="annot"><span class="annottext">s :: CreateSession
+</span><a href="#local-6989586621679229102"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229101"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229101"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSession
+</span><a href="#local-6989586621679229102"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateSession' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Atags%3ACreateSession%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229101"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateSession -&gt; f CreateSession)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateSession
+-&gt; f CreateSession
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The identifier of the Wisdom assistant. Can be either the ID or the ARN.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- URLs cannot contain the ARN.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_assistantId"><span class="hs-identifier hs-type">createSession_assistantId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-122"></span><span id="createSession_assistantId"><span class="annot"><span class="annottext">createSession_assistantId :: (Text -&gt; f Text) -&gt; CreateSession -&gt; f CreateSession
+</span><a href="Amazonka.Wisdom.CreateSession.html#createSession_assistantId"><span class="hs-identifier hs-var hs-var">createSession_assistantId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSession -&gt; Text)
+-&gt; (CreateSession -&gt; Text -&gt; CreateSession)
+-&gt; Lens CreateSession CreateSession Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229097"><span class="annot"><span class="annottext">Text
+assistantId :: Text
+$sel:assistantId:CreateSession' :: CreateSession -&gt; Text
+</span><a href="#local-6989586621679229097"><span class="hs-identifier hs-var hs-var">assistantId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229097"><span class="hs-identifier hs-var">assistantId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229096"><span class="annot"><span class="annottext">s :: CreateSession
+</span><a href="#local-6989586621679229096"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229095"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229095"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSession
+</span><a href="#local-6989586621679229096"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assistantId:CreateSession' :: Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AassistantId%3ACreateSession%27"><span class="hs-identifier hs-var">assistantId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229095"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The name of the session.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSession_name"><span class="hs-identifier hs-type">createSession_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="createSession_name"><span class="annot"><span class="annottext">createSession_name :: (Text -&gt; f Text) -&gt; CreateSession -&gt; f CreateSession
+</span><a href="Amazonka.Wisdom.CreateSession.html#createSession_name"><span class="hs-identifier hs-var hs-var">createSession_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSession -&gt; Text)
+-&gt; (CreateSession -&gt; Text -&gt; CreateSession)
+-&gt; Lens CreateSession CreateSession Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229094"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateSession' :: CreateSession -&gt; Text
+</span><a href="#local-6989586621679229094"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229094"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229093"><span class="annot"><span class="annottext">s :: CreateSession
+</span><a href="#local-6989586621679229093"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229092"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229092"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSession
+</span><a href="#local-6989586621679229093"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateSession' :: Text
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Aname%3ACreateSession%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229092"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-130"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-type">CreateSessionResponse</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679229088"><span class="annot"><span class="annottext">request :: CreateSession -&gt; Request CreateSession
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateSession -&gt; Request CreateSession
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Wisdom.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679229084"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateSession)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateSession))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateSession
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateSession)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-135"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229081"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229081"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679229080"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679229080"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679229079"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229079"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">Maybe SessionData -&gt; Int -&gt; CreateSessionResponse
+</span><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse%27"><span class="hs-identifier hs-var">CreateSessionResponse'</span></a></span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">(Maybe SessionData -&gt; Int -&gt; CreateSessionResponse)
+-&gt; Either String (Maybe SessionData)
+-&gt; Either String (Int -&gt; CreateSessionResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229079"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe SessionData)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;session&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateSessionResponse)
+-&gt; Either String Int -&gt; Either String CreateSessionResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229081"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229071"><span id="local-6989586621679229073"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229068"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679229064"><span class="annot"><span class="annottext">toHeaders :: CreateSession -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateSession -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-150"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-152"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679229054"><span id="local-6989586621679229056"><span id="local-6989586621679229058"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679229052"><span class="annot"><span class="annottext">toJSON :: CreateSession -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229046"><span id="local-6989586621679229047"><span id="local-6989586621679229048"><span id="local-6989586621679229049"><span id="local-6989586621679229050"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+name :: Text
+assistantId :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+clientToken :: Maybe Text
+$sel:name:CreateSession' :: CreateSession -&gt; Text
+$sel:assistantId:CreateSession' :: CreateSession -&gt; Text
+$sel:tags:CreateSession' :: CreateSession -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateSession' :: CreateSession -&gt; Maybe Text
+$sel:clientToken:CreateSession' :: CreateSession -&gt; Maybe Text
+</span><a href="#local-6989586621679229046"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229050"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229049"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679229048"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229046"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621679229040"><span class="annot"><span class="annottext">toPath :: CreateSession -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession%27"><span class="hs-identifier hs-type">CreateSession'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229034"><span id="local-6989586621679229035"><span id="local-6989586621679229036"><span id="local-6989586621679229037"><span id="local-6989586621679229038"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Text
+name :: Text
+assistantId :: Text
+tags :: Maybe (HashMap Text Text)
+description :: Maybe Text
+clientToken :: Maybe Text
+$sel:name:CreateSession' :: CreateSession -&gt; Text
+$sel:assistantId:CreateSession' :: CreateSession -&gt; Text
+$sel:tags:CreateSession' :: CreateSession -&gt; Maybe (HashMap Text Text)
+$sel:description:CreateSession' :: CreateSession -&gt; Maybe Text
+$sel:clientToken:CreateSession' :: CreateSession -&gt; Maybe Text
+</span><a href="#local-6989586621679229034"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/assistants/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229035"><span class="hs-identifier hs-var">assistantId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sessions&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSession"><span class="hs-identifier hs-type">CreateSession</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679229030"><span class="annot"><span class="annottext">toQuery :: CreateSession -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateSession -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | /See:/ 'newCreateSessionResponse' smart constructor.</span><span>
+</span><span id="line-176"></span><span id="local-6989586621679229027"><span id="local-6989586621679229028"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateSessionResponse"><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-var">CreateSessionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateSessionResponse%27"><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse%27"><span class="hs-identifier hs-var">CreateSessionResponse'</span></a></span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The session.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Asession%3ACreateSessionResponse%27"><span class="annot"><span class="annottext">CreateSessionResponse -&gt; Maybe SessionData
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Asession%3ACreateSessionResponse%27"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.SessionData.html#SessionData"><span class="hs-identifier hs-type">SessionData</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateSessionResponse%27"><span class="annot"><span class="annottext">CreateSessionResponse -&gt; Int
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AhttpStatus%3ACreateSessionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229021"><span id="local-6989586621679229023"><span class="annot"><span class="annottext">CreateSessionResponse -&gt; CreateSessionResponse -&gt; Bool
+(CreateSessionResponse -&gt; CreateSessionResponse -&gt; Bool)
+-&gt; (CreateSessionResponse -&gt; CreateSessionResponse -&gt; Bool)
+-&gt; Eq CreateSessionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateSessionResponse -&gt; CreateSessionResponse -&gt; Bool
+$c/= :: CreateSessionResponse -&gt; CreateSessionResponse -&gt; Bool
+== :: CreateSessionResponse -&gt; CreateSessionResponse -&gt; Bool
+$c== :: CreateSessionResponse -&gt; CreateSessionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229013"><span id="local-6989586621679229015"><span id="local-6989586621679229017"><span id="local-6989586621679229019"><span class="annot"><span class="annottext">ReadPrec [CreateSessionResponse]
+ReadPrec CreateSessionResponse
+Int -&gt; ReadS CreateSessionResponse
+ReadS [CreateSessionResponse]
+(Int -&gt; ReadS CreateSessionResponse)
+-&gt; ReadS [CreateSessionResponse]
+-&gt; ReadPrec CreateSessionResponse
+-&gt; ReadPrec [CreateSessionResponse]
+-&gt; Read CreateSessionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateSessionResponse]
+$creadListPrec :: ReadPrec [CreateSessionResponse]
+readPrec :: ReadPrec CreateSessionResponse
+$creadPrec :: ReadPrec CreateSessionResponse
+readList :: ReadS [CreateSessionResponse]
+$creadList :: ReadS [CreateSessionResponse]
+readsPrec :: Int -&gt; ReadS CreateSessionResponse
+$creadsPrec :: Int -&gt; ReadS CreateSessionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229007"><span id="local-6989586621679229009"><span id="local-6989586621679229011"><span class="annot"><span class="annottext">Int -&gt; CreateSessionResponse -&gt; ShowS
+[CreateSessionResponse] -&gt; ShowS
+CreateSessionResponse -&gt; String
+(Int -&gt; CreateSessionResponse -&gt; ShowS)
+-&gt; (CreateSessionResponse -&gt; String)
+-&gt; ([CreateSessionResponse] -&gt; ShowS)
+-&gt; Show CreateSessionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateSessionResponse] -&gt; ShowS
+$cshowList :: [CreateSessionResponse] -&gt; ShowS
+show :: CreateSessionResponse -&gt; String
+$cshow :: CreateSessionResponse -&gt; String
+showsPrec :: Int -&gt; CreateSessionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateSessionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateSessionResponse -&gt; Rep CreateSessionResponse x)
+-&gt; (forall x. Rep CreateSessionResponse x -&gt; CreateSessionResponse)
+-&gt; Generic CreateSessionResponse
+forall x. Rep CreateSessionResponse x -&gt; CreateSessionResponse
+forall x. CreateSessionResponse -&gt; Rep CreateSessionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateSessionResponse x -&gt; CreateSessionResponse
+$cfrom :: forall x. CreateSessionResponse -&gt; Rep CreateSessionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Create a value of 'CreateSessionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'session', 'createSessionResponse_session' - The session.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'httpStatus', 'createSessionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#newCreateSessionResponse"><span class="hs-identifier hs-type">newCreateSessionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-type">CreateSessionResponse</span></a></span><span>
+</span><span id="line-199"></span><span id="newCreateSessionResponse"><span class="annot"><span class="annottext">newCreateSessionResponse :: Int -&gt; CreateSessionResponse
+</span><a href="Amazonka.Wisdom.CreateSession.html#newCreateSessionResponse"><span class="hs-identifier hs-var hs-var">newCreateSessionResponse</span></a></span></span><span> </span><span id="local-6989586621679229004"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229004"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="annottext">CreateSessionResponse' :: Maybe SessionData -&gt; Int -&gt; CreateSessionResponse
+</span><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse%27"><span class="hs-identifier hs-type">CreateSessionResponse'</span></a></span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:session:CreateSessionResponse' :: Maybe SessionData
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Asession%3ACreateSessionResponse%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionData
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSessionResponse' :: Int
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AhttpStatus%3ACreateSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229004"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The session.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSessionResponse_session"><span class="hs-identifier hs-type">createSessionResponse_session</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-type">CreateSessionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.Types.SessionData.html#SessionData"><span class="hs-identifier hs-type">SessionData</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="createSessionResponse_session"><span class="annot"><span class="annottext">createSessionResponse_session :: (Maybe SessionData -&gt; f (Maybe SessionData))
+-&gt; CreateSessionResponse -&gt; f CreateSessionResponse
+</span><a href="Amazonka.Wisdom.CreateSession.html#createSessionResponse_session"><span class="hs-identifier hs-var hs-var">createSessionResponse_session</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSessionResponse -&gt; Maybe SessionData)
+-&gt; (CreateSessionResponse
+    -&gt; Maybe SessionData -&gt; CreateSessionResponse)
+-&gt; Lens
+     CreateSessionResponse
+     CreateSessionResponse
+     (Maybe SessionData)
+     (Maybe SessionData)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse%27"><span class="hs-identifier hs-type">CreateSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229003"><span class="annot"><span class="annottext">Maybe SessionData
+session :: Maybe SessionData
+$sel:session:CreateSessionResponse' :: CreateSessionResponse -&gt; Maybe SessionData
+</span><a href="#local-6989586621679229003"><span class="hs-identifier hs-var hs-var">session</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SessionData
+</span><a href="#local-6989586621679229003"><span class="hs-identifier hs-var">session</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229002"><span class="annot"><span class="annottext">s :: CreateSessionResponse
+</span><a href="#local-6989586621679229002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse%27"><span class="hs-identifier hs-type">CreateSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229001"><span class="annot"><span class="annottext">Maybe SessionData
+</span><a href="#local-6989586621679229001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSessionResponse
+</span><a href="#local-6989586621679229002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:session:CreateSessionResponse' :: Maybe SessionData
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3Asession%3ACreateSessionResponse%27"><span class="hs-identifier hs-var">session</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SessionData
+</span><a href="#local-6989586621679229001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-type">CreateSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#createSessionResponse_httpStatus"><span class="hs-identifier hs-type">createSessionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-type">CreateSessionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-211"></span><span id="createSessionResponse_httpStatus"><span class="annot"><span class="annottext">createSessionResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateSessionResponse -&gt; f CreateSessionResponse
+</span><a href="Amazonka.Wisdom.CreateSession.html#createSessionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createSessionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateSessionResponse -&gt; Int)
+-&gt; (CreateSessionResponse -&gt; Int -&gt; CreateSessionResponse)
+-&gt; Lens CreateSessionResponse CreateSessionResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse%27"><span class="hs-identifier hs-type">CreateSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229000"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateSessionResponse' :: CreateSessionResponse -&gt; Int
+</span><a href="#local-6989586621679229000"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679229000"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679228999"><span class="annot"><span class="annottext">s :: CreateSessionResponse
+</span><a href="#local-6989586621679228999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse%27"><span class="hs-identifier hs-type">CreateSessionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679228998"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateSessionResponse
+</span><a href="#local-6989586621679228999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateSessionResponse' :: Int
+</span><a href="Amazonka.Wisdom.CreateSession.html#%24sel%3AhttpStatus%3ACreateSessionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679228998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-type">CreateSessionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679228996"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Wisdom.CreateSession.html#CreateSessionResponse"><span class="hs-identifier hs-type">CreateSessionResponse</span></a></span></span><span>
+</span><span id="line-214"></span></pre></body></html>

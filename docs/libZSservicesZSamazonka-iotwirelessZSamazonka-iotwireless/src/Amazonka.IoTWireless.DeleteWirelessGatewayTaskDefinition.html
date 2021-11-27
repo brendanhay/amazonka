@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes a wireless gateway task definition. Deleting this task</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- definition does not affect tasks that are currently in progress.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier">DeleteWirelessGatewayTaskDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#newDeleteWirelessGatewayTaskDefinition"><span class="hs-identifier">newDeleteWirelessGatewayTaskDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#deleteWirelessGatewayTaskDefinition_id"><span class="hs-identifier">deleteWirelessGatewayTaskDefinition_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier">DeleteWirelessGatewayTaskDefinitionResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#newDeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier">newDeleteWirelessGatewayTaskDefinitionResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#deleteWirelessGatewayTaskDefinitionResponse_httpStatus"><span class="hs-identifier">deleteWirelessGatewayTaskDefinitionResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.Types.html"><span class="hs-identifier">Amazonka.IoTWireless.Types</span></a></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newDeleteWirelessGatewayTaskDefinition' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679288457"><span id="local-6989586621679288458"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWirelessGatewayTaskDefinition"><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-var">DeleteWirelessGatewayTaskDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWirelessGatewayTaskDefinition%27"><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-var">DeleteWirelessGatewayTaskDefinition'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the resource to delete.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Aid%3ADeleteWirelessGatewayTaskDefinition%27"><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinition -&gt; Text
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#%24sel%3Aid%3ADeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288451"><span id="local-6989586621679288453"><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinition
+-&gt; DeleteWirelessGatewayTaskDefinition -&gt; Bool
+(DeleteWirelessGatewayTaskDefinition
+ -&gt; DeleteWirelessGatewayTaskDefinition -&gt; Bool)
+-&gt; (DeleteWirelessGatewayTaskDefinition
+    -&gt; DeleteWirelessGatewayTaskDefinition -&gt; Bool)
+-&gt; Eq DeleteWirelessGatewayTaskDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteWirelessGatewayTaskDefinition
+-&gt; DeleteWirelessGatewayTaskDefinition -&gt; Bool
+$c/= :: DeleteWirelessGatewayTaskDefinition
+-&gt; DeleteWirelessGatewayTaskDefinition -&gt; Bool
+== :: DeleteWirelessGatewayTaskDefinition
+-&gt; DeleteWirelessGatewayTaskDefinition -&gt; Bool
+$c== :: DeleteWirelessGatewayTaskDefinition
+-&gt; DeleteWirelessGatewayTaskDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288442"><span id="local-6989586621679288444"><span id="local-6989586621679288446"><span id="local-6989586621679288448"><span class="annot"><span class="annottext">ReadPrec [DeleteWirelessGatewayTaskDefinition]
+ReadPrec DeleteWirelessGatewayTaskDefinition
+Int -&gt; ReadS DeleteWirelessGatewayTaskDefinition
+ReadS [DeleteWirelessGatewayTaskDefinition]
+(Int -&gt; ReadS DeleteWirelessGatewayTaskDefinition)
+-&gt; ReadS [DeleteWirelessGatewayTaskDefinition]
+-&gt; ReadPrec DeleteWirelessGatewayTaskDefinition
+-&gt; ReadPrec [DeleteWirelessGatewayTaskDefinition]
+-&gt; Read DeleteWirelessGatewayTaskDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteWirelessGatewayTaskDefinition]
+$creadListPrec :: ReadPrec [DeleteWirelessGatewayTaskDefinition]
+readPrec :: ReadPrec DeleteWirelessGatewayTaskDefinition
+$creadPrec :: ReadPrec DeleteWirelessGatewayTaskDefinition
+readList :: ReadS [DeleteWirelessGatewayTaskDefinition]
+$creadList :: ReadS [DeleteWirelessGatewayTaskDefinition]
+readsPrec :: Int -&gt; ReadS DeleteWirelessGatewayTaskDefinition
+$creadsPrec :: Int -&gt; ReadS DeleteWirelessGatewayTaskDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288435"><span id="local-6989586621679288437"><span id="local-6989586621679288439"><span class="annot"><span class="annottext">Int -&gt; DeleteWirelessGatewayTaskDefinition -&gt; ShowS
+[DeleteWirelessGatewayTaskDefinition] -&gt; ShowS
+DeleteWirelessGatewayTaskDefinition -&gt; String
+(Int -&gt; DeleteWirelessGatewayTaskDefinition -&gt; ShowS)
+-&gt; (DeleteWirelessGatewayTaskDefinition -&gt; String)
+-&gt; ([DeleteWirelessGatewayTaskDefinition] -&gt; ShowS)
+-&gt; Show DeleteWirelessGatewayTaskDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteWirelessGatewayTaskDefinition] -&gt; ShowS
+$cshowList :: [DeleteWirelessGatewayTaskDefinition] -&gt; ShowS
+show :: DeleteWirelessGatewayTaskDefinition -&gt; String
+$cshow :: DeleteWirelessGatewayTaskDefinition -&gt; String
+showsPrec :: Int -&gt; DeleteWirelessGatewayTaskDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteWirelessGatewayTaskDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteWirelessGatewayTaskDefinition
+ -&gt; Rep DeleteWirelessGatewayTaskDefinition x)
+-&gt; (forall x.
+    Rep DeleteWirelessGatewayTaskDefinition x
+    -&gt; DeleteWirelessGatewayTaskDefinition)
+-&gt; Generic DeleteWirelessGatewayTaskDefinition
+forall x.
+Rep DeleteWirelessGatewayTaskDefinition x
+-&gt; DeleteWirelessGatewayTaskDefinition
+forall x.
+DeleteWirelessGatewayTaskDefinition
+-&gt; Rep DeleteWirelessGatewayTaskDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteWirelessGatewayTaskDefinition x
+-&gt; DeleteWirelessGatewayTaskDefinition
+$cfrom :: forall x.
+DeleteWirelessGatewayTaskDefinition
+-&gt; Rep DeleteWirelessGatewayTaskDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DeleteWirelessGatewayTaskDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'id', 'deleteWirelessGatewayTaskDefinition_id' - The ID of the resource to delete.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#newDeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">newDeleteWirelessGatewayTaskDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span>
+</span><span id="line-69"></span><span id="newDeleteWirelessGatewayTaskDefinition"><span class="annot"><span class="annottext">newDeleteWirelessGatewayTaskDefinition :: Text -&gt; DeleteWirelessGatewayTaskDefinition
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#newDeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-var hs-var">newDeleteWirelessGatewayTaskDefinition</span></a></span></span><span> </span><span id="local-6989586621679288430"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288430"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinition' :: Text -&gt; DeleteWirelessGatewayTaskDefinition
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteWirelessGatewayTaskDefinition' :: Text
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#%24sel%3Aid%3ADeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288430"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The ID of the resource to delete.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#deleteWirelessGatewayTaskDefinition_id"><span class="hs-identifier hs-type">deleteWirelessGatewayTaskDefinition_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="deleteWirelessGatewayTaskDefinition_id"><span class="annot"><span class="annottext">deleteWirelessGatewayTaskDefinition_id :: (Text -&gt; f Text)
+-&gt; DeleteWirelessGatewayTaskDefinition
+-&gt; f DeleteWirelessGatewayTaskDefinition
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#deleteWirelessGatewayTaskDefinition_id"><span class="hs-identifier hs-var hs-var">deleteWirelessGatewayTaskDefinition_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWirelessGatewayTaskDefinition -&gt; Text)
+-&gt; (DeleteWirelessGatewayTaskDefinition
+    -&gt; Text -&gt; DeleteWirelessGatewayTaskDefinition)
+-&gt; Lens
+     DeleteWirelessGatewayTaskDefinition
+     DeleteWirelessGatewayTaskDefinition
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288427"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeleteWirelessGatewayTaskDefinition' :: DeleteWirelessGatewayTaskDefinition -&gt; Text
+</span><a href="#local-6989586621679288427"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288427"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288426"><span class="annot"><span class="annottext">s :: DeleteWirelessGatewayTaskDefinition
+</span><a href="#local-6989586621679288426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinition
+</span><a href="#local-6989586621679288426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DeleteWirelessGatewayTaskDefinition' :: Text
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#%24sel%3Aid%3ADeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-81"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse</span></a></span><span>
+</span><span id="line-83"></span><span>  </span><span id="local-6989586621679288421"><span class="annot"><span class="annottext">request :: DeleteWirelessGatewayTaskDefinition
+-&gt; Request DeleteWirelessGatewayTaskDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteWirelessGatewayTaskDefinition
+-&gt; Request DeleteWirelessGatewayTaskDefinition
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTWireless.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621679288417"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteWirelessGatewayTaskDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeleteWirelessGatewayTaskDefinition)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse DeleteWirelessGatewayTaskDefinition))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteWirelessGatewayTaskDefinition
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse (AWSResponse DeleteWirelessGatewayTaskDefinition)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679288414"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288414"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679288413"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679288413"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679288412"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679288412"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteWirelessGatewayTaskDefinitionResponse'</span></a></span><span>
+</span><span id="line-88"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteWirelessGatewayTaskDefinitionResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288414"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679288405"><span id="local-6989586621679288407"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span></span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679288402"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679288398"><span class="annot"><span class="annottext">toHeaders :: DeleteWirelessGatewayTaskDefinition -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DeleteWirelessGatewayTaskDefinition -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679288393"><span class="annot"><span class="annottext">toPath :: DeleteWirelessGatewayTaskDefinition -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288391"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DeleteWirelessGatewayTaskDefinition' :: DeleteWirelessGatewayTaskDefinition -&gt; Text
+</span><a href="#local-6989586621679288391"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/wireless-gateway-task-definitions/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679288391"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinition"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinition</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621679288387"><span class="annot"><span class="annottext">toQuery :: DeleteWirelessGatewayTaskDefinition -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteWirelessGatewayTaskDefinition -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | /See:/ 'newDeleteWirelessGatewayTaskDefinitionResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679288384"><span id="local-6989586621679288385"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteWirelessGatewayTaskDefinitionResponse"><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-var">DeleteWirelessGatewayTaskDefinitionResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteWirelessGatewayTaskDefinitionResponse%27"><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-var">DeleteWirelessGatewayTaskDefinitionResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteWirelessGatewayTaskDefinitionResponse%27"><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinitionResponse -&gt; Int
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#%24sel%3AhttpStatus%3ADeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679288379"><span id="local-6989586621679288381"><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; Bool
+(DeleteWirelessGatewayTaskDefinitionResponse
+ -&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; Bool)
+-&gt; (DeleteWirelessGatewayTaskDefinitionResponse
+    -&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; Bool)
+-&gt; Eq DeleteWirelessGatewayTaskDefinitionResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; Bool
+$c/= :: DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; Bool
+== :: DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; Bool
+$c== :: DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288371"><span id="local-6989586621679288373"><span id="local-6989586621679288375"><span id="local-6989586621679288377"><span class="annot"><span class="annottext">ReadPrec [DeleteWirelessGatewayTaskDefinitionResponse]
+ReadPrec DeleteWirelessGatewayTaskDefinitionResponse
+Int -&gt; ReadS DeleteWirelessGatewayTaskDefinitionResponse
+ReadS [DeleteWirelessGatewayTaskDefinitionResponse]
+(Int -&gt; ReadS DeleteWirelessGatewayTaskDefinitionResponse)
+-&gt; ReadS [DeleteWirelessGatewayTaskDefinitionResponse]
+-&gt; ReadPrec DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; ReadPrec [DeleteWirelessGatewayTaskDefinitionResponse]
+-&gt; Read DeleteWirelessGatewayTaskDefinitionResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteWirelessGatewayTaskDefinitionResponse]
+$creadListPrec :: ReadPrec [DeleteWirelessGatewayTaskDefinitionResponse]
+readPrec :: ReadPrec DeleteWirelessGatewayTaskDefinitionResponse
+$creadPrec :: ReadPrec DeleteWirelessGatewayTaskDefinitionResponse
+readList :: ReadS [DeleteWirelessGatewayTaskDefinitionResponse]
+$creadList :: ReadS [DeleteWirelessGatewayTaskDefinitionResponse]
+readsPrec :: Int -&gt; ReadS DeleteWirelessGatewayTaskDefinitionResponse
+$creadsPrec :: Int -&gt; ReadS DeleteWirelessGatewayTaskDefinitionResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679288365"><span id="local-6989586621679288367"><span id="local-6989586621679288369"><span class="annot"><span class="annottext">Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; ShowS
+[DeleteWirelessGatewayTaskDefinitionResponse] -&gt; ShowS
+DeleteWirelessGatewayTaskDefinitionResponse -&gt; String
+(Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; ShowS)
+-&gt; (DeleteWirelessGatewayTaskDefinitionResponse -&gt; String)
+-&gt; ([DeleteWirelessGatewayTaskDefinitionResponse] -&gt; ShowS)
+-&gt; Show DeleteWirelessGatewayTaskDefinitionResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteWirelessGatewayTaskDefinitionResponse] -&gt; ShowS
+$cshowList :: [DeleteWirelessGatewayTaskDefinitionResponse] -&gt; ShowS
+show :: DeleteWirelessGatewayTaskDefinitionResponse -&gt; String
+$cshow :: DeleteWirelessGatewayTaskDefinitionResponse -&gt; String
+showsPrec :: Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteWirelessGatewayTaskDefinitionResponse
+ -&gt; Rep DeleteWirelessGatewayTaskDefinitionResponse x)
+-&gt; (forall x.
+    Rep DeleteWirelessGatewayTaskDefinitionResponse x
+    -&gt; DeleteWirelessGatewayTaskDefinitionResponse)
+-&gt; Generic DeleteWirelessGatewayTaskDefinitionResponse
+forall x.
+Rep DeleteWirelessGatewayTaskDefinitionResponse x
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse
+forall x.
+DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; Rep DeleteWirelessGatewayTaskDefinitionResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteWirelessGatewayTaskDefinitionResponse x
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse
+$cfrom :: forall x.
+DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; Rep DeleteWirelessGatewayTaskDefinitionResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'DeleteWirelessGatewayTaskDefinitionResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'httpStatus', 'deleteWirelessGatewayTaskDefinitionResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#newDeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-type">newDeleteWirelessGatewayTaskDefinitionResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-138"></span><span>  </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse</span></a></span><span>
+</span><span id="line-139"></span><span id="newDeleteWirelessGatewayTaskDefinitionResponse"><span class="annot"><span class="annottext">newDeleteWirelessGatewayTaskDefinitionResponse :: Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#newDeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-var hs-var">newDeleteWirelessGatewayTaskDefinitionResponse</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679288362"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288362"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinitionResponse' :: Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse'</span></a></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWirelessGatewayTaskDefinitionResponse' :: Int
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#%24sel%3AhttpStatus%3ADeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288362"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#deleteWirelessGatewayTaskDefinitionResponse_httpStatus"><span class="hs-identifier hs-type">deleteWirelessGatewayTaskDefinitionResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-148"></span><span id="deleteWirelessGatewayTaskDefinitionResponse_httpStatus"><span class="annot"><span class="annottext">deleteWirelessGatewayTaskDefinitionResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteWirelessGatewayTaskDefinitionResponse
+-&gt; f DeleteWirelessGatewayTaskDefinitionResponse
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#deleteWirelessGatewayTaskDefinitionResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteWirelessGatewayTaskDefinitionResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteWirelessGatewayTaskDefinitionResponse -&gt; Int)
+-&gt; (DeleteWirelessGatewayTaskDefinitionResponse
+    -&gt; Int -&gt; DeleteWirelessGatewayTaskDefinitionResponse)
+-&gt; Lens
+     DeleteWirelessGatewayTaskDefinitionResponse
+     DeleteWirelessGatewayTaskDefinitionResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679288361"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteWirelessGatewayTaskDefinitionResponse' :: DeleteWirelessGatewayTaskDefinitionResponse -&gt; Int
+</span><a href="#local-6989586621679288361"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288361"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679288360"><span class="annot"><span class="annottext">s :: DeleteWirelessGatewayTaskDefinitionResponse
+</span><a href="#local-6989586621679288360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679288359"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteWirelessGatewayTaskDefinitionResponse
+</span><a href="#local-6989586621679288360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteWirelessGatewayTaskDefinitionResponse' :: Int
+</span><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#%24sel%3AhttpStatus%3ADeleteWirelessGatewayTaskDefinitionResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679288359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679288357"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.IoTWireless.DeleteWirelessGatewayTaskDefinition.html#DeleteWirelessGatewayTaskDefinitionResponse"><span class="hs-identifier hs-type">DeleteWirelessGatewayTaskDefinitionResponse</span></a></span></span><span>
+</span><span id="line-153"></span></pre></body></html>

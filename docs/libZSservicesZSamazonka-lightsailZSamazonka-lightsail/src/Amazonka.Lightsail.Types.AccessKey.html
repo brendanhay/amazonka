@@ -1,0 +1,397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.AccessKey</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.AccessKey</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKeyLastUsed.html"><span class="hs-identifier">Amazonka.Lightsail.Types.AccessKeyLastUsed</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.StatusType.html"><span class="hs-identifier">Amazonka.Lightsail.Types.StatusType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes an access key for an Amazon Lightsail bucket.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Access keys grant full programmatic access to the specified bucket and</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- its objects. You can have a maximum of two access keys per bucket. Use</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- the CreateBucketAccessKey action to create an access key for a specific</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- bucket. For more information about access keys, see</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-bucket-access-keys Creating access keys for a bucket in Amazon Lightsail&gt;</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in the /Amazon Lightsail Developer Guide/.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- The @secretAccessKey@ value is returned only in response to the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- @CreateBucketAccessKey@ action. You can get a secret access key only</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- when you first create an access key; you cannot get the secret access</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- key later. If you lose the secret access key, you must create a new</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- access key.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- /See:/ 'newAccessKey' smart constructor.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621679623325"><span id="local-6989586621679623326"></span></span><span class="hs-keyword">data</span><span> </span><span id="AccessKey"><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-var">AccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessKey%27"><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-var">AccessKey'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the access key.</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- A status of @Active@ means that the key is valid, while @Inactive@ means</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- it is not.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Astatus%3AAccessKey%27"><span class="annot"><span class="annottext">AccessKey -&gt; Maybe StatusType
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3Astatus%3AAccessKey%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The timestamp when the access key was created.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AcreatedAt%3AAccessKey%27"><span class="annot"><span class="annottext">AccessKey -&gt; Maybe POSIX
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AcreatedAt%3AAccessKey%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The secret access key used to sign requests.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- You should store the secret access key in a safe location. We recommend</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- that you delete the access key if the secret access key is compromised.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AsecretAccessKey%3AAccessKey%27"><span class="annot"><span class="annottext">AccessKey -&gt; Maybe Text
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AsecretAccessKey%3AAccessKey%27"><span class="hs-identifier hs-var hs-var">secretAccessKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | An object that describes the last time the access key was used.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- This object does not include data in the response of a</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- CreateBucketAccessKey action. If the access key has not been used, the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @region@ and @serviceName@ values are @N\/A@, and the @lastUsedDate@</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- value is null.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AlastUsed%3AAccessKey%27"><span class="annot"><span class="annottext">AccessKey -&gt; Maybe AccessKeyLastUsed
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AlastUsed%3AAccessKey%27"><span class="hs-identifier hs-var hs-var">lastUsed</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ID of the access key.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AaccessKeyId%3AAccessKey%27"><span class="annot"><span class="annottext">AccessKey -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AaccessKeyId%3AAccessKey%27"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679623315"><span id="local-6989586621679623317"><span class="annot"><span class="annottext">AccessKey -&gt; AccessKey -&gt; Bool
+(AccessKey -&gt; AccessKey -&gt; Bool)
+-&gt; (AccessKey -&gt; AccessKey -&gt; Bool) -&gt; Eq AccessKey
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessKey -&gt; AccessKey -&gt; Bool
+$c/= :: AccessKey -&gt; AccessKey -&gt; Bool
+== :: AccessKey -&gt; AccessKey -&gt; Bool
+$c== :: AccessKey -&gt; AccessKey -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679623308"><span id="local-6989586621679623310"><span id="local-6989586621679623312"><span class="annot"><span class="annottext">Int -&gt; AccessKey -&gt; ShowS
+[AccessKey] -&gt; ShowS
+AccessKey -&gt; String
+(Int -&gt; AccessKey -&gt; ShowS)
+-&gt; (AccessKey -&gt; String)
+-&gt; ([AccessKey] -&gt; ShowS)
+-&gt; Show AccessKey
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessKey] -&gt; ShowS
+$cshowList :: [AccessKey] -&gt; ShowS
+show :: AccessKey -&gt; String
+$cshow :: AccessKey -&gt; String
+showsPrec :: Int -&gt; AccessKey -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessKey -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AccessKey -&gt; Rep AccessKey x)
+-&gt; (forall x. Rep AccessKey x -&gt; AccessKey) -&gt; Generic AccessKey
+forall x. Rep AccessKey x -&gt; AccessKey
+forall x. AccessKey -&gt; Rep AccessKey x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessKey x -&gt; AccessKey
+$cfrom :: forall x. AccessKey -&gt; Rep AccessKey x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'AccessKey' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'status', 'accessKey_status' - The status of the access key.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- A status of @Active@ means that the key is valid, while @Inactive@ means</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- it is not.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'createdAt', 'accessKey_createdAt' - The timestamp when the access key was created.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'secretAccessKey', 'accessKey_secretAccessKey' - The secret access key used to sign requests.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- You should store the secret access key in a safe location. We recommend</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- that you delete the access key if the secret access key is compromised.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'lastUsed', 'accessKey_lastUsed' - An object that describes the last time the access key was used.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- This object does not include data in the response of a</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- CreateBucketAccessKey action. If the access key has not been used, the</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- @region@ and @serviceName@ values are @N\/A@, and the @lastUsedDate@</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- value is null.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'accessKeyId', 'accessKey_accessKeyId' - The ID of the access key.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#newAccessKey"><span class="hs-identifier hs-type">newAccessKey</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span>
+</span><span id="line-99"></span><span id="newAccessKey"><span class="annot"><span class="annottext">newAccessKey :: AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#newAccessKey"><span class="hs-identifier hs-var hs-var">newAccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">AccessKey' :: Maybe StatusType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe AccessKeyLastUsed
+-&gt; Maybe (Sensitive Text)
+-&gt; AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:AccessKey' :: Maybe StatusType
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3Astatus%3AAccessKey%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:AccessKey' :: Maybe POSIX
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AcreatedAt%3AAccessKey%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:secretAccessKey:AccessKey' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AsecretAccessKey%3AAccessKey%27"><span class="hs-identifier hs-var">secretAccessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastUsed:AccessKey' :: Maybe AccessKeyLastUsed
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AlastUsed%3AAccessKey%27"><span class="hs-identifier hs-var">lastUsed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessKeyLastUsed
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessKeyId:AccessKey' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AaccessKeyId%3AAccessKey%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The status of the access key.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- A status of @Active@ means that the key is valid, while @Inactive@ means</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- it is not.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_status"><span class="hs-identifier hs-type">accessKey_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.StatusType.html#StatusType"><span class="hs-identifier hs-type">StatusType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="accessKey_status"><span class="annot"><span class="annottext">accessKey_status :: (Maybe StatusType -&gt; f (Maybe StatusType))
+-&gt; AccessKey -&gt; f AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_status"><span class="hs-identifier hs-var hs-var">accessKey_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKey -&gt; Maybe StatusType)
+-&gt; (AccessKey -&gt; Maybe StatusType -&gt; AccessKey)
+-&gt; Lens AccessKey AccessKey (Maybe StatusType) (Maybe StatusType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623299"><span class="annot"><span class="annottext">Maybe StatusType
+status :: Maybe StatusType
+$sel:status:AccessKey' :: AccessKey -&gt; Maybe StatusType
+</span><a href="#local-6989586621679623299"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679623299"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623298"><span class="annot"><span class="annottext">s :: AccessKey
+</span><a href="#local-6989586621679623298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623297"><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679623297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679623298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:AccessKey' :: Maybe StatusType
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3Astatus%3AAccessKey%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StatusType
+</span><a href="#local-6989586621679623297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The timestamp when the access key was created.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_createdAt"><span class="hs-identifier hs-type">accessKey_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="accessKey_createdAt"><span class="annot"><span class="annottext">accessKey_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; AccessKey -&gt; f AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_createdAt"><span class="hs-identifier hs-var hs-var">accessKey_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKey -&gt; Maybe POSIX)
+-&gt; (AccessKey -&gt; Maybe POSIX -&gt; AccessKey)
+-&gt; Lens AccessKey AccessKey (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623295"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:AccessKey' :: AccessKey -&gt; Maybe POSIX
+</span><a href="#local-6989586621679623295"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679623295"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623294"><span class="annot"><span class="annottext">s :: AccessKey
+</span><a href="#local-6989586621679623294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623293"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679623293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679623294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:AccessKey' :: Maybe POSIX
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AcreatedAt%3AAccessKey%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679623293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; AccessKey -&gt; f AccessKey)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; AccessKey
+-&gt; f AccessKey
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The secret access key used to sign requests.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- You should store the secret access key in a safe location. We recommend</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- that you delete the access key if the secret access key is compromised.</span><span>
+</span><span id="line-123"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_secretAccessKey"><span class="hs-identifier hs-type">accessKey_secretAccessKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span id="accessKey_secretAccessKey"><span class="annot"><span class="annottext">accessKey_secretAccessKey :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AccessKey -&gt; f AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_secretAccessKey"><span class="hs-identifier hs-var hs-var">accessKey_secretAccessKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKey -&gt; Maybe Text)
+-&gt; (AccessKey -&gt; Maybe Text -&gt; AccessKey)
+-&gt; Lens AccessKey AccessKey (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623288"><span class="annot"><span class="annottext">Maybe Text
+secretAccessKey :: Maybe Text
+$sel:secretAccessKey:AccessKey' :: AccessKey -&gt; Maybe Text
+</span><a href="#local-6989586621679623288"><span class="hs-identifier hs-var hs-var">secretAccessKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623288"><span class="hs-identifier hs-var">secretAccessKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623287"><span class="annot"><span class="annottext">s :: AccessKey
+</span><a href="#local-6989586621679623287"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623286"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623286"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679623287"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:secretAccessKey:AccessKey' :: Maybe Text
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AsecretAccessKey%3AAccessKey%27"><span class="hs-identifier hs-var">secretAccessKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679623286"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- | An object that describes the last time the access key was used.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- This object does not include data in the response of a</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- CreateBucketAccessKey action. If the access key has not been used, the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- @region@ and @serviceName@ values are @N\/A@, and the @lastUsedDate@</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- value is null.</span><span>
+</span><span id="line-132"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_lastUsed"><span class="hs-identifier hs-type">accessKey_lastUsed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKeyLastUsed.html#AccessKeyLastUsed"><span class="hs-identifier hs-type">AccessKeyLastUsed</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span id="accessKey_lastUsed"><span class="annot"><span class="annottext">accessKey_lastUsed :: (Maybe AccessKeyLastUsed -&gt; f (Maybe AccessKeyLastUsed))
+-&gt; AccessKey -&gt; f AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_lastUsed"><span class="hs-identifier hs-var hs-var">accessKey_lastUsed</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKey -&gt; Maybe AccessKeyLastUsed)
+-&gt; (AccessKey -&gt; Maybe AccessKeyLastUsed -&gt; AccessKey)
+-&gt; Lens
+     AccessKey
+     AccessKey
+     (Maybe AccessKeyLastUsed)
+     (Maybe AccessKeyLastUsed)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623284"><span class="annot"><span class="annottext">Maybe AccessKeyLastUsed
+lastUsed :: Maybe AccessKeyLastUsed
+$sel:lastUsed:AccessKey' :: AccessKey -&gt; Maybe AccessKeyLastUsed
+</span><a href="#local-6989586621679623284"><span class="hs-identifier hs-var hs-var">lastUsed</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe AccessKeyLastUsed
+</span><a href="#local-6989586621679623284"><span class="hs-identifier hs-var">lastUsed</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623283"><span class="annot"><span class="annottext">s :: AccessKey
+</span><a href="#local-6989586621679623283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623282"><span class="annot"><span class="annottext">Maybe AccessKeyLastUsed
+</span><a href="#local-6989586621679623282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679623283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUsed:AccessKey' :: Maybe AccessKeyLastUsed
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AlastUsed%3AAccessKey%27"><span class="hs-identifier hs-var">lastUsed</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe AccessKeyLastUsed
+</span><a href="#local-6989586621679623282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- | The ID of the access key.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_accessKeyId"><span class="hs-identifier hs-type">accessKey_accessKeyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="accessKey_accessKeyId"><span class="annot"><span class="annottext">accessKey_accessKeyId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; AccessKey -&gt; f AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#accessKey_accessKeyId"><span class="hs-identifier hs-var hs-var">accessKey_accessKeyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AccessKey -&gt; Maybe (Sensitive Text))
+-&gt; (AccessKey -&gt; Maybe (Sensitive Text) -&gt; AccessKey)
+-&gt; Lens
+     AccessKey
+     AccessKey
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679623280"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+accessKeyId :: Maybe (Sensitive Text)
+$sel:accessKeyId:AccessKey' :: AccessKey -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679623280"><span class="hs-identifier hs-var hs-var">accessKeyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679623280"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679623279"><span class="annot"><span class="annottext">s :: AccessKey
+</span><a href="#local-6989586621679623279"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-type">AccessKey'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679623278"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679623278"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679623279"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessKeyId:AccessKey' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#%24sel%3AaccessKeyId%3AAccessKey%27"><span class="hs-identifier hs-var">accessKeyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679623278"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; AccessKey -&gt; f AccessKey)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; AccessKey
+-&gt; f AccessKey
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679623274"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679623272"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser AccessKey
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser AccessKey) -&gt; Value -&gt; Parser AccessKey
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AccessKey&quot;</span></span><span>
+</span><span id="line-143"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679623269"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623269"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-144"></span><span>          </span><span class="annot"><span class="annottext">Maybe StatusType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe AccessKeyLastUsed
+-&gt; Maybe (Sensitive Text)
+-&gt; AccessKey
+</span><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey%27"><span class="hs-identifier hs-var">AccessKey'</span></a></span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StatusType
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe AccessKeyLastUsed
+ -&gt; Maybe (Sensitive Text)
+ -&gt; AccessKey)
+-&gt; Parser (Maybe StatusType)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe AccessKeyLastUsed
+      -&gt; Maybe (Sensitive Text)
+      -&gt; AccessKey)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe StatusType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe AccessKeyLastUsed
+   -&gt; Maybe (Sensitive Text)
+   -&gt; AccessKey)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe AccessKeyLastUsed -&gt; Maybe (Sensitive Text) -&gt; AccessKey)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe AccessKeyLastUsed -&gt; Maybe (Sensitive Text) -&gt; AccessKey)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe AccessKeyLastUsed -&gt; Maybe (Sensitive Text) -&gt; AccessKey)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;secretAccessKey&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe AccessKeyLastUsed -&gt; Maybe (Sensitive Text) -&gt; AccessKey)
+-&gt; Parser (Maybe AccessKeyLastUsed)
+-&gt; Parser (Maybe (Sensitive Text) -&gt; AccessKey)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe AccessKeyLastUsed)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUsed&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; AccessKey)
+-&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser AccessKey
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679623269"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;accessKeyId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679623263"><span id="local-6989586621679623265"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679623260"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.AccessKey.html#AccessKey"><span class="hs-identifier hs-type">AccessKey</span></a></span></span><span>
+</span><span id="line-155"></span></pre></body></html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AlexaBusiness.Types.BusinessReport</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AlexaBusiness.Types.BusinessReport</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportFailureCode.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.BusinessReportFailureCode</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportS3Location.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.BusinessReportS3Location</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportStatus.html"><span class="hs-identifier">Amazonka.AlexaBusiness.Types.BusinessReportStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Usage report with specified parameters.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newBusinessReport' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679363928"><span id="local-6989586621679363929"></span></span><span class="hs-keyword">data</span><span> </span><span id="BusinessReport"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-var">BusinessReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BusinessReport%27"><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-var">BusinessReport'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the report generation execution (RUNNING, SUCCEEDED, or</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- FAILED).</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Astatus%3ABusinessReport%27"><span class="annot"><span class="annottext">BusinessReport -&gt; Maybe BusinessReportStatus
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3Astatus%3ABusinessReport%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportStatus.html#BusinessReportStatus"><span class="hs-identifier hs-type">BusinessReportStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The failure code.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AfailureCode%3ABusinessReport%27"><span class="annot"><span class="annottext">BusinessReport -&gt; Maybe BusinessReportFailureCode
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AfailureCode%3ABusinessReport%27"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportFailureCode.html#BusinessReportFailureCode"><span class="hs-identifier hs-type">BusinessReportFailureCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The time of report delivery.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AdeliveryTime%3ABusinessReport%27"><span class="annot"><span class="annottext">BusinessReport -&gt; Maybe POSIX
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AdeliveryTime%3ABusinessReport%27"><span class="hs-identifier hs-var hs-var">deliveryTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The download link where a user can download the report.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AdownloadUrl%3ABusinessReport%27"><span class="annot"><span class="annottext">BusinessReport -&gt; Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AdownloadUrl%3ABusinessReport%27"><span class="hs-identifier hs-var hs-var">downloadUrl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The S3 location of the output reports.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3As3Location%3ABusinessReport%27"><span class="annot"><span class="annottext">BusinessReport -&gt; Maybe BusinessReportS3Location
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3As3Location%3ABusinessReport%27"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679363918"><span id="local-6989586621679363920"><span class="annot"><span class="annottext">BusinessReport -&gt; BusinessReport -&gt; Bool
+(BusinessReport -&gt; BusinessReport -&gt; Bool)
+-&gt; (BusinessReport -&gt; BusinessReport -&gt; Bool) -&gt; Eq BusinessReport
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BusinessReport -&gt; BusinessReport -&gt; Bool
+$c/= :: BusinessReport -&gt; BusinessReport -&gt; Bool
+== :: BusinessReport -&gt; BusinessReport -&gt; Bool
+$c== :: BusinessReport -&gt; BusinessReport -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363909"><span id="local-6989586621679363911"><span id="local-6989586621679363913"><span id="local-6989586621679363915"><span class="annot"><span class="annottext">ReadPrec [BusinessReport]
+ReadPrec BusinessReport
+Int -&gt; ReadS BusinessReport
+ReadS [BusinessReport]
+(Int -&gt; ReadS BusinessReport)
+-&gt; ReadS [BusinessReport]
+-&gt; ReadPrec BusinessReport
+-&gt; ReadPrec [BusinessReport]
+-&gt; Read BusinessReport
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BusinessReport]
+$creadListPrec :: ReadPrec [BusinessReport]
+readPrec :: ReadPrec BusinessReport
+$creadPrec :: ReadPrec BusinessReport
+readList :: ReadS [BusinessReport]
+$creadList :: ReadS [BusinessReport]
+readsPrec :: Int -&gt; ReadS BusinessReport
+$creadsPrec :: Int -&gt; ReadS BusinessReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679363902"><span id="local-6989586621679363904"><span id="local-6989586621679363906"><span class="annot"><span class="annottext">Int -&gt; BusinessReport -&gt; ShowS
+[BusinessReport] -&gt; ShowS
+BusinessReport -&gt; String
+(Int -&gt; BusinessReport -&gt; ShowS)
+-&gt; (BusinessReport -&gt; String)
+-&gt; ([BusinessReport] -&gt; ShowS)
+-&gt; Show BusinessReport
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BusinessReport] -&gt; ShowS
+$cshowList :: [BusinessReport] -&gt; ShowS
+show :: BusinessReport -&gt; String
+$cshow :: BusinessReport -&gt; String
+showsPrec :: Int -&gt; BusinessReport -&gt; ShowS
+$cshowsPrec :: Int -&gt; BusinessReport -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. BusinessReport -&gt; Rep BusinessReport x)
+-&gt; (forall x. Rep BusinessReport x -&gt; BusinessReport)
+-&gt; Generic BusinessReport
+forall x. Rep BusinessReport x -&gt; BusinessReport
+forall x. BusinessReport -&gt; Rep BusinessReport x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BusinessReport x -&gt; BusinessReport
+$cfrom :: forall x. BusinessReport -&gt; Rep BusinessReport x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'BusinessReport' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'status', 'businessReport_status' - The status of the report generation execution (RUNNING, SUCCEEDED, or</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- FAILED).</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'failureCode', 'businessReport_failureCode' - The failure code.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'deliveryTime', 'businessReport_deliveryTime' - The time of report delivery.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'downloadUrl', 'businessReport_downloadUrl' - The download link where a user can download the report.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 's3Location', 'businessReport_s3Location' - The S3 location of the output reports.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#newBusinessReport"><span class="hs-identifier hs-type">newBusinessReport</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span>
+</span><span id="line-67"></span><span id="newBusinessReport"><span class="annot"><span class="annottext">newBusinessReport :: BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#newBusinessReport"><span class="hs-identifier hs-var hs-var">newBusinessReport</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">BusinessReport' :: Maybe BusinessReportStatus
+-&gt; Maybe BusinessReportFailureCode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe BusinessReportS3Location
+-&gt; BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:BusinessReport' :: Maybe BusinessReportStatus
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3Astatus%3ABusinessReport%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureCode:BusinessReport' :: Maybe BusinessReportFailureCode
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AfailureCode%3ABusinessReport%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportFailureCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:deliveryTime:BusinessReport' :: Maybe POSIX
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AdeliveryTime%3ABusinessReport%27"><span class="hs-identifier hs-var">deliveryTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:downloadUrl:BusinessReport' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AdownloadUrl%3ABusinessReport%27"><span class="hs-identifier hs-var">downloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Location:BusinessReport' :: Maybe BusinessReportS3Location
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3As3Location%3ABusinessReport%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportS3Location
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The status of the report generation execution (RUNNING, SUCCEEDED, or</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- FAILED).</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_status"><span class="hs-identifier hs-type">businessReport_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportStatus.html#BusinessReportStatus"><span class="hs-identifier hs-type">BusinessReportStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="businessReport_status"><span class="annot"><span class="annottext">businessReport_status :: (Maybe BusinessReportStatus -&gt; f (Maybe BusinessReportStatus))
+-&gt; BusinessReport -&gt; f BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_status"><span class="hs-identifier hs-var hs-var">businessReport_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReport -&gt; Maybe BusinessReportStatus)
+-&gt; (BusinessReport -&gt; Maybe BusinessReportStatus -&gt; BusinessReport)
+-&gt; Lens
+     BusinessReport
+     BusinessReport
+     (Maybe BusinessReportStatus)
+     (Maybe BusinessReportStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363893"><span class="annot"><span class="annottext">Maybe BusinessReportStatus
+status :: Maybe BusinessReportStatus
+$sel:status:BusinessReport' :: BusinessReport -&gt; Maybe BusinessReportStatus
+</span><a href="#local-6989586621679363893"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportStatus
+</span><a href="#local-6989586621679363893"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363892"><span class="annot"><span class="annottext">s :: BusinessReport
+</span><a href="#local-6989586621679363892"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363891"><span class="annot"><span class="annottext">Maybe BusinessReportStatus
+</span><a href="#local-6989586621679363891"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReport
+</span><a href="#local-6989586621679363892"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:BusinessReport' :: Maybe BusinessReportStatus
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3Astatus%3ABusinessReport%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportStatus
+</span><a href="#local-6989586621679363891"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The failure code.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_failureCode"><span class="hs-identifier hs-type">businessReport_failureCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportFailureCode.html#BusinessReportFailureCode"><span class="hs-identifier hs-type">BusinessReportFailureCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="businessReport_failureCode"><span class="annot"><span class="annottext">businessReport_failureCode :: (Maybe BusinessReportFailureCode
+ -&gt; f (Maybe BusinessReportFailureCode))
+-&gt; BusinessReport -&gt; f BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_failureCode"><span class="hs-identifier hs-var hs-var">businessReport_failureCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReport -&gt; Maybe BusinessReportFailureCode)
+-&gt; (BusinessReport
+    -&gt; Maybe BusinessReportFailureCode -&gt; BusinessReport)
+-&gt; Lens
+     BusinessReport
+     BusinessReport
+     (Maybe BusinessReportFailureCode)
+     (Maybe BusinessReportFailureCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363889"><span class="annot"><span class="annottext">Maybe BusinessReportFailureCode
+failureCode :: Maybe BusinessReportFailureCode
+$sel:failureCode:BusinessReport' :: BusinessReport -&gt; Maybe BusinessReportFailureCode
+</span><a href="#local-6989586621679363889"><span class="hs-identifier hs-var hs-var">failureCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportFailureCode
+</span><a href="#local-6989586621679363889"><span class="hs-identifier hs-var">failureCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363888"><span class="annot"><span class="annottext">s :: BusinessReport
+</span><a href="#local-6989586621679363888"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363887"><span class="annot"><span class="annottext">Maybe BusinessReportFailureCode
+</span><a href="#local-6989586621679363887"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReport
+</span><a href="#local-6989586621679363888"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureCode:BusinessReport' :: Maybe BusinessReportFailureCode
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AfailureCode%3ABusinessReport%27"><span class="hs-identifier hs-var">failureCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportFailureCode
+</span><a href="#local-6989586621679363887"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The time of report delivery.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_deliveryTime"><span class="hs-identifier hs-type">businessReport_deliveryTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="businessReport_deliveryTime"><span class="annot"><span class="annottext">businessReport_deliveryTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BusinessReport -&gt; f BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_deliveryTime"><span class="hs-identifier hs-var hs-var">businessReport_deliveryTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReport -&gt; Maybe POSIX)
+-&gt; (BusinessReport -&gt; Maybe POSIX -&gt; BusinessReport)
+-&gt; Lens BusinessReport BusinessReport (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363885"><span class="annot"><span class="annottext">Maybe POSIX
+deliveryTime :: Maybe POSIX
+$sel:deliveryTime:BusinessReport' :: BusinessReport -&gt; Maybe POSIX
+</span><a href="#local-6989586621679363885"><span class="hs-identifier hs-var hs-var">deliveryTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679363885"><span class="hs-identifier hs-var">deliveryTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363884"><span class="annot"><span class="annottext">s :: BusinessReport
+</span><a href="#local-6989586621679363884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363883"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679363883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReport
+</span><a href="#local-6989586621679363884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryTime:BusinessReport' :: Maybe POSIX
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AdeliveryTime%3ABusinessReport%27"><span class="hs-identifier hs-var">deliveryTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679363883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BusinessReport -&gt; f BusinessReport)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BusinessReport
+-&gt; f BusinessReport
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The download link where a user can download the report.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_downloadUrl"><span class="hs-identifier hs-type">businessReport_downloadUrl</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="businessReport_downloadUrl"><span class="annot"><span class="annottext">businessReport_downloadUrl :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BusinessReport -&gt; f BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_downloadUrl"><span class="hs-identifier hs-var hs-var">businessReport_downloadUrl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReport -&gt; Maybe Text)
+-&gt; (BusinessReport -&gt; Maybe Text -&gt; BusinessReport)
+-&gt; Lens BusinessReport BusinessReport (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363878"><span class="annot"><span class="annottext">Maybe Text
+downloadUrl :: Maybe Text
+$sel:downloadUrl:BusinessReport' :: BusinessReport -&gt; Maybe Text
+</span><a href="#local-6989586621679363878"><span class="hs-identifier hs-var hs-var">downloadUrl</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363878"><span class="hs-identifier hs-var">downloadUrl</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363877"><span class="annot"><span class="annottext">s :: BusinessReport
+</span><a href="#local-6989586621679363877"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363876"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363876"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReport
+</span><a href="#local-6989586621679363877"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:downloadUrl:BusinessReport' :: Maybe Text
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3AdownloadUrl%3ABusinessReport%27"><span class="hs-identifier hs-var">downloadUrl</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679363876"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The S3 location of the output reports.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_s3Location"><span class="hs-identifier hs-type">businessReport_s3Location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReportS3Location.html#BusinessReportS3Location"><span class="hs-identifier hs-type">BusinessReportS3Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="businessReport_s3Location"><span class="annot"><span class="annottext">businessReport_s3Location :: (Maybe BusinessReportS3Location
+ -&gt; f (Maybe BusinessReportS3Location))
+-&gt; BusinessReport -&gt; f BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#businessReport_s3Location"><span class="hs-identifier hs-var hs-var">businessReport_s3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BusinessReport -&gt; Maybe BusinessReportS3Location)
+-&gt; (BusinessReport
+    -&gt; Maybe BusinessReportS3Location -&gt; BusinessReport)
+-&gt; Lens
+     BusinessReport
+     BusinessReport
+     (Maybe BusinessReportS3Location)
+     (Maybe BusinessReportS3Location)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679363874"><span class="annot"><span class="annottext">Maybe BusinessReportS3Location
+s3Location :: Maybe BusinessReportS3Location
+$sel:s3Location:BusinessReport' :: BusinessReport -&gt; Maybe BusinessReportS3Location
+</span><a href="#local-6989586621679363874"><span class="hs-identifier hs-var hs-var">s3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportS3Location
+</span><a href="#local-6989586621679363874"><span class="hs-identifier hs-var">s3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679363873"><span class="annot"><span class="annottext">s :: BusinessReport
+</span><a href="#local-6989586621679363873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-type">BusinessReport'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679363872"><span class="annot"><span class="annottext">Maybe BusinessReportS3Location
+</span><a href="#local-6989586621679363872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BusinessReport
+</span><a href="#local-6989586621679363873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Location:BusinessReport' :: Maybe BusinessReportS3Location
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#%24sel%3As3Location%3ABusinessReport%27"><span class="hs-identifier hs-var">s3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe BusinessReportS3Location
+</span><a href="#local-6989586621679363872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363869"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-98"></span><span>  </span><span id="local-6989586621679363867"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BusinessReport
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BusinessReport)
+-&gt; Value
+-&gt; Parser BusinessReport
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BusinessReport&quot;</span></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679363864"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363864"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>          </span><span class="annot"><span class="annottext">Maybe BusinessReportStatus
+-&gt; Maybe BusinessReportFailureCode
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe BusinessReportS3Location
+-&gt; BusinessReport
+</span><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport%27"><span class="hs-identifier hs-var">BusinessReport'</span></a></span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">(Maybe BusinessReportStatus
+ -&gt; Maybe BusinessReportFailureCode
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe BusinessReportS3Location
+ -&gt; BusinessReport)
+-&gt; Parser (Maybe BusinessReportStatus)
+-&gt; Parser
+     (Maybe BusinessReportFailureCode
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe BusinessReportS3Location
+      -&gt; BusinessReport)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BusinessReportStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe BusinessReportFailureCode
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe BusinessReportS3Location
+   -&gt; BusinessReport)
+-&gt; Parser (Maybe BusinessReportFailureCode)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text -&gt; Maybe BusinessReportS3Location -&gt; BusinessReport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BusinessReportFailureCode)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureCode&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text -&gt; Maybe BusinessReportS3Location -&gt; BusinessReport)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe BusinessReportS3Location -&gt; BusinessReport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe BusinessReportS3Location -&gt; BusinessReport)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe BusinessReportS3Location -&gt; BusinessReport)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DownloadUrl&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe BusinessReportS3Location -&gt; BusinessReport)
+-&gt; Parser (Maybe BusinessReportS3Location) -&gt; Parser BusinessReport
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679363864"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe BusinessReportS3Location)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363858"><span id="local-6989586621679363860"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span></span></span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679363855"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AlexaBusiness.Types.BusinessReport.html#BusinessReport"><span class="hs-identifier hs-type">BusinessReport</span></a></span></span><span>
+</span><span id="line-113"></span></pre></body></html>

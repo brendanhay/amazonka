@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.Invite</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.Invite</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html"><span class="hs-identifier">Amazonka.Chime.Types.EmailStatus</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.InviteStatus.html"><span class="hs-identifier">Amazonka.Chime.Types.InviteStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Invitation object returned after emailing users to invite them to join</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- the Amazon Chime @Team@ account.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newInvite' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679511279"><span id="local-6989586621679511280"></span></span><span class="hs-keyword">data</span><span> </span><span id="Invite"><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-var">Invite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Invite%27"><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-var">Invite'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the invite.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Astatus%3AInvite%27"><span class="annot"><span class="annottext">Invite -&gt; Maybe InviteStatus
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3Astatus%3AInvite%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.InviteStatus.html#InviteStatus"><span class="hs-identifier hs-type">InviteStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The status of the invite email.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AemailStatus%3AInvite%27"><span class="annot"><span class="annottext">Invite -&gt; Maybe EmailStatus
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AemailStatus%3AInvite%27"><span class="hs-identifier hs-var hs-var">emailStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus"><span class="hs-identifier hs-type">EmailStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The invite ID.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AinviteId%3AInvite%27"><span class="annot"><span class="annottext">Invite -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AinviteId%3AInvite%27"><span class="hs-identifier hs-var hs-var">inviteId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The email address to which the invite is sent.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AemailAddress%3AInvite%27"><span class="annot"><span class="annottext">Invite -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AemailAddress%3AInvite%27"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679511270"><span id="local-6989586621679511272"><span class="annot"><span class="annottext">Invite -&gt; Invite -&gt; Bool
+(Invite -&gt; Invite -&gt; Bool)
+-&gt; (Invite -&gt; Invite -&gt; Bool) -&gt; Eq Invite
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Invite -&gt; Invite -&gt; Bool
+$c/= :: Invite -&gt; Invite -&gt; Bool
+== :: Invite -&gt; Invite -&gt; Bool
+$c== :: Invite -&gt; Invite -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679511263"><span id="local-6989586621679511265"><span id="local-6989586621679511267"><span class="annot"><span class="annottext">Int -&gt; Invite -&gt; ShowS
+[Invite] -&gt; ShowS
+Invite -&gt; String
+(Int -&gt; Invite -&gt; ShowS)
+-&gt; (Invite -&gt; String) -&gt; ([Invite] -&gt; ShowS) -&gt; Show Invite
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Invite] -&gt; ShowS
+$cshowList :: [Invite] -&gt; ShowS
+show :: Invite -&gt; String
+$cshow :: Invite -&gt; String
+showsPrec :: Int -&gt; Invite -&gt; ShowS
+$cshowsPrec :: Int -&gt; Invite -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Invite -&gt; Rep Invite x)
+-&gt; (forall x. Rep Invite x -&gt; Invite) -&gt; Generic Invite
+forall x. Rep Invite x -&gt; Invite
+forall x. Invite -&gt; Rep Invite x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Invite x -&gt; Invite
+$cfrom :: forall x. Invite -&gt; Rep Invite x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'Invite' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'status', 'invite_status' - The status of the invite.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'emailStatus', 'invite_emailStatus' - The status of the invite email.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'inviteId', 'invite_inviteId' - The invite ID.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'emailAddress', 'invite_emailAddress' - The email address to which the invite is sent.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#newInvite"><span class="hs-identifier hs-type">newInvite</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span>
+</span><span id="line-61"></span><span id="newInvite"><span class="annot"><span class="annottext">newInvite :: Invite
+</span><a href="Amazonka.Chime.Types.Invite.html#newInvite"><span class="hs-identifier hs-var hs-var">newInvite</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">Invite' :: Maybe InviteStatus
+-&gt; Maybe EmailStatus
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Invite
+</span><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Invite' :: Maybe InviteStatus
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3Astatus%3AInvite%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InviteStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailStatus:Invite' :: Maybe EmailStatus
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AemailStatus%3AInvite%27"><span class="hs-identifier hs-var">emailStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmailStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span class="annot"><span class="annottext">$sel:inviteId:Invite' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AinviteId%3AInvite%27"><span class="hs-identifier hs-var">inviteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span class="annot"><span class="annottext">$sel:emailAddress:Invite' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AemailAddress%3AInvite%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The status of the invite.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#invite_status"><span class="hs-identifier hs-type">invite_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.InviteStatus.html#InviteStatus"><span class="hs-identifier hs-type">InviteStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="invite_status"><span class="annot"><span class="annottext">invite_status :: (Maybe InviteStatus -&gt; f (Maybe InviteStatus))
+-&gt; Invite -&gt; f Invite
+</span><a href="Amazonka.Chime.Types.Invite.html#invite_status"><span class="hs-identifier hs-var hs-var">invite_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Invite -&gt; Maybe InviteStatus)
+-&gt; (Invite -&gt; Maybe InviteStatus -&gt; Invite)
+-&gt; Lens Invite Invite (Maybe InviteStatus) (Maybe InviteStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511254"><span class="annot"><span class="annottext">Maybe InviteStatus
+status :: Maybe InviteStatus
+$sel:status:Invite' :: Invite -&gt; Maybe InviteStatus
+</span><a href="#local-6989586621679511254"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe InviteStatus
+</span><a href="#local-6989586621679511254"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511253"><span class="annot"><span class="annottext">s :: Invite
+</span><a href="#local-6989586621679511253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511252"><span class="annot"><span class="annottext">Maybe InviteStatus
+</span><a href="#local-6989586621679511252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invite
+</span><a href="#local-6989586621679511253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Invite' :: Maybe InviteStatus
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3Astatus%3AInvite%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe InviteStatus
+</span><a href="#local-6989586621679511252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The status of the invite email.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#invite_emailStatus"><span class="hs-identifier hs-type">invite_emailStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.EmailStatus.html#EmailStatus"><span class="hs-identifier hs-type">EmailStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="invite_emailStatus"><span class="annot"><span class="annottext">invite_emailStatus :: (Maybe EmailStatus -&gt; f (Maybe EmailStatus)) -&gt; Invite -&gt; f Invite
+</span><a href="Amazonka.Chime.Types.Invite.html#invite_emailStatus"><span class="hs-identifier hs-var hs-var">invite_emailStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Invite -&gt; Maybe EmailStatus)
+-&gt; (Invite -&gt; Maybe EmailStatus -&gt; Invite)
+-&gt; Lens Invite Invite (Maybe EmailStatus) (Maybe EmailStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511250"><span class="annot"><span class="annottext">Maybe EmailStatus
+emailStatus :: Maybe EmailStatus
+$sel:emailStatus:Invite' :: Invite -&gt; Maybe EmailStatus
+</span><a href="#local-6989586621679511250"><span class="hs-identifier hs-var hs-var">emailStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EmailStatus
+</span><a href="#local-6989586621679511250"><span class="hs-identifier hs-var">emailStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511249"><span class="annot"><span class="annottext">s :: Invite
+</span><a href="#local-6989586621679511249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511248"><span class="annot"><span class="annottext">Maybe EmailStatus
+</span><a href="#local-6989586621679511248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invite
+</span><a href="#local-6989586621679511249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailStatus:Invite' :: Maybe EmailStatus
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AemailStatus%3AInvite%27"><span class="hs-identifier hs-var">emailStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EmailStatus
+</span><a href="#local-6989586621679511248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The invite ID.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#invite_inviteId"><span class="hs-identifier hs-type">invite_inviteId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="invite_inviteId"><span class="annot"><span class="annottext">invite_inviteId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Invite -&gt; f Invite
+</span><a href="Amazonka.Chime.Types.Invite.html#invite_inviteId"><span class="hs-identifier hs-var hs-var">invite_inviteId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Invite -&gt; Maybe Text)
+-&gt; (Invite -&gt; Maybe Text -&gt; Invite)
+-&gt; Lens Invite Invite (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511246"><span class="annot"><span class="annottext">Maybe Text
+inviteId :: Maybe Text
+$sel:inviteId:Invite' :: Invite -&gt; Maybe Text
+</span><a href="#local-6989586621679511246"><span class="hs-identifier hs-var hs-var">inviteId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511246"><span class="hs-identifier hs-var">inviteId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511245"><span class="annot"><span class="annottext">s :: Invite
+</span><a href="#local-6989586621679511245"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511244"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511244"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invite
+</span><a href="#local-6989586621679511245"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inviteId:Invite' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AinviteId%3AInvite%27"><span class="hs-identifier hs-var">inviteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679511244"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The email address to which the invite is sent.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#invite_emailAddress"><span class="hs-identifier hs-type">invite_emailAddress</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="invite_emailAddress"><span class="annot"><span class="annottext">invite_emailAddress :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Invite -&gt; f Invite
+</span><a href="Amazonka.Chime.Types.Invite.html#invite_emailAddress"><span class="hs-identifier hs-var hs-var">invite_emailAddress</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Invite -&gt; Maybe (Sensitive Text))
+-&gt; (Invite -&gt; Maybe (Sensitive Text) -&gt; Invite)
+-&gt; Lens
+     Invite Invite (Maybe (Sensitive Text)) (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679511242"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+emailAddress :: Maybe (Sensitive Text)
+$sel:emailAddress:Invite' :: Invite -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679511242"><span class="hs-identifier hs-var hs-var">emailAddress</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679511242"><span class="hs-identifier hs-var">emailAddress</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679511241"><span class="annot"><span class="annottext">s :: Invite
+</span><a href="#local-6989586621679511241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-type">Invite'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679511240"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679511240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Invite
+</span><a href="#local-6989586621679511241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:emailAddress:Invite' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.Chime.Types.Invite.html#%24sel%3AemailAddress%3AInvite%27"><span class="hs-identifier hs-var">emailAddress</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679511240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; Invite -&gt; f Invite)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; Invite
+-&gt; f Invite
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511234"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679511232"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Invite
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Invite) -&gt; Value -&gt; Parser Invite
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Invite&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679511229"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679511229"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe InviteStatus
+-&gt; Maybe EmailStatus
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Invite
+</span><a href="Amazonka.Chime.Types.Invite.html#Invite%27"><span class="hs-identifier hs-var">Invite'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe InviteStatus
+ -&gt; Maybe EmailStatus
+ -&gt; Maybe Text
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Invite)
+-&gt; Parser (Maybe InviteStatus)
+-&gt; Parser
+     (Maybe EmailStatus
+      -&gt; Maybe Text -&gt; Maybe (Sensitive Text) -&gt; Invite)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679511229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe InviteStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EmailStatus
+   -&gt; Maybe Text -&gt; Maybe (Sensitive Text) -&gt; Invite)
+-&gt; Parser (Maybe EmailStatus)
+-&gt; Parser (Maybe Text -&gt; Maybe (Sensitive Text) -&gt; Invite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679511229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EmailStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmailStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (Sensitive Text) -&gt; Invite)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe (Sensitive Text) -&gt; Invite)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679511229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InviteId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (Sensitive Text) -&gt; Invite)
+-&gt; Parser (Maybe (Sensitive Text)) -&gt; Parser Invite
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679511229"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EmailAddress&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511223"><span id="local-6989586621679511225"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679511220"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.Invite.html#Invite"><span class="hs-identifier hs-type">Invite</span></a></span></span><span>
+</span><span id="line-100"></span></pre></body></html>

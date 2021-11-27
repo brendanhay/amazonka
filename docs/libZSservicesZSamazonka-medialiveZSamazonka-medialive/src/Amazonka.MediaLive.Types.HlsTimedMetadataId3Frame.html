@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame"><span class="hs-identifier">HlsTimedMetadataId3Frame</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_NONE"><span class="hs-identifier">HlsTimedMetadataId3Frame_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_PRIV"><span class="hs-identifier">HlsTimedMetadataId3Frame_PRIV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_TDRL"><span class="hs-identifier">HlsTimedMetadataId3Frame_TDRL</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- | Hls Timed Metadata Id3 Frame</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679889080"><span id="local-6989586621679889081"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsTimedMetadataId3Frame"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame"><span class="hs-identifier hs-var">HlsTimedMetadataId3Frame</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsTimedMetadataId3Frame%27"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame%27"><span class="hs-identifier hs-var">HlsTimedMetadataId3Frame'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsTimedMetadataId3Frame"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#fromHlsTimedMetadataId3Frame"><span class="hs-identifier hs-var hs-var">fromHlsTimedMetadataId3Frame</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-36"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889072"><span id="local-6989586621679889074"><span id="local-6989586621679889076"><span class="annot"><span class="annottext">Int -&gt; HlsTimedMetadataId3Frame -&gt; ShowS
+[HlsTimedMetadataId3Frame] -&gt; ShowS
+HlsTimedMetadataId3Frame -&gt; String
+(Int -&gt; HlsTimedMetadataId3Frame -&gt; ShowS)
+-&gt; (HlsTimedMetadataId3Frame -&gt; String)
+-&gt; ([HlsTimedMetadataId3Frame] -&gt; ShowS)
+-&gt; Show HlsTimedMetadataId3Frame
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsTimedMetadataId3Frame] -&gt; ShowS
+$cshowList :: [HlsTimedMetadataId3Frame] -&gt; ShowS
+show :: HlsTimedMetadataId3Frame -&gt; String
+$cshow :: HlsTimedMetadataId3Frame -&gt; String
+showsPrec :: Int -&gt; HlsTimedMetadataId3Frame -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsTimedMetadataId3Frame -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679889063"><span id="local-6989586621679889065"><span id="local-6989586621679889067"><span id="local-6989586621679889069"><span class="annot"><span class="annottext">ReadPrec [HlsTimedMetadataId3Frame]
+ReadPrec HlsTimedMetadataId3Frame
+Int -&gt; ReadS HlsTimedMetadataId3Frame
+ReadS [HlsTimedMetadataId3Frame]
+(Int -&gt; ReadS HlsTimedMetadataId3Frame)
+-&gt; ReadS [HlsTimedMetadataId3Frame]
+-&gt; ReadPrec HlsTimedMetadataId3Frame
+-&gt; ReadPrec [HlsTimedMetadataId3Frame]
+-&gt; Read HlsTimedMetadataId3Frame
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsTimedMetadataId3Frame]
+$creadListPrec :: ReadPrec [HlsTimedMetadataId3Frame]
+readPrec :: ReadPrec HlsTimedMetadataId3Frame
+$creadPrec :: ReadPrec HlsTimedMetadataId3Frame
+readList :: ReadS [HlsTimedMetadataId3Frame]
+$creadList :: ReadS [HlsTimedMetadataId3Frame]
+readsPrec :: Int -&gt; ReadS HlsTimedMetadataId3Frame
+$creadsPrec :: Int -&gt; ReadS HlsTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679889058"><span id="local-6989586621679889060"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+(HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool)
+-&gt; (HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool)
+-&gt; Eq HlsTimedMetadataId3Frame
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+$c/= :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+== :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+$c== :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679889042"><span id="local-6989586621679889044"><span id="local-6989586621679889046"><span id="local-6989586621679889048"><span id="local-6989586621679889050"><span id="local-6989586621679889052"><span id="local-6989586621679889054"><span class="annot"><span class="annottext">Eq HlsTimedMetadataId3Frame
+Eq HlsTimedMetadataId3Frame
+-&gt; (HlsTimedMetadataId3Frame
+    -&gt; HlsTimedMetadataId3Frame -&gt; Ordering)
+-&gt; (HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool)
+-&gt; (HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool)
+-&gt; (HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool)
+-&gt; (HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool)
+-&gt; (HlsTimedMetadataId3Frame
+    -&gt; HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame)
+-&gt; (HlsTimedMetadataId3Frame
+    -&gt; HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame)
+-&gt; Ord HlsTimedMetadataId3Frame
+HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Ordering
+HlsTimedMetadataId3Frame
+-&gt; HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsTimedMetadataId3Frame
+-&gt; HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame
+$cmin :: HlsTimedMetadataId3Frame
+-&gt; HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame
+max :: HlsTimedMetadataId3Frame
+-&gt; HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame
+$cmax :: HlsTimedMetadataId3Frame
+-&gt; HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame
+&gt;= :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+$c&gt;= :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+&gt; :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+$c&gt; :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+&lt;= :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+$c&lt;= :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+&lt; :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+$c&lt; :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Bool
+compare :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Ordering
+$ccompare :: HlsTimedMetadataId3Frame -&gt; HlsTimedMetadataId3Frame -&gt; Ordering
+$cp1Ord :: Eq HlsTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ HlsTimedMetadataId3Frame -&gt; Rep HlsTimedMetadataId3Frame x)
+-&gt; (forall x.
+    Rep HlsTimedMetadataId3Frame x -&gt; HlsTimedMetadataId3Frame)
+-&gt; Generic HlsTimedMetadataId3Frame
+forall x.
+Rep HlsTimedMetadataId3Frame x -&gt; HlsTimedMetadataId3Frame
+forall x.
+HlsTimedMetadataId3Frame -&gt; Rep HlsTimedMetadataId3Frame x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep HlsTimedMetadataId3Frame x -&gt; HlsTimedMetadataId3Frame
+$cfrom :: forall x.
+HlsTimedMetadataId3Frame -&gt; Rep HlsTimedMetadataId3Frame x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679889034"><span id="local-6989586621679889036"><span class="annot"><span class="annottext">Int -&gt; HlsTimedMetadataId3Frame -&gt; Int
+HlsTimedMetadataId3Frame -&gt; Int
+(Int -&gt; HlsTimedMetadataId3Frame -&gt; Int)
+-&gt; (HlsTimedMetadataId3Frame -&gt; Int)
+-&gt; Hashable HlsTimedMetadataId3Frame
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsTimedMetadataId3Frame -&gt; Int
+$chash :: HlsTimedMetadataId3Frame -&gt; Int
+hashWithSalt :: Int -&gt; HlsTimedMetadataId3Frame -&gt; Int
+$chashWithSalt :: Int -&gt; HlsTimedMetadataId3Frame -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679889031"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; ()
+(HlsTimedMetadataId3Frame -&gt; ()) -&gt; NFData HlsTimedMetadataId3Frame
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsTimedMetadataId3Frame -&gt; ()
+$crnf :: HlsTimedMetadataId3Frame -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679889028"><span class="annot"><span class="annottext">Text -&gt; Either String HlsTimedMetadataId3Frame
+(Text -&gt; Either String HlsTimedMetadataId3Frame)
+-&gt; FromText HlsTimedMetadataId3Frame
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsTimedMetadataId3Frame
+$cfromText :: Text -&gt; Either String HlsTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679889025"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; Text
+(HlsTimedMetadataId3Frame -&gt; Text)
+-&gt; ToText HlsTimedMetadataId3Frame
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsTimedMetadataId3Frame -&gt; Text
+$ctoText :: HlsTimedMetadataId3Frame -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679889022"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; ByteString
+(HlsTimedMetadataId3Frame -&gt; ByteString)
+-&gt; ToByteString HlsTimedMetadataId3Frame
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsTimedMetadataId3Frame -&gt; ByteString
+$ctoBS :: HlsTimedMetadataId3Frame -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679889019"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; ByteStringBuilder
+(HlsTimedMetadataId3Frame -&gt; ByteStringBuilder)
+-&gt; ToLog HlsTimedMetadataId3Frame
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsTimedMetadataId3Frame -&gt; ByteStringBuilder
+$cbuild :: HlsTimedMetadataId3Frame -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679889016"><span class="annot"><span class="annottext">HeaderName -&gt; HlsTimedMetadataId3Frame -&gt; [Header]
+(HeaderName -&gt; HlsTimedMetadataId3Frame -&gt; [Header])
+-&gt; ToHeader HlsTimedMetadataId3Frame
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsTimedMetadataId3Frame -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsTimedMetadataId3Frame -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679889013"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; QueryString
+(HlsTimedMetadataId3Frame -&gt; QueryString)
+-&gt; ToQuery HlsTimedMetadataId3Frame
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsTimedMetadataId3Frame -&gt; QueryString
+$ctoQuery :: HlsTimedMetadataId3Frame -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679889008"><span id="local-6989586621679889010"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsTimedMetadataId3Frame]
+Value -&gt; Parser HlsTimedMetadataId3Frame
+(Value -&gt; Parser HlsTimedMetadataId3Frame)
+-&gt; (Value -&gt; Parser [HlsTimedMetadataId3Frame])
+-&gt; FromJSON HlsTimedMetadataId3Frame
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsTimedMetadataId3Frame]
+$cparseJSONList :: Value -&gt; Parser [HlsTimedMetadataId3Frame]
+parseJSON :: Value -&gt; Parser HlsTimedMetadataId3Frame
+$cparseJSON :: Value -&gt; Parser HlsTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679889003"><span id="local-6989586621679889005"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsTimedMetadataId3Frame]
+FromJSONKeyFunction HlsTimedMetadataId3Frame
+FromJSONKeyFunction HlsTimedMetadataId3Frame
+-&gt; FromJSONKeyFunction [HlsTimedMetadataId3Frame]
+-&gt; FromJSONKey HlsTimedMetadataId3Frame
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsTimedMetadataId3Frame]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsTimedMetadataId3Frame]
+fromJSONKey :: FromJSONKeyFunction HlsTimedMetadataId3Frame
+$cfromJSONKey :: FromJSONKeyFunction HlsTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679888994"><span id="local-6989586621679888996"><span id="local-6989586621679888998"><span id="local-6989586621679889000"><span class="annot"><span class="annottext">[HlsTimedMetadataId3Frame] -&gt; Encoding
+[HlsTimedMetadataId3Frame] -&gt; Value
+HlsTimedMetadataId3Frame -&gt; Encoding
+HlsTimedMetadataId3Frame -&gt; Value
+(HlsTimedMetadataId3Frame -&gt; Value)
+-&gt; (HlsTimedMetadataId3Frame -&gt; Encoding)
+-&gt; ([HlsTimedMetadataId3Frame] -&gt; Value)
+-&gt; ([HlsTimedMetadataId3Frame] -&gt; Encoding)
+-&gt; ToJSON HlsTimedMetadataId3Frame
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsTimedMetadataId3Frame] -&gt; Encoding
+$ctoEncodingList :: [HlsTimedMetadataId3Frame] -&gt; Encoding
+toJSONList :: [HlsTimedMetadataId3Frame] -&gt; Value
+$ctoJSONList :: [HlsTimedMetadataId3Frame] -&gt; Value
+toEncoding :: HlsTimedMetadataId3Frame -&gt; Encoding
+$ctoEncoding :: HlsTimedMetadataId3Frame -&gt; Encoding
+toJSON :: HlsTimedMetadataId3Frame -&gt; Value
+$ctoJSON :: HlsTimedMetadataId3Frame -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679888989"><span id="local-6989586621679888991"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsTimedMetadataId3Frame]
+ToJSONKeyFunction HlsTimedMetadataId3Frame
+ToJSONKeyFunction HlsTimedMetadataId3Frame
+-&gt; ToJSONKeyFunction [HlsTimedMetadataId3Frame]
+-&gt; ToJSONKey HlsTimedMetadataId3Frame
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsTimedMetadataId3Frame]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsTimedMetadataId3Frame]
+toJSONKey :: ToJSONKeyFunction HlsTimedMetadataId3Frame
+$ctoJSONKey :: ToJSONKeyFunction HlsTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679888986"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsTimedMetadataId3Frame
+([Node] -&gt; Either String HlsTimedMetadataId3Frame)
+-&gt; FromXML HlsTimedMetadataId3Frame
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsTimedMetadataId3Frame
+$cparseXML :: [Node] -&gt; Either String HlsTimedMetadataId3Frame
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679888983"><span class="annot"><span class="annottext">HlsTimedMetadataId3Frame -&gt; XML
+(HlsTimedMetadataId3Frame -&gt; XML) -&gt; ToXML HlsTimedMetadataId3Frame
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsTimedMetadataId3Frame -&gt; XML
+$ctoXML :: HlsTimedMetadataId3Frame -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_NONE"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsTimedMetadataId3Frame_NONE"><span id="%24mHlsTimedMetadataId3Frame_NONE"><span id="HlsTimedMetadataId3Frame_NONE"><span class="annot"><span class="annottext">$bHlsTimedMetadataId3Frame_NONE :: HlsTimedMetadataId3Frame
+$mHlsTimedMetadataId3Frame_NONE :: forall r.
+HlsTimedMetadataId3Frame -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#%24bHlsTimedMetadataId3Frame_NONE"><span class="hs-identifier hs-var hs-var hs-var">HlsTimedMetadataId3Frame_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame%27"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_PRIV"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame_PRIV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsTimedMetadataId3Frame_PRIV"><span id="%24mHlsTimedMetadataId3Frame_PRIV"><span id="HlsTimedMetadataId3Frame_PRIV"><span class="annot"><span class="annottext">$bHlsTimedMetadataId3Frame_PRIV :: HlsTimedMetadataId3Frame
+$mHlsTimedMetadataId3Frame_PRIV :: forall r.
+HlsTimedMetadataId3Frame -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#%24bHlsTimedMetadataId3Frame_PRIV"><span class="hs-identifier hs-var hs-var hs-var">HlsTimedMetadataId3Frame_PRIV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame%27"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRIV&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_TDRL"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame_TDRL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsTimedMetadataId3Frame_TDRL"><span id="%24mHlsTimedMetadataId3Frame_TDRL"><span id="HlsTimedMetadataId3Frame_TDRL"><span class="annot"><span class="annottext">$bHlsTimedMetadataId3Frame_TDRL :: HlsTimedMetadataId3Frame
+$mHlsTimedMetadataId3Frame_TDRL :: forall r.
+HlsTimedMetadataId3Frame -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#%24bHlsTimedMetadataId3Frame_TDRL"><span class="hs-identifier hs-var hs-var hs-var">HlsTimedMetadataId3Frame_TDRL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame%27"><span class="hs-identifier hs-type">HlsTimedMetadataId3Frame'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TDRL&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_NONE"><span class="hs-pragma hs-type">HlsTimedMetadataId3Frame_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_PRIV"><span class="hs-pragma hs-type">HlsTimedMetadataId3Frame_PRIV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame_TDRL"><span class="hs-pragma hs-type">HlsTimedMetadataId3Frame_TDRL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsTimedMetadataId3Frame.html#HlsTimedMetadataId3Frame%27"><span class="hs-pragma hs-type">HlsTimedMetadataId3Frame'</span></a></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-77"></span></pre></body></html>

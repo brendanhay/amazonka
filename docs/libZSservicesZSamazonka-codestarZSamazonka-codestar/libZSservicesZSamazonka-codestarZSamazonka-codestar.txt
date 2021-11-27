@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.CodeStar.Types.CodeCommitCodeDestination
+module Amazonka.CodeStar.Types.CodeCommitCodeDestination
 
 -- | Information about the AWS CodeCommit repository to be created in AWS
 --   CodeStar. This is where the source code files provided with the
@@ -36,16 +36,16 @@ newCodeCommitCodeDestination :: Text -> CodeCommitCodeDestination
 -- | The name of the AWS CodeCommit repository to be created in AWS
 --   CodeStar.
 codeCommitCodeDestination_name :: Lens' CodeCommitCodeDestination Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
-instance GHC.Show.Show Network.AWS.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
-instance GHC.Read.Read Network.AWS.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
+instance GHC.Show.Show Amazonka.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
+instance GHC.Read.Read Amazonka.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.CodeCommitCodeDestination.CodeCommitCodeDestination
 
 
-module Network.AWS.CodeStar.Types.GitHubCodeDestination
+module Amazonka.CodeStar.Types.GitHubCodeDestination
 
 -- | Information about the GitHub repository to be created in AWS CodeStar.
 --   This is where the source code files provided with the project request
@@ -144,15 +144,15 @@ gitHubCodeDestination_issuesEnabled :: Lens' GitHubCodeDestination Bool
 
 -- | The GitHub user's personal access token for the GitHub repository.
 gitHubCodeDestination_token :: Lens' GitHubCodeDestination Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
-instance GHC.Show.Show Network.AWS.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
+instance GHC.Show.Show Amazonka.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.GitHubCodeDestination.GitHubCodeDestination
 
 
-module Network.AWS.CodeStar.Types.CodeDestination
+module Amazonka.CodeStar.Types.CodeDestination
 
 -- | The repository to be created in AWS CodeStar. Valid values are AWS
 --   CodeCommit or GitHub. After AWS CodeStar provisions the new
@@ -203,15 +203,15 @@ codeDestination_codeCommit :: Lens' CodeDestination (Maybe CodeCommitCodeDestina
 --   This is where the source code files provided with the project request
 --   will be uploaded after project creation.
 codeDestination_gitHub :: Lens' CodeDestination (Maybe GitHubCodeDestination)
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.CodeDestination.CodeDestination
-instance GHC.Show.Show Network.AWS.CodeStar.Types.CodeDestination.CodeDestination
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.CodeDestination.CodeDestination
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.CodeDestination.CodeDestination
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.CodeDestination.CodeDestination
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.CodeDestination.CodeDestination
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.CodeDestination.CodeDestination
+instance GHC.Show.Show Amazonka.CodeStar.Types.CodeDestination.CodeDestination
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.CodeDestination.CodeDestination
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.CodeDestination.CodeDestination
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.CodeDestination.CodeDestination
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.CodeDestination.CodeDestination
 
 
-module Network.AWS.CodeStar.Types.ProjectStatus
+module Amazonka.CodeStar.Types.ProjectStatus
 
 -- | An indication of whether a project creation or deletion is failed or
 --   successful.
@@ -250,16 +250,16 @@ projectStatus_reason :: Lens' ProjectStatus (Maybe Text)
 
 -- | The phase of completion for a project creation or deletion.
 projectStatus_state :: Lens' ProjectStatus Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.ProjectStatus.ProjectStatus
-instance GHC.Show.Show Network.AWS.CodeStar.Types.ProjectStatus.ProjectStatus
-instance GHC.Read.Read Network.AWS.CodeStar.Types.ProjectStatus.ProjectStatus
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.ProjectStatus.ProjectStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStar.Types.ProjectStatus.ProjectStatus
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.ProjectStatus.ProjectStatus
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.ProjectStatus.ProjectStatus
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.ProjectStatus.ProjectStatus
+instance GHC.Show.Show Amazonka.CodeStar.Types.ProjectStatus.ProjectStatus
+instance GHC.Read.Read Amazonka.CodeStar.Types.ProjectStatus.ProjectStatus
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.ProjectStatus.ProjectStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStar.Types.ProjectStatus.ProjectStatus
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.ProjectStatus.ProjectStatus
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.ProjectStatus.ProjectStatus
 
 
-module Network.AWS.CodeStar.Types.ProjectSummary
+module Amazonka.CodeStar.Types.ProjectSummary
 
 -- | Information about the metadata for a project.
 --   
@@ -295,16 +295,16 @@ projectSummary_projectArn :: Lens' ProjectSummary (Maybe Text)
 
 -- | The ID of the project.
 projectSummary_projectId :: Lens' ProjectSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
-instance GHC.Show.Show Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
-instance GHC.Read.Read Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.ProjectSummary.ProjectSummary
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.ProjectSummary.ProjectSummary
+instance GHC.Show.Show Amazonka.CodeStar.Types.ProjectSummary.ProjectSummary
+instance GHC.Read.Read Amazonka.CodeStar.Types.ProjectSummary.ProjectSummary
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.ProjectSummary.ProjectSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStar.Types.ProjectSummary.ProjectSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.ProjectSummary.ProjectSummary
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.ProjectSummary.ProjectSummary
 
 
-module Network.AWS.CodeStar.Types.Resource
+module Amazonka.CodeStar.Types.Resource
 
 -- | Information about a resource for a project.
 --   
@@ -329,16 +329,16 @@ newResource :: Text -> Resource
 
 -- | The Amazon Resource Name (ARN) of the resource.
 resource_id :: Lens' Resource Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.Resource.Resource
-instance GHC.Show.Show Network.AWS.CodeStar.Types.Resource.Resource
-instance GHC.Read.Read Network.AWS.CodeStar.Types.Resource.Resource
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.Resource.Resource
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStar.Types.Resource.Resource
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.Resource.Resource
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.Resource.Resource
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.Resource.Resource
+instance GHC.Show.Show Amazonka.CodeStar.Types.Resource.Resource
+instance GHC.Read.Read Amazonka.CodeStar.Types.Resource.Resource
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.Resource.Resource
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStar.Types.Resource.Resource
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.Resource.Resource
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.Resource.Resource
 
 
-module Network.AWS.CodeStar.Types.S3Location
+module Amazonka.CodeStar.Types.S3Location
 
 -- | The Amazon S3 location where the source code files provided with the
 --   project request are stored.
@@ -379,16 +379,16 @@ s3Location_bucketKey :: Lens' S3Location (Maybe Text)
 -- | The Amazon S3 bucket name where the source code files provided with
 --   the project request are stored.
 s3Location_bucketName :: Lens' S3Location (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.S3Location.S3Location
-instance GHC.Show.Show Network.AWS.CodeStar.Types.S3Location.S3Location
-instance GHC.Read.Read Network.AWS.CodeStar.Types.S3Location.S3Location
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.S3Location.S3Location
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.S3Location.S3Location
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.S3Location.S3Location
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.S3Location.S3Location
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.S3Location.S3Location
+instance GHC.Show.Show Amazonka.CodeStar.Types.S3Location.S3Location
+instance GHC.Read.Read Amazonka.CodeStar.Types.S3Location.S3Location
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.S3Location.S3Location
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.S3Location.S3Location
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.S3Location.S3Location
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.S3Location.S3Location
 
 
-module Network.AWS.CodeStar.Types.CodeSource
+module Amazonka.CodeStar.Types.CodeSource
 
 -- | The location where the source code files provided with the project
 --   request are stored. AWS CodeStar retrieves the files during project
@@ -418,16 +418,16 @@ newCodeSource :: S3Location -> CodeSource
 -- | Information about the Amazon S3 location where the source code files
 --   provided with the project request are stored.
 codeSource_s3 :: Lens' CodeSource S3Location
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.CodeSource.CodeSource
-instance GHC.Show.Show Network.AWS.CodeStar.Types.CodeSource.CodeSource
-instance GHC.Read.Read Network.AWS.CodeStar.Types.CodeSource.CodeSource
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.CodeSource.CodeSource
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.CodeSource.CodeSource
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.CodeSource.CodeSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.CodeSource.CodeSource
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.CodeSource.CodeSource
+instance GHC.Show.Show Amazonka.CodeStar.Types.CodeSource.CodeSource
+instance GHC.Read.Read Amazonka.CodeStar.Types.CodeSource.CodeSource
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.CodeSource.CodeSource
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.CodeSource.CodeSource
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.CodeSource.CodeSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.CodeSource.CodeSource
 
 
-module Network.AWS.CodeStar.Types.Code
+module Amazonka.CodeStar.Types.Code
 
 -- | Location and destination information about the source code files
 --   provided with the project request. The source code is uploaded to the
@@ -477,15 +477,15 @@ code_source :: Lens' Code CodeSource
 --   repository, the source code files provided with the project request
 --   are placed in the repository.
 code_destination :: Lens' Code CodeDestination
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.Code.Code
-instance GHC.Show.Show Network.AWS.CodeStar.Types.Code.Code
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.Code.Code
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.Code.Code
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.Code.Code
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.Code.Code
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.Code.Code
+instance GHC.Show.Show Amazonka.CodeStar.Types.Code.Code
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.Code.Code
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.Code.Code
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.Code.Code
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.Code.Code
 
 
-module Network.AWS.CodeStar.Types.TeamMember
+module Amazonka.CodeStar.Types.TeamMember
 
 -- | Information about a team member in a project.
 --   
@@ -538,16 +538,16 @@ teamMember_userArn :: Lens' TeamMember Text
 --   different levels of access. For more information, see <a>Working with
 --   Teams</a> in the <i>AWS CodeStar User Guide</i>.
 teamMember_projectRole :: Lens' TeamMember Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.TeamMember.TeamMember
-instance GHC.Show.Show Network.AWS.CodeStar.Types.TeamMember.TeamMember
-instance GHC.Read.Read Network.AWS.CodeStar.Types.TeamMember.TeamMember
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.TeamMember.TeamMember
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStar.Types.TeamMember.TeamMember
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.TeamMember.TeamMember
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.TeamMember.TeamMember
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.TeamMember.TeamMember
+instance GHC.Show.Show Amazonka.CodeStar.Types.TeamMember.TeamMember
+instance GHC.Read.Read Amazonka.CodeStar.Types.TeamMember.TeamMember
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.TeamMember.TeamMember
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStar.Types.TeamMember.TeamMember
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.TeamMember.TeamMember
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.TeamMember.TeamMember
 
 
-module Network.AWS.CodeStar.Types.ToolchainSource
+module Amazonka.CodeStar.Types.ToolchainSource
 
 -- | The Amazon S3 location where the toolchain template file provided with
 --   the project request is stored. AWS CodeStar retrieves the file during
@@ -578,16 +578,16 @@ newToolchainSource :: S3Location -> ToolchainSource
 -- | The Amazon S3 bucket where the toolchain template file provided with
 --   the project request is stored.
 toolchainSource_s3 :: Lens' ToolchainSource S3Location
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.ToolchainSource.ToolchainSource
-instance GHC.Show.Show Network.AWS.CodeStar.Types.ToolchainSource.ToolchainSource
-instance GHC.Read.Read Network.AWS.CodeStar.Types.ToolchainSource.ToolchainSource
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.ToolchainSource.ToolchainSource
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.ToolchainSource.ToolchainSource
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.ToolchainSource.ToolchainSource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.ToolchainSource.ToolchainSource
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.ToolchainSource.ToolchainSource
+instance GHC.Show.Show Amazonka.CodeStar.Types.ToolchainSource.ToolchainSource
+instance GHC.Read.Read Amazonka.CodeStar.Types.ToolchainSource.ToolchainSource
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.ToolchainSource.ToolchainSource
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.ToolchainSource.ToolchainSource
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.ToolchainSource.ToolchainSource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.ToolchainSource.ToolchainSource
 
 
-module Network.AWS.CodeStar.Types.Toolchain
+module Amazonka.CodeStar.Types.Toolchain
 
 -- | The toolchain template file provided with the project request. AWS
 --   CodeStar uses the template to provision the toolchain stack in AWS
@@ -645,15 +645,15 @@ toolchain_roleArn :: Lens' Toolchain (Maybe Text)
 --   the project request is stored. AWS CodeStar retrieves the file during
 --   project creation.
 toolchain_source :: Lens' Toolchain ToolchainSource
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.Toolchain.Toolchain
-instance GHC.Show.Show Network.AWS.CodeStar.Types.Toolchain.Toolchain
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.Toolchain.Toolchain
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.Toolchain.Toolchain
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.Toolchain.Toolchain
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.Types.Toolchain.Toolchain
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.Toolchain.Toolchain
+instance GHC.Show.Show Amazonka.CodeStar.Types.Toolchain.Toolchain
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.Toolchain.Toolchain
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.Toolchain.Toolchain
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.Toolchain.Toolchain
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.Types.Toolchain.Toolchain
 
 
-module Network.AWS.CodeStar.Types.UserProfileSummary
+module Amazonka.CodeStar.Types.UserProfileSummary
 
 -- | Information about a user's profile in AWS CodeStar.
 --   
@@ -745,15 +745,15 @@ userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 --   would generate an initial icon using the first character and the first
 --   character after the space ("MJ", not "MM").
 userProfileSummary_displayName :: Lens' UserProfileSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
-instance GHC.Show.Show Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
-instance GHC.Classes.Eq Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.Types.UserProfileSummary.UserProfileSummary
+instance GHC.Generics.Generic Amazonka.CodeStar.Types.UserProfileSummary.UserProfileSummary
+instance GHC.Show.Show Amazonka.CodeStar.Types.UserProfileSummary.UserProfileSummary
+instance GHC.Classes.Eq Amazonka.CodeStar.Types.UserProfileSummary.UserProfileSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.CodeStar.Types.UserProfileSummary.UserProfileSummary
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.Types.UserProfileSummary.UserProfileSummary
+instance Control.DeepSeq.NFData Amazonka.CodeStar.Types.UserProfileSummary.UserProfileSummary
 
 
-module Network.AWS.CodeStar.Types
+module Amazonka.CodeStar.Types
 
 -- | API version <tt>2017-04-19</tt> of the Amazon CodeStar SDK
 --   configuration.
@@ -1430,7 +1430,7 @@ userProfileSummary_displayName :: Lens' UserProfileSummary (Maybe Text)
 
 
 -- | Adds tags to a project.
-module Network.AWS.CodeStar.TagProject
+module Amazonka.CodeStar.TagProject
 
 -- | <i>See:</i> <a>newTagProject</a> smart constructor.
 data TagProject
@@ -1495,29 +1495,29 @@ tagProjectResponse_tags :: Lens' TagProjectResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 tagProjectResponse_httpStatus :: Lens' TagProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.TagProject.TagProject
-instance GHC.Show.Show Network.AWS.CodeStar.TagProject.TagProject
-instance GHC.Read.Read Network.AWS.CodeStar.TagProject.TagProject
-instance GHC.Classes.Eq Network.AWS.CodeStar.TagProject.TagProject
-instance GHC.Generics.Generic Network.AWS.CodeStar.TagProject.TagProjectResponse
-instance GHC.Show.Show Network.AWS.CodeStar.TagProject.TagProjectResponse
-instance GHC.Read.Read Network.AWS.CodeStar.TagProject.TagProjectResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.TagProject.TagProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.TagProject.TagProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.TagProject.TagProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.TagProject.TagProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.TagProject.TagProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.TagProject.TagProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.TagProject.TagProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.TagProject.TagProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.TagProject.TagProject
+instance GHC.Generics.Generic Amazonka.CodeStar.TagProject.TagProject
+instance GHC.Show.Show Amazonka.CodeStar.TagProject.TagProject
+instance GHC.Read.Read Amazonka.CodeStar.TagProject.TagProject
+instance GHC.Classes.Eq Amazonka.CodeStar.TagProject.TagProject
+instance GHC.Generics.Generic Amazonka.CodeStar.TagProject.TagProjectResponse
+instance GHC.Show.Show Amazonka.CodeStar.TagProject.TagProjectResponse
+instance GHC.Read.Read Amazonka.CodeStar.TagProject.TagProjectResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.TagProject.TagProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.TagProject.TagProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.TagProject.TagProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.TagProject.TagProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.TagProject.TagProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.TagProject.TagProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.TagProject.TagProject
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.TagProject.TagProject
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.TagProject.TagProject
 
 
 -- | Lists all the user profiles configured for your AWS account in AWS
 --   CodeStar.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeStar.ListUserProfiles
+module Amazonka.CodeStar.ListUserProfiles
 
 -- | <i>See:</i> <a>newListUserProfiles</a> smart constructor.
 data ListUserProfiles
@@ -1602,28 +1602,28 @@ listUserProfilesResponse_httpStatus :: Lens' ListUserProfilesResponse Int
 
 -- | All the user profiles configured in AWS CodeStar for an AWS account.
 listUserProfilesResponse_userProfiles :: Lens' ListUserProfilesResponse [UserProfileSummary]
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance GHC.Show.Show Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance GHC.Read.Read Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListUserProfiles.ListUserProfilesResponse
-instance GHC.Show.Show Network.AWS.CodeStar.ListUserProfiles.ListUserProfilesResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListUserProfiles.ListUserProfilesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListUserProfiles.ListUserProfilesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.ListUserProfiles.ListUserProfiles
+instance GHC.Generics.Generic Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance GHC.Show.Show Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance GHC.Read.Read Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance GHC.Classes.Eq Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance GHC.Generics.Generic Amazonka.CodeStar.ListUserProfiles.ListUserProfilesResponse
+instance GHC.Show.Show Amazonka.CodeStar.ListUserProfiles.ListUserProfilesResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.ListUserProfiles.ListUserProfilesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListUserProfiles.ListUserProfilesResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.ListUserProfiles.ListUserProfiles
 
 
 -- | Lists all team members associated with a project.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeStar.ListTeamMembers
+module Amazonka.CodeStar.ListTeamMembers
 
 -- | <i>See:</i> <a>newListTeamMembers</a> smart constructor.
 data ListTeamMembers
@@ -1717,27 +1717,27 @@ listTeamMembersResponse_httpStatus :: Lens' ListTeamMembersResponse Int
 
 -- | A list of team member objects for the project.
 listTeamMembersResponse_teamMembers :: Lens' ListTeamMembersResponse [TeamMember]
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance GHC.Show.Show Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance GHC.Read.Read Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListTeamMembers.ListTeamMembersResponse
-instance GHC.Show.Show Network.AWS.CodeStar.ListTeamMembers.ListTeamMembersResponse
-instance GHC.Read.Read Network.AWS.CodeStar.ListTeamMembers.ListTeamMembersResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListTeamMembers.ListTeamMembersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListTeamMembers.ListTeamMembersResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.ListTeamMembers.ListTeamMembers
+instance GHC.Generics.Generic Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance GHC.Show.Show Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance GHC.Read.Read Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance GHC.Classes.Eq Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance GHC.Generics.Generic Amazonka.CodeStar.ListTeamMembers.ListTeamMembersResponse
+instance GHC.Show.Show Amazonka.CodeStar.ListTeamMembers.ListTeamMembersResponse
+instance GHC.Read.Read Amazonka.CodeStar.ListTeamMembers.ListTeamMembersResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.ListTeamMembers.ListTeamMembersResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListTeamMembers.ListTeamMembersResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.ListTeamMembers.ListTeamMembers
 
 
 -- | Gets the tags for a project.
-module Network.AWS.CodeStar.ListTagsForProject
+module Amazonka.CodeStar.ListTagsForProject
 
 -- | <i>See:</i> <a>newListTagsForProject</a> smart constructor.
 data ListTagsForProject
@@ -1821,28 +1821,28 @@ listTagsForProjectResponse_tags :: Lens' ListTagsForProjectResponse (Maybe (Hash
 
 -- | The response's http status code.
 listTagsForProjectResponse_httpStatus :: Lens' ListTagsForProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance GHC.Show.Show Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance GHC.Read.Read Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListTagsForProject.ListTagsForProjectResponse
-instance GHC.Show.Show Network.AWS.CodeStar.ListTagsForProject.ListTagsForProjectResponse
-instance GHC.Read.Read Network.AWS.CodeStar.ListTagsForProject.ListTagsForProjectResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListTagsForProject.ListTagsForProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListTagsForProject.ListTagsForProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.ListTagsForProject.ListTagsForProject
+instance GHC.Generics.Generic Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance GHC.Show.Show Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance GHC.Read.Read Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance GHC.Classes.Eq Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance GHC.Generics.Generic Amazonka.CodeStar.ListTagsForProject.ListTagsForProjectResponse
+instance GHC.Show.Show Amazonka.CodeStar.ListTagsForProject.ListTagsForProjectResponse
+instance GHC.Read.Read Amazonka.CodeStar.ListTagsForProject.ListTagsForProjectResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.ListTagsForProject.ListTagsForProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListTagsForProject.ListTagsForProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.ListTagsForProject.ListTagsForProject
 
 
 -- | Lists resources associated with a project in AWS CodeStar.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeStar.ListResources
+module Amazonka.CodeStar.ListResources
 
 -- | <i>See:</i> <a>newListResources</a> smart constructor.
 data ListResources
@@ -1937,29 +1937,29 @@ listResourcesResponse_nextToken :: Lens' ListResourcesResponse (Maybe Text)
 
 -- | The response's http status code.
 listResourcesResponse_httpStatus :: Lens' ListResourcesResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListResources.ListResources
-instance GHC.Show.Show Network.AWS.CodeStar.ListResources.ListResources
-instance GHC.Read.Read Network.AWS.CodeStar.ListResources.ListResources
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListResources.ListResources
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListResources.ListResourcesResponse
-instance GHC.Show.Show Network.AWS.CodeStar.ListResources.ListResourcesResponse
-instance GHC.Read.Read Network.AWS.CodeStar.ListResources.ListResourcesResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListResources.ListResourcesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListResources.ListResourcesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeStar.ListResources.ListResources
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.ListResources.ListResources
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListResources.ListResources
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.ListResources.ListResources
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.ListResources.ListResources
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.ListResources.ListResources
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.CodeStar.ListResources.ListResources
+instance GHC.Show.Show Amazonka.CodeStar.ListResources.ListResources
+instance GHC.Read.Read Amazonka.CodeStar.ListResources.ListResources
+instance GHC.Classes.Eq Amazonka.CodeStar.ListResources.ListResources
+instance GHC.Generics.Generic Amazonka.CodeStar.ListResources.ListResourcesResponse
+instance GHC.Show.Show Amazonka.CodeStar.ListResources.ListResourcesResponse
+instance GHC.Read.Read Amazonka.CodeStar.ListResources.ListResourcesResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.ListResources.ListResourcesResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListResources.ListResourcesResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeStar.ListResources.ListResources
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.ListResources.ListResources
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListResources.ListResources
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.ListResources.ListResources
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.ListResources.ListResources
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.ListResources.ListResources
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.ListResources.ListResources
 
 
 -- | Lists all projects in AWS CodeStar associated with your AWS account.
 --   
 --   This operation returns paginated results.
-module Network.AWS.CodeStar.ListProjects
+module Amazonka.CodeStar.ListProjects
 
 -- | <i>See:</i> <a>newListProjects</a> smart constructor.
 data ListProjects
@@ -2044,23 +2044,23 @@ listProjectsResponse_httpStatus :: Lens' ListProjectsResponse Int
 
 -- | A list of projects.
 listProjectsResponse_projects :: Lens' ListProjectsResponse [ProjectSummary]
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListProjects.ListProjects
-instance GHC.Show.Show Network.AWS.CodeStar.ListProjects.ListProjects
-instance GHC.Read.Read Network.AWS.CodeStar.ListProjects.ListProjects
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListProjects.ListProjects
-instance GHC.Generics.Generic Network.AWS.CodeStar.ListProjects.ListProjectsResponse
-instance GHC.Show.Show Network.AWS.CodeStar.ListProjects.ListProjectsResponse
-instance GHC.Read.Read Network.AWS.CodeStar.ListProjects.ListProjectsResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.ListProjects.ListProjectsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListProjects.ListProjectsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.CodeStar.ListProjects.ListProjects
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.ListProjects.ListProjects
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.ListProjects.ListProjects
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.ListProjects.ListProjects
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.ListProjects.ListProjects
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.CodeStar.ListProjects.ListProjects
+instance GHC.Show.Show Amazonka.CodeStar.ListProjects.ListProjects
+instance GHC.Read.Read Amazonka.CodeStar.ListProjects.ListProjects
+instance GHC.Classes.Eq Amazonka.CodeStar.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.CodeStar.ListProjects.ListProjectsResponse
+instance GHC.Show.Show Amazonka.CodeStar.ListProjects.ListProjectsResponse
+instance GHC.Read.Read Amazonka.CodeStar.ListProjects.ListProjectsResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.ListProjects.ListProjectsResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListProjects.ListProjectsResponse
+instance Amazonka.Pager.AWSPager Amazonka.CodeStar.ListProjects.ListProjects
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.CodeStar.ListProjects.ListProjects
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.ListProjects.ListProjects
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.ListProjects.ListProjects
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.ListProjects.ListProjects
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.ListProjects.ListProjects
 
 
 -- | Removes a user from a project. Removing a user from a project also
@@ -2068,7 +2068,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.ListProjects.ListPr
 --   project and its resources. Disassociating a team member does not
 --   remove that user's profile from AWS CodeStar. It does not remove the
 --   user from IAM.
-module Network.AWS.CodeStar.DisassociateTeamMember
+module Amazonka.CodeStar.DisassociateTeamMember
 
 -- | <i>See:</i> <a>newDisassociateTeamMember</a> smart constructor.
 data DisassociateTeamMember
@@ -2132,27 +2132,27 @@ newDisassociateTeamMemberResponse :: Int -> DisassociateTeamMemberResponse
 
 -- | The response's http status code.
 disassociateTeamMemberResponse_httpStatus :: Lens' DisassociateTeamMemberResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance GHC.Show.Show Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance GHC.Read.Read Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance GHC.Classes.Eq Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance GHC.Generics.Generic Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
-instance GHC.Show.Show Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
-instance GHC.Read.Read Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance GHC.Generics.Generic Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance GHC.Show.Show Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance GHC.Read.Read Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance GHC.Classes.Eq Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance GHC.Generics.Generic Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
+instance GHC.Show.Show Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
+instance GHC.Read.Read Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMemberResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.DisassociateTeamMember.DisassociateTeamMember
 
 
 -- | Describes a user in AWS CodeStar and the user attributes across all
 --   projects.
-module Network.AWS.CodeStar.DescribeUserProfile
+module Amazonka.CodeStar.DescribeUserProfile
 
 -- | <i>See:</i> <a>newDescribeUserProfile</a> smart constructor.
 data DescribeUserProfile
@@ -2304,25 +2304,25 @@ describeUserProfileResponse_createdTimestamp :: Lens' DescribeUserProfileRespons
 -- | The date and time when the user profile was last modified, in
 --   timestamp format.
 describeUserProfileResponse_lastModifiedTimestamp :: Lens' DescribeUserProfileResponse UTCTime
-instance GHC.Generics.Generic Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance GHC.Show.Show Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance GHC.Read.Read Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance GHC.Classes.Eq Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance GHC.Generics.Generic Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
-instance GHC.Show.Show Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance GHC.Show.Show Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance GHC.Read.Read Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance GHC.Classes.Eq Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
+instance GHC.Show.Show Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.DescribeUserProfile.DescribeUserProfile
 
 
 -- | Describes a project and its resources.
-module Network.AWS.CodeStar.DescribeProject
+module Amazonka.CodeStar.DescribeProject
 
 -- | <i>See:</i> <a>newDescribeProject</a> smart constructor.
 data DescribeProject
@@ -2466,28 +2466,28 @@ describeProjectResponse_description :: Lens' DescribeProjectResponse (Maybe Text
 
 -- | The response's http status code.
 describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance GHC.Show.Show Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance GHC.Read.Read Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance GHC.Classes.Eq Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance GHC.Generics.Generic Network.AWS.CodeStar.DescribeProject.DescribeProjectResponse
-instance GHC.Show.Show Network.AWS.CodeStar.DescribeProject.DescribeProjectResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.DescribeProject.DescribeProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DescribeProject.DescribeProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.DescribeProject.DescribeProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.CodeStar.DescribeProject.DescribeProject
+instance GHC.Show.Show Amazonka.CodeStar.DescribeProject.DescribeProject
+instance GHC.Read.Read Amazonka.CodeStar.DescribeProject.DescribeProject
+instance GHC.Classes.Eq Amazonka.CodeStar.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.CodeStar.DescribeProject.DescribeProjectResponse
+instance GHC.Show.Show Amazonka.CodeStar.DescribeProject.DescribeProjectResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.DescribeProject.DescribeProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DescribeProject.DescribeProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DescribeProject.DescribeProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.DescribeProject.DescribeProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.DescribeProject.DescribeProject
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.DescribeProject.DescribeProject
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.DescribeProject.DescribeProject
 
 
 -- | Deletes a user profile in AWS CodeStar, including all personal
 --   preference data associated with that profile, such as display name and
 --   email address. It does not delete the history of that user, for
 --   example the history of commits made by that user.
-module Network.AWS.CodeStar.DeleteUserProfile
+module Amazonka.CodeStar.DeleteUserProfile
 
 -- | <i>See:</i> <a>newDeleteUserProfile</a> smart constructor.
 data DeleteUserProfile
@@ -2548,28 +2548,28 @@ deleteUserProfileResponse_httpStatus :: Lens' DeleteUserProfileResponse Int
 
 -- | The Amazon Resource Name (ARN) of the user deleted from AWS CodeStar.
 deleteUserProfileResponse_userArn :: Lens' DeleteUserProfileResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance GHC.Show.Show Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance GHC.Read.Read Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance GHC.Classes.Eq Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance GHC.Generics.Generic Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
-instance GHC.Show.Show Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
-instance GHC.Read.Read Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance GHC.Show.Show Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance GHC.Read.Read Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance GHC.Classes.Eq Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
+instance GHC.Show.Show Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
+instance GHC.Read.Read Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.DeleteUserProfile.DeleteUserProfile
 
 
 -- | Deletes a project, including project resources. Does not delete users
 --   associated with the project, but does delete the IAM roles that
 --   allowed access to the project.
-module Network.AWS.CodeStar.DeleteProject
+module Amazonka.CodeStar.DeleteProject
 
 -- | <i>See:</i> <a>newDeleteProject</a> smart constructor.
 data DeleteProject
@@ -2676,22 +2676,22 @@ deleteProjectResponse_stackId :: Lens' DeleteProjectResponse (Maybe Text)
 
 -- | The response's http status code.
 deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance GHC.Show.Show Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance GHC.Read.Read Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance GHC.Classes.Eq Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance GHC.Generics.Generic Network.AWS.CodeStar.DeleteProject.DeleteProjectResponse
-instance GHC.Show.Show Network.AWS.CodeStar.DeleteProject.DeleteProjectResponse
-instance GHC.Read.Read Network.AWS.CodeStar.DeleteProject.DeleteProjectResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.DeleteProject.DeleteProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DeleteProject.DeleteProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.DeleteProject.DeleteProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.CodeStar.DeleteProject.DeleteProject
+instance GHC.Show.Show Amazonka.CodeStar.DeleteProject.DeleteProject
+instance GHC.Read.Read Amazonka.CodeStar.DeleteProject.DeleteProject
+instance GHC.Classes.Eq Amazonka.CodeStar.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.CodeStar.DeleteProject.DeleteProjectResponse
+instance GHC.Show.Show Amazonka.CodeStar.DeleteProject.DeleteProjectResponse
+instance GHC.Read.Read Amazonka.CodeStar.DeleteProject.DeleteProjectResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.DeleteProject.DeleteProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DeleteProject.DeleteProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.DeleteProject.DeleteProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.DeleteProject.DeleteProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.DeleteProject.DeleteProject
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.DeleteProject.DeleteProject
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.DeleteProject.DeleteProject
 
 
 -- | Creates a profile for a user that includes user preferences, such as
@@ -2699,7 +2699,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.DeleteProject.Delet
 --   CodeStar. The user profile is not project-specific. Information in the
 --   user profile is displayed wherever the user's information appears to
 --   other users in AWS CodeStar.
-module Network.AWS.CodeStar.CreateUserProfile
+module Amazonka.CodeStar.CreateUserProfile
 
 -- | <i>See:</i> <a>newCreateUserProfile</a> smart constructor.
 data CreateUserProfile
@@ -2863,27 +2863,27 @@ createUserProfileResponse_httpStatus :: Lens' CreateUserProfileResponse Int
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 createUserProfileResponse_userArn :: Lens' CreateUserProfileResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance GHC.Show.Show Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance GHC.Classes.Eq Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance GHC.Generics.Generic Network.AWS.CodeStar.CreateUserProfile.CreateUserProfileResponse
-instance GHC.Show.Show Network.AWS.CodeStar.CreateUserProfile.CreateUserProfileResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.CreateUserProfile.CreateUserProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.CreateUserProfile.CreateUserProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.CreateUserProfile.CreateUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance GHC.Show.Show Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance GHC.Classes.Eq Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.CreateUserProfile.CreateUserProfileResponse
+instance GHC.Show.Show Amazonka.CodeStar.CreateUserProfile.CreateUserProfileResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.CreateUserProfile.CreateUserProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.CreateUserProfile.CreateUserProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.CreateUserProfile.CreateUserProfile
 
 
 -- | Creates a project, including project resources. This action creates a
 --   project based on a submitted project request. A set of source code
 --   files and a toolchain template file can be included with the project
 --   request. If these are not provided, an empty project is created.
-module Network.AWS.CodeStar.CreateProject
+module Amazonka.CodeStar.CreateProject
 
 -- | <i>See:</i> <a>newCreateProject</a> smart constructor.
 data CreateProject
@@ -3046,25 +3046,25 @@ createProjectResponse_id :: Lens' CreateProjectResponse Text
 
 -- | The Amazon Resource Name (ARN) of the created project.
 createProjectResponse_arn :: Lens' CreateProjectResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.CreateProject.CreateProject
-instance GHC.Show.Show Network.AWS.CodeStar.CreateProject.CreateProject
-instance GHC.Classes.Eq Network.AWS.CodeStar.CreateProject.CreateProject
-instance GHC.Generics.Generic Network.AWS.CodeStar.CreateProject.CreateProjectResponse
-instance GHC.Show.Show Network.AWS.CodeStar.CreateProject.CreateProjectResponse
-instance GHC.Read.Read Network.AWS.CodeStar.CreateProject.CreateProjectResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.CreateProject.CreateProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.CreateProject.CreateProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.CreateProject.CreateProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.CreateProject.CreateProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.CreateProject.CreateProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.CreateProject.CreateProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.CodeStar.CreateProject.CreateProject
+instance GHC.Show.Show Amazonka.CodeStar.CreateProject.CreateProject
+instance GHC.Classes.Eq Amazonka.CodeStar.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.CodeStar.CreateProject.CreateProjectResponse
+instance GHC.Show.Show Amazonka.CodeStar.CreateProject.CreateProjectResponse
+instance GHC.Read.Read Amazonka.CodeStar.CreateProject.CreateProjectResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.CreateProject.CreateProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.CreateProject.CreateProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.CreateProject.CreateProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.CreateProject.CreateProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.CreateProject.CreateProject
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.CreateProject.CreateProject
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.CreateProject.CreateProject
 
 
 -- | Adds an IAM user to the team for an AWS CodeStar project.
-module Network.AWS.CodeStar.AssociateTeamMember
+module Amazonka.CodeStar.AssociateTeamMember
 
 -- | <i>See:</i> <a>newAssociateTeamMember</a> smart constructor.
 data AssociateTeamMember
@@ -3182,26 +3182,26 @@ associateTeamMemberResponse_clientRequestToken :: Lens' AssociateTeamMemberRespo
 
 -- | The response's http status code.
 associateTeamMemberResponse_httpStatus :: Lens' AssociateTeamMemberResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance GHC.Show.Show Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance GHC.Read.Read Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance GHC.Classes.Eq Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance GHC.Generics.Generic Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
-instance GHC.Show.Show Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
-instance GHC.Read.Read Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance GHC.Generics.Generic Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance GHC.Show.Show Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance GHC.Read.Read Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance GHC.Classes.Eq Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance GHC.Generics.Generic Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
+instance GHC.Show.Show Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
+instance GHC.Read.Read Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance Control.DeepSeq.NFData Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMemberResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance Control.DeepSeq.NFData Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.AssociateTeamMember.AssociateTeamMember
 
 
 -- | Removes tags from a project.
-module Network.AWS.CodeStar.UntagProject
+module Amazonka.CodeStar.UntagProject
 
 -- | <i>See:</i> <a>newUntagProject</a> smart constructor.
 data UntagProject
@@ -3258,26 +3258,26 @@ newUntagProjectResponse :: Int -> UntagProjectResponse
 
 -- | The response's http status code.
 untagProjectResponse_httpStatus :: Lens' UntagProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.UntagProject.UntagProject
-instance GHC.Show.Show Network.AWS.CodeStar.UntagProject.UntagProject
-instance GHC.Read.Read Network.AWS.CodeStar.UntagProject.UntagProject
-instance GHC.Classes.Eq Network.AWS.CodeStar.UntagProject.UntagProject
-instance GHC.Generics.Generic Network.AWS.CodeStar.UntagProject.UntagProjectResponse
-instance GHC.Show.Show Network.AWS.CodeStar.UntagProject.UntagProjectResponse
-instance GHC.Read.Read Network.AWS.CodeStar.UntagProject.UntagProjectResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.UntagProject.UntagProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.UntagProject.UntagProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UntagProject.UntagProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.UntagProject.UntagProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UntagProject.UntagProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.UntagProject.UntagProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.UntagProject.UntagProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.UntagProject.UntagProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.UntagProject.UntagProject
+instance GHC.Generics.Generic Amazonka.CodeStar.UntagProject.UntagProject
+instance GHC.Show.Show Amazonka.CodeStar.UntagProject.UntagProject
+instance GHC.Read.Read Amazonka.CodeStar.UntagProject.UntagProject
+instance GHC.Classes.Eq Amazonka.CodeStar.UntagProject.UntagProject
+instance GHC.Generics.Generic Amazonka.CodeStar.UntagProject.UntagProjectResponse
+instance GHC.Show.Show Amazonka.CodeStar.UntagProject.UntagProjectResponse
+instance GHC.Read.Read Amazonka.CodeStar.UntagProject.UntagProjectResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.UntagProject.UntagProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.UntagProject.UntagProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UntagProject.UntagProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.UntagProject.UntagProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UntagProject.UntagProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.UntagProject.UntagProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.UntagProject.UntagProject
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.UntagProject.UntagProject
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.UntagProject.UntagProject
 
 
 -- | Updates a project in AWS CodeStar.
-module Network.AWS.CodeStar.UpdateProject
+module Amazonka.CodeStar.UpdateProject
 
 -- | <i>See:</i> <a>newUpdateProject</a> smart constructor.
 data UpdateProject
@@ -3344,27 +3344,27 @@ newUpdateProjectResponse :: Int -> UpdateProjectResponse
 
 -- | The response's http status code.
 updateProjectResponse_httpStatus :: Lens' UpdateProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance GHC.Show.Show Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance GHC.Classes.Eq Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance GHC.Generics.Generic Network.AWS.CodeStar.UpdateProject.UpdateProjectResponse
-instance GHC.Show.Show Network.AWS.CodeStar.UpdateProject.UpdateProjectResponse
-instance GHC.Read.Read Network.AWS.CodeStar.UpdateProject.UpdateProjectResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.UpdateProject.UpdateProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UpdateProject.UpdateProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.UpdateProject.UpdateProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.UpdateProject.UpdateProject
+instance GHC.Generics.Generic Amazonka.CodeStar.UpdateProject.UpdateProject
+instance GHC.Show.Show Amazonka.CodeStar.UpdateProject.UpdateProject
+instance GHC.Classes.Eq Amazonka.CodeStar.UpdateProject.UpdateProject
+instance GHC.Generics.Generic Amazonka.CodeStar.UpdateProject.UpdateProjectResponse
+instance GHC.Show.Show Amazonka.CodeStar.UpdateProject.UpdateProjectResponse
+instance GHC.Read.Read Amazonka.CodeStar.UpdateProject.UpdateProjectResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.UpdateProject.UpdateProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.UpdateProject.UpdateProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UpdateProject.UpdateProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.UpdateProject.UpdateProject
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UpdateProject.UpdateProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.UpdateProject.UpdateProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.UpdateProject.UpdateProject
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.UpdateProject.UpdateProject
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.UpdateProject.UpdateProject
 
 
 -- | Updates a team member's attributes in an AWS CodeStar project. For
 --   example, you can change a team member's role in the project, or change
 --   whether they have remote access to project resources.
-module Network.AWS.CodeStar.UpdateTeamMember
+module Amazonka.CodeStar.UpdateTeamMember
 
 -- | <i>See:</i> <a>newUpdateTeamMember</a> smart constructor.
 data UpdateTeamMember
@@ -3494,29 +3494,29 @@ updateTeamMemberResponse_projectRole :: Lens' UpdateTeamMemberResponse (Maybe Te
 
 -- | The response's http status code.
 updateTeamMemberResponse_httpStatus :: Lens' UpdateTeamMemberResponse Int
-instance GHC.Generics.Generic Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance GHC.Show.Show Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance GHC.Read.Read Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance GHC.Classes.Eq Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance GHC.Generics.Generic Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
-instance GHC.Show.Show Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
-instance GHC.Read.Read Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance GHC.Generics.Generic Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance GHC.Show.Show Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance GHC.Read.Read Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance GHC.Classes.Eq Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance GHC.Generics.Generic Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
+instance GHC.Show.Show Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
+instance GHC.Read.Read Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMemberResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.UpdateTeamMember.UpdateTeamMember
 
 
 -- | Updates a user's profile in AWS CodeStar. The user profile is not
 --   project-specific. Information in the user profile is displayed
 --   wherever the user's information appears to other users in AWS
 --   CodeStar.
-module Network.AWS.CodeStar.UpdateUserProfile
+module Amazonka.CodeStar.UpdateUserProfile
 
 -- | <i>See:</i> <a>newUpdateUserProfile</a> smart constructor.
 data UpdateUserProfile
@@ -3682,23 +3682,23 @@ updateUserProfileResponse_httpStatus :: Lens' UpdateUserProfileResponse Int
 
 -- | The Amazon Resource Name (ARN) of the user in IAM.
 updateUserProfileResponse_userArn :: Lens' UpdateUserProfileResponse Text
-instance GHC.Generics.Generic Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance GHC.Show.Show Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance GHC.Classes.Eq Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance GHC.Generics.Generic Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
-instance GHC.Show.Show Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
-instance GHC.Classes.Eq Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
-instance Data.Hashable.Class.Hashable Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance Control.DeepSeq.NFData Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance Network.AWS.Data.Path.ToPath Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance GHC.Show.Show Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance GHC.Classes.Eq Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance GHC.Generics.Generic Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
+instance GHC.Show.Show Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
+instance GHC.Classes.Eq Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
+instance Amazonka.Types.AWSRequest Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfileResponse
+instance Data.Hashable.Class.Hashable Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance Control.DeepSeq.NFData Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance Amazonka.Data.Headers.ToHeaders Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance Amazonka.Data.Path.ToPath Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
+instance Amazonka.Data.Query.ToQuery Amazonka.CodeStar.UpdateUserProfile.UpdateUserProfile
 
 
-module Network.AWS.CodeStar.Lens
+module Amazonka.CodeStar.Lens
 
 -- | The continuation token to be used to return the next set of results,
 --   if the results cannot be returned in one response.
@@ -4270,7 +4270,7 @@ userProfileSummary_emailAddress :: Lens' UserProfileSummary (Maybe Text)
 userProfileSummary_displayName :: Lens' UserProfileSummary (Maybe Text)
 
 
-module Network.AWS.CodeStar.Waiters
+module Amazonka.CodeStar.Waiters
 
 
 -- | Derived from API version <tt>2017-04-19</tt> of the AWS service
@@ -4328,7 +4328,7 @@ module Network.AWS.CodeStar.Waiters
 --   <li><tt>UpdateUserProfile</tt>, which updates the profile for a
 --   user.</li>
 --   </ul>
-module Network.AWS.CodeStar
+module Amazonka.CodeStar
 
 -- | API version <tt>2017-04-19</tt> of the Amazon CodeStar SDK
 --   configuration.

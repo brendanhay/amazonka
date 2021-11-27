@@ -1,0 +1,825 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.Types.StackResourceDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.Types.StackResourceDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ModuleInfo.html"><span class="hs-identifier">Amazonka.CloudFormation.Types.ModuleInfo</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceStatus.html"><span class="hs-identifier">Amazonka.CloudFormation.Types.ResourceStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDriftInformation.html"><span class="hs-identifier">Amazonka.CloudFormation.Types.StackResourceDriftInformation</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Contains detailed information about the specified stack resource.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newStackResourceDetail' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679423341"><span id="local-6989586621679423342"></span></span><span class="hs-keyword">data</span><span> </span><span id="StackResourceDetail"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-var">StackResourceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StackResourceDetail%27"><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-var">StackResourceDetail'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AphysicalResourceId%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AphysicalResourceId%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Success\/failure message associated with the resource.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AresourceStatusReason%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceStatusReason%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">resourceStatusReason</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Information about whether the resource\'s actual configuration differs,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- or has /drifted/, from its expected configuration, as defined in the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- stack template and any values specified as template parameters. For more</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources&gt;.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AdriftInformation%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe StackResourceDriftInformation
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AdriftInformation%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">driftInformation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDriftInformation.html#StackResourceDriftInformation"><span class="hs-identifier hs-type">StackResourceDriftInformation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Contains information about the module from which the resource was</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AmoduleInfo%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe ModuleInfo
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AmoduleInfo%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">moduleInfo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The content of the @Metadata@ attribute declared for the resource. For</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute&gt;</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- in the CloudFormation User Guide.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Ametadata%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3Ametadata%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | Unique identifier of the stack.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AstackId%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AstackId%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | User defined description associated with the resource.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3Adescription%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3Adescription%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The name associated with the stack.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AstackName%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AstackName%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The logical name of the resource specified in the template.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AlogicalResourceId%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AlogicalResourceId%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Type of resource. ((For more information, go to</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference&gt;</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- in the CloudFormation User Guide.)</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AresourceType%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceType%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | Time the status was updated.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AlastUpdatedTimestamp%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AlastUpdatedTimestamp%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Current status of the resource.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AresourceStatus%3AStackResourceDetail%27"><span class="annot"><span class="annottext">StackResourceDetail -&gt; ResourceStatus
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceStatus%3AStackResourceDetail%27"><span class="hs-identifier hs-var hs-var">resourceStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679423324"><span id="local-6989586621679423326"><span class="annot"><span class="annottext">StackResourceDetail -&gt; StackResourceDetail -&gt; Bool
+(StackResourceDetail -&gt; StackResourceDetail -&gt; Bool)
+-&gt; (StackResourceDetail -&gt; StackResourceDetail -&gt; Bool)
+-&gt; Eq StackResourceDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StackResourceDetail -&gt; StackResourceDetail -&gt; Bool
+$c/= :: StackResourceDetail -&gt; StackResourceDetail -&gt; Bool
+== :: StackResourceDetail -&gt; StackResourceDetail -&gt; Bool
+$c== :: StackResourceDetail -&gt; StackResourceDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423315"><span id="local-6989586621679423317"><span id="local-6989586621679423319"><span id="local-6989586621679423321"><span class="annot"><span class="annottext">ReadPrec [StackResourceDetail]
+ReadPrec StackResourceDetail
+Int -&gt; ReadS StackResourceDetail
+ReadS [StackResourceDetail]
+(Int -&gt; ReadS StackResourceDetail)
+-&gt; ReadS [StackResourceDetail]
+-&gt; ReadPrec StackResourceDetail
+-&gt; ReadPrec [StackResourceDetail]
+-&gt; Read StackResourceDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StackResourceDetail]
+$creadListPrec :: ReadPrec [StackResourceDetail]
+readPrec :: ReadPrec StackResourceDetail
+$creadPrec :: ReadPrec StackResourceDetail
+readList :: ReadS [StackResourceDetail]
+$creadList :: ReadS [StackResourceDetail]
+readsPrec :: Int -&gt; ReadS StackResourceDetail
+$creadsPrec :: Int -&gt; ReadS StackResourceDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679423308"><span id="local-6989586621679423310"><span id="local-6989586621679423312"><span class="annot"><span class="annottext">Int -&gt; StackResourceDetail -&gt; ShowS
+[StackResourceDetail] -&gt; ShowS
+StackResourceDetail -&gt; String
+(Int -&gt; StackResourceDetail -&gt; ShowS)
+-&gt; (StackResourceDetail -&gt; String)
+-&gt; ([StackResourceDetail] -&gt; ShowS)
+-&gt; Show StackResourceDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StackResourceDetail] -&gt; ShowS
+$cshowList :: [StackResourceDetail] -&gt; ShowS
+show :: StackResourceDetail -&gt; String
+$cshow :: StackResourceDetail -&gt; String
+showsPrec :: Int -&gt; StackResourceDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; StackResourceDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StackResourceDetail -&gt; Rep StackResourceDetail x)
+-&gt; (forall x. Rep StackResourceDetail x -&gt; StackResourceDetail)
+-&gt; Generic StackResourceDetail
+forall x. Rep StackResourceDetail x -&gt; StackResourceDetail
+forall x. StackResourceDetail -&gt; Rep StackResourceDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StackResourceDetail x -&gt; StackResourceDetail
+$cfrom :: forall x. StackResourceDetail -&gt; Rep StackResourceDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Create a value of 'StackResourceDetail' with all optional fields omitted.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'physicalResourceId', 'stackResourceDetail_physicalResourceId' - The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'resourceStatusReason', 'stackResourceDetail_resourceStatusReason' - Success\/failure message associated with the resource.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'driftInformation', 'stackResourceDetail_driftInformation' - Information about whether the resource\'s actual configuration differs,</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- or has /drifted/, from its expected configuration, as defined in the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- stack template and any values specified as template parameters. For more</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources&gt;.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'moduleInfo', 'stackResourceDetail_moduleInfo' - Contains information about the module from which the resource was</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'metadata', 'stackResourceDetail_metadata' - The content of the @Metadata@ attribute declared for the resource. For</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute&gt;</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- in the CloudFormation User Guide.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'stackId', 'stackResourceDetail_stackId' - Unique identifier of the stack.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'description', 'stackResourceDetail_description' - User defined description associated with the resource.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'stackName', 'stackResourceDetail_stackName' - The name associated with the stack.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'logicalResourceId', 'stackResourceDetail_logicalResourceId' - The logical name of the resource specified in the template.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'resourceType', 'stackResourceDetail_resourceType' - Type of resource. ((For more information, go to</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference&gt;</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- in the CloudFormation User Guide.)</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'lastUpdatedTimestamp', 'stackResourceDetail_lastUpdatedTimestamp' - Time the status was updated.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'resourceStatus', 'stackResourceDetail_resourceStatus' - Current status of the resource.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#newStackResourceDetail"><span class="hs-identifier hs-type">newStackResourceDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'logicalResourceId'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-comment">-- | 'resourceType'</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-comment">-- | 'lastUpdatedTimestamp'</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'resourceStatus'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span>
+</span><span id="line-125"></span><span id="newStackResourceDetail"><span class="annot"><span class="annottext">newStackResourceDetail :: Text -&gt; Text -&gt; UTCTime -&gt; ResourceStatus -&gt; StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#newStackResourceDetail"><span class="hs-identifier hs-var hs-var">newStackResourceDetail</span></a></span></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679423302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423302"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679423301"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423301"><span class="hs-identifier hs-var">pResourceType_</span></a></span></span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679423300"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679423300"><span class="hs-identifier hs-var">pLastUpdatedTimestamp_</span></a></span></span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679423299"><span class="annot"><span class="annottext">ResourceStatus
+</span><a href="#local-6989586621679423299"><span class="hs-identifier hs-var">pResourceStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">StackResourceDetail' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe StackResourceDriftInformation
+-&gt; Maybe ModuleInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; ResourceStatus
+-&gt; StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AphysicalResourceId%3AStackResourceDetail%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceStatusReason:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceStatusReason%3AStackResourceDetail%27"><span class="hs-identifier hs-var">resourceStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:driftInformation:StackResourceDetail' :: Maybe StackResourceDriftInformation
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AdriftInformation%3AStackResourceDetail%27"><span class="hs-identifier hs-var">driftInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackResourceDriftInformation
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:moduleInfo:StackResourceDetail' :: Maybe ModuleInfo
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AmoduleInfo%3AStackResourceDetail%27"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:metadata:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3Ametadata%3AStackResourceDetail%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackId:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AstackId%3AStackResourceDetail%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3Adescription%3AStackResourceDetail%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>        </span><span class="annot"><span class="annottext">$sel:stackName:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AstackName%3AStackResourceDetail%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">$sel:logicalResourceId:StackResourceDetail' :: Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AlogicalResourceId%3AStackResourceDetail%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423302"><span class="hs-identifier hs-var">pLogicalResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceType:StackResourceDetail' :: Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceType%3AStackResourceDetail%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423301"><span class="hs-identifier hs-var">pResourceType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:StackResourceDetail' :: ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AlastUpdatedTimestamp%3AStackResourceDetail%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime)
+-&gt; Tagged ISO8601 (Identity ISO8601)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged ISO8601 (Identity ISO8601))
+-&gt; UTCTime -&gt; ISO8601
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679423300"><span class="hs-identifier hs-var">pLastUpdatedTimestamp_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceStatus:StackResourceDetail' :: ResourceStatus
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceStatus%3AStackResourceDetail%27"><span class="hs-identifier hs-var">resourceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceStatus
+</span><a href="#local-6989586621679423299"><span class="hs-identifier hs-var">pResourceStatus_</span></a></span><span>
+</span><span id="line-145"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- | The name or unique identifier that corresponds to a physical instance ID</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- of a resource supported by CloudFormation.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_physicalResourceId"><span class="hs-identifier hs-type">stackResourceDetail_physicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="stackResourceDetail_physicalResourceId"><span class="annot"><span class="annottext">stackResourceDetail_physicalResourceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_physicalResourceId"><span class="hs-identifier hs-var hs-var">stackResourceDetail_physicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe Text)
+-&gt; (StackResourceDetail -&gt; Maybe Text -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail StackResourceDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423293"><span class="annot"><span class="annottext">Maybe Text
+physicalResourceId :: Maybe Text
+$sel:physicalResourceId:StackResourceDetail' :: StackResourceDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679423293"><span class="hs-identifier hs-var hs-var">physicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423293"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423292"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:physicalResourceId:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AphysicalResourceId%3AStackResourceDetail%27"><span class="hs-identifier hs-var">physicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Success\/failure message associated with the resource.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_resourceStatusReason"><span class="hs-identifier hs-type">stackResourceDetail_resourceStatusReason</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="stackResourceDetail_resourceStatusReason"><span class="annot"><span class="annottext">stackResourceDetail_resourceStatusReason :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_resourceStatusReason"><span class="hs-identifier hs-var hs-var">stackResourceDetail_resourceStatusReason</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe Text)
+-&gt; (StackResourceDetail -&gt; Maybe Text -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail StackResourceDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423289"><span class="annot"><span class="annottext">Maybe Text
+resourceStatusReason :: Maybe Text
+$sel:resourceStatusReason:StackResourceDetail' :: StackResourceDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679423289"><span class="hs-identifier hs-var hs-var">resourceStatusReason</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423289"><span class="hs-identifier hs-var">resourceStatusReason</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423288"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423287"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceStatusReason:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceStatusReason%3AStackResourceDetail%27"><span class="hs-identifier hs-var">resourceStatusReason</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | Information about whether the resource\'s actual configuration differs,</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- or has /drifted/, from its expected configuration, as defined in the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- stack template and any values specified as template parameters. For more</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- information, see</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html Detecting Unregulated Configuration Changes to Stacks and Resources&gt;.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_driftInformation"><span class="hs-identifier hs-type">stackResourceDetail_driftInformation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDriftInformation.html#StackResourceDriftInformation"><span class="hs-identifier hs-type">StackResourceDriftInformation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span id="stackResourceDetail_driftInformation"><span class="annot"><span class="annottext">stackResourceDetail_driftInformation :: (Maybe StackResourceDriftInformation
+ -&gt; f (Maybe StackResourceDriftInformation))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_driftInformation"><span class="hs-identifier hs-var hs-var">stackResourceDetail_driftInformation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe StackResourceDriftInformation)
+-&gt; (StackResourceDetail
+    -&gt; Maybe StackResourceDriftInformation -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail
+     StackResourceDetail
+     (Maybe StackResourceDriftInformation)
+     (Maybe StackResourceDriftInformation)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423285"><span class="annot"><span class="annottext">Maybe StackResourceDriftInformation
+driftInformation :: Maybe StackResourceDriftInformation
+$sel:driftInformation:StackResourceDetail' :: StackResourceDetail -&gt; Maybe StackResourceDriftInformation
+</span><a href="#local-6989586621679423285"><span class="hs-identifier hs-var hs-var">driftInformation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StackResourceDriftInformation
+</span><a href="#local-6989586621679423285"><span class="hs-identifier hs-var">driftInformation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423284"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423284"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423283"><span class="annot"><span class="annottext">Maybe StackResourceDriftInformation
+</span><a href="#local-6989586621679423283"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423284"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:driftInformation:StackResourceDetail' :: Maybe StackResourceDriftInformation
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AdriftInformation%3AStackResourceDetail%27"><span class="hs-identifier hs-var">driftInformation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StackResourceDriftInformation
+</span><a href="#local-6989586621679423283"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | Contains information about the module from which the resource was</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- created, if the resource was created from a module included in the stack</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- template.</span><span>
+</span><span id="line-167"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_moduleInfo"><span class="hs-identifier hs-type">stackResourceDetail_moduleInfo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ModuleInfo.html#ModuleInfo"><span class="hs-identifier hs-type">ModuleInfo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span id="stackResourceDetail_moduleInfo"><span class="annot"><span class="annottext">stackResourceDetail_moduleInfo :: (Maybe ModuleInfo -&gt; f (Maybe ModuleInfo))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_moduleInfo"><span class="hs-identifier hs-var hs-var">stackResourceDetail_moduleInfo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe ModuleInfo)
+-&gt; (StackResourceDetail -&gt; Maybe ModuleInfo -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail
+     StackResourceDetail
+     (Maybe ModuleInfo)
+     (Maybe ModuleInfo)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423281"><span class="annot"><span class="annottext">Maybe ModuleInfo
+moduleInfo :: Maybe ModuleInfo
+$sel:moduleInfo:StackResourceDetail' :: StackResourceDetail -&gt; Maybe ModuleInfo
+</span><a href="#local-6989586621679423281"><span class="hs-identifier hs-var hs-var">moduleInfo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
+</span><a href="#local-6989586621679423281"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423280"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423279"><span class="annot"><span class="annottext">Maybe ModuleInfo
+</span><a href="#local-6989586621679423279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:moduleInfo:StackResourceDetail' :: Maybe ModuleInfo
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AmoduleInfo%3AStackResourceDetail%27"><span class="hs-identifier hs-var">moduleInfo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModuleInfo
+</span><a href="#local-6989586621679423279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The content of the @Metadata@ attribute declared for the resource. For</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html Metadata Attribute&gt;</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- in the CloudFormation User Guide.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_metadata"><span class="hs-identifier hs-type">stackResourceDetail_metadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span id="stackResourceDetail_metadata"><span class="annot"><span class="annottext">stackResourceDetail_metadata :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_metadata"><span class="hs-identifier hs-var hs-var">stackResourceDetail_metadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe Text)
+-&gt; (StackResourceDetail -&gt; Maybe Text -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail StackResourceDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423277"><span class="annot"><span class="annottext">Maybe Text
+metadata :: Maybe Text
+$sel:metadata:StackResourceDetail' :: StackResourceDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679423277"><span class="hs-identifier hs-var hs-var">metadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423277"><span class="hs-identifier hs-var">metadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423276"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423276"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423275"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423275"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423276"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:metadata:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3Ametadata%3AStackResourceDetail%27"><span class="hs-identifier hs-var">metadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423275"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | Unique identifier of the stack.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_stackId"><span class="hs-identifier hs-type">stackResourceDetail_stackId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span id="stackResourceDetail_stackId"><span class="annot"><span class="annottext">stackResourceDetail_stackId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_stackId"><span class="hs-identifier hs-var hs-var">stackResourceDetail_stackId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe Text)
+-&gt; (StackResourceDetail -&gt; Maybe Text -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail StackResourceDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423273"><span class="annot"><span class="annottext">Maybe Text
+stackId :: Maybe Text
+$sel:stackId:StackResourceDetail' :: StackResourceDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679423273"><span class="hs-identifier hs-var hs-var">stackId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423273"><span class="hs-identifier hs-var">stackId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423272"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423271"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackId:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AstackId%3AStackResourceDetail%27"><span class="hs-identifier hs-var">stackId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- | User defined description associated with the resource.</span><span>
+</span><span id="line-182"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_description"><span class="hs-identifier hs-type">stackResourceDetail_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span id="stackResourceDetail_description"><span class="annot"><span class="annottext">stackResourceDetail_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_description"><span class="hs-identifier hs-var hs-var">stackResourceDetail_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe Text)
+-&gt; (StackResourceDetail -&gt; Maybe Text -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail StackResourceDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423269"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:StackResourceDetail' :: StackResourceDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679423269"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423269"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423268"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423267"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3Adescription%3AStackResourceDetail%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The name associated with the stack.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_stackName"><span class="hs-identifier hs-type">stackResourceDetail_stackName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="stackResourceDetail_stackName"><span class="annot"><span class="annottext">stackResourceDetail_stackName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_stackName"><span class="hs-identifier hs-var hs-var">stackResourceDetail_stackName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Maybe Text)
+-&gt; (StackResourceDetail -&gt; Maybe Text -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail StackResourceDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423265"><span class="annot"><span class="annottext">Maybe Text
+stackName :: Maybe Text
+$sel:stackName:StackResourceDetail' :: StackResourceDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679423265"><span class="hs-identifier hs-var hs-var">stackName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423265"><span class="hs-identifier hs-var">stackName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423264"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423263"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stackName:StackResourceDetail' :: Maybe Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AstackName%3AStackResourceDetail%27"><span class="hs-identifier hs-var">stackName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679423263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The logical name of the resource specified in the template.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_logicalResourceId"><span class="hs-identifier hs-type">stackResourceDetail_logicalResourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-191"></span><span id="stackResourceDetail_logicalResourceId"><span class="annot"><span class="annottext">stackResourceDetail_logicalResourceId :: (Text -&gt; f Text) -&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_logicalResourceId"><span class="hs-identifier hs-var hs-var">stackResourceDetail_logicalResourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Text)
+-&gt; (StackResourceDetail -&gt; Text -&gt; StackResourceDetail)
+-&gt; Lens StackResourceDetail StackResourceDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423261"><span class="annot"><span class="annottext">Text
+logicalResourceId :: Text
+$sel:logicalResourceId:StackResourceDetail' :: StackResourceDetail -&gt; Text
+</span><a href="#local-6989586621679423261"><span class="hs-identifier hs-var hs-var">logicalResourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423261"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423260"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423260"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423259"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423259"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423260"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:logicalResourceId:StackResourceDetail' :: Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AlogicalResourceId%3AStackResourceDetail%27"><span class="hs-identifier hs-var">logicalResourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423259"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | Type of resource. ((For more information, go to</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html Amazon Web Services Resource Types Reference&gt;</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- in the CloudFormation User Guide.)</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_resourceType"><span class="hs-identifier hs-type">stackResourceDetail_resourceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-197"></span><span id="stackResourceDetail_resourceType"><span class="annot"><span class="annottext">stackResourceDetail_resourceType :: (Text -&gt; f Text) -&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_resourceType"><span class="hs-identifier hs-var hs-var">stackResourceDetail_resourceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; Text)
+-&gt; (StackResourceDetail -&gt; Text -&gt; StackResourceDetail)
+-&gt; Lens StackResourceDetail StackResourceDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423257"><span class="annot"><span class="annottext">Text
+resourceType :: Text
+$sel:resourceType:StackResourceDetail' :: StackResourceDetail -&gt; Text
+</span><a href="#local-6989586621679423257"><span class="hs-identifier hs-var hs-var">resourceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423257"><span class="hs-identifier hs-var">resourceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423256"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423255"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceType:StackResourceDetail' :: Text
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceType%3AStackResourceDetail%27"><span class="hs-identifier hs-var">resourceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679423255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | Time the status was updated.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_lastUpdatedTimestamp"><span class="hs-identifier hs-type">stackResourceDetail_lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-201"></span><span id="stackResourceDetail_lastUpdatedTimestamp"><span class="annot"><span class="annottext">stackResourceDetail_lastUpdatedTimestamp :: (UTCTime -&gt; f UTCTime)
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_lastUpdatedTimestamp"><span class="hs-identifier hs-var hs-var">stackResourceDetail_lastUpdatedTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; ISO8601)
+-&gt; (StackResourceDetail -&gt; ISO8601 -&gt; StackResourceDetail)
+-&gt; Lens StackResourceDetail StackResourceDetail ISO8601 ISO8601
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423253"><span class="annot"><span class="annottext">ISO8601
+lastUpdatedTimestamp :: ISO8601
+$sel:lastUpdatedTimestamp:StackResourceDetail' :: StackResourceDetail -&gt; ISO8601
+</span><a href="#local-6989586621679423253"><span class="hs-identifier hs-var hs-var">lastUpdatedTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679423253"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423252"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423251"><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679423251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedTimestamp:StackResourceDetail' :: ISO8601
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AlastUpdatedTimestamp%3AStackResourceDetail%27"><span class="hs-identifier hs-var">lastUpdatedTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ISO8601
+</span><a href="#local-6989586621679423251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((ISO8601 -&gt; f ISO8601)
+ -&gt; StackResourceDetail -&gt; f StackResourceDetail)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; StackResourceDetail
+-&gt; f StackResourceDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; ISO8601 -&gt; f ISO8601
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | Current status of the resource.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_resourceStatus"><span class="hs-identifier hs-type">stackResourceDetail_resourceStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.ResourceStatus.html#ResourceStatus"><span class="hs-identifier hs-type">ResourceStatus</span></a></span><span>
+</span><span id="line-205"></span><span id="stackResourceDetail_resourceStatus"><span class="annot"><span class="annottext">stackResourceDetail_resourceStatus :: (ResourceStatus -&gt; f ResourceStatus)
+-&gt; StackResourceDetail -&gt; f StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#stackResourceDetail_resourceStatus"><span class="hs-identifier hs-var hs-var">stackResourceDetail_resourceStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StackResourceDetail -&gt; ResourceStatus)
+-&gt; (StackResourceDetail -&gt; ResourceStatus -&gt; StackResourceDetail)
+-&gt; Lens
+     StackResourceDetail
+     StackResourceDetail
+     ResourceStatus
+     ResourceStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679423248"><span class="annot"><span class="annottext">ResourceStatus
+resourceStatus :: ResourceStatus
+$sel:resourceStatus:StackResourceDetail' :: StackResourceDetail -&gt; ResourceStatus
+</span><a href="#local-6989586621679423248"><span class="hs-identifier hs-var hs-var">resourceStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ResourceStatus
+</span><a href="#local-6989586621679423248"><span class="hs-identifier hs-var">resourceStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679423247"><span class="annot"><span class="annottext">s :: StackResourceDetail
+</span><a href="#local-6989586621679423247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-type">StackResourceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679423246"><span class="annot"><span class="annottext">ResourceStatus
+</span><a href="#local-6989586621679423246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StackResourceDetail
+</span><a href="#local-6989586621679423247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceStatus:StackResourceDetail' :: ResourceStatus
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#%24sel%3AresourceStatus%3AStackResourceDetail%27"><span class="hs-identifier hs-var">resourceStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResourceStatus
+</span><a href="#local-6989586621679423246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679423243"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String StackResourceDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679423241"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe StackResourceDriftInformation
+-&gt; Maybe ModuleInfo
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; ISO8601
+-&gt; ResourceStatus
+-&gt; StackResourceDetail
+</span><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail%27"><span class="hs-identifier hs-var">StackResourceDetail'</span></a></span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe StackResourceDriftInformation
+ -&gt; Maybe ModuleInfo
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Text
+ -&gt; Text
+ -&gt; ISO8601
+ -&gt; ResourceStatus
+ -&gt; StackResourceDetail)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe StackResourceDriftInformation
+      -&gt; Maybe ModuleInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ResourceStatus
+      -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PhysicalResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe StackResourceDriftInformation
+   -&gt; Maybe ModuleInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ResourceStatus
+   -&gt; StackResourceDetail)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe StackResourceDriftInformation
+      -&gt; Maybe ModuleInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ResourceStatus
+      -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceStatusReason&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe StackResourceDriftInformation
+   -&gt; Maybe ModuleInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ResourceStatus
+   -&gt; StackResourceDetail)
+-&gt; Either String (Maybe StackResourceDriftInformation)
+-&gt; Either
+     String
+     (Maybe ModuleInfo
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ResourceStatus
+      -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe StackResourceDriftInformation)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DriftInformation&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ModuleInfo
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ResourceStatus
+   -&gt; StackResourceDetail)
+-&gt; Either String (Maybe ModuleInfo)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ResourceStatus
+      -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ModuleInfo)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModuleInfo&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ResourceStatus
+   -&gt; StackResourceDetail)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ResourceStatus
+      -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Metadata&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ResourceStatus
+   -&gt; StackResourceDetail)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ResourceStatus
+      -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ResourceStatus
+   -&gt; StackResourceDetail)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Text
+      -&gt; Text
+      -&gt; ISO8601
+      -&gt; ResourceStatus
+      -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Text
+   -&gt; Text
+   -&gt; ISO8601
+   -&gt; ResourceStatus
+   -&gt; StackResourceDetail)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Text -&gt; Text -&gt; ISO8601 -&gt; ResourceStatus -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StackName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Text -&gt; Text -&gt; ISO8601 -&gt; ResourceStatus -&gt; StackResourceDetail)
+-&gt; Either String Text
+-&gt; Either
+     String (Text -&gt; ISO8601 -&gt; ResourceStatus -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LogicalResourceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (Text -&gt; ISO8601 -&gt; ResourceStatus -&gt; StackResourceDetail)
+-&gt; Either String Text
+-&gt; Either String (ISO8601 -&gt; ResourceStatus -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">Either String (ISO8601 -&gt; ResourceStatus -&gt; StackResourceDetail)
+-&gt; Either String ISO8601
+-&gt; Either String (ResourceStatus -&gt; StackResourceDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ISO8601
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastUpdatedTimestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">Either String (ResourceStatus -&gt; StackResourceDetail)
+-&gt; Either String ResourceStatus
+-&gt; Either String StackResourceDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679423241"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String ResourceStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423234"><span id="local-6989586621679423236"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span></span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679423231"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.StackResourceDetail.html#StackResourceDetail"><span class="hs-identifier hs-type">StackResourceDetail</span></a></span></span><span>
+</span><span id="line-226"></span></pre></body></html>

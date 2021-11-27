@@ -1,0 +1,287 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Forecast.Types.FeaturizationMethodName</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Forecast.Types.FeaturizationMethodName</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName"><span class="hs-identifier">FeaturizationMethodName</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName_Filling"><span class="hs-identifier">FeaturizationMethodName_Filling</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679246574"><span id="local-6989586621679246575"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FeaturizationMethodName"><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName"><span class="hs-identifier hs-var">FeaturizationMethodName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FeaturizationMethodName%27"><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName%27"><span class="hs-identifier hs-var">FeaturizationMethodName'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFeaturizationMethodName"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; Text
+</span><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#fromFeaturizationMethodName"><span class="hs-identifier hs-var hs-var">fromFeaturizationMethodName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-33"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246566"><span id="local-6989586621679246568"><span id="local-6989586621679246570"><span class="annot"><span class="annottext">Int -&gt; FeaturizationMethodName -&gt; ShowS
+[FeaturizationMethodName] -&gt; ShowS
+FeaturizationMethodName -&gt; String
+(Int -&gt; FeaturizationMethodName -&gt; ShowS)
+-&gt; (FeaturizationMethodName -&gt; String)
+-&gt; ([FeaturizationMethodName] -&gt; ShowS)
+-&gt; Show FeaturizationMethodName
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FeaturizationMethodName] -&gt; ShowS
+$cshowList :: [FeaturizationMethodName] -&gt; ShowS
+show :: FeaturizationMethodName -&gt; String
+$cshow :: FeaturizationMethodName -&gt; String
+showsPrec :: Int -&gt; FeaturizationMethodName -&gt; ShowS
+$cshowsPrec :: Int -&gt; FeaturizationMethodName -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679246557"><span id="local-6989586621679246559"><span id="local-6989586621679246561"><span id="local-6989586621679246563"><span class="annot"><span class="annottext">ReadPrec [FeaturizationMethodName]
+ReadPrec FeaturizationMethodName
+Int -&gt; ReadS FeaturizationMethodName
+ReadS [FeaturizationMethodName]
+(Int -&gt; ReadS FeaturizationMethodName)
+-&gt; ReadS [FeaturizationMethodName]
+-&gt; ReadPrec FeaturizationMethodName
+-&gt; ReadPrec [FeaturizationMethodName]
+-&gt; Read FeaturizationMethodName
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FeaturizationMethodName]
+$creadListPrec :: ReadPrec [FeaturizationMethodName]
+readPrec :: ReadPrec FeaturizationMethodName
+$creadPrec :: ReadPrec FeaturizationMethodName
+readList :: ReadS [FeaturizationMethodName]
+$creadList :: ReadS [FeaturizationMethodName]
+readsPrec :: Int -&gt; ReadS FeaturizationMethodName
+$creadsPrec :: Int -&gt; ReadS FeaturizationMethodName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679246552"><span id="local-6989586621679246554"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+(FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool)
+-&gt; (FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool)
+-&gt; Eq FeaturizationMethodName
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+$c/= :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+== :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+$c== :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679246536"><span id="local-6989586621679246538"><span id="local-6989586621679246540"><span id="local-6989586621679246542"><span id="local-6989586621679246544"><span id="local-6989586621679246546"><span id="local-6989586621679246548"><span class="annot"><span class="annottext">Eq FeaturizationMethodName
+Eq FeaturizationMethodName
+-&gt; (FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Ordering)
+-&gt; (FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool)
+-&gt; (FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool)
+-&gt; (FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool)
+-&gt; (FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool)
+-&gt; (FeaturizationMethodName
+    -&gt; FeaturizationMethodName -&gt; FeaturizationMethodName)
+-&gt; (FeaturizationMethodName
+    -&gt; FeaturizationMethodName -&gt; FeaturizationMethodName)
+-&gt; Ord FeaturizationMethodName
+FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Ordering
+FeaturizationMethodName
+-&gt; FeaturizationMethodName -&gt; FeaturizationMethodName
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FeaturizationMethodName
+-&gt; FeaturizationMethodName -&gt; FeaturizationMethodName
+$cmin :: FeaturizationMethodName
+-&gt; FeaturizationMethodName -&gt; FeaturizationMethodName
+max :: FeaturizationMethodName
+-&gt; FeaturizationMethodName -&gt; FeaturizationMethodName
+$cmax :: FeaturizationMethodName
+-&gt; FeaturizationMethodName -&gt; FeaturizationMethodName
+&gt;= :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+$c&gt;= :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+&gt; :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+$c&gt; :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+&lt;= :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+$c&lt;= :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+&lt; :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+$c&lt; :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Bool
+compare :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Ordering
+$ccompare :: FeaturizationMethodName -&gt; FeaturizationMethodName -&gt; Ordering
+$cp1Ord :: Eq FeaturizationMethodName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ FeaturizationMethodName -&gt; Rep FeaturizationMethodName x)
+-&gt; (forall x.
+    Rep FeaturizationMethodName x -&gt; FeaturizationMethodName)
+-&gt; Generic FeaturizationMethodName
+forall x. Rep FeaturizationMethodName x -&gt; FeaturizationMethodName
+forall x. FeaturizationMethodName -&gt; Rep FeaturizationMethodName x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FeaturizationMethodName x -&gt; FeaturizationMethodName
+$cfrom :: forall x. FeaturizationMethodName -&gt; Rep FeaturizationMethodName x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246528"><span id="local-6989586621679246530"><span class="annot"><span class="annottext">Int -&gt; FeaturizationMethodName -&gt; Int
+FeaturizationMethodName -&gt; Int
+(Int -&gt; FeaturizationMethodName -&gt; Int)
+-&gt; (FeaturizationMethodName -&gt; Int)
+-&gt; Hashable FeaturizationMethodName
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FeaturizationMethodName -&gt; Int
+$chash :: FeaturizationMethodName -&gt; Int
+hashWithSalt :: Int -&gt; FeaturizationMethodName -&gt; Int
+$chashWithSalt :: Int -&gt; FeaturizationMethodName -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679246525"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; ()
+(FeaturizationMethodName -&gt; ()) -&gt; NFData FeaturizationMethodName
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FeaturizationMethodName -&gt; ()
+$crnf :: FeaturizationMethodName -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679246522"><span class="annot"><span class="annottext">Text -&gt; Either String FeaturizationMethodName
+(Text -&gt; Either String FeaturizationMethodName)
+-&gt; FromText FeaturizationMethodName
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FeaturizationMethodName
+$cfromText :: Text -&gt; Either String FeaturizationMethodName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679246519"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; Text
+(FeaturizationMethodName -&gt; Text) -&gt; ToText FeaturizationMethodName
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FeaturizationMethodName -&gt; Text
+$ctoText :: FeaturizationMethodName -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679246516"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; ByteString
+(FeaturizationMethodName -&gt; ByteString)
+-&gt; ToByteString FeaturizationMethodName
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FeaturizationMethodName -&gt; ByteString
+$ctoBS :: FeaturizationMethodName -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679246513"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; ByteStringBuilder
+(FeaturizationMethodName -&gt; ByteStringBuilder)
+-&gt; ToLog FeaturizationMethodName
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FeaturizationMethodName -&gt; ByteStringBuilder
+$cbuild :: FeaturizationMethodName -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679246510"><span class="annot"><span class="annottext">HeaderName -&gt; FeaturizationMethodName -&gt; [Header]
+(HeaderName -&gt; FeaturizationMethodName -&gt; [Header])
+-&gt; ToHeader FeaturizationMethodName
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FeaturizationMethodName -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FeaturizationMethodName -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679246507"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; QueryString
+(FeaturizationMethodName -&gt; QueryString)
+-&gt; ToQuery FeaturizationMethodName
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FeaturizationMethodName -&gt; QueryString
+$ctoQuery :: FeaturizationMethodName -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679246502"><span id="local-6989586621679246504"><span class="annot"><span class="annottext">Value -&gt; Parser [FeaturizationMethodName]
+Value -&gt; Parser FeaturizationMethodName
+(Value -&gt; Parser FeaturizationMethodName)
+-&gt; (Value -&gt; Parser [FeaturizationMethodName])
+-&gt; FromJSON FeaturizationMethodName
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FeaturizationMethodName]
+$cparseJSONList :: Value -&gt; Parser [FeaturizationMethodName]
+parseJSON :: Value -&gt; Parser FeaturizationMethodName
+$cparseJSON :: Value -&gt; Parser FeaturizationMethodName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679246497"><span id="local-6989586621679246499"><span class="annot"><span class="annottext">FromJSONKeyFunction [FeaturizationMethodName]
+FromJSONKeyFunction FeaturizationMethodName
+FromJSONKeyFunction FeaturizationMethodName
+-&gt; FromJSONKeyFunction [FeaturizationMethodName]
+-&gt; FromJSONKey FeaturizationMethodName
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FeaturizationMethodName]
+$cfromJSONKeyList :: FromJSONKeyFunction [FeaturizationMethodName]
+fromJSONKey :: FromJSONKeyFunction FeaturizationMethodName
+$cfromJSONKey :: FromJSONKeyFunction FeaturizationMethodName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679246488"><span id="local-6989586621679246490"><span id="local-6989586621679246492"><span id="local-6989586621679246494"><span class="annot"><span class="annottext">[FeaturizationMethodName] -&gt; Encoding
+[FeaturizationMethodName] -&gt; Value
+FeaturizationMethodName -&gt; Encoding
+FeaturizationMethodName -&gt; Value
+(FeaturizationMethodName -&gt; Value)
+-&gt; (FeaturizationMethodName -&gt; Encoding)
+-&gt; ([FeaturizationMethodName] -&gt; Value)
+-&gt; ([FeaturizationMethodName] -&gt; Encoding)
+-&gt; ToJSON FeaturizationMethodName
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FeaturizationMethodName] -&gt; Encoding
+$ctoEncodingList :: [FeaturizationMethodName] -&gt; Encoding
+toJSONList :: [FeaturizationMethodName] -&gt; Value
+$ctoJSONList :: [FeaturizationMethodName] -&gt; Value
+toEncoding :: FeaturizationMethodName -&gt; Encoding
+$ctoEncoding :: FeaturizationMethodName -&gt; Encoding
+toJSON :: FeaturizationMethodName -&gt; Value
+$ctoJSON :: FeaturizationMethodName -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679246483"><span id="local-6989586621679246485"><span class="annot"><span class="annottext">ToJSONKeyFunction [FeaturizationMethodName]
+ToJSONKeyFunction FeaturizationMethodName
+ToJSONKeyFunction FeaturizationMethodName
+-&gt; ToJSONKeyFunction [FeaturizationMethodName]
+-&gt; ToJSONKey FeaturizationMethodName
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FeaturizationMethodName]
+$ctoJSONKeyList :: ToJSONKeyFunction [FeaturizationMethodName]
+toJSONKey :: ToJSONKeyFunction FeaturizationMethodName
+$ctoJSONKey :: ToJSONKeyFunction FeaturizationMethodName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679246480"><span class="annot"><span class="annottext">[Node] -&gt; Either String FeaturizationMethodName
+([Node] -&gt; Either String FeaturizationMethodName)
+-&gt; FromXML FeaturizationMethodName
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FeaturizationMethodName
+$cparseXML :: [Node] -&gt; Either String FeaturizationMethodName
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679246477"><span class="annot"><span class="annottext">FeaturizationMethodName -&gt; XML
+(FeaturizationMethodName -&gt; XML) -&gt; ToXML FeaturizationMethodName
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FeaturizationMethodName -&gt; XML
+$ctoXML :: FeaturizationMethodName -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName_Filling"><span class="hs-identifier hs-type">FeaturizationMethodName_Filling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName"><span class="hs-identifier hs-type">FeaturizationMethodName</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFeaturizationMethodName_Filling"><span id="%24mFeaturizationMethodName_Filling"><span id="FeaturizationMethodName_Filling"><span class="annot"><span class="annottext">$bFeaturizationMethodName_Filling :: FeaturizationMethodName
+$mFeaturizationMethodName_Filling :: forall r.
+FeaturizationMethodName -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#%24bFeaturizationMethodName_Filling"><span class="hs-identifier hs-var hs-var hs-var">FeaturizationMethodName_Filling</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName%27"><span class="hs-identifier hs-type">FeaturizationMethodName'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;filling&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-63"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName_Filling"><span class="hs-pragma hs-type">FeaturizationMethodName_Filling</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><a href="Amazonka.Forecast.Types.FeaturizationMethodName.html#FeaturizationMethodName%27"><span class="hs-pragma hs-type">FeaturizationMethodName'</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-66"></span></pre></body></html>

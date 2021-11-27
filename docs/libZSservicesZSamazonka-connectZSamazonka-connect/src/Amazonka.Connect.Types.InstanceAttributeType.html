@@ -1,0 +1,332 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Connect.Types.InstanceAttributeType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Connect.Types.InstanceAttributeType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier">InstanceAttributeType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES"><span class="hs-identifier">InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_CONTACTFLOW_LOGS"><span class="hs-identifier">InstanceAttributeType_CONTACTFLOW_LOGS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_CONTACT_LENS"><span class="hs-identifier">InstanceAttributeType_CONTACT_LENS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_EARLY_MEDIA"><span class="hs-identifier">InstanceAttributeType_EARLY_MEDIA</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_INBOUND_CALLS"><span class="hs-identifier">InstanceAttributeType_INBOUND_CALLS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_OUTBOUND_CALLS"><span class="hs-identifier">InstanceAttributeType_OUTBOUND_CALLS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_USE_CUSTOM_TTS_VOICES"><span class="hs-identifier">InstanceAttributeType_USE_CUSTOM_TTS_VOICES</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679397958"><span id="local-6989586621679397959"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAttributeType"><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-var">InstanceAttributeType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAttributeType%27"><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-var">InstanceAttributeType'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceAttributeType"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; Text
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#fromInstanceAttributeType"><span class="hs-identifier hs-var hs-var">fromInstanceAttributeType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397950"><span id="local-6989586621679397952"><span id="local-6989586621679397954"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeType -&gt; ShowS
+[InstanceAttributeType] -&gt; ShowS
+InstanceAttributeType -&gt; String
+(Int -&gt; InstanceAttributeType -&gt; ShowS)
+-&gt; (InstanceAttributeType -&gt; String)
+-&gt; ([InstanceAttributeType] -&gt; ShowS)
+-&gt; Show InstanceAttributeType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceAttributeType] -&gt; ShowS
+$cshowList :: [InstanceAttributeType] -&gt; ShowS
+show :: InstanceAttributeType -&gt; String
+$cshow :: InstanceAttributeType -&gt; String
+showsPrec :: Int -&gt; InstanceAttributeType -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceAttributeType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679397941"><span id="local-6989586621679397943"><span id="local-6989586621679397945"><span id="local-6989586621679397947"><span class="annot"><span class="annottext">ReadPrec [InstanceAttributeType]
+ReadPrec InstanceAttributeType
+Int -&gt; ReadS InstanceAttributeType
+ReadS [InstanceAttributeType]
+(Int -&gt; ReadS InstanceAttributeType)
+-&gt; ReadS [InstanceAttributeType]
+-&gt; ReadPrec InstanceAttributeType
+-&gt; ReadPrec [InstanceAttributeType]
+-&gt; Read InstanceAttributeType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceAttributeType]
+$creadListPrec :: ReadPrec [InstanceAttributeType]
+readPrec :: ReadPrec InstanceAttributeType
+$creadPrec :: ReadPrec InstanceAttributeType
+readList :: ReadS [InstanceAttributeType]
+$creadList :: ReadS [InstanceAttributeType]
+readsPrec :: Int -&gt; ReadS InstanceAttributeType
+$creadsPrec :: Int -&gt; ReadS InstanceAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679397936"><span id="local-6989586621679397938"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+(InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
+-&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
+-&gt; Eq InstanceAttributeType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+$c/= :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+== :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+$c== :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679397920"><span id="local-6989586621679397922"><span id="local-6989586621679397924"><span id="local-6989586621679397926"><span id="local-6989586621679397928"><span id="local-6989586621679397930"><span id="local-6989586621679397932"><span class="annot"><span class="annottext">Eq InstanceAttributeType
+Eq InstanceAttributeType
+-&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Ordering)
+-&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
+-&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
+-&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
+-&gt; (InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool)
+-&gt; (InstanceAttributeType
+    -&gt; InstanceAttributeType -&gt; InstanceAttributeType)
+-&gt; (InstanceAttributeType
+    -&gt; InstanceAttributeType -&gt; InstanceAttributeType)
+-&gt; Ord InstanceAttributeType
+InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+InstanceAttributeType -&gt; InstanceAttributeType -&gt; Ordering
+InstanceAttributeType
+-&gt; InstanceAttributeType -&gt; InstanceAttributeType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceAttributeType
+-&gt; InstanceAttributeType -&gt; InstanceAttributeType
+$cmin :: InstanceAttributeType
+-&gt; InstanceAttributeType -&gt; InstanceAttributeType
+max :: InstanceAttributeType
+-&gt; InstanceAttributeType -&gt; InstanceAttributeType
+$cmax :: InstanceAttributeType
+-&gt; InstanceAttributeType -&gt; InstanceAttributeType
+&gt;= :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+$c&gt;= :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+&gt; :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+$c&gt; :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+&lt;= :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+$c&lt;= :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+&lt; :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+$c&lt; :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Bool
+compare :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Ordering
+$ccompare :: InstanceAttributeType -&gt; InstanceAttributeType -&gt; Ordering
+$cp1Ord :: Eq InstanceAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceAttributeType -&gt; Rep InstanceAttributeType x)
+-&gt; (forall x. Rep InstanceAttributeType x -&gt; InstanceAttributeType)
+-&gt; Generic InstanceAttributeType
+forall x. Rep InstanceAttributeType x -&gt; InstanceAttributeType
+forall x. InstanceAttributeType -&gt; Rep InstanceAttributeType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceAttributeType x -&gt; InstanceAttributeType
+$cfrom :: forall x. InstanceAttributeType -&gt; Rep InstanceAttributeType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679397912"><span id="local-6989586621679397914"><span class="annot"><span class="annottext">Int -&gt; InstanceAttributeType -&gt; Int
+InstanceAttributeType -&gt; Int
+(Int -&gt; InstanceAttributeType -&gt; Int)
+-&gt; (InstanceAttributeType -&gt; Int) -&gt; Hashable InstanceAttributeType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceAttributeType -&gt; Int
+$chash :: InstanceAttributeType -&gt; Int
+hashWithSalt :: Int -&gt; InstanceAttributeType -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceAttributeType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679397909"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ()
+(InstanceAttributeType -&gt; ()) -&gt; NFData InstanceAttributeType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceAttributeType -&gt; ()
+$crnf :: InstanceAttributeType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679397906"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAttributeType
+(Text -&gt; Either String InstanceAttributeType)
+-&gt; FromText InstanceAttributeType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceAttributeType
+$cfromText :: Text -&gt; Either String InstanceAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679397903"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; Text
+(InstanceAttributeType -&gt; Text) -&gt; ToText InstanceAttributeType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceAttributeType -&gt; Text
+$ctoText :: InstanceAttributeType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679397900"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ByteString
+(InstanceAttributeType -&gt; ByteString)
+-&gt; ToByteString InstanceAttributeType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceAttributeType -&gt; ByteString
+$ctoBS :: InstanceAttributeType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679397897"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; ByteStringBuilder
+(InstanceAttributeType -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceAttributeType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceAttributeType -&gt; ByteStringBuilder
+$cbuild :: InstanceAttributeType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679397894"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAttributeType -&gt; [Header]
+(HeaderName -&gt; InstanceAttributeType -&gt; [Header])
+-&gt; ToHeader InstanceAttributeType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceAttributeType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceAttributeType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679397891"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; QueryString
+(InstanceAttributeType -&gt; QueryString)
+-&gt; ToQuery InstanceAttributeType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceAttributeType -&gt; QueryString
+$ctoQuery :: InstanceAttributeType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679397886"><span id="local-6989586621679397888"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAttributeType]
+Value -&gt; Parser InstanceAttributeType
+(Value -&gt; Parser InstanceAttributeType)
+-&gt; (Value -&gt; Parser [InstanceAttributeType])
+-&gt; FromJSON InstanceAttributeType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceAttributeType]
+$cparseJSONList :: Value -&gt; Parser [InstanceAttributeType]
+parseJSON :: Value -&gt; Parser InstanceAttributeType
+$cparseJSON :: Value -&gt; Parser InstanceAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679397881"><span id="local-6989586621679397883"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAttributeType]
+FromJSONKeyFunction InstanceAttributeType
+FromJSONKeyFunction InstanceAttributeType
+-&gt; FromJSONKeyFunction [InstanceAttributeType]
+-&gt; FromJSONKey InstanceAttributeType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceAttributeType]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceAttributeType]
+fromJSONKey :: FromJSONKeyFunction InstanceAttributeType
+$cfromJSONKey :: FromJSONKeyFunction InstanceAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679397872"><span id="local-6989586621679397874"><span id="local-6989586621679397876"><span id="local-6989586621679397878"><span class="annot"><span class="annottext">[InstanceAttributeType] -&gt; Encoding
+[InstanceAttributeType] -&gt; Value
+InstanceAttributeType -&gt; Encoding
+InstanceAttributeType -&gt; Value
+(InstanceAttributeType -&gt; Value)
+-&gt; (InstanceAttributeType -&gt; Encoding)
+-&gt; ([InstanceAttributeType] -&gt; Value)
+-&gt; ([InstanceAttributeType] -&gt; Encoding)
+-&gt; ToJSON InstanceAttributeType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceAttributeType] -&gt; Encoding
+$ctoEncodingList :: [InstanceAttributeType] -&gt; Encoding
+toJSONList :: [InstanceAttributeType] -&gt; Value
+$ctoJSONList :: [InstanceAttributeType] -&gt; Value
+toEncoding :: InstanceAttributeType -&gt; Encoding
+$ctoEncoding :: InstanceAttributeType -&gt; Encoding
+toJSON :: InstanceAttributeType -&gt; Value
+$ctoJSON :: InstanceAttributeType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679397867"><span id="local-6989586621679397869"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAttributeType]
+ToJSONKeyFunction InstanceAttributeType
+ToJSONKeyFunction InstanceAttributeType
+-&gt; ToJSONKeyFunction [InstanceAttributeType]
+-&gt; ToJSONKey InstanceAttributeType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceAttributeType]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceAttributeType]
+toJSONKey :: ToJSONKeyFunction InstanceAttributeType
+$ctoJSONKey :: ToJSONKeyFunction InstanceAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679397864"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAttributeType
+([Node] -&gt; Either String InstanceAttributeType)
+-&gt; FromXML InstanceAttributeType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceAttributeType
+$cparseXML :: [Node] -&gt; Either String InstanceAttributeType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679397861"><span class="annot"><span class="annottext">InstanceAttributeType -&gt; XML
+(InstanceAttributeType -&gt; XML) -&gt; ToXML InstanceAttributeType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceAttributeType -&gt; XML
+$ctoXML :: InstanceAttributeType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES"><span class="hs-identifier hs-type">InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-type">InstanceAttributeType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAttributeType_AUTO_RESOLVE_BEST_VOICES"><span id="%24mInstanceAttributeType_AUTO_RESOLVE_BEST_VOICES"><span id="InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES"><span class="annot"><span class="annottext">$bInstanceAttributeType_AUTO_RESOLVE_BEST_VOICES :: InstanceAttributeType
+$mInstanceAttributeType_AUTO_RESOLVE_BEST_VOICES :: forall r.
+InstanceAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#%24bInstanceAttributeType_AUTO_RESOLVE_BEST_VOICES"><span class="hs-identifier hs-var hs-var hs-var">InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-type">InstanceAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AUTO_RESOLVE_BEST_VOICES&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_CONTACTFLOW_LOGS"><span class="hs-identifier hs-type">InstanceAttributeType_CONTACTFLOW_LOGS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-type">InstanceAttributeType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAttributeType_CONTACTFLOW_LOGS"><span id="%24mInstanceAttributeType_CONTACTFLOW_LOGS"><span id="InstanceAttributeType_CONTACTFLOW_LOGS"><span class="annot"><span class="annottext">$bInstanceAttributeType_CONTACTFLOW_LOGS :: InstanceAttributeType
+$mInstanceAttributeType_CONTACTFLOW_LOGS :: forall r.
+InstanceAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#%24bInstanceAttributeType_CONTACTFLOW_LOGS"><span class="hs-identifier hs-var hs-var hs-var">InstanceAttributeType_CONTACTFLOW_LOGS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-type">InstanceAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACTFLOW_LOGS&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_CONTACT_LENS"><span class="hs-identifier hs-type">InstanceAttributeType_CONTACT_LENS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-type">InstanceAttributeType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAttributeType_CONTACT_LENS"><span id="%24mInstanceAttributeType_CONTACT_LENS"><span id="InstanceAttributeType_CONTACT_LENS"><span class="annot"><span class="annottext">$bInstanceAttributeType_CONTACT_LENS :: InstanceAttributeType
+$mInstanceAttributeType_CONTACT_LENS :: forall r.
+InstanceAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#%24bInstanceAttributeType_CONTACT_LENS"><span class="hs-identifier hs-var hs-var hs-var">InstanceAttributeType_CONTACT_LENS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-type">InstanceAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTACT_LENS&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_EARLY_MEDIA"><span class="hs-identifier hs-type">InstanceAttributeType_EARLY_MEDIA</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-type">InstanceAttributeType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAttributeType_EARLY_MEDIA"><span id="%24mInstanceAttributeType_EARLY_MEDIA"><span id="InstanceAttributeType_EARLY_MEDIA"><span class="annot"><span class="annottext">$bInstanceAttributeType_EARLY_MEDIA :: InstanceAttributeType
+$mInstanceAttributeType_EARLY_MEDIA :: forall r.
+InstanceAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#%24bInstanceAttributeType_EARLY_MEDIA"><span class="hs-identifier hs-var hs-var hs-var">InstanceAttributeType_EARLY_MEDIA</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-type">InstanceAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EARLY_MEDIA&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_INBOUND_CALLS"><span class="hs-identifier hs-type">InstanceAttributeType_INBOUND_CALLS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-type">InstanceAttributeType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAttributeType_INBOUND_CALLS"><span id="%24mInstanceAttributeType_INBOUND_CALLS"><span id="InstanceAttributeType_INBOUND_CALLS"><span class="annot"><span class="annottext">$bInstanceAttributeType_INBOUND_CALLS :: InstanceAttributeType
+$mInstanceAttributeType_INBOUND_CALLS :: forall r.
+InstanceAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#%24bInstanceAttributeType_INBOUND_CALLS"><span class="hs-identifier hs-var hs-var hs-var">InstanceAttributeType_INBOUND_CALLS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-type">InstanceAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INBOUND_CALLS&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_OUTBOUND_CALLS"><span class="hs-identifier hs-type">InstanceAttributeType_OUTBOUND_CALLS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-type">InstanceAttributeType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAttributeType_OUTBOUND_CALLS"><span id="%24mInstanceAttributeType_OUTBOUND_CALLS"><span id="InstanceAttributeType_OUTBOUND_CALLS"><span class="annot"><span class="annottext">$bInstanceAttributeType_OUTBOUND_CALLS :: InstanceAttributeType
+$mInstanceAttributeType_OUTBOUND_CALLS :: forall r.
+InstanceAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#%24bInstanceAttributeType_OUTBOUND_CALLS"><span class="hs-identifier hs-var hs-var hs-var">InstanceAttributeType_OUTBOUND_CALLS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-type">InstanceAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OUTBOUND_CALLS&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_USE_CUSTOM_TTS_VOICES"><span class="hs-identifier hs-type">InstanceAttributeType_USE_CUSTOM_TTS_VOICES</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType"><span class="hs-identifier hs-type">InstanceAttributeType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAttributeType_USE_CUSTOM_TTS_VOICES"><span id="%24mInstanceAttributeType_USE_CUSTOM_TTS_VOICES"><span id="InstanceAttributeType_USE_CUSTOM_TTS_VOICES"><span class="annot"><span class="annottext">$bInstanceAttributeType_USE_CUSTOM_TTS_VOICES :: InstanceAttributeType
+$mInstanceAttributeType_USE_CUSTOM_TTS_VOICES :: forall r.
+InstanceAttributeType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Connect.Types.InstanceAttributeType.html#%24bInstanceAttributeType_USE_CUSTOM_TTS_VOICES"><span class="hs-identifier hs-var hs-var hs-var">InstanceAttributeType_USE_CUSTOM_TTS_VOICES</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-identifier hs-type">InstanceAttributeType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;USE_CUSTOM_TTS_VOICES&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES"><span class="hs-pragma hs-type">InstanceAttributeType_AUTO_RESOLVE_BEST_VOICES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_CONTACTFLOW_LOGS"><span class="hs-pragma hs-type">InstanceAttributeType_CONTACTFLOW_LOGS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_CONTACT_LENS"><span class="hs-pragma hs-type">InstanceAttributeType_CONTACT_LENS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_EARLY_MEDIA"><span class="hs-pragma hs-type">InstanceAttributeType_EARLY_MEDIA</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_INBOUND_CALLS"><span class="hs-pragma hs-type">InstanceAttributeType_INBOUND_CALLS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_OUTBOUND_CALLS"><span class="hs-pragma hs-type">InstanceAttributeType_OUTBOUND_CALLS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType_USE_CUSTOM_TTS_VOICES"><span class="hs-pragma hs-type">InstanceAttributeType_USE_CUSTOM_TTS_VOICES</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Connect.Types.InstanceAttributeType.html#InstanceAttributeType%27"><span class="hs-pragma hs-type">InstanceAttributeType'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

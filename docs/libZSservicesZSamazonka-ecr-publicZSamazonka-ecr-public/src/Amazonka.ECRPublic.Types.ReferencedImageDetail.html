@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ECRPublic.Types.ReferencedImageDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ECRPublic.Types.ReferencedImageDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | An object that describes the image tag details returned by a</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- DescribeImageTags action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newReferencedImageDetail' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679191900"><span id="local-6989586621679191901"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReferencedImageDetail"><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-var">ReferencedImageDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReferencedImageDetail%27"><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-var">ReferencedImageDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The media type of the image manifest.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AimageManifestMediaType%3AReferencedImageDetail%27"><span class="annot"><span class="annottext">ReferencedImageDetail -&gt; Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageManifestMediaType%3AReferencedImageDetail%27"><span class="hs-identifier hs-var hs-var">imageManifestMediaType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The size, in bytes, of the image in the repository.</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- If the image is a manifest list, this will be the max size of all</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- manifests in the list.</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- Beginning with Docker version 1.9, the Docker client compresses image</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- layers before pushing them to a V2 Docker registry. The output of the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- @docker images@ command shows the uncompressed image size, so it may</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- return a larger image size than the image sizes returned by</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- DescribeImages.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AimageSizeInBytes%3AReferencedImageDetail%27"><span class="annot"><span class="annottext">ReferencedImageDetail -&gt; Maybe Integer
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageSizeInBytes%3AReferencedImageDetail%27"><span class="hs-identifier hs-var hs-var">imageSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The @sha256@ digest of the image manifest.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AimageDigest%3AReferencedImageDetail%27"><span class="annot"><span class="annottext">ReferencedImageDetail -&gt; Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageDigest%3AReferencedImageDetail%27"><span class="hs-identifier hs-var hs-var">imageDigest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The artifact media type of the image.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AartifactMediaType%3AReferencedImageDetail%27"><span class="annot"><span class="annottext">ReferencedImageDetail -&gt; Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AartifactMediaType%3AReferencedImageDetail%27"><span class="hs-identifier hs-var hs-var">artifactMediaType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The date and time, expressed in standard JavaScript date format, at</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- which the current image tag was pushed to the repository.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AimagePushedAt%3AReferencedImageDetail%27"><span class="annot"><span class="annottext">ReferencedImageDetail -&gt; Maybe POSIX
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimagePushedAt%3AReferencedImageDetail%27"><span class="hs-identifier hs-var hs-var">imagePushedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679191890"><span id="local-6989586621679191892"><span class="annot"><span class="annottext">ReferencedImageDetail -&gt; ReferencedImageDetail -&gt; Bool
+(ReferencedImageDetail -&gt; ReferencedImageDetail -&gt; Bool)
+-&gt; (ReferencedImageDetail -&gt; ReferencedImageDetail -&gt; Bool)
+-&gt; Eq ReferencedImageDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReferencedImageDetail -&gt; ReferencedImageDetail -&gt; Bool
+$c/= :: ReferencedImageDetail -&gt; ReferencedImageDetail -&gt; Bool
+== :: ReferencedImageDetail -&gt; ReferencedImageDetail -&gt; Bool
+$c== :: ReferencedImageDetail -&gt; ReferencedImageDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191881"><span id="local-6989586621679191883"><span id="local-6989586621679191885"><span id="local-6989586621679191887"><span class="annot"><span class="annottext">ReadPrec [ReferencedImageDetail]
+ReadPrec ReferencedImageDetail
+Int -&gt; ReadS ReferencedImageDetail
+ReadS [ReferencedImageDetail]
+(Int -&gt; ReadS ReferencedImageDetail)
+-&gt; ReadS [ReferencedImageDetail]
+-&gt; ReadPrec ReferencedImageDetail
+-&gt; ReadPrec [ReferencedImageDetail]
+-&gt; Read ReferencedImageDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReferencedImageDetail]
+$creadListPrec :: ReadPrec [ReferencedImageDetail]
+readPrec :: ReadPrec ReferencedImageDetail
+$creadPrec :: ReadPrec ReferencedImageDetail
+readList :: ReadS [ReferencedImageDetail]
+$creadList :: ReadS [ReferencedImageDetail]
+readsPrec :: Int -&gt; ReadS ReferencedImageDetail
+$creadsPrec :: Int -&gt; ReadS ReferencedImageDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679191874"><span id="local-6989586621679191876"><span id="local-6989586621679191878"><span class="annot"><span class="annottext">Int -&gt; ReferencedImageDetail -&gt; ShowS
+[ReferencedImageDetail] -&gt; ShowS
+ReferencedImageDetail -&gt; String
+(Int -&gt; ReferencedImageDetail -&gt; ShowS)
+-&gt; (ReferencedImageDetail -&gt; String)
+-&gt; ([ReferencedImageDetail] -&gt; ShowS)
+-&gt; Show ReferencedImageDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReferencedImageDetail] -&gt; ShowS
+$cshowList :: [ReferencedImageDetail] -&gt; ShowS
+show :: ReferencedImageDetail -&gt; String
+$cshow :: ReferencedImageDetail -&gt; String
+showsPrec :: Int -&gt; ReferencedImageDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReferencedImageDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReferencedImageDetail -&gt; Rep ReferencedImageDetail x)
+-&gt; (forall x. Rep ReferencedImageDetail x -&gt; ReferencedImageDetail)
+-&gt; Generic ReferencedImageDetail
+forall x. Rep ReferencedImageDetail x -&gt; ReferencedImageDetail
+forall x. ReferencedImageDetail -&gt; Rep ReferencedImageDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReferencedImageDetail x -&gt; ReferencedImageDetail
+$cfrom :: forall x. ReferencedImageDetail -&gt; Rep ReferencedImageDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'ReferencedImageDetail' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'imageManifestMediaType', 'referencedImageDetail_imageManifestMediaType' - The media type of the image manifest.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'imageSizeInBytes', 'referencedImageDetail_imageSizeInBytes' - The size, in bytes, of the image in the repository.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- If the image is a manifest list, this will be the max size of all</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- manifests in the list.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Beginning with Docker version 1.9, the Docker client compresses image</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- layers before pushing them to a V2 Docker registry. The output of the</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- @docker images@ command shows the uncompressed image size, so it may</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- return a larger image size than the image sizes returned by</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- DescribeImages.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'imageDigest', 'referencedImageDetail_imageDigest' - The @sha256@ digest of the image manifest.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'artifactMediaType', 'referencedImageDetail_artifactMediaType' - The artifact media type of the image.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'imagePushedAt', 'referencedImageDetail_imagePushedAt' - The date and time, expressed in standard JavaScript date format, at</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- which the current image tag was pushed to the repository.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#newReferencedImageDetail"><span class="hs-identifier hs-type">newReferencedImageDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span>
+</span><span id="line-83"></span><span id="newReferencedImageDetail"><span class="annot"><span class="annottext">newReferencedImageDetail :: ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#newReferencedImageDetail"><span class="hs-identifier hs-var hs-var">newReferencedImageDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="annottext">ReferencedImageDetail' :: Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:imageManifestMediaType:ReferencedImageDetail' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageManifestMediaType%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageSizeInBytes:ReferencedImageDetail' :: Maybe Integer
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageSizeInBytes%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imageSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:imageDigest:ReferencedImageDetail' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageDigest%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imageDigest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactMediaType:ReferencedImageDetail' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AartifactMediaType%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">artifactMediaType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:imagePushedAt:ReferencedImageDetail' :: Maybe POSIX
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimagePushedAt%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imagePushedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The media type of the image manifest.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imageManifestMediaType"><span class="hs-identifier hs-type">referencedImageDetail_imageManifestMediaType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="referencedImageDetail_imageManifestMediaType"><span class="annot"><span class="annottext">referencedImageDetail_imageManifestMediaType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReferencedImageDetail -&gt; f ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imageManifestMediaType"><span class="hs-identifier hs-var hs-var">referencedImageDetail_imageManifestMediaType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferencedImageDetail -&gt; Maybe Text)
+-&gt; (ReferencedImageDetail -&gt; Maybe Text -&gt; ReferencedImageDetail)
+-&gt; Lens
+     ReferencedImageDetail
+     ReferencedImageDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191865"><span class="annot"><span class="annottext">Maybe Text
+imageManifestMediaType :: Maybe Text
+$sel:imageManifestMediaType:ReferencedImageDetail' :: ReferencedImageDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679191865"><span class="hs-identifier hs-var hs-var">imageManifestMediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191865"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191864"><span class="annot"><span class="annottext">s :: ReferencedImageDetail
+</span><a href="#local-6989586621679191864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191863"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferencedImageDetail
+</span><a href="#local-6989586621679191864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageManifestMediaType:ReferencedImageDetail' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageManifestMediaType%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imageManifestMediaType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The size, in bytes, of the image in the repository.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- If the image is a manifest list, this will be the max size of all</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- manifests in the list.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Beginning with Docker version 1.9, the Docker client compresses image</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- layers before pushing them to a V2 Docker registry. The output of the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- @docker images@ command shows the uncompressed image size, so it may</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- return a larger image size than the image sizes returned by</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- DescribeImages.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imageSizeInBytes"><span class="hs-identifier hs-type">referencedImageDetail_imageSizeInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="referencedImageDetail_imageSizeInBytes"><span class="annot"><span class="annottext">referencedImageDetail_imageSizeInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; ReferencedImageDetail -&gt; f ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imageSizeInBytes"><span class="hs-identifier hs-var hs-var">referencedImageDetail_imageSizeInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferencedImageDetail -&gt; Maybe Integer)
+-&gt; (ReferencedImageDetail
+    -&gt; Maybe Integer -&gt; ReferencedImageDetail)
+-&gt; Lens
+     ReferencedImageDetail
+     ReferencedImageDetail
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191861"><span class="annot"><span class="annottext">Maybe Integer
+imageSizeInBytes :: Maybe Integer
+$sel:imageSizeInBytes:ReferencedImageDetail' :: ReferencedImageDetail -&gt; Maybe Integer
+</span><a href="#local-6989586621679191861"><span class="hs-identifier hs-var hs-var">imageSizeInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679191861"><span class="hs-identifier hs-var">imageSizeInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191860"><span class="annot"><span class="annottext">s :: ReferencedImageDetail
+</span><a href="#local-6989586621679191860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191859"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679191859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferencedImageDetail
+</span><a href="#local-6989586621679191860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageSizeInBytes:ReferencedImageDetail' :: Maybe Integer
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageSizeInBytes%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imageSizeInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679191859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The @sha256@ digest of the image manifest.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imageDigest"><span class="hs-identifier hs-type">referencedImageDetail_imageDigest</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span id="referencedImageDetail_imageDigest"><span class="annot"><span class="annottext">referencedImageDetail_imageDigest :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReferencedImageDetail -&gt; f ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imageDigest"><span class="hs-identifier hs-var hs-var">referencedImageDetail_imageDigest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferencedImageDetail -&gt; Maybe Text)
+-&gt; (ReferencedImageDetail -&gt; Maybe Text -&gt; ReferencedImageDetail)
+-&gt; Lens
+     ReferencedImageDetail
+     ReferencedImageDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191857"><span class="annot"><span class="annottext">Maybe Text
+imageDigest :: Maybe Text
+$sel:imageDigest:ReferencedImageDetail' :: ReferencedImageDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679191857"><span class="hs-identifier hs-var hs-var">imageDigest</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191857"><span class="hs-identifier hs-var">imageDigest</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191856"><span class="annot"><span class="annottext">s :: ReferencedImageDetail
+</span><a href="#local-6989586621679191856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191855"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferencedImageDetail
+</span><a href="#local-6989586621679191856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imageDigest:ReferencedImageDetail' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimageDigest%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imageDigest</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | The artifact media type of the image.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_artifactMediaType"><span class="hs-identifier hs-type">referencedImageDetail_artifactMediaType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span id="referencedImageDetail_artifactMediaType"><span class="annot"><span class="annottext">referencedImageDetail_artifactMediaType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReferencedImageDetail -&gt; f ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_artifactMediaType"><span class="hs-identifier hs-var hs-var">referencedImageDetail_artifactMediaType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferencedImageDetail -&gt; Maybe Text)
+-&gt; (ReferencedImageDetail -&gt; Maybe Text -&gt; ReferencedImageDetail)
+-&gt; Lens
+     ReferencedImageDetail
+     ReferencedImageDetail
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191853"><span class="annot"><span class="annottext">Maybe Text
+artifactMediaType :: Maybe Text
+$sel:artifactMediaType:ReferencedImageDetail' :: ReferencedImageDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679191853"><span class="hs-identifier hs-var hs-var">artifactMediaType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191853"><span class="hs-identifier hs-var">artifactMediaType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191852"><span class="annot"><span class="annottext">s :: ReferencedImageDetail
+</span><a href="#local-6989586621679191852"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191851"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191851"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferencedImageDetail
+</span><a href="#local-6989586621679191852"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactMediaType:ReferencedImageDetail' :: Maybe Text
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AartifactMediaType%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">artifactMediaType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679191851"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- | The date and time, expressed in standard JavaScript date format, at</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- which the current image tag was pushed to the repository.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imagePushedAt"><span class="hs-identifier hs-type">referencedImageDetail_imagePushedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="referencedImageDetail_imagePushedAt"><span class="annot"><span class="annottext">referencedImageDetail_imagePushedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReferencedImageDetail -&gt; f ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#referencedImageDetail_imagePushedAt"><span class="hs-identifier hs-var hs-var">referencedImageDetail_imagePushedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferencedImageDetail -&gt; Maybe POSIX)
+-&gt; (ReferencedImageDetail -&gt; Maybe POSIX -&gt; ReferencedImageDetail)
+-&gt; Lens
+     ReferencedImageDetail
+     ReferencedImageDetail
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679191849"><span class="annot"><span class="annottext">Maybe POSIX
+imagePushedAt :: Maybe POSIX
+$sel:imagePushedAt:ReferencedImageDetail' :: ReferencedImageDetail -&gt; Maybe POSIX
+</span><a href="#local-6989586621679191849"><span class="hs-identifier hs-var hs-var">imagePushedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679191849"><span class="hs-identifier hs-var">imagePushedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679191848"><span class="annot"><span class="annottext">s :: ReferencedImageDetail
+</span><a href="#local-6989586621679191848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-type">ReferencedImageDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679191847"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679191847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferencedImageDetail
+</span><a href="#local-6989586621679191848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:imagePushedAt:ReferencedImageDetail' :: Maybe POSIX
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#%24sel%3AimagePushedAt%3AReferencedImageDetail%27"><span class="hs-identifier hs-var">imagePushedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679191847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReferencedImageDetail -&gt; f ReferencedImageDetail)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReferencedImageDetail
+-&gt; f ReferencedImageDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191841"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679191839"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReferencedImageDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReferencedImageDetail)
+-&gt; Value
+-&gt; Parser ReferencedImageDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReferencedImageDetail&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679191836"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191836"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; ReferencedImageDetail
+</span><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail%27"><span class="hs-identifier hs-var">ReferencedImageDetail'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; ReferencedImageDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; ReferencedImageDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageManifestMediaType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; ReferencedImageDetail)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ReferencedImageDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageSizeInBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; ReferencedImageDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; ReferencedImageDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imageDigest&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; ReferencedImageDetail)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe POSIX -&gt; ReferencedImageDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;artifactMediaType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; ReferencedImageDetail)
+-&gt; Parser (Maybe POSIX) -&gt; Parser ReferencedImageDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679191836"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;imagePushedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191830"><span id="local-6989586621679191832"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679191827"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ECRPublic.Types.ReferencedImageDetail.html#ReferencedImageDetail"><span class="hs-identifier hs-type">ReferencedImageDetail</span></a></span></span><span>
+</span><span id="line-139"></span></pre></body></html>

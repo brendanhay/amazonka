@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.RobOMaker.Types.SourceConfig</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.RobOMaker.Types.SourceConfig</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.Architecture.html"><span class="hs-identifier">Amazonka.RobOMaker.Types.Architecture</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Information about a source configuration.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSourceConfig' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679371802"><span id="local-6989586621679371803"></span></span><span class="hs-keyword">data</span><span> </span><span id="SourceConfig"><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-var">SourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SourceConfig%27"><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-var">SourceConfig'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The s3 object key.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3As3Key%3ASourceConfig%27"><span class="annot"><span class="annottext">SourceConfig -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3As3Key%3ASourceConfig%27"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The target processor architecture for the application.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aarchitecture%3ASourceConfig%27"><span class="annot"><span class="annottext">SourceConfig -&gt; Maybe Architecture
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3Aarchitecture%3ASourceConfig%27"><span class="hs-identifier hs-var hs-var">architecture</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The Amazon S3 bucket name.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3As3Bucket%3ASourceConfig%27"><span class="annot"><span class="annottext">SourceConfig -&gt; Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3As3Bucket%3ASourceConfig%27"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679371794"><span id="local-6989586621679371796"><span class="annot"><span class="annottext">SourceConfig -&gt; SourceConfig -&gt; Bool
+(SourceConfig -&gt; SourceConfig -&gt; Bool)
+-&gt; (SourceConfig -&gt; SourceConfig -&gt; Bool) -&gt; Eq SourceConfig
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SourceConfig -&gt; SourceConfig -&gt; Bool
+$c/= :: SourceConfig -&gt; SourceConfig -&gt; Bool
+== :: SourceConfig -&gt; SourceConfig -&gt; Bool
+$c== :: SourceConfig -&gt; SourceConfig -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371785"><span id="local-6989586621679371787"><span id="local-6989586621679371789"><span id="local-6989586621679371791"><span class="annot"><span class="annottext">ReadPrec [SourceConfig]
+ReadPrec SourceConfig
+Int -&gt; ReadS SourceConfig
+ReadS [SourceConfig]
+(Int -&gt; ReadS SourceConfig)
+-&gt; ReadS [SourceConfig]
+-&gt; ReadPrec SourceConfig
+-&gt; ReadPrec [SourceConfig]
+-&gt; Read SourceConfig
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SourceConfig]
+$creadListPrec :: ReadPrec [SourceConfig]
+readPrec :: ReadPrec SourceConfig
+$creadPrec :: ReadPrec SourceConfig
+readList :: ReadS [SourceConfig]
+$creadList :: ReadS [SourceConfig]
+readsPrec :: Int -&gt; ReadS SourceConfig
+$creadsPrec :: Int -&gt; ReadS SourceConfig
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679371778"><span id="local-6989586621679371780"><span id="local-6989586621679371782"><span class="annot"><span class="annottext">Int -&gt; SourceConfig -&gt; ShowS
+[SourceConfig] -&gt; ShowS
+SourceConfig -&gt; String
+(Int -&gt; SourceConfig -&gt; ShowS)
+-&gt; (SourceConfig -&gt; String)
+-&gt; ([SourceConfig] -&gt; ShowS)
+-&gt; Show SourceConfig
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SourceConfig] -&gt; ShowS
+$cshowList :: [SourceConfig] -&gt; ShowS
+show :: SourceConfig -&gt; String
+$cshow :: SourceConfig -&gt; String
+showsPrec :: Int -&gt; SourceConfig -&gt; ShowS
+$cshowsPrec :: Int -&gt; SourceConfig -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SourceConfig -&gt; Rep SourceConfig x)
+-&gt; (forall x. Rep SourceConfig x -&gt; SourceConfig)
+-&gt; Generic SourceConfig
+forall x. Rep SourceConfig x -&gt; SourceConfig
+forall x. SourceConfig -&gt; Rep SourceConfig x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SourceConfig x -&gt; SourceConfig
+$cfrom :: forall x. SourceConfig -&gt; Rep SourceConfig x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'SourceConfig' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 's3Key', 'sourceConfig_s3Key' - The s3 object key.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'architecture', 'sourceConfig_architecture' - The target processor architecture for the application.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 's3Bucket', 'sourceConfig_s3Bucket' - The Amazon S3 bucket name.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#newSourceConfig"><span class="hs-identifier hs-type">newSourceConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span>
+</span><span id="line-55"></span><span id="newSourceConfig"><span class="annot"><span class="annottext">newSourceConfig :: SourceConfig
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#newSourceConfig"><span class="hs-identifier hs-var hs-var">newSourceConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">SourceConfig' :: Maybe Text -&gt; Maybe Architecture -&gt; Maybe Text -&gt; SourceConfig
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3Key:SourceConfig' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3As3Key%3ASourceConfig%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:architecture:SourceConfig' :: Maybe Architecture
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3Aarchitecture%3ASourceConfig%27"><span class="hs-identifier hs-var">architecture</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Architecture
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:s3Bucket:SourceConfig' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3As3Bucket%3ASourceConfig%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The s3 object key.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#sourceConfig_s3Key"><span class="hs-identifier hs-type">sourceConfig_s3Key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="sourceConfig_s3Key"><span class="annot"><span class="annottext">sourceConfig_s3Key :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SourceConfig -&gt; f SourceConfig
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#sourceConfig_s3Key"><span class="hs-identifier hs-var hs-var">sourceConfig_s3Key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConfig -&gt; Maybe Text)
+-&gt; (SourceConfig -&gt; Maybe Text -&gt; SourceConfig)
+-&gt; Lens SourceConfig SourceConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371769"><span class="annot"><span class="annottext">Maybe Text
+s3Key :: Maybe Text
+$sel:s3Key:SourceConfig' :: SourceConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679371769"><span class="hs-identifier hs-var hs-var">s3Key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371769"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371768"><span class="annot"><span class="annottext">s :: SourceConfig
+</span><a href="#local-6989586621679371768"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371767"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371767"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConfig
+</span><a href="#local-6989586621679371768"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Key:SourceConfig' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3As3Key%3ASourceConfig%27"><span class="hs-identifier hs-var">s3Key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371767"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The target processor architecture for the application.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#sourceConfig_architecture"><span class="hs-identifier hs-type">sourceConfig_architecture</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.Architecture.html#Architecture"><span class="hs-identifier hs-type">Architecture</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="sourceConfig_architecture"><span class="annot"><span class="annottext">sourceConfig_architecture :: (Maybe Architecture -&gt; f (Maybe Architecture))
+-&gt; SourceConfig -&gt; f SourceConfig
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#sourceConfig_architecture"><span class="hs-identifier hs-var hs-var">sourceConfig_architecture</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConfig -&gt; Maybe Architecture)
+-&gt; (SourceConfig -&gt; Maybe Architecture -&gt; SourceConfig)
+-&gt; Lens
+     SourceConfig SourceConfig (Maybe Architecture) (Maybe Architecture)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371765"><span class="annot"><span class="annottext">Maybe Architecture
+architecture :: Maybe Architecture
+$sel:architecture:SourceConfig' :: SourceConfig -&gt; Maybe Architecture
+</span><a href="#local-6989586621679371765"><span class="hs-identifier hs-var hs-var">architecture</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Architecture
+</span><a href="#local-6989586621679371765"><span class="hs-identifier hs-var">architecture</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371764"><span class="annot"><span class="annottext">s :: SourceConfig
+</span><a href="#local-6989586621679371764"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371763"><span class="annot"><span class="annottext">Maybe Architecture
+</span><a href="#local-6989586621679371763"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConfig
+</span><a href="#local-6989586621679371764"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:architecture:SourceConfig' :: Maybe Architecture
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3Aarchitecture%3ASourceConfig%27"><span class="hs-identifier hs-var">architecture</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Architecture
+</span><a href="#local-6989586621679371763"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The Amazon S3 bucket name.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#sourceConfig_s3Bucket"><span class="hs-identifier hs-type">sourceConfig_s3Bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span id="sourceConfig_s3Bucket"><span class="annot"><span class="annottext">sourceConfig_s3Bucket :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SourceConfig -&gt; f SourceConfig
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#sourceConfig_s3Bucket"><span class="hs-identifier hs-var hs-var">sourceConfig_s3Bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SourceConfig -&gt; Maybe Text)
+-&gt; (SourceConfig -&gt; Maybe Text -&gt; SourceConfig)
+-&gt; Lens SourceConfig SourceConfig (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371761"><span class="annot"><span class="annottext">Maybe Text
+s3Bucket :: Maybe Text
+$sel:s3Bucket:SourceConfig' :: SourceConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679371761"><span class="hs-identifier hs-var hs-var">s3Bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371761"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679371760"><span class="annot"><span class="annottext">s :: SourceConfig
+</span><a href="#local-6989586621679371760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679371759"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceConfig
+</span><a href="#local-6989586621679371760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3Bucket:SourceConfig' :: Maybe Text
+</span><a href="Amazonka.RobOMaker.Types.SourceConfig.html#%24sel%3As3Bucket%3ASourceConfig%27"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371755"><span id="local-6989586621679371757"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span></span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371752"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679371744"><span id="local-6989586621679371746"><span id="local-6989586621679371748"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig"><span class="hs-identifier hs-type">SourceConfig</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679371742"><span class="annot"><span class="annottext">toJSON :: SourceConfig -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.RobOMaker.Types.SourceConfig.html#SourceConfig%27"><span class="hs-identifier hs-type">SourceConfig'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679371738"><span id="local-6989586621679371739"><span id="local-6989586621679371740"><span class="annot"><span class="annottext">Maybe Text
+Maybe Architecture
+s3Bucket :: Maybe Text
+architecture :: Maybe Architecture
+s3Key :: Maybe Text
+$sel:s3Bucket:SourceConfig' :: SourceConfig -&gt; Maybe Text
+$sel:architecture:SourceConfig' :: SourceConfig -&gt; Maybe Architecture
+$sel:s3Key:SourceConfig' :: SourceConfig -&gt; Maybe Text
+</span><a href="#local-6989586621679371738"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-82"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371740"><span class="hs-identifier hs-var">s3Key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;architecture&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Architecture -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Architecture -&gt; Pair) -&gt; Maybe Architecture -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Architecture
+</span><a href="#local-6989586621679371739"><span class="hs-identifier hs-var">architecture</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;s3Bucket&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679371738"><span class="hs-identifier hs-var">s3Bucket</span></a></span><span>
+</span><span id="line-85"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span></pre></body></html>

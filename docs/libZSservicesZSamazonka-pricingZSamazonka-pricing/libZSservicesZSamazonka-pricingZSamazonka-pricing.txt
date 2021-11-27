@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.Pricing.Types.AttributeValue
+module Amazonka.Pricing.Types.AttributeValue
 
 -- | The values of a given attribute, such as <tt>Throughput Optimized
 --   HDD</tt> or <tt>Provisioned IOPS</tt> for the <tt>Amazon EC2</tt>
@@ -33,42 +33,42 @@ newAttributeValue :: AttributeValue
 
 -- | The specific value of an <tt>attributeName</tt>.
 attributeValue_value :: Lens' AttributeValue (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Pricing.Types.AttributeValue.AttributeValue
-instance GHC.Show.Show Network.AWS.Pricing.Types.AttributeValue.AttributeValue
-instance GHC.Read.Read Network.AWS.Pricing.Types.AttributeValue.AttributeValue
-instance GHC.Classes.Eq Network.AWS.Pricing.Types.AttributeValue.AttributeValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pricing.Types.AttributeValue.AttributeValue
-instance Data.Hashable.Class.Hashable Network.AWS.Pricing.Types.AttributeValue.AttributeValue
-instance Control.DeepSeq.NFData Network.AWS.Pricing.Types.AttributeValue.AttributeValue
+instance GHC.Generics.Generic Amazonka.Pricing.Types.AttributeValue.AttributeValue
+instance GHC.Show.Show Amazonka.Pricing.Types.AttributeValue.AttributeValue
+instance GHC.Read.Read Amazonka.Pricing.Types.AttributeValue.AttributeValue
+instance GHC.Classes.Eq Amazonka.Pricing.Types.AttributeValue.AttributeValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pricing.Types.AttributeValue.AttributeValue
+instance Data.Hashable.Class.Hashable Amazonka.Pricing.Types.AttributeValue.AttributeValue
+instance Control.DeepSeq.NFData Amazonka.Pricing.Types.AttributeValue.AttributeValue
 
 
-module Network.AWS.Pricing.Types.FilterType
+module Amazonka.Pricing.Types.FilterType
 newtype FilterType
 FilterType' :: Text -> FilterType
 [fromFilterType] :: FilterType -> Text
 pattern FilterType_TERM_MATCH :: FilterType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Pricing.Types.FilterType.FilterType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Pricing.Types.FilterType.FilterType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Pricing.Types.FilterType.FilterType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pricing.Types.FilterType.FilterType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Pricing.Types.FilterType.FilterType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pricing.Types.FilterType.FilterType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pricing.Types.FilterType.FilterType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Pricing.Types.FilterType.FilterType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Pricing.Types.FilterType.FilterType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Pricing.Types.FilterType.FilterType
-instance Network.AWS.Data.Text.ToText Network.AWS.Pricing.Types.FilterType.FilterType
-instance Network.AWS.Data.Text.FromText Network.AWS.Pricing.Types.FilterType.FilterType
-instance Control.DeepSeq.NFData Network.AWS.Pricing.Types.FilterType.FilterType
-instance Data.Hashable.Class.Hashable Network.AWS.Pricing.Types.FilterType.FilterType
-instance GHC.Generics.Generic Network.AWS.Pricing.Types.FilterType.FilterType
-instance GHC.Classes.Ord Network.AWS.Pricing.Types.FilterType.FilterType
-instance GHC.Classes.Eq Network.AWS.Pricing.Types.FilterType.FilterType
-instance GHC.Read.Read Network.AWS.Pricing.Types.FilterType.FilterType
-instance GHC.Show.Show Network.AWS.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.XML.ToXML Amazonka.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.XML.FromXML Amazonka.Pricing.Types.FilterType.FilterType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Pricing.Types.FilterType.FilterType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pricing.Types.FilterType.FilterType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Pricing.Types.FilterType.FilterType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.Query.ToQuery Amazonka.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.Log.ToLog Amazonka.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.Text.ToText Amazonka.Pricing.Types.FilterType.FilterType
+instance Amazonka.Data.Text.FromText Amazonka.Pricing.Types.FilterType.FilterType
+instance Control.DeepSeq.NFData Amazonka.Pricing.Types.FilterType.FilterType
+instance Data.Hashable.Class.Hashable Amazonka.Pricing.Types.FilterType.FilterType
+instance GHC.Generics.Generic Amazonka.Pricing.Types.FilterType.FilterType
+instance GHC.Classes.Ord Amazonka.Pricing.Types.FilterType.FilterType
+instance GHC.Classes.Eq Amazonka.Pricing.Types.FilterType.FilterType
+instance GHC.Read.Read Amazonka.Pricing.Types.FilterType.FilterType
+instance GHC.Show.Show Amazonka.Pricing.Types.FilterType.FilterType
 
 
-module Network.AWS.Pricing.Types.Filter
+module Amazonka.Pricing.Types.Filter
 
 -- | The constraints that you want all returned products to match.
 --   
@@ -165,16 +165,16 @@ filter_field :: Lens' Filter Text
 --   the attribute value that you want the returned products to match, such
 --   as a <tt>Provisioned IOPS</tt> volume.
 filter_value :: Lens' Filter Text
-instance GHC.Generics.Generic Network.AWS.Pricing.Types.Filter.Filter
-instance GHC.Show.Show Network.AWS.Pricing.Types.Filter.Filter
-instance GHC.Read.Read Network.AWS.Pricing.Types.Filter.Filter
-instance GHC.Classes.Eq Network.AWS.Pricing.Types.Filter.Filter
-instance Data.Hashable.Class.Hashable Network.AWS.Pricing.Types.Filter.Filter
-instance Control.DeepSeq.NFData Network.AWS.Pricing.Types.Filter.Filter
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pricing.Types.Filter.Filter
+instance GHC.Generics.Generic Amazonka.Pricing.Types.Filter.Filter
+instance GHC.Show.Show Amazonka.Pricing.Types.Filter.Filter
+instance GHC.Read.Read Amazonka.Pricing.Types.Filter.Filter
+instance GHC.Classes.Eq Amazonka.Pricing.Types.Filter.Filter
+instance Data.Hashable.Class.Hashable Amazonka.Pricing.Types.Filter.Filter
+instance Control.DeepSeq.NFData Amazonka.Pricing.Types.Filter.Filter
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pricing.Types.Filter.Filter
 
 
-module Network.AWS.Pricing.Types.PricingService
+module Amazonka.Pricing.Types.PricingService
 
 -- | The metadata for a service, such as the service code and available
 --   attribute names.
@@ -212,16 +212,16 @@ pricingService_attributeNames :: Lens' PricingService (Maybe [Text])
 
 -- | The code for the Amazon Web Services service.
 pricingService_serviceCode :: Lens' PricingService (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Pricing.Types.PricingService.PricingService
-instance GHC.Show.Show Network.AWS.Pricing.Types.PricingService.PricingService
-instance GHC.Read.Read Network.AWS.Pricing.Types.PricingService.PricingService
-instance GHC.Classes.Eq Network.AWS.Pricing.Types.PricingService.PricingService
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Pricing.Types.PricingService.PricingService
-instance Data.Hashable.Class.Hashable Network.AWS.Pricing.Types.PricingService.PricingService
-instance Control.DeepSeq.NFData Network.AWS.Pricing.Types.PricingService.PricingService
+instance GHC.Generics.Generic Amazonka.Pricing.Types.PricingService.PricingService
+instance GHC.Show.Show Amazonka.Pricing.Types.PricingService.PricingService
+instance GHC.Read.Read Amazonka.Pricing.Types.PricingService.PricingService
+instance GHC.Classes.Eq Amazonka.Pricing.Types.PricingService.PricingService
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Pricing.Types.PricingService.PricingService
+instance Data.Hashable.Class.Hashable Amazonka.Pricing.Types.PricingService.PricingService
+instance Control.DeepSeq.NFData Amazonka.Pricing.Types.PricingService.PricingService
 
 
-module Network.AWS.Pricing.Types
+module Amazonka.Pricing.Types
 
 -- | API version <tt>2017-10-15</tt> of the Amazon Price List Service SDK
 --   configuration.
@@ -411,7 +411,7 @@ pricingService_serviceCode :: Lens' PricingService (Maybe Text)
 -- | Returns a list of all products that match the filter criteria.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Pricing.GetProducts
+module Amazonka.Pricing.GetProducts
 
 -- | <i>See:</i> <a>newGetProducts</a> smart constructor.
 data GetProducts
@@ -542,23 +542,23 @@ getProductsResponse_priceList :: Lens' GetProductsResponse (Maybe [Text])
 
 -- | The response's http status code.
 getProductsResponse_httpStatus :: Lens' GetProductsResponse Int
-instance GHC.Generics.Generic Network.AWS.Pricing.GetProducts.GetProducts
-instance GHC.Show.Show Network.AWS.Pricing.GetProducts.GetProducts
-instance GHC.Read.Read Network.AWS.Pricing.GetProducts.GetProducts
-instance GHC.Classes.Eq Network.AWS.Pricing.GetProducts.GetProducts
-instance GHC.Generics.Generic Network.AWS.Pricing.GetProducts.GetProductsResponse
-instance GHC.Show.Show Network.AWS.Pricing.GetProducts.GetProductsResponse
-instance GHC.Read.Read Network.AWS.Pricing.GetProducts.GetProductsResponse
-instance GHC.Classes.Eq Network.AWS.Pricing.GetProducts.GetProductsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Pricing.GetProducts.GetProducts
-instance Control.DeepSeq.NFData Network.AWS.Pricing.GetProducts.GetProductsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Pricing.GetProducts.GetProducts
-instance Data.Hashable.Class.Hashable Network.AWS.Pricing.GetProducts.GetProducts
-instance Control.DeepSeq.NFData Network.AWS.Pricing.GetProducts.GetProducts
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Pricing.GetProducts.GetProducts
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pricing.GetProducts.GetProducts
-instance Network.AWS.Data.Path.ToPath Network.AWS.Pricing.GetProducts.GetProducts
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pricing.GetProducts.GetProducts
+instance GHC.Generics.Generic Amazonka.Pricing.GetProducts.GetProducts
+instance GHC.Show.Show Amazonka.Pricing.GetProducts.GetProducts
+instance GHC.Read.Read Amazonka.Pricing.GetProducts.GetProducts
+instance GHC.Classes.Eq Amazonka.Pricing.GetProducts.GetProducts
+instance GHC.Generics.Generic Amazonka.Pricing.GetProducts.GetProductsResponse
+instance GHC.Show.Show Amazonka.Pricing.GetProducts.GetProductsResponse
+instance GHC.Read.Read Amazonka.Pricing.GetProducts.GetProductsResponse
+instance GHC.Classes.Eq Amazonka.Pricing.GetProducts.GetProductsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Pricing.GetProducts.GetProducts
+instance Control.DeepSeq.NFData Amazonka.Pricing.GetProducts.GetProductsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Pricing.GetProducts.GetProducts
+instance Data.Hashable.Class.Hashable Amazonka.Pricing.GetProducts.GetProducts
+instance Control.DeepSeq.NFData Amazonka.Pricing.GetProducts.GetProducts
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Pricing.GetProducts.GetProducts
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pricing.GetProducts.GetProducts
+instance Amazonka.Data.Path.ToPath Amazonka.Pricing.GetProducts.GetProducts
+instance Amazonka.Data.Query.ToQuery Amazonka.Pricing.GetProducts.GetProducts
 
 
 -- | Returns a list of attribute values. Attibutes are similar to the
@@ -567,7 +567,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Pricing.GetProducts.GetProdu
 --   Services Billing and Cost Management User Guide</a>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Pricing.GetAttributeValues
+module Amazonka.Pricing.GetAttributeValues
 
 -- | <i>See:</i> <a>newGetAttributeValues</a> smart constructor.
 data GetAttributeValues
@@ -683,23 +683,23 @@ getAttributeValuesResponse_nextToken :: Lens' GetAttributeValuesResponse (Maybe 
 
 -- | The response's http status code.
 getAttributeValuesResponse_httpStatus :: Lens' GetAttributeValuesResponse Int
-instance GHC.Generics.Generic Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance GHC.Show.Show Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance GHC.Read.Read Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance GHC.Classes.Eq Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance GHC.Generics.Generic Network.AWS.Pricing.GetAttributeValues.GetAttributeValuesResponse
-instance GHC.Show.Show Network.AWS.Pricing.GetAttributeValues.GetAttributeValuesResponse
-instance GHC.Read.Read Network.AWS.Pricing.GetAttributeValues.GetAttributeValuesResponse
-instance GHC.Classes.Eq Network.AWS.Pricing.GetAttributeValues.GetAttributeValuesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance Control.DeepSeq.NFData Network.AWS.Pricing.GetAttributeValues.GetAttributeValuesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance Data.Hashable.Class.Hashable Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance Control.DeepSeq.NFData Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance Network.AWS.Data.Path.ToPath Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pricing.GetAttributeValues.GetAttributeValues
+instance GHC.Generics.Generic Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance GHC.Show.Show Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance GHC.Read.Read Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance GHC.Classes.Eq Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance GHC.Generics.Generic Amazonka.Pricing.GetAttributeValues.GetAttributeValuesResponse
+instance GHC.Show.Show Amazonka.Pricing.GetAttributeValues.GetAttributeValuesResponse
+instance GHC.Read.Read Amazonka.Pricing.GetAttributeValues.GetAttributeValuesResponse
+instance GHC.Classes.Eq Amazonka.Pricing.GetAttributeValues.GetAttributeValuesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance Control.DeepSeq.NFData Amazonka.Pricing.GetAttributeValues.GetAttributeValuesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance Data.Hashable.Class.Hashable Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance Control.DeepSeq.NFData Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance Amazonka.Data.Path.ToPath Amazonka.Pricing.GetAttributeValues.GetAttributeValues
+instance Amazonka.Data.Query.ToQuery Amazonka.Pricing.GetAttributeValues.GetAttributeValues
 
 
 -- | Returns the metadata for one service or a list of the metadata for all
@@ -712,7 +712,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Pricing.GetAttributeValues.G
 --   <tt>instanceCapacity10xlarge</tt>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Pricing.DescribeServices
+module Amazonka.Pricing.DescribeServices
 
 -- | <i>See:</i> <a>newDescribeServices</a> smart constructor.
 data DescribeServices
@@ -838,26 +838,26 @@ describeServicesResponse_services :: Lens' DescribeServicesResponse (Maybe [Pric
 
 -- | The response's http status code.
 describeServicesResponse_httpStatus :: Lens' DescribeServicesResponse Int
-instance GHC.Generics.Generic Network.AWS.Pricing.DescribeServices.DescribeServices
-instance GHC.Show.Show Network.AWS.Pricing.DescribeServices.DescribeServices
-instance GHC.Read.Read Network.AWS.Pricing.DescribeServices.DescribeServices
-instance GHC.Classes.Eq Network.AWS.Pricing.DescribeServices.DescribeServices
-instance GHC.Generics.Generic Network.AWS.Pricing.DescribeServices.DescribeServicesResponse
-instance GHC.Show.Show Network.AWS.Pricing.DescribeServices.DescribeServicesResponse
-instance GHC.Read.Read Network.AWS.Pricing.DescribeServices.DescribeServicesResponse
-instance GHC.Classes.Eq Network.AWS.Pricing.DescribeServices.DescribeServicesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Pricing.DescribeServices.DescribeServices
-instance Control.DeepSeq.NFData Network.AWS.Pricing.DescribeServices.DescribeServicesResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Pricing.DescribeServices.DescribeServices
-instance Data.Hashable.Class.Hashable Network.AWS.Pricing.DescribeServices.DescribeServices
-instance Control.DeepSeq.NFData Network.AWS.Pricing.DescribeServices.DescribeServices
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Pricing.DescribeServices.DescribeServices
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Pricing.DescribeServices.DescribeServices
-instance Network.AWS.Data.Path.ToPath Network.AWS.Pricing.DescribeServices.DescribeServices
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Pricing.DescribeServices.DescribeServices
+instance GHC.Generics.Generic Amazonka.Pricing.DescribeServices.DescribeServices
+instance GHC.Show.Show Amazonka.Pricing.DescribeServices.DescribeServices
+instance GHC.Read.Read Amazonka.Pricing.DescribeServices.DescribeServices
+instance GHC.Classes.Eq Amazonka.Pricing.DescribeServices.DescribeServices
+instance GHC.Generics.Generic Amazonka.Pricing.DescribeServices.DescribeServicesResponse
+instance GHC.Show.Show Amazonka.Pricing.DescribeServices.DescribeServicesResponse
+instance GHC.Read.Read Amazonka.Pricing.DescribeServices.DescribeServicesResponse
+instance GHC.Classes.Eq Amazonka.Pricing.DescribeServices.DescribeServicesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Pricing.DescribeServices.DescribeServices
+instance Control.DeepSeq.NFData Amazonka.Pricing.DescribeServices.DescribeServicesResponse
+instance Amazonka.Pager.AWSPager Amazonka.Pricing.DescribeServices.DescribeServices
+instance Data.Hashable.Class.Hashable Amazonka.Pricing.DescribeServices.DescribeServices
+instance Control.DeepSeq.NFData Amazonka.Pricing.DescribeServices.DescribeServices
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Pricing.DescribeServices.DescribeServices
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Pricing.DescribeServices.DescribeServices
+instance Amazonka.Data.Path.ToPath Amazonka.Pricing.DescribeServices.DescribeServices
+instance Amazonka.Data.Query.ToQuery Amazonka.Pricing.DescribeServices.DescribeServices
 
 
-module Network.AWS.Pricing.Lens
+module Amazonka.Pricing.Lens
 
 -- | The pagination token that indicates the next set of results that you
 --   want to retrieve.
@@ -987,7 +987,7 @@ pricingService_attributeNames :: Lens' PricingService (Maybe [Text])
 pricingService_serviceCode :: Lens' PricingService (Maybe Text)
 
 
-module Network.AWS.Pricing.Waiters
+module Amazonka.Pricing.Waiters
 
 
 -- | Derived from API version <tt>2017-10-15</tt> of the AWS service
@@ -1024,7 +1024,7 @@ module Network.AWS.Pricing.Waiters
 --   <li>https://api.pricing.us-east-1.amazonaws.com</li>
 --   <li>https://api.pricing.ap-south-1.amazonaws.com</li>
 --   </ul>
-module Network.AWS.Pricing
+module Amazonka.Pricing
 
 -- | API version <tt>2017-10-15</tt> of the Amazon Price List Service SDK
 --   configuration.

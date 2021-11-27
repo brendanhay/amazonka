@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode"><span class="hs-identifier">AmazonopensearchserviceS3BackupMode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode_AllDocuments"><span class="hs-identifier">AmazonopensearchserviceS3BackupMode_AllDocuments</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly"><span class="hs-identifier">AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679268465"><span id="local-6989586621679268466"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AmazonopensearchserviceS3BackupMode"><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode"><span class="hs-identifier hs-var">AmazonopensearchserviceS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AmazonopensearchserviceS3BackupMode%27"><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode%27"><span class="hs-identifier hs-var">AmazonopensearchserviceS3BackupMode'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAmazonopensearchserviceS3BackupMode"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode -&gt; Text
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#fromAmazonopensearchserviceS3BackupMode"><span class="hs-identifier hs-var hs-var">fromAmazonopensearchserviceS3BackupMode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268457"><span id="local-6989586621679268459"><span id="local-6989586621679268461"><span class="annot"><span class="annottext">Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; ShowS
+[AmazonopensearchserviceS3BackupMode] -&gt; ShowS
+AmazonopensearchserviceS3BackupMode -&gt; String
+(Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; ShowS)
+-&gt; (AmazonopensearchserviceS3BackupMode -&gt; String)
+-&gt; ([AmazonopensearchserviceS3BackupMode] -&gt; ShowS)
+-&gt; Show AmazonopensearchserviceS3BackupMode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AmazonopensearchserviceS3BackupMode] -&gt; ShowS
+$cshowList :: [AmazonopensearchserviceS3BackupMode] -&gt; ShowS
+show :: AmazonopensearchserviceS3BackupMode -&gt; String
+$cshow :: AmazonopensearchserviceS3BackupMode -&gt; String
+showsPrec :: Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; ShowS
+$cshowsPrec :: Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679268448"><span id="local-6989586621679268450"><span id="local-6989586621679268452"><span id="local-6989586621679268454"><span class="annot"><span class="annottext">ReadPrec [AmazonopensearchserviceS3BackupMode]
+ReadPrec AmazonopensearchserviceS3BackupMode
+Int -&gt; ReadS AmazonopensearchserviceS3BackupMode
+ReadS [AmazonopensearchserviceS3BackupMode]
+(Int -&gt; ReadS AmazonopensearchserviceS3BackupMode)
+-&gt; ReadS [AmazonopensearchserviceS3BackupMode]
+-&gt; ReadPrec AmazonopensearchserviceS3BackupMode
+-&gt; ReadPrec [AmazonopensearchserviceS3BackupMode]
+-&gt; Read AmazonopensearchserviceS3BackupMode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AmazonopensearchserviceS3BackupMode]
+$creadListPrec :: ReadPrec [AmazonopensearchserviceS3BackupMode]
+readPrec :: ReadPrec AmazonopensearchserviceS3BackupMode
+$creadPrec :: ReadPrec AmazonopensearchserviceS3BackupMode
+readList :: ReadS [AmazonopensearchserviceS3BackupMode]
+$creadList :: ReadS [AmazonopensearchserviceS3BackupMode]
+readsPrec :: Int -&gt; ReadS AmazonopensearchserviceS3BackupMode
+$creadsPrec :: Int -&gt; ReadS AmazonopensearchserviceS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679268443"><span id="local-6989586621679268445"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+(AmazonopensearchserviceS3BackupMode
+ -&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool)
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool)
+-&gt; Eq AmazonopensearchserviceS3BackupMode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+$c/= :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+== :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+$c== :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679268427"><span id="local-6989586621679268429"><span id="local-6989586621679268431"><span id="local-6989586621679268433"><span id="local-6989586621679268435"><span id="local-6989586621679268437"><span id="local-6989586621679268439"><span class="annot"><span class="annottext">Eq AmazonopensearchserviceS3BackupMode
+Eq AmazonopensearchserviceS3BackupMode
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode -&gt; Ordering)
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool)
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool)
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool)
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool)
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode)
+-&gt; (AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode
+    -&gt; AmazonopensearchserviceS3BackupMode)
+-&gt; Ord AmazonopensearchserviceS3BackupMode
+AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Ordering
+AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+$cmin :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+max :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+$cmax :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode
+&gt;= :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+$c&gt;= :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+&gt; :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+$c&gt; :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+&lt;= :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+$c&lt;= :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+&lt; :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+$c&lt; :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Bool
+compare :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Ordering
+$ccompare :: AmazonopensearchserviceS3BackupMode
+-&gt; AmazonopensearchserviceS3BackupMode -&gt; Ordering
+$cp1Ord :: Eq AmazonopensearchserviceS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ AmazonopensearchserviceS3BackupMode
+ -&gt; Rep AmazonopensearchserviceS3BackupMode x)
+-&gt; (forall x.
+    Rep AmazonopensearchserviceS3BackupMode x
+    -&gt; AmazonopensearchserviceS3BackupMode)
+-&gt; Generic AmazonopensearchserviceS3BackupMode
+forall x.
+Rep AmazonopensearchserviceS3BackupMode x
+-&gt; AmazonopensearchserviceS3BackupMode
+forall x.
+AmazonopensearchserviceS3BackupMode
+-&gt; Rep AmazonopensearchserviceS3BackupMode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep AmazonopensearchserviceS3BackupMode x
+-&gt; AmazonopensearchserviceS3BackupMode
+$cfrom :: forall x.
+AmazonopensearchserviceS3BackupMode
+-&gt; Rep AmazonopensearchserviceS3BackupMode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679268419"><span id="local-6989586621679268421"><span class="annot"><span class="annottext">Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; Int
+AmazonopensearchserviceS3BackupMode -&gt; Int
+(Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; Int)
+-&gt; (AmazonopensearchserviceS3BackupMode -&gt; Int)
+-&gt; Hashable AmazonopensearchserviceS3BackupMode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AmazonopensearchserviceS3BackupMode -&gt; Int
+$chash :: AmazonopensearchserviceS3BackupMode -&gt; Int
+hashWithSalt :: Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; Int
+$chashWithSalt :: Int -&gt; AmazonopensearchserviceS3BackupMode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679268416"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode -&gt; ()
+(AmazonopensearchserviceS3BackupMode -&gt; ())
+-&gt; NFData AmazonopensearchserviceS3BackupMode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AmazonopensearchserviceS3BackupMode -&gt; ()
+$crnf :: AmazonopensearchserviceS3BackupMode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679268413"><span class="annot"><span class="annottext">Text -&gt; Either String AmazonopensearchserviceS3BackupMode
+(Text -&gt; Either String AmazonopensearchserviceS3BackupMode)
+-&gt; FromText AmazonopensearchserviceS3BackupMode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AmazonopensearchserviceS3BackupMode
+$cfromText :: Text -&gt; Either String AmazonopensearchserviceS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679268410"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode -&gt; Text
+(AmazonopensearchserviceS3BackupMode -&gt; Text)
+-&gt; ToText AmazonopensearchserviceS3BackupMode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AmazonopensearchserviceS3BackupMode -&gt; Text
+$ctoText :: AmazonopensearchserviceS3BackupMode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679268407"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode -&gt; ByteString
+(AmazonopensearchserviceS3BackupMode -&gt; ByteString)
+-&gt; ToByteString AmazonopensearchserviceS3BackupMode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AmazonopensearchserviceS3BackupMode -&gt; ByteString
+$ctoBS :: AmazonopensearchserviceS3BackupMode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679268404"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode -&gt; ByteStringBuilder
+(AmazonopensearchserviceS3BackupMode -&gt; ByteStringBuilder)
+-&gt; ToLog AmazonopensearchserviceS3BackupMode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AmazonopensearchserviceS3BackupMode -&gt; ByteStringBuilder
+$cbuild :: AmazonopensearchserviceS3BackupMode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679268401"><span class="annot"><span class="annottext">HeaderName -&gt; AmazonopensearchserviceS3BackupMode -&gt; [Header]
+(HeaderName -&gt; AmazonopensearchserviceS3BackupMode -&gt; [Header])
+-&gt; ToHeader AmazonopensearchserviceS3BackupMode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AmazonopensearchserviceS3BackupMode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AmazonopensearchserviceS3BackupMode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679268398"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode -&gt; QueryString
+(AmazonopensearchserviceS3BackupMode -&gt; QueryString)
+-&gt; ToQuery AmazonopensearchserviceS3BackupMode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AmazonopensearchserviceS3BackupMode -&gt; QueryString
+$ctoQuery :: AmazonopensearchserviceS3BackupMode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679268393"><span id="local-6989586621679268395"><span class="annot"><span class="annottext">Value -&gt; Parser [AmazonopensearchserviceS3BackupMode]
+Value -&gt; Parser AmazonopensearchserviceS3BackupMode
+(Value -&gt; Parser AmazonopensearchserviceS3BackupMode)
+-&gt; (Value -&gt; Parser [AmazonopensearchserviceS3BackupMode])
+-&gt; FromJSON AmazonopensearchserviceS3BackupMode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AmazonopensearchserviceS3BackupMode]
+$cparseJSONList :: Value -&gt; Parser [AmazonopensearchserviceS3BackupMode]
+parseJSON :: Value -&gt; Parser AmazonopensearchserviceS3BackupMode
+$cparseJSON :: Value -&gt; Parser AmazonopensearchserviceS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679268388"><span id="local-6989586621679268390"><span class="annot"><span class="annottext">FromJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+FromJSONKeyFunction AmazonopensearchserviceS3BackupMode
+FromJSONKeyFunction AmazonopensearchserviceS3BackupMode
+-&gt; FromJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+-&gt; FromJSONKey AmazonopensearchserviceS3BackupMode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+$cfromJSONKeyList :: FromJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+fromJSONKey :: FromJSONKeyFunction AmazonopensearchserviceS3BackupMode
+$cfromJSONKey :: FromJSONKeyFunction AmazonopensearchserviceS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679268379"><span id="local-6989586621679268381"><span id="local-6989586621679268383"><span id="local-6989586621679268385"><span class="annot"><span class="annottext">[AmazonopensearchserviceS3BackupMode] -&gt; Encoding
+[AmazonopensearchserviceS3BackupMode] -&gt; Value
+AmazonopensearchserviceS3BackupMode -&gt; Encoding
+AmazonopensearchserviceS3BackupMode -&gt; Value
+(AmazonopensearchserviceS3BackupMode -&gt; Value)
+-&gt; (AmazonopensearchserviceS3BackupMode -&gt; Encoding)
+-&gt; ([AmazonopensearchserviceS3BackupMode] -&gt; Value)
+-&gt; ([AmazonopensearchserviceS3BackupMode] -&gt; Encoding)
+-&gt; ToJSON AmazonopensearchserviceS3BackupMode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AmazonopensearchserviceS3BackupMode] -&gt; Encoding
+$ctoEncodingList :: [AmazonopensearchserviceS3BackupMode] -&gt; Encoding
+toJSONList :: [AmazonopensearchserviceS3BackupMode] -&gt; Value
+$ctoJSONList :: [AmazonopensearchserviceS3BackupMode] -&gt; Value
+toEncoding :: AmazonopensearchserviceS3BackupMode -&gt; Encoding
+$ctoEncoding :: AmazonopensearchserviceS3BackupMode -&gt; Encoding
+toJSON :: AmazonopensearchserviceS3BackupMode -&gt; Value
+$ctoJSON :: AmazonopensearchserviceS3BackupMode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679268374"><span id="local-6989586621679268376"><span class="annot"><span class="annottext">ToJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+ToJSONKeyFunction AmazonopensearchserviceS3BackupMode
+ToJSONKeyFunction AmazonopensearchserviceS3BackupMode
+-&gt; ToJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+-&gt; ToJSONKey AmazonopensearchserviceS3BackupMode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+$ctoJSONKeyList :: ToJSONKeyFunction [AmazonopensearchserviceS3BackupMode]
+toJSONKey :: ToJSONKeyFunction AmazonopensearchserviceS3BackupMode
+$ctoJSONKey :: ToJSONKeyFunction AmazonopensearchserviceS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679268371"><span class="annot"><span class="annottext">[Node] -&gt; Either String AmazonopensearchserviceS3BackupMode
+([Node] -&gt; Either String AmazonopensearchserviceS3BackupMode)
+-&gt; FromXML AmazonopensearchserviceS3BackupMode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AmazonopensearchserviceS3BackupMode
+$cparseXML :: [Node] -&gt; Either String AmazonopensearchserviceS3BackupMode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679268368"><span class="annot"><span class="annottext">AmazonopensearchserviceS3BackupMode -&gt; XML
+(AmazonopensearchserviceS3BackupMode -&gt; XML)
+-&gt; ToXML AmazonopensearchserviceS3BackupMode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AmazonopensearchserviceS3BackupMode -&gt; XML
+$ctoXML :: AmazonopensearchserviceS3BackupMode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode_AllDocuments"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode_AllDocuments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmazonopensearchserviceS3BackupMode_AllDocuments"><span id="%24mAmazonopensearchserviceS3BackupMode_AllDocuments"><span id="AmazonopensearchserviceS3BackupMode_AllDocuments"><span class="annot"><span class="annottext">$bAmazonopensearchserviceS3BackupMode_AllDocuments :: AmazonopensearchserviceS3BackupMode
+$mAmazonopensearchserviceS3BackupMode_AllDocuments :: forall r.
+AmazonopensearchserviceS3BackupMode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#%24bAmazonopensearchserviceS3BackupMode_AllDocuments"><span class="hs-identifier hs-var hs-var hs-var">AmazonopensearchserviceS3BackupMode_AllDocuments</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode%27"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;AllDocuments&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAmazonopensearchserviceS3BackupMode_FailedDocumentsOnly"><span id="%24mAmazonopensearchserviceS3BackupMode_FailedDocumentsOnly"><span id="AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly"><span class="annot"><span class="annottext">$bAmazonopensearchserviceS3BackupMode_FailedDocumentsOnly :: AmazonopensearchserviceS3BackupMode
+$mAmazonopensearchserviceS3BackupMode_FailedDocumentsOnly :: forall r.
+AmazonopensearchserviceS3BackupMode
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#%24bAmazonopensearchserviceS3BackupMode_FailedDocumentsOnly"><span class="hs-identifier hs-var hs-var hs-var">AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode%27"><span class="hs-identifier hs-type">AmazonopensearchserviceS3BackupMode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FailedDocumentsOnly&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode_AllDocuments"><span class="hs-pragma hs-type">AmazonopensearchserviceS3BackupMode_AllDocuments</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly"><span class="hs-pragma hs-type">AmazonopensearchserviceS3BackupMode_FailedDocumentsOnly</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Firehose.Types.AmazonopensearchserviceS3BackupMode.html#AmazonopensearchserviceS3BackupMode%27"><span class="hs-pragma hs-type">AmazonopensearchserviceS3BackupMode'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

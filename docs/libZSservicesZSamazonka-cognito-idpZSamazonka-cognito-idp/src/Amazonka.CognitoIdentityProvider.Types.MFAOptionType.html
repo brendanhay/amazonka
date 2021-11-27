@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CognitoIdentityProvider.Types.MFAOptionType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types.MFAOptionType</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType.html"><span class="hs-identifier">Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | /This data type is no longer supported./ You can use it only for SMS MFA</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- configurations. You can\'t use it for TOTP software token MFA</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- configurations.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newMFAOptionType' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679430243"><span id="local-6989586621679430244"></span></span><span class="hs-keyword">data</span><span> </span><span id="MFAOptionType"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-var">MFAOptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="MFAOptionType%27"><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-var">MFAOptionType'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The delivery medium to send the MFA code. You can use this parameter to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- set only the @SMS@ delivery medium value.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AdeliveryMedium%3AMFAOptionType%27"><span class="annot"><span class="annottext">MFAOptionType -&gt; Maybe DeliveryMediumType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#%24sel%3AdeliveryMedium%3AMFAOptionType%27"><span class="hs-identifier hs-var hs-var">deliveryMedium</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-type">DeliveryMediumType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The attribute name of the MFA option type. The only valid value is</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- @phone_number@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AattributeName%3AMFAOptionType%27"><span class="annot"><span class="annottext">MFAOptionType -&gt; Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#%24sel%3AattributeName%3AMFAOptionType%27"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430236"><span id="local-6989586621679430238"><span class="annot"><span class="annottext">MFAOptionType -&gt; MFAOptionType -&gt; Bool
+(MFAOptionType -&gt; MFAOptionType -&gt; Bool)
+-&gt; (MFAOptionType -&gt; MFAOptionType -&gt; Bool) -&gt; Eq MFAOptionType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: MFAOptionType -&gt; MFAOptionType -&gt; Bool
+$c/= :: MFAOptionType -&gt; MFAOptionType -&gt; Bool
+== :: MFAOptionType -&gt; MFAOptionType -&gt; Bool
+$c== :: MFAOptionType -&gt; MFAOptionType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430227"><span id="local-6989586621679430229"><span id="local-6989586621679430231"><span id="local-6989586621679430233"><span class="annot"><span class="annottext">ReadPrec [MFAOptionType]
+ReadPrec MFAOptionType
+Int -&gt; ReadS MFAOptionType
+ReadS [MFAOptionType]
+(Int -&gt; ReadS MFAOptionType)
+-&gt; ReadS [MFAOptionType]
+-&gt; ReadPrec MFAOptionType
+-&gt; ReadPrec [MFAOptionType]
+-&gt; Read MFAOptionType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [MFAOptionType]
+$creadListPrec :: ReadPrec [MFAOptionType]
+readPrec :: ReadPrec MFAOptionType
+$creadPrec :: ReadPrec MFAOptionType
+readList :: ReadS [MFAOptionType]
+$creadList :: ReadS [MFAOptionType]
+readsPrec :: Int -&gt; ReadS MFAOptionType
+$creadsPrec :: Int -&gt; ReadS MFAOptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430220"><span id="local-6989586621679430222"><span id="local-6989586621679430224"><span class="annot"><span class="annottext">Int -&gt; MFAOptionType -&gt; ShowS
+[MFAOptionType] -&gt; ShowS
+MFAOptionType -&gt; String
+(Int -&gt; MFAOptionType -&gt; ShowS)
+-&gt; (MFAOptionType -&gt; String)
+-&gt; ([MFAOptionType] -&gt; ShowS)
+-&gt; Show MFAOptionType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [MFAOptionType] -&gt; ShowS
+$cshowList :: [MFAOptionType] -&gt; ShowS
+show :: MFAOptionType -&gt; String
+$cshow :: MFAOptionType -&gt; String
+showsPrec :: Int -&gt; MFAOptionType -&gt; ShowS
+$cshowsPrec :: Int -&gt; MFAOptionType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. MFAOptionType -&gt; Rep MFAOptionType x)
+-&gt; (forall x. Rep MFAOptionType x -&gt; MFAOptionType)
+-&gt; Generic MFAOptionType
+forall x. Rep MFAOptionType x -&gt; MFAOptionType
+forall x. MFAOptionType -&gt; Rep MFAOptionType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep MFAOptionType x -&gt; MFAOptionType
+$cfrom :: forall x. MFAOptionType -&gt; Rep MFAOptionType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Create a value of 'MFAOptionType' with all optional fields omitted.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'deliveryMedium', 'mfaOptionType_deliveryMedium' - The delivery medium to send the MFA code. You can use this parameter to</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- set only the @SMS@ delivery medium value.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'attributeName', 'mfaOptionType_attributeName' - The attribute name of the MFA option type. The only valid value is</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- @phone_number@.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#newMFAOptionType"><span class="hs-identifier hs-type">newMFAOptionType</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span><span>
+</span><span id="line-57"></span><span id="newMFAOptionType"><span class="annot"><span class="annottext">newMFAOptionType :: MFAOptionType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#newMFAOptionType"><span class="hs-identifier hs-var hs-var">newMFAOptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">MFAOptionType' :: Maybe DeliveryMediumType -&gt; Maybe Text -&gt; MFAOptionType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-type">MFAOptionType'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:deliveryMedium:MFAOptionType' :: Maybe DeliveryMediumType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#%24sel%3AdeliveryMedium%3AMFAOptionType%27"><span class="hs-identifier hs-var">deliveryMedium</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryMediumType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributeName:MFAOptionType' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#%24sel%3AattributeName%3AMFAOptionType%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | The delivery medium to send the MFA code. You can use this parameter to</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- set only the @SMS@ delivery medium value.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#mfaOptionType_deliveryMedium"><span class="hs-identifier hs-type">mfaOptionType_deliveryMedium</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.DeliveryMediumType.html#DeliveryMediumType"><span class="hs-identifier hs-type">DeliveryMediumType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="mfaOptionType_deliveryMedium"><span class="annot"><span class="annottext">mfaOptionType_deliveryMedium :: (Maybe DeliveryMediumType -&gt; f (Maybe DeliveryMediumType))
+-&gt; MFAOptionType -&gt; f MFAOptionType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#mfaOptionType_deliveryMedium"><span class="hs-identifier hs-var hs-var">mfaOptionType_deliveryMedium</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MFAOptionType -&gt; Maybe DeliveryMediumType)
+-&gt; (MFAOptionType -&gt; Maybe DeliveryMediumType -&gt; MFAOptionType)
+-&gt; Lens
+     MFAOptionType
+     MFAOptionType
+     (Maybe DeliveryMediumType)
+     (Maybe DeliveryMediumType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-type">MFAOptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430211"><span class="annot"><span class="annottext">Maybe DeliveryMediumType
+deliveryMedium :: Maybe DeliveryMediumType
+$sel:deliveryMedium:MFAOptionType' :: MFAOptionType -&gt; Maybe DeliveryMediumType
+</span><a href="#local-6989586621679430211"><span class="hs-identifier hs-var hs-var">deliveryMedium</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryMediumType
+</span><a href="#local-6989586621679430211"><span class="hs-identifier hs-var">deliveryMedium</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430210"><span class="annot"><span class="annottext">s :: MFAOptionType
+</span><a href="#local-6989586621679430210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-type">MFAOptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430209"><span class="annot"><span class="annottext">Maybe DeliveryMediumType
+</span><a href="#local-6989586621679430209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MFAOptionType
+</span><a href="#local-6989586621679430210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deliveryMedium:MFAOptionType' :: Maybe DeliveryMediumType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#%24sel%3AdeliveryMedium%3AMFAOptionType%27"><span class="hs-identifier hs-var">deliveryMedium</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryMediumType
+</span><a href="#local-6989586621679430209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The attribute name of the MFA option type. The only valid value is</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- @phone_number@.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#mfaOptionType_attributeName"><span class="hs-identifier hs-type">mfaOptionType_attributeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="mfaOptionType_attributeName"><span class="annot"><span class="annottext">mfaOptionType_attributeName :: (Maybe Text -&gt; f (Maybe Text)) -&gt; MFAOptionType -&gt; f MFAOptionType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#mfaOptionType_attributeName"><span class="hs-identifier hs-var hs-var">mfaOptionType_attributeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(MFAOptionType -&gt; Maybe Text)
+-&gt; (MFAOptionType -&gt; Maybe Text -&gt; MFAOptionType)
+-&gt; Lens MFAOptionType MFAOptionType (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-type">MFAOptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430207"><span class="annot"><span class="annottext">Maybe Text
+attributeName :: Maybe Text
+$sel:attributeName:MFAOptionType' :: MFAOptionType -&gt; Maybe Text
+</span><a href="#local-6989586621679430207"><span class="hs-identifier hs-var hs-var">attributeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430207"><span class="hs-identifier hs-var">attributeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430206"><span class="annot"><span class="annottext">s :: MFAOptionType
+</span><a href="#local-6989586621679430206"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-type">MFAOptionType'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430205"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430205"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MFAOptionType
+</span><a href="#local-6989586621679430206"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributeName:MFAOptionType' :: Maybe Text
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#%24sel%3AattributeName%3AMFAOptionType%27"><span class="hs-identifier hs-var">attributeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430205"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430202"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679430200"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser MFAOptionType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser MFAOptionType)
+-&gt; Value
+-&gt; Parser MFAOptionType
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;MFAOptionType&quot;</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430197"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430197"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">Maybe DeliveryMediumType -&gt; Maybe Text -&gt; MFAOptionType
+</span><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-var">MFAOptionType'</span></a></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(Maybe DeliveryMediumType -&gt; Maybe Text -&gt; MFAOptionType)
+-&gt; Parser (Maybe DeliveryMediumType)
+-&gt; Parser (Maybe Text -&gt; MFAOptionType)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe DeliveryMediumType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryMedium&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; MFAOptionType)
+-&gt; Parser (Maybe Text) -&gt; Parser MFAOptionType
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430197"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430191"><span id="local-6989586621679430193"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430188"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430180"><span id="local-6989586621679430182"><span id="local-6989586621679430184"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType"><span class="hs-identifier hs-type">MFAOptionType</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679430178"><span class="annot"><span class="annottext">toJSON :: MFAOptionType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoIdentityProvider.Types.MFAOptionType.html#MFAOptionType%27"><span class="hs-identifier hs-type">MFAOptionType'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430175"><span id="local-6989586621679430176"><span class="annot"><span class="annottext">Maybe Text
+Maybe DeliveryMediumType
+attributeName :: Maybe Text
+deliveryMedium :: Maybe DeliveryMediumType
+$sel:attributeName:MFAOptionType' :: MFAOptionType -&gt; Maybe Text
+$sel:deliveryMedium:MFAOptionType' :: MFAOptionType -&gt; Maybe DeliveryMediumType
+</span><a href="#local-6989586621679430175"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-91"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeliveryMedium&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DeliveryMediumType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>              </span><span class="annot"><span class="annottext">(DeliveryMediumType -&gt; Pair)
+-&gt; Maybe DeliveryMediumType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DeliveryMediumType
+</span><a href="#local-6989586621679430176"><span class="hs-identifier hs-var">deliveryMedium</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AttributeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430175"><span class="hs-identifier hs-var">attributeName</span></a></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span></pre></body></html>

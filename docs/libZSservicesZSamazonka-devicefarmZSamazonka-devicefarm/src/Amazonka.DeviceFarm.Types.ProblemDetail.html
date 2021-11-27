@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DeviceFarm.Types.ProblemDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DeviceFarm.Types.ProblemDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Information about a problem detail.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newProblemDetail' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679364941"><span id="local-6989586621679364942"></span></span><span class="hs-keyword">data</span><span> </span><span id="ProblemDetail"><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-var">ProblemDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ProblemDetail%27"><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail%27"><span class="hs-identifier hs-var">ProblemDetail'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The problem detail\'s ARN.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3Aarn%3AProblemDetail%27"><span class="annot"><span class="annottext">ProblemDetail -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#%24sel%3Aarn%3AProblemDetail%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The problem detail\'s name.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aname%3AProblemDetail%27"><span class="annot"><span class="annottext">ProblemDetail -&gt; Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#%24sel%3Aname%3AProblemDetail%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679364934"><span id="local-6989586621679364936"><span class="annot"><span class="annottext">ProblemDetail -&gt; ProblemDetail -&gt; Bool
+(ProblemDetail -&gt; ProblemDetail -&gt; Bool)
+-&gt; (ProblemDetail -&gt; ProblemDetail -&gt; Bool) -&gt; Eq ProblemDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ProblemDetail -&gt; ProblemDetail -&gt; Bool
+$c/= :: ProblemDetail -&gt; ProblemDetail -&gt; Bool
+== :: ProblemDetail -&gt; ProblemDetail -&gt; Bool
+$c== :: ProblemDetail -&gt; ProblemDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364925"><span id="local-6989586621679364927"><span id="local-6989586621679364929"><span id="local-6989586621679364931"><span class="annot"><span class="annottext">ReadPrec [ProblemDetail]
+ReadPrec ProblemDetail
+Int -&gt; ReadS ProblemDetail
+ReadS [ProblemDetail]
+(Int -&gt; ReadS ProblemDetail)
+-&gt; ReadS [ProblemDetail]
+-&gt; ReadPrec ProblemDetail
+-&gt; ReadPrec [ProblemDetail]
+-&gt; Read ProblemDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ProblemDetail]
+$creadListPrec :: ReadPrec [ProblemDetail]
+readPrec :: ReadPrec ProblemDetail
+$creadPrec :: ReadPrec ProblemDetail
+readList :: ReadS [ProblemDetail]
+$creadList :: ReadS [ProblemDetail]
+readsPrec :: Int -&gt; ReadS ProblemDetail
+$creadsPrec :: Int -&gt; ReadS ProblemDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679364918"><span id="local-6989586621679364920"><span id="local-6989586621679364922"><span class="annot"><span class="annottext">Int -&gt; ProblemDetail -&gt; ShowS
+[ProblemDetail] -&gt; ShowS
+ProblemDetail -&gt; String
+(Int -&gt; ProblemDetail -&gt; ShowS)
+-&gt; (ProblemDetail -&gt; String)
+-&gt; ([ProblemDetail] -&gt; ShowS)
+-&gt; Show ProblemDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ProblemDetail] -&gt; ShowS
+$cshowList :: [ProblemDetail] -&gt; ShowS
+show :: ProblemDetail -&gt; String
+$cshow :: ProblemDetail -&gt; String
+showsPrec :: Int -&gt; ProblemDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; ProblemDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ProblemDetail -&gt; Rep ProblemDetail x)
+-&gt; (forall x. Rep ProblemDetail x -&gt; ProblemDetail)
+-&gt; Generic ProblemDetail
+forall x. Rep ProblemDetail x -&gt; ProblemDetail
+forall x. ProblemDetail -&gt; Rep ProblemDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ProblemDetail x -&gt; ProblemDetail
+$cfrom :: forall x. ProblemDetail -&gt; Rep ProblemDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'ProblemDetail' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'arn', 'problemDetail_arn' - The problem detail\'s ARN.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'name', 'problemDetail_name' - The problem detail\'s name.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#newProblemDetail"><span class="hs-identifier hs-type">newProblemDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span><span>
+</span><span id="line-50"></span><span id="newProblemDetail"><span class="annot"><span class="annottext">newProblemDetail :: ProblemDetail
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#newProblemDetail"><span class="hs-identifier hs-var hs-var">newProblemDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ProblemDetail' :: Maybe Text -&gt; Maybe Text -&gt; ProblemDetail
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail%27"><span class="hs-identifier hs-type">ProblemDetail'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:ProblemDetail' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#%24sel%3Aarn%3AProblemDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ProblemDetail' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#%24sel%3Aname%3AProblemDetail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | The problem detail\'s ARN.</span><span>
+</span><span id="line-57"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#problemDetail_arn"><span class="hs-identifier hs-type">problemDetail_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span id="problemDetail_arn"><span class="annot"><span class="annottext">problemDetail_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProblemDetail -&gt; f ProblemDetail
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#problemDetail_arn"><span class="hs-identifier hs-var hs-var">problemDetail_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProblemDetail -&gt; Maybe Text)
+-&gt; (ProblemDetail -&gt; Maybe Text -&gt; ProblemDetail)
+-&gt; Lens ProblemDetail ProblemDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail%27"><span class="hs-identifier hs-type">ProblemDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364909"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ProblemDetail' :: ProblemDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679364909"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364909"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364908"><span class="annot"><span class="annottext">s :: ProblemDetail
+</span><a href="#local-6989586621679364908"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail%27"><span class="hs-identifier hs-type">ProblemDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364907"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364907"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProblemDetail
+</span><a href="#local-6989586621679364908"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ProblemDetail' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#%24sel%3Aarn%3AProblemDetail%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364907"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The problem detail\'s name.</span><span>
+</span><span id="line-61"></span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#problemDetail_name"><span class="hs-identifier hs-type">problemDetail_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span id="problemDetail_name"><span class="annot"><span class="annottext">problemDetail_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; ProblemDetail -&gt; f ProblemDetail
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#problemDetail_name"><span class="hs-identifier hs-var hs-var">problemDetail_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ProblemDetail -&gt; Maybe Text)
+-&gt; (ProblemDetail -&gt; Maybe Text -&gt; ProblemDetail)
+-&gt; Lens ProblemDetail ProblemDetail (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail%27"><span class="hs-identifier hs-type">ProblemDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679364905"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ProblemDetail' :: ProblemDetail -&gt; Maybe Text
+</span><a href="#local-6989586621679364905"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364905"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679364904"><span class="annot"><span class="annottext">s :: ProblemDetail
+</span><a href="#local-6989586621679364904"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail%27"><span class="hs-identifier hs-type">ProblemDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679364903"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364903"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ProblemDetail
+</span><a href="#local-6989586621679364904"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ProblemDetail' :: Maybe Text
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#%24sel%3Aname%3AProblemDetail%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679364903"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364900"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-65"></span><span>  </span><span id="local-6989586621679364898"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ProblemDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ProblemDetail)
+-&gt; Value
+-&gt; Parser ProblemDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ProblemDetail&quot;</span></span><span>
+</span><span id="line-68"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679364895"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364895"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; ProblemDetail
+</span><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail%27"><span class="hs-identifier hs-var">ProblemDetail'</span></a></span><span>
+</span><span id="line-70"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; ProblemDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; ProblemDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; ProblemDetail)
+-&gt; Parser (Maybe Text) -&gt; Parser ProblemDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679364895"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364889"><span id="local-6989586621679364891"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span></span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679364886"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DeviceFarm.Types.ProblemDetail.html#ProblemDetail"><span class="hs-identifier hs-type">ProblemDetail</span></a></span></span><span>
+</span><span id="line-76"></span></pre></body></html>

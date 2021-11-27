@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.AnalysisSourceTemplate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.AnalysisSourceTemplate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetReference.html"><span class="hs-identifier">Amazonka.QuickSight.Types.DataSetReference</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The source template of an analysis.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newAnalysisSourceTemplate' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679552652"><span id="local-6989586621679552653"></span></span><span class="hs-keyword">data</span><span> </span><span id="AnalysisSourceTemplate"><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-var">AnalysisSourceTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AnalysisSourceTemplate%27"><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate%27"><span class="hs-identifier hs-var">AnalysisSourceTemplate'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The dataset references of the source template of an analysis.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AdataSetReferences%3AAnalysisSourceTemplate%27"><span class="annot"><span class="annottext">AnalysisSourceTemplate -&gt; NonEmpty DataSetReference
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#%24sel%3AdataSetReferences%3AAnalysisSourceTemplate%27"><span class="hs-identifier hs-var hs-var">dataSetReferences</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetReference.html#DataSetReference"><span class="hs-identifier hs-type">DataSetReference</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source template of an analysis.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aarn%3AAnalysisSourceTemplate%27"><span class="annot"><span class="annottext">AnalysisSourceTemplate -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#%24sel%3Aarn%3AAnalysisSourceTemplate%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679552645"><span id="local-6989586621679552647"><span class="annot"><span class="annottext">AnalysisSourceTemplate -&gt; AnalysisSourceTemplate -&gt; Bool
+(AnalysisSourceTemplate -&gt; AnalysisSourceTemplate -&gt; Bool)
+-&gt; (AnalysisSourceTemplate -&gt; AnalysisSourceTemplate -&gt; Bool)
+-&gt; Eq AnalysisSourceTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AnalysisSourceTemplate -&gt; AnalysisSourceTemplate -&gt; Bool
+$c/= :: AnalysisSourceTemplate -&gt; AnalysisSourceTemplate -&gt; Bool
+== :: AnalysisSourceTemplate -&gt; AnalysisSourceTemplate -&gt; Bool
+$c== :: AnalysisSourceTemplate -&gt; AnalysisSourceTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552636"><span id="local-6989586621679552638"><span id="local-6989586621679552640"><span id="local-6989586621679552642"><span class="annot"><span class="annottext">ReadPrec [AnalysisSourceTemplate]
+ReadPrec AnalysisSourceTemplate
+Int -&gt; ReadS AnalysisSourceTemplate
+ReadS [AnalysisSourceTemplate]
+(Int -&gt; ReadS AnalysisSourceTemplate)
+-&gt; ReadS [AnalysisSourceTemplate]
+-&gt; ReadPrec AnalysisSourceTemplate
+-&gt; ReadPrec [AnalysisSourceTemplate]
+-&gt; Read AnalysisSourceTemplate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AnalysisSourceTemplate]
+$creadListPrec :: ReadPrec [AnalysisSourceTemplate]
+readPrec :: ReadPrec AnalysisSourceTemplate
+$creadPrec :: ReadPrec AnalysisSourceTemplate
+readList :: ReadS [AnalysisSourceTemplate]
+$creadList :: ReadS [AnalysisSourceTemplate]
+readsPrec :: Int -&gt; ReadS AnalysisSourceTemplate
+$creadsPrec :: Int -&gt; ReadS AnalysisSourceTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679552629"><span id="local-6989586621679552631"><span id="local-6989586621679552633"><span class="annot"><span class="annottext">Int -&gt; AnalysisSourceTemplate -&gt; ShowS
+[AnalysisSourceTemplate] -&gt; ShowS
+AnalysisSourceTemplate -&gt; String
+(Int -&gt; AnalysisSourceTemplate -&gt; ShowS)
+-&gt; (AnalysisSourceTemplate -&gt; String)
+-&gt; ([AnalysisSourceTemplate] -&gt; ShowS)
+-&gt; Show AnalysisSourceTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AnalysisSourceTemplate] -&gt; ShowS
+$cshowList :: [AnalysisSourceTemplate] -&gt; ShowS
+show :: AnalysisSourceTemplate -&gt; String
+$cshow :: AnalysisSourceTemplate -&gt; String
+showsPrec :: Int -&gt; AnalysisSourceTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; AnalysisSourceTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. AnalysisSourceTemplate -&gt; Rep AnalysisSourceTemplate x)
+-&gt; (forall x.
+    Rep AnalysisSourceTemplate x -&gt; AnalysisSourceTemplate)
+-&gt; Generic AnalysisSourceTemplate
+forall x. Rep AnalysisSourceTemplate x -&gt; AnalysisSourceTemplate
+forall x. AnalysisSourceTemplate -&gt; Rep AnalysisSourceTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AnalysisSourceTemplate x -&gt; AnalysisSourceTemplate
+$cfrom :: forall x. AnalysisSourceTemplate -&gt; Rep AnalysisSourceTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'AnalysisSourceTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'dataSetReferences', 'analysisSourceTemplate_dataSetReferences' - The dataset references of the source template of an analysis.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'arn', 'analysisSourceTemplate_arn' - The Amazon Resource Name (ARN) of the source template of an analysis.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#newAnalysisSourceTemplate"><span class="hs-identifier hs-type">newAnalysisSourceTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-comment">-- | 'dataSetReferences'</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetReference.html#DataSetReference"><span class="hs-identifier hs-type">DataSetReference</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-comment">-- | 'arn'</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span><span>
+</span><span id="line-55"></span><span id="newAnalysisSourceTemplate"><span class="annot"><span class="annottext">newAnalysisSourceTemplate :: NonEmpty DataSetReference -&gt; Text -&gt; AnalysisSourceTemplate
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#newAnalysisSourceTemplate"><span class="hs-identifier hs-var hs-var">newAnalysisSourceTemplate</span></a></span></span><span> </span><span id="local-6989586621679552623"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679552623"><span class="hs-identifier hs-var">pDataSetReferences_</span></a></span></span><span> </span><span id="local-6989586621679552622"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552622"><span class="hs-identifier hs-var">pArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">AnalysisSourceTemplate' :: NonEmpty DataSetReference -&gt; Text -&gt; AnalysisSourceTemplate
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate%27"><span class="hs-identifier hs-type">AnalysisSourceTemplate'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dataSetReferences:AnalysisSourceTemplate' :: NonEmpty DataSetReference
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#%24sel%3AdataSetReferences%3AAnalysisSourceTemplate%27"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>        </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference))
+-&gt; Tagged
+     (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference))
+ -&gt; Tagged
+      (NonEmpty DataSetReference) (Identity (NonEmpty DataSetReference)))
+-&gt; NonEmpty DataSetReference -&gt; NonEmpty DataSetReference
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679552623"><span class="hs-identifier hs-var">pDataSetReferences_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:AnalysisSourceTemplate' :: Text
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#%24sel%3Aarn%3AAnalysisSourceTemplate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552622"><span class="hs-identifier hs-var">pArn_</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The dataset references of the source template of an analysis.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#analysisSourceTemplate_dataSetReferences"><span class="hs-identifier hs-type">analysisSourceTemplate_dataSetReferences</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.DataSetReference.html#DataSetReference"><span class="hs-identifier hs-type">DataSetReference</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="analysisSourceTemplate_dataSetReferences"><span class="annot"><span class="annottext">analysisSourceTemplate_dataSetReferences :: (NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; AnalysisSourceTemplate -&gt; f AnalysisSourceTemplate
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#analysisSourceTemplate_dataSetReferences"><span class="hs-identifier hs-var hs-var">analysisSourceTemplate_dataSetReferences</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSourceTemplate -&gt; NonEmpty DataSetReference)
+-&gt; (AnalysisSourceTemplate
+    -&gt; NonEmpty DataSetReference -&gt; AnalysisSourceTemplate)
+-&gt; Lens
+     AnalysisSourceTemplate
+     AnalysisSourceTemplate
+     (NonEmpty DataSetReference)
+     (NonEmpty DataSetReference)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate%27"><span class="hs-identifier hs-type">AnalysisSourceTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552616"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+dataSetReferences :: NonEmpty DataSetReference
+$sel:dataSetReferences:AnalysisSourceTemplate' :: AnalysisSourceTemplate -&gt; NonEmpty DataSetReference
+</span><a href="#local-6989586621679552616"><span class="hs-identifier hs-var hs-var">dataSetReferences</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679552616"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552615"><span class="annot"><span class="annottext">s :: AnalysisSourceTemplate
+</span><a href="#local-6989586621679552615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate%27"><span class="hs-identifier hs-type">AnalysisSourceTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552614"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679552614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSourceTemplate
+</span><a href="#local-6989586621679552615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSetReferences:AnalysisSourceTemplate' :: NonEmpty DataSetReference
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#%24sel%3AdataSetReferences%3AAnalysisSourceTemplate%27"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679552614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+ -&gt; AnalysisSourceTemplate -&gt; f AnalysisSourceTemplate)
+-&gt; ((NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+    -&gt; NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; (NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; AnalysisSourceTemplate
+-&gt; f AnalysisSourceTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference))
+-&gt; NonEmpty DataSetReference -&gt; f (NonEmpty DataSetReference)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source template of an analysis.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#analysisSourceTemplate_arn"><span class="hs-identifier hs-type">analysisSourceTemplate_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span id="analysisSourceTemplate_arn"><span class="annot"><span class="annottext">analysisSourceTemplate_arn :: (Text -&gt; f Text)
+-&gt; AnalysisSourceTemplate -&gt; f AnalysisSourceTemplate
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#analysisSourceTemplate_arn"><span class="hs-identifier hs-var hs-var">analysisSourceTemplate_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AnalysisSourceTemplate -&gt; Text)
+-&gt; (AnalysisSourceTemplate -&gt; Text -&gt; AnalysisSourceTemplate)
+-&gt; Lens AnalysisSourceTemplate AnalysisSourceTemplate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate%27"><span class="hs-identifier hs-type">AnalysisSourceTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552611"><span class="annot"><span class="annottext">Text
+arn :: Text
+$sel:arn:AnalysisSourceTemplate' :: AnalysisSourceTemplate -&gt; Text
+</span><a href="#local-6989586621679552611"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552611"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679552610"><span class="annot"><span class="annottext">s :: AnalysisSourceTemplate
+</span><a href="#local-6989586621679552610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate%27"><span class="hs-identifier hs-type">AnalysisSourceTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679552609"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AnalysisSourceTemplate
+</span><a href="#local-6989586621679552610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:AnalysisSourceTemplate' :: Text
+</span><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#%24sel%3Aarn%3AAnalysisSourceTemplate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552605"><span id="local-6989586621679552607"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552602"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679552594"><span id="local-6989586621679552596"><span id="local-6989586621679552598"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate"><span class="hs-identifier hs-type">AnalysisSourceTemplate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-75"></span><span>  </span><span id="local-6989586621679552592"><span class="annot"><span class="annottext">toJSON :: AnalysisSourceTemplate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.AnalysisSourceTemplate.html#AnalysisSourceTemplate%27"><span class="hs-identifier hs-type">AnalysisSourceTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679552589"><span id="local-6989586621679552590"><span class="annot"><span class="annottext">NonEmpty DataSetReference
+Text
+arn :: Text
+dataSetReferences :: NonEmpty DataSetReference
+$sel:arn:AnalysisSourceTemplate' :: AnalysisSourceTemplate -&gt; Text
+$sel:dataSetReferences:AnalysisSourceTemplate' :: AnalysisSourceTemplate -&gt; NonEmpty DataSetReference
+</span><a href="#local-6989586621679552589"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-78"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-79"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSetReferences&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty DataSetReference -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty DataSetReference
+</span><a href="#local-6989586621679552590"><span class="hs-identifier hs-var">dataSetReferences</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679552589"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span></pre></body></html>

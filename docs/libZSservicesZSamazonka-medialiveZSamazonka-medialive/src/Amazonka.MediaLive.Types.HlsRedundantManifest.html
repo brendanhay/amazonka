@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.HlsRedundantManifest</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.HlsRedundantManifest</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest"><span class="hs-identifier">HlsRedundantManifest</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest_DISABLED"><span class="hs-identifier">HlsRedundantManifest_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest_ENABLED"><span class="hs-identifier">HlsRedundantManifest_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | Hls Redundant Manifest</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679888284"><span id="local-6989586621679888285"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="HlsRedundantManifest"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest"><span class="hs-identifier hs-var">HlsRedundantManifest</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="HlsRedundantManifest%27"><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest%27"><span class="hs-identifier hs-var">HlsRedundantManifest'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromHlsRedundantManifest"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; Text
+</span><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#fromHlsRedundantManifest"><span class="hs-identifier hs-var hs-var">fromHlsRedundantManifest</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679888276"><span id="local-6989586621679888278"><span id="local-6989586621679888280"><span class="annot"><span class="annottext">Int -&gt; HlsRedundantManifest -&gt; ShowS
+[HlsRedundantManifest] -&gt; ShowS
+HlsRedundantManifest -&gt; String
+(Int -&gt; HlsRedundantManifest -&gt; ShowS)
+-&gt; (HlsRedundantManifest -&gt; String)
+-&gt; ([HlsRedundantManifest] -&gt; ShowS)
+-&gt; Show HlsRedundantManifest
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [HlsRedundantManifest] -&gt; ShowS
+$cshowList :: [HlsRedundantManifest] -&gt; ShowS
+show :: HlsRedundantManifest -&gt; String
+$cshow :: HlsRedundantManifest -&gt; String
+showsPrec :: Int -&gt; HlsRedundantManifest -&gt; ShowS
+$cshowsPrec :: Int -&gt; HlsRedundantManifest -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679888267"><span id="local-6989586621679888269"><span id="local-6989586621679888271"><span id="local-6989586621679888273"><span class="annot"><span class="annottext">ReadPrec [HlsRedundantManifest]
+ReadPrec HlsRedundantManifest
+Int -&gt; ReadS HlsRedundantManifest
+ReadS [HlsRedundantManifest]
+(Int -&gt; ReadS HlsRedundantManifest)
+-&gt; ReadS [HlsRedundantManifest]
+-&gt; ReadPrec HlsRedundantManifest
+-&gt; ReadPrec [HlsRedundantManifest]
+-&gt; Read HlsRedundantManifest
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [HlsRedundantManifest]
+$creadListPrec :: ReadPrec [HlsRedundantManifest]
+readPrec :: ReadPrec HlsRedundantManifest
+$creadPrec :: ReadPrec HlsRedundantManifest
+readList :: ReadS [HlsRedundantManifest]
+$creadList :: ReadS [HlsRedundantManifest]
+readsPrec :: Int -&gt; ReadS HlsRedundantManifest
+$creadsPrec :: Int -&gt; ReadS HlsRedundantManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679888262"><span id="local-6989586621679888264"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+(HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool)
+-&gt; (HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool)
+-&gt; Eq HlsRedundantManifest
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+$c/= :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+== :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+$c== :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679888246"><span id="local-6989586621679888248"><span id="local-6989586621679888250"><span id="local-6989586621679888252"><span id="local-6989586621679888254"><span id="local-6989586621679888256"><span id="local-6989586621679888258"><span class="annot"><span class="annottext">Eq HlsRedundantManifest
+Eq HlsRedundantManifest
+-&gt; (HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Ordering)
+-&gt; (HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool)
+-&gt; (HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool)
+-&gt; (HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool)
+-&gt; (HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool)
+-&gt; (HlsRedundantManifest
+    -&gt; HlsRedundantManifest -&gt; HlsRedundantManifest)
+-&gt; (HlsRedundantManifest
+    -&gt; HlsRedundantManifest -&gt; HlsRedundantManifest)
+-&gt; Ord HlsRedundantManifest
+HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Ordering
+HlsRedundantManifest
+-&gt; HlsRedundantManifest -&gt; HlsRedundantManifest
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: HlsRedundantManifest
+-&gt; HlsRedundantManifest -&gt; HlsRedundantManifest
+$cmin :: HlsRedundantManifest
+-&gt; HlsRedundantManifest -&gt; HlsRedundantManifest
+max :: HlsRedundantManifest
+-&gt; HlsRedundantManifest -&gt; HlsRedundantManifest
+$cmax :: HlsRedundantManifest
+-&gt; HlsRedundantManifest -&gt; HlsRedundantManifest
+&gt;= :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+$c&gt;= :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+&gt; :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+$c&gt; :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+&lt;= :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+$c&lt;= :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+&lt; :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+$c&lt; :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Bool
+compare :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Ordering
+$ccompare :: HlsRedundantManifest -&gt; HlsRedundantManifest -&gt; Ordering
+$cp1Ord :: Eq HlsRedundantManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. HlsRedundantManifest -&gt; Rep HlsRedundantManifest x)
+-&gt; (forall x. Rep HlsRedundantManifest x -&gt; HlsRedundantManifest)
+-&gt; Generic HlsRedundantManifest
+forall x. Rep HlsRedundantManifest x -&gt; HlsRedundantManifest
+forall x. HlsRedundantManifest -&gt; Rep HlsRedundantManifest x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep HlsRedundantManifest x -&gt; HlsRedundantManifest
+$cfrom :: forall x. HlsRedundantManifest -&gt; Rep HlsRedundantManifest x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679888238"><span id="local-6989586621679888240"><span class="annot"><span class="annottext">Int -&gt; HlsRedundantManifest -&gt; Int
+HlsRedundantManifest -&gt; Int
+(Int -&gt; HlsRedundantManifest -&gt; Int)
+-&gt; (HlsRedundantManifest -&gt; Int) -&gt; Hashable HlsRedundantManifest
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: HlsRedundantManifest -&gt; Int
+$chash :: HlsRedundantManifest -&gt; Int
+hashWithSalt :: Int -&gt; HlsRedundantManifest -&gt; Int
+$chashWithSalt :: Int -&gt; HlsRedundantManifest -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679888235"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; ()
+(HlsRedundantManifest -&gt; ()) -&gt; NFData HlsRedundantManifest
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: HlsRedundantManifest -&gt; ()
+$crnf :: HlsRedundantManifest -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679888232"><span class="annot"><span class="annottext">Text -&gt; Either String HlsRedundantManifest
+(Text -&gt; Either String HlsRedundantManifest)
+-&gt; FromText HlsRedundantManifest
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String HlsRedundantManifest
+$cfromText :: Text -&gt; Either String HlsRedundantManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679888229"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; Text
+(HlsRedundantManifest -&gt; Text) -&gt; ToText HlsRedundantManifest
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: HlsRedundantManifest -&gt; Text
+$ctoText :: HlsRedundantManifest -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679888226"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; ByteString
+(HlsRedundantManifest -&gt; ByteString)
+-&gt; ToByteString HlsRedundantManifest
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: HlsRedundantManifest -&gt; ByteString
+$ctoBS :: HlsRedundantManifest -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679888223"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; ByteStringBuilder
+(HlsRedundantManifest -&gt; ByteStringBuilder)
+-&gt; ToLog HlsRedundantManifest
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: HlsRedundantManifest -&gt; ByteStringBuilder
+$cbuild :: HlsRedundantManifest -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679888220"><span class="annot"><span class="annottext">HeaderName -&gt; HlsRedundantManifest -&gt; [Header]
+(HeaderName -&gt; HlsRedundantManifest -&gt; [Header])
+-&gt; ToHeader HlsRedundantManifest
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; HlsRedundantManifest -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; HlsRedundantManifest -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679888217"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; QueryString
+(HlsRedundantManifest -&gt; QueryString)
+-&gt; ToQuery HlsRedundantManifest
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: HlsRedundantManifest -&gt; QueryString
+$ctoQuery :: HlsRedundantManifest -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679888212"><span id="local-6989586621679888214"><span class="annot"><span class="annottext">Value -&gt; Parser [HlsRedundantManifest]
+Value -&gt; Parser HlsRedundantManifest
+(Value -&gt; Parser HlsRedundantManifest)
+-&gt; (Value -&gt; Parser [HlsRedundantManifest])
+-&gt; FromJSON HlsRedundantManifest
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [HlsRedundantManifest]
+$cparseJSONList :: Value -&gt; Parser [HlsRedundantManifest]
+parseJSON :: Value -&gt; Parser HlsRedundantManifest
+$cparseJSON :: Value -&gt; Parser HlsRedundantManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679888207"><span id="local-6989586621679888209"><span class="annot"><span class="annottext">FromJSONKeyFunction [HlsRedundantManifest]
+FromJSONKeyFunction HlsRedundantManifest
+FromJSONKeyFunction HlsRedundantManifest
+-&gt; FromJSONKeyFunction [HlsRedundantManifest]
+-&gt; FromJSONKey HlsRedundantManifest
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [HlsRedundantManifest]
+$cfromJSONKeyList :: FromJSONKeyFunction [HlsRedundantManifest]
+fromJSONKey :: FromJSONKeyFunction HlsRedundantManifest
+$cfromJSONKey :: FromJSONKeyFunction HlsRedundantManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679888198"><span id="local-6989586621679888200"><span id="local-6989586621679888202"><span id="local-6989586621679888204"><span class="annot"><span class="annottext">[HlsRedundantManifest] -&gt; Encoding
+[HlsRedundantManifest] -&gt; Value
+HlsRedundantManifest -&gt; Encoding
+HlsRedundantManifest -&gt; Value
+(HlsRedundantManifest -&gt; Value)
+-&gt; (HlsRedundantManifest -&gt; Encoding)
+-&gt; ([HlsRedundantManifest] -&gt; Value)
+-&gt; ([HlsRedundantManifest] -&gt; Encoding)
+-&gt; ToJSON HlsRedundantManifest
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [HlsRedundantManifest] -&gt; Encoding
+$ctoEncodingList :: [HlsRedundantManifest] -&gt; Encoding
+toJSONList :: [HlsRedundantManifest] -&gt; Value
+$ctoJSONList :: [HlsRedundantManifest] -&gt; Value
+toEncoding :: HlsRedundantManifest -&gt; Encoding
+$ctoEncoding :: HlsRedundantManifest -&gt; Encoding
+toJSON :: HlsRedundantManifest -&gt; Value
+$ctoJSON :: HlsRedundantManifest -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679888193"><span id="local-6989586621679888195"><span class="annot"><span class="annottext">ToJSONKeyFunction [HlsRedundantManifest]
+ToJSONKeyFunction HlsRedundantManifest
+ToJSONKeyFunction HlsRedundantManifest
+-&gt; ToJSONKeyFunction [HlsRedundantManifest]
+-&gt; ToJSONKey HlsRedundantManifest
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [HlsRedundantManifest]
+$ctoJSONKeyList :: ToJSONKeyFunction [HlsRedundantManifest]
+toJSONKey :: ToJSONKeyFunction HlsRedundantManifest
+$ctoJSONKey :: ToJSONKeyFunction HlsRedundantManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679888190"><span class="annot"><span class="annottext">[Node] -&gt; Either String HlsRedundantManifest
+([Node] -&gt; Either String HlsRedundantManifest)
+-&gt; FromXML HlsRedundantManifest
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String HlsRedundantManifest
+$cparseXML :: [Node] -&gt; Either String HlsRedundantManifest
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679888187"><span class="annot"><span class="annottext">HlsRedundantManifest -&gt; XML
+(HlsRedundantManifest -&gt; XML) -&gt; ToXML HlsRedundantManifest
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: HlsRedundantManifest -&gt; XML
+$ctoXML :: HlsRedundantManifest -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest_DISABLED"><span class="hs-identifier hs-type">HlsRedundantManifest_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest"><span class="hs-identifier hs-type">HlsRedundantManifest</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsRedundantManifest_DISABLED"><span id="%24mHlsRedundantManifest_DISABLED"><span id="HlsRedundantManifest_DISABLED"><span class="annot"><span class="annottext">$bHlsRedundantManifest_DISABLED :: HlsRedundantManifest
+$mHlsRedundantManifest_DISABLED :: forall r. HlsRedundantManifest -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#%24bHlsRedundantManifest_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">HlsRedundantManifest_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest%27"><span class="hs-identifier hs-type">HlsRedundantManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest_ENABLED"><span class="hs-identifier hs-type">HlsRedundantManifest_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest"><span class="hs-identifier hs-type">HlsRedundantManifest</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bHlsRedundantManifest_ENABLED"><span id="%24mHlsRedundantManifest_ENABLED"><span id="HlsRedundantManifest_ENABLED"><span class="annot"><span class="annottext">$bHlsRedundantManifest_ENABLED :: HlsRedundantManifest
+$mHlsRedundantManifest_ENABLED :: forall r. HlsRedundantManifest -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#%24bHlsRedundantManifest_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">HlsRedundantManifest_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest%27"><span class="hs-identifier hs-type">HlsRedundantManifest'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest_DISABLED"><span class="hs-pragma hs-type">HlsRedundantManifest_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest_ENABLED"><span class="hs-pragma hs-type">HlsRedundantManifest_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.HlsRedundantManifest.html#HlsRedundantManifest%27"><span class="hs-pragma hs-type">HlsRedundantManifest'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

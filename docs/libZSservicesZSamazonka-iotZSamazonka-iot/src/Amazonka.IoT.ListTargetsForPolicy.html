@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.ListTargetsForPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List targets for the specified policy.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListTargetsForPolicy&gt;</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.ListTargetsForPolicy</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#newListTargetsForPolicy"><span class="hs-identifier">newListTargetsForPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_marker"><span class="hs-identifier">listTargetsForPolicy_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_pageSize"><span class="hs-identifier">listTargetsForPolicy_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_policyName"><span class="hs-identifier">listTargetsForPolicy_policyName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier">ListTargetsForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#newListTargetsForPolicyResponse"><span class="hs-identifier">newListTargetsForPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_targets"><span class="hs-identifier">listTargetsForPolicyResponse_targets</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_nextMarker"><span class="hs-identifier">listTargetsForPolicyResponse_nextMarker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_httpStatus"><span class="hs-identifier">listTargetsForPolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newListTargetsForPolicy' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679819704"><span id="local-6989586621679819705"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTargetsForPolicy"><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-var">ListTargetsForPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTargetsForPolicy%27"><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-var">ListTargetsForPolicy'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A marker used to get the next set of results.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Amarker%3AListTargetsForPolicy%27"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; Maybe Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3Amarker%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ApageSize%3AListTargetsForPolicy%27"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; Maybe Natural
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3ApageSize%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The policy name.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679819696"><span id="local-6989586621679819698"><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
+(ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool)
+-&gt; (ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool)
+-&gt; Eq ListTargetsForPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
+$c/= :: ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
+== :: ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
+$c== :: ListTargetsForPolicy -&gt; ListTargetsForPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819687"><span id="local-6989586621679819689"><span id="local-6989586621679819691"><span id="local-6989586621679819693"><span class="annot"><span class="annottext">ReadPrec [ListTargetsForPolicy]
+ReadPrec ListTargetsForPolicy
+Int -&gt; ReadS ListTargetsForPolicy
+ReadS [ListTargetsForPolicy]
+(Int -&gt; ReadS ListTargetsForPolicy)
+-&gt; ReadS [ListTargetsForPolicy]
+-&gt; ReadPrec ListTargetsForPolicy
+-&gt; ReadPrec [ListTargetsForPolicy]
+-&gt; Read ListTargetsForPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTargetsForPolicy]
+$creadListPrec :: ReadPrec [ListTargetsForPolicy]
+readPrec :: ReadPrec ListTargetsForPolicy
+$creadPrec :: ReadPrec ListTargetsForPolicy
+readList :: ReadS [ListTargetsForPolicy]
+$creadList :: ReadS [ListTargetsForPolicy]
+readsPrec :: Int -&gt; ReadS ListTargetsForPolicy
+$creadsPrec :: Int -&gt; ReadS ListTargetsForPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819680"><span id="local-6989586621679819682"><span id="local-6989586621679819684"><span class="annot"><span class="annottext">Int -&gt; ListTargetsForPolicy -&gt; ShowS
+[ListTargetsForPolicy] -&gt; ShowS
+ListTargetsForPolicy -&gt; String
+(Int -&gt; ListTargetsForPolicy -&gt; ShowS)
+-&gt; (ListTargetsForPolicy -&gt; String)
+-&gt; ([ListTargetsForPolicy] -&gt; ShowS)
+-&gt; Show ListTargetsForPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTargetsForPolicy] -&gt; ShowS
+$cshowList :: [ListTargetsForPolicy] -&gt; ShowS
+show :: ListTargetsForPolicy -&gt; String
+$cshow :: ListTargetsForPolicy -&gt; String
+showsPrec :: Int -&gt; ListTargetsForPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTargetsForPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListTargetsForPolicy -&gt; Rep ListTargetsForPolicy x)
+-&gt; (forall x. Rep ListTargetsForPolicy x -&gt; ListTargetsForPolicy)
+-&gt; Generic ListTargetsForPolicy
+forall x. Rep ListTargetsForPolicy x -&gt; ListTargetsForPolicy
+forall x. ListTargetsForPolicy -&gt; Rep ListTargetsForPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListTargetsForPolicy x -&gt; ListTargetsForPolicy
+$cfrom :: forall x. ListTargetsForPolicy -&gt; Rep ListTargetsForPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'ListTargetsForPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'marker', 'listTargetsForPolicy_marker' - A marker used to get the next set of results.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'pageSize', 'listTargetsForPolicy_pageSize' - The maximum number of results to return at one time.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'policyName', 'listTargetsForPolicy_policyName' - The policy name.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#newListTargetsForPolicy"><span class="hs-identifier hs-type">newListTargetsForPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'policyName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span>
+</span><span id="line-86"></span><span id="newListTargetsForPolicy"><span class="annot"><span class="annottext">newListTargetsForPolicy :: Text -&gt; ListTargetsForPolicy
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#newListTargetsForPolicy"><span class="hs-identifier hs-var hs-var">newListTargetsForPolicy</span></a></span></span><span> </span><span id="local-6989586621679819675"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819675"><span class="hs-identifier hs-var">pPolicyName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">ListTargetsForPolicy' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListTargetsForPolicy
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:marker:ListTargetsForPolicy' :: Maybe Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3Amarker%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListTargetsForPolicy' :: Maybe Natural
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3ApageSize%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:policyName:ListTargetsForPolicy' :: Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819675"><span class="hs-identifier hs-var">pPolicyName_</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | A marker used to get the next set of results.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_marker"><span class="hs-identifier hs-type">listTargetsForPolicy_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="listTargetsForPolicy_marker"><span class="annot"><span class="annottext">listTargetsForPolicy_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTargetsForPolicy -&gt; f ListTargetsForPolicy
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_marker"><span class="hs-identifier hs-var hs-var">listTargetsForPolicy_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTargetsForPolicy -&gt; Maybe Text)
+-&gt; (ListTargetsForPolicy -&gt; Maybe Text -&gt; ListTargetsForPolicy)
+-&gt; Lens
+     ListTargetsForPolicy ListTargetsForPolicy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819673"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679819673"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819673"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819672"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
+</span><a href="#local-6989586621679819672"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819671"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819671"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819672"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:ListTargetsForPolicy' :: Maybe Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3Amarker%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819671"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The maximum number of results to return at one time.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_pageSize"><span class="hs-identifier hs-type">listTargetsForPolicy_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="listTargetsForPolicy_pageSize"><span class="annot"><span class="annottext">listTargetsForPolicy_pageSize :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListTargetsForPolicy -&gt; f ListTargetsForPolicy
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_pageSize"><span class="hs-identifier hs-var hs-var">listTargetsForPolicy_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTargetsForPolicy -&gt; Maybe Natural)
+-&gt; (ListTargetsForPolicy -&gt; Maybe Natural -&gt; ListTargetsForPolicy)
+-&gt; Lens
+     ListTargetsForPolicy
+     ListTargetsForPolicy
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819670"><span class="annot"><span class="annottext">Maybe Natural
+pageSize :: Maybe Natural
+$sel:pageSize:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Natural
+</span><a href="#local-6989586621679819670"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679819670"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819669"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
+</span><a href="#local-6989586621679819669"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819668"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679819668"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819669"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListTargetsForPolicy' :: Maybe Natural
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3ApageSize%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679819668"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The policy name.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_policyName"><span class="hs-identifier hs-type">listTargetsForPolicy_policyName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="listTargetsForPolicy_policyName"><span class="annot"><span class="annottext">listTargetsForPolicy_policyName :: (Text -&gt; f Text) -&gt; ListTargetsForPolicy -&gt; f ListTargetsForPolicy
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_policyName"><span class="hs-identifier hs-var hs-var">listTargetsForPolicy_policyName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTargetsForPolicy -&gt; Text)
+-&gt; (ListTargetsForPolicy -&gt; Text -&gt; ListTargetsForPolicy)
+-&gt; Lens ListTargetsForPolicy ListTargetsForPolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819667"><span class="annot"><span class="annottext">Text
+policyName :: Text
+$sel:policyName:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Text
+</span><a href="#local-6989586621679819667"><span class="hs-identifier hs-var hs-var">policyName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819667"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819666"><span class="annot"><span class="annottext">s :: ListTargetsForPolicy
+</span><a href="#local-6989586621679819666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819665"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyName:ListTargetsForPolicy' :: Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3ApolicyName%3AListTargetsForPolicy%27"><span class="hs-identifier hs-var">policyName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679819661"><span class="annot"><span class="annottext">page :: ListTargetsForPolicy
+-&gt; AWSResponse ListTargetsForPolicy -&gt; Maybe ListTargetsForPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679819659"><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819659"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679819658"><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
+</span><a href="#local-6989586621679819658"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
+ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819658"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+-&gt; Getting (First Text) ListTargetsForPolicyResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTargetsForPolicyResponse
+-&gt; Const (First Text) ListTargetsForPolicyResponse
+Lens' ListTargetsForPolicyResponse (Maybe Text)
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_nextMarker"><span class="hs-identifier hs-var">listTargetsForPolicyResponse_nextMarker</span></a></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTargetsForPolicyResponse
+ -&gt; Const (First Text) ListTargetsForPolicyResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTargetsForPolicyResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTargetsForPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
+ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819658"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+-&gt; Getting (First [Text]) ListTargetsForPolicyResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListTargetsForPolicyResponse
+-&gt; Const (First [Text]) ListTargetsForPolicyResponse
+Lens' ListTargetsForPolicyResponse (Maybe [Text])
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_targets"><span class="hs-identifier hs-var">listTargetsForPolicyResponse_targets</span></a></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListTargetsForPolicyResponse
+ -&gt; Const (First [Text]) ListTargetsForPolicyResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListTargetsForPolicyResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListTargetsForPolicy
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">ListTargetsForPolicy -&gt; Maybe ListTargetsForPolicy
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListTargetsForPolicy -&gt; Maybe ListTargetsForPolicy)
+-&gt; ListTargetsForPolicy -&gt; Maybe ListTargetsForPolicy
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+</span><a href="#local-6989586621679819659"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListTargetsForPolicy
+-&gt; (ListTargetsForPolicy -&gt; ListTargetsForPolicy)
+-&gt; ListTargetsForPolicy
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListTargetsForPolicy -&gt; Identity ListTargetsForPolicy
+Lens
+  ListTargetsForPolicy ListTargetsForPolicy (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicy_marker"><span class="hs-identifier hs-var">listTargetsForPolicy_marker</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListTargetsForPolicy -&gt; Identity ListTargetsForPolicy)
+-&gt; Maybe Text -&gt; ListTargetsForPolicy -&gt; ListTargetsForPolicy
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListTargetsForPolicy
+ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819658"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+-&gt; Getting (First Text) ListTargetsForPolicyResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListTargetsForPolicyResponse
+-&gt; Const (First Text) ListTargetsForPolicyResponse
+Lens' ListTargetsForPolicyResponse (Maybe Text)
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_nextMarker"><span class="hs-identifier hs-var">listTargetsForPolicyResponse_nextMarker</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListTargetsForPolicyResponse
+ -&gt; Const (First Text) ListTargetsForPolicyResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListTargetsForPolicyResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679819648"><span class="annot"><span class="annottext">request :: ListTargetsForPolicy -&gt; Request ListTargetsForPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListTargetsForPolicy -&gt; Request ListTargetsForPolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679819644"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListTargetsForPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTargetsForPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListTargetsForPolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListTargetsForPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListTargetsForPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679819641"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819641"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679819640"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679819640"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679819639"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679819639"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679819639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;targets&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListTargetsForPolicyResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679819639"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextMarker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListTargetsForPolicyResponse)
+-&gt; Either String Int -&gt; Either String ListTargetsForPolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819641"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819630"><span id="local-6989586621679819632"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819627"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679819623"><span class="annot"><span class="annottext">toHeaders :: ListTargetsForPolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListTargetsForPolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819614"><span id="local-6989586621679819616"><span id="local-6989586621679819618"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679819612"><span class="annot"><span class="annottext">toJSON :: ListTargetsForPolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; ListTargetsForPolicy -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679819607"><span class="annot"><span class="annottext">toPath :: ListTargetsForPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819603"><span id="local-6989586621679819604"><span id="local-6989586621679819605"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+policyName :: Text
+pageSize :: Maybe Natural
+marker :: Maybe Text
+$sel:policyName:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Text
+$sel:pageSize:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Natural
+$sel:marker:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679819603"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/policy-targets/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679819603"><span class="hs-identifier hs-var">policyName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy"><span class="hs-identifier hs-type">ListTargetsForPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-157"></span><span>  </span><span id="local-6989586621679819599"><span class="annot"><span class="annottext">toQuery :: ListTargetsForPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicy%27"><span class="hs-identifier hs-type">ListTargetsForPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819595"><span id="local-6989586621679819596"><span id="local-6989586621679819597"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+policyName :: Text
+pageSize :: Maybe Natural
+marker :: Maybe Text
+$sel:policyName:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Text
+$sel:pageSize:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Natural
+$sel:marker:ListTargetsForPolicy' :: ListTargetsForPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679819595"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-159"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819597"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;pageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679819596"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | /See:/ 'newListTargetsForPolicyResponse' smart constructor.</span><span>
+</span><span id="line-164"></span><span id="local-6989586621679819592"><span id="local-6989586621679819593"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListTargetsForPolicyResponse"><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListTargetsForPolicyResponse%27"><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">ListTargetsForPolicyResponse'</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The policy targets.</span><span>
+</span><span id="line-166"></span><span>    </span><span id="%24sel%3Atargets%3AListTargetsForPolicyResponse%27"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3Atargets%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- | A marker used to get the next set of results.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AnextMarker%3AListTargetsForPolicyResponse%27"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3AnextMarker%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse -&gt; Int
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679819585"><span id="local-6989586621679819587"><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+-&gt; ListTargetsForPolicyResponse -&gt; Bool
+(ListTargetsForPolicyResponse
+ -&gt; ListTargetsForPolicyResponse -&gt; Bool)
+-&gt; (ListTargetsForPolicyResponse
+    -&gt; ListTargetsForPolicyResponse -&gt; Bool)
+-&gt; Eq ListTargetsForPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListTargetsForPolicyResponse
+-&gt; ListTargetsForPolicyResponse -&gt; Bool
+$c/= :: ListTargetsForPolicyResponse
+-&gt; ListTargetsForPolicyResponse -&gt; Bool
+== :: ListTargetsForPolicyResponse
+-&gt; ListTargetsForPolicyResponse -&gt; Bool
+$c== :: ListTargetsForPolicyResponse
+-&gt; ListTargetsForPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819577"><span id="local-6989586621679819579"><span id="local-6989586621679819581"><span id="local-6989586621679819583"><span class="annot"><span class="annottext">ReadPrec [ListTargetsForPolicyResponse]
+ReadPrec ListTargetsForPolicyResponse
+Int -&gt; ReadS ListTargetsForPolicyResponse
+ReadS [ListTargetsForPolicyResponse]
+(Int -&gt; ReadS ListTargetsForPolicyResponse)
+-&gt; ReadS [ListTargetsForPolicyResponse]
+-&gt; ReadPrec ListTargetsForPolicyResponse
+-&gt; ReadPrec [ListTargetsForPolicyResponse]
+-&gt; Read ListTargetsForPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListTargetsForPolicyResponse]
+$creadListPrec :: ReadPrec [ListTargetsForPolicyResponse]
+readPrec :: ReadPrec ListTargetsForPolicyResponse
+$creadPrec :: ReadPrec ListTargetsForPolicyResponse
+readList :: ReadS [ListTargetsForPolicyResponse]
+$creadList :: ReadS [ListTargetsForPolicyResponse]
+readsPrec :: Int -&gt; ReadS ListTargetsForPolicyResponse
+$creadsPrec :: Int -&gt; ReadS ListTargetsForPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679819571"><span id="local-6989586621679819573"><span id="local-6989586621679819575"><span class="annot"><span class="annottext">Int -&gt; ListTargetsForPolicyResponse -&gt; ShowS
+[ListTargetsForPolicyResponse] -&gt; ShowS
+ListTargetsForPolicyResponse -&gt; String
+(Int -&gt; ListTargetsForPolicyResponse -&gt; ShowS)
+-&gt; (ListTargetsForPolicyResponse -&gt; String)
+-&gt; ([ListTargetsForPolicyResponse] -&gt; ShowS)
+-&gt; Show ListTargetsForPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListTargetsForPolicyResponse] -&gt; ShowS
+$cshowList :: [ListTargetsForPolicyResponse] -&gt; ShowS
+show :: ListTargetsForPolicyResponse -&gt; String
+$cshow :: ListTargetsForPolicyResponse -&gt; String
+showsPrec :: Int -&gt; ListTargetsForPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListTargetsForPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListTargetsForPolicyResponse -&gt; Rep ListTargetsForPolicyResponse x)
+-&gt; (forall x.
+    Rep ListTargetsForPolicyResponse x -&gt; ListTargetsForPolicyResponse)
+-&gt; Generic ListTargetsForPolicyResponse
+forall x.
+Rep ListTargetsForPolicyResponse x -&gt; ListTargetsForPolicyResponse
+forall x.
+ListTargetsForPolicyResponse -&gt; Rep ListTargetsForPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListTargetsForPolicyResponse x -&gt; ListTargetsForPolicyResponse
+$cfrom :: forall x.
+ListTargetsForPolicyResponse -&gt; Rep ListTargetsForPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'ListTargetsForPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'targets', 'listTargetsForPolicyResponse_targets' - The policy targets.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'nextMarker', 'listTargetsForPolicyResponse_nextMarker' - A marker used to get the next set of results.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- 'httpStatus', 'listTargetsForPolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#newListTargetsForPolicyResponse"><span class="hs-identifier hs-type">newListTargetsForPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span>
+</span><span id="line-191"></span><span id="newListTargetsForPolicyResponse"><span class="annot"><span class="annottext">newListTargetsForPolicyResponse :: Int -&gt; ListTargetsForPolicyResponse
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#newListTargetsForPolicyResponse"><span class="hs-identifier hs-var hs-var">newListTargetsForPolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679819568"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819568"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>  </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListTargetsForPolicyResponse
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:targets:ListTargetsForPolicyResponse' :: Maybe [Text]
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3Atargets%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextMarker:ListTargetsForPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3AnextMarker%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListTargetsForPolicyResponse' :: Int
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819568"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The policy targets.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_targets"><span class="hs-identifier hs-type">listTargetsForPolicyResponse_targets</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="listTargetsForPolicyResponse_targets"><span class="annot"><span class="annottext">listTargetsForPolicyResponse_targets :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListTargetsForPolicyResponse -&gt; f ListTargetsForPolicyResponse
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_targets"><span class="hs-identifier hs-var hs-var">listTargetsForPolicyResponse_targets</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTargetsForPolicyResponse -&gt; Maybe [Text])
+-&gt; (ListTargetsForPolicyResponse
+    -&gt; Maybe [Text] -&gt; ListTargetsForPolicyResponse)
+-&gt; Lens' ListTargetsForPolicyResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819567"><span class="annot"><span class="annottext">Maybe [Text]
+targets :: Maybe [Text]
+$sel:targets:ListTargetsForPolicyResponse' :: ListTargetsForPolicyResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679819567"><span class="hs-identifier hs-var hs-var">targets</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679819567"><span class="hs-identifier hs-var">targets</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819566"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819566"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819565"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679819565"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819566"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:targets:ListTargetsForPolicyResponse' :: Maybe [Text]
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3Atargets%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">targets</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679819565"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListTargetsForPolicyResponse -&gt; f ListTargetsForPolicyResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListTargetsForPolicyResponse
+-&gt; f ListTargetsForPolicyResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | A marker used to get the next set of results.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_nextMarker"><span class="hs-identifier hs-type">listTargetsForPolicyResponse_nextMarker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="listTargetsForPolicyResponse_nextMarker"><span class="annot"><span class="annottext">listTargetsForPolicyResponse_nextMarker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListTargetsForPolicyResponse -&gt; f ListTargetsForPolicyResponse
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_nextMarker"><span class="hs-identifier hs-var hs-var">listTargetsForPolicyResponse_nextMarker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTargetsForPolicyResponse -&gt; Maybe Text)
+-&gt; (ListTargetsForPolicyResponse
+    -&gt; Maybe Text -&gt; ListTargetsForPolicyResponse)
+-&gt; Lens' ListTargetsForPolicyResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819562"><span class="annot"><span class="annottext">Maybe Text
+nextMarker :: Maybe Text
+$sel:nextMarker:ListTargetsForPolicyResponse' :: ListTargetsForPolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679819562"><span class="hs-identifier hs-var hs-var">nextMarker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819562"><span class="hs-identifier hs-var">nextMarker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819561"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819561"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819560"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819560"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819561"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextMarker:ListTargetsForPolicyResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3AnextMarker%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">nextMarker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679819560"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_httpStatus"><span class="hs-identifier hs-type">listTargetsForPolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-209"></span><span id="listTargetsForPolicyResponse_httpStatus"><span class="annot"><span class="annottext">listTargetsForPolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListTargetsForPolicyResponse -&gt; f ListTargetsForPolicyResponse
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#listTargetsForPolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listTargetsForPolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListTargetsForPolicyResponse -&gt; Int)
+-&gt; (ListTargetsForPolicyResponse
+    -&gt; Int -&gt; ListTargetsForPolicyResponse)
+-&gt; Lens
+     ListTargetsForPolicyResponse ListTargetsForPolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679819559"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListTargetsForPolicyResponse' :: ListTargetsForPolicyResponse -&gt; Int
+</span><a href="#local-6989586621679819559"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819559"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679819558"><span class="annot"><span class="annottext">s :: ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819558"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse%27"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679819557"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819557"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListTargetsForPolicyResponse
+</span><a href="#local-6989586621679819558"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListTargetsForPolicyResponse' :: Int
+</span><a href="Amazonka.IoT.ListTargetsForPolicy.html#%24sel%3AhttpStatus%3AListTargetsForPolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679819557"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679819555"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListTargetsForPolicy.html#ListTargetsForPolicyResponse"><span class="hs-identifier hs-type">ListTargetsForPolicyResponse</span></a></span></span><span>
+</span><span id="line-212"></span></pre></body></html>

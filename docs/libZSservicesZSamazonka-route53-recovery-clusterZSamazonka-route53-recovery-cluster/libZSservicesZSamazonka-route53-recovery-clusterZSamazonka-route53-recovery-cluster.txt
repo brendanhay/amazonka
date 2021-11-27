@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.Route53RecoveryCluster.Types.RoutingControlState
+module Amazonka.Route53RecoveryCluster.Types.RoutingControlState
 newtype RoutingControlState
 RoutingControlState' :: Text -> RoutingControlState
 [fromRoutingControlState] :: RoutingControlState -> Text
 pattern RoutingControlState_Off :: RoutingControlState
 pattern RoutingControlState_On :: RoutingControlState
-instance Network.AWS.Data.XML.ToXML Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Network.AWS.Data.XML.FromXML Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Network.AWS.Data.Log.ToLog Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Network.AWS.Data.Text.ToText Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Network.AWS.Data.Text.FromText Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance GHC.Classes.Ord Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.XML.ToXML Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.XML.FromXML Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.Headers.ToHeader Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.Log.ToLog Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.Text.ToText Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Amazonka.Data.Text.FromText Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance GHC.Classes.Ord Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.Types.RoutingControlState.RoutingControlState
 
 
-module Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
+module Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry
 
 -- | A routing control state.
 --   
@@ -70,16 +70,16 @@ updateRoutingControlStateEntry_routingControlArn :: Lens' UpdateRoutingControlSt
 
 -- | The routing control state in a set of routing control state entries.
 updateRoutingControlStateEntry_routingControlState :: Lens' UpdateRoutingControlStateEntry RoutingControlState
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryCluster.Types.UpdateRoutingControlStateEntry.UpdateRoutingControlStateEntry
 
 
-module Network.AWS.Route53RecoveryCluster.Types
+module Amazonka.Route53RecoveryCluster.Types
 
 -- | API version <tt>2019-12-02</tt> of the Amazon Route53 Recovery Cluster
 --   SDK configuration.
@@ -163,7 +163,7 @@ updateRoutingControlStateEntry_routingControlState :: Lens' UpdateRoutingControl
 --   For more information about working with routing controls, see
 --   <a>Routing control</a> in the Route 53 Application Recovery Controller
 --   Developer Guide.
-module Network.AWS.Route53RecoveryCluster.GetRoutingControlState
+module Amazonka.Route53RecoveryCluster.GetRoutingControlState
 
 -- | <i>See:</i> <a>newGetRoutingControlState</a> smart constructor.
 data GetRoutingControlState
@@ -236,22 +236,22 @@ getRoutingControlStateResponse_routingControlArn :: Lens' GetRoutingControlState
 
 -- | The state of the routing control.
 getRoutingControlStateResponse_routingControlState :: Lens' GetRoutingControlStateResponse RoutingControlState
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlStateResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryCluster.GetRoutingControlState.GetRoutingControlState
 
 
 -- | Set the state of the routing control to reroute traffic. You can set
@@ -261,7 +261,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryCluster.GetRo
 --   For more information about working with routing controls, see
 --   <a>Routing control</a> in the Route 53 Application Recovery Controller
 --   Developer Guide.
-module Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState
+module Amazonka.Route53RecoveryCluster.UpdateRoutingControlState
 
 -- | <i>See:</i> <a>newUpdateRoutingControlState</a> smart constructor.
 data UpdateRoutingControlState
@@ -326,22 +326,22 @@ newUpdateRoutingControlStateResponse :: Int -> UpdateRoutingControlStateResponse
 
 -- | The response's http status code.
 updateRoutingControlStateResponse_httpStatus :: Lens' UpdateRoutingControlStateResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlStateResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryCluster.UpdateRoutingControlState.UpdateRoutingControlState
 
 
 -- | Set multiple routing control states. You can set the value for each
@@ -351,7 +351,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryCluster.Updat
 --   For more information about working with routing controls, see
 --   <a>Routing control</a> in the Route 53 Application Recovery Controller
 --   Developer Guide.
-module Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates
+module Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates
 
 -- | <i>See:</i> <a>newUpdateRoutingControlStates</a> smart constructor.
 data UpdateRoutingControlStates
@@ -402,25 +402,25 @@ newUpdateRoutingControlStatesResponse :: Int -> UpdateRoutingControlStatesRespon
 
 -- | The response's http status code.
 updateRoutingControlStatesResponse_httpStatus :: Lens' UpdateRoutingControlStatesResponse Int
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance GHC.Generics.Generic Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
-instance GHC.Show.Show Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
-instance GHC.Read.Read Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
-instance GHC.Classes.Eq Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance Control.DeepSeq.NFData Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance Network.AWS.Data.Path.ToPath Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance GHC.Generics.Generic Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
+instance GHC.Show.Show Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
+instance GHC.Read.Read Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
+instance GHC.Classes.Eq Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
+instance Amazonka.Types.AWSRequest Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStatesResponse
+instance Data.Hashable.Class.Hashable Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance Control.DeepSeq.NFData Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance Amazonka.Data.Path.ToPath Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
+instance Amazonka.Data.Query.ToQuery Amazonka.Route53RecoveryCluster.UpdateRoutingControlStates.UpdateRoutingControlStates
 
 
-module Network.AWS.Route53RecoveryCluster.Lens
+module Amazonka.Route53RecoveryCluster.Lens
 
 -- | The Amazon Resource Number (ARN) for the routing control that you want
 --   to update the state for.
@@ -459,7 +459,7 @@ updateRoutingControlStateEntry_routingControlArn :: Lens' UpdateRoutingControlSt
 updateRoutingControlStateEntry_routingControlState :: Lens' UpdateRoutingControlStateEntry RoutingControlState
 
 
-module Network.AWS.Route53RecoveryCluster.Waiters
+module Amazonka.Route53RecoveryCluster.Waiters
 
 
 -- | Derived from API version <tt>2019-12-02</tt> of the AWS service
@@ -499,7 +499,7 @@ module Network.AWS.Route53RecoveryCluster.Waiters
 --   Controller, see the <a>Amazon Route 53 Application Recovery Controller
 --   Developer Guide</a>.</li>
 --   </ul>
-module Network.AWS.Route53RecoveryCluster
+module Amazonka.Route53RecoveryCluster
 
 -- | API version <tt>2019-12-02</tt> of the Amazon Route53 Recovery Cluster
 --   SDK configuration.

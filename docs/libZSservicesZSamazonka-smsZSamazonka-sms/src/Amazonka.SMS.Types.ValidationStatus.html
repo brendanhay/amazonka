@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SMS.Types.ValidationStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SMS.Types.ValidationStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus"><span class="hs-identifier">ValidationStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_FAILED"><span class="hs-identifier">ValidationStatus_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_IN_PROGRESS"><span class="hs-identifier">ValidationStatus_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_PENDING"><span class="hs-identifier">ValidationStatus_PENDING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_READY_FOR_VALIDATION"><span class="hs-identifier">ValidationStatus_READY_FOR_VALIDATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_SUCCEEDED"><span class="hs-identifier">ValidationStatus_SUCCEEDED</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679248421"><span id="local-6989586621679248422"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ValidationStatus"><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus"><span class="hs-identifier hs-var">ValidationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ValidationStatus%27"><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus%27"><span class="hs-identifier hs-var">ValidationStatus'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromValidationStatus"><span class="annot"><span class="annottext">ValidationStatus -&gt; Text
+</span><a href="Amazonka.SMS.Types.ValidationStatus.html#fromValidationStatus"><span class="hs-identifier hs-var hs-var">fromValidationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248413"><span id="local-6989586621679248415"><span id="local-6989586621679248417"><span class="annot"><span class="annottext">Int -&gt; ValidationStatus -&gt; ShowS
+[ValidationStatus] -&gt; ShowS
+ValidationStatus -&gt; String
+(Int -&gt; ValidationStatus -&gt; ShowS)
+-&gt; (ValidationStatus -&gt; String)
+-&gt; ([ValidationStatus] -&gt; ShowS)
+-&gt; Show ValidationStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ValidationStatus] -&gt; ShowS
+$cshowList :: [ValidationStatus] -&gt; ShowS
+show :: ValidationStatus -&gt; String
+$cshow :: ValidationStatus -&gt; String
+showsPrec :: Int -&gt; ValidationStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ValidationStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679248404"><span id="local-6989586621679248406"><span id="local-6989586621679248408"><span id="local-6989586621679248410"><span class="annot"><span class="annottext">ReadPrec [ValidationStatus]
+ReadPrec ValidationStatus
+Int -&gt; ReadS ValidationStatus
+ReadS [ValidationStatus]
+(Int -&gt; ReadS ValidationStatus)
+-&gt; ReadS [ValidationStatus]
+-&gt; ReadPrec ValidationStatus
+-&gt; ReadPrec [ValidationStatus]
+-&gt; Read ValidationStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ValidationStatus]
+$creadListPrec :: ReadPrec [ValidationStatus]
+readPrec :: ReadPrec ValidationStatus
+$creadPrec :: ReadPrec ValidationStatus
+readList :: ReadS [ValidationStatus]
+$creadList :: ReadS [ValidationStatus]
+readsPrec :: Int -&gt; ReadS ValidationStatus
+$creadsPrec :: Int -&gt; ReadS ValidationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679248399"><span id="local-6989586621679248401"><span class="annot"><span class="annottext">ValidationStatus -&gt; ValidationStatus -&gt; Bool
+(ValidationStatus -&gt; ValidationStatus -&gt; Bool)
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; Bool)
+-&gt; Eq ValidationStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+$c/= :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+== :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+$c== :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679248383"><span id="local-6989586621679248385"><span id="local-6989586621679248387"><span id="local-6989586621679248389"><span id="local-6989586621679248391"><span id="local-6989586621679248393"><span id="local-6989586621679248395"><span class="annot"><span class="annottext">Eq ValidationStatus
+Eq ValidationStatus
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; Ordering)
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; Bool)
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; Bool)
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; Bool)
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; Bool)
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; ValidationStatus)
+-&gt; (ValidationStatus -&gt; ValidationStatus -&gt; ValidationStatus)
+-&gt; Ord ValidationStatus
+ValidationStatus -&gt; ValidationStatus -&gt; Bool
+ValidationStatus -&gt; ValidationStatus -&gt; Ordering
+ValidationStatus -&gt; ValidationStatus -&gt; ValidationStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ValidationStatus -&gt; ValidationStatus -&gt; ValidationStatus
+$cmin :: ValidationStatus -&gt; ValidationStatus -&gt; ValidationStatus
+max :: ValidationStatus -&gt; ValidationStatus -&gt; ValidationStatus
+$cmax :: ValidationStatus -&gt; ValidationStatus -&gt; ValidationStatus
+&gt;= :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+$c&gt;= :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+&gt; :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+$c&gt; :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+&lt;= :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+$c&lt;= :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+&lt; :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+$c&lt; :: ValidationStatus -&gt; ValidationStatus -&gt; Bool
+compare :: ValidationStatus -&gt; ValidationStatus -&gt; Ordering
+$ccompare :: ValidationStatus -&gt; ValidationStatus -&gt; Ordering
+$cp1Ord :: Eq ValidationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. ValidationStatus -&gt; Rep ValidationStatus x)
+-&gt; (forall x. Rep ValidationStatus x -&gt; ValidationStatus)
+-&gt; Generic ValidationStatus
+forall x. Rep ValidationStatus x -&gt; ValidationStatus
+forall x. ValidationStatus -&gt; Rep ValidationStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ValidationStatus x -&gt; ValidationStatus
+$cfrom :: forall x. ValidationStatus -&gt; Rep ValidationStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679248375"><span id="local-6989586621679248377"><span class="annot"><span class="annottext">Int -&gt; ValidationStatus -&gt; Int
+ValidationStatus -&gt; Int
+(Int -&gt; ValidationStatus -&gt; Int)
+-&gt; (ValidationStatus -&gt; Int) -&gt; Hashable ValidationStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ValidationStatus -&gt; Int
+$chash :: ValidationStatus -&gt; Int
+hashWithSalt :: Int -&gt; ValidationStatus -&gt; Int
+$chashWithSalt :: Int -&gt; ValidationStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679248372"><span class="annot"><span class="annottext">ValidationStatus -&gt; ()
+(ValidationStatus -&gt; ()) -&gt; NFData ValidationStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ValidationStatus -&gt; ()
+$crnf :: ValidationStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679248369"><span class="annot"><span class="annottext">Text -&gt; Either String ValidationStatus
+(Text -&gt; Either String ValidationStatus)
+-&gt; FromText ValidationStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String ValidationStatus
+$cfromText :: Text -&gt; Either String ValidationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679248366"><span class="annot"><span class="annottext">ValidationStatus -&gt; Text
+(ValidationStatus -&gt; Text) -&gt; ToText ValidationStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ValidationStatus -&gt; Text
+$ctoText :: ValidationStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679248363"><span class="annot"><span class="annottext">ValidationStatus -&gt; ByteString
+(ValidationStatus -&gt; ByteString) -&gt; ToByteString ValidationStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ValidationStatus -&gt; ByteString
+$ctoBS :: ValidationStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679248360"><span class="annot"><span class="annottext">ValidationStatus -&gt; ByteStringBuilder
+(ValidationStatus -&gt; ByteStringBuilder) -&gt; ToLog ValidationStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ValidationStatus -&gt; ByteStringBuilder
+$cbuild :: ValidationStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679248357"><span class="annot"><span class="annottext">HeaderName -&gt; ValidationStatus -&gt; [Header]
+(HeaderName -&gt; ValidationStatus -&gt; [Header])
+-&gt; ToHeader ValidationStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; ValidationStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; ValidationStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679248354"><span class="annot"><span class="annottext">ValidationStatus -&gt; QueryString
+(ValidationStatus -&gt; QueryString) -&gt; ToQuery ValidationStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ValidationStatus -&gt; QueryString
+$ctoQuery :: ValidationStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679248349"><span id="local-6989586621679248351"><span class="annot"><span class="annottext">Value -&gt; Parser [ValidationStatus]
+Value -&gt; Parser ValidationStatus
+(Value -&gt; Parser ValidationStatus)
+-&gt; (Value -&gt; Parser [ValidationStatus])
+-&gt; FromJSON ValidationStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [ValidationStatus]
+$cparseJSONList :: Value -&gt; Parser [ValidationStatus]
+parseJSON :: Value -&gt; Parser ValidationStatus
+$cparseJSON :: Value -&gt; Parser ValidationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679248344"><span id="local-6989586621679248346"><span class="annot"><span class="annottext">FromJSONKeyFunction [ValidationStatus]
+FromJSONKeyFunction ValidationStatus
+FromJSONKeyFunction ValidationStatus
+-&gt; FromJSONKeyFunction [ValidationStatus]
+-&gt; FromJSONKey ValidationStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [ValidationStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [ValidationStatus]
+fromJSONKey :: FromJSONKeyFunction ValidationStatus
+$cfromJSONKey :: FromJSONKeyFunction ValidationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679248335"><span id="local-6989586621679248337"><span id="local-6989586621679248339"><span id="local-6989586621679248341"><span class="annot"><span class="annottext">[ValidationStatus] -&gt; Encoding
+[ValidationStatus] -&gt; Value
+ValidationStatus -&gt; Encoding
+ValidationStatus -&gt; Value
+(ValidationStatus -&gt; Value)
+-&gt; (ValidationStatus -&gt; Encoding)
+-&gt; ([ValidationStatus] -&gt; Value)
+-&gt; ([ValidationStatus] -&gt; Encoding)
+-&gt; ToJSON ValidationStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ValidationStatus] -&gt; Encoding
+$ctoEncodingList :: [ValidationStatus] -&gt; Encoding
+toJSONList :: [ValidationStatus] -&gt; Value
+$ctoJSONList :: [ValidationStatus] -&gt; Value
+toEncoding :: ValidationStatus -&gt; Encoding
+$ctoEncoding :: ValidationStatus -&gt; Encoding
+toJSON :: ValidationStatus -&gt; Value
+$ctoJSON :: ValidationStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679248330"><span id="local-6989586621679248332"><span class="annot"><span class="annottext">ToJSONKeyFunction [ValidationStatus]
+ToJSONKeyFunction ValidationStatus
+ToJSONKeyFunction ValidationStatus
+-&gt; ToJSONKeyFunction [ValidationStatus]
+-&gt; ToJSONKey ValidationStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [ValidationStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [ValidationStatus]
+toJSONKey :: ToJSONKeyFunction ValidationStatus
+$ctoJSONKey :: ToJSONKeyFunction ValidationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679248327"><span class="annot"><span class="annottext">[Node] -&gt; Either String ValidationStatus
+([Node] -&gt; Either String ValidationStatus)
+-&gt; FromXML ValidationStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String ValidationStatus
+$cparseXML :: [Node] -&gt; Either String ValidationStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679248324"><span class="annot"><span class="annottext">ValidationStatus -&gt; XML
+(ValidationStatus -&gt; XML) -&gt; ToXML ValidationStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ValidationStatus -&gt; XML
+$ctoXML :: ValidationStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_FAILED"><span class="hs-identifier hs-type">ValidationStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus"><span class="hs-identifier hs-type">ValidationStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationStatus_FAILED"><span id="%24mValidationStatus_FAILED"><span id="ValidationStatus_FAILED"><span class="annot"><span class="annottext">$bValidationStatus_FAILED :: ValidationStatus
+$mValidationStatus_FAILED :: forall r. ValidationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ValidationStatus.html#%24bValidationStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">ValidationStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus%27"><span class="hs-identifier hs-type">ValidationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_IN_PROGRESS"><span class="hs-identifier hs-type">ValidationStatus_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus"><span class="hs-identifier hs-type">ValidationStatus</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationStatus_IN_PROGRESS"><span id="%24mValidationStatus_IN_PROGRESS"><span id="ValidationStatus_IN_PROGRESS"><span class="annot"><span class="annottext">$bValidationStatus_IN_PROGRESS :: ValidationStatus
+$mValidationStatus_IN_PROGRESS :: forall r. ValidationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ValidationStatus.html#%24bValidationStatus_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">ValidationStatus_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus%27"><span class="hs-identifier hs-type">ValidationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_PENDING"><span class="hs-identifier hs-type">ValidationStatus_PENDING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus"><span class="hs-identifier hs-type">ValidationStatus</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationStatus_PENDING"><span id="%24mValidationStatus_PENDING"><span id="ValidationStatus_PENDING"><span class="annot"><span class="annottext">$bValidationStatus_PENDING :: ValidationStatus
+$mValidationStatus_PENDING :: forall r. ValidationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ValidationStatus.html#%24bValidationStatus_PENDING"><span class="hs-identifier hs-var hs-var hs-var">ValidationStatus_PENDING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus%27"><span class="hs-identifier hs-type">ValidationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PENDING&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_READY_FOR_VALIDATION"><span class="hs-identifier hs-type">ValidationStatus_READY_FOR_VALIDATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus"><span class="hs-identifier hs-type">ValidationStatus</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationStatus_READY_FOR_VALIDATION"><span id="%24mValidationStatus_READY_FOR_VALIDATION"><span id="ValidationStatus_READY_FOR_VALIDATION"><span class="annot"><span class="annottext">$bValidationStatus_READY_FOR_VALIDATION :: ValidationStatus
+$mValidationStatus_READY_FOR_VALIDATION :: forall r. ValidationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ValidationStatus.html#%24bValidationStatus_READY_FOR_VALIDATION"><span class="hs-identifier hs-var hs-var hs-var">ValidationStatus_READY_FOR_VALIDATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus%27"><span class="hs-identifier hs-type">ValidationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY_FOR_VALIDATION&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_SUCCEEDED"><span class="hs-identifier hs-type">ValidationStatus_SUCCEEDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus"><span class="hs-identifier hs-type">ValidationStatus</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bValidationStatus_SUCCEEDED"><span id="%24mValidationStatus_SUCCEEDED"><span id="ValidationStatus_SUCCEEDED"><span class="annot"><span class="annottext">$bValidationStatus_SUCCEEDED :: ValidationStatus
+$mValidationStatus_SUCCEEDED :: forall r. ValidationStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SMS.Types.ValidationStatus.html#%24bValidationStatus_SUCCEEDED"><span class="hs-identifier hs-var hs-var hs-var">ValidationStatus_SUCCEEDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus%27"><span class="hs-identifier hs-type">ValidationStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUCCEEDED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_FAILED"><span class="hs-pragma hs-type">ValidationStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_IN_PROGRESS"><span class="hs-pragma hs-type">ValidationStatus_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_PENDING"><span class="hs-pragma hs-type">ValidationStatus_PENDING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_READY_FOR_VALIDATION"><span class="hs-pragma hs-type">ValidationStatus_READY_FOR_VALIDATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus_SUCCEEDED"><span class="hs-pragma hs-type">ValidationStatus_SUCCEEDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SMS.Types.ValidationStatus.html#ValidationStatus%27"><span class="hs-pragma hs-type">ValidationStatus'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

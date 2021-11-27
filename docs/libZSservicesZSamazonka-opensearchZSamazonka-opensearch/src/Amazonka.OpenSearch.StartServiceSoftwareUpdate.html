@@ -1,0 +1,456 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.OpenSearch.StartServiceSoftwareUpdate</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Schedules a service software update for an Amazon OpenSearch Service</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- domain.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpenSearch.StartServiceSoftwareUpdate</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier">StartServiceSoftwareUpdate</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#newStartServiceSoftwareUpdate"><span class="hs-identifier">newStartServiceSoftwareUpdate</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdate_domainName"><span class="hs-identifier">startServiceSoftwareUpdate_domainName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier">StartServiceSoftwareUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#newStartServiceSoftwareUpdateResponse"><span class="hs-identifier">newStartServiceSoftwareUpdateResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdateResponse_serviceSoftwareOptions"><span class="hs-identifier">startServiceSoftwareUpdateResponse_serviceSoftwareOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdateResponse_httpStatus"><span class="hs-identifier">startServiceSoftwareUpdateResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.html"><span class="hs-identifier">Amazonka.OpenSearch.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | Container for the parameters to the @ StartServiceSoftwareUpdate @</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- operation. Specifies the name of the domain to schedule a service</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- software update for.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newStartServiceSoftwareUpdate' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679310709"><span id="local-6989586621679310710"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartServiceSoftwareUpdate"><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-var">StartServiceSoftwareUpdate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartServiceSoftwareUpdate%27"><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate%27"><span class="hs-identifier hs-var">StartServiceSoftwareUpdate'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the domain that you want to update to the latest service</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- software.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdomainName%3AStartServiceSoftwareUpdate%27"><span class="annot"><span class="annottext">StartServiceSoftwareUpdate -&gt; Text
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AdomainName%3AStartServiceSoftwareUpdate%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310703"><span id="local-6989586621679310705"><span class="annot"><span class="annottext">StartServiceSoftwareUpdate -&gt; StartServiceSoftwareUpdate -&gt; Bool
+(StartServiceSoftwareUpdate -&gt; StartServiceSoftwareUpdate -&gt; Bool)
+-&gt; (StartServiceSoftwareUpdate
+    -&gt; StartServiceSoftwareUpdate -&gt; Bool)
+-&gt; Eq StartServiceSoftwareUpdate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartServiceSoftwareUpdate -&gt; StartServiceSoftwareUpdate -&gt; Bool
+$c/= :: StartServiceSoftwareUpdate -&gt; StartServiceSoftwareUpdate -&gt; Bool
+== :: StartServiceSoftwareUpdate -&gt; StartServiceSoftwareUpdate -&gt; Bool
+$c== :: StartServiceSoftwareUpdate -&gt; StartServiceSoftwareUpdate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310694"><span id="local-6989586621679310696"><span id="local-6989586621679310698"><span id="local-6989586621679310700"><span class="annot"><span class="annottext">ReadPrec [StartServiceSoftwareUpdate]
+ReadPrec StartServiceSoftwareUpdate
+Int -&gt; ReadS StartServiceSoftwareUpdate
+ReadS [StartServiceSoftwareUpdate]
+(Int -&gt; ReadS StartServiceSoftwareUpdate)
+-&gt; ReadS [StartServiceSoftwareUpdate]
+-&gt; ReadPrec StartServiceSoftwareUpdate
+-&gt; ReadPrec [StartServiceSoftwareUpdate]
+-&gt; Read StartServiceSoftwareUpdate
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartServiceSoftwareUpdate]
+$creadListPrec :: ReadPrec [StartServiceSoftwareUpdate]
+readPrec :: ReadPrec StartServiceSoftwareUpdate
+$creadPrec :: ReadPrec StartServiceSoftwareUpdate
+readList :: ReadS [StartServiceSoftwareUpdate]
+$creadList :: ReadS [StartServiceSoftwareUpdate]
+readsPrec :: Int -&gt; ReadS StartServiceSoftwareUpdate
+$creadsPrec :: Int -&gt; ReadS StartServiceSoftwareUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310687"><span id="local-6989586621679310689"><span id="local-6989586621679310691"><span class="annot"><span class="annottext">Int -&gt; StartServiceSoftwareUpdate -&gt; ShowS
+[StartServiceSoftwareUpdate] -&gt; ShowS
+StartServiceSoftwareUpdate -&gt; String
+(Int -&gt; StartServiceSoftwareUpdate -&gt; ShowS)
+-&gt; (StartServiceSoftwareUpdate -&gt; String)
+-&gt; ([StartServiceSoftwareUpdate] -&gt; ShowS)
+-&gt; Show StartServiceSoftwareUpdate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartServiceSoftwareUpdate] -&gt; ShowS
+$cshowList :: [StartServiceSoftwareUpdate] -&gt; ShowS
+show :: StartServiceSoftwareUpdate -&gt; String
+$cshow :: StartServiceSoftwareUpdate -&gt; String
+showsPrec :: Int -&gt; StartServiceSoftwareUpdate -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartServiceSoftwareUpdate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartServiceSoftwareUpdate -&gt; Rep StartServiceSoftwareUpdate x)
+-&gt; (forall x.
+    Rep StartServiceSoftwareUpdate x -&gt; StartServiceSoftwareUpdate)
+-&gt; Generic StartServiceSoftwareUpdate
+forall x.
+Rep StartServiceSoftwareUpdate x -&gt; StartServiceSoftwareUpdate
+forall x.
+StartServiceSoftwareUpdate -&gt; Rep StartServiceSoftwareUpdate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartServiceSoftwareUpdate x -&gt; StartServiceSoftwareUpdate
+$cfrom :: forall x.
+StartServiceSoftwareUpdate -&gt; Rep StartServiceSoftwareUpdate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'StartServiceSoftwareUpdate' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'domainName', 'startServiceSoftwareUpdate_domainName' - The name of the domain that you want to update to the latest service</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- software.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#newStartServiceSoftwareUpdate"><span class="hs-identifier hs-type">newStartServiceSoftwareUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span>
+</span><span id="line-76"></span><span id="newStartServiceSoftwareUpdate"><span class="annot"><span class="annottext">newStartServiceSoftwareUpdate :: Text -&gt; StartServiceSoftwareUpdate
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#newStartServiceSoftwareUpdate"><span class="hs-identifier hs-var hs-var">newStartServiceSoftwareUpdate</span></a></span></span><span> </span><span id="local-6989586621679310682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310682"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">StartServiceSoftwareUpdate' :: Text -&gt; StartServiceSoftwareUpdate
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domainName:StartServiceSoftwareUpdate' :: Text
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AdomainName%3AStartServiceSoftwareUpdate%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310682"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The name of the domain that you want to update to the latest service</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- software.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdate_domainName"><span class="hs-identifier hs-type">startServiceSoftwareUpdate_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-85"></span><span id="startServiceSoftwareUpdate_domainName"><span class="annot"><span class="annottext">startServiceSoftwareUpdate_domainName :: (Text -&gt; f Text)
+-&gt; StartServiceSoftwareUpdate -&gt; f StartServiceSoftwareUpdate
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdate_domainName"><span class="hs-identifier hs-var hs-var">startServiceSoftwareUpdate_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartServiceSoftwareUpdate -&gt; Text)
+-&gt; (StartServiceSoftwareUpdate
+    -&gt; Text -&gt; StartServiceSoftwareUpdate)
+-&gt; Lens
+     StartServiceSoftwareUpdate StartServiceSoftwareUpdate Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310679"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:StartServiceSoftwareUpdate' :: StartServiceSoftwareUpdate -&gt; Text
+</span><a href="#local-6989586621679310679"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310679"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310678"><span class="annot"><span class="annottext">s :: StartServiceSoftwareUpdate
+</span><a href="#local-6989586621679310678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310677"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartServiceSoftwareUpdate
+</span><a href="#local-6989586621679310678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:StartServiceSoftwareUpdate' :: Text
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AdomainName%3AStartServiceSoftwareUpdate%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-89"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse</span></a></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679310673"><span class="annot"><span class="annottext">request :: StartServiceSoftwareUpdate -&gt; Request StartServiceSoftwareUpdate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartServiceSoftwareUpdate -&gt; Request StartServiceSoftwareUpdate
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.OpenSearch.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679310669"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartServiceSoftwareUpdate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartServiceSoftwareUpdate)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartServiceSoftwareUpdate))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartServiceSoftwareUpdate
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartServiceSoftwareUpdate)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679310666"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310666"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679310665"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679310665"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679310664"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310664"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Maybe ServiceSoftwareOptions
+-&gt; Int -&gt; StartServiceSoftwareUpdateResponse
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var">StartServiceSoftwareUpdateResponse'</span></a></span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ServiceSoftwareOptions
+ -&gt; Int -&gt; StartServiceSoftwareUpdateResponse)
+-&gt; Either String (Maybe ServiceSoftwareOptions)
+-&gt; Either String (Int -&gt; StartServiceSoftwareUpdateResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679310664"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ServiceSoftwareOptions)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceSoftwareOptions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartServiceSoftwareUpdateResponse)
+-&gt; Either String Int
+-&gt; Either String StartServiceSoftwareUpdateResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310666"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310656"><span id="local-6989586621679310658"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310653"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679310649"><span class="annot"><span class="annottext">toHeaders :: StartServiceSoftwareUpdate -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartServiceSoftwareUpdate -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679310640"><span id="local-6989586621679310642"><span id="local-6989586621679310644"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679310638"><span class="annot"><span class="annottext">toJSON :: StartServiceSoftwareUpdate -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310636"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:StartServiceSoftwareUpdate' :: StartServiceSoftwareUpdate -&gt; Text
+</span><a href="#local-6989586621679310636"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679310636"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679310630"><span class="annot"><span class="annottext">toPath :: StartServiceSoftwareUpdate -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="annottext">ByteString -&gt; StartServiceSoftwareUpdate -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-117"></span><span>      </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2021-01-01/opensearch/serviceSoftwareUpdate/start&quot;</span></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdate"><span class="hs-identifier hs-type">StartServiceSoftwareUpdate</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679310626"><span class="annot"><span class="annottext">toQuery :: StartServiceSoftwareUpdate -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartServiceSoftwareUpdate -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | The result of a @StartServiceSoftwareUpdate@ operation. Contains the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- status of the update.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- /See:/ 'newStartServiceSoftwareUpdateResponse' smart constructor.</span><span>
+</span><span id="line-126"></span><span id="local-6989586621679310623"><span id="local-6989586621679310624"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartServiceSoftwareUpdateResponse"><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-var">StartServiceSoftwareUpdateResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartServiceSoftwareUpdateResponse%27"><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var">StartServiceSoftwareUpdateResponse'</span></a></span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The current status of the OpenSearch service software update.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AserviceSoftwareOptions%3AStartServiceSoftwareUpdateResponse%27"><span class="annot"><span class="annottext">StartServiceSoftwareUpdateResponse -&gt; Maybe ServiceSoftwareOptions
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AserviceSoftwareOptions%3AStartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var hs-var">serviceSoftwareOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.ServiceSoftwareOptions.html#ServiceSoftwareOptions"><span class="hs-identifier hs-type">ServiceSoftwareOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-130"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartServiceSoftwareUpdateResponse%27"><span class="annot"><span class="annottext">StartServiceSoftwareUpdateResponse -&gt; Int
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AhttpStatus%3AStartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-131"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679310617"><span id="local-6989586621679310619"><span class="annot"><span class="annottext">StartServiceSoftwareUpdateResponse
+-&gt; StartServiceSoftwareUpdateResponse -&gt; Bool
+(StartServiceSoftwareUpdateResponse
+ -&gt; StartServiceSoftwareUpdateResponse -&gt; Bool)
+-&gt; (StartServiceSoftwareUpdateResponse
+    -&gt; StartServiceSoftwareUpdateResponse -&gt; Bool)
+-&gt; Eq StartServiceSoftwareUpdateResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartServiceSoftwareUpdateResponse
+-&gt; StartServiceSoftwareUpdateResponse -&gt; Bool
+$c/= :: StartServiceSoftwareUpdateResponse
+-&gt; StartServiceSoftwareUpdateResponse -&gt; Bool
+== :: StartServiceSoftwareUpdateResponse
+-&gt; StartServiceSoftwareUpdateResponse -&gt; Bool
+$c== :: StartServiceSoftwareUpdateResponse
+-&gt; StartServiceSoftwareUpdateResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310609"><span id="local-6989586621679310611"><span id="local-6989586621679310613"><span id="local-6989586621679310615"><span class="annot"><span class="annottext">ReadPrec [StartServiceSoftwareUpdateResponse]
+ReadPrec StartServiceSoftwareUpdateResponse
+Int -&gt; ReadS StartServiceSoftwareUpdateResponse
+ReadS [StartServiceSoftwareUpdateResponse]
+(Int -&gt; ReadS StartServiceSoftwareUpdateResponse)
+-&gt; ReadS [StartServiceSoftwareUpdateResponse]
+-&gt; ReadPrec StartServiceSoftwareUpdateResponse
+-&gt; ReadPrec [StartServiceSoftwareUpdateResponse]
+-&gt; Read StartServiceSoftwareUpdateResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartServiceSoftwareUpdateResponse]
+$creadListPrec :: ReadPrec [StartServiceSoftwareUpdateResponse]
+readPrec :: ReadPrec StartServiceSoftwareUpdateResponse
+$creadPrec :: ReadPrec StartServiceSoftwareUpdateResponse
+readList :: ReadS [StartServiceSoftwareUpdateResponse]
+$creadList :: ReadS [StartServiceSoftwareUpdateResponse]
+readsPrec :: Int -&gt; ReadS StartServiceSoftwareUpdateResponse
+$creadsPrec :: Int -&gt; ReadS StartServiceSoftwareUpdateResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679310603"><span id="local-6989586621679310605"><span id="local-6989586621679310607"><span class="annot"><span class="annottext">Int -&gt; StartServiceSoftwareUpdateResponse -&gt; ShowS
+[StartServiceSoftwareUpdateResponse] -&gt; ShowS
+StartServiceSoftwareUpdateResponse -&gt; String
+(Int -&gt; StartServiceSoftwareUpdateResponse -&gt; ShowS)
+-&gt; (StartServiceSoftwareUpdateResponse -&gt; String)
+-&gt; ([StartServiceSoftwareUpdateResponse] -&gt; ShowS)
+-&gt; Show StartServiceSoftwareUpdateResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartServiceSoftwareUpdateResponse] -&gt; ShowS
+$cshowList :: [StartServiceSoftwareUpdateResponse] -&gt; ShowS
+show :: StartServiceSoftwareUpdateResponse -&gt; String
+$cshow :: StartServiceSoftwareUpdateResponse -&gt; String
+showsPrec :: Int -&gt; StartServiceSoftwareUpdateResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartServiceSoftwareUpdateResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartServiceSoftwareUpdateResponse
+ -&gt; Rep StartServiceSoftwareUpdateResponse x)
+-&gt; (forall x.
+    Rep StartServiceSoftwareUpdateResponse x
+    -&gt; StartServiceSoftwareUpdateResponse)
+-&gt; Generic StartServiceSoftwareUpdateResponse
+forall x.
+Rep StartServiceSoftwareUpdateResponse x
+-&gt; StartServiceSoftwareUpdateResponse
+forall x.
+StartServiceSoftwareUpdateResponse
+-&gt; Rep StartServiceSoftwareUpdateResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartServiceSoftwareUpdateResponse x
+-&gt; StartServiceSoftwareUpdateResponse
+$cfrom :: forall x.
+StartServiceSoftwareUpdateResponse
+-&gt; Rep StartServiceSoftwareUpdateResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Create a value of 'StartServiceSoftwareUpdateResponse' with all optional fields omitted.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'serviceSoftwareOptions', 'startServiceSoftwareUpdateResponse_serviceSoftwareOptions' - The current status of the OpenSearch service software update.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- 'httpStatus', 'startServiceSoftwareUpdateResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#newStartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">newStartServiceSoftwareUpdateResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse</span></a></span><span>
+</span><span id="line-149"></span><span id="newStartServiceSoftwareUpdateResponse"><span class="annot"><span class="annottext">newStartServiceSoftwareUpdateResponse :: Int -&gt; StartServiceSoftwareUpdateResponse
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#newStartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-var hs-var">newStartServiceSoftwareUpdateResponse</span></a></span></span><span> </span><span id="local-6989586621679310600"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310600"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">StartServiceSoftwareUpdateResponse' :: Maybe ServiceSoftwareOptions
+-&gt; Int -&gt; StartServiceSoftwareUpdateResponse
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:serviceSoftwareOptions:StartServiceSoftwareUpdateResponse' :: Maybe ServiceSoftwareOptions
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AserviceSoftwareOptions%3AStartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var">serviceSoftwareOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Maybe ServiceSoftwareOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartServiceSoftwareUpdateResponse' :: Int
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AhttpStatus%3AStartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310600"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The current status of the OpenSearch service software update.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdateResponse_serviceSoftwareOptions"><span class="hs-identifier hs-type">startServiceSoftwareUpdateResponse_serviceSoftwareOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.ServiceSoftwareOptions.html#ServiceSoftwareOptions"><span class="hs-identifier hs-type">ServiceSoftwareOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="startServiceSoftwareUpdateResponse_serviceSoftwareOptions"><span class="annot"><span class="annottext">startServiceSoftwareUpdateResponse_serviceSoftwareOptions :: (Maybe ServiceSoftwareOptions -&gt; f (Maybe ServiceSoftwareOptions))
+-&gt; StartServiceSoftwareUpdateResponse
+-&gt; f StartServiceSoftwareUpdateResponse
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdateResponse_serviceSoftwareOptions"><span class="hs-identifier hs-var hs-var">startServiceSoftwareUpdateResponse_serviceSoftwareOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartServiceSoftwareUpdateResponse
+ -&gt; Maybe ServiceSoftwareOptions)
+-&gt; (StartServiceSoftwareUpdateResponse
+    -&gt; Maybe ServiceSoftwareOptions
+    -&gt; StartServiceSoftwareUpdateResponse)
+-&gt; Lens
+     StartServiceSoftwareUpdateResponse
+     StartServiceSoftwareUpdateResponse
+     (Maybe ServiceSoftwareOptions)
+     (Maybe ServiceSoftwareOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310599"><span class="annot"><span class="annottext">Maybe ServiceSoftwareOptions
+serviceSoftwareOptions :: Maybe ServiceSoftwareOptions
+$sel:serviceSoftwareOptions:StartServiceSoftwareUpdateResponse' :: StartServiceSoftwareUpdateResponse -&gt; Maybe ServiceSoftwareOptions
+</span><a href="#local-6989586621679310599"><span class="hs-identifier hs-var hs-var">serviceSoftwareOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSoftwareOptions
+</span><a href="#local-6989586621679310599"><span class="hs-identifier hs-var">serviceSoftwareOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310598"><span class="annot"><span class="annottext">s :: StartServiceSoftwareUpdateResponse
+</span><a href="#local-6989586621679310598"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310597"><span class="annot"><span class="annottext">Maybe ServiceSoftwareOptions
+</span><a href="#local-6989586621679310597"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartServiceSoftwareUpdateResponse
+</span><a href="#local-6989586621679310598"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceSoftwareOptions:StartServiceSoftwareUpdateResponse' :: Maybe ServiceSoftwareOptions
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AserviceSoftwareOptions%3AStartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var">serviceSoftwareOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceSoftwareOptions
+</span><a href="#local-6989586621679310597"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdateResponse_httpStatus"><span class="hs-identifier hs-type">startServiceSoftwareUpdateResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-162"></span><span id="startServiceSoftwareUpdateResponse_httpStatus"><span class="annot"><span class="annottext">startServiceSoftwareUpdateResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartServiceSoftwareUpdateResponse
+-&gt; f StartServiceSoftwareUpdateResponse
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#startServiceSoftwareUpdateResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startServiceSoftwareUpdateResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartServiceSoftwareUpdateResponse -&gt; Int)
+-&gt; (StartServiceSoftwareUpdateResponse
+    -&gt; Int -&gt; StartServiceSoftwareUpdateResponse)
+-&gt; Lens
+     StartServiceSoftwareUpdateResponse
+     StartServiceSoftwareUpdateResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679310596"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartServiceSoftwareUpdateResponse' :: StartServiceSoftwareUpdateResponse -&gt; Int
+</span><a href="#local-6989586621679310596"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310596"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679310595"><span class="annot"><span class="annottext">s :: StartServiceSoftwareUpdateResponse
+</span><a href="#local-6989586621679310595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679310594"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartServiceSoftwareUpdateResponse
+</span><a href="#local-6989586621679310595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartServiceSoftwareUpdateResponse' :: Int
+</span><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#%24sel%3AhttpStatus%3AStartServiceSoftwareUpdateResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679310594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621679310592"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.OpenSearch.StartServiceSoftwareUpdate.html#StartServiceSoftwareUpdateResponse"><span class="hs-identifier hs-type">StartServiceSoftwareUpdateResponse</span></a></span></span><span>
+</span><span id="line-167"></span></pre></body></html>

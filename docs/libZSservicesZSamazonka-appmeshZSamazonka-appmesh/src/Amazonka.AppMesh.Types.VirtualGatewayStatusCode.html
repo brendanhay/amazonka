@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.Types.VirtualGatewayStatusCode</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.Types.VirtualGatewayStatusCode</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode"><span class="hs-identifier">VirtualGatewayStatusCode</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_ACTIVE"><span class="hs-identifier">VirtualGatewayStatusCode_ACTIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_DELETED"><span class="hs-identifier">VirtualGatewayStatusCode_DELETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_INACTIVE"><span class="hs-identifier">VirtualGatewayStatusCode_INACTIVE</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679336584"><span id="local-6989586621679336585"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="VirtualGatewayStatusCode"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode"><span class="hs-identifier hs-var">VirtualGatewayStatusCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VirtualGatewayStatusCode%27"><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode%27"><span class="hs-identifier hs-var">VirtualGatewayStatusCode'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVirtualGatewayStatusCode"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; Text
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#fromVirtualGatewayStatusCode"><span class="hs-identifier hs-var hs-var">fromVirtualGatewayStatusCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679336576"><span id="local-6989586621679336578"><span id="local-6989586621679336580"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayStatusCode -&gt; ShowS
+[VirtualGatewayStatusCode] -&gt; ShowS
+VirtualGatewayStatusCode -&gt; String
+(Int -&gt; VirtualGatewayStatusCode -&gt; ShowS)
+-&gt; (VirtualGatewayStatusCode -&gt; String)
+-&gt; ([VirtualGatewayStatusCode] -&gt; ShowS)
+-&gt; Show VirtualGatewayStatusCode
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VirtualGatewayStatusCode] -&gt; ShowS
+$cshowList :: [VirtualGatewayStatusCode] -&gt; ShowS
+show :: VirtualGatewayStatusCode -&gt; String
+$cshow :: VirtualGatewayStatusCode -&gt; String
+showsPrec :: Int -&gt; VirtualGatewayStatusCode -&gt; ShowS
+$cshowsPrec :: Int -&gt; VirtualGatewayStatusCode -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679336567"><span id="local-6989586621679336569"><span id="local-6989586621679336571"><span id="local-6989586621679336573"><span class="annot"><span class="annottext">ReadPrec [VirtualGatewayStatusCode]
+ReadPrec VirtualGatewayStatusCode
+Int -&gt; ReadS VirtualGatewayStatusCode
+ReadS [VirtualGatewayStatusCode]
+(Int -&gt; ReadS VirtualGatewayStatusCode)
+-&gt; ReadS [VirtualGatewayStatusCode]
+-&gt; ReadPrec VirtualGatewayStatusCode
+-&gt; ReadPrec [VirtualGatewayStatusCode]
+-&gt; Read VirtualGatewayStatusCode
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VirtualGatewayStatusCode]
+$creadListPrec :: ReadPrec [VirtualGatewayStatusCode]
+readPrec :: ReadPrec VirtualGatewayStatusCode
+$creadPrec :: ReadPrec VirtualGatewayStatusCode
+readList :: ReadS [VirtualGatewayStatusCode]
+$creadList :: ReadS [VirtualGatewayStatusCode]
+readsPrec :: Int -&gt; ReadS VirtualGatewayStatusCode
+$creadsPrec :: Int -&gt; ReadS VirtualGatewayStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679336562"><span id="local-6989586621679336564"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+(VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool)
+-&gt; (VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool)
+-&gt; Eq VirtualGatewayStatusCode
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+$c/= :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+== :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+$c== :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679336546"><span id="local-6989586621679336548"><span id="local-6989586621679336550"><span id="local-6989586621679336552"><span id="local-6989586621679336554"><span id="local-6989586621679336556"><span id="local-6989586621679336558"><span class="annot"><span class="annottext">Eq VirtualGatewayStatusCode
+Eq VirtualGatewayStatusCode
+-&gt; (VirtualGatewayStatusCode
+    -&gt; VirtualGatewayStatusCode -&gt; Ordering)
+-&gt; (VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool)
+-&gt; (VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool)
+-&gt; (VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool)
+-&gt; (VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool)
+-&gt; (VirtualGatewayStatusCode
+    -&gt; VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode)
+-&gt; (VirtualGatewayStatusCode
+    -&gt; VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode)
+-&gt; Ord VirtualGatewayStatusCode
+VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Ordering
+VirtualGatewayStatusCode
+-&gt; VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: VirtualGatewayStatusCode
+-&gt; VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode
+$cmin :: VirtualGatewayStatusCode
+-&gt; VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode
+max :: VirtualGatewayStatusCode
+-&gt; VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode
+$cmax :: VirtualGatewayStatusCode
+-&gt; VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode
+&gt;= :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+$c&gt;= :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+&gt; :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+$c&gt; :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+&lt;= :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+$c&lt;= :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+&lt; :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+$c&lt; :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Bool
+compare :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Ordering
+$ccompare :: VirtualGatewayStatusCode -&gt; VirtualGatewayStatusCode -&gt; Ordering
+$cp1Ord :: Eq VirtualGatewayStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ VirtualGatewayStatusCode -&gt; Rep VirtualGatewayStatusCode x)
+-&gt; (forall x.
+    Rep VirtualGatewayStatusCode x -&gt; VirtualGatewayStatusCode)
+-&gt; Generic VirtualGatewayStatusCode
+forall x.
+Rep VirtualGatewayStatusCode x -&gt; VirtualGatewayStatusCode
+forall x.
+VirtualGatewayStatusCode -&gt; Rep VirtualGatewayStatusCode x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VirtualGatewayStatusCode x -&gt; VirtualGatewayStatusCode
+$cfrom :: forall x.
+VirtualGatewayStatusCode -&gt; Rep VirtualGatewayStatusCode x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679336538"><span id="local-6989586621679336540"><span class="annot"><span class="annottext">Int -&gt; VirtualGatewayStatusCode -&gt; Int
+VirtualGatewayStatusCode -&gt; Int
+(Int -&gt; VirtualGatewayStatusCode -&gt; Int)
+-&gt; (VirtualGatewayStatusCode -&gt; Int)
+-&gt; Hashable VirtualGatewayStatusCode
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: VirtualGatewayStatusCode -&gt; Int
+$chash :: VirtualGatewayStatusCode -&gt; Int
+hashWithSalt :: Int -&gt; VirtualGatewayStatusCode -&gt; Int
+$chashWithSalt :: Int -&gt; VirtualGatewayStatusCode -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679336535"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; ()
+(VirtualGatewayStatusCode -&gt; ()) -&gt; NFData VirtualGatewayStatusCode
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: VirtualGatewayStatusCode -&gt; ()
+$crnf :: VirtualGatewayStatusCode -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679336532"><span class="annot"><span class="annottext">Text -&gt; Either String VirtualGatewayStatusCode
+(Text -&gt; Either String VirtualGatewayStatusCode)
+-&gt; FromText VirtualGatewayStatusCode
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String VirtualGatewayStatusCode
+$cfromText :: Text -&gt; Either String VirtualGatewayStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679336529"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; Text
+(VirtualGatewayStatusCode -&gt; Text)
+-&gt; ToText VirtualGatewayStatusCode
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: VirtualGatewayStatusCode -&gt; Text
+$ctoText :: VirtualGatewayStatusCode -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679336526"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; ByteString
+(VirtualGatewayStatusCode -&gt; ByteString)
+-&gt; ToByteString VirtualGatewayStatusCode
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: VirtualGatewayStatusCode -&gt; ByteString
+$ctoBS :: VirtualGatewayStatusCode -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679336523"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; ByteStringBuilder
+(VirtualGatewayStatusCode -&gt; ByteStringBuilder)
+-&gt; ToLog VirtualGatewayStatusCode
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: VirtualGatewayStatusCode -&gt; ByteStringBuilder
+$cbuild :: VirtualGatewayStatusCode -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679336520"><span class="annot"><span class="annottext">HeaderName -&gt; VirtualGatewayStatusCode -&gt; [Header]
+(HeaderName -&gt; VirtualGatewayStatusCode -&gt; [Header])
+-&gt; ToHeader VirtualGatewayStatusCode
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; VirtualGatewayStatusCode -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; VirtualGatewayStatusCode -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679336517"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; QueryString
+(VirtualGatewayStatusCode -&gt; QueryString)
+-&gt; ToQuery VirtualGatewayStatusCode
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: VirtualGatewayStatusCode -&gt; QueryString
+$ctoQuery :: VirtualGatewayStatusCode -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679336512"><span id="local-6989586621679336514"><span class="annot"><span class="annottext">Value -&gt; Parser [VirtualGatewayStatusCode]
+Value -&gt; Parser VirtualGatewayStatusCode
+(Value -&gt; Parser VirtualGatewayStatusCode)
+-&gt; (Value -&gt; Parser [VirtualGatewayStatusCode])
+-&gt; FromJSON VirtualGatewayStatusCode
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [VirtualGatewayStatusCode]
+$cparseJSONList :: Value -&gt; Parser [VirtualGatewayStatusCode]
+parseJSON :: Value -&gt; Parser VirtualGatewayStatusCode
+$cparseJSON :: Value -&gt; Parser VirtualGatewayStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679336507"><span id="local-6989586621679336509"><span class="annot"><span class="annottext">FromJSONKeyFunction [VirtualGatewayStatusCode]
+FromJSONKeyFunction VirtualGatewayStatusCode
+FromJSONKeyFunction VirtualGatewayStatusCode
+-&gt; FromJSONKeyFunction [VirtualGatewayStatusCode]
+-&gt; FromJSONKey VirtualGatewayStatusCode
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [VirtualGatewayStatusCode]
+$cfromJSONKeyList :: FromJSONKeyFunction [VirtualGatewayStatusCode]
+fromJSONKey :: FromJSONKeyFunction VirtualGatewayStatusCode
+$cfromJSONKey :: FromJSONKeyFunction VirtualGatewayStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679336498"><span id="local-6989586621679336500"><span id="local-6989586621679336502"><span id="local-6989586621679336504"><span class="annot"><span class="annottext">[VirtualGatewayStatusCode] -&gt; Encoding
+[VirtualGatewayStatusCode] -&gt; Value
+VirtualGatewayStatusCode -&gt; Encoding
+VirtualGatewayStatusCode -&gt; Value
+(VirtualGatewayStatusCode -&gt; Value)
+-&gt; (VirtualGatewayStatusCode -&gt; Encoding)
+-&gt; ([VirtualGatewayStatusCode] -&gt; Value)
+-&gt; ([VirtualGatewayStatusCode] -&gt; Encoding)
+-&gt; ToJSON VirtualGatewayStatusCode
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [VirtualGatewayStatusCode] -&gt; Encoding
+$ctoEncodingList :: [VirtualGatewayStatusCode] -&gt; Encoding
+toJSONList :: [VirtualGatewayStatusCode] -&gt; Value
+$ctoJSONList :: [VirtualGatewayStatusCode] -&gt; Value
+toEncoding :: VirtualGatewayStatusCode -&gt; Encoding
+$ctoEncoding :: VirtualGatewayStatusCode -&gt; Encoding
+toJSON :: VirtualGatewayStatusCode -&gt; Value
+$ctoJSON :: VirtualGatewayStatusCode -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679336493"><span id="local-6989586621679336495"><span class="annot"><span class="annottext">ToJSONKeyFunction [VirtualGatewayStatusCode]
+ToJSONKeyFunction VirtualGatewayStatusCode
+ToJSONKeyFunction VirtualGatewayStatusCode
+-&gt; ToJSONKeyFunction [VirtualGatewayStatusCode]
+-&gt; ToJSONKey VirtualGatewayStatusCode
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [VirtualGatewayStatusCode]
+$ctoJSONKeyList :: ToJSONKeyFunction [VirtualGatewayStatusCode]
+toJSONKey :: ToJSONKeyFunction VirtualGatewayStatusCode
+$ctoJSONKey :: ToJSONKeyFunction VirtualGatewayStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679336490"><span class="annot"><span class="annottext">[Node] -&gt; Either String VirtualGatewayStatusCode
+([Node] -&gt; Either String VirtualGatewayStatusCode)
+-&gt; FromXML VirtualGatewayStatusCode
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String VirtualGatewayStatusCode
+$cparseXML :: [Node] -&gt; Either String VirtualGatewayStatusCode
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679336487"><span class="annot"><span class="annottext">VirtualGatewayStatusCode -&gt; XML
+(VirtualGatewayStatusCode -&gt; XML) -&gt; ToXML VirtualGatewayStatusCode
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: VirtualGatewayStatusCode -&gt; XML
+$ctoXML :: VirtualGatewayStatusCode -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_ACTIVE"><span class="hs-identifier hs-type">VirtualGatewayStatusCode_ACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode"><span class="hs-identifier hs-type">VirtualGatewayStatusCode</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayStatusCode_ACTIVE"><span id="%24mVirtualGatewayStatusCode_ACTIVE"><span id="VirtualGatewayStatusCode_ACTIVE"><span class="annot"><span class="annottext">$bVirtualGatewayStatusCode_ACTIVE :: VirtualGatewayStatusCode
+$mVirtualGatewayStatusCode_ACTIVE :: forall r.
+VirtualGatewayStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#%24bVirtualGatewayStatusCode_ACTIVE"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayStatusCode_ACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode%27"><span class="hs-identifier hs-type">VirtualGatewayStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACTIVE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_DELETED"><span class="hs-identifier hs-type">VirtualGatewayStatusCode_DELETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode"><span class="hs-identifier hs-type">VirtualGatewayStatusCode</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayStatusCode_DELETED"><span id="%24mVirtualGatewayStatusCode_DELETED"><span id="VirtualGatewayStatusCode_DELETED"><span class="annot"><span class="annottext">$bVirtualGatewayStatusCode_DELETED :: VirtualGatewayStatusCode
+$mVirtualGatewayStatusCode_DELETED :: forall r.
+VirtualGatewayStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#%24bVirtualGatewayStatusCode_DELETED"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayStatusCode_DELETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode%27"><span class="hs-identifier hs-type">VirtualGatewayStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DELETED&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_INACTIVE"><span class="hs-identifier hs-type">VirtualGatewayStatusCode_INACTIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode"><span class="hs-identifier hs-type">VirtualGatewayStatusCode</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVirtualGatewayStatusCode_INACTIVE"><span id="%24mVirtualGatewayStatusCode_INACTIVE"><span id="VirtualGatewayStatusCode_INACTIVE"><span class="annot"><span class="annottext">$bVirtualGatewayStatusCode_INACTIVE :: VirtualGatewayStatusCode
+$mVirtualGatewayStatusCode_INACTIVE :: forall r.
+VirtualGatewayStatusCode -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#%24bVirtualGatewayStatusCode_INACTIVE"><span class="hs-identifier hs-var hs-var hs-var">VirtualGatewayStatusCode_INACTIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode%27"><span class="hs-identifier hs-type">VirtualGatewayStatusCode'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INACTIVE&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_ACTIVE"><span class="hs-pragma hs-type">VirtualGatewayStatusCode_ACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_DELETED"><span class="hs-pragma hs-type">VirtualGatewayStatusCode_DELETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode_INACTIVE"><span class="hs-pragma hs-type">VirtualGatewayStatusCode_INACTIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.VirtualGatewayStatusCode.html#VirtualGatewayStatusCode%27"><span class="hs-pragma hs-type">VirtualGatewayStatusCode'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

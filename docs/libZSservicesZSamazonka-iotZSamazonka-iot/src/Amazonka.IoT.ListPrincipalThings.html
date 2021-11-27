@@ -1,0 +1,672 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.IoT.ListPrincipalThings</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the things associated with the specified principal. A principal</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- can be X.509 certificates, IAM users, groups, and roles, Amazon Cognito</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- identities or federated identities.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Requires permission to access the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions ListPrincipalThings&gt;</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.ListPrincipalThings</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier">ListPrincipalThings</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#newListPrincipalThings"><span class="hs-identifier">newListPrincipalThings</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_nextToken"><span class="hs-identifier">listPrincipalThings_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_maxResults"><span class="hs-identifier">listPrincipalThings_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_principal"><span class="hs-identifier">listPrincipalThings_principal</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier">ListPrincipalThingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#newListPrincipalThingsResponse"><span class="hs-identifier">newListPrincipalThingsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_nextToken"><span class="hs-identifier">listPrincipalThingsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_things"><span class="hs-identifier">listPrincipalThingsResponse_things</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_httpStatus"><span class="hs-identifier">listPrincipalThingsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.html"><span class="hs-identifier">Amazonka.IoT.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The input for the ListPrincipalThings operation.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- /See:/ 'newListPrincipalThings' smart constructor.</span><span>
+</span><span id="line-63"></span><span id="local-6989586621679822046"><span id="local-6989586621679822047"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPrincipalThings"><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-var">ListPrincipalThings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPrincipalThings%27"><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-var">ListPrincipalThings'</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AnextToken%3AListPrincipalThings%27"><span class="annot"><span class="annottext">ListPrincipalThings -&gt; Maybe Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AnextToken%3AListPrincipalThings%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to return in this operation.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AListPrincipalThings%27"><span class="annot"><span class="annottext">ListPrincipalThings -&gt; Maybe Natural
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AmaxResults%3AListPrincipalThings%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The principal.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aprincipal%3AListPrincipalThings%27"><span class="annot"><span class="annottext">ListPrincipalThings -&gt; Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3Aprincipal%3AListPrincipalThings%27"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679822038"><span id="local-6989586621679822040"><span class="annot"><span class="annottext">ListPrincipalThings -&gt; ListPrincipalThings -&gt; Bool
+(ListPrincipalThings -&gt; ListPrincipalThings -&gt; Bool)
+-&gt; (ListPrincipalThings -&gt; ListPrincipalThings -&gt; Bool)
+-&gt; Eq ListPrincipalThings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPrincipalThings -&gt; ListPrincipalThings -&gt; Bool
+$c/= :: ListPrincipalThings -&gt; ListPrincipalThings -&gt; Bool
+== :: ListPrincipalThings -&gt; ListPrincipalThings -&gt; Bool
+$c== :: ListPrincipalThings -&gt; ListPrincipalThings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822029"><span id="local-6989586621679822031"><span id="local-6989586621679822033"><span id="local-6989586621679822035"><span class="annot"><span class="annottext">ReadPrec [ListPrincipalThings]
+ReadPrec ListPrincipalThings
+Int -&gt; ReadS ListPrincipalThings
+ReadS [ListPrincipalThings]
+(Int -&gt; ReadS ListPrincipalThings)
+-&gt; ReadS [ListPrincipalThings]
+-&gt; ReadPrec ListPrincipalThings
+-&gt; ReadPrec [ListPrincipalThings]
+-&gt; Read ListPrincipalThings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPrincipalThings]
+$creadListPrec :: ReadPrec [ListPrincipalThings]
+readPrec :: ReadPrec ListPrincipalThings
+$creadPrec :: ReadPrec ListPrincipalThings
+readList :: ReadS [ListPrincipalThings]
+$creadList :: ReadS [ListPrincipalThings]
+readsPrec :: Int -&gt; ReadS ListPrincipalThings
+$creadsPrec :: Int -&gt; ReadS ListPrincipalThings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679822022"><span id="local-6989586621679822024"><span id="local-6989586621679822026"><span class="annot"><span class="annottext">Int -&gt; ListPrincipalThings -&gt; ShowS
+[ListPrincipalThings] -&gt; ShowS
+ListPrincipalThings -&gt; String
+(Int -&gt; ListPrincipalThings -&gt; ShowS)
+-&gt; (ListPrincipalThings -&gt; String)
+-&gt; ([ListPrincipalThings] -&gt; ShowS)
+-&gt; Show ListPrincipalThings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPrincipalThings] -&gt; ShowS
+$cshowList :: [ListPrincipalThings] -&gt; ShowS
+show :: ListPrincipalThings -&gt; String
+$cshow :: ListPrincipalThings -&gt; String
+showsPrec :: Int -&gt; ListPrincipalThings -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPrincipalThings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListPrincipalThings -&gt; Rep ListPrincipalThings x)
+-&gt; (forall x. Rep ListPrincipalThings x -&gt; ListPrincipalThings)
+-&gt; Generic ListPrincipalThings
+forall x. Rep ListPrincipalThings x -&gt; ListPrincipalThings
+forall x. ListPrincipalThings -&gt; Rep ListPrincipalThings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListPrincipalThings x -&gt; ListPrincipalThings
+$cfrom :: forall x. ListPrincipalThings -&gt; Rep ListPrincipalThings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'ListPrincipalThings' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'nextToken', 'listPrincipalThings_nextToken' - To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'maxResults', 'listPrincipalThings_maxResults' - The maximum number of results to return in this operation.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'principal', 'listPrincipalThings_principal' - The principal.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#newListPrincipalThings"><span class="hs-identifier hs-type">newListPrincipalThings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-comment">-- | 'principal'</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span>
+</span><span id="line-94"></span><span id="newListPrincipalThings"><span class="annot"><span class="annottext">newListPrincipalThings :: Text -&gt; ListPrincipalThings
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#newListPrincipalThings"><span class="hs-identifier hs-var hs-var">newListPrincipalThings</span></a></span></span><span> </span><span id="local-6989586621679822017"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822017"><span class="hs-identifier hs-var">pPrincipal_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ListPrincipalThings' :: Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; ListPrincipalThings
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPrincipalThings' :: Maybe Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AnextToken%3AListPrincipalThings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListPrincipalThings' :: Maybe Natural
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AmaxResults%3AListPrincipalThings%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:principal:ListPrincipalThings' :: Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3Aprincipal%3AListPrincipalThings%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822017"><span class="hs-identifier hs-var">pPrincipal_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | To retrieve the next set of results, the @nextToken@ value from a</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- previous response; otherwise __null__ to receive the first set of</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- results.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_nextToken"><span class="hs-identifier hs-type">listPrincipalThings_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="listPrincipalThings_nextToken"><span class="annot"><span class="annottext">listPrincipalThings_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPrincipalThings -&gt; f ListPrincipalThings
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_nextToken"><span class="hs-identifier hs-var hs-var">listPrincipalThings_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalThings -&gt; Maybe Text)
+-&gt; (ListPrincipalThings -&gt; Maybe Text -&gt; ListPrincipalThings)
+-&gt; Lens
+     ListPrincipalThings ListPrincipalThings (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822015"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPrincipalThings' :: ListPrincipalThings -&gt; Maybe Text
+</span><a href="#local-6989586621679822015"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822015"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822014"><span class="annot"><span class="annottext">s :: ListPrincipalThings
+</span><a href="#local-6989586621679822014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822013"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalThings
+</span><a href="#local-6989586621679822014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPrincipalThings' :: Maybe Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AnextToken%3AListPrincipalThings%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679822013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The maximum number of results to return in this operation.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_maxResults"><span class="hs-identifier hs-type">listPrincipalThings_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="listPrincipalThings_maxResults"><span class="annot"><span class="annottext">listPrincipalThings_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListPrincipalThings -&gt; f ListPrincipalThings
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_maxResults"><span class="hs-identifier hs-var hs-var">listPrincipalThings_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalThings -&gt; Maybe Natural)
+-&gt; (ListPrincipalThings -&gt; Maybe Natural -&gt; ListPrincipalThings)
+-&gt; Lens
+     ListPrincipalThings
+     ListPrincipalThings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822012"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListPrincipalThings' :: ListPrincipalThings -&gt; Maybe Natural
+</span><a href="#local-6989586621679822012"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679822012"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822011"><span class="annot"><span class="annottext">s :: ListPrincipalThings
+</span><a href="#local-6989586621679822011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822010"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679822010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalThings
+</span><a href="#local-6989586621679822011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListPrincipalThings' :: Maybe Natural
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AmaxResults%3AListPrincipalThings%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679822010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The principal.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_principal"><span class="hs-identifier hs-type">listPrincipalThings_principal</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="listPrincipalThings_principal"><span class="annot"><span class="annottext">listPrincipalThings_principal :: (Text -&gt; f Text) -&gt; ListPrincipalThings -&gt; f ListPrincipalThings
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_principal"><span class="hs-identifier hs-var hs-var">listPrincipalThings_principal</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalThings -&gt; Text)
+-&gt; (ListPrincipalThings -&gt; Text -&gt; ListPrincipalThings)
+-&gt; Lens ListPrincipalThings ListPrincipalThings Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679822009"><span class="annot"><span class="annottext">Text
+principal :: Text
+$sel:principal:ListPrincipalThings' :: ListPrincipalThings -&gt; Text
+</span><a href="#local-6989586621679822009"><span class="hs-identifier hs-var hs-var">principal</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822009"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679822008"><span class="annot"><span class="annottext">s :: ListPrincipalThings
+</span><a href="#local-6989586621679822008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679822007"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalThings
+</span><a href="#local-6989586621679822008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:principal:ListPrincipalThings' :: Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3Aprincipal%3AListPrincipalThings%27"><span class="hs-identifier hs-var">principal</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679822007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679822003"><span class="annot"><span class="annottext">page :: ListPrincipalThings
+-&gt; AWSResponse ListPrincipalThings -&gt; Maybe ListPrincipalThings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679822001"><span class="annot"><span class="annottext">ListPrincipalThings
+</span><a href="#local-6989586621679822001"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679822000"><span class="annot"><span class="annottext">AWSResponse ListPrincipalThings
+</span><a href="#local-6989586621679822000"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-118"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPrincipalThings
+ListPrincipalThingsResponse
+</span><a href="#local-6989586621679822000"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-119"></span><span>            </span><span class="annot"><span class="annottext">ListPrincipalThingsResponse
+-&gt; Getting (First Text) ListPrincipalThingsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPrincipalThingsResponse
+-&gt; Const (First Text) ListPrincipalThingsResponse
+Lens' ListPrincipalThingsResponse (Maybe Text)
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_nextToken"><span class="hs-identifier hs-var">listPrincipalThingsResponse_nextToken</span></a></span><span>
+</span><span id="line-120"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPrincipalThingsResponse
+ -&gt; Const (First Text) ListPrincipalThingsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPrincipalThingsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPrincipalThings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-124"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPrincipalThings
+ListPrincipalThingsResponse
+</span><a href="#local-6989586621679822000"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">ListPrincipalThingsResponse
+-&gt; Getting (First [Text]) ListPrincipalThingsResponse [Text]
+-&gt; Maybe [Text]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; ListPrincipalThingsResponse
+-&gt; Const (First [Text]) ListPrincipalThingsResponse
+Lens' ListPrincipalThingsResponse (Maybe [Text])
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_things"><span class="hs-identifier hs-var">listPrincipalThingsResponse_things</span></a></span><span>
+</span><span id="line-126"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+ -&gt; ListPrincipalThingsResponse
+ -&gt; Const (First [Text]) ListPrincipalThingsResponse)
+-&gt; (([Text] -&gt; Const (First [Text]) [Text])
+    -&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text]))
+-&gt; Getting (First [Text]) ListPrincipalThingsResponse [Text]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Const (First [Text]) [Text])
+-&gt; Maybe [Text] -&gt; Const (First [Text]) (Maybe [Text])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-127"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListPrincipalThings
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">ListPrincipalThings -&gt; Maybe ListPrincipalThings
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListPrincipalThings -&gt; Maybe ListPrincipalThings)
+-&gt; ListPrincipalThings -&gt; Maybe ListPrincipalThings
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">ListPrincipalThings
+</span><a href="#local-6989586621679822001"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">ListPrincipalThings
+-&gt; (ListPrincipalThings -&gt; ListPrincipalThings)
+-&gt; ListPrincipalThings
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListPrincipalThings -&gt; Identity ListPrincipalThings
+Lens
+  ListPrincipalThings ListPrincipalThings (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThings_nextToken"><span class="hs-identifier hs-var">listPrincipalThings_nextToken</span></a></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListPrincipalThings -&gt; Identity ListPrincipalThings)
+-&gt; Maybe Text -&gt; ListPrincipalThings -&gt; ListPrincipalThings
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListPrincipalThings
+ListPrincipalThingsResponse
+</span><a href="#local-6989586621679822000"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">ListPrincipalThingsResponse
+-&gt; Getting (First Text) ListPrincipalThingsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListPrincipalThingsResponse
+-&gt; Const (First Text) ListPrincipalThingsResponse
+Lens' ListPrincipalThingsResponse (Maybe Text)
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_nextToken"><span class="hs-identifier hs-var">listPrincipalThingsResponse_nextToken</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListPrincipalThingsResponse
+ -&gt; Const (First Text) ListPrincipalThingsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListPrincipalThingsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-139"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>      </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679821990"><span class="annot"><span class="annottext">request :: ListPrincipalThings -&gt; Request ListPrincipalThings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListPrincipalThings -&gt; Request ListPrincipalThings
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoT.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679821986"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListPrincipalThings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPrincipalThings)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListPrincipalThings))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListPrincipalThings
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListPrincipalThings)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679821983"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821983"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679821982"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679821982"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679821981"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679821981"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-145"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListPrincipalThingsResponse
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">ListPrincipalThingsResponse'</span></a></span><span>
+</span><span id="line-146"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListPrincipalThingsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Maybe [Text] -&gt; Int -&gt; ListPrincipalThingsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679821981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe [Text] -&gt; Int -&gt; ListPrincipalThingsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either String (Int -&gt; ListPrincipalThingsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679821981"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;things&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListPrincipalThingsResponse)
+-&gt; Either String Int -&gt; Either String ListPrincipalThingsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821983"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679821972"><span id="local-6989586621679821974"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span></span></span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679821969"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span></span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679821965"><span class="annot"><span class="annottext">toHeaders :: ListPrincipalThings -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821961"><span id="local-6989586621679821962"><span id="local-6989586621679821963"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+principal :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:principal:ListPrincipalThings' :: ListPrincipalThings -&gt; Text
+$sel:maxResults:ListPrincipalThings' :: ListPrincipalThings -&gt; Maybe Natural
+$sel:nextToken:ListPrincipalThings' :: ListPrincipalThings -&gt; Maybe Text
+</span><a href="#local-6989586621679821961"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amzn-principal&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679821961"><span class="hs-identifier hs-var">principal</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679821957"><span class="annot"><span class="annottext">toPath :: ListPrincipalThings -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListPrincipalThings -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/principals/things&quot;</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings"><span class="hs-identifier hs-type">ListPrincipalThings</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679821952"><span class="annot"><span class="annottext">toQuery :: ListPrincipalThings -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThings%27"><span class="hs-identifier hs-type">ListPrincipalThings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821948"><span id="local-6989586621679821949"><span id="local-6989586621679821950"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+principal :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:principal:ListPrincipalThings' :: ListPrincipalThings -&gt; Text
+$sel:maxResults:ListPrincipalThings' :: ListPrincipalThings -&gt; Maybe Natural
+$sel:nextToken:ListPrincipalThings' :: ListPrincipalThings -&gt; Maybe Text
+</span><a href="#local-6989586621679821948"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821950"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679821949"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-168"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- | The output from the ListPrincipalThings operation.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- /See:/ 'newListPrincipalThingsResponse' smart constructor.</span><span>
+</span><span id="line-173"></span><span id="local-6989586621679821945"><span id="local-6989586621679821946"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListPrincipalThingsResponse"><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-var">ListPrincipalThingsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListPrincipalThingsResponse%27"><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">ListPrincipalThingsResponse'</span></a></span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3AnextToken%3AListPrincipalThingsResponse%27"><span class="annot"><span class="annottext">ListPrincipalThingsResponse -&gt; Maybe Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AnextToken%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The things.</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Athings%3AListPrincipalThingsResponse%27"><span class="annot"><span class="annottext">ListPrincipalThingsResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3Athings%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var hs-var">things</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListPrincipalThingsResponse%27"><span class="annot"><span class="annottext">ListPrincipalThingsResponse -&gt; Int
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AhttpStatus%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679821938"><span id="local-6989586621679821940"><span class="annot"><span class="annottext">ListPrincipalThingsResponse -&gt; ListPrincipalThingsResponse -&gt; Bool
+(ListPrincipalThingsResponse
+ -&gt; ListPrincipalThingsResponse -&gt; Bool)
+-&gt; (ListPrincipalThingsResponse
+    -&gt; ListPrincipalThingsResponse -&gt; Bool)
+-&gt; Eq ListPrincipalThingsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListPrincipalThingsResponse -&gt; ListPrincipalThingsResponse -&gt; Bool
+$c/= :: ListPrincipalThingsResponse -&gt; ListPrincipalThingsResponse -&gt; Bool
+== :: ListPrincipalThingsResponse -&gt; ListPrincipalThingsResponse -&gt; Bool
+$c== :: ListPrincipalThingsResponse -&gt; ListPrincipalThingsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821930"><span id="local-6989586621679821932"><span id="local-6989586621679821934"><span id="local-6989586621679821936"><span class="annot"><span class="annottext">ReadPrec [ListPrincipalThingsResponse]
+ReadPrec ListPrincipalThingsResponse
+Int -&gt; ReadS ListPrincipalThingsResponse
+ReadS [ListPrincipalThingsResponse]
+(Int -&gt; ReadS ListPrincipalThingsResponse)
+-&gt; ReadS [ListPrincipalThingsResponse]
+-&gt; ReadPrec ListPrincipalThingsResponse
+-&gt; ReadPrec [ListPrincipalThingsResponse]
+-&gt; Read ListPrincipalThingsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListPrincipalThingsResponse]
+$creadListPrec :: ReadPrec [ListPrincipalThingsResponse]
+readPrec :: ReadPrec ListPrincipalThingsResponse
+$creadPrec :: ReadPrec ListPrincipalThingsResponse
+readList :: ReadS [ListPrincipalThingsResponse]
+$creadList :: ReadS [ListPrincipalThingsResponse]
+readsPrec :: Int -&gt; ReadS ListPrincipalThingsResponse
+$creadsPrec :: Int -&gt; ReadS ListPrincipalThingsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679821924"><span id="local-6989586621679821926"><span id="local-6989586621679821928"><span class="annot"><span class="annottext">Int -&gt; ListPrincipalThingsResponse -&gt; ShowS
+[ListPrincipalThingsResponse] -&gt; ShowS
+ListPrincipalThingsResponse -&gt; String
+(Int -&gt; ListPrincipalThingsResponse -&gt; ShowS)
+-&gt; (ListPrincipalThingsResponse -&gt; String)
+-&gt; ([ListPrincipalThingsResponse] -&gt; ShowS)
+-&gt; Show ListPrincipalThingsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListPrincipalThingsResponse] -&gt; ShowS
+$cshowList :: [ListPrincipalThingsResponse] -&gt; ShowS
+show :: ListPrincipalThingsResponse -&gt; String
+$cshow :: ListPrincipalThingsResponse -&gt; String
+showsPrec :: Int -&gt; ListPrincipalThingsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListPrincipalThingsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListPrincipalThingsResponse -&gt; Rep ListPrincipalThingsResponse x)
+-&gt; (forall x.
+    Rep ListPrincipalThingsResponse x -&gt; ListPrincipalThingsResponse)
+-&gt; Generic ListPrincipalThingsResponse
+forall x.
+Rep ListPrincipalThingsResponse x -&gt; ListPrincipalThingsResponse
+forall x.
+ListPrincipalThingsResponse -&gt; Rep ListPrincipalThingsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListPrincipalThingsResponse x -&gt; ListPrincipalThingsResponse
+$cfrom :: forall x.
+ListPrincipalThingsResponse -&gt; Rep ListPrincipalThingsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Create a value of 'ListPrincipalThingsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'nextToken', 'listPrincipalThingsResponse_nextToken' - The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'things', 'listPrincipalThingsResponse_things' - The things.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'httpStatus', 'listPrincipalThingsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#newListPrincipalThingsResponse"><span class="hs-identifier hs-type">newListPrincipalThingsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-200"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span>
+</span><span id="line-202"></span><span id="newListPrincipalThingsResponse"><span class="annot"><span class="annottext">newListPrincipalThingsResponse :: Int -&gt; ListPrincipalThingsResponse
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#newListPrincipalThingsResponse"><span class="hs-identifier hs-var hs-var">newListPrincipalThingsResponse</span></a></span></span><span> </span><span id="local-6989586621679821921"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821921"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="annottext">ListPrincipalThingsResponse' :: Maybe Text -&gt; Maybe [Text] -&gt; Int -&gt; ListPrincipalThingsResponse
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-type">ListPrincipalThingsResponse'</span></a></span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListPrincipalThingsResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AnextToken%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:things:ListPrincipalThingsResponse' :: Maybe [Text]
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3Athings%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">things</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListPrincipalThingsResponse' :: Int
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AhttpStatus%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821921"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The token to use to get the next set of results, or __null__ if there</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- are no additional results.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_nextToken"><span class="hs-identifier hs-type">listPrincipalThingsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="listPrincipalThingsResponse_nextToken"><span class="annot"><span class="annottext">listPrincipalThingsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListPrincipalThingsResponse -&gt; f ListPrincipalThingsResponse
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listPrincipalThingsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalThingsResponse -&gt; Maybe Text)
+-&gt; (ListPrincipalThingsResponse
+    -&gt; Maybe Text -&gt; ListPrincipalThingsResponse)
+-&gt; Lens' ListPrincipalThingsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-type">ListPrincipalThingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821920"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListPrincipalThingsResponse' :: ListPrincipalThingsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679821920"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821920"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821919"><span class="annot"><span class="annottext">s :: ListPrincipalThingsResponse
+</span><a href="#local-6989586621679821919"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-type">ListPrincipalThingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821918"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821918"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalThingsResponse
+</span><a href="#local-6989586621679821919"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListPrincipalThingsResponse' :: Maybe Text
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AnextToken%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679821918"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The things.</span><span>
+</span><span id="line-216"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_things"><span class="hs-identifier hs-type">listPrincipalThingsResponse_things</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span id="listPrincipalThingsResponse_things"><span class="annot"><span class="annottext">listPrincipalThingsResponse_things :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListPrincipalThingsResponse -&gt; f ListPrincipalThingsResponse
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_things"><span class="hs-identifier hs-var hs-var">listPrincipalThingsResponse_things</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalThingsResponse -&gt; Maybe [Text])
+-&gt; (ListPrincipalThingsResponse
+    -&gt; Maybe [Text] -&gt; ListPrincipalThingsResponse)
+-&gt; Lens' ListPrincipalThingsResponse (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-type">ListPrincipalThingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821917"><span class="annot"><span class="annottext">Maybe [Text]
+things :: Maybe [Text]
+$sel:things:ListPrincipalThingsResponse' :: ListPrincipalThingsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679821917"><span class="hs-identifier hs-var hs-var">things</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679821917"><span class="hs-identifier hs-var">things</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821916"><span class="annot"><span class="annottext">s :: ListPrincipalThingsResponse
+</span><a href="#local-6989586621679821916"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-type">ListPrincipalThingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821915"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679821915"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalThingsResponse
+</span><a href="#local-6989586621679821916"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:things:ListPrincipalThingsResponse' :: Maybe [Text]
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3Athings%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">things</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679821915"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListPrincipalThingsResponse -&gt; f ListPrincipalThingsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListPrincipalThingsResponse
+-&gt; f ListPrincipalThingsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_httpStatus"><span class="hs-identifier hs-type">listPrincipalThingsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-221"></span><span id="listPrincipalThingsResponse_httpStatus"><span class="annot"><span class="annottext">listPrincipalThingsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListPrincipalThingsResponse -&gt; f ListPrincipalThingsResponse
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#listPrincipalThingsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listPrincipalThingsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListPrincipalThingsResponse -&gt; Int)
+-&gt; (ListPrincipalThingsResponse
+    -&gt; Int -&gt; ListPrincipalThingsResponse)
+-&gt; Lens
+     ListPrincipalThingsResponse ListPrincipalThingsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-type">ListPrincipalThingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679821912"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListPrincipalThingsResponse' :: ListPrincipalThingsResponse -&gt; Int
+</span><a href="#local-6989586621679821912"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821912"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679821911"><span class="annot"><span class="annottext">s :: ListPrincipalThingsResponse
+</span><a href="#local-6989586621679821911"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse%27"><span class="hs-identifier hs-type">ListPrincipalThingsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679821910"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821910"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListPrincipalThingsResponse
+</span><a href="#local-6989586621679821911"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListPrincipalThingsResponse' :: Int
+</span><a href="Amazonka.IoT.ListPrincipalThings.html#%24sel%3AhttpStatus%3AListPrincipalThingsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679821910"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>
+</span><span id="line-223"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679821908"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.ListPrincipalThings.html#ListPrincipalThingsResponse"><span class="hs-identifier hs-type">ListPrincipalThingsResponse</span></a></span></span><span>
+</span><span id="line-224"></span></pre></body></html>

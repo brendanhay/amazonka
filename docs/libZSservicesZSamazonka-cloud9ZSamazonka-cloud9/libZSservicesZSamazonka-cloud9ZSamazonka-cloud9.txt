@@ -5,34 +5,34 @@
 @version 2.0
 
 
-module Network.AWS.Cloud9.Types.ConnectionType
+module Amazonka.Cloud9.Types.ConnectionType
 newtype ConnectionType
 ConnectionType' :: Text -> ConnectionType
 [fromConnectionType] :: ConnectionType -> Text
 pattern ConnectionType_CONNECT_SSH :: ConnectionType
 pattern ConnectionType_CONNECT_SSM :: ConnectionType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance GHC.Read.Read Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
-instance GHC.Show.Show Network.AWS.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance GHC.Read.Read Amazonka.Cloud9.Types.ConnectionType.ConnectionType
+instance GHC.Show.Show Amazonka.Cloud9.Types.ConnectionType.ConnectionType
 
 
-module Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus
+module Amazonka.Cloud9.Types.EnvironmentLifecycleStatus
 newtype EnvironmentLifecycleStatus
 EnvironmentLifecycleStatus' :: Text -> EnvironmentLifecycleStatus
 [fromEnvironmentLifecycleStatus] :: EnvironmentLifecycleStatus -> Text
@@ -41,28 +41,28 @@ pattern EnvironmentLifecycleStatus_CREATE_FAILED :: EnvironmentLifecycleStatus
 pattern EnvironmentLifecycleStatus_CREATING :: EnvironmentLifecycleStatus
 pattern EnvironmentLifecycleStatus_DELETE_FAILED :: EnvironmentLifecycleStatus
 pattern EnvironmentLifecycleStatus_DELETING :: EnvironmentLifecycleStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance GHC.Read.Read Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
-instance GHC.Show.Show Network.AWS.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance GHC.Read.Read Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
+instance GHC.Show.Show Amazonka.Cloud9.Types.EnvironmentLifecycleStatus.EnvironmentLifecycleStatus
 
 
-module Network.AWS.Cloud9.Types.EnvironmentLifecycle
+module Amazonka.Cloud9.Types.EnvironmentLifecycle
 
 -- | Information about the current creation or deletion lifecycle state of
 --   an Cloud9 development environment.
@@ -145,16 +145,16 @@ environmentLifecycle_failureResource :: Lens' EnvironmentLifecycle (Maybe Text)
 -- | Any informational message about the lifecycle state of the
 --   environment.
 environmentLifecycle_reason :: Lens' EnvironmentLifecycle (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
-instance GHC.Show.Show Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
-instance GHC.Read.Read Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
+instance GHC.Show.Show Amazonka.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
+instance GHC.Read.Read Amazonka.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.EnvironmentLifecycle.EnvironmentLifecycle
 
 
-module Network.AWS.Cloud9.Types.EnvironmentStatus
+module Amazonka.Cloud9.Types.EnvironmentStatus
 newtype EnvironmentStatus
 EnvironmentStatus' :: Text -> EnvironmentStatus
 [fromEnvironmentStatus] :: EnvironmentStatus -> Text
@@ -165,82 +165,82 @@ pattern EnvironmentStatus_Error :: EnvironmentStatus
 pattern EnvironmentStatus_Ready :: EnvironmentStatus
 pattern EnvironmentStatus_Stopped :: EnvironmentStatus
 pattern EnvironmentStatus_Stopping :: EnvironmentStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Read.Read Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
-instance GHC.Show.Show Network.AWS.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Read.Read Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
+instance GHC.Show.Show Amazonka.Cloud9.Types.EnvironmentStatus.EnvironmentStatus
 
 
-module Network.AWS.Cloud9.Types.EnvironmentType
+module Amazonka.Cloud9.Types.EnvironmentType
 newtype EnvironmentType
 EnvironmentType' :: Text -> EnvironmentType
 [fromEnvironmentType] :: EnvironmentType -> Text
 pattern EnvironmentType_Ec2 :: EnvironmentType
 pattern EnvironmentType_Ssh :: EnvironmentType
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance GHC.Read.Read Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
-instance GHC.Show.Show Network.AWS.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance GHC.Read.Read Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
+instance GHC.Show.Show Amazonka.Cloud9.Types.EnvironmentType.EnvironmentType
 
 
-module Network.AWS.Cloud9.Types.ManagedCredentialsAction
+module Amazonka.Cloud9.Types.ManagedCredentialsAction
 newtype ManagedCredentialsAction
 ManagedCredentialsAction' :: Text -> ManagedCredentialsAction
 [fromManagedCredentialsAction] :: ManagedCredentialsAction -> Text
 pattern ManagedCredentialsAction_DISABLE :: ManagedCredentialsAction
 pattern ManagedCredentialsAction_ENABLE :: ManagedCredentialsAction
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance GHC.Read.Read Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
-instance GHC.Show.Show Network.AWS.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance GHC.Read.Read Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
+instance GHC.Show.Show Amazonka.Cloud9.Types.ManagedCredentialsAction.ManagedCredentialsAction
 
 
-module Network.AWS.Cloud9.Types.ManagedCredentialsStatus
+module Amazonka.Cloud9.Types.ManagedCredentialsStatus
 newtype ManagedCredentialsStatus
 ManagedCredentialsStatus' :: Text -> ManagedCredentialsStatus
 [fromManagedCredentialsStatus] :: ManagedCredentialsStatus -> Text
@@ -255,28 +255,28 @@ pattern ManagedCredentialsStatus_PENDING_REMOVAL_BY_COLLABORATOR :: ManagedCrede
 pattern ManagedCredentialsStatus_PENDING_REMOVAL_BY_OWNER :: ManagedCredentialsStatus
 pattern ManagedCredentialsStatus_PENDING_START_REMOVAL_BY_COLLABORATOR :: ManagedCredentialsStatus
 pattern ManagedCredentialsStatus_PENDING_START_REMOVAL_BY_OWNER :: ManagedCredentialsStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance GHC.Read.Read Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
-instance GHC.Show.Show Network.AWS.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance GHC.Read.Read Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
+instance GHC.Show.Show Amazonka.Cloud9.Types.ManagedCredentialsStatus.ManagedCredentialsStatus
 
 
-module Network.AWS.Cloud9.Types.Environment
+module Amazonka.Cloud9.Types.Environment
 
 -- | Information about an Cloud9 development environment.
 --   
@@ -438,70 +438,70 @@ environment_arn :: Lens' Environment Text
 
 -- | The Amazon Resource Name (ARN) of the environment owner.
 environment_ownerArn :: Lens' Environment Text
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.Environment.Environment
-instance GHC.Show.Show Network.AWS.Cloud9.Types.Environment.Environment
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.Environment.Environment
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.Environment.Environment
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.Environment.Environment
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.Environment.Environment
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.Environment.Environment
+instance GHC.Show.Show Amazonka.Cloud9.Types.Environment.Environment
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.Environment.Environment
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.Environment.Environment
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.Environment.Environment
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.Environment.Environment
 
 
-module Network.AWS.Cloud9.Types.MemberPermissions
+module Amazonka.Cloud9.Types.MemberPermissions
 newtype MemberPermissions
 MemberPermissions' :: Text -> MemberPermissions
 [fromMemberPermissions] :: MemberPermissions -> Text
 pattern MemberPermissions_Read_only :: MemberPermissions
 pattern MemberPermissions_Read_write :: MemberPermissions
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance GHC.Read.Read Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
-instance GHC.Show.Show Network.AWS.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance GHC.Read.Read Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
+instance GHC.Show.Show Amazonka.Cloud9.Types.MemberPermissions.MemberPermissions
 
 
-module Network.AWS.Cloud9.Types.Permissions
+module Amazonka.Cloud9.Types.Permissions
 newtype Permissions
 Permissions' :: Text -> Permissions
 [fromPermissions] :: Permissions -> Text
 pattern Permissions_Owner :: Permissions
 pattern Permissions_Read_only :: Permissions
 pattern Permissions_Read_write :: Permissions
-instance Network.AWS.Data.XML.ToXML Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Network.AWS.Data.XML.FromXML Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Network.AWS.Data.Log.ToLog Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Network.AWS.Data.Text.ToText Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Network.AWS.Data.Text.FromText Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.Permissions.Permissions
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.Permissions.Permissions
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.Permissions.Permissions
-instance GHC.Classes.Ord Network.AWS.Cloud9.Types.Permissions.Permissions
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.Permissions.Permissions
-instance GHC.Read.Read Network.AWS.Cloud9.Types.Permissions.Permissions
-instance GHC.Show.Show Network.AWS.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.XML.ToXML Amazonka.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.XML.FromXML Amazonka.Cloud9.Types.Permissions.Permissions
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.Cloud9.Types.Permissions.Permissions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.Permissions.Permissions
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.Cloud9.Types.Permissions.Permissions
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.Headers.ToHeader Amazonka.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.Log.ToLog Amazonka.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.ByteString.ToByteString Amazonka.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.Text.ToText Amazonka.Cloud9.Types.Permissions.Permissions
+instance Amazonka.Data.Text.FromText Amazonka.Cloud9.Types.Permissions.Permissions
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.Permissions.Permissions
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.Permissions.Permissions
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.Permissions.Permissions
+instance GHC.Classes.Ord Amazonka.Cloud9.Types.Permissions.Permissions
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.Permissions.Permissions
+instance GHC.Read.Read Amazonka.Cloud9.Types.Permissions.Permissions
+instance GHC.Show.Show Amazonka.Cloud9.Types.Permissions.Permissions
 
 
-module Network.AWS.Cloud9.Types.EnvironmentMember
+module Amazonka.Cloud9.Types.EnvironmentMember
 
 -- | Information about an environment member for an Cloud9 development
 --   environment.
@@ -597,16 +597,16 @@ environmentMember_userArn :: Lens' EnvironmentMember Text
 
 -- | The ID of the environment for the environment member.
 environmentMember_environmentId :: Lens' EnvironmentMember Text
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.EnvironmentMember.EnvironmentMember
-instance GHC.Show.Show Network.AWS.Cloud9.Types.EnvironmentMember.EnvironmentMember
-instance GHC.Read.Read Network.AWS.Cloud9.Types.EnvironmentMember.EnvironmentMember
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.EnvironmentMember.EnvironmentMember
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.EnvironmentMember.EnvironmentMember
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.EnvironmentMember.EnvironmentMember
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.EnvironmentMember.EnvironmentMember
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.EnvironmentMember.EnvironmentMember
+instance GHC.Show.Show Amazonka.Cloud9.Types.EnvironmentMember.EnvironmentMember
+instance GHC.Read.Read Amazonka.Cloud9.Types.EnvironmentMember.EnvironmentMember
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.EnvironmentMember.EnvironmentMember
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.EnvironmentMember.EnvironmentMember
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.EnvironmentMember.EnvironmentMember
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.EnvironmentMember.EnvironmentMember
 
 
-module Network.AWS.Cloud9.Types.Tag
+module Amazonka.Cloud9.Types.Tag
 
 -- | Metadata that is associated with Amazon Web Services resources. In
 --   particular, a name-value pair that can be associated with an Cloud9
@@ -645,16 +645,16 @@ tag_key :: Lens' Tag Text
 
 -- | The <b>value</b> part of a tag.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.Cloud9.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.Cloud9.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.Cloud9.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.Cloud9.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.Cloud9.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.Cloud9.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.Cloud9.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.Cloud9.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.Cloud9.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.Types.Tag.Tag
 
 
-module Network.AWS.Cloud9.Types
+module Amazonka.Cloud9.Types
 
 -- | API version <tt>2017-09-23</tt> of the Amazon Cloud9 SDK
 --   configuration.
@@ -1123,7 +1123,7 @@ tag_value :: Lens' Tag Text
 --   
 --   Tags that you add to an Cloud9 environment by using this method will
 --   NOT be automatically propagated to underlying resources.
-module Network.AWS.Cloud9.TagResource
+module Amazonka.Cloud9.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -1182,26 +1182,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.Cloud9.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.Cloud9.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.Cloud9.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.Cloud9.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.Cloud9.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Cloud9.TagResource.TagResource
+instance GHC.Show.Show Amazonka.Cloud9.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.Cloud9.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.Cloud9.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.Cloud9.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.Cloud9.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Cloud9.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.Cloud9.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.TagResource.TagResource
 
 
 -- | Gets a list of the tags associated with an Cloud9 development
 --   environment.
-module Network.AWS.Cloud9.ListTagsForResource
+module Amazonka.Cloud9.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -1262,27 +1262,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.Cloud9.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.Cloud9.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.Cloud9.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.Cloud9.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Cloud9.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.ListTagsForResource.ListTagsForResource
 
 
 -- | Gets a list of Cloud9 development environment identifiers.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Cloud9.ListEnvironments
+module Amazonka.Cloud9.ListEnvironments
 
 -- | <i>See:</i> <a>newListEnvironments</a> smart constructor.
 data ListEnvironments
@@ -1387,27 +1387,27 @@ listEnvironmentsResponse_nextToken :: Lens' ListEnvironmentsResponse (Maybe Text
 
 -- | The response's http status code.
 listEnvironmentsResponse_httpStatus :: Lens' ListEnvironmentsResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance GHC.Show.Show Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance GHC.Read.Read Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance GHC.Classes.Eq Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance GHC.Generics.Generic Network.AWS.Cloud9.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Show.Show Network.AWS.Cloud9.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Read.Read Network.AWS.Cloud9.ListEnvironments.ListEnvironmentsResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.ListEnvironments.ListEnvironmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.ListEnvironments.ListEnvironmentsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.ListEnvironments.ListEnvironments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance GHC.Show.Show Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance GHC.Read.Read Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance GHC.Classes.Eq Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance GHC.Generics.Generic Amazonka.Cloud9.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Show.Show Amazonka.Cloud9.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Read.Read Amazonka.Cloud9.ListEnvironments.ListEnvironmentsResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.ListEnvironments.ListEnvironmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.Cloud9.ListEnvironments.ListEnvironmentsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance Control.DeepSeq.NFData Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.ListEnvironments.ListEnvironments
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.ListEnvironments.ListEnvironments
 
 
 -- | Gets information about Cloud9 development environments.
-module Network.AWS.Cloud9.DescribeEnvironments
+module Amazonka.Cloud9.DescribeEnvironments
 
 -- | <i>See:</i> <a>newDescribeEnvironments</a> smart constructor.
 data DescribeEnvironments
@@ -1466,25 +1466,25 @@ describeEnvironmentsResponse_environments :: Lens' DescribeEnvironmentsResponse 
 
 -- | The response's http status code.
 describeEnvironmentsResponse_httpStatus :: Lens' DescribeEnvironmentsResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance GHC.Show.Show Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance GHC.Read.Read Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance GHC.Classes.Eq Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance GHC.Generics.Generic Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
-instance GHC.Show.Show Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance GHC.Generics.Generic Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance GHC.Show.Show Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance GHC.Read.Read Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance GHC.Classes.Eq Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance GHC.Generics.Generic Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
+instance GHC.Show.Show Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironmentsResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.DescribeEnvironments.DescribeEnvironments
 
 
 -- | Gets status information for an Cloud9 development environment.
-module Network.AWS.Cloud9.DescribeEnvironmentStatus
+module Amazonka.Cloud9.DescribeEnvironmentStatus
 
 -- | <i>See:</i> <a>newDescribeEnvironmentStatus</a> smart constructor.
 data DescribeEnvironmentStatus
@@ -1584,29 +1584,29 @@ describeEnvironmentStatusResponse_status :: Lens' DescribeEnvironmentStatusRespo
 
 -- | Any informational message about the status of the environment.
 describeEnvironmentStatusResponse_message :: Lens' DescribeEnvironmentStatusResponse Text
-instance GHC.Generics.Generic Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance GHC.Show.Show Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance GHC.Read.Read Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance GHC.Classes.Eq Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance GHC.Generics.Generic Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
-instance GHC.Show.Show Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
-instance GHC.Read.Read Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance GHC.Generics.Generic Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance GHC.Show.Show Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance GHC.Read.Read Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance GHC.Classes.Eq Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance GHC.Generics.Generic Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
+instance GHC.Show.Show Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
+instance GHC.Read.Read Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatusResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.DescribeEnvironmentStatus.DescribeEnvironmentStatus
 
 
 -- | Gets information about environment members for an Cloud9 development
 --   environment.
 --   
 --   This operation returns paginated results.
-module Network.AWS.Cloud9.DescribeEnvironmentMemberships
+module Amazonka.Cloud9.DescribeEnvironmentMemberships
 
 -- | <i>See:</i> <a>newDescribeEnvironmentMemberships</a> smart
 --   constructor.
@@ -1782,27 +1782,27 @@ describeEnvironmentMembershipsResponse_memberships :: Lens' DescribeEnvironmentM
 
 -- | The response's http status code.
 describeEnvironmentMembershipsResponse_httpStatus :: Lens' DescribeEnvironmentMembershipsResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance GHC.Show.Show Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance GHC.Read.Read Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance GHC.Classes.Eq Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance GHC.Generics.Generic Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
-instance GHC.Show.Show Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
-instance GHC.Read.Read Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance GHC.Generics.Generic Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance GHC.Show.Show Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance GHC.Read.Read Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance GHC.Classes.Eq Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance GHC.Generics.Generic Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
+instance GHC.Show.Show Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
+instance GHC.Read.Read Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMembershipsResponse
+instance Amazonka.Pager.AWSPager Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.DescribeEnvironmentMemberships.DescribeEnvironmentMemberships
 
 
 -- | Deletes an environment member from an Cloud9 development environment.
-module Network.AWS.Cloud9.DeleteEnvironmentMembership
+module Amazonka.Cloud9.DeleteEnvironmentMembership
 
 -- | <i>See:</i> <a>newDeleteEnvironmentMembership</a> smart constructor.
 data DeleteEnvironmentMembership
@@ -1864,27 +1864,27 @@ newDeleteEnvironmentMembershipResponse :: Int -> DeleteEnvironmentMembershipResp
 
 -- | The response's http status code.
 deleteEnvironmentMembershipResponse_httpStatus :: Lens' DeleteEnvironmentMembershipResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance GHC.Show.Show Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance GHC.Read.Read Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance GHC.Classes.Eq Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance GHC.Generics.Generic Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
-instance GHC.Show.Show Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
-instance GHC.Read.Read Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance GHC.Generics.Generic Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance GHC.Show.Show Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance GHC.Read.Read Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance GHC.Classes.Eq Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance GHC.Generics.Generic Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
+instance GHC.Show.Show Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
+instance GHC.Read.Read Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembershipResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.DeleteEnvironmentMembership.DeleteEnvironmentMembership
 
 
 -- | Deletes an Cloud9 development environment. If an Amazon EC2 instance
 --   is connected to the environment, also terminates the instance.
-module Network.AWS.Cloud9.DeleteEnvironment
+module Amazonka.Cloud9.DeleteEnvironment
 
 -- | <i>See:</i> <a>newDeleteEnvironment</a> smart constructor.
 data DeleteEnvironment
@@ -1933,26 +1933,26 @@ newDeleteEnvironmentResponse :: Int -> DeleteEnvironmentResponse
 
 -- | The response's http status code.
 deleteEnvironmentResponse_httpStatus :: Lens' DeleteEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance GHC.Show.Show Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance GHC.Read.Read Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance GHC.Classes.Eq Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance GHC.Generics.Generic Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Show.Show Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Read.Read Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance GHC.Show.Show Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance GHC.Read.Read Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance GHC.Classes.Eq Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance GHC.Generics.Generic Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Show.Show Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Read.Read Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance Control.DeepSeq.NFData Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.DeleteEnvironment.DeleteEnvironment
 
 
 -- | Adds an environment member to an Cloud9 development environment.
-module Network.AWS.Cloud9.CreateEnvironmentMembership
+module Amazonka.Cloud9.CreateEnvironmentMembership
 
 -- | <i>See:</i> <a>newCreateEnvironmentMembership</a> smart constructor.
 data CreateEnvironmentMembership
@@ -2057,28 +2057,28 @@ createEnvironmentMembershipResponse_httpStatus :: Lens' CreateEnvironmentMembers
 
 -- | Information about the environment member that was added.
 createEnvironmentMembershipResponse_membership :: Lens' CreateEnvironmentMembershipResponse EnvironmentMember
-instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance GHC.Read.Read Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
-instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
-instance GHC.Read.Read Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance GHC.Generics.Generic Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance GHC.Show.Show Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance GHC.Read.Read Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance GHC.Classes.Eq Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance GHC.Generics.Generic Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
+instance GHC.Show.Show Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
+instance GHC.Read.Read Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance Control.DeepSeq.NFData Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembershipResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance Control.DeepSeq.NFData Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.CreateEnvironmentMembership.CreateEnvironmentMembership
 
 
 -- | Creates an Cloud9 development environment, launches an Amazon Elastic
 --   Compute Cloud (Amazon EC2) instance, and then connects from the
 --   instance to the environment.
-module Network.AWS.Cloud9.CreateEnvironmentEC2
+module Amazonka.Cloud9.CreateEnvironmentEC2
 
 -- | <i>See:</i> <a>newCreateEnvironmentEC2</a> smart constructor.
 data CreateEnvironmentEC2
@@ -2379,25 +2379,25 @@ createEnvironmentEC2Response_environmentId :: Lens' CreateEnvironmentEC2Response
 
 -- | The response's http status code.
 createEnvironmentEC2Response_httpStatus :: Lens' CreateEnvironmentEC2Response Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance GHC.Generics.Generic Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
-instance GHC.Show.Show Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
-instance GHC.Read.Read Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
-instance GHC.Classes.Eq Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance GHC.Generics.Generic Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance GHC.Show.Show Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance GHC.Classes.Eq Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance GHC.Generics.Generic Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance GHC.Show.Show Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance GHC.Read.Read Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance GHC.Classes.Eq Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Control.DeepSeq.NFData Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2Response
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Control.DeepSeq.NFData Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.CreateEnvironmentEC2.CreateEnvironmentEC2
 
 
 -- | Removes tags from an Cloud9 development environment.
-module Network.AWS.Cloud9.UntagResource
+module Amazonka.Cloud9.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2460,25 +2460,25 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.Cloud9.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.Cloud9.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.Cloud9.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.Cloud9.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.Cloud9.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Cloud9.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.Cloud9.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.Cloud9.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.Cloud9.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.Cloud9.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.Cloud9.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Cloud9.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.Cloud9.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.UntagResource.UntagResource
 
 
 -- | Changes the settings of an existing Cloud9 development environment.
-module Network.AWS.Cloud9.UpdateEnvironment
+module Amazonka.Cloud9.UpdateEnvironment
 
 -- | <i>See:</i> <a>newUpdateEnvironment</a> smart constructor.
 data UpdateEnvironment
@@ -2592,26 +2592,26 @@ newUpdateEnvironmentResponse :: Int -> UpdateEnvironmentResponse
 
 -- | The response's http status code.
 updateEnvironmentResponse_httpStatus :: Lens' UpdateEnvironmentResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance GHC.Show.Show Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance GHC.Classes.Eq Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance GHC.Generics.Generic Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Show.Show Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Read.Read Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance GHC.Generics.Generic Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance GHC.Show.Show Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance GHC.Classes.Eq Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance GHC.Generics.Generic Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Show.Show Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Read.Read Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance Control.DeepSeq.NFData Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironmentResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance Control.DeepSeq.NFData Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.UpdateEnvironment.UpdateEnvironment
 
 
 -- | Changes the settings of an existing environment member for an Cloud9
 --   development environment.
-module Network.AWS.Cloud9.UpdateEnvironmentMembership
+module Amazonka.Cloud9.UpdateEnvironmentMembership
 
 -- | <i>See:</i> <a>newUpdateEnvironmentMembership</a> smart constructor.
 data UpdateEnvironmentMembership
@@ -2717,25 +2717,25 @@ updateEnvironmentMembershipResponse_membership :: Lens' UpdateEnvironmentMembers
 
 -- | The response's http status code.
 updateEnvironmentMembershipResponse_httpStatus :: Lens' UpdateEnvironmentMembershipResponse Int
-instance GHC.Generics.Generic Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance GHC.Show.Show Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance GHC.Read.Read Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance GHC.Classes.Eq Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance GHC.Generics.Generic Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
-instance GHC.Show.Show Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
-instance GHC.Read.Read Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
-instance GHC.Classes.Eq Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
-instance Data.Hashable.Class.Hashable Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance Control.DeepSeq.NFData Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance Network.AWS.Data.Path.ToPath Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
-instance Network.AWS.Data.Query.ToQuery Network.AWS.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance GHC.Generics.Generic Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance GHC.Show.Show Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance GHC.Read.Read Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance GHC.Classes.Eq Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance GHC.Generics.Generic Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
+instance GHC.Show.Show Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
+instance GHC.Read.Read Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
+instance GHC.Classes.Eq Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
+instance Amazonka.Types.AWSRequest Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance Control.DeepSeq.NFData Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembershipResponse
+instance Data.Hashable.Class.Hashable Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance Control.DeepSeq.NFData Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance Amazonka.Data.Headers.ToHeaders Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance Amazonka.Data.Path.ToPath Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
+instance Amazonka.Data.Query.ToQuery Amazonka.Cloud9.UpdateEnvironmentMembership.UpdateEnvironmentMembership
 
 
-module Network.AWS.Cloud9.Lens
+module Amazonka.Cloud9.Lens
 
 -- | During a previous call, if there are more than 25 items in the list,
 --   only the first 25 items are returned, along with a unique string
@@ -3149,7 +3149,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.Cloud9.Waiters
+module Amazonka.Cloud9.Waiters
 
 
 -- | Derived from API version <tt>2017-09-23</tt> of the AWS service
@@ -3192,7 +3192,7 @@ module Network.AWS.Cloud9.Waiters
 --   <li><tt>UpdateEnvironmentMembership</tt>: Changes the settings of an
 --   existing environment member for an environment.</li>
 --   </ul>
-module Network.AWS.Cloud9
+module Amazonka.Cloud9
 
 -- | API version <tt>2017-09-23</tt> of the Amazon Cloud9 SDK
 --   configuration.

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.LookoutEquipment.Types.DataUploadFrequency
+module Amazonka.LookoutEquipment.Types.DataUploadFrequency
 newtype DataUploadFrequency
 DataUploadFrequency' :: Text -> DataUploadFrequency
 [fromDataUploadFrequency] :: DataUploadFrequency -> Text
@@ -14,28 +14,28 @@ pattern DataUploadFrequency_PT15M :: DataUploadFrequency
 pattern DataUploadFrequency_PT1H :: DataUploadFrequency
 pattern DataUploadFrequency_PT30M :: DataUploadFrequency
 pattern DataUploadFrequency_PT5M :: DataUploadFrequency
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance GHC.Classes.Ord Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.Text.ToText Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Amazonka.Data.Text.FromText Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance GHC.Classes.Ord Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.DataUploadFrequency.DataUploadFrequency
 
 
-module Network.AWS.LookoutEquipment.Types.DatasetSchema
+module Amazonka.LookoutEquipment.Types.DatasetSchema
 
 -- | Provides information about the data schema used with the given
 --   dataset.
@@ -59,44 +59,44 @@ DatasetSchema' :: Maybe Text -> DatasetSchema
 newDatasetSchema :: DatasetSchema
 
 datasetSchema_inlineDataSchema :: Lens' DatasetSchema (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.DatasetSchema.DatasetSchema
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.DatasetSchema.DatasetSchema
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.DatasetSchema.DatasetSchema
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.DatasetSchema.DatasetSchema
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.DatasetSchema.DatasetSchema
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.DatasetSchema.DatasetSchema
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.DatasetSchema.DatasetSchema
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.DatasetSchema.DatasetSchema
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.DatasetSchema.DatasetSchema
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.DatasetSchema.DatasetSchema
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.DatasetSchema.DatasetSchema
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.DatasetSchema.DatasetSchema
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.DatasetSchema.DatasetSchema
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.DatasetSchema.DatasetSchema
 
 
-module Network.AWS.LookoutEquipment.Types.DatasetStatus
+module Amazonka.LookoutEquipment.Types.DatasetStatus
 newtype DatasetStatus
 DatasetStatus' :: Text -> DatasetStatus
 [fromDatasetStatus] :: DatasetStatus -> Text
 pattern DatasetStatus_ACTIVE :: DatasetStatus
 pattern DatasetStatus_CREATED :: DatasetStatus
 pattern DatasetStatus_INGESTION_IN_PROGRESS :: DatasetStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance GHC.Classes.Ord Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance GHC.Classes.Ord Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.DatasetStatus.DatasetStatus
 
 
-module Network.AWS.LookoutEquipment.Types.DatasetSummary
+module Amazonka.LookoutEquipment.Types.DatasetSummary
 
 -- | Contains information about the specific data set, including name, ARN,
 --   and status.
@@ -154,44 +154,44 @@ datasetSummary_createdAt :: Lens' DatasetSummary (Maybe UTCTime)
 
 -- | The name of the dataset.
 datasetSummary_datasetName :: Lens' DatasetSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.DatasetSummary.DatasetSummary
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.DatasetSummary.DatasetSummary
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.DatasetSummary.DatasetSummary
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.DatasetSummary.DatasetSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.DatasetSummary.DatasetSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.DatasetSummary.DatasetSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.DatasetSummary.DatasetSummary
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.DatasetSummary.DatasetSummary
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.DatasetSummary.DatasetSummary
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.DatasetSummary.DatasetSummary
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.DatasetSummary.DatasetSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.DatasetSummary.DatasetSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.DatasetSummary.DatasetSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.DatasetSummary.DatasetSummary
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus
+module Amazonka.LookoutEquipment.Types.InferenceExecutionStatus
 newtype InferenceExecutionStatus
 InferenceExecutionStatus' :: Text -> InferenceExecutionStatus
 [fromInferenceExecutionStatus] :: InferenceExecutionStatus -> Text
 pattern InferenceExecutionStatus_FAILED :: InferenceExecutionStatus
 pattern InferenceExecutionStatus_IN_PROGRESS :: InferenceExecutionStatus
 pattern InferenceExecutionStatus_SUCCESS :: InferenceExecutionStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance GHC.Classes.Ord Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance GHC.Classes.Ord Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceExecutionStatus.InferenceExecutionStatus
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration
+module Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration
 
 -- | Specifies configuration information for the input data for the
 --   inference, including timestamp format and delimiter.
@@ -234,17 +234,17 @@ inferenceInputNameConfiguration_timestampFormat :: Lens' InferenceInputNameConfi
 
 -- | Indicates the delimiter character used between items in the data.
 inferenceInputNameConfiguration_componentTimestampDelimiter :: Lens' InferenceInputNameConfiguration (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.InferenceInputNameConfiguration.InferenceInputNameConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration
+module Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration
 
 -- | Specifies configuration information for the input data for the
 --   inference, including input data S3 location.
@@ -284,17 +284,17 @@ inferenceS3InputConfiguration_prefix :: Lens' InferenceS3InputConfiguration (May
 
 -- | The bucket containing the input dataset for the inference.
 inferenceS3InputConfiguration_bucket :: Lens' InferenceS3InputConfiguration Text
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.InferenceS3InputConfiguration.InferenceS3InputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration
+module Amazonka.LookoutEquipment.Types.InferenceInputConfiguration
 
 -- | Specifies configuration information for the input data for the
 --   inference, including S3 location of input data..
@@ -351,17 +351,17 @@ inferenceInputConfiguration_s3InputConfiguration :: Lens' InferenceInputConfigur
 -- | Specifies configuration information for the input data for the
 --   inference, including timestamp format and delimiter.
 inferenceInputConfiguration_inferenceInputNameConfiguration :: Lens' InferenceInputConfiguration (Maybe InferenceInputNameConfiguration)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.InferenceInputConfiguration.InferenceInputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration
+module Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration
 
 -- | Specifies configuration information for the output results from the
 --   inference, including output S3 location.
@@ -402,17 +402,17 @@ inferenceS3OutputConfiguration_prefix :: Lens' InferenceS3OutputConfiguration (M
 
 -- | The bucket containing the output results from the inference
 inferenceS3OutputConfiguration_bucket :: Lens' InferenceS3OutputConfiguration Text
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.InferenceS3OutputConfiguration.InferenceS3OutputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration
+module Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration
 
 -- | Specifies configuration information for the output results from for
 --   the inference, including KMS key ID and output S3 location.
@@ -455,17 +455,17 @@ inferenceOutputConfiguration_kmsKeyId :: Lens' InferenceOutputConfiguration (May
 -- | Specifies configuration information for the output results from for
 --   the inference, output S3 location.
 inferenceOutputConfiguration_s3OutputConfiguration :: Lens' InferenceOutputConfiguration InferenceS3OutputConfiguration
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.InferenceOutputConfiguration.InferenceOutputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus
+module Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus
 newtype InferenceSchedulerStatus
 InferenceSchedulerStatus' :: Text -> InferenceSchedulerStatus
 [fromInferenceSchedulerStatus] :: InferenceSchedulerStatus -> Text
@@ -473,28 +473,28 @@ pattern InferenceSchedulerStatus_PENDING :: InferenceSchedulerStatus
 pattern InferenceSchedulerStatus_RUNNING :: InferenceSchedulerStatus
 pattern InferenceSchedulerStatus_STOPPED :: InferenceSchedulerStatus
 pattern InferenceSchedulerStatus_STOPPING :: InferenceSchedulerStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance GHC.Classes.Ord Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance GHC.Classes.Ord Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceSchedulerStatus.InferenceSchedulerStatus
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary
+module Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary
 
 -- | Contains information about the specific inference scheduler, including
 --   data delay offset, model name and ARN, status, and so on.
@@ -626,44 +626,44 @@ inferenceSchedulerSummary_inferenceSchedulerArn :: Lens' InferenceSchedulerSumma
 
 -- | The name of the inference scheduler.
 inferenceSchedulerSummary_inferenceSchedulerName :: Lens' InferenceSchedulerSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceSchedulerSummary.InferenceSchedulerSummary
 
 
-module Network.AWS.LookoutEquipment.Types.IngestionJobStatus
+module Amazonka.LookoutEquipment.Types.IngestionJobStatus
 newtype IngestionJobStatus
 IngestionJobStatus' :: Text -> IngestionJobStatus
 [fromIngestionJobStatus] :: IngestionJobStatus -> Text
 pattern IngestionJobStatus_FAILED :: IngestionJobStatus
 pattern IngestionJobStatus_IN_PROGRESS :: IngestionJobStatus
 pattern IngestionJobStatus_SUCCESS :: IngestionJobStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance GHC.Classes.Ord Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance GHC.Classes.Ord Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.IngestionJobStatus.IngestionJobStatus
 
 
-module Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration
+module Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration
 
 -- | Specifies S3 configuration information for the input data for the data
 --   ingestion job.
@@ -705,17 +705,17 @@ ingestionS3InputConfiguration_prefix :: Lens' IngestionS3InputConfiguration (May
 -- | The name of the S3 bucket used for the input data for the data
 --   ingestion.
 ingestionS3InputConfiguration_bucket :: Lens' IngestionS3InputConfiguration Text
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.IngestionS3InputConfiguration.IngestionS3InputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration
+module Amazonka.LookoutEquipment.Types.IngestionInputConfiguration
 
 -- | Specifies configuration information for the input data for the data
 --   ingestion job, including input data S3 location.
@@ -746,17 +746,17 @@ newIngestionInputConfiguration :: IngestionS3InputConfiguration -> IngestionInpu
 -- | The location information for the S3 bucket used for input data for the
 --   data ingestion.
 ingestionInputConfiguration_s3InputConfiguration :: Lens' IngestionInputConfiguration IngestionS3InputConfiguration
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.IngestionInputConfiguration.IngestionInputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary
+module Amazonka.LookoutEquipment.Types.DataIngestionJobSummary
 
 -- | Provides information about a specified data ingestion job, including
 --   dataset information, data ingestion configuration, and status.
@@ -829,16 +829,16 @@ dataIngestionJobSummary_jobId :: Lens' DataIngestionJobSummary (Maybe Text)
 
 -- | The name of the dataset used for the data ingestion job.
 dataIngestionJobSummary_datasetName :: Lens' DataIngestionJobSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.DataIngestionJobSummary.DataIngestionJobSummary
 
 
-module Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration
+module Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration
 
 -- | The location information (prefix and bucket name) for the s3 location
 --   being used for label data.
@@ -876,17 +876,17 @@ labelsS3InputConfiguration_prefix :: Lens' LabelsS3InputConfiguration (Maybe Tex
 
 -- | The name of the S3 bucket holding the label data.
 labelsS3InputConfiguration_bucket :: Lens' LabelsS3InputConfiguration Text
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.LabelsS3InputConfiguration.LabelsS3InputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration
+module Amazonka.LookoutEquipment.Types.LabelsInputConfiguration
 
 -- | Contains the configuration information for the S3 location being used
 --   to hold label data.
@@ -916,45 +916,45 @@ newLabelsInputConfiguration :: LabelsS3InputConfiguration -> LabelsInputConfigur
 -- | Contains location information for the S3 location being used for label
 --   data.
 labelsInputConfiguration_s3InputConfiguration :: Lens' LabelsInputConfiguration LabelsS3InputConfiguration
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.LabelsInputConfiguration.LabelsInputConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types.ModelStatus
+module Amazonka.LookoutEquipment.Types.ModelStatus
 newtype ModelStatus
 ModelStatus' :: Text -> ModelStatus
 [fromModelStatus] :: ModelStatus -> Text
 pattern ModelStatus_FAILED :: ModelStatus
 pattern ModelStatus_IN_PROGRESS :: ModelStatus
 pattern ModelStatus_SUCCESS :: ModelStatus
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance GHC.Classes.Ord Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Text.ToText Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Amazonka.Data.Text.FromText Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance GHC.Classes.Ord Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.ModelStatus.ModelStatus
 
 
-module Network.AWS.LookoutEquipment.Types.ModelSummary
+module Amazonka.LookoutEquipment.Types.ModelSummary
 
 -- | Provides information about the specified ML model, including dataset
 --   and model names and ARNs, as well as status.
@@ -1029,16 +1029,16 @@ modelSummary_modelName :: Lens' ModelSummary (Maybe Text)
 
 -- | The name of the dataset being used for the ML model.
 modelSummary_datasetName :: Lens' ModelSummary (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.ModelSummary.ModelSummary
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.ModelSummary.ModelSummary
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.ModelSummary.ModelSummary
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.ModelSummary.ModelSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.ModelSummary.ModelSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.ModelSummary.ModelSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.ModelSummary.ModelSummary
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.ModelSummary.ModelSummary
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.ModelSummary.ModelSummary
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.ModelSummary.ModelSummary
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.ModelSummary.ModelSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.ModelSummary.ModelSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.ModelSummary.ModelSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.ModelSummary.ModelSummary
 
 
-module Network.AWS.LookoutEquipment.Types.S3Object
+module Amazonka.LookoutEquipment.Types.S3Object
 
 -- | Contains information about an S3 bucket.
 --   
@@ -1075,16 +1075,16 @@ s3Object_bucket :: Lens' S3Object Text
 -- | The AWS Key Management Service (AWS KMS) key being used to encrypt the
 --   S3 object. Without this key, data in the bucket is not accessible.
 s3Object_key :: Lens' S3Object Text
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.S3Object.S3Object
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.S3Object.S3Object
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.S3Object.S3Object
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.S3Object.S3Object
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.S3Object.S3Object
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.S3Object.S3Object
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.S3Object.S3Object
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.S3Object.S3Object
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.S3Object.S3Object
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.S3Object.S3Object
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.S3Object.S3Object
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.S3Object.S3Object
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.S3Object.S3Object
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.S3Object.S3Object
 
 
-module Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary
+module Amazonka.LookoutEquipment.Types.InferenceExecutionSummary
 
 -- | Contains information about the specific inference execution, including
 --   input and output data configuration, inference scheduling information,
@@ -1243,16 +1243,16 @@ inferenceExecutionSummary_inferenceSchedulerName :: Lens' InferenceExecutionSumm
 --   inference scheduler, including delimiter, format, and dataset
 --   location.
 inferenceExecutionSummary_dataInputConfiguration :: Lens' InferenceExecutionSummary (Maybe InferenceInputConfiguration)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.InferenceExecutionSummary.InferenceExecutionSummary
 
 
-module Network.AWS.LookoutEquipment.Types.Tag
+module Amazonka.LookoutEquipment.Types.Tag
 
 -- | A tag is a key-value pair that can be added to a resource as metadata.
 --   
@@ -1285,17 +1285,17 @@ tag_key :: Lens' Tag Text
 
 -- | The value for the specified tag.
 tag_value :: Lens' Tag Text
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.Tag.Tag
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.Tag.Tag
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.Tag.Tag
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.Tag.Tag
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.Tag.Tag
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.Tag.Tag
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.Tag.Tag
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.Tag.Tag
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.Tag.Tag
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.Tag.Tag
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.Tag.Tag
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.Tag.Tag
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.Tag.Tag
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.Tag.Tag
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.Tag.Tag
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.Tag.Tag
 
 
-module Network.AWS.LookoutEquipment.Types.TargetSamplingRate
+module Amazonka.LookoutEquipment.Types.TargetSamplingRate
 newtype TargetSamplingRate
 TargetSamplingRate' :: Text -> TargetSamplingRate
 [fromTargetSamplingRate] :: TargetSamplingRate -> Text
@@ -1310,28 +1310,28 @@ pattern TargetSamplingRate_PT30M :: TargetSamplingRate
 pattern TargetSamplingRate_PT30S :: TargetSamplingRate
 pattern TargetSamplingRate_PT5M :: TargetSamplingRate
 pattern TargetSamplingRate_PT5S :: TargetSamplingRate
-instance Network.AWS.Data.XML.ToXML Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Network.AWS.Data.XML.FromXML Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Network.AWS.Data.Log.ToLog Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Network.AWS.Data.Text.ToText Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Network.AWS.Data.Text.FromText Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance GHC.Classes.Ord Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.XML.ToXML Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.XML.FromXML Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.Headers.ToHeader Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.Log.ToLog Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.ByteString.ToByteString Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.Text.ToText Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Amazonka.Data.Text.FromText Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance GHC.Classes.Ord Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.TargetSamplingRate.TargetSamplingRate
 
 
-module Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration
+module Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration
 
 -- | The configuration is the <tt>TargetSamplingRate</tt>, which is the
 --   sampling rate of the data after post processing by Amazon Lookout for
@@ -1396,17 +1396,17 @@ newDataPreProcessingConfiguration :: DataPreProcessingConfiguration
 --   rate is therefore <i>PT1S</i>, the value for a 15 minute rate is
 --   <i>PT15M</i>, and the value for a 1 hour rate is <i>PT1H</i>
 dataPreProcessingConfiguration_targetSamplingRate :: Lens' DataPreProcessingConfiguration (Maybe TargetSamplingRate)
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
-instance GHC.Show.Show Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
-instance GHC.Read.Read Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance GHC.Show.Show Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance GHC.Read.Read Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.Types.DataPreProcessingConfiguration.DataPreProcessingConfiguration
 
 
-module Network.AWS.LookoutEquipment.Types
+module Amazonka.LookoutEquipment.Types
 
 -- | API version <tt>2020-12-15</tt> of the Amazon Lookout for Equipment
 --   SDK configuration.
@@ -2501,7 +2501,7 @@ tag_value :: Lens' Tag Text
 --   as well as helping you to search and filter by tag. Multiple tags can
 --   be added to a resource, either when you create it, or later. Up to 50
 --   tags can be associated with each resource.
-module Network.AWS.LookoutEquipment.TagResource
+module Amazonka.LookoutEquipment.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2563,26 +2563,26 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.LookoutEquipment.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.LookoutEquipment.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.TagResource.TagResource
+instance GHC.Show.Show Amazonka.LookoutEquipment.TagResource.TagResource
+instance GHC.Read.Read Amazonka.LookoutEquipment.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.TagResource.TagResource
 
 
 -- | Stops an inference scheduler.
-module Network.AWS.LookoutEquipment.StopInferenceScheduler
+module Amazonka.LookoutEquipment.StopInferenceScheduler
 
 -- | <i>See:</i> <a>newStopInferenceScheduler</a> smart constructor.
 data StopInferenceScheduler
@@ -2689,26 +2689,26 @@ stopInferenceSchedulerResponse_inferenceSchedulerName :: Lens' StopInferenceSche
 
 -- | The response's http status code.
 stopInferenceSchedulerResponse_httpStatus :: Lens' StopInferenceSchedulerResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance GHC.Show.Show Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance GHC.Read.Read Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance GHC.Show.Show Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance GHC.Read.Read Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceSchedulerResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.StopInferenceScheduler.StopInferenceScheduler
 
 
 -- | Starts an inference scheduler.
-module Network.AWS.LookoutEquipment.StartInferenceScheduler
+module Amazonka.LookoutEquipment.StartInferenceScheduler
 
 -- | <i>See:</i> <a>newStartInferenceScheduler</a> smart constructor.
 data StartInferenceScheduler
@@ -2812,27 +2812,27 @@ startInferenceSchedulerResponse_inferenceSchedulerName :: Lens' StartInferenceSc
 
 -- | The response's http status code.
 startInferenceSchedulerResponse_httpStatus :: Lens' StartInferenceSchedulerResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance GHC.Show.Show Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance GHC.Read.Read Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance GHC.Show.Show Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance GHC.Read.Read Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceSchedulerResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.StartInferenceScheduler.StartInferenceScheduler
 
 
 -- | Starts a data ingestion job. Amazon Lookout for Equipment returns the
 --   job status.
-module Network.AWS.LookoutEquipment.StartDataIngestionJob
+module Amazonka.LookoutEquipment.StartDataIngestionJob
 
 -- | <i>See:</i> <a>newStartDataIngestionJob</a> smart constructor.
 data StartDataIngestionJob
@@ -2940,26 +2940,26 @@ startDataIngestionJobResponse_jobId :: Lens' StartDataIngestionJobResponse (Mayb
 
 -- | The response's http status code.
 startDataIngestionJobResponse_httpStatus :: Lens' StartDataIngestionJobResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance GHC.Show.Show Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance GHC.Read.Read Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance GHC.Show.Show Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance GHC.Read.Read Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.StartDataIngestionJob.StartDataIngestionJob
 
 
 -- | Lists all the tags for a specified resource, including key and value.
-module Network.AWS.LookoutEquipment.ListTagsForResource
+module Amazonka.LookoutEquipment.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -3023,27 +3023,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe [Ta
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.ListTagsForResource.ListTagsForResource
 
 
 -- | Generates a list of all models in the account, including model name
 --   and ARN, dataset, and status.
-module Network.AWS.LookoutEquipment.ListModels
+module Amazonka.LookoutEquipment.ListModels
 
 -- | <i>See:</i> <a>newListModels</a> smart constructor.
 data ListModels
@@ -3158,27 +3158,27 @@ listModelsResponse_modelSummaries :: Lens' ListModelsResponse (Maybe [ModelSumma
 
 -- | The response's http status code.
 listModelsResponse_httpStatus :: Lens' ListModelsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListModels.ListModels
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListModels.ListModels
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListModels.ListModels
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListModels.ListModels
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListModels.ListModelsResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListModels.ListModelsResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListModels.ListModelsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListModels.ListModelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.ListModels.ListModels
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListModels.ListModelsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.ListModels.ListModels
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListModels.ListModels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.ListModels.ListModels
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.ListModels.ListModels
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.ListModels.ListModels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.ListModels.ListModels
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListModels.ListModels
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListModels.ListModels
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListModels.ListModels
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListModels.ListModels
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListModels.ListModelsResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListModels.ListModelsResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListModels.ListModelsResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListModels.ListModelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.ListModels.ListModels
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListModels.ListModelsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.ListModels.ListModels
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListModels.ListModels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.ListModels.ListModels
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.ListModels.ListModels
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.ListModels.ListModels
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.ListModels.ListModels
 
 
 -- | Retrieves a list of all inference schedulers currently available for
 --   your account.
-module Network.AWS.LookoutEquipment.ListInferenceSchedulers
+module Amazonka.LookoutEquipment.ListInferenceSchedulers
 
 -- | <i>See:</i> <a>newListInferenceSchedulers</a> smart constructor.
 data ListInferenceSchedulers
@@ -3287,27 +3287,27 @@ listInferenceSchedulersResponse_nextToken :: Lens' ListInferenceSchedulersRespon
 
 -- | The response's http status code.
 listInferenceSchedulersResponse_httpStatus :: Lens' ListInferenceSchedulersResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulersResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.ListInferenceSchedulers.ListInferenceSchedulers
 
 
 -- | Lists all inference executions that have been performed by the
 --   specified inference scheduler.
-module Network.AWS.LookoutEquipment.ListInferenceExecutions
+module Amazonka.LookoutEquipment.ListInferenceExecutions
 
 -- | <i>See:</i> <a>newListInferenceExecutions</a> smart constructor.
 data ListInferenceExecutions
@@ -3450,27 +3450,27 @@ listInferenceExecutionsResponse_inferenceExecutionSummaries :: Lens' ListInferen
 
 -- | The response's http status code.
 listInferenceExecutionsResponse_httpStatus :: Lens' ListInferenceExecutionsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutionsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.ListInferenceExecutions.ListInferenceExecutions
 
 
 -- | Lists all datasets currently available in your account, filtering on
 --   the dataset name.
-module Network.AWS.LookoutEquipment.ListDatasets
+module Amazonka.LookoutEquipment.ListDatasets
 
 -- | <i>See:</i> <a>newListDatasets</a> smart constructor.
 data ListDatasets
@@ -3565,27 +3565,27 @@ listDatasetsResponse_datasetSummaries :: Lens' ListDatasetsResponse (Maybe [Data
 
 -- | The response's http status code.
 listDatasetsResponse_httpStatus :: Lens' ListDatasetsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListDatasets.ListDatasetsResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListDatasets.ListDatasetsResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListDatasets.ListDatasetsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListDatasets.ListDatasetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListDatasets.ListDatasetsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.ListDatasets.ListDatasets
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListDatasets.ListDatasetsResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListDatasets.ListDatasetsResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListDatasets.ListDatasetsResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListDatasets.ListDatasetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListDatasets.ListDatasetsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.ListDatasets.ListDatasets
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.ListDatasets.ListDatasets
 
 
 -- | Provides a list of all data ingestion jobs, including dataset name and
 --   ARN, S3 location of the input data, status, and so on.
-module Network.AWS.LookoutEquipment.ListDataIngestionJobs
+module Amazonka.LookoutEquipment.ListDataIngestionJobs
 
 -- | <i>See:</i> <a>newListDataIngestionJobs</a> smart constructor.
 data ListDataIngestionJobs
@@ -3691,28 +3691,28 @@ listDataIngestionJobsResponse_dataIngestionJobSummaries :: Lens' ListDataIngesti
 
 -- | The response's http status code.
 listDataIngestionJobsResponse_httpStatus :: Lens' ListDataIngestionJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobsResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.ListDataIngestionJobs.ListDataIngestionJobs
 
 
 -- | Provides a JSON containing the overall information about a specific ML
 --   model, including model name and ARN, dataset, training and evaluation
 --   information, status, and so on.
-module Network.AWS.LookoutEquipment.DescribeModel
+module Amazonka.LookoutEquipment.DescribeModel
 
 -- | <i>See:</i> <a>newDescribeModel</a> smart constructor.
 data DescribeModel
@@ -4047,27 +4047,27 @@ describeModelResponse_roleArn :: Lens' DescribeModelResponse (Maybe Text)
 
 -- | The response's http status code.
 describeModelResponse_httpStatus :: Lens' DescribeModelResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeModel.DescribeModelResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeModel.DescribeModelResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeModel.DescribeModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeModel.DescribeModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeModel.DescribeModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DescribeModel.DescribeModel
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeModel.DescribeModelResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeModel.DescribeModelResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeModel.DescribeModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeModel.DescribeModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeModel.DescribeModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.DescribeModel.DescribeModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.DescribeModel.DescribeModel
 
 
 -- | Specifies information about the inference scheduler being used,
 --   including name, model, status, and associated metadata
-module Network.AWS.LookoutEquipment.DescribeInferenceScheduler
+module Amazonka.LookoutEquipment.DescribeInferenceScheduler
 
 -- | <i>See:</i> <a>newDescribeInferenceScheduler</a> smart constructor.
 data DescribeInferenceScheduler
@@ -4314,27 +4314,27 @@ describeInferenceSchedulerResponse_roleArn :: Lens' DescribeInferenceSchedulerRe
 
 -- | The response's http status code.
 describeInferenceSchedulerResponse_httpStatus :: Lens' DescribeInferenceSchedulerResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceSchedulerResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.DescribeInferenceScheduler.DescribeInferenceScheduler
 
 
 -- | Provides a JSON description of the data that is in each time series
 --   dataset, including names, column names, and data types.
-module Network.AWS.LookoutEquipment.DescribeDataset
+module Amazonka.LookoutEquipment.DescribeDataset
 
 -- | <i>See:</i> <a>newDescribeDataset</a> smart constructor.
 data DescribeDataset
@@ -4474,27 +4474,27 @@ describeDatasetResponse_serverSideKmsKeyId :: Lens' DescribeDatasetResponse (May
 
 -- | The response's http status code.
 describeDatasetResponse_httpStatus :: Lens' DescribeDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DescribeDataset.DescribeDataset
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeDataset.DescribeDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.DescribeDataset.DescribeDataset
 
 
 -- | Provides information on a specific data ingestion job such as creation
 --   time, dataset ARN, status, and so on.
-module Network.AWS.LookoutEquipment.DescribeDataIngestionJob
+module Amazonka.LookoutEquipment.DescribeDataIngestionJob
 
 -- | <i>See:</i> <a>newDescribeDataIngestionJob</a> smart constructor.
 data DescribeDataIngestionJob
@@ -4624,28 +4624,28 @@ describeDataIngestionJobResponse_roleArn :: Lens' DescribeDataIngestionJobRespon
 
 -- | The response's http status code.
 describeDataIngestionJobResponse_httpStatus :: Lens' DescribeDataIngestionJobResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.DescribeDataIngestionJob.DescribeDataIngestionJob
 
 
 -- | Deletes an ML model currently available for Amazon Lookout for
 --   Equipment. This will prevent it from being used with an inference
 --   scheduler, even one that is already set up.
-module Network.AWS.LookoutEquipment.DeleteModel
+module Amazonka.LookoutEquipment.DeleteModel
 
 -- | <i>See:</i> <a>newDeleteModel</a> smart constructor.
 data DeleteModel
@@ -4679,27 +4679,27 @@ DeleteModelResponse' :: DeleteModelResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteModelResponse :: DeleteModelResponse
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DeleteModel.DeleteModelResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DeleteModel.DeleteModelResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DeleteModel.DeleteModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DeleteModel.DeleteModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DeleteModel.DeleteModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DeleteModel.DeleteModel
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance GHC.Show.Show Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance GHC.Read.Read Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DeleteModel.DeleteModelResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.DeleteModel.DeleteModelResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.DeleteModel.DeleteModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DeleteModel.DeleteModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DeleteModel.DeleteModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.DeleteModel.DeleteModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.DeleteModel.DeleteModel
 
 
 -- | Deletes an inference scheduler that has been set up. Already processed
 --   output results are not affected.
-module Network.AWS.LookoutEquipment.DeleteInferenceScheduler
+module Amazonka.LookoutEquipment.DeleteInferenceScheduler
 
 -- | <i>See:</i> <a>newDeleteInferenceScheduler</a> smart constructor.
 data DeleteInferenceScheduler
@@ -4736,22 +4736,22 @@ DeleteInferenceSchedulerResponse' :: DeleteInferenceSchedulerResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteInferenceSchedulerResponse :: DeleteInferenceSchedulerResponse
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance GHC.Show.Show Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance GHC.Read.Read Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceSchedulerResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.DeleteInferenceScheduler.DeleteInferenceScheduler
 
 
 -- | Deletes a dataset and associated artifacts. The operation will check
@@ -4760,7 +4760,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DeleteInfer
 --   any associated data stored in S3 will be deleted. This does not affect
 --   any models that used this dataset for training and evaluation, but
 --   does prevent it from being used in the future.
-module Network.AWS.LookoutEquipment.DeleteDataset
+module Amazonka.LookoutEquipment.DeleteDataset
 
 -- | <i>See:</i> <a>newDeleteDataset</a> smart constructor.
 data DeleteDataset
@@ -4796,22 +4796,22 @@ DeleteDatasetResponse' :: DeleteDatasetResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteDatasetResponse :: DeleteDatasetResponse
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DeleteDataset.DeleteDataset
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance GHC.Show.Show Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance GHC.Read.Read Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DeleteDataset.DeleteDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.DeleteDataset.DeleteDataset
 
 
 -- | Creates an ML model for data inference.
@@ -4827,7 +4827,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.DeleteDatas
 --   and uses that data to learn patterns of normal behavior and abnormal
 --   patterns that lead to equipment failure. Another portion of the data
 --   is used to evaluate the model's accuracy.
-module Network.AWS.LookoutEquipment.CreateModel
+module Amazonka.LookoutEquipment.CreateModel
 
 -- | <i>See:</i> <a>newCreateModel</a> smart constructor.
 data CreateModel
@@ -5076,22 +5076,22 @@ createModelResponse_modelArn :: Lens' CreateModelResponse (Maybe Text)
 
 -- | The response's http status code.
 createModelResponse_httpStatus :: Lens' CreateModelResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance GHC.Show.Show Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance GHC.Read.Read Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.CreateModel.CreateModelResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.CreateModel.CreateModelResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.CreateModel.CreateModelResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.CreateModel.CreateModelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.CreateModel.CreateModelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.CreateModel.CreateModel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.CreateModel.CreateModel
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance GHC.Show.Show Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance GHC.Read.Read Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.CreateModel.CreateModelResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.CreateModel.CreateModelResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.CreateModel.CreateModelResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.CreateModel.CreateModelResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.CreateModel.CreateModelResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.CreateModel.CreateModel
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.CreateModel.CreateModel
 
 
 -- | Creates a scheduled inference. Scheduling an inference is setting up a
@@ -5101,7 +5101,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.CreateModel
 --   data, set an offset delay if desired, and set the frequency of
 --   inferencing. You must also provide an S3 bucket location for the
 --   output data.
-module Network.AWS.LookoutEquipment.CreateInferenceScheduler
+module Amazonka.LookoutEquipment.CreateInferenceScheduler
 
 -- | <i>See:</i> <a>newCreateInferenceScheduler</a> smart constructor.
 data CreateInferenceScheduler
@@ -5336,22 +5336,22 @@ createInferenceSchedulerResponse_inferenceSchedulerName :: Lens' CreateInference
 
 -- | The response's http status code.
 createInferenceSchedulerResponse_httpStatus :: Lens' CreateInferenceSchedulerResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance GHC.Show.Show Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance GHC.Read.Read Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance GHC.Show.Show Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance GHC.Read.Read Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceSchedulerResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.CreateInferenceScheduler.CreateInferenceScheduler
 
 
 -- | Creates a container for a collection of data being ingested for
@@ -5360,7 +5360,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.CreateInfer
 --   the location of the data source, the data schema, and other
 --   information. A dataset also contains any tags associated with the
 --   ingested data.
-module Network.AWS.LookoutEquipment.CreateDataset
+module Amazonka.LookoutEquipment.CreateDataset
 
 -- | <i>See:</i> <a>newCreateDataset</a> smart constructor.
 data CreateDataset
@@ -5487,27 +5487,27 @@ createDatasetResponse_datasetName :: Lens' CreateDatasetResponse (Maybe Text)
 
 -- | The response's http status code.
 createDatasetResponse_httpStatus :: Lens' CreateDatasetResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance GHC.Show.Show Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance GHC.Read.Read Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.CreateDataset.CreateDatasetResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.CreateDataset.CreateDatasetResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.CreateDataset.CreateDatasetResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.CreateDataset.CreateDatasetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.CreateDataset.CreateDatasetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.CreateDataset.CreateDataset
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance GHC.Show.Show Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance GHC.Read.Read Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.CreateDataset.CreateDatasetResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.CreateDataset.CreateDatasetResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.CreateDataset.CreateDatasetResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.CreateDataset.CreateDatasetResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.CreateDataset.CreateDatasetResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.CreateDataset.CreateDataset
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.CreateDataset.CreateDataset
 
 
 -- | Removes a specific tag from a given resource. The tag is specified by
 --   its key.
-module Network.AWS.LookoutEquipment.UntagResource
+module Amazonka.LookoutEquipment.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -5567,26 +5567,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.UntagResource.UntagResource
 
 
 -- | Updates an inference scheduler.
-module Network.AWS.LookoutEquipment.UpdateInferenceScheduler
+module Amazonka.LookoutEquipment.UpdateInferenceScheduler
 
 -- | <i>See:</i> <a>newUpdateInferenceScheduler</a> smart constructor.
 data UpdateInferenceScheduler
@@ -5724,25 +5724,25 @@ UpdateInferenceSchedulerResponse' :: UpdateInferenceSchedulerResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUpdateInferenceSchedulerResponse :: UpdateInferenceSchedulerResponse
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance GHC.Show.Show Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance GHC.Read.Read Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance GHC.Generics.Generic Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
-instance GHC.Show.Show Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
-instance GHC.Read.Read Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
-instance GHC.Classes.Eq Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
-instance Data.Hashable.Class.Hashable Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance Control.DeepSeq.NFData Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance Network.AWS.Data.Path.ToPath Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
-instance Network.AWS.Data.Query.ToQuery Network.AWS.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance GHC.Show.Show Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance GHC.Read.Read Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance GHC.Generics.Generic Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
+instance GHC.Show.Show Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
+instance GHC.Read.Read Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
+instance GHC.Classes.Eq Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
+instance Amazonka.Types.AWSRequest Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceSchedulerResponse
+instance Data.Hashable.Class.Hashable Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance Control.DeepSeq.NFData Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance Amazonka.Data.Headers.ToHeaders Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance Amazonka.Data.Path.ToPath Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
+instance Amazonka.Data.Query.ToQuery Amazonka.LookoutEquipment.UpdateInferenceScheduler.UpdateInferenceScheduler
 
 
-module Network.AWS.LookoutEquipment.Lens
+module Amazonka.LookoutEquipment.Lens
 
 -- | The name of the inference scheduler to be started.
 startInferenceScheduler_inferenceSchedulerName :: Lens' StartInferenceScheduler Text
@@ -6637,7 +6637,7 @@ tag_key :: Lens' Tag Text
 tag_value :: Lens' Tag Text
 
 
-module Network.AWS.LookoutEquipment.Waiters
+module Amazonka.LookoutEquipment.Waiters
 
 
 -- | Derived from API version <tt>2020-12-15</tt> of the AWS service
@@ -6646,7 +6646,7 @@ module Network.AWS.LookoutEquipment.Waiters
 --   Amazon Lookout for Equipment is a machine learning service that uses
 --   advanced analytics to identify anomalies in machines from sensor data
 --   for use in predictive maintenance.
-module Network.AWS.LookoutEquipment
+module Amazonka.LookoutEquipment
 
 -- | API version <tt>2020-12-15</tt> of the Amazon Lookout for Equipment
 --   SDK configuration.

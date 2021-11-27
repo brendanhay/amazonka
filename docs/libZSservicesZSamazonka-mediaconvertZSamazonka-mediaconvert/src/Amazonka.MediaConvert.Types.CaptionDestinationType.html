@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.CaptionDestinationType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.CaptionDestinationType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier">CaptionDestinationType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_BURN_IN"><span class="hs-identifier">CaptionDestinationType_BURN_IN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_DVB_SUB"><span class="hs-identifier">CaptionDestinationType_DVB_SUB</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_EMBEDDED"><span class="hs-identifier">CaptionDestinationType_EMBEDDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_EMBEDDED_PLUS_SCTE20"><span class="hs-identifier">CaptionDestinationType_EMBEDDED_PLUS_SCTE20</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_IMSC"><span class="hs-identifier">CaptionDestinationType_IMSC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SCC"><span class="hs-identifier">CaptionDestinationType_SCC</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SCTE20_PLUS_EMBEDDED"><span class="hs-identifier">CaptionDestinationType_SCTE20_PLUS_EMBEDDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SMI"><span class="hs-identifier">CaptionDestinationType_SMI</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SRT"><span class="hs-identifier">CaptionDestinationType_SRT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_TELETEXT"><span class="hs-identifier">CaptionDestinationType_TELETEXT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_TTML"><span class="hs-identifier">CaptionDestinationType_TTML</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_WEBVTT"><span class="hs-identifier">CaptionDestinationType_WEBVTT</span></a></span><span>
+</span><span id="line-35"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- | Specify the format for this set of captions on this output. The default</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- format is embedded without SCTE-20. Note that your choice of video</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- output container constrains your choice of output captions format. For</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- https:\/\/docs.aws.amazon.com\/mediaconvert\/latest\/ug\/captions-support-tables.html.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- If you are using SCTE-20 and you want to create an output that complies</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- with the SCTE-43 spec, choose SCTE-20 plus embedded</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- (SCTE20_PLUS_EMBEDDED). To create a non-compliant output where the</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- embedded captions come first, choose Embedded plus SCTE-20</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- (EMBEDDED_PLUS_SCTE20).</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679947561"><span id="local-6989586621679947562"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="CaptionDestinationType"><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-var">CaptionDestinationType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CaptionDestinationType%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-var">CaptionDestinationType'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromCaptionDestinationType"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#fromCaptionDestinationType"><span class="hs-identifier hs-var hs-var">fromCaptionDestinationType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947553"><span id="local-6989586621679947555"><span id="local-6989586621679947557"><span class="annot"><span class="annottext">Int -&gt; CaptionDestinationType -&gt; ShowS
+[CaptionDestinationType] -&gt; ShowS
+CaptionDestinationType -&gt; String
+(Int -&gt; CaptionDestinationType -&gt; ShowS)
+-&gt; (CaptionDestinationType -&gt; String)
+-&gt; ([CaptionDestinationType] -&gt; ShowS)
+-&gt; Show CaptionDestinationType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CaptionDestinationType] -&gt; ShowS
+$cshowList :: [CaptionDestinationType] -&gt; ShowS
+show :: CaptionDestinationType -&gt; String
+$cshow :: CaptionDestinationType -&gt; String
+showsPrec :: Int -&gt; CaptionDestinationType -&gt; ShowS
+$cshowsPrec :: Int -&gt; CaptionDestinationType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679947544"><span id="local-6989586621679947546"><span id="local-6989586621679947548"><span id="local-6989586621679947550"><span class="annot"><span class="annottext">ReadPrec [CaptionDestinationType]
+ReadPrec CaptionDestinationType
+Int -&gt; ReadS CaptionDestinationType
+ReadS [CaptionDestinationType]
+(Int -&gt; ReadS CaptionDestinationType)
+-&gt; ReadS [CaptionDestinationType]
+-&gt; ReadPrec CaptionDestinationType
+-&gt; ReadPrec [CaptionDestinationType]
+-&gt; Read CaptionDestinationType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CaptionDestinationType]
+$creadListPrec :: ReadPrec [CaptionDestinationType]
+readPrec :: ReadPrec CaptionDestinationType
+$creadPrec :: ReadPrec CaptionDestinationType
+readList :: ReadS [CaptionDestinationType]
+$creadList :: ReadS [CaptionDestinationType]
+readsPrec :: Int -&gt; ReadS CaptionDestinationType
+$creadsPrec :: Int -&gt; ReadS CaptionDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679947539"><span id="local-6989586621679947541"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+(CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
+-&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
+-&gt; Eq CaptionDestinationType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+$c/= :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+== :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+$c== :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679947523"><span id="local-6989586621679947525"><span id="local-6989586621679947527"><span id="local-6989586621679947529"><span id="local-6989586621679947531"><span id="local-6989586621679947533"><span id="local-6989586621679947535"><span class="annot"><span class="annottext">Eq CaptionDestinationType
+Eq CaptionDestinationType
+-&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Ordering)
+-&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
+-&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
+-&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
+-&gt; (CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool)
+-&gt; (CaptionDestinationType
+    -&gt; CaptionDestinationType -&gt; CaptionDestinationType)
+-&gt; (CaptionDestinationType
+    -&gt; CaptionDestinationType -&gt; CaptionDestinationType)
+-&gt; Ord CaptionDestinationType
+CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+CaptionDestinationType -&gt; CaptionDestinationType -&gt; Ordering
+CaptionDestinationType
+-&gt; CaptionDestinationType -&gt; CaptionDestinationType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: CaptionDestinationType
+-&gt; CaptionDestinationType -&gt; CaptionDestinationType
+$cmin :: CaptionDestinationType
+-&gt; CaptionDestinationType -&gt; CaptionDestinationType
+max :: CaptionDestinationType
+-&gt; CaptionDestinationType -&gt; CaptionDestinationType
+$cmax :: CaptionDestinationType
+-&gt; CaptionDestinationType -&gt; CaptionDestinationType
+&gt;= :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+$c&gt;= :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+&gt; :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+$c&gt; :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+&lt;= :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+$c&lt;= :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+&lt; :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+$c&lt; :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Bool
+compare :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Ordering
+$ccompare :: CaptionDestinationType -&gt; CaptionDestinationType -&gt; Ordering
+$cp1Ord :: Eq CaptionDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">(forall x. CaptionDestinationType -&gt; Rep CaptionDestinationType x)
+-&gt; (forall x.
+    Rep CaptionDestinationType x -&gt; CaptionDestinationType)
+-&gt; Generic CaptionDestinationType
+forall x. Rep CaptionDestinationType x -&gt; CaptionDestinationType
+forall x. CaptionDestinationType -&gt; Rep CaptionDestinationType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CaptionDestinationType x -&gt; CaptionDestinationType
+$cfrom :: forall x. CaptionDestinationType -&gt; Rep CaptionDestinationType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679947515"><span id="local-6989586621679947517"><span class="annot"><span class="annottext">Int -&gt; CaptionDestinationType -&gt; Int
+CaptionDestinationType -&gt; Int
+(Int -&gt; CaptionDestinationType -&gt; Int)
+-&gt; (CaptionDestinationType -&gt; Int)
+-&gt; Hashable CaptionDestinationType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: CaptionDestinationType -&gt; Int
+$chash :: CaptionDestinationType -&gt; Int
+hashWithSalt :: Int -&gt; CaptionDestinationType -&gt; Int
+$chashWithSalt :: Int -&gt; CaptionDestinationType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679947512"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ()
+(CaptionDestinationType -&gt; ()) -&gt; NFData CaptionDestinationType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: CaptionDestinationType -&gt; ()
+$crnf :: CaptionDestinationType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679947509"><span class="annot"><span class="annottext">Text -&gt; Either String CaptionDestinationType
+(Text -&gt; Either String CaptionDestinationType)
+-&gt; FromText CaptionDestinationType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String CaptionDestinationType
+$cfromText :: Text -&gt; Either String CaptionDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679947506"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; Text
+(CaptionDestinationType -&gt; Text) -&gt; ToText CaptionDestinationType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: CaptionDestinationType -&gt; Text
+$ctoText :: CaptionDestinationType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679947503"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ByteString
+(CaptionDestinationType -&gt; ByteString)
+-&gt; ToByteString CaptionDestinationType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: CaptionDestinationType -&gt; ByteString
+$ctoBS :: CaptionDestinationType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679947500"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; ByteStringBuilder
+(CaptionDestinationType -&gt; ByteStringBuilder)
+-&gt; ToLog CaptionDestinationType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: CaptionDestinationType -&gt; ByteStringBuilder
+$cbuild :: CaptionDestinationType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679947497"><span class="annot"><span class="annottext">HeaderName -&gt; CaptionDestinationType -&gt; [Header]
+(HeaderName -&gt; CaptionDestinationType -&gt; [Header])
+-&gt; ToHeader CaptionDestinationType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; CaptionDestinationType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; CaptionDestinationType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span id="local-6989586621679947494"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; QueryString
+(CaptionDestinationType -&gt; QueryString)
+-&gt; ToQuery CaptionDestinationType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: CaptionDestinationType -&gt; QueryString
+$ctoQuery :: CaptionDestinationType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span id="local-6989586621679947489"><span id="local-6989586621679947491"><span class="annot"><span class="annottext">Value -&gt; Parser [CaptionDestinationType]
+Value -&gt; Parser CaptionDestinationType
+(Value -&gt; Parser CaptionDestinationType)
+-&gt; (Value -&gt; Parser [CaptionDestinationType])
+-&gt; FromJSON CaptionDestinationType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [CaptionDestinationType]
+$cparseJSONList :: Value -&gt; Parser [CaptionDestinationType]
+parseJSON :: Value -&gt; Parser CaptionDestinationType
+$cparseJSON :: Value -&gt; Parser CaptionDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span id="local-6989586621679947484"><span id="local-6989586621679947486"><span class="annot"><span class="annottext">FromJSONKeyFunction [CaptionDestinationType]
+FromJSONKeyFunction CaptionDestinationType
+FromJSONKeyFunction CaptionDestinationType
+-&gt; FromJSONKeyFunction [CaptionDestinationType]
+-&gt; FromJSONKey CaptionDestinationType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [CaptionDestinationType]
+$cfromJSONKeyList :: FromJSONKeyFunction [CaptionDestinationType]
+fromJSONKey :: FromJSONKeyFunction CaptionDestinationType
+$cfromJSONKey :: FromJSONKeyFunction CaptionDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span id="local-6989586621679947475"><span id="local-6989586621679947477"><span id="local-6989586621679947479"><span id="local-6989586621679947481"><span class="annot"><span class="annottext">[CaptionDestinationType] -&gt; Encoding
+[CaptionDestinationType] -&gt; Value
+CaptionDestinationType -&gt; Encoding
+CaptionDestinationType -&gt; Value
+(CaptionDestinationType -&gt; Value)
+-&gt; (CaptionDestinationType -&gt; Encoding)
+-&gt; ([CaptionDestinationType] -&gt; Value)
+-&gt; ([CaptionDestinationType] -&gt; Encoding)
+-&gt; ToJSON CaptionDestinationType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [CaptionDestinationType] -&gt; Encoding
+$ctoEncodingList :: [CaptionDestinationType] -&gt; Encoding
+toJSONList :: [CaptionDestinationType] -&gt; Value
+$ctoJSONList :: [CaptionDestinationType] -&gt; Value
+toEncoding :: CaptionDestinationType -&gt; Encoding
+$ctoEncoding :: CaptionDestinationType -&gt; Encoding
+toJSON :: CaptionDestinationType -&gt; Value
+$ctoJSON :: CaptionDestinationType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span id="local-6989586621679947470"><span id="local-6989586621679947472"><span class="annot"><span class="annottext">ToJSONKeyFunction [CaptionDestinationType]
+ToJSONKeyFunction CaptionDestinationType
+ToJSONKeyFunction CaptionDestinationType
+-&gt; ToJSONKeyFunction [CaptionDestinationType]
+-&gt; ToJSONKey CaptionDestinationType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [CaptionDestinationType]
+$ctoJSONKeyList :: ToJSONKeyFunction [CaptionDestinationType]
+toJSONKey :: ToJSONKeyFunction CaptionDestinationType
+$ctoJSONKey :: ToJSONKeyFunction CaptionDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span id="local-6989586621679947467"><span class="annot"><span class="annottext">[Node] -&gt; Either String CaptionDestinationType
+([Node] -&gt; Either String CaptionDestinationType)
+-&gt; FromXML CaptionDestinationType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String CaptionDestinationType
+$cparseXML :: [Node] -&gt; Either String CaptionDestinationType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span id="local-6989586621679947464"><span class="annot"><span class="annottext">CaptionDestinationType -&gt; XML
+(CaptionDestinationType -&gt; XML) -&gt; ToXML CaptionDestinationType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: CaptionDestinationType -&gt; XML
+$ctoXML :: CaptionDestinationType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_BURN_IN"><span class="hs-identifier hs-type">CaptionDestinationType_BURN_IN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_BURN_IN"><span id="%24mCaptionDestinationType_BURN_IN"><span id="CaptionDestinationType_BURN_IN"><span class="annot"><span class="annottext">$bCaptionDestinationType_BURN_IN :: CaptionDestinationType
+$mCaptionDestinationType_BURN_IN :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_BURN_IN"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_BURN_IN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BURN_IN&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_DVB_SUB"><span class="hs-identifier hs-type">CaptionDestinationType_DVB_SUB</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_DVB_SUB"><span id="%24mCaptionDestinationType_DVB_SUB"><span id="CaptionDestinationType_DVB_SUB"><span class="annot"><span class="annottext">$bCaptionDestinationType_DVB_SUB :: CaptionDestinationType
+$mCaptionDestinationType_DVB_SUB :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_DVB_SUB"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_DVB_SUB</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DVB_SUB&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_EMBEDDED"><span class="hs-identifier hs-type">CaptionDestinationType_EMBEDDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_EMBEDDED"><span id="%24mCaptionDestinationType_EMBEDDED"><span id="CaptionDestinationType_EMBEDDED"><span class="annot"><span class="annottext">$bCaptionDestinationType_EMBEDDED :: CaptionDestinationType
+$mCaptionDestinationType_EMBEDDED :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_EMBEDDED"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_EMBEDDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMBEDDED&quot;</span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_EMBEDDED_PLUS_SCTE20"><span class="hs-identifier hs-type">CaptionDestinationType_EMBEDDED_PLUS_SCTE20</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_EMBEDDED_PLUS_SCTE20"><span id="%24mCaptionDestinationType_EMBEDDED_PLUS_SCTE20"><span id="CaptionDestinationType_EMBEDDED_PLUS_SCTE20"><span class="annot"><span class="annottext">$bCaptionDestinationType_EMBEDDED_PLUS_SCTE20 :: CaptionDestinationType
+$mCaptionDestinationType_EMBEDDED_PLUS_SCTE20 :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_EMBEDDED_PLUS_SCTE20"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_EMBEDDED_PLUS_SCTE20</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMBEDDED_PLUS_SCTE20&quot;</span></span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_IMSC"><span class="hs-identifier hs-type">CaptionDestinationType_IMSC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_IMSC"><span id="%24mCaptionDestinationType_IMSC"><span id="CaptionDestinationType_IMSC"><span class="annot"><span class="annottext">$bCaptionDestinationType_IMSC :: CaptionDestinationType
+$mCaptionDestinationType_IMSC :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_IMSC"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_IMSC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;IMSC&quot;</span></span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SCC"><span class="hs-identifier hs-type">CaptionDestinationType_SCC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_SCC"><span id="%24mCaptionDestinationType_SCC"><span id="CaptionDestinationType_SCC"><span class="annot"><span class="annottext">$bCaptionDestinationType_SCC :: CaptionDestinationType
+$mCaptionDestinationType_SCC :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_SCC"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_SCC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SCC&quot;</span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SCTE20_PLUS_EMBEDDED"><span class="hs-identifier hs-type">CaptionDestinationType_SCTE20_PLUS_EMBEDDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_SCTE20_PLUS_EMBEDDED"><span id="%24mCaptionDestinationType_SCTE20_PLUS_EMBEDDED"><span id="CaptionDestinationType_SCTE20_PLUS_EMBEDDED"><span class="annot"><span class="annottext">$bCaptionDestinationType_SCTE20_PLUS_EMBEDDED :: CaptionDestinationType
+$mCaptionDestinationType_SCTE20_PLUS_EMBEDDED :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_SCTE20_PLUS_EMBEDDED"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_SCTE20_PLUS_EMBEDDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SCTE20_PLUS_EMBEDDED&quot;</span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SMI"><span class="hs-identifier hs-type">CaptionDestinationType_SMI</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_SMI"><span id="%24mCaptionDestinationType_SMI"><span id="CaptionDestinationType_SMI"><span class="annot"><span class="annottext">$bCaptionDestinationType_SMI :: CaptionDestinationType
+$mCaptionDestinationType_SMI :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_SMI"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_SMI</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SMI&quot;</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SRT"><span class="hs-identifier hs-type">CaptionDestinationType_SRT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_SRT"><span id="%24mCaptionDestinationType_SRT"><span id="CaptionDestinationType_SRT"><span class="annot"><span class="annottext">$bCaptionDestinationType_SRT :: CaptionDestinationType
+$mCaptionDestinationType_SRT :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_SRT"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_SRT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SRT&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_TELETEXT"><span class="hs-identifier hs-type">CaptionDestinationType_TELETEXT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_TELETEXT"><span id="%24mCaptionDestinationType_TELETEXT"><span id="CaptionDestinationType_TELETEXT"><span class="annot"><span class="annottext">$bCaptionDestinationType_TELETEXT :: CaptionDestinationType
+$mCaptionDestinationType_TELETEXT :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_TELETEXT"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_TELETEXT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TELETEXT&quot;</span></span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_TTML"><span class="hs-identifier hs-type">CaptionDestinationType_TTML</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_TTML"><span id="%24mCaptionDestinationType_TTML"><span id="CaptionDestinationType_TTML"><span class="annot"><span class="annottext">$bCaptionDestinationType_TTML :: CaptionDestinationType
+$mCaptionDestinationType_TTML :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_TTML"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_TTML</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TTML&quot;</span></span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_WEBVTT"><span class="hs-identifier hs-type">CaptionDestinationType_WEBVTT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType"><span class="hs-identifier hs-type">CaptionDestinationType</span></a></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bCaptionDestinationType_WEBVTT"><span id="%24mCaptionDestinationType_WEBVTT"><span id="CaptionDestinationType_WEBVTT"><span class="annot"><span class="annottext">$bCaptionDestinationType_WEBVTT :: CaptionDestinationType
+$mCaptionDestinationType_WEBVTT :: forall r.
+CaptionDestinationType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#%24bCaptionDestinationType_WEBVTT"><span class="hs-identifier hs-var hs-var hs-var">CaptionDestinationType_WEBVTT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-identifier hs-type">CaptionDestinationType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;WEBVTT&quot;</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_BURN_IN"><span class="hs-pragma hs-type">CaptionDestinationType_BURN_IN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_DVB_SUB"><span class="hs-pragma hs-type">CaptionDestinationType_DVB_SUB</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_EMBEDDED"><span class="hs-pragma hs-type">CaptionDestinationType_EMBEDDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_EMBEDDED_PLUS_SCTE20"><span class="hs-pragma hs-type">CaptionDestinationType_EMBEDDED_PLUS_SCTE20</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_IMSC"><span class="hs-pragma hs-type">CaptionDestinationType_IMSC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SCC"><span class="hs-pragma hs-type">CaptionDestinationType_SCC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SCTE20_PLUS_EMBEDDED"><span class="hs-pragma hs-type">CaptionDestinationType_SCTE20_PLUS_EMBEDDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SMI"><span class="hs-pragma hs-type">CaptionDestinationType_SMI</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_SRT"><span class="hs-pragma hs-type">CaptionDestinationType_SRT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_TELETEXT"><span class="hs-pragma hs-type">CaptionDestinationType_TELETEXT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_TTML"><span class="hs-pragma hs-type">CaptionDestinationType_TTML</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType_WEBVTT"><span class="hs-pragma hs-type">CaptionDestinationType_WEBVTT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.CaptionDestinationType.html#CaptionDestinationType%27"><span class="hs-pragma hs-type">CaptionDestinationType'</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-131"></span></pre></body></html>

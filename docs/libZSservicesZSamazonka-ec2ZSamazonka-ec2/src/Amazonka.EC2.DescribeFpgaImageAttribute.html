@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DescribeFpgaImageAttribute</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the specified attribute of the specified Amazon FPGA Image</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (AFI).</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DescribeFpgaImageAttribute</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#newDescribeFpgaImageAttribute"><span class="hs-identifier">newDescribeFpgaImageAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_dryRun"><span class="hs-identifier">describeFpgaImageAttribute_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_fpgaImageId"><span class="hs-identifier">describeFpgaImageAttribute_fpgaImageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_attribute"><span class="hs-identifier">describeFpgaImageAttribute_attribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier">DescribeFpgaImageAttributeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#newDescribeFpgaImageAttributeResponse"><span class="hs-identifier">newDescribeFpgaImageAttributeResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttributeResponse_fpgaImageAttribute"><span class="hs-identifier">describeFpgaImageAttributeResponse_fpgaImageAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttributeResponse_httpStatus"><span class="hs-identifier">describeFpgaImageAttributeResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDescribeFpgaImageAttribute' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621681264958"><span id="local-6989586621681264959"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFpgaImageAttribute"><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-var">DescribeFpgaImageAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFpgaImageAttribute%27"><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var">DescribeFpgaImageAttribute'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AdryRun%3ADescribeFpgaImageAttribute%27"><span class="annot"><span class="annottext">DescribeFpgaImageAttribute -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AdryRun%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the AFI.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AfpgaImageId%3ADescribeFpgaImageAttribute%27"><span class="annot"><span class="annottext">DescribeFpgaImageAttribute -&gt; Text
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AfpgaImageId%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var hs-var">fpgaImageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The AFI attribute.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Aattribute%3ADescribeFpgaImageAttribute%27"><span class="annot"><span class="annottext">DescribeFpgaImageAttribute -&gt; FpgaImageAttributeName
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3Aattribute%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageAttributeName.html#FpgaImageAttributeName"><span class="hs-identifier hs-type">FpgaImageAttributeName</span></a></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681264950"><span id="local-6989586621681264952"><span class="annot"><span class="annottext">DescribeFpgaImageAttribute -&gt; DescribeFpgaImageAttribute -&gt; Bool
+(DescribeFpgaImageAttribute -&gt; DescribeFpgaImageAttribute -&gt; Bool)
+-&gt; (DescribeFpgaImageAttribute
+    -&gt; DescribeFpgaImageAttribute -&gt; Bool)
+-&gt; Eq DescribeFpgaImageAttribute
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFpgaImageAttribute -&gt; DescribeFpgaImageAttribute -&gt; Bool
+$c/= :: DescribeFpgaImageAttribute -&gt; DescribeFpgaImageAttribute -&gt; Bool
+== :: DescribeFpgaImageAttribute -&gt; DescribeFpgaImageAttribute -&gt; Bool
+$c== :: DescribeFpgaImageAttribute -&gt; DescribeFpgaImageAttribute -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264941"><span id="local-6989586621681264943"><span id="local-6989586621681264945"><span id="local-6989586621681264947"><span class="annot"><span class="annottext">ReadPrec [DescribeFpgaImageAttribute]
+ReadPrec DescribeFpgaImageAttribute
+Int -&gt; ReadS DescribeFpgaImageAttribute
+ReadS [DescribeFpgaImageAttribute]
+(Int -&gt; ReadS DescribeFpgaImageAttribute)
+-&gt; ReadS [DescribeFpgaImageAttribute]
+-&gt; ReadPrec DescribeFpgaImageAttribute
+-&gt; ReadPrec [DescribeFpgaImageAttribute]
+-&gt; Read DescribeFpgaImageAttribute
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFpgaImageAttribute]
+$creadListPrec :: ReadPrec [DescribeFpgaImageAttribute]
+readPrec :: ReadPrec DescribeFpgaImageAttribute
+$creadPrec :: ReadPrec DescribeFpgaImageAttribute
+readList :: ReadS [DescribeFpgaImageAttribute]
+$creadList :: ReadS [DescribeFpgaImageAttribute]
+readsPrec :: Int -&gt; ReadS DescribeFpgaImageAttribute
+$creadsPrec :: Int -&gt; ReadS DescribeFpgaImageAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264934"><span id="local-6989586621681264936"><span id="local-6989586621681264938"><span class="annot"><span class="annottext">Int -&gt; DescribeFpgaImageAttribute -&gt; ShowS
+[DescribeFpgaImageAttribute] -&gt; ShowS
+DescribeFpgaImageAttribute -&gt; String
+(Int -&gt; DescribeFpgaImageAttribute -&gt; ShowS)
+-&gt; (DescribeFpgaImageAttribute -&gt; String)
+-&gt; ([DescribeFpgaImageAttribute] -&gt; ShowS)
+-&gt; Show DescribeFpgaImageAttribute
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFpgaImageAttribute] -&gt; ShowS
+$cshowList :: [DescribeFpgaImageAttribute] -&gt; ShowS
+show :: DescribeFpgaImageAttribute -&gt; String
+$cshow :: DescribeFpgaImageAttribute -&gt; String
+showsPrec :: Int -&gt; DescribeFpgaImageAttribute -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFpgaImageAttribute -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFpgaImageAttribute -&gt; Rep DescribeFpgaImageAttribute x)
+-&gt; (forall x.
+    Rep DescribeFpgaImageAttribute x -&gt; DescribeFpgaImageAttribute)
+-&gt; Generic DescribeFpgaImageAttribute
+forall x.
+Rep DescribeFpgaImageAttribute x -&gt; DescribeFpgaImageAttribute
+forall x.
+DescribeFpgaImageAttribute -&gt; Rep DescribeFpgaImageAttribute x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFpgaImageAttribute x -&gt; DescribeFpgaImageAttribute
+$cfrom :: forall x.
+DescribeFpgaImageAttribute -&gt; Rep DescribeFpgaImageAttribute x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'DescribeFpgaImageAttribute' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'dryRun', 'describeFpgaImageAttribute_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'fpgaImageId', 'describeFpgaImageAttribute_fpgaImageId' - The ID of the AFI.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'attribute', 'describeFpgaImageAttribute_attribute' - The AFI attribute.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#newDescribeFpgaImageAttribute"><span class="hs-identifier hs-type">newDescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'fpgaImageId'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'attribute'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageAttributeName.html#FpgaImageAttributeName"><span class="hs-identifier hs-type">FpgaImageAttributeName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span>
+</span><span id="line-88"></span><span id="newDescribeFpgaImageAttribute"><span class="annot"><span class="annottext">newDescribeFpgaImageAttribute :: Text -&gt; FpgaImageAttributeName -&gt; DescribeFpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#newDescribeFpgaImageAttribute"><span class="hs-identifier hs-var hs-var">newDescribeFpgaImageAttribute</span></a></span></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621681264929"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681264929"><span class="hs-identifier hs-var">pFpgaImageId_</span></a></span></span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621681264928"><span class="annot"><span class="annottext">FpgaImageAttributeName
+</span><a href="#local-6989586621681264928"><span class="hs-identifier hs-var">pAttribute_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><span class="annottext">DescribeFpgaImageAttribute' :: Maybe Bool
+-&gt; Text -&gt; FpgaImageAttributeName -&gt; DescribeFpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFpgaImageAttribute' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AdryRun%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">$sel:fpgaImageId:DescribeFpgaImageAttribute' :: Text
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AfpgaImageId%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var">fpgaImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681264929"><span class="hs-identifier hs-var">pFpgaImageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">$sel:attribute:DescribeFpgaImageAttribute' :: FpgaImageAttributeName
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3Aattribute%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FpgaImageAttributeName
+</span><a href="#local-6989586621681264928"><span class="hs-identifier hs-var">pAttribute_</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_dryRun"><span class="hs-identifier hs-type">describeFpgaImageAttribute_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="describeFpgaImageAttribute_dryRun"><span class="annot"><span class="annottext">describeFpgaImageAttribute_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DescribeFpgaImageAttribute -&gt; f DescribeFpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_dryRun"><span class="hs-identifier hs-var hs-var">describeFpgaImageAttribute_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFpgaImageAttribute -&gt; Maybe Bool)
+-&gt; (DescribeFpgaImageAttribute
+    -&gt; Maybe Bool -&gt; DescribeFpgaImageAttribute)
+-&gt; Lens
+     DescribeFpgaImageAttribute
+     DescribeFpgaImageAttribute
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264925"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DescribeFpgaImageAttribute' :: DescribeFpgaImageAttribute -&gt; Maybe Bool
+</span><a href="#local-6989586621681264925"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681264925"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264924"><span class="annot"><span class="annottext">s :: DescribeFpgaImageAttribute
+</span><a href="#local-6989586621681264924"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264923"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681264923"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFpgaImageAttribute
+</span><a href="#local-6989586621681264924"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DescribeFpgaImageAttribute' :: Maybe Bool
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AdryRun%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681264923"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The ID of the AFI.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_fpgaImageId"><span class="hs-identifier hs-type">describeFpgaImageAttribute_fpgaImageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-107"></span><span id="describeFpgaImageAttribute_fpgaImageId"><span class="annot"><span class="annottext">describeFpgaImageAttribute_fpgaImageId :: (Text -&gt; f Text)
+-&gt; DescribeFpgaImageAttribute -&gt; f DescribeFpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_fpgaImageId"><span class="hs-identifier hs-var hs-var">describeFpgaImageAttribute_fpgaImageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFpgaImageAttribute -&gt; Text)
+-&gt; (DescribeFpgaImageAttribute
+    -&gt; Text -&gt; DescribeFpgaImageAttribute)
+-&gt; Lens
+     DescribeFpgaImageAttribute DescribeFpgaImageAttribute Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264922"><span class="annot"><span class="annottext">Text
+fpgaImageId :: Text
+$sel:fpgaImageId:DescribeFpgaImageAttribute' :: DescribeFpgaImageAttribute -&gt; Text
+</span><a href="#local-6989586621681264922"><span class="hs-identifier hs-var hs-var">fpgaImageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681264922"><span class="hs-identifier hs-var">fpgaImageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264921"><span class="annot"><span class="annottext">s :: DescribeFpgaImageAttribute
+</span><a href="#local-6989586621681264921"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264920"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681264920"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFpgaImageAttribute
+</span><a href="#local-6989586621681264921"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fpgaImageId:DescribeFpgaImageAttribute' :: Text
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AfpgaImageId%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var">fpgaImageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681264920"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The AFI attribute.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_attribute"><span class="hs-identifier hs-type">describeFpgaImageAttribute_attribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageAttributeName.html#FpgaImageAttributeName"><span class="hs-identifier hs-type">FpgaImageAttributeName</span></a></span><span>
+</span><span id="line-111"></span><span id="describeFpgaImageAttribute_attribute"><span class="annot"><span class="annottext">describeFpgaImageAttribute_attribute :: (FpgaImageAttributeName -&gt; f FpgaImageAttributeName)
+-&gt; DescribeFpgaImageAttribute -&gt; f DescribeFpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttribute_attribute"><span class="hs-identifier hs-var hs-var">describeFpgaImageAttribute_attribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFpgaImageAttribute -&gt; FpgaImageAttributeName)
+-&gt; (DescribeFpgaImageAttribute
+    -&gt; FpgaImageAttributeName -&gt; DescribeFpgaImageAttribute)
+-&gt; Lens
+     DescribeFpgaImageAttribute
+     DescribeFpgaImageAttribute
+     FpgaImageAttributeName
+     FpgaImageAttributeName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264919"><span class="annot"><span class="annottext">FpgaImageAttributeName
+attribute :: FpgaImageAttributeName
+$sel:attribute:DescribeFpgaImageAttribute' :: DescribeFpgaImageAttribute -&gt; FpgaImageAttributeName
+</span><a href="#local-6989586621681264919"><span class="hs-identifier hs-var hs-var">attribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FpgaImageAttributeName
+</span><a href="#local-6989586621681264919"><span class="hs-identifier hs-var">attribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264918"><span class="annot"><span class="annottext">s :: DescribeFpgaImageAttribute
+</span><a href="#local-6989586621681264918"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264917"><span class="annot"><span class="annottext">FpgaImageAttributeName
+</span><a href="#local-6989586621681264917"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFpgaImageAttribute
+</span><a href="#local-6989586621681264918"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attribute:DescribeFpgaImageAttribute' :: FpgaImageAttributeName
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3Aattribute%3ADescribeFpgaImageAttribute%27"><span class="hs-identifier hs-var">attribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">FpgaImageAttributeName
+</span><a href="#local-6989586621681264917"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-115"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse</span></a></span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681264913"><span class="annot"><span class="annottext">request :: DescribeFpgaImageAttribute -&gt; Request DescribeFpgaImageAttribute
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeFpgaImageAttribute -&gt; Request DescribeFpgaImageAttribute
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621681264909"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeFpgaImageAttribute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFpgaImageAttribute)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse DescribeFpgaImageAttribute))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeFpgaImageAttribute
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeFpgaImageAttribute)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681264906"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264906"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681264905"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681264905"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681264904"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681264904"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe FpgaImageAttribute
+-&gt; Int -&gt; DescribeFpgaImageAttributeResponse
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var">DescribeFpgaImageAttributeResponse'</span></a></span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">(Maybe FpgaImageAttribute
+ -&gt; Int -&gt; DescribeFpgaImageAttributeResponse)
+-&gt; Either String (Maybe FpgaImageAttribute)
+-&gt; Either String (Int -&gt; DescribeFpgaImageAttributeResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681264904"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe FpgaImageAttribute)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;fpgaImageAttribute&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeFpgaImageAttributeResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeFpgaImageAttributeResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264906"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681264896"><span id="local-6989586621681264898"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681264893"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621681264889"><span class="annot"><span class="annottext">toHeaders :: DescribeFpgaImageAttribute -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeFpgaImageAttribute -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681264884"><span class="annot"><span class="annottext">toPath :: DescribeFpgaImageAttribute -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeFpgaImageAttribute -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621681264880"><span class="annot"><span class="annottext">toQuery :: DescribeFpgaImageAttribute -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttribute%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttribute'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264876"><span id="local-6989586621681264877"><span id="local-6989586621681264878"><span class="annot"><span class="annottext">Maybe Bool
+Text
+FpgaImageAttributeName
+attribute :: FpgaImageAttributeName
+fpgaImageId :: Text
+dryRun :: Maybe Bool
+$sel:attribute:DescribeFpgaImageAttribute' :: DescribeFpgaImageAttribute -&gt; FpgaImageAttributeName
+$sel:fpgaImageId:DescribeFpgaImageAttribute' :: DescribeFpgaImageAttribute -&gt; Text
+$sel:dryRun:DescribeFpgaImageAttribute' :: DescribeFpgaImageAttribute -&gt; Maybe Bool
+</span><a href="#local-6989586621681264876"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DescribeFpgaImageAttribute&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681264878"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FpgaImageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681264877"><span class="hs-identifier hs-var">fpgaImageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Attribute&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; FpgaImageAttributeName -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">FpgaImageAttributeName
+</span><a href="#local-6989586621681264876"><span class="hs-identifier hs-var">attribute</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDescribeFpgaImageAttributeResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621681264873"><span id="local-6989586621681264874"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeFpgaImageAttributeResponse"><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-var">DescribeFpgaImageAttributeResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeFpgaImageAttributeResponse%27"><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var">DescribeFpgaImageAttributeResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the attribute.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AfpgaImageAttribute%3ADescribeFpgaImageAttributeResponse%27"><span class="annot"><span class="annottext">DescribeFpgaImageAttributeResponse -&gt; Maybe FpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AfpgaImageAttribute%3ADescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var hs-var">fpgaImageAttribute</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageAttribute.html#FpgaImageAttribute"><span class="hs-identifier hs-type">FpgaImageAttribute</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeFpgaImageAttributeResponse%27"><span class="annot"><span class="annottext">DescribeFpgaImageAttributeResponse -&gt; Int
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AhttpStatus%3ADescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-154"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681264867"><span id="local-6989586621681264869"><span class="annot"><span class="annottext">DescribeFpgaImageAttributeResponse
+-&gt; DescribeFpgaImageAttributeResponse -&gt; Bool
+(DescribeFpgaImageAttributeResponse
+ -&gt; DescribeFpgaImageAttributeResponse -&gt; Bool)
+-&gt; (DescribeFpgaImageAttributeResponse
+    -&gt; DescribeFpgaImageAttributeResponse -&gt; Bool)
+-&gt; Eq DescribeFpgaImageAttributeResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeFpgaImageAttributeResponse
+-&gt; DescribeFpgaImageAttributeResponse -&gt; Bool
+$c/= :: DescribeFpgaImageAttributeResponse
+-&gt; DescribeFpgaImageAttributeResponse -&gt; Bool
+== :: DescribeFpgaImageAttributeResponse
+-&gt; DescribeFpgaImageAttributeResponse -&gt; Bool
+$c== :: DescribeFpgaImageAttributeResponse
+-&gt; DescribeFpgaImageAttributeResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264859"><span id="local-6989586621681264861"><span id="local-6989586621681264863"><span id="local-6989586621681264865"><span class="annot"><span class="annottext">ReadPrec [DescribeFpgaImageAttributeResponse]
+ReadPrec DescribeFpgaImageAttributeResponse
+Int -&gt; ReadS DescribeFpgaImageAttributeResponse
+ReadS [DescribeFpgaImageAttributeResponse]
+(Int -&gt; ReadS DescribeFpgaImageAttributeResponse)
+-&gt; ReadS [DescribeFpgaImageAttributeResponse]
+-&gt; ReadPrec DescribeFpgaImageAttributeResponse
+-&gt; ReadPrec [DescribeFpgaImageAttributeResponse]
+-&gt; Read DescribeFpgaImageAttributeResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeFpgaImageAttributeResponse]
+$creadListPrec :: ReadPrec [DescribeFpgaImageAttributeResponse]
+readPrec :: ReadPrec DescribeFpgaImageAttributeResponse
+$creadPrec :: ReadPrec DescribeFpgaImageAttributeResponse
+readList :: ReadS [DescribeFpgaImageAttributeResponse]
+$creadList :: ReadS [DescribeFpgaImageAttributeResponse]
+readsPrec :: Int -&gt; ReadS DescribeFpgaImageAttributeResponse
+$creadsPrec :: Int -&gt; ReadS DescribeFpgaImageAttributeResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681264853"><span id="local-6989586621681264855"><span id="local-6989586621681264857"><span class="annot"><span class="annottext">Int -&gt; DescribeFpgaImageAttributeResponse -&gt; ShowS
+[DescribeFpgaImageAttributeResponse] -&gt; ShowS
+DescribeFpgaImageAttributeResponse -&gt; String
+(Int -&gt; DescribeFpgaImageAttributeResponse -&gt; ShowS)
+-&gt; (DescribeFpgaImageAttributeResponse -&gt; String)
+-&gt; ([DescribeFpgaImageAttributeResponse] -&gt; ShowS)
+-&gt; Show DescribeFpgaImageAttributeResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeFpgaImageAttributeResponse] -&gt; ShowS
+$cshowList :: [DescribeFpgaImageAttributeResponse] -&gt; ShowS
+show :: DescribeFpgaImageAttributeResponse -&gt; String
+$cshow :: DescribeFpgaImageAttributeResponse -&gt; String
+showsPrec :: Int -&gt; DescribeFpgaImageAttributeResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeFpgaImageAttributeResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeFpgaImageAttributeResponse
+ -&gt; Rep DescribeFpgaImageAttributeResponse x)
+-&gt; (forall x.
+    Rep DescribeFpgaImageAttributeResponse x
+    -&gt; DescribeFpgaImageAttributeResponse)
+-&gt; Generic DescribeFpgaImageAttributeResponse
+forall x.
+Rep DescribeFpgaImageAttributeResponse x
+-&gt; DescribeFpgaImageAttributeResponse
+forall x.
+DescribeFpgaImageAttributeResponse
+-&gt; Rep DescribeFpgaImageAttributeResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeFpgaImageAttributeResponse x
+-&gt; DescribeFpgaImageAttributeResponse
+$cfrom :: forall x.
+DescribeFpgaImageAttributeResponse
+-&gt; Rep DescribeFpgaImageAttributeResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- Create a value of 'DescribeFpgaImageAttributeResponse' with all optional fields omitted.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'fpgaImageAttribute', 'describeFpgaImageAttributeResponse_fpgaImageAttribute' - Information about the attribute.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'httpStatus', 'describeFpgaImageAttributeResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#newDescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">newDescribeFpgaImageAttributeResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse</span></a></span><span>
+</span><span id="line-172"></span><span id="newDescribeFpgaImageAttributeResponse"><span class="annot"><span class="annottext">newDescribeFpgaImageAttributeResponse :: Int -&gt; DescribeFpgaImageAttributeResponse
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#newDescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-var hs-var">newDescribeFpgaImageAttributeResponse</span></a></span></span><span> </span><span id="local-6989586621681264850"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264850"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">DescribeFpgaImageAttributeResponse' :: Maybe FpgaImageAttribute
+-&gt; Int -&gt; DescribeFpgaImageAttributeResponse
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse'</span></a></span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:fpgaImageAttribute:DescribeFpgaImageAttributeResponse' :: Maybe FpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AfpgaImageAttribute%3ADescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var">fpgaImageAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">Maybe FpgaImageAttribute
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFpgaImageAttributeResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AhttpStatus%3ADescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264850"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Information about the attribute.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttributeResponse_fpgaImageAttribute"><span class="hs-identifier hs-type">describeFpgaImageAttributeResponse_fpgaImageAttribute</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.FpgaImageAttribute.html#FpgaImageAttribute"><span class="hs-identifier hs-type">FpgaImageAttribute</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="describeFpgaImageAttributeResponse_fpgaImageAttribute"><span class="annot"><span class="annottext">describeFpgaImageAttributeResponse_fpgaImageAttribute :: (Maybe FpgaImageAttribute -&gt; f (Maybe FpgaImageAttribute))
+-&gt; DescribeFpgaImageAttributeResponse
+-&gt; f DescribeFpgaImageAttributeResponse
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttributeResponse_fpgaImageAttribute"><span class="hs-identifier hs-var hs-var">describeFpgaImageAttributeResponse_fpgaImageAttribute</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFpgaImageAttributeResponse -&gt; Maybe FpgaImageAttribute)
+-&gt; (DescribeFpgaImageAttributeResponse
+    -&gt; Maybe FpgaImageAttribute -&gt; DescribeFpgaImageAttributeResponse)
+-&gt; Lens
+     DescribeFpgaImageAttributeResponse
+     DescribeFpgaImageAttributeResponse
+     (Maybe FpgaImageAttribute)
+     (Maybe FpgaImageAttribute)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264849"><span class="annot"><span class="annottext">Maybe FpgaImageAttribute
+fpgaImageAttribute :: Maybe FpgaImageAttribute
+$sel:fpgaImageAttribute:DescribeFpgaImageAttributeResponse' :: DescribeFpgaImageAttributeResponse -&gt; Maybe FpgaImageAttribute
+</span><a href="#local-6989586621681264849"><span class="hs-identifier hs-var hs-var">fpgaImageAttribute</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaImageAttribute
+</span><a href="#local-6989586621681264849"><span class="hs-identifier hs-var">fpgaImageAttribute</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264848"><span class="annot"><span class="annottext">s :: DescribeFpgaImageAttributeResponse
+</span><a href="#local-6989586621681264848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264847"><span class="annot"><span class="annottext">Maybe FpgaImageAttribute
+</span><a href="#local-6989586621681264847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFpgaImageAttributeResponse
+</span><a href="#local-6989586621681264848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fpgaImageAttribute:DescribeFpgaImageAttributeResponse' :: Maybe FpgaImageAttribute
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AfpgaImageAttribute%3ADescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var">fpgaImageAttribute</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe FpgaImageAttribute
+</span><a href="#local-6989586621681264847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttributeResponse_httpStatus"><span class="hs-identifier hs-type">describeFpgaImageAttributeResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span id="describeFpgaImageAttributeResponse_httpStatus"><span class="annot"><span class="annottext">describeFpgaImageAttributeResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeFpgaImageAttributeResponse
+-&gt; f DescribeFpgaImageAttributeResponse
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#describeFpgaImageAttributeResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeFpgaImageAttributeResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeFpgaImageAttributeResponse -&gt; Int)
+-&gt; (DescribeFpgaImageAttributeResponse
+    -&gt; Int -&gt; DescribeFpgaImageAttributeResponse)
+-&gt; Lens
+     DescribeFpgaImageAttributeResponse
+     DescribeFpgaImageAttributeResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681264846"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeFpgaImageAttributeResponse' :: DescribeFpgaImageAttributeResponse -&gt; Int
+</span><a href="#local-6989586621681264846"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264846"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681264845"><span class="annot"><span class="annottext">s :: DescribeFpgaImageAttributeResponse
+</span><a href="#local-6989586621681264845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681264844"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeFpgaImageAttributeResponse
+</span><a href="#local-6989586621681264845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeFpgaImageAttributeResponse' :: Int
+</span><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#%24sel%3AhttpStatus%3ADescribeFpgaImageAttributeResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681264844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621681264842"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-189"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DescribeFpgaImageAttribute.html#DescribeFpgaImageAttributeResponse"><span class="hs-identifier hs-type">DescribeFpgaImageAttributeResponse</span></a></span></span><span>
+</span><span id="line-190"></span></pre></body></html>

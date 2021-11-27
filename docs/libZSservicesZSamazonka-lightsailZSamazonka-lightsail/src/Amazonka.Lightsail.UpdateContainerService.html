@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.UpdateContainerService</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the configuration of your Amazon Lightsail container service,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- such as its power, scale, and public domain names.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.UpdateContainerService</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier">UpdateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#newUpdateContainerService"><span class="hs-identifier">newUpdateContainerService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_scale"><span class="hs-identifier">updateContainerService_scale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_power"><span class="hs-identifier">updateContainerService_power</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_isDisabled"><span class="hs-identifier">updateContainerService_isDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_publicDomainNames"><span class="hs-identifier">updateContainerService_publicDomainNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_serviceName"><span class="hs-identifier">updateContainerService_serviceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier">UpdateContainerServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#newUpdateContainerServiceResponse"><span class="hs-identifier">newUpdateContainerServiceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerServiceResponse_containerService"><span class="hs-identifier">updateContainerServiceResponse_containerService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerServiceResponse_httpStatus"><span class="hs-identifier">updateContainerServiceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdateContainerService' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679664897"><span id="local-6989586621679664898"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateContainerService"><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-var">UpdateContainerService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateContainerService%27"><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-var">UpdateContainerService'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The scale for the container service.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- The scale specifies the allocated compute nodes of the container</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- service. The @power@ and @scale@ of a container service makes up its</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- configured capacity. To determine the monthly price of your container</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- service, multiply the base price of the @power@ with the @scale@ (the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- number of nodes) of the service.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3Ascale%3AUpdateContainerService%27"><span class="annot"><span class="annottext">UpdateContainerService -&gt; Maybe Natural
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3Ascale%3AUpdateContainerService%27"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The power for the container service.</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- The power specifies the amount of memory, vCPUs, and base monthly cost</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- of each node of the container service. The @power@ and @scale@ of a</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- container service makes up its configured capacity. To determine the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- monthly price of your container service, multiply the base price of the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @power@ with the @scale@ (the number of nodes) of the service.</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- Use the @GetContainerServicePowers@ action to view the specifications of</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- each power option.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Apower%3AUpdateContainerService%27"><span class="annot"><span class="annottext">UpdateContainerService -&gt; Maybe ContainerServicePowerName
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3Apower%3AUpdateContainerService%27"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContainerServicePowerName.html#ContainerServicePowerName"><span class="hs-identifier hs-type">ContainerServicePowerName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A Boolean value to indicate whether the container service is disabled.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3AisDisabled%3AUpdateContainerService%27"><span class="annot"><span class="annottext">UpdateContainerService -&gt; Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AisDisabled%3AUpdateContainerService%27"><span class="hs-identifier hs-var hs-var">isDisabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The public domain names to use with the container service, such as</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- domain of the container service.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- names you want to use with your container service.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- in the example later on this page.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3ApublicDomainNames%3AUpdateContainerService%27"><span class="annot"><span class="annottext">UpdateContainerService -&gt; Maybe (HashMap Text [Text])
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3ApublicDomainNames%3AUpdateContainerService%27"><span class="hs-identifier hs-var hs-var">publicDomainNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The name of the container service to update.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3AserviceName%3AUpdateContainerService%27"><span class="annot"><span class="annottext">UpdateContainerService -&gt; Text
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AserviceName%3AUpdateContainerService%27"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664887"><span id="local-6989586621679664889"><span class="annot"><span class="annottext">UpdateContainerService -&gt; UpdateContainerService -&gt; Bool
+(UpdateContainerService -&gt; UpdateContainerService -&gt; Bool)
+-&gt; (UpdateContainerService -&gt; UpdateContainerService -&gt; Bool)
+-&gt; Eq UpdateContainerService
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateContainerService -&gt; UpdateContainerService -&gt; Bool
+$c/= :: UpdateContainerService -&gt; UpdateContainerService -&gt; Bool
+== :: UpdateContainerService -&gt; UpdateContainerService -&gt; Bool
+$c== :: UpdateContainerService -&gt; UpdateContainerService -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664878"><span id="local-6989586621679664880"><span id="local-6989586621679664882"><span id="local-6989586621679664884"><span class="annot"><span class="annottext">ReadPrec [UpdateContainerService]
+ReadPrec UpdateContainerService
+Int -&gt; ReadS UpdateContainerService
+ReadS [UpdateContainerService]
+(Int -&gt; ReadS UpdateContainerService)
+-&gt; ReadS [UpdateContainerService]
+-&gt; ReadPrec UpdateContainerService
+-&gt; ReadPrec [UpdateContainerService]
+-&gt; Read UpdateContainerService
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateContainerService]
+$creadListPrec :: ReadPrec [UpdateContainerService]
+readPrec :: ReadPrec UpdateContainerService
+$creadPrec :: ReadPrec UpdateContainerService
+readList :: ReadS [UpdateContainerService]
+$creadList :: ReadS [UpdateContainerService]
+readsPrec :: Int -&gt; ReadS UpdateContainerService
+$creadsPrec :: Int -&gt; ReadS UpdateContainerService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664871"><span id="local-6989586621679664873"><span id="local-6989586621679664875"><span class="annot"><span class="annottext">Int -&gt; UpdateContainerService -&gt; ShowS
+[UpdateContainerService] -&gt; ShowS
+UpdateContainerService -&gt; String
+(Int -&gt; UpdateContainerService -&gt; ShowS)
+-&gt; (UpdateContainerService -&gt; String)
+-&gt; ([UpdateContainerService] -&gt; ShowS)
+-&gt; Show UpdateContainerService
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateContainerService] -&gt; ShowS
+$cshowList :: [UpdateContainerService] -&gt; ShowS
+show :: UpdateContainerService -&gt; String
+$cshow :: UpdateContainerService -&gt; String
+showsPrec :: Int -&gt; UpdateContainerService -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateContainerService -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateContainerService -&gt; Rep UpdateContainerService x)
+-&gt; (forall x.
+    Rep UpdateContainerService x -&gt; UpdateContainerService)
+-&gt; Generic UpdateContainerService
+forall x. Rep UpdateContainerService x -&gt; UpdateContainerService
+forall x. UpdateContainerService -&gt; Rep UpdateContainerService x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateContainerService x -&gt; UpdateContainerService
+$cfrom :: forall x. UpdateContainerService -&gt; Rep UpdateContainerService x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- Create a value of 'UpdateContainerService' with all optional fields omitted.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'scale', 'updateContainerService_scale' - The scale for the container service.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The scale specifies the allocated compute nodes of the container</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- service. The @power@ and @scale@ of a container service makes up its</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- configured capacity. To determine the monthly price of your container</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- service, multiply the base price of the @power@ with the @scale@ (the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- number of nodes) of the service.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'power', 'updateContainerService_power' - The power for the container service.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- The power specifies the amount of memory, vCPUs, and base monthly cost</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- of each node of the container service. The @power@ and @scale@ of a</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- container service makes up its configured capacity. To determine the</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- monthly price of your container service, multiply the base price of the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @power@ with the @scale@ (the number of nodes) of the service.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Use the @GetContainerServicePowers@ action to view the specifications of</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- each power option.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'isDisabled', 'updateContainerService_isDisabled' - A Boolean value to indicate whether the container service is disabled.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'publicDomainNames', 'updateContainerService_publicDomainNames' - The public domain names to use with the container service, such as</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- domain of the container service.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- names you want to use with your container service.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- in the example later on this page.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'serviceName', 'updateContainerService_serviceName' - The name of the container service to update.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#newUpdateContainerService"><span class="hs-identifier hs-type">newUpdateContainerService</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'serviceName'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span>
+</span><span id="line-154"></span><span id="newUpdateContainerService"><span class="annot"><span class="annottext">newUpdateContainerService :: Text -&gt; UpdateContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#newUpdateContainerService"><span class="hs-identifier hs-var hs-var">newUpdateContainerService</span></a></span></span><span> </span><span id="local-6989586621679664866"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679664866"><span class="hs-identifier hs-var">pServiceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">UpdateContainerService' :: Maybe Natural
+-&gt; Maybe ContainerServicePowerName
+-&gt; Maybe Bool
+-&gt; Maybe (HashMap Text [Text])
+-&gt; Text
+-&gt; UpdateContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:scale:UpdateContainerService' :: Maybe Natural
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3Ascale%3AUpdateContainerService%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:power:UpdateContainerService' :: Maybe ContainerServicePowerName
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3Apower%3AUpdateContainerService%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServicePowerName
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:isDisabled:UpdateContainerService' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AisDisabled%3AUpdateContainerService%27"><span class="hs-identifier hs-var">isDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:publicDomainNames:UpdateContainerService' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3ApublicDomainNames%3AUpdateContainerService%27"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:serviceName:UpdateContainerService' :: Text
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AserviceName%3AUpdateContainerService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679664866"><span class="hs-identifier hs-var">pServiceName_</span></a></span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The scale for the container service.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- The scale specifies the allocated compute nodes of the container</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- service. The @power@ and @scale@ of a container service makes up its</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- configured capacity. To determine the monthly price of your container</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- service, multiply the base price of the @power@ with the @scale@ (the</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- number of nodes) of the service.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_scale"><span class="hs-identifier hs-type">updateContainerService_scale</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="updateContainerService_scale"><span class="annot"><span class="annottext">updateContainerService_scale :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; UpdateContainerService -&gt; f UpdateContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_scale"><span class="hs-identifier hs-var hs-var">updateContainerService_scale</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContainerService -&gt; Maybe Natural)
+-&gt; (UpdateContainerService
+    -&gt; Maybe Natural -&gt; UpdateContainerService)
+-&gt; Lens
+     UpdateContainerService
+     UpdateContainerService
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664863"><span class="annot"><span class="annottext">Maybe Natural
+scale :: Maybe Natural
+$sel:scale:UpdateContainerService' :: UpdateContainerService -&gt; Maybe Natural
+</span><a href="#local-6989586621679664863"><span class="hs-identifier hs-var hs-var">scale</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679664863"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664862"><span class="annot"><span class="annottext">s :: UpdateContainerService
+</span><a href="#local-6989586621679664862"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664861"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679664861"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContainerService
+</span><a href="#local-6989586621679664862"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scale:UpdateContainerService' :: Maybe Natural
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3Ascale%3AUpdateContainerService%27"><span class="hs-identifier hs-var">scale</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679664861"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | The power for the container service.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- The power specifies the amount of memory, vCPUs, and base monthly cost</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- of each node of the container service. The @power@ and @scale@ of a</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- container service makes up its configured capacity. To determine the</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- monthly price of your container service, multiply the base price of the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- @power@ with the @scale@ (the number of nodes) of the service.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- Use the @GetContainerServicePowers@ action to view the specifications of</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- each power option.</span><span>
+</span><span id="line-183"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_power"><span class="hs-identifier hs-type">updateContainerService_power</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContainerServicePowerName.html#ContainerServicePowerName"><span class="hs-identifier hs-type">ContainerServicePowerName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span id="updateContainerService_power"><span class="annot"><span class="annottext">updateContainerService_power :: (Maybe ContainerServicePowerName
+ -&gt; f (Maybe ContainerServicePowerName))
+-&gt; UpdateContainerService -&gt; f UpdateContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_power"><span class="hs-identifier hs-var hs-var">updateContainerService_power</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContainerService -&gt; Maybe ContainerServicePowerName)
+-&gt; (UpdateContainerService
+    -&gt; Maybe ContainerServicePowerName -&gt; UpdateContainerService)
+-&gt; Lens
+     UpdateContainerService
+     UpdateContainerService
+     (Maybe ContainerServicePowerName)
+     (Maybe ContainerServicePowerName)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664860"><span class="annot"><span class="annottext">Maybe ContainerServicePowerName
+power :: Maybe ContainerServicePowerName
+$sel:power:UpdateContainerService' :: UpdateContainerService -&gt; Maybe ContainerServicePowerName
+</span><a href="#local-6989586621679664860"><span class="hs-identifier hs-var hs-var">power</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServicePowerName
+</span><a href="#local-6989586621679664860"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664859"><span class="annot"><span class="annottext">s :: UpdateContainerService
+</span><a href="#local-6989586621679664859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664858"><span class="annot"><span class="annottext">Maybe ContainerServicePowerName
+</span><a href="#local-6989586621679664858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContainerService
+</span><a href="#local-6989586621679664859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:power:UpdateContainerService' :: Maybe ContainerServicePowerName
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3Apower%3AUpdateContainerService%27"><span class="hs-identifier hs-var">power</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServicePowerName
+</span><a href="#local-6989586621679664858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- | A Boolean value to indicate whether the container service is disabled.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_isDisabled"><span class="hs-identifier hs-type">updateContainerService_isDisabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="updateContainerService_isDisabled"><span class="annot"><span class="annottext">updateContainerService_isDisabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; UpdateContainerService -&gt; f UpdateContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_isDisabled"><span class="hs-identifier hs-var hs-var">updateContainerService_isDisabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContainerService -&gt; Maybe Bool)
+-&gt; (UpdateContainerService -&gt; Maybe Bool -&gt; UpdateContainerService)
+-&gt; Lens
+     UpdateContainerService
+     UpdateContainerService
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664857"><span class="annot"><span class="annottext">Maybe Bool
+isDisabled :: Maybe Bool
+$sel:isDisabled:UpdateContainerService' :: UpdateContainerService -&gt; Maybe Bool
+</span><a href="#local-6989586621679664857"><span class="hs-identifier hs-var hs-var">isDisabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679664857"><span class="hs-identifier hs-var">isDisabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664856"><span class="annot"><span class="annottext">s :: UpdateContainerService
+</span><a href="#local-6989586621679664856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664855"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679664855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContainerService
+</span><a href="#local-6989586621679664856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:isDisabled:UpdateContainerService' :: Maybe Bool
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AisDisabled%3AUpdateContainerService%27"><span class="hs-identifier hs-var">isDisabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679664855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The public domain names to use with the container service, such as</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- @example.com@ and @www.example.com@.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- You can specify up to four public domain names for a container service.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- The domain names that you specify are used when you create a deployment</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- with a container configured as the public endpoint of your container</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- service.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- If you don\'t specify public domain names, then you can use the default</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- domain of the container service.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- You must create and validate an SSL\/TLS certificate before you can use</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- public domain names with your container service. Use the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- @CreateCertificate@ action to create a certificate for the public domain</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- names you want to use with your container service.</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- You can specify public domain names using a string to array map as shown</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- in the example later on this page.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_publicDomainNames"><span class="hs-identifier hs-type">updateContainerService_publicDomainNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span id="updateContainerService_publicDomainNames"><span class="annot"><span class="annottext">updateContainerService_publicDomainNames :: (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; UpdateContainerService -&gt; f UpdateContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_publicDomainNames"><span class="hs-identifier hs-var hs-var">updateContainerService_publicDomainNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContainerService -&gt; Maybe (HashMap Text [Text]))
+-&gt; (UpdateContainerService
+    -&gt; Maybe (HashMap Text [Text]) -&gt; UpdateContainerService)
+-&gt; Lens
+     UpdateContainerService
+     UpdateContainerService
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664854"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+publicDomainNames :: Maybe (HashMap Text [Text])
+$sel:publicDomainNames:UpdateContainerService' :: UpdateContainerService -&gt; Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679664854"><span class="hs-identifier hs-var hs-var">publicDomainNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679664854"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664853"><span class="annot"><span class="annottext">s :: UpdateContainerService
+</span><a href="#local-6989586621679664853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664852"><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679664852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContainerService
+</span><a href="#local-6989586621679664853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:publicDomainNames:UpdateContainerService' :: Maybe (HashMap Text [Text])
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3ApublicDomainNames%3AUpdateContainerService%27"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679664852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+ -&gt; UpdateContainerService -&gt; f UpdateContainerService)
+-&gt; ((Maybe (HashMap Text [Text])
+     -&gt; f (Maybe (HashMap Text [Text])))
+    -&gt; Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; (Maybe (HashMap Text [Text]) -&gt; f (Maybe (HashMap Text [Text])))
+-&gt; UpdateContainerService
+-&gt; f UpdateContainerService
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+-&gt; Iso
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+     (Maybe (HashMap Text [Text]))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+  (HashMap Text [Text])
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The name of the container service to update.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_serviceName"><span class="hs-identifier hs-type">updateContainerService_serviceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-213"></span><span id="updateContainerService_serviceName"><span class="annot"><span class="annottext">updateContainerService_serviceName :: (Text -&gt; f Text)
+-&gt; UpdateContainerService -&gt; f UpdateContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerService_serviceName"><span class="hs-identifier hs-var hs-var">updateContainerService_serviceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContainerService -&gt; Text)
+-&gt; (UpdateContainerService -&gt; Text -&gt; UpdateContainerService)
+-&gt; Lens UpdateContainerService UpdateContainerService Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664848"><span class="annot"><span class="annottext">Text
+serviceName :: Text
+$sel:serviceName:UpdateContainerService' :: UpdateContainerService -&gt; Text
+</span><a href="#local-6989586621679664848"><span class="hs-identifier hs-var hs-var">serviceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679664848"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664847"><span class="annot"><span class="annottext">s :: UpdateContainerService
+</span><a href="#local-6989586621679664847"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664846"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679664846"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContainerService
+</span><a href="#local-6989586621679664847"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceName:UpdateContainerService' :: Text
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AserviceName%3AUpdateContainerService%27"><span class="hs-identifier hs-var">serviceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679664846"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-216"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-217"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-type">UpdateContainerServiceResponse</span></a></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679664842"><span class="annot"><span class="annottext">request :: UpdateContainerService -&gt; Request UpdateContainerService
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateContainerService -&gt; Request UpdateContainerService
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679664838"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateContainerService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateContainerService)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateContainerService))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateContainerService
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse UpdateContainerService)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-222"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679664835"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664835"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679664834"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679664834"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679664833"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679664833"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>          </span><span class="annot"><span class="annottext">Maybe ContainerService -&gt; Int -&gt; UpdateContainerServiceResponse
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse%27"><span class="hs-identifier hs-var">UpdateContainerServiceResponse'</span></a></span><span>
+</span><span id="line-224"></span><span>            </span><span class="annot"><span class="annottext">(Maybe ContainerService -&gt; Int -&gt; UpdateContainerServiceResponse)
+-&gt; Either String (Maybe ContainerService)
+-&gt; Either String (Int -&gt; UpdateContainerServiceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679664833"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe ContainerService)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;containerService&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateContainerServiceResponse)
+-&gt; Either String Int
+-&gt; Either String UpdateContainerServiceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664835"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664825"><span id="local-6989586621679664827"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span></span></span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664822"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span></span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-233"></span><span>  </span><span id="local-6989586621679664818"><span class="annot"><span class="annottext">toHeaders :: UpdateContainerService -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateContainerService -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-235"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-236"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-237"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.UpdateContainerService&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-238"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-239"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-241"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-243"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679664808"><span id="local-6989586621679664810"><span id="local-6989586621679664812"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679664806"><span class="annot"><span class="annottext">toJSON :: UpdateContainerService -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService%27"><span class="hs-identifier hs-type">UpdateContainerService'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664800"><span id="local-6989586621679664801"><span id="local-6989586621679664802"><span id="local-6989586621679664803"><span id="local-6989586621679664804"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Natural
+Maybe (HashMap Text [Text])
+Maybe ContainerServicePowerName
+Text
+serviceName :: Text
+publicDomainNames :: Maybe (HashMap Text [Text])
+isDisabled :: Maybe Bool
+power :: Maybe ContainerServicePowerName
+scale :: Maybe Natural
+$sel:serviceName:UpdateContainerService' :: UpdateContainerService -&gt; Text
+$sel:publicDomainNames:UpdateContainerService' :: UpdateContainerService -&gt; Maybe (HashMap Text [Text])
+$sel:isDisabled:UpdateContainerService' :: UpdateContainerService -&gt; Maybe Bool
+$sel:power:UpdateContainerService' :: UpdateContainerService -&gt; Maybe ContainerServicePowerName
+$sel:scale:UpdateContainerService' :: UpdateContainerService -&gt; Maybe Natural
+</span><a href="#local-6989586621679664800"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-251"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;scale&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679664804"><span class="hs-identifier hs-var">scale</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;power&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ContainerServicePowerName -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(ContainerServicePowerName -&gt; Pair)
+-&gt; Maybe ContainerServicePowerName -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ContainerServicePowerName
+</span><a href="#local-6989586621679664803"><span class="hs-identifier hs-var">power</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;isDisabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679664802"><span class="hs-identifier hs-var">isDisabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;publicDomainNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text [Text] -&gt; Pair)
+-&gt; Maybe (HashMap Text [Text]) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text [Text])
+</span><a href="#local-6989586621679664801"><span class="hs-identifier hs-var">publicDomainNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;serviceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679664800"><span class="hs-identifier hs-var">serviceName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-258"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679664794"><span class="annot"><span class="annottext">toPath :: UpdateContainerService -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateContainerService -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerService"><span class="hs-identifier hs-type">UpdateContainerService</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679664790"><span class="annot"><span class="annottext">toQuery :: UpdateContainerService -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateContainerService -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- | /See:/ 'newUpdateContainerServiceResponse' smart constructor.</span><span>
+</span><span id="line-267"></span><span id="local-6989586621679664787"><span id="local-6989586621679664788"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateContainerServiceResponse"><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-var">UpdateContainerServiceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateContainerServiceResponse%27"><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse%27"><span class="hs-identifier hs-var">UpdateContainerServiceResponse'</span></a></span></span><span>
+</span><span id="line-268"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An object that describes a container service.</span><span>
+</span><span id="line-269"></span><span>    </span><span id="%24sel%3AcontainerService%3AUpdateContainerServiceResponse%27"><span class="annot"><span class="annottext">UpdateContainerServiceResponse -&gt; Maybe ContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AcontainerService%3AUpdateContainerServiceResponse%27"><span class="hs-identifier hs-var hs-var">containerService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContainerService.html#ContainerService"><span class="hs-identifier hs-type">ContainerService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-271"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateContainerServiceResponse%27"><span class="annot"><span class="annottext">UpdateContainerServiceResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AhttpStatus%3AUpdateContainerServiceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-272"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-273"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679664781"><span id="local-6989586621679664783"><span class="annot"><span class="annottext">UpdateContainerServiceResponse
+-&gt; UpdateContainerServiceResponse -&gt; Bool
+(UpdateContainerServiceResponse
+ -&gt; UpdateContainerServiceResponse -&gt; Bool)
+-&gt; (UpdateContainerServiceResponse
+    -&gt; UpdateContainerServiceResponse -&gt; Bool)
+-&gt; Eq UpdateContainerServiceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateContainerServiceResponse
+-&gt; UpdateContainerServiceResponse -&gt; Bool
+$c/= :: UpdateContainerServiceResponse
+-&gt; UpdateContainerServiceResponse -&gt; Bool
+== :: UpdateContainerServiceResponse
+-&gt; UpdateContainerServiceResponse -&gt; Bool
+$c== :: UpdateContainerServiceResponse
+-&gt; UpdateContainerServiceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664773"><span id="local-6989586621679664775"><span id="local-6989586621679664777"><span id="local-6989586621679664779"><span class="annot"><span class="annottext">ReadPrec [UpdateContainerServiceResponse]
+ReadPrec UpdateContainerServiceResponse
+Int -&gt; ReadS UpdateContainerServiceResponse
+ReadS [UpdateContainerServiceResponse]
+(Int -&gt; ReadS UpdateContainerServiceResponse)
+-&gt; ReadS [UpdateContainerServiceResponse]
+-&gt; ReadPrec UpdateContainerServiceResponse
+-&gt; ReadPrec [UpdateContainerServiceResponse]
+-&gt; Read UpdateContainerServiceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateContainerServiceResponse]
+$creadListPrec :: ReadPrec [UpdateContainerServiceResponse]
+readPrec :: ReadPrec UpdateContainerServiceResponse
+$creadPrec :: ReadPrec UpdateContainerServiceResponse
+readList :: ReadS [UpdateContainerServiceResponse]
+$creadList :: ReadS [UpdateContainerServiceResponse]
+readsPrec :: Int -&gt; ReadS UpdateContainerServiceResponse
+$creadsPrec :: Int -&gt; ReadS UpdateContainerServiceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679664767"><span id="local-6989586621679664769"><span id="local-6989586621679664771"><span class="annot"><span class="annottext">Int -&gt; UpdateContainerServiceResponse -&gt; ShowS
+[UpdateContainerServiceResponse] -&gt; ShowS
+UpdateContainerServiceResponse -&gt; String
+(Int -&gt; UpdateContainerServiceResponse -&gt; ShowS)
+-&gt; (UpdateContainerServiceResponse -&gt; String)
+-&gt; ([UpdateContainerServiceResponse] -&gt; ShowS)
+-&gt; Show UpdateContainerServiceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateContainerServiceResponse] -&gt; ShowS
+$cshowList :: [UpdateContainerServiceResponse] -&gt; ShowS
+show :: UpdateContainerServiceResponse -&gt; String
+$cshow :: UpdateContainerServiceResponse -&gt; String
+showsPrec :: Int -&gt; UpdateContainerServiceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateContainerServiceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateContainerServiceResponse
+ -&gt; Rep UpdateContainerServiceResponse x)
+-&gt; (forall x.
+    Rep UpdateContainerServiceResponse x
+    -&gt; UpdateContainerServiceResponse)
+-&gt; Generic UpdateContainerServiceResponse
+forall x.
+Rep UpdateContainerServiceResponse x
+-&gt; UpdateContainerServiceResponse
+forall x.
+UpdateContainerServiceResponse
+-&gt; Rep UpdateContainerServiceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateContainerServiceResponse x
+-&gt; UpdateContainerServiceResponse
+$cfrom :: forall x.
+UpdateContainerServiceResponse
+-&gt; Rep UpdateContainerServiceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- Create a value of 'UpdateContainerServiceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- 'containerService', 'updateContainerServiceResponse_containerService' - An object that describes a container service.</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- 'httpStatus', 'updateContainerServiceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#newUpdateContainerServiceResponse"><span class="hs-identifier hs-type">newUpdateContainerServiceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-287"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-288"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-289"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-type">UpdateContainerServiceResponse</span></a></span><span>
+</span><span id="line-290"></span><span id="newUpdateContainerServiceResponse"><span class="annot"><span class="annottext">newUpdateContainerServiceResponse :: Int -&gt; UpdateContainerServiceResponse
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#newUpdateContainerServiceResponse"><span class="hs-identifier hs-var hs-var">newUpdateContainerServiceResponse</span></a></span></span><span> </span><span id="local-6989586621679664764"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>  </span><span class="annot"><span class="annottext">UpdateContainerServiceResponse' :: Maybe ContainerService -&gt; Int -&gt; UpdateContainerServiceResponse
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse%27"><span class="hs-identifier hs-type">UpdateContainerServiceResponse'</span></a></span><span>
+</span><span id="line-292"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:containerService:UpdateContainerServiceResponse' :: Maybe ContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AcontainerService%3AUpdateContainerServiceResponse%27"><span class="hs-identifier hs-var">containerService</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">Maybe ContainerService
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateContainerServiceResponse' :: Int
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AhttpStatus%3AUpdateContainerServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664764"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-295"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | An object that describes a container service.</span><span>
+</span><span id="line-298"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerServiceResponse_containerService"><span class="hs-identifier hs-type">updateContainerServiceResponse_containerService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-type">UpdateContainerServiceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.ContainerService.html#ContainerService"><span class="hs-identifier hs-type">ContainerService</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-299"></span><span id="updateContainerServiceResponse_containerService"><span class="annot"><span class="annottext">updateContainerServiceResponse_containerService :: (Maybe ContainerService -&gt; f (Maybe ContainerService))
+-&gt; UpdateContainerServiceResponse
+-&gt; f UpdateContainerServiceResponse
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerServiceResponse_containerService"><span class="hs-identifier hs-var hs-var">updateContainerServiceResponse_containerService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContainerServiceResponse -&gt; Maybe ContainerService)
+-&gt; (UpdateContainerServiceResponse
+    -&gt; Maybe ContainerService -&gt; UpdateContainerServiceResponse)
+-&gt; Lens
+     UpdateContainerServiceResponse
+     UpdateContainerServiceResponse
+     (Maybe ContainerService)
+     (Maybe ContainerService)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse%27"><span class="hs-identifier hs-type">UpdateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664763"><span class="annot"><span class="annottext">Maybe ContainerService
+containerService :: Maybe ContainerService
+$sel:containerService:UpdateContainerServiceResponse' :: UpdateContainerServiceResponse -&gt; Maybe ContainerService
+</span><a href="#local-6989586621679664763"><span class="hs-identifier hs-var hs-var">containerService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679664763"><span class="hs-identifier hs-var">containerService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664762"><span class="annot"><span class="annottext">s :: UpdateContainerServiceResponse
+</span><a href="#local-6989586621679664762"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse%27"><span class="hs-identifier hs-type">UpdateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664761"><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679664761"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContainerServiceResponse
+</span><a href="#local-6989586621679664762"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:containerService:UpdateContainerServiceResponse' :: Maybe ContainerService
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AcontainerService%3AUpdateContainerServiceResponse%27"><span class="hs-identifier hs-var">containerService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerService
+</span><a href="#local-6989586621679664761"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-type">UpdateContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerServiceResponse_httpStatus"><span class="hs-identifier hs-type">updateContainerServiceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-type">UpdateContainerServiceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-303"></span><span id="updateContainerServiceResponse_httpStatus"><span class="annot"><span class="annottext">updateContainerServiceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateContainerServiceResponse
+-&gt; f UpdateContainerServiceResponse
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#updateContainerServiceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateContainerServiceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateContainerServiceResponse -&gt; Int)
+-&gt; (UpdateContainerServiceResponse
+    -&gt; Int -&gt; UpdateContainerServiceResponse)
+-&gt; Lens
+     UpdateContainerServiceResponse
+     UpdateContainerServiceResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse%27"><span class="hs-identifier hs-type">UpdateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679664760"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateContainerServiceResponse' :: UpdateContainerServiceResponse -&gt; Int
+</span><a href="#local-6989586621679664760"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664760"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679664759"><span class="annot"><span class="annottext">s :: UpdateContainerServiceResponse
+</span><a href="#local-6989586621679664759"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse%27"><span class="hs-identifier hs-type">UpdateContainerServiceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679664758"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664758"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateContainerServiceResponse
+</span><a href="#local-6989586621679664759"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateContainerServiceResponse' :: Int
+</span><a href="Amazonka.Lightsail.UpdateContainerService.html#%24sel%3AhttpStatus%3AUpdateContainerServiceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679664758"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-type">UpdateContainerServiceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679664756"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.UpdateContainerService.html#UpdateContainerServiceResponse"><span class="hs-identifier hs-type">UpdateContainerServiceResponse</span></a></span></span><span>
+</span><span id="line-308"></span></pre></body></html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationCostProfiler.Types.ReportDefinition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationCostProfiler.Types.ReportDefinition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.Format.html"><span class="hs-identifier">Amazonka.ApplicationCostProfiler.Types.Format</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportFrequency.html"><span class="hs-identifier">Amazonka.ApplicationCostProfiler.Types.ReportFrequency</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.S3Location.html"><span class="hs-identifier">Amazonka.ApplicationCostProfiler.Types.S3Location</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | The configuration of a report in AWS Application Cost Profiler.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newReportDefinition' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679150117"><span id="local-6989586621679150118"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReportDefinition"><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-var">ReportDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReportDefinition%27"><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-var">ReportDefinition'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Timestamp (milliseconds) when this report definition was last updated.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AlastUpdatedAt%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; Maybe POSIX
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AlastUpdatedAt%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Timestamp (milliseconds) when this report definition was created.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcreatedAt%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; Maybe POSIX
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AcreatedAt%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The ID of the report.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AreportId%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportId%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The format used for the generated reports.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aformat%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; Maybe Format
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3Aformat%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The cadence at which the report is generated.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AreportFrequency%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; Maybe ReportFrequency
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportFrequency%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">reportFrequency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Description of the report</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AreportDescription%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportDescription%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">reportDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The location in Amazon Simple Storage Service (Amazon S3) the reports</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- should be saved to.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AdestinationS3Location%3AReportDefinition%27"><span class="annot"><span class="annottext">ReportDefinition -&gt; Maybe S3Location
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AdestinationS3Location%3AReportDefinition%27"><span class="hs-identifier hs-var hs-var">destinationS3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679150105"><span id="local-6989586621679150107"><span class="annot"><span class="annottext">ReportDefinition -&gt; ReportDefinition -&gt; Bool
+(ReportDefinition -&gt; ReportDefinition -&gt; Bool)
+-&gt; (ReportDefinition -&gt; ReportDefinition -&gt; Bool)
+-&gt; Eq ReportDefinition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReportDefinition -&gt; ReportDefinition -&gt; Bool
+$c/= :: ReportDefinition -&gt; ReportDefinition -&gt; Bool
+== :: ReportDefinition -&gt; ReportDefinition -&gt; Bool
+$c== :: ReportDefinition -&gt; ReportDefinition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150096"><span id="local-6989586621679150098"><span id="local-6989586621679150100"><span id="local-6989586621679150102"><span class="annot"><span class="annottext">ReadPrec [ReportDefinition]
+ReadPrec ReportDefinition
+Int -&gt; ReadS ReportDefinition
+ReadS [ReportDefinition]
+(Int -&gt; ReadS ReportDefinition)
+-&gt; ReadS [ReportDefinition]
+-&gt; ReadPrec ReportDefinition
+-&gt; ReadPrec [ReportDefinition]
+-&gt; Read ReportDefinition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReportDefinition]
+$creadListPrec :: ReadPrec [ReportDefinition]
+readPrec :: ReadPrec ReportDefinition
+$creadPrec :: ReadPrec ReportDefinition
+readList :: ReadS [ReportDefinition]
+$creadList :: ReadS [ReportDefinition]
+readsPrec :: Int -&gt; ReadS ReportDefinition
+$creadsPrec :: Int -&gt; ReadS ReportDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679150089"><span id="local-6989586621679150091"><span id="local-6989586621679150093"><span class="annot"><span class="annottext">Int -&gt; ReportDefinition -&gt; ShowS
+[ReportDefinition] -&gt; ShowS
+ReportDefinition -&gt; String
+(Int -&gt; ReportDefinition -&gt; ShowS)
+-&gt; (ReportDefinition -&gt; String)
+-&gt; ([ReportDefinition] -&gt; ShowS)
+-&gt; Show ReportDefinition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReportDefinition] -&gt; ShowS
+$cshowList :: [ReportDefinition] -&gt; ShowS
+show :: ReportDefinition -&gt; String
+$cshow :: ReportDefinition -&gt; String
+showsPrec :: Int -&gt; ReportDefinition -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReportDefinition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReportDefinition -&gt; Rep ReportDefinition x)
+-&gt; (forall x. Rep ReportDefinition x -&gt; ReportDefinition)
+-&gt; Generic ReportDefinition
+forall x. Rep ReportDefinition x -&gt; ReportDefinition
+forall x. ReportDefinition -&gt; Rep ReportDefinition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReportDefinition x -&gt; ReportDefinition
+$cfrom :: forall x. ReportDefinition -&gt; Rep ReportDefinition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'ReportDefinition' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'lastUpdatedAt', 'reportDefinition_lastUpdatedAt' - Timestamp (milliseconds) when this report definition was last updated.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'createdAt', 'reportDefinition_createdAt' - Timestamp (milliseconds) when this report definition was created.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'reportId', 'reportDefinition_reportId' - The ID of the report.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'format', 'reportDefinition_format' - The format used for the generated reports.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'reportFrequency', 'reportDefinition_reportFrequency' - The cadence at which the report is generated.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'reportDescription', 'reportDefinition_reportDescription' - Description of the report</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- 'destinationS3Location', 'reportDefinition_destinationS3Location' - The location in Amazon Simple Storage Service (Amazon S3) the reports</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- should be saved to.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#newReportDefinition"><span class="hs-identifier hs-type">newReportDefinition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span>
+</span><span id="line-75"></span><span id="newReportDefinition"><span class="annot"><span class="annottext">newReportDefinition :: ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#newReportDefinition"><span class="hs-identifier hs-var hs-var">newReportDefinition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><span class="annottext">ReportDefinition' :: Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Format
+-&gt; Maybe ReportFrequency
+-&gt; Maybe Text
+-&gt; Maybe S3Location
+-&gt; ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:ReportDefinition' :: Maybe POSIX
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AlastUpdatedAt%3AReportDefinition%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">$sel:createdAt:ReportDefinition' :: Maybe POSIX
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AcreatedAt%3AReportDefinition%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportId:ReportDefinition' :: Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportId%3AReportDefinition%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">$sel:format:ReportDefinition' :: Maybe Format
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3Aformat%3AReportDefinition%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Format
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportFrequency:ReportDefinition' :: Maybe ReportFrequency
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportFrequency%3AReportDefinition%27"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportFrequency
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:reportDescription:ReportDefinition' :: Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportDescription%3AReportDefinition%27"><span class="hs-identifier hs-var">reportDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationS3Location:ReportDefinition' :: Maybe S3Location
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AdestinationS3Location%3AReportDefinition%27"><span class="hs-identifier hs-var">destinationS3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Timestamp (milliseconds) when this report definition was last updated.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_lastUpdatedAt"><span class="hs-identifier hs-type">reportDefinition_lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span id="reportDefinition_lastUpdatedAt"><span class="annot"><span class="annottext">reportDefinition_lastUpdatedAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReportDefinition -&gt; f ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_lastUpdatedAt"><span class="hs-identifier hs-var hs-var">reportDefinition_lastUpdatedAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportDefinition -&gt; Maybe POSIX)
+-&gt; (ReportDefinition -&gt; Maybe POSIX -&gt; ReportDefinition)
+-&gt; Lens
+     ReportDefinition ReportDefinition (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150080"><span class="annot"><span class="annottext">Maybe POSIX
+lastUpdatedAt :: Maybe POSIX
+$sel:lastUpdatedAt:ReportDefinition' :: ReportDefinition -&gt; Maybe POSIX
+</span><a href="#local-6989586621679150080"><span class="hs-identifier hs-var hs-var">lastUpdatedAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679150080"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150079"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679150079"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150078"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679150078"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679150079"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastUpdatedAt:ReportDefinition' :: Maybe POSIX
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AlastUpdatedAt%3AReportDefinition%27"><span class="hs-identifier hs-var">lastUpdatedAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679150078"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReportDefinition -&gt; f ReportDefinition)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReportDefinition
+-&gt; f ReportDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | Timestamp (milliseconds) when this report definition was created.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_createdAt"><span class="hs-identifier hs-type">reportDefinition_createdAt</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="reportDefinition_createdAt"><span class="annot"><span class="annottext">reportDefinition_createdAt :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReportDefinition -&gt; f ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_createdAt"><span class="hs-identifier hs-var hs-var">reportDefinition_createdAt</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportDefinition -&gt; Maybe POSIX)
+-&gt; (ReportDefinition -&gt; Maybe POSIX -&gt; ReportDefinition)
+-&gt; Lens
+     ReportDefinition ReportDefinition (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150073"><span class="annot"><span class="annottext">Maybe POSIX
+createdAt :: Maybe POSIX
+$sel:createdAt:ReportDefinition' :: ReportDefinition -&gt; Maybe POSIX
+</span><a href="#local-6989586621679150073"><span class="hs-identifier hs-var hs-var">createdAt</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679150073"><span class="hs-identifier hs-var">createdAt</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150072"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679150072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150071"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679150071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679150072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createdAt:ReportDefinition' :: Maybe POSIX
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AcreatedAt%3AReportDefinition%27"><span class="hs-identifier hs-var">createdAt</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679150071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; ReportDefinition -&gt; f ReportDefinition)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; ReportDefinition
+-&gt; f ReportDefinition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the report.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_reportId"><span class="hs-identifier hs-type">reportDefinition_reportId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span id="reportDefinition_reportId"><span class="annot"><span class="annottext">reportDefinition_reportId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReportDefinition -&gt; f ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_reportId"><span class="hs-identifier hs-var hs-var">reportDefinition_reportId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportDefinition -&gt; Maybe Text)
+-&gt; (ReportDefinition -&gt; Maybe Text -&gt; ReportDefinition)
+-&gt; Lens ReportDefinition ReportDefinition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150069"><span class="annot"><span class="annottext">Maybe Text
+reportId :: Maybe Text
+$sel:reportId:ReportDefinition' :: ReportDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679150069"><span class="hs-identifier hs-var hs-var">reportId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150069"><span class="hs-identifier hs-var">reportId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150068"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679150068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679150068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportId:ReportDefinition' :: Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportId%3AReportDefinition%27"><span class="hs-identifier hs-var">reportId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The format used for the generated reports.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_format"><span class="hs-identifier hs-type">reportDefinition_format</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.Format.html#Format"><span class="hs-identifier hs-type">Format</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="reportDefinition_format"><span class="annot"><span class="annottext">reportDefinition_format :: (Maybe Format -&gt; f (Maybe Format))
+-&gt; ReportDefinition -&gt; f ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_format"><span class="hs-identifier hs-var hs-var">reportDefinition_format</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportDefinition -&gt; Maybe Format)
+-&gt; (ReportDefinition -&gt; Maybe Format -&gt; ReportDefinition)
+-&gt; Lens
+     ReportDefinition ReportDefinition (Maybe Format) (Maybe Format)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150065"><span class="annot"><span class="annottext">Maybe Format
+format :: Maybe Format
+$sel:format:ReportDefinition' :: ReportDefinition -&gt; Maybe Format
+</span><a href="#local-6989586621679150065"><span class="hs-identifier hs-var hs-var">format</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Format
+</span><a href="#local-6989586621679150065"><span class="hs-identifier hs-var">format</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150064"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679150064"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150063"><span class="annot"><span class="annottext">Maybe Format
+</span><a href="#local-6989586621679150063"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679150064"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:format:ReportDefinition' :: Maybe Format
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3Aformat%3AReportDefinition%27"><span class="hs-identifier hs-var">format</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Format
+</span><a href="#local-6989586621679150063"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The cadence at which the report is generated.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_reportFrequency"><span class="hs-identifier hs-type">reportDefinition_reportFrequency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportFrequency.html#ReportFrequency"><span class="hs-identifier hs-type">ReportFrequency</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="reportDefinition_reportFrequency"><span class="annot"><span class="annottext">reportDefinition_reportFrequency :: (Maybe ReportFrequency -&gt; f (Maybe ReportFrequency))
+-&gt; ReportDefinition -&gt; f ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_reportFrequency"><span class="hs-identifier hs-var hs-var">reportDefinition_reportFrequency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportDefinition -&gt; Maybe ReportFrequency)
+-&gt; (ReportDefinition -&gt; Maybe ReportFrequency -&gt; ReportDefinition)
+-&gt; Lens
+     ReportDefinition
+     ReportDefinition
+     (Maybe ReportFrequency)
+     (Maybe ReportFrequency)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150061"><span class="annot"><span class="annottext">Maybe ReportFrequency
+reportFrequency :: Maybe ReportFrequency
+$sel:reportFrequency:ReportDefinition' :: ReportDefinition -&gt; Maybe ReportFrequency
+</span><a href="#local-6989586621679150061"><span class="hs-identifier hs-var hs-var">reportFrequency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReportFrequency
+</span><a href="#local-6989586621679150061"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150060"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679150060"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150059"><span class="annot"><span class="annottext">Maybe ReportFrequency
+</span><a href="#local-6989586621679150059"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679150060"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportFrequency:ReportDefinition' :: Maybe ReportFrequency
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportFrequency%3AReportDefinition%27"><span class="hs-identifier hs-var">reportFrequency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReportFrequency
+</span><a href="#local-6989586621679150059"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Description of the report</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_reportDescription"><span class="hs-identifier hs-type">reportDefinition_reportDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="reportDefinition_reportDescription"><span class="annot"><span class="annottext">reportDefinition_reportDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReportDefinition -&gt; f ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_reportDescription"><span class="hs-identifier hs-var hs-var">reportDefinition_reportDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportDefinition -&gt; Maybe Text)
+-&gt; (ReportDefinition -&gt; Maybe Text -&gt; ReportDefinition)
+-&gt; Lens ReportDefinition ReportDefinition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150057"><span class="annot"><span class="annottext">Maybe Text
+reportDescription :: Maybe Text
+$sel:reportDescription:ReportDefinition' :: ReportDefinition -&gt; Maybe Text
+</span><a href="#local-6989586621679150057"><span class="hs-identifier hs-var hs-var">reportDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150057"><span class="hs-identifier hs-var">reportDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150056"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679150056"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150055"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150055"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679150056"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:reportDescription:ReportDefinition' :: Maybe Text
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AreportDescription%3AReportDefinition%27"><span class="hs-identifier hs-var">reportDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679150055"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The location in Amazon Simple Storage Service (Amazon S3) the reports</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- should be saved to.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_destinationS3Location"><span class="hs-identifier hs-type">reportDefinition_destinationS3Location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.S3Location.html#S3Location"><span class="hs-identifier hs-type">S3Location</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="reportDefinition_destinationS3Location"><span class="annot"><span class="annottext">reportDefinition_destinationS3Location :: (Maybe S3Location -&gt; f (Maybe S3Location))
+-&gt; ReportDefinition -&gt; f ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#reportDefinition_destinationS3Location"><span class="hs-identifier hs-var hs-var">reportDefinition_destinationS3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReportDefinition -&gt; Maybe S3Location)
+-&gt; (ReportDefinition -&gt; Maybe S3Location -&gt; ReportDefinition)
+-&gt; Lens
+     ReportDefinition
+     ReportDefinition
+     (Maybe S3Location)
+     (Maybe S3Location)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679150053"><span class="annot"><span class="annottext">Maybe S3Location
+destinationS3Location :: Maybe S3Location
+$sel:destinationS3Location:ReportDefinition' :: ReportDefinition -&gt; Maybe S3Location
+</span><a href="#local-6989586621679150053"><span class="hs-identifier hs-var hs-var">destinationS3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679150053"><span class="hs-identifier hs-var">destinationS3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679150052"><span class="annot"><span class="annottext">s :: ReportDefinition
+</span><a href="#local-6989586621679150052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-type">ReportDefinition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679150051"><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679150051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReportDefinition
+</span><a href="#local-6989586621679150052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationS3Location:ReportDefinition' :: Maybe S3Location
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#%24sel%3AdestinationS3Location%3AReportDefinition%27"><span class="hs-identifier hs-var">destinationS3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3Location
+</span><a href="#local-6989586621679150051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150048"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679150046"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReportDefinition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReportDefinition)
+-&gt; Value
+-&gt; Parser ReportDefinition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReportDefinition&quot;</span></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679150043"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-120"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Format
+-&gt; Maybe ReportFrequency
+-&gt; Maybe Text
+-&gt; Maybe S3Location
+-&gt; ReportDefinition
+</span><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition%27"><span class="hs-identifier hs-var">ReportDefinition'</span></a></span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Format
+ -&gt; Maybe ReportFrequency
+ -&gt; Maybe Text
+ -&gt; Maybe S3Location
+ -&gt; ReportDefinition)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Maybe Format
+      -&gt; Maybe ReportFrequency
+      -&gt; Maybe Text
+      -&gt; Maybe S3Location
+      -&gt; ReportDefinition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastUpdatedAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Maybe Format
+   -&gt; Maybe ReportFrequency
+   -&gt; Maybe Text
+   -&gt; Maybe S3Location
+   -&gt; ReportDefinition)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Format
+      -&gt; Maybe ReportFrequency
+      -&gt; Maybe Text
+      -&gt; Maybe S3Location
+      -&gt; ReportDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createdAt&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Format
+   -&gt; Maybe ReportFrequency
+   -&gt; Maybe Text
+   -&gt; Maybe S3Location
+   -&gt; ReportDefinition)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Format
+      -&gt; Maybe ReportFrequency
+      -&gt; Maybe Text
+      -&gt; Maybe S3Location
+      -&gt; ReportDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Format
+   -&gt; Maybe ReportFrequency
+   -&gt; Maybe Text
+   -&gt; Maybe S3Location
+   -&gt; ReportDefinition)
+-&gt; Parser (Maybe Format)
+-&gt; Parser
+     (Maybe ReportFrequency
+      -&gt; Maybe Text -&gt; Maybe S3Location -&gt; ReportDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Format)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;format&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReportFrequency
+   -&gt; Maybe Text -&gt; Maybe S3Location -&gt; ReportDefinition)
+-&gt; Parser (Maybe ReportFrequency)
+-&gt; Parser (Maybe Text -&gt; Maybe S3Location -&gt; ReportDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ReportFrequency)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportFrequency&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe S3Location -&gt; ReportDefinition)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe S3Location -&gt; ReportDefinition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;reportDescription&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe S3Location -&gt; ReportDefinition)
+-&gt; Parser (Maybe S3Location) -&gt; Parser ReportDefinition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679150043"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe S3Location)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationS3Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150037"><span id="local-6989586621679150039"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679150034"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationCostProfiler.Types.ReportDefinition.html#ReportDefinition"><span class="hs-identifier hs-type">ReportDefinition</span></a></span></span><span>
+</span><span id="line-133"></span></pre></body></html>

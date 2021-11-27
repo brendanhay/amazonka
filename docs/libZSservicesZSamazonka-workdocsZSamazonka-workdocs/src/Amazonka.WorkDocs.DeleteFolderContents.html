@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkDocs.DeleteFolderContents</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the contents of the specified folder.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkDocs.DeleteFolderContents</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier">DeleteFolderContents</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#newDeleteFolderContents"><span class="hs-identifier">newDeleteFolderContents</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#deleteFolderContents_authenticationToken"><span class="hs-identifier">deleteFolderContents_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#deleteFolderContents_folderId"><span class="hs-identifier">deleteFolderContents_folderId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse"><span class="hs-identifier">DeleteFolderContentsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#newDeleteFolderContentsResponse"><span class="hs-identifier">newDeleteFolderContentsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.html"><span class="hs-identifier">Amazonka.WorkDocs.Types</span></a></span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- | /See:/ 'newDeleteFolderContents' smart constructor.</span><span>
+</span><span id="line-47"></span><span id="local-6989586621679272356"><span id="local-6989586621679272357"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFolderContents"><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-var">DeleteFolderContents</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFolderContents%27"><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-var">DeleteFolderContents'</span></a></span></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ADeleteFolderContents%27"><span class="annot"><span class="annottext">DeleteFolderContents -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#%24sel%3AauthenticationToken%3ADeleteFolderContents%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ID of the folder.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AfolderId%3ADeleteFolderContents%27"><span class="annot"><span class="annottext">DeleteFolderContents -&gt; Text
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#%24sel%3AfolderId%3ADeleteFolderContents%27"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272349"><span id="local-6989586621679272351"><span class="annot"><span class="annottext">DeleteFolderContents -&gt; DeleteFolderContents -&gt; Bool
+(DeleteFolderContents -&gt; DeleteFolderContents -&gt; Bool)
+-&gt; (DeleteFolderContents -&gt; DeleteFolderContents -&gt; Bool)
+-&gt; Eq DeleteFolderContents
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFolderContents -&gt; DeleteFolderContents -&gt; Bool
+$c/= :: DeleteFolderContents -&gt; DeleteFolderContents -&gt; Bool
+== :: DeleteFolderContents -&gt; DeleteFolderContents -&gt; Bool
+$c== :: DeleteFolderContents -&gt; DeleteFolderContents -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272342"><span id="local-6989586621679272344"><span id="local-6989586621679272346"><span class="annot"><span class="annottext">Int -&gt; DeleteFolderContents -&gt; ShowS
+[DeleteFolderContents] -&gt; ShowS
+DeleteFolderContents -&gt; String
+(Int -&gt; DeleteFolderContents -&gt; ShowS)
+-&gt; (DeleteFolderContents -&gt; String)
+-&gt; ([DeleteFolderContents] -&gt; ShowS)
+-&gt; Show DeleteFolderContents
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFolderContents] -&gt; ShowS
+$cshowList :: [DeleteFolderContents] -&gt; ShowS
+show :: DeleteFolderContents -&gt; String
+$cshow :: DeleteFolderContents -&gt; String
+showsPrec :: Int -&gt; DeleteFolderContents -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFolderContents -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteFolderContents -&gt; Rep DeleteFolderContents x)
+-&gt; (forall x. Rep DeleteFolderContents x -&gt; DeleteFolderContents)
+-&gt; Generic DeleteFolderContents
+forall x. Rep DeleteFolderContents x -&gt; DeleteFolderContents
+forall x. DeleteFolderContents -&gt; Rep DeleteFolderContents x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteFolderContents x -&gt; DeleteFolderContents
+$cfrom :: forall x. DeleteFolderContents -&gt; Rep DeleteFolderContents x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'DeleteFolderContents' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'authenticationToken', 'deleteFolderContents_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'folderId', 'deleteFolderContents_folderId' - The ID of the folder.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#newDeleteFolderContents"><span class="hs-identifier hs-type">newDeleteFolderContents</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'folderId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span>
+</span><span id="line-72"></span><span id="newDeleteFolderContents"><span class="annot"><span class="annottext">newDeleteFolderContents :: Text -&gt; DeleteFolderContents
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#newDeleteFolderContents"><span class="hs-identifier hs-var hs-var">newDeleteFolderContents</span></a></span></span><span> </span><span id="local-6989586621679272337"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272337"><span class="hs-identifier hs-var">pFolderId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">DeleteFolderContents' :: Maybe (Sensitive Text) -&gt; Text -&gt; DeleteFolderContents
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-type">DeleteFolderContents'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:authenticationToken:DeleteFolderContents' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#%24sel%3AauthenticationToken%3ADeleteFolderContents%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolderContents' :: Text
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#%24sel%3AfolderId%3ADeleteFolderContents%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272337"><span class="hs-identifier hs-var">pFolderId_</span></a></span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#deleteFolderContents_authenticationToken"><span class="hs-identifier hs-type">deleteFolderContents_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="deleteFolderContents_authenticationToken"><span class="annot"><span class="annottext">deleteFolderContents_authenticationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteFolderContents -&gt; f DeleteFolderContents
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#deleteFolderContents_authenticationToken"><span class="hs-identifier hs-var hs-var">deleteFolderContents_authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderContents -&gt; Maybe (Sensitive Text))
+-&gt; (DeleteFolderContents
+    -&gt; Maybe (Sensitive Text) -&gt; DeleteFolderContents)
+-&gt; Lens
+     DeleteFolderContents
+     DeleteFolderContents
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-type">DeleteFolderContents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272334"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+authenticationToken :: Maybe (Sensitive Text)
+$sel:authenticationToken:DeleteFolderContents' :: DeleteFolderContents -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272334"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272334"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272333"><span class="annot"><span class="annottext">s :: DeleteFolderContents
+</span><a href="#local-6989586621679272333"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-type">DeleteFolderContents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272332"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272332"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderContents
+</span><a href="#local-6989586621679272333"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DeleteFolderContents' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#%24sel%3AauthenticationToken%3ADeleteFolderContents%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272332"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; DeleteFolderContents -&gt; f DeleteFolderContents)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteFolderContents
+-&gt; f DeleteFolderContents
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The ID of the folder.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#deleteFolderContents_folderId"><span class="hs-identifier hs-type">deleteFolderContents_folderId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="deleteFolderContents_folderId"><span class="annot"><span class="annottext">deleteFolderContents_folderId :: (Text -&gt; f Text) -&gt; DeleteFolderContents -&gt; f DeleteFolderContents
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#deleteFolderContents_folderId"><span class="hs-identifier hs-var hs-var">deleteFolderContents_folderId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteFolderContents -&gt; Text)
+-&gt; (DeleteFolderContents -&gt; Text -&gt; DeleteFolderContents)
+-&gt; Lens DeleteFolderContents DeleteFolderContents Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-type">DeleteFolderContents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272328"><span class="annot"><span class="annottext">Text
+folderId :: Text
+$sel:folderId:DeleteFolderContents' :: DeleteFolderContents -&gt; Text
+</span><a href="#local-6989586621679272328"><span class="hs-identifier hs-var hs-var">folderId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272328"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679272327"><span class="annot"><span class="annottext">s :: DeleteFolderContents
+</span><a href="#local-6989586621679272327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-type">DeleteFolderContents'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679272326"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteFolderContents
+</span><a href="#local-6989586621679272327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:folderId:DeleteFolderContents' :: Text
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#%24sel%3AfolderId%3ADeleteFolderContents%27"><span class="hs-identifier hs-var">folderId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse"><span class="hs-identifier hs-type">DeleteFolderContentsResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679272322"><span class="annot"><span class="annottext">request :: DeleteFolderContents -&gt; Request DeleteFolderContents
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteFolderContents -&gt; Request DeleteFolderContents
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679272318"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteFolderContents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFolderContents)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteFolderContents
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteFolderContents
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteFolderContents)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteFolderContents
+DeleteFolderContentsResponse
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse%27"><span class="hs-identifier hs-var">DeleteFolderContentsResponse'</span></a></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272311"><span id="local-6989586621679272313"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272308"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679272304"><span class="annot"><span class="annottext">toHeaders :: DeleteFolderContents -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-type">DeleteFolderContents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272301"><span id="local-6989586621679272302"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Text
+folderId :: Text
+authenticationToken :: Maybe (Sensitive Text)
+$sel:folderId:DeleteFolderContents' :: DeleteFolderContents -&gt; Text
+$sel:authenticationToken:DeleteFolderContents' :: DeleteFolderContents -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272301"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272302"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-105"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679272297"><span class="annot"><span class="annottext">toPath :: DeleteFolderContents -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents%27"><span class="hs-identifier hs-type">DeleteFolderContents'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679272294"><span id="local-6989586621679272295"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+Text
+folderId :: Text
+authenticationToken :: Maybe (Sensitive Text)
+$sel:folderId:DeleteFolderContents' :: DeleteFolderContents -&gt; Text
+$sel:authenticationToken:DeleteFolderContents' :: DeleteFolderContents -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679272294"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/api/v1/folders/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679272294"><span class="hs-identifier hs-var">folderId</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/contents&quot;</span></span><span class="hs-special">]</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContents"><span class="hs-identifier hs-type">DeleteFolderContents</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-114"></span><span>  </span><span id="local-6989586621679272290"><span class="annot"><span class="annottext">toQuery :: DeleteFolderContents -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteFolderContents -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | /See:/ 'newDeleteFolderContentsResponse' smart constructor.</span><span>
+</span><span id="line-117"></span><span id="local-6989586621679272286"><span id="local-6989586621679272287"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteFolderContentsResponse"><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse"><span class="hs-identifier hs-var">DeleteFolderContentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteFolderContentsResponse%27"><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse%27"><span class="hs-identifier hs-var">DeleteFolderContentsResponse'</span></a></span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679272282"><span id="local-6989586621679272284"><span class="annot"><span class="annottext">DeleteFolderContentsResponse
+-&gt; DeleteFolderContentsResponse -&gt; Bool
+(DeleteFolderContentsResponse
+ -&gt; DeleteFolderContentsResponse -&gt; Bool)
+-&gt; (DeleteFolderContentsResponse
+    -&gt; DeleteFolderContentsResponse -&gt; Bool)
+-&gt; Eq DeleteFolderContentsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteFolderContentsResponse
+-&gt; DeleteFolderContentsResponse -&gt; Bool
+$c/= :: DeleteFolderContentsResponse
+-&gt; DeleteFolderContentsResponse -&gt; Bool
+== :: DeleteFolderContentsResponse
+-&gt; DeleteFolderContentsResponse -&gt; Bool
+$c== :: DeleteFolderContentsResponse
+-&gt; DeleteFolderContentsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272274"><span id="local-6989586621679272276"><span id="local-6989586621679272278"><span id="local-6989586621679272280"><span class="annot"><span class="annottext">ReadPrec [DeleteFolderContentsResponse]
+ReadPrec DeleteFolderContentsResponse
+Int -&gt; ReadS DeleteFolderContentsResponse
+ReadS [DeleteFolderContentsResponse]
+(Int -&gt; ReadS DeleteFolderContentsResponse)
+-&gt; ReadS [DeleteFolderContentsResponse]
+-&gt; ReadPrec DeleteFolderContentsResponse
+-&gt; ReadPrec [DeleteFolderContentsResponse]
+-&gt; Read DeleteFolderContentsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteFolderContentsResponse]
+$creadListPrec :: ReadPrec [DeleteFolderContentsResponse]
+readPrec :: ReadPrec DeleteFolderContentsResponse
+$creadPrec :: ReadPrec DeleteFolderContentsResponse
+readList :: ReadS [DeleteFolderContentsResponse]
+$creadList :: ReadS [DeleteFolderContentsResponse]
+readsPrec :: Int -&gt; ReadS DeleteFolderContentsResponse
+$creadsPrec :: Int -&gt; ReadS DeleteFolderContentsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679272267"><span id="local-6989586621679272269"><span id="local-6989586621679272271"><span class="annot"><span class="annottext">Int -&gt; DeleteFolderContentsResponse -&gt; ShowS
+[DeleteFolderContentsResponse] -&gt; ShowS
+DeleteFolderContentsResponse -&gt; String
+(Int -&gt; DeleteFolderContentsResponse -&gt; ShowS)
+-&gt; (DeleteFolderContentsResponse -&gt; String)
+-&gt; ([DeleteFolderContentsResponse] -&gt; ShowS)
+-&gt; Show DeleteFolderContentsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteFolderContentsResponse] -&gt; ShowS
+$cshowList :: [DeleteFolderContentsResponse] -&gt; ShowS
+show :: DeleteFolderContentsResponse -&gt; String
+$cshow :: DeleteFolderContentsResponse -&gt; String
+showsPrec :: Int -&gt; DeleteFolderContentsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteFolderContentsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteFolderContentsResponse -&gt; Rep DeleteFolderContentsResponse x)
+-&gt; (forall x.
+    Rep DeleteFolderContentsResponse x -&gt; DeleteFolderContentsResponse)
+-&gt; Generic DeleteFolderContentsResponse
+forall x.
+Rep DeleteFolderContentsResponse x -&gt; DeleteFolderContentsResponse
+forall x.
+DeleteFolderContentsResponse -&gt; Rep DeleteFolderContentsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteFolderContentsResponse x -&gt; DeleteFolderContentsResponse
+$cfrom :: forall x.
+DeleteFolderContentsResponse -&gt; Rep DeleteFolderContentsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- Create a value of 'DeleteFolderContentsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-124"></span><span class="hs-comment">--</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-126"></span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#newDeleteFolderContentsResponse"><span class="hs-identifier hs-type">newDeleteFolderContentsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse"><span class="hs-identifier hs-type">DeleteFolderContentsResponse</span></a></span><span>
+</span><span id="line-128"></span><span id="newDeleteFolderContentsResponse"><span class="annot"><span class="annottext">newDeleteFolderContentsResponse :: DeleteFolderContentsResponse
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#newDeleteFolderContentsResponse"><span class="hs-identifier hs-var hs-var">newDeleteFolderContentsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="annottext">DeleteFolderContentsResponse
+</span><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse%27"><span class="hs-identifier hs-var">DeleteFolderContentsResponse'</span></a></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679272263"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DeleteFolderContents.html#DeleteFolderContentsResponse"><span class="hs-identifier hs-type">DeleteFolderContentsResponse</span></a></span></span><span>
+</span><span id="line-132"></span></pre></body></html>

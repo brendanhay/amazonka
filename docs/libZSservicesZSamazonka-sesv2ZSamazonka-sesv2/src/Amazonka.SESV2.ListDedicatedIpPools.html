@@ -1,0 +1,542 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SESV2.ListDedicatedIpPools</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- List all of the dedicated IP pools that exist in your Amazon Web</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- Services account in the current Region.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SESV2.ListDedicatedIpPools</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#newListDedicatedIpPools"><span class="hs-identifier">newListDedicatedIpPools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPools_nextToken"><span class="hs-identifier">listDedicatedIpPools_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPools_pageSize"><span class="hs-identifier">listDedicatedIpPools_pageSize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier">ListDedicatedIpPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#newListDedicatedIpPoolsResponse"><span class="hs-identifier">newListDedicatedIpPoolsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_dedicatedIpPools"><span class="hs-identifier">listDedicatedIpPoolsResponse_dedicatedIpPools</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_nextToken"><span class="hs-identifier">listDedicatedIpPoolsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_httpStatus"><span class="hs-identifier">listDedicatedIpPoolsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SESV2.Types.html"><span class="hs-identifier">Amazonka.SESV2.Types</span></a></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | A request to obtain a list of dedicated IP pools.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- /See:/ 'newListDedicatedIpPools' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679343106"><span id="local-6989586621679343107"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDedicatedIpPools"><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-var">ListDedicatedIpPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDedicatedIpPools%27"><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools%27"><span class="hs-identifier hs-var">ListDedicatedIpPools'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A token returned from a previous call to @ListDedicatedIpPools@ to</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- indicate the position in the list of dedicated IP pools.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListDedicatedIpPools%27"><span class="annot"><span class="annottext">ListDedicatedIpPools -&gt; Maybe Text
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AnextToken%3AListDedicatedIpPools%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- @ListDedicatedIpPools@. If the number of results is larger than the</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- number you specified in this parameter, then the response includes a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ApageSize%3AListDedicatedIpPools%27"><span class="annot"><span class="annottext">ListDedicatedIpPools -&gt; Maybe Int
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3ApageSize%3AListDedicatedIpPools%27"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343099"><span id="local-6989586621679343101"><span class="annot"><span class="annottext">ListDedicatedIpPools -&gt; ListDedicatedIpPools -&gt; Bool
+(ListDedicatedIpPools -&gt; ListDedicatedIpPools -&gt; Bool)
+-&gt; (ListDedicatedIpPools -&gt; ListDedicatedIpPools -&gt; Bool)
+-&gt; Eq ListDedicatedIpPools
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDedicatedIpPools -&gt; ListDedicatedIpPools -&gt; Bool
+$c/= :: ListDedicatedIpPools -&gt; ListDedicatedIpPools -&gt; Bool
+== :: ListDedicatedIpPools -&gt; ListDedicatedIpPools -&gt; Bool
+$c== :: ListDedicatedIpPools -&gt; ListDedicatedIpPools -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343090"><span id="local-6989586621679343092"><span id="local-6989586621679343094"><span id="local-6989586621679343096"><span class="annot"><span class="annottext">ReadPrec [ListDedicatedIpPools]
+ReadPrec ListDedicatedIpPools
+Int -&gt; ReadS ListDedicatedIpPools
+ReadS [ListDedicatedIpPools]
+(Int -&gt; ReadS ListDedicatedIpPools)
+-&gt; ReadS [ListDedicatedIpPools]
+-&gt; ReadPrec ListDedicatedIpPools
+-&gt; ReadPrec [ListDedicatedIpPools]
+-&gt; Read ListDedicatedIpPools
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDedicatedIpPools]
+$creadListPrec :: ReadPrec [ListDedicatedIpPools]
+readPrec :: ReadPrec ListDedicatedIpPools
+$creadPrec :: ReadPrec ListDedicatedIpPools
+readList :: ReadS [ListDedicatedIpPools]
+$creadList :: ReadS [ListDedicatedIpPools]
+readsPrec :: Int -&gt; ReadS ListDedicatedIpPools
+$creadsPrec :: Int -&gt; ReadS ListDedicatedIpPools
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343083"><span id="local-6989586621679343085"><span id="local-6989586621679343087"><span class="annot"><span class="annottext">Int -&gt; ListDedicatedIpPools -&gt; ShowS
+[ListDedicatedIpPools] -&gt; ShowS
+ListDedicatedIpPools -&gt; String
+(Int -&gt; ListDedicatedIpPools -&gt; ShowS)
+-&gt; (ListDedicatedIpPools -&gt; String)
+-&gt; ([ListDedicatedIpPools] -&gt; ShowS)
+-&gt; Show ListDedicatedIpPools
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDedicatedIpPools] -&gt; ShowS
+$cshowList :: [ListDedicatedIpPools] -&gt; ShowS
+show :: ListDedicatedIpPools -&gt; String
+$cshow :: ListDedicatedIpPools -&gt; String
+showsPrec :: Int -&gt; ListDedicatedIpPools -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDedicatedIpPools -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListDedicatedIpPools -&gt; Rep ListDedicatedIpPools x)
+-&gt; (forall x. Rep ListDedicatedIpPools x -&gt; ListDedicatedIpPools)
+-&gt; Generic ListDedicatedIpPools
+forall x. Rep ListDedicatedIpPools x -&gt; ListDedicatedIpPools
+forall x. ListDedicatedIpPools -&gt; Rep ListDedicatedIpPools x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListDedicatedIpPools x -&gt; ListDedicatedIpPools
+$cfrom :: forall x. ListDedicatedIpPools -&gt; Rep ListDedicatedIpPools x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'ListDedicatedIpPools' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'nextToken', 'listDedicatedIpPools_nextToken' - A token returned from a previous call to @ListDedicatedIpPools@ to</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- indicate the position in the list of dedicated IP pools.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'pageSize', 'listDedicatedIpPools_pageSize' - The number of results to show in a single call to</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @ListDedicatedIpPools@. If the number of results is larger than the</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- number you specified in this parameter, then the response includes a</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#newListDedicatedIpPools"><span class="hs-identifier hs-type">newListDedicatedIpPools</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span>
+</span><span id="line-84"></span><span id="newListDedicatedIpPools"><span class="annot"><span class="annottext">newListDedicatedIpPools :: ListDedicatedIpPools
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#newListDedicatedIpPools"><span class="hs-identifier hs-var hs-var">newListDedicatedIpPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListDedicatedIpPools' :: Maybe Text -&gt; Maybe Int -&gt; ListDedicatedIpPools
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools%27"><span class="hs-identifier hs-type">ListDedicatedIpPools'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListDedicatedIpPools' :: Maybe Text
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AnextToken%3AListDedicatedIpPools%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:pageSize:ListDedicatedIpPools' :: Maybe Int
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3ApageSize%3AListDedicatedIpPools%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | A token returned from a previous call to @ListDedicatedIpPools@ to</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- indicate the position in the list of dedicated IP pools.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPools_nextToken"><span class="hs-identifier hs-type">listDedicatedIpPools_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listDedicatedIpPools_nextToken"><span class="annot"><span class="annottext">listDedicatedIpPools_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDedicatedIpPools -&gt; f ListDedicatedIpPools
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPools_nextToken"><span class="hs-identifier hs-var hs-var">listDedicatedIpPools_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDedicatedIpPools -&gt; Maybe Text)
+-&gt; (ListDedicatedIpPools -&gt; Maybe Text -&gt; ListDedicatedIpPools)
+-&gt; Lens
+     ListDedicatedIpPools ListDedicatedIpPools (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools%27"><span class="hs-identifier hs-type">ListDedicatedIpPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343076"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDedicatedIpPools' :: ListDedicatedIpPools -&gt; Maybe Text
+</span><a href="#local-6989586621679343076"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343076"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343075"><span class="annot"><span class="annottext">s :: ListDedicatedIpPools
+</span><a href="#local-6989586621679343075"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools%27"><span class="hs-identifier hs-type">ListDedicatedIpPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343074"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343074"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDedicatedIpPools
+</span><a href="#local-6989586621679343075"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDedicatedIpPools' :: Maybe Text
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AnextToken%3AListDedicatedIpPools%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343074"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The number of results to show in a single call to</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @ListDedicatedIpPools@. If the number of results is larger than the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- number you specified in this parameter, then the response includes a</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @NextToken@ element, which you can use to obtain additional results.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPools_pageSize"><span class="hs-identifier hs-type">listDedicatedIpPools_pageSize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="listDedicatedIpPools_pageSize"><span class="annot"><span class="annottext">listDedicatedIpPools_pageSize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListDedicatedIpPools -&gt; f ListDedicatedIpPools
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPools_pageSize"><span class="hs-identifier hs-var hs-var">listDedicatedIpPools_pageSize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDedicatedIpPools -&gt; Maybe Int)
+-&gt; (ListDedicatedIpPools -&gt; Maybe Int -&gt; ListDedicatedIpPools)
+-&gt; Lens
+     ListDedicatedIpPools ListDedicatedIpPools (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools%27"><span class="hs-identifier hs-type">ListDedicatedIpPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343073"><span class="annot"><span class="annottext">Maybe Int
+pageSize :: Maybe Int
+$sel:pageSize:ListDedicatedIpPools' :: ListDedicatedIpPools -&gt; Maybe Int
+</span><a href="#local-6989586621679343073"><span class="hs-identifier hs-var hs-var">pageSize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343073"><span class="hs-identifier hs-var">pageSize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343072"><span class="annot"><span class="annottext">s :: ListDedicatedIpPools
+</span><a href="#local-6989586621679343072"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools%27"><span class="hs-identifier hs-type">ListDedicatedIpPools'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679343071"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343071"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDedicatedIpPools
+</span><a href="#local-6989586621679343072"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pageSize:ListDedicatedIpPools' :: Maybe Int
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3ApageSize%3AListDedicatedIpPools%27"><span class="hs-identifier hs-var">pageSize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343071"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-104"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679343067"><span class="annot"><span class="annottext">request :: ListDedicatedIpPools -&gt; Request ListDedicatedIpPools
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListDedicatedIpPools -&gt; Request ListDedicatedIpPools
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SESV2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span id="local-6989586621679343063"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListDedicatedIpPools
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDedicatedIpPools)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListDedicatedIpPools))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListDedicatedIpPools
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListDedicatedIpPools)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-109"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679343060"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343060"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679343059"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679343059"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679343058"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343058"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-110"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListDedicatedIpPoolsResponse
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">ListDedicatedIpPoolsResponse'</span></a></span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListDedicatedIpPoolsResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListDedicatedIpPoolsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DedicatedIpPools&quot;</span></span><span>
+</span><span id="line-112"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-113"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListDedicatedIpPoolsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListDedicatedIpPoolsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679343058"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListDedicatedIpPoolsResponse)
+-&gt; Either String Int -&gt; Either String ListDedicatedIpPoolsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343060"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343049"><span id="local-6989586621679343051"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679343046"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679343042"><span class="annot"><span class="annottext">toHeaders :: ListDedicatedIpPools -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListDedicatedIpPools -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-126"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679343036"><span class="annot"><span class="annottext">toPath :: ListDedicatedIpPools -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListDedicatedIpPools -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v2/email/dedicated-ip-pools&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools"><span class="hs-identifier hs-type">ListDedicatedIpPools</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679343032"><span class="annot"><span class="annottext">toQuery :: ListDedicatedIpPools -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPools%27"><span class="hs-identifier hs-type">ListDedicatedIpPools'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343029"><span id="local-6989586621679343030"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+pageSize :: Maybe Int
+nextToken :: Maybe Text
+$sel:pageSize:ListDedicatedIpPools' :: ListDedicatedIpPools -&gt; Maybe Int
+$sel:nextToken:ListDedicatedIpPools' :: ListDedicatedIpPools -&gt; Maybe Text
+</span><a href="#local-6989586621679343029"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679343030"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;PageSize&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679343029"><span class="hs-identifier hs-var">pageSize</span></a></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A list of dedicated IP pools.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- /See:/ 'newListDedicatedIpPoolsResponse' smart constructor.</span><span>
+</span><span id="line-146"></span><span id="local-6989586621679343026"><span id="local-6989586621679343027"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListDedicatedIpPoolsResponse"><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-var">ListDedicatedIpPoolsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListDedicatedIpPoolsResponse%27"><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">ListDedicatedIpPoolsResponse'</span></a></span></span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of all of the dedicated IP pools that are associated with your</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- Amazon Web Services account in the current Region.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3AdedicatedIpPools%3AListDedicatedIpPoolsResponse%27"><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AdedicatedIpPools%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var hs-var">dedicatedIpPools</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | A token that indicates that there are additional IP pools to list. To</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- view additional IP pools, issue another request to</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- @ListDedicatedIpPools@, passing this token in the @NextToken@ parameter.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3AnextToken%3AListDedicatedIpPoolsResponse%27"><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse -&gt; Maybe Text
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AnextToken%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListDedicatedIpPoolsResponse%27"><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse -&gt; Int
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AhttpStatus%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679343019"><span id="local-6989586621679343021"><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse
+-&gt; ListDedicatedIpPoolsResponse -&gt; Bool
+(ListDedicatedIpPoolsResponse
+ -&gt; ListDedicatedIpPoolsResponse -&gt; Bool)
+-&gt; (ListDedicatedIpPoolsResponse
+    -&gt; ListDedicatedIpPoolsResponse -&gt; Bool)
+-&gt; Eq ListDedicatedIpPoolsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListDedicatedIpPoolsResponse
+-&gt; ListDedicatedIpPoolsResponse -&gt; Bool
+$c/= :: ListDedicatedIpPoolsResponse
+-&gt; ListDedicatedIpPoolsResponse -&gt; Bool
+== :: ListDedicatedIpPoolsResponse
+-&gt; ListDedicatedIpPoolsResponse -&gt; Bool
+$c== :: ListDedicatedIpPoolsResponse
+-&gt; ListDedicatedIpPoolsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343011"><span id="local-6989586621679343013"><span id="local-6989586621679343015"><span id="local-6989586621679343017"><span class="annot"><span class="annottext">ReadPrec [ListDedicatedIpPoolsResponse]
+ReadPrec ListDedicatedIpPoolsResponse
+Int -&gt; ReadS ListDedicatedIpPoolsResponse
+ReadS [ListDedicatedIpPoolsResponse]
+(Int -&gt; ReadS ListDedicatedIpPoolsResponse)
+-&gt; ReadS [ListDedicatedIpPoolsResponse]
+-&gt; ReadPrec ListDedicatedIpPoolsResponse
+-&gt; ReadPrec [ListDedicatedIpPoolsResponse]
+-&gt; Read ListDedicatedIpPoolsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListDedicatedIpPoolsResponse]
+$creadListPrec :: ReadPrec [ListDedicatedIpPoolsResponse]
+readPrec :: ReadPrec ListDedicatedIpPoolsResponse
+$creadPrec :: ReadPrec ListDedicatedIpPoolsResponse
+readList :: ReadS [ListDedicatedIpPoolsResponse]
+$creadList :: ReadS [ListDedicatedIpPoolsResponse]
+readsPrec :: Int -&gt; ReadS ListDedicatedIpPoolsResponse
+$creadsPrec :: Int -&gt; ReadS ListDedicatedIpPoolsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679343005"><span id="local-6989586621679343007"><span id="local-6989586621679343009"><span class="annot"><span class="annottext">Int -&gt; ListDedicatedIpPoolsResponse -&gt; ShowS
+[ListDedicatedIpPoolsResponse] -&gt; ShowS
+ListDedicatedIpPoolsResponse -&gt; String
+(Int -&gt; ListDedicatedIpPoolsResponse -&gt; ShowS)
+-&gt; (ListDedicatedIpPoolsResponse -&gt; String)
+-&gt; ([ListDedicatedIpPoolsResponse] -&gt; ShowS)
+-&gt; Show ListDedicatedIpPoolsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListDedicatedIpPoolsResponse] -&gt; ShowS
+$cshowList :: [ListDedicatedIpPoolsResponse] -&gt; ShowS
+show :: ListDedicatedIpPoolsResponse -&gt; String
+$cshow :: ListDedicatedIpPoolsResponse -&gt; String
+showsPrec :: Int -&gt; ListDedicatedIpPoolsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListDedicatedIpPoolsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListDedicatedIpPoolsResponse -&gt; Rep ListDedicatedIpPoolsResponse x)
+-&gt; (forall x.
+    Rep ListDedicatedIpPoolsResponse x -&gt; ListDedicatedIpPoolsResponse)
+-&gt; Generic ListDedicatedIpPoolsResponse
+forall x.
+Rep ListDedicatedIpPoolsResponse x -&gt; ListDedicatedIpPoolsResponse
+forall x.
+ListDedicatedIpPoolsResponse -&gt; Rep ListDedicatedIpPoolsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListDedicatedIpPoolsResponse x -&gt; ListDedicatedIpPoolsResponse
+$cfrom :: forall x.
+ListDedicatedIpPoolsResponse -&gt; Rep ListDedicatedIpPoolsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'ListDedicatedIpPoolsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'dedicatedIpPools', 'listDedicatedIpPoolsResponse_dedicatedIpPools' - A list of all of the dedicated IP pools that are associated with your</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Amazon Web Services account in the current Region.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'nextToken', 'listDedicatedIpPoolsResponse_nextToken' - A token that indicates that there are additional IP pools to list. To</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- view additional IP pools, issue another request to</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- @ListDedicatedIpPools@, passing this token in the @NextToken@ parameter.</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'httpStatus', 'listDedicatedIpPoolsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#newListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">newListDedicatedIpPoolsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-176"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span>
+</span><span id="line-179"></span><span id="newListDedicatedIpPoolsResponse"><span class="annot"><span class="annottext">newListDedicatedIpPoolsResponse :: Int -&gt; ListDedicatedIpPoolsResponse
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#newListDedicatedIpPoolsResponse"><span class="hs-identifier hs-var hs-var">newListDedicatedIpPoolsResponse</span></a></span></span><span> </span><span id="local-6989586621679343002"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse' :: Maybe [Text] -&gt; Maybe Text -&gt; Int -&gt; ListDedicatedIpPoolsResponse
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse'</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dedicatedIpPools:ListDedicatedIpPoolsResponse' :: Maybe [Text]
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AdedicatedIpPools%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">dedicatedIpPools</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListDedicatedIpPoolsResponse' :: Maybe Text
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AnextToken%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListDedicatedIpPoolsResponse' :: Int
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AhttpStatus%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679343002"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | A list of all of the dedicated IP pools that are associated with your</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Amazon Web Services account in the current Region.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_dedicatedIpPools"><span class="hs-identifier hs-type">listDedicatedIpPoolsResponse_dedicatedIpPools</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span id="listDedicatedIpPoolsResponse_dedicatedIpPools"><span class="annot"><span class="annottext">listDedicatedIpPoolsResponse_dedicatedIpPools :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListDedicatedIpPoolsResponse -&gt; f ListDedicatedIpPoolsResponse
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_dedicatedIpPools"><span class="hs-identifier hs-var hs-var">listDedicatedIpPoolsResponse_dedicatedIpPools</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDedicatedIpPoolsResponse -&gt; Maybe [Text])
+-&gt; (ListDedicatedIpPoolsResponse
+    -&gt; Maybe [Text] -&gt; ListDedicatedIpPoolsResponse)
+-&gt; Lens
+     ListDedicatedIpPoolsResponse
+     ListDedicatedIpPoolsResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679343001"><span class="annot"><span class="annottext">Maybe [Text]
+dedicatedIpPools :: Maybe [Text]
+$sel:dedicatedIpPools:ListDedicatedIpPoolsResponse' :: ListDedicatedIpPoolsResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679343001"><span class="hs-identifier hs-var hs-var">dedicatedIpPools</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679343001"><span class="hs-identifier hs-var">dedicatedIpPools</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679343000"><span class="annot"><span class="annottext">s :: ListDedicatedIpPoolsResponse
+</span><a href="#local-6989586621679343000"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342999"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679342999"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse
+</span><a href="#local-6989586621679343000"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dedicatedIpPools:ListDedicatedIpPoolsResponse' :: Maybe [Text]
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AdedicatedIpPools%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">dedicatedIpPools</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679342999"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ListDedicatedIpPoolsResponse -&gt; f ListDedicatedIpPoolsResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ListDedicatedIpPoolsResponse
+-&gt; f ListDedicatedIpPoolsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | A token that indicates that there are additional IP pools to list. To</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- view additional IP pools, issue another request to</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- @ListDedicatedIpPools@, passing this token in the @NextToken@ parameter.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_nextToken"><span class="hs-identifier hs-type">listDedicatedIpPoolsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="listDedicatedIpPoolsResponse_nextToken"><span class="annot"><span class="annottext">listDedicatedIpPoolsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListDedicatedIpPoolsResponse -&gt; f ListDedicatedIpPoolsResponse
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listDedicatedIpPoolsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDedicatedIpPoolsResponse -&gt; Maybe Text)
+-&gt; (ListDedicatedIpPoolsResponse
+    -&gt; Maybe Text -&gt; ListDedicatedIpPoolsResponse)
+-&gt; Lens
+     ListDedicatedIpPoolsResponse
+     ListDedicatedIpPoolsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342995"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListDedicatedIpPoolsResponse' :: ListDedicatedIpPoolsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679342995"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342995"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342994"><span class="annot"><span class="annottext">s :: ListDedicatedIpPoolsResponse
+</span><a href="#local-6989586621679342994"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342993"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342993"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse
+</span><a href="#local-6989586621679342994"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListDedicatedIpPoolsResponse' :: Maybe Text
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AnextToken%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679342993"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_httpStatus"><span class="hs-identifier hs-type">listDedicatedIpPoolsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-200"></span><span id="listDedicatedIpPoolsResponse_httpStatus"><span class="annot"><span class="annottext">listDedicatedIpPoolsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListDedicatedIpPoolsResponse -&gt; f ListDedicatedIpPoolsResponse
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#listDedicatedIpPoolsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listDedicatedIpPoolsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListDedicatedIpPoolsResponse -&gt; Int)
+-&gt; (ListDedicatedIpPoolsResponse
+    -&gt; Int -&gt; ListDedicatedIpPoolsResponse)
+-&gt; Lens
+     ListDedicatedIpPoolsResponse ListDedicatedIpPoolsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679342992"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListDedicatedIpPoolsResponse' :: ListDedicatedIpPoolsResponse -&gt; Int
+</span><a href="#local-6989586621679342992"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342992"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679342991"><span class="annot"><span class="annottext">s :: ListDedicatedIpPoolsResponse
+</span><a href="#local-6989586621679342991"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679342990"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342990"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListDedicatedIpPoolsResponse
+</span><a href="#local-6989586621679342991"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListDedicatedIpPoolsResponse' :: Int
+</span><a href="Amazonka.SESV2.ListDedicatedIpPools.html#%24sel%3AhttpStatus%3AListDedicatedIpPoolsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679342990"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679342988"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SESV2.ListDedicatedIpPools.html#ListDedicatedIpPoolsResponse"><span class="hs-identifier hs-type">ListDedicatedIpPoolsResponse</span></a></span></span><span>
+</span><span id="line-203"></span></pre></body></html>

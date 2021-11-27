@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError
+module Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError
 
 -- | The error that has occurred when attempting to retrieve a batch of
 --   Records.
@@ -77,16 +77,16 @@ batchGetRecordError_errorCode :: Lens' BatchGetRecordError Text
 -- | The error message of an error that has occured when attempting to
 --   retrieve a record in the batch.
 batchGetRecordError_errorMessage :: Lens' BatchGetRecordError Text
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordError.BatchGetRecordError
 
 
-module Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
+module Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier
 
 -- | The identifier that identifies the batch of Records you are retrieving
 --   in a batch.
@@ -140,17 +140,17 @@ batchGetRecordIdentifier_featureGroupName :: Lens' BatchGetRecordIdentifier Text
 
 -- | The value for a list of record identifiers in string format.
 batchGetRecordIdentifier_recordIdentifiersValueAsString :: Lens' BatchGetRecordIdentifier (NonEmpty Text)
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordIdentifier.BatchGetRecordIdentifier
 
 
-module Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue
+module Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue
 
 -- | The value associated with a feature.
 --   
@@ -192,17 +192,17 @@ featureValue_featureName :: Lens' FeatureValue Text
 --   features types can be String, Integral, or Fractional. This value
 --   represents all three types as a string.
 featureValue_valueAsString :: Lens' FeatureValue Text
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.FeatureValue
 
 
-module Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
+module Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail
 
 -- | The output of Records that have been retrieved in a batch.
 --   
@@ -251,16 +251,16 @@ batchGetRecordResultDetail_recordIdentifierValueAsString :: Lens' BatchGetRecord
 
 -- | The <tt>Record</tt> retrieved.
 batchGetRecordResultDetail_record :: Lens' BatchGetRecordResultDetail (NonEmpty FeatureValue)
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.BatchGetRecordResultDetail
 
 
-module Network.AWS.SageMakerFeatureStoreRuntime.Types
+module Amazonka.SageMakerFeatureStoreRuntime.Types
 
 -- | API version <tt>2020-07-01</tt> of the Amazon SageMaker Feature Store
 --   Runtime SDK configuration.
@@ -502,7 +502,7 @@ featureValue_valueAsString :: Lens' FeatureValue Text
 --   <tt>recordIdentifier</tt>, the record is written to both the
 --   <tt>OnlineStore</tt> and <tt>OfflineStore</tt>. If the record is a
 --   historic record, it is written only to the <tt>OfflineStore</tt>.
-module Network.AWS.SageMakerFeatureStoreRuntime.PutRecord
+module Amazonka.SageMakerFeatureStoreRuntime.PutRecord
 
 -- | <i>See:</i> <a>newPutRecord</a> smart constructor.
 data PutRecord
@@ -569,29 +569,29 @@ PutRecordResponse' :: PutRecordResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutRecordResponse :: PutRecordResponse
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerFeatureStoreRuntime.PutRecord.PutRecord
 
 
 -- | Use for <tt>OnlineStore</tt> serving from a <tt>FeatureStore</tt>.
 --   Only the latest records stored in the <tt>OnlineStore</tt> can be
 --   retrieved. If no Record with <tt>RecordIdentifierValue</tt> is found,
 --   then an empty result is returned.
-module Network.AWS.SageMakerFeatureStoreRuntime.GetRecord
+module Amazonka.SageMakerFeatureStoreRuntime.GetRecord
 
 -- | <i>See:</i> <a>newGetRecord</a> smart constructor.
 data GetRecord
@@ -672,28 +672,28 @@ getRecordResponse_record :: Lens' GetRecordResponse (Maybe (NonEmpty FeatureValu
 
 -- | The response's http status code.
 getRecordResponse_httpStatus :: Lens' GetRecordResponse Int
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerFeatureStoreRuntime.GetRecord.GetRecord
 
 
 -- | Deletes a <tt>Record</tt> from a <tt>FeatureGroup</tt>. A new record
 --   will show up in the <tt>OfflineStore</tt> when the
 --   <tt>DeleteRecord</tt> API is called. This record will have a value of
 --   <tt>True</tt> in the <tt>is_deleted</tt> column.
-module Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord
+module Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord
 
 -- | <i>See:</i> <a>newDeleteRecord</a> smart constructor.
 data DeleteRecord
@@ -757,25 +757,25 @@ DeleteRecordResponse' :: DeleteRecordResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteRecordResponse :: DeleteRecordResponse
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerFeatureStoreRuntime.DeleteRecord.DeleteRecord
 
 
 -- | Retrieves a batch of <tt>Records</tt> from a <tt>FeatureGroup</tt>.
-module Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord
+module Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord
 
 -- | <i>See:</i> <a>newBatchGetRecord</a> smart constructor.
 data BatchGetRecord
@@ -862,25 +862,25 @@ batchGetRecordResponse_errors :: Lens' BatchGetRecordResponse [BatchGetRecordErr
 -- | A unprocessed list of <tt>FeatureGroup</tt> names, with their
 --   corresponding <tt>RecordIdentifier</tt> value, and Feature name.
 batchGetRecordResponse_unprocessedIdentifiers :: Lens' BatchGetRecordResponse [BatchGetRecordIdentifier]
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance GHC.Generics.Generic Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
-instance GHC.Show.Show Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
-instance GHC.Read.Read Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
-instance GHC.Classes.Eq Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
-instance Data.Hashable.Class.Hashable Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance Control.DeepSeq.NFData Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance Network.AWS.Data.Path.ToPath Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
-instance Network.AWS.Data.Query.ToQuery Network.AWS.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance GHC.Generics.Generic Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
+instance GHC.Show.Show Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
+instance GHC.Read.Read Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
+instance GHC.Classes.Eq Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
+instance Amazonka.Types.AWSRequest Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecordResponse
+instance Data.Hashable.Class.Hashable Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance Control.DeepSeq.NFData Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance Amazonka.Data.Headers.ToHeaders Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance Amazonka.Data.Path.ToPath Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
+instance Amazonka.Data.Query.ToQuery Amazonka.SageMakerFeatureStoreRuntime.BatchGetRecord.BatchGetRecord
 
 
-module Network.AWS.SageMakerFeatureStoreRuntime.Lens
+module Amazonka.SageMakerFeatureStoreRuntime.Lens
 
 -- | The name of the feature group that you want to insert the record into.
 putRecord_featureGroupName :: Lens' PutRecord Text
@@ -990,7 +990,7 @@ featureValue_featureName :: Lens' FeatureValue Text
 featureValue_valueAsString :: Lens' FeatureValue Text
 
 
-module Network.AWS.SageMakerFeatureStoreRuntime.Waiters
+module Amazonka.SageMakerFeatureStoreRuntime.Waiters
 
 
 -- | Derived from API version <tt>2020-07-01</tt> of the AWS service
@@ -1010,7 +1010,7 @@ module Network.AWS.SageMakerFeatureStoreRuntime.Waiters
 --   <li><a>DescribeFeatureGroup</a></li>
 --   <li><a>ListFeatureGroups</a></li>
 --   </ul>
-module Network.AWS.SageMakerFeatureStoreRuntime
+module Amazonka.SageMakerFeatureStoreRuntime
 
 -- | API version <tt>2020-07-01</tt> of the Amazon SageMaker Feature Store
 --   Runtime SDK configuration.

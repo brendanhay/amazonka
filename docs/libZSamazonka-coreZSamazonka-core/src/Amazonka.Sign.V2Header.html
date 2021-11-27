@@ -1,0 +1,737 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><span id="line-2"></span><span class="hs-comment">-- Module      : Amazonka.Sign.V2Header</span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-5"></span><span class="hs-comment">--</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- This module provides an AWS compliant V2 Header request signer. It is based</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- heavily on &lt;https://github.com/boto/boto boto&gt;, specifically boto's</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- @HmacAuthV1Handler@ AWS capable signer. AWS documentation is available</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- &lt;http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html here&gt;.</span><span>
+</span><span id="line-10"></span><span class="hs-comment">--</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Notice: Limitations include an inability to sign with a security token and</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- inability to overwrite the @Date@ header with an expiry.</span><span>
+</span><span id="line-13"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Sign.V2Header</span><span>
+</span><span id="line-14"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#v2Header"><span class="hs-identifier">v2Header</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-15"></span><span>    </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#newSigner"><span class="hs-identifier">newSigner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-16"></span><span>    </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#toSignerQueryBS"><span class="hs-identifier">toSignerQueryBS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#constructSigningHeader"><span class="hs-identifier">constructSigningHeader</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>    </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#constructSigningQuery"><span class="hs-identifier">constructSigningQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#constructFullPath"><span class="hs-identifier">constructFullPath</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#unionNecessaryHeaders"><span class="hs-identifier">unionNecessaryHeaders</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-22"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-23"></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="Amazonka.Bytes.html"><span class="hs-identifier">Amazonka.Bytes</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Bytes</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="Amazonka.Crypto.html"><span class="hs-identifier">Amazonka.Crypto</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Crypto</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.html"><span class="hs-identifier">Amazonka.Data</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><a href="Amazonka.Data.Query.html"><span class="hs-identifier">Amazonka.Data.Query</span></a></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Query</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Prelude.html"><span class="hs-identifier">Amazonka.Prelude</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Types.html"><span class="hs-identifier">Amazonka.Types</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Builder</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Build</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Char8</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">BS8</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Lazy</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">LBS</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.CaseInsensitive</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">CI</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Function</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Function</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.List</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">List</span></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Client</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Client</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HTTP</span></span><span>
+</span><span id="line-38"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types.URI</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">URI</span></span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">data</span><span> </span><span id="V2Header"><span class="annot"><a href="Amazonka.Sign.V2Header.html#V2Header"><span class="hs-identifier hs-var">V2Header</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="V2Header"><span class="annot"><a href="Amazonka.Sign.V2Header.html#V2Header"><span class="hs-identifier hs-var">V2Header</span></a></span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AmetaTime%3AV2Header"><span class="annot"><span class="annottext">V2Header -&gt; UTCTime
+</span><a href="Amazonka.Sign.V2Header.html#%24sel%3AmetaTime%3AV2Header"><span class="hs-identifier hs-var hs-var">metaTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AmetaEndpoint%3AV2Header"><span class="annot"><span class="annottext">V2Header -&gt; Endpoint
+</span><a href="Amazonka.Sign.V2Header.html#%24sel%3AmetaEndpoint%3AV2Header"><span class="hs-identifier hs-var hs-var">metaEndpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Types.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AmetaSignature%3AV2Header"><span class="annot"><span class="annottext">V2Header -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#%24sel%3AmetaSignature%3AV2Header"><span class="hs-identifier hs-var hs-var">metaSignature</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aheaders%3AV2Header"><span class="annot"><span class="annottext">V2Header -&gt; RequestHeaders
+</span><a href="Amazonka.Sign.V2Header.html#%24sel%3Aheaders%3AV2Header"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.RequestHeaders</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Asigner%3AV2Header"><span class="annot"><span class="annottext">V2Header -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#%24sel%3Asigner%3AV2Header"><span class="hs-identifier hs-var hs-var">signer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.Log.html#ToLog"><span class="hs-identifier hs-type">ToLog</span></a></span><span> </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#V2Header"><span class="hs-identifier hs-type">V2Header</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>  </span><span id="local-6989586621679184515"><span class="annot"><span class="annottext">build :: V2Header -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#build"><span class="hs-identifier hs-var hs-var hs-var hs-var">build</span></a></span></span><span> </span><span class="annot"><a href="Amazonka.Sign.V2Header.html#V2Header"><span class="hs-identifier hs-type">V2Header</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184509"><span id="local-6989586621679184510"><span id="local-6989586621679184511"><span id="local-6989586621679184512"><span id="local-6989586621679184513"><span class="annot"><span class="annottext">RequestHeaders
+ByteString
+UTCTime
+Endpoint
+signer :: ByteString
+headers :: RequestHeaders
+metaSignature :: ByteString
+metaEndpoint :: Endpoint
+metaTime :: UTCTime
+$sel:signer:V2Header :: V2Header -&gt; ByteString
+$sel:headers:V2Header :: V2Header -&gt; RequestHeaders
+$sel:metaSignature:V2Header :: V2Header -&gt; ByteString
+$sel:metaEndpoint:V2Header :: V2Header -&gt; Endpoint
+$sel:metaTime:V2Header :: V2Header -&gt; UTCTime
+</span><a href="#local-6989586621679184509"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="annottext">[ByteStringBuilder] -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#buildLines"><span class="hs-identifier hs-var">buildLines</span></a></span><span>
+</span><span id="line-51"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;[Version 2 Header Metadata] {&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  time      = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">UTCTime -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679184513"><span class="hs-identifier hs-var">metaTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  endpoint  = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endpoint -&gt; ByteString
+</span><a href="Amazonka.Types.html#%24sel%3A_endpointHost%3AEndpoint"><span class="hs-identifier hs-var hs-var">_endpointHost</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679184512"><span class="hs-identifier hs-var">metaEndpoint</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  signature = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184511"><span class="hs-identifier hs-var">metaSignature</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  headers = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">RequestHeaders -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184510"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;  signer = &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+forall a. ToLog a =&gt; a -&gt; ByteStringBuilder
+</span><a href="Amazonka.Data.Log.html#build"><span class="hs-identifier hs-var">build</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184509"><span class="hs-identifier hs-var">signer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;}&quot;</span></span><span>
+</span><span id="line-58"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#v2Header"><span class="hs-identifier hs-type">v2Header</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Types.html#Signer"><span class="hs-identifier hs-type">Signer</span></a></span><span>
+</span><span id="line-61"></span><span id="v2Header"><span class="annot"><span class="annottext">v2Header :: Signer
+</span><a href="Amazonka.Sign.V2Header.html#v2Header"><span class="hs-identifier hs-var hs-var">v2Header</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(forall a. Algorithm a)
+-&gt; (forall a. Seconds -&gt; Algorithm a) -&gt; Signer
+</span><a href="Amazonka.Types.html#Signer"><span class="hs-identifier hs-var">Signer</span></a></span><span> </span><span class="annot"><span class="annottext">forall a. Algorithm a
+</span><a href="Amazonka.Sign.V2Header.html#sign"><span class="hs-identifier hs-var">sign</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Algorithm a -&gt; Seconds -&gt; Algorithm a
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">const</span></span><span> </span><span class="annot"><span class="annottext">Algorithm a
+forall a. Algorithm a
+</span><a href="Amazonka.Sign.V2Header.html#sign"><span class="hs-identifier hs-var">sign</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span id="local-6989586621679184503"><span class="annot"><a href="Amazonka.Sign.V2Header.html#sign"><span class="hs-identifier hs-type">sign</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Types.html#Algorithm"><span class="hs-identifier hs-type">Algorithm</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679184503"><span class="hs-identifier hs-type">a</span></a></span></span><span>
+</span><span id="line-64"></span><span id="sign"><span class="annot"><span class="annottext">sign :: Algorithm a
+</span><a href="Amazonka.Sign.V2Header.html#sign"><span class="hs-identifier hs-var hs-var">sign</span></a></span></span><span> </span><span class="annot"><a href="Amazonka.Types.html#Request"><span class="hs-identifier hs-type">Request</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184496"><span id="local-6989586621679184497"><span id="local-6989586621679184498"><span id="local-6989586621679184499"><span id="local-6989586621679184500"><span id="local-6989586621679184501"><span class="annot"><span class="annottext">RequestHeaders
+StdMethod
+QueryString
+RawPath
+RequestBody
+Service
+$sel:_requestBody:Request :: forall a. Request a -&gt; RequestBody
+$sel:_requestHeaders:Request :: forall a. Request a -&gt; RequestHeaders
+$sel:_requestQuery:Request :: forall a. Request a -&gt; QueryString
+$sel:_requestPath:Request :: forall a. Request a -&gt; RawPath
+$sel:_requestMethod:Request :: forall a. Request a -&gt; StdMethod
+$sel:_requestService:Request :: forall a. Request a -&gt; Service
+_requestBody :: RequestBody
+_requestHeaders :: RequestHeaders
+_requestQuery :: QueryString
+_requestPath :: RawPath
+_requestMethod :: StdMethod
+_requestService :: Service
+</span><a href="Amazonka.Types.html#%24sel%3A_requestBody%3ARequest"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="annot"><a href="Amazonka.Types.html#AuthEnv"><span class="hs-identifier hs-type">AuthEnv</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184485"><span id="local-6989586621679184486"><span id="local-6989586621679184487"><span id="local-6989586621679184488"><span class="annot"><span class="annottext">Maybe ISO8601
+Maybe (Sensitive SessionToken)
+Sensitive SecretKey
+AccessKey
+$sel:_authExpiration:AuthEnv :: AuthEnv -&gt; Maybe ISO8601
+$sel:_authSessionToken:AuthEnv :: AuthEnv -&gt; Maybe (Sensitive SessionToken)
+$sel:_authSecretAccessKey:AuthEnv :: AuthEnv -&gt; Sensitive SecretKey
+$sel:_authAccessKeyId:AuthEnv :: AuthEnv -&gt; AccessKey
+_authExpiration :: Maybe ISO8601
+_authSessionToken :: Maybe (Sensitive SessionToken)
+_authSecretAccessKey :: Sensitive SecretKey
+_authAccessKeyId :: AccessKey
+</span><a href="Amazonka.Types.html#%24sel%3A_authExpiration%3AAuthEnv"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184480"><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679184480"><span class="hs-identifier hs-var">r</span></a></span></span><span> </span><span id="local-6989586621679184479"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679184479"><span class="hs-identifier hs-var">t</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Meta -&gt; ClientRequest -&gt; Signed a
+forall a. Meta -&gt; ClientRequest -&gt; Signed a
+</span><a href="Amazonka.Types.html#Signed"><span class="hs-identifier hs-var">Signed</span></a></span><span> </span><span class="annot"><span class="annottext">Meta
+</span><a href="#local-6989586621679184477"><span class="hs-identifier hs-var">meta</span></a></span><span> </span><span class="annot"><span class="annottext">ClientRequest
+</span><a href="#local-6989586621679184476"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-66"></span><span>    </span><span id="local-6989586621679184477"><span class="annot"><span class="annottext">meta :: Meta
+</span><a href="#local-6989586621679184477"><span class="hs-identifier hs-var hs-var">meta</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">V2Header -&gt; Meta
+forall a. ToLog a =&gt; a -&gt; Meta
+</span><a href="Amazonka.Types.html#Meta"><span class="hs-identifier hs-var">Meta</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">UTCTime
+-&gt; Endpoint
+-&gt; ByteString
+-&gt; RequestHeaders
+-&gt; ByteString
+-&gt; V2Header
+</span><a href="Amazonka.Sign.V2Header.html#V2Header"><span class="hs-identifier hs-var">V2Header</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679184479"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679184474"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184473"><span class="hs-keyword hs-var">signature</span></a></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184472"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184471"><span class="hs-identifier hs-var">signer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span id="local-6989586621679184471"><span class="annot"><span class="annottext">signer :: ByteString
+</span><a href="#local-6989586621679184471"><span class="hs-identifier hs-var hs-var">signer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+-&gt; ByteString -&gt; ByteString -&gt; QueryString -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#newSigner"><span class="hs-identifier hs-var">newSigner</span></a></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184472"><span class="hs-identifier hs-var">headers</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184470"><span class="hs-identifier hs-var">meth</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184469"><span class="hs-identifier hs-var">path'</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184498"><span class="hs-identifier hs-var">_requestQuery</span></a></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span id="local-6989586621679184476"><span class="annot"><span class="annottext">rq :: ClientRequest
+</span><a href="#local-6989586621679184476"><span class="hs-identifier hs-var hs-var">rq</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Endpoint -&gt; Maybe Seconds -&gt; ClientRequest
+</span><a href="Amazonka.Types.html#newClientRequest"><span class="hs-identifier hs-var">newClientRequest</span></a></span><span> </span><span class="annot"><span class="annottext">Endpoint
+</span><a href="#local-6989586621679184474"><span class="hs-identifier hs-var">end</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe Seconds
+</span><a href="#local-6989586621679184467"><span class="hs-identifier hs-var">_serviceTimeout</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">method :: ByteString
+</span><span class="hs-identifier hs-var">Client.method</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184470"><span class="hs-identifier hs-var">meth</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>          </span><span class="annot"><span class="annottext">path :: ByteString
+</span><span class="hs-identifier hs-var">Client.path</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184469"><span class="hs-identifier hs-var">path'</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>          </span><span class="annot"><span class="annottext">queryString :: ByteString
+</span><span class="hs-identifier hs-var">Client.queryString</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184498"><span class="hs-identifier hs-var">_requestQuery</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>          </span><span class="annot"><span class="annottext">requestHeaders :: RequestHeaders
+</span><span class="hs-identifier hs-var">Client.requestHeaders</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184472"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">requestBody :: RequestBody
+</span><span class="hs-identifier hs-var">Client.requestBody</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestBody -&gt; RequestBody
+</span><a href="Amazonka.Data.Body.html#toRequestBody"><span class="hs-identifier hs-var">toRequestBody</span></a></span><span> </span><span class="annot"><span class="annottext">RequestBody
+</span><a href="#local-6989586621679184496"><span class="hs-identifier hs-var">_requestBody</span></a></span><span>
+</span><span id="line-77"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span>    </span><span id="local-6989586621679184470"><span class="annot"><span class="annottext">meth :: ByteString
+</span><a href="#local-6989586621679184470"><span class="hs-identifier hs-var hs-var">meth</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StdMethod -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">StdMethod
+</span><a href="#local-6989586621679184500"><span class="hs-identifier hs-var">_requestMethod</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span id="local-6989586621679184469"><span class="annot"><span class="annottext">path' :: ByteString
+</span><a href="#local-6989586621679184469"><span class="hs-identifier hs-var hs-var">path'</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">EscapedPath -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">RawPath -&gt; EscapedPath
+forall (a :: Encoding). Path a -&gt; EscapedPath
+</span><a href="Amazonka.Data.Path.html#escapePath"><span class="hs-identifier hs-var">escapePath</span></a></span><span> </span><span class="annot"><span class="annottext">RawPath
+</span><a href="#local-6989586621679184499"><span class="hs-identifier hs-var">_requestPath</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span>    </span><span id="local-6989586621679184474"><span class="annot"><span class="annottext">end :: Endpoint
+</span><a href="#local-6989586621679184474"><span class="hs-identifier hs-var">end</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Types.html#Endpoint"><span class="hs-identifier hs-type">Endpoint</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Region -&gt; Endpoint
+</span><a href="#local-6989586621679184457"><span class="hs-identifier hs-var">_serviceEndpoint</span></a></span><span> </span><span class="annot"><span class="annottext">Region
+</span><a href="#local-6989586621679184480"><span class="hs-identifier hs-var">r</span></a></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.Types.html#Service"><span class="hs-identifier hs-type">Service</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184448"><span id="local-6989586621679184449"><span id="local-6989586621679184450"><span id="local-6989586621679184451"><span id="local-6989586621679184452"><span id="local-6989586621679184453"><span id="local-6989586621679184454"><span id="local-6989586621679184455"><span id="local-6989586621679184457"><span id="local-6989586621679184467"><span class="annot"><span class="annottext">Maybe Seconds
+ByteString
+Signer
+Retry
+Abbrev
+Status -&gt; Bool
+Status -&gt; RequestHeaders -&gt; ByteStringLazy -&gt; Error
+Region -&gt; Endpoint
+$sel:_serviceRetry:Service :: Service -&gt; Retry
+$sel:_serviceError:Service :: Service -&gt; Status -&gt; RequestHeaders -&gt; ByteStringLazy -&gt; Error
+$sel:_serviceCheck:Service :: Service -&gt; Status -&gt; Bool
+$sel:_serviceTimeout:Service :: Service -&gt; Maybe Seconds
+$sel:_serviceEndpoint:Service :: Service -&gt; Region -&gt; Endpoint
+$sel:_serviceEndpointPrefix:Service :: Service -&gt; ByteString
+$sel:_serviceVersion:Service :: Service -&gt; ByteString
+$sel:_serviceSigningName:Service :: Service -&gt; ByteString
+$sel:_serviceSigner:Service :: Service -&gt; Signer
+$sel:_serviceAbbrev:Service :: Service -&gt; Abbrev
+_serviceRetry :: Retry
+_serviceError :: Status -&gt; RequestHeaders -&gt; ByteStringLazy -&gt; Error
+_serviceCheck :: Status -&gt; Bool
+_serviceEndpointPrefix :: ByteString
+_serviceVersion :: ByteString
+_serviceSigningName :: ByteString
+_serviceSigner :: Signer
+_serviceAbbrev :: Abbrev
+_serviceEndpoint :: Region -&gt; Endpoint
+_serviceTimeout :: Maybe Seconds
+</span><a href="Amazonka.Types.html#%24sel%3A_serviceRetry%3AService"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="#local-6989586621679184501"><span class="hs-identifier hs-var">_requestService</span></a></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span>    </span><span id="local-6989586621679184473"><span class="annot"><span class="annottext">signature :: ByteString
+</span><a href="#local-6989586621679184473"><span class="hs-keyword hs-var hs-var">signature</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">HMAC SHA1 -&gt; ByteString
+forall a. ByteArrayAccess a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Bytes.html#encodeBase64"><span class="hs-identifier hs-var">Bytes.encodeBase64</span></a></span><span>
+</span><span id="line-88"></span><span>        </span><span class="annot"><span class="annottext">(HMAC SHA1 -&gt; ByteString)
+-&gt; (ByteString -&gt; HMAC SHA1) -&gt; ByteString -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; HMAC SHA1
+forall a. ByteArrayAccess a =&gt; ByteString -&gt; a -&gt; HMAC SHA1
+</span><a href="Amazonka.Crypto.html#hmacSHA1"><span class="hs-identifier hs-var">Crypto.hmacSHA1</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Sensitive SecretKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">Sensitive SecretKey
+</span><a href="#local-6989586621679184487"><span class="hs-identifier hs-var">_authSecretAccessKey</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString) -&gt; ByteString -&gt; ByteString
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184471"><span class="hs-identifier hs-var">signer</span></a></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span>    </span><span id="local-6989586621679184472"><span class="annot"><span class="annottext">headers :: RequestHeaders
+</span><a href="#local-6989586621679184472"><span class="hs-identifier hs-var hs-var">headers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; RequestHeaders -&gt; RequestHeaders
+</span><a href="Amazonka.Data.Headers.html#hdr"><span class="hs-identifier hs-var">hdr</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hDate</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184432"><span class="hs-identifier hs-var">time</span></a></span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">(RequestHeaders -&gt; RequestHeaders)
+-&gt; (RequestHeaders -&gt; RequestHeaders)
+-&gt; RequestHeaders
+-&gt; RequestHeaders
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; RequestHeaders -&gt; RequestHeaders
+</span><a href="Amazonka.Data.Headers.html#hdr"><span class="hs-identifier hs-var">hdr</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hAuthorization</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWS &quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">AccessKey -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">AccessKey
+</span><a href="#local-6989586621679184488"><span class="hs-identifier hs-var">_authAccessKeyId</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184473"><span class="hs-keyword hs-var">signature</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>        </span><span class="annot"><span class="annottext">(RequestHeaders -&gt; RequestHeaders)
+-&gt; RequestHeaders -&gt; RequestHeaders
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184497"><span class="hs-identifier hs-var">_requestHeaders</span></a></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span id="local-6989586621679184432"><span class="annot"><span class="annottext">time :: ByteString
+</span><a href="#local-6989586621679184432"><span class="hs-identifier hs-var hs-var">time</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RFC822 -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">UTCTime -&gt; RFC822
+forall (a :: Format). UTCTime -&gt; Time a
+</span><a href="Amazonka.Data.Time.html#Time"><span class="hs-identifier hs-var">Time</span></a></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679184479"><span class="hs-identifier hs-var">t</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Time.html#RFC822"><span class="hs-identifier hs-type">RFC822</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Construct a full header signer following the V2 Header scheme</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#newSigner"><span class="hs-identifier hs-type">newSigner</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">HTTP.RequestHeaders</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.Data.Query.html#QueryString"><span class="hs-identifier hs-type">Query.QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-105"></span><span id="newSigner"><span class="annot"><span class="annottext">newSigner :: RequestHeaders
+-&gt; ByteString -&gt; ByteString -&gt; QueryString -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#newSigner"><span class="hs-identifier hs-var hs-var">newSigner</span></a></span></span><span> </span><span id="local-6989586621679184429"><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184429"><span class="hs-identifier hs-var">headers</span></a></span></span><span> </span><span id="local-6989586621679184428"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184428"><span class="hs-identifier hs-var">method</span></a></span></span><span> </span><span id="local-6989586621679184427"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184427"><span class="hs-identifier hs-var">path</span></a></span></span><span> </span><span id="local-6989586621679184426"><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184426"><span class="hs-identifier hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184425"><span class="hs-identifier hs-var">signer</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-107"></span><span>    </span><span id="local-6989586621679184425"><span class="annot"><span class="annottext">signer :: ByteString
+</span><a href="#local-6989586621679184425"><span class="hs-identifier hs-var hs-var">signer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.intercalate</span></span><span>
+</span><span id="line-109"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;\n&quot;</span></span><span>
+</span><span id="line-110"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184428"><span class="hs-identifier hs-var">method</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [ByteString] -&gt; [ByteString]
+forall a. a -&gt; [a] -&gt; [a]
+</span><span class="hs-glyph hs-var">:</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">(Header -&gt; ByteString) -&gt; RequestHeaders -&gt; [ByteString]
+forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
+</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#constructSigningHeader"><span class="hs-identifier hs-var">constructSigningHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">RequestHeaders -&gt; RequestHeaders
+forall a. Ord a =&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">List.sort</span></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184422"><span class="hs-identifier hs-var">filteredHeaders</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">[ByteString] -&gt; [ByteString] -&gt; [ByteString]
+forall a. [a] -&gt; [a] -&gt; [a]
+</span><span class="hs-operator hs-var">++</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#constructFullPath"><span class="hs-identifier hs-var">constructFullPath</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184427"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">QueryString -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#toSignerQueryBS"><span class="hs-identifier hs-var">toSignerQueryBS</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184421"><span class="hs-identifier hs-var">filteredQuery</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span>    </span><span id="local-6989586621679184422"><span class="annot"><span class="annottext">filteredHeaders :: RequestHeaders
+</span><a href="#local-6989586621679184422"><span class="hs-identifier hs-var hs-var">filteredHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">RequestHeaders -&gt; RequestHeaders
+</span><a href="Amazonka.Sign.V2Header.html#unionNecessaryHeaders"><span class="hs-identifier hs-var">unionNecessaryHeaders</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Header -&gt; Bool) -&gt; RequestHeaders -&gt; RequestHeaders
+forall a. (a -&gt; Bool) -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">filter</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; Bool
+</span><a href="Amazonka.Sign.V2Header.html#isInterestingHeader"><span class="hs-identifier hs-var">isInterestingHeader</span></a></span><span> </span><span class="annot"><span class="annottext">RequestHeaders
+</span><a href="#local-6989586621679184429"><span class="hs-identifier hs-var">headers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span id="local-6989586621679184421"><span class="annot"><span class="annottext">filteredQuery :: QueryString
+</span><a href="#local-6989586621679184421"><span class="hs-identifier hs-var hs-var">filteredQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; QueryString
+</span><a href="Amazonka.Sign.V2Header.html#constructSigningQuery"><span class="hs-identifier hs-var">constructSigningQuery</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184426"><span class="hs-identifier hs-var">query</span></a></span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The following function mostly follows the toBS in amazonka QueryString</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- except for single QValue or single QPair keys not being suffixed with</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- an equals.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#toSignerQueryBS"><span class="hs-identifier hs-type">toSignerQueryBS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Query.html#QueryString"><span class="hs-identifier hs-type">Query.QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-123"></span><span id="toSignerQueryBS"><span class="annot"><span class="annottext">toSignerQueryBS :: QueryString -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#toSignerQueryBS"><span class="hs-identifier hs-var hs-var">toSignerQueryBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><span class="annottext">ByteStringLazy -&gt; ByteString
+</span><span class="hs-identifier hs-var">LBS.toStrict</span></span><span> </span><span class="annot"><span class="annottext">(ByteStringLazy -&gt; ByteString)
+-&gt; (QueryString -&gt; ByteStringLazy) -&gt; QueryString -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringLazy
+</span><span class="hs-identifier hs-var">Build.toLazyByteString</span></span><span> </span><span class="annot"><span class="annottext">(ByteStringBuilder -&gt; ByteStringLazy)
+-&gt; (QueryString -&gt; ByteStringBuilder)
+-&gt; QueryString
+-&gt; ByteStringLazy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679184417"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">([ByteString] -&gt; ByteStringBuilder)
+-&gt; (QueryString -&gt; [ByteString])
+-&gt; QueryString
+-&gt; ByteStringBuilder
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">[ByteString] -&gt; [ByteString]
+forall a. Ord a =&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">List.sort</span></span><span> </span><span class="annot"><span class="annottext">([ByteString] -&gt; [ByteString])
+-&gt; (QueryString -&gt; [ByteString]) -&gt; QueryString -&gt; [ByteString]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
+</span><a href="#local-6989586621679184416"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="#local-6989586621679184416"><span class="hs-identifier hs-type">enc</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Amazonka.Data.Query.html#QueryString"><span class="hs-identifier hs-type">Query.QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">]</span><span>
+</span><span id="line-127"></span><span>    </span><span id="local-6989586621679184416"><span class="annot"><span class="annottext">enc :: Maybe ByteString -&gt; QueryString -&gt; [ByteString]
+</span><a href="#local-6989586621679184416"><span class="hs-identifier hs-var hs-var">enc</span></a></span></span><span> </span><span id="local-6989586621679184415"><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679184415"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><a href="Amazonka.Data.Query.html#QList"><span class="hs-identifier hs-type">Query.QList</span></a></span><span> </span><span id="local-6989586621679184413"><span class="annot"><span class="annottext">[QueryString]
+</span><a href="#local-6989586621679184413"><span class="hs-identifier hs-var">xs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">(QueryString -&gt; [ByteString]) -&gt; [QueryString] -&gt; [ByteString]
+forall (t :: * -&gt; *) a b. Foldable t =&gt; (a -&gt; [b]) -&gt; t a -&gt; [b]
+</span><span class="hs-identifier hs-var">concatMap</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
+</span><a href="#local-6989586621679184416"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679184415"><span class="hs-identifier hs-var">p</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">[QueryString]
+</span><a href="#local-6989586621679184413"><span class="hs-identifier hs-var">xs</span></a></span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><a href="Amazonka.Data.Query.html#QPair"><span class="hs-identifier hs-type">Query.QPair</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool -&gt; ByteString -&gt; ByteString
+</span><span class="hs-identifier hs-var">URI.urlEncode</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679184409"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184409"><span class="hs-identifier hs-var">k</span></a></span></span><span class="hs-special">)</span><span> </span><span id="local-6989586621679184408"><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184408"><span class="hs-identifier hs-var">x</span></a></span></span><span>
+</span><span id="line-130"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679184407"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184407"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679184415"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
+</span><a href="#local-6989586621679184416"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ByteString
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184407"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184406"><span class="hs-identifier hs-var">kdelim</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184409"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-comment">-- &lt;prev&gt;.key &lt;recur&gt;</span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString -&gt; [ByteString]
+</span><a href="#local-6989586621679184416"><span class="hs-identifier hs-var">enc</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString -&gt; Maybe ByteString
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Just</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184409"><span class="hs-identifier hs-var">k</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184408"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="hs-comment">-- key &lt;recur&gt;</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><a href="Amazonka.Data.Query.html#QValue"><span class="hs-identifier hs-type">Query.QValue</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Bool -&gt; ByteString -&gt; ByteString
+</span><span class="hs-identifier hs-var">URI.urlEncode</span></span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span id="local-6989586621679184404"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184404"><span class="hs-identifier hs-var">v</span></a></span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679184403"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184403"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679184415"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184403"><span class="hs-identifier hs-var">n</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184402"><span class="hs-identifier hs-var">vsep</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184404"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">]</span><span> </span><span class="hs-comment">-- key=value</span><span>
+</span><span id="line-134"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184404"><span class="hs-identifier hs-var">v</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-identifier">_</span></span><span>
+</span><span id="line-136"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Just</span></span><span> </span><span id="local-6989586621679184401"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184401"><span class="hs-identifier hs-var">n</span></a></span></span><span> </span><span class="hs-glyph">&lt;-</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+</span><a href="#local-6989586621679184415"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184401"><span class="hs-identifier hs-var">n</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>        </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="#local-6989586621679184417"><span class="hs-identifier hs-type">cat</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Amazonka.Prelude.html#ByteStringBuilder"><span class="hs-identifier hs-type">ByteStringBuilder</span></a></span><span>
+</span><span id="line-140"></span><span>    </span><span id="local-6989586621679184417"><span class="annot"><span class="annottext">cat :: [ByteString] -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679184417"><span class="hs-identifier hs-var hs-var">cat</span></a></span></span><span> </span><span class="hs-special">[</span><span class="hs-special">]</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">mempty</span></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="#local-6989586621679184417"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="hs-special">[</span><span id="local-6989586621679184400"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184400"><span class="hs-identifier hs-var">x</span></a></span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var">Build.byteString</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184400"><span class="hs-identifier hs-var">x</span></a></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="#local-6989586621679184417"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184398"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184398"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="annot"><span class="hs-glyph hs-type">:</span></span><span> </span><span id="local-6989586621679184397"><span class="annot"><span class="annottext">[ByteString]
+</span><a href="#local-6989586621679184397"><span class="hs-identifier hs-var">xs</span></a></span></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var">Build.byteString</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184398"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><a href="#local-6989586621679184396"><span class="hs-identifier hs-var">ksep</span></a></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteStringBuilder -&gt; ByteStringBuilder
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteStringBuilder
+</span><a href="#local-6989586621679184417"><span class="hs-identifier hs-var">cat</span></a></span><span> </span><span class="annot"><span class="annottext">[ByteString]
+</span><a href="#local-6989586621679184397"><span class="hs-identifier hs-var">xs</span></a></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span>    </span><span id="local-6989586621679184406"><span class="annot"><span class="annottext">kdelim :: ByteString
+</span><a href="#local-6989586621679184406"><span class="hs-identifier hs-var hs-var">kdelim</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;.&quot;</span></span><span>
+</span><span id="line-145"></span><span>    </span><span id="local-6989586621679184396"><span class="annot"><span class="annottext">ksep :: ByteStringBuilder
+</span><a href="#local-6989586621679184396"><span class="hs-identifier hs-var hs-var">ksep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder
+</span><span class="hs-string">&quot;&amp;&quot;</span></span><span>
+</span><span id="line-146"></span><span>    </span><span id="local-6989586621679184402"><span class="annot"><span class="annottext">vsep :: ByteString
+</span><a href="#local-6989586621679184402"><span class="hs-identifier hs-var hs-var">vsep</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;=&quot;</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#hasAWSPrefix"><span class="hs-identifier hs-type">hasAWSPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">CI.CI</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
+</span><span id="line-149"></span><span id="hasAWSPrefix"><span class="annot"><span class="annottext">hasAWSPrefix :: HeaderName -&gt; Bool
+</span><a href="Amazonka.Sign.V2Header.html#hasAWSPrefix"><span class="hs-identifier hs-var hs-var">hasAWSPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; Bool
+</span><span class="hs-identifier hs-var">BS8.isPrefixOf</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;aws-&quot;</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; Bool)
+-&gt; (HeaderName -&gt; ByteString) -&gt; HeaderName -&gt; Bool
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString
+forall s. CI s -&gt; s
+</span><span class="hs-identifier hs-var hs-var">CI.foldedCase</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | Filter for 'interesting' keys within a QueryString</span><span>
+</span><span id="line-152"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#isInterestingQueryKey"><span class="hs-identifier hs-type">isInterestingQueryKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
+</span><span id="line-153"></span><span id="isInterestingQueryKey"><span class="annot"><span class="annottext">isInterestingQueryKey :: ByteString -&gt; Bool
+</span><a href="Amazonka.Sign.V2Header.html#isInterestingQueryKey"><span class="hs-identifier hs-var hs-var">isInterestingQueryKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;acl&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;cors&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;defaultObjectAcl&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-157"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;location&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;logging&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;partNumber&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;policy&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;requestPayment&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;torrent&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;versioning&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;versionId&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;versions&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;website&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;uploads&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-168"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;uploadId&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;response-content-type&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;response-content-language&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;response-expires&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;response-cache-control&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;response-content-disposition&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;response-content-encoding&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;delete&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;lifecycle&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;tagging&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;restore&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;storageClass&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;websiteConfig&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;compose&quot;</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-identifier">_</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">False</span></span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Filter for 'interesting' header fields</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#isInterestingHeader"><span class="hs-identifier hs-type">isInterestingHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Bool</span></span><span>
+</span><span id="line-186"></span><span id="isInterestingHeader"><span class="annot"><span class="annottext">isInterestingHeader :: Header -&gt; Bool
+</span><a href="Amazonka.Sign.V2Header.html#isInterestingHeader"><span class="hs-identifier hs-var hs-var">isInterestingHeader</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184391"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184391"><span class="hs-identifier hs-var">name</span></a></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-identifier">_</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184391"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hDate</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184391"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hContentMD5</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184391"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">==</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hContentType</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-190"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Bool
+</span><a href="Amazonka.Sign.V2Header.html#hasAWSPrefix"><span class="hs-identifier hs-var">hasAWSPrefix</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184391"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">True</span></span><span>
+</span><span id="line-191"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">False</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | Constructs a query string for signing</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#constructSigningQuery"><span class="hs-identifier hs-type">constructSigningQuery</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Query.html#QueryString"><span class="hs-identifier hs-type">Query.QueryString</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="Amazonka.Data.Query.html#QueryString"><span class="hs-identifier hs-type">Query.QueryString</span></a></span><span>
+</span><span id="line-195"></span><span id="constructSigningQuery"><span class="annot"><span class="annottext">constructSigningQuery :: QueryString -&gt; QueryString
+</span><a href="Amazonka.Sign.V2Header.html#constructSigningQuery"><span class="hs-identifier hs-var hs-var">constructSigningQuery</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="hs-glyph">\</span><span class="hs-glyph">case</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><a href="Amazonka.Data.Query.html#QValue"><span class="hs-identifier hs-type">Query.QValue</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString
+</span><a href="Amazonka.Data.Query.html#QValue"><span class="hs-identifier hs-var">Query.QValue</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-197"></span><span>  </span><span class="annot"><a href="Amazonka.Data.Query.html#QList"><span class="hs-identifier hs-type">Query.QList</span></a></span><span> </span><span id="local-6989586621679184388"><span class="annot"><span class="annottext">[QueryString]
+</span><a href="#local-6989586621679184388"><span class="hs-identifier hs-var">qs</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+</span><a href="Amazonka.Data.Query.html#QList"><span class="hs-identifier hs-var">Query.QList</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(QueryString -&gt; QueryString) -&gt; [QueryString] -&gt; [QueryString]
+forall a b. (a -&gt; b) -&gt; [a] -&gt; [b]
+</span><span class="hs-identifier hs-var">map</span></span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; QueryString
+</span><a href="Amazonka.Sign.V2Header.html#constructSigningQuery"><span class="hs-identifier hs-var">constructSigningQuery</span></a></span><span> </span><span class="annot"><span class="annottext">[QueryString]
+</span><a href="#local-6989586621679184388"><span class="hs-identifier hs-var">qs</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>  </span><span class="annot"><a href="Amazonka.Data.Query.html#QPair"><span class="hs-identifier hs-type">Query.QPair</span></a></span><span> </span><span id="local-6989586621679184387"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184387"><span class="hs-identifier hs-var">k</span></a></span></span><span> </span><span id="local-6989586621679184386"><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184386"><span class="hs-identifier hs-var">v</span></a></span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool
+</span><a href="Amazonka.Sign.V2Header.html#isInterestingQueryKey"><span class="hs-identifier hs-var">isInterestingQueryKey</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184387"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+</span><a href="Amazonka.Data.Query.html#QPair"><span class="hs-identifier hs-var">Query.QPair</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184387"><span class="hs-identifier hs-var">k</span></a></span><span> </span><span class="annot"><span class="annottext">QueryString
+</span><a href="#local-6989586621679184386"><span class="hs-identifier hs-var">v</span></a></span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ByteString -&gt; QueryString
+</span><a href="Amazonka.Data.Query.html#QValue"><span class="hs-identifier hs-var">Query.QValue</span></a></span><span> </span><span class="annot"><span class="annottext">Maybe ByteString
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | Construct a header string for signing</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#constructSigningHeader"><span class="hs-identifier hs-type">constructSigningHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-204"></span><span id="constructSigningHeader"><span class="annot"><span class="annottext">constructSigningHeader :: Header -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#constructSigningHeader"><span class="hs-identifier hs-var hs-var">constructSigningHeader</span></a></span></span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184385"><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184385"><span class="hs-identifier hs-var">name</span></a></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184384"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184384"><span class="hs-identifier hs-var">value</span></a></span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Bool
+</span><a href="Amazonka.Sign.V2Header.html#hasAWSPrefix"><span class="hs-identifier hs-var">hasAWSPrefix</span></a></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184385"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString
+forall s. CI s -&gt; s
+</span><span class="hs-identifier hs-var hs-var">CI.foldedCase</span></span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><a href="#local-6989586621679184385"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;:&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184384"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><span id="line-206"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184384"><span class="hs-identifier hs-var">value</span></a></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#constructFullPath"><span class="hs-identifier hs-type">constructFullPath</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-209"></span><span id="constructFullPath"><span class="annot"><span class="annottext">constructFullPath :: ByteString -&gt; ByteString -&gt; ByteString
+</span><a href="Amazonka.Sign.V2Header.html#constructFullPath"><span class="hs-identifier hs-var hs-var">constructFullPath</span></a></span></span><span> </span><span id="local-6989586621679184383"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184383"><span class="hs-identifier hs-var">path</span></a></span></span><span> </span><span id="local-6989586621679184382"><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184382"><span class="hs-identifier hs-var">q</span></a></span></span><span>
+</span><span id="line-210"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Bool
+</span><span class="hs-identifier hs-var">BS8.null</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184382"><span class="hs-identifier hs-var">q</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184383"><span class="hs-identifier hs-var">path</span></a></span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184383"><span class="hs-identifier hs-var">path</span></a></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;?&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; ByteString
+forall a. Semigroup a =&gt; a -&gt; a -&gt; a
+</span><span class="hs-operator hs-var">&lt;&gt;</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><a href="#local-6989586621679184382"><span class="hs-identifier hs-var">q</span></a></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.Sign.V2Header.html#unionNecessaryHeaders"><span class="hs-identifier hs-type">unionNecessaryHeaders</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">HTTP.Header</span></span><span class="hs-special">]</span><span>
+</span><span id="line-214"></span><span id="unionNecessaryHeaders"><span class="annot"><span class="annottext">unionNecessaryHeaders :: RequestHeaders -&gt; RequestHeaders
+</span><a href="Amazonka.Sign.V2Header.html#unionNecessaryHeaders"><span class="hs-identifier hs-var hs-var">unionNecessaryHeaders</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-215"></span><span>  </span><span class="annot"><span class="annottext">(RequestHeaders -&gt; RequestHeaders -&gt; RequestHeaders)
+-&gt; RequestHeaders -&gt; RequestHeaders -&gt; RequestHeaders
+forall a b c. (a -&gt; b -&gt; c) -&gt; b -&gt; a -&gt; c
+</span><span class="hs-identifier hs-var">flip</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(Header -&gt; Header -&gt; Bool)
+-&gt; RequestHeaders -&gt; RequestHeaders -&gt; RequestHeaders
+forall a. (a -&gt; a -&gt; Bool) -&gt; [a] -&gt; [a] -&gt; [a]
+</span><span class="hs-identifier hs-var">List.unionBy</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(HeaderName -&gt; HeaderName -&gt; Bool)
+-&gt; (Header -&gt; HeaderName) -&gt; Header -&gt; Header -&gt; Bool
+forall b c a. (b -&gt; b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; a -&gt; c
+</span><span class="hs-identifier hs-var">Function.on</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; HeaderName -&gt; Bool
+forall a. Eq a =&gt; a -&gt; a -&gt; Bool
+</span><span class="hs-operator hs-var">(==)</span></span><span> </span><span class="annot"><span class="annottext">Header -&gt; HeaderName
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hContentMD5</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;&quot;</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="hs-special">(</span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-identifier hs-var">HTTP.hContentType</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-special">]</span><span>
+</span><span id="line-220"></span></pre></body></html>

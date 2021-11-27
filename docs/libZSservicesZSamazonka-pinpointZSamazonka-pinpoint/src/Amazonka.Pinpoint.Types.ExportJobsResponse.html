@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.ExportJobsResponse</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.ExportJobsResponse</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobResponse.html"><span class="hs-identifier">Amazonka.Pinpoint.Types.ExportJobResponse</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Provides information about all the export jobs that are associated with</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- an application or segment. An export job is a job that exports endpoint</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- definitions to a file.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- /See:/ 'newExportJobsResponse' smart constructor.</span><span>
+</span><span id="line-32"></span><span id="local-6989586621679601354"><span id="local-6989586621679601355"></span></span><span class="hs-keyword">data</span><span> </span><span id="ExportJobsResponse"><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-var">ExportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ExportJobsResponse%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse%27"><span class="hs-identifier hs-var">ExportJobsResponse'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AnextToken%3AExportJobsResponse%27"><span class="annot"><span class="annottext">ExportJobsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#%24sel%3AnextToken%3AExportJobsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | An array of responses, one for each export job that\'s associated with</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the application (Export Jobs resource) or segment (Segment Export Jobs</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- resource).</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Aitem%3AExportJobsResponse%27"><span class="annot"><span class="annottext">ExportJobsResponse -&gt; [ExportJobResponse]
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#%24sel%3Aitem%3AExportJobsResponse%27"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobResponse.html#ExportJobResponse"><span class="hs-identifier hs-type">ExportJobResponse</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679601347"><span id="local-6989586621679601349"><span class="annot"><span class="annottext">ExportJobsResponse -&gt; ExportJobsResponse -&gt; Bool
+(ExportJobsResponse -&gt; ExportJobsResponse -&gt; Bool)
+-&gt; (ExportJobsResponse -&gt; ExportJobsResponse -&gt; Bool)
+-&gt; Eq ExportJobsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ExportJobsResponse -&gt; ExportJobsResponse -&gt; Bool
+$c/= :: ExportJobsResponse -&gt; ExportJobsResponse -&gt; Bool
+== :: ExportJobsResponse -&gt; ExportJobsResponse -&gt; Bool
+$c== :: ExportJobsResponse -&gt; ExportJobsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601338"><span id="local-6989586621679601340"><span id="local-6989586621679601342"><span id="local-6989586621679601344"><span class="annot"><span class="annottext">ReadPrec [ExportJobsResponse]
+ReadPrec ExportJobsResponse
+Int -&gt; ReadS ExportJobsResponse
+ReadS [ExportJobsResponse]
+(Int -&gt; ReadS ExportJobsResponse)
+-&gt; ReadS [ExportJobsResponse]
+-&gt; ReadPrec ExportJobsResponse
+-&gt; ReadPrec [ExportJobsResponse]
+-&gt; Read ExportJobsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ExportJobsResponse]
+$creadListPrec :: ReadPrec [ExportJobsResponse]
+readPrec :: ReadPrec ExportJobsResponse
+$creadPrec :: ReadPrec ExportJobsResponse
+readList :: ReadS [ExportJobsResponse]
+$creadList :: ReadS [ExportJobsResponse]
+readsPrec :: Int -&gt; ReadS ExportJobsResponse
+$creadsPrec :: Int -&gt; ReadS ExportJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679601331"><span id="local-6989586621679601333"><span id="local-6989586621679601335"><span class="annot"><span class="annottext">Int -&gt; ExportJobsResponse -&gt; ShowS
+[ExportJobsResponse] -&gt; ShowS
+ExportJobsResponse -&gt; String
+(Int -&gt; ExportJobsResponse -&gt; ShowS)
+-&gt; (ExportJobsResponse -&gt; String)
+-&gt; ([ExportJobsResponse] -&gt; ShowS)
+-&gt; Show ExportJobsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ExportJobsResponse] -&gt; ShowS
+$cshowList :: [ExportJobsResponse] -&gt; ShowS
+show :: ExportJobsResponse -&gt; String
+$cshow :: ExportJobsResponse -&gt; String
+showsPrec :: Int -&gt; ExportJobsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ExportJobsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ExportJobsResponse -&gt; Rep ExportJobsResponse x)
+-&gt; (forall x. Rep ExportJobsResponse x -&gt; ExportJobsResponse)
+-&gt; Generic ExportJobsResponse
+forall x. Rep ExportJobsResponse x -&gt; ExportJobsResponse
+forall x. ExportJobsResponse -&gt; Rep ExportJobsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ExportJobsResponse x -&gt; ExportJobsResponse
+$cfrom :: forall x. ExportJobsResponse -&gt; Rep ExportJobsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- Create a value of 'ExportJobsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'nextToken', 'exportJobsResponse_nextToken' - The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'item', 'exportJobsResponse_item' - An array of responses, one for each export job that\'s associated with</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- the application (Export Jobs resource) or segment (Segment Export Jobs</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- resource).</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#newExportJobsResponse"><span class="hs-identifier hs-type">newExportJobsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span><span>
+</span><span id="line-61"></span><span id="newExportJobsResponse"><span class="annot"><span class="annottext">newExportJobsResponse :: ExportJobsResponse
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#newExportJobsResponse"><span class="hs-identifier hs-var hs-var">newExportJobsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><span class="annottext">ExportJobsResponse' :: Maybe Text -&gt; [ExportJobResponse] -&gt; ExportJobsResponse
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse%27"><span class="hs-identifier hs-type">ExportJobsResponse'</span></a></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ExportJobsResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#%24sel%3AnextToken%3AExportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span class="annot"><span class="annottext">$sel:item:ExportJobsResponse' :: [ExportJobResponse]
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#%24sel%3Aitem%3AExportJobsResponse%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ExportJobResponse]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The string to use in a subsequent request to get the next page of</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- results in a paginated response. This value is null if there are no</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- additional pages.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#exportJobsResponse_nextToken"><span class="hs-identifier hs-type">exportJobsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span id="exportJobsResponse_nextToken"><span class="annot"><span class="annottext">exportJobsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ExportJobsResponse -&gt; f ExportJobsResponse
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#exportJobsResponse_nextToken"><span class="hs-identifier hs-var hs-var">exportJobsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportJobsResponse -&gt; Maybe Text)
+-&gt; (ExportJobsResponse -&gt; Maybe Text -&gt; ExportJobsResponse)
+-&gt; Lens
+     ExportJobsResponse ExportJobsResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse%27"><span class="hs-identifier hs-type">ExportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601322"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ExportJobsResponse' :: ExportJobsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679601322"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601322"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601321"><span class="annot"><span class="annottext">s :: ExportJobsResponse
+</span><a href="#local-6989586621679601321"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse%27"><span class="hs-identifier hs-type">ExportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601320"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601320"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobsResponse
+</span><a href="#local-6989586621679601321"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ExportJobsResponse' :: Maybe Text
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#%24sel%3AnextToken%3AExportJobsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679601320"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | An array of responses, one for each export job that\'s associated with</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- the application (Export Jobs resource) or segment (Segment Export Jobs</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- resource).</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#exportJobsResponse_item"><span class="hs-identifier hs-type">exportJobsResponse_item</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobResponse.html#ExportJobResponse"><span class="hs-identifier hs-type">ExportJobResponse</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-77"></span><span id="exportJobsResponse_item"><span class="annot"><span class="annottext">exportJobsResponse_item :: ([ExportJobResponse] -&gt; f [ExportJobResponse])
+-&gt; ExportJobsResponse -&gt; f ExportJobsResponse
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#exportJobsResponse_item"><span class="hs-identifier hs-var hs-var">exportJobsResponse_item</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ExportJobsResponse -&gt; [ExportJobResponse])
+-&gt; (ExportJobsResponse
+    -&gt; [ExportJobResponse] -&gt; ExportJobsResponse)
+-&gt; Lens
+     ExportJobsResponse
+     ExportJobsResponse
+     [ExportJobResponse]
+     [ExportJobResponse]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse%27"><span class="hs-identifier hs-type">ExportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679601318"><span class="annot"><span class="annottext">[ExportJobResponse]
+item :: [ExportJobResponse]
+$sel:item:ExportJobsResponse' :: ExportJobsResponse -&gt; [ExportJobResponse]
+</span><a href="#local-6989586621679601318"><span class="hs-identifier hs-var hs-var">item</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[ExportJobResponse]
+</span><a href="#local-6989586621679601318"><span class="hs-identifier hs-var">item</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679601317"><span class="annot"><span class="annottext">s :: ExportJobsResponse
+</span><a href="#local-6989586621679601317"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse%27"><span class="hs-identifier hs-type">ExportJobsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679601316"><span class="annot"><span class="annottext">[ExportJobResponse]
+</span><a href="#local-6989586621679601316"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ExportJobsResponse
+</span><a href="#local-6989586621679601317"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:item:ExportJobsResponse' :: [ExportJobResponse]
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#%24sel%3Aitem%3AExportJobsResponse%27"><span class="hs-identifier hs-var">item</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[ExportJobResponse]
+</span><a href="#local-6989586621679601316"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([ExportJobResponse] -&gt; f [ExportJobResponse])
+ -&gt; ExportJobsResponse -&gt; f ExportJobsResponse)
+-&gt; (([ExportJobResponse] -&gt; f [ExportJobResponse])
+    -&gt; [ExportJobResponse] -&gt; f [ExportJobResponse])
+-&gt; ([ExportJobResponse] -&gt; f [ExportJobResponse])
+-&gt; ExportJobsResponse
+-&gt; f ExportJobsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([ExportJobResponse] -&gt; f [ExportJobResponse])
+-&gt; [ExportJobResponse] -&gt; f [ExportJobResponse]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601311"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679601309"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ExportJobsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ExportJobsResponse)
+-&gt; Value
+-&gt; Parser ExportJobsResponse
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ExportJobsResponse&quot;</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679601306"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601306"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; [ExportJobResponse] -&gt; ExportJobsResponse
+</span><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse%27"><span class="hs-identifier hs-var">ExportJobsResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; [ExportJobResponse] -&gt; ExportJobsResponse)
+-&gt; Parser (Maybe Text)
+-&gt; Parser ([ExportJobResponse] -&gt; ExportJobsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Parser ([ExportJobResponse] -&gt; ExportJobsResponse)
+-&gt; Parser [ExportJobResponse] -&gt; Parser ExportJobsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679601306"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [ExportJobResponse])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Item&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [ExportJobResponse])
+-&gt; [ExportJobResponse] -&gt; Parser [ExportJobResponse]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[ExportJobResponse]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601299"><span id="local-6989586621679601301"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679601296"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.ExportJobsResponse.html#ExportJobsResponse"><span class="hs-identifier hs-type">ExportJobsResponse</span></a></span></span><span>
+</span><span id="line-92"></span></pre></body></html>

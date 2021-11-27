@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EMR.Types.InstanceFleetState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EMR.Types.InstanceFleetState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier">InstanceFleetState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_BOOTSTRAPPING"><span class="hs-identifier">InstanceFleetState_BOOTSTRAPPING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_PROVISIONING"><span class="hs-identifier">InstanceFleetState_PROVISIONING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_RESIZING"><span class="hs-identifier">InstanceFleetState_RESIZING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_RUNNING"><span class="hs-identifier">InstanceFleetState_RUNNING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_SUSPENDED"><span class="hs-identifier">InstanceFleetState_SUSPENDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_TERMINATED"><span class="hs-identifier">InstanceFleetState_TERMINATED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_TERMINATING"><span class="hs-identifier">InstanceFleetState_TERMINATING</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679368797"><span id="local-6989586621679368798"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceFleetState"><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-var">InstanceFleetState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceFleetState%27"><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-var">InstanceFleetState'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceFleetState"><span class="annot"><span class="annottext">InstanceFleetState -&gt; Text
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#fromInstanceFleetState"><span class="hs-identifier hs-var hs-var">fromInstanceFleetState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368789"><span id="local-6989586621679368791"><span id="local-6989586621679368793"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetState -&gt; ShowS
+[InstanceFleetState] -&gt; ShowS
+InstanceFleetState -&gt; String
+(Int -&gt; InstanceFleetState -&gt; ShowS)
+-&gt; (InstanceFleetState -&gt; String)
+-&gt; ([InstanceFleetState] -&gt; ShowS)
+-&gt; Show InstanceFleetState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceFleetState] -&gt; ShowS
+$cshowList :: [InstanceFleetState] -&gt; ShowS
+show :: InstanceFleetState -&gt; String
+$cshow :: InstanceFleetState -&gt; String
+showsPrec :: Int -&gt; InstanceFleetState -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceFleetState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679368780"><span id="local-6989586621679368782"><span id="local-6989586621679368784"><span id="local-6989586621679368786"><span class="annot"><span class="annottext">ReadPrec [InstanceFleetState]
+ReadPrec InstanceFleetState
+Int -&gt; ReadS InstanceFleetState
+ReadS [InstanceFleetState]
+(Int -&gt; ReadS InstanceFleetState)
+-&gt; ReadS [InstanceFleetState]
+-&gt; ReadPrec InstanceFleetState
+-&gt; ReadPrec [InstanceFleetState]
+-&gt; Read InstanceFleetState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceFleetState]
+$creadListPrec :: ReadPrec [InstanceFleetState]
+readPrec :: ReadPrec InstanceFleetState
+$creadPrec :: ReadPrec InstanceFleetState
+readList :: ReadS [InstanceFleetState]
+$creadList :: ReadS [InstanceFleetState]
+readsPrec :: Int -&gt; ReadS InstanceFleetState
+$creadsPrec :: Int -&gt; ReadS InstanceFleetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679368775"><span id="local-6989586621679368777"><span class="annot"><span class="annottext">InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+(InstanceFleetState -&gt; InstanceFleetState -&gt; Bool)
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; Bool)
+-&gt; Eq InstanceFleetState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+$c/= :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+== :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+$c== :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679368759"><span id="local-6989586621679368761"><span id="local-6989586621679368763"><span id="local-6989586621679368765"><span id="local-6989586621679368767"><span id="local-6989586621679368769"><span id="local-6989586621679368771"><span class="annot"><span class="annottext">Eq InstanceFleetState
+Eq InstanceFleetState
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; Ordering)
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; Bool)
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; Bool)
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; Bool)
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; Bool)
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; InstanceFleetState)
+-&gt; (InstanceFleetState -&gt; InstanceFleetState -&gt; InstanceFleetState)
+-&gt; Ord InstanceFleetState
+InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+InstanceFleetState -&gt; InstanceFleetState -&gt; Ordering
+InstanceFleetState -&gt; InstanceFleetState -&gt; InstanceFleetState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceFleetState -&gt; InstanceFleetState -&gt; InstanceFleetState
+$cmin :: InstanceFleetState -&gt; InstanceFleetState -&gt; InstanceFleetState
+max :: InstanceFleetState -&gt; InstanceFleetState -&gt; InstanceFleetState
+$cmax :: InstanceFleetState -&gt; InstanceFleetState -&gt; InstanceFleetState
+&gt;= :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+$c&gt;= :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+&gt; :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+$c&gt; :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+&lt;= :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+$c&lt;= :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+&lt; :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+$c&lt; :: InstanceFleetState -&gt; InstanceFleetState -&gt; Bool
+compare :: InstanceFleetState -&gt; InstanceFleetState -&gt; Ordering
+$ccompare :: InstanceFleetState -&gt; InstanceFleetState -&gt; Ordering
+$cp1Ord :: Eq InstanceFleetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceFleetState -&gt; Rep InstanceFleetState x)
+-&gt; (forall x. Rep InstanceFleetState x -&gt; InstanceFleetState)
+-&gt; Generic InstanceFleetState
+forall x. Rep InstanceFleetState x -&gt; InstanceFleetState
+forall x. InstanceFleetState -&gt; Rep InstanceFleetState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceFleetState x -&gt; InstanceFleetState
+$cfrom :: forall x. InstanceFleetState -&gt; Rep InstanceFleetState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679368751"><span id="local-6989586621679368753"><span class="annot"><span class="annottext">Int -&gt; InstanceFleetState -&gt; Int
+InstanceFleetState -&gt; Int
+(Int -&gt; InstanceFleetState -&gt; Int)
+-&gt; (InstanceFleetState -&gt; Int) -&gt; Hashable InstanceFleetState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceFleetState -&gt; Int
+$chash :: InstanceFleetState -&gt; Int
+hashWithSalt :: Int -&gt; InstanceFleetState -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceFleetState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679368748"><span class="annot"><span class="annottext">InstanceFleetState -&gt; ()
+(InstanceFleetState -&gt; ()) -&gt; NFData InstanceFleetState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceFleetState -&gt; ()
+$crnf :: InstanceFleetState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679368745"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceFleetState
+(Text -&gt; Either String InstanceFleetState)
+-&gt; FromText InstanceFleetState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceFleetState
+$cfromText :: Text -&gt; Either String InstanceFleetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679368742"><span class="annot"><span class="annottext">InstanceFleetState -&gt; Text
+(InstanceFleetState -&gt; Text) -&gt; ToText InstanceFleetState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceFleetState -&gt; Text
+$ctoText :: InstanceFleetState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679368739"><span class="annot"><span class="annottext">InstanceFleetState -&gt; ByteString
+(InstanceFleetState -&gt; ByteString)
+-&gt; ToByteString InstanceFleetState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceFleetState -&gt; ByteString
+$ctoBS :: InstanceFleetState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679368736"><span class="annot"><span class="annottext">InstanceFleetState -&gt; ByteStringBuilder
+(InstanceFleetState -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceFleetState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceFleetState -&gt; ByteStringBuilder
+$cbuild :: InstanceFleetState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679368733"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceFleetState -&gt; [Header]
+(HeaderName -&gt; InstanceFleetState -&gt; [Header])
+-&gt; ToHeader InstanceFleetState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceFleetState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceFleetState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679368730"><span class="annot"><span class="annottext">InstanceFleetState -&gt; QueryString
+(InstanceFleetState -&gt; QueryString) -&gt; ToQuery InstanceFleetState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceFleetState -&gt; QueryString
+$ctoQuery :: InstanceFleetState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679368725"><span id="local-6989586621679368727"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceFleetState]
+Value -&gt; Parser InstanceFleetState
+(Value -&gt; Parser InstanceFleetState)
+-&gt; (Value -&gt; Parser [InstanceFleetState])
+-&gt; FromJSON InstanceFleetState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceFleetState]
+$cparseJSONList :: Value -&gt; Parser [InstanceFleetState]
+parseJSON :: Value -&gt; Parser InstanceFleetState
+$cparseJSON :: Value -&gt; Parser InstanceFleetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679368720"><span id="local-6989586621679368722"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceFleetState]
+FromJSONKeyFunction InstanceFleetState
+FromJSONKeyFunction InstanceFleetState
+-&gt; FromJSONKeyFunction [InstanceFleetState]
+-&gt; FromJSONKey InstanceFleetState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceFleetState]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceFleetState]
+fromJSONKey :: FromJSONKeyFunction InstanceFleetState
+$cfromJSONKey :: FromJSONKeyFunction InstanceFleetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679368711"><span id="local-6989586621679368713"><span id="local-6989586621679368715"><span id="local-6989586621679368717"><span class="annot"><span class="annottext">[InstanceFleetState] -&gt; Encoding
+[InstanceFleetState] -&gt; Value
+InstanceFleetState -&gt; Encoding
+InstanceFleetState -&gt; Value
+(InstanceFleetState -&gt; Value)
+-&gt; (InstanceFleetState -&gt; Encoding)
+-&gt; ([InstanceFleetState] -&gt; Value)
+-&gt; ([InstanceFleetState] -&gt; Encoding)
+-&gt; ToJSON InstanceFleetState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceFleetState] -&gt; Encoding
+$ctoEncodingList :: [InstanceFleetState] -&gt; Encoding
+toJSONList :: [InstanceFleetState] -&gt; Value
+$ctoJSONList :: [InstanceFleetState] -&gt; Value
+toEncoding :: InstanceFleetState -&gt; Encoding
+$ctoEncoding :: InstanceFleetState -&gt; Encoding
+toJSON :: InstanceFleetState -&gt; Value
+$ctoJSON :: InstanceFleetState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679368706"><span id="local-6989586621679368708"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceFleetState]
+ToJSONKeyFunction InstanceFleetState
+ToJSONKeyFunction InstanceFleetState
+-&gt; ToJSONKeyFunction [InstanceFleetState]
+-&gt; ToJSONKey InstanceFleetState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceFleetState]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceFleetState]
+toJSONKey :: ToJSONKeyFunction InstanceFleetState
+$ctoJSONKey :: ToJSONKeyFunction InstanceFleetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679368703"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceFleetState
+([Node] -&gt; Either String InstanceFleetState)
+-&gt; FromXML InstanceFleetState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceFleetState
+$cparseXML :: [Node] -&gt; Either String InstanceFleetState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679368700"><span class="annot"><span class="annottext">InstanceFleetState -&gt; XML
+(InstanceFleetState -&gt; XML) -&gt; ToXML InstanceFleetState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceFleetState -&gt; XML
+$ctoXML :: InstanceFleetState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_BOOTSTRAPPING"><span class="hs-identifier hs-type">InstanceFleetState_BOOTSTRAPPING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceFleetState_BOOTSTRAPPING"><span id="%24mInstanceFleetState_BOOTSTRAPPING"><span id="InstanceFleetState_BOOTSTRAPPING"><span class="annot"><span class="annottext">$bInstanceFleetState_BOOTSTRAPPING :: InstanceFleetState
+$mInstanceFleetState_BOOTSTRAPPING :: forall r. InstanceFleetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#%24bInstanceFleetState_BOOTSTRAPPING"><span class="hs-identifier hs-var hs-var hs-var">InstanceFleetState_BOOTSTRAPPING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-type">InstanceFleetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BOOTSTRAPPING&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_PROVISIONING"><span class="hs-identifier hs-type">InstanceFleetState_PROVISIONING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceFleetState_PROVISIONING"><span id="%24mInstanceFleetState_PROVISIONING"><span id="InstanceFleetState_PROVISIONING"><span class="annot"><span class="annottext">$bInstanceFleetState_PROVISIONING :: InstanceFleetState
+$mInstanceFleetState_PROVISIONING :: forall r. InstanceFleetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#%24bInstanceFleetState_PROVISIONING"><span class="hs-identifier hs-var hs-var hs-var">InstanceFleetState_PROVISIONING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-type">InstanceFleetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROVISIONING&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_RESIZING"><span class="hs-identifier hs-type">InstanceFleetState_RESIZING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceFleetState_RESIZING"><span id="%24mInstanceFleetState_RESIZING"><span id="InstanceFleetState_RESIZING"><span class="annot"><span class="annottext">$bInstanceFleetState_RESIZING :: InstanceFleetState
+$mInstanceFleetState_RESIZING :: forall r. InstanceFleetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#%24bInstanceFleetState_RESIZING"><span class="hs-identifier hs-var hs-var hs-var">InstanceFleetState_RESIZING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-type">InstanceFleetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RESIZING&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_RUNNING"><span class="hs-identifier hs-type">InstanceFleetState_RUNNING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceFleetState_RUNNING"><span id="%24mInstanceFleetState_RUNNING"><span id="InstanceFleetState_RUNNING"><span class="annot"><span class="annottext">$bInstanceFleetState_RUNNING :: InstanceFleetState
+$mInstanceFleetState_RUNNING :: forall r. InstanceFleetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#%24bInstanceFleetState_RUNNING"><span class="hs-identifier hs-var hs-var hs-var">InstanceFleetState_RUNNING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-type">InstanceFleetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RUNNING&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_SUSPENDED"><span class="hs-identifier hs-type">InstanceFleetState_SUSPENDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceFleetState_SUSPENDED"><span id="%24mInstanceFleetState_SUSPENDED"><span id="InstanceFleetState_SUSPENDED"><span class="annot"><span class="annottext">$bInstanceFleetState_SUSPENDED :: InstanceFleetState
+$mInstanceFleetState_SUSPENDED :: forall r. InstanceFleetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#%24bInstanceFleetState_SUSPENDED"><span class="hs-identifier hs-var hs-var hs-var">InstanceFleetState_SUSPENDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-type">InstanceFleetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUSPENDED&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_TERMINATED"><span class="hs-identifier hs-type">InstanceFleetState_TERMINATED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceFleetState_TERMINATED"><span id="%24mInstanceFleetState_TERMINATED"><span id="InstanceFleetState_TERMINATED"><span class="annot"><span class="annottext">$bInstanceFleetState_TERMINATED :: InstanceFleetState
+$mInstanceFleetState_TERMINATED :: forall r. InstanceFleetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#%24bInstanceFleetState_TERMINATED"><span class="hs-identifier hs-var hs-var hs-var">InstanceFleetState_TERMINATED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-type">InstanceFleetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATED&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_TERMINATING"><span class="hs-identifier hs-type">InstanceFleetState_TERMINATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState"><span class="hs-identifier hs-type">InstanceFleetState</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceFleetState_TERMINATING"><span id="%24mInstanceFleetState_TERMINATING"><span id="InstanceFleetState_TERMINATING"><span class="annot"><span class="annottext">$bInstanceFleetState_TERMINATING :: InstanceFleetState
+$mInstanceFleetState_TERMINATING :: forall r. InstanceFleetState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EMR.Types.InstanceFleetState.html#%24bInstanceFleetState_TERMINATING"><span class="hs-identifier hs-var hs-var hs-var">InstanceFleetState_TERMINATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-identifier hs-type">InstanceFleetState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TERMINATING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_BOOTSTRAPPING"><span class="hs-pragma hs-type">InstanceFleetState_BOOTSTRAPPING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_PROVISIONING"><span class="hs-pragma hs-type">InstanceFleetState_PROVISIONING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_RESIZING"><span class="hs-pragma hs-type">InstanceFleetState_RESIZING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_RUNNING"><span class="hs-pragma hs-type">InstanceFleetState_RUNNING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_SUSPENDED"><span class="hs-pragma hs-type">InstanceFleetState_SUSPENDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_TERMINATED"><span class="hs-pragma hs-type">InstanceFleetState_TERMINATED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState_TERMINATING"><span class="hs-pragma hs-type">InstanceFleetState_TERMINATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.EMR.Types.InstanceFleetState.html#InstanceFleetState%27"><span class="hs-pragma hs-type">InstanceFleetState'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

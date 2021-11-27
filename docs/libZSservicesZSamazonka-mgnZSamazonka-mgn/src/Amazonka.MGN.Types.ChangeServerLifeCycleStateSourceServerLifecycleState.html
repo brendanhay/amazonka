@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState"><span class="hs-identifier">ChangeServerLifeCycleStateSourceServerLifecycleState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER"><span class="hs-identifier">ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER"><span class="hs-identifier">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST"><span class="hs-identifier">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679223504"><span id="local-6989586621679223505"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="ChangeServerLifeCycleStateSourceServerLifecycleState"><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState"><span class="hs-identifier hs-var">ChangeServerLifeCycleStateSourceServerLifecycleState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ChangeServerLifeCycleStateSourceServerLifecycleState%27"><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState%27"><span class="hs-identifier hs-var">ChangeServerLifeCycleStateSourceServerLifecycleState'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromChangeServerLifeCycleStateSourceServerLifecycleState"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Text
+</span><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#fromChangeServerLifeCycleStateSourceServerLifecycleState"><span class="hs-identifier hs-var hs-var">fromChangeServerLifeCycleStateSourceServerLifecycleState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223496"><span id="local-6989586621679223498"><span id="local-6989586621679223500"><span class="annot"><span class="annottext">Int
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ShowS
+[ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; ShowS
+ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; String
+(Int
+ -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ShowS)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; String)
+-&gt; ([ChangeServerLifeCycleStateSourceServerLifecycleState]
+    -&gt; ShowS)
+-&gt; Show ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; ShowS
+$cshowList :: [ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; ShowS
+show :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; String
+$cshow :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; String
+showsPrec :: Int
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ShowS
+$cshowsPrec :: Int
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679223487"><span id="local-6989586621679223489"><span id="local-6989586621679223491"><span id="local-6989586621679223493"><span class="annot"><span class="annottext">ReadPrec [ChangeServerLifeCycleStateSourceServerLifecycleState]
+ReadPrec ChangeServerLifeCycleStateSourceServerLifecycleState
+Int -&gt; ReadS ChangeServerLifeCycleStateSourceServerLifecycleState
+ReadS [ChangeServerLifeCycleStateSourceServerLifecycleState]
+(Int -&gt; ReadS ChangeServerLifeCycleStateSourceServerLifecycleState)
+-&gt; ReadS [ChangeServerLifeCycleStateSourceServerLifecycleState]
+-&gt; ReadPrec ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ReadPrec [ChangeServerLifeCycleStateSourceServerLifecycleState]
+-&gt; Read ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ChangeServerLifeCycleStateSourceServerLifecycleState]
+$creadListPrec :: ReadPrec [ChangeServerLifeCycleStateSourceServerLifecycleState]
+readPrec :: ReadPrec ChangeServerLifeCycleStateSourceServerLifecycleState
+$creadPrec :: ReadPrec ChangeServerLifeCycleStateSourceServerLifecycleState
+readList :: ReadS [ChangeServerLifeCycleStateSourceServerLifecycleState]
+$creadList :: ReadS [ChangeServerLifeCycleStateSourceServerLifecycleState]
+readsPrec :: Int -&gt; ReadS ChangeServerLifeCycleStateSourceServerLifecycleState
+$creadsPrec :: Int -&gt; ReadS ChangeServerLifeCycleStateSourceServerLifecycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679223482"><span id="local-6989586621679223484"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+(ChangeServerLifeCycleStateSourceServerLifecycleState
+ -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool)
+-&gt; Eq ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+$c/= :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+== :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+$c== :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679223466"><span id="local-6989586621679223468"><span id="local-6989586621679223470"><span id="local-6989586621679223472"><span id="local-6989586621679223474"><span id="local-6989586621679223476"><span id="local-6989586621679223478"><span class="annot"><span class="annottext">Eq ChangeServerLifeCycleStateSourceServerLifecycleState
+Eq ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; Ordering)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState)
+-&gt; Ord ChangeServerLifeCycleStateSourceServerLifecycleState
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Ordering
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+$cmin :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+max :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+$cmax :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+&gt;= :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+$c&gt;= :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+&gt; :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+$c&gt; :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+&lt;= :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+$c&lt;= :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+&lt; :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+$c&lt; :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Bool
+compare :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Ordering
+$ccompare :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Ordering
+$cp1Ord :: Eq ChangeServerLifeCycleStateSourceServerLifecycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ ChangeServerLifeCycleStateSourceServerLifecycleState
+ -&gt; Rep ChangeServerLifeCycleStateSourceServerLifecycleState x)
+-&gt; (forall x.
+    Rep ChangeServerLifeCycleStateSourceServerLifecycleState x
+    -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState)
+-&gt; Generic ChangeServerLifeCycleStateSourceServerLifecycleState
+forall x.
+Rep ChangeServerLifeCycleStateSourceServerLifecycleState x
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+forall x.
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; Rep ChangeServerLifeCycleStateSourceServerLifecycleState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ChangeServerLifeCycleStateSourceServerLifecycleState x
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+$cfrom :: forall x.
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; Rep ChangeServerLifeCycleStateSourceServerLifecycleState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679223458"><span id="local-6989586621679223460"><span class="annot"><span class="annottext">Int -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int
+ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int
+(Int
+ -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int)
+-&gt; Hashable ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int
+$chash :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int
+hashWithSalt :: Int -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int
+$chashWithSalt :: Int -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679223455"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ()
+(ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ())
+-&gt; NFData ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ()
+$crnf :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679223452"><span class="annot"><span class="annottext">Text
+-&gt; Either
+     String ChangeServerLifeCycleStateSourceServerLifecycleState
+(Text
+ -&gt; Either
+      String ChangeServerLifeCycleStateSourceServerLifecycleState)
+-&gt; FromText ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text
+-&gt; Either
+     String ChangeServerLifeCycleStateSourceServerLifecycleState
+$cfromText :: Text
+-&gt; Either
+     String ChangeServerLifeCycleStateSourceServerLifecycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679223449"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Text
+(ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Text)
+-&gt; ToText ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Text
+$ctoText :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679223446"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ByteString
+(ChangeServerLifeCycleStateSourceServerLifecycleState
+ -&gt; ByteString)
+-&gt; ToByteString
+     ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ByteString
+$ctoBS :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679223443"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ByteStringBuilder
+(ChangeServerLifeCycleStateSourceServerLifecycleState
+ -&gt; ByteStringBuilder)
+-&gt; ToLog ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ByteStringBuilder
+$cbuild :: ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679223440"><span class="annot"><span class="annottext">HeaderName
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; [Header]
+(HeaderName
+ -&gt; ChangeServerLifeCycleStateSourceServerLifecycleState
+ -&gt; [Header])
+-&gt; ToHeader ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679223437"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; QueryString
+(ChangeServerLifeCycleStateSourceServerLifecycleState
+ -&gt; QueryString)
+-&gt; ToQuery ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; QueryString
+$ctoQuery :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679223432"><span id="local-6989586621679223434"><span class="annot"><span class="annottext">Value
+-&gt; Parser [ChangeServerLifeCycleStateSourceServerLifecycleState]
+Value
+-&gt; Parser ChangeServerLifeCycleStateSourceServerLifecycleState
+(Value
+ -&gt; Parser ChangeServerLifeCycleStateSourceServerLifecycleState)
+-&gt; (Value
+    -&gt; Parser [ChangeServerLifeCycleStateSourceServerLifecycleState])
+-&gt; FromJSON ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value
+-&gt; Parser [ChangeServerLifeCycleStateSourceServerLifecycleState]
+$cparseJSONList :: Value
+-&gt; Parser [ChangeServerLifeCycleStateSourceServerLifecycleState]
+parseJSON :: Value
+-&gt; Parser ChangeServerLifeCycleStateSourceServerLifecycleState
+$cparseJSON :: Value
+-&gt; Parser ChangeServerLifeCycleStateSourceServerLifecycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679223427"><span id="local-6989586621679223429"><span class="annot"><span class="annottext">FromJSONKeyFunction
+  [ChangeServerLifeCycleStateSourceServerLifecycleState]
+FromJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+FromJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; FromJSONKeyFunction
+     [ChangeServerLifeCycleStateSourceServerLifecycleState]
+-&gt; FromJSONKey ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction
+  [ChangeServerLifeCycleStateSourceServerLifecycleState]
+$cfromJSONKeyList :: FromJSONKeyFunction
+  [ChangeServerLifeCycleStateSourceServerLifecycleState]
+fromJSONKey :: FromJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+$cfromJSONKey :: FromJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679223418"><span id="local-6989586621679223420"><span id="local-6989586621679223422"><span id="local-6989586621679223424"><span class="annot"><span class="annottext">[ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; Encoding
+[ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; Value
+ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Encoding
+ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Value
+(ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Value)
+-&gt; (ChangeServerLifeCycleStateSourceServerLifecycleState
+    -&gt; Encoding)
+-&gt; ([ChangeServerLifeCycleStateSourceServerLifecycleState]
+    -&gt; Value)
+-&gt; ([ChangeServerLifeCycleStateSourceServerLifecycleState]
+    -&gt; Encoding)
+-&gt; ToJSON ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; Encoding
+$ctoEncodingList :: [ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; Encoding
+toJSONList :: [ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; Value
+$ctoJSONList :: [ChangeServerLifeCycleStateSourceServerLifecycleState] -&gt; Value
+toEncoding :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Encoding
+$ctoEncoding :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Encoding
+toJSON :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Value
+$ctoJSON :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679223413"><span id="local-6989586621679223415"><span class="annot"><span class="annottext">ToJSONKeyFunction
+  [ChangeServerLifeCycleStateSourceServerLifecycleState]
+ToJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+ToJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; ToJSONKeyFunction
+     [ChangeServerLifeCycleStateSourceServerLifecycleState]
+-&gt; ToJSONKey ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction
+  [ChangeServerLifeCycleStateSourceServerLifecycleState]
+$ctoJSONKeyList :: ToJSONKeyFunction
+  [ChangeServerLifeCycleStateSourceServerLifecycleState]
+toJSONKey :: ToJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+$ctoJSONKey :: ToJSONKeyFunction
+  ChangeServerLifeCycleStateSourceServerLifecycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679223410"><span class="annot"><span class="annottext">[Node]
+-&gt; Either
+     String ChangeServerLifeCycleStateSourceServerLifecycleState
+([Node]
+ -&gt; Either
+      String ChangeServerLifeCycleStateSourceServerLifecycleState)
+-&gt; FromXML ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either
+     String ChangeServerLifeCycleStateSourceServerLifecycleState
+$cparseXML :: [Node]
+-&gt; Either
+     String ChangeServerLifeCycleStateSourceServerLifecycleState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679223407"><span class="annot"><span class="annottext">ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; XML
+(ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; XML)
+-&gt; ToXML ChangeServerLifeCycleStateSourceServerLifecycleState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; XML
+$ctoXML :: ChangeServerLifeCycleStateSourceServerLifecycleState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER"><span id="%24mChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER"><span id="ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER"><span class="annot"><span class="annottext">$bChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER :: ChangeServerLifeCycleStateSourceServerLifecycleState
+$mChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER :: forall r.
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#%24bChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER"><span class="hs-identifier hs-var hs-var hs-var">ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState%27"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CUTOVER&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER"><span id="%24mChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER"><span id="ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER"><span class="annot"><span class="annottext">$bChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER :: ChangeServerLifeCycleStateSourceServerLifecycleState
+$mChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER :: forall r.
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#%24bChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER"><span class="hs-identifier hs-var hs-var hs-var">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState%27"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY_FOR_CUTOVER&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST"><span id="%24mChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST"><span id="ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST"><span class="annot"><span class="annottext">$bChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST :: ChangeServerLifeCycleStateSourceServerLifecycleState
+$mChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST :: forall r.
+ChangeServerLifeCycleStateSourceServerLifecycleState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#%24bChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST"><span class="hs-identifier hs-var hs-var hs-var">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState%27"><span class="hs-identifier hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;READY_FOR_TEST&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER"><span class="hs-pragma hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState_CUTOVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER"><span class="hs-pragma hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_CUTOVER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST"><span class="hs-pragma hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState_READY_FOR_TEST</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.ChangeServerLifeCycleStateSourceServerLifecycleState.html#ChangeServerLifeCycleStateSourceServerLifecycleState%27"><span class="hs-pragma hs-type">ChangeServerLifeCycleStateSourceServerLifecycleState'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

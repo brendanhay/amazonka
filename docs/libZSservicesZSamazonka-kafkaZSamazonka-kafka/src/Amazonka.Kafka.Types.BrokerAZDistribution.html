@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Kafka.Types.BrokerAZDistribution</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kafka.Types.BrokerAZDistribution</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution"><span class="hs-identifier">BrokerAZDistribution</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution_DEFAULT"><span class="hs-identifier">BrokerAZDistribution_DEFAULT</span></a></span><span>
+</span><span id="line-24"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- | The distribution of broker nodes across Availability Zones. This is an</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- optional parameter. If you don\'t specify it, Amazon MSK gives it the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- value DEFAULT. You can also explicitly set this parameter to the value</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- DEFAULT. No other values are currently allowed.</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- Amazon MSK distributes the broker nodes evenly across the Availability</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Zones that correspond to the subnets you provide when you create the</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- cluster.</span><span>
+</span><span id="line-39"></span><span id="local-6989586621679227949"><span id="local-6989586621679227950"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BrokerAZDistribution"><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution"><span class="hs-identifier hs-var">BrokerAZDistribution</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BrokerAZDistribution%27"><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution%27"><span class="hs-identifier hs-var">BrokerAZDistribution'</span></a></span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBrokerAZDistribution"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; Text
+</span><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#fromBrokerAZDistribution"><span class="hs-identifier hs-var hs-var">fromBrokerAZDistribution</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679227941"><span id="local-6989586621679227943"><span id="local-6989586621679227945"><span class="annot"><span class="annottext">Int -&gt; BrokerAZDistribution -&gt; ShowS
+[BrokerAZDistribution] -&gt; ShowS
+BrokerAZDistribution -&gt; String
+(Int -&gt; BrokerAZDistribution -&gt; ShowS)
+-&gt; (BrokerAZDistribution -&gt; String)
+-&gt; ([BrokerAZDistribution] -&gt; ShowS)
+-&gt; Show BrokerAZDistribution
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BrokerAZDistribution] -&gt; ShowS
+$cshowList :: [BrokerAZDistribution] -&gt; ShowS
+show :: BrokerAZDistribution -&gt; String
+$cshow :: BrokerAZDistribution -&gt; String
+showsPrec :: Int -&gt; BrokerAZDistribution -&gt; ShowS
+$cshowsPrec :: Int -&gt; BrokerAZDistribution -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679227932"><span id="local-6989586621679227934"><span id="local-6989586621679227936"><span id="local-6989586621679227938"><span class="annot"><span class="annottext">ReadPrec [BrokerAZDistribution]
+ReadPrec BrokerAZDistribution
+Int -&gt; ReadS BrokerAZDistribution
+ReadS [BrokerAZDistribution]
+(Int -&gt; ReadS BrokerAZDistribution)
+-&gt; ReadS [BrokerAZDistribution]
+-&gt; ReadPrec BrokerAZDistribution
+-&gt; ReadPrec [BrokerAZDistribution]
+-&gt; Read BrokerAZDistribution
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BrokerAZDistribution]
+$creadListPrec :: ReadPrec [BrokerAZDistribution]
+readPrec :: ReadPrec BrokerAZDistribution
+$creadPrec :: ReadPrec BrokerAZDistribution
+readList :: ReadS [BrokerAZDistribution]
+$creadList :: ReadS [BrokerAZDistribution]
+readsPrec :: Int -&gt; ReadS BrokerAZDistribution
+$creadsPrec :: Int -&gt; ReadS BrokerAZDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679227927"><span id="local-6989586621679227929"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+(BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool)
+-&gt; (BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool)
+-&gt; Eq BrokerAZDistribution
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+$c/= :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+== :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+$c== :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679227911"><span id="local-6989586621679227913"><span id="local-6989586621679227915"><span id="local-6989586621679227917"><span id="local-6989586621679227919"><span id="local-6989586621679227921"><span id="local-6989586621679227923"><span class="annot"><span class="annottext">Eq BrokerAZDistribution
+Eq BrokerAZDistribution
+-&gt; (BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Ordering)
+-&gt; (BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool)
+-&gt; (BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool)
+-&gt; (BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool)
+-&gt; (BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool)
+-&gt; (BrokerAZDistribution
+    -&gt; BrokerAZDistribution -&gt; BrokerAZDistribution)
+-&gt; (BrokerAZDistribution
+    -&gt; BrokerAZDistribution -&gt; BrokerAZDistribution)
+-&gt; Ord BrokerAZDistribution
+BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Ordering
+BrokerAZDistribution
+-&gt; BrokerAZDistribution -&gt; BrokerAZDistribution
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BrokerAZDistribution
+-&gt; BrokerAZDistribution -&gt; BrokerAZDistribution
+$cmin :: BrokerAZDistribution
+-&gt; BrokerAZDistribution -&gt; BrokerAZDistribution
+max :: BrokerAZDistribution
+-&gt; BrokerAZDistribution -&gt; BrokerAZDistribution
+$cmax :: BrokerAZDistribution
+-&gt; BrokerAZDistribution -&gt; BrokerAZDistribution
+&gt;= :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+$c&gt;= :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+&gt; :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+$c&gt; :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+&lt;= :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+$c&lt;= :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+&lt; :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+$c&lt; :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Bool
+compare :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Ordering
+$ccompare :: BrokerAZDistribution -&gt; BrokerAZDistribution -&gt; Ordering
+$cp1Ord :: Eq BrokerAZDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BrokerAZDistribution -&gt; Rep BrokerAZDistribution x)
+-&gt; (forall x. Rep BrokerAZDistribution x -&gt; BrokerAZDistribution)
+-&gt; Generic BrokerAZDistribution
+forall x. Rep BrokerAZDistribution x -&gt; BrokerAZDistribution
+forall x. BrokerAZDistribution -&gt; Rep BrokerAZDistribution x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BrokerAZDistribution x -&gt; BrokerAZDistribution
+$cfrom :: forall x. BrokerAZDistribution -&gt; Rep BrokerAZDistribution x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679227903"><span id="local-6989586621679227905"><span class="annot"><span class="annottext">Int -&gt; BrokerAZDistribution -&gt; Int
+BrokerAZDistribution -&gt; Int
+(Int -&gt; BrokerAZDistribution -&gt; Int)
+-&gt; (BrokerAZDistribution -&gt; Int) -&gt; Hashable BrokerAZDistribution
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BrokerAZDistribution -&gt; Int
+$chash :: BrokerAZDistribution -&gt; Int
+hashWithSalt :: Int -&gt; BrokerAZDistribution -&gt; Int
+$chashWithSalt :: Int -&gt; BrokerAZDistribution -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679227900"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; ()
+(BrokerAZDistribution -&gt; ()) -&gt; NFData BrokerAZDistribution
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BrokerAZDistribution -&gt; ()
+$crnf :: BrokerAZDistribution -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679227897"><span class="annot"><span class="annottext">Text -&gt; Either String BrokerAZDistribution
+(Text -&gt; Either String BrokerAZDistribution)
+-&gt; FromText BrokerAZDistribution
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BrokerAZDistribution
+$cfromText :: Text -&gt; Either String BrokerAZDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679227894"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; Text
+(BrokerAZDistribution -&gt; Text) -&gt; ToText BrokerAZDistribution
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BrokerAZDistribution -&gt; Text
+$ctoText :: BrokerAZDistribution -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679227891"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; ByteString
+(BrokerAZDistribution -&gt; ByteString)
+-&gt; ToByteString BrokerAZDistribution
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BrokerAZDistribution -&gt; ByteString
+$ctoBS :: BrokerAZDistribution -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679227888"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; ByteStringBuilder
+(BrokerAZDistribution -&gt; ByteStringBuilder)
+-&gt; ToLog BrokerAZDistribution
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BrokerAZDistribution -&gt; ByteStringBuilder
+$cbuild :: BrokerAZDistribution -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679227885"><span class="annot"><span class="annottext">HeaderName -&gt; BrokerAZDistribution -&gt; [Header]
+(HeaderName -&gt; BrokerAZDistribution -&gt; [Header])
+-&gt; ToHeader BrokerAZDistribution
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BrokerAZDistribution -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BrokerAZDistribution -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679227882"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; QueryString
+(BrokerAZDistribution -&gt; QueryString)
+-&gt; ToQuery BrokerAZDistribution
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BrokerAZDistribution -&gt; QueryString
+$ctoQuery :: BrokerAZDistribution -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679227877"><span id="local-6989586621679227879"><span class="annot"><span class="annottext">Value -&gt; Parser [BrokerAZDistribution]
+Value -&gt; Parser BrokerAZDistribution
+(Value -&gt; Parser BrokerAZDistribution)
+-&gt; (Value -&gt; Parser [BrokerAZDistribution])
+-&gt; FromJSON BrokerAZDistribution
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BrokerAZDistribution]
+$cparseJSONList :: Value -&gt; Parser [BrokerAZDistribution]
+parseJSON :: Value -&gt; Parser BrokerAZDistribution
+$cparseJSON :: Value -&gt; Parser BrokerAZDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679227872"><span id="local-6989586621679227874"><span class="annot"><span class="annottext">FromJSONKeyFunction [BrokerAZDistribution]
+FromJSONKeyFunction BrokerAZDistribution
+FromJSONKeyFunction BrokerAZDistribution
+-&gt; FromJSONKeyFunction [BrokerAZDistribution]
+-&gt; FromJSONKey BrokerAZDistribution
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BrokerAZDistribution]
+$cfromJSONKeyList :: FromJSONKeyFunction [BrokerAZDistribution]
+fromJSONKey :: FromJSONKeyFunction BrokerAZDistribution
+$cfromJSONKey :: FromJSONKeyFunction BrokerAZDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679227863"><span id="local-6989586621679227865"><span id="local-6989586621679227867"><span id="local-6989586621679227869"><span class="annot"><span class="annottext">[BrokerAZDistribution] -&gt; Encoding
+[BrokerAZDistribution] -&gt; Value
+BrokerAZDistribution -&gt; Encoding
+BrokerAZDistribution -&gt; Value
+(BrokerAZDistribution -&gt; Value)
+-&gt; (BrokerAZDistribution -&gt; Encoding)
+-&gt; ([BrokerAZDistribution] -&gt; Value)
+-&gt; ([BrokerAZDistribution] -&gt; Encoding)
+-&gt; ToJSON BrokerAZDistribution
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BrokerAZDistribution] -&gt; Encoding
+$ctoEncodingList :: [BrokerAZDistribution] -&gt; Encoding
+toJSONList :: [BrokerAZDistribution] -&gt; Value
+$ctoJSONList :: [BrokerAZDistribution] -&gt; Value
+toEncoding :: BrokerAZDistribution -&gt; Encoding
+$ctoEncoding :: BrokerAZDistribution -&gt; Encoding
+toJSON :: BrokerAZDistribution -&gt; Value
+$ctoJSON :: BrokerAZDistribution -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679227858"><span id="local-6989586621679227860"><span class="annot"><span class="annottext">ToJSONKeyFunction [BrokerAZDistribution]
+ToJSONKeyFunction BrokerAZDistribution
+ToJSONKeyFunction BrokerAZDistribution
+-&gt; ToJSONKeyFunction [BrokerAZDistribution]
+-&gt; ToJSONKey BrokerAZDistribution
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BrokerAZDistribution]
+$ctoJSONKeyList :: ToJSONKeyFunction [BrokerAZDistribution]
+toJSONKey :: ToJSONKeyFunction BrokerAZDistribution
+$ctoJSONKey :: ToJSONKeyFunction BrokerAZDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679227855"><span class="annot"><span class="annottext">[Node] -&gt; Either String BrokerAZDistribution
+([Node] -&gt; Either String BrokerAZDistribution)
+-&gt; FromXML BrokerAZDistribution
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BrokerAZDistribution
+$cparseXML :: [Node] -&gt; Either String BrokerAZDistribution
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679227852"><span class="annot"><span class="annottext">BrokerAZDistribution -&gt; XML
+(BrokerAZDistribution -&gt; XML) -&gt; ToXML BrokerAZDistribution
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BrokerAZDistribution -&gt; XML
+$ctoXML :: BrokerAZDistribution -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution_DEFAULT"><span class="hs-identifier hs-type">BrokerAZDistribution_DEFAULT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution"><span class="hs-identifier hs-type">BrokerAZDistribution</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBrokerAZDistribution_DEFAULT"><span id="%24mBrokerAZDistribution_DEFAULT"><span id="BrokerAZDistribution_DEFAULT"><span class="annot"><span class="annottext">$bBrokerAZDistribution_DEFAULT :: BrokerAZDistribution
+$mBrokerAZDistribution_DEFAULT :: forall r. BrokerAZDistribution -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#%24bBrokerAZDistribution_DEFAULT"><span class="hs-identifier hs-var hs-var hs-var">BrokerAZDistribution_DEFAULT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution%27"><span class="hs-identifier hs-type">BrokerAZDistribution'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DEFAULT&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution_DEFAULT"><span class="hs-pragma hs-type">BrokerAZDistribution_DEFAULT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.Kafka.Types.BrokerAZDistribution.html#BrokerAZDistribution%27"><span class="hs-pragma hs-type">BrokerAZDistribution'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

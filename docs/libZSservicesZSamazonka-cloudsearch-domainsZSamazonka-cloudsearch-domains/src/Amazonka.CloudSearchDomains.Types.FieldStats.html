@@ -1,0 +1,552 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudSearchDomains.Types.FieldStats</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudSearchDomains.Types.FieldStats</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | The statistics for a field calculated in the request.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newFieldStats' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679152352"><span id="local-6989586621679152353"></span></span><span class="hs-keyword">data</span><span> </span><span id="FieldStats"><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-var">FieldStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldStats%27"><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-var">FieldStats'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The maximum value found in the specified field in the result set.</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- @double-array@), @max@ is the string representation of a</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- @date-array@, @max@ is the string representation of a date with the</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Amax%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amax%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The average of the values found in the specified field in the result</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- set.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- @double-array@), @mean@ is the string representation of a</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- @date-array@, @mean@ is the string representation of a date with the</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3Amean%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amean%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">mean</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | The number of documents that contain a value in the specified field in</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- the result set.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3Acount%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Integer
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Acount%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | The number of documents that do not contain a value in the specified</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- field in the result set.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3Amissing%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Integer
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amissing%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">missing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The standard deviation of the values in the specified field in the</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- result set.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3Astddev%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Astddev%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">stddev</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The minimum value found in the specified field in the result set.</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- @double-array@), @min@ is the string representation of a</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- @date-array@, @min@ is the string representation of a date with the</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3Amin%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amin%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">min</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The sum of all field values in the result set squared.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AsumOfSquares%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3AsumOfSquares%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">sumOfSquares</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The sum of the field values across the documents in the result set.</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- @null@ for date fields.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Asum%3AFieldStats%27"><span class="annot"><span class="annottext">FieldStats -&gt; Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Asum%3AFieldStats%27"><span class="hs-identifier hs-var hs-var">sum</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679152339"><span id="local-6989586621679152341"><span class="annot"><span class="annottext">FieldStats -&gt; FieldStats -&gt; Bool
+(FieldStats -&gt; FieldStats -&gt; Bool)
+-&gt; (FieldStats -&gt; FieldStats -&gt; Bool) -&gt; Eq FieldStats
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FieldStats -&gt; FieldStats -&gt; Bool
+$c/= :: FieldStats -&gt; FieldStats -&gt; Bool
+== :: FieldStats -&gt; FieldStats -&gt; Bool
+$c== :: FieldStats -&gt; FieldStats -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152330"><span id="local-6989586621679152332"><span id="local-6989586621679152334"><span id="local-6989586621679152336"><span class="annot"><span class="annottext">ReadPrec [FieldStats]
+ReadPrec FieldStats
+Int -&gt; ReadS FieldStats
+ReadS [FieldStats]
+(Int -&gt; ReadS FieldStats)
+-&gt; ReadS [FieldStats]
+-&gt; ReadPrec FieldStats
+-&gt; ReadPrec [FieldStats]
+-&gt; Read FieldStats
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FieldStats]
+$creadListPrec :: ReadPrec [FieldStats]
+readPrec :: ReadPrec FieldStats
+$creadPrec :: ReadPrec FieldStats
+readList :: ReadS [FieldStats]
+$creadList :: ReadS [FieldStats]
+readsPrec :: Int -&gt; ReadS FieldStats
+$creadsPrec :: Int -&gt; ReadS FieldStats
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679152323"><span id="local-6989586621679152325"><span id="local-6989586621679152327"><span class="annot"><span class="annottext">Int -&gt; FieldStats -&gt; ShowS
+[FieldStats] -&gt; ShowS
+FieldStats -&gt; String
+(Int -&gt; FieldStats -&gt; ShowS)
+-&gt; (FieldStats -&gt; String)
+-&gt; ([FieldStats] -&gt; ShowS)
+-&gt; Show FieldStats
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FieldStats] -&gt; ShowS
+$cshowList :: [FieldStats] -&gt; ShowS
+show :: FieldStats -&gt; String
+$cshow :: FieldStats -&gt; String
+showsPrec :: Int -&gt; FieldStats -&gt; ShowS
+$cshowsPrec :: Int -&gt; FieldStats -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FieldStats -&gt; Rep FieldStats x)
+-&gt; (forall x. Rep FieldStats x -&gt; FieldStats) -&gt; Generic FieldStats
+forall x. Rep FieldStats x -&gt; FieldStats
+forall x. FieldStats -&gt; Rep FieldStats x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FieldStats x -&gt; FieldStats
+$cfrom :: forall x. FieldStats -&gt; Rep FieldStats x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Create a value of 'FieldStats' with all optional fields omitted.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'max', 'fieldStats_max' - The maximum value found in the specified field in the result set.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- @double-array@), @max@ is the string representation of a</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- @date-array@, @max@ is the string representation of a date with the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'mean', 'fieldStats_mean' - The average of the values found in the specified field in the result</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- set.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- @double-array@), @mean@ is the string representation of a</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- @date-array@, @mean@ is the string representation of a date with the</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'count', 'fieldStats_count' - The number of documents that contain a value in the specified field in</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- the result set.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'missing', 'fieldStats_missing' - The number of documents that do not contain a value in the specified</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- field in the result set.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'stddev', 'fieldStats_stddev' - The standard deviation of the values in the specified field in the</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- result set.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'min', 'fieldStats_min' - The minimum value found in the specified field in the result set.</span><span>
+</span><span id="line-112"></span><span class="hs-comment">--</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- @double-array@), @min@ is the string representation of a</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- @date-array@, @min@ is the string representation of a date with the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'sumOfSquares', 'fieldStats_sumOfSquares' - The sum of all field values in the result set squared.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'sum', 'fieldStats_sum' - The sum of the field values across the documents in the result set.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- @null@ for date fields.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#newFieldStats"><span class="hs-identifier hs-type">newFieldStats</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span>
+</span><span id="line-126"></span><span id="newFieldStats"><span class="annot"><span class="annottext">newFieldStats :: FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#newFieldStats"><span class="hs-identifier hs-var hs-var">newFieldStats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="annottext">FieldStats' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:max:FieldStats' :: Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amax%3AFieldStats%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:mean:FieldStats' :: Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amean%3AFieldStats%27"><span class="hs-identifier hs-var">mean</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:count:FieldStats' :: Maybe Integer
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Acount%3AFieldStats%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:missing:FieldStats' :: Maybe Integer
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amissing%3AFieldStats%27"><span class="hs-identifier hs-var">missing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:stddev:FieldStats' :: Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Astddev%3AFieldStats%27"><span class="hs-identifier hs-var">stddev</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:min:FieldStats' :: Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amin%3AFieldStats%27"><span class="hs-identifier hs-var">min</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:sumOfSquares:FieldStats' :: Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3AsumOfSquares%3AFieldStats%27"><span class="hs-identifier hs-var">sumOfSquares</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:sum:FieldStats' :: Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Asum%3AFieldStats%27"><span class="hs-identifier hs-var">sum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | The maximum value found in the specified field in the result set.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- @double-array@), @max@ is the string representation of a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- @date-array@, @max@ is the string representation of a date with the</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_max"><span class="hs-identifier hs-type">fieldStats_max</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="fieldStats_max"><span class="annot"><span class="annottext">fieldStats_max :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_max"><span class="hs-identifier hs-var hs-var">fieldStats_max</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Text)
+-&gt; (FieldStats -&gt; Maybe Text -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152314"><span class="annot"><span class="annottext">Maybe Text
+max :: Maybe Text
+$sel:max:FieldStats' :: FieldStats -&gt; Maybe Text
+</span><a href="#local-6989586621679152314"><span class="hs-identifier hs-var hs-var">max</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152314"><span class="hs-identifier hs-var">max</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152313"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152313"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152312"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152312"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152313"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:max:FieldStats' :: Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amax%3AFieldStats%27"><span class="hs-identifier hs-var">max</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152312"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The average of the values found in the specified field in the result</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- set.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @double-array@), @mean@ is the string representation of a</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- @date-array@, @mean@ is the string representation of a date with the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-158"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_mean"><span class="hs-identifier hs-type">fieldStats_mean</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span id="fieldStats_mean"><span class="annot"><span class="annottext">fieldStats_mean :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_mean"><span class="hs-identifier hs-var hs-var">fieldStats_mean</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Text)
+-&gt; (FieldStats -&gt; Maybe Text -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152310"><span class="annot"><span class="annottext">Maybe Text
+mean :: Maybe Text
+$sel:mean:FieldStats' :: FieldStats -&gt; Maybe Text
+</span><a href="#local-6989586621679152310"><span class="hs-identifier hs-var hs-var">mean</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152310"><span class="hs-identifier hs-var">mean</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152309"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152309"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152308"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152308"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152309"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mean:FieldStats' :: Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amean%3AFieldStats%27"><span class="hs-identifier hs-var">mean</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152308"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | The number of documents that contain a value in the specified field in</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- the result set.</span><span>
+</span><span id="line-163"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_count"><span class="hs-identifier hs-type">fieldStats_count</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span id="fieldStats_count"><span class="annot"><span class="annottext">fieldStats_count :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_count"><span class="hs-identifier hs-var hs-var">fieldStats_count</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Integer)
+-&gt; (FieldStats -&gt; Maybe Integer -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152306"><span class="annot"><span class="annottext">Maybe Integer
+count :: Maybe Integer
+$sel:count:FieldStats' :: FieldStats -&gt; Maybe Integer
+</span><a href="#local-6989586621679152306"><span class="hs-identifier hs-var hs-var">count</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152306"><span class="hs-identifier hs-var">count</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152305"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152305"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152304"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152304"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152305"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:count:FieldStats' :: Maybe Integer
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Acount%3AFieldStats%27"><span class="hs-identifier hs-var">count</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152304"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- | The number of documents that do not contain a value in the specified</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- field in the result set.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_missing"><span class="hs-identifier hs-type">fieldStats_missing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="fieldStats_missing"><span class="annot"><span class="annottext">fieldStats_missing :: (Maybe Integer -&gt; f (Maybe Integer)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_missing"><span class="hs-identifier hs-var hs-var">fieldStats_missing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Integer)
+-&gt; (FieldStats -&gt; Maybe Integer -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Integer) (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152302"><span class="annot"><span class="annottext">Maybe Integer
+missing :: Maybe Integer
+$sel:missing:FieldStats' :: FieldStats -&gt; Maybe Integer
+</span><a href="#local-6989586621679152302"><span class="hs-identifier hs-var hs-var">missing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152302"><span class="hs-identifier hs-var">missing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152301"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152301"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152300"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152300"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152301"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:missing:FieldStats' :: Maybe Integer
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amissing%3AFieldStats%27"><span class="hs-identifier hs-var">missing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679152300"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The standard deviation of the values in the specified field in the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- result set.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_stddev"><span class="hs-identifier hs-type">fieldStats_stddev</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span id="fieldStats_stddev"><span class="annot"><span class="annottext">fieldStats_stddev :: (Maybe Double -&gt; f (Maybe Double)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_stddev"><span class="hs-identifier hs-var hs-var">fieldStats_stddev</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Double)
+-&gt; (FieldStats -&gt; Maybe Double -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152298"><span class="annot"><span class="annottext">Maybe Double
+stddev :: Maybe Double
+$sel:stddev:FieldStats' :: FieldStats -&gt; Maybe Double
+</span><a href="#local-6989586621679152298"><span class="hs-identifier hs-var hs-var">stddev</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152298"><span class="hs-identifier hs-var">stddev</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152297"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152297"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152296"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152296"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152297"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stddev:FieldStats' :: Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Astddev%3AFieldStats%27"><span class="hs-identifier hs-var">stddev</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152296"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- | The minimum value found in the specified field in the result set.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- If the field is numeric (@int@, @int-array@, @double@, or</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- @double-array@), @min@ is the string representation of a</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- double-precision 64-bit floating point value. If the field is @date@ or</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- @date-array@, @min@ is the string representation of a date with the</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- format specified in &lt;http://tools.ietf.org/html/rfc3339 IETF RFC3339&gt;:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- yyyy-mm-ddTHH:mm:ss.SSSZ.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_min"><span class="hs-identifier hs-type">fieldStats_min</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="fieldStats_min"><span class="annot"><span class="annottext">fieldStats_min :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_min"><span class="hs-identifier hs-var hs-var">fieldStats_min</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Text)
+-&gt; (FieldStats -&gt; Maybe Text -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152294"><span class="annot"><span class="annottext">Maybe Text
+min :: Maybe Text
+$sel:min:FieldStats' :: FieldStats -&gt; Maybe Text
+</span><a href="#local-6989586621679152294"><span class="hs-identifier hs-var hs-var">min</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152294"><span class="hs-identifier hs-var">min</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152293"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152293"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152292"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152292"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152293"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:min:FieldStats' :: Maybe Text
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Amin%3AFieldStats%27"><span class="hs-identifier hs-var">min</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679152292"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | The sum of all field values in the result set squared.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_sumOfSquares"><span class="hs-identifier hs-type">fieldStats_sumOfSquares</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="fieldStats_sumOfSquares"><span class="annot"><span class="annottext">fieldStats_sumOfSquares :: (Maybe Double -&gt; f (Maybe Double)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_sumOfSquares"><span class="hs-identifier hs-var hs-var">fieldStats_sumOfSquares</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Double)
+-&gt; (FieldStats -&gt; Maybe Double -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152290"><span class="annot"><span class="annottext">Maybe Double
+sumOfSquares :: Maybe Double
+$sel:sumOfSquares:FieldStats' :: FieldStats -&gt; Maybe Double
+</span><a href="#local-6989586621679152290"><span class="hs-identifier hs-var hs-var">sumOfSquares</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152290"><span class="hs-identifier hs-var">sumOfSquares</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152289"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152288"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sumOfSquares:FieldStats' :: Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3AsumOfSquares%3AFieldStats%27"><span class="hs-identifier hs-var">sumOfSquares</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | The sum of the field values across the documents in the result set.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- @null@ for date fields.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_sum"><span class="hs-identifier hs-type">fieldStats_sum</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span id="fieldStats_sum"><span class="annot"><span class="annottext">fieldStats_sum :: (Maybe Double -&gt; f (Maybe Double)) -&gt; FieldStats -&gt; f FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#fieldStats_sum"><span class="hs-identifier hs-var hs-var">fieldStats_sum</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FieldStats -&gt; Maybe Double)
+-&gt; (FieldStats -&gt; Maybe Double -&gt; FieldStats)
+-&gt; Lens FieldStats FieldStats (Maybe Double) (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679152286"><span class="annot"><span class="annottext">Maybe Double
+sum :: Maybe Double
+$sel:sum:FieldStats' :: FieldStats -&gt; Maybe Double
+</span><a href="#local-6989586621679152286"><span class="hs-identifier hs-var hs-var">sum</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152286"><span class="hs-identifier hs-var">sum</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679152285"><span class="annot"><span class="annottext">s :: FieldStats
+</span><a href="#local-6989586621679152285"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-type">FieldStats'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679152284"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152284"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FieldStats
+</span><a href="#local-6989586621679152285"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sum:FieldStats' :: Maybe Double
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#%24sel%3Asum%3AFieldStats%27"><span class="hs-identifier hs-var">sum</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679152284"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152281"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679152279"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FieldStats
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FieldStats) -&gt; Value -&gt; Parser FieldStats
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FieldStats&quot;</span></span><span>
+</span><span id="line-200"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679152276"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Integer
+-&gt; Maybe Integer
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Double
+-&gt; FieldStats
+</span><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats%27"><span class="hs-identifier hs-var">FieldStats'</span></a></span><span>
+</span><span id="line-202"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Integer
+ -&gt; Maybe Integer
+ -&gt; Maybe Double
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Double
+ -&gt; FieldStats)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; FieldStats)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;max&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; FieldStats)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; FieldStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mean&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; FieldStats)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Integer
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Double
+      -&gt; FieldStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;count&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Double
+   -&gt; FieldStats)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Double -&gt; FieldStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;missing&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Text -&gt; Maybe Double -&gt; Maybe Double -&gt; FieldStats)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe Double -&gt; Maybe Double -&gt; FieldStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stddev&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Double -&gt; Maybe Double -&gt; FieldStats)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Double -&gt; Maybe Double -&gt; FieldStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;min&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; Maybe Double -&gt; FieldStats)
+-&gt; Parser (Maybe Double) -&gt; Parser (Maybe Double -&gt; FieldStats)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sumOfSquares&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; FieldStats)
+-&gt; Parser (Maybe Double) -&gt; Parser FieldStats
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679152276"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sum&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152270"><span id="local-6989586621679152272"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span></span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679152267"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearchDomains.Types.FieldStats.html#FieldStats"><span class="hs-identifier hs-type">FieldStats</span></a></span></span><span>
+</span><span id="line-215"></span></pre></body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFront.Types.CachePolicySummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFront.Types.CachePolicySummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicy.html"><span class="hs-identifier">Amazonka.CloudFront.Types.CachePolicy</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyType.html"><span class="hs-identifier">Amazonka.CloudFront.Types.CachePolicyType</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Contains a cache policy.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCachePolicySummary' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679400371"><span id="local-6989586621679400372"></span></span><span class="hs-keyword">data</span><span> </span><span id="CachePolicySummary"><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-var">CachePolicySummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CachePolicySummary%27"><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary%27"><span class="hs-identifier hs-var">CachePolicySummary'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of cache policy, either @managed@ (created by Amazon Web</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- Services) or @custom@ (created in this account).</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Atype%27%3ACachePolicySummary%27"><span class="annot"><span class="annottext">CachePolicySummary -&gt; CachePolicyType
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#%24sel%3Atype%27%3ACachePolicySummary%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyType.html#CachePolicyType"><span class="hs-identifier hs-type">CachePolicyType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The cache policy.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AcachePolicy%3ACachePolicySummary%27"><span class="annot"><span class="annottext">CachePolicySummary -&gt; CachePolicy
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#%24sel%3AcachePolicy%3ACachePolicySummary%27"><span class="hs-identifier hs-var hs-var">cachePolicy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679400364"><span id="local-6989586621679400366"><span class="annot"><span class="annottext">CachePolicySummary -&gt; CachePolicySummary -&gt; Bool
+(CachePolicySummary -&gt; CachePolicySummary -&gt; Bool)
+-&gt; (CachePolicySummary -&gt; CachePolicySummary -&gt; Bool)
+-&gt; Eq CachePolicySummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CachePolicySummary -&gt; CachePolicySummary -&gt; Bool
+$c/= :: CachePolicySummary -&gt; CachePolicySummary -&gt; Bool
+== :: CachePolicySummary -&gt; CachePolicySummary -&gt; Bool
+$c== :: CachePolicySummary -&gt; CachePolicySummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400355"><span id="local-6989586621679400357"><span id="local-6989586621679400359"><span id="local-6989586621679400361"><span class="annot"><span class="annottext">ReadPrec [CachePolicySummary]
+ReadPrec CachePolicySummary
+Int -&gt; ReadS CachePolicySummary
+ReadS [CachePolicySummary]
+(Int -&gt; ReadS CachePolicySummary)
+-&gt; ReadS [CachePolicySummary]
+-&gt; ReadPrec CachePolicySummary
+-&gt; ReadPrec [CachePolicySummary]
+-&gt; Read CachePolicySummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CachePolicySummary]
+$creadListPrec :: ReadPrec [CachePolicySummary]
+readPrec :: ReadPrec CachePolicySummary
+$creadPrec :: ReadPrec CachePolicySummary
+readList :: ReadS [CachePolicySummary]
+$creadList :: ReadS [CachePolicySummary]
+readsPrec :: Int -&gt; ReadS CachePolicySummary
+$creadsPrec :: Int -&gt; ReadS CachePolicySummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679400348"><span id="local-6989586621679400350"><span id="local-6989586621679400352"><span class="annot"><span class="annottext">Int -&gt; CachePolicySummary -&gt; ShowS
+[CachePolicySummary] -&gt; ShowS
+CachePolicySummary -&gt; String
+(Int -&gt; CachePolicySummary -&gt; ShowS)
+-&gt; (CachePolicySummary -&gt; String)
+-&gt; ([CachePolicySummary] -&gt; ShowS)
+-&gt; Show CachePolicySummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CachePolicySummary] -&gt; ShowS
+$cshowList :: [CachePolicySummary] -&gt; ShowS
+show :: CachePolicySummary -&gt; String
+$cshow :: CachePolicySummary -&gt; String
+showsPrec :: Int -&gt; CachePolicySummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; CachePolicySummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CachePolicySummary -&gt; Rep CachePolicySummary x)
+-&gt; (forall x. Rep CachePolicySummary x -&gt; CachePolicySummary)
+-&gt; Generic CachePolicySummary
+forall x. Rep CachePolicySummary x -&gt; CachePolicySummary
+forall x. CachePolicySummary -&gt; Rep CachePolicySummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CachePolicySummary x -&gt; CachePolicySummary
+$cfrom :: forall x. CachePolicySummary -&gt; Rep CachePolicySummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'CachePolicySummary' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'type'', 'cachePolicySummary_type' - The type of cache policy, either @managed@ (created by Amazon Web</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Services) or @custom@ (created in this account).</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'cachePolicy', 'cachePolicySummary_cachePolicy' - The cache policy.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#newCachePolicySummary"><span class="hs-identifier hs-type">newCachePolicySummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyType.html#CachePolicyType"><span class="hs-identifier hs-type">CachePolicyType</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'cachePolicy'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span><span>
+</span><span id="line-58"></span><span id="newCachePolicySummary"><span class="annot"><span class="annottext">newCachePolicySummary :: CachePolicyType -&gt; CachePolicy -&gt; CachePolicySummary
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#newCachePolicySummary"><span class="hs-identifier hs-var hs-var">newCachePolicySummary</span></a></span></span><span> </span><span id="local-6989586621679400342"><span class="annot"><span class="annottext">CachePolicyType
+</span><a href="#local-6989586621679400342"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span id="local-6989586621679400341"><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400341"><span class="hs-identifier hs-var">pCachePolicy_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">CachePolicySummary' :: CachePolicyType -&gt; CachePolicy -&gt; CachePolicySummary
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary%27"><span class="hs-identifier hs-type">CachePolicySummary'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:type':CachePolicySummary' :: CachePolicyType
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#%24sel%3Atype%27%3ACachePolicySummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyType
+</span><a href="#local-6989586621679400342"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:cachePolicy:CachePolicySummary' :: CachePolicy
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#%24sel%3AcachePolicy%3ACachePolicySummary%27"><span class="hs-identifier hs-var">cachePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400341"><span class="hs-identifier hs-var">pCachePolicy_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The type of cache policy, either @managed@ (created by Amazon Web</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Services) or @custom@ (created in this account).</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#cachePolicySummary_type"><span class="hs-identifier hs-type">cachePolicySummary_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicyType.html#CachePolicyType"><span class="hs-identifier hs-type">CachePolicyType</span></a></span><span>
+</span><span id="line-67"></span><span id="cachePolicySummary_type"><span class="annot"><span class="annottext">cachePolicySummary_type :: (CachePolicyType -&gt; f CachePolicyType)
+-&gt; CachePolicySummary -&gt; f CachePolicySummary
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#cachePolicySummary_type"><span class="hs-identifier hs-var hs-var">cachePolicySummary_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CachePolicySummary -&gt; CachePolicyType)
+-&gt; (CachePolicySummary -&gt; CachePolicyType -&gt; CachePolicySummary)
+-&gt; Lens
+     CachePolicySummary
+     CachePolicySummary
+     CachePolicyType
+     CachePolicyType
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary%27"><span class="hs-identifier hs-type">CachePolicySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400337"><span class="annot"><span class="annottext">CachePolicyType
+type' :: CachePolicyType
+$sel:type':CachePolicySummary' :: CachePolicySummary -&gt; CachePolicyType
+</span><a href="#local-6989586621679400337"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicyType
+</span><a href="#local-6989586621679400337"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400336"><span class="annot"><span class="annottext">s :: CachePolicySummary
+</span><a href="#local-6989586621679400336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary%27"><span class="hs-identifier hs-type">CachePolicySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400335"><span class="annot"><span class="annottext">CachePolicyType
+</span><a href="#local-6989586621679400335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicySummary
+</span><a href="#local-6989586621679400336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':CachePolicySummary' :: CachePolicyType
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#%24sel%3Atype%27%3ACachePolicySummary%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicyType
+</span><a href="#local-6989586621679400335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The cache policy.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#cachePolicySummary_cachePolicy"><span class="hs-identifier hs-type">cachePolicySummary_cachePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicy.html#CachePolicy"><span class="hs-identifier hs-type">CachePolicy</span></a></span><span>
+</span><span id="line-71"></span><span id="cachePolicySummary_cachePolicy"><span class="annot"><span class="annottext">cachePolicySummary_cachePolicy :: (CachePolicy -&gt; f CachePolicy)
+-&gt; CachePolicySummary -&gt; f CachePolicySummary
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#cachePolicySummary_cachePolicy"><span class="hs-identifier hs-var hs-var">cachePolicySummary_cachePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CachePolicySummary -&gt; CachePolicy)
+-&gt; (CachePolicySummary -&gt; CachePolicy -&gt; CachePolicySummary)
+-&gt; Lens
+     CachePolicySummary CachePolicySummary CachePolicy CachePolicy
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary%27"><span class="hs-identifier hs-type">CachePolicySummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679400333"><span class="annot"><span class="annottext">CachePolicy
+cachePolicy :: CachePolicy
+$sel:cachePolicy:CachePolicySummary' :: CachePolicySummary -&gt; CachePolicy
+</span><a href="#local-6989586621679400333"><span class="hs-identifier hs-var hs-var">cachePolicy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400333"><span class="hs-identifier hs-var">cachePolicy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679400332"><span class="annot"><span class="annottext">s :: CachePolicySummary
+</span><a href="#local-6989586621679400332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary%27"><span class="hs-identifier hs-type">CachePolicySummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679400331"><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CachePolicySummary
+</span><a href="#local-6989586621679400332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cachePolicy:CachePolicySummary' :: CachePolicy
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#%24sel%3AcachePolicy%3ACachePolicySummary%27"><span class="hs-identifier hs-var">cachePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CachePolicy
+</span><a href="#local-6989586621679400331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679400328"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String CachePolicySummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679400326"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679400326"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">CachePolicyType -&gt; CachePolicy -&gt; CachePolicySummary
+</span><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary%27"><span class="hs-identifier hs-var">CachePolicySummary'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(CachePolicyType -&gt; CachePolicy -&gt; CachePolicySummary)
+-&gt; Either String CachePolicyType
+-&gt; Either String (CachePolicy -&gt; CachePolicySummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679400326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicyType
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">Either String (CachePolicy -&gt; CachePolicySummary)
+-&gt; Either String CachePolicy -&gt; Either String CachePolicySummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679400326"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String CachePolicy
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CachePolicy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400320"><span id="local-6989586621679400322"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span></span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679400317"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudFront.Types.CachePolicySummary.html#CachePolicySummary"><span class="hs-identifier hs-type">CachePolicySummary</span></a></span></span><span>
+</span><span id="line-82"></span></pre></body></html>

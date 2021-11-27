@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Athena.Types.Row</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Athena.Types.Row</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.Datum.html"><span class="hs-identifier">Amazonka.Athena.Types.Datum</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The rows that comprise a query result table.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newRow' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679218126"><span id="local-6989586621679218127"></span></span><span class="hs-keyword">data</span><span> </span><span id="Row"><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row"><span class="hs-identifier hs-var">Row</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Row%27"><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-var">Row'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The data that populates a row in a query result table.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Adata%27%3ARow%27"><span class="annot"><span class="annottext">Row -&gt; Maybe [Datum]
+</span><a href="Amazonka.Athena.Types.Row.html#%24sel%3Adata%27%3ARow%27"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679218120"><span id="local-6989586621679218122"><span class="annot"><span class="annottext">Row -&gt; Row -&gt; Bool
+(Row -&gt; Row -&gt; Bool) -&gt; (Row -&gt; Row -&gt; Bool) -&gt; Eq Row
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Row -&gt; Row -&gt; Bool
+$c/= :: Row -&gt; Row -&gt; Bool
+== :: Row -&gt; Row -&gt; Bool
+$c== :: Row -&gt; Row -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218111"><span id="local-6989586621679218113"><span id="local-6989586621679218115"><span id="local-6989586621679218117"><span class="annot"><span class="annottext">ReadPrec [Row]
+ReadPrec Row
+Int -&gt; ReadS Row
+ReadS [Row]
+(Int -&gt; ReadS Row)
+-&gt; ReadS [Row] -&gt; ReadPrec Row -&gt; ReadPrec [Row] -&gt; Read Row
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Row]
+$creadListPrec :: ReadPrec [Row]
+readPrec :: ReadPrec Row
+$creadPrec :: ReadPrec Row
+readList :: ReadS [Row]
+$creadList :: ReadS [Row]
+readsPrec :: Int -&gt; ReadS Row
+$creadsPrec :: Int -&gt; ReadS Row
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679218104"><span id="local-6989586621679218106"><span id="local-6989586621679218108"><span class="annot"><span class="annottext">Int -&gt; Row -&gt; ShowS
+[Row] -&gt; ShowS
+Row -&gt; String
+(Int -&gt; Row -&gt; ShowS)
+-&gt; (Row -&gt; String) -&gt; ([Row] -&gt; ShowS) -&gt; Show Row
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Row] -&gt; ShowS
+$cshowList :: [Row] -&gt; ShowS
+show :: Row -&gt; String
+$cshow :: Row -&gt; String
+showsPrec :: Int -&gt; Row -&gt; ShowS
+$cshowsPrec :: Int -&gt; Row -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Row -&gt; Rep Row x)
+-&gt; (forall x. Rep Row x -&gt; Row) -&gt; Generic Row
+forall x. Rep Row x -&gt; Row
+forall x. Row -&gt; Rep Row x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Row x -&gt; Row
+$cfrom :: forall x. Row -&gt; Rep Row x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- Create a value of 'Row' with all optional fields omitted.</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- 'data'', 'row_data' - The data that populates a row in a query result table.</span><span>
+</span><span id="line-45"></span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#newRow"><span class="hs-identifier hs-type">newRow</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>  </span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span><span>
+</span><span id="line-47"></span><span id="newRow"><span class="annot"><span class="annottext">newRow :: Row
+</span><a href="Amazonka.Athena.Types.Row.html#newRow"><span class="hs-identifier hs-var hs-var">newRow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Row' :: Maybe [Datum] -&gt; Row
+</span><a href="Amazonka.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-type">Row'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Row' :: Maybe [Datum]
+</span><a href="Amazonka.Athena.Types.Row.html#%24sel%3Adata%27%3ARow%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Datum]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | The data that populates a row in a query result table.</span><span>
+</span><span id="line-50"></span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#row_data"><span class="hs-identifier hs-type">row_data</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Athena.Types.Datum.html#Datum"><span class="hs-identifier hs-type">Datum</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-51"></span><span id="row_data"><span class="annot"><span class="annottext">row_data :: (Maybe [Datum] -&gt; f (Maybe [Datum])) -&gt; Row -&gt; f Row
+</span><a href="Amazonka.Athena.Types.Row.html#row_data"><span class="hs-identifier hs-var hs-var">row_data</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Row -&gt; Maybe [Datum])
+-&gt; (Row -&gt; Maybe [Datum] -&gt; Row)
+-&gt; Lens Row Row (Maybe [Datum]) (Maybe [Datum])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-type">Row'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679218095"><span class="annot"><span class="annottext">Maybe [Datum]
+data' :: Maybe [Datum]
+$sel:data':Row' :: Row -&gt; Maybe [Datum]
+</span><a href="#local-6989586621679218095"><span class="hs-identifier hs-var hs-var">data'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Datum]
+</span><a href="#local-6989586621679218095"><span class="hs-identifier hs-var">data'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679218094"><span class="annot"><span class="annottext">s :: Row
+</span><a href="#local-6989586621679218094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-type">Row'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679218093"><span class="annot"><span class="annottext">Maybe [Datum]
+</span><a href="#local-6989586621679218093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Row
+</span><a href="#local-6989586621679218094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:data':Row' :: Maybe [Datum]
+</span><a href="Amazonka.Athena.Types.Row.html#%24sel%3Adata%27%3ARow%27"><span class="hs-identifier hs-var">data'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Datum]
+</span><a href="#local-6989586621679218093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Datum] -&gt; f (Maybe [Datum])) -&gt; Row -&gt; f Row)
+-&gt; ((Maybe [Datum] -&gt; f (Maybe [Datum]))
+    -&gt; Maybe [Datum] -&gt; f (Maybe [Datum]))
+-&gt; (Maybe [Datum] -&gt; f (Maybe [Datum]))
+-&gt; Row
+-&gt; f Row
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Datum] [Datum] [Datum] [Datum]
+-&gt; Iso
+     (Maybe [Datum]) (Maybe [Datum]) (Maybe [Datum]) (Maybe [Datum])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Datum] [Datum] [Datum] [Datum]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218087"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-54"></span><span>  </span><span id="local-6989586621679218085"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Row
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Row) -&gt; Value -&gt; Parser Row
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-56"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Row&quot;</span></span><span>
+</span><span id="line-57"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679218082"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218082"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Datum] -&gt; Row
+</span><a href="Amazonka.Athena.Types.Row.html#Row%27"><span class="hs-identifier hs-var">Row'</span></a></span><span>
+</span><span id="line-59"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Datum] -&gt; Row) -&gt; Parser (Maybe [Datum]) -&gt; Parser Row
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679218082"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Datum]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Data&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Datum]))
+-&gt; Maybe [Datum] -&gt; Parser (Maybe [Datum])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Datum]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218075"><span id="local-6989586621679218077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679218072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Athena.Types.Row.html#Row"><span class="hs-identifier hs-type">Row</span></a></span></span><span>
+</span><span id="line-65"></span></pre></body></html>

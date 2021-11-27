@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CustomerProfiles.Types.FieldContentType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CustomerProfiles.Types.FieldContentType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier">FieldContentType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_EMAIL_ADDRESS"><span class="hs-identifier">FieldContentType_EMAIL_ADDRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_NAME"><span class="hs-identifier">FieldContentType_NAME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_NUMBER"><span class="hs-identifier">FieldContentType_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_PHONE_NUMBER"><span class="hs-identifier">FieldContentType_PHONE_NUMBER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_STRING"><span class="hs-identifier">FieldContentType_STRING</span></a></span><span>
+</span><span id="line-28"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span id="local-6989586621679265812"><span id="local-6989586621679265813"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FieldContentType"><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier hs-var">FieldContentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FieldContentType%27"><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType%27"><span class="hs-identifier hs-var">FieldContentType'</span></a></span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFieldContentType"><span class="annot"><span class="annottext">FieldContentType -&gt; Text
+</span><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#fromFieldContentType"><span class="hs-identifier hs-var hs-var">fromFieldContentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-37"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265804"><span id="local-6989586621679265806"><span id="local-6989586621679265808"><span class="annot"><span class="annottext">Int -&gt; FieldContentType -&gt; ShowS
+[FieldContentType] -&gt; ShowS
+FieldContentType -&gt; String
+(Int -&gt; FieldContentType -&gt; ShowS)
+-&gt; (FieldContentType -&gt; String)
+-&gt; ([FieldContentType] -&gt; ShowS)
+-&gt; Show FieldContentType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FieldContentType] -&gt; ShowS
+$cshowList :: [FieldContentType] -&gt; ShowS
+show :: FieldContentType -&gt; String
+$cshow :: FieldContentType -&gt; String
+showsPrec :: Int -&gt; FieldContentType -&gt; ShowS
+$cshowsPrec :: Int -&gt; FieldContentType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679265795"><span id="local-6989586621679265797"><span id="local-6989586621679265799"><span id="local-6989586621679265801"><span class="annot"><span class="annottext">ReadPrec [FieldContentType]
+ReadPrec FieldContentType
+Int -&gt; ReadS FieldContentType
+ReadS [FieldContentType]
+(Int -&gt; ReadS FieldContentType)
+-&gt; ReadS [FieldContentType]
+-&gt; ReadPrec FieldContentType
+-&gt; ReadPrec [FieldContentType]
+-&gt; Read FieldContentType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FieldContentType]
+$creadListPrec :: ReadPrec [FieldContentType]
+readPrec :: ReadPrec FieldContentType
+$creadPrec :: ReadPrec FieldContentType
+readList :: ReadS [FieldContentType]
+$creadList :: ReadS [FieldContentType]
+readsPrec :: Int -&gt; ReadS FieldContentType
+$creadsPrec :: Int -&gt; ReadS FieldContentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679265790"><span id="local-6989586621679265792"><span class="annot"><span class="annottext">FieldContentType -&gt; FieldContentType -&gt; Bool
+(FieldContentType -&gt; FieldContentType -&gt; Bool)
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; Bool)
+-&gt; Eq FieldContentType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FieldContentType -&gt; FieldContentType -&gt; Bool
+$c/= :: FieldContentType -&gt; FieldContentType -&gt; Bool
+== :: FieldContentType -&gt; FieldContentType -&gt; Bool
+$c== :: FieldContentType -&gt; FieldContentType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679265774"><span id="local-6989586621679265776"><span id="local-6989586621679265778"><span id="local-6989586621679265780"><span id="local-6989586621679265782"><span id="local-6989586621679265784"><span id="local-6989586621679265786"><span class="annot"><span class="annottext">Eq FieldContentType
+Eq FieldContentType
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; Ordering)
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; Bool)
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; Bool)
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; Bool)
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; Bool)
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; FieldContentType)
+-&gt; (FieldContentType -&gt; FieldContentType -&gt; FieldContentType)
+-&gt; Ord FieldContentType
+FieldContentType -&gt; FieldContentType -&gt; Bool
+FieldContentType -&gt; FieldContentType -&gt; Ordering
+FieldContentType -&gt; FieldContentType -&gt; FieldContentType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FieldContentType -&gt; FieldContentType -&gt; FieldContentType
+$cmin :: FieldContentType -&gt; FieldContentType -&gt; FieldContentType
+max :: FieldContentType -&gt; FieldContentType -&gt; FieldContentType
+$cmax :: FieldContentType -&gt; FieldContentType -&gt; FieldContentType
+&gt;= :: FieldContentType -&gt; FieldContentType -&gt; Bool
+$c&gt;= :: FieldContentType -&gt; FieldContentType -&gt; Bool
+&gt; :: FieldContentType -&gt; FieldContentType -&gt; Bool
+$c&gt; :: FieldContentType -&gt; FieldContentType -&gt; Bool
+&lt;= :: FieldContentType -&gt; FieldContentType -&gt; Bool
+$c&lt;= :: FieldContentType -&gt; FieldContentType -&gt; Bool
+&lt; :: FieldContentType -&gt; FieldContentType -&gt; Bool
+$c&lt; :: FieldContentType -&gt; FieldContentType -&gt; Bool
+compare :: FieldContentType -&gt; FieldContentType -&gt; Ordering
+$ccompare :: FieldContentType -&gt; FieldContentType -&gt; Ordering
+$cp1Ord :: Eq FieldContentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FieldContentType -&gt; Rep FieldContentType x)
+-&gt; (forall x. Rep FieldContentType x -&gt; FieldContentType)
+-&gt; Generic FieldContentType
+forall x. Rep FieldContentType x -&gt; FieldContentType
+forall x. FieldContentType -&gt; Rep FieldContentType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FieldContentType x -&gt; FieldContentType
+$cfrom :: forall x. FieldContentType -&gt; Rep FieldContentType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679265766"><span id="local-6989586621679265768"><span class="annot"><span class="annottext">Int -&gt; FieldContentType -&gt; Int
+FieldContentType -&gt; Int
+(Int -&gt; FieldContentType -&gt; Int)
+-&gt; (FieldContentType -&gt; Int) -&gt; Hashable FieldContentType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FieldContentType -&gt; Int
+$chash :: FieldContentType -&gt; Int
+hashWithSalt :: Int -&gt; FieldContentType -&gt; Int
+$chashWithSalt :: Int -&gt; FieldContentType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679265763"><span class="annot"><span class="annottext">FieldContentType -&gt; ()
+(FieldContentType -&gt; ()) -&gt; NFData FieldContentType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FieldContentType -&gt; ()
+$crnf :: FieldContentType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679265760"><span class="annot"><span class="annottext">Text -&gt; Either String FieldContentType
+(Text -&gt; Either String FieldContentType)
+-&gt; FromText FieldContentType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FieldContentType
+$cfromText :: Text -&gt; Either String FieldContentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679265757"><span class="annot"><span class="annottext">FieldContentType -&gt; Text
+(FieldContentType -&gt; Text) -&gt; ToText FieldContentType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FieldContentType -&gt; Text
+$ctoText :: FieldContentType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679265754"><span class="annot"><span class="annottext">FieldContentType -&gt; ByteString
+(FieldContentType -&gt; ByteString) -&gt; ToByteString FieldContentType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FieldContentType -&gt; ByteString
+$ctoBS :: FieldContentType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679265751"><span class="annot"><span class="annottext">FieldContentType -&gt; ByteStringBuilder
+(FieldContentType -&gt; ByteStringBuilder) -&gt; ToLog FieldContentType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FieldContentType -&gt; ByteStringBuilder
+$cbuild :: FieldContentType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679265748"><span class="annot"><span class="annottext">HeaderName -&gt; FieldContentType -&gt; [Header]
+(HeaderName -&gt; FieldContentType -&gt; [Header])
+-&gt; ToHeader FieldContentType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FieldContentType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FieldContentType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679265745"><span class="annot"><span class="annottext">FieldContentType -&gt; QueryString
+(FieldContentType -&gt; QueryString) -&gt; ToQuery FieldContentType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FieldContentType -&gt; QueryString
+$ctoQuery :: FieldContentType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679265740"><span id="local-6989586621679265742"><span class="annot"><span class="annottext">Value -&gt; Parser [FieldContentType]
+Value -&gt; Parser FieldContentType
+(Value -&gt; Parser FieldContentType)
+-&gt; (Value -&gt; Parser [FieldContentType])
+-&gt; FromJSON FieldContentType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FieldContentType]
+$cparseJSONList :: Value -&gt; Parser [FieldContentType]
+parseJSON :: Value -&gt; Parser FieldContentType
+$cparseJSON :: Value -&gt; Parser FieldContentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679265735"><span id="local-6989586621679265737"><span class="annot"><span class="annottext">FromJSONKeyFunction [FieldContentType]
+FromJSONKeyFunction FieldContentType
+FromJSONKeyFunction FieldContentType
+-&gt; FromJSONKeyFunction [FieldContentType]
+-&gt; FromJSONKey FieldContentType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FieldContentType]
+$cfromJSONKeyList :: FromJSONKeyFunction [FieldContentType]
+fromJSONKey :: FromJSONKeyFunction FieldContentType
+$cfromJSONKey :: FromJSONKeyFunction FieldContentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679265726"><span id="local-6989586621679265728"><span id="local-6989586621679265730"><span id="local-6989586621679265732"><span class="annot"><span class="annottext">[FieldContentType] -&gt; Encoding
+[FieldContentType] -&gt; Value
+FieldContentType -&gt; Encoding
+FieldContentType -&gt; Value
+(FieldContentType -&gt; Value)
+-&gt; (FieldContentType -&gt; Encoding)
+-&gt; ([FieldContentType] -&gt; Value)
+-&gt; ([FieldContentType] -&gt; Encoding)
+-&gt; ToJSON FieldContentType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FieldContentType] -&gt; Encoding
+$ctoEncodingList :: [FieldContentType] -&gt; Encoding
+toJSONList :: [FieldContentType] -&gt; Value
+$ctoJSONList :: [FieldContentType] -&gt; Value
+toEncoding :: FieldContentType -&gt; Encoding
+$ctoEncoding :: FieldContentType -&gt; Encoding
+toJSON :: FieldContentType -&gt; Value
+$ctoJSON :: FieldContentType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679265721"><span id="local-6989586621679265723"><span class="annot"><span class="annottext">ToJSONKeyFunction [FieldContentType]
+ToJSONKeyFunction FieldContentType
+ToJSONKeyFunction FieldContentType
+-&gt; ToJSONKeyFunction [FieldContentType]
+-&gt; ToJSONKey FieldContentType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FieldContentType]
+$ctoJSONKeyList :: ToJSONKeyFunction [FieldContentType]
+toJSONKey :: ToJSONKeyFunction FieldContentType
+$ctoJSONKey :: ToJSONKeyFunction FieldContentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679265718"><span class="annot"><span class="annottext">[Node] -&gt; Either String FieldContentType
+([Node] -&gt; Either String FieldContentType)
+-&gt; FromXML FieldContentType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FieldContentType
+$cparseXML :: [Node] -&gt; Either String FieldContentType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679265715"><span class="annot"><span class="annottext">FieldContentType -&gt; XML
+(FieldContentType -&gt; XML) -&gt; ToXML FieldContentType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FieldContentType -&gt; XML
+$ctoXML :: FieldContentType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_EMAIL_ADDRESS"><span class="hs-identifier hs-type">FieldContentType_EMAIL_ADDRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier hs-type">FieldContentType</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFieldContentType_EMAIL_ADDRESS"><span id="%24mFieldContentType_EMAIL_ADDRESS"><span id="FieldContentType_EMAIL_ADDRESS"><span class="annot"><span class="annottext">$bFieldContentType_EMAIL_ADDRESS :: FieldContentType
+$mFieldContentType_EMAIL_ADDRESS :: forall r. FieldContentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#%24bFieldContentType_EMAIL_ADDRESS"><span class="hs-identifier hs-var hs-var hs-var">FieldContentType_EMAIL_ADDRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType%27"><span class="hs-identifier hs-type">FieldContentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EMAIL_ADDRESS&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_NAME"><span class="hs-identifier hs-type">FieldContentType_NAME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier hs-type">FieldContentType</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFieldContentType_NAME"><span id="%24mFieldContentType_NAME"><span id="FieldContentType_NAME"><span class="annot"><span class="annottext">$bFieldContentType_NAME :: FieldContentType
+$mFieldContentType_NAME :: forall r. FieldContentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#%24bFieldContentType_NAME"><span class="hs-identifier hs-var hs-var hs-var">FieldContentType_NAME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType%27"><span class="hs-identifier hs-type">FieldContentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NAME&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_NUMBER"><span class="hs-identifier hs-type">FieldContentType_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier hs-type">FieldContentType</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFieldContentType_NUMBER"><span id="%24mFieldContentType_NUMBER"><span id="FieldContentType_NUMBER"><span class="annot"><span class="annottext">$bFieldContentType_NUMBER :: FieldContentType
+$mFieldContentType_NUMBER :: forall r. FieldContentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#%24bFieldContentType_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">FieldContentType_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType%27"><span class="hs-identifier hs-type">FieldContentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NUMBER&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_PHONE_NUMBER"><span class="hs-identifier hs-type">FieldContentType_PHONE_NUMBER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier hs-type">FieldContentType</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFieldContentType_PHONE_NUMBER"><span id="%24mFieldContentType_PHONE_NUMBER"><span id="FieldContentType_PHONE_NUMBER"><span class="annot"><span class="annottext">$bFieldContentType_PHONE_NUMBER :: FieldContentType
+$mFieldContentType_PHONE_NUMBER :: forall r. FieldContentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#%24bFieldContentType_PHONE_NUMBER"><span class="hs-identifier hs-var hs-var hs-var">FieldContentType_PHONE_NUMBER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType%27"><span class="hs-identifier hs-type">FieldContentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PHONE_NUMBER&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_STRING"><span class="hs-identifier hs-type">FieldContentType_STRING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType"><span class="hs-identifier hs-type">FieldContentType</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFieldContentType_STRING"><span id="%24mFieldContentType_STRING"><span id="FieldContentType_STRING"><span class="annot"><span class="annottext">$bFieldContentType_STRING :: FieldContentType
+$mFieldContentType_STRING :: forall r. FieldContentType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#%24bFieldContentType_STRING"><span class="hs-identifier hs-var hs-var hs-var">FieldContentType_STRING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType%27"><span class="hs-identifier hs-type">FieldContentType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRING&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_EMAIL_ADDRESS"><span class="hs-pragma hs-type">FieldContentType_EMAIL_ADDRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_NAME"><span class="hs-pragma hs-type">FieldContentType_NAME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_NUMBER"><span class="hs-pragma hs-type">FieldContentType_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_PHONE_NUMBER"><span class="hs-pragma hs-type">FieldContentType_PHONE_NUMBER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType_STRING"><span class="hs-pragma hs-type">FieldContentType_STRING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.CustomerProfiles.Types.FieldContentType.html#FieldContentType%27"><span class="hs-pragma hs-type">FieldContentType'</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-86"></span></pre></body></html>

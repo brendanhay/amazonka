@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Transcribe.Types.SubtitlesOutput</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transcribe.Types.SubtitlesOutput</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitleFormat.html"><span class="hs-identifier">Amazonka.Transcribe.Types.SubtitleFormat</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Specify the output format for your subtitle file.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newSubtitlesOutput' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679275232"><span id="local-6989586621679275233"></span></span><span class="hs-keyword">data</span><span> </span><span id="SubtitlesOutput"><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-var">SubtitlesOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SubtitlesOutput%27"><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput%27"><span class="hs-identifier hs-var">SubtitlesOutput'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specify the output format for your subtitle file; if you select both SRT</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- and VTT formats, two output files are genereated.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aformats%3ASubtitlesOutput%27"><span class="annot"><span class="annottext">SubtitlesOutput -&gt; Maybe [SubtitleFormat]
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#%24sel%3Aformats%3ASubtitlesOutput%27"><span class="hs-identifier hs-var hs-var">formats</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitleFormat.html#SubtitleFormat"><span class="hs-identifier hs-type">SubtitleFormat</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Choose the output location for your subtitle file. This location must be</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- an S3 bucket.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsubtitleFileUris%3ASubtitlesOutput%27"><span class="annot"><span class="annottext">SubtitlesOutput -&gt; Maybe [Text]
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#%24sel%3AsubtitleFileUris%3ASubtitlesOutput%27"><span class="hs-identifier hs-var hs-var">subtitleFileUris</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275225"><span id="local-6989586621679275227"><span class="annot"><span class="annottext">SubtitlesOutput -&gt; SubtitlesOutput -&gt; Bool
+(SubtitlesOutput -&gt; SubtitlesOutput -&gt; Bool)
+-&gt; (SubtitlesOutput -&gt; SubtitlesOutput -&gt; Bool)
+-&gt; Eq SubtitlesOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SubtitlesOutput -&gt; SubtitlesOutput -&gt; Bool
+$c/= :: SubtitlesOutput -&gt; SubtitlesOutput -&gt; Bool
+== :: SubtitlesOutput -&gt; SubtitlesOutput -&gt; Bool
+$c== :: SubtitlesOutput -&gt; SubtitlesOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275216"><span id="local-6989586621679275218"><span id="local-6989586621679275220"><span id="local-6989586621679275222"><span class="annot"><span class="annottext">ReadPrec [SubtitlesOutput]
+ReadPrec SubtitlesOutput
+Int -&gt; ReadS SubtitlesOutput
+ReadS [SubtitlesOutput]
+(Int -&gt; ReadS SubtitlesOutput)
+-&gt; ReadS [SubtitlesOutput]
+-&gt; ReadPrec SubtitlesOutput
+-&gt; ReadPrec [SubtitlesOutput]
+-&gt; Read SubtitlesOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SubtitlesOutput]
+$creadListPrec :: ReadPrec [SubtitlesOutput]
+readPrec :: ReadPrec SubtitlesOutput
+$creadPrec :: ReadPrec SubtitlesOutput
+readList :: ReadS [SubtitlesOutput]
+$creadList :: ReadS [SubtitlesOutput]
+readsPrec :: Int -&gt; ReadS SubtitlesOutput
+$creadsPrec :: Int -&gt; ReadS SubtitlesOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275209"><span id="local-6989586621679275211"><span id="local-6989586621679275213"><span class="annot"><span class="annottext">Int -&gt; SubtitlesOutput -&gt; ShowS
+[SubtitlesOutput] -&gt; ShowS
+SubtitlesOutput -&gt; String
+(Int -&gt; SubtitlesOutput -&gt; ShowS)
+-&gt; (SubtitlesOutput -&gt; String)
+-&gt; ([SubtitlesOutput] -&gt; ShowS)
+-&gt; Show SubtitlesOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SubtitlesOutput] -&gt; ShowS
+$cshowList :: [SubtitlesOutput] -&gt; ShowS
+show :: SubtitlesOutput -&gt; String
+$cshow :: SubtitlesOutput -&gt; String
+showsPrec :: Int -&gt; SubtitlesOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; SubtitlesOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SubtitlesOutput -&gt; Rep SubtitlesOutput x)
+-&gt; (forall x. Rep SubtitlesOutput x -&gt; SubtitlesOutput)
+-&gt; Generic SubtitlesOutput
+forall x. Rep SubtitlesOutput x -&gt; SubtitlesOutput
+forall x. SubtitlesOutput -&gt; Rep SubtitlesOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SubtitlesOutput x -&gt; SubtitlesOutput
+$cfrom :: forall x. SubtitlesOutput -&gt; Rep SubtitlesOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'SubtitlesOutput' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'formats', 'subtitlesOutput_formats' - Specify the output format for your subtitle file; if you select both SRT</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- and VTT formats, two output files are genereated.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'subtitleFileUris', 'subtitlesOutput_subtitleFileUris' - Choose the output location for your subtitle file. This location must be</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- an S3 bucket.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#newSubtitlesOutput"><span class="hs-identifier hs-type">newSubtitlesOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span><span>
+</span><span id="line-55"></span><span id="newSubtitlesOutput"><span class="annot"><span class="annottext">newSubtitlesOutput :: SubtitlesOutput
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#newSubtitlesOutput"><span class="hs-identifier hs-var hs-var">newSubtitlesOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="annottext">SubtitlesOutput' :: Maybe [SubtitleFormat] -&gt; Maybe [Text] -&gt; SubtitlesOutput
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput%27"><span class="hs-identifier hs-type">SubtitlesOutput'</span></a></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:formats:SubtitlesOutput' :: Maybe [SubtitleFormat]
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#%24sel%3Aformats%3ASubtitlesOutput%27"><span class="hs-identifier hs-var">formats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:subtitleFileUris:SubtitlesOutput' :: Maybe [Text]
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#%24sel%3AsubtitleFileUris%3ASubtitlesOutput%27"><span class="hs-identifier hs-var">subtitleFileUris</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | Specify the output format for your subtitle file; if you select both SRT</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- and VTT formats, two output files are genereated.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#subtitlesOutput_formats"><span class="hs-identifier hs-type">subtitlesOutput_formats</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitleFormat.html#SubtitleFormat"><span class="hs-identifier hs-type">SubtitleFormat</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="subtitlesOutput_formats"><span class="annot"><span class="annottext">subtitlesOutput_formats :: (Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
+-&gt; SubtitlesOutput -&gt; f SubtitlesOutput
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#subtitlesOutput_formats"><span class="hs-identifier hs-var hs-var">subtitlesOutput_formats</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubtitlesOutput -&gt; Maybe [SubtitleFormat])
+-&gt; (SubtitlesOutput -&gt; Maybe [SubtitleFormat] -&gt; SubtitlesOutput)
+-&gt; Lens
+     SubtitlesOutput
+     SubtitlesOutput
+     (Maybe [SubtitleFormat])
+     (Maybe [SubtitleFormat])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput%27"><span class="hs-identifier hs-type">SubtitlesOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275200"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+formats :: Maybe [SubtitleFormat]
+$sel:formats:SubtitlesOutput' :: SubtitlesOutput -&gt; Maybe [SubtitleFormat]
+</span><a href="#local-6989586621679275200"><span class="hs-identifier hs-var hs-var">formats</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+</span><a href="#local-6989586621679275200"><span class="hs-identifier hs-var">formats</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275199"><span class="annot"><span class="annottext">s :: SubtitlesOutput
+</span><a href="#local-6989586621679275199"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput%27"><span class="hs-identifier hs-type">SubtitlesOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275198"><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+</span><a href="#local-6989586621679275198"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubtitlesOutput
+</span><a href="#local-6989586621679275199"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:formats:SubtitlesOutput' :: Maybe [SubtitleFormat]
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#%24sel%3Aformats%3ASubtitlesOutput%27"><span class="hs-identifier hs-var">formats</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+</span><a href="#local-6989586621679275198"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
+ -&gt; SubtitlesOutput -&gt; f SubtitlesOutput)
+-&gt; ((Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
+    -&gt; Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
+-&gt; (Maybe [SubtitleFormat] -&gt; f (Maybe [SubtitleFormat]))
+-&gt; SubtitlesOutput
+-&gt; f SubtitlesOutput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SubtitleFormat] [SubtitleFormat] [SubtitleFormat] [SubtitleFormat]
+-&gt; Iso
+     (Maybe [SubtitleFormat])
+     (Maybe [SubtitleFormat])
+     (Maybe [SubtitleFormat])
+     (Maybe [SubtitleFormat])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [SubtitleFormat] [SubtitleFormat] [SubtitleFormat] [SubtitleFormat]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | Choose the output location for your subtitle file. This location must be</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- an S3 bucket.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#subtitlesOutput_subtitleFileUris"><span class="hs-identifier hs-type">subtitlesOutput_subtitleFileUris</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="subtitlesOutput_subtitleFileUris"><span class="annot"><span class="annottext">subtitlesOutput_subtitleFileUris :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SubtitlesOutput -&gt; f SubtitlesOutput
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#subtitlesOutput_subtitleFileUris"><span class="hs-identifier hs-var hs-var">subtitlesOutput_subtitleFileUris</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SubtitlesOutput -&gt; Maybe [Text])
+-&gt; (SubtitlesOutput -&gt; Maybe [Text] -&gt; SubtitlesOutput)
+-&gt; Lens
+     SubtitlesOutput SubtitlesOutput (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput%27"><span class="hs-identifier hs-type">SubtitlesOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275193"><span class="annot"><span class="annottext">Maybe [Text]
+subtitleFileUris :: Maybe [Text]
+$sel:subtitleFileUris:SubtitlesOutput' :: SubtitlesOutput -&gt; Maybe [Text]
+</span><a href="#local-6989586621679275193"><span class="hs-identifier hs-var hs-var">subtitleFileUris</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679275193"><span class="hs-identifier hs-var">subtitleFileUris</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275192"><span class="annot"><span class="annottext">s :: SubtitlesOutput
+</span><a href="#local-6989586621679275192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput%27"><span class="hs-identifier hs-type">SubtitlesOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275191"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679275191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SubtitlesOutput
+</span><a href="#local-6989586621679275192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subtitleFileUris:SubtitlesOutput' :: Maybe [Text]
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#%24sel%3AsubtitleFileUris%3ASubtitlesOutput%27"><span class="hs-identifier hs-var">subtitleFileUris</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679275191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; SubtitlesOutput -&gt; f SubtitlesOutput)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; SubtitlesOutput
+-&gt; f SubtitlesOutput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275188"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679275186"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SubtitlesOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SubtitlesOutput)
+-&gt; Value
+-&gt; Parser SubtitlesOutput
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SubtitlesOutput&quot;</span></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275183"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275183"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat] -&gt; Maybe [Text] -&gt; SubtitlesOutput
+</span><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput%27"><span class="hs-identifier hs-var">SubtitlesOutput'</span></a></span><span>
+</span><span id="line-77"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [SubtitleFormat] -&gt; Maybe [Text] -&gt; SubtitlesOutput)
+-&gt; Parser (Maybe [SubtitleFormat])
+-&gt; Parser (Maybe [Text] -&gt; SubtitlesOutput)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [SubtitleFormat]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Formats&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [SubtitleFormat]))
+-&gt; Maybe [SubtitleFormat] -&gt; Parser (Maybe [SubtitleFormat])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [SubtitleFormat]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Text] -&gt; SubtitlesOutput)
+-&gt; Parser (Maybe [Text]) -&gt; Parser SubtitlesOutput
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275183"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SubtitleFileUris&quot;</span></span><span>
+</span><span id="line-79"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275176"><span id="local-6989586621679275178"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275173"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Transcribe.Types.SubtitlesOutput.html#SubtitlesOutput"><span class="hs-identifier hs-type">SubtitlesOutput</span></a></span></span><span>
+</span><span id="line-86"></span></pre></body></html>

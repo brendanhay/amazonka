@@ -1,0 +1,221 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes an IAM instance profile for a Scheduled Instance.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newScheduledInstancesIamInstanceProfile' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681147369"><span id="local-6989586621681147370"></span></span><span class="hs-keyword">data</span><span> </span><span id="ScheduledInstancesIamInstanceProfile"><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-var">ScheduledInstancesIamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ScheduledInstancesIamInstanceProfile%27"><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-var">ScheduledInstancesIamInstanceProfile'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN).</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3Aarn%3AScheduledInstancesIamInstanceProfile%27"><span class="annot"><span class="annottext">ScheduledInstancesIamInstanceProfile -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#%24sel%3Aarn%3AScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3Aname%3AScheduledInstancesIamInstanceProfile%27"><span class="annot"><span class="annottext">ScheduledInstancesIamInstanceProfile -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#%24sel%3Aname%3AScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681147362"><span id="local-6989586621681147364"><span class="annot"><span class="annottext">ScheduledInstancesIamInstanceProfile
+-&gt; ScheduledInstancesIamInstanceProfile -&gt; Bool
+(ScheduledInstancesIamInstanceProfile
+ -&gt; ScheduledInstancesIamInstanceProfile -&gt; Bool)
+-&gt; (ScheduledInstancesIamInstanceProfile
+    -&gt; ScheduledInstancesIamInstanceProfile -&gt; Bool)
+-&gt; Eq ScheduledInstancesIamInstanceProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ScheduledInstancesIamInstanceProfile
+-&gt; ScheduledInstancesIamInstanceProfile -&gt; Bool
+$c/= :: ScheduledInstancesIamInstanceProfile
+-&gt; ScheduledInstancesIamInstanceProfile -&gt; Bool
+== :: ScheduledInstancesIamInstanceProfile
+-&gt; ScheduledInstancesIamInstanceProfile -&gt; Bool
+$c== :: ScheduledInstancesIamInstanceProfile
+-&gt; ScheduledInstancesIamInstanceProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681147353"><span id="local-6989586621681147355"><span id="local-6989586621681147357"><span id="local-6989586621681147359"><span class="annot"><span class="annottext">ReadPrec [ScheduledInstancesIamInstanceProfile]
+ReadPrec ScheduledInstancesIamInstanceProfile
+Int -&gt; ReadS ScheduledInstancesIamInstanceProfile
+ReadS [ScheduledInstancesIamInstanceProfile]
+(Int -&gt; ReadS ScheduledInstancesIamInstanceProfile)
+-&gt; ReadS [ScheduledInstancesIamInstanceProfile]
+-&gt; ReadPrec ScheduledInstancesIamInstanceProfile
+-&gt; ReadPrec [ScheduledInstancesIamInstanceProfile]
+-&gt; Read ScheduledInstancesIamInstanceProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ScheduledInstancesIamInstanceProfile]
+$creadListPrec :: ReadPrec [ScheduledInstancesIamInstanceProfile]
+readPrec :: ReadPrec ScheduledInstancesIamInstanceProfile
+$creadPrec :: ReadPrec ScheduledInstancesIamInstanceProfile
+readList :: ReadS [ScheduledInstancesIamInstanceProfile]
+$creadList :: ReadS [ScheduledInstancesIamInstanceProfile]
+readsPrec :: Int -&gt; ReadS ScheduledInstancesIamInstanceProfile
+$creadsPrec :: Int -&gt; ReadS ScheduledInstancesIamInstanceProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681147346"><span id="local-6989586621681147348"><span id="local-6989586621681147350"><span class="annot"><span class="annottext">Int -&gt; ScheduledInstancesIamInstanceProfile -&gt; ShowS
+[ScheduledInstancesIamInstanceProfile] -&gt; ShowS
+ScheduledInstancesIamInstanceProfile -&gt; String
+(Int -&gt; ScheduledInstancesIamInstanceProfile -&gt; ShowS)
+-&gt; (ScheduledInstancesIamInstanceProfile -&gt; String)
+-&gt; ([ScheduledInstancesIamInstanceProfile] -&gt; ShowS)
+-&gt; Show ScheduledInstancesIamInstanceProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ScheduledInstancesIamInstanceProfile] -&gt; ShowS
+$cshowList :: [ScheduledInstancesIamInstanceProfile] -&gt; ShowS
+show :: ScheduledInstancesIamInstanceProfile -&gt; String
+$cshow :: ScheduledInstancesIamInstanceProfile -&gt; String
+showsPrec :: Int -&gt; ScheduledInstancesIamInstanceProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; ScheduledInstancesIamInstanceProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ScheduledInstancesIamInstanceProfile
+ -&gt; Rep ScheduledInstancesIamInstanceProfile x)
+-&gt; (forall x.
+    Rep ScheduledInstancesIamInstanceProfile x
+    -&gt; ScheduledInstancesIamInstanceProfile)
+-&gt; Generic ScheduledInstancesIamInstanceProfile
+forall x.
+Rep ScheduledInstancesIamInstanceProfile x
+-&gt; ScheduledInstancesIamInstanceProfile
+forall x.
+ScheduledInstancesIamInstanceProfile
+-&gt; Rep ScheduledInstancesIamInstanceProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ScheduledInstancesIamInstanceProfile x
+-&gt; ScheduledInstancesIamInstanceProfile
+$cfrom :: forall x.
+ScheduledInstancesIamInstanceProfile
+-&gt; Rep ScheduledInstancesIamInstanceProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- Create a value of 'ScheduledInstancesIamInstanceProfile' with all optional fields omitted.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- 'arn', 'scheduledInstancesIamInstanceProfile_arn' - The Amazon Resource Name (ARN).</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'name', 'scheduledInstancesIamInstanceProfile_name' - The name.</span><span>
+</span><span id="line-49"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#newScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">newScheduledInstancesIamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-50"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span><span>
+</span><span id="line-51"></span><span id="newScheduledInstancesIamInstanceProfile"><span class="annot"><span class="annottext">newScheduledInstancesIamInstanceProfile :: ScheduledInstancesIamInstanceProfile
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#newScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-var hs-var">newScheduledInstancesIamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-52"></span><span>  </span><span class="annot"><span class="annottext">ScheduledInstancesIamInstanceProfile' :: Maybe Text -&gt; Maybe Text -&gt; ScheduledInstancesIamInstanceProfile
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile'</span></a></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:arn:ScheduledInstancesIamInstanceProfile' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#%24sel%3Aarn%3AScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-54"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:ScheduledInstancesIamInstanceProfile' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#%24sel%3Aname%3AScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN).</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#scheduledInstancesIamInstanceProfile_arn"><span class="hs-identifier hs-type">scheduledInstancesIamInstanceProfile_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span id="scheduledInstancesIamInstanceProfile_arn"><span class="annot"><span class="annottext">scheduledInstancesIamInstanceProfile_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstancesIamInstanceProfile
+-&gt; f ScheduledInstancesIamInstanceProfile
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#scheduledInstancesIamInstanceProfile_arn"><span class="hs-identifier hs-var hs-var">scheduledInstancesIamInstanceProfile_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstancesIamInstanceProfile -&gt; Maybe Text)
+-&gt; (ScheduledInstancesIamInstanceProfile
+    -&gt; Maybe Text -&gt; ScheduledInstancesIamInstanceProfile)
+-&gt; Lens
+     ScheduledInstancesIamInstanceProfile
+     ScheduledInstancesIamInstanceProfile
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681147337"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ScheduledInstancesIamInstanceProfile' :: ScheduledInstancesIamInstanceProfile -&gt; Maybe Text
+</span><a href="#local-6989586621681147337"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147337"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681147336"><span class="annot"><span class="annottext">s :: ScheduledInstancesIamInstanceProfile
+</span><a href="#local-6989586621681147336"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681147335"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147335"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesIamInstanceProfile
+</span><a href="#local-6989586621681147336"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ScheduledInstancesIamInstanceProfile' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#%24sel%3Aarn%3AScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147335"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- | The name.</span><span>
+</span><span id="line-63"></span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#scheduledInstancesIamInstanceProfile_name"><span class="hs-identifier hs-type">scheduledInstancesIamInstanceProfile_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span id="scheduledInstancesIamInstanceProfile_name"><span class="annot"><span class="annottext">scheduledInstancesIamInstanceProfile_name :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ScheduledInstancesIamInstanceProfile
+-&gt; f ScheduledInstancesIamInstanceProfile
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#scheduledInstancesIamInstanceProfile_name"><span class="hs-identifier hs-var hs-var">scheduledInstancesIamInstanceProfile_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ScheduledInstancesIamInstanceProfile -&gt; Maybe Text)
+-&gt; (ScheduledInstancesIamInstanceProfile
+    -&gt; Maybe Text -&gt; ScheduledInstancesIamInstanceProfile)
+-&gt; Lens
+     ScheduledInstancesIamInstanceProfile
+     ScheduledInstancesIamInstanceProfile
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681147333"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:ScheduledInstancesIamInstanceProfile' :: ScheduledInstancesIamInstanceProfile -&gt; Maybe Text
+</span><a href="#local-6989586621681147333"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147333"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681147332"><span class="annot"><span class="annottext">s :: ScheduledInstancesIamInstanceProfile
+</span><a href="#local-6989586621681147332"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681147331"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147331"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScheduledInstancesIamInstanceProfile
+</span><a href="#local-6989586621681147332"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:ScheduledInstancesIamInstanceProfile' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#%24sel%3Aname%3AScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147331"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621681147327"><span id="local-6989586621681147329"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-71"></span><span>  </span><span id="local-6989586621681147324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile</span></a></span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621681147320"><span class="annot"><span class="annottext">toQuery :: ScheduledInstancesIamInstanceProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ScheduledInstancesIamInstanceProfile.html#ScheduledInstancesIamInstanceProfile%27"><span class="hs-identifier hs-type">ScheduledInstancesIamInstanceProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681147317"><span id="local-6989586621681147318"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+arn :: Maybe Text
+$sel:name:ScheduledInstancesIamInstanceProfile' :: ScheduledInstancesIamInstanceProfile -&gt; Maybe Text
+$sel:arn:ScheduledInstancesIamInstanceProfile' :: ScheduledInstancesIamInstanceProfile -&gt; Maybe Text
+</span><a href="#local-6989586621681147317"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147318"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681147317"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-81"></span></pre></body></html>

@@ -1,0 +1,758 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ComprehendMedical.StartRxNormInferenceJob</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Starts an asynchronous job to detect medication entities and link them</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- to the RxNorm ontology. Use the @DescribeRxNormInferenceJob@ operation</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- to track the status of a job.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ComprehendMedical.StartRxNormInferenceJob</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#newStartRxNormInferenceJob"><span class="hs-identifier">newStartRxNormInferenceJob</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_kmsKey"><span class="hs-identifier">startRxNormInferenceJob_kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_jobName"><span class="hs-identifier">startRxNormInferenceJob_jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_clientRequestToken"><span class="hs-identifier">startRxNormInferenceJob_clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_inputDataConfig"><span class="hs-identifier">startRxNormInferenceJob_inputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_outputDataConfig"><span class="hs-identifier">startRxNormInferenceJob_outputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_dataAccessRoleArn"><span class="hs-identifier">startRxNormInferenceJob_dataAccessRoleArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_languageCode"><span class="hs-identifier">startRxNormInferenceJob_languageCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier">StartRxNormInferenceJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#newStartRxNormInferenceJobResponse"><span class="hs-identifier">newStartRxNormInferenceJobResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJobResponse_jobId"><span class="hs-identifier">startRxNormInferenceJobResponse_jobId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJobResponse_httpStatus"><span class="hs-identifier">startRxNormInferenceJobResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.html"><span class="hs-identifier">Amazonka.ComprehendMedical.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | /See:/ 'newStartRxNormInferenceJob' smart constructor.</span><span>
+</span><span id="line-58"></span><span id="local-6989586621679212298"><span id="local-6989586621679212299"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartRxNormInferenceJob"><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-var">StartRxNormInferenceJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartRxNormInferenceJob%27"><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-var">StartRxNormInferenceJob'</span></a></span></span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An AWS Key Management Service key to encrypt your output files. If you</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- do not specify a key, the files are written in plain text.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AkmsKey%3AStartRxNormInferenceJob%27"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AkmsKey%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The identifier of the job.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AjobName%3AStartRxNormInferenceJob%27"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AjobName%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the request. If you don\'t set the client</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- request token, Amazon Comprehend Medical generates one.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AclientRequestToken%3AStartRxNormInferenceJob%27"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AclientRequestToken%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | Specifies the format and location of the input data for the job.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AinputDataConfig%3AStartRxNormInferenceJob%27"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; InputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AinputDataConfig%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | Specifies where to send the output files.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AoutputDataConfig%3AStartRxNormInferenceJob%27"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; OutputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AoutputDataConfig%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- (IAM) role that grants Amazon Comprehend Medical read access to your</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- input data. For more information, see</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations&gt;.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AdataAccessRoleArn%3AStartRxNormInferenceJob%27"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AdataAccessRoleArn%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The language of the input documents. All documents must be in the same</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AlanguageCode%3AStartRxNormInferenceJob%27"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; LanguageCode
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AlanguageCode%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212286"><span id="local-6989586621679212288"><span class="annot"><span class="annottext">StartRxNormInferenceJob -&gt; StartRxNormInferenceJob -&gt; Bool
+(StartRxNormInferenceJob -&gt; StartRxNormInferenceJob -&gt; Bool)
+-&gt; (StartRxNormInferenceJob -&gt; StartRxNormInferenceJob -&gt; Bool)
+-&gt; Eq StartRxNormInferenceJob
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartRxNormInferenceJob -&gt; StartRxNormInferenceJob -&gt; Bool
+$c/= :: StartRxNormInferenceJob -&gt; StartRxNormInferenceJob -&gt; Bool
+== :: StartRxNormInferenceJob -&gt; StartRxNormInferenceJob -&gt; Bool
+$c== :: StartRxNormInferenceJob -&gt; StartRxNormInferenceJob -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212277"><span id="local-6989586621679212279"><span id="local-6989586621679212281"><span id="local-6989586621679212283"><span class="annot"><span class="annottext">ReadPrec [StartRxNormInferenceJob]
+ReadPrec StartRxNormInferenceJob
+Int -&gt; ReadS StartRxNormInferenceJob
+ReadS [StartRxNormInferenceJob]
+(Int -&gt; ReadS StartRxNormInferenceJob)
+-&gt; ReadS [StartRxNormInferenceJob]
+-&gt; ReadPrec StartRxNormInferenceJob
+-&gt; ReadPrec [StartRxNormInferenceJob]
+-&gt; Read StartRxNormInferenceJob
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartRxNormInferenceJob]
+$creadListPrec :: ReadPrec [StartRxNormInferenceJob]
+readPrec :: ReadPrec StartRxNormInferenceJob
+$creadPrec :: ReadPrec StartRxNormInferenceJob
+readList :: ReadS [StartRxNormInferenceJob]
+$creadList :: ReadS [StartRxNormInferenceJob]
+readsPrec :: Int -&gt; ReadS StartRxNormInferenceJob
+$creadsPrec :: Int -&gt; ReadS StartRxNormInferenceJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212270"><span id="local-6989586621679212272"><span id="local-6989586621679212274"><span class="annot"><span class="annottext">Int -&gt; StartRxNormInferenceJob -&gt; ShowS
+[StartRxNormInferenceJob] -&gt; ShowS
+StartRxNormInferenceJob -&gt; String
+(Int -&gt; StartRxNormInferenceJob -&gt; ShowS)
+-&gt; (StartRxNormInferenceJob -&gt; String)
+-&gt; ([StartRxNormInferenceJob] -&gt; ShowS)
+-&gt; Show StartRxNormInferenceJob
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartRxNormInferenceJob] -&gt; ShowS
+$cshowList :: [StartRxNormInferenceJob] -&gt; ShowS
+show :: StartRxNormInferenceJob -&gt; String
+$cshow :: StartRxNormInferenceJob -&gt; String
+showsPrec :: Int -&gt; StartRxNormInferenceJob -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartRxNormInferenceJob -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartRxNormInferenceJob -&gt; Rep StartRxNormInferenceJob x)
+-&gt; (forall x.
+    Rep StartRxNormInferenceJob x -&gt; StartRxNormInferenceJob)
+-&gt; Generic StartRxNormInferenceJob
+forall x. Rep StartRxNormInferenceJob x -&gt; StartRxNormInferenceJob
+forall x. StartRxNormInferenceJob -&gt; Rep StartRxNormInferenceJob x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StartRxNormInferenceJob x -&gt; StartRxNormInferenceJob
+$cfrom :: forall x. StartRxNormInferenceJob -&gt; Rep StartRxNormInferenceJob x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'StartRxNormInferenceJob' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'kmsKey', 'startRxNormInferenceJob_kmsKey' - An AWS Key Management Service key to encrypt your output files. If you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- do not specify a key, the files are written in plain text.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'jobName', 'startRxNormInferenceJob_jobName' - The identifier of the job.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'clientRequestToken', 'startRxNormInferenceJob_clientRequestToken' - A unique identifier for the request. If you don\'t set the client</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- request token, Amazon Comprehend Medical generates one.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'inputDataConfig', 'startRxNormInferenceJob_inputDataConfig' - Specifies the format and location of the input data for the job.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'outputDataConfig', 'startRxNormInferenceJob_outputDataConfig' - Specifies where to send the output files.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'dataAccessRoleArn', 'startRxNormInferenceJob_dataAccessRoleArn' - The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- (IAM) role that grants Amazon Comprehend Medical read access to your</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- input data. For more information, see</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations&gt;.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'languageCode', 'startRxNormInferenceJob_languageCode' - The language of the input documents. All documents must be in the same</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#newStartRxNormInferenceJob"><span class="hs-identifier hs-type">newStartRxNormInferenceJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-comment">-- | 'inputDataConfig'</span><span>
+</span><span id="line-111"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-comment">-- | 'outputDataConfig'</span><span>
+</span><span id="line-113"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-114"></span><span>  </span><span class="hs-comment">-- | 'dataAccessRoleArn'</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-comment">-- | 'languageCode'</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span>
+</span><span id="line-119"></span><span id="newStartRxNormInferenceJob"><span class="annot"><span class="annottext">newStartRxNormInferenceJob :: InputDataConfig
+-&gt; OutputDataConfig
+-&gt; Text
+-&gt; LanguageCode
+-&gt; StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#newStartRxNormInferenceJob"><span class="hs-identifier hs-var hs-var">newStartRxNormInferenceJob</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679212265"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212265"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679212264"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212264"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679212263"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212263"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679212262"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212262"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">StartRxNormInferenceJob' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; InputDataConfig
+-&gt; OutputDataConfig
+-&gt; Text
+-&gt; LanguageCode
+-&gt; StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:kmsKey:StartRxNormInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AkmsKey%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:jobName:StartRxNormInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AjobName%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartRxNormInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AclientRequestToken%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartRxNormInferenceJob' :: InputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AinputDataConfig%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212265"><span class="hs-identifier hs-var">pInputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:outputDataConfig:StartRxNormInferenceJob' :: OutputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AoutputDataConfig%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212264"><span class="hs-identifier hs-var">pOutputDataConfig_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartRxNormInferenceJob' :: Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AdataAccessRoleArn%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212263"><span class="hs-identifier hs-var">pDataAccessRoleArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:languageCode:StartRxNormInferenceJob' :: LanguageCode
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AlanguageCode%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212262"><span class="hs-identifier hs-var">pLanguageCode_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | An AWS Key Management Service key to encrypt your output files. If you</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- do not specify a key, the files are written in plain text.</span><span>
+</span><span id="line-136"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_kmsKey"><span class="hs-identifier hs-type">startRxNormInferenceJob_kmsKey</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span id="startRxNormInferenceJob_kmsKey"><span class="annot"><span class="annottext">startRxNormInferenceJob_kmsKey :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartRxNormInferenceJob -&gt; f StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_kmsKey"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJob_kmsKey</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJob -&gt; Maybe Text)
+-&gt; (StartRxNormInferenceJob
+    -&gt; Maybe Text -&gt; StartRxNormInferenceJob)
+-&gt; Lens
+     StartRxNormInferenceJob
+     StartRxNormInferenceJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212259"><span class="annot"><span class="annottext">Maybe Text
+kmsKey :: Maybe Text
+$sel:kmsKey:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212259"><span class="hs-identifier hs-var hs-var">kmsKey</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212259"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212258"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJob
+</span><a href="#local-6989586621679212258"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212257"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212257"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJob
+</span><a href="#local-6989586621679212258"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:kmsKey:StartRxNormInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AkmsKey%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">kmsKey</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212257"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The identifier of the job.</span><span>
+</span><span id="line-140"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_jobName"><span class="hs-identifier hs-type">startRxNormInferenceJob_jobName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span id="startRxNormInferenceJob_jobName"><span class="annot"><span class="annottext">startRxNormInferenceJob_jobName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartRxNormInferenceJob -&gt; f StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_jobName"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJob_jobName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJob -&gt; Maybe Text)
+-&gt; (StartRxNormInferenceJob
+    -&gt; Maybe Text -&gt; StartRxNormInferenceJob)
+-&gt; Lens
+     StartRxNormInferenceJob
+     StartRxNormInferenceJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212256"><span class="annot"><span class="annottext">Maybe Text
+jobName :: Maybe Text
+$sel:jobName:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212256"><span class="hs-identifier hs-var hs-var">jobName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212256"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212255"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJob
+</span><a href="#local-6989586621679212255"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212254"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212254"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJob
+</span><a href="#local-6989586621679212255"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobName:StartRxNormInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AjobName%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">jobName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212254"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | A unique identifier for the request. If you don\'t set the client</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- request token, Amazon Comprehend Medical generates one.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_clientRequestToken"><span class="hs-identifier hs-type">startRxNormInferenceJob_clientRequestToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="startRxNormInferenceJob_clientRequestToken"><span class="annot"><span class="annottext">startRxNormInferenceJob_clientRequestToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartRxNormInferenceJob -&gt; f StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_clientRequestToken"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJob_clientRequestToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJob -&gt; Maybe Text)
+-&gt; (StartRxNormInferenceJob
+    -&gt; Maybe Text -&gt; StartRxNormInferenceJob)
+-&gt; Lens
+     StartRxNormInferenceJob
+     StartRxNormInferenceJob
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212253"><span class="annot"><span class="annottext">Maybe Text
+clientRequestToken :: Maybe Text
+$sel:clientRequestToken:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212253"><span class="hs-identifier hs-var hs-var">clientRequestToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212253"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212252"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJob
+</span><a href="#local-6989586621679212252"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212251"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212251"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJob
+</span><a href="#local-6989586621679212252"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientRequestToken:StartRxNormInferenceJob' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AclientRequestToken%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212251"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | Specifies the format and location of the input data for the job.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_inputDataConfig"><span class="hs-identifier hs-type">startRxNormInferenceJob_inputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.InputDataConfig.html#InputDataConfig"><span class="hs-identifier hs-type">InputDataConfig</span></a></span><span>
+</span><span id="line-150"></span><span id="startRxNormInferenceJob_inputDataConfig"><span class="annot"><span class="annottext">startRxNormInferenceJob_inputDataConfig :: (InputDataConfig -&gt; f InputDataConfig)
+-&gt; StartRxNormInferenceJob -&gt; f StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_inputDataConfig"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJob_inputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJob -&gt; InputDataConfig)
+-&gt; (StartRxNormInferenceJob
+    -&gt; InputDataConfig -&gt; StartRxNormInferenceJob)
+-&gt; Lens
+     StartRxNormInferenceJob
+     StartRxNormInferenceJob
+     InputDataConfig
+     InputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212250"><span class="annot"><span class="annottext">InputDataConfig
+inputDataConfig :: InputDataConfig
+$sel:inputDataConfig:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; InputDataConfig
+</span><a href="#local-6989586621679212250"><span class="hs-identifier hs-var hs-var">inputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212250"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212249"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJob
+</span><a href="#local-6989586621679212249"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212248"><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212248"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJob
+</span><a href="#local-6989586621679212249"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDataConfig:StartRxNormInferenceJob' :: InputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AinputDataConfig%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212248"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Specifies where to send the output files.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_outputDataConfig"><span class="hs-identifier hs-type">startRxNormInferenceJob_outputDataConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.OutputDataConfig.html#OutputDataConfig"><span class="hs-identifier hs-type">OutputDataConfig</span></a></span><span>
+</span><span id="line-154"></span><span id="startRxNormInferenceJob_outputDataConfig"><span class="annot"><span class="annottext">startRxNormInferenceJob_outputDataConfig :: (OutputDataConfig -&gt; f OutputDataConfig)
+-&gt; StartRxNormInferenceJob -&gt; f StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_outputDataConfig"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJob_outputDataConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJob -&gt; OutputDataConfig)
+-&gt; (StartRxNormInferenceJob
+    -&gt; OutputDataConfig -&gt; StartRxNormInferenceJob)
+-&gt; Lens
+     StartRxNormInferenceJob
+     StartRxNormInferenceJob
+     OutputDataConfig
+     OutputDataConfig
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212247"><span class="annot"><span class="annottext">OutputDataConfig
+outputDataConfig :: OutputDataConfig
+$sel:outputDataConfig:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; OutputDataConfig
+</span><a href="#local-6989586621679212247"><span class="hs-identifier hs-var hs-var">outputDataConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212247"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212246"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJob
+</span><a href="#local-6989586621679212246"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212245"><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212245"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJob
+</span><a href="#local-6989586621679212246"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputDataConfig:StartRxNormInferenceJob' :: OutputDataConfig
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AoutputDataConfig%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212245"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the AWS Identity and Access Management</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- (IAM) role that grants Amazon Comprehend Medical read access to your</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- input data. For more information, see</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med Role-Based Permissions Required for Asynchronous Operations&gt;.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_dataAccessRoleArn"><span class="hs-identifier hs-type">startRxNormInferenceJob_dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-161"></span><span id="startRxNormInferenceJob_dataAccessRoleArn"><span class="annot"><span class="annottext">startRxNormInferenceJob_dataAccessRoleArn :: (Text -&gt; f Text)
+-&gt; StartRxNormInferenceJob -&gt; f StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_dataAccessRoleArn"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJob_dataAccessRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJob -&gt; Text)
+-&gt; (StartRxNormInferenceJob -&gt; Text -&gt; StartRxNormInferenceJob)
+-&gt; Lens StartRxNormInferenceJob StartRxNormInferenceJob Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212244"><span class="annot"><span class="annottext">Text
+dataAccessRoleArn :: Text
+$sel:dataAccessRoleArn:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Text
+</span><a href="#local-6989586621679212244"><span class="hs-identifier hs-var hs-var">dataAccessRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212244"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212243"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJob
+</span><a href="#local-6989586621679212243"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212242"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212242"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJob
+</span><a href="#local-6989586621679212243"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataAccessRoleArn:StartRxNormInferenceJob' :: Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AdataAccessRoleArn%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212242"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The language of the input documents. All documents must be in the same</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- language.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_languageCode"><span class="hs-identifier hs-type">startRxNormInferenceJob_languageCode</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.Types.LanguageCode.html#LanguageCode"><span class="hs-identifier hs-type">LanguageCode</span></a></span><span>
+</span><span id="line-166"></span><span id="startRxNormInferenceJob_languageCode"><span class="annot"><span class="annottext">startRxNormInferenceJob_languageCode :: (LanguageCode -&gt; f LanguageCode)
+-&gt; StartRxNormInferenceJob -&gt; f StartRxNormInferenceJob
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJob_languageCode"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJob_languageCode</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJob -&gt; LanguageCode)
+-&gt; (StartRxNormInferenceJob
+    -&gt; LanguageCode -&gt; StartRxNormInferenceJob)
+-&gt; Lens
+     StartRxNormInferenceJob
+     StartRxNormInferenceJob
+     LanguageCode
+     LanguageCode
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212241"><span class="annot"><span class="annottext">LanguageCode
+languageCode :: LanguageCode
+$sel:languageCode:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; LanguageCode
+</span><a href="#local-6989586621679212241"><span class="hs-identifier hs-var hs-var">languageCode</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212241"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212240"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJob
+</span><a href="#local-6989586621679212240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212239"><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJob
+</span><a href="#local-6989586621679212240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:languageCode:StartRxNormInferenceJob' :: LanguageCode
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AlanguageCode%3AStartRxNormInferenceJob%27"><span class="hs-identifier hs-var">languageCode</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-169"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-170"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse</span></a></span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679212235"><span class="annot"><span class="annottext">request :: StartRxNormInferenceJob -&gt; Request StartRxNormInferenceJob
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; StartRxNormInferenceJob -&gt; Request StartRxNormInferenceJob
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ComprehendMedical.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-173"></span><span>  </span><span id="local-6989586621679212231"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StartRxNormInferenceJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartRxNormInferenceJob)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StartRxNormInferenceJob))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StartRxNormInferenceJob
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse StartRxNormInferenceJob)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679212228"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212228"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679212227"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679212227"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679212226"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212226"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; StartRxNormInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var">StartRxNormInferenceJobResponse'</span></a></span><span>
+</span><span id="line-177"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; StartRxNormInferenceJobResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StartRxNormInferenceJobResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679212226"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StartRxNormInferenceJobResponse)
+-&gt; Either String Int
+-&gt; Either String StartRxNormInferenceJobResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212228"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-179"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212218"><span id="local-6989586621679212220"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span></span></span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212215"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span></span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679212211"><span class="annot"><span class="annottext">toHeaders :: StartRxNormInferenceJob -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StartRxNormInferenceJob -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-189"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ComprehendMedical_20181030.StartRxNormInferenceJob&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-192"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-194"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-195"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-196"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679212201"><span id="local-6989586621679212203"><span id="local-6989586621679212205"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-201"></span><span>  </span><span id="local-6989586621679212199"><span class="annot"><span class="annottext">toJSON :: StartRxNormInferenceJob -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob%27"><span class="hs-identifier hs-type">StartRxNormInferenceJob'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212191"><span id="local-6989586621679212192"><span id="local-6989586621679212193"><span id="local-6989586621679212194"><span id="local-6989586621679212195"><span id="local-6989586621679212196"><span id="local-6989586621679212197"><span class="annot"><span class="annottext">Maybe Text
+Text
+InputDataConfig
+LanguageCode
+OutputDataConfig
+languageCode :: LanguageCode
+dataAccessRoleArn :: Text
+outputDataConfig :: OutputDataConfig
+inputDataConfig :: InputDataConfig
+clientRequestToken :: Maybe Text
+jobName :: Maybe Text
+kmsKey :: Maybe Text
+$sel:languageCode:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; LanguageCode
+$sel:dataAccessRoleArn:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Text
+$sel:outputDataConfig:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; OutputDataConfig
+$sel:inputDataConfig:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; InputDataConfig
+$sel:clientRequestToken:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Maybe Text
+$sel:jobName:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Maybe Text
+$sel:kmsKey:StartRxNormInferenceJob' :: StartRxNormInferenceJob -&gt; Maybe Text
+</span><a href="#local-6989586621679212191"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-202"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;KMSKey&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212197"><span class="hs-identifier hs-var">kmsKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;JobName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212196"><span class="hs-identifier hs-var">jobName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ClientRequestToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212195"><span class="hs-identifier hs-var">clientRequestToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-209"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; InputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">InputDataConfig
+</span><a href="#local-6989586621679212194"><span class="hs-identifier hs-var">inputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-211"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputDataConfig&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; OutputDataConfig -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">OutputDataConfig
+</span><a href="#local-6989586621679212193"><span class="hs-identifier hs-var">outputDataConfig</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-213"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataAccessRoleArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679212192"><span class="hs-identifier hs-var">dataAccessRoleArn</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LanguageCode&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LanguageCode -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">LanguageCode
+</span><a href="#local-6989586621679212191"><span class="hs-identifier hs-var">languageCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679212185"><span class="annot"><span class="annottext">toPath :: StartRxNormInferenceJob -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; StartRxNormInferenceJob -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJob"><span class="hs-identifier hs-type">StartRxNormInferenceJob</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679212181"><span class="annot"><span class="annottext">toQuery :: StartRxNormInferenceJob -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StartRxNormInferenceJob -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | /See:/ 'newStartRxNormInferenceJobResponse' smart constructor.</span><span>
+</span><span id="line-225"></span><span id="local-6989586621679212178"><span id="local-6989586621679212179"></span></span><span class="hs-keyword">data</span><span> </span><span id="StartRxNormInferenceJobResponse"><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-var">StartRxNormInferenceJobResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StartRxNormInferenceJobResponse%27"><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var">StartRxNormInferenceJobResponse'</span></a></span></span><span>
+</span><span id="line-226"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The identifier of the job.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AjobId%3AStartRxNormInferenceJobResponse%27"><span class="annot"><span class="annottext">StartRxNormInferenceJobResponse -&gt; Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AjobId%3AStartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-229"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStartRxNormInferenceJobResponse%27"><span class="annot"><span class="annottext">StartRxNormInferenceJobResponse -&gt; Int
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AhttpStatus%3AStartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679212172"><span id="local-6989586621679212174"><span class="annot"><span class="annottext">StartRxNormInferenceJobResponse
+-&gt; StartRxNormInferenceJobResponse -&gt; Bool
+(StartRxNormInferenceJobResponse
+ -&gt; StartRxNormInferenceJobResponse -&gt; Bool)
+-&gt; (StartRxNormInferenceJobResponse
+    -&gt; StartRxNormInferenceJobResponse -&gt; Bool)
+-&gt; Eq StartRxNormInferenceJobResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StartRxNormInferenceJobResponse
+-&gt; StartRxNormInferenceJobResponse -&gt; Bool
+$c/= :: StartRxNormInferenceJobResponse
+-&gt; StartRxNormInferenceJobResponse -&gt; Bool
+== :: StartRxNormInferenceJobResponse
+-&gt; StartRxNormInferenceJobResponse -&gt; Bool
+$c== :: StartRxNormInferenceJobResponse
+-&gt; StartRxNormInferenceJobResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212164"><span id="local-6989586621679212166"><span id="local-6989586621679212168"><span id="local-6989586621679212170"><span class="annot"><span class="annottext">ReadPrec [StartRxNormInferenceJobResponse]
+ReadPrec StartRxNormInferenceJobResponse
+Int -&gt; ReadS StartRxNormInferenceJobResponse
+ReadS [StartRxNormInferenceJobResponse]
+(Int -&gt; ReadS StartRxNormInferenceJobResponse)
+-&gt; ReadS [StartRxNormInferenceJobResponse]
+-&gt; ReadPrec StartRxNormInferenceJobResponse
+-&gt; ReadPrec [StartRxNormInferenceJobResponse]
+-&gt; Read StartRxNormInferenceJobResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StartRxNormInferenceJobResponse]
+$creadListPrec :: ReadPrec [StartRxNormInferenceJobResponse]
+readPrec :: ReadPrec StartRxNormInferenceJobResponse
+$creadPrec :: ReadPrec StartRxNormInferenceJobResponse
+readList :: ReadS [StartRxNormInferenceJobResponse]
+$creadList :: ReadS [StartRxNormInferenceJobResponse]
+readsPrec :: Int -&gt; ReadS StartRxNormInferenceJobResponse
+$creadsPrec :: Int -&gt; ReadS StartRxNormInferenceJobResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679212158"><span id="local-6989586621679212160"><span id="local-6989586621679212162"><span class="annot"><span class="annottext">Int -&gt; StartRxNormInferenceJobResponse -&gt; ShowS
+[StartRxNormInferenceJobResponse] -&gt; ShowS
+StartRxNormInferenceJobResponse -&gt; String
+(Int -&gt; StartRxNormInferenceJobResponse -&gt; ShowS)
+-&gt; (StartRxNormInferenceJobResponse -&gt; String)
+-&gt; ([StartRxNormInferenceJobResponse] -&gt; ShowS)
+-&gt; Show StartRxNormInferenceJobResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StartRxNormInferenceJobResponse] -&gt; ShowS
+$cshowList :: [StartRxNormInferenceJobResponse] -&gt; ShowS
+show :: StartRxNormInferenceJobResponse -&gt; String
+$cshow :: StartRxNormInferenceJobResponse -&gt; String
+showsPrec :: Int -&gt; StartRxNormInferenceJobResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StartRxNormInferenceJobResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ StartRxNormInferenceJobResponse
+ -&gt; Rep StartRxNormInferenceJobResponse x)
+-&gt; (forall x.
+    Rep StartRxNormInferenceJobResponse x
+    -&gt; StartRxNormInferenceJobResponse)
+-&gt; Generic StartRxNormInferenceJobResponse
+forall x.
+Rep StartRxNormInferenceJobResponse x
+-&gt; StartRxNormInferenceJobResponse
+forall x.
+StartRxNormInferenceJobResponse
+-&gt; Rep StartRxNormInferenceJobResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep StartRxNormInferenceJobResponse x
+-&gt; StartRxNormInferenceJobResponse
+$cfrom :: forall x.
+StartRxNormInferenceJobResponse
+-&gt; Rep StartRxNormInferenceJobResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Create a value of 'StartRxNormInferenceJobResponse' with all optional fields omitted.</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- 'jobId', 'startRxNormInferenceJobResponse_jobId' - The identifier of the job.</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- 'httpStatus', 'startRxNormInferenceJobResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#newStartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">newStartRxNormInferenceJobResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-245"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse</span></a></span><span>
+</span><span id="line-248"></span><span id="newStartRxNormInferenceJobResponse"><span class="annot"><span class="annottext">newStartRxNormInferenceJobResponse :: Int -&gt; StartRxNormInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#newStartRxNormInferenceJobResponse"><span class="hs-identifier hs-var hs-var">newStartRxNormInferenceJobResponse</span></a></span></span><span> </span><span id="local-6989586621679212155"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>  </span><span class="annot"><span class="annottext">StartRxNormInferenceJobResponse' :: Maybe Text -&gt; Int -&gt; StartRxNormInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse'</span></a></span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:jobId:StartRxNormInferenceJobResponse' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AjobId%3AStartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-251"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StartRxNormInferenceJobResponse' :: Int
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AhttpStatus%3AStartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212155"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The identifier of the job.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJobResponse_jobId"><span class="hs-identifier hs-type">startRxNormInferenceJobResponse_jobId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="startRxNormInferenceJobResponse_jobId"><span class="annot"><span class="annottext">startRxNormInferenceJobResponse_jobId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StartRxNormInferenceJobResponse
+-&gt; f StartRxNormInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJobResponse_jobId"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJobResponse_jobId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJobResponse -&gt; Maybe Text)
+-&gt; (StartRxNormInferenceJobResponse
+    -&gt; Maybe Text -&gt; StartRxNormInferenceJobResponse)
+-&gt; Lens
+     StartRxNormInferenceJobResponse
+     StartRxNormInferenceJobResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212154"><span class="annot"><span class="annottext">Maybe Text
+jobId :: Maybe Text
+$sel:jobId:StartRxNormInferenceJobResponse' :: StartRxNormInferenceJobResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679212154"><span class="hs-identifier hs-var hs-var">jobId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212154"><span class="hs-identifier hs-var">jobId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212153"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJobResponse
+</span><a href="#local-6989586621679212153"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212152"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212152"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJobResponse
+</span><a href="#local-6989586621679212153"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:jobId:StartRxNormInferenceJobResponse' :: Maybe Text
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AjobId%3AStartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var">jobId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679212152"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJobResponse_httpStatus"><span class="hs-identifier hs-type">startRxNormInferenceJobResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-261"></span><span id="startRxNormInferenceJobResponse_httpStatus"><span class="annot"><span class="annottext">startRxNormInferenceJobResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; StartRxNormInferenceJobResponse
+-&gt; f StartRxNormInferenceJobResponse
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#startRxNormInferenceJobResponse_httpStatus"><span class="hs-identifier hs-var hs-var">startRxNormInferenceJobResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StartRxNormInferenceJobResponse -&gt; Int)
+-&gt; (StartRxNormInferenceJobResponse
+    -&gt; Int -&gt; StartRxNormInferenceJobResponse)
+-&gt; Lens
+     StartRxNormInferenceJobResponse
+     StartRxNormInferenceJobResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679212151"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StartRxNormInferenceJobResponse' :: StartRxNormInferenceJobResponse -&gt; Int
+</span><a href="#local-6989586621679212151"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212151"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679212150"><span class="annot"><span class="annottext">s :: StartRxNormInferenceJobResponse
+</span><a href="#local-6989586621679212150"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679212149"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212149"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StartRxNormInferenceJobResponse
+</span><a href="#local-6989586621679212150"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StartRxNormInferenceJobResponse' :: Int
+</span><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#%24sel%3AhttpStatus%3AStartRxNormInferenceJobResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679212149"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621679212147"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.ComprehendMedical.StartRxNormInferenceJob.html#StartRxNormInferenceJobResponse"><span class="hs-identifier hs-type">StartRxNormInferenceJobResponse</span></a></span></span><span>
+</span><span id="line-266"></span></pre></body></html>

@@ -1,0 +1,825 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudSearch.Types.DomainStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudSearch.Types.DomainStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.Limits.html"><span class="hs-identifier">Amazonka.CloudSearch.Types.Limits</span></a></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.ServiceEndpoint.html"><span class="hs-identifier">Amazonka.CloudSearch.Types.ServiceEndpoint</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | The current status of the search domain.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDomainStatus' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679209394"><span id="local-6989586621679209395"></span></span><span class="hs-keyword">data</span><span> </span><span id="DomainStatus"><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-var">DomainStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DomainStatus%27"><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-var">DomainStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The number of search instances that are available to process search</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- requests.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AsearchInstanceCount%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Natural
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchInstanceCount%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">searchInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The instance type that is being used to process search requests.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AsearchInstanceType%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchInstanceType%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">searchInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The service endpoint for updating documents in a search domain.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AdocService%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe ServiceEndpoint
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdocService%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">docService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aarn%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Aarn%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | True if the search domain is created. It can take several minutes to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- initialize a domain when CreateDomain is called. Newly created search</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- domains are returned from DescribeDomains with a false value for Created</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- until domain creation is complete.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Acreated%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Acreated%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The service endpoint for requesting search results from a search domain.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AsearchService%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe ServiceEndpoint
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchService%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">searchService</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3Alimits%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Limits
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Alimits%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">limits</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The number of partitions across which the search index is spread.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AsearchPartitionCount%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Natural
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchPartitionCount%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">searchPartitionCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | True if the search domain has been deleted. The system must clean up</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- resources dedicated to the search domain when DeleteDomain is called.</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- Newly deleted search domains are returned from DescribeDomains with a</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- true value for IsDeleted for several minutes until resource cleanup is</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Adeleted%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Adeleted%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">deleted</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | True if processing is being done to activate the current domain</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3Aprocessing%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Aprocessing%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">processing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AdomainId%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdomainId%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AdomainName%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdomainName%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | True if IndexDocuments needs to be called to activate the current domain</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3ArequiresIndexDocuments%3ADomainStatus%27"><span class="annot"><span class="annottext">DomainStatus -&gt; Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3ArequiresIndexDocuments%3ADomainStatus%27"><span class="hs-identifier hs-var hs-var">requiresIndexDocuments</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679209376"><span id="local-6989586621679209378"><span class="annot"><span class="annottext">DomainStatus -&gt; DomainStatus -&gt; Bool
+(DomainStatus -&gt; DomainStatus -&gt; Bool)
+-&gt; (DomainStatus -&gt; DomainStatus -&gt; Bool) -&gt; Eq DomainStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c/= :: DomainStatus -&gt; DomainStatus -&gt; Bool
+== :: DomainStatus -&gt; DomainStatus -&gt; Bool
+$c== :: DomainStatus -&gt; DomainStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209367"><span id="local-6989586621679209369"><span id="local-6989586621679209371"><span id="local-6989586621679209373"><span class="annot"><span class="annottext">ReadPrec [DomainStatus]
+ReadPrec DomainStatus
+Int -&gt; ReadS DomainStatus
+ReadS [DomainStatus]
+(Int -&gt; ReadS DomainStatus)
+-&gt; ReadS [DomainStatus]
+-&gt; ReadPrec DomainStatus
+-&gt; ReadPrec [DomainStatus]
+-&gt; Read DomainStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DomainStatus]
+$creadListPrec :: ReadPrec [DomainStatus]
+readPrec :: ReadPrec DomainStatus
+$creadPrec :: ReadPrec DomainStatus
+readList :: ReadS [DomainStatus]
+$creadList :: ReadS [DomainStatus]
+readsPrec :: Int -&gt; ReadS DomainStatus
+$creadsPrec :: Int -&gt; ReadS DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679209360"><span id="local-6989586621679209362"><span id="local-6989586621679209364"><span class="annot"><span class="annottext">Int -&gt; DomainStatus -&gt; ShowS
+[DomainStatus] -&gt; ShowS
+DomainStatus -&gt; String
+(Int -&gt; DomainStatus -&gt; ShowS)
+-&gt; (DomainStatus -&gt; String)
+-&gt; ([DomainStatus] -&gt; ShowS)
+-&gt; Show DomainStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DomainStatus] -&gt; ShowS
+$cshowList :: [DomainStatus] -&gt; ShowS
+show :: DomainStatus -&gt; String
+$cshow :: DomainStatus -&gt; String
+showsPrec :: Int -&gt; DomainStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; DomainStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DomainStatus -&gt; Rep DomainStatus x)
+-&gt; (forall x. Rep DomainStatus x -&gt; DomainStatus)
+-&gt; Generic DomainStatus
+forall x. Rep DomainStatus x -&gt; DomainStatus
+forall x. DomainStatus -&gt; Rep DomainStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DomainStatus x -&gt; DomainStatus
+$cfrom :: forall x. DomainStatus -&gt; Rep DomainStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Create a value of 'DomainStatus' with all optional fields omitted.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'searchInstanceCount', 'domainStatus_searchInstanceCount' - The number of search instances that are available to process search</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- requests.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'searchInstanceType', 'domainStatus_searchInstanceType' - The instance type that is being used to process search requests.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'docService', 'domainStatus_docService' - The service endpoint for updating documents in a search domain.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'arn', 'domainStatus_arn' - Undocumented member.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'created', 'domainStatus_created' - True if the search domain is created. It can take several minutes to</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- initialize a domain when CreateDomain is called. Newly created search</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- domains are returned from DescribeDomains with a false value for Created</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- until domain creation is complete.</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'searchService', 'domainStatus_searchService' - The service endpoint for requesting search results from a search domain.</span><span>
+</span><span id="line-90"></span><span class="hs-comment">--</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- 'limits', 'domainStatus_limits' - Undocumented member.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'searchPartitionCount', 'domainStatus_searchPartitionCount' - The number of partitions across which the search index is spread.</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'deleted', 'domainStatus_deleted' - True if the search domain has been deleted. The system must clean up</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- resources dedicated to the search domain when DeleteDomain is called.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- Newly deleted search domains are returned from DescribeDomains with a</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- true value for IsDeleted for several minutes until resource cleanup is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-100"></span><span class="hs-comment">--</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- 'processing', 'domainStatus_processing' - True if processing is being done to activate the current domain</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-103"></span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- 'domainId', 'domainStatus_domainId' - Undocumented member.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'domainName', 'domainStatus_domainName' - Undocumented member.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'requiresIndexDocuments', 'domainStatus_requiresIndexDocuments' - True if IndexDocuments needs to be called to activate the current domain</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#newDomainStatus"><span class="hs-identifier hs-type">newDomainStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-comment">-- | 'domainId'</span><span>
+</span><span id="line-112"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>  </span><span class="hs-comment">-- | 'domainName'</span><span>
+</span><span id="line-114"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-comment">-- | 'requiresIndexDocuments'</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span>
+</span><span id="line-118"></span><span id="newDomainStatus"><span class="annot"><span class="annottext">newDomainStatus :: Text -&gt; Text -&gt; Bool -&gt; DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#newDomainStatus"><span class="hs-identifier hs-var hs-var">newDomainStatus</span></a></span></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679209354"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209354"><span class="hs-identifier hs-var">pDomainId_</span></a></span></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679209353"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209353"><span class="hs-identifier hs-var">pDomainName_</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679209352"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679209352"><span class="hs-identifier hs-var">pRequiresIndexDocuments_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">DomainStatus' :: Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe ServiceEndpoint
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ServiceEndpoint
+-&gt; Maybe Limits
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; Bool
+-&gt; DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:searchInstanceCount:DomainStatus' :: Maybe Natural
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchInstanceCount%3ADomainStatus%27"><span class="hs-identifier hs-var">searchInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:searchInstanceType:DomainStatus' :: Maybe Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchInstanceType%3ADomainStatus%27"><span class="hs-identifier hs-var">searchInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:docService:DomainStatus' :: Maybe ServiceEndpoint
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdocService%3ADomainStatus%27"><span class="hs-identifier hs-var">docService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:DomainStatus' :: Maybe Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Aarn%3ADomainStatus%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">$sel:created:DomainStatus' :: Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Acreated%3ADomainStatus%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:searchService:DomainStatus' :: Maybe ServiceEndpoint
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchService%3ADomainStatus%27"><span class="hs-identifier hs-var">searchService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:limits:DomainStatus' :: Maybe Limits
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Alimits%3ADomainStatus%27"><span class="hs-identifier hs-var">limits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Limits
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>        </span><span class="annot"><span class="annottext">$sel:searchPartitionCount:DomainStatus' :: Maybe Natural
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchPartitionCount%3ADomainStatus%27"><span class="hs-identifier hs-var">searchPartitionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>        </span><span class="annot"><span class="annottext">$sel:deleted:DomainStatus' :: Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Adeleted%3ADomainStatus%27"><span class="hs-identifier hs-var">deleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>        </span><span class="annot"><span class="annottext">$sel:processing:DomainStatus' :: Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Aprocessing%3ADomainStatus%27"><span class="hs-identifier hs-var">processing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainId:DomainStatus' :: Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdomainId%3ADomainStatus%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209354"><span class="hs-identifier hs-var">pDomainId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">$sel:domainName:DomainStatus' :: Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdomainName%3ADomainStatus%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209353"><span class="hs-identifier hs-var">pDomainName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>        </span><span class="annot"><span class="annottext">$sel:requiresIndexDocuments:DomainStatus' :: Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3ArequiresIndexDocuments%3ADomainStatus%27"><span class="hs-identifier hs-var">requiresIndexDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679209352"><span class="hs-identifier hs-var">pRequiresIndexDocuments_</span></a></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- | The number of search instances that are available to process search</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- requests.</span><span>
+</span><span id="line-141"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchInstanceCount"><span class="hs-identifier hs-type">domainStatus_searchInstanceCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span id="domainStatus_searchInstanceCount"><span class="annot"><span class="annottext">domainStatus_searchInstanceCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchInstanceCount"><span class="hs-identifier hs-var hs-var">domainStatus_searchInstanceCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Natural)
+-&gt; (DomainStatus -&gt; Maybe Natural -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209348"><span class="annot"><span class="annottext">Maybe Natural
+searchInstanceCount :: Maybe Natural
+$sel:searchInstanceCount:DomainStatus' :: DomainStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679209348"><span class="hs-identifier hs-var hs-var">searchInstanceCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209348"><span class="hs-identifier hs-var">searchInstanceCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209347"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209347"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209346"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209346"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209347"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchInstanceCount:DomainStatus' :: Maybe Natural
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchInstanceCount%3ADomainStatus%27"><span class="hs-identifier hs-var">searchInstanceCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209346"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- | The instance type that is being used to process search requests.</span><span>
+</span><span id="line-145"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchInstanceType"><span class="hs-identifier hs-type">domainStatus_searchInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span id="domainStatus_searchInstanceType"><span class="annot"><span class="annottext">domainStatus_searchInstanceType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchInstanceType"><span class="hs-identifier hs-var hs-var">domainStatus_searchInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Text)
+-&gt; (DomainStatus -&gt; Maybe Text -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209344"><span class="annot"><span class="annottext">Maybe Text
+searchInstanceType :: Maybe Text
+$sel:searchInstanceType:DomainStatus' :: DomainStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679209344"><span class="hs-identifier hs-var hs-var">searchInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209344"><span class="hs-identifier hs-var">searchInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209343"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209343"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209342"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209342"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209343"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchInstanceType:DomainStatus' :: Maybe Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchInstanceType%3ADomainStatus%27"><span class="hs-identifier hs-var">searchInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209342"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | The service endpoint for updating documents in a search domain.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_docService"><span class="hs-identifier hs-type">domainStatus_docService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="domainStatus_docService"><span class="annot"><span class="annottext">domainStatus_docService :: (Maybe ServiceEndpoint -&gt; f (Maybe ServiceEndpoint))
+-&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_docService"><span class="hs-identifier hs-var hs-var">domainStatus_docService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe ServiceEndpoint)
+-&gt; (DomainStatus -&gt; Maybe ServiceEndpoint -&gt; DomainStatus)
+-&gt; Lens
+     DomainStatus
+     DomainStatus
+     (Maybe ServiceEndpoint)
+     (Maybe ServiceEndpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209340"><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+docService :: Maybe ServiceEndpoint
+$sel:docService:DomainStatus' :: DomainStatus -&gt; Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209340"><span class="hs-identifier hs-var hs-var">docService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209340"><span class="hs-identifier hs-var">docService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209339"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209339"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209338"><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209338"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209339"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:docService:DomainStatus' :: Maybe ServiceEndpoint
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdocService%3ADomainStatus%27"><span class="hs-identifier hs-var">docService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209338"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_arn"><span class="hs-identifier hs-type">domainStatus_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="domainStatus_arn"><span class="annot"><span class="annottext">domainStatus_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_arn"><span class="hs-identifier hs-var hs-var">domainStatus_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Text)
+-&gt; (DomainStatus -&gt; Maybe Text -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209336"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DomainStatus' :: DomainStatus -&gt; Maybe Text
+</span><a href="#local-6989586621679209336"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209336"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209335"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209335"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209334"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209334"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209335"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DomainStatus' :: Maybe Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Aarn%3ADomainStatus%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679209334"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | True if the search domain is created. It can take several minutes to</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- initialize a domain when CreateDomain is called. Newly created search</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- domains are returned from DescribeDomains with a false value for Created</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- until domain creation is complete.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_created"><span class="hs-identifier hs-type">domainStatus_created</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="domainStatus_created"><span class="annot"><span class="annottext">domainStatus_created :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_created"><span class="hs-identifier hs-var hs-var">domainStatus_created</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Bool)
+-&gt; (DomainStatus -&gt; Maybe Bool -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209332"><span class="annot"><span class="annottext">Maybe Bool
+created :: Maybe Bool
+$sel:created:DomainStatus' :: DomainStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621679209332"><span class="hs-identifier hs-var hs-var">created</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209332"><span class="hs-identifier hs-var">created</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209331"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209331"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209330"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209330"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209331"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:created:DomainStatus' :: Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Acreated%3ADomainStatus%27"><span class="hs-identifier hs-var">created</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209330"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | The service endpoint for requesting search results from a search domain.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchService"><span class="hs-identifier hs-type">domainStatus_searchService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.ServiceEndpoint.html#ServiceEndpoint"><span class="hs-identifier hs-type">ServiceEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="domainStatus_searchService"><span class="annot"><span class="annottext">domainStatus_searchService :: (Maybe ServiceEndpoint -&gt; f (Maybe ServiceEndpoint))
+-&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchService"><span class="hs-identifier hs-var hs-var">domainStatus_searchService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe ServiceEndpoint)
+-&gt; (DomainStatus -&gt; Maybe ServiceEndpoint -&gt; DomainStatus)
+-&gt; Lens
+     DomainStatus
+     DomainStatus
+     (Maybe ServiceEndpoint)
+     (Maybe ServiceEndpoint)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209328"><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+searchService :: Maybe ServiceEndpoint
+$sel:searchService:DomainStatus' :: DomainStatus -&gt; Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209328"><span class="hs-identifier hs-var hs-var">searchService</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209328"><span class="hs-identifier hs-var">searchService</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209327"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209326"><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchService:DomainStatus' :: Maybe ServiceEndpoint
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchService%3ADomainStatus%27"><span class="hs-identifier hs-var">searchService</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ServiceEndpoint
+</span><a href="#local-6989586621679209326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_limits"><span class="hs-identifier hs-type">domainStatus_limits</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.Limits.html#Limits"><span class="hs-identifier hs-type">Limits</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="domainStatus_limits"><span class="annot"><span class="annottext">domainStatus_limits :: (Maybe Limits -&gt; f (Maybe Limits))
+-&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_limits"><span class="hs-identifier hs-var hs-var">domainStatus_limits</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Limits)
+-&gt; (DomainStatus -&gt; Maybe Limits -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Limits) (Maybe Limits)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209324"><span class="annot"><span class="annottext">Maybe Limits
+limits :: Maybe Limits
+$sel:limits:DomainStatus' :: DomainStatus -&gt; Maybe Limits
+</span><a href="#local-6989586621679209324"><span class="hs-identifier hs-var hs-var">limits</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Limits
+</span><a href="#local-6989586621679209324"><span class="hs-identifier hs-var">limits</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209323"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209323"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209322"><span class="annot"><span class="annottext">Maybe Limits
+</span><a href="#local-6989586621679209322"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209323"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limits:DomainStatus' :: Maybe Limits
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Alimits%3ADomainStatus%27"><span class="hs-identifier hs-var">limits</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Limits
+</span><a href="#local-6989586621679209322"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The number of partitions across which the search index is spread.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchPartitionCount"><span class="hs-identifier hs-type">domainStatus_searchPartitionCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="domainStatus_searchPartitionCount"><span class="annot"><span class="annottext">domainStatus_searchPartitionCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_searchPartitionCount"><span class="hs-identifier hs-var hs-var">domainStatus_searchPartitionCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Natural)
+-&gt; (DomainStatus -&gt; Maybe Natural -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209320"><span class="annot"><span class="annottext">Maybe Natural
+searchPartitionCount :: Maybe Natural
+$sel:searchPartitionCount:DomainStatus' :: DomainStatus -&gt; Maybe Natural
+</span><a href="#local-6989586621679209320"><span class="hs-identifier hs-var hs-var">searchPartitionCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209320"><span class="hs-identifier hs-var">searchPartitionCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209319"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209319"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209318"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209318"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209319"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:searchPartitionCount:DomainStatus' :: Maybe Natural
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AsearchPartitionCount%3ADomainStatus%27"><span class="hs-identifier hs-var">searchPartitionCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679209318"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | True if the search domain has been deleted. The system must clean up</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- resources dedicated to the search domain when DeleteDomain is called.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Newly deleted search domains are returned from DescribeDomains with a</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- true value for IsDeleted for several minutes until resource cleanup is</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- complete.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_deleted"><span class="hs-identifier hs-type">domainStatus_deleted</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="domainStatus_deleted"><span class="annot"><span class="annottext">domainStatus_deleted :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_deleted"><span class="hs-identifier hs-var hs-var">domainStatus_deleted</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Bool)
+-&gt; (DomainStatus -&gt; Maybe Bool -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209316"><span class="annot"><span class="annottext">Maybe Bool
+deleted :: Maybe Bool
+$sel:deleted:DomainStatus' :: DomainStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var hs-var">deleted</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209316"><span class="hs-identifier hs-var">deleted</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209315"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209314"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209314"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209315"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deleted:DomainStatus' :: Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Adeleted%3ADomainStatus%27"><span class="hs-identifier hs-var">deleted</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209314"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | True if processing is being done to activate the current domain</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_processing"><span class="hs-identifier hs-type">domainStatus_processing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="domainStatus_processing"><span class="annot"><span class="annottext">domainStatus_processing :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_processing"><span class="hs-identifier hs-var hs-var">domainStatus_processing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Maybe Bool)
+-&gt; (DomainStatus -&gt; Maybe Bool -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209312"><span class="annot"><span class="annottext">Maybe Bool
+processing :: Maybe Bool
+$sel:processing:DomainStatus' :: DomainStatus -&gt; Maybe Bool
+</span><a href="#local-6989586621679209312"><span class="hs-identifier hs-var hs-var">processing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209312"><span class="hs-identifier hs-var">processing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209311"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209310"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:processing:DomainStatus' :: Maybe Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3Aprocessing%3ADomainStatus%27"><span class="hs-identifier hs-var">processing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679209310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_domainId"><span class="hs-identifier hs-type">domainStatus_domainId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-190"></span><span id="domainStatus_domainId"><span class="annot"><span class="annottext">domainStatus_domainId :: (Text -&gt; f Text) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_domainId"><span class="hs-identifier hs-var hs-var">domainStatus_domainId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Text)
+-&gt; (DomainStatus -&gt; Text -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209308"><span class="annot"><span class="annottext">Text
+domainId :: Text
+$sel:domainId:DomainStatus' :: DomainStatus -&gt; Text
+</span><a href="#local-6989586621679209308"><span class="hs-identifier hs-var hs-var">domainId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209308"><span class="hs-identifier hs-var">domainId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209307"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209306"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainId:DomainStatus' :: Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdomainId%3ADomainStatus%27"><span class="hs-identifier hs-var">domainId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_domainName"><span class="hs-identifier hs-type">domainStatus_domainName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-194"></span><span id="domainStatus_domainName"><span class="annot"><span class="annottext">domainStatus_domainName :: (Text -&gt; f Text) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_domainName"><span class="hs-identifier hs-var hs-var">domainStatus_domainName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Text)
+-&gt; (DomainStatus -&gt; Text -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209304"><span class="annot"><span class="annottext">Text
+domainName :: Text
+$sel:domainName:DomainStatus' :: DomainStatus -&gt; Text
+</span><a href="#local-6989586621679209304"><span class="hs-identifier hs-var hs-var">domainName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209304"><span class="hs-identifier hs-var">domainName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209303"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209303"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209302"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209302"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209303"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domainName:DomainStatus' :: Text
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3AdomainName%3ADomainStatus%27"><span class="hs-identifier hs-var">domainName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679209302"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- | True if IndexDocuments needs to be called to activate the current domain</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- configuration.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_requiresIndexDocuments"><span class="hs-identifier hs-type">domainStatus_requiresIndexDocuments</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span>
+</span><span id="line-199"></span><span id="domainStatus_requiresIndexDocuments"><span class="annot"><span class="annottext">domainStatus_requiresIndexDocuments :: (Bool -&gt; f Bool) -&gt; DomainStatus -&gt; f DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#domainStatus_requiresIndexDocuments"><span class="hs-identifier hs-var hs-var">domainStatus_requiresIndexDocuments</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DomainStatus -&gt; Bool)
+-&gt; (DomainStatus -&gt; Bool -&gt; DomainStatus)
+-&gt; Lens DomainStatus DomainStatus Bool Bool
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679209300"><span class="annot"><span class="annottext">Bool
+requiresIndexDocuments :: Bool
+$sel:requiresIndexDocuments:DomainStatus' :: DomainStatus -&gt; Bool
+</span><a href="#local-6989586621679209300"><span class="hs-identifier hs-var hs-var">requiresIndexDocuments</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679209300"><span class="hs-identifier hs-var">requiresIndexDocuments</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679209299"><span class="annot"><span class="annottext">s :: DomainStatus
+</span><a href="#local-6989586621679209299"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-type">DomainStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679209298"><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679209298"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DomainStatus
+</span><a href="#local-6989586621679209299"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requiresIndexDocuments:DomainStatus' :: Bool
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#%24sel%3ArequiresIndexDocuments%3ADomainStatus%27"><span class="hs-identifier hs-var">requiresIndexDocuments</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><a href="#local-6989586621679209298"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679209295"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String DomainStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679209293"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe ServiceEndpoint
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe ServiceEndpoint
+-&gt; Maybe Limits
+-&gt; Maybe Natural
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; Text
+-&gt; Bool
+-&gt; DomainStatus
+</span><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus%27"><span class="hs-identifier hs-var">DomainStatus'</span></a></span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe ServiceEndpoint
+ -&gt; Maybe Text
+ -&gt; Maybe Bool
+ -&gt; Maybe ServiceEndpoint
+ -&gt; Maybe Limits
+ -&gt; Maybe Natural
+ -&gt; Maybe Bool
+ -&gt; Maybe Bool
+ -&gt; Text
+ -&gt; Text
+ -&gt; Bool
+ -&gt; DomainStatus)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe ServiceEndpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ServiceEndpoint
+      -&gt; Maybe Limits
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SearchInstanceCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe ServiceEndpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ServiceEndpoint
+   -&gt; Maybe Limits
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; DomainStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe ServiceEndpoint
+      -&gt; Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ServiceEndpoint
+      -&gt; Maybe Limits
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SearchInstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ServiceEndpoint
+   -&gt; Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ServiceEndpoint
+   -&gt; Maybe Limits
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; DomainStatus)
+-&gt; Either String (Maybe ServiceEndpoint)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Bool
+      -&gt; Maybe ServiceEndpoint
+      -&gt; Maybe Limits
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ServiceEndpoint)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DocService&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Bool
+   -&gt; Maybe ServiceEndpoint
+   -&gt; Maybe Limits
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; DomainStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Bool
+      -&gt; Maybe ServiceEndpoint
+      -&gt; Maybe Limits
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool
+   -&gt; Maybe ServiceEndpoint
+   -&gt; Maybe Limits
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; DomainStatus)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String
+     (Maybe ServiceEndpoint
+      -&gt; Maybe Limits
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Created&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe ServiceEndpoint
+   -&gt; Maybe Limits
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; DomainStatus)
+-&gt; Either String (Maybe ServiceEndpoint)
+-&gt; Either
+     String
+     (Maybe Limits
+      -&gt; Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ServiceEndpoint)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SearchService&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Limits
+   -&gt; Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; DomainStatus)
+-&gt; Either String (Maybe Limits)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Maybe Bool
+      -&gt; Maybe Bool
+      -&gt; Text
+      -&gt; Text
+      -&gt; Bool
+      -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Limits)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Limits&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Maybe Bool
+   -&gt; Maybe Bool
+   -&gt; Text
+   -&gt; Text
+   -&gt; Bool
+   -&gt; DomainStatus)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Maybe Bool -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; Bool -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SearchPartitionCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Bool -&gt; Maybe Bool -&gt; Text -&gt; Text -&gt; Bool -&gt; DomainStatus)
+-&gt; Either String (Maybe Bool)
+-&gt; Either
+     String (Maybe Bool -&gt; Text -&gt; Text -&gt; Bool -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Deleted&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Bool -&gt; Text -&gt; Text -&gt; Bool -&gt; DomainStatus)
+-&gt; Either String (Maybe Bool)
+-&gt; Either String (Text -&gt; Text -&gt; Bool -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Bool)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Processing&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; Bool -&gt; DomainStatus)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; Bool -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">Either String (Text -&gt; Bool -&gt; DomainStatus)
+-&gt; Either String Text -&gt; Either String (Bool -&gt; DomainStatus)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Text
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DomainName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">Either String (Bool -&gt; DomainStatus)
+-&gt; Either String Bool -&gt; Either String DomainStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679209293"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Bool
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequiresIndexDocuments&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209286"><span id="local-6989586621679209288"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span></span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679209283"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CloudSearch.Types.DomainStatus.html#DomainStatus"><span class="hs-identifier hs-type">DomainStatus</span></a></span></span><span>
+</span><span id="line-221"></span></pre></body></html>

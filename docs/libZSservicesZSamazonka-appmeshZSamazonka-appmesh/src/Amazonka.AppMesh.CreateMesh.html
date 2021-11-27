@@ -1,0 +1,562 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppMesh.CreateMesh</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a service mesh.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- A service mesh is a logical boundary for network traffic between</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- services that are represented by resources within the mesh. After you</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- create your service mesh, you can create virtual services, virtual</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- nodes, virtual routers, and routes to distribute traffic between the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- applications in your mesh.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- For more information about service meshes, see</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/app-mesh/latest/userguide/meshes.html Service meshes&gt;.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppMesh.CreateMesh</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier">CreateMesh</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#newCreateMesh"><span class="hs-identifier">newCreateMesh</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_clientToken"><span class="hs-identifier">createMesh_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_spec"><span class="hs-identifier">createMesh_spec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_tags"><span class="hs-identifier">createMesh_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_meshName"><span class="hs-identifier">createMesh_meshName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier">CreateMeshResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#newCreateMeshResponse"><span class="hs-identifier">newCreateMeshResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMeshResponse_httpStatus"><span class="hs-identifier">createMeshResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMeshResponse_mesh"><span class="hs-identifier">createMeshResponse_mesh</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.html"><span class="hs-identifier">Amazonka.AppMesh.Types</span></a></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- /See:/ 'newCreateMesh' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679351406"><span id="local-6989586621679351407"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMesh"><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-var">CreateMesh</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMesh%27"><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-var">CreateMesh'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateMesh%27"><span class="annot"><span class="annottext">CreateMesh -&gt; Maybe Text
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AclientToken%3ACreateMesh%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The service mesh specification to apply.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Aspec%3ACreateMesh%27"><span class="annot"><span class="annottext">CreateMesh -&gt; Maybe MeshSpec
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Aspec%3ACreateMesh%27"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshSpec.html#MeshSpec"><span class="hs-identifier hs-type">MeshSpec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | Optional metadata that you can apply to the service mesh to assist with</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Atags%3ACreateMesh%27"><span class="annot"><span class="annottext">CreateMesh -&gt; Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Atags%3ACreateMesh%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.TagRef.html#TagRef"><span class="hs-identifier hs-type">TagRef</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The name to use for the service mesh.</span><span>
+</span><span id="line-78"></span><span>    </span><span id="%24sel%3AmeshName%3ACreateMesh%27"><span class="annot"><span class="annottext">CreateMesh -&gt; Text
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AmeshName%3ACreateMesh%27"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351397"><span id="local-6989586621679351399"><span class="annot"><span class="annottext">CreateMesh -&gt; CreateMesh -&gt; Bool
+(CreateMesh -&gt; CreateMesh -&gt; Bool)
+-&gt; (CreateMesh -&gt; CreateMesh -&gt; Bool) -&gt; Eq CreateMesh
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateMesh -&gt; CreateMesh -&gt; Bool
+$c/= :: CreateMesh -&gt; CreateMesh -&gt; Bool
+== :: CreateMesh -&gt; CreateMesh -&gt; Bool
+$c== :: CreateMesh -&gt; CreateMesh -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351388"><span id="local-6989586621679351390"><span id="local-6989586621679351392"><span id="local-6989586621679351394"><span class="annot"><span class="annottext">ReadPrec [CreateMesh]
+ReadPrec CreateMesh
+Int -&gt; ReadS CreateMesh
+ReadS [CreateMesh]
+(Int -&gt; ReadS CreateMesh)
+-&gt; ReadS [CreateMesh]
+-&gt; ReadPrec CreateMesh
+-&gt; ReadPrec [CreateMesh]
+-&gt; Read CreateMesh
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateMesh]
+$creadListPrec :: ReadPrec [CreateMesh]
+readPrec :: ReadPrec CreateMesh
+$creadPrec :: ReadPrec CreateMesh
+readList :: ReadS [CreateMesh]
+$creadList :: ReadS [CreateMesh]
+readsPrec :: Int -&gt; ReadS CreateMesh
+$creadsPrec :: Int -&gt; ReadS CreateMesh
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351381"><span id="local-6989586621679351383"><span id="local-6989586621679351385"><span class="annot"><span class="annottext">Int -&gt; CreateMesh -&gt; ShowS
+[CreateMesh] -&gt; ShowS
+CreateMesh -&gt; String
+(Int -&gt; CreateMesh -&gt; ShowS)
+-&gt; (CreateMesh -&gt; String)
+-&gt; ([CreateMesh] -&gt; ShowS)
+-&gt; Show CreateMesh
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateMesh] -&gt; ShowS
+$cshowList :: [CreateMesh] -&gt; ShowS
+show :: CreateMesh -&gt; String
+$cshow :: CreateMesh -&gt; String
+showsPrec :: Int -&gt; CreateMesh -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateMesh -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateMesh -&gt; Rep CreateMesh x)
+-&gt; (forall x. Rep CreateMesh x -&gt; CreateMesh) -&gt; Generic CreateMesh
+forall x. Rep CreateMesh x -&gt; CreateMesh
+forall x. CreateMesh -&gt; Rep CreateMesh x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateMesh x -&gt; CreateMesh
+$cfrom :: forall x. CreateMesh -&gt; Rep CreateMesh x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Create a value of 'CreateMesh' with all optional fields omitted.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'clientToken', 'createMesh_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'spec', 'createMesh_spec' - The service mesh specification to apply.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'tags', 'createMesh_tags' - Optional metadata that you can apply to the service mesh to assist with</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'meshName', 'createMesh_meshName' - The name to use for the service mesh.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#newCreateMesh"><span class="hs-identifier hs-type">newCreateMesh</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'meshName'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span>
+</span><span id="line-107"></span><span id="newCreateMesh"><span class="annot"><span class="annottext">newCreateMesh :: Text -&gt; CreateMesh
+</span><a href="Amazonka.AppMesh.CreateMesh.html#newCreateMesh"><span class="hs-identifier hs-var hs-var">newCreateMesh</span></a></span></span><span> </span><span id="local-6989586621679351376"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351376"><span class="hs-identifier hs-var">pMeshName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>  </span><span class="annot"><span class="annottext">CreateMesh' :: Maybe Text
+-&gt; Maybe MeshSpec -&gt; Maybe [TagRef] -&gt; Text -&gt; CreateMesh
+</span><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateMesh' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AclientToken%3ACreateMesh%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>      </span><span class="annot"><span class="annottext">$sel:spec:CreateMesh' :: Maybe MeshSpec
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Aspec%3ACreateMesh%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MeshSpec
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateMesh' :: Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Atags%3ACreateMesh%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">$sel:meshName:CreateMesh' :: Text
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AmeshName%3ACreateMesh%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351376"><span class="hs-identifier hs-var">pMeshName_</span></a></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- idempotency of the request. Up to 36 letters, numbers, hyphens, and</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- underscores are allowed.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_clientToken"><span class="hs-identifier hs-type">createMesh_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span id="createMesh_clientToken"><span class="annot"><span class="annottext">createMesh_clientToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; CreateMesh -&gt; f CreateMesh
+</span><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_clientToken"><span class="hs-identifier hs-var hs-var">createMesh_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMesh -&gt; Maybe Text)
+-&gt; (CreateMesh -&gt; Maybe Text -&gt; CreateMesh)
+-&gt; Lens CreateMesh CreateMesh (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351373"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateMesh' :: CreateMesh -&gt; Maybe Text
+</span><a href="#local-6989586621679351373"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351373"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351372"><span class="annot"><span class="annottext">s :: CreateMesh
+</span><a href="#local-6989586621679351372"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351371"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351371"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMesh
+</span><a href="#local-6989586621679351372"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateMesh' :: Maybe Text
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AclientToken%3ACreateMesh%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351371"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | The service mesh specification to apply.</span><span>
+</span><span id="line-122"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_spec"><span class="hs-identifier hs-type">createMesh_spec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshSpec.html#MeshSpec"><span class="hs-identifier hs-type">MeshSpec</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span id="createMesh_spec"><span class="annot"><span class="annottext">createMesh_spec :: (Maybe MeshSpec -&gt; f (Maybe MeshSpec))
+-&gt; CreateMesh -&gt; f CreateMesh
+</span><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_spec"><span class="hs-identifier hs-var hs-var">createMesh_spec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMesh -&gt; Maybe MeshSpec)
+-&gt; (CreateMesh -&gt; Maybe MeshSpec -&gt; CreateMesh)
+-&gt; Lens CreateMesh CreateMesh (Maybe MeshSpec) (Maybe MeshSpec)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351370"><span class="annot"><span class="annottext">Maybe MeshSpec
+spec :: Maybe MeshSpec
+$sel:spec:CreateMesh' :: CreateMesh -&gt; Maybe MeshSpec
+</span><a href="#local-6989586621679351370"><span class="hs-identifier hs-var hs-var">spec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MeshSpec
+</span><a href="#local-6989586621679351370"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351369"><span class="annot"><span class="annottext">s :: CreateMesh
+</span><a href="#local-6989586621679351369"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351368"><span class="annot"><span class="annottext">Maybe MeshSpec
+</span><a href="#local-6989586621679351368"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMesh
+</span><a href="#local-6989586621679351369"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:spec:CreateMesh' :: Maybe MeshSpec
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Aspec%3ACreateMesh%27"><span class="hs-identifier hs-var">spec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MeshSpec
+</span><a href="#local-6989586621679351368"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- | Optional metadata that you can apply to the service mesh to assist with</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- categorization and organization. Each tag consists of a key and an</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- optional value, both of which you define. Tag keys can have a maximum</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- character length of 128 characters, and tag values can have a maximum</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- length of 256 characters.</span><span>
+</span><span id="line-130"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_tags"><span class="hs-identifier hs-type">createMesh_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.AppMesh.Types.TagRef.html#TagRef"><span class="hs-identifier hs-type">TagRef</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span id="createMesh_tags"><span class="annot"><span class="annottext">createMesh_tags :: (Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; CreateMesh -&gt; f CreateMesh
+</span><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_tags"><span class="hs-identifier hs-var hs-var">createMesh_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMesh -&gt; Maybe [TagRef])
+-&gt; (CreateMesh -&gt; Maybe [TagRef] -&gt; CreateMesh)
+-&gt; Lens CreateMesh CreateMesh (Maybe [TagRef]) (Maybe [TagRef])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351367"><span class="annot"><span class="annottext">Maybe [TagRef]
+tags :: Maybe [TagRef]
+$sel:tags:CreateMesh' :: CreateMesh -&gt; Maybe [TagRef]
+</span><a href="#local-6989586621679351367"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351367"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351366"><span class="annot"><span class="annottext">s :: CreateMesh
+</span><a href="#local-6989586621679351366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351365"><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMesh
+</span><a href="#local-6989586621679351366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateMesh' :: Maybe [TagRef]
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Atags%3ACreateMesh%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+ -&gt; CreateMesh -&gt; f CreateMesh)
+-&gt; ((Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+    -&gt; Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; (Maybe [TagRef] -&gt; f (Maybe [TagRef]))
+-&gt; CreateMesh
+-&gt; f CreateMesh
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagRef] [TagRef] [TagRef] [TagRef]
+-&gt; Iso
+     (Maybe [TagRef]) (Maybe [TagRef]) (Maybe [TagRef]) (Maybe [TagRef])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagRef] [TagRef] [TagRef] [TagRef]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- | The name to use for the service mesh.</span><span>
+</span><span id="line-134"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_meshName"><span class="hs-identifier hs-type">createMesh_meshName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-135"></span><span id="createMesh_meshName"><span class="annot"><span class="annottext">createMesh_meshName :: (Text -&gt; f Text) -&gt; CreateMesh -&gt; f CreateMesh
+</span><a href="Amazonka.AppMesh.CreateMesh.html#createMesh_meshName"><span class="hs-identifier hs-var hs-var">createMesh_meshName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMesh -&gt; Text)
+-&gt; (CreateMesh -&gt; Text -&gt; CreateMesh)
+-&gt; Lens CreateMesh CreateMesh Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351361"><span class="annot"><span class="annottext">Text
+meshName :: Text
+$sel:meshName:CreateMesh' :: CreateMesh -&gt; Text
+</span><a href="#local-6989586621679351361"><span class="hs-identifier hs-var hs-var">meshName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351361"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351360"><span class="annot"><span class="annottext">s :: CreateMesh
+</span><a href="#local-6989586621679351360"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351359"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351359"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMesh
+</span><a href="#local-6989586621679351360"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:meshName:CreateMesh' :: Text
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AmeshName%3ACreateMesh%27"><span class="hs-identifier hs-var">meshName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351359"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-type">CreateMeshResponse</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679351355"><span class="annot"><span class="annottext">request :: CreateMesh -&gt; Request CreateMesh
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateMesh -&gt; Request CreateMesh
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppMesh.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679351351"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateMesh
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateMesh)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateMesh))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateMesh
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateMesh)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679351348"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351348"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679351347"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679351347"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679351346"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351346"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; MeshData -&gt; CreateMeshResponse
+</span><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse%27"><span class="hs-identifier hs-var">CreateMeshResponse'</span></a></span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; MeshData -&gt; CreateMeshResponse)
+-&gt; Either String Int
+-&gt; Either String (MeshData -&gt; CreateMeshResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351348"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>            </span><span class="annot"><span class="annottext">Either String (MeshData -&gt; CreateMeshResponse)
+-&gt; Either String MeshData -&gt; Either String CreateMeshResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Either String MeshData
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351346"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351338"><span id="local-6989586621679351340"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span></span></span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-153"></span><span>  </span><span id="local-6989586621679351331"><span class="annot"><span class="annottext">toHeaders :: CreateMesh -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateMesh -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-155"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-157"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-158"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-159"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351321"><span id="local-6989586621679351323"><span id="local-6989586621679351325"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679351319"><span class="annot"><span class="annottext">toJSON :: CreateMesh -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh%27"><span class="hs-identifier hs-type">CreateMesh'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351314"><span id="local-6989586621679351315"><span id="local-6989586621679351316"><span id="local-6989586621679351317"><span class="annot"><span class="annottext">Maybe [TagRef]
+Maybe Text
+Maybe MeshSpec
+Text
+meshName :: Text
+tags :: Maybe [TagRef]
+spec :: Maybe MeshSpec
+clientToken :: Maybe Text
+$sel:meshName:CreateMesh' :: CreateMesh -&gt; Text
+$sel:tags:CreateMesh' :: CreateMesh -&gt; Maybe [TagRef]
+$sel:spec:CreateMesh' :: CreateMesh -&gt; Maybe MeshSpec
+$sel:clientToken:CreateMesh' :: CreateMesh -&gt; Maybe Text
+</span><a href="#local-6989586621679351314"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-166"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-167"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351317"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;spec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; MeshSpec -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(MeshSpec -&gt; Pair) -&gt; Maybe MeshSpec -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe MeshSpec
+</span><a href="#local-6989586621679351316"><span class="hs-identifier hs-var">spec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagRef] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagRef] -&gt; Pair) -&gt; Maybe [TagRef] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagRef]
+</span><a href="#local-6989586621679351315"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;meshName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351314"><span class="hs-identifier hs-var">meshName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679351308"><span class="annot"><span class="annottext">toPath :: CreateMesh -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateMesh -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v20190125/meshes&quot;</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMesh"><span class="hs-identifier hs-type">CreateMesh</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679351304"><span class="annot"><span class="annottext">toQuery :: CreateMesh -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateMesh -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-179"></span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- /See:/ 'newCreateMeshResponse' smart constructor.</span><span>
+</span><span id="line-183"></span><span id="local-6989586621679351301"><span id="local-6989586621679351302"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateMeshResponse"><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-var">CreateMeshResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateMeshResponse%27"><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse%27"><span class="hs-identifier hs-var">CreateMeshResponse'</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateMeshResponse%27"><span class="annot"><span class="annottext">CreateMeshResponse -&gt; Int
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AhttpStatus%3ACreateMeshResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The full description of your service mesh following the create call.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3Amesh%3ACreateMeshResponse%27"><span class="annot"><span class="annottext">CreateMeshResponse -&gt; MeshData
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Amesh%3ACreateMeshResponse%27"><span class="hs-identifier hs-var hs-var">mesh</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshData.html#MeshData"><span class="hs-identifier hs-type">MeshData</span></a></span><span>
+</span><span id="line-188"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351295"><span id="local-6989586621679351297"><span class="annot"><span class="annottext">CreateMeshResponse -&gt; CreateMeshResponse -&gt; Bool
+(CreateMeshResponse -&gt; CreateMeshResponse -&gt; Bool)
+-&gt; (CreateMeshResponse -&gt; CreateMeshResponse -&gt; Bool)
+-&gt; Eq CreateMeshResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateMeshResponse -&gt; CreateMeshResponse -&gt; Bool
+$c/= :: CreateMeshResponse -&gt; CreateMeshResponse -&gt; Bool
+== :: CreateMeshResponse -&gt; CreateMeshResponse -&gt; Bool
+$c== :: CreateMeshResponse -&gt; CreateMeshResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351287"><span id="local-6989586621679351289"><span id="local-6989586621679351291"><span id="local-6989586621679351293"><span class="annot"><span class="annottext">ReadPrec [CreateMeshResponse]
+ReadPrec CreateMeshResponse
+Int -&gt; ReadS CreateMeshResponse
+ReadS [CreateMeshResponse]
+(Int -&gt; ReadS CreateMeshResponse)
+-&gt; ReadS [CreateMeshResponse]
+-&gt; ReadPrec CreateMeshResponse
+-&gt; ReadPrec [CreateMeshResponse]
+-&gt; Read CreateMeshResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateMeshResponse]
+$creadListPrec :: ReadPrec [CreateMeshResponse]
+readPrec :: ReadPrec CreateMeshResponse
+$creadPrec :: ReadPrec CreateMeshResponse
+readList :: ReadS [CreateMeshResponse]
+$creadList :: ReadS [CreateMeshResponse]
+readsPrec :: Int -&gt; ReadS CreateMeshResponse
+$creadsPrec :: Int -&gt; ReadS CreateMeshResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351281"><span id="local-6989586621679351283"><span id="local-6989586621679351285"><span class="annot"><span class="annottext">Int -&gt; CreateMeshResponse -&gt; ShowS
+[CreateMeshResponse] -&gt; ShowS
+CreateMeshResponse -&gt; String
+(Int -&gt; CreateMeshResponse -&gt; ShowS)
+-&gt; (CreateMeshResponse -&gt; String)
+-&gt; ([CreateMeshResponse] -&gt; ShowS)
+-&gt; Show CreateMeshResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateMeshResponse] -&gt; ShowS
+$cshowList :: [CreateMeshResponse] -&gt; ShowS
+show :: CreateMeshResponse -&gt; String
+$cshow :: CreateMeshResponse -&gt; String
+showsPrec :: Int -&gt; CreateMeshResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateMeshResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateMeshResponse -&gt; Rep CreateMeshResponse x)
+-&gt; (forall x. Rep CreateMeshResponse x -&gt; CreateMeshResponse)
+-&gt; Generic CreateMeshResponse
+forall x. Rep CreateMeshResponse x -&gt; CreateMeshResponse
+forall x. CreateMeshResponse -&gt; Rep CreateMeshResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateMeshResponse x -&gt; CreateMeshResponse
+$cfrom :: forall x. CreateMeshResponse -&gt; Rep CreateMeshResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- Create a value of 'CreateMeshResponse' with all optional fields omitted.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'httpStatus', 'createMeshResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'mesh', 'createMeshResponse_mesh' - The full description of your service mesh following the create call.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#newCreateMeshResponse"><span class="hs-identifier hs-type">newCreateMeshResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-203"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-205"></span><span>  </span><span class="hs-comment">-- | 'mesh'</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshData.html#MeshData"><span class="hs-identifier hs-type">MeshData</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-207"></span><span>  </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-type">CreateMeshResponse</span></a></span><span>
+</span><span id="line-208"></span><span id="newCreateMeshResponse"><span class="annot"><span class="annottext">newCreateMeshResponse :: Int -&gt; MeshData -&gt; CreateMeshResponse
+</span><a href="Amazonka.AppMesh.CreateMesh.html#newCreateMeshResponse"><span class="hs-identifier hs-var hs-var">newCreateMeshResponse</span></a></span></span><span> </span><span id="local-6989586621679351278"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351278"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679351277"><span class="annot"><span class="annottext">MeshData
+</span><a href="#local-6989586621679351277"><span class="hs-identifier hs-var">pMesh_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><span class="annottext">CreateMeshResponse' :: Int -&gt; MeshData -&gt; CreateMeshResponse
+</span><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse%27"><span class="hs-identifier hs-type">CreateMeshResponse'</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMeshResponse' :: Int
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AhttpStatus%3ACreateMeshResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351278"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>      </span><span class="annot"><span class="annottext">$sel:mesh:CreateMeshResponse' :: MeshData
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Amesh%3ACreateMeshResponse%27"><span class="hs-identifier hs-var">mesh</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MeshData
+</span><a href="#local-6989586621679351277"><span class="hs-identifier hs-var">pMesh_</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMeshResponse_httpStatus"><span class="hs-identifier hs-type">createMeshResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-type">CreateMeshResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-216"></span><span id="createMeshResponse_httpStatus"><span class="annot"><span class="annottext">createMeshResponse_httpStatus :: (Int -&gt; f Int) -&gt; CreateMeshResponse -&gt; f CreateMeshResponse
+</span><a href="Amazonka.AppMesh.CreateMesh.html#createMeshResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createMeshResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMeshResponse -&gt; Int)
+-&gt; (CreateMeshResponse -&gt; Int -&gt; CreateMeshResponse)
+-&gt; Lens CreateMeshResponse CreateMeshResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse%27"><span class="hs-identifier hs-type">CreateMeshResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351276"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateMeshResponse' :: CreateMeshResponse -&gt; Int
+</span><a href="#local-6989586621679351276"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351276"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351275"><span class="annot"><span class="annottext">s :: CreateMeshResponse
+</span><a href="#local-6989586621679351275"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse%27"><span class="hs-identifier hs-type">CreateMeshResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351274"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351274"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeshResponse
+</span><a href="#local-6989586621679351275"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateMeshResponse' :: Int
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3AhttpStatus%3ACreateMeshResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351274"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-type">CreateMeshResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The full description of your service mesh following the create call.</span><span>
+</span><span id="line-219"></span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#createMeshResponse_mesh"><span class="hs-identifier hs-type">createMeshResponse_mesh</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-type">CreateMeshResponse</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.Types.MeshData.html#MeshData"><span class="hs-identifier hs-type">MeshData</span></a></span><span>
+</span><span id="line-220"></span><span id="createMeshResponse_mesh"><span class="annot"><span class="annottext">createMeshResponse_mesh :: (MeshData -&gt; f MeshData)
+-&gt; CreateMeshResponse -&gt; f CreateMeshResponse
+</span><a href="Amazonka.AppMesh.CreateMesh.html#createMeshResponse_mesh"><span class="hs-identifier hs-var hs-var">createMeshResponse_mesh</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateMeshResponse -&gt; MeshData)
+-&gt; (CreateMeshResponse -&gt; MeshData -&gt; CreateMeshResponse)
+-&gt; Lens CreateMeshResponse CreateMeshResponse MeshData MeshData
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse%27"><span class="hs-identifier hs-type">CreateMeshResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351273"><span class="annot"><span class="annottext">MeshData
+mesh :: MeshData
+$sel:mesh:CreateMeshResponse' :: CreateMeshResponse -&gt; MeshData
+</span><a href="#local-6989586621679351273"><span class="hs-identifier hs-var hs-var">mesh</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">MeshData
+</span><a href="#local-6989586621679351273"><span class="hs-identifier hs-var">mesh</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351272"><span class="annot"><span class="annottext">s :: CreateMeshResponse
+</span><a href="#local-6989586621679351272"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse%27"><span class="hs-identifier hs-type">CreateMeshResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351271"><span class="annot"><span class="annottext">MeshData
+</span><a href="#local-6989586621679351271"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateMeshResponse
+</span><a href="#local-6989586621679351272"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mesh:CreateMeshResponse' :: MeshData
+</span><a href="Amazonka.AppMesh.CreateMesh.html#%24sel%3Amesh%3ACreateMeshResponse%27"><span class="hs-identifier hs-var">mesh</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">MeshData
+</span><a href="#local-6989586621679351271"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-type">CreateMeshResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351269"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppMesh.CreateMesh.html#CreateMeshResponse"><span class="hs-identifier hs-type">CreateMeshResponse</span></a></span></span><span>
+</span><span id="line-223"></span></pre></body></html>

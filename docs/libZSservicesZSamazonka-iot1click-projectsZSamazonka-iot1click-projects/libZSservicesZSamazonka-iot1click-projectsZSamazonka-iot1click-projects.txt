@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IoT1ClickProjects.Types.DeviceTemplate
+module Amazonka.IoT1ClickProjects.Types.DeviceTemplate
 
 -- | An object representing a device for a placement template (see
 --   PlacementTemplate).
@@ -46,17 +46,17 @@ deviceTemplate_deviceType :: Lens' DeviceTemplate (Maybe Text)
 -- | An optional Lambda function to invoke instead of the default Lambda
 --   function provided by the placement template.
 deviceTemplate_callbackOverrides :: Lens' DeviceTemplate (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.Types.DeviceTemplate.DeviceTemplate
 
 
-module Network.AWS.IoT1ClickProjects.Types.PlacementDescription
+module Amazonka.IoT1ClickProjects.Types.PlacementDescription
 
 -- | An object describing a project's placement.
 --   
@@ -130,16 +130,16 @@ placementDescription_createdDate :: Lens' PlacementDescription UTCTime
 --   format. If the placement was not updated, then <tt>createdDate</tt>
 --   and <tt>updatedDate</tt> are the same.
 placementDescription_updatedDate :: Lens' PlacementDescription UTCTime
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.Types.PlacementDescription.PlacementDescription
 
 
-module Network.AWS.IoT1ClickProjects.Types.PlacementSummary
+module Amazonka.IoT1ClickProjects.Types.PlacementSummary
 
 -- | An object providing summary information for a particular placement.
 --   
@@ -204,16 +204,16 @@ placementSummary_createdDate :: Lens' PlacementSummary UTCTime
 --   format. If the placement was not updated, then <tt>createdDate</tt>
 --   and <tt>updatedDate</tt> are the same.
 placementSummary_updatedDate :: Lens' PlacementSummary UTCTime
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.Types.PlacementSummary.PlacementSummary
 
 
-module Network.AWS.IoT1ClickProjects.Types.PlacementTemplate
+module Amazonka.IoT1ClickProjects.Types.PlacementTemplate
 
 -- | An object defining the template for a placement.
 --   
@@ -255,17 +255,17 @@ placementTemplate_deviceTemplates :: Lens' PlacementTemplate (Maybe (HashMap Tex
 -- | The default attributes (key/value pairs) to be applied to all
 --   placements using this template.
 placementTemplate_defaultAttributes :: Lens' PlacementTemplate (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.Types.PlacementTemplate.PlacementTemplate
 
 
-module Network.AWS.IoT1ClickProjects.Types.ProjectDescription
+module Amazonka.IoT1ClickProjects.Types.ProjectDescription
 
 -- | An object providing detailed information for a particular project
 --   associated with an AWS account and region.
@@ -359,16 +359,16 @@ projectDescription_createdDate :: Lens' ProjectDescription UTCTime
 --   If the project was not updated, then <tt>createdDate</tt> and
 --   <tt>updatedDate</tt> are the same.
 projectDescription_updatedDate :: Lens' ProjectDescription UTCTime
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.Types.ProjectDescription.ProjectDescription
 
 
-module Network.AWS.IoT1ClickProjects.Types.ProjectSummary
+module Amazonka.IoT1ClickProjects.Types.ProjectSummary
 
 -- | An object providing summary information for a particular project for
 --   an associated AWS account and region.
@@ -441,16 +441,16 @@ projectSummary_createdDate :: Lens' ProjectSummary UTCTime
 --   If the project was not updated, then <tt>createdDate</tt> and
 --   <tt>updatedDate</tt> are the same.
 projectSummary_updatedDate :: Lens' ProjectSummary UTCTime
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.Types.ProjectSummary.ProjectSummary
 
 
-module Network.AWS.IoT1ClickProjects.Types
+module Amazonka.IoT1ClickProjects.Types
 
 -- | API version <tt>2018-05-14</tt> of the Amazon IoT 1-Click Projects
 --   Service SDK configuration.
@@ -853,7 +853,7 @@ projectSummary_updatedDate :: Lens' ProjectSummary UTCTime
 -- | Creates or modifies tags for a resource. Tags are key/value pairs
 --   (metadata) that can be used to manage a resource. For more
 --   information, see <a>AWS Tagging Strategies</a>.
-module Network.AWS.IoT1ClickProjects.TagResource
+module Amazonka.IoT1ClickProjects.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -914,27 +914,27 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.TagResource.TagResource
 
 
 -- | Lists the tags (metadata key/value pairs) which you have assigned to
 --   the resource.
-module Network.AWS.IoT1ClickProjects.ListTagsForResource
+module Amazonka.IoT1ClickProjects.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -995,28 +995,28 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.ListTagsForResource.ListTagsForResource
 
 
 -- | Lists the AWS IoT 1-Click project(s) associated with your AWS account
 --   and region.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IoT1ClickProjects.ListProjects
+module Amazonka.IoT1ClickProjects.ListProjects
 
 -- | <i>See:</i> <a>newListProjects</a> smart constructor.
 data ListProjects
@@ -1099,28 +1099,28 @@ listProjectsResponse_httpStatus :: Lens' ListProjectsResponse Int
 
 -- | An object containing the list of projects.
 listProjectsResponse_projects :: Lens' ListProjectsResponse [ProjectSummary]
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.ListProjects.ListProjectsResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.ListProjects.ListProjectsResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.ListProjects.ListProjectsResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.ListProjects.ListProjectsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.ListProjects.ListProjectsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.ListProjects.ListProjectsResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.ListProjects.ListProjectsResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.ListProjects.ListProjectsResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.ListProjects.ListProjectsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.ListProjects.ListProjectsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.ListProjects.ListProjects
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.ListProjects.ListProjects
 
 
 -- | Lists the placement(s) of a project.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IoT1ClickProjects.ListPlacements
+module Amazonka.IoT1ClickProjects.ListPlacements
 
 -- | <i>See:</i> <a>newListPlacements</a> smart constructor.
 data ListPlacements
@@ -1213,26 +1213,26 @@ listPlacementsResponse_httpStatus :: Lens' ListPlacementsResponse Int
 
 -- | An object listing the requested placements.
 listPlacementsResponse_placements :: Lens' ListPlacementsResponse [PlacementSummary]
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.ListPlacements.ListPlacements
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.ListPlacements.ListPlacementsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.ListPlacements.ListPlacements
 
 
 -- | Returns an object enumerating the devices in a placement.
-module Network.AWS.IoT1ClickProjects.GetDevicesInPlacement
+module Amazonka.IoT1ClickProjects.GetDevicesInPlacement
 
 -- | <i>See:</i> <a>newGetDevicesInPlacement</a> smart constructor.
 data GetDevicesInPlacement
@@ -1301,25 +1301,25 @@ getDevicesInPlacementResponse_httpStatus :: Lens' GetDevicesInPlacementResponse 
 
 -- | An object containing the devices (zero or more) within the placement.
 getDevicesInPlacementResponse_devices :: Lens' GetDevicesInPlacementResponse (HashMap Text Text)
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacementResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.GetDevicesInPlacement.GetDevicesInPlacement
 
 
 -- | Removes a physical device from a placement.
-module Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement
+module Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement
 
 -- | <i>See:</i> <a>newDisassociateDeviceFromPlacement</a> smart
 --   constructor.
@@ -1390,25 +1390,25 @@ newDisassociateDeviceFromPlacementResponse :: Int -> DisassociateDeviceFromPlace
 
 -- | The response's http status code.
 disassociateDeviceFromPlacementResponse_httpStatus :: Lens' DisassociateDeviceFromPlacementResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacementResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.DisassociateDeviceFromPlacement.DisassociateDeviceFromPlacement
 
 
 -- | Returns an object describing a project.
-module Network.AWS.IoT1ClickProjects.DescribeProject
+module Amazonka.IoT1ClickProjects.DescribeProject
 
 -- | <i>See:</i> <a>newDescribeProject</a> smart constructor.
 data DescribeProject
@@ -1467,25 +1467,25 @@ describeProjectResponse_httpStatus :: Lens' DescribeProjectResponse Int
 
 -- | An object describing the project.
 describeProjectResponse_project :: Lens' DescribeProjectResponse ProjectDescription
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DescribeProject.DescribeProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.DescribeProject.DescribeProject
 
 
 -- | Describes a placement in a project.
-module Network.AWS.IoT1ClickProjects.DescribePlacement
+module Amazonka.IoT1ClickProjects.DescribePlacement
 
 -- | <i>See:</i> <a>newDescribePlacement</a> smart constructor.
 data DescribePlacement
@@ -1554,28 +1554,28 @@ describePlacementResponse_httpStatus :: Lens' DescribePlacementResponse Int
 
 -- | An object describing the placement.
 describePlacementResponse_placement :: Lens' DescribePlacementResponse PlacementDescription
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacementResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.DescribePlacement.DescribePlacement
 
 
 -- | Deletes a project. To delete a project, it must not have any
 --   placements associated with it.
 --   
 --   When you delete a project, all associated data becomes irretrievable.
-module Network.AWS.IoT1ClickProjects.DeleteProject
+module Amazonka.IoT1ClickProjects.DeleteProject
 
 -- | <i>See:</i> <a>newDeleteProject</a> smart constructor.
 data DeleteProject
@@ -1624,21 +1624,21 @@ newDeleteProjectResponse :: Int -> DeleteProjectResponse
 
 -- | The response's http status code.
 deleteProjectResponse_httpStatus :: Lens' DeleteProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DeleteProject.DeleteProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.DeleteProject.DeleteProject
 
 
 -- | Deletes a placement. To delete a placement, it must not have any
@@ -1646,7 +1646,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.DeleteProj
 --   
 --   When you delete a placement, all associated data becomes
 --   irretrievable.
-module Network.AWS.IoT1ClickProjects.DeletePlacement
+module Amazonka.IoT1ClickProjects.DeletePlacement
 
 -- | <i>See:</i> <a>newDeletePlacement</a> smart constructor.
 data DeletePlacement
@@ -1705,27 +1705,27 @@ newDeletePlacementResponse :: Int -> DeletePlacementResponse
 
 -- | The response's http status code.
 deletePlacementResponse_httpStatus :: Lens' DeletePlacementResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacementResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.DeletePlacement.DeletePlacement
 
 
 -- | Creates an empty project with a placement template. A project contains
 --   zero or more placements that adhere to the placement template defined
 --   in the project.
-module Network.AWS.IoT1ClickProjects.CreateProject
+module Amazonka.IoT1ClickProjects.CreateProject
 
 -- | <i>See:</i> <a>newCreateProject</a> smart constructor.
 data CreateProject
@@ -1820,26 +1820,26 @@ newCreateProjectResponse :: Int -> CreateProjectResponse
 
 -- | The response's http status code.
 createProjectResponse_httpStatus :: Lens' CreateProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.CreateProject.CreateProjectResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.CreateProject.CreateProjectResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.CreateProject.CreateProjectResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.CreateProject.CreateProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.CreateProject.CreateProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.CreateProject.CreateProjectResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.CreateProject.CreateProjectResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.CreateProject.CreateProjectResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.CreateProject.CreateProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.CreateProject.CreateProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.CreateProject.CreateProject
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.CreateProject.CreateProject
 
 
 -- | Creates an empty placement.
-module Network.AWS.IoT1ClickProjects.CreatePlacement
+module Amazonka.IoT1ClickProjects.CreatePlacement
 
 -- | <i>See:</i> <a>newCreatePlacement</a> smart constructor.
 data CreatePlacement
@@ -1911,26 +1911,26 @@ newCreatePlacementResponse :: Int -> CreatePlacementResponse
 
 -- | The response's http status code.
 createPlacementResponse_httpStatus :: Lens' CreatePlacementResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacementResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.CreatePlacement.CreatePlacement
 
 
 -- | Associates a physical device with a placement.
-module Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement
+module Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement
 
 -- | <i>See:</i> <a>newAssociateDeviceWithPlacement</a> smart constructor.
 data AssociateDeviceWithPlacement
@@ -2018,26 +2018,26 @@ newAssociateDeviceWithPlacementResponse :: Int -> AssociateDeviceWithPlacementRe
 
 -- | The response's http status code.
 associateDeviceWithPlacementResponse_httpStatus :: Lens' AssociateDeviceWithPlacementResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacementResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.AssociateDeviceWithPlacement.AssociateDeviceWithPlacement
 
 
 -- | Removes one or more tags (metadata key/value pairs) from a resource.
-module Network.AWS.IoT1ClickProjects.UntagResource
+module Amazonka.IoT1ClickProjects.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -2095,26 +2095,26 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.UntagResource.UntagResource
 
 
 -- | Updates a placement with the given attributes. To clear an attribute,
 --   pass an empty value (i.e., "").
-module Network.AWS.IoT1ClickProjects.UpdatePlacement
+module Amazonka.IoT1ClickProjects.UpdatePlacement
 
 -- | <i>See:</i> <a>newUpdatePlacement</a> smart constructor.
 data UpdatePlacement
@@ -2186,22 +2186,22 @@ newUpdatePlacementResponse :: Int -> UpdatePlacementResponse
 
 -- | The response's http status code.
 updatePlacementResponse_httpStatus :: Lens' UpdatePlacementResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacementResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.UpdatePlacement.UpdatePlacement
 
 
 -- | Updates a project associated with your AWS account and region. With
@@ -2209,7 +2209,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.UpdatePlac
 --   that need to be updated because the update request will change only
 --   the values that are provided. To clear a value, pass the empty string
 --   (i.e., <tt>""</tt>).
-module Network.AWS.IoT1ClickProjects.UpdateProject
+module Amazonka.IoT1ClickProjects.UpdateProject
 
 -- | <i>See:</i> <a>newUpdateProject</a> smart constructor.
 data UpdateProject
@@ -2287,25 +2287,25 @@ newUpdateProjectResponse :: Int -> UpdateProjectResponse
 
 -- | The response's http status code.
 updateProjectResponse_httpStatus :: Lens' UpdateProjectResponse Int
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance GHC.Generics.Generic Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
-instance GHC.Show.Show Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
-instance GHC.Read.Read Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
-instance GHC.Classes.Eq Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance Control.DeepSeq.NFData Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance Network.AWS.Data.Path.ToPath Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IoT1ClickProjects.UpdateProject.UpdateProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance GHC.Generics.Generic Amazonka.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
+instance GHC.Show.Show Amazonka.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
+instance GHC.Read.Read Amazonka.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
+instance GHC.Classes.Eq Amazonka.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
+instance Amazonka.Types.AWSRequest Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.UpdateProject.UpdateProjectResponse
+instance Data.Hashable.Class.Hashable Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance Control.DeepSeq.NFData Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance Amazonka.Data.Path.ToPath Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
+instance Amazonka.Data.Query.ToQuery Amazonka.IoT1ClickProjects.UpdateProject.UpdateProject
 
 
-module Network.AWS.IoT1ClickProjects.Lens
+module Amazonka.IoT1ClickProjects.Lens
 
 -- | The token to retrieve the next set of results.
 listProjects_nextToken :: Lens' ListProjects (Maybe Text)
@@ -2605,14 +2605,14 @@ projectSummary_createdDate :: Lens' ProjectSummary UTCTime
 projectSummary_updatedDate :: Lens' ProjectSummary UTCTime
 
 
-module Network.AWS.IoT1ClickProjects.Waiters
+module Amazonka.IoT1ClickProjects.Waiters
 
 
 -- | Derived from API version <tt>2018-05-14</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   The AWS IoT 1-Click Projects API Reference
-module Network.AWS.IoT1ClickProjects
+module Amazonka.IoT1ClickProjects
 
 -- | API version <tt>2018-05-14</tt> of the Amazon IoT 1-Click Projects
 --   Service SDK configuration.

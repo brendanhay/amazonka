@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CodeBuild.GetResourcePolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a resource policy that is identified by its resource ARN.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CodeBuild.GetResourcePolicy</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier">GetResourcePolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#newGetResourcePolicy"><span class="hs-identifier">newGetResourcePolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicy_resourceArn"><span class="hs-identifier">getResourcePolicy_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier">GetResourcePolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#newGetResourcePolicyResponse"><span class="hs-identifier">newGetResourcePolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicyResponse_policy"><span class="hs-identifier">getResourcePolicyResponse_policy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicyResponse_httpStatus"><span class="hs-identifier">getResourcePolicyResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.Types.html"><span class="hs-identifier">Amazonka.CodeBuild.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newGetResourcePolicy' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679388579"><span id="local-6989586621679388580"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourcePolicy"><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-var">GetResourcePolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourcePolicy%27"><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy%27"><span class="hs-identifier hs-var">GetResourcePolicy'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the resource that is associated with the resource policy.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3AresourceArn%3AGetResourcePolicy%27"><span class="annot"><span class="annottext">GetResourcePolicy -&gt; Text
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3AresourceArn%3AGetResourcePolicy%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388573"><span id="local-6989586621679388575"><span class="annot"><span class="annottext">GetResourcePolicy -&gt; GetResourcePolicy -&gt; Bool
+(GetResourcePolicy -&gt; GetResourcePolicy -&gt; Bool)
+-&gt; (GetResourcePolicy -&gt; GetResourcePolicy -&gt; Bool)
+-&gt; Eq GetResourcePolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourcePolicy -&gt; GetResourcePolicy -&gt; Bool
+$c/= :: GetResourcePolicy -&gt; GetResourcePolicy -&gt; Bool
+== :: GetResourcePolicy -&gt; GetResourcePolicy -&gt; Bool
+$c== :: GetResourcePolicy -&gt; GetResourcePolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388564"><span id="local-6989586621679388566"><span id="local-6989586621679388568"><span id="local-6989586621679388570"><span class="annot"><span class="annottext">ReadPrec [GetResourcePolicy]
+ReadPrec GetResourcePolicy
+Int -&gt; ReadS GetResourcePolicy
+ReadS [GetResourcePolicy]
+(Int -&gt; ReadS GetResourcePolicy)
+-&gt; ReadS [GetResourcePolicy]
+-&gt; ReadPrec GetResourcePolicy
+-&gt; ReadPrec [GetResourcePolicy]
+-&gt; Read GetResourcePolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourcePolicy]
+$creadListPrec :: ReadPrec [GetResourcePolicy]
+readPrec :: ReadPrec GetResourcePolicy
+$creadPrec :: ReadPrec GetResourcePolicy
+readList :: ReadS [GetResourcePolicy]
+$creadList :: ReadS [GetResourcePolicy]
+readsPrec :: Int -&gt; ReadS GetResourcePolicy
+$creadsPrec :: Int -&gt; ReadS GetResourcePolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388557"><span id="local-6989586621679388559"><span id="local-6989586621679388561"><span class="annot"><span class="annottext">Int -&gt; GetResourcePolicy -&gt; ShowS
+[GetResourcePolicy] -&gt; ShowS
+GetResourcePolicy -&gt; String
+(Int -&gt; GetResourcePolicy -&gt; ShowS)
+-&gt; (GetResourcePolicy -&gt; String)
+-&gt; ([GetResourcePolicy] -&gt; ShowS)
+-&gt; Show GetResourcePolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourcePolicy] -&gt; ShowS
+$cshowList :: [GetResourcePolicy] -&gt; ShowS
+show :: GetResourcePolicy -&gt; String
+$cshow :: GetResourcePolicy -&gt; String
+showsPrec :: Int -&gt; GetResourcePolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourcePolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetResourcePolicy -&gt; Rep GetResourcePolicy x)
+-&gt; (forall x. Rep GetResourcePolicy x -&gt; GetResourcePolicy)
+-&gt; Generic GetResourcePolicy
+forall x. Rep GetResourcePolicy x -&gt; GetResourcePolicy
+forall x. GetResourcePolicy -&gt; Rep GetResourcePolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetResourcePolicy x -&gt; GetResourcePolicy
+$cfrom :: forall x. GetResourcePolicy -&gt; Rep GetResourcePolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Create a value of 'GetResourcePolicy' with all optional fields omitted.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'resourceArn', 'getResourcePolicy_resourceArn' - The ARN of the resource that is associated with the resource policy.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#newGetResourcePolicy"><span class="hs-identifier hs-type">newGetResourcePolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'resourceArn'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span>
+</span><span id="line-69"></span><span id="newGetResourcePolicy"><span class="annot"><span class="annottext">newGetResourcePolicy :: Text -&gt; GetResourcePolicy
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#newGetResourcePolicy"><span class="hs-identifier hs-var hs-var">newGetResourcePolicy</span></a></span></span><span> </span><span id="local-6989586621679388552"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">pResourceArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="annottext">GetResourcePolicy' :: Text -&gt; GetResourcePolicy
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy%27"><span class="hs-identifier hs-type">GetResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetResourcePolicy' :: Text
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3AresourceArn%3AGetResourcePolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388552"><span class="hs-identifier hs-var">pResourceArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The ARN of the resource that is associated with the resource policy.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicy_resourceArn"><span class="hs-identifier hs-type">getResourcePolicy_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-74"></span><span id="getResourcePolicy_resourceArn"><span class="annot"><span class="annottext">getResourcePolicy_resourceArn :: (Text -&gt; f Text) -&gt; GetResourcePolicy -&gt; f GetResourcePolicy
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicy_resourceArn"><span class="hs-identifier hs-var hs-var">getResourcePolicy_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourcePolicy -&gt; Text)
+-&gt; (GetResourcePolicy -&gt; Text -&gt; GetResourcePolicy)
+-&gt; Lens GetResourcePolicy GetResourcePolicy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy%27"><span class="hs-identifier hs-type">GetResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388549"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:GetResourcePolicy' :: GetResourcePolicy -&gt; Text
+</span><a href="#local-6989586621679388549"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388549"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388548"><span class="annot"><span class="annottext">s :: GetResourcePolicy
+</span><a href="#local-6989586621679388548"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy%27"><span class="hs-identifier hs-type">GetResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388547"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388547"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourcePolicy
+</span><a href="#local-6989586621679388548"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:GetResourcePolicy' :: Text
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3AresourceArn%3AGetResourcePolicy%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388547"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-78"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-type">GetResourcePolicyResponse</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679388543"><span class="annot"><span class="annottext">request :: GetResourcePolicy -&gt; Request GetResourcePolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetResourcePolicy -&gt; Request GetResourcePolicy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CodeBuild.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-81"></span><span>  </span><span id="local-6989586621679388539"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetResourcePolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourcePolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetResourcePolicy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetResourcePolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetResourcePolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679388536"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388536"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679388535"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679388535"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679388534"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388534"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; GetResourcePolicyResponse
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse%27"><span class="hs-identifier hs-var">GetResourcePolicyResponse'</span></a></span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; GetResourcePolicyResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetResourcePolicyResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679388534"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetResourcePolicyResponse)
+-&gt; Either String Int -&gt; Either String GetResourcePolicyResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388536"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388526"><span id="local-6989586621679388528"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388523"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679388519"><span class="annot"><span class="annottext">toHeaders :: GetResourcePolicy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetResourcePolicy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CodeBuild_20161006.GetResourcePolicy&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-102"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-103"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-104"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388509"><span id="local-6989586621679388511"><span id="local-6989586621679388513"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679388507"><span class="annot"><span class="annottext">toJSON :: GetResourcePolicy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy%27"><span class="hs-identifier hs-type">GetResourcePolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388505"><span class="annot"><span class="annottext">Text
+resourceArn :: Text
+$sel:resourceArn:GetResourcePolicy' :: GetResourcePolicy -&gt; Text
+</span><a href="#local-6989586621679388505"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679388505"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679388499"><span class="annot"><span class="annottext">toPath :: GetResourcePolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetResourcePolicy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicy"><span class="hs-identifier hs-type">GetResourcePolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679388495"><span class="annot"><span class="annottext">toQuery :: GetResourcePolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetResourcePolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | /See:/ 'newGetResourcePolicyResponse' smart constructor.</span><span>
+</span><span id="line-122"></span><span id="local-6989586621679388492"><span id="local-6989586621679388493"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetResourcePolicyResponse"><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-var">GetResourcePolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetResourcePolicyResponse%27"><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse%27"><span class="hs-identifier hs-var">GetResourcePolicyResponse'</span></a></span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The resource policy for the resource identified by the input ARN</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-125"></span><span>    </span><span id="%24sel%3Apolicy%3AGetResourcePolicyResponse%27"><span class="annot"><span class="annottext">GetResourcePolicyResponse -&gt; Maybe Text
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3Apolicy%3AGetResourcePolicyResponse%27"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-127"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetResourcePolicyResponse%27"><span class="annot"><span class="annottext">GetResourcePolicyResponse -&gt; Int
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3AhttpStatus%3AGetResourcePolicyResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679388486"><span id="local-6989586621679388488"><span class="annot"><span class="annottext">GetResourcePolicyResponse -&gt; GetResourcePolicyResponse -&gt; Bool
+(GetResourcePolicyResponse -&gt; GetResourcePolicyResponse -&gt; Bool)
+-&gt; (GetResourcePolicyResponse -&gt; GetResourcePolicyResponse -&gt; Bool)
+-&gt; Eq GetResourcePolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetResourcePolicyResponse -&gt; GetResourcePolicyResponse -&gt; Bool
+$c/= :: GetResourcePolicyResponse -&gt; GetResourcePolicyResponse -&gt; Bool
+== :: GetResourcePolicyResponse -&gt; GetResourcePolicyResponse -&gt; Bool
+$c== :: GetResourcePolicyResponse -&gt; GetResourcePolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388478"><span id="local-6989586621679388480"><span id="local-6989586621679388482"><span id="local-6989586621679388484"><span class="annot"><span class="annottext">ReadPrec [GetResourcePolicyResponse]
+ReadPrec GetResourcePolicyResponse
+Int -&gt; ReadS GetResourcePolicyResponse
+ReadS [GetResourcePolicyResponse]
+(Int -&gt; ReadS GetResourcePolicyResponse)
+-&gt; ReadS [GetResourcePolicyResponse]
+-&gt; ReadPrec GetResourcePolicyResponse
+-&gt; ReadPrec [GetResourcePolicyResponse]
+-&gt; Read GetResourcePolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetResourcePolicyResponse]
+$creadListPrec :: ReadPrec [GetResourcePolicyResponse]
+readPrec :: ReadPrec GetResourcePolicyResponse
+$creadPrec :: ReadPrec GetResourcePolicyResponse
+readList :: ReadS [GetResourcePolicyResponse]
+$creadList :: ReadS [GetResourcePolicyResponse]
+readsPrec :: Int -&gt; ReadS GetResourcePolicyResponse
+$creadsPrec :: Int -&gt; ReadS GetResourcePolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679388472"><span id="local-6989586621679388474"><span id="local-6989586621679388476"><span class="annot"><span class="annottext">Int -&gt; GetResourcePolicyResponse -&gt; ShowS
+[GetResourcePolicyResponse] -&gt; ShowS
+GetResourcePolicyResponse -&gt; String
+(Int -&gt; GetResourcePolicyResponse -&gt; ShowS)
+-&gt; (GetResourcePolicyResponse -&gt; String)
+-&gt; ([GetResourcePolicyResponse] -&gt; ShowS)
+-&gt; Show GetResourcePolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetResourcePolicyResponse] -&gt; ShowS
+$cshowList :: [GetResourcePolicyResponse] -&gt; ShowS
+show :: GetResourcePolicyResponse -&gt; String
+$cshow :: GetResourcePolicyResponse -&gt; String
+showsPrec :: Int -&gt; GetResourcePolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetResourcePolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetResourcePolicyResponse -&gt; Rep GetResourcePolicyResponse x)
+-&gt; (forall x.
+    Rep GetResourcePolicyResponse x -&gt; GetResourcePolicyResponse)
+-&gt; Generic GetResourcePolicyResponse
+forall x.
+Rep GetResourcePolicyResponse x -&gt; GetResourcePolicyResponse
+forall x.
+GetResourcePolicyResponse -&gt; Rep GetResourcePolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetResourcePolicyResponse x -&gt; GetResourcePolicyResponse
+$cfrom :: forall x.
+GetResourcePolicyResponse -&gt; Rep GetResourcePolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- Create a value of 'GetResourcePolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'policy', 'getResourcePolicyResponse_policy' - The resource policy for the resource identified by the input ARN</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'httpStatus', 'getResourcePolicyResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#newGetResourcePolicyResponse"><span class="hs-identifier hs-type">newGetResourcePolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-type">GetResourcePolicyResponse</span></a></span><span>
+</span><span id="line-147"></span><span id="newGetResourcePolicyResponse"><span class="annot"><span class="annottext">newGetResourcePolicyResponse :: Int -&gt; GetResourcePolicyResponse
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#newGetResourcePolicyResponse"><span class="hs-identifier hs-var hs-var">newGetResourcePolicyResponse</span></a></span></span><span> </span><span id="local-6989586621679388469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><span class="annottext">GetResourcePolicyResponse' :: Maybe Text -&gt; Int -&gt; GetResourcePolicyResponse
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse%27"><span class="hs-identifier hs-type">GetResourcePolicyResponse'</span></a></span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policy:GetResourcePolicyResponse' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3Apolicy%3AGetResourcePolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourcePolicyResponse' :: Int
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3AhttpStatus%3AGetResourcePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The resource policy for the resource identified by the input ARN</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- parameter.</span><span>
+</span><span id="line-156"></span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicyResponse_policy"><span class="hs-identifier hs-type">getResourcePolicyResponse_policy</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-type">GetResourcePolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span id="getResourcePolicyResponse_policy"><span class="annot"><span class="annottext">getResourcePolicyResponse_policy :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetResourcePolicyResponse -&gt; f GetResourcePolicyResponse
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicyResponse_policy"><span class="hs-identifier hs-var hs-var">getResourcePolicyResponse_policy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourcePolicyResponse -&gt; Maybe Text)
+-&gt; (GetResourcePolicyResponse
+    -&gt; Maybe Text -&gt; GetResourcePolicyResponse)
+-&gt; Lens
+     GetResourcePolicyResponse
+     GetResourcePolicyResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse%27"><span class="hs-identifier hs-type">GetResourcePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388468"><span class="annot"><span class="annottext">Maybe Text
+policy :: Maybe Text
+$sel:policy:GetResourcePolicyResponse' :: GetResourcePolicyResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679388468"><span class="hs-identifier hs-var hs-var">policy</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388468"><span class="hs-identifier hs-var">policy</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388467"><span class="annot"><span class="annottext">s :: GetResourcePolicyResponse
+</span><a href="#local-6989586621679388467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse%27"><span class="hs-identifier hs-type">GetResourcePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388466"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourcePolicyResponse
+</span><a href="#local-6989586621679388467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policy:GetResourcePolicyResponse' :: Maybe Text
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3Apolicy%3AGetResourcePolicyResponse%27"><span class="hs-identifier hs-var">policy</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679388466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-type">GetResourcePolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicyResponse_httpStatus"><span class="hs-identifier hs-type">getResourcePolicyResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-type">GetResourcePolicyResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span id="getResourcePolicyResponse_httpStatus"><span class="annot"><span class="annottext">getResourcePolicyResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetResourcePolicyResponse -&gt; f GetResourcePolicyResponse
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#getResourcePolicyResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getResourcePolicyResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetResourcePolicyResponse -&gt; Int)
+-&gt; (GetResourcePolicyResponse -&gt; Int -&gt; GetResourcePolicyResponse)
+-&gt; Lens GetResourcePolicyResponse GetResourcePolicyResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse%27"><span class="hs-identifier hs-type">GetResourcePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679388465"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetResourcePolicyResponse' :: GetResourcePolicyResponse -&gt; Int
+</span><a href="#local-6989586621679388465"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388465"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679388464"><span class="annot"><span class="annottext">s :: GetResourcePolicyResponse
+</span><a href="#local-6989586621679388464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse%27"><span class="hs-identifier hs-type">GetResourcePolicyResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679388463"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetResourcePolicyResponse
+</span><a href="#local-6989586621679388464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetResourcePolicyResponse' :: Int
+</span><a href="Amazonka.CodeBuild.GetResourcePolicy.html#%24sel%3AhttpStatus%3AGetResourcePolicyResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679388463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-type">GetResourcePolicyResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679388461"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CodeBuild.GetResourcePolicy.html#GetResourcePolicyResponse"><span class="hs-identifier hs-type">GetResourcePolicyResponse</span></a></span></span><span>
+</span><span id="line-164"></span></pre></body></html>

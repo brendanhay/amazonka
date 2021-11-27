@@ -1,0 +1,1005 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.WorkDocs.DescribeUsers</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Describes the specified users. You can describe all users or filter the</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- results (for example, by status or organization).</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- By default, Amazon WorkDocs returns the first 24 active or pending</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- users. If there are more results, the response includes a marker that</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- you can use to request the next set of results.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.WorkDocs.DescribeUsers</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#newDescribeUsers"><span class="hs-identifier">newDescribeUsers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_include"><span class="hs-identifier">describeUsers_include</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_userIds"><span class="hs-identifier">describeUsers_userIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_authenticationToken"><span class="hs-identifier">describeUsers_authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_sort"><span class="hs-identifier">describeUsers_sort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_marker"><span class="hs-identifier">describeUsers_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_query"><span class="hs-identifier">describeUsers_query</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_limit"><span class="hs-identifier">describeUsers_limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_order"><span class="hs-identifier">describeUsers_order</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_organizationId"><span class="hs-identifier">describeUsers_organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_fields"><span class="hs-identifier">describeUsers_fields</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier">DescribeUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#newDescribeUsersResponse"><span class="hs-identifier">newDescribeUsersResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_users"><span class="hs-identifier">describeUsersResponse_users</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_totalNumberOfUsers"><span class="hs-identifier">describeUsersResponse_totalNumberOfUsers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_marker"><span class="hs-identifier">describeUsersResponse_marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_httpStatus"><span class="hs-identifier">describeUsersResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.html"><span class="hs-identifier">Amazonka.WorkDocs.Types</span></a></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newDescribeUsers' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679269257"><span id="local-6989586621679269258"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsers"><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-var">DescribeUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsers%27"><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-var">DescribeUsers'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the users. Specify \&quot;ALL\&quot; to include inactive users.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3Ainclude%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe UserFilterType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Ainclude%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.UserFilterType.html#UserFilterType"><span class="hs-identifier hs-type">UserFilterType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The IDs of the users.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AuserIds%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AuserIds%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AauthenticationToken%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AauthenticationToken%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The sorting criteria.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Asort%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe UserSortType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Asort%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">sort</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.UserSortType.html#UserSortType"><span class="hs-identifier hs-type">UserSortType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | A query to filter users by user name.</span><span>
+</span><span id="line-82"></span><span>    </span><span id="%24sel%3Aquery%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Aquery%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to return.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3Alimit%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe Natural
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Alimit%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | The order for the results.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3Aorder%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe OrderType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Aorder%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.OrderType.html#OrderType"><span class="hs-identifier hs-type">OrderType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The ID of the organization.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AorganizationId%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AorganizationId%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | A comma-separated list of values. Specify \&quot;STORAGE_METADATA\&quot; to</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- include the user storage quota and utilization information.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3Afields%3ADescribeUsers%27"><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Afields%3ADescribeUsers%27"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269242"><span id="local-6989586621679269244"><span class="annot"><span class="annottext">DescribeUsers -&gt; DescribeUsers -&gt; Bool
+(DescribeUsers -&gt; DescribeUsers -&gt; Bool)
+-&gt; (DescribeUsers -&gt; DescribeUsers -&gt; Bool) -&gt; Eq DescribeUsers
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeUsers -&gt; DescribeUsers -&gt; Bool
+$c/= :: DescribeUsers -&gt; DescribeUsers -&gt; Bool
+== :: DescribeUsers -&gt; DescribeUsers -&gt; Bool
+$c== :: DescribeUsers -&gt; DescribeUsers -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269235"><span id="local-6989586621679269237"><span id="local-6989586621679269239"><span class="annot"><span class="annottext">Int -&gt; DescribeUsers -&gt; ShowS
+[DescribeUsers] -&gt; ShowS
+DescribeUsers -&gt; String
+(Int -&gt; DescribeUsers -&gt; ShowS)
+-&gt; (DescribeUsers -&gt; String)
+-&gt; ([DescribeUsers] -&gt; ShowS)
+-&gt; Show DescribeUsers
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeUsers] -&gt; ShowS
+$cshowList :: [DescribeUsers] -&gt; ShowS
+show :: DescribeUsers -&gt; String
+$cshow :: DescribeUsers -&gt; String
+showsPrec :: Int -&gt; DescribeUsers -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeUsers -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeUsers -&gt; Rep DescribeUsers x)
+-&gt; (forall x. Rep DescribeUsers x -&gt; DescribeUsers)
+-&gt; Generic DescribeUsers
+forall x. Rep DescribeUsers x -&gt; DescribeUsers
+forall x. DescribeUsers -&gt; Rep DescribeUsers x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeUsers x -&gt; DescribeUsers
+$cfrom :: forall x. DescribeUsers -&gt; Rep DescribeUsers x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Create a value of 'DescribeUsers' with all optional fields omitted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'include', 'describeUsers_include' - The state of the users. Specify \&quot;ALL\&quot; to include inactive users.</span><span>
+</span><span id="line-104"></span><span class="hs-comment">--</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- 'userIds', 'describeUsers_userIds' - The IDs of the users.</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'authenticationToken', 'describeUsers_authenticationToken' - Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'sort', 'describeUsers_sort' - The sorting criteria.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- 'marker', 'describeUsers_marker' - The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'query', 'describeUsers_query' - A query to filter users by user name.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'limit', 'describeUsers_limit' - The maximum number of items to return.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'order', 'describeUsers_order' - The order for the results.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'organizationId', 'describeUsers_organizationId' - The ID of the organization.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'fields', 'describeUsers_fields' - A comma-separated list of values. Specify \&quot;STORAGE_METADATA\&quot; to</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- include the user storage quota and utilization information.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#newDescribeUsers"><span class="hs-identifier hs-type">newDescribeUsers</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span>
+</span><span id="line-127"></span><span id="newDescribeUsers"><span class="annot"><span class="annottext">newDescribeUsers :: DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#newDescribeUsers"><span class="hs-identifier hs-var hs-var">newDescribeUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><span class="annottext">DescribeUsers' :: Maybe UserFilterType
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe UserSortType
+-&gt; Maybe Text
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Natural
+-&gt; Maybe OrderType
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:include:DescribeUsers' :: Maybe UserFilterType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Ainclude%3ADescribeUsers%27"><span class="hs-identifier hs-var">include</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserFilterType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:userIds:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AuserIds%3ADescribeUsers%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:authenticationToken:DescribeUsers' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AauthenticationToken%3ADescribeUsers%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:sort:DescribeUsers' :: Maybe UserSortType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Asort%3ADescribeUsers%27"><span class="hs-identifier hs-var">sort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserSortType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsers%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:query:DescribeUsers' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Aquery%3ADescribeUsers%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:limit:DescribeUsers' :: Maybe Natural
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Alimit%3ADescribeUsers%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:order:DescribeUsers' :: Maybe OrderType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Aorder%3ADescribeUsers%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:organizationId:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AorganizationId%3ADescribeUsers%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:fields:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Afields%3ADescribeUsers%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | The state of the users. Specify \&quot;ALL\&quot; to include inactive users.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_include"><span class="hs-identifier hs-type">describeUsers_include</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.UserFilterType.html#UserFilterType"><span class="hs-identifier hs-type">UserFilterType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="describeUsers_include"><span class="annot"><span class="annottext">describeUsers_include :: (Maybe UserFilterType -&gt; f (Maybe UserFilterType))
+-&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_include"><span class="hs-identifier hs-var hs-var">describeUsers_include</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe UserFilterType)
+-&gt; (DescribeUsers -&gt; Maybe UserFilterType -&gt; DescribeUsers)
+-&gt; Lens
+     DescribeUsers
+     DescribeUsers
+     (Maybe UserFilterType)
+     (Maybe UserFilterType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269229"><span class="annot"><span class="annottext">Maybe UserFilterType
+include :: Maybe UserFilterType
+$sel:include:DescribeUsers' :: DescribeUsers -&gt; Maybe UserFilterType
+</span><a href="#local-6989586621679269229"><span class="hs-identifier hs-var hs-var">include</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserFilterType
+</span><a href="#local-6989586621679269229"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269228"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269228"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269227"><span class="annot"><span class="annottext">Maybe UserFilterType
+</span><a href="#local-6989586621679269227"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269228"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:include:DescribeUsers' :: Maybe UserFilterType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Ainclude%3ADescribeUsers%27"><span class="hs-identifier hs-var">include</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserFilterType
+</span><a href="#local-6989586621679269227"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | The IDs of the users.</span><span>
+</span><span id="line-146"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_userIds"><span class="hs-identifier hs-type">describeUsers_userIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span id="describeUsers_userIds"><span class="annot"><span class="annottext">describeUsers_userIds :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_userIds"><span class="hs-identifier hs-var hs-var">describeUsers_userIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe Text)
+-&gt; (DescribeUsers -&gt; Maybe Text -&gt; DescribeUsers)
+-&gt; Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269226"><span class="annot"><span class="annottext">Maybe Text
+userIds :: Maybe Text
+$sel:userIds:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+</span><a href="#local-6989586621679269226"><span class="hs-identifier hs-var hs-var">userIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269226"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269225"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userIds:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AuserIds%3ADescribeUsers%27"><span class="hs-identifier hs-var">userIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | Amazon WorkDocs authentication token. Not required when using AWS</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- administrator credentials to access the API.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_authenticationToken"><span class="hs-identifier hs-type">describeUsers_authenticationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="describeUsers_authenticationToken"><span class="annot"><span class="annottext">describeUsers_authenticationToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_authenticationToken"><span class="hs-identifier hs-var hs-var">describeUsers_authenticationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe (Sensitive Text))
+-&gt; (DescribeUsers -&gt; Maybe (Sensitive Text) -&gt; DescribeUsers)
+-&gt; Lens
+     DescribeUsers
+     DescribeUsers
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269223"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+authenticationToken :: Maybe (Sensitive Text)
+$sel:authenticationToken:DescribeUsers' :: DescribeUsers -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269223"><span class="hs-identifier hs-var hs-var">authenticationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269223"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269222"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269222"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269221"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269221"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269222"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authenticationToken:DescribeUsers' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AauthenticationToken%3ADescribeUsers%27"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269221"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; DescribeUsers -&gt; f DescribeUsers)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeUsers
+-&gt; f DescribeUsers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The sorting criteria.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_sort"><span class="hs-identifier hs-type">describeUsers_sort</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.UserSortType.html#UserSortType"><span class="hs-identifier hs-type">UserSortType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="describeUsers_sort"><span class="annot"><span class="annottext">describeUsers_sort :: (Maybe UserSortType -&gt; f (Maybe UserSortType))
+-&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_sort"><span class="hs-identifier hs-var hs-var">describeUsers_sort</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe UserSortType)
+-&gt; (DescribeUsers -&gt; Maybe UserSortType -&gt; DescribeUsers)
+-&gt; Lens
+     DescribeUsers
+     DescribeUsers
+     (Maybe UserSortType)
+     (Maybe UserSortType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269217"><span class="annot"><span class="annottext">Maybe UserSortType
+sort :: Maybe UserSortType
+$sel:sort:DescribeUsers' :: DescribeUsers -&gt; Maybe UserSortType
+</span><a href="#local-6989586621679269217"><span class="hs-identifier hs-var hs-var">sort</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UserSortType
+</span><a href="#local-6989586621679269217"><span class="hs-identifier hs-var">sort</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269216"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269216"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269215"><span class="annot"><span class="annottext">Maybe UserSortType
+</span><a href="#local-6989586621679269215"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269216"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sort:DescribeUsers' :: Maybe UserSortType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Asort%3ADescribeUsers%27"><span class="hs-identifier hs-var">sort</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UserSortType
+</span><a href="#local-6989586621679269215"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The marker for the next set of results. (You received this marker from a</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- previous call.)</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_marker"><span class="hs-identifier hs-type">describeUsers_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="describeUsers_marker"><span class="annot"><span class="annottext">describeUsers_marker :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_marker"><span class="hs-identifier hs-var hs-var">describeUsers_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe Text)
+-&gt; (DescribeUsers -&gt; Maybe Text -&gt; DescribeUsers)
+-&gt; Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269214"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+</span><a href="#local-6989586621679269214"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269214"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269213"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269213"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269212"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269212"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269213"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsers%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269212"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | A query to filter users by user name.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_query"><span class="hs-identifier hs-type">describeUsers_query</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="describeUsers_query"><span class="annot"><span class="annottext">describeUsers_query :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_query"><span class="hs-identifier hs-var hs-var">describeUsers_query</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe (Sensitive Text))
+-&gt; (DescribeUsers -&gt; Maybe (Sensitive Text) -&gt; DescribeUsers)
+-&gt; Lens
+     DescribeUsers
+     DescribeUsers
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269211"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+query :: Maybe (Sensitive Text)
+$sel:query:DescribeUsers' :: DescribeUsers -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269211"><span class="hs-identifier hs-var hs-var">query</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269211"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269210"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269209"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:query:DescribeUsers' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Aquery%3ADescribeUsers%27"><span class="hs-identifier hs-var">query</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; DescribeUsers -&gt; f DescribeUsers)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeUsers
+-&gt; f DescribeUsers
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The maximum number of items to return.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_limit"><span class="hs-identifier hs-type">describeUsers_limit</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="describeUsers_limit"><span class="annot"><span class="annottext">describeUsers_limit :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_limit"><span class="hs-identifier hs-var hs-var">describeUsers_limit</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe Natural)
+-&gt; (DescribeUsers -&gt; Maybe Natural -&gt; DescribeUsers)
+-&gt; Lens DescribeUsers DescribeUsers (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269208"><span class="annot"><span class="annottext">Maybe Natural
+limit :: Maybe Natural
+$sel:limit:DescribeUsers' :: DescribeUsers -&gt; Maybe Natural
+</span><a href="#local-6989586621679269208"><span class="hs-identifier hs-var hs-var">limit</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679269208"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269207"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269206"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679269206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:limit:DescribeUsers' :: Maybe Natural
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Alimit%3ADescribeUsers%27"><span class="hs-identifier hs-var">limit</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679269206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | The order for the results.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_order"><span class="hs-identifier hs-type">describeUsers_order</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.Types.OrderType.html#OrderType"><span class="hs-identifier hs-type">OrderType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="describeUsers_order"><span class="annot"><span class="annottext">describeUsers_order :: (Maybe OrderType -&gt; f (Maybe OrderType))
+-&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_order"><span class="hs-identifier hs-var hs-var">describeUsers_order</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe OrderType)
+-&gt; (DescribeUsers -&gt; Maybe OrderType -&gt; DescribeUsers)
+-&gt; Lens
+     DescribeUsers DescribeUsers (Maybe OrderType) (Maybe OrderType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269205"><span class="annot"><span class="annottext">Maybe OrderType
+order :: Maybe OrderType
+$sel:order:DescribeUsers' :: DescribeUsers -&gt; Maybe OrderType
+</span><a href="#local-6989586621679269205"><span class="hs-identifier hs-var hs-var">order</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe OrderType
+</span><a href="#local-6989586621679269205"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269204"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269203"><span class="annot"><span class="annottext">Maybe OrderType
+</span><a href="#local-6989586621679269203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:order:DescribeUsers' :: Maybe OrderType
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Aorder%3ADescribeUsers%27"><span class="hs-identifier hs-var">order</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe OrderType
+</span><a href="#local-6989586621679269203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | The ID of the organization.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_organizationId"><span class="hs-identifier hs-type">describeUsers_organizationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="describeUsers_organizationId"><span class="annot"><span class="annottext">describeUsers_organizationId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_organizationId"><span class="hs-identifier hs-var hs-var">describeUsers_organizationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe Text)
+-&gt; (DescribeUsers -&gt; Maybe Text -&gt; DescribeUsers)
+-&gt; Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269202"><span class="annot"><span class="annottext">Maybe Text
+organizationId :: Maybe Text
+$sel:organizationId:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+</span><a href="#local-6989586621679269202"><span class="hs-identifier hs-var hs-var">organizationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269202"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269201"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269200"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:organizationId:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AorganizationId%3ADescribeUsers%27"><span class="hs-identifier hs-var">organizationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | A comma-separated list of values. Specify \&quot;STORAGE_METADATA\&quot; to</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- include the user storage quota and utilization information.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_fields"><span class="hs-identifier hs-type">describeUsers_fields</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="describeUsers_fields"><span class="annot"><span class="annottext">describeUsers_fields :: (Maybe Text -&gt; f (Maybe Text)) -&gt; DescribeUsers -&gt; f DescribeUsers
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_fields"><span class="hs-identifier hs-var hs-var">describeUsers_fields</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe Text)
+-&gt; (DescribeUsers -&gt; Maybe Text -&gt; DescribeUsers)
+-&gt; Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269199"><span class="annot"><span class="annottext">Maybe Text
+fields :: Maybe Text
+$sel:fields:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+</span><a href="#local-6989586621679269199"><span class="hs-identifier hs-var hs-var">fields</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269199"><span class="hs-identifier hs-var">fields</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269198"><span class="annot"><span class="annottext">s :: DescribeUsers
+</span><a href="#local-6989586621679269198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269197"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fields:DescribeUsers' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Afields%3ADescribeUsers%27"><span class="hs-identifier hs-var">fields</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679269193"><span class="annot"><span class="annottext">page :: DescribeUsers -&gt; AWSResponse DescribeUsers -&gt; Maybe DescribeUsers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679269191"><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269191"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679269190"><span class="annot"><span class="annottext">AWSResponse DescribeUsers
+</span><a href="#local-6989586621679269190"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-187"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsers
+DescribeUsersResponse
+</span><a href="#local-6989586621679269190"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-188"></span><span>            </span><span class="annot"><span class="annottext">DescribeUsersResponse
+-&gt; Getting (First Text) DescribeUsersResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeUsersResponse
+-&gt; Const (First Text) DescribeUsersResponse
+Lens' DescribeUsersResponse (Maybe Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_marker"><span class="hs-identifier hs-var">describeUsersResponse_marker</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeUsersResponse
+ -&gt; Const (First Text) DescribeUsersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeUsersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-189"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeUsers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [User] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-192"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsers
+DescribeUsersResponse
+</span><a href="#local-6989586621679269190"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-193"></span><span>            </span><span class="annot"><span class="annottext">DescribeUsersResponse
+-&gt; Getting (First [User]) DescribeUsersResponse [User]
+-&gt; Maybe [User]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [User] -&gt; Const (First [User]) (Maybe [User]))
+-&gt; DescribeUsersResponse
+-&gt; Const (First [User]) DescribeUsersResponse
+Lens' DescribeUsersResponse (Maybe [User])
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_users"><span class="hs-identifier hs-var">describeUsersResponse_users</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe [User] -&gt; Const (First [User]) (Maybe [User]))
+ -&gt; DescribeUsersResponse
+ -&gt; Const (First [User]) DescribeUsersResponse)
+-&gt; (([User] -&gt; Const (First [User]) [User])
+    -&gt; Maybe [User] -&gt; Const (First [User]) (Maybe [User]))
+-&gt; Getting (First [User]) DescribeUsersResponse [User]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([User] -&gt; Const (First [User]) [User])
+-&gt; Maybe [User] -&gt; Const (First [User]) (Maybe [User])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-194"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">Maybe DescribeUsers
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-197"></span><span>      </span><span class="annot"><span class="annottext">DescribeUsers -&gt; Maybe DescribeUsers
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(DescribeUsers -&gt; Maybe DescribeUsers)
+-&gt; DescribeUsers -&gt; Maybe DescribeUsers
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-198"></span><span>        </span><span class="annot"><span class="annottext">DescribeUsers
+</span><a href="#local-6989586621679269191"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-199"></span><span>          </span><span class="annot"><span class="annottext">DescribeUsers -&gt; (DescribeUsers -&gt; DescribeUsers) -&gt; DescribeUsers
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; DescribeUsers -&gt; Identity DescribeUsers
+Lens DescribeUsers DescribeUsers (Maybe Text) (Maybe Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsers_marker"><span class="hs-identifier hs-var">describeUsers_marker</span></a></span><span>
+</span><span id="line-200"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; DescribeUsers -&gt; Identity DescribeUsers)
+-&gt; Maybe Text -&gt; DescribeUsers -&gt; DescribeUsers
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DescribeUsers
+DescribeUsersResponse
+</span><a href="#local-6989586621679269190"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-201"></span><span>          </span><span class="annot"><span class="annottext">DescribeUsersResponse
+-&gt; Getting (First Text) DescribeUsersResponse Text -&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; DescribeUsersResponse
+-&gt; Const (First Text) DescribeUsersResponse
+Lens' DescribeUsersResponse (Maybe Text)
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_marker"><span class="hs-identifier hs-var">describeUsersResponse_marker</span></a></span><span> </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; DescribeUsersResponse
+ -&gt; Const (First Text) DescribeUsersResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) DescribeUsersResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-204"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-205"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span>
+</span><span id="line-207"></span><span>  </span><span id="local-6989586621679269181"><span class="annot"><span class="annottext">request :: DescribeUsers -&gt; Request DescribeUsers
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUsers -&gt; Request DescribeUsers
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.WorkDocs.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-208"></span><span>  </span><span id="local-6989586621679269177"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeUsers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeUsers)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeUsers))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeUsers
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse DescribeUsers)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-210"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679269174"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269174"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679269173"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679269173"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679269172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">Maybe [User]
+-&gt; Maybe Integer -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-var">DescribeUsersResponse'</span></a></span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [User]
+ -&gt; Maybe Integer -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse)
+-&gt; Either String (Maybe [User])
+-&gt; Either
+     String
+     (Maybe Integer -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [User]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Users&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [User]))
+-&gt; Maybe [User] -&gt; Either String (Maybe [User])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [User]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Integer -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; DescribeUsersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TotalNumberOfUsers&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; DescribeUsersResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; DescribeUsersResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679269172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Marker&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeUsersResponse)
+-&gt; Either String Int -&gt; Either String DescribeUsersResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269174"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269163"><span id="local-6989586621679269165"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span></span></span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269160"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679269156"><span class="annot"><span class="annottext">toHeaders :: DescribeUsers -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269145"><span id="local-6989586621679269146"><span id="local-6989586621679269147"><span id="local-6989586621679269148"><span id="local-6989586621679269149"><span id="local-6989586621679269150"><span id="local-6989586621679269151"><span id="local-6989586621679269152"><span id="local-6989586621679269153"><span id="local-6989586621679269154"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe (Sensitive Text)
+Maybe OrderType
+Maybe UserFilterType
+Maybe UserSortType
+fields :: Maybe Text
+organizationId :: Maybe Text
+order :: Maybe OrderType
+limit :: Maybe Natural
+query :: Maybe (Sensitive Text)
+marker :: Maybe Text
+sort :: Maybe UserSortType
+authenticationToken :: Maybe (Sensitive Text)
+userIds :: Maybe Text
+include :: Maybe UserFilterType
+$sel:fields:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:organizationId:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:order:DescribeUsers' :: DescribeUsers -&gt; Maybe OrderType
+$sel:limit:DescribeUsers' :: DescribeUsers -&gt; Maybe Natural
+$sel:query:DescribeUsers' :: DescribeUsers -&gt; Maybe (Sensitive Text)
+$sel:marker:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:sort:DescribeUsers' :: DescribeUsers -&gt; Maybe UserSortType
+$sel:authenticationToken:DescribeUsers' :: DescribeUsers -&gt; Maybe (Sensitive Text)
+$sel:userIds:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:include:DescribeUsers' :: DescribeUsers -&gt; Maybe UserFilterType
+</span><a href="#local-6989586621679269145"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-225"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Authentication&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe (Sensitive Text) -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269152"><span class="hs-identifier hs-var">authenticationToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-227"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-231"></span><span>  </span><span id="local-6989586621679269141"><span class="annot"><span class="annottext">toPath :: DescribeUsers -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeUsers -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/api/v1/users&quot;</span></span><span>
+</span><span id="line-232"></span><span>
+</span><span id="line-233"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers"><span class="hs-identifier hs-type">DescribeUsers</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-234"></span><span>  </span><span id="local-6989586621679269136"><span class="annot"><span class="annottext">toQuery :: DescribeUsers -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsers%27"><span class="hs-identifier hs-type">DescribeUsers'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269125"><span id="local-6989586621679269126"><span id="local-6989586621679269127"><span id="local-6989586621679269128"><span id="local-6989586621679269129"><span id="local-6989586621679269130"><span id="local-6989586621679269131"><span id="local-6989586621679269132"><span id="local-6989586621679269133"><span id="local-6989586621679269134"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Maybe (Sensitive Text)
+Maybe OrderType
+Maybe UserFilterType
+Maybe UserSortType
+fields :: Maybe Text
+organizationId :: Maybe Text
+order :: Maybe OrderType
+limit :: Maybe Natural
+query :: Maybe (Sensitive Text)
+marker :: Maybe Text
+sort :: Maybe UserSortType
+authenticationToken :: Maybe (Sensitive Text)
+userIds :: Maybe Text
+include :: Maybe UserFilterType
+$sel:fields:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:organizationId:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:order:DescribeUsers' :: DescribeUsers -&gt; Maybe OrderType
+$sel:limit:DescribeUsers' :: DescribeUsers -&gt; Maybe Natural
+$sel:query:DescribeUsers' :: DescribeUsers -&gt; Maybe (Sensitive Text)
+$sel:marker:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:sort:DescribeUsers' :: DescribeUsers -&gt; Maybe UserSortType
+$sel:authenticationToken:DescribeUsers' :: DescribeUsers -&gt; Maybe (Sensitive Text)
+$sel:userIds:DescribeUsers' :: DescribeUsers -&gt; Maybe Text
+$sel:include:DescribeUsers' :: DescribeUsers -&gt; Maybe UserFilterType
+</span><a href="#local-6989586621679269125"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-236"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;include&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe UserFilterType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserFilterType
+</span><a href="#local-6989586621679269134"><span class="hs-identifier hs-var">include</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;userIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269133"><span class="hs-identifier hs-var">userIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;sort&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe UserSortType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe UserSortType
+</span><a href="#local-6989586621679269131"><span class="hs-identifier hs-var">sort</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;marker&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269130"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;query&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe (Sensitive Text) -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679269129"><span class="hs-identifier hs-var">query</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;limit&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679269128"><span class="hs-identifier hs-var">limit</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;order&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe OrderType -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe OrderType
+</span><a href="#local-6989586621679269127"><span class="hs-identifier hs-var">order</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;organizationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269126"><span class="hs-identifier hs-var">organizationId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;fields&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269125"><span class="hs-identifier hs-var">fields</span></a></span><span>
+</span><span id="line-245"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | /See:/ 'newDescribeUsersResponse' smart constructor.</span><span>
+</span><span id="line-248"></span><span id="local-6989586621679269122"><span id="local-6989586621679269123"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUsersResponse"><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-var">DescribeUsersResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUsersResponse%27"><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-var">DescribeUsersResponse'</span></a></span></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The users.</span><span>
+</span><span id="line-250"></span><span>    </span><span id="%24sel%3Ausers%3ADescribeUsersResponse%27"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; Maybe [User]
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Ausers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WorkDocs.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">-- | The total number of users included in the results.</span><span>
+</span><span id="line-252"></span><span>    </span><span id="%24sel%3AtotalNumberOfUsers%3ADescribeUsersResponse%27"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; Maybe Integer
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AtotalNumberOfUsers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var hs-var">totalNumberOfUsers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- | The marker to use when requesting the next set of results. If there are</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
+</span><span id="line-255"></span><span>    </span><span id="%24sel%3Amarker%3ADescribeUsersResponse%27"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-257"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; Int
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679269114"><span id="local-6989586621679269116"><span class="annot"><span class="annottext">DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
+(DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool)
+-&gt; (DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool)
+-&gt; Eq DescribeUsersResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
+$c/= :: DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
+== :: DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
+$c== :: DescribeUsersResponse -&gt; DescribeUsersResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269106"><span id="local-6989586621679269108"><span id="local-6989586621679269110"><span id="local-6989586621679269112"><span class="annot"><span class="annottext">ReadPrec [DescribeUsersResponse]
+ReadPrec DescribeUsersResponse
+Int -&gt; ReadS DescribeUsersResponse
+ReadS [DescribeUsersResponse]
+(Int -&gt; ReadS DescribeUsersResponse)
+-&gt; ReadS [DescribeUsersResponse]
+-&gt; ReadPrec DescribeUsersResponse
+-&gt; ReadPrec [DescribeUsersResponse]
+-&gt; Read DescribeUsersResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeUsersResponse]
+$creadListPrec :: ReadPrec [DescribeUsersResponse]
+readPrec :: ReadPrec DescribeUsersResponse
+$creadPrec :: ReadPrec DescribeUsersResponse
+readList :: ReadS [DescribeUsersResponse]
+$creadList :: ReadS [DescribeUsersResponse]
+readsPrec :: Int -&gt; ReadS DescribeUsersResponse
+$creadsPrec :: Int -&gt; ReadS DescribeUsersResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679269099"><span id="local-6989586621679269101"><span id="local-6989586621679269103"><span class="annot"><span class="annottext">Int -&gt; DescribeUsersResponse -&gt; ShowS
+[DescribeUsersResponse] -&gt; ShowS
+DescribeUsersResponse -&gt; String
+(Int -&gt; DescribeUsersResponse -&gt; ShowS)
+-&gt; (DescribeUsersResponse -&gt; String)
+-&gt; ([DescribeUsersResponse] -&gt; ShowS)
+-&gt; Show DescribeUsersResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeUsersResponse] -&gt; ShowS
+$cshowList :: [DescribeUsersResponse] -&gt; ShowS
+show :: DescribeUsersResponse -&gt; String
+$cshow :: DescribeUsersResponse -&gt; String
+showsPrec :: Int -&gt; DescribeUsersResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeUsersResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeUsersResponse -&gt; Rep DescribeUsersResponse x)
+-&gt; (forall x. Rep DescribeUsersResponse x -&gt; DescribeUsersResponse)
+-&gt; Generic DescribeUsersResponse
+forall x. Rep DescribeUsersResponse x -&gt; DescribeUsersResponse
+forall x. DescribeUsersResponse -&gt; Rep DescribeUsersResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeUsersResponse x -&gt; DescribeUsersResponse
+$cfrom :: forall x. DescribeUsersResponse -&gt; Rep DescribeUsersResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- Create a value of 'DescribeUsersResponse' with all optional fields omitted.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- 'users', 'describeUsersResponse_users' - The users.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- 'totalNumberOfUsers', 'describeUsersResponse_totalNumberOfUsers' - The total number of users included in the results.</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- 'marker', 'describeUsersResponse_marker' - The marker to use when requesting the next set of results. If there are</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- 'httpStatus', 'describeUsersResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#newDescribeUsersResponse"><span class="hs-identifier hs-type">newDescribeUsersResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-278"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-279"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-280"></span><span>  </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span>
+</span><span id="line-281"></span><span id="newDescribeUsersResponse"><span class="annot"><span class="annottext">newDescribeUsersResponse :: Int -&gt; DescribeUsersResponse
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#newDescribeUsersResponse"><span class="hs-identifier hs-var hs-var">newDescribeUsersResponse</span></a></span></span><span> </span><span id="local-6989586621679269096"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269096"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-282"></span><span>  </span><span class="annot"><span class="annottext">DescribeUsersResponse' :: Maybe [User]
+-&gt; Maybe Integer -&gt; Maybe Text -&gt; Int -&gt; DescribeUsersResponse
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span>
+</span><span id="line-283"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:users:DescribeUsersResponse' :: Maybe [User]
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Ausers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [User]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>      </span><span class="annot"><span class="annottext">$sel:totalNumberOfUsers:DescribeUsersResponse' :: Maybe Integer
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AtotalNumberOfUsers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">totalNumberOfUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>      </span><span class="annot"><span class="annottext">$sel:marker:DescribeUsersResponse' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsersResponse' :: Int
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269096"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-287"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | The users.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_users"><span class="hs-identifier hs-type">describeUsersResponse_users</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.WorkDocs.Types.User.html#User"><span class="hs-identifier hs-type">User</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="describeUsersResponse_users"><span class="annot"><span class="annottext">describeUsersResponse_users :: (Maybe [User] -&gt; f (Maybe [User]))
+-&gt; DescribeUsersResponse -&gt; f DescribeUsersResponse
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_users"><span class="hs-identifier hs-var hs-var">describeUsersResponse_users</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsersResponse -&gt; Maybe [User])
+-&gt; (DescribeUsersResponse -&gt; Maybe [User] -&gt; DescribeUsersResponse)
+-&gt; Lens' DescribeUsersResponse (Maybe [User])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269095"><span class="annot"><span class="annottext">Maybe [User]
+users :: Maybe [User]
+$sel:users:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Maybe [User]
+</span><a href="#local-6989586621679269095"><span class="hs-identifier hs-var hs-var">users</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [User]
+</span><a href="#local-6989586621679269095"><span class="hs-identifier hs-var">users</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269094"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
+</span><a href="#local-6989586621679269094"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269093"><span class="annot"><span class="annottext">Maybe [User]
+</span><a href="#local-6989586621679269093"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
+</span><a href="#local-6989586621679269094"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:users:DescribeUsersResponse' :: Maybe [User]
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Ausers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">users</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [User]
+</span><a href="#local-6989586621679269093"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [User] -&gt; f (Maybe [User]))
+ -&gt; DescribeUsersResponse -&gt; f DescribeUsersResponse)
+-&gt; ((Maybe [User] -&gt; f (Maybe [User]))
+    -&gt; Maybe [User] -&gt; f (Maybe [User]))
+-&gt; (Maybe [User] -&gt; f (Maybe [User]))
+-&gt; DescribeUsersResponse
+-&gt; f DescribeUsersResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [User] [User] [User] [User]
+-&gt; Iso (Maybe [User]) (Maybe [User]) (Maybe [User]) (Maybe [User])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [User] [User] [User] [User]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The total number of users included in the results.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_totalNumberOfUsers"><span class="hs-identifier hs-type">describeUsersResponse_totalNumberOfUsers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span id="describeUsersResponse_totalNumberOfUsers"><span class="annot"><span class="annottext">describeUsersResponse_totalNumberOfUsers :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DescribeUsersResponse -&gt; f DescribeUsersResponse
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_totalNumberOfUsers"><span class="hs-identifier hs-var hs-var">describeUsersResponse_totalNumberOfUsers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsersResponse -&gt; Maybe Integer)
+-&gt; (DescribeUsersResponse
+    -&gt; Maybe Integer -&gt; DescribeUsersResponse)
+-&gt; Lens
+     DescribeUsersResponse
+     DescribeUsersResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269091"><span class="annot"><span class="annottext">Maybe Integer
+totalNumberOfUsers :: Maybe Integer
+$sel:totalNumberOfUsers:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679269091"><span class="hs-identifier hs-var hs-var">totalNumberOfUsers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679269091"><span class="hs-identifier hs-var">totalNumberOfUsers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269090"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
+</span><a href="#local-6989586621679269090"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269089"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679269089"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
+</span><a href="#local-6989586621679269090"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:totalNumberOfUsers:DescribeUsersResponse' :: Maybe Integer
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AtotalNumberOfUsers%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">totalNumberOfUsers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679269089"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | The marker to use when requesting the next set of results. If there are</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- no additional results, the string is empty.</span><span>
+</span><span id="line-299"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_marker"><span class="hs-identifier hs-type">describeUsersResponse_marker</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-300"></span><span id="describeUsersResponse_marker"><span class="annot"><span class="annottext">describeUsersResponse_marker :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeUsersResponse -&gt; f DescribeUsersResponse
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_marker"><span class="hs-identifier hs-var hs-var">describeUsersResponse_marker</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsersResponse -&gt; Maybe Text)
+-&gt; (DescribeUsersResponse -&gt; Maybe Text -&gt; DescribeUsersResponse)
+-&gt; Lens' DescribeUsersResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269088"><span class="annot"><span class="annottext">Maybe Text
+marker :: Maybe Text
+$sel:marker:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679269088"><span class="hs-identifier hs-var hs-var">marker</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269088"><span class="hs-identifier hs-var">marker</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269087"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
+</span><a href="#local-6989586621679269087"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269086"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269086"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
+</span><a href="#local-6989586621679269087"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:marker:DescribeUsersResponse' :: Maybe Text
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3Amarker%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">marker</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679269086"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span>
+</span><span id="line-302"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-303"></span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_httpStatus"><span class="hs-identifier hs-type">describeUsersResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-304"></span><span id="describeUsersResponse_httpStatus"><span class="annot"><span class="annottext">describeUsersResponse_httpStatus :: (Int -&gt; f Int) -&gt; DescribeUsersResponse -&gt; f DescribeUsersResponse
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#describeUsersResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeUsersResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUsersResponse -&gt; Int)
+-&gt; (DescribeUsersResponse -&gt; Int -&gt; DescribeUsersResponse)
+-&gt; Lens DescribeUsersResponse DescribeUsersResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679269085"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeUsersResponse' :: DescribeUsersResponse -&gt; Int
+</span><a href="#local-6989586621679269085"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269085"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679269084"><span class="annot"><span class="annottext">s :: DescribeUsersResponse
+</span><a href="#local-6989586621679269084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse%27"><span class="hs-identifier hs-type">DescribeUsersResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679269083"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUsersResponse
+</span><a href="#local-6989586621679269084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUsersResponse' :: Int
+</span><a href="Amazonka.WorkDocs.DescribeUsers.html#%24sel%3AhttpStatus%3ADescribeUsersResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679269083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679269081"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.WorkDocs.DescribeUsers.html#DescribeUsersResponse"><span class="hs-identifier hs-type">DescribeUsersResponse</span></a></span></span><span>
+</span><span id="line-307"></span></pre></body></html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.UpdateEventLabel</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified event with a new label.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.UpdateEventLabel</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier">UpdateEventLabel</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#newUpdateEventLabel"><span class="hs-identifier">newUpdateEventLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_eventId"><span class="hs-identifier">updateEventLabel_eventId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_eventTypeName"><span class="hs-identifier">updateEventLabel_eventTypeName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_assignedLabel"><span class="hs-identifier">updateEventLabel_assignedLabel</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_labelTimestamp"><span class="hs-identifier">updateEventLabel_labelTimestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse"><span class="hs-identifier">UpdateEventLabelResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#newUpdateEventLabelResponse"><span class="hs-identifier">newUpdateEventLabelResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabelResponse_httpStatus"><span class="hs-identifier">updateEventLabelResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html"><span class="hs-identifier">Amazonka.FraudDetector.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newUpdateEventLabel' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679323466"><span id="local-6989586621679323467"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEventLabel"><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-var">UpdateEventLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEventLabel%27"><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-var">UpdateEventLabel'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the event associated with the label to update.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AeventId%3AUpdateEventLabel%27"><span class="annot"><span class="annottext">UpdateEventLabel -&gt; Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AeventId%3AUpdateEventLabel%27"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- | The event type of the event associated with the label to update.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AeventTypeName%3AUpdateEventLabel%27"><span class="annot"><span class="annottext">UpdateEventLabel -&gt; Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AeventTypeName%3AUpdateEventLabel%27"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The new label to assign to the event.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AassignedLabel%3AUpdateEventLabel%27"><span class="annot"><span class="annottext">UpdateEventLabel -&gt; Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AassignedLabel%3AUpdateEventLabel%27"><span class="hs-identifier hs-var hs-var">assignedLabel</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The timestamp associated with the label. The timestamp must be specified</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- using ISO 8601 standard in UTC.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AlabelTimestamp%3AUpdateEventLabel%27"><span class="annot"><span class="annottext">UpdateEventLabel -&gt; Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AlabelTimestamp%3AUpdateEventLabel%27"><span class="hs-identifier hs-var hs-var">labelTimestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323457"><span id="local-6989586621679323459"><span class="annot"><span class="annottext">UpdateEventLabel -&gt; UpdateEventLabel -&gt; Bool
+(UpdateEventLabel -&gt; UpdateEventLabel -&gt; Bool)
+-&gt; (UpdateEventLabel -&gt; UpdateEventLabel -&gt; Bool)
+-&gt; Eq UpdateEventLabel
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEventLabel -&gt; UpdateEventLabel -&gt; Bool
+$c/= :: UpdateEventLabel -&gt; UpdateEventLabel -&gt; Bool
+== :: UpdateEventLabel -&gt; UpdateEventLabel -&gt; Bool
+$c== :: UpdateEventLabel -&gt; UpdateEventLabel -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323448"><span id="local-6989586621679323450"><span id="local-6989586621679323452"><span id="local-6989586621679323454"><span class="annot"><span class="annottext">ReadPrec [UpdateEventLabel]
+ReadPrec UpdateEventLabel
+Int -&gt; ReadS UpdateEventLabel
+ReadS [UpdateEventLabel]
+(Int -&gt; ReadS UpdateEventLabel)
+-&gt; ReadS [UpdateEventLabel]
+-&gt; ReadPrec UpdateEventLabel
+-&gt; ReadPrec [UpdateEventLabel]
+-&gt; Read UpdateEventLabel
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateEventLabel]
+$creadListPrec :: ReadPrec [UpdateEventLabel]
+readPrec :: ReadPrec UpdateEventLabel
+$creadPrec :: ReadPrec UpdateEventLabel
+readList :: ReadS [UpdateEventLabel]
+$creadList :: ReadS [UpdateEventLabel]
+readsPrec :: Int -&gt; ReadS UpdateEventLabel
+$creadsPrec :: Int -&gt; ReadS UpdateEventLabel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323441"><span id="local-6989586621679323443"><span id="local-6989586621679323445"><span class="annot"><span class="annottext">Int -&gt; UpdateEventLabel -&gt; ShowS
+[UpdateEventLabel] -&gt; ShowS
+UpdateEventLabel -&gt; String
+(Int -&gt; UpdateEventLabel -&gt; ShowS)
+-&gt; (UpdateEventLabel -&gt; String)
+-&gt; ([UpdateEventLabel] -&gt; ShowS)
+-&gt; Show UpdateEventLabel
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEventLabel] -&gt; ShowS
+$cshowList :: [UpdateEventLabel] -&gt; ShowS
+show :: UpdateEventLabel -&gt; String
+$cshow :: UpdateEventLabel -&gt; String
+showsPrec :: Int -&gt; UpdateEventLabel -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEventLabel -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateEventLabel -&gt; Rep UpdateEventLabel x)
+-&gt; (forall x. Rep UpdateEventLabel x -&gt; UpdateEventLabel)
+-&gt; Generic UpdateEventLabel
+forall x. Rep UpdateEventLabel x -&gt; UpdateEventLabel
+forall x. UpdateEventLabel -&gt; Rep UpdateEventLabel x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateEventLabel x -&gt; UpdateEventLabel
+$cfrom :: forall x. UpdateEventLabel -&gt; Rep UpdateEventLabel x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UpdateEventLabel' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'eventId', 'updateEventLabel_eventId' - The ID of the event associated with the label to update.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'eventTypeName', 'updateEventLabel_eventTypeName' - The event type of the event associated with the label to update.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'assignedLabel', 'updateEventLabel_assignedLabel' - The new label to assign to the event.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'labelTimestamp', 'updateEventLabel_labelTimestamp' - The timestamp associated with the label. The timestamp must be specified</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- using ISO 8601 standard in UTC.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#newUpdateEventLabel"><span class="hs-identifier hs-type">newUpdateEventLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'eventId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'eventTypeName'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="hs-comment">-- | 'assignedLabel'</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-88"></span><span>  </span><span class="hs-comment">-- | 'labelTimestamp'</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span>
+</span><span id="line-91"></span><span id="newUpdateEventLabel"><span class="annot"><span class="annottext">newUpdateEventLabel :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; UpdateEventLabel
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#newUpdateEventLabel"><span class="hs-identifier hs-var hs-var">newUpdateEventLabel</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679323436"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323436"><span class="hs-identifier hs-var">pEventId_</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679323435"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323435"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679323434"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323434"><span class="hs-identifier hs-var">pAssignedLabel_</span></a></span></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679323433"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323433"><span class="hs-identifier hs-var">pLabelTimestamp_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">UpdateEventLabel' :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; UpdateEventLabel
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eventId:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AeventId%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323436"><span class="hs-identifier hs-var">pEventId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:eventTypeName:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AeventTypeName%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323435"><span class="hs-identifier hs-var">pEventTypeName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:assignedLabel:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AassignedLabel%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">assignedLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323434"><span class="hs-identifier hs-var">pAssignedLabel_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>        </span><span class="annot"><span class="annottext">$sel:labelTimestamp:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AlabelTimestamp%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">labelTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323433"><span class="hs-identifier hs-var">pLabelTimestamp_</span></a></span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The ID of the event associated with the label to update.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_eventId"><span class="hs-identifier hs-type">updateEventLabel_eventId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-105"></span><span id="updateEventLabel_eventId"><span class="annot"><span class="annottext">updateEventLabel_eventId :: (Text -&gt; f Text) -&gt; UpdateEventLabel -&gt; f UpdateEventLabel
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_eventId"><span class="hs-identifier hs-var hs-var">updateEventLabel_eventId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEventLabel -&gt; Text)
+-&gt; (UpdateEventLabel -&gt; Text -&gt; UpdateEventLabel)
+-&gt; Lens UpdateEventLabel UpdateEventLabel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323430"><span class="annot"><span class="annottext">Text
+eventId :: Text
+$sel:eventId:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+</span><a href="#local-6989586621679323430"><span class="hs-identifier hs-var hs-var">eventId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323430"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323429"><span class="annot"><span class="annottext">s :: UpdateEventLabel
+</span><a href="#local-6989586621679323429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323428"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEventLabel
+</span><a href="#local-6989586621679323429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventId:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AeventId%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">eventId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | The event type of the event associated with the label to update.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_eventTypeName"><span class="hs-identifier hs-type">updateEventLabel_eventTypeName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="updateEventLabel_eventTypeName"><span class="annot"><span class="annottext">updateEventLabel_eventTypeName :: (Text -&gt; f Text) -&gt; UpdateEventLabel -&gt; f UpdateEventLabel
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_eventTypeName"><span class="hs-identifier hs-var hs-var">updateEventLabel_eventTypeName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEventLabel -&gt; Text)
+-&gt; (UpdateEventLabel -&gt; Text -&gt; UpdateEventLabel)
+-&gt; Lens UpdateEventLabel UpdateEventLabel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323427"><span class="annot"><span class="annottext">Text
+eventTypeName :: Text
+$sel:eventTypeName:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+</span><a href="#local-6989586621679323427"><span class="hs-identifier hs-var hs-var">eventTypeName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323427"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323426"><span class="annot"><span class="annottext">s :: UpdateEventLabel
+</span><a href="#local-6989586621679323426"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323425"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323425"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEventLabel
+</span><a href="#local-6989586621679323426"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eventTypeName:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AeventTypeName%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323425"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The new label to assign to the event.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_assignedLabel"><span class="hs-identifier hs-type">updateEventLabel_assignedLabel</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-113"></span><span id="updateEventLabel_assignedLabel"><span class="annot"><span class="annottext">updateEventLabel_assignedLabel :: (Text -&gt; f Text) -&gt; UpdateEventLabel -&gt; f UpdateEventLabel
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_assignedLabel"><span class="hs-identifier hs-var hs-var">updateEventLabel_assignedLabel</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEventLabel -&gt; Text)
+-&gt; (UpdateEventLabel -&gt; Text -&gt; UpdateEventLabel)
+-&gt; Lens UpdateEventLabel UpdateEventLabel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323424"><span class="annot"><span class="annottext">Text
+assignedLabel :: Text
+$sel:assignedLabel:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+</span><a href="#local-6989586621679323424"><span class="hs-identifier hs-var hs-var">assignedLabel</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323424"><span class="hs-identifier hs-var">assignedLabel</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323423"><span class="annot"><span class="annottext">s :: UpdateEventLabel
+</span><a href="#local-6989586621679323423"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323422"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323422"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEventLabel
+</span><a href="#local-6989586621679323423"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:assignedLabel:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AassignedLabel%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">assignedLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323422"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The timestamp associated with the label. The timestamp must be specified</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- using ISO 8601 standard in UTC.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_labelTimestamp"><span class="hs-identifier hs-type">updateEventLabel_labelTimestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span id="updateEventLabel_labelTimestamp"><span class="annot"><span class="annottext">updateEventLabel_labelTimestamp :: (Text -&gt; f Text) -&gt; UpdateEventLabel -&gt; f UpdateEventLabel
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabel_labelTimestamp"><span class="hs-identifier hs-var hs-var">updateEventLabel_labelTimestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEventLabel -&gt; Text)
+-&gt; (UpdateEventLabel -&gt; Text -&gt; UpdateEventLabel)
+-&gt; Lens UpdateEventLabel UpdateEventLabel Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323421"><span class="annot"><span class="annottext">Text
+labelTimestamp :: Text
+$sel:labelTimestamp:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+</span><a href="#local-6989586621679323421"><span class="hs-identifier hs-var hs-var">labelTimestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323421"><span class="hs-identifier hs-var">labelTimestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323420"><span class="annot"><span class="annottext">s :: UpdateEventLabel
+</span><a href="#local-6989586621679323420"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323419"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323419"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEventLabel
+</span><a href="#local-6989586621679323420"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:labelTimestamp:UpdateEventLabel' :: Text
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AlabelTimestamp%3AUpdateEventLabel%27"><span class="hs-identifier hs-var">labelTimestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323419"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-122"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>      </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse"><span class="hs-identifier hs-type">UpdateEventLabelResponse</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679323415"><span class="annot"><span class="annottext">request :: UpdateEventLabel -&gt; Request UpdateEventLabel
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateEventLabel -&gt; Request UpdateEventLabel
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679323411"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateEventLabel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateEventLabel)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UpdateEventLabel))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateEventLabel
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateEventLabel)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679323408"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323408"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679323407"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679323407"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679323406"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679323406"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateEventLabelResponse
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse%27"><span class="hs-identifier hs-var">UpdateEventLabelResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateEventLabelResponse)
+-&gt; Either String Int -&gt; Either String UpdateEventLabelResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323408"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323399"><span id="local-6989586621679323401"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span></span></span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323396"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679323392"><span class="annot"><span class="annottext">toHeaders :: UpdateEventLabel -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateEventLabel -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-140"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-141"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.UpdateEventLabel&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-142"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-143"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-146"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-147"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323382"><span id="local-6989586621679323384"><span id="local-6989586621679323386"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679323380"><span class="annot"><span class="annottext">toJSON :: UpdateEventLabel -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel%27"><span class="hs-identifier hs-type">UpdateEventLabel'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323375"><span id="local-6989586621679323376"><span id="local-6989586621679323377"><span id="local-6989586621679323378"><span class="annot"><span class="annottext">Text
+labelTimestamp :: Text
+assignedLabel :: Text
+eventTypeName :: Text
+eventId :: Text
+$sel:labelTimestamp:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+$sel:assignedLabel:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+$sel:eventTypeName:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+$sel:eventId:UpdateEventLabel' :: UpdateEventLabel -&gt; Text
+</span><a href="#local-6989586621679323375"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-154"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323378"><span class="hs-identifier hs-var">eventId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;eventTypeName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323377"><span class="hs-identifier hs-var">eventTypeName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;assignedLabel&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323376"><span class="hs-identifier hs-var">assignedLabel</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-159"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;labelTimestamp&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679323375"><span class="hs-identifier hs-var">labelTimestamp</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621679323369"><span class="annot"><span class="annottext">toPath :: UpdateEventLabel -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateEventLabel -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabel"><span class="hs-identifier hs-type">UpdateEventLabel</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679323365"><span class="annot"><span class="annottext">toQuery :: UpdateEventLabel -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateEventLabel -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | /See:/ 'newUpdateEventLabelResponse' smart constructor.</span><span>
+</span><span id="line-170"></span><span id="local-6989586621679323362"><span id="local-6989586621679323363"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateEventLabelResponse"><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse"><span class="hs-identifier hs-var">UpdateEventLabelResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateEventLabelResponse%27"><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse%27"><span class="hs-identifier hs-var">UpdateEventLabelResponse'</span></a></span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateEventLabelResponse%27"><span class="annot"><span class="annottext">UpdateEventLabelResponse -&gt; Int
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AhttpStatus%3AUpdateEventLabelResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679323357"><span id="local-6989586621679323359"><span class="annot"><span class="annottext">UpdateEventLabelResponse -&gt; UpdateEventLabelResponse -&gt; Bool
+(UpdateEventLabelResponse -&gt; UpdateEventLabelResponse -&gt; Bool)
+-&gt; (UpdateEventLabelResponse -&gt; UpdateEventLabelResponse -&gt; Bool)
+-&gt; Eq UpdateEventLabelResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateEventLabelResponse -&gt; UpdateEventLabelResponse -&gt; Bool
+$c/= :: UpdateEventLabelResponse -&gt; UpdateEventLabelResponse -&gt; Bool
+== :: UpdateEventLabelResponse -&gt; UpdateEventLabelResponse -&gt; Bool
+$c== :: UpdateEventLabelResponse -&gt; UpdateEventLabelResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323349"><span id="local-6989586621679323351"><span id="local-6989586621679323353"><span id="local-6989586621679323355"><span class="annot"><span class="annottext">ReadPrec [UpdateEventLabelResponse]
+ReadPrec UpdateEventLabelResponse
+Int -&gt; ReadS UpdateEventLabelResponse
+ReadS [UpdateEventLabelResponse]
+(Int -&gt; ReadS UpdateEventLabelResponse)
+-&gt; ReadS [UpdateEventLabelResponse]
+-&gt; ReadPrec UpdateEventLabelResponse
+-&gt; ReadPrec [UpdateEventLabelResponse]
+-&gt; Read UpdateEventLabelResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateEventLabelResponse]
+$creadListPrec :: ReadPrec [UpdateEventLabelResponse]
+readPrec :: ReadPrec UpdateEventLabelResponse
+$creadPrec :: ReadPrec UpdateEventLabelResponse
+readList :: ReadS [UpdateEventLabelResponse]
+$creadList :: ReadS [UpdateEventLabelResponse]
+readsPrec :: Int -&gt; ReadS UpdateEventLabelResponse
+$creadsPrec :: Int -&gt; ReadS UpdateEventLabelResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679323343"><span id="local-6989586621679323345"><span id="local-6989586621679323347"><span class="annot"><span class="annottext">Int -&gt; UpdateEventLabelResponse -&gt; ShowS
+[UpdateEventLabelResponse] -&gt; ShowS
+UpdateEventLabelResponse -&gt; String
+(Int -&gt; UpdateEventLabelResponse -&gt; ShowS)
+-&gt; (UpdateEventLabelResponse -&gt; String)
+-&gt; ([UpdateEventLabelResponse] -&gt; ShowS)
+-&gt; Show UpdateEventLabelResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateEventLabelResponse] -&gt; ShowS
+$cshowList :: [UpdateEventLabelResponse] -&gt; ShowS
+show :: UpdateEventLabelResponse -&gt; String
+$cshow :: UpdateEventLabelResponse -&gt; String
+showsPrec :: Int -&gt; UpdateEventLabelResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateEventLabelResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateEventLabelResponse -&gt; Rep UpdateEventLabelResponse x)
+-&gt; (forall x.
+    Rep UpdateEventLabelResponse x -&gt; UpdateEventLabelResponse)
+-&gt; Generic UpdateEventLabelResponse
+forall x.
+Rep UpdateEventLabelResponse x -&gt; UpdateEventLabelResponse
+forall x.
+UpdateEventLabelResponse -&gt; Rep UpdateEventLabelResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateEventLabelResponse x -&gt; UpdateEventLabelResponse
+$cfrom :: forall x.
+UpdateEventLabelResponse -&gt; Rep UpdateEventLabelResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Create a value of 'UpdateEventLabelResponse' with all optional fields omitted.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'httpStatus', 'updateEventLabelResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#newUpdateEventLabelResponse"><span class="hs-identifier hs-type">newUpdateEventLabelResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse"><span class="hs-identifier hs-type">UpdateEventLabelResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newUpdateEventLabelResponse"><span class="annot"><span class="annottext">newUpdateEventLabelResponse :: Int -&gt; UpdateEventLabelResponse
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#newUpdateEventLabelResponse"><span class="hs-identifier hs-var hs-var">newUpdateEventLabelResponse</span></a></span></span><span> </span><span id="local-6989586621679323340"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323340"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">UpdateEventLabelResponse' :: Int -&gt; UpdateEventLabelResponse
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse%27"><span class="hs-identifier hs-type">UpdateEventLabelResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEventLabelResponse' :: Int
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AhttpStatus%3AUpdateEventLabelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323340"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabelResponse_httpStatus"><span class="hs-identifier hs-type">updateEventLabelResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse"><span class="hs-identifier hs-type">UpdateEventLabelResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-197"></span><span id="updateEventLabelResponse_httpStatus"><span class="annot"><span class="annottext">updateEventLabelResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateEventLabelResponse -&gt; f UpdateEventLabelResponse
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#updateEventLabelResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateEventLabelResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateEventLabelResponse -&gt; Int)
+-&gt; (UpdateEventLabelResponse -&gt; Int -&gt; UpdateEventLabelResponse)
+-&gt; Lens UpdateEventLabelResponse UpdateEventLabelResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse%27"><span class="hs-identifier hs-type">UpdateEventLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679323339"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateEventLabelResponse' :: UpdateEventLabelResponse -&gt; Int
+</span><a href="#local-6989586621679323339"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323339"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679323338"><span class="annot"><span class="annottext">s :: UpdateEventLabelResponse
+</span><a href="#local-6989586621679323338"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse%27"><span class="hs-identifier hs-type">UpdateEventLabelResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679323337"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323337"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateEventLabelResponse
+</span><a href="#local-6989586621679323338"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateEventLabelResponse' :: Int
+</span><a href="Amazonka.FraudDetector.UpdateEventLabel.html#%24sel%3AhttpStatus%3AUpdateEventLabelResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679323337"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse"><span class="hs-identifier hs-type">UpdateEventLabelResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679323335"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.UpdateEventLabel.html#UpdateEventLabelResponse"><span class="hs-identifier hs-type">UpdateEventLabelResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

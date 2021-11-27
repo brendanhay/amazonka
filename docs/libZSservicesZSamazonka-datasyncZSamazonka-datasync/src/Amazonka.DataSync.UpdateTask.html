@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DataSync.UpdateTask</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the metadata associated with a task.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataSync.UpdateTask</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier">UpdateTask</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#newUpdateTask"><span class="hs-identifier">newUpdateTask</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_schedule"><span class="hs-identifier">updateTask_schedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_includes"><span class="hs-identifier">updateTask_includes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_name"><span class="hs-identifier">updateTask_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_excludes"><span class="hs-identifier">updateTask_excludes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_options"><span class="hs-identifier">updateTask_options</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_cloudWatchLogGroupArn"><span class="hs-identifier">updateTask_cloudWatchLogGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_taskArn"><span class="hs-identifier">updateTask_taskArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse"><span class="hs-identifier">UpdateTaskResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#newUpdateTaskResponse"><span class="hs-identifier">newUpdateTaskResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTaskResponse_httpStatus"><span class="hs-identifier">updateTaskResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.html"><span class="hs-identifier">Amazonka.DataSync.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | UpdateTaskResponse</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newUpdateTask' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679262107"><span id="local-6989586621679262108"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTask"><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-var">UpdateTask</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTask%27"><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-var">UpdateTask'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies a schedule used to periodically transfer files from a source</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- to a destination location. You can configure your task to execute</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- hourly, daily, weekly or on specific days of the week. You control when</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- in the day or hour you want the task to execute. The time you specify is</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- UTC time. For more information, see</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html Scheduling your task&gt;.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Aschedule%3AUpdateTask%27"><span class="annot"><span class="annottext">UpdateTask -&gt; Maybe TaskSchedule
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aschedule%3AUpdateTask%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskSchedule.html#TaskSchedule"><span class="hs-identifier hs-type">TaskSchedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | A list of filter rules that determines which files to include when</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- running a task. The pattern should contain a single filter string that</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- consists of the patterns to include. The patterns are delimited by \&quot;|\&quot;</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- (that is, a pipe). For example: @\&quot;\/folder1|\/folder2@\&quot;</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Aincludes%3AUpdateTask%27"><span class="annot"><span class="annottext">UpdateTask -&gt; Maybe [FilterRule]
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aincludes%3AUpdateTask%27"><span class="hs-identifier hs-var hs-var">includes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name of the task to update.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aname%3AUpdateTask%27"><span class="annot"><span class="annottext">UpdateTask -&gt; Maybe Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aname%3AUpdateTask%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A list of filter rules that determines which files to exclude from a</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- task. The list should contain a single filter string that consists of</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- the patterns to exclude. The patterns are delimited by \&quot;|\&quot; (that is, a</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- pipe), for example: @\&quot;\/folder1|\/folder2\&quot;@</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aexcludes%3AUpdateTask%27"><span class="annot"><span class="annottext">UpdateTask -&gt; Maybe [FilterRule]
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aexcludes%3AUpdateTask%27"><span class="hs-identifier hs-var hs-var">excludes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aoptions%3AUpdateTask%27"><span class="annot"><span class="annottext">UpdateTask -&gt; Maybe Options
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aoptions%3AUpdateTask%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#Options"><span class="hs-identifier hs-type">Options</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- LogGroup.</span><span>
+</span><span id="line-80"></span><span>    </span><span id="%24sel%3AcloudWatchLogGroupArn%3AUpdateTask%27"><span class="annot"><span class="annottext">UpdateTask -&gt; Maybe Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AcloudWatchLogGroupArn%3AUpdateTask%27"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource name of the task to</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AtaskArn%3AUpdateTask%27"><span class="annot"><span class="annottext">UpdateTask -&gt; Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AtaskArn%3AUpdateTask%27"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679262095"><span id="local-6989586621679262097"><span class="annot"><span class="annottext">UpdateTask -&gt; UpdateTask -&gt; Bool
+(UpdateTask -&gt; UpdateTask -&gt; Bool)
+-&gt; (UpdateTask -&gt; UpdateTask -&gt; Bool) -&gt; Eq UpdateTask
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTask -&gt; UpdateTask -&gt; Bool
+$c/= :: UpdateTask -&gt; UpdateTask -&gt; Bool
+== :: UpdateTask -&gt; UpdateTask -&gt; Bool
+$c== :: UpdateTask -&gt; UpdateTask -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262086"><span id="local-6989586621679262088"><span id="local-6989586621679262090"><span id="local-6989586621679262092"><span class="annot"><span class="annottext">ReadPrec [UpdateTask]
+ReadPrec UpdateTask
+Int -&gt; ReadS UpdateTask
+ReadS [UpdateTask]
+(Int -&gt; ReadS UpdateTask)
+-&gt; ReadS [UpdateTask]
+-&gt; ReadPrec UpdateTask
+-&gt; ReadPrec [UpdateTask]
+-&gt; Read UpdateTask
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTask]
+$creadListPrec :: ReadPrec [UpdateTask]
+readPrec :: ReadPrec UpdateTask
+$creadPrec :: ReadPrec UpdateTask
+readList :: ReadS [UpdateTask]
+$creadList :: ReadS [UpdateTask]
+readsPrec :: Int -&gt; ReadS UpdateTask
+$creadsPrec :: Int -&gt; ReadS UpdateTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679262079"><span id="local-6989586621679262081"><span id="local-6989586621679262083"><span class="annot"><span class="annottext">Int -&gt; UpdateTask -&gt; ShowS
+[UpdateTask] -&gt; ShowS
+UpdateTask -&gt; String
+(Int -&gt; UpdateTask -&gt; ShowS)
+-&gt; (UpdateTask -&gt; String)
+-&gt; ([UpdateTask] -&gt; ShowS)
+-&gt; Show UpdateTask
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTask] -&gt; ShowS
+$cshowList :: [UpdateTask] -&gt; ShowS
+show :: UpdateTask -&gt; String
+$cshow :: UpdateTask -&gt; String
+showsPrec :: Int -&gt; UpdateTask -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTask -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateTask -&gt; Rep UpdateTask x)
+-&gt; (forall x. Rep UpdateTask x -&gt; UpdateTask) -&gt; Generic UpdateTask
+forall x. Rep UpdateTask x -&gt; UpdateTask
+forall x. UpdateTask -&gt; Rep UpdateTask x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateTask x -&gt; UpdateTask
+$cfrom :: forall x. UpdateTask -&gt; Rep UpdateTask x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'UpdateTask' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'schedule', 'updateTask_schedule' - Specifies a schedule used to periodically transfer files from a source</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- to a destination location. You can configure your task to execute</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- hourly, daily, weekly or on specific days of the week. You control when</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- in the day or hour you want the task to execute. The time you specify is</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- UTC time. For more information, see</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html Scheduling your task&gt;.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'includes', 'updateTask_includes' - A list of filter rules that determines which files to include when</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- running a task. The pattern should contain a single filter string that</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- consists of the patterns to include. The patterns are delimited by \&quot;|\&quot;</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- (that is, a pipe). For example: @\&quot;\/folder1|\/folder2@\&quot;</span><span>
+</span><span id="line-106"></span><span class="hs-comment">--</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- 'name', 'updateTask_name' - The name of the task to update.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- 'excludes', 'updateTask_excludes' - A list of filter rules that determines which files to exclude from a</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- task. The list should contain a single filter string that consists of</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the patterns to exclude. The patterns are delimited by \&quot;|\&quot; (that is, a</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- pipe), for example: @\&quot;\/folder1|\/folder2\&quot;@</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'options', 'updateTask_options' - Undocumented member.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'cloudWatchLogGroupArn', 'updateTask_cloudWatchLogGroupArn' - The Amazon Resource Name (ARN) of the resource name of the CloudWatch</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- LogGroup.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'taskArn', 'updateTask_taskArn' - The Amazon Resource Name (ARN) of the resource name of the task to</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#newUpdateTask"><span class="hs-identifier hs-type">newUpdateTask</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'taskArn'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span>
+</span><span id="line-125"></span><span id="newUpdateTask"><span class="annot"><span class="annottext">newUpdateTask :: Text -&gt; UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#newUpdateTask"><span class="hs-identifier hs-var hs-var">newUpdateTask</span></a></span></span><span> </span><span id="local-6989586621679262074"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var">pTaskArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">UpdateTask' :: Maybe TaskSchedule
+-&gt; Maybe [FilterRule]
+-&gt; Maybe Text
+-&gt; Maybe [FilterRule]
+-&gt; Maybe Options
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:schedule:UpdateTask' :: Maybe TaskSchedule
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aschedule%3AUpdateTask%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSchedule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-128"></span><span>      </span><span class="annot"><span class="annottext">$sel:includes:UpdateTask' :: Maybe [FilterRule]
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aincludes%3AUpdateTask%27"><span class="hs-identifier hs-var">includes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateTask' :: Maybe Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aname%3AUpdateTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">$sel:excludes:UpdateTask' :: Maybe [FilterRule]
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aexcludes%3AUpdateTask%27"><span class="hs-identifier hs-var">excludes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>      </span><span class="annot"><span class="annottext">$sel:options:UpdateTask' :: Maybe Options
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aoptions%3AUpdateTask%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Options
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupArn:UpdateTask' :: Maybe Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AcloudWatchLogGroupArn%3AUpdateTask%27"><span class="hs-identifier hs-var">cloudWatchLogGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>      </span><span class="annot"><span class="annottext">$sel:taskArn:UpdateTask' :: Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AtaskArn%3AUpdateTask%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262074"><span class="hs-identifier hs-var">pTaskArn_</span></a></span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | Specifies a schedule used to periodically transfer files from a source</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- to a destination location. You can configure your task to execute</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- hourly, daily, weekly or on specific days of the week. You control when</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- in the day or hour you want the task to execute. The time you specify is</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- UTC time. For more information, see</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/datasync/latest/userguide/task-scheduling.html Scheduling your task&gt;.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_schedule"><span class="hs-identifier hs-type">updateTask_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.TaskSchedule.html#TaskSchedule"><span class="hs-identifier hs-type">TaskSchedule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span id="updateTask_schedule"><span class="annot"><span class="annottext">updateTask_schedule :: (Maybe TaskSchedule -&gt; f (Maybe TaskSchedule))
+-&gt; UpdateTask -&gt; f UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTask_schedule"><span class="hs-identifier hs-var hs-var">updateTask_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTask -&gt; Maybe TaskSchedule)
+-&gt; (UpdateTask -&gt; Maybe TaskSchedule -&gt; UpdateTask)
+-&gt; Lens
+     UpdateTask UpdateTask (Maybe TaskSchedule) (Maybe TaskSchedule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262071"><span class="annot"><span class="annottext">Maybe TaskSchedule
+schedule :: Maybe TaskSchedule
+$sel:schedule:UpdateTask' :: UpdateTask -&gt; Maybe TaskSchedule
+</span><a href="#local-6989586621679262071"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSchedule
+</span><a href="#local-6989586621679262071"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262070"><span class="annot"><span class="annottext">s :: UpdateTask
+</span><a href="#local-6989586621679262070"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262069"><span class="annot"><span class="annottext">Maybe TaskSchedule
+</span><a href="#local-6989586621679262069"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTask
+</span><a href="#local-6989586621679262070"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:UpdateTask' :: Maybe TaskSchedule
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aschedule%3AUpdateTask%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TaskSchedule
+</span><a href="#local-6989586621679262069"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- | A list of filter rules that determines which files to include when</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- running a task. The pattern should contain a single filter string that</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- consists of the patterns to include. The patterns are delimited by \&quot;|\&quot;</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- (that is, a pipe). For example: @\&quot;\/folder1|\/folder2@\&quot;</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_includes"><span class="hs-identifier hs-type">updateTask_includes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="updateTask_includes"><span class="annot"><span class="annottext">updateTask_includes :: (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; UpdateTask -&gt; f UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTask_includes"><span class="hs-identifier hs-var hs-var">updateTask_includes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTask -&gt; Maybe [FilterRule])
+-&gt; (UpdateTask -&gt; Maybe [FilterRule] -&gt; UpdateTask)
+-&gt; Lens
+     UpdateTask UpdateTask (Maybe [FilterRule]) (Maybe [FilterRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262068"><span class="annot"><span class="annottext">Maybe [FilterRule]
+includes :: Maybe [FilterRule]
+$sel:includes:UpdateTask' :: UpdateTask -&gt; Maybe [FilterRule]
+</span><a href="#local-6989586621679262068"><span class="hs-identifier hs-var hs-var">includes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262068"><span class="hs-identifier hs-var">includes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262067"><span class="annot"><span class="annottext">s :: UpdateTask
+</span><a href="#local-6989586621679262067"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262066"><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262066"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTask
+</span><a href="#local-6989586621679262067"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:includes:UpdateTask' :: Maybe [FilterRule]
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aincludes%3AUpdateTask%27"><span class="hs-identifier hs-var">includes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262066"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+ -&gt; UpdateTask -&gt; f UpdateTask)
+-&gt; ((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+    -&gt; Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; UpdateTask
+-&gt; f UpdateTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+-&gt; Iso
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | The name of the task to update.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_name"><span class="hs-identifier hs-type">updateTask_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span id="updateTask_name"><span class="annot"><span class="annottext">updateTask_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateTask -&gt; f UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTask_name"><span class="hs-identifier hs-var hs-var">updateTask_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTask -&gt; Maybe Text)
+-&gt; (UpdateTask -&gt; Maybe Text -&gt; UpdateTask)
+-&gt; Lens UpdateTask UpdateTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262062"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateTask' :: UpdateTask -&gt; Maybe Text
+</span><a href="#local-6989586621679262062"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262062"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262061"><span class="annot"><span class="annottext">s :: UpdateTask
+</span><a href="#local-6989586621679262061"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262060"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262060"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTask
+</span><a href="#local-6989586621679262061"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateTask' :: Maybe Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aname%3AUpdateTask%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262060"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | A list of filter rules that determines which files to exclude from a</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- task. The list should contain a single filter string that consists of</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- the patterns to exclude. The patterns are delimited by \&quot;|\&quot; (that is, a</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- pipe), for example: @\&quot;\/folder1|\/folder2\&quot;@</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_excludes"><span class="hs-identifier hs-type">updateTask_excludes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataSync.Types.FilterRule.html#FilterRule"><span class="hs-identifier hs-type">FilterRule</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="updateTask_excludes"><span class="annot"><span class="annottext">updateTask_excludes :: (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; UpdateTask -&gt; f UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTask_excludes"><span class="hs-identifier hs-var hs-var">updateTask_excludes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTask -&gt; Maybe [FilterRule])
+-&gt; (UpdateTask -&gt; Maybe [FilterRule] -&gt; UpdateTask)
+-&gt; Lens
+     UpdateTask UpdateTask (Maybe [FilterRule]) (Maybe [FilterRule])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262059"><span class="annot"><span class="annottext">Maybe [FilterRule]
+excludes :: Maybe [FilterRule]
+$sel:excludes:UpdateTask' :: UpdateTask -&gt; Maybe [FilterRule]
+</span><a href="#local-6989586621679262059"><span class="hs-identifier hs-var hs-var">excludes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262059"><span class="hs-identifier hs-var">excludes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262058"><span class="annot"><span class="annottext">s :: UpdateTask
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262057"><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262057"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTask
+</span><a href="#local-6989586621679262058"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:excludes:UpdateTask' :: Maybe [FilterRule]
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aexcludes%3AUpdateTask%27"><span class="hs-identifier hs-var">excludes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262057"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+ -&gt; UpdateTask -&gt; f UpdateTask)
+-&gt; ((Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+    -&gt; Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; (Maybe [FilterRule] -&gt; f (Maybe [FilterRule]))
+-&gt; UpdateTask
+-&gt; f UpdateTask
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+-&gt; Iso
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+     (Maybe [FilterRule])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [FilterRule] [FilterRule] [FilterRule] [FilterRule]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_options"><span class="hs-identifier hs-type">updateTask_options</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.Options.html#Options"><span class="hs-identifier hs-type">Options</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="updateTask_options"><span class="annot"><span class="annottext">updateTask_options :: (Maybe Options -&gt; f (Maybe Options)) -&gt; UpdateTask -&gt; f UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTask_options"><span class="hs-identifier hs-var hs-var">updateTask_options</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTask -&gt; Maybe Options)
+-&gt; (UpdateTask -&gt; Maybe Options -&gt; UpdateTask)
+-&gt; Lens UpdateTask UpdateTask (Maybe Options) (Maybe Options)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262056"><span class="annot"><span class="annottext">Maybe Options
+options :: Maybe Options
+$sel:options:UpdateTask' :: UpdateTask -&gt; Maybe Options
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679262056"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262055"><span class="annot"><span class="annottext">s :: UpdateTask
+</span><a href="#local-6989586621679262055"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262054"><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679262054"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTask
+</span><a href="#local-6989586621679262055"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:UpdateTask' :: Maybe Options
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3Aoptions%3AUpdateTask%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679262054"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource name of the CloudWatch</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- LogGroup.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_cloudWatchLogGroupArn"><span class="hs-identifier hs-type">updateTask_cloudWatchLogGroupArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span id="updateTask_cloudWatchLogGroupArn"><span class="annot"><span class="annottext">updateTask_cloudWatchLogGroupArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateTask -&gt; f UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTask_cloudWatchLogGroupArn"><span class="hs-identifier hs-var hs-var">updateTask_cloudWatchLogGroupArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTask -&gt; Maybe Text)
+-&gt; (UpdateTask -&gt; Maybe Text -&gt; UpdateTask)
+-&gt; Lens UpdateTask UpdateTask (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262053"><span class="annot"><span class="annottext">Maybe Text
+cloudWatchLogGroupArn :: Maybe Text
+$sel:cloudWatchLogGroupArn:UpdateTask' :: UpdateTask -&gt; Maybe Text
+</span><a href="#local-6989586621679262053"><span class="hs-identifier hs-var hs-var">cloudWatchLogGroupArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262053"><span class="hs-identifier hs-var">cloudWatchLogGroupArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262052"><span class="annot"><span class="annottext">s :: UpdateTask
+</span><a href="#local-6989586621679262052"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262051"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262051"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTask
+</span><a href="#local-6989586621679262052"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogGroupArn:UpdateTask' :: Maybe Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AcloudWatchLogGroupArn%3AUpdateTask%27"><span class="hs-identifier hs-var">cloudWatchLogGroupArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262051"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the resource name of the task to</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- update.</span><span>
+</span><span id="line-174"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTask_taskArn"><span class="hs-identifier hs-type">updateTask_taskArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-175"></span><span id="updateTask_taskArn"><span class="annot"><span class="annottext">updateTask_taskArn :: (Text -&gt; f Text) -&gt; UpdateTask -&gt; f UpdateTask
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTask_taskArn"><span class="hs-identifier hs-var hs-var">updateTask_taskArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTask -&gt; Text)
+-&gt; (UpdateTask -&gt; Text -&gt; UpdateTask)
+-&gt; Lens UpdateTask UpdateTask Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262050"><span class="annot"><span class="annottext">Text
+taskArn :: Text
+$sel:taskArn:UpdateTask' :: UpdateTask -&gt; Text
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var hs-var">taskArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262050"><span class="hs-identifier hs-var">taskArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679262049"><span class="annot"><span class="annottext">s :: UpdateTask
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679262048"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTask
+</span><a href="#local-6989586621679262049"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:taskArn:UpdateTask' :: Text
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AtaskArn%3AUpdateTask%27"><span class="hs-identifier hs-var">taskArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262048"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse"><span class="hs-identifier hs-type">UpdateTaskResponse</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679262044"><span class="annot"><span class="annottext">request :: UpdateTask -&gt; Request UpdateTask
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateTask -&gt; Request UpdateTask
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679262040"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateTask)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse UpdateTask))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateTask
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateTask)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679262037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262037"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679262036"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679262036"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679262035"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679262035"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UpdateTaskResponse
+</span><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse%27"><span class="hs-identifier hs-var">UpdateTaskResponse'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UpdateTaskResponse)
+-&gt; Either String Int -&gt; Either String UpdateTaskResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679262037"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262028"><span id="local-6989586621679262030"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span></span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262025"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span></span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-192"></span><span>  </span><span id="local-6989586621679262021"><span class="annot"><span class="annottext">toHeaders :: UpdateTask -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateTask -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-195"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-196"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FmrsService.UpdateTask&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-198"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-199"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-200"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679262011"><span id="local-6989586621679262013"><span id="local-6989586621679262015"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-205"></span><span>  </span><span id="local-6989586621679262009"><span class="annot"><span class="annottext">toJSON :: UpdateTask -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask%27"><span class="hs-identifier hs-type">UpdateTask'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679262001"><span id="local-6989586621679262002"><span id="local-6989586621679262003"><span id="local-6989586621679262004"><span id="local-6989586621679262005"><span id="local-6989586621679262006"><span id="local-6989586621679262007"><span class="annot"><span class="annottext">Maybe [FilterRule]
+Maybe Text
+Maybe TaskSchedule
+Maybe Options
+Text
+taskArn :: Text
+cloudWatchLogGroupArn :: Maybe Text
+options :: Maybe Options
+excludes :: Maybe [FilterRule]
+name :: Maybe Text
+includes :: Maybe [FilterRule]
+schedule :: Maybe TaskSchedule
+$sel:taskArn:UpdateTask' :: UpdateTask -&gt; Text
+$sel:cloudWatchLogGroupArn:UpdateTask' :: UpdateTask -&gt; Maybe Text
+$sel:options:UpdateTask' :: UpdateTask -&gt; Maybe Options
+$sel:excludes:UpdateTask' :: UpdateTask -&gt; Maybe [FilterRule]
+$sel:name:UpdateTask' :: UpdateTask -&gt; Maybe Text
+$sel:includes:UpdateTask' :: UpdateTask -&gt; Maybe [FilterRule]
+$sel:schedule:UpdateTask' :: UpdateTask -&gt; Maybe TaskSchedule
+</span><a href="#local-6989586621679262001"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-207"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-208"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; TaskSchedule -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(TaskSchedule -&gt; Pair) -&gt; Maybe TaskSchedule -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe TaskSchedule
+</span><a href="#local-6989586621679262007"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Includes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FilterRule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([FilterRule] -&gt; Pair) -&gt; Maybe [FilterRule] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262006"><span class="hs-identifier hs-var">includes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262005"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Excludes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [FilterRule] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([FilterRule] -&gt; Pair) -&gt; Maybe [FilterRule] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [FilterRule]
+</span><a href="#local-6989586621679262004"><span class="hs-identifier hs-var">excludes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Options&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Options -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Options -&gt; Pair) -&gt; Maybe Options -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Options
+</span><a href="#local-6989586621679262003"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLogGroupArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679262002"><span class="hs-identifier hs-var">cloudWatchLogGroupArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TaskArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679262001"><span class="hs-identifier hs-var">taskArn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-217"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>
+</span><span id="line-219"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679261995"><span class="annot"><span class="annottext">toPath :: UpdateTask -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateTask -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-221"></span><span>
+</span><span id="line-222"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTask"><span class="hs-identifier hs-type">UpdateTask</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-223"></span><span>  </span><span id="local-6989586621679261991"><span class="annot"><span class="annottext">toQuery :: UpdateTask -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateTask -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | /See:/ 'newUpdateTaskResponse' smart constructor.</span><span>
+</span><span id="line-226"></span><span id="local-6989586621679261988"><span id="local-6989586621679261989"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateTaskResponse"><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse"><span class="hs-identifier hs-var">UpdateTaskResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateTaskResponse%27"><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse%27"><span class="hs-identifier hs-var">UpdateTaskResponse'</span></a></span></span><span>
+</span><span id="line-227"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-228"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateTaskResponse%27"><span class="annot"><span class="annottext">UpdateTaskResponse -&gt; Int
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AhttpStatus%3AUpdateTaskResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-229"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679261983"><span id="local-6989586621679261985"><span class="annot"><span class="annottext">UpdateTaskResponse -&gt; UpdateTaskResponse -&gt; Bool
+(UpdateTaskResponse -&gt; UpdateTaskResponse -&gt; Bool)
+-&gt; (UpdateTaskResponse -&gt; UpdateTaskResponse -&gt; Bool)
+-&gt; Eq UpdateTaskResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateTaskResponse -&gt; UpdateTaskResponse -&gt; Bool
+$c/= :: UpdateTaskResponse -&gt; UpdateTaskResponse -&gt; Bool
+== :: UpdateTaskResponse -&gt; UpdateTaskResponse -&gt; Bool
+$c== :: UpdateTaskResponse -&gt; UpdateTaskResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261975"><span id="local-6989586621679261977"><span id="local-6989586621679261979"><span id="local-6989586621679261981"><span class="annot"><span class="annottext">ReadPrec [UpdateTaskResponse]
+ReadPrec UpdateTaskResponse
+Int -&gt; ReadS UpdateTaskResponse
+ReadS [UpdateTaskResponse]
+(Int -&gt; ReadS UpdateTaskResponse)
+-&gt; ReadS [UpdateTaskResponse]
+-&gt; ReadPrec UpdateTaskResponse
+-&gt; ReadPrec [UpdateTaskResponse]
+-&gt; Read UpdateTaskResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateTaskResponse]
+$creadListPrec :: ReadPrec [UpdateTaskResponse]
+readPrec :: ReadPrec UpdateTaskResponse
+$creadPrec :: ReadPrec UpdateTaskResponse
+readList :: ReadS [UpdateTaskResponse]
+$creadList :: ReadS [UpdateTaskResponse]
+readsPrec :: Int -&gt; ReadS UpdateTaskResponse
+$creadsPrec :: Int -&gt; ReadS UpdateTaskResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679261969"><span id="local-6989586621679261971"><span id="local-6989586621679261973"><span class="annot"><span class="annottext">Int -&gt; UpdateTaskResponse -&gt; ShowS
+[UpdateTaskResponse] -&gt; ShowS
+UpdateTaskResponse -&gt; String
+(Int -&gt; UpdateTaskResponse -&gt; ShowS)
+-&gt; (UpdateTaskResponse -&gt; String)
+-&gt; ([UpdateTaskResponse] -&gt; ShowS)
+-&gt; Show UpdateTaskResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateTaskResponse] -&gt; ShowS
+$cshowList :: [UpdateTaskResponse] -&gt; ShowS
+show :: UpdateTaskResponse -&gt; String
+$cshow :: UpdateTaskResponse -&gt; String
+showsPrec :: Int -&gt; UpdateTaskResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateTaskResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateTaskResponse -&gt; Rep UpdateTaskResponse x)
+-&gt; (forall x. Rep UpdateTaskResponse x -&gt; UpdateTaskResponse)
+-&gt; Generic UpdateTaskResponse
+forall x. Rep UpdateTaskResponse x -&gt; UpdateTaskResponse
+forall x. UpdateTaskResponse -&gt; Rep UpdateTaskResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateTaskResponse x -&gt; UpdateTaskResponse
+$cfrom :: forall x. UpdateTaskResponse -&gt; Rep UpdateTaskResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- Create a value of 'UpdateTaskResponse' with all optional fields omitted.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- 'httpStatus', 'updateTaskResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#newUpdateTaskResponse"><span class="hs-identifier hs-type">newUpdateTaskResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-242"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-243"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-244"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse"><span class="hs-identifier hs-type">UpdateTaskResponse</span></a></span><span>
+</span><span id="line-245"></span><span id="newUpdateTaskResponse"><span class="annot"><span class="annottext">newUpdateTaskResponse :: Int -&gt; UpdateTaskResponse
+</span><a href="Amazonka.DataSync.UpdateTask.html#newUpdateTaskResponse"><span class="hs-identifier hs-var hs-var">newUpdateTaskResponse</span></a></span></span><span> </span><span id="local-6989586621679261966"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-246"></span><span>  </span><span class="annot"><span class="annottext">UpdateTaskResponse' :: Int -&gt; UpdateTaskResponse
+</span><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse%27"><span class="hs-identifier hs-type">UpdateTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTaskResponse' :: Int
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AhttpStatus%3AUpdateTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261966"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#updateTaskResponse_httpStatus"><span class="hs-identifier hs-type">updateTaskResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse"><span class="hs-identifier hs-type">UpdateTaskResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-250"></span><span id="updateTaskResponse_httpStatus"><span class="annot"><span class="annottext">updateTaskResponse_httpStatus :: (Int -&gt; f Int) -&gt; UpdateTaskResponse -&gt; f UpdateTaskResponse
+</span><a href="Amazonka.DataSync.UpdateTask.html#updateTaskResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateTaskResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateTaskResponse -&gt; Int)
+-&gt; (UpdateTaskResponse -&gt; Int -&gt; UpdateTaskResponse)
+-&gt; Lens UpdateTaskResponse UpdateTaskResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse%27"><span class="hs-identifier hs-type">UpdateTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679261965"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateTaskResponse' :: UpdateTaskResponse -&gt; Int
+</span><a href="#local-6989586621679261965"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261965"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679261964"><span class="annot"><span class="annottext">s :: UpdateTaskResponse
+</span><a href="#local-6989586621679261964"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse%27"><span class="hs-identifier hs-type">UpdateTaskResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679261963"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261963"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateTaskResponse
+</span><a href="#local-6989586621679261964"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateTaskResponse' :: Int
+</span><a href="Amazonka.DataSync.UpdateTask.html#%24sel%3AhttpStatus%3AUpdateTaskResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679261963"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse"><span class="hs-identifier hs-type">UpdateTaskResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679261961"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.UpdateTask.html#UpdateTaskResponse"><span class="hs-identifier hs-type">UpdateTaskResponse</span></a></span></span><span>
+</span><span id="line-253"></span></pre></body></html>

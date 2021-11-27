@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.Types.InputColumnDataType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.Types.InputColumnDataType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier">InputColumnDataType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_BIT"><span class="hs-identifier">InputColumnDataType_BIT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_BOOLEAN"><span class="hs-identifier">InputColumnDataType_BOOLEAN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_DATETIME"><span class="hs-identifier">InputColumnDataType_DATETIME</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_DECIMAL"><span class="hs-identifier">InputColumnDataType_DECIMAL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_INTEGER"><span class="hs-identifier">InputColumnDataType_INTEGER</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_JSON"><span class="hs-identifier">InputColumnDataType_JSON</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_STRING"><span class="hs-identifier">InputColumnDataType_STRING</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679558727"><span id="local-6989586621679558728"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InputColumnDataType"><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-var">InputColumnDataType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InputColumnDataType%27"><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-var">InputColumnDataType'</span></a></span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInputColumnDataType"><span class="annot"><span class="annottext">InputColumnDataType -&gt; Text
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#fromInputColumnDataType"><span class="hs-identifier hs-var hs-var">fromInputColumnDataType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-39"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679558719"><span id="local-6989586621679558721"><span id="local-6989586621679558723"><span class="annot"><span class="annottext">Int -&gt; InputColumnDataType -&gt; ShowS
+[InputColumnDataType] -&gt; ShowS
+InputColumnDataType -&gt; String
+(Int -&gt; InputColumnDataType -&gt; ShowS)
+-&gt; (InputColumnDataType -&gt; String)
+-&gt; ([InputColumnDataType] -&gt; ShowS)
+-&gt; Show InputColumnDataType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InputColumnDataType] -&gt; ShowS
+$cshowList :: [InputColumnDataType] -&gt; ShowS
+show :: InputColumnDataType -&gt; String
+$cshow :: InputColumnDataType -&gt; String
+showsPrec :: Int -&gt; InputColumnDataType -&gt; ShowS
+$cshowsPrec :: Int -&gt; InputColumnDataType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679558710"><span id="local-6989586621679558712"><span id="local-6989586621679558714"><span id="local-6989586621679558716"><span class="annot"><span class="annottext">ReadPrec [InputColumnDataType]
+ReadPrec InputColumnDataType
+Int -&gt; ReadS InputColumnDataType
+ReadS [InputColumnDataType]
+(Int -&gt; ReadS InputColumnDataType)
+-&gt; ReadS [InputColumnDataType]
+-&gt; ReadPrec InputColumnDataType
+-&gt; ReadPrec [InputColumnDataType]
+-&gt; Read InputColumnDataType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InputColumnDataType]
+$creadListPrec :: ReadPrec [InputColumnDataType]
+readPrec :: ReadPrec InputColumnDataType
+$creadPrec :: ReadPrec InputColumnDataType
+readList :: ReadS [InputColumnDataType]
+$creadList :: ReadS [InputColumnDataType]
+readsPrec :: Int -&gt; ReadS InputColumnDataType
+$creadsPrec :: Int -&gt; ReadS InputColumnDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679558705"><span id="local-6989586621679558707"><span class="annot"><span class="annottext">InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+(InputColumnDataType -&gt; InputColumnDataType -&gt; Bool)
+-&gt; (InputColumnDataType -&gt; InputColumnDataType -&gt; Bool)
+-&gt; Eq InputColumnDataType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+$c/= :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+== :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+$c== :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679558689"><span id="local-6989586621679558691"><span id="local-6989586621679558693"><span id="local-6989586621679558695"><span id="local-6989586621679558697"><span id="local-6989586621679558699"><span id="local-6989586621679558701"><span class="annot"><span class="annottext">Eq InputColumnDataType
+Eq InputColumnDataType
+-&gt; (InputColumnDataType -&gt; InputColumnDataType -&gt; Ordering)
+-&gt; (InputColumnDataType -&gt; InputColumnDataType -&gt; Bool)
+-&gt; (InputColumnDataType -&gt; InputColumnDataType -&gt; Bool)
+-&gt; (InputColumnDataType -&gt; InputColumnDataType -&gt; Bool)
+-&gt; (InputColumnDataType -&gt; InputColumnDataType -&gt; Bool)
+-&gt; (InputColumnDataType
+    -&gt; InputColumnDataType -&gt; InputColumnDataType)
+-&gt; (InputColumnDataType
+    -&gt; InputColumnDataType -&gt; InputColumnDataType)
+-&gt; Ord InputColumnDataType
+InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+InputColumnDataType -&gt; InputColumnDataType -&gt; Ordering
+InputColumnDataType -&gt; InputColumnDataType -&gt; InputColumnDataType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InputColumnDataType -&gt; InputColumnDataType -&gt; InputColumnDataType
+$cmin :: InputColumnDataType -&gt; InputColumnDataType -&gt; InputColumnDataType
+max :: InputColumnDataType -&gt; InputColumnDataType -&gt; InputColumnDataType
+$cmax :: InputColumnDataType -&gt; InputColumnDataType -&gt; InputColumnDataType
+&gt;= :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+$c&gt;= :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+&gt; :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+$c&gt; :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+&lt;= :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+$c&lt;= :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+&lt; :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+$c&lt; :: InputColumnDataType -&gt; InputColumnDataType -&gt; Bool
+compare :: InputColumnDataType -&gt; InputColumnDataType -&gt; Ordering
+$ccompare :: InputColumnDataType -&gt; InputColumnDataType -&gt; Ordering
+$cp1Ord :: Eq InputColumnDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InputColumnDataType -&gt; Rep InputColumnDataType x)
+-&gt; (forall x. Rep InputColumnDataType x -&gt; InputColumnDataType)
+-&gt; Generic InputColumnDataType
+forall x. Rep InputColumnDataType x -&gt; InputColumnDataType
+forall x. InputColumnDataType -&gt; Rep InputColumnDataType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InputColumnDataType x -&gt; InputColumnDataType
+$cfrom :: forall x. InputColumnDataType -&gt; Rep InputColumnDataType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679558681"><span id="local-6989586621679558683"><span class="annot"><span class="annottext">Int -&gt; InputColumnDataType -&gt; Int
+InputColumnDataType -&gt; Int
+(Int -&gt; InputColumnDataType -&gt; Int)
+-&gt; (InputColumnDataType -&gt; Int) -&gt; Hashable InputColumnDataType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InputColumnDataType -&gt; Int
+$chash :: InputColumnDataType -&gt; Int
+hashWithSalt :: Int -&gt; InputColumnDataType -&gt; Int
+$chashWithSalt :: Int -&gt; InputColumnDataType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679558678"><span class="annot"><span class="annottext">InputColumnDataType -&gt; ()
+(InputColumnDataType -&gt; ()) -&gt; NFData InputColumnDataType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InputColumnDataType -&gt; ()
+$crnf :: InputColumnDataType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679558675"><span class="annot"><span class="annottext">Text -&gt; Either String InputColumnDataType
+(Text -&gt; Either String InputColumnDataType)
+-&gt; FromText InputColumnDataType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InputColumnDataType
+$cfromText :: Text -&gt; Either String InputColumnDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679558672"><span class="annot"><span class="annottext">InputColumnDataType -&gt; Text
+(InputColumnDataType -&gt; Text) -&gt; ToText InputColumnDataType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InputColumnDataType -&gt; Text
+$ctoText :: InputColumnDataType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679558669"><span class="annot"><span class="annottext">InputColumnDataType -&gt; ByteString
+(InputColumnDataType -&gt; ByteString)
+-&gt; ToByteString InputColumnDataType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InputColumnDataType -&gt; ByteString
+$ctoBS :: InputColumnDataType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679558666"><span class="annot"><span class="annottext">InputColumnDataType -&gt; ByteStringBuilder
+(InputColumnDataType -&gt; ByteStringBuilder)
+-&gt; ToLog InputColumnDataType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InputColumnDataType -&gt; ByteStringBuilder
+$cbuild :: InputColumnDataType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679558663"><span class="annot"><span class="annottext">HeaderName -&gt; InputColumnDataType -&gt; [Header]
+(HeaderName -&gt; InputColumnDataType -&gt; [Header])
+-&gt; ToHeader InputColumnDataType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InputColumnDataType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InputColumnDataType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679558660"><span class="annot"><span class="annottext">InputColumnDataType -&gt; QueryString
+(InputColumnDataType -&gt; QueryString) -&gt; ToQuery InputColumnDataType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InputColumnDataType -&gt; QueryString
+$ctoQuery :: InputColumnDataType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679558655"><span id="local-6989586621679558657"><span class="annot"><span class="annottext">Value -&gt; Parser [InputColumnDataType]
+Value -&gt; Parser InputColumnDataType
+(Value -&gt; Parser InputColumnDataType)
+-&gt; (Value -&gt; Parser [InputColumnDataType])
+-&gt; FromJSON InputColumnDataType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InputColumnDataType]
+$cparseJSONList :: Value -&gt; Parser [InputColumnDataType]
+parseJSON :: Value -&gt; Parser InputColumnDataType
+$cparseJSON :: Value -&gt; Parser InputColumnDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679558650"><span id="local-6989586621679558652"><span class="annot"><span class="annottext">FromJSONKeyFunction [InputColumnDataType]
+FromJSONKeyFunction InputColumnDataType
+FromJSONKeyFunction InputColumnDataType
+-&gt; FromJSONKeyFunction [InputColumnDataType]
+-&gt; FromJSONKey InputColumnDataType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InputColumnDataType]
+$cfromJSONKeyList :: FromJSONKeyFunction [InputColumnDataType]
+fromJSONKey :: FromJSONKeyFunction InputColumnDataType
+$cfromJSONKey :: FromJSONKeyFunction InputColumnDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679558641"><span id="local-6989586621679558643"><span id="local-6989586621679558645"><span id="local-6989586621679558647"><span class="annot"><span class="annottext">[InputColumnDataType] -&gt; Encoding
+[InputColumnDataType] -&gt; Value
+InputColumnDataType -&gt; Encoding
+InputColumnDataType -&gt; Value
+(InputColumnDataType -&gt; Value)
+-&gt; (InputColumnDataType -&gt; Encoding)
+-&gt; ([InputColumnDataType] -&gt; Value)
+-&gt; ([InputColumnDataType] -&gt; Encoding)
+-&gt; ToJSON InputColumnDataType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InputColumnDataType] -&gt; Encoding
+$ctoEncodingList :: [InputColumnDataType] -&gt; Encoding
+toJSONList :: [InputColumnDataType] -&gt; Value
+$ctoJSONList :: [InputColumnDataType] -&gt; Value
+toEncoding :: InputColumnDataType -&gt; Encoding
+$ctoEncoding :: InputColumnDataType -&gt; Encoding
+toJSON :: InputColumnDataType -&gt; Value
+$ctoJSON :: InputColumnDataType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679558636"><span id="local-6989586621679558638"><span class="annot"><span class="annottext">ToJSONKeyFunction [InputColumnDataType]
+ToJSONKeyFunction InputColumnDataType
+ToJSONKeyFunction InputColumnDataType
+-&gt; ToJSONKeyFunction [InputColumnDataType]
+-&gt; ToJSONKey InputColumnDataType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InputColumnDataType]
+$ctoJSONKeyList :: ToJSONKeyFunction [InputColumnDataType]
+toJSONKey :: ToJSONKeyFunction InputColumnDataType
+$ctoJSONKey :: ToJSONKeyFunction InputColumnDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679558633"><span class="annot"><span class="annottext">[Node] -&gt; Either String InputColumnDataType
+([Node] -&gt; Either String InputColumnDataType)
+-&gt; FromXML InputColumnDataType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InputColumnDataType
+$cparseXML :: [Node] -&gt; Either String InputColumnDataType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679558630"><span class="annot"><span class="annottext">InputColumnDataType -&gt; XML
+(InputColumnDataType -&gt; XML) -&gt; ToXML InputColumnDataType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InputColumnDataType -&gt; XML
+$ctoXML :: InputColumnDataType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_BIT"><span class="hs-identifier hs-type">InputColumnDataType_BIT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputColumnDataType_BIT"><span id="%24mInputColumnDataType_BIT"><span id="InputColumnDataType_BIT"><span class="annot"><span class="annottext">$bInputColumnDataType_BIT :: InputColumnDataType
+$mInputColumnDataType_BIT :: forall r. InputColumnDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#%24bInputColumnDataType_BIT"><span class="hs-identifier hs-var hs-var hs-var">InputColumnDataType_BIT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-type">InputColumnDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BIT&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_BOOLEAN"><span class="hs-identifier hs-type">InputColumnDataType_BOOLEAN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputColumnDataType_BOOLEAN"><span id="%24mInputColumnDataType_BOOLEAN"><span id="InputColumnDataType_BOOLEAN"><span class="annot"><span class="annottext">$bInputColumnDataType_BOOLEAN :: InputColumnDataType
+$mInputColumnDataType_BOOLEAN :: forall r. InputColumnDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#%24bInputColumnDataType_BOOLEAN"><span class="hs-identifier hs-var hs-var hs-var">InputColumnDataType_BOOLEAN</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-type">InputColumnDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;BOOLEAN&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_DATETIME"><span class="hs-identifier hs-type">InputColumnDataType_DATETIME</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputColumnDataType_DATETIME"><span id="%24mInputColumnDataType_DATETIME"><span id="InputColumnDataType_DATETIME"><span class="annot"><span class="annottext">$bInputColumnDataType_DATETIME :: InputColumnDataType
+$mInputColumnDataType_DATETIME :: forall r. InputColumnDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#%24bInputColumnDataType_DATETIME"><span class="hs-identifier hs-var hs-var hs-var">InputColumnDataType_DATETIME</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-type">InputColumnDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DATETIME&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_DECIMAL"><span class="hs-identifier hs-type">InputColumnDataType_DECIMAL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputColumnDataType_DECIMAL"><span id="%24mInputColumnDataType_DECIMAL"><span id="InputColumnDataType_DECIMAL"><span class="annot"><span class="annottext">$bInputColumnDataType_DECIMAL :: InputColumnDataType
+$mInputColumnDataType_DECIMAL :: forall r. InputColumnDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#%24bInputColumnDataType_DECIMAL"><span class="hs-identifier hs-var hs-var hs-var">InputColumnDataType_DECIMAL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-type">InputColumnDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DECIMAL&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_INTEGER"><span class="hs-identifier hs-type">InputColumnDataType_INTEGER</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputColumnDataType_INTEGER"><span id="%24mInputColumnDataType_INTEGER"><span id="InputColumnDataType_INTEGER"><span class="annot"><span class="annottext">$bInputColumnDataType_INTEGER :: InputColumnDataType
+$mInputColumnDataType_INTEGER :: forall r. InputColumnDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#%24bInputColumnDataType_INTEGER"><span class="hs-identifier hs-var hs-var hs-var">InputColumnDataType_INTEGER</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-type">InputColumnDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INTEGER&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_JSON"><span class="hs-identifier hs-type">InputColumnDataType_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputColumnDataType_JSON"><span id="%24mInputColumnDataType_JSON"><span id="InputColumnDataType_JSON"><span class="annot"><span class="annottext">$bInputColumnDataType_JSON :: InputColumnDataType
+$mInputColumnDataType_JSON :: forall r. InputColumnDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#%24bInputColumnDataType_JSON"><span class="hs-identifier hs-var hs-var hs-var">InputColumnDataType_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-type">InputColumnDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_STRING"><span class="hs-identifier hs-type">InputColumnDataType_STRING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType"><span class="hs-identifier hs-type">InputColumnDataType</span></a></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInputColumnDataType_STRING"><span id="%24mInputColumnDataType_STRING"><span id="InputColumnDataType_STRING"><span class="annot"><span class="annottext">$bInputColumnDataType_STRING :: InputColumnDataType
+$mInputColumnDataType_STRING :: forall r. InputColumnDataType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#%24bInputColumnDataType_STRING"><span class="hs-identifier hs-var hs-var hs-var">InputColumnDataType_STRING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-identifier hs-type">InputColumnDataType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STRING&quot;</span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_BIT"><span class="hs-pragma hs-type">InputColumnDataType_BIT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_BOOLEAN"><span class="hs-pragma hs-type">InputColumnDataType_BOOLEAN</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_DATETIME"><span class="hs-pragma hs-type">InputColumnDataType_DATETIME</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_DECIMAL"><span class="hs-pragma hs-type">InputColumnDataType_DECIMAL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_INTEGER"><span class="hs-pragma hs-type">InputColumnDataType_INTEGER</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_JSON"><span class="hs-pragma hs-type">InputColumnDataType_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType_STRING"><span class="hs-pragma hs-type">InputColumnDataType_STRING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.Types.InputColumnDataType.html#InputColumnDataType%27"><span class="hs-pragma hs-type">InputColumnDataType'</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-96"></span></pre></body></html>

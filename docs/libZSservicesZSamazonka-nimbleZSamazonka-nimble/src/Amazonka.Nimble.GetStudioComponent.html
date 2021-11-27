@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.GetStudioComponent</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets a studio component resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.GetStudioComponent</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier">GetStudioComponent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#newGetStudioComponent"><span class="hs-identifier">newGetStudioComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponent_studioId"><span class="hs-identifier">getStudioComponent_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponent_studioComponentId"><span class="hs-identifier">getStudioComponent_studioComponentId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier">GetStudioComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#newGetStudioComponentResponse"><span class="hs-identifier">newGetStudioComponentResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponentResponse_studioComponent"><span class="hs-identifier">getStudioComponentResponse_studioComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponentResponse_httpStatus"><span class="hs-identifier">getStudioComponentResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.html"><span class="hs-identifier">Amazonka.Nimble.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newGetStudioComponent' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679293546"><span id="local-6989586621679293547"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStudioComponent"><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-var">GetStudioComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStudioComponent%27"><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent%27"><span class="hs-identifier hs-var">GetStudioComponent'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AstudioId%3AGetStudioComponent%27"><span class="annot"><span class="annottext">GetStudioComponent -&gt; Text
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioId%3AGetStudioComponent%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The studio component ID.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AstudioComponentId%3AGetStudioComponent%27"><span class="annot"><span class="annottext">GetStudioComponent -&gt; Text
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioComponentId%3AGetStudioComponent%27"><span class="hs-identifier hs-var hs-var">studioComponentId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293539"><span id="local-6989586621679293541"><span class="annot"><span class="annottext">GetStudioComponent -&gt; GetStudioComponent -&gt; Bool
+(GetStudioComponent -&gt; GetStudioComponent -&gt; Bool)
+-&gt; (GetStudioComponent -&gt; GetStudioComponent -&gt; Bool)
+-&gt; Eq GetStudioComponent
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetStudioComponent -&gt; GetStudioComponent -&gt; Bool
+$c/= :: GetStudioComponent -&gt; GetStudioComponent -&gt; Bool
+== :: GetStudioComponent -&gt; GetStudioComponent -&gt; Bool
+$c== :: GetStudioComponent -&gt; GetStudioComponent -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293530"><span id="local-6989586621679293532"><span id="local-6989586621679293534"><span id="local-6989586621679293536"><span class="annot"><span class="annottext">ReadPrec [GetStudioComponent]
+ReadPrec GetStudioComponent
+Int -&gt; ReadS GetStudioComponent
+ReadS [GetStudioComponent]
+(Int -&gt; ReadS GetStudioComponent)
+-&gt; ReadS [GetStudioComponent]
+-&gt; ReadPrec GetStudioComponent
+-&gt; ReadPrec [GetStudioComponent]
+-&gt; Read GetStudioComponent
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetStudioComponent]
+$creadListPrec :: ReadPrec [GetStudioComponent]
+readPrec :: ReadPrec GetStudioComponent
+$creadPrec :: ReadPrec GetStudioComponent
+readList :: ReadS [GetStudioComponent]
+$creadList :: ReadS [GetStudioComponent]
+readsPrec :: Int -&gt; ReadS GetStudioComponent
+$creadsPrec :: Int -&gt; ReadS GetStudioComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293523"><span id="local-6989586621679293525"><span id="local-6989586621679293527"><span class="annot"><span class="annottext">Int -&gt; GetStudioComponent -&gt; ShowS
+[GetStudioComponent] -&gt; ShowS
+GetStudioComponent -&gt; String
+(Int -&gt; GetStudioComponent -&gt; ShowS)
+-&gt; (GetStudioComponent -&gt; String)
+-&gt; ([GetStudioComponent] -&gt; ShowS)
+-&gt; Show GetStudioComponent
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetStudioComponent] -&gt; ShowS
+$cshowList :: [GetStudioComponent] -&gt; ShowS
+show :: GetStudioComponent -&gt; String
+$cshow :: GetStudioComponent -&gt; String
+showsPrec :: Int -&gt; GetStudioComponent -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetStudioComponent -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetStudioComponent -&gt; Rep GetStudioComponent x)
+-&gt; (forall x. Rep GetStudioComponent x -&gt; GetStudioComponent)
+-&gt; Generic GetStudioComponent
+forall x. Rep GetStudioComponent x -&gt; GetStudioComponent
+forall x. GetStudioComponent -&gt; Rep GetStudioComponent x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetStudioComponent x -&gt; GetStudioComponent
+$cfrom :: forall x. GetStudioComponent -&gt; Rep GetStudioComponent x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Create a value of 'GetStudioComponent' with all optional fields omitted.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'studioId', 'getStudioComponent_studioId' - The studio ID.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'studioComponentId', 'getStudioComponent_studioComponentId' - The studio component ID.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#newGetStudioComponent"><span class="hs-identifier hs-type">newGetStudioComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-comment">-- | 'studioComponentId'</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span>
+</span><span id="line-76"></span><span id="newGetStudioComponent"><span class="annot"><span class="annottext">newGetStudioComponent :: Text -&gt; Text -&gt; GetStudioComponent
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#newGetStudioComponent"><span class="hs-identifier hs-var hs-var">newGetStudioComponent</span></a></span></span><span> </span><span id="local-6989586621679293518"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293518"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span id="local-6989586621679293517"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293517"><span class="hs-identifier hs-var">pStudioComponentId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><span class="annottext">GetStudioComponent' :: Text -&gt; Text -&gt; GetStudioComponent
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent%27"><span class="hs-identifier hs-type">GetStudioComponent'</span></a></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:studioId:GetStudioComponent' :: Text
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioId%3AGetStudioComponent%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293518"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioComponentId:GetStudioComponent' :: Text
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioComponentId%3AGetStudioComponent%27"><span class="hs-identifier hs-var">studioComponentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293517"><span class="hs-identifier hs-var">pStudioComponentId_</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponent_studioId"><span class="hs-identifier hs-type">getStudioComponent_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-84"></span><span id="getStudioComponent_studioId"><span class="annot"><span class="annottext">getStudioComponent_studioId :: (Text -&gt; f Text) -&gt; GetStudioComponent -&gt; f GetStudioComponent
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponent_studioId"><span class="hs-identifier hs-var hs-var">getStudioComponent_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStudioComponent -&gt; Text)
+-&gt; (GetStudioComponent -&gt; Text -&gt; GetStudioComponent)
+-&gt; Lens GetStudioComponent GetStudioComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent%27"><span class="hs-identifier hs-type">GetStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293514"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:GetStudioComponent' :: GetStudioComponent -&gt; Text
+</span><a href="#local-6989586621679293514"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293514"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293513"><span class="annot"><span class="annottext">s :: GetStudioComponent
+</span><a href="#local-6989586621679293513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent%27"><span class="hs-identifier hs-type">GetStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293512"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStudioComponent
+</span><a href="#local-6989586621679293513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:GetStudioComponent' :: Text
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioId%3AGetStudioComponent%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | The studio component ID.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponent_studioComponentId"><span class="hs-identifier hs-type">getStudioComponent_studioComponentId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-88"></span><span id="getStudioComponent_studioComponentId"><span class="annot"><span class="annottext">getStudioComponent_studioComponentId :: (Text -&gt; f Text) -&gt; GetStudioComponent -&gt; f GetStudioComponent
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponent_studioComponentId"><span class="hs-identifier hs-var hs-var">getStudioComponent_studioComponentId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStudioComponent -&gt; Text)
+-&gt; (GetStudioComponent -&gt; Text -&gt; GetStudioComponent)
+-&gt; Lens GetStudioComponent GetStudioComponent Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent%27"><span class="hs-identifier hs-type">GetStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293511"><span class="annot"><span class="annottext">Text
+studioComponentId :: Text
+$sel:studioComponentId:GetStudioComponent' :: GetStudioComponent -&gt; Text
+</span><a href="#local-6989586621679293511"><span class="hs-identifier hs-var hs-var">studioComponentId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293511"><span class="hs-identifier hs-var">studioComponentId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293510"><span class="annot"><span class="annottext">s :: GetStudioComponent
+</span><a href="#local-6989586621679293510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent%27"><span class="hs-identifier hs-type">GetStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293509"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStudioComponent
+</span><a href="#local-6989586621679293510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioComponentId:GetStudioComponent' :: Text
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioComponentId%3AGetStudioComponent%27"><span class="hs-identifier hs-var">studioComponentId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-92"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-type">GetStudioComponentResponse</span></a></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679293505"><span class="annot"><span class="annottext">request :: GetStudioComponent -&gt; Request GetStudioComponent
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetStudioComponent -&gt; Request GetStudioComponent
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679293501"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetStudioComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetStudioComponent)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetStudioComponent))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetStudioComponent
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetStudioComponent)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679293498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293498"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679293497"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679293497"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679293496"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>          </span><span class="annot"><span class="annottext">Maybe StudioComponent -&gt; Int -&gt; GetStudioComponentResponse
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse%27"><span class="hs-identifier hs-var">GetStudioComponentResponse'</span></a></span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">(Maybe StudioComponent -&gt; Int -&gt; GetStudioComponentResponse)
+-&gt; Either String (Maybe StudioComponent)
+-&gt; Either String (Int -&gt; GetStudioComponentResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679293496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe StudioComponent)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;studioComponent&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetStudioComponentResponse)
+-&gt; Either String Int -&gt; Either String GetStudioComponentResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293498"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293488"><span id="local-6989586621679293490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679293481"><span class="annot"><span class="annottext">toHeaders :: GetStudioComponent -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetStudioComponent -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-112"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-113"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-114"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679293475"><span class="annot"><span class="annottext">toPath :: GetStudioComponent -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent%27"><span class="hs-identifier hs-type">GetStudioComponent'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293472"><span id="local-6989586621679293473"><span class="annot"><span class="annottext">Text
+studioComponentId :: Text
+studioId :: Text
+$sel:studioComponentId:GetStudioComponent' :: GetStudioComponent -&gt; Text
+$sel:studioId:GetStudioComponent' :: GetStudioComponent -&gt; Text
+</span><a href="#local-6989586621679293472"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293473"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/studio-components/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679293472"><span class="hs-identifier hs-var">studioComponentId</span></a></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponent"><span class="hs-identifier hs-type">GetStudioComponent</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679293468"><span class="annot"><span class="annottext">toQuery :: GetStudioComponent -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetStudioComponent -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newGetStudioComponentResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679293465"><span id="local-6989586621679293466"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetStudioComponentResponse"><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-var">GetStudioComponentResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetStudioComponentResponse%27"><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse%27"><span class="hs-identifier hs-var">GetStudioComponentResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the studio component.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AstudioComponent%3AGetStudioComponentResponse%27"><span class="annot"><span class="annottext">GetStudioComponentResponse -&gt; Maybe StudioComponent
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioComponent%3AGetStudioComponentResponse%27"><span class="hs-identifier hs-var hs-var">studioComponent</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponent.html#StudioComponent"><span class="hs-identifier hs-type">StudioComponent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetStudioComponentResponse%27"><span class="annot"><span class="annottext">GetStudioComponentResponse -&gt; Int
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AhttpStatus%3AGetStudioComponentResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679293459"><span id="local-6989586621679293461"><span class="annot"><span class="annottext">GetStudioComponentResponse -&gt; GetStudioComponentResponse -&gt; Bool
+(GetStudioComponentResponse -&gt; GetStudioComponentResponse -&gt; Bool)
+-&gt; (GetStudioComponentResponse
+    -&gt; GetStudioComponentResponse -&gt; Bool)
+-&gt; Eq GetStudioComponentResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetStudioComponentResponse -&gt; GetStudioComponentResponse -&gt; Bool
+$c/= :: GetStudioComponentResponse -&gt; GetStudioComponentResponse -&gt; Bool
+== :: GetStudioComponentResponse -&gt; GetStudioComponentResponse -&gt; Bool
+$c== :: GetStudioComponentResponse -&gt; GetStudioComponentResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293451"><span id="local-6989586621679293453"><span id="local-6989586621679293455"><span id="local-6989586621679293457"><span class="annot"><span class="annottext">ReadPrec [GetStudioComponentResponse]
+ReadPrec GetStudioComponentResponse
+Int -&gt; ReadS GetStudioComponentResponse
+ReadS [GetStudioComponentResponse]
+(Int -&gt; ReadS GetStudioComponentResponse)
+-&gt; ReadS [GetStudioComponentResponse]
+-&gt; ReadPrec GetStudioComponentResponse
+-&gt; ReadPrec [GetStudioComponentResponse]
+-&gt; Read GetStudioComponentResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetStudioComponentResponse]
+$creadListPrec :: ReadPrec [GetStudioComponentResponse]
+readPrec :: ReadPrec GetStudioComponentResponse
+$creadPrec :: ReadPrec GetStudioComponentResponse
+readList :: ReadS [GetStudioComponentResponse]
+$creadList :: ReadS [GetStudioComponentResponse]
+readsPrec :: Int -&gt; ReadS GetStudioComponentResponse
+$creadsPrec :: Int -&gt; ReadS GetStudioComponentResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679293445"><span id="local-6989586621679293447"><span id="local-6989586621679293449"><span class="annot"><span class="annottext">Int -&gt; GetStudioComponentResponse -&gt; ShowS
+[GetStudioComponentResponse] -&gt; ShowS
+GetStudioComponentResponse -&gt; String
+(Int -&gt; GetStudioComponentResponse -&gt; ShowS)
+-&gt; (GetStudioComponentResponse -&gt; String)
+-&gt; ([GetStudioComponentResponse] -&gt; ShowS)
+-&gt; Show GetStudioComponentResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetStudioComponentResponse] -&gt; ShowS
+$cshowList :: [GetStudioComponentResponse] -&gt; ShowS
+show :: GetStudioComponentResponse -&gt; String
+$cshow :: GetStudioComponentResponse -&gt; String
+showsPrec :: Int -&gt; GetStudioComponentResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetStudioComponentResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetStudioComponentResponse -&gt; Rep GetStudioComponentResponse x)
+-&gt; (forall x.
+    Rep GetStudioComponentResponse x -&gt; GetStudioComponentResponse)
+-&gt; Generic GetStudioComponentResponse
+forall x.
+Rep GetStudioComponentResponse x -&gt; GetStudioComponentResponse
+forall x.
+GetStudioComponentResponse -&gt; Rep GetStudioComponentResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetStudioComponentResponse x -&gt; GetStudioComponentResponse
+$cfrom :: forall x.
+GetStudioComponentResponse -&gt; Rep GetStudioComponentResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'GetStudioComponentResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'studioComponent', 'getStudioComponentResponse_studioComponent' - Information about the studio component.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'getStudioComponentResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#newGetStudioComponentResponse"><span class="hs-identifier hs-type">newGetStudioComponentResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-type">GetStudioComponentResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newGetStudioComponentResponse"><span class="annot"><span class="annottext">newGetStudioComponentResponse :: Int -&gt; GetStudioComponentResponse
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#newGetStudioComponentResponse"><span class="hs-identifier hs-var hs-var">newGetStudioComponentResponse</span></a></span></span><span> </span><span id="local-6989586621679293442"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293442"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">GetStudioComponentResponse' :: Maybe StudioComponent -&gt; Int -&gt; GetStudioComponentResponse
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse%27"><span class="hs-identifier hs-type">GetStudioComponentResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:studioComponent:GetStudioComponentResponse' :: Maybe StudioComponent
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioComponent%3AGetStudioComponentResponse%27"><span class="hs-identifier hs-var">studioComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe StudioComponent
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetStudioComponentResponse' :: Int
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AhttpStatus%3AGetStudioComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293442"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Information about the studio component.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponentResponse_studioComponent"><span class="hs-identifier hs-type">getStudioComponentResponse_studioComponent</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-type">GetStudioComponentResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.StudioComponent.html#StudioComponent"><span class="hs-identifier hs-type">StudioComponent</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="getStudioComponentResponse_studioComponent"><span class="annot"><span class="annottext">getStudioComponentResponse_studioComponent :: (Maybe StudioComponent -&gt; f (Maybe StudioComponent))
+-&gt; GetStudioComponentResponse -&gt; f GetStudioComponentResponse
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponentResponse_studioComponent"><span class="hs-identifier hs-var hs-var">getStudioComponentResponse_studioComponent</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStudioComponentResponse -&gt; Maybe StudioComponent)
+-&gt; (GetStudioComponentResponse
+    -&gt; Maybe StudioComponent -&gt; GetStudioComponentResponse)
+-&gt; Lens
+     GetStudioComponentResponse
+     GetStudioComponentResponse
+     (Maybe StudioComponent)
+     (Maybe StudioComponent)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse%27"><span class="hs-identifier hs-type">GetStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293441"><span class="annot"><span class="annottext">Maybe StudioComponent
+studioComponent :: Maybe StudioComponent
+$sel:studioComponent:GetStudioComponentResponse' :: GetStudioComponentResponse -&gt; Maybe StudioComponent
+</span><a href="#local-6989586621679293441"><span class="hs-identifier hs-var hs-var">studioComponent</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponent
+</span><a href="#local-6989586621679293441"><span class="hs-identifier hs-var">studioComponent</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293440"><span class="annot"><span class="annottext">s :: GetStudioComponentResponse
+</span><a href="#local-6989586621679293440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse%27"><span class="hs-identifier hs-type">GetStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293439"><span class="annot"><span class="annottext">Maybe StudioComponent
+</span><a href="#local-6989586621679293439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStudioComponentResponse
+</span><a href="#local-6989586621679293440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioComponent:GetStudioComponentResponse' :: Maybe StudioComponent
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AstudioComponent%3AGetStudioComponentResponse%27"><span class="hs-identifier hs-var">studioComponent</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe StudioComponent
+</span><a href="#local-6989586621679293439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-type">GetStudioComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponentResponse_httpStatus"><span class="hs-identifier hs-type">getStudioComponentResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-type">GetStudioComponentResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="getStudioComponentResponse_httpStatus"><span class="annot"><span class="annottext">getStudioComponentResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetStudioComponentResponse -&gt; f GetStudioComponentResponse
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#getStudioComponentResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getStudioComponentResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetStudioComponentResponse -&gt; Int)
+-&gt; (GetStudioComponentResponse
+    -&gt; Int -&gt; GetStudioComponentResponse)
+-&gt; Lens
+     GetStudioComponentResponse GetStudioComponentResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse%27"><span class="hs-identifier hs-type">GetStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679293438"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetStudioComponentResponse' :: GetStudioComponentResponse -&gt; Int
+</span><a href="#local-6989586621679293438"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293438"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679293437"><span class="annot"><span class="annottext">s :: GetStudioComponentResponse
+</span><a href="#local-6989586621679293437"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse%27"><span class="hs-identifier hs-type">GetStudioComponentResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679293436"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293436"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetStudioComponentResponse
+</span><a href="#local-6989586621679293437"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetStudioComponentResponse' :: Int
+</span><a href="Amazonka.Nimble.GetStudioComponent.html#%24sel%3AhttpStatus%3AGetStudioComponentResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679293436"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-type">GetStudioComponentResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679293434"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.GetStudioComponent.html#GetStudioComponentResponse"><span class="hs-identifier hs-type">GetStudioComponentResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

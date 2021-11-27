@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackage.Types.PlaylistType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackage.Types.PlaylistType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier">PlaylistType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_EVENT"><span class="hs-identifier">PlaylistType_EVENT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_NONE"><span class="hs-identifier">PlaylistType_NONE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_VOD"><span class="hs-identifier">PlaylistType_VOD</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679236472"><span id="local-6989586621679236473"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="PlaylistType"><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-var">PlaylistType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PlaylistType%27"><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType%27"><span class="hs-identifier hs-var">PlaylistType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromPlaylistType"><span class="annot"><span class="annottext">PlaylistType -&gt; Text
+</span><a href="Amazonka.MediaPackage.Types.PlaylistType.html#fromPlaylistType"><span class="hs-identifier hs-var hs-var">fromPlaylistType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236464"><span id="local-6989586621679236466"><span id="local-6989586621679236468"><span class="annot"><span class="annottext">Int -&gt; PlaylistType -&gt; ShowS
+[PlaylistType] -&gt; ShowS
+PlaylistType -&gt; String
+(Int -&gt; PlaylistType -&gt; ShowS)
+-&gt; (PlaylistType -&gt; String)
+-&gt; ([PlaylistType] -&gt; ShowS)
+-&gt; Show PlaylistType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PlaylistType] -&gt; ShowS
+$cshowList :: [PlaylistType] -&gt; ShowS
+show :: PlaylistType -&gt; String
+$cshow :: PlaylistType -&gt; String
+showsPrec :: Int -&gt; PlaylistType -&gt; ShowS
+$cshowsPrec :: Int -&gt; PlaylistType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679236455"><span id="local-6989586621679236457"><span id="local-6989586621679236459"><span id="local-6989586621679236461"><span class="annot"><span class="annottext">ReadPrec [PlaylistType]
+ReadPrec PlaylistType
+Int -&gt; ReadS PlaylistType
+ReadS [PlaylistType]
+(Int -&gt; ReadS PlaylistType)
+-&gt; ReadS [PlaylistType]
+-&gt; ReadPrec PlaylistType
+-&gt; ReadPrec [PlaylistType]
+-&gt; Read PlaylistType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PlaylistType]
+$creadListPrec :: ReadPrec [PlaylistType]
+readPrec :: ReadPrec PlaylistType
+$creadPrec :: ReadPrec PlaylistType
+readList :: ReadS [PlaylistType]
+$creadList :: ReadS [PlaylistType]
+readsPrec :: Int -&gt; ReadS PlaylistType
+$creadsPrec :: Int -&gt; ReadS PlaylistType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679236450"><span id="local-6989586621679236452"><span class="annot"><span class="annottext">PlaylistType -&gt; PlaylistType -&gt; Bool
+(PlaylistType -&gt; PlaylistType -&gt; Bool)
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; Bool) -&gt; Eq PlaylistType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PlaylistType -&gt; PlaylistType -&gt; Bool
+$c/= :: PlaylistType -&gt; PlaylistType -&gt; Bool
+== :: PlaylistType -&gt; PlaylistType -&gt; Bool
+$c== :: PlaylistType -&gt; PlaylistType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679236434"><span id="local-6989586621679236436"><span id="local-6989586621679236438"><span id="local-6989586621679236440"><span id="local-6989586621679236442"><span id="local-6989586621679236444"><span id="local-6989586621679236446"><span class="annot"><span class="annottext">Eq PlaylistType
+Eq PlaylistType
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; Ordering)
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; Bool)
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; Bool)
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; Bool)
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; Bool)
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; PlaylistType)
+-&gt; (PlaylistType -&gt; PlaylistType -&gt; PlaylistType)
+-&gt; Ord PlaylistType
+PlaylistType -&gt; PlaylistType -&gt; Bool
+PlaylistType -&gt; PlaylistType -&gt; Ordering
+PlaylistType -&gt; PlaylistType -&gt; PlaylistType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: PlaylistType -&gt; PlaylistType -&gt; PlaylistType
+$cmin :: PlaylistType -&gt; PlaylistType -&gt; PlaylistType
+max :: PlaylistType -&gt; PlaylistType -&gt; PlaylistType
+$cmax :: PlaylistType -&gt; PlaylistType -&gt; PlaylistType
+&gt;= :: PlaylistType -&gt; PlaylistType -&gt; Bool
+$c&gt;= :: PlaylistType -&gt; PlaylistType -&gt; Bool
+&gt; :: PlaylistType -&gt; PlaylistType -&gt; Bool
+$c&gt; :: PlaylistType -&gt; PlaylistType -&gt; Bool
+&lt;= :: PlaylistType -&gt; PlaylistType -&gt; Bool
+$c&lt;= :: PlaylistType -&gt; PlaylistType -&gt; Bool
+&lt; :: PlaylistType -&gt; PlaylistType -&gt; Bool
+$c&lt; :: PlaylistType -&gt; PlaylistType -&gt; Bool
+compare :: PlaylistType -&gt; PlaylistType -&gt; Ordering
+$ccompare :: PlaylistType -&gt; PlaylistType -&gt; Ordering
+$cp1Ord :: Eq PlaylistType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. PlaylistType -&gt; Rep PlaylistType x)
+-&gt; (forall x. Rep PlaylistType x -&gt; PlaylistType)
+-&gt; Generic PlaylistType
+forall x. Rep PlaylistType x -&gt; PlaylistType
+forall x. PlaylistType -&gt; Rep PlaylistType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PlaylistType x -&gt; PlaylistType
+$cfrom :: forall x. PlaylistType -&gt; Rep PlaylistType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679236426"><span id="local-6989586621679236428"><span class="annot"><span class="annottext">Int -&gt; PlaylistType -&gt; Int
+PlaylistType -&gt; Int
+(Int -&gt; PlaylistType -&gt; Int)
+-&gt; (PlaylistType -&gt; Int) -&gt; Hashable PlaylistType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: PlaylistType -&gt; Int
+$chash :: PlaylistType -&gt; Int
+hashWithSalt :: Int -&gt; PlaylistType -&gt; Int
+$chashWithSalt :: Int -&gt; PlaylistType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679236423"><span class="annot"><span class="annottext">PlaylistType -&gt; ()
+(PlaylistType -&gt; ()) -&gt; NFData PlaylistType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: PlaylistType -&gt; ()
+$crnf :: PlaylistType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679236420"><span class="annot"><span class="annottext">Text -&gt; Either String PlaylistType
+(Text -&gt; Either String PlaylistType) -&gt; FromText PlaylistType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String PlaylistType
+$cfromText :: Text -&gt; Either String PlaylistType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679236417"><span class="annot"><span class="annottext">PlaylistType -&gt; Text
+(PlaylistType -&gt; Text) -&gt; ToText PlaylistType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: PlaylistType -&gt; Text
+$ctoText :: PlaylistType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679236414"><span class="annot"><span class="annottext">PlaylistType -&gt; ByteString
+(PlaylistType -&gt; ByteString) -&gt; ToByteString PlaylistType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: PlaylistType -&gt; ByteString
+$ctoBS :: PlaylistType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679236411"><span class="annot"><span class="annottext">PlaylistType -&gt; ByteStringBuilder
+(PlaylistType -&gt; ByteStringBuilder) -&gt; ToLog PlaylistType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: PlaylistType -&gt; ByteStringBuilder
+$cbuild :: PlaylistType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679236408"><span class="annot"><span class="annottext">HeaderName -&gt; PlaylistType -&gt; [Header]
+(HeaderName -&gt; PlaylistType -&gt; [Header]) -&gt; ToHeader PlaylistType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; PlaylistType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; PlaylistType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679236405"><span class="annot"><span class="annottext">PlaylistType -&gt; QueryString
+(PlaylistType -&gt; QueryString) -&gt; ToQuery PlaylistType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: PlaylistType -&gt; QueryString
+$ctoQuery :: PlaylistType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679236400"><span id="local-6989586621679236402"><span class="annot"><span class="annottext">Value -&gt; Parser [PlaylistType]
+Value -&gt; Parser PlaylistType
+(Value -&gt; Parser PlaylistType)
+-&gt; (Value -&gt; Parser [PlaylistType]) -&gt; FromJSON PlaylistType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [PlaylistType]
+$cparseJSONList :: Value -&gt; Parser [PlaylistType]
+parseJSON :: Value -&gt; Parser PlaylistType
+$cparseJSON :: Value -&gt; Parser PlaylistType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679236395"><span id="local-6989586621679236397"><span class="annot"><span class="annottext">FromJSONKeyFunction [PlaylistType]
+FromJSONKeyFunction PlaylistType
+FromJSONKeyFunction PlaylistType
+-&gt; FromJSONKeyFunction [PlaylistType] -&gt; FromJSONKey PlaylistType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [PlaylistType]
+$cfromJSONKeyList :: FromJSONKeyFunction [PlaylistType]
+fromJSONKey :: FromJSONKeyFunction PlaylistType
+$cfromJSONKey :: FromJSONKeyFunction PlaylistType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679236386"><span id="local-6989586621679236388"><span id="local-6989586621679236390"><span id="local-6989586621679236392"><span class="annot"><span class="annottext">[PlaylistType] -&gt; Encoding
+[PlaylistType] -&gt; Value
+PlaylistType -&gt; Encoding
+PlaylistType -&gt; Value
+(PlaylistType -&gt; Value)
+-&gt; (PlaylistType -&gt; Encoding)
+-&gt; ([PlaylistType] -&gt; Value)
+-&gt; ([PlaylistType] -&gt; Encoding)
+-&gt; ToJSON PlaylistType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [PlaylistType] -&gt; Encoding
+$ctoEncodingList :: [PlaylistType] -&gt; Encoding
+toJSONList :: [PlaylistType] -&gt; Value
+$ctoJSONList :: [PlaylistType] -&gt; Value
+toEncoding :: PlaylistType -&gt; Encoding
+$ctoEncoding :: PlaylistType -&gt; Encoding
+toJSON :: PlaylistType -&gt; Value
+$ctoJSON :: PlaylistType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679236381"><span id="local-6989586621679236383"><span class="annot"><span class="annottext">ToJSONKeyFunction [PlaylistType]
+ToJSONKeyFunction PlaylistType
+ToJSONKeyFunction PlaylistType
+-&gt; ToJSONKeyFunction [PlaylistType] -&gt; ToJSONKey PlaylistType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [PlaylistType]
+$ctoJSONKeyList :: ToJSONKeyFunction [PlaylistType]
+toJSONKey :: ToJSONKeyFunction PlaylistType
+$ctoJSONKey :: ToJSONKeyFunction PlaylistType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679236378"><span class="annot"><span class="annottext">[Node] -&gt; Either String PlaylistType
+([Node] -&gt; Either String PlaylistType) -&gt; FromXML PlaylistType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String PlaylistType
+$cparseXML :: [Node] -&gt; Either String PlaylistType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679236375"><span class="annot"><span class="annottext">PlaylistType -&gt; XML
+(PlaylistType -&gt; XML) -&gt; ToXML PlaylistType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: PlaylistType -&gt; XML
+$ctoXML :: PlaylistType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_EVENT"><span class="hs-identifier hs-type">PlaylistType_EVENT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-type">PlaylistType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlaylistType_EVENT"><span id="%24mPlaylistType_EVENT"><span id="PlaylistType_EVENT"><span class="annot"><span class="annottext">$bPlaylistType_EVENT :: PlaylistType
+$mPlaylistType_EVENT :: forall r. PlaylistType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaPackage.Types.PlaylistType.html#%24bPlaylistType_EVENT"><span class="hs-identifier hs-var hs-var hs-var">PlaylistType_EVENT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType%27"><span class="hs-identifier hs-type">PlaylistType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EVENT&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_NONE"><span class="hs-identifier hs-type">PlaylistType_NONE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-type">PlaylistType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlaylistType_NONE"><span id="%24mPlaylistType_NONE"><span id="PlaylistType_NONE"><span class="annot"><span class="annottext">$bPlaylistType_NONE :: PlaylistType
+$mPlaylistType_NONE :: forall r. PlaylistType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaPackage.Types.PlaylistType.html#%24bPlaylistType_NONE"><span class="hs-identifier hs-var hs-var hs-var">PlaylistType_NONE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType%27"><span class="hs-identifier hs-type">PlaylistType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NONE&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_VOD"><span class="hs-identifier hs-type">PlaylistType_VOD</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType"><span class="hs-identifier hs-type">PlaylistType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bPlaylistType_VOD"><span id="%24mPlaylistType_VOD"><span id="PlaylistType_VOD"><span class="annot"><span class="annottext">$bPlaylistType_VOD :: PlaylistType
+$mPlaylistType_VOD :: forall r. PlaylistType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaPackage.Types.PlaylistType.html#%24bPlaylistType_VOD"><span class="hs-identifier hs-var hs-var hs-var">PlaylistType_VOD</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType%27"><span class="hs-identifier hs-type">PlaylistType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VOD&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_EVENT"><span class="hs-pragma hs-type">PlaylistType_EVENT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_NONE"><span class="hs-pragma hs-type">PlaylistType_NONE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType_VOD"><span class="hs-pragma hs-type">PlaylistType_VOD</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.Types.PlaylistType.html#PlaylistType%27"><span class="hs-pragma hs-type">PlaylistType'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

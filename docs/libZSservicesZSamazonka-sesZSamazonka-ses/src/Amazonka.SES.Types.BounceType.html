@@ -1,0 +1,300 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SES.Types.BounceType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.Types.BounceType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier">BounceType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_ContentRejected"><span class="hs-identifier">BounceType_ContentRejected</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_DoesNotExist"><span class="hs-identifier">BounceType_DoesNotExist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_ExceededQuota"><span class="hs-identifier">BounceType_ExceededQuota</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_MessageTooLarge"><span class="hs-identifier">BounceType_MessageTooLarge</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_TemporaryFailure"><span class="hs-identifier">BounceType_TemporaryFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_Undefined"><span class="hs-identifier">BounceType_Undefined</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679270091"><span id="local-6989586621679270092"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="BounceType"><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-var">BounceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BounceType%27"><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-var">BounceType'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromBounceType"><span class="annot"><span class="annottext">BounceType -&gt; Text
+</span><a href="Amazonka.SES.Types.BounceType.html#fromBounceType"><span class="hs-identifier hs-var hs-var">fromBounceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270083"><span id="local-6989586621679270085"><span id="local-6989586621679270087"><span class="annot"><span class="annottext">Int -&gt; BounceType -&gt; ShowS
+[BounceType] -&gt; ShowS
+BounceType -&gt; String
+(Int -&gt; BounceType -&gt; ShowS)
+-&gt; (BounceType -&gt; String)
+-&gt; ([BounceType] -&gt; ShowS)
+-&gt; Show BounceType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BounceType] -&gt; ShowS
+$cshowList :: [BounceType] -&gt; ShowS
+show :: BounceType -&gt; String
+$cshow :: BounceType -&gt; String
+showsPrec :: Int -&gt; BounceType -&gt; ShowS
+$cshowsPrec :: Int -&gt; BounceType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679270074"><span id="local-6989586621679270076"><span id="local-6989586621679270078"><span id="local-6989586621679270080"><span class="annot"><span class="annottext">ReadPrec [BounceType]
+ReadPrec BounceType
+Int -&gt; ReadS BounceType
+ReadS [BounceType]
+(Int -&gt; ReadS BounceType)
+-&gt; ReadS [BounceType]
+-&gt; ReadPrec BounceType
+-&gt; ReadPrec [BounceType]
+-&gt; Read BounceType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BounceType]
+$creadListPrec :: ReadPrec [BounceType]
+readPrec :: ReadPrec BounceType
+$creadPrec :: ReadPrec BounceType
+readList :: ReadS [BounceType]
+$creadList :: ReadS [BounceType]
+readsPrec :: Int -&gt; ReadS BounceType
+$creadsPrec :: Int -&gt; ReadS BounceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679270069"><span id="local-6989586621679270071"><span class="annot"><span class="annottext">BounceType -&gt; BounceType -&gt; Bool
+(BounceType -&gt; BounceType -&gt; Bool)
+-&gt; (BounceType -&gt; BounceType -&gt; Bool) -&gt; Eq BounceType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BounceType -&gt; BounceType -&gt; Bool
+$c/= :: BounceType -&gt; BounceType -&gt; Bool
+== :: BounceType -&gt; BounceType -&gt; Bool
+$c== :: BounceType -&gt; BounceType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679270053"><span id="local-6989586621679270055"><span id="local-6989586621679270057"><span id="local-6989586621679270059"><span id="local-6989586621679270061"><span id="local-6989586621679270063"><span id="local-6989586621679270065"><span class="annot"><span class="annottext">Eq BounceType
+Eq BounceType
+-&gt; (BounceType -&gt; BounceType -&gt; Ordering)
+-&gt; (BounceType -&gt; BounceType -&gt; Bool)
+-&gt; (BounceType -&gt; BounceType -&gt; Bool)
+-&gt; (BounceType -&gt; BounceType -&gt; Bool)
+-&gt; (BounceType -&gt; BounceType -&gt; Bool)
+-&gt; (BounceType -&gt; BounceType -&gt; BounceType)
+-&gt; (BounceType -&gt; BounceType -&gt; BounceType)
+-&gt; Ord BounceType
+BounceType -&gt; BounceType -&gt; Bool
+BounceType -&gt; BounceType -&gt; Ordering
+BounceType -&gt; BounceType -&gt; BounceType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: BounceType -&gt; BounceType -&gt; BounceType
+$cmin :: BounceType -&gt; BounceType -&gt; BounceType
+max :: BounceType -&gt; BounceType -&gt; BounceType
+$cmax :: BounceType -&gt; BounceType -&gt; BounceType
+&gt;= :: BounceType -&gt; BounceType -&gt; Bool
+$c&gt;= :: BounceType -&gt; BounceType -&gt; Bool
+&gt; :: BounceType -&gt; BounceType -&gt; Bool
+$c&gt; :: BounceType -&gt; BounceType -&gt; Bool
+&lt;= :: BounceType -&gt; BounceType -&gt; Bool
+$c&lt;= :: BounceType -&gt; BounceType -&gt; Bool
+&lt; :: BounceType -&gt; BounceType -&gt; Bool
+$c&lt; :: BounceType -&gt; BounceType -&gt; Bool
+compare :: BounceType -&gt; BounceType -&gt; Ordering
+$ccompare :: BounceType -&gt; BounceType -&gt; Ordering
+$cp1Ord :: Eq BounceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. BounceType -&gt; Rep BounceType x)
+-&gt; (forall x. Rep BounceType x -&gt; BounceType) -&gt; Generic BounceType
+forall x. Rep BounceType x -&gt; BounceType
+forall x. BounceType -&gt; Rep BounceType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep BounceType x -&gt; BounceType
+$cfrom :: forall x. BounceType -&gt; Rep BounceType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679270045"><span id="local-6989586621679270047"><span class="annot"><span class="annottext">Int -&gt; BounceType -&gt; Int
+BounceType -&gt; Int
+(Int -&gt; BounceType -&gt; Int)
+-&gt; (BounceType -&gt; Int) -&gt; Hashable BounceType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: BounceType -&gt; Int
+$chash :: BounceType -&gt; Int
+hashWithSalt :: Int -&gt; BounceType -&gt; Int
+$chashWithSalt :: Int -&gt; BounceType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679270042"><span class="annot"><span class="annottext">BounceType -&gt; ()
+(BounceType -&gt; ()) -&gt; NFData BounceType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: BounceType -&gt; ()
+$crnf :: BounceType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679270039"><span class="annot"><span class="annottext">Text -&gt; Either String BounceType
+(Text -&gt; Either String BounceType) -&gt; FromText BounceType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String BounceType
+$cfromText :: Text -&gt; Either String BounceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679270036"><span class="annot"><span class="annottext">BounceType -&gt; Text
+(BounceType -&gt; Text) -&gt; ToText BounceType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: BounceType -&gt; Text
+$ctoText :: BounceType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679270033"><span class="annot"><span class="annottext">BounceType -&gt; ByteString
+(BounceType -&gt; ByteString) -&gt; ToByteString BounceType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: BounceType -&gt; ByteString
+$ctoBS :: BounceType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679270030"><span class="annot"><span class="annottext">BounceType -&gt; ByteStringBuilder
+(BounceType -&gt; ByteStringBuilder) -&gt; ToLog BounceType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: BounceType -&gt; ByteStringBuilder
+$cbuild :: BounceType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679270027"><span class="annot"><span class="annottext">HeaderName -&gt; BounceType -&gt; [Header]
+(HeaderName -&gt; BounceType -&gt; [Header]) -&gt; ToHeader BounceType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; BounceType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; BounceType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679270024"><span class="annot"><span class="annottext">BounceType -&gt; QueryString
+(BounceType -&gt; QueryString) -&gt; ToQuery BounceType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: BounceType -&gt; QueryString
+$ctoQuery :: BounceType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679270019"><span id="local-6989586621679270021"><span class="annot"><span class="annottext">Value -&gt; Parser [BounceType]
+Value -&gt; Parser BounceType
+(Value -&gt; Parser BounceType)
+-&gt; (Value -&gt; Parser [BounceType]) -&gt; FromJSON BounceType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [BounceType]
+$cparseJSONList :: Value -&gt; Parser [BounceType]
+parseJSON :: Value -&gt; Parser BounceType
+$cparseJSON :: Value -&gt; Parser BounceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679270014"><span id="local-6989586621679270016"><span class="annot"><span class="annottext">FromJSONKeyFunction [BounceType]
+FromJSONKeyFunction BounceType
+FromJSONKeyFunction BounceType
+-&gt; FromJSONKeyFunction [BounceType] -&gt; FromJSONKey BounceType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [BounceType]
+$cfromJSONKeyList :: FromJSONKeyFunction [BounceType]
+fromJSONKey :: FromJSONKeyFunction BounceType
+$cfromJSONKey :: FromJSONKeyFunction BounceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679270005"><span id="local-6989586621679270007"><span id="local-6989586621679270009"><span id="local-6989586621679270011"><span class="annot"><span class="annottext">[BounceType] -&gt; Encoding
+[BounceType] -&gt; Value
+BounceType -&gt; Encoding
+BounceType -&gt; Value
+(BounceType -&gt; Value)
+-&gt; (BounceType -&gt; Encoding)
+-&gt; ([BounceType] -&gt; Value)
+-&gt; ([BounceType] -&gt; Encoding)
+-&gt; ToJSON BounceType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [BounceType] -&gt; Encoding
+$ctoEncodingList :: [BounceType] -&gt; Encoding
+toJSONList :: [BounceType] -&gt; Value
+$ctoJSONList :: [BounceType] -&gt; Value
+toEncoding :: BounceType -&gt; Encoding
+$ctoEncoding :: BounceType -&gt; Encoding
+toJSON :: BounceType -&gt; Value
+$ctoJSON :: BounceType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679270000"><span id="local-6989586621679270002"><span class="annot"><span class="annottext">ToJSONKeyFunction [BounceType]
+ToJSONKeyFunction BounceType
+ToJSONKeyFunction BounceType
+-&gt; ToJSONKeyFunction [BounceType] -&gt; ToJSONKey BounceType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [BounceType]
+$ctoJSONKeyList :: ToJSONKeyFunction [BounceType]
+toJSONKey :: ToJSONKeyFunction BounceType
+$ctoJSONKey :: ToJSONKeyFunction BounceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679269997"><span class="annot"><span class="annottext">[Node] -&gt; Either String BounceType
+([Node] -&gt; Either String BounceType) -&gt; FromXML BounceType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String BounceType
+$cparseXML :: [Node] -&gt; Either String BounceType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679269994"><span class="annot"><span class="annottext">BounceType -&gt; XML
+(BounceType -&gt; XML) -&gt; ToXML BounceType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: BounceType -&gt; XML
+$ctoXML :: BounceType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_ContentRejected"><span class="hs-identifier hs-type">BounceType_ContentRejected</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-type">BounceType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBounceType_ContentRejected"><span id="%24mBounceType_ContentRejected"><span id="BounceType_ContentRejected"><span class="annot"><span class="annottext">$bBounceType_ContentRejected :: BounceType
+$mBounceType_ContentRejected :: forall r. BounceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SES.Types.BounceType.html#%24bBounceType_ContentRejected"><span class="hs-identifier hs-var hs-var hs-var">BounceType_ContentRejected</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-type">BounceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ContentRejected&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_DoesNotExist"><span class="hs-identifier hs-type">BounceType_DoesNotExist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-type">BounceType</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBounceType_DoesNotExist"><span id="%24mBounceType_DoesNotExist"><span id="BounceType_DoesNotExist"><span class="annot"><span class="annottext">$bBounceType_DoesNotExist :: BounceType
+$mBounceType_DoesNotExist :: forall r. BounceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SES.Types.BounceType.html#%24bBounceType_DoesNotExist"><span class="hs-identifier hs-var hs-var hs-var">BounceType_DoesNotExist</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-type">BounceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DoesNotExist&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_ExceededQuota"><span class="hs-identifier hs-type">BounceType_ExceededQuota</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-type">BounceType</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBounceType_ExceededQuota"><span id="%24mBounceType_ExceededQuota"><span id="BounceType_ExceededQuota"><span class="annot"><span class="annottext">$bBounceType_ExceededQuota :: BounceType
+$mBounceType_ExceededQuota :: forall r. BounceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SES.Types.BounceType.html#%24bBounceType_ExceededQuota"><span class="hs-identifier hs-var hs-var hs-var">BounceType_ExceededQuota</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-type">BounceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ExceededQuota&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_MessageTooLarge"><span class="hs-identifier hs-type">BounceType_MessageTooLarge</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-type">BounceType</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBounceType_MessageTooLarge"><span id="%24mBounceType_MessageTooLarge"><span id="BounceType_MessageTooLarge"><span class="annot"><span class="annottext">$bBounceType_MessageTooLarge :: BounceType
+$mBounceType_MessageTooLarge :: forall r. BounceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SES.Types.BounceType.html#%24bBounceType_MessageTooLarge"><span class="hs-identifier hs-var hs-var hs-var">BounceType_MessageTooLarge</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-type">BounceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MessageTooLarge&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_TemporaryFailure"><span class="hs-identifier hs-type">BounceType_TemporaryFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-type">BounceType</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBounceType_TemporaryFailure"><span id="%24mBounceType_TemporaryFailure"><span id="BounceType_TemporaryFailure"><span class="annot"><span class="annottext">$bBounceType_TemporaryFailure :: BounceType
+$mBounceType_TemporaryFailure :: forall r. BounceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SES.Types.BounceType.html#%24bBounceType_TemporaryFailure"><span class="hs-identifier hs-var hs-var hs-var">BounceType_TemporaryFailure</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-type">BounceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;TemporaryFailure&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_Undefined"><span class="hs-identifier hs-type">BounceType_Undefined</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType"><span class="hs-identifier hs-type">BounceType</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bBounceType_Undefined"><span id="%24mBounceType_Undefined"><span id="BounceType_Undefined"><span class="annot"><span class="annottext">$bBounceType_Undefined :: BounceType
+$mBounceType_Undefined :: forall r. BounceType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SES.Types.BounceType.html#%24bBounceType_Undefined"><span class="hs-identifier hs-var hs-var hs-var">BounceType_Undefined</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-identifier hs-type">BounceType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Undefined&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_ContentRejected"><span class="hs-pragma hs-type">BounceType_ContentRejected</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_DoesNotExist"><span class="hs-pragma hs-type">BounceType_DoesNotExist</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_ExceededQuota"><span class="hs-pragma hs-type">BounceType_ExceededQuota</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_MessageTooLarge"><span class="hs-pragma hs-type">BounceType_MessageTooLarge</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_TemporaryFailure"><span class="hs-pragma hs-type">BounceType_TemporaryFailure</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType_Undefined"><span class="hs-pragma hs-type">BounceType_Undefined</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.BounceType.html#BounceType%27"><span class="hs-pragma hs-type">BounceType'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

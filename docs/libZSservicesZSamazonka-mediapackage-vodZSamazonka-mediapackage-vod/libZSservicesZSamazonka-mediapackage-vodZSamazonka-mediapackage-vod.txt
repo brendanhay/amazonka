@@ -5,35 +5,35 @@
 @version 2.0
 
 
-module Network.AWS.MediaPackageVOD.Types.AdMarkers
+module Amazonka.MediaPackageVOD.Types.AdMarkers
 newtype AdMarkers
 AdMarkers' :: Text -> AdMarkers
 [fromAdMarkers] :: AdMarkers -> Text
 pattern AdMarkers_NONE :: AdMarkers
 pattern AdMarkers_PASSTHROUGH :: AdMarkers
 pattern AdMarkers_SCTE35_ENHANCED :: AdMarkers
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance GHC.Classes.Ord Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance GHC.Classes.Ord Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.AdMarkers.AdMarkers
 
 
-module Network.AWS.MediaPackageVOD.Types.AssetShallow
+module Amazonka.MediaPackageVOD.Types.AssetShallow
 
 -- | A MediaPackage VOD Asset resource.
 --   
@@ -122,16 +122,16 @@ assetShallow_id :: Lens' AssetShallow (Maybe Text)
 
 -- | Undocumented member.
 assetShallow_tags :: Lens' AssetShallow (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.AssetShallow.AssetShallow
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.AssetShallow.AssetShallow
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.AssetShallow.AssetShallow
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.AssetShallow.AssetShallow
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.AssetShallow.AssetShallow
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.AssetShallow.AssetShallow
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.AssetShallow.AssetShallow
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.AssetShallow.AssetShallow
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.AssetShallow.AssetShallow
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.AssetShallow.AssetShallow
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.AssetShallow.AssetShallow
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.AssetShallow.AssetShallow
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.AssetShallow.AssetShallow
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.AssetShallow.AssetShallow
 
 
-module Network.AWS.MediaPackageVOD.Types.Authorization
+module Amazonka.MediaPackageVOD.Types.Authorization
 
 -- | CDN Authorization credentials
 --   
@@ -174,17 +174,17 @@ authorization_secretsRoleArn :: Lens' Authorization Text
 -- | The Amazon Resource Name (ARN) for the secret in AWS Secrets Manager
 --   that is used for CDN authorization.
 authorization_cdnIdentifierSecret :: Lens' Authorization Text
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.Authorization.Authorization
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.Authorization.Authorization
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.Authorization.Authorization
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.Authorization.Authorization
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.Authorization.Authorization
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.Authorization.Authorization
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.Authorization.Authorization
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.Authorization.Authorization
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.Authorization.Authorization
 
 
-module Network.AWS.MediaPackageVOD.Types.EgressAccessLogs
+module Amazonka.MediaPackageVOD.Types.EgressAccessLogs
 
 -- | Configure egress access logging.
 --   
@@ -210,17 +210,17 @@ newEgressAccessLogs :: EgressAccessLogs
 
 -- | Customize the log group name.
 egressAccessLogs_logGroupName :: Lens' EgressAccessLogs (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.EgressAccessLogs.EgressAccessLogs
 
 
-module Network.AWS.MediaPackageVOD.Types.EgressEndpoint
+module Amazonka.MediaPackageVOD.Types.EgressEndpoint
 
 -- | The endpoint URL used to access an Asset using one
 --   PackagingConfiguration.
@@ -275,70 +275,70 @@ egressEndpoint_url :: Lens' EgressEndpoint (Maybe Text)
 
 -- | The ID of the PackagingConfiguration being applied to the Asset.
 egressEndpoint_packagingConfigurationId :: Lens' EgressEndpoint (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.EgressEndpoint.EgressEndpoint
 
 
-module Network.AWS.MediaPackageVOD.Types.EncryptionMethod
+module Amazonka.MediaPackageVOD.Types.EncryptionMethod
 newtype EncryptionMethod
 EncryptionMethod' :: Text -> EncryptionMethod
 [fromEncryptionMethod] :: EncryptionMethod -> Text
 pattern EncryptionMethod_AES_128 :: EncryptionMethod
 pattern EncryptionMethod_SAMPLE_AES :: EncryptionMethod
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Classes.Ord Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Classes.Ord Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.EncryptionMethod.EncryptionMethod
 
 
-module Network.AWS.MediaPackageVOD.Types.ManifestLayout
+module Amazonka.MediaPackageVOD.Types.ManifestLayout
 newtype ManifestLayout
 ManifestLayout' :: Text -> ManifestLayout
 [fromManifestLayout] :: ManifestLayout -> Text
 pattern ManifestLayout_COMPACT :: ManifestLayout
 pattern ManifestLayout_FULL :: ManifestLayout
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance GHC.Classes.Ord Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance GHC.Classes.Ord Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.ManifestLayout.ManifestLayout
 
 
-module Network.AWS.MediaPackageVOD.Types.PackagingGroup
+module Amazonka.MediaPackageVOD.Types.PackagingGroup
 
 -- | A MediaPackage VOD PackagingGroup resource.
 --   
@@ -404,97 +404,97 @@ packagingGroup_egressAccessLogs :: Lens' PackagingGroup (Maybe EgressAccessLogs)
 
 -- | Undocumented member.
 packagingGroup_tags :: Lens' PackagingGroup (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.PackagingGroup.PackagingGroup
 
 
-module Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement
+module Amazonka.MediaPackageVOD.Types.PeriodTriggersElement
 newtype PeriodTriggersElement
 PeriodTriggersElement' :: Text -> PeriodTriggersElement
 [fromPeriodTriggersElement] :: PeriodTriggersElement -> Text
 pattern PeriodTriggersElement_ADS :: PeriodTriggersElement
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Classes.Ord Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Classes.Ord Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.PeriodTriggersElement.PeriodTriggersElement
 
 
-module Network.AWS.MediaPackageVOD.Types.Profile
+module Amazonka.MediaPackageVOD.Types.Profile
 newtype Profile
 Profile' :: Text -> Profile
 [fromProfile] :: Profile -> Text
 pattern Profile_HBBTV_1_5 :: Profile
 pattern Profile_NONE :: Profile
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance GHC.Classes.Ord Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.Profile.Profile
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance GHC.Classes.Ord Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.Profile.Profile
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.Profile.Profile
 
 
-module Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat
+module Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat
 newtype SegmentTemplateFormat
 SegmentTemplateFormat' :: Text -> SegmentTemplateFormat
 [fromSegmentTemplateFormat] :: SegmentTemplateFormat -> Text
 pattern SegmentTemplateFormat_NUMBER_WITH_DURATION :: SegmentTemplateFormat
 pattern SegmentTemplateFormat_NUMBER_WITH_TIMELINE :: SegmentTemplateFormat
 pattern SegmentTemplateFormat_TIME_WITH_TIMELINE :: SegmentTemplateFormat
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Classes.Ord Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Classes.Ord Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.SegmentTemplateFormat.SegmentTemplateFormat
 
 
-module Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider
+module Amazonka.MediaPackageVOD.Types.SpekeKeyProvider
 
 -- | A configuration for accessing an external Secure Packager and Encoder
 --   Key Exchange (SPEKE) service that will provide encryption keys.
@@ -543,17 +543,17 @@ spekeKeyProvider_url :: Lens' SpekeKeyProvider Text
 -- | An Amazon Resource Name (ARN) of an IAM role that AWS Elemental
 --   MediaPackage will assume when accessing the key provider service.
 spekeKeyProvider_roleArn :: Lens' SpekeKeyProvider Text
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.SpekeKeyProvider.SpekeKeyProvider
 
 
-module Network.AWS.MediaPackageVOD.Types.MssEncryption
+module Amazonka.MediaPackageVOD.Types.MssEncryption
 
 -- | A Microsoft Smooth Streaming (MSS) encryption configuration.
 --   
@@ -577,17 +577,17 @@ newMssEncryption :: SpekeKeyProvider -> MssEncryption
 
 -- | Undocumented member.
 mssEncryption_spekeKeyProvider :: Lens' MssEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.MssEncryption.MssEncryption
 
 
-module Network.AWS.MediaPackageVOD.Types.HlsEncryption
+module Amazonka.MediaPackageVOD.Types.HlsEncryption
 
 -- | An HTTP Live Streaming (HLS) encryption configuration.
 --   
@@ -633,17 +633,17 @@ hlsEncryption_constantInitializationVector :: Lens' HlsEncryption (Maybe Text)
 
 -- | Undocumented member.
 hlsEncryption_spekeKeyProvider :: Lens' HlsEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.HlsEncryption.HlsEncryption
 
 
-module Network.AWS.MediaPackageVOD.Types.DashEncryption
+module Amazonka.MediaPackageVOD.Types.DashEncryption
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) encryption
 --   configuration.
@@ -668,17 +668,17 @@ newDashEncryption :: SpekeKeyProvider -> DashEncryption
 
 -- | Undocumented member.
 dashEncryption_spekeKeyProvider :: Lens' DashEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.DashEncryption.DashEncryption
 
 
-module Network.AWS.MediaPackageVOD.Types.CmafEncryption
+module Amazonka.MediaPackageVOD.Types.CmafEncryption
 
 -- | A CMAF encryption configuration.
 --   
@@ -721,45 +721,45 @@ cmafEncryption_constantInitializationVector :: Lens' CmafEncryption (Maybe Text)
 
 -- | Undocumented member.
 cmafEncryption_spekeKeyProvider :: Lens' CmafEncryption SpekeKeyProvider
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.CmafEncryption.CmafEncryption
 
 
-module Network.AWS.MediaPackageVOD.Types.StreamOrder
+module Amazonka.MediaPackageVOD.Types.StreamOrder
 newtype StreamOrder
 StreamOrder' :: Text -> StreamOrder
 [fromStreamOrder] :: StreamOrder -> Text
 pattern StreamOrder_ORIGINAL :: StreamOrder
 pattern StreamOrder_VIDEO_BITRATE_ASCENDING :: StreamOrder
 pattern StreamOrder_VIDEO_BITRATE_DESCENDING :: StreamOrder
-instance Network.AWS.Data.XML.ToXML Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.XML.FromXML Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Log.ToLog Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Text.ToText Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Network.AWS.Data.Text.FromText Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance GHC.Classes.Ord Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.XML.ToXML Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.XML.FromXML Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Headers.ToHeader Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Log.ToLog Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.ByteString.ToByteString Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Text.ToText Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Amazonka.Data.Text.FromText Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance GHC.Classes.Ord Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.StreamOrder.StreamOrder
 
 
-module Network.AWS.MediaPackageVOD.Types.StreamSelection
+module Amazonka.MediaPackageVOD.Types.StreamSelection
 
 -- | A StreamSelection configuration.
 --   
@@ -806,17 +806,17 @@ streamSelection_minVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 
 -- | The maximum video bitrate (bps) to include in output.
 streamSelection_maxVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.StreamSelection.StreamSelection
 
 
-module Network.AWS.MediaPackageVOD.Types.MssManifest
+module Amazonka.MediaPackageVOD.Types.MssManifest
 
 -- | A Microsoft Smooth Streaming (MSS) manifest configuration.
 --   
@@ -848,17 +848,17 @@ mssManifest_manifestName :: Lens' MssManifest (Maybe Text)
 
 -- | Undocumented member.
 mssManifest_streamSelection :: Lens' MssManifest (Maybe StreamSelection)
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.MssManifest.MssManifest
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.MssManifest.MssManifest
 
 
-module Network.AWS.MediaPackageVOD.Types.MssPackage
+module Amazonka.MediaPackageVOD.Types.MssPackage
 
 -- | A Microsoft Smooth Streaming (MSS) PackagingConfiguration.
 --   
@@ -900,17 +900,17 @@ mssPackage_encryption :: Lens' MssPackage (Maybe MssEncryption)
 
 -- | A list of MSS manifest configurations.
 mssPackage_mssManifests :: Lens' MssPackage [MssManifest]
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.MssPackage.MssPackage
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.MssPackage.MssPackage
 
 
-module Network.AWS.MediaPackageVOD.Types.HlsManifest
+module Amazonka.MediaPackageVOD.Types.HlsManifest
 
 -- | An HTTP Live Streaming (HLS) manifest configuration.
 --   
@@ -1020,17 +1020,17 @@ hlsManifest_includeIframeOnlyStream :: Lens' HlsManifest (Maybe Bool)
 
 -- | When enabled, the EXT-X-KEY tag will be repeated in output manifests.
 hlsManifest_repeatExtXKey :: Lens' HlsManifest (Maybe Bool)
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.HlsManifest.HlsManifest
 
 
-module Network.AWS.MediaPackageVOD.Types.HlsPackage
+module Amazonka.MediaPackageVOD.Types.HlsPackage
 
 -- | An HTTP Live Streaming (HLS) packaging configuration.
 --   
@@ -1100,17 +1100,17 @@ hlsPackage_encryption :: Lens' HlsPackage (Maybe HlsEncryption)
 
 -- | A list of HLS manifest configurations.
 hlsPackage_hlsManifests :: Lens' HlsPackage [HlsManifest]
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.HlsPackage.HlsPackage
 
 
-module Network.AWS.MediaPackageVOD.Types.CmafPackage
+module Amazonka.MediaPackageVOD.Types.CmafPackage
 
 -- | A CMAF packaging configuration.
 --   
@@ -1179,17 +1179,17 @@ cmafPackage_encryption :: Lens' CmafPackage (Maybe CmafEncryption)
 
 -- | A list of HLS manifest configurations.
 cmafPackage_hlsManifests :: Lens' CmafPackage [HlsManifest]
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.CmafPackage.CmafPackage
 
 
-module Network.AWS.MediaPackageVOD.Types.DashManifest
+module Amazonka.MediaPackageVOD.Types.DashManifest
 
 -- | A DASH manifest configuration.
 --   
@@ -1269,17 +1269,17 @@ dashManifest_streamSelection :: Lens' DashManifest (Maybe StreamSelection)
 --   COMPACT, duplicate elements are combined and presented at the
 --   AdaptationSet level.
 dashManifest_manifestLayout :: Lens' DashManifest (Maybe ManifestLayout)
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.DashManifest.DashManifest
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.DashManifest.DashManifest
 
 
-module Network.AWS.MediaPackageVOD.Types.DashPackage
+module Amazonka.MediaPackageVOD.Types.DashPackage
 
 -- | A Dynamic Adaptive Streaming over HTTP (DASH) packaging configuration.
 --   
@@ -1401,17 +1401,17 @@ dashPackage_periodTriggers :: Lens' DashPackage (Maybe [PeriodTriggersElement])
 
 -- | A list of DASH manifest configurations.
 dashPackage_dashManifests :: Lens' DashPackage [DashManifest]
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.Types.DashPackage.DashPackage
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.Types.DashPackage.DashPackage
 
 
-module Network.AWS.MediaPackageVOD.Types.PackagingConfiguration
+module Amazonka.MediaPackageVOD.Types.PackagingConfiguration
 
 -- | A MediaPackage VOD PackagingConfiguration resource.
 --   
@@ -1493,16 +1493,16 @@ packagingConfiguration_cmafPackage :: Lens' PackagingConfiguration (Maybe CmafPa
 
 -- | Undocumented member.
 packagingConfiguration_tags :: Lens' PackagingConfiguration (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
+instance GHC.Show.Show Amazonka.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
+instance GHC.Read.Read Amazonka.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.Types.PackagingConfiguration.PackagingConfiguration
 
 
-module Network.AWS.MediaPackageVOD.Types
+module Amazonka.MediaPackageVOD.Types
 
 -- | API version <tt>2018-11-07</tt> of the Amazon Elemental MediaPackage
 --   VOD SDK configuration.
@@ -2667,7 +2667,7 @@ streamSelection_maxVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 
 -- | Adds tags to the specified resource. You can specify one or more tags
 --   to add.
-module Network.AWS.MediaPackageVOD.TagResource
+module Amazonka.MediaPackageVOD.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2713,26 +2713,26 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.TagResource.TagResource
+instance GHC.Show.Show Amazonka.MediaPackageVOD.TagResource.TagResource
+instance GHC.Read.Read Amazonka.MediaPackageVOD.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.TagResource.TagResource
 
 
 -- | Returns a list of the tags assigned to the specified resource.
-module Network.AWS.MediaPackageVOD.ListTagsForResource
+module Amazonka.MediaPackageVOD.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2794,27 +2794,27 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.ListTagsForResource.ListTagsForResource
 
 
 -- | Returns a collection of MediaPackage VOD PackagingGroup resources.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaPackageVOD.ListPackagingGroups
+module Amazonka.MediaPackageVOD.ListPackagingGroups
 
 -- | <i>See:</i> <a>newListPackagingGroups</a> smart constructor.
 data ListPackagingGroups
@@ -2895,29 +2895,29 @@ listPackagingGroupsResponse_nextToken :: Lens' ListPackagingGroupsResponse (Mayb
 
 -- | The response's http status code.
 listPackagingGroupsResponse_httpStatus :: Lens' ListPackagingGroupsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroupsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.ListPackagingGroups.ListPackagingGroups
 
 
 -- | Returns a collection of MediaPackage VOD PackagingConfiguration
 --   resources.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaPackageVOD.ListPackagingConfigurations
+module Amazonka.MediaPackageVOD.ListPackagingConfigurations
 
 -- | <i>See:</i> <a>newListPackagingConfigurations</a> smart constructor.
 data ListPackagingConfigurations
@@ -3013,28 +3013,28 @@ listPackagingConfigurationsResponse_nextToken :: Lens' ListPackagingConfiguratio
 
 -- | The response's http status code.
 listPackagingConfigurationsResponse_httpStatus :: Lens' ListPackagingConfigurationsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.ListPackagingConfigurations.ListPackagingConfigurations
 
 
 -- | Returns a collection of MediaPackage VOD Asset resources.
 --   
 --   This operation returns paginated results.
-module Network.AWS.MediaPackageVOD.ListAssets
+module Amazonka.MediaPackageVOD.ListAssets
 
 -- | <i>See:</i> <a>newListAssets</a> smart constructor.
 data ListAssets
@@ -3122,26 +3122,26 @@ listAssetsResponse_assets :: Lens' ListAssetsResponse (Maybe [AssetShallow])
 
 -- | The response's http status code.
 listAssetsResponse_httpStatus :: Lens' ListAssetsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ListAssets.ListAssetsResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ListAssets.ListAssetsResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ListAssets.ListAssetsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ListAssets.ListAssetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListAssets.ListAssetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.ListAssets.ListAssets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.ListAssets.ListAssets
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ListAssets.ListAssetsResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ListAssets.ListAssetsResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ListAssets.ListAssetsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ListAssets.ListAssetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListAssets.ListAssetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.ListAssets.ListAssets
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.ListAssets.ListAssets
 
 
 -- | Returns a description of a MediaPackage VOD PackagingGroup resource.
-module Network.AWS.MediaPackageVOD.DescribePackagingGroup
+module Amazonka.MediaPackageVOD.DescribePackagingGroup
 
 -- | <i>See:</i> <a>newDescribePackagingGroup</a> smart constructor.
 data DescribePackagingGroup
@@ -3244,26 +3244,26 @@ describePackagingGroupResponse_tags :: Lens' DescribePackagingGroupResponse (May
 
 -- | The response's http status code.
 describePackagingGroupResponse_httpStatus :: Lens' DescribePackagingGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.DescribePackagingGroup.DescribePackagingGroup
 
 
 -- | Returns a description of a MediaPackage VOD PackagingConfiguration
 --   resource.
-module Network.AWS.MediaPackageVOD.DescribePackagingConfiguration
+module Amazonka.MediaPackageVOD.DescribePackagingConfiguration
 
 -- | <i>See:</i> <a>newDescribePackagingConfiguration</a> smart
 --   constructor.
@@ -3384,25 +3384,25 @@ describePackagingConfigurationResponse_tags :: Lens' DescribePackagingConfigurat
 
 -- | The response's http status code.
 describePackagingConfigurationResponse_httpStatus :: Lens' DescribePackagingConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.DescribePackagingConfiguration.DescribePackagingConfiguration
 
 
 -- | Returns a description of a MediaPackage VOD Asset resource.
-module Network.AWS.MediaPackageVOD.DescribeAsset
+module Amazonka.MediaPackageVOD.DescribeAsset
 
 -- | <i>See:</i> <a>newDescribeAsset</a> smart constructor.
 data DescribeAsset
@@ -3535,25 +3535,25 @@ describeAssetResponse_tags :: Lens' DescribeAssetResponse (Maybe (HashMap Text T
 
 -- | The response's http status code.
 describeAssetResponse_httpStatus :: Lens' DescribeAssetResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DescribeAsset.DescribeAssetResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.DescribeAsset.DescribeAsset
 
 
 -- | Deletes a MediaPackage VOD PackagingGroup resource.
-module Network.AWS.MediaPackageVOD.DeletePackagingGroup
+module Amazonka.MediaPackageVOD.DeletePackagingGroup
 
 -- | <i>See:</i> <a>newDeletePackagingGroup</a> smart constructor.
 data DeletePackagingGroup
@@ -3601,25 +3601,25 @@ newDeletePackagingGroupResponse :: Int -> DeletePackagingGroupResponse
 
 -- | The response's http status code.
 deletePackagingGroupResponse_httpStatus :: Lens' DeletePackagingGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.DeletePackagingGroup.DeletePackagingGroup
 
 
 -- | Deletes a MediaPackage VOD PackagingConfiguration resource.
-module Network.AWS.MediaPackageVOD.DeletePackagingConfiguration
+module Amazonka.MediaPackageVOD.DeletePackagingConfiguration
 
 -- | <i>See:</i> <a>newDeletePackagingConfiguration</a> smart constructor.
 data DeletePackagingConfiguration
@@ -3671,25 +3671,25 @@ newDeletePackagingConfigurationResponse :: Int -> DeletePackagingConfigurationRe
 
 -- | The response's http status code.
 deletePackagingConfigurationResponse_httpStatus :: Lens' DeletePackagingConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.DeletePackagingConfiguration.DeletePackagingConfiguration
 
 
 -- | Deletes an existing MediaPackage VOD Asset resource.
-module Network.AWS.MediaPackageVOD.DeleteAsset
+module Amazonka.MediaPackageVOD.DeleteAsset
 
 -- | <i>See:</i> <a>newDeleteAsset</a> smart constructor.
 data DeleteAsset
@@ -3736,25 +3736,25 @@ newDeleteAssetResponse :: Int -> DeleteAssetResponse
 
 -- | The response's http status code.
 deleteAssetResponse_httpStatus :: Lens' DeleteAssetResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DeleteAsset.DeleteAssetResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.DeleteAsset.DeleteAsset
 
 
 -- | Creates a new MediaPackage VOD PackagingGroup resource.
-module Network.AWS.MediaPackageVOD.CreatePackagingGroup
+module Amazonka.MediaPackageVOD.CreatePackagingGroup
 
 -- | A new MediaPackage VOD PackagingGroup resource configuration.
 --   
@@ -3877,26 +3877,26 @@ createPackagingGroupResponse_tags :: Lens' CreatePackagingGroupResponse (Maybe (
 
 -- | The response's http status code.
 createPackagingGroupResponse_httpStatus :: Lens' CreatePackagingGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance GHC.Show.Show Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance GHC.Read.Read Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.CreatePackagingGroup.CreatePackagingGroup
 
 
 -- | Creates a new MediaPackage VOD PackagingConfiguration resource.
-module Network.AWS.MediaPackageVOD.CreatePackagingConfiguration
+module Amazonka.MediaPackageVOD.CreatePackagingConfiguration
 
 -- | A new MediaPackage VOD PackagingConfiguration resource configuration.
 --   
@@ -4063,26 +4063,26 @@ createPackagingConfigurationResponse_tags :: Lens' CreatePackagingConfigurationR
 
 -- | The response's http status code.
 createPackagingConfigurationResponse_httpStatus :: Lens' CreatePackagingConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance GHC.Show.Show Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance GHC.Read.Read Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.CreatePackagingConfiguration.CreatePackagingConfiguration
 
 
 -- | Creates a new MediaPackage VOD Asset resource.
-module Network.AWS.MediaPackageVOD.CreateAsset
+module Amazonka.MediaPackageVOD.CreateAsset
 
 -- | A new MediaPackage VOD Asset configuration.
 --   
@@ -4260,27 +4260,27 @@ createAssetResponse_tags :: Lens' CreateAssetResponse (Maybe (HashMap Text Text)
 
 -- | The response's http status code.
 createAssetResponse_httpStatus :: Lens' CreateAssetResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.CreateAsset.CreateAssetResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.CreateAsset.CreateAssetResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.CreateAsset.CreateAssetResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.CreateAsset.CreateAssetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.CreateAsset.CreateAssetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.CreateAsset.CreateAsset
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance GHC.Show.Show Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance GHC.Read.Read Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.CreateAsset.CreateAssetResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.CreateAsset.CreateAssetResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.CreateAsset.CreateAssetResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.CreateAsset.CreateAssetResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.CreateAsset.CreateAssetResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.CreateAsset.CreateAsset
 
 
 -- | Changes the packaging group's properities to configure log
 --   subscription
-module Network.AWS.MediaPackageVOD.ConfigureLogs
+module Amazonka.MediaPackageVOD.ConfigureLogs
 
 -- | The option to configure log subscription.
 --   
@@ -4386,27 +4386,27 @@ configureLogsResponse_tags :: Lens' ConfigureLogsResponse (Maybe (HashMap Text T
 
 -- | The response's http status code.
 configureLogsResponse_httpStatus :: Lens' ConfigureLogsResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogsResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.ConfigureLogs.ConfigureLogs
 
 
 -- | Removes tags from the specified resource. You can specify one or more
 --   tags to remove.
-module Network.AWS.MediaPackageVOD.UntagResource
+module Amazonka.MediaPackageVOD.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4454,26 +4454,26 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.UntagResource.UntagResource
 
 
 -- | Updates a specific packaging group. You can't change the id attribute
 --   or any other system-generated attributes.
-module Network.AWS.MediaPackageVOD.UpdatePackagingGroup
+module Amazonka.MediaPackageVOD.UpdatePackagingGroup
 
 -- | A MediaPackage VOD PackagingGroup resource configuration.
 --   
@@ -4582,25 +4582,25 @@ updatePackagingGroupResponse_tags :: Lens' UpdatePackagingGroupResponse (Maybe (
 
 -- | The response's http status code.
 updatePackagingGroupResponse_httpStatus :: Lens' UpdatePackagingGroupResponse Int
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance GHC.Generics.Generic Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
-instance GHC.Show.Show Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
-instance GHC.Read.Read Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
-instance GHC.Classes.Eq Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
-instance Data.Hashable.Class.Hashable Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance Control.DeepSeq.NFData Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance Network.AWS.Data.Path.ToPath Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
-instance Network.AWS.Data.Query.ToQuery Network.AWS.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance GHC.Show.Show Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance GHC.Read.Read Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance GHC.Generics.Generic Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
+instance GHC.Show.Show Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
+instance GHC.Read.Read Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
+instance GHC.Classes.Eq Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
+instance Amazonka.Types.AWSRequest Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroupResponse
+instance Data.Hashable.Class.Hashable Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance Control.DeepSeq.NFData Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance Amazonka.Data.Headers.ToHeaders Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance Amazonka.Data.Path.ToPath Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
+instance Amazonka.Data.Query.ToQuery Amazonka.MediaPackageVOD.UpdatePackagingGroup.UpdatePackagingGroup
 
 
-module Network.AWS.MediaPackageVOD.Lens
+module Amazonka.MediaPackageVOD.Lens
 
 -- | Undocumented member.
 createPackagingGroup_authorization :: Lens' CreatePackagingGroup (Maybe Authorization)
@@ -5242,14 +5242,14 @@ streamSelection_minVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 streamSelection_maxVideoBitsPerSecond :: Lens' StreamSelection (Maybe Int)
 
 
-module Network.AWS.MediaPackageVOD.Waiters
+module Amazonka.MediaPackageVOD.Waiters
 
 
 -- | Derived from API version <tt>2018-11-07</tt> of the AWS service
 --   descriptions, licensed under Apache 2.0.
 --   
 --   AWS Elemental MediaPackage VOD
-module Network.AWS.MediaPackageVOD
+module Amazonka.MediaPackageVOD
 
 -- | API version <tt>2018-11-07</tt> of the Amazon Elemental MediaPackage
 --   VOD SDK configuration.

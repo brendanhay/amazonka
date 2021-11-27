@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoTEventsData.Types.DetectorState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEventsData.Types.DetectorState</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.Timer</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.Variable</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Information about the current state of the detector instance.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newDetectorState' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679184249"><span id="local-6989586621679184250"></span></span><span class="hs-keyword">data</span><span> </span><span id="DetectorState"><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-var">DetectorState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DetectorState%27"><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-var">DetectorState'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the state.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AstateName%3ADetectorState%27"><span class="annot"><span class="annottext">DetectorState -&gt; Text
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3AstateName%3ADetectorState%27"><span class="hs-identifier hs-var hs-var">stateName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The current values of the detector\'s variables.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Avariables%3ADetectorState%27"><span class="annot"><span class="annottext">DetectorState -&gt; [Variable]
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3Avariables%3ADetectorState%27"><span class="hs-identifier hs-var hs-var">variables</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The current state of the detector\'s timers.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atimers%3ADetectorState%27"><span class="annot"><span class="annottext">DetectorState -&gt; [Timer]
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3Atimers%3ADetectorState%27"><span class="hs-identifier hs-var hs-var">timers</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html#Timer"><span class="hs-identifier hs-type">Timer</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679184241"><span id="local-6989586621679184243"><span class="annot"><span class="annottext">DetectorState -&gt; DetectorState -&gt; Bool
+(DetectorState -&gt; DetectorState -&gt; Bool)
+-&gt; (DetectorState -&gt; DetectorState -&gt; Bool) -&gt; Eq DetectorState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DetectorState -&gt; DetectorState -&gt; Bool
+$c/= :: DetectorState -&gt; DetectorState -&gt; Bool
+== :: DetectorState -&gt; DetectorState -&gt; Bool
+$c== :: DetectorState -&gt; DetectorState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184232"><span id="local-6989586621679184234"><span id="local-6989586621679184236"><span id="local-6989586621679184238"><span class="annot"><span class="annottext">ReadPrec [DetectorState]
+ReadPrec DetectorState
+Int -&gt; ReadS DetectorState
+ReadS [DetectorState]
+(Int -&gt; ReadS DetectorState)
+-&gt; ReadS [DetectorState]
+-&gt; ReadPrec DetectorState
+-&gt; ReadPrec [DetectorState]
+-&gt; Read DetectorState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DetectorState]
+$creadListPrec :: ReadPrec [DetectorState]
+readPrec :: ReadPrec DetectorState
+$creadPrec :: ReadPrec DetectorState
+readList :: ReadS [DetectorState]
+$creadList :: ReadS [DetectorState]
+readsPrec :: Int -&gt; ReadS DetectorState
+$creadsPrec :: Int -&gt; ReadS DetectorState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679184225"><span id="local-6989586621679184227"><span id="local-6989586621679184229"><span class="annot"><span class="annottext">Int -&gt; DetectorState -&gt; ShowS
+[DetectorState] -&gt; ShowS
+DetectorState -&gt; String
+(Int -&gt; DetectorState -&gt; ShowS)
+-&gt; (DetectorState -&gt; String)
+-&gt; ([DetectorState] -&gt; ShowS)
+-&gt; Show DetectorState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DetectorState] -&gt; ShowS
+$cshowList :: [DetectorState] -&gt; ShowS
+show :: DetectorState -&gt; String
+$cshow :: DetectorState -&gt; String
+showsPrec :: Int -&gt; DetectorState -&gt; ShowS
+$cshowsPrec :: Int -&gt; DetectorState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DetectorState -&gt; Rep DetectorState x)
+-&gt; (forall x. Rep DetectorState x -&gt; DetectorState)
+-&gt; Generic DetectorState
+forall x. Rep DetectorState x -&gt; DetectorState
+forall x. DetectorState -&gt; Rep DetectorState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DetectorState x -&gt; DetectorState
+$cfrom :: forall x. DetectorState -&gt; Rep DetectorState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'DetectorState' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'stateName', 'detectorState_stateName' - The name of the state.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'variables', 'detectorState_variables' - The current values of the detector\'s variables.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'timers', 'detectorState_timers' - The current state of the detector\'s timers.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#newDetectorState"><span class="hs-identifier hs-type">newDetectorState</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'stateName'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span><span>
+</span><span id="line-58"></span><span id="newDetectorState"><span class="annot"><span class="annottext">newDetectorState :: Text -&gt; DetectorState
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#newDetectorState"><span class="hs-identifier hs-var hs-var">newDetectorState</span></a></span></span><span> </span><span id="local-6989586621679184219"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184219"><span class="hs-identifier hs-var">pStateName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">DetectorState' :: Text -&gt; [Variable] -&gt; [Timer] -&gt; DetectorState
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-type">DetectorState'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:stateName:DetectorState' :: Text
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3AstateName%3ADetectorState%27"><span class="hs-identifier hs-var">stateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184219"><span class="hs-identifier hs-var">pStateName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:variables:DetectorState' :: [Variable]
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3Avariables%3ADetectorState%27"><span class="hs-identifier hs-var">variables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Variable]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span class="annot"><span class="annottext">$sel:timers:DetectorState' :: [Timer]
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3Atimers%3ADetectorState%27"><span class="hs-identifier hs-var">timers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Timer]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The name of the state.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_stateName"><span class="hs-identifier hs-type">detectorState_stateName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span id="detectorState_stateName"><span class="annot"><span class="annottext">detectorState_stateName :: (Text -&gt; f Text) -&gt; DetectorState -&gt; f DetectorState
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_stateName"><span class="hs-identifier hs-var hs-var">detectorState_stateName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectorState -&gt; Text)
+-&gt; (DetectorState -&gt; Text -&gt; DetectorState)
+-&gt; Lens DetectorState DetectorState Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-type">DetectorState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184215"><span class="annot"><span class="annottext">Text
+stateName :: Text
+$sel:stateName:DetectorState' :: DetectorState -&gt; Text
+</span><a href="#local-6989586621679184215"><span class="hs-identifier hs-var hs-var">stateName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184215"><span class="hs-identifier hs-var">stateName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184214"><span class="annot"><span class="annottext">s :: DetectorState
+</span><a href="#local-6989586621679184214"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-type">DetectorState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184213"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184213"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorState
+</span><a href="#local-6989586621679184214"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stateName:DetectorState' :: Text
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3AstateName%3ADetectorState%27"><span class="hs-identifier hs-var">stateName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679184213"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- | The current values of the detector\'s variables.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_variables"><span class="hs-identifier hs-type">detectorState_variables</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html#Variable"><span class="hs-identifier hs-type">Variable</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-71"></span><span id="detectorState_variables"><span class="annot"><span class="annottext">detectorState_variables :: ([Variable] -&gt; f [Variable]) -&gt; DetectorState -&gt; f DetectorState
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_variables"><span class="hs-identifier hs-var hs-var">detectorState_variables</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectorState -&gt; [Variable])
+-&gt; (DetectorState -&gt; [Variable] -&gt; DetectorState)
+-&gt; Lens DetectorState DetectorState [Variable] [Variable]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-type">DetectorState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184211"><span class="annot"><span class="annottext">[Variable]
+variables :: [Variable]
+$sel:variables:DetectorState' :: DetectorState -&gt; [Variable]
+</span><a href="#local-6989586621679184211"><span class="hs-identifier hs-var hs-var">variables</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Variable]
+</span><a href="#local-6989586621679184211"><span class="hs-identifier hs-var">variables</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184210"><span class="annot"><span class="annottext">s :: DetectorState
+</span><a href="#local-6989586621679184210"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-type">DetectorState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184209"><span class="annot"><span class="annottext">[Variable]
+</span><a href="#local-6989586621679184209"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorState
+</span><a href="#local-6989586621679184210"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:variables:DetectorState' :: [Variable]
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3Avariables%3ADetectorState%27"><span class="hs-identifier hs-var">variables</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Variable]
+</span><a href="#local-6989586621679184209"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Variable] -&gt; f [Variable]) -&gt; DetectorState -&gt; f DetectorState)
+-&gt; (([Variable] -&gt; f [Variable]) -&gt; [Variable] -&gt; f [Variable])
+-&gt; ([Variable] -&gt; f [Variable])
+-&gt; DetectorState
+-&gt; f DetectorState
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Variable] -&gt; f [Variable]) -&gt; [Variable] -&gt; f [Variable]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The current state of the detector\'s timers.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_timers"><span class="hs-identifier hs-type">detectorState_timers</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html#Timer"><span class="hs-identifier hs-type">Timer</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span><span id="detectorState_timers"><span class="annot"><span class="annottext">detectorState_timers :: ([Timer] -&gt; f [Timer]) -&gt; DetectorState -&gt; f DetectorState
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_timers"><span class="hs-identifier hs-var hs-var">detectorState_timers</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DetectorState -&gt; [Timer])
+-&gt; (DetectorState -&gt; [Timer] -&gt; DetectorState)
+-&gt; Lens DetectorState DetectorState [Timer] [Timer]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-type">DetectorState'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679184205"><span class="annot"><span class="annottext">[Timer]
+timers :: [Timer]
+$sel:timers:DetectorState' :: DetectorState -&gt; [Timer]
+</span><a href="#local-6989586621679184205"><span class="hs-identifier hs-var hs-var">timers</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Timer]
+</span><a href="#local-6989586621679184205"><span class="hs-identifier hs-var">timers</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679184204"><span class="annot"><span class="annottext">s :: DetectorState
+</span><a href="#local-6989586621679184204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-type">DetectorState'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679184203"><span class="annot"><span class="annottext">[Timer]
+</span><a href="#local-6989586621679184203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DetectorState
+</span><a href="#local-6989586621679184204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timers:DetectorState' :: [Timer]
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#%24sel%3Atimers%3ADetectorState%27"><span class="hs-identifier hs-var">timers</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Timer]
+</span><a href="#local-6989586621679184203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Timer] -&gt; f [Timer]) -&gt; DetectorState -&gt; f DetectorState)
+-&gt; (([Timer] -&gt; f [Timer]) -&gt; [Timer] -&gt; f [Timer])
+-&gt; ([Timer] -&gt; f [Timer])
+-&gt; DetectorState
+-&gt; f DetectorState
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Timer] -&gt; f [Timer]) -&gt; [Timer] -&gt; f [Timer]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184200"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621679184198"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser DetectorState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser DetectorState)
+-&gt; Value
+-&gt; Parser DetectorState
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;DetectorState&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679184195"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184195"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; [Variable] -&gt; [Timer] -&gt; DetectorState
+</span><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState%27"><span class="hs-identifier hs-var">DetectorState'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Text -&gt; [Variable] -&gt; [Timer] -&gt; DetectorState)
+-&gt; Parser Text -&gt; Parser ([Variable] -&gt; [Timer] -&gt; DetectorState)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stateName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Variable] -&gt; [Timer] -&gt; DetectorState)
+-&gt; Parser [Variable] -&gt; Parser ([Timer] -&gt; DetectorState)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Variable])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;variables&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Variable]) -&gt; [Variable] -&gt; Parser [Variable]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Variable]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser ([Timer] -&gt; DetectorState)
+-&gt; Parser [Timer] -&gt; Parser DetectorState
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679184195"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe [Timer])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timers&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe [Timer]) -&gt; [Timer] -&gt; Parser [Timer]
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">[Timer]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184187"><span id="local-6989586621679184189"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679184184"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier hs-type">DetectorState</span></a></span></span><span>
+</span><span id="line-91"></span></pre></body></html>

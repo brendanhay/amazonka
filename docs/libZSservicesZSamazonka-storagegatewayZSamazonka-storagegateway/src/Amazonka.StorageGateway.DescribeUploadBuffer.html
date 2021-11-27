@@ -1,0 +1,627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.StorageGateway.DescribeUploadBuffer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns information about the upload buffer of a gateway. This operation</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- is supported for the stored volume, cached volume, and tape gateway</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- types.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- The response includes disk IDs that are configured as upload buffer</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- space, and it includes the amount of upload buffer space allocated and</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- used.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StorageGateway.DescribeUploadBuffer</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier">DescribeUploadBuffer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#newDescribeUploadBuffer"><span class="hs-identifier">newDescribeUploadBuffer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBuffer_gatewayARN"><span class="hs-identifier">describeUploadBuffer_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier">DescribeUploadBufferResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#newDescribeUploadBufferResponse"><span class="hs-identifier">newDescribeUploadBufferResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_uploadBufferAllocatedInBytes"><span class="hs-identifier">describeUploadBufferResponse_uploadBufferAllocatedInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_gatewayARN"><span class="hs-identifier">describeUploadBufferResponse_gatewayARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_diskIds"><span class="hs-identifier">describeUploadBufferResponse_diskIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_uploadBufferUsedInBytes"><span class="hs-identifier">describeUploadBufferResponse_uploadBufferUsedInBytes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_httpStatus"><span class="hs-identifier">describeUploadBufferResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.Types.html"><span class="hs-identifier">Amazonka.StorageGateway.Types</span></a></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newDescribeUploadBuffer' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679383583"><span id="local-6989586621679383584"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUploadBuffer"><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-var">DescribeUploadBuffer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUploadBuffer%27"><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer%27"><span class="hs-identifier hs-var">DescribeUploadBuffer'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AgatewayARN%3ADescribeUploadBuffer%27"><span class="annot"><span class="annottext">DescribeUploadBuffer -&gt; Text
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AgatewayARN%3ADescribeUploadBuffer%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383577"><span id="local-6989586621679383579"><span class="annot"><span class="annottext">DescribeUploadBuffer -&gt; DescribeUploadBuffer -&gt; Bool
+(DescribeUploadBuffer -&gt; DescribeUploadBuffer -&gt; Bool)
+-&gt; (DescribeUploadBuffer -&gt; DescribeUploadBuffer -&gt; Bool)
+-&gt; Eq DescribeUploadBuffer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeUploadBuffer -&gt; DescribeUploadBuffer -&gt; Bool
+$c/= :: DescribeUploadBuffer -&gt; DescribeUploadBuffer -&gt; Bool
+== :: DescribeUploadBuffer -&gt; DescribeUploadBuffer -&gt; Bool
+$c== :: DescribeUploadBuffer -&gt; DescribeUploadBuffer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383568"><span id="local-6989586621679383570"><span id="local-6989586621679383572"><span id="local-6989586621679383574"><span class="annot"><span class="annottext">ReadPrec [DescribeUploadBuffer]
+ReadPrec DescribeUploadBuffer
+Int -&gt; ReadS DescribeUploadBuffer
+ReadS [DescribeUploadBuffer]
+(Int -&gt; ReadS DescribeUploadBuffer)
+-&gt; ReadS [DescribeUploadBuffer]
+-&gt; ReadPrec DescribeUploadBuffer
+-&gt; ReadPrec [DescribeUploadBuffer]
+-&gt; Read DescribeUploadBuffer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeUploadBuffer]
+$creadListPrec :: ReadPrec [DescribeUploadBuffer]
+readPrec :: ReadPrec DescribeUploadBuffer
+$creadPrec :: ReadPrec DescribeUploadBuffer
+readList :: ReadS [DescribeUploadBuffer]
+$creadList :: ReadS [DescribeUploadBuffer]
+readsPrec :: Int -&gt; ReadS DescribeUploadBuffer
+$creadsPrec :: Int -&gt; ReadS DescribeUploadBuffer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383561"><span id="local-6989586621679383563"><span id="local-6989586621679383565"><span class="annot"><span class="annottext">Int -&gt; DescribeUploadBuffer -&gt; ShowS
+[DescribeUploadBuffer] -&gt; ShowS
+DescribeUploadBuffer -&gt; String
+(Int -&gt; DescribeUploadBuffer -&gt; ShowS)
+-&gt; (DescribeUploadBuffer -&gt; String)
+-&gt; ([DescribeUploadBuffer] -&gt; ShowS)
+-&gt; Show DescribeUploadBuffer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeUploadBuffer] -&gt; ShowS
+$cshowList :: [DescribeUploadBuffer] -&gt; ShowS
+show :: DescribeUploadBuffer -&gt; String
+$cshow :: DescribeUploadBuffer -&gt; String
+showsPrec :: Int -&gt; DescribeUploadBuffer -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeUploadBuffer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeUploadBuffer -&gt; Rep DescribeUploadBuffer x)
+-&gt; (forall x. Rep DescribeUploadBuffer x -&gt; DescribeUploadBuffer)
+-&gt; Generic DescribeUploadBuffer
+forall x. Rep DescribeUploadBuffer x -&gt; DescribeUploadBuffer
+forall x. DescribeUploadBuffer -&gt; Rep DescribeUploadBuffer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeUploadBuffer x -&gt; DescribeUploadBuffer
+$cfrom :: forall x. DescribeUploadBuffer -&gt; Rep DescribeUploadBuffer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DescribeUploadBuffer' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'gatewayARN', 'describeUploadBuffer_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#newDescribeUploadBuffer"><span class="hs-identifier hs-type">newDescribeUploadBuffer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'gatewayARN'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span>
+</span><span id="line-77"></span><span id="newDescribeUploadBuffer"><span class="annot"><span class="annottext">newDescribeUploadBuffer :: Text -&gt; DescribeUploadBuffer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#newDescribeUploadBuffer"><span class="hs-identifier hs-var hs-var">newDescribeUploadBuffer</span></a></span></span><span> </span><span id="local-6989586621679383556"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383556"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">DescribeUploadBuffer' :: Text -&gt; DescribeUploadBuffer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer%27"><span class="hs-identifier hs-type">DescribeUploadBuffer'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DescribeUploadBuffer' :: Text
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AgatewayARN%3ADescribeUploadBuffer%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383556"><span class="hs-identifier hs-var">pGatewayARN_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBuffer_gatewayARN"><span class="hs-identifier hs-type">describeUploadBuffer_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-82"></span><span id="describeUploadBuffer_gatewayARN"><span class="annot"><span class="annottext">describeUploadBuffer_gatewayARN :: (Text -&gt; f Text) -&gt; DescribeUploadBuffer -&gt; f DescribeUploadBuffer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBuffer_gatewayARN"><span class="hs-identifier hs-var hs-var">describeUploadBuffer_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUploadBuffer -&gt; Text)
+-&gt; (DescribeUploadBuffer -&gt; Text -&gt; DescribeUploadBuffer)
+-&gt; Lens DescribeUploadBuffer DescribeUploadBuffer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer%27"><span class="hs-identifier hs-type">DescribeUploadBuffer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383553"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:DescribeUploadBuffer' :: DescribeUploadBuffer -&gt; Text
+</span><a href="#local-6989586621679383553"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383553"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383552"><span class="annot"><span class="annottext">s :: DescribeUploadBuffer
+</span><a href="#local-6989586621679383552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer%27"><span class="hs-identifier hs-type">DescribeUploadBuffer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383551"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUploadBuffer
+</span><a href="#local-6989586621679383552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DescribeUploadBuffer' :: Text
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AgatewayARN%3ADescribeUploadBuffer%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-86"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679383547"><span class="annot"><span class="annottext">request :: DescribeUploadBuffer -&gt; Request DescribeUploadBuffer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeUploadBuffer -&gt; Request DescribeUploadBuffer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.StorageGateway.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679383543"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeUploadBuffer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeUploadBuffer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeUploadBuffer))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeUploadBuffer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeUploadBuffer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-91"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679383540"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383540"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679383539"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679383539"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679383538"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383538"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>          </span><span class="annot"><span class="annottext">Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Integer
+-&gt; Int
+-&gt; DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">DescribeUploadBufferResponse'</span></a></span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Integer
+ -&gt; Maybe Text
+ -&gt; Maybe [Text]
+ -&gt; Maybe Integer
+ -&gt; Int
+ -&gt; DescribeUploadBufferResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe [Text]
+      -&gt; Maybe Integer
+      -&gt; Int
+      -&gt; DescribeUploadBufferResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UploadBufferAllocatedInBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe [Text]
+   -&gt; Maybe Integer
+   -&gt; Int
+   -&gt; DescribeUploadBufferResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe [Text]
+      -&gt; Maybe Integer -&gt; Int -&gt; DescribeUploadBufferResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [Text]
+   -&gt; Maybe Integer -&gt; Int -&gt; DescribeUploadBufferResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String (Maybe Integer -&gt; Int -&gt; DescribeUploadBufferResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DiskIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Integer -&gt; Int -&gt; DescribeUploadBufferResponse)
+-&gt; Either String (Maybe Integer)
+-&gt; Either String (Int -&gt; DescribeUploadBufferResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679383538"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UploadBufferUsedInBytes&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeUploadBufferResponse)
+-&gt; Either String Int -&gt; Either String DescribeUploadBufferResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383540"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383529"><span id="local-6989586621679383531"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383526"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679383522"><span class="annot"><span class="annottext">toHeaders :: DescribeUploadBuffer -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeUploadBuffer -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-108"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;StorageGateway_20130630.DescribeUploadBuffer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-114"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-115"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383512"><span id="local-6989586621679383514"><span id="local-6989586621679383516"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679383510"><span class="annot"><span class="annottext">toJSON :: DescribeUploadBuffer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer%27"><span class="hs-identifier hs-type">DescribeUploadBuffer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383508"><span class="annot"><span class="annottext">Text
+gatewayARN :: Text
+$sel:gatewayARN:DescribeUploadBuffer' :: DescribeUploadBuffer -&gt; Text
+</span><a href="#local-6989586621679383508"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-123"></span><span>          </span><span class="hs-special">[</span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GatewayARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383508"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span class="hs-special">]</span><span>
+</span><span id="line-124"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-127"></span><span>  </span><span id="local-6989586621679383502"><span class="annot"><span class="annottext">toPath :: DescribeUploadBuffer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DescribeUploadBuffer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBuffer"><span class="hs-identifier hs-type">DescribeUploadBuffer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679383498"><span class="annot"><span class="annottext">toQuery :: DescribeUploadBuffer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeUploadBuffer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | /See:/ 'newDescribeUploadBufferResponse' smart constructor.</span><span>
+</span><span id="line-133"></span><span id="local-6989586621679383495"><span id="local-6989586621679383496"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeUploadBufferResponse"><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-var">DescribeUploadBufferResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeUploadBufferResponse%27"><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">DescribeUploadBufferResponse'</span></a></span></span><span>
+</span><span id="line-134"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The total number of bytes allocated in the gateway\'s as upload buffer.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AuploadBufferAllocatedInBytes%3ADescribeUploadBufferResponse%27"><span class="annot"><span class="annottext">DescribeUploadBufferResponse -&gt; Maybe Integer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AuploadBufferAllocatedInBytes%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var hs-var">uploadBufferAllocatedInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span id="%24sel%3AgatewayARN%3ADescribeUploadBufferResponse%27"><span class="annot"><span class="annottext">DescribeUploadBufferResponse -&gt; Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AgatewayARN%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- | An array of the gateway\'s local disk IDs that are configured as working</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">-- storage. Each local disk ID is specified as a string (minimum length of</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- 1 and maximum length of 300). If no local disks are configured as</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- working storage, then the DiskIds array is empty.</span><span>
+</span><span id="line-141"></span><span>    </span><span id="%24sel%3AdiskIds%3ADescribeUploadBufferResponse%27"><span class="annot"><span class="annottext">DescribeUploadBufferResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AdiskIds%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var hs-var">diskIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- | The total number of bytes being used in the gateway\'s upload buffer.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AuploadBufferUsedInBytes%3ADescribeUploadBufferResponse%27"><span class="annot"><span class="annottext">DescribeUploadBufferResponse -&gt; Maybe Integer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AuploadBufferUsedInBytes%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var hs-var">uploadBufferUsedInBytes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-145"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeUploadBufferResponse%27"><span class="annot"><span class="annottext">DescribeUploadBufferResponse -&gt; Int
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AhttpStatus%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383486"><span id="local-6989586621679383488"><span class="annot"><span class="annottext">DescribeUploadBufferResponse
+-&gt; DescribeUploadBufferResponse -&gt; Bool
+(DescribeUploadBufferResponse
+ -&gt; DescribeUploadBufferResponse -&gt; Bool)
+-&gt; (DescribeUploadBufferResponse
+    -&gt; DescribeUploadBufferResponse -&gt; Bool)
+-&gt; Eq DescribeUploadBufferResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeUploadBufferResponse
+-&gt; DescribeUploadBufferResponse -&gt; Bool
+$c/= :: DescribeUploadBufferResponse
+-&gt; DescribeUploadBufferResponse -&gt; Bool
+== :: DescribeUploadBufferResponse
+-&gt; DescribeUploadBufferResponse -&gt; Bool
+$c== :: DescribeUploadBufferResponse
+-&gt; DescribeUploadBufferResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383478"><span id="local-6989586621679383480"><span id="local-6989586621679383482"><span id="local-6989586621679383484"><span class="annot"><span class="annottext">ReadPrec [DescribeUploadBufferResponse]
+ReadPrec DescribeUploadBufferResponse
+Int -&gt; ReadS DescribeUploadBufferResponse
+ReadS [DescribeUploadBufferResponse]
+(Int -&gt; ReadS DescribeUploadBufferResponse)
+-&gt; ReadS [DescribeUploadBufferResponse]
+-&gt; ReadPrec DescribeUploadBufferResponse
+-&gt; ReadPrec [DescribeUploadBufferResponse]
+-&gt; Read DescribeUploadBufferResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeUploadBufferResponse]
+$creadListPrec :: ReadPrec [DescribeUploadBufferResponse]
+readPrec :: ReadPrec DescribeUploadBufferResponse
+$creadPrec :: ReadPrec DescribeUploadBufferResponse
+readList :: ReadS [DescribeUploadBufferResponse]
+$creadList :: ReadS [DescribeUploadBufferResponse]
+readsPrec :: Int -&gt; ReadS DescribeUploadBufferResponse
+$creadsPrec :: Int -&gt; ReadS DescribeUploadBufferResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383472"><span id="local-6989586621679383474"><span id="local-6989586621679383476"><span class="annot"><span class="annottext">Int -&gt; DescribeUploadBufferResponse -&gt; ShowS
+[DescribeUploadBufferResponse] -&gt; ShowS
+DescribeUploadBufferResponse -&gt; String
+(Int -&gt; DescribeUploadBufferResponse -&gt; ShowS)
+-&gt; (DescribeUploadBufferResponse -&gt; String)
+-&gt; ([DescribeUploadBufferResponse] -&gt; ShowS)
+-&gt; Show DescribeUploadBufferResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeUploadBufferResponse] -&gt; ShowS
+$cshowList :: [DescribeUploadBufferResponse] -&gt; ShowS
+show :: DescribeUploadBufferResponse -&gt; String
+$cshow :: DescribeUploadBufferResponse -&gt; String
+showsPrec :: Int -&gt; DescribeUploadBufferResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeUploadBufferResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeUploadBufferResponse -&gt; Rep DescribeUploadBufferResponse x)
+-&gt; (forall x.
+    Rep DescribeUploadBufferResponse x -&gt; DescribeUploadBufferResponse)
+-&gt; Generic DescribeUploadBufferResponse
+forall x.
+Rep DescribeUploadBufferResponse x -&gt; DescribeUploadBufferResponse
+forall x.
+DescribeUploadBufferResponse -&gt; Rep DescribeUploadBufferResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeUploadBufferResponse x -&gt; DescribeUploadBufferResponse
+$cfrom :: forall x.
+DescribeUploadBufferResponse -&gt; Rep DescribeUploadBufferResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'DescribeUploadBufferResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'uploadBufferAllocatedInBytes', 'describeUploadBufferResponse_uploadBufferAllocatedInBytes' - The total number of bytes allocated in the gateway\'s as upload buffer.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'gatewayARN', 'describeUploadBufferResponse_gatewayARN' - Undocumented member.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- 'diskIds', 'describeUploadBufferResponse_diskIds' - An array of the gateway\'s local disk IDs that are configured as working</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- storage. Each local disk ID is specified as a string (minimum length of</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 1 and maximum length of 300). If no local disks are configured as</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- working storage, then the DiskIds array is empty.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'uploadBufferUsedInBytes', 'describeUploadBufferResponse_uploadBufferUsedInBytes' - The total number of bytes being used in the gateway\'s upload buffer.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'httpStatus', 'describeUploadBufferResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-169"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#newDescribeUploadBufferResponse"><span class="hs-identifier hs-type">newDescribeUploadBufferResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span>
+</span><span id="line-173"></span><span id="newDescribeUploadBufferResponse"><span class="annot"><span class="annottext">newDescribeUploadBufferResponse :: Int -&gt; DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#newDescribeUploadBufferResponse"><span class="hs-identifier hs-var hs-var">newDescribeUploadBufferResponse</span></a></span></span><span> </span><span id="local-6989586621679383469"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="annottext">DescribeUploadBufferResponse' :: Maybe Integer
+-&gt; Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Integer
+-&gt; Int
+-&gt; DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:uploadBufferAllocatedInBytes:DescribeUploadBufferResponse' :: Maybe Integer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AuploadBufferAllocatedInBytes%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">uploadBufferAllocatedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:gatewayARN:DescribeUploadBufferResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AgatewayARN%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:diskIds:DescribeUploadBufferResponse' :: Maybe [Text]
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AdiskIds%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">diskIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:uploadBufferUsedInBytes:DescribeUploadBufferResponse' :: Maybe Integer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AuploadBufferUsedInBytes%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">uploadBufferUsedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUploadBufferResponse' :: Int
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AhttpStatus%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383469"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | The total number of bytes allocated in the gateway\'s as upload buffer.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_uploadBufferAllocatedInBytes"><span class="hs-identifier hs-type">describeUploadBufferResponse_uploadBufferAllocatedInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="describeUploadBufferResponse_uploadBufferAllocatedInBytes"><span class="annot"><span class="annottext">describeUploadBufferResponse_uploadBufferAllocatedInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DescribeUploadBufferResponse -&gt; f DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_uploadBufferAllocatedInBytes"><span class="hs-identifier hs-var hs-var">describeUploadBufferResponse_uploadBufferAllocatedInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUploadBufferResponse -&gt; Maybe Integer)
+-&gt; (DescribeUploadBufferResponse
+    -&gt; Maybe Integer -&gt; DescribeUploadBufferResponse)
+-&gt; Lens
+     DescribeUploadBufferResponse
+     DescribeUploadBufferResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383468"><span class="annot"><span class="annottext">Maybe Integer
+uploadBufferAllocatedInBytes :: Maybe Integer
+$sel:uploadBufferAllocatedInBytes:DescribeUploadBufferResponse' :: DescribeUploadBufferResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679383468"><span class="hs-identifier hs-var hs-var">uploadBufferAllocatedInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383468"><span class="hs-identifier hs-var">uploadBufferAllocatedInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383467"><span class="annot"><span class="annottext">s :: DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383467"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383466"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383466"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383467"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadBufferAllocatedInBytes:DescribeUploadBufferResponse' :: Maybe Integer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AuploadBufferAllocatedInBytes%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">uploadBufferAllocatedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383466"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_gatewayARN"><span class="hs-identifier hs-type">describeUploadBufferResponse_gatewayARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="describeUploadBufferResponse_gatewayARN"><span class="annot"><span class="annottext">describeUploadBufferResponse_gatewayARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeUploadBufferResponse -&gt; f DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_gatewayARN"><span class="hs-identifier hs-var hs-var">describeUploadBufferResponse_gatewayARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUploadBufferResponse -&gt; Maybe Text)
+-&gt; (DescribeUploadBufferResponse
+    -&gt; Maybe Text -&gt; DescribeUploadBufferResponse)
+-&gt; Lens
+     DescribeUploadBufferResponse
+     DescribeUploadBufferResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383465"><span class="annot"><span class="annottext">Maybe Text
+gatewayARN :: Maybe Text
+$sel:gatewayARN:DescribeUploadBufferResponse' :: DescribeUploadBufferResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679383465"><span class="hs-identifier hs-var hs-var">gatewayARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383465"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383464"><span class="annot"><span class="annottext">s :: DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383464"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383463"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383463"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383464"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:gatewayARN:DescribeUploadBufferResponse' :: Maybe Text
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AgatewayARN%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">gatewayARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383463"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | An array of the gateway\'s local disk IDs that are configured as working</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- storage. Each local disk ID is specified as a string (minimum length of</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 1 and maximum length of 300). If no local disks are configured as</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- working storage, then the DiskIds array is empty.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_diskIds"><span class="hs-identifier hs-type">describeUploadBufferResponse_diskIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="describeUploadBufferResponse_diskIds"><span class="annot"><span class="annottext">describeUploadBufferResponse_diskIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeUploadBufferResponse -&gt; f DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_diskIds"><span class="hs-identifier hs-var hs-var">describeUploadBufferResponse_diskIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUploadBufferResponse -&gt; Maybe [Text])
+-&gt; (DescribeUploadBufferResponse
+    -&gt; Maybe [Text] -&gt; DescribeUploadBufferResponse)
+-&gt; Lens
+     DescribeUploadBufferResponse
+     DescribeUploadBufferResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383462"><span class="annot"><span class="annottext">Maybe [Text]
+diskIds :: Maybe [Text]
+$sel:diskIds:DescribeUploadBufferResponse' :: DescribeUploadBufferResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679383462"><span class="hs-identifier hs-var hs-var">diskIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679383462"><span class="hs-identifier hs-var">diskIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383461"><span class="annot"><span class="annottext">s :: DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383460"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679383460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:diskIds:DescribeUploadBufferResponse' :: Maybe [Text]
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AdiskIds%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">diskIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679383460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeUploadBufferResponse -&gt; f DescribeUploadBufferResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeUploadBufferResponse
+-&gt; f DescribeUploadBufferResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The total number of bytes being used in the gateway\'s upload buffer.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_uploadBufferUsedInBytes"><span class="hs-identifier hs-type">describeUploadBufferResponse_uploadBufferUsedInBytes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="describeUploadBufferResponse_uploadBufferUsedInBytes"><span class="annot"><span class="annottext">describeUploadBufferResponse_uploadBufferUsedInBytes :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; DescribeUploadBufferResponse -&gt; f DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_uploadBufferUsedInBytes"><span class="hs-identifier hs-var hs-var">describeUploadBufferResponse_uploadBufferUsedInBytes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUploadBufferResponse -&gt; Maybe Integer)
+-&gt; (DescribeUploadBufferResponse
+    -&gt; Maybe Integer -&gt; DescribeUploadBufferResponse)
+-&gt; Lens
+     DescribeUploadBufferResponse
+     DescribeUploadBufferResponse
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383456"><span class="annot"><span class="annottext">Maybe Integer
+uploadBufferUsedInBytes :: Maybe Integer
+$sel:uploadBufferUsedInBytes:DescribeUploadBufferResponse' :: DescribeUploadBufferResponse -&gt; Maybe Integer
+</span><a href="#local-6989586621679383456"><span class="hs-identifier hs-var hs-var">uploadBufferUsedInBytes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383456"><span class="hs-identifier hs-var">uploadBufferUsedInBytes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383455"><span class="annot"><span class="annottext">s :: DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383455"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383454"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383454"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383455"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:uploadBufferUsedInBytes:DescribeUploadBufferResponse' :: Maybe Integer
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AuploadBufferUsedInBytes%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">uploadBufferUsedInBytes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679383454"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_httpStatus"><span class="hs-identifier hs-type">describeUploadBufferResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="describeUploadBufferResponse_httpStatus"><span class="annot"><span class="annottext">describeUploadBufferResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeUploadBufferResponse -&gt; f DescribeUploadBufferResponse
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#describeUploadBufferResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeUploadBufferResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeUploadBufferResponse -&gt; Int)
+-&gt; (DescribeUploadBufferResponse
+    -&gt; Int -&gt; DescribeUploadBufferResponse)
+-&gt; Lens
+     DescribeUploadBufferResponse DescribeUploadBufferResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383453"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeUploadBufferResponse' :: DescribeUploadBufferResponse -&gt; Int
+</span><a href="#local-6989586621679383453"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383453"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383452"><span class="annot"><span class="annottext">s :: DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383452"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse%27"><span class="hs-identifier hs-type">DescribeUploadBufferResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383451"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383451"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeUploadBufferResponse
+</span><a href="#local-6989586621679383452"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeUploadBufferResponse' :: Int
+</span><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#%24sel%3AhttpStatus%3ADescribeUploadBufferResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679383451"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383449"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.StorageGateway.DescribeUploadBuffer.html#DescribeUploadBufferResponse"><span class="hs-identifier hs-type">DescribeUploadBufferResponse</span></a></span></span><span>
+</span><span id="line-207"></span></pre></body></html>

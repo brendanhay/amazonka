@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.SendBounce</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Generates and sends a bounce message to the sender of an email you</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- received through Amazon SES. You can only use this API on an email up to</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- 24 hours after you receive it.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- You cannot use this API to send generic bounces for mail that was not</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- received by Amazon SES.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- For information about receiving email through Amazon SES, see the</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.SendBounce</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier">SendBounce</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#newSendBounce"><span class="hs-identifier">newSendBounce</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_messageDsn"><span class="hs-identifier">sendBounce_messageDsn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_explanation"><span class="hs-identifier">sendBounce_explanation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_bounceSenderArn"><span class="hs-identifier">sendBounce_bounceSenderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_originalMessageId"><span class="hs-identifier">sendBounce_originalMessageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_bounceSender"><span class="hs-identifier">sendBounce_bounceSender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_bouncedRecipientInfoList"><span class="hs-identifier">sendBounce_bouncedRecipientInfoList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier">SendBounceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#newSendBounceResponse"><span class="hs-identifier">newSendBounceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounceResponse_messageId"><span class="hs-identifier">sendBounceResponse_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounceResponse_httpStatus"><span class="hs-identifier">sendBounceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Represents a request to send a bounce message to the sender of an email</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- you received through Amazon SES.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- /See:/ 'newSendBounce' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679280435"><span id="local-6989586621679280436"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBounce"><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-var">SendBounce</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBounce%27"><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-var">SendBounce'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Message-related DSN fields. If not specified, Amazon SES will choose the</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmessageDsn%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; Maybe MessageDsn
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AmessageDsn%3ASendBounce%27"><span class="hs-identifier hs-var hs-var">messageDsn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.MessageDsn.html#MessageDsn"><span class="hs-identifier hs-type">MessageDsn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | Human-readable text for the bounce message to explain the failure. If</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- not specified, the text will be auto-generated based on the bounced</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- recipient information.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3Aexplanation%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3Aexplanation%3ASendBounce%27"><span class="hs-identifier hs-var hs-var">explanation</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- that permits you to use the address in the \&quot;From\&quot; header of the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- bounce. For more information about sending authorization, see the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AbounceSenderArn%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbounceSenderArn%3ASendBounce%27"><span class="hs-identifier hs-var hs-var">bounceSenderArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The message ID of the message to be bounced.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AoriginalMessageId%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AoriginalMessageId%3ASendBounce%27"><span class="hs-identifier hs-var hs-var">originalMessageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The address to use in the \&quot;From\&quot; header of the bounce message. This</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- must be an identity that you have verified with Amazon SES.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AbounceSender%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbounceSender%3ASendBounce%27"><span class="hs-identifier hs-var hs-var">bounceSender</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | A list of recipients of the bounced message, including the information</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- required to create the Delivery Status Notifications (DSNs) for the</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- recipients. You must specify at least one @BouncedRecipientInfo@ in the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-91"></span><span>    </span><span id="%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="annot"><span class="annottext">SendBounce -&gt; [BouncedRecipientInfo]
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="hs-identifier hs-var hs-var">bouncedRecipientInfoList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.BouncedRecipientInfo.html#BouncedRecipientInfo"><span class="hs-identifier hs-type">BouncedRecipientInfo</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280424"><span id="local-6989586621679280426"><span class="annot"><span class="annottext">SendBounce -&gt; SendBounce -&gt; Bool
+(SendBounce -&gt; SendBounce -&gt; Bool)
+-&gt; (SendBounce -&gt; SendBounce -&gt; Bool) -&gt; Eq SendBounce
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendBounce -&gt; SendBounce -&gt; Bool
+$c/= :: SendBounce -&gt; SendBounce -&gt; Bool
+== :: SendBounce -&gt; SendBounce -&gt; Bool
+$c== :: SendBounce -&gt; SendBounce -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280415"><span id="local-6989586621679280417"><span id="local-6989586621679280419"><span id="local-6989586621679280421"><span class="annot"><span class="annottext">ReadPrec [SendBounce]
+ReadPrec SendBounce
+Int -&gt; ReadS SendBounce
+ReadS [SendBounce]
+(Int -&gt; ReadS SendBounce)
+-&gt; ReadS [SendBounce]
+-&gt; ReadPrec SendBounce
+-&gt; ReadPrec [SendBounce]
+-&gt; Read SendBounce
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendBounce]
+$creadListPrec :: ReadPrec [SendBounce]
+readPrec :: ReadPrec SendBounce
+$creadPrec :: ReadPrec SendBounce
+readList :: ReadS [SendBounce]
+$creadList :: ReadS [SendBounce]
+readsPrec :: Int -&gt; ReadS SendBounce
+$creadsPrec :: Int -&gt; ReadS SendBounce
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280408"><span id="local-6989586621679280410"><span id="local-6989586621679280412"><span class="annot"><span class="annottext">Int -&gt; SendBounce -&gt; ShowS
+[SendBounce] -&gt; ShowS
+SendBounce -&gt; String
+(Int -&gt; SendBounce -&gt; ShowS)
+-&gt; (SendBounce -&gt; String)
+-&gt; ([SendBounce] -&gt; ShowS)
+-&gt; Show SendBounce
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendBounce] -&gt; ShowS
+$cshowList :: [SendBounce] -&gt; ShowS
+show :: SendBounce -&gt; String
+$cshow :: SendBounce -&gt; String
+showsPrec :: Int -&gt; SendBounce -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendBounce -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendBounce -&gt; Rep SendBounce x)
+-&gt; (forall x. Rep SendBounce x -&gt; SendBounce) -&gt; Generic SendBounce
+forall x. Rep SendBounce x -&gt; SendBounce
+forall x. SendBounce -&gt; Rep SendBounce x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendBounce x -&gt; SendBounce
+$cfrom :: forall x. SendBounce -&gt; Rep SendBounce x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Create a value of 'SendBounce' with all optional fields omitted.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-102"></span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- 'messageDsn', 'sendBounce_messageDsn' - Message-related DSN fields. If not specified, Amazon SES will choose the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'explanation', 'sendBounce_explanation' - Human-readable text for the bounce message to explain the failure. If</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- not specified, the text will be auto-generated based on the bounced</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- recipient information.</span><span>
+</span><span id="line-109"></span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- 'bounceSenderArn', 'sendBounce_bounceSenderArn' - This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- that permits you to use the address in the \&quot;From\&quot; header of the</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- bounce. For more information about sending authorization, see the</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- 'originalMessageId', 'sendBounce_originalMessageId' - The message ID of the message to be bounced.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'bounceSender', 'sendBounce_bounceSender' - The address to use in the \&quot;From\&quot; header of the bounce message. This</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- must be an identity that you have verified with Amazon SES.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'bouncedRecipientInfoList', 'sendBounce_bouncedRecipientInfoList' - A list of recipients of the bounced message, including the information</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- required to create the Delivery Status Notifications (DSNs) for the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- recipients. You must specify at least one @BouncedRecipientInfo@ in the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#newSendBounce"><span class="hs-identifier hs-type">newSendBounce</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-126"></span><span>  </span><span class="hs-comment">-- | 'originalMessageId'</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-comment">-- | 'bounceSender'</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-130"></span><span>  </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span>
+</span><span id="line-131"></span><span id="newSendBounce"><span class="annot"><span class="annottext">newSendBounce :: Text -&gt; Text -&gt; SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#newSendBounce"><span class="hs-identifier hs-var hs-var">newSendBounce</span></a></span></span><span> </span><span id="local-6989586621679280403"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280403"><span class="hs-identifier hs-var">pOriginalMessageId_</span></a></span></span><span> </span><span id="local-6989586621679280402"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280402"><span class="hs-identifier hs-var">pBounceSender_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>  </span><span class="annot"><span class="annottext">SendBounce' :: Maybe MessageDsn
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Text
+-&gt; Text
+-&gt; [BouncedRecipientInfo]
+-&gt; SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messageDsn:SendBounce' :: Maybe MessageDsn
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AmessageDsn%3ASendBounce%27"><span class="hs-identifier hs-var">messageDsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">$sel:explanation:SendBounce' :: Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3Aexplanation%3ASendBounce%27"><span class="hs-identifier hs-var">explanation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>      </span><span class="annot"><span class="annottext">$sel:bounceSenderArn:SendBounce' :: Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbounceSenderArn%3ASendBounce%27"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>      </span><span class="annot"><span class="annottext">$sel:originalMessageId:SendBounce' :: Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AoriginalMessageId%3ASendBounce%27"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280403"><span class="hs-identifier hs-var">pOriginalMessageId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>      </span><span class="annot"><span class="annottext">$sel:bounceSender:SendBounce' :: Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbounceSender%3ASendBounce%27"><span class="hs-identifier hs-var">bounceSender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280402"><span class="hs-identifier hs-var">pBounceSender_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">$sel:bouncedRecipientInfoList:SendBounce' :: [BouncedRecipientInfo]
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- | Message-related DSN fields. If not specified, Amazon SES will choose the</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- values.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_messageDsn"><span class="hs-identifier hs-type">sendBounce_messageDsn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.MessageDsn.html#MessageDsn"><span class="hs-identifier hs-type">MessageDsn</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="sendBounce_messageDsn"><span class="annot"><span class="annottext">sendBounce_messageDsn :: (Maybe MessageDsn -&gt; f (Maybe MessageDsn))
+-&gt; SendBounce -&gt; f SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#sendBounce_messageDsn"><span class="hs-identifier hs-var hs-var">sendBounce_messageDsn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounce -&gt; Maybe MessageDsn)
+-&gt; (SendBounce -&gt; Maybe MessageDsn -&gt; SendBounce)
+-&gt; Lens SendBounce SendBounce (Maybe MessageDsn) (Maybe MessageDsn)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280399"><span class="annot"><span class="annottext">Maybe MessageDsn
+messageDsn :: Maybe MessageDsn
+$sel:messageDsn:SendBounce' :: SendBounce -&gt; Maybe MessageDsn
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var hs-var">messageDsn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var">messageDsn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280398"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280397"><span class="annot"><span class="annottext">Maybe MessageDsn
+</span><a href="#local-6989586621679280397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageDsn:SendBounce' :: Maybe MessageDsn
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AmessageDsn%3ASendBounce%27"><span class="hs-identifier hs-var">messageDsn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
+</span><a href="#local-6989586621679280397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Human-readable text for the bounce message to explain the failure. If</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- not specified, the text will be auto-generated based on the bounced</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- recipient information.</span><span>
+</span><span id="line-149"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_explanation"><span class="hs-identifier hs-type">sendBounce_explanation</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-150"></span><span id="sendBounce_explanation"><span class="annot"><span class="annottext">sendBounce_explanation :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendBounce -&gt; f SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#sendBounce_explanation"><span class="hs-identifier hs-var hs-var">sendBounce_explanation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounce -&gt; Maybe Text)
+-&gt; (SendBounce -&gt; Maybe Text -&gt; SendBounce)
+-&gt; Lens SendBounce SendBounce (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280396"><span class="annot"><span class="annottext">Maybe Text
+explanation :: Maybe Text
+$sel:explanation:SendBounce' :: SendBounce -&gt; Maybe Text
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var hs-var">explanation</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var">explanation</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280395"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280394"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:explanation:SendBounce' :: Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3Aexplanation%3ASendBounce%27"><span class="hs-identifier hs-var">explanation</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- | This parameter is used only for sending authorization. It is the ARN of</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- the identity that is associated with the sending authorization policy</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- that permits you to use the address in the \&quot;From\&quot; header of the</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- bounce. For more information about sending authorization, see the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_bounceSenderArn"><span class="hs-identifier hs-type">sendBounce_bounceSenderArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="sendBounce_bounceSenderArn"><span class="annot"><span class="annottext">sendBounce_bounceSenderArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; SendBounce -&gt; f SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#sendBounce_bounceSenderArn"><span class="hs-identifier hs-var hs-var">sendBounce_bounceSenderArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounce -&gt; Maybe Text)
+-&gt; (SendBounce -&gt; Maybe Text -&gt; SendBounce)
+-&gt; Lens SendBounce SendBounce (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280393"><span class="annot"><span class="annottext">Maybe Text
+bounceSenderArn :: Maybe Text
+$sel:bounceSenderArn:SendBounce' :: SendBounce -&gt; Maybe Text
+</span><a href="#local-6989586621679280393"><span class="hs-identifier hs-var hs-var">bounceSenderArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280393"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280392"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280391"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceSenderArn:SendBounce' :: Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbounceSenderArn%3ASendBounce%27"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The message ID of the message to be bounced.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_originalMessageId"><span class="hs-identifier hs-type">sendBounce_originalMessageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="sendBounce_originalMessageId"><span class="annot"><span class="annottext">sendBounce_originalMessageId :: (Text -&gt; f Text) -&gt; SendBounce -&gt; f SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#sendBounce_originalMessageId"><span class="hs-identifier hs-var hs-var">sendBounce_originalMessageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounce -&gt; Text)
+-&gt; (SendBounce -&gt; Text -&gt; SendBounce)
+-&gt; Lens SendBounce SendBounce Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280390"><span class="annot"><span class="annottext">Text
+originalMessageId :: Text
+$sel:originalMessageId:SendBounce' :: SendBounce -&gt; Text
+</span><a href="#local-6989586621679280390"><span class="hs-identifier hs-var hs-var">originalMessageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280390"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280389"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280389"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280388"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280388"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280389"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:originalMessageId:SendBounce' :: Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AoriginalMessageId%3ASendBounce%27"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280388"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | The address to use in the \&quot;From\&quot; header of the bounce message. This</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- must be an identity that you have verified with Amazon SES.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_bounceSender"><span class="hs-identifier hs-type">sendBounce_bounceSender</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-167"></span><span id="sendBounce_bounceSender"><span class="annot"><span class="annottext">sendBounce_bounceSender :: (Text -&gt; f Text) -&gt; SendBounce -&gt; f SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#sendBounce_bounceSender"><span class="hs-identifier hs-var hs-var">sendBounce_bounceSender</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounce -&gt; Text)
+-&gt; (SendBounce -&gt; Text -&gt; SendBounce)
+-&gt; Lens SendBounce SendBounce Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280387"><span class="annot"><span class="annottext">Text
+bounceSender :: Text
+$sel:bounceSender:SendBounce' :: SendBounce -&gt; Text
+</span><a href="#local-6989586621679280387"><span class="hs-identifier hs-var hs-var">bounceSender</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280387"><span class="hs-identifier hs-var">bounceSender</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280386"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280386"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280385"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280385"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280386"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bounceSender:SendBounce' :: Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbounceSender%3ASendBounce%27"><span class="hs-identifier hs-var">bounceSender</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280385"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | A list of recipients of the bounced message, including the information</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- required to create the Delivery Status Notifications (DSNs) for the</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- recipients. You must specify at least one @BouncedRecipientInfo@ in the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- list.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounce_bouncedRecipientInfoList"><span class="hs-identifier hs-type">sendBounce_bouncedRecipientInfoList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SES.Types.BouncedRecipientInfo.html#BouncedRecipientInfo"><span class="hs-identifier hs-type">BouncedRecipientInfo</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span id="sendBounce_bouncedRecipientInfoList"><span class="annot"><span class="annottext">sendBounce_bouncedRecipientInfoList :: ([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
+-&gt; SendBounce -&gt; f SendBounce
+</span><a href="Amazonka.SES.SendBounce.html#sendBounce_bouncedRecipientInfoList"><span class="hs-identifier hs-var hs-var">sendBounce_bouncedRecipientInfoList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounce -&gt; [BouncedRecipientInfo])
+-&gt; (SendBounce -&gt; [BouncedRecipientInfo] -&gt; SendBounce)
+-&gt; Lens
+     SendBounce SendBounce [BouncedRecipientInfo] [BouncedRecipientInfo]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280384"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+bouncedRecipientInfoList :: [BouncedRecipientInfo]
+$sel:bouncedRecipientInfoList:SendBounce' :: SendBounce -&gt; [BouncedRecipientInfo]
+</span><a href="#local-6989586621679280384"><span class="hs-identifier hs-var hs-var">bouncedRecipientInfoList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><a href="#local-6989586621679280384"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280383"><span class="annot"><span class="annottext">s :: SendBounce
+</span><a href="#local-6989586621679280383"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280382"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><a href="#local-6989586621679280382"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounce
+</span><a href="#local-6989586621679280383"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bouncedRecipientInfoList:SendBounce' :: [BouncedRecipientInfo]
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AbouncedRecipientInfoList%3ASendBounce%27"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><a href="#local-6989586621679280382"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
+ -&gt; SendBounce -&gt; f SendBounce)
+-&gt; (([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
+    -&gt; [BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
+-&gt; ([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
+-&gt; SendBounce
+-&gt; f SendBounce
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo])
+-&gt; [BouncedRecipientInfo] -&gt; f [BouncedRecipientInfo]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679280376"><span class="annot"><span class="annottext">request :: SendBounce -&gt; Request SendBounce
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; SendBounce -&gt; Request SendBounce
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679280372"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy SendBounce
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendBounce)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse SendBounce))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy SendBounce
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse SendBounce)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SendBounceResult&quot;</span></span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280369"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280369"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280368"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679280368"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280367"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679280367"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; SendBounceResponse
+</span><a href="Amazonka.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-var">SendBounceResponse'</span></a></span><span>
+</span><span id="line-184"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; SendBounceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; SendBounceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679280367"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MessageId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; SendBounceResponse)
+-&gt; Either String Int -&gt; Either String SendBounceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280369"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280359"><span id="local-6989586621679280361"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span></span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280356"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span></span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-193"></span><span>  </span><span id="local-6989586621679280352"><span class="annot"><span class="annottext">toHeaders :: SendBounce -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; SendBounce -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679280347"><span class="annot"><span class="annottext">toPath :: SendBounce -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; SendBounce -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce"><span class="hs-identifier hs-type">SendBounce</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679280343"><span class="annot"><span class="annottext">toQuery :: SendBounce -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounce%27"><span class="hs-identifier hs-type">SendBounce'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280336"><span id="local-6989586621679280337"><span id="local-6989586621679280338"><span id="local-6989586621679280339"><span id="local-6989586621679280340"><span id="local-6989586621679280341"><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+Maybe Text
+Maybe MessageDsn
+Text
+bouncedRecipientInfoList :: [BouncedRecipientInfo]
+bounceSender :: Text
+originalMessageId :: Text
+bounceSenderArn :: Maybe Text
+explanation :: Maybe Text
+messageDsn :: Maybe MessageDsn
+$sel:bouncedRecipientInfoList:SendBounce' :: SendBounce -&gt; [BouncedRecipientInfo]
+$sel:bounceSender:SendBounce' :: SendBounce -&gt; Text
+$sel:originalMessageId:SendBounce' :: SendBounce -&gt; Text
+$sel:bounceSenderArn:SendBounce' :: SendBounce -&gt; Maybe Text
+$sel:explanation:SendBounce' :: SendBounce -&gt; Maybe Text
+$sel:messageDsn:SendBounce' :: SendBounce -&gt; Maybe MessageDsn
+</span><a href="#local-6989586621679280336"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-202"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SendBounce&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-204"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MessageDsn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe MessageDsn -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe MessageDsn
+</span><a href="#local-6989586621679280341"><span class="hs-identifier hs-var">messageDsn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Explanation&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280340"><span class="hs-identifier hs-var">explanation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BounceSenderArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280339"><span class="hs-identifier hs-var">bounceSenderArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OriginalMessageId&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280338"><span class="hs-identifier hs-var">originalMessageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BounceSender&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280337"><span class="hs-identifier hs-var">bounceSender</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;BouncedRecipientInfoList&quot;</span></span><span>
+</span><span id="line-211"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [BouncedRecipientInfo] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;member&quot;</span></span><span> </span><span class="annot"><span class="annottext">[BouncedRecipientInfo]
+</span><a href="#local-6989586621679280336"><span class="hs-identifier hs-var">bouncedRecipientInfoList</span></a></span><span>
+</span><span id="line-212"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-213"></span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- | Represents a unique message ID.</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- /See:/ 'newSendBounceResponse' smart constructor.</span><span>
+</span><span id="line-217"></span><span id="local-6989586621679280332"><span id="local-6989586621679280333"></span></span><span class="hs-keyword">data</span><span> </span><span id="SendBounceResponse"><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-var">SendBounceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SendBounceResponse%27"><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-var">SendBounceResponse'</span></a></span></span><span>
+</span><span id="line-218"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The message ID of the bounce message.</span><span>
+</span><span id="line-219"></span><span>    </span><span id="%24sel%3AmessageId%3ASendBounceResponse%27"><span class="annot"><span class="annottext">SendBounceResponse -&gt; Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AmessageId%3ASendBounceResponse%27"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span>    </span><span id="%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="annot"><span class="annottext">SendBounceResponse -&gt; Int
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280326"><span id="local-6989586621679280328"><span class="annot"><span class="annottext">SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
+(SendBounceResponse -&gt; SendBounceResponse -&gt; Bool)
+-&gt; (SendBounceResponse -&gt; SendBounceResponse -&gt; Bool)
+-&gt; Eq SendBounceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
+$c/= :: SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
+== :: SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
+$c== :: SendBounceResponse -&gt; SendBounceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280318"><span id="local-6989586621679280320"><span id="local-6989586621679280322"><span id="local-6989586621679280324"><span class="annot"><span class="annottext">ReadPrec [SendBounceResponse]
+ReadPrec SendBounceResponse
+Int -&gt; ReadS SendBounceResponse
+ReadS [SendBounceResponse]
+(Int -&gt; ReadS SendBounceResponse)
+-&gt; ReadS [SendBounceResponse]
+-&gt; ReadPrec SendBounceResponse
+-&gt; ReadPrec [SendBounceResponse]
+-&gt; Read SendBounceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SendBounceResponse]
+$creadListPrec :: ReadPrec [SendBounceResponse]
+readPrec :: ReadPrec SendBounceResponse
+$creadPrec :: ReadPrec SendBounceResponse
+readList :: ReadS [SendBounceResponse]
+$creadList :: ReadS [SendBounceResponse]
+readsPrec :: Int -&gt; ReadS SendBounceResponse
+$creadsPrec :: Int -&gt; ReadS SendBounceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280312"><span id="local-6989586621679280314"><span id="local-6989586621679280316"><span class="annot"><span class="annottext">Int -&gt; SendBounceResponse -&gt; ShowS
+[SendBounceResponse] -&gt; ShowS
+SendBounceResponse -&gt; String
+(Int -&gt; SendBounceResponse -&gt; ShowS)
+-&gt; (SendBounceResponse -&gt; String)
+-&gt; ([SendBounceResponse] -&gt; ShowS)
+-&gt; Show SendBounceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SendBounceResponse] -&gt; ShowS
+$cshowList :: [SendBounceResponse] -&gt; ShowS
+show :: SendBounceResponse -&gt; String
+$cshow :: SendBounceResponse -&gt; String
+showsPrec :: Int -&gt; SendBounceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; SendBounceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. SendBounceResponse -&gt; Rep SendBounceResponse x)
+-&gt; (forall x. Rep SendBounceResponse x -&gt; SendBounceResponse)
+-&gt; Generic SendBounceResponse
+forall x. Rep SendBounceResponse x -&gt; SendBounceResponse
+forall x. SendBounceResponse -&gt; Rep SendBounceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep SendBounceResponse x -&gt; SendBounceResponse
+$cfrom :: forall x. SendBounceResponse -&gt; Rep SendBounceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- Create a value of 'SendBounceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'messageId', 'sendBounceResponse_messageId' - The message ID of the bounce message.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- 'httpStatus', 'sendBounceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#newSendBounceResponse"><span class="hs-identifier hs-type">newSendBounceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-237"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-238"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span>
+</span><span id="line-240"></span><span id="newSendBounceResponse"><span class="annot"><span class="annottext">newSendBounceResponse :: Int -&gt; SendBounceResponse
+</span><a href="Amazonka.SES.SendBounce.html#newSendBounceResponse"><span class="hs-identifier hs-var hs-var">newSendBounceResponse</span></a></span></span><span> </span><span id="local-6989586621679280309"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280309"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>  </span><span class="annot"><span class="annottext">SendBounceResponse' :: Maybe Text -&gt; Int -&gt; SendBounceResponse
+</span><a href="Amazonka.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:messageId:SendBounceResponse' :: Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AmessageId%3ASendBounceResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:SendBounceResponse' :: Int
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280309"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | The message ID of the bounce message.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounceResponse_messageId"><span class="hs-identifier hs-type">sendBounceResponse_messageId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-248"></span><span id="sendBounceResponse_messageId"><span class="annot"><span class="annottext">sendBounceResponse_messageId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SendBounceResponse -&gt; f SendBounceResponse
+</span><a href="Amazonka.SES.SendBounce.html#sendBounceResponse_messageId"><span class="hs-identifier hs-var hs-var">sendBounceResponse_messageId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounceResponse -&gt; Maybe Text)
+-&gt; (SendBounceResponse -&gt; Maybe Text -&gt; SendBounceResponse)
+-&gt; Lens
+     SendBounceResponse SendBounceResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280308"><span class="annot"><span class="annottext">Maybe Text
+messageId :: Maybe Text
+$sel:messageId:SendBounceResponse' :: SendBounceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679280308"><span class="hs-identifier hs-var hs-var">messageId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280308"><span class="hs-identifier hs-var">messageId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280307"><span class="annot"><span class="annottext">s :: SendBounceResponse
+</span><a href="#local-6989586621679280307"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280306"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280306"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounceResponse
+</span><a href="#local-6989586621679280307"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:messageId:SendBounceResponse' :: Maybe Text
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AmessageId%3ASendBounceResponse%27"><span class="hs-identifier hs-var">messageId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280306"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.SES.SendBounce.html#sendBounceResponse_httpStatus"><span class="hs-identifier hs-type">sendBounceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-252"></span><span id="sendBounceResponse_httpStatus"><span class="annot"><span class="annottext">sendBounceResponse_httpStatus :: (Int -&gt; f Int) -&gt; SendBounceResponse -&gt; f SendBounceResponse
+</span><a href="Amazonka.SES.SendBounce.html#sendBounceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">sendBounceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SendBounceResponse -&gt; Int)
+-&gt; (SendBounceResponse -&gt; Int -&gt; SendBounceResponse)
+-&gt; Lens SendBounceResponse SendBounceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280305"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:SendBounceResponse' :: SendBounceResponse -&gt; Int
+</span><a href="#local-6989586621679280305"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280305"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280304"><span class="annot"><span class="annottext">s :: SendBounceResponse
+</span><a href="#local-6989586621679280304"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse%27"><span class="hs-identifier hs-type">SendBounceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280303"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280303"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SendBounceResponse
+</span><a href="#local-6989586621679280304"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:SendBounceResponse' :: Int
+</span><a href="Amazonka.SES.SendBounce.html#%24sel%3AhttpStatus%3ASendBounceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280303"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280301"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.SendBounce.html#SendBounceResponse"><span class="hs-identifier hs-type">SendBounceResponse</span></a></span></span><span>
+</span><span id="line-255"></span></pre></body></html>

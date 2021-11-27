@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.QueueTransition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.QueueTransition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Description of the source and destination queues between which the job</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- has moved, along with the timestamp of the move</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newQueueTransition' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621680002527"><span id="local-6989586621680002528"></span></span><span class="hs-keyword">data</span><span> </span><span id="QueueTransition"><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-var">QueueTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="QueueTransition%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-var">QueueTransition'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The queue that the job was on before the transition.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AsourceQueue%3AQueueTransition%27"><span class="annot"><span class="annottext">QueueTransition -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3AsourceQueue%3AQueueTransition%27"><span class="hs-identifier hs-var hs-var">sourceQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The queue that the job was on after the transition.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AdestinationQueue%3AQueueTransition%27"><span class="annot"><span class="annottext">QueueTransition -&gt; Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3AdestinationQueue%3AQueueTransition%27"><span class="hs-identifier hs-var hs-var">destinationQueue</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The time, in Unix epoch format, that the job moved from the source queue</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- to the destination queue.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atimestamp%3AQueueTransition%27"><span class="annot"><span class="annottext">QueueTransition -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3Atimestamp%3AQueueTransition%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621680002519"><span id="local-6989586621680002521"><span class="annot"><span class="annottext">QueueTransition -&gt; QueueTransition -&gt; Bool
+(QueueTransition -&gt; QueueTransition -&gt; Bool)
+-&gt; (QueueTransition -&gt; QueueTransition -&gt; Bool)
+-&gt; Eq QueueTransition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: QueueTransition -&gt; QueueTransition -&gt; Bool
+$c/= :: QueueTransition -&gt; QueueTransition -&gt; Bool
+== :: QueueTransition -&gt; QueueTransition -&gt; Bool
+$c== :: QueueTransition -&gt; QueueTransition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002510"><span id="local-6989586621680002512"><span id="local-6989586621680002514"><span id="local-6989586621680002516"><span class="annot"><span class="annottext">ReadPrec [QueueTransition]
+ReadPrec QueueTransition
+Int -&gt; ReadS QueueTransition
+ReadS [QueueTransition]
+(Int -&gt; ReadS QueueTransition)
+-&gt; ReadS [QueueTransition]
+-&gt; ReadPrec QueueTransition
+-&gt; ReadPrec [QueueTransition]
+-&gt; Read QueueTransition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [QueueTransition]
+$creadListPrec :: ReadPrec [QueueTransition]
+readPrec :: ReadPrec QueueTransition
+$creadPrec :: ReadPrec QueueTransition
+readList :: ReadS [QueueTransition]
+$creadList :: ReadS [QueueTransition]
+readsPrec :: Int -&gt; ReadS QueueTransition
+$creadsPrec :: Int -&gt; ReadS QueueTransition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621680002503"><span id="local-6989586621680002505"><span id="local-6989586621680002507"><span class="annot"><span class="annottext">Int -&gt; QueueTransition -&gt; ShowS
+[QueueTransition] -&gt; ShowS
+QueueTransition -&gt; String
+(Int -&gt; QueueTransition -&gt; ShowS)
+-&gt; (QueueTransition -&gt; String)
+-&gt; ([QueueTransition] -&gt; ShowS)
+-&gt; Show QueueTransition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [QueueTransition] -&gt; ShowS
+$cshowList :: [QueueTransition] -&gt; ShowS
+show :: QueueTransition -&gt; String
+$cshow :: QueueTransition -&gt; String
+showsPrec :: Int -&gt; QueueTransition -&gt; ShowS
+$cshowsPrec :: Int -&gt; QueueTransition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. QueueTransition -&gt; Rep QueueTransition x)
+-&gt; (forall x. Rep QueueTransition x -&gt; QueueTransition)
+-&gt; Generic QueueTransition
+forall x. Rep QueueTransition x -&gt; QueueTransition
+forall x. QueueTransition -&gt; Rep QueueTransition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep QueueTransition x -&gt; QueueTransition
+$cfrom :: forall x. QueueTransition -&gt; Rep QueueTransition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'QueueTransition' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'sourceQueue', 'queueTransition_sourceQueue' - The queue that the job was on before the transition.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'destinationQueue', 'queueTransition_destinationQueue' - The queue that the job was on after the transition.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'timestamp', 'queueTransition_timestamp' - The time, in Unix epoch format, that the job moved from the source queue</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- to the destination queue.</span><span>
+</span><span id="line-55"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#newQueueTransition"><span class="hs-identifier hs-type">newQueueTransition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span>
+</span><span id="line-57"></span><span id="newQueueTransition"><span class="annot"><span class="annottext">newQueueTransition :: QueueTransition
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#newQueueTransition"><span class="hs-identifier hs-var hs-var">newQueueTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">QueueTransition' :: Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sourceQueue:QueueTransition' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3AsourceQueue%3AQueueTransition%27"><span class="hs-identifier hs-var">sourceQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:destinationQueue:QueueTransition' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3AdestinationQueue%3AQueueTransition%27"><span class="hs-identifier hs-var">destinationQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:QueueTransition' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3Atimestamp%3AQueueTransition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The queue that the job was on before the transition.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#queueTransition_sourceQueue"><span class="hs-identifier hs-type">queueTransition_sourceQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="queueTransition_sourceQueue"><span class="annot"><span class="annottext">queueTransition_sourceQueue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; QueueTransition -&gt; f QueueTransition
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#queueTransition_sourceQueue"><span class="hs-identifier hs-var hs-var">queueTransition_sourceQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueueTransition -&gt; Maybe Text)
+-&gt; (QueueTransition -&gt; Maybe Text -&gt; QueueTransition)
+-&gt; Lens QueueTransition QueueTransition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002494"><span class="annot"><span class="annottext">Maybe Text
+sourceQueue :: Maybe Text
+$sel:sourceQueue:QueueTransition' :: QueueTransition -&gt; Maybe Text
+</span><a href="#local-6989586621680002494"><span class="hs-identifier hs-var hs-var">sourceQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002494"><span class="hs-identifier hs-var">sourceQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002493"><span class="annot"><span class="annottext">s :: QueueTransition
+</span><a href="#local-6989586621680002493"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002492"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002492"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
+</span><a href="#local-6989586621680002493"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceQueue:QueueTransition' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3AsourceQueue%3AQueueTransition%27"><span class="hs-identifier hs-var">sourceQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002492"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The queue that the job was on after the transition.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#queueTransition_destinationQueue"><span class="hs-identifier hs-type">queueTransition_destinationQueue</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="queueTransition_destinationQueue"><span class="annot"><span class="annottext">queueTransition_destinationQueue :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; QueueTransition -&gt; f QueueTransition
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#queueTransition_destinationQueue"><span class="hs-identifier hs-var hs-var">queueTransition_destinationQueue</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueueTransition -&gt; Maybe Text)
+-&gt; (QueueTransition -&gt; Maybe Text -&gt; QueueTransition)
+-&gt; Lens QueueTransition QueueTransition (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002490"><span class="annot"><span class="annottext">Maybe Text
+destinationQueue :: Maybe Text
+$sel:destinationQueue:QueueTransition' :: QueueTransition -&gt; Maybe Text
+</span><a href="#local-6989586621680002490"><span class="hs-identifier hs-var hs-var">destinationQueue</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002490"><span class="hs-identifier hs-var">destinationQueue</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002489"><span class="annot"><span class="annottext">s :: QueueTransition
+</span><a href="#local-6989586621680002489"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002488"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002488"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
+</span><a href="#local-6989586621680002489"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationQueue:QueueTransition' :: Maybe Text
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3AdestinationQueue%3AQueueTransition%27"><span class="hs-identifier hs-var">destinationQueue</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621680002488"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The time, in Unix epoch format, that the job moved from the source queue</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- to the destination queue.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#queueTransition_timestamp"><span class="hs-identifier hs-type">queueTransition_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span id="queueTransition_timestamp"><span class="annot"><span class="annottext">queueTransition_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; QueueTransition -&gt; f QueueTransition
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#queueTransition_timestamp"><span class="hs-identifier hs-var hs-var">queueTransition_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(QueueTransition -&gt; Maybe POSIX)
+-&gt; (QueueTransition -&gt; Maybe POSIX -&gt; QueueTransition)
+-&gt; Lens QueueTransition QueueTransition (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621680002486"><span class="annot"><span class="annottext">Maybe POSIX
+timestamp :: Maybe POSIX
+$sel:timestamp:QueueTransition' :: QueueTransition -&gt; Maybe POSIX
+</span><a href="#local-6989586621680002486"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680002486"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621680002485"><span class="annot"><span class="annottext">s :: QueueTransition
+</span><a href="#local-6989586621680002485"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-type">QueueTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621680002484"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680002484"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">QueueTransition
+</span><a href="#local-6989586621680002485"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:QueueTransition' :: Maybe POSIX
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#%24sel%3Atimestamp%3AQueueTransition%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621680002484"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; QueueTransition -&gt; f QueueTransition)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; QueueTransition
+-&gt; f QueueTransition
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002478"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span id="local-6989586621680002476"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser QueueTransition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser QueueTransition)
+-&gt; Value
+-&gt; Parser QueueTransition
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;QueueTransition&quot;</span></span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621680002473"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680002473"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition
+</span><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition%27"><span class="hs-identifier hs-var">QueueTransition'</span></a></span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680002473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;sourceQueue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe POSIX -&gt; QueueTransition)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe POSIX -&gt; QueueTransition)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680002473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destinationQueue&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; QueueTransition)
+-&gt; Parser (Maybe POSIX) -&gt; Parser QueueTransition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621680002473"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002467"><span id="local-6989586621680002469"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621680002464"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.QueueTransition.html#QueueTransition"><span class="hs-identifier hs-type">QueueTransition</span></a></span></span><span>
+</span><span id="line-91"></span></pre></body></html>

@@ -1,0 +1,1177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Synthetics.Types.Canary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Synthetics.Types.Canary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.ArtifactConfigOutput.html"><span class="hs-identifier">Amazonka.Synthetics.Types.ArtifactConfigOutput</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeOutput.html"><span class="hs-identifier">Amazonka.Synthetics.Types.CanaryCodeOutput</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryRunConfigOutput.html"><span class="hs-identifier">Amazonka.Synthetics.Types.CanaryRunConfigOutput</span></a></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryScheduleOutput.html"><span class="hs-identifier">Amazonka.Synthetics.Types.CanaryScheduleOutput</span></a></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryStatus.html"><span class="hs-identifier">Amazonka.Synthetics.Types.CanaryStatus</span></a></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryTimeline.html"><span class="hs-identifier">Amazonka.Synthetics.Types.CanaryTimeline</span></a></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceOutput.html"><span class="hs-identifier">Amazonka.Synthetics.Types.VisualReferenceOutput</span></a></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VpcConfigOutput.html"><span class="hs-identifier">Amazonka.Synthetics.Types.VpcConfigOutput</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- | This structure contains all information about one canary in your</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- account.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newCanary' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679182695"><span id="local-6989586621679182696"></span></span><span class="hs-keyword">data</span><span> </span><span id="Canary"><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-var">Canary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Canary%27"><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-var">Canary'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A structure that contains information about the canary\'s status.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3Astatus%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe CanaryStatus
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Astatus%3ACanary%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryStatus.html#CanaryStatus"><span class="hs-identifier hs-type">CanaryStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The number of days to retain data about successful runs of this canary.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AsuccessRetentionPeriodInDays%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Natural
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AsuccessRetentionPeriodInDays%3ACanary%27"><span class="hs-identifier hs-var hs-var">successRetentionPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | A structure that contains information about how often the canary is to</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- run, and when these runs are to stop.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aschedule%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe CanaryScheduleOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aschedule%3ACanary%27"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryScheduleOutput.html#CanaryScheduleOutput"><span class="hs-identifier hs-type">CanaryScheduleOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The location in Amazon S3 where Synthetics stores artifacts from the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- runs of this canary. Artifacts include the log file, screenshots, and</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- HAR files.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AartifactS3Location%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AartifactS3Location%3ACanary%27"><span class="hs-identifier hs-var hs-var">artifactS3Location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3ArunConfig%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe CanaryRunConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3ArunConfig%3ACanary%27"><span class="hs-identifier hs-var hs-var">runConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryRunConfigOutput.html#CanaryRunConfigOutput"><span class="hs-identifier hs-type">CanaryRunConfigOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- | The ARN of the IAM role used to run the canary. This role must include</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- @lambda.amazonaws.com@ as a principal in the trust policy.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AexecutionRoleArn%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AexecutionRoleArn%3ACanary%27"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Specifies the runtime version to use for the canary. For more</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- information about runtime versions, see</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html Canary Runtime Versions&gt;.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AruntimeVersion%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AruntimeVersion%3ACanary%27"><span class="hs-identifier hs-var hs-var">runtimeVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | The number of days to retain data about failed runs of this canary.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AfailureRetentionPeriodInDays%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Natural
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AfailureRetentionPeriodInDays%3ACanary%27"><span class="hs-identifier hs-var hs-var">failureRetentionPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | A structure that contains the configuration for canary artifacts,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- including the encryption-at-rest settings for artifacts that the canary</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- uploads to Amazon S3.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AartifactConfig%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe ArtifactConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AartifactConfig%3ACanary%27"><span class="hs-identifier hs-var hs-var">artifactConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.ArtifactConfigOutput.html#ArtifactConfigOutput"><span class="hs-identifier hs-type">ArtifactConfigOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AvpcConfig%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe VpcConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AvpcConfig%3ACanary%27"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VpcConfigOutput.html#VpcConfigOutput"><span class="hs-identifier hs-type">VpcConfigOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | If this canary performs visual monitoring by comparing screenshots, this</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- structure contains the ID of the canary run to use as the baseline for</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- screenshots, and the coordinates of any parts of the screen to ignore</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- during the visual monitoring comparison.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AvisualReference%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe VisualReferenceOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AvisualReference%3ACanary%27"><span class="hs-identifier hs-var hs-var">visualReference</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceOutput.html#VisualReferenceOutput"><span class="hs-identifier hs-type">VisualReferenceOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The name of the canary.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3Aname%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aname%3ACanary%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The unique ID of this canary.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Aid%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aid%3ACanary%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3Acode%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe CanaryCodeOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Acode%3ACanary%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeOutput.html#CanaryCodeOutput"><span class="hs-identifier hs-type">CanaryCodeOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | A structure that contains information about when the canary was created,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- modified, and most recently run.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Atimeline%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe CanaryTimeline
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Atimeline%3ACanary%27"><span class="hs-identifier hs-var hs-var">timeline</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryTimeline.html#CanaryTimeline"><span class="hs-identifier hs-type">CanaryTimeline</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The ARN of the Lambda function that is used as your canary\'s engine.</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- For more information about Lambda ARN format, see</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html Resources and Conditions for Lambda Actions&gt;.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AengineArn%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AengineArn%3ACanary%27"><span class="hs-identifier hs-var hs-var">engineArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The list of key-value pairs that are associated with the canary.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Atags%3ACanary%27"><span class="annot"><span class="annottext">Canary -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Atags%3ACanary%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679182673"><span id="local-6989586621679182675"><span class="annot"><span class="annottext">Canary -&gt; Canary -&gt; Bool
+(Canary -&gt; Canary -&gt; Bool)
+-&gt; (Canary -&gt; Canary -&gt; Bool) -&gt; Eq Canary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Canary -&gt; Canary -&gt; Bool
+$c/= :: Canary -&gt; Canary -&gt; Bool
+== :: Canary -&gt; Canary -&gt; Bool
+$c== :: Canary -&gt; Canary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182664"><span id="local-6989586621679182666"><span id="local-6989586621679182668"><span id="local-6989586621679182670"><span class="annot"><span class="annottext">ReadPrec [Canary]
+ReadPrec Canary
+Int -&gt; ReadS Canary
+ReadS [Canary]
+(Int -&gt; ReadS Canary)
+-&gt; ReadS [Canary]
+-&gt; ReadPrec Canary
+-&gt; ReadPrec [Canary]
+-&gt; Read Canary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Canary]
+$creadListPrec :: ReadPrec [Canary]
+readPrec :: ReadPrec Canary
+$creadPrec :: ReadPrec Canary
+readList :: ReadS [Canary]
+$creadList :: ReadS [Canary]
+readsPrec :: Int -&gt; ReadS Canary
+$creadsPrec :: Int -&gt; ReadS Canary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679182657"><span id="local-6989586621679182659"><span id="local-6989586621679182661"><span class="annot"><span class="annottext">Int -&gt; Canary -&gt; ShowS
+[Canary] -&gt; ShowS
+Canary -&gt; String
+(Int -&gt; Canary -&gt; ShowS)
+-&gt; (Canary -&gt; String) -&gt; ([Canary] -&gt; ShowS) -&gt; Show Canary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Canary] -&gt; ShowS
+$cshowList :: [Canary] -&gt; ShowS
+show :: Canary -&gt; String
+$cshow :: Canary -&gt; String
+showsPrec :: Int -&gt; Canary -&gt; ShowS
+$cshowsPrec :: Int -&gt; Canary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Canary -&gt; Rep Canary x)
+-&gt; (forall x. Rep Canary x -&gt; Canary) -&gt; Generic Canary
+forall x. Rep Canary x -&gt; Canary
+forall x. Canary -&gt; Rep Canary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Canary x -&gt; Canary
+$cfrom :: forall x. Canary -&gt; Rep Canary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Create a value of 'Canary' with all optional fields omitted.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-94"></span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- 'status', 'canary_status' - A structure that contains information about the canary\'s status.</span><span>
+</span><span id="line-96"></span><span class="hs-comment">--</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- 'successRetentionPeriodInDays', 'canary_successRetentionPeriodInDays' - The number of days to retain data about successful runs of this canary.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- 'schedule', 'canary_schedule' - A structure that contains information about how often the canary is to</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- run, and when these runs are to stop.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'artifactS3Location', 'canary_artifactS3Location' - The location in Amazon S3 where Synthetics stores artifacts from the</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- runs of this canary. Artifacts include the log file, screenshots, and</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- HAR files.</span><span>
+</span><span id="line-105"></span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- 'runConfig', 'canary_runConfig' - Undocumented member.</span><span>
+</span><span id="line-107"></span><span class="hs-comment">--</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- 'executionRoleArn', 'canary_executionRoleArn' - The ARN of the IAM role used to run the canary. This role must include</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- @lambda.amazonaws.com@ as a principal in the trust policy.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- 'runtimeVersion', 'canary_runtimeVersion' - Specifies the runtime version to use for the canary. For more</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- information about runtime versions, see</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html Canary Runtime Versions&gt;.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- 'failureRetentionPeriodInDays', 'canary_failureRetentionPeriodInDays' - The number of days to retain data about failed runs of this canary.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'artifactConfig', 'canary_artifactConfig' - A structure that contains the configuration for canary artifacts,</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- including the encryption-at-rest settings for artifacts that the canary</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- uploads to Amazon S3.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'vpcConfig', 'canary_vpcConfig' - Undocumented member.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'visualReference', 'canary_visualReference' - If this canary performs visual monitoring by comparing screenshots, this</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- structure contains the ID of the canary run to use as the baseline for</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- screenshots, and the coordinates of any parts of the screen to ignore</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- during the visual monitoring comparison.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'name', 'canary_name' - The name of the canary.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'id', 'canary_id' - The unique ID of this canary.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'code', 'canary_code' - Undocumented member.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'timeline', 'canary_timeline' - A structure that contains information about when the canary was created,</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- modified, and most recently run.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'engineArn', 'canary_engineArn' - The ARN of the Lambda function that is used as your canary\'s engine.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- For more information about Lambda ARN format, see</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html Resources and Conditions for Lambda Actions&gt;.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- 'tags', 'canary_tags' - The list of key-value pairs that are associated with the canary.</span><span>
+</span><span id="line-142"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#newCanary"><span class="hs-identifier hs-type">newCanary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>  </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span>
+</span><span id="line-144"></span><span id="newCanary"><span class="annot"><span class="annottext">newCanary :: Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#newCanary"><span class="hs-identifier hs-var hs-var">newCanary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="annottext">Canary' :: Maybe CanaryStatus
+-&gt; Maybe Natural
+-&gt; Maybe CanaryScheduleOutput
+-&gt; Maybe Text
+-&gt; Maybe CanaryRunConfigOutput
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe ArtifactConfigOutput
+-&gt; Maybe VpcConfigOutput
+-&gt; Maybe VisualReferenceOutput
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CanaryCodeOutput
+-&gt; Maybe CanaryTimeline
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Canary' :: Maybe CanaryStatus
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Astatus%3ACanary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:successRetentionPeriodInDays:Canary' :: Maybe Natural
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AsuccessRetentionPeriodInDays%3ACanary%27"><span class="hs-identifier hs-var">successRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>      </span><span class="annot"><span class="annottext">$sel:schedule:Canary' :: Maybe CanaryScheduleOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aschedule%3ACanary%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryScheduleOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactS3Location:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AartifactS3Location%3ACanary%27"><span class="hs-identifier hs-var">artifactS3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>      </span><span class="annot"><span class="annottext">$sel:runConfig:Canary' :: Maybe CanaryRunConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3ArunConfig%3ACanary%27"><span class="hs-identifier hs-var">runConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryRunConfigOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>      </span><span class="annot"><span class="annottext">$sel:executionRoleArn:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AexecutionRoleArn%3ACanary%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>      </span><span class="annot"><span class="annottext">$sel:runtimeVersion:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AruntimeVersion%3ACanary%27"><span class="hs-identifier hs-var">runtimeVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:failureRetentionPeriodInDays:Canary' :: Maybe Natural
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AfailureRetentionPeriodInDays%3ACanary%27"><span class="hs-identifier hs-var">failureRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>      </span><span class="annot"><span class="annottext">$sel:artifactConfig:Canary' :: Maybe ArtifactConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AartifactConfig%3ACanary%27"><span class="hs-identifier hs-var">artifactConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactConfigOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcConfig:Canary' :: Maybe VpcConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AvpcConfig%3ACanary%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfigOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">$sel:visualReference:Canary' :: Maybe VisualReferenceOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AvisualReference%3ACanary%27"><span class="hs-identifier hs-var">visualReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VisualReferenceOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aname%3ACanary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aid%3ACanary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>      </span><span class="annot"><span class="annottext">$sel:code:Canary' :: Maybe CanaryCodeOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Acode%3ACanary%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryCodeOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeline:Canary' :: Maybe CanaryTimeline
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Atimeline%3ACanary%27"><span class="hs-identifier hs-var">timeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryTimeline
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>      </span><span class="annot"><span class="annottext">$sel:engineArn:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AengineArn%3ACanary%27"><span class="hs-identifier hs-var">engineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:Canary' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Atags%3ACanary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | A structure that contains information about the canary\'s status.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_status"><span class="hs-identifier hs-type">canary_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryStatus.html#CanaryStatus"><span class="hs-identifier hs-type">CanaryStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span id="canary_status"><span class="annot"><span class="annottext">canary_status :: (Maybe CanaryStatus -&gt; f (Maybe CanaryStatus))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_status"><span class="hs-identifier hs-var hs-var">canary_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe CanaryStatus)
+-&gt; (Canary -&gt; Maybe CanaryStatus -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe CanaryStatus) (Maybe CanaryStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182648"><span class="annot"><span class="annottext">Maybe CanaryStatus
+status :: Maybe CanaryStatus
+$sel:status:Canary' :: Canary -&gt; Maybe CanaryStatus
+</span><a href="#local-6989586621679182648"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryStatus
+</span><a href="#local-6989586621679182648"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182647"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182647"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182646"><span class="annot"><span class="annottext">Maybe CanaryStatus
+</span><a href="#local-6989586621679182646"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182647"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Canary' :: Maybe CanaryStatus
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Astatus%3ACanary%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryStatus
+</span><a href="#local-6989586621679182646"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- | The number of days to retain data about successful runs of this canary.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_successRetentionPeriodInDays"><span class="hs-identifier hs-type">canary_successRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span id="canary_successRetentionPeriodInDays"><span class="annot"><span class="annottext">canary_successRetentionPeriodInDays :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_successRetentionPeriodInDays"><span class="hs-identifier hs-var hs-var">canary_successRetentionPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Natural)
+-&gt; (Canary -&gt; Maybe Natural -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182644"><span class="annot"><span class="annottext">Maybe Natural
+successRetentionPeriodInDays :: Maybe Natural
+$sel:successRetentionPeriodInDays:Canary' :: Canary -&gt; Maybe Natural
+</span><a href="#local-6989586621679182644"><span class="hs-identifier hs-var hs-var">successRetentionPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182644"><span class="hs-identifier hs-var">successRetentionPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182643"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182643"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182642"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182642"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182643"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:successRetentionPeriodInDays:Canary' :: Maybe Natural
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AsuccessRetentionPeriodInDays%3ACanary%27"><span class="hs-identifier hs-var">successRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182642"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | A structure that contains information about how often the canary is to</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- run, and when these runs are to stop.</span><span>
+</span><span id="line-175"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_schedule"><span class="hs-identifier hs-type">canary_schedule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryScheduleOutput.html#CanaryScheduleOutput"><span class="hs-identifier hs-type">CanaryScheduleOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span id="canary_schedule"><span class="annot"><span class="annottext">canary_schedule :: (Maybe CanaryScheduleOutput -&gt; f (Maybe CanaryScheduleOutput))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_schedule"><span class="hs-identifier hs-var hs-var">canary_schedule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe CanaryScheduleOutput)
+-&gt; (Canary -&gt; Maybe CanaryScheduleOutput -&gt; Canary)
+-&gt; Lens
+     Canary
+     Canary
+     (Maybe CanaryScheduleOutput)
+     (Maybe CanaryScheduleOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182640"><span class="annot"><span class="annottext">Maybe CanaryScheduleOutput
+schedule :: Maybe CanaryScheduleOutput
+$sel:schedule:Canary' :: Canary -&gt; Maybe CanaryScheduleOutput
+</span><a href="#local-6989586621679182640"><span class="hs-identifier hs-var hs-var">schedule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryScheduleOutput
+</span><a href="#local-6989586621679182640"><span class="hs-identifier hs-var">schedule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182639"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182639"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182638"><span class="annot"><span class="annottext">Maybe CanaryScheduleOutput
+</span><a href="#local-6989586621679182638"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182639"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:schedule:Canary' :: Maybe CanaryScheduleOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aschedule%3ACanary%27"><span class="hs-identifier hs-var">schedule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryScheduleOutput
+</span><a href="#local-6989586621679182638"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | The location in Amazon S3 where Synthetics stores artifacts from the</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- runs of this canary. Artifacts include the log file, screenshots, and</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- HAR files.</span><span>
+</span><span id="line-181"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_artifactS3Location"><span class="hs-identifier hs-type">canary_artifactS3Location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span id="canary_artifactS3Location"><span class="annot"><span class="annottext">canary_artifactS3Location :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_artifactS3Location"><span class="hs-identifier hs-var hs-var">canary_artifactS3Location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Text)
+-&gt; (Canary -&gt; Maybe Text -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182636"><span class="annot"><span class="annottext">Maybe Text
+artifactS3Location :: Maybe Text
+$sel:artifactS3Location:Canary' :: Canary -&gt; Maybe Text
+</span><a href="#local-6989586621679182636"><span class="hs-identifier hs-var hs-var">artifactS3Location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182636"><span class="hs-identifier hs-var">artifactS3Location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182635"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182635"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182634"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182634"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182635"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactS3Location:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AartifactS3Location%3ACanary%27"><span class="hs-identifier hs-var">artifactS3Location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182634"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_runConfig"><span class="hs-identifier hs-type">canary_runConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryRunConfigOutput.html#CanaryRunConfigOutput"><span class="hs-identifier hs-type">CanaryRunConfigOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="canary_runConfig"><span class="annot"><span class="annottext">canary_runConfig :: (Maybe CanaryRunConfigOutput -&gt; f (Maybe CanaryRunConfigOutput))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_runConfig"><span class="hs-identifier hs-var hs-var">canary_runConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe CanaryRunConfigOutput)
+-&gt; (Canary -&gt; Maybe CanaryRunConfigOutput -&gt; Canary)
+-&gt; Lens
+     Canary
+     Canary
+     (Maybe CanaryRunConfigOutput)
+     (Maybe CanaryRunConfigOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182632"><span class="annot"><span class="annottext">Maybe CanaryRunConfigOutput
+runConfig :: Maybe CanaryRunConfigOutput
+$sel:runConfig:Canary' :: Canary -&gt; Maybe CanaryRunConfigOutput
+</span><a href="#local-6989586621679182632"><span class="hs-identifier hs-var hs-var">runConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryRunConfigOutput
+</span><a href="#local-6989586621679182632"><span class="hs-identifier hs-var">runConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182631"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182631"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182630"><span class="annot"><span class="annottext">Maybe CanaryRunConfigOutput
+</span><a href="#local-6989586621679182630"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182631"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runConfig:Canary' :: Maybe CanaryRunConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3ArunConfig%3ACanary%27"><span class="hs-identifier hs-var">runConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryRunConfigOutput
+</span><a href="#local-6989586621679182630"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The ARN of the IAM role used to run the canary. This role must include</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- @lambda.amazonaws.com@ as a principal in the trust policy.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_executionRoleArn"><span class="hs-identifier hs-type">canary_executionRoleArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="canary_executionRoleArn"><span class="annot"><span class="annottext">canary_executionRoleArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_executionRoleArn"><span class="hs-identifier hs-var hs-var">canary_executionRoleArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Text)
+-&gt; (Canary -&gt; Maybe Text -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182628"><span class="annot"><span class="annottext">Maybe Text
+executionRoleArn :: Maybe Text
+$sel:executionRoleArn:Canary' :: Canary -&gt; Maybe Text
+</span><a href="#local-6989586621679182628"><span class="hs-identifier hs-var hs-var">executionRoleArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182628"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182627"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182627"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182626"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182626"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182627"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:executionRoleArn:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AexecutionRoleArn%3ACanary%27"><span class="hs-identifier hs-var">executionRoleArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182626"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | Specifies the runtime version to use for the canary. For more</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- information about runtime versions, see</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html Canary Runtime Versions&gt;.</span><span>
+</span><span id="line-196"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_runtimeVersion"><span class="hs-identifier hs-type">canary_runtimeVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span id="canary_runtimeVersion"><span class="annot"><span class="annottext">canary_runtimeVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_runtimeVersion"><span class="hs-identifier hs-var hs-var">canary_runtimeVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Text)
+-&gt; (Canary -&gt; Maybe Text -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182624"><span class="annot"><span class="annottext">Maybe Text
+runtimeVersion :: Maybe Text
+$sel:runtimeVersion:Canary' :: Canary -&gt; Maybe Text
+</span><a href="#local-6989586621679182624"><span class="hs-identifier hs-var hs-var">runtimeVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182624"><span class="hs-identifier hs-var">runtimeVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182623"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182623"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182622"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182622"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182623"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:runtimeVersion:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AruntimeVersion%3ACanary%27"><span class="hs-identifier hs-var">runtimeVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182622"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The number of days to retain data about failed runs of this canary.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_failureRetentionPeriodInDays"><span class="hs-identifier hs-type">canary_failureRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="canary_failureRetentionPeriodInDays"><span class="annot"><span class="annottext">canary_failureRetentionPeriodInDays :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_failureRetentionPeriodInDays"><span class="hs-identifier hs-var hs-var">canary_failureRetentionPeriodInDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Natural)
+-&gt; (Canary -&gt; Maybe Natural -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182620"><span class="annot"><span class="annottext">Maybe Natural
+failureRetentionPeriodInDays :: Maybe Natural
+$sel:failureRetentionPeriodInDays:Canary' :: Canary -&gt; Maybe Natural
+</span><a href="#local-6989586621679182620"><span class="hs-identifier hs-var hs-var">failureRetentionPeriodInDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182620"><span class="hs-identifier hs-var">failureRetentionPeriodInDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182619"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182618"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failureRetentionPeriodInDays:Canary' :: Maybe Natural
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AfailureRetentionPeriodInDays%3ACanary%27"><span class="hs-identifier hs-var">failureRetentionPeriodInDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679182618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | A structure that contains the configuration for canary artifacts,</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- including the encryption-at-rest settings for artifacts that the canary</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- uploads to Amazon S3.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_artifactConfig"><span class="hs-identifier hs-type">canary_artifactConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.ArtifactConfigOutput.html#ArtifactConfigOutput"><span class="hs-identifier hs-type">ArtifactConfigOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="canary_artifactConfig"><span class="annot"><span class="annottext">canary_artifactConfig :: (Maybe ArtifactConfigOutput -&gt; f (Maybe ArtifactConfigOutput))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_artifactConfig"><span class="hs-identifier hs-var hs-var">canary_artifactConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe ArtifactConfigOutput)
+-&gt; (Canary -&gt; Maybe ArtifactConfigOutput -&gt; Canary)
+-&gt; Lens
+     Canary
+     Canary
+     (Maybe ArtifactConfigOutput)
+     (Maybe ArtifactConfigOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182616"><span class="annot"><span class="annottext">Maybe ArtifactConfigOutput
+artifactConfig :: Maybe ArtifactConfigOutput
+$sel:artifactConfig:Canary' :: Canary -&gt; Maybe ArtifactConfigOutput
+</span><a href="#local-6989586621679182616"><span class="hs-identifier hs-var hs-var">artifactConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactConfigOutput
+</span><a href="#local-6989586621679182616"><span class="hs-identifier hs-var">artifactConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182615"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182614"><span class="annot"><span class="annottext">Maybe ArtifactConfigOutput
+</span><a href="#local-6989586621679182614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:artifactConfig:Canary' :: Maybe ArtifactConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AartifactConfig%3ACanary%27"><span class="hs-identifier hs-var">artifactConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ArtifactConfigOutput
+</span><a href="#local-6989586621679182614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_vpcConfig"><span class="hs-identifier hs-type">canary_vpcConfig</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VpcConfigOutput.html#VpcConfigOutput"><span class="hs-identifier hs-type">VpcConfigOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="canary_vpcConfig"><span class="annot"><span class="annottext">canary_vpcConfig :: (Maybe VpcConfigOutput -&gt; f (Maybe VpcConfigOutput))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_vpcConfig"><span class="hs-identifier hs-var hs-var">canary_vpcConfig</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe VpcConfigOutput)
+-&gt; (Canary -&gt; Maybe VpcConfigOutput -&gt; Canary)
+-&gt; Lens
+     Canary Canary (Maybe VpcConfigOutput) (Maybe VpcConfigOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182612"><span class="annot"><span class="annottext">Maybe VpcConfigOutput
+vpcConfig :: Maybe VpcConfigOutput
+$sel:vpcConfig:Canary' :: Canary -&gt; Maybe VpcConfigOutput
+</span><a href="#local-6989586621679182612"><span class="hs-identifier hs-var hs-var">vpcConfig</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfigOutput
+</span><a href="#local-6989586621679182612"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182611"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182611"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182610"><span class="annot"><span class="annottext">Maybe VpcConfigOutput
+</span><a href="#local-6989586621679182610"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182611"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcConfig:Canary' :: Maybe VpcConfigOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AvpcConfig%3ACanary%27"><span class="hs-identifier hs-var">vpcConfig</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcConfigOutput
+</span><a href="#local-6989586621679182610"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | If this canary performs visual monitoring by comparing screenshots, this</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- structure contains the ID of the canary run to use as the baseline for</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- screenshots, and the coordinates of any parts of the screen to ignore</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- during the visual monitoring comparison.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_visualReference"><span class="hs-identifier hs-type">canary_visualReference</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.VisualReferenceOutput.html#VisualReferenceOutput"><span class="hs-identifier hs-type">VisualReferenceOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="canary_visualReference"><span class="annot"><span class="annottext">canary_visualReference :: (Maybe VisualReferenceOutput -&gt; f (Maybe VisualReferenceOutput))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_visualReference"><span class="hs-identifier hs-var hs-var">canary_visualReference</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe VisualReferenceOutput)
+-&gt; (Canary -&gt; Maybe VisualReferenceOutput -&gt; Canary)
+-&gt; Lens
+     Canary
+     Canary
+     (Maybe VisualReferenceOutput)
+     (Maybe VisualReferenceOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182608"><span class="annot"><span class="annottext">Maybe VisualReferenceOutput
+visualReference :: Maybe VisualReferenceOutput
+$sel:visualReference:Canary' :: Canary -&gt; Maybe VisualReferenceOutput
+</span><a href="#local-6989586621679182608"><span class="hs-identifier hs-var hs-var">visualReference</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VisualReferenceOutput
+</span><a href="#local-6989586621679182608"><span class="hs-identifier hs-var">visualReference</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182607"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182606"><span class="annot"><span class="annottext">Maybe VisualReferenceOutput
+</span><a href="#local-6989586621679182606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:visualReference:Canary' :: Maybe VisualReferenceOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AvisualReference%3ACanary%27"><span class="hs-identifier hs-var">visualReference</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VisualReferenceOutput
+</span><a href="#local-6989586621679182606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The name of the canary.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_name"><span class="hs-identifier hs-type">canary_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="canary_name"><span class="annot"><span class="annottext">canary_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_name"><span class="hs-identifier hs-var hs-var">canary_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Text)
+-&gt; (Canary -&gt; Maybe Text -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182604"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Canary' :: Canary -&gt; Maybe Text
+</span><a href="#local-6989586621679182604"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182604"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182603"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182603"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182602"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182602"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182603"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aname%3ACanary%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182602"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The unique ID of this canary.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_id"><span class="hs-identifier hs-type">canary_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="canary_id"><span class="annot"><span class="annottext">canary_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_id"><span class="hs-identifier hs-var hs-var">canary_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Text)
+-&gt; (Canary -&gt; Maybe Text -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182600"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Canary' :: Canary -&gt; Maybe Text
+</span><a href="#local-6989586621679182600"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182600"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182599"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182599"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182598"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182598"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182599"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Aid%3ACanary%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182598"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-229"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_code"><span class="hs-identifier hs-type">canary_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryCodeOutput.html#CanaryCodeOutput"><span class="hs-identifier hs-type">CanaryCodeOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span id="canary_code"><span class="annot"><span class="annottext">canary_code :: (Maybe CanaryCodeOutput -&gt; f (Maybe CanaryCodeOutput))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_code"><span class="hs-identifier hs-var hs-var">canary_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe CanaryCodeOutput)
+-&gt; (Canary -&gt; Maybe CanaryCodeOutput -&gt; Canary)
+-&gt; Lens
+     Canary Canary (Maybe CanaryCodeOutput) (Maybe CanaryCodeOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182596"><span class="annot"><span class="annottext">Maybe CanaryCodeOutput
+code :: Maybe CanaryCodeOutput
+$sel:code:Canary' :: Canary -&gt; Maybe CanaryCodeOutput
+</span><a href="#local-6989586621679182596"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryCodeOutput
+</span><a href="#local-6989586621679182596"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182595"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182595"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182594"><span class="annot"><span class="annottext">Maybe CanaryCodeOutput
+</span><a href="#local-6989586621679182594"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182595"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:Canary' :: Maybe CanaryCodeOutput
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Acode%3ACanary%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryCodeOutput
+</span><a href="#local-6989586621679182594"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | A structure that contains information about when the canary was created,</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- modified, and most recently run.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_timeline"><span class="hs-identifier hs-type">canary_timeline</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.CanaryTimeline.html#CanaryTimeline"><span class="hs-identifier hs-type">CanaryTimeline</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-235"></span><span id="canary_timeline"><span class="annot"><span class="annottext">canary_timeline :: (Maybe CanaryTimeline -&gt; f (Maybe CanaryTimeline))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_timeline"><span class="hs-identifier hs-var hs-var">canary_timeline</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe CanaryTimeline)
+-&gt; (Canary -&gt; Maybe CanaryTimeline -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe CanaryTimeline) (Maybe CanaryTimeline)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182592"><span class="annot"><span class="annottext">Maybe CanaryTimeline
+timeline :: Maybe CanaryTimeline
+$sel:timeline:Canary' :: Canary -&gt; Maybe CanaryTimeline
+</span><a href="#local-6989586621679182592"><span class="hs-identifier hs-var hs-var">timeline</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryTimeline
+</span><a href="#local-6989586621679182592"><span class="hs-identifier hs-var">timeline</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182591"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182591"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182590"><span class="annot"><span class="annottext">Maybe CanaryTimeline
+</span><a href="#local-6989586621679182590"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182591"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeline:Canary' :: Maybe CanaryTimeline
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Atimeline%3ACanary%27"><span class="hs-identifier hs-var">timeline</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CanaryTimeline
+</span><a href="#local-6989586621679182590"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- | The ARN of the Lambda function that is used as your canary\'s engine.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- For more information about Lambda ARN format, see</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/lambda/latest/dg/lambda-api-permissions-ref.html Resources and Conditions for Lambda Actions&gt;.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_engineArn"><span class="hs-identifier hs-type">canary_engineArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="canary_engineArn"><span class="annot"><span class="annottext">canary_engineArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_engineArn"><span class="hs-identifier hs-var hs-var">canary_engineArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe Text)
+-&gt; (Canary -&gt; Maybe Text -&gt; Canary)
+-&gt; Lens Canary Canary (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182588"><span class="annot"><span class="annottext">Maybe Text
+engineArn :: Maybe Text
+$sel:engineArn:Canary' :: Canary -&gt; Maybe Text
+</span><a href="#local-6989586621679182588"><span class="hs-identifier hs-var hs-var">engineArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182588"><span class="hs-identifier hs-var">engineArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182587"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182587"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182586"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182586"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182587"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:engineArn:Canary' :: Maybe Text
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3AengineArn%3ACanary%27"><span class="hs-identifier hs-var">engineArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679182586"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The list of key-value pairs that are associated with the canary.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#canary_tags"><span class="hs-identifier hs-type">canary_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="canary_tags"><span class="annot"><span class="annottext">canary_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Canary -&gt; f Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#canary_tags"><span class="hs-identifier hs-var hs-var">canary_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Canary -&gt; Maybe (HashMap Text Text))
+-&gt; (Canary -&gt; Maybe (HashMap Text Text) -&gt; Canary)
+-&gt; Lens
+     Canary
+     Canary
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679182584"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:Canary' :: Canary -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182584"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182584"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679182583"><span class="annot"><span class="annottext">s :: Canary
+</span><a href="#local-6989586621679182583"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-type">Canary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679182582"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182582"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Canary
+</span><a href="#local-6989586621679182583"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:Canary' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.Synthetics.Types.Canary.html#%24sel%3Atags%3ACanary%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679182582"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Canary -&gt; f Canary)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Canary
+-&gt; f Canary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182576"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679182574"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Canary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Canary) -&gt; Value -&gt; Parser Canary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Canary&quot;</span></span><span>
+</span><span id="line-251"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679182571"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-252"></span><span>          </span><span class="annot"><span class="annottext">Maybe CanaryStatus
+-&gt; Maybe Natural
+-&gt; Maybe CanaryScheduleOutput
+-&gt; Maybe Text
+-&gt; Maybe CanaryRunConfigOutput
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe ArtifactConfigOutput
+-&gt; Maybe VpcConfigOutput
+-&gt; Maybe VisualReferenceOutput
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe CanaryCodeOutput
+-&gt; Maybe CanaryTimeline
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Canary
+</span><a href="Amazonka.Synthetics.Types.Canary.html#Canary%27"><span class="hs-identifier hs-var">Canary'</span></a></span><span>
+</span><span id="line-253"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CanaryStatus
+ -&gt; Maybe Natural
+ -&gt; Maybe CanaryScheduleOutput
+ -&gt; Maybe Text
+ -&gt; Maybe CanaryRunConfigOutput
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe ArtifactConfigOutput
+ -&gt; Maybe VpcConfigOutput
+ -&gt; Maybe VisualReferenceOutput
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe CanaryCodeOutput
+ -&gt; Maybe CanaryTimeline
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Canary)
+-&gt; Parser (Maybe CanaryStatus)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe CanaryScheduleOutput
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryRunConfigOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CanaryStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-254"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe CanaryScheduleOutput
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryRunConfigOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe CanaryScheduleOutput
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryRunConfigOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SuccessRetentionPeriodInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CanaryScheduleOutput
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryRunConfigOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe CanaryScheduleOutput)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CanaryRunConfigOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CanaryScheduleOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Schedule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CanaryRunConfigOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CanaryRunConfigOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactS3Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CanaryRunConfigOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe CanaryRunConfigOutput)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CanaryRunConfigOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RunConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Natural
+      -&gt; Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExecutionRoleArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Natural
+   -&gt; Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RuntimeVersion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe ArtifactConfigOutput
+      -&gt; Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailureRetentionPeriodInDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ArtifactConfigOutput
+   -&gt; Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe ArtifactConfigOutput)
+-&gt; Parser
+     (Maybe VpcConfigOutput
+      -&gt; Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ArtifactConfigOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ArtifactConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VpcConfigOutput
+   -&gt; Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe VpcConfigOutput)
+-&gt; Parser
+     (Maybe VisualReferenceOutput
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VpcConfigOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VpcConfig&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe VisualReferenceOutput
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe VisualReferenceOutput)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe VisualReferenceOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VisualReference&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-264"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe CanaryCodeOutput
+      -&gt; Maybe CanaryTimeline
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CanaryCodeOutput
+   -&gt; Maybe CanaryTimeline
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Canary)
+-&gt; Parser (Maybe CanaryCodeOutput)
+-&gt; Parser
+     (Maybe CanaryTimeline
+      -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CanaryCodeOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe CanaryTimeline
+   -&gt; Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Canary)
+-&gt; Parser (Maybe CanaryTimeline)
+-&gt; Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe CanaryTimeline)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timeline&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe (HashMap Text Text) -&gt; Canary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe (HashMap Text Text) -&gt; Canary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EngineArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe (HashMap Text Text) -&gt; Canary)
+-&gt; Parser (Maybe (HashMap Text Text)) -&gt; Parser Canary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679182571"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182564"><span id="local-6989586621679182566"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span></span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679182561"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Synthetics.Types.Canary.html#Canary"><span class="hs-identifier hs-type">Canary</span></a></span></span><span>
+</span><span id="line-275"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types.AssetType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types.AssetType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier">AssetType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType_REDSHIFT_DATA_SHARE"><span class="hs-identifier">AssetType_REDSHIFT_DATA_SHARE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType_S3_SNAPSHOT"><span class="hs-identifier">AssetType_S3_SNAPSHOT</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | The type of asset that is added to a data set.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679234196"><span id="local-6989586621679234197"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AssetType"><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier hs-var">AssetType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AssetType%27"><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType%27"><span class="hs-identifier hs-var">AssetType'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAssetType"><span class="annot"><span class="annottext">AssetType -&gt; Text
+</span><a href="Amazonka.DataExchange.Types.AssetType.html#fromAssetType"><span class="hs-identifier hs-var hs-var">fromAssetType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234188"><span id="local-6989586621679234190"><span id="local-6989586621679234192"><span class="annot"><span class="annottext">Int -&gt; AssetType -&gt; ShowS
+[AssetType] -&gt; ShowS
+AssetType -&gt; String
+(Int -&gt; AssetType -&gt; ShowS)
+-&gt; (AssetType -&gt; String)
+-&gt; ([AssetType] -&gt; ShowS)
+-&gt; Show AssetType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AssetType] -&gt; ShowS
+$cshowList :: [AssetType] -&gt; ShowS
+show :: AssetType -&gt; String
+$cshow :: AssetType -&gt; String
+showsPrec :: Int -&gt; AssetType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AssetType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679234179"><span id="local-6989586621679234181"><span id="local-6989586621679234183"><span id="local-6989586621679234185"><span class="annot"><span class="annottext">ReadPrec [AssetType]
+ReadPrec AssetType
+Int -&gt; ReadS AssetType
+ReadS [AssetType]
+(Int -&gt; ReadS AssetType)
+-&gt; ReadS [AssetType]
+-&gt; ReadPrec AssetType
+-&gt; ReadPrec [AssetType]
+-&gt; Read AssetType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AssetType]
+$creadListPrec :: ReadPrec [AssetType]
+readPrec :: ReadPrec AssetType
+$creadPrec :: ReadPrec AssetType
+readList :: ReadS [AssetType]
+$creadList :: ReadS [AssetType]
+readsPrec :: Int -&gt; ReadS AssetType
+$creadsPrec :: Int -&gt; ReadS AssetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679234174"><span id="local-6989586621679234176"><span class="annot"><span class="annottext">AssetType -&gt; AssetType -&gt; Bool
+(AssetType -&gt; AssetType -&gt; Bool)
+-&gt; (AssetType -&gt; AssetType -&gt; Bool) -&gt; Eq AssetType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AssetType -&gt; AssetType -&gt; Bool
+$c/= :: AssetType -&gt; AssetType -&gt; Bool
+== :: AssetType -&gt; AssetType -&gt; Bool
+$c== :: AssetType -&gt; AssetType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679234158"><span id="local-6989586621679234160"><span id="local-6989586621679234162"><span id="local-6989586621679234164"><span id="local-6989586621679234166"><span id="local-6989586621679234168"><span id="local-6989586621679234170"><span class="annot"><span class="annottext">Eq AssetType
+Eq AssetType
+-&gt; (AssetType -&gt; AssetType -&gt; Ordering)
+-&gt; (AssetType -&gt; AssetType -&gt; Bool)
+-&gt; (AssetType -&gt; AssetType -&gt; Bool)
+-&gt; (AssetType -&gt; AssetType -&gt; Bool)
+-&gt; (AssetType -&gt; AssetType -&gt; Bool)
+-&gt; (AssetType -&gt; AssetType -&gt; AssetType)
+-&gt; (AssetType -&gt; AssetType -&gt; AssetType)
+-&gt; Ord AssetType
+AssetType -&gt; AssetType -&gt; Bool
+AssetType -&gt; AssetType -&gt; Ordering
+AssetType -&gt; AssetType -&gt; AssetType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AssetType -&gt; AssetType -&gt; AssetType
+$cmin :: AssetType -&gt; AssetType -&gt; AssetType
+max :: AssetType -&gt; AssetType -&gt; AssetType
+$cmax :: AssetType -&gt; AssetType -&gt; AssetType
+&gt;= :: AssetType -&gt; AssetType -&gt; Bool
+$c&gt;= :: AssetType -&gt; AssetType -&gt; Bool
+&gt; :: AssetType -&gt; AssetType -&gt; Bool
+$c&gt; :: AssetType -&gt; AssetType -&gt; Bool
+&lt;= :: AssetType -&gt; AssetType -&gt; Bool
+$c&lt;= :: AssetType -&gt; AssetType -&gt; Bool
+&lt; :: AssetType -&gt; AssetType -&gt; Bool
+$c&lt; :: AssetType -&gt; AssetType -&gt; Bool
+compare :: AssetType -&gt; AssetType -&gt; Ordering
+$ccompare :: AssetType -&gt; AssetType -&gt; Ordering
+$cp1Ord :: Eq AssetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AssetType -&gt; Rep AssetType x)
+-&gt; (forall x. Rep AssetType x -&gt; AssetType) -&gt; Generic AssetType
+forall x. Rep AssetType x -&gt; AssetType
+forall x. AssetType -&gt; Rep AssetType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AssetType x -&gt; AssetType
+$cfrom :: forall x. AssetType -&gt; Rep AssetType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679234150"><span id="local-6989586621679234152"><span class="annot"><span class="annottext">Int -&gt; AssetType -&gt; Int
+AssetType -&gt; Int
+(Int -&gt; AssetType -&gt; Int)
+-&gt; (AssetType -&gt; Int) -&gt; Hashable AssetType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AssetType -&gt; Int
+$chash :: AssetType -&gt; Int
+hashWithSalt :: Int -&gt; AssetType -&gt; Int
+$chashWithSalt :: Int -&gt; AssetType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679234147"><span class="annot"><span class="annottext">AssetType -&gt; ()
+(AssetType -&gt; ()) -&gt; NFData AssetType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AssetType -&gt; ()
+$crnf :: AssetType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679234144"><span class="annot"><span class="annottext">Text -&gt; Either String AssetType
+(Text -&gt; Either String AssetType) -&gt; FromText AssetType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AssetType
+$cfromText :: Text -&gt; Either String AssetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679234141"><span class="annot"><span class="annottext">AssetType -&gt; Text
+(AssetType -&gt; Text) -&gt; ToText AssetType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AssetType -&gt; Text
+$ctoText :: AssetType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679234138"><span class="annot"><span class="annottext">AssetType -&gt; ByteString
+(AssetType -&gt; ByteString) -&gt; ToByteString AssetType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AssetType -&gt; ByteString
+$ctoBS :: AssetType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679234135"><span class="annot"><span class="annottext">AssetType -&gt; ByteStringBuilder
+(AssetType -&gt; ByteStringBuilder) -&gt; ToLog AssetType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AssetType -&gt; ByteStringBuilder
+$cbuild :: AssetType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679234132"><span class="annot"><span class="annottext">HeaderName -&gt; AssetType -&gt; [Header]
+(HeaderName -&gt; AssetType -&gt; [Header]) -&gt; ToHeader AssetType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AssetType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AssetType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679234129"><span class="annot"><span class="annottext">AssetType -&gt; QueryString
+(AssetType -&gt; QueryString) -&gt; ToQuery AssetType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AssetType -&gt; QueryString
+$ctoQuery :: AssetType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679234124"><span id="local-6989586621679234126"><span class="annot"><span class="annottext">Value -&gt; Parser [AssetType]
+Value -&gt; Parser AssetType
+(Value -&gt; Parser AssetType)
+-&gt; (Value -&gt; Parser [AssetType]) -&gt; FromJSON AssetType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AssetType]
+$cparseJSONList :: Value -&gt; Parser [AssetType]
+parseJSON :: Value -&gt; Parser AssetType
+$cparseJSON :: Value -&gt; Parser AssetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679234119"><span id="local-6989586621679234121"><span class="annot"><span class="annottext">FromJSONKeyFunction [AssetType]
+FromJSONKeyFunction AssetType
+FromJSONKeyFunction AssetType
+-&gt; FromJSONKeyFunction [AssetType] -&gt; FromJSONKey AssetType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AssetType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AssetType]
+fromJSONKey :: FromJSONKeyFunction AssetType
+$cfromJSONKey :: FromJSONKeyFunction AssetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679234110"><span id="local-6989586621679234112"><span id="local-6989586621679234114"><span id="local-6989586621679234116"><span class="annot"><span class="annottext">[AssetType] -&gt; Encoding
+[AssetType] -&gt; Value
+AssetType -&gt; Encoding
+AssetType -&gt; Value
+(AssetType -&gt; Value)
+-&gt; (AssetType -&gt; Encoding)
+-&gt; ([AssetType] -&gt; Value)
+-&gt; ([AssetType] -&gt; Encoding)
+-&gt; ToJSON AssetType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AssetType] -&gt; Encoding
+$ctoEncodingList :: [AssetType] -&gt; Encoding
+toJSONList :: [AssetType] -&gt; Value
+$ctoJSONList :: [AssetType] -&gt; Value
+toEncoding :: AssetType -&gt; Encoding
+$ctoEncoding :: AssetType -&gt; Encoding
+toJSON :: AssetType -&gt; Value
+$ctoJSON :: AssetType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679234105"><span id="local-6989586621679234107"><span class="annot"><span class="annottext">ToJSONKeyFunction [AssetType]
+ToJSONKeyFunction AssetType
+ToJSONKeyFunction AssetType
+-&gt; ToJSONKeyFunction [AssetType] -&gt; ToJSONKey AssetType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AssetType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AssetType]
+toJSONKey :: ToJSONKeyFunction AssetType
+$ctoJSONKey :: ToJSONKeyFunction AssetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679234102"><span class="annot"><span class="annottext">[Node] -&gt; Either String AssetType
+([Node] -&gt; Either String AssetType) -&gt; FromXML AssetType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AssetType
+$cparseXML :: [Node] -&gt; Either String AssetType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679234099"><span class="annot"><span class="annottext">AssetType -&gt; XML
+(AssetType -&gt; XML) -&gt; ToXML AssetType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AssetType -&gt; XML
+$ctoXML :: AssetType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType_REDSHIFT_DATA_SHARE"><span class="hs-identifier hs-type">AssetType_REDSHIFT_DATA_SHARE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier hs-type">AssetType</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssetType_REDSHIFT_DATA_SHARE"><span id="%24mAssetType_REDSHIFT_DATA_SHARE"><span id="AssetType_REDSHIFT_DATA_SHARE"><span class="annot"><span class="annottext">$bAssetType_REDSHIFT_DATA_SHARE :: AssetType
+$mAssetType_REDSHIFT_DATA_SHARE :: forall r. AssetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.AssetType.html#%24bAssetType_REDSHIFT_DATA_SHARE"><span class="hs-identifier hs-var hs-var hs-var">AssetType_REDSHIFT_DATA_SHARE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType%27"><span class="hs-identifier hs-type">AssetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REDSHIFT_DATA_SHARE&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType_S3_SNAPSHOT"><span class="hs-identifier hs-type">AssetType_S3_SNAPSHOT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier hs-type">AssetType</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAssetType_S3_SNAPSHOT"><span id="%24mAssetType_S3_SNAPSHOT"><span id="AssetType_S3_SNAPSHOT"><span class="annot"><span class="annottext">$bAssetType_S3_SNAPSHOT :: AssetType
+$mAssetType_S3_SNAPSHOT :: forall r. AssetType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.DataExchange.Types.AssetType.html#%24bAssetType_S3_SNAPSHOT"><span class="hs-identifier hs-var hs-var hs-var">AssetType_S3_SNAPSHOT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType%27"><span class="hs-identifier hs-type">AssetType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;S3_SNAPSHOT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType_REDSHIFT_DATA_SHARE"><span class="hs-pragma hs-type">AssetType_REDSHIFT_DATA_SHARE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType_S3_SNAPSHOT"><span class="hs-pragma hs-type">AssetType_S3_SNAPSHOT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType%27"><span class="hs-pragma hs-type">AssetType'</span></a></span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-72"></span></pre></body></html>

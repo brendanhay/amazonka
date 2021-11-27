@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.S3.DeleteBucketPolicy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- This implementation of the DELETE action uses the policy subresource to</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- delete the policy of a specified bucket. If you are using an identity</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- other than the root user of the Amazon Web Services account that owns</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- the bucket, the calling identity must have the @DeleteBucketPolicy@</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- permissions on the specified bucket and belong to the bucket owner\'s</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- account to use this operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- If you don\'t have @DeleteBucketPolicy@ permissions, Amazon S3 returns a</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- @403 Access Denied@ error. If you have the correct permissions, but</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- you\'re not using an identity that belongs to the bucket owner\'s</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- account, Amazon S3 returns a @405 Method Not Allowed@ error.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- As a security precaution, the root user of the Amazon Web Services</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- account that owns a bucket can always use this operation, even if the</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- policy explicitly denies the root user the ability to perform this</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- action.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- For more information about bucket policies, see</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/using-iam-policies.html Using Bucket Policies and UserPolicies&gt;.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- The following operations are related to @DeleteBucketPolicy@</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html CreateBucket&gt;</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- -   &lt;https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObject.html DeleteObject&gt;</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.DeleteBucketPolicy</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#newDeleteBucketPolicy"><span class="hs-identifier">newDeleteBucketPolicy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#deleteBucketPolicy_expectedBucketOwner"><span class="hs-identifier">deleteBucketPolicy_expectedBucketOwner</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#deleteBucketPolicy_bucket"><span class="hs-identifier">deleteBucketPolicy_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier">DeleteBucketPolicyResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#newDeleteBucketPolicyResponse"><span class="hs-identifier">newDeleteBucketPolicyResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.html"><span class="hs-identifier">Amazonka.S3.Types</span></a></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketPolicy' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679579620"><span id="local-6989586621679579621"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketPolicy"><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-var">DeleteBucketPolicy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketPolicy%27"><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-var">DeleteBucketPolicy'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-75"></span><span>    </span><span id="%24sel%3AexpectedBucketOwner%3ADeleteBucketPolicy%27"><span class="annot"><span class="annottext">DeleteBucketPolicy -&gt; Maybe Text
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#%24sel%3AexpectedBucketOwner%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- | The bucket name.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="annot"><span class="annottext">DeleteBucketPolicy -&gt; BucketName
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579613"><span id="local-6989586621679579615"><span class="annot"><span class="annottext">DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
+(DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool)
+-&gt; (DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool)
+-&gt; Eq DeleteBucketPolicy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
+$c/= :: DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
+== :: DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
+$c== :: DeleteBucketPolicy -&gt; DeleteBucketPolicy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579604"><span id="local-6989586621679579606"><span id="local-6989586621679579608"><span id="local-6989586621679579610"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketPolicy]
+ReadPrec DeleteBucketPolicy
+Int -&gt; ReadS DeleteBucketPolicy
+ReadS [DeleteBucketPolicy]
+(Int -&gt; ReadS DeleteBucketPolicy)
+-&gt; ReadS [DeleteBucketPolicy]
+-&gt; ReadPrec DeleteBucketPolicy
+-&gt; ReadPrec [DeleteBucketPolicy]
+-&gt; Read DeleteBucketPolicy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteBucketPolicy]
+$creadListPrec :: ReadPrec [DeleteBucketPolicy]
+readPrec :: ReadPrec DeleteBucketPolicy
+$creadPrec :: ReadPrec DeleteBucketPolicy
+readList :: ReadS [DeleteBucketPolicy]
+$creadList :: ReadS [DeleteBucketPolicy]
+readsPrec :: Int -&gt; ReadS DeleteBucketPolicy
+$creadsPrec :: Int -&gt; ReadS DeleteBucketPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579597"><span id="local-6989586621679579599"><span id="local-6989586621679579601"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketPolicy -&gt; ShowS
+[DeleteBucketPolicy] -&gt; ShowS
+DeleteBucketPolicy -&gt; String
+(Int -&gt; DeleteBucketPolicy -&gt; ShowS)
+-&gt; (DeleteBucketPolicy -&gt; String)
+-&gt; ([DeleteBucketPolicy] -&gt; ShowS)
+-&gt; Show DeleteBucketPolicy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBucketPolicy] -&gt; ShowS
+$cshowList :: [DeleteBucketPolicy] -&gt; ShowS
+show :: DeleteBucketPolicy -&gt; String
+$cshow :: DeleteBucketPolicy -&gt; String
+showsPrec :: Int -&gt; DeleteBucketPolicy -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBucketPolicy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteBucketPolicy -&gt; Rep DeleteBucketPolicy x)
+-&gt; (forall x. Rep DeleteBucketPolicy x -&gt; DeleteBucketPolicy)
+-&gt; Generic DeleteBucketPolicy
+forall x. Rep DeleteBucketPolicy x -&gt; DeleteBucketPolicy
+forall x. DeleteBucketPolicy -&gt; Rep DeleteBucketPolicy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteBucketPolicy x -&gt; DeleteBucketPolicy
+$cfrom :: forall x. DeleteBucketPolicy -&gt; Rep DeleteBucketPolicy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'DeleteBucketPolicy' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'expectedBucketOwner', 'deleteBucketPolicy_expectedBucketOwner' - The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-92"></span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- 'bucket', 'deleteBucketPolicy_bucket' - The bucket name.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#newDeleteBucketPolicy"><span class="hs-identifier hs-type">newDeleteBucketPolicy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'bucket'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span>
+</span><span id="line-98"></span><span id="newDeleteBucketPolicy"><span class="annot"><span class="annottext">newDeleteBucketPolicy :: BucketName -&gt; DeleteBucketPolicy
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#newDeleteBucketPolicy"><span class="hs-identifier hs-var hs-var">newDeleteBucketPolicy</span></a></span></span><span> </span><span id="local-6989586621679579592"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579592"><span class="hs-identifier hs-var">pBucket_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketPolicy' :: Maybe Text -&gt; BucketName -&gt; DeleteBucketPolicy
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketPolicy' :: Maybe Text
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#%24sel%3AexpectedBucketOwner%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketPolicy' :: BucketName
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579592"><span class="hs-identifier hs-var">pBucket_</span></a></span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | The account ID of the expected bucket owner. If the bucket is owned by a</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- different account, the request will fail with an HTTP</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @403 (Access Denied)@ error.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#deleteBucketPolicy_expectedBucketOwner"><span class="hs-identifier hs-type">deleteBucketPolicy_expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="deleteBucketPolicy_expectedBucketOwner"><span class="annot"><span class="annottext">deleteBucketPolicy_expectedBucketOwner :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteBucketPolicy -&gt; f DeleteBucketPolicy
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#deleteBucketPolicy_expectedBucketOwner"><span class="hs-identifier hs-var hs-var">deleteBucketPolicy_expectedBucketOwner</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBucketPolicy -&gt; Maybe Text)
+-&gt; (DeleteBucketPolicy -&gt; Maybe Text -&gt; DeleteBucketPolicy)
+-&gt; Lens
+     DeleteBucketPolicy DeleteBucketPolicy (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579589"><span class="annot"><span class="annottext">Maybe Text
+expectedBucketOwner :: Maybe Text
+$sel:expectedBucketOwner:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679579589"><span class="hs-identifier hs-var hs-var">expectedBucketOwner</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579589"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579588"><span class="annot"><span class="annottext">s :: DeleteBucketPolicy
+</span><a href="#local-6989586621679579588"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579587"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579587"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketPolicy
+</span><a href="#local-6989586621679579588"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expectedBucketOwner:DeleteBucketPolicy' :: Maybe Text
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#%24sel%3AexpectedBucketOwner%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579587"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The bucket name.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#deleteBucketPolicy_bucket"><span class="hs-identifier hs-type">deleteBucketPolicy_bucket</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html#BucketName"><span class="hs-identifier hs-type">BucketName</span></a></span><span>
+</span><span id="line-113"></span><span id="deleteBucketPolicy_bucket"><span class="annot"><span class="annottext">deleteBucketPolicy_bucket :: (BucketName -&gt; f BucketName)
+-&gt; DeleteBucketPolicy -&gt; f DeleteBucketPolicy
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#deleteBucketPolicy_bucket"><span class="hs-identifier hs-var hs-var">deleteBucketPolicy_bucket</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteBucketPolicy -&gt; BucketName)
+-&gt; (DeleteBucketPolicy -&gt; BucketName -&gt; DeleteBucketPolicy)
+-&gt; Lens DeleteBucketPolicy DeleteBucketPolicy BucketName BucketName
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579586"><span class="annot"><span class="annottext">BucketName
+bucket :: BucketName
+$sel:bucket:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; BucketName
+</span><a href="#local-6989586621679579586"><span class="hs-identifier hs-var hs-var">bucket</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579586"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679579585"><span class="annot"><span class="annottext">s :: DeleteBucketPolicy
+</span><a href="#local-6989586621679579585"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679579584"><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579584"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteBucketPolicy
+</span><a href="#local-6989586621679579585"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bucket:DeleteBucketPolicy' :: BucketName
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#%24sel%3Abucket%3ADeleteBucketPolicy%27"><span class="hs-identifier hs-var">bucket</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579584"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-117"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-type">DeleteBucketPolicyResponse</span></a></span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679579580"><span class="annot"><span class="annottext">request :: DeleteBucketPolicy -&gt; Request DeleteBucketPolicy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">Request DeleteBucketPolicy -&gt; Request DeleteBucketPolicy
+forall a. Request a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.s3vhost</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><span class="annottext">(Request DeleteBucketPolicy -&gt; Request DeleteBucketPolicy)
+-&gt; (DeleteBucketPolicy -&gt; Request DeleteBucketPolicy)
+-&gt; DeleteBucketPolicy
+-&gt; Request DeleteBucketPolicy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteBucketPolicy -&gt; Request DeleteBucketPolicy
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.S3.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679579574"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteBucketPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteBucketPolicy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><span class="annottext">AWSResponse DeleteBucketPolicy
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteBucketPolicy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteBucketPolicy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse DeleteBucketPolicy
+DeleteBucketPolicyResponse
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse%27"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse'</span></a></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579567"><span id="local-6989586621679579569"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span></span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579564"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span></span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679579560"><span class="annot"><span class="annottext">toHeaders :: DeleteBucketPolicy -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579557"><span id="local-6989586621679579558"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:bucket:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; BucketName
+$sel:expectedBucketOwner:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679579557"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;x-amz-expected-bucket-owner&quot;</span></span><span>
+</span><span id="line-133"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679579558"><span class="hs-identifier hs-var">expectedBucketOwner</span></a></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679579553"><span class="annot"><span class="annottext">toPath :: DeleteBucketPolicy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy%27"><span class="hs-identifier hs-type">DeleteBucketPolicy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679579550"><span id="local-6989586621679579551"><span class="annot"><span class="annottext">Maybe Text
+BucketName
+bucket :: BucketName
+expectedBucketOwner :: Maybe Text
+$sel:bucket:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; BucketName
+$sel:expectedBucketOwner:DeleteBucketPolicy' :: DeleteBucketPolicy -&gt; Maybe Text
+</span><a href="#local-6989586621679579550"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">BucketName -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">BucketName
+</span><a href="#local-6989586621679579550"><span class="hs-identifier hs-var">bucket</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicy"><span class="hs-identifier hs-type">DeleteBucketPolicy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679579546"><span class="annot"><span class="annottext">toQuery :: DeleteBucketPolicy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteBucketPolicy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">QueryString
+</span><span class="hs-string">&quot;policy&quot;</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- | /See:/ 'newDeleteBucketPolicyResponse' smart constructor.</span><span>
+</span><span id="line-144"></span><span id="local-6989586621679579542"><span id="local-6989586621679579543"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteBucketPolicyResponse"><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteBucketPolicyResponse%27"><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse%27"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse'</span></a></span></span><span>
+</span><span id="line-145"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-147"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679579538"><span id="local-6989586621679579540"><span class="annot"><span class="annottext">DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
+(DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool)
+-&gt; (DeleteBucketPolicyResponse
+    -&gt; DeleteBucketPolicyResponse -&gt; Bool)
+-&gt; Eq DeleteBucketPolicyResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
+$c/= :: DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
+== :: DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
+$c== :: DeleteBucketPolicyResponse -&gt; DeleteBucketPolicyResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579530"><span id="local-6989586621679579532"><span id="local-6989586621679579534"><span id="local-6989586621679579536"><span class="annot"><span class="annottext">ReadPrec [DeleteBucketPolicyResponse]
+ReadPrec DeleteBucketPolicyResponse
+Int -&gt; ReadS DeleteBucketPolicyResponse
+ReadS [DeleteBucketPolicyResponse]
+(Int -&gt; ReadS DeleteBucketPolicyResponse)
+-&gt; ReadS [DeleteBucketPolicyResponse]
+-&gt; ReadPrec DeleteBucketPolicyResponse
+-&gt; ReadPrec [DeleteBucketPolicyResponse]
+-&gt; Read DeleteBucketPolicyResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteBucketPolicyResponse]
+$creadListPrec :: ReadPrec [DeleteBucketPolicyResponse]
+readPrec :: ReadPrec DeleteBucketPolicyResponse
+$creadPrec :: ReadPrec DeleteBucketPolicyResponse
+readList :: ReadS [DeleteBucketPolicyResponse]
+$creadList :: ReadS [DeleteBucketPolicyResponse]
+readsPrec :: Int -&gt; ReadS DeleteBucketPolicyResponse
+$creadsPrec :: Int -&gt; ReadS DeleteBucketPolicyResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679579524"><span id="local-6989586621679579526"><span id="local-6989586621679579528"><span class="annot"><span class="annottext">Int -&gt; DeleteBucketPolicyResponse -&gt; ShowS
+[DeleteBucketPolicyResponse] -&gt; ShowS
+DeleteBucketPolicyResponse -&gt; String
+(Int -&gt; DeleteBucketPolicyResponse -&gt; ShowS)
+-&gt; (DeleteBucketPolicyResponse -&gt; String)
+-&gt; ([DeleteBucketPolicyResponse] -&gt; ShowS)
+-&gt; Show DeleteBucketPolicyResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteBucketPolicyResponse] -&gt; ShowS
+$cshowList :: [DeleteBucketPolicyResponse] -&gt; ShowS
+show :: DeleteBucketPolicyResponse -&gt; String
+$cshow :: DeleteBucketPolicyResponse -&gt; String
+showsPrec :: Int -&gt; DeleteBucketPolicyResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteBucketPolicyResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteBucketPolicyResponse -&gt; Rep DeleteBucketPolicyResponse x)
+-&gt; (forall x.
+    Rep DeleteBucketPolicyResponse x -&gt; DeleteBucketPolicyResponse)
+-&gt; Generic DeleteBucketPolicyResponse
+forall x.
+Rep DeleteBucketPolicyResponse x -&gt; DeleteBucketPolicyResponse
+forall x.
+DeleteBucketPolicyResponse -&gt; Rep DeleteBucketPolicyResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteBucketPolicyResponse x -&gt; DeleteBucketPolicyResponse
+$cfrom :: forall x.
+DeleteBucketPolicyResponse -&gt; Rep DeleteBucketPolicyResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- Create a value of 'DeleteBucketPolicyResponse' with all optional fields omitted.</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-153"></span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#newDeleteBucketPolicyResponse"><span class="hs-identifier hs-type">newDeleteBucketPolicyResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-type">DeleteBucketPolicyResponse</span></a></span><span>
+</span><span id="line-155"></span><span id="newDeleteBucketPolicyResponse"><span class="annot"><span class="annottext">newDeleteBucketPolicyResponse :: DeleteBucketPolicyResponse
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#newDeleteBucketPolicyResponse"><span class="hs-identifier hs-var hs-var">newDeleteBucketPolicyResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><span class="annottext">DeleteBucketPolicyResponse
+</span><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse%27"><span class="hs-identifier hs-var">DeleteBucketPolicyResponse'</span></a></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679579520"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.DeleteBucketPolicy.html#DeleteBucketPolicyResponse"><span class="hs-identifier hs-type">DeleteBucketPolicyResponse</span></a></span></span><span>
+</span><span id="line-159"></span></pre></body></html>

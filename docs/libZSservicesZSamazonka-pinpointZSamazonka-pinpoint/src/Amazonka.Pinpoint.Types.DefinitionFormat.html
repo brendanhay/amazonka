@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Pinpoint.Types.DefinitionFormat</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Pinpoint.Types.DefinitionFormat</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat"><span class="hs-identifier">DefinitionFormat</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat_CSV"><span class="hs-identifier">DefinitionFormat_CSV</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat_JSON"><span class="hs-identifier">DefinitionFormat_JSON</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679595040"><span id="local-6989586621679595041"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="DefinitionFormat"><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat"><span class="hs-identifier hs-var">DefinitionFormat</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DefinitionFormat%27"><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat%27"><span class="hs-identifier hs-var">DefinitionFormat'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromDefinitionFormat"><span class="annot"><span class="annottext">DefinitionFormat -&gt; Text
+</span><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#fromDefinitionFormat"><span class="hs-identifier hs-var hs-var">fromDefinitionFormat</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679595032"><span id="local-6989586621679595034"><span id="local-6989586621679595036"><span class="annot"><span class="annottext">Int -&gt; DefinitionFormat -&gt; ShowS
+[DefinitionFormat] -&gt; ShowS
+DefinitionFormat -&gt; String
+(Int -&gt; DefinitionFormat -&gt; ShowS)
+-&gt; (DefinitionFormat -&gt; String)
+-&gt; ([DefinitionFormat] -&gt; ShowS)
+-&gt; Show DefinitionFormat
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DefinitionFormat] -&gt; ShowS
+$cshowList :: [DefinitionFormat] -&gt; ShowS
+show :: DefinitionFormat -&gt; String
+$cshow :: DefinitionFormat -&gt; String
+showsPrec :: Int -&gt; DefinitionFormat -&gt; ShowS
+$cshowsPrec :: Int -&gt; DefinitionFormat -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679595023"><span id="local-6989586621679595025"><span id="local-6989586621679595027"><span id="local-6989586621679595029"><span class="annot"><span class="annottext">ReadPrec [DefinitionFormat]
+ReadPrec DefinitionFormat
+Int -&gt; ReadS DefinitionFormat
+ReadS [DefinitionFormat]
+(Int -&gt; ReadS DefinitionFormat)
+-&gt; ReadS [DefinitionFormat]
+-&gt; ReadPrec DefinitionFormat
+-&gt; ReadPrec [DefinitionFormat]
+-&gt; Read DefinitionFormat
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DefinitionFormat]
+$creadListPrec :: ReadPrec [DefinitionFormat]
+readPrec :: ReadPrec DefinitionFormat
+$creadPrec :: ReadPrec DefinitionFormat
+readList :: ReadS [DefinitionFormat]
+$creadList :: ReadS [DefinitionFormat]
+readsPrec :: Int -&gt; ReadS DefinitionFormat
+$creadsPrec :: Int -&gt; ReadS DefinitionFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679595018"><span id="local-6989586621679595020"><span class="annot"><span class="annottext">DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+(DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
+-&gt; Eq DefinitionFormat
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+$c/= :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+== :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+$c== :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679595002"><span id="local-6989586621679595004"><span id="local-6989586621679595006"><span id="local-6989586621679595008"><span id="local-6989586621679595010"><span id="local-6989586621679595012"><span id="local-6989586621679595014"><span class="annot"><span class="annottext">Eq DefinitionFormat
+Eq DefinitionFormat
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Ordering)
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; Bool)
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; DefinitionFormat)
+-&gt; (DefinitionFormat -&gt; DefinitionFormat -&gt; DefinitionFormat)
+-&gt; Ord DefinitionFormat
+DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+DefinitionFormat -&gt; DefinitionFormat -&gt; Ordering
+DefinitionFormat -&gt; DefinitionFormat -&gt; DefinitionFormat
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: DefinitionFormat -&gt; DefinitionFormat -&gt; DefinitionFormat
+$cmin :: DefinitionFormat -&gt; DefinitionFormat -&gt; DefinitionFormat
+max :: DefinitionFormat -&gt; DefinitionFormat -&gt; DefinitionFormat
+$cmax :: DefinitionFormat -&gt; DefinitionFormat -&gt; DefinitionFormat
+&gt;= :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+$c&gt;= :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+&gt; :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+$c&gt; :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+&lt;= :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+$c&lt;= :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+&lt; :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+$c&lt; :: DefinitionFormat -&gt; DefinitionFormat -&gt; Bool
+compare :: DefinitionFormat -&gt; DefinitionFormat -&gt; Ordering
+$ccompare :: DefinitionFormat -&gt; DefinitionFormat -&gt; Ordering
+$cp1Ord :: Eq DefinitionFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. DefinitionFormat -&gt; Rep DefinitionFormat x)
+-&gt; (forall x. Rep DefinitionFormat x -&gt; DefinitionFormat)
+-&gt; Generic DefinitionFormat
+forall x. Rep DefinitionFormat x -&gt; DefinitionFormat
+forall x. DefinitionFormat -&gt; Rep DefinitionFormat x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DefinitionFormat x -&gt; DefinitionFormat
+$cfrom :: forall x. DefinitionFormat -&gt; Rep DefinitionFormat x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679594994"><span id="local-6989586621679594996"><span class="annot"><span class="annottext">Int -&gt; DefinitionFormat -&gt; Int
+DefinitionFormat -&gt; Int
+(Int -&gt; DefinitionFormat -&gt; Int)
+-&gt; (DefinitionFormat -&gt; Int) -&gt; Hashable DefinitionFormat
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: DefinitionFormat -&gt; Int
+$chash :: DefinitionFormat -&gt; Int
+hashWithSalt :: Int -&gt; DefinitionFormat -&gt; Int
+$chashWithSalt :: Int -&gt; DefinitionFormat -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679594991"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ()
+(DefinitionFormat -&gt; ()) -&gt; NFData DefinitionFormat
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: DefinitionFormat -&gt; ()
+$crnf :: DefinitionFormat -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679594988"><span class="annot"><span class="annottext">Text -&gt; Either String DefinitionFormat
+(Text -&gt; Either String DefinitionFormat)
+-&gt; FromText DefinitionFormat
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String DefinitionFormat
+$cfromText :: Text -&gt; Either String DefinitionFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679594985"><span class="annot"><span class="annottext">DefinitionFormat -&gt; Text
+(DefinitionFormat -&gt; Text) -&gt; ToText DefinitionFormat
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: DefinitionFormat -&gt; Text
+$ctoText :: DefinitionFormat -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679594982"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ByteString
+(DefinitionFormat -&gt; ByteString) -&gt; ToByteString DefinitionFormat
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: DefinitionFormat -&gt; ByteString
+$ctoBS :: DefinitionFormat -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679594979"><span class="annot"><span class="annottext">DefinitionFormat -&gt; ByteStringBuilder
+(DefinitionFormat -&gt; ByteStringBuilder) -&gt; ToLog DefinitionFormat
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: DefinitionFormat -&gt; ByteStringBuilder
+$cbuild :: DefinitionFormat -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679594976"><span class="annot"><span class="annottext">HeaderName -&gt; DefinitionFormat -&gt; [Header]
+(HeaderName -&gt; DefinitionFormat -&gt; [Header])
+-&gt; ToHeader DefinitionFormat
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; DefinitionFormat -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; DefinitionFormat -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679594973"><span class="annot"><span class="annottext">DefinitionFormat -&gt; QueryString
+(DefinitionFormat -&gt; QueryString) -&gt; ToQuery DefinitionFormat
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: DefinitionFormat -&gt; QueryString
+$ctoQuery :: DefinitionFormat -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679594968"><span id="local-6989586621679594970"><span class="annot"><span class="annottext">Value -&gt; Parser [DefinitionFormat]
+Value -&gt; Parser DefinitionFormat
+(Value -&gt; Parser DefinitionFormat)
+-&gt; (Value -&gt; Parser [DefinitionFormat])
+-&gt; FromJSON DefinitionFormat
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [DefinitionFormat]
+$cparseJSONList :: Value -&gt; Parser [DefinitionFormat]
+parseJSON :: Value -&gt; Parser DefinitionFormat
+$cparseJSON :: Value -&gt; Parser DefinitionFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679594963"><span id="local-6989586621679594965"><span class="annot"><span class="annottext">FromJSONKeyFunction [DefinitionFormat]
+FromJSONKeyFunction DefinitionFormat
+FromJSONKeyFunction DefinitionFormat
+-&gt; FromJSONKeyFunction [DefinitionFormat]
+-&gt; FromJSONKey DefinitionFormat
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [DefinitionFormat]
+$cfromJSONKeyList :: FromJSONKeyFunction [DefinitionFormat]
+fromJSONKey :: FromJSONKeyFunction DefinitionFormat
+$cfromJSONKey :: FromJSONKeyFunction DefinitionFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679594954"><span id="local-6989586621679594956"><span id="local-6989586621679594958"><span id="local-6989586621679594960"><span class="annot"><span class="annottext">[DefinitionFormat] -&gt; Encoding
+[DefinitionFormat] -&gt; Value
+DefinitionFormat -&gt; Encoding
+DefinitionFormat -&gt; Value
+(DefinitionFormat -&gt; Value)
+-&gt; (DefinitionFormat -&gt; Encoding)
+-&gt; ([DefinitionFormat] -&gt; Value)
+-&gt; ([DefinitionFormat] -&gt; Encoding)
+-&gt; ToJSON DefinitionFormat
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [DefinitionFormat] -&gt; Encoding
+$ctoEncodingList :: [DefinitionFormat] -&gt; Encoding
+toJSONList :: [DefinitionFormat] -&gt; Value
+$ctoJSONList :: [DefinitionFormat] -&gt; Value
+toEncoding :: DefinitionFormat -&gt; Encoding
+$ctoEncoding :: DefinitionFormat -&gt; Encoding
+toJSON :: DefinitionFormat -&gt; Value
+$ctoJSON :: DefinitionFormat -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679594949"><span id="local-6989586621679594951"><span class="annot"><span class="annottext">ToJSONKeyFunction [DefinitionFormat]
+ToJSONKeyFunction DefinitionFormat
+ToJSONKeyFunction DefinitionFormat
+-&gt; ToJSONKeyFunction [DefinitionFormat]
+-&gt; ToJSONKey DefinitionFormat
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [DefinitionFormat]
+$ctoJSONKeyList :: ToJSONKeyFunction [DefinitionFormat]
+toJSONKey :: ToJSONKeyFunction DefinitionFormat
+$ctoJSONKey :: ToJSONKeyFunction DefinitionFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679594946"><span class="annot"><span class="annottext">[Node] -&gt; Either String DefinitionFormat
+([Node] -&gt; Either String DefinitionFormat)
+-&gt; FromXML DefinitionFormat
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String DefinitionFormat
+$cparseXML :: [Node] -&gt; Either String DefinitionFormat
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679594943"><span class="annot"><span class="annottext">DefinitionFormat -&gt; XML
+(DefinitionFormat -&gt; XML) -&gt; ToXML DefinitionFormat
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: DefinitionFormat -&gt; XML
+$ctoXML :: DefinitionFormat -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat_CSV"><span class="hs-identifier hs-type">DefinitionFormat_CSV</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat"><span class="hs-identifier hs-type">DefinitionFormat</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDefinitionFormat_CSV"><span id="%24mDefinitionFormat_CSV"><span id="DefinitionFormat_CSV"><span class="annot"><span class="annottext">$bDefinitionFormat_CSV :: DefinitionFormat
+$mDefinitionFormat_CSV :: forall r. DefinitionFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#%24bDefinitionFormat_CSV"><span class="hs-identifier hs-var hs-var hs-var">DefinitionFormat_CSV</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat%27"><span class="hs-identifier hs-type">DefinitionFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CSV&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat_JSON"><span class="hs-identifier hs-type">DefinitionFormat_JSON</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat"><span class="hs-identifier hs-type">DefinitionFormat</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bDefinitionFormat_JSON"><span id="%24mDefinitionFormat_JSON"><span id="DefinitionFormat_JSON"><span class="annot"><span class="annottext">$bDefinitionFormat_JSON :: DefinitionFormat
+$mDefinitionFormat_JSON :: forall r. DefinitionFormat -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#%24bDefinitionFormat_JSON"><span class="hs-identifier hs-var hs-var hs-var">DefinitionFormat_JSON</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat%27"><span class="hs-identifier hs-type">DefinitionFormat'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;JSON&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat_CSV"><span class="hs-pragma hs-type">DefinitionFormat_CSV</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat_JSON"><span class="hs-pragma hs-type">DefinitionFormat_JSON</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Pinpoint.Types.DefinitionFormat.html#DefinitionFormat%27"><span class="hs-pragma hs-type">DefinitionFormat'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

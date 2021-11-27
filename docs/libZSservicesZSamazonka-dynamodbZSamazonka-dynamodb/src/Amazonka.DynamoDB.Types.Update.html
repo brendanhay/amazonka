@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.DynamoDB.Types.Update</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DynamoDB.Types.Update</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html"><span class="hs-identifier">Amazonka.DynamoDB.Types.AttributeValue</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html"><span class="hs-identifier">Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Represents a request to perform an @UpdateItem@ operation.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newUpdate' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679383425"><span id="local-6989586621679383426"></span></span><span class="hs-keyword">data</span><span> </span><span id="Update"><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-var">Update</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Update%27"><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-var">Update'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AexpressionAttributeNames%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AexpressionAttributeNames%3AUpdate%27"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AexpressionAttributeValues%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe (HashMap Text AttributeValue)
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AexpressionAttributeValues%3AUpdate%27"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3AreturnValuesOnConditionCheckFailure%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AUpdate%27"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional update to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AconditionExpression%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AconditionExpression%3AUpdate%27"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | The primary key of the item to be updated. Each element consists of an</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Akey%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; HashMap Text AttributeValue
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3Akey%3AUpdate%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | An expression that defines one or more attributes to be updated, the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- action to be performed on them, and new value(s) for them.</span><span>
+</span><span id="line-48"></span><span>    </span><span id="%24sel%3AupdateExpression%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AupdateExpression%3AUpdate%27"><span class="hs-identifier hs-var hs-var">updateExpression</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- | Name of the table for the @UpdateItem@ request.</span><span>
+</span><span id="line-50"></span><span>    </span><span id="%24sel%3AtableName%3AUpdate%27"><span class="annot"><span class="annottext">Update -&gt; Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AtableName%3AUpdate%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679383413"><span id="local-6989586621679383415"><span class="annot"><span class="annottext">Update -&gt; Update -&gt; Bool
+(Update -&gt; Update -&gt; Bool)
+-&gt; (Update -&gt; Update -&gt; Bool) -&gt; Eq Update
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Update -&gt; Update -&gt; Bool
+$c/= :: Update -&gt; Update -&gt; Bool
+== :: Update -&gt; Update -&gt; Bool
+$c== :: Update -&gt; Update -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383404"><span id="local-6989586621679383406"><span id="local-6989586621679383408"><span id="local-6989586621679383410"><span class="annot"><span class="annottext">ReadPrec [Update]
+ReadPrec Update
+Int -&gt; ReadS Update
+ReadS [Update]
+(Int -&gt; ReadS Update)
+-&gt; ReadS [Update]
+-&gt; ReadPrec Update
+-&gt; ReadPrec [Update]
+-&gt; Read Update
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Update]
+$creadListPrec :: ReadPrec [Update]
+readPrec :: ReadPrec Update
+$creadPrec :: ReadPrec Update
+readList :: ReadS [Update]
+$creadList :: ReadS [Update]
+readsPrec :: Int -&gt; ReadS Update
+$creadsPrec :: Int -&gt; ReadS Update
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679383397"><span id="local-6989586621679383399"><span id="local-6989586621679383401"><span class="annot"><span class="annottext">Int -&gt; Update -&gt; ShowS
+[Update] -&gt; ShowS
+Update -&gt; String
+(Int -&gt; Update -&gt; ShowS)
+-&gt; (Update -&gt; String) -&gt; ([Update] -&gt; ShowS) -&gt; Show Update
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Update] -&gt; ShowS
+$cshowList :: [Update] -&gt; ShowS
+show :: Update -&gt; String
+$cshow :: Update -&gt; String
+showsPrec :: Int -&gt; Update -&gt; ShowS
+$cshowsPrec :: Int -&gt; Update -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Update -&gt; Rep Update x)
+-&gt; (forall x. Rep Update x -&gt; Update) -&gt; Generic Update
+forall x. Rep Update x -&gt; Update
+forall x. Update -&gt; Rep Update x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Update x -&gt; Update
+$cfrom :: forall x. Update -&gt; Rep Update x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- Create a value of 'Update' with all optional fields omitted.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'expressionAttributeNames', 'update_expressionAttributeNames' - One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'expressionAttributeValues', 'update_expressionAttributeValues' - One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'returnValuesOnConditionCheckFailure', 'update_returnValuesOnConditionCheckFailure' - Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'conditionExpression', 'update_conditionExpression' - A condition that must be satisfied in order for a conditional update to</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'key', 'update_key' - The primary key of the item to be updated. Each element consists of an</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'updateExpression', 'update_updateExpression' - An expression that defines one or more attributes to be updated, the</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- action to be performed on them, and new value(s) for them.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'tableName', 'update_tableName' - Name of the table for the @UpdateItem@ request.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#newUpdate"><span class="hs-identifier hs-type">newUpdate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'updateExpression'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span>
+</span><span id="line-86"></span><span id="newUpdate"><span class="annot"><span class="annottext">newUpdate :: Text -&gt; Text -&gt; Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#newUpdate"><span class="hs-identifier hs-var hs-var">newUpdate</span></a></span></span><span> </span><span id="local-6989586621679383391"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383391"><span class="hs-identifier hs-var">pUpdateExpression_</span></a></span></span><span> </span><span id="local-6989586621679383390"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383390"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><span class="annottext">Update' :: Maybe (HashMap Text Text)
+-&gt; Maybe (HashMap Text AttributeValue)
+-&gt; Maybe ReturnValuesOnConditionCheckFailure
+-&gt; Maybe Text
+-&gt; HashMap Text AttributeValue
+-&gt; Text
+-&gt; Text
+-&gt; Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Update' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AexpressionAttributeNames%3AUpdate%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Update' :: Maybe (HashMap Text AttributeValue)
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AexpressionAttributeValues%3AUpdate%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:Update' :: Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AUpdate%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:conditionExpression:Update' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AconditionExpression%3AUpdate%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:key:Update' :: HashMap Text AttributeValue
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3Akey%3AUpdate%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:updateExpression:Update' :: Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AupdateExpression%3AUpdate%27"><span class="hs-identifier hs-var">updateExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383391"><span class="hs-identifier hs-var">pUpdateExpression_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:Update' :: Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AtableName%3AUpdate%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383390"><span class="hs-identifier hs-var">pTableName_</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | One or more substitution tokens for attribute names in an expression.</span><span>
+</span><span id="line-99"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#update_expressionAttributeNames"><span class="hs-identifier hs-type">update_expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span id="update_expressionAttributeNames"><span class="annot"><span class="annottext">update_expressionAttributeNames :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Update -&gt; f Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#update_expressionAttributeNames"><span class="hs-identifier hs-var hs-var">update_expressionAttributeNames</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe (HashMap Text Text))
+-&gt; (Update -&gt; Maybe (HashMap Text Text) -&gt; Update)
+-&gt; Lens
+     Update
+     Update
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383386"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+expressionAttributeNames :: Maybe (HashMap Text Text)
+$sel:expressionAttributeNames:Update' :: Update -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679383386"><span class="hs-identifier hs-var hs-var">expressionAttributeNames</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679383386"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383385"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679383385"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383384"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679383384"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679383385"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeNames:Update' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AexpressionAttributeNames%3AUpdate%27"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679383384"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Update -&gt; f Update)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Update
+-&gt; f Update
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | One or more values that can be substituted in an expression.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#update_expressionAttributeValues"><span class="hs-identifier hs-type">update_expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="update_expressionAttributeValues"><span class="annot"><span class="annottext">update_expressionAttributeValues :: (Maybe (HashMap Text AttributeValue)
+ -&gt; f (Maybe (HashMap Text AttributeValue)))
+-&gt; Update -&gt; f Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#update_expressionAttributeValues"><span class="hs-identifier hs-var hs-var">update_expressionAttributeValues</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe (HashMap Text AttributeValue))
+-&gt; (Update -&gt; Maybe (HashMap Text AttributeValue) -&gt; Update)
+-&gt; Lens
+     Update
+     Update
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383379"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
+$sel:expressionAttributeValues:Update' :: Update -&gt; Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679383379"><span class="hs-identifier hs-var hs-var">expressionAttributeValues</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679383379"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383378"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679383378"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383377"><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679383377"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679383378"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:expressionAttributeValues:Update' :: Maybe (HashMap Text AttributeValue)
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AexpressionAttributeValues%3AUpdate%27"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679383377"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text AttributeValue)
+  -&gt; f (Maybe (HashMap Text AttributeValue)))
+ -&gt; Update -&gt; f Update)
+-&gt; ((Maybe (HashMap Text AttributeValue)
+     -&gt; f (Maybe (HashMap Text AttributeValue)))
+    -&gt; Maybe (HashMap Text AttributeValue)
+    -&gt; f (Maybe (HashMap Text AttributeValue)))
+-&gt; (Maybe (HashMap Text AttributeValue)
+    -&gt; f (Maybe (HashMap Text AttributeValue)))
+-&gt; Update
+-&gt; f Update
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+-&gt; Iso
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+     (Maybe (HashMap Text AttributeValue))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+  (HashMap Text AttributeValue)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | Use @ReturnValuesOnConditionCheckFailure@ to get the item attributes if</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- the @Update@ condition fails. For @ReturnValuesOnConditionCheckFailure@,</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#update_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">update_returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.ReturnValuesOnConditionCheckFailure.html#ReturnValuesOnConditionCheckFailure"><span class="hs-identifier hs-type">ReturnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="update_returnValuesOnConditionCheckFailure"><span class="annot"><span class="annottext">update_returnValuesOnConditionCheckFailure :: (Maybe ReturnValuesOnConditionCheckFailure
+ -&gt; f (Maybe ReturnValuesOnConditionCheckFailure))
+-&gt; Update -&gt; f Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#update_returnValuesOnConditionCheckFailure"><span class="hs-identifier hs-var hs-var">update_returnValuesOnConditionCheckFailure</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe ReturnValuesOnConditionCheckFailure)
+-&gt; (Update -&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; Update)
+-&gt; Lens
+     Update
+     Update
+     (Maybe ReturnValuesOnConditionCheckFailure)
+     (Maybe ReturnValuesOnConditionCheckFailure)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383375"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+returnValuesOnConditionCheckFailure :: Maybe ReturnValuesOnConditionCheckFailure
+$sel:returnValuesOnConditionCheckFailure:Update' :: Update -&gt; Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679383375"><span class="hs-identifier hs-var hs-var">returnValuesOnConditionCheckFailure</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679383375"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383374"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679383374"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383373"><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679383373"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679383374"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:returnValuesOnConditionCheckFailure:Update' :: Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AreturnValuesOnConditionCheckFailure%3AUpdate%27"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679383373"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | A condition that must be satisfied in order for a conditional update to</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- succeed.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#update_conditionExpression"><span class="hs-identifier hs-type">update_conditionExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span id="update_conditionExpression"><span class="annot"><span class="annottext">update_conditionExpression :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Update -&gt; f Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#update_conditionExpression"><span class="hs-identifier hs-var hs-var">update_conditionExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Maybe Text)
+-&gt; (Update -&gt; Maybe Text -&gt; Update)
+-&gt; Lens Update Update (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383371"><span class="annot"><span class="annottext">Maybe Text
+conditionExpression :: Maybe Text
+$sel:conditionExpression:Update' :: Update -&gt; Maybe Text
+</span><a href="#local-6989586621679383371"><span class="hs-identifier hs-var hs-var">conditionExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383371"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383370"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679383370"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383369"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383369"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679383370"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:conditionExpression:Update' :: Maybe Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AconditionExpression%3AUpdate%27"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383369"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The primary key of the item to be updated. Each element consists of an</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- attribute name and a value for that attribute.</span><span>
+</span><span id="line-119"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#update_key"><span class="hs-identifier hs-type">update_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.AttributeValue.html#AttributeValue"><span class="hs-identifier hs-type">AttributeValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span id="update_key"><span class="annot"><span class="annottext">update_key :: (HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; Update -&gt; f Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#update_key"><span class="hs-identifier hs-var hs-var">update_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; HashMap Text AttributeValue)
+-&gt; (Update -&gt; HashMap Text AttributeValue -&gt; Update)
+-&gt; Lens
+     Update
+     Update
+     (HashMap Text AttributeValue)
+     (HashMap Text AttributeValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383367"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+key :: HashMap Text AttributeValue
+$sel:key:Update' :: Update -&gt; HashMap Text AttributeValue
+</span><a href="#local-6989586621679383367"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679383367"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383366"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679383366"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383365"><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679383365"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679383366"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:Update' :: HashMap Text AttributeValue
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3Akey%3AUpdate%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679383365"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+ -&gt; Update -&gt; f Update)
+-&gt; ((HashMap Text AttributeValue
+     -&gt; f (HashMap Text AttributeValue))
+    -&gt; HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; (HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; Update
+-&gt; f Update
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue))
+-&gt; HashMap Text AttributeValue -&gt; f (HashMap Text AttributeValue)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- | An expression that defines one or more attributes to be updated, the</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- action to be performed on them, and new value(s) for them.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#update_updateExpression"><span class="hs-identifier hs-type">update_updateExpression</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-125"></span><span id="update_updateExpression"><span class="annot"><span class="annottext">update_updateExpression :: (Text -&gt; f Text) -&gt; Update -&gt; f Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#update_updateExpression"><span class="hs-identifier hs-var hs-var">update_updateExpression</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Text)
+-&gt; (Update -&gt; Text -&gt; Update) -&gt; Lens Update Update Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383363"><span class="annot"><span class="annottext">Text
+updateExpression :: Text
+$sel:updateExpression:Update' :: Update -&gt; Text
+</span><a href="#local-6989586621679383363"><span class="hs-identifier hs-var hs-var">updateExpression</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383363"><span class="hs-identifier hs-var">updateExpression</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383362"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679383362"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383361"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383361"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679383362"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateExpression:Update' :: Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AupdateExpression%3AUpdate%27"><span class="hs-identifier hs-var">updateExpression</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383361"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- | Name of the table for the @UpdateItem@ request.</span><span>
+</span><span id="line-128"></span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#update_tableName"><span class="hs-identifier hs-type">update_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span id="update_tableName"><span class="annot"><span class="annottext">update_tableName :: (Text -&gt; f Text) -&gt; Update -&gt; f Update
+</span><a href="Amazonka.DynamoDB.Types.Update.html#update_tableName"><span class="hs-identifier hs-var hs-var">update_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Update -&gt; Text)
+-&gt; (Update -&gt; Text -&gt; Update) -&gt; Lens Update Update Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383359"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:Update' :: Update -&gt; Text
+</span><a href="#local-6989586621679383359"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383359"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679383358"><span class="annot"><span class="annottext">s :: Update
+</span><a href="#local-6989586621679383358"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679383357"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383357"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Update
+</span><a href="#local-6989586621679383358"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:Update' :: Text
+</span><a href="Amazonka.DynamoDB.Types.Update.html#%24sel%3AtableName%3AUpdate%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383357"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383353"><span id="local-6989586621679383355"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383350"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679383342"><span id="local-6989586621679383344"><span id="local-6989586621679383346"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update"><span class="hs-identifier hs-type">Update</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679383340"><span class="annot"><span class="annottext">toJSON :: Update -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DynamoDB.Types.Update.html#Update%27"><span class="hs-identifier hs-type">Update'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679383332"><span id="local-6989586621679383333"><span id="local-6989586621679383334"><span id="local-6989586621679383335"><span id="local-6989586621679383336"><span id="local-6989586621679383337"><span id="local-6989586621679383338"><span class="annot"><span class="annottext">Maybe Text
+Maybe (HashMap Text Text)
+Maybe (HashMap Text AttributeValue)
+Maybe ReturnValuesOnConditionCheckFailure
+Text
+HashMap Text AttributeValue
+tableName :: Text
+updateExpression :: Text
+key :: HashMap Text AttributeValue
+conditionExpression :: Maybe Text
+returnValuesOnConditionCheckFailure :: Maybe ReturnValuesOnConditionCheckFailure
+expressionAttributeValues :: Maybe (HashMap Text AttributeValue)
+expressionAttributeNames :: Maybe (HashMap Text Text)
+$sel:tableName:Update' :: Update -&gt; Text
+$sel:updateExpression:Update' :: Update -&gt; Text
+$sel:key:Update' :: Update -&gt; HashMap Text AttributeValue
+$sel:conditionExpression:Update' :: Update -&gt; Maybe Text
+$sel:returnValuesOnConditionCheckFailure:Update' :: Update -&gt; Maybe ReturnValuesOnConditionCheckFailure
+$sel:expressionAttributeValues:Update' :: Update -&gt; Maybe (HashMap Text AttributeValue)
+$sel:expressionAttributeNames:Update' :: Update -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679383332"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpressionAttributeNames&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679383338"><span class="hs-identifier hs-var">expressionAttributeNames</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ExpressionAttributeValues&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">(HashMap Text AttributeValue -&gt; Pair)
+-&gt; Maybe (HashMap Text AttributeValue) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text AttributeValue)
+</span><a href="#local-6989586621679383337"><span class="hs-identifier hs-var">expressionAttributeValues</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReturnValuesOnConditionCheckFailure&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReturnValuesOnConditionCheckFailure -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">(ReturnValuesOnConditionCheckFailure -&gt; Pair)
+-&gt; Maybe ReturnValuesOnConditionCheckFailure -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe ReturnValuesOnConditionCheckFailure
+</span><a href="#local-6989586621679383336"><span class="hs-identifier hs-var">returnValuesOnConditionCheckFailure</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ConditionExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679383335"><span class="hs-identifier hs-var">conditionExpression</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text AttributeValue -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">HashMap Text AttributeValue
+</span><a href="#local-6989586621679383334"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateExpression&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383333"><span class="hs-identifier hs-var">updateExpression</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679383332"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span></pre></body></html>

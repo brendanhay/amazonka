@@ -1,0 +1,1157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.UpdateLayer</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates a specified layer.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- __Required Permissions__: To use this action, an IAM user must have a</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- Manage permissions level for the stack, or an attached policy that</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- explicitly grants permissions. For more information on user permissions,</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.UpdateLayer</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#newUpdateLayer"><span class="hs-identifier">newUpdateLayer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customInstanceProfileArn"><span class="hs-identifier">updateLayer_customInstanceProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customSecurityGroupIds"><span class="hs-identifier">updateLayer_customSecurityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_installUpdatesOnBoot"><span class="hs-identifier">updateLayer_installUpdatesOnBoot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_cloudWatchLogsConfiguration"><span class="hs-identifier">updateLayer_cloudWatchLogsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_lifecycleEventConfiguration"><span class="hs-identifier">updateLayer_lifecycleEventConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_shortname"><span class="hs-identifier">updateLayer_shortname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customRecipes"><span class="hs-identifier">updateLayer_customRecipes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customJson"><span class="hs-identifier">updateLayer_customJson</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_volumeConfigurations"><span class="hs-identifier">updateLayer_volumeConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_enableAutoHealing"><span class="hs-identifier">updateLayer_enableAutoHealing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_packages"><span class="hs-identifier">updateLayer_packages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_attributes"><span class="hs-identifier">updateLayer_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_name"><span class="hs-identifier">updateLayer_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_autoAssignPublicIps"><span class="hs-identifier">updateLayer_autoAssignPublicIps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_useEbsOptimizedInstances"><span class="hs-identifier">updateLayer_useEbsOptimizedInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_autoAssignElasticIps"><span class="hs-identifier">updateLayer_autoAssignElasticIps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_layerId"><span class="hs-identifier">updateLayer_layerId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse"><span class="hs-identifier">UpdateLayerResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#newUpdateLayerResponse"><span class="hs-identifier">newUpdateLayerResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.html"><span class="hs-identifier">Amazonka.OpsWorks.Types</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | /See:/ 'newUpdateLayer' smart constructor.</span><span>
+</span><span id="line-68"></span><span id="local-6989586621679396884"><span id="local-6989586621679396885"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLayer"><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-var">UpdateLayer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLayer%27"><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-var">UpdateLayer'</span></a></span></span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of an IAM profile to be used for all of the layer\'s EC2</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- instances. For more information about IAM ARNs, see</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers&gt;.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AcustomInstanceProfileArn%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomInstanceProfileArn%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">customInstanceProfileArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | An array containing the layer\'s custom security group IDs.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AcustomSecurityGroupIds%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe [Text]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomSecurityGroupIds%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">customSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | Whether to install operating system and package updates when the</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- instance boots. The default value is @true@. To control when updates are</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- installed, set this value to @false@. You must then update your</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- instances manually by using CreateDeployment to run the</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @update_dependencies@ stack command or manually running @yum@ (Amazon</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- Linux) or @apt-get@ (Ubuntu) on the instances.</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- We strongly recommend using the default value of @true@, to ensure that</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- your instances have the latest security updates.</span><span>
+</span><span id="line-84"></span><span>    </span><span id="%24sel%3AinstallUpdatesOnBoot%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AinstallUpdatesOnBoot%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">installUpdatesOnBoot</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- | Specifies CloudWatch Logs configuration options for the layer. For more</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- information, see CloudWatchLogsLogStream.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3AcloudWatchLogsConfiguration%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe CloudWatchLogsConfiguration
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcloudWatchLogsConfiguration%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">cloudWatchLogsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.CloudWatchLogsConfiguration.html#CloudWatchLogsConfiguration"><span class="hs-identifier hs-type">CloudWatchLogsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AlifecycleEventConfiguration%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe LifecycleEventConfiguration
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AlifecycleEventConfiguration%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">lifecycleEventConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LifecycleEventConfiguration.html#LifecycleEventConfiguration"><span class="hs-identifier hs-type">LifecycleEventConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | For custom layers only, use this parameter to specify the layer\'s short</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- name, which is used internally by AWS OpsWorks Stacks and by Chef. The</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- short name is also used as the name for the directory where your app</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- files are installed. It can have a maximum of 200 characters and must be</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- in the following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- The built-in layers\' short names are defined by AWS OpsWorks Stacks.</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference&gt;</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3Ashortname%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Ashortname%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">shortname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | A @LayerCustomRecipes@ object that specifies the layer\'s custom</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- recipes.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AcustomRecipes%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Recipes
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomRecipes%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">customRecipes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.Recipes.html#Recipes"><span class="hs-identifier hs-type">Recipes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | A JSON-formatted string containing custom stack configuration and</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- deployment attributes to be installed on the layer\'s instances. For</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON&gt;.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AcustomJson%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomJson%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">customJson</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- volumes.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AvolumeConfigurations%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe [VolumeConfiguration]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AvolumeConfigurations%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">volumeConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.OpsWorks.Types.VolumeConfiguration.html#VolumeConfiguration"><span class="hs-identifier hs-type">VolumeConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | Whether to disable auto healing for the layer.</span><span>
+</span><span id="line-111"></span><span>    </span><span id="%24sel%3AenableAutoHealing%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AenableAutoHealing%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">enableAutoHealing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- | An array of @Package@ objects that describe the layer\'s packages.</span><span>
+</span><span id="line-113"></span><span>    </span><span id="%24sel%3Apackages%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe [Text]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Apackages%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">packages</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">-- | One or more user-defined key\/value pairs to be added to the stack</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-116"></span><span>    </span><span id="%24sel%3Aattributes%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Aattributes%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerAttributesKeys.html#LayerAttributesKeys"><span class="hs-identifier hs-type">LayerAttributesKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- | The layer name, which is used by the console.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Aname%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Aname%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | For stacks that are running in a VPC, whether to automatically assign a</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- public IP address to the layer\'s instances. For more information, see</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer&gt;.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AautoAssignPublicIps%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AautoAssignPublicIps%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">autoAssignPublicIps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">-- | Whether to use Amazon EBS-optimized instances.</span><span>
+</span><span id="line-124"></span><span>    </span><span id="%24sel%3AuseEbsOptimizedInstances%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AuseEbsOptimizedInstances%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">useEbsOptimizedInstances</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- | Whether to automatically assign an</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address&gt;</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- to the layer\'s instances. For more information, see</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer&gt;.</span><span>
+</span><span id="line-129"></span><span>    </span><span id="%24sel%3AautoAssignElasticIps%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AautoAssignElasticIps%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">autoAssignElasticIps</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- | The layer ID.</span><span>
+</span><span id="line-131"></span><span>    </span><span id="%24sel%3AlayerId%3AUpdateLayer%27"><span class="annot"><span class="annottext">UpdateLayer -&gt; Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AlayerId%3AUpdateLayer%27"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396862"><span id="local-6989586621679396864"><span class="annot"><span class="annottext">UpdateLayer -&gt; UpdateLayer -&gt; Bool
+(UpdateLayer -&gt; UpdateLayer -&gt; Bool)
+-&gt; (UpdateLayer -&gt; UpdateLayer -&gt; Bool) -&gt; Eq UpdateLayer
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateLayer -&gt; UpdateLayer -&gt; Bool
+$c/= :: UpdateLayer -&gt; UpdateLayer -&gt; Bool
+== :: UpdateLayer -&gt; UpdateLayer -&gt; Bool
+$c== :: UpdateLayer -&gt; UpdateLayer -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396853"><span id="local-6989586621679396855"><span id="local-6989586621679396857"><span id="local-6989586621679396859"><span class="annot"><span class="annottext">ReadPrec [UpdateLayer]
+ReadPrec UpdateLayer
+Int -&gt; ReadS UpdateLayer
+ReadS [UpdateLayer]
+(Int -&gt; ReadS UpdateLayer)
+-&gt; ReadS [UpdateLayer]
+-&gt; ReadPrec UpdateLayer
+-&gt; ReadPrec [UpdateLayer]
+-&gt; Read UpdateLayer
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateLayer]
+$creadListPrec :: ReadPrec [UpdateLayer]
+readPrec :: ReadPrec UpdateLayer
+$creadPrec :: ReadPrec UpdateLayer
+readList :: ReadS [UpdateLayer]
+$creadList :: ReadS [UpdateLayer]
+readsPrec :: Int -&gt; ReadS UpdateLayer
+$creadsPrec :: Int -&gt; ReadS UpdateLayer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396846"><span id="local-6989586621679396848"><span id="local-6989586621679396850"><span class="annot"><span class="annottext">Int -&gt; UpdateLayer -&gt; ShowS
+[UpdateLayer] -&gt; ShowS
+UpdateLayer -&gt; String
+(Int -&gt; UpdateLayer -&gt; ShowS)
+-&gt; (UpdateLayer -&gt; String)
+-&gt; ([UpdateLayer] -&gt; ShowS)
+-&gt; Show UpdateLayer
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateLayer] -&gt; ShowS
+$cshowList :: [UpdateLayer] -&gt; ShowS
+show :: UpdateLayer -&gt; String
+$cshow :: UpdateLayer -&gt; String
+showsPrec :: Int -&gt; UpdateLayer -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateLayer -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateLayer -&gt; Rep UpdateLayer x)
+-&gt; (forall x. Rep UpdateLayer x -&gt; UpdateLayer)
+-&gt; Generic UpdateLayer
+forall x. Rep UpdateLayer x -&gt; UpdateLayer
+forall x. UpdateLayer -&gt; Rep UpdateLayer x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateLayer x -&gt; UpdateLayer
+$cfrom :: forall x. UpdateLayer -&gt; Rep UpdateLayer x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- Create a value of 'UpdateLayer' with all optional fields omitted.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'customInstanceProfileArn', 'updateLayer_customInstanceProfileArn' - The ARN of an IAM profile to be used for all of the layer\'s EC2</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- instances. For more information about IAM ARNs, see</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers&gt;.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'customSecurityGroupIds', 'updateLayer_customSecurityGroupIds' - An array containing the layer\'s custom security group IDs.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'installUpdatesOnBoot', 'updateLayer_installUpdatesOnBoot' - Whether to install operating system and package updates when the</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- instance boots. The default value is @true@. To control when updates are</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- installed, set this value to @false@. You must then update your</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- instances manually by using CreateDeployment to run the</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- @update_dependencies@ stack command or manually running @yum@ (Amazon</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- Linux) or @apt-get@ (Ubuntu) on the instances.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- We strongly recommend using the default value of @true@, to ensure that</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- your instances have the latest security updates.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'cloudWatchLogsConfiguration', 'updateLayer_cloudWatchLogsConfiguration' - Specifies CloudWatch Logs configuration options for the layer. For more</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- information, see CloudWatchLogsLogStream.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'lifecycleEventConfiguration', 'updateLayer_lifecycleEventConfiguration' -</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'shortname', 'updateLayer_shortname' - For custom layers only, use this parameter to specify the layer\'s short</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- name, which is used internally by AWS OpsWorks Stacks and by Chef. The</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- short name is also used as the name for the directory where your app</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- files are installed. It can have a maximum of 200 characters and must be</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- in the following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- The built-in layers\' short names are defined by AWS OpsWorks Stacks.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference&gt;</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'customRecipes', 'updateLayer_customRecipes' - A @LayerCustomRecipes@ object that specifies the layer\'s custom</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- recipes.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'customJson', 'updateLayer_customJson' - A JSON-formatted string containing custom stack configuration and</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- deployment attributes to be installed on the layer\'s instances. For</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON&gt;.</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'volumeConfigurations', 'updateLayer_volumeConfigurations' - A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- volumes.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'enableAutoHealing', 'updateLayer_enableAutoHealing' - Whether to disable auto healing for the layer.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'packages', 'updateLayer_packages' - An array of @Package@ objects that describe the layer\'s packages.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'attributes', 'updateLayer_attributes' - One or more user-defined key\/value pairs to be added to the stack</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'name', 'updateLayer_name' - The layer name, which is used by the console.</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- 'autoAssignPublicIps', 'updateLayer_autoAssignPublicIps' - For stacks that are running in a VPC, whether to automatically assign a</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- public IP address to the layer\'s instances. For more information, see</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer&gt;.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'useEbsOptimizedInstances', 'updateLayer_useEbsOptimizedInstances' - Whether to use Amazon EBS-optimized instances.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'autoAssignElasticIps', 'updateLayer_autoAssignElasticIps' - Whether to automatically assign an</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address&gt;</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- to the layer\'s instances. For more information, see</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer&gt;.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'layerId', 'updateLayer_layerId' - The layer ID.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#newUpdateLayer"><span class="hs-identifier hs-type">newUpdateLayer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-207"></span><span>  </span><span class="hs-comment">-- | 'layerId'</span><span>
+</span><span id="line-208"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-209"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span>
+</span><span id="line-210"></span><span id="newUpdateLayer"><span class="annot"><span class="annottext">newUpdateLayer :: Text -&gt; UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#newUpdateLayer"><span class="hs-identifier hs-var hs-var">newUpdateLayer</span></a></span></span><span> </span><span id="local-6989586621679396841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396841"><span class="hs-identifier hs-var">pLayerId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-211"></span><span>  </span><span class="annot"><span class="annottext">UpdateLayer' :: Maybe Text
+-&gt; Maybe [Text]
+-&gt; Maybe Bool
+-&gt; Maybe CloudWatchLogsConfiguration
+-&gt; Maybe LifecycleEventConfiguration
+-&gt; Maybe Text
+-&gt; Maybe Recipes
+-&gt; Maybe Text
+-&gt; Maybe [VolumeConfiguration]
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text))
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:customInstanceProfileArn:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomInstanceProfileArn%3AUpdateLayer%27"><span class="hs-identifier hs-var">customInstanceProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-213"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>      </span><span class="annot"><span class="annottext">$sel:customSecurityGroupIds:UpdateLayer' :: Maybe [Text]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomSecurityGroupIds%3AUpdateLayer%27"><span class="hs-identifier hs-var">customSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>      </span><span class="annot"><span class="annottext">$sel:installUpdatesOnBoot:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AinstallUpdatesOnBoot%3AUpdateLayer%27"><span class="hs-identifier hs-var">installUpdatesOnBoot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>      </span><span class="annot"><span class="annottext">$sel:cloudWatchLogsConfiguration:UpdateLayer' :: Maybe CloudWatchLogsConfiguration
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcloudWatchLogsConfiguration%3AUpdateLayer%27"><span class="hs-identifier hs-var">cloudWatchLogsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>      </span><span class="annot"><span class="annottext">$sel:lifecycleEventConfiguration:UpdateLayer' :: Maybe LifecycleEventConfiguration
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AlifecycleEventConfiguration%3AUpdateLayer%27"><span class="hs-identifier hs-var">lifecycleEventConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>      </span><span class="annot"><span class="annottext">$sel:shortname:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Ashortname%3AUpdateLayer%27"><span class="hs-identifier hs-var">shortname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>      </span><span class="annot"><span class="annottext">$sel:customRecipes:UpdateLayer' :: Maybe Recipes
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomRecipes%3AUpdateLayer%27"><span class="hs-identifier hs-var">customRecipes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Recipes
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>      </span><span class="annot"><span class="annottext">$sel:customJson:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomJson%3AUpdateLayer%27"><span class="hs-identifier hs-var">customJson</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-221"></span><span>      </span><span class="annot"><span class="annottext">$sel:volumeConfigurations:UpdateLayer' :: Maybe [VolumeConfiguration]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AvolumeConfigurations%3AUpdateLayer%27"><span class="hs-identifier hs-var">volumeConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>      </span><span class="annot"><span class="annottext">$sel:enableAutoHealing:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AenableAutoHealing%3AUpdateLayer%27"><span class="hs-identifier hs-var">enableAutoHealing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>      </span><span class="annot"><span class="annottext">$sel:packages:UpdateLayer' :: Maybe [Text]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Apackages%3AUpdateLayer%27"><span class="hs-identifier hs-var">packages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>      </span><span class="annot"><span class="annottext">$sel:attributes:UpdateLayer' :: Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Aattributes%3AUpdateLayer%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap LayerAttributesKeys (Maybe Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Aname%3AUpdateLayer%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoAssignPublicIps:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AautoAssignPublicIps%3AUpdateLayer%27"><span class="hs-identifier hs-var">autoAssignPublicIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>      </span><span class="annot"><span class="annottext">$sel:useEbsOptimizedInstances:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AuseEbsOptimizedInstances%3AUpdateLayer%27"><span class="hs-identifier hs-var">useEbsOptimizedInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:autoAssignElasticIps:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AautoAssignElasticIps%3AUpdateLayer%27"><span class="hs-identifier hs-var">autoAssignElasticIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:layerId:UpdateLayer' :: Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AlayerId%3AUpdateLayer%27"><span class="hs-identifier hs-var">layerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396841"><span class="hs-identifier hs-var">pLayerId_</span></a></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | The ARN of an IAM profile to be used for all of the layer\'s EC2</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- instances. For more information about IAM ARNs, see</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers&gt;.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customInstanceProfileArn"><span class="hs-identifier hs-type">updateLayer_customInstanceProfileArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span id="updateLayer_customInstanceProfileArn"><span class="annot"><span class="annottext">updateLayer_customInstanceProfileArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customInstanceProfileArn"><span class="hs-identifier hs-var hs-var">updateLayer_customInstanceProfileArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Text)
+-&gt; (UpdateLayer -&gt; Maybe Text -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396838"><span class="annot"><span class="annottext">Maybe Text
+customInstanceProfileArn :: Maybe Text
+$sel:customInstanceProfileArn:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+</span><a href="#local-6989586621679396838"><span class="hs-identifier hs-var hs-var">customInstanceProfileArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396838"><span class="hs-identifier hs-var">customInstanceProfileArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396837"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396836"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customInstanceProfileArn:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomInstanceProfileArn%3AUpdateLayer%27"><span class="hs-identifier hs-var">customInstanceProfileArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | An array containing the layer\'s custom security group IDs.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customSecurityGroupIds"><span class="hs-identifier hs-type">updateLayer_customSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-240"></span><span id="updateLayer_customSecurityGroupIds"><span class="annot"><span class="annottext">updateLayer_customSecurityGroupIds :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customSecurityGroupIds"><span class="hs-identifier hs-var hs-var">updateLayer_customSecurityGroupIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe [Text])
+-&gt; (UpdateLayer -&gt; Maybe [Text] -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396835"><span class="annot"><span class="annottext">Maybe [Text]
+customSecurityGroupIds :: Maybe [Text]
+$sel:customSecurityGroupIds:UpdateLayer' :: UpdateLayer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679396835"><span class="hs-identifier hs-var hs-var">customSecurityGroupIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396835"><span class="hs-identifier hs-var">customSecurityGroupIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396834"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396833"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customSecurityGroupIds:UpdateLayer' :: Maybe [Text]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomSecurityGroupIds%3AUpdateLayer%27"><span class="hs-identifier hs-var">customSecurityGroupIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateLayer -&gt; f UpdateLayer)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateLayer
+-&gt; f UpdateLayer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | Whether to install operating system and package updates when the</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- instance boots. The default value is @true@. To control when updates are</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- installed, set this value to @false@. You must then update your</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- instances manually by using CreateDeployment to run the</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- @update_dependencies@ stack command or manually running @yum@ (Amazon</span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- Linux) or @apt-get@ (Ubuntu) on the instances.</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- We strongly recommend using the default value of @true@, to ensure that</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- your instances have the latest security updates.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_installUpdatesOnBoot"><span class="hs-identifier hs-type">updateLayer_installUpdatesOnBoot</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-252"></span><span id="updateLayer_installUpdatesOnBoot"><span class="annot"><span class="annottext">updateLayer_installUpdatesOnBoot :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_installUpdatesOnBoot"><span class="hs-identifier hs-var hs-var">updateLayer_installUpdatesOnBoot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Bool)
+-&gt; (UpdateLayer -&gt; Maybe Bool -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396829"><span class="annot"><span class="annottext">Maybe Bool
+installUpdatesOnBoot :: Maybe Bool
+$sel:installUpdatesOnBoot:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+</span><a href="#local-6989586621679396829"><span class="hs-identifier hs-var hs-var">installUpdatesOnBoot</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396829"><span class="hs-identifier hs-var">installUpdatesOnBoot</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396828"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396828"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396827"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396827"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396828"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:installUpdatesOnBoot:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AinstallUpdatesOnBoot%3AUpdateLayer%27"><span class="hs-identifier hs-var">installUpdatesOnBoot</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396827"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | Specifies CloudWatch Logs configuration options for the layer. For more</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- information, see CloudWatchLogsLogStream.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_cloudWatchLogsConfiguration"><span class="hs-identifier hs-type">updateLayer_cloudWatchLogsConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.CloudWatchLogsConfiguration.html#CloudWatchLogsConfiguration"><span class="hs-identifier hs-type">CloudWatchLogsConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="updateLayer_cloudWatchLogsConfiguration"><span class="annot"><span class="annottext">updateLayer_cloudWatchLogsConfiguration :: (Maybe CloudWatchLogsConfiguration
+ -&gt; f (Maybe CloudWatchLogsConfiguration))
+-&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_cloudWatchLogsConfiguration"><span class="hs-identifier hs-var hs-var">updateLayer_cloudWatchLogsConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe CloudWatchLogsConfiguration)
+-&gt; (UpdateLayer
+    -&gt; Maybe CloudWatchLogsConfiguration -&gt; UpdateLayer)
+-&gt; Lens
+     UpdateLayer
+     UpdateLayer
+     (Maybe CloudWatchLogsConfiguration)
+     (Maybe CloudWatchLogsConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396826"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfiguration
+cloudWatchLogsConfiguration :: Maybe CloudWatchLogsConfiguration
+$sel:cloudWatchLogsConfiguration:UpdateLayer' :: UpdateLayer -&gt; Maybe CloudWatchLogsConfiguration
+</span><a href="#local-6989586621679396826"><span class="hs-identifier hs-var hs-var">cloudWatchLogsConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfiguration
+</span><a href="#local-6989586621679396826"><span class="hs-identifier hs-var">cloudWatchLogsConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396825"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396825"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396824"><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfiguration
+</span><a href="#local-6989586621679396824"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396825"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cloudWatchLogsConfiguration:UpdateLayer' :: Maybe CloudWatchLogsConfiguration
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcloudWatchLogsConfiguration%3AUpdateLayer%27"><span class="hs-identifier hs-var">cloudWatchLogsConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfiguration
+</span><a href="#local-6989586621679396824"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_lifecycleEventConfiguration"><span class="hs-identifier hs-type">updateLayer_lifecycleEventConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LifecycleEventConfiguration.html#LifecycleEventConfiguration"><span class="hs-identifier hs-type">LifecycleEventConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="updateLayer_lifecycleEventConfiguration"><span class="annot"><span class="annottext">updateLayer_lifecycleEventConfiguration :: (Maybe LifecycleEventConfiguration
+ -&gt; f (Maybe LifecycleEventConfiguration))
+-&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_lifecycleEventConfiguration"><span class="hs-identifier hs-var hs-var">updateLayer_lifecycleEventConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe LifecycleEventConfiguration)
+-&gt; (UpdateLayer
+    -&gt; Maybe LifecycleEventConfiguration -&gt; UpdateLayer)
+-&gt; Lens
+     UpdateLayer
+     UpdateLayer
+     (Maybe LifecycleEventConfiguration)
+     (Maybe LifecycleEventConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396823"><span class="annot"><span class="annottext">Maybe LifecycleEventConfiguration
+lifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+$sel:lifecycleEventConfiguration:UpdateLayer' :: UpdateLayer -&gt; Maybe LifecycleEventConfiguration
+</span><a href="#local-6989586621679396823"><span class="hs-identifier hs-var hs-var">lifecycleEventConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventConfiguration
+</span><a href="#local-6989586621679396823"><span class="hs-identifier hs-var">lifecycleEventConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396822"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396822"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396821"><span class="annot"><span class="annottext">Maybe LifecycleEventConfiguration
+</span><a href="#local-6989586621679396821"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396822"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lifecycleEventConfiguration:UpdateLayer' :: Maybe LifecycleEventConfiguration
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AlifecycleEventConfiguration%3AUpdateLayer%27"><span class="hs-identifier hs-var">lifecycleEventConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventConfiguration
+</span><a href="#local-6989586621679396821"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | For custom layers only, use this parameter to specify the layer\'s short</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- name, which is used internally by AWS OpsWorks Stacks and by Chef. The</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- short name is also used as the name for the directory where your app</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- files are installed. It can have a maximum of 200 characters and must be</span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- in the following format: \/\\A[a-z0-9\\-\\_\\.]+\\Z\/.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- The built-in layers\' short names are defined by AWS OpsWorks Stacks.</span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- For more information, see the</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/layers.html Layer Reference&gt;</span><span>
+</span><span id="line-272"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_shortname"><span class="hs-identifier hs-type">updateLayer_shortname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-273"></span><span id="updateLayer_shortname"><span class="annot"><span class="annottext">updateLayer_shortname :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_shortname"><span class="hs-identifier hs-var hs-var">updateLayer_shortname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Text)
+-&gt; (UpdateLayer -&gt; Maybe Text -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396820"><span class="annot"><span class="annottext">Maybe Text
+shortname :: Maybe Text
+$sel:shortname:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+</span><a href="#local-6989586621679396820"><span class="hs-identifier hs-var hs-var">shortname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396820"><span class="hs-identifier hs-var">shortname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396819"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396818"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:shortname:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Ashortname%3AUpdateLayer%27"><span class="hs-identifier hs-var">shortname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- | A @LayerCustomRecipes@ object that specifies the layer\'s custom</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- recipes.</span><span>
+</span><span id="line-277"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customRecipes"><span class="hs-identifier hs-type">updateLayer_customRecipes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.Recipes.html#Recipes"><span class="hs-identifier hs-type">Recipes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span id="updateLayer_customRecipes"><span class="annot"><span class="annottext">updateLayer_customRecipes :: (Maybe Recipes -&gt; f (Maybe Recipes))
+-&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customRecipes"><span class="hs-identifier hs-var hs-var">updateLayer_customRecipes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Recipes)
+-&gt; (UpdateLayer -&gt; Maybe Recipes -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Recipes) (Maybe Recipes)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396817"><span class="annot"><span class="annottext">Maybe Recipes
+customRecipes :: Maybe Recipes
+$sel:customRecipes:UpdateLayer' :: UpdateLayer -&gt; Maybe Recipes
+</span><a href="#local-6989586621679396817"><span class="hs-identifier hs-var hs-var">customRecipes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Recipes
+</span><a href="#local-6989586621679396817"><span class="hs-identifier hs-var">customRecipes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396816"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396815"><span class="annot"><span class="annottext">Maybe Recipes
+</span><a href="#local-6989586621679396815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customRecipes:UpdateLayer' :: Maybe Recipes
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomRecipes%3AUpdateLayer%27"><span class="hs-identifier hs-var">customRecipes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Recipes
+</span><a href="#local-6989586621679396815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- | A JSON-formatted string containing custom stack configuration and</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- deployment attributes to be installed on the layer\'s instances. For</span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- more information, see</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workingcookbook-json-override.html Using Custom JSON&gt;.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customJson"><span class="hs-identifier hs-type">updateLayer_customJson</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="updateLayer_customJson"><span class="annot"><span class="annottext">updateLayer_customJson :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_customJson"><span class="hs-identifier hs-var hs-var">updateLayer_customJson</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Text)
+-&gt; (UpdateLayer -&gt; Maybe Text -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396814"><span class="annot"><span class="annottext">Maybe Text
+customJson :: Maybe Text
+$sel:customJson:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+</span><a href="#local-6989586621679396814"><span class="hs-identifier hs-var hs-var">customJson</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396814"><span class="hs-identifier hs-var">customJson</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396813"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396813"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396812"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396812"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396813"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:customJson:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AcustomJson%3AUpdateLayer%27"><span class="hs-identifier hs-var">customJson</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396812"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | A @VolumeConfigurations@ object that describes the layer\'s Amazon EBS</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- volumes.</span><span>
+</span><span id="line-289"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_volumeConfigurations"><span class="hs-identifier hs-type">updateLayer_volumeConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.OpsWorks.Types.VolumeConfiguration.html#VolumeConfiguration"><span class="hs-identifier hs-type">VolumeConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-290"></span><span id="updateLayer_volumeConfigurations"><span class="annot"><span class="annottext">updateLayer_volumeConfigurations :: (Maybe [VolumeConfiguration] -&gt; f (Maybe [VolumeConfiguration]))
+-&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_volumeConfigurations"><span class="hs-identifier hs-var hs-var">updateLayer_volumeConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe [VolumeConfiguration])
+-&gt; (UpdateLayer -&gt; Maybe [VolumeConfiguration] -&gt; UpdateLayer)
+-&gt; Lens
+     UpdateLayer
+     UpdateLayer
+     (Maybe [VolumeConfiguration])
+     (Maybe [VolumeConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396811"><span class="annot"><span class="annottext">Maybe [VolumeConfiguration]
+volumeConfigurations :: Maybe [VolumeConfiguration]
+$sel:volumeConfigurations:UpdateLayer' :: UpdateLayer -&gt; Maybe [VolumeConfiguration]
+</span><a href="#local-6989586621679396811"><span class="hs-identifier hs-var hs-var">volumeConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeConfiguration]
+</span><a href="#local-6989586621679396811"><span class="hs-identifier hs-var">volumeConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396810"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396810"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396809"><span class="annot"><span class="annottext">Maybe [VolumeConfiguration]
+</span><a href="#local-6989586621679396809"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396810"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:volumeConfigurations:UpdateLayer' :: Maybe [VolumeConfiguration]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AvolumeConfigurations%3AUpdateLayer%27"><span class="hs-identifier hs-var">volumeConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeConfiguration]
+</span><a href="#local-6989586621679396809"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VolumeConfiguration] -&gt; f (Maybe [VolumeConfiguration]))
+ -&gt; UpdateLayer -&gt; f UpdateLayer)
+-&gt; ((Maybe [VolumeConfiguration]
+     -&gt; f (Maybe [VolumeConfiguration]))
+    -&gt; Maybe [VolumeConfiguration] -&gt; f (Maybe [VolumeConfiguration]))
+-&gt; (Maybe [VolumeConfiguration] -&gt; f (Maybe [VolumeConfiguration]))
+-&gt; UpdateLayer
+-&gt; f UpdateLayer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VolumeConfiguration]
+  [VolumeConfiguration]
+  [VolumeConfiguration]
+  [VolumeConfiguration]
+-&gt; Iso
+     (Maybe [VolumeConfiguration])
+     (Maybe [VolumeConfiguration])
+     (Maybe [VolumeConfiguration])
+     (Maybe [VolumeConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VolumeConfiguration]
+  [VolumeConfiguration]
+  [VolumeConfiguration]
+  [VolumeConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-291"></span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- | Whether to disable auto healing for the layer.</span><span>
+</span><span id="line-293"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_enableAutoHealing"><span class="hs-identifier hs-type">updateLayer_enableAutoHealing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span id="updateLayer_enableAutoHealing"><span class="annot"><span class="annottext">updateLayer_enableAutoHealing :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_enableAutoHealing"><span class="hs-identifier hs-var hs-var">updateLayer_enableAutoHealing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Bool)
+-&gt; (UpdateLayer -&gt; Maybe Bool -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396808"><span class="annot"><span class="annottext">Maybe Bool
+enableAutoHealing :: Maybe Bool
+$sel:enableAutoHealing:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+</span><a href="#local-6989586621679396808"><span class="hs-identifier hs-var hs-var">enableAutoHealing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396808"><span class="hs-identifier hs-var">enableAutoHealing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396807"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396807"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396806"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396806"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396807"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:enableAutoHealing:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AenableAutoHealing%3AUpdateLayer%27"><span class="hs-identifier hs-var">enableAutoHealing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396806"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-295"></span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- | An array of @Package@ objects that describe the layer\'s packages.</span><span>
+</span><span id="line-297"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_packages"><span class="hs-identifier hs-type">updateLayer_packages</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span id="updateLayer_packages"><span class="annot"><span class="annottext">updateLayer_packages :: (Maybe [Text] -&gt; f (Maybe [Text])) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_packages"><span class="hs-identifier hs-var hs-var">updateLayer_packages</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe [Text])
+-&gt; (UpdateLayer -&gt; Maybe [Text] -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396805"><span class="annot"><span class="annottext">Maybe [Text]
+packages :: Maybe [Text]
+$sel:packages:UpdateLayer' :: UpdateLayer -&gt; Maybe [Text]
+</span><a href="#local-6989586621679396805"><span class="hs-identifier hs-var hs-var">packages</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396805"><span class="hs-identifier hs-var">packages</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396804"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396804"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396803"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396803"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396804"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:packages:UpdateLayer' :: Maybe [Text]
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Apackages%3AUpdateLayer%27"><span class="hs-identifier hs-var">packages</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396803"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateLayer -&gt; f UpdateLayer)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateLayer
+-&gt; f UpdateLayer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-299"></span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- | One or more user-defined key\/value pairs to be added to the stack</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- attributes.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_attributes"><span class="hs-identifier hs-type">updateLayer_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.LayerAttributesKeys.html#LayerAttributesKeys"><span class="hs-identifier hs-type">LayerAttributesKeys</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="updateLayer_attributes"><span class="annot"><span class="annottext">updateLayer_attributes :: (Maybe (HashMap LayerAttributesKeys (Maybe Text))
+ -&gt; f (Maybe (HashMap LayerAttributesKeys (Maybe Text))))
+-&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_attributes"><span class="hs-identifier hs-var hs-var">updateLayer_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text)))
+-&gt; (UpdateLayer
+    -&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text)) -&gt; UpdateLayer)
+-&gt; Lens
+     UpdateLayer
+     UpdateLayer
+     (Maybe (HashMap LayerAttributesKeys (Maybe Text)))
+     (Maybe (HashMap LayerAttributesKeys (Maybe Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396802"><span class="annot"><span class="annottext">Maybe (HashMap LayerAttributesKeys (Maybe Text))
+attributes :: Maybe (HashMap LayerAttributesKeys (Maybe Text))
+$sel:attributes:UpdateLayer' :: UpdateLayer -&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="#local-6989586621679396802"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="#local-6989586621679396802"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396801"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396801"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396800"><span class="annot"><span class="annottext">Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="#local-6989586621679396800"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396801"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:UpdateLayer' :: Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Aattributes%3AUpdateLayer%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="#local-6989586621679396800"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap LayerAttributesKeys (Maybe Text))
+  -&gt; f (Maybe (HashMap LayerAttributesKeys (Maybe Text))))
+ -&gt; UpdateLayer -&gt; f UpdateLayer)
+-&gt; ((Maybe (HashMap LayerAttributesKeys (Maybe Text))
+     -&gt; f (Maybe (HashMap LayerAttributesKeys (Maybe Text))))
+    -&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text))
+    -&gt; f (Maybe (HashMap LayerAttributesKeys (Maybe Text))))
+-&gt; (Maybe (HashMap LayerAttributesKeys (Maybe Text))
+    -&gt; f (Maybe (HashMap LayerAttributesKeys (Maybe Text))))
+-&gt; UpdateLayer
+-&gt; f UpdateLayer
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap LayerAttributesKeys (Maybe Text))
+  (HashMap LayerAttributesKeys (Maybe Text))
+  (HashMap LayerAttributesKeys (Maybe Text))
+  (HashMap LayerAttributesKeys (Maybe Text))
+-&gt; Iso
+     (Maybe (HashMap LayerAttributesKeys (Maybe Text)))
+     (Maybe (HashMap LayerAttributesKeys (Maybe Text)))
+     (Maybe (HashMap LayerAttributesKeys (Maybe Text)))
+     (Maybe (HashMap LayerAttributesKeys (Maybe Text)))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap LayerAttributesKeys (Maybe Text))
+  (HashMap LayerAttributesKeys (Maybe Text))
+  (HashMap LayerAttributesKeys (Maybe Text))
+  (HashMap LayerAttributesKeys (Maybe Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | The layer name, which is used by the console.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_name"><span class="hs-identifier hs-type">updateLayer_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="updateLayer_name"><span class="annot"><span class="annottext">updateLayer_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_name"><span class="hs-identifier hs-var hs-var">updateLayer_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Text)
+-&gt; (UpdateLayer -&gt; Maybe Text -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396799"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+</span><a href="#local-6989586621679396799"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396799"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396798"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396797"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396797"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396798"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:UpdateLayer' :: Maybe Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3Aname%3AUpdateLayer%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396797"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- | For stacks that are running in a VPC, whether to automatically assign a</span><span>
+</span><span id="line-310"></span><span class="hs-comment">-- public IP address to the layer\'s instances. For more information, see</span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer&gt;.</span><span>
+</span><span id="line-312"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_autoAssignPublicIps"><span class="hs-identifier hs-type">updateLayer_autoAssignPublicIps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-313"></span><span id="updateLayer_autoAssignPublicIps"><span class="annot"><span class="annottext">updateLayer_autoAssignPublicIps :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_autoAssignPublicIps"><span class="hs-identifier hs-var hs-var">updateLayer_autoAssignPublicIps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Bool)
+-&gt; (UpdateLayer -&gt; Maybe Bool -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396796"><span class="annot"><span class="annottext">Maybe Bool
+autoAssignPublicIps :: Maybe Bool
+$sel:autoAssignPublicIps:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+</span><a href="#local-6989586621679396796"><span class="hs-identifier hs-var hs-var">autoAssignPublicIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396796"><span class="hs-identifier hs-var">autoAssignPublicIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396795"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396795"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396794"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396794"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396795"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoAssignPublicIps:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AautoAssignPublicIps%3AUpdateLayer%27"><span class="hs-identifier hs-var">autoAssignPublicIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396794"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-314"></span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- | Whether to use Amazon EBS-optimized instances.</span><span>
+</span><span id="line-316"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_useEbsOptimizedInstances"><span class="hs-identifier hs-type">updateLayer_useEbsOptimizedInstances</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span id="updateLayer_useEbsOptimizedInstances"><span class="annot"><span class="annottext">updateLayer_useEbsOptimizedInstances :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_useEbsOptimizedInstances"><span class="hs-identifier hs-var hs-var">updateLayer_useEbsOptimizedInstances</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Bool)
+-&gt; (UpdateLayer -&gt; Maybe Bool -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396793"><span class="annot"><span class="annottext">Maybe Bool
+useEbsOptimizedInstances :: Maybe Bool
+$sel:useEbsOptimizedInstances:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+</span><a href="#local-6989586621679396793"><span class="hs-identifier hs-var hs-var">useEbsOptimizedInstances</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396793"><span class="hs-identifier hs-var">useEbsOptimizedInstances</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396792"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396792"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396791"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396791"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396792"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useEbsOptimizedInstances:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AuseEbsOptimizedInstances%3AUpdateLayer%27"><span class="hs-identifier hs-var">useEbsOptimizedInstances</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396791"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- | Whether to automatically assign an</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html Elastic IP address&gt;</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- to the layer\'s instances. For more information, see</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-edit.html How to Edit a Layer&gt;.</span><span>
+</span><span id="line-323"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_autoAssignElasticIps"><span class="hs-identifier hs-type">updateLayer_autoAssignElasticIps</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span id="updateLayer_autoAssignElasticIps"><span class="annot"><span class="annottext">updateLayer_autoAssignElasticIps :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_autoAssignElasticIps"><span class="hs-identifier hs-var hs-var">updateLayer_autoAssignElasticIps</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Maybe Bool)
+-&gt; (UpdateLayer -&gt; Maybe Bool -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396790"><span class="annot"><span class="annottext">Maybe Bool
+autoAssignElasticIps :: Maybe Bool
+$sel:autoAssignElasticIps:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+</span><a href="#local-6989586621679396790"><span class="hs-identifier hs-var hs-var">autoAssignElasticIps</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396790"><span class="hs-identifier hs-var">autoAssignElasticIps</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396789"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396789"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396788"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396788"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396789"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:autoAssignElasticIps:UpdateLayer' :: Maybe Bool
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AautoAssignElasticIps%3AUpdateLayer%27"><span class="hs-identifier hs-var">autoAssignElasticIps</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396788"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- | The layer ID.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_layerId"><span class="hs-identifier hs-type">updateLayer_layerId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-328"></span><span id="updateLayer_layerId"><span class="annot"><span class="annottext">updateLayer_layerId :: (Text -&gt; f Text) -&gt; UpdateLayer -&gt; f UpdateLayer
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#updateLayer_layerId"><span class="hs-identifier hs-var hs-var">updateLayer_layerId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateLayer -&gt; Text)
+-&gt; (UpdateLayer -&gt; Text -&gt; UpdateLayer)
+-&gt; Lens UpdateLayer UpdateLayer Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396787"><span class="annot"><span class="annottext">Text
+layerId :: Text
+$sel:layerId:UpdateLayer' :: UpdateLayer -&gt; Text
+</span><a href="#local-6989586621679396787"><span class="hs-identifier hs-var hs-var">layerId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396787"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396786"><span class="annot"><span class="annottext">s :: UpdateLayer
+</span><a href="#local-6989586621679396786"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396785"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396785"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateLayer
+</span><a href="#local-6989586621679396786"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:layerId:UpdateLayer' :: Text
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#%24sel%3AlayerId%3AUpdateLayer%27"><span class="hs-identifier hs-var">layerId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396785"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-331"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse"><span class="hs-identifier hs-type">UpdateLayerResponse</span></a></span><span>
+</span><span id="line-332"></span><span>  </span><span id="local-6989586621679396781"><span class="annot"><span class="annottext">request :: UpdateLayer -&gt; Request UpdateLayer
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateLayer -&gt; Request UpdateLayer
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.OpsWorks.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-333"></span><span>  </span><span id="local-6989586621679396777"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateLayer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateLayer)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateLayer
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateLayer
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateLayer)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+AWSResponse a
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveNull</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse UpdateLayer
+UpdateLayerResponse
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse%27"><span class="hs-identifier hs-var">UpdateLayerResponse'</span></a></span><span>
+</span><span id="line-334"></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396770"><span id="local-6989586621679396772"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span></span></span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396767"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span></span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-340"></span><span>  </span><span id="local-6989586621679396763"><span class="annot"><span class="annottext">toHeaders :: UpdateLayer -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-341"></span><span>    </span><span class="annot"><span class="annottext">[Header] -&gt; UpdateLayer -&gt; [Header]
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-342"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[[Header]] -&gt; [Header]
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-343"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-344"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;OpsWorks_20130218.UpdateLayer&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-345"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-346"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-348"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; [Header]
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; [Header]
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-349"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-350"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-351"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-352"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-353"></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396753"><span id="local-6989586621679396755"><span id="local-6989586621679396757"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-355"></span><span>  </span><span id="local-6989586621679396751"><span class="annot"><span class="annottext">toJSON :: UpdateLayer -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer%27"><span class="hs-identifier hs-type">UpdateLayer'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396733"><span id="local-6989586621679396734"><span id="local-6989586621679396735"><span id="local-6989586621679396736"><span id="local-6989586621679396737"><span id="local-6989586621679396738"><span id="local-6989586621679396739"><span id="local-6989586621679396740"><span id="local-6989586621679396741"><span id="local-6989586621679396742"><span id="local-6989586621679396743"><span id="local-6989586621679396744"><span id="local-6989586621679396745"><span id="local-6989586621679396746"><span id="local-6989586621679396747"><span id="local-6989586621679396748"><span id="local-6989586621679396749"><span class="annot"><span class="annottext">Maybe Bool
+Maybe [Text]
+Maybe [VolumeConfiguration]
+Maybe Text
+Maybe (HashMap LayerAttributesKeys (Maybe Text))
+Maybe CloudWatchLogsConfiguration
+Maybe Recipes
+Maybe LifecycleEventConfiguration
+Text
+layerId :: Text
+autoAssignElasticIps :: Maybe Bool
+useEbsOptimizedInstances :: Maybe Bool
+autoAssignPublicIps :: Maybe Bool
+name :: Maybe Text
+attributes :: Maybe (HashMap LayerAttributesKeys (Maybe Text))
+packages :: Maybe [Text]
+enableAutoHealing :: Maybe Bool
+volumeConfigurations :: Maybe [VolumeConfiguration]
+customJson :: Maybe Text
+customRecipes :: Maybe Recipes
+shortname :: Maybe Text
+lifecycleEventConfiguration :: Maybe LifecycleEventConfiguration
+cloudWatchLogsConfiguration :: Maybe CloudWatchLogsConfiguration
+installUpdatesOnBoot :: Maybe Bool
+customSecurityGroupIds :: Maybe [Text]
+customInstanceProfileArn :: Maybe Text
+$sel:layerId:UpdateLayer' :: UpdateLayer -&gt; Text
+$sel:autoAssignElasticIps:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+$sel:useEbsOptimizedInstances:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+$sel:autoAssignPublicIps:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+$sel:name:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+$sel:attributes:UpdateLayer' :: UpdateLayer -&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text))
+$sel:packages:UpdateLayer' :: UpdateLayer -&gt; Maybe [Text]
+$sel:enableAutoHealing:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+$sel:volumeConfigurations:UpdateLayer' :: UpdateLayer -&gt; Maybe [VolumeConfiguration]
+$sel:customJson:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+$sel:customRecipes:UpdateLayer' :: UpdateLayer -&gt; Maybe Recipes
+$sel:shortname:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+$sel:lifecycleEventConfiguration:UpdateLayer' :: UpdateLayer -&gt; Maybe LifecycleEventConfiguration
+$sel:cloudWatchLogsConfiguration:UpdateLayer' :: UpdateLayer -&gt; Maybe CloudWatchLogsConfiguration
+$sel:installUpdatesOnBoot:UpdateLayer' :: UpdateLayer -&gt; Maybe Bool
+$sel:customSecurityGroupIds:UpdateLayer' :: UpdateLayer -&gt; Maybe [Text]
+$sel:customInstanceProfileArn:UpdateLayer' :: UpdateLayer -&gt; Maybe Text
+</span><a href="#local-6989586621679396733"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-356"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-357"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-358"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomInstanceProfileArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396749"><span class="hs-identifier hs-var">customInstanceProfileArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-360"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomSecurityGroupIds&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-361"></span><span>              </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396748"><span class="hs-identifier hs-var">customSecurityGroupIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-362"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstallUpdatesOnBoot&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396747"><span class="hs-identifier hs-var">installUpdatesOnBoot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-364"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CloudWatchLogsConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CloudWatchLogsConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-365"></span><span>              </span><span class="annot"><span class="annottext">(CloudWatchLogsConfiguration -&gt; Pair)
+-&gt; Maybe CloudWatchLogsConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe CloudWatchLogsConfiguration
+</span><a href="#local-6989586621679396746"><span class="hs-identifier hs-var">cloudWatchLogsConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-366"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LifecycleEventConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; LifecycleEventConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>              </span><span class="annot"><span class="annottext">(LifecycleEventConfiguration -&gt; Pair)
+-&gt; Maybe LifecycleEventConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe LifecycleEventConfiguration
+</span><a href="#local-6989586621679396745"><span class="hs-identifier hs-var">lifecycleEventConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-368"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Shortname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396744"><span class="hs-identifier hs-var">shortname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-369"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomRecipes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Recipes -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Recipes -&gt; Pair) -&gt; Maybe Recipes -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Recipes
+</span><a href="#local-6989586621679396743"><span class="hs-identifier hs-var">customRecipes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-370"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CustomJson&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396742"><span class="hs-identifier hs-var">customJson</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-371"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VolumeConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [VolumeConfiguration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-372"></span><span>              </span><span class="annot"><span class="annottext">([VolumeConfiguration] -&gt; Pair)
+-&gt; Maybe [VolumeConfiguration] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VolumeConfiguration]
+</span><a href="#local-6989586621679396741"><span class="hs-identifier hs-var">volumeConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-373"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EnableAutoHealing&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-374"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396740"><span class="hs-identifier hs-var">enableAutoHealing</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-375"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Packages&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679396739"><span class="hs-identifier hs-var">packages</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-376"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap LayerAttributesKeys (Maybe Text) -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap LayerAttributesKeys (Maybe Text) -&gt; Pair)
+-&gt; Maybe (HashMap LayerAttributesKeys (Maybe Text)) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap LayerAttributesKeys (Maybe Text))
+</span><a href="#local-6989586621679396738"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-377"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396737"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-378"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoAssignPublicIps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-379"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396736"><span class="hs-identifier hs-var">autoAssignPublicIps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-380"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UseEbsOptimizedInstances&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-381"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396735"><span class="hs-identifier hs-var">useEbsOptimizedInstances</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-382"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AutoAssignElasticIps&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>              </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679396734"><span class="hs-identifier hs-var">autoAssignElasticIps</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LayerId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679396733"><span class="hs-identifier hs-var">layerId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-385"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-386"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-387"></span><span>
+</span><span id="line-388"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-389"></span><span>  </span><span id="local-6989586621679396726"><span class="annot"><span class="annottext">toPath :: UpdateLayer -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UpdateLayer -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-390"></span><span>
+</span><span id="line-391"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayer"><span class="hs-identifier hs-type">UpdateLayer</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-392"></span><span>  </span><span id="local-6989586621679396722"><span class="annot"><span class="annottext">toQuery :: UpdateLayer -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateLayer -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-393"></span><span>
+</span><span id="line-394"></span><span class="hs-comment">-- | /See:/ 'newUpdateLayerResponse' smart constructor.</span><span>
+</span><span id="line-395"></span><span id="local-6989586621679396719"><span id="local-6989586621679396720"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateLayerResponse"><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse"><span class="hs-identifier hs-var">UpdateLayerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateLayerResponse%27"><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse%27"><span class="hs-identifier hs-var">UpdateLayerResponse'</span></a></span></span><span>
+</span><span id="line-396"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-397"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-398"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396715"><span id="local-6989586621679396717"><span class="annot"><span class="annottext">UpdateLayerResponse -&gt; UpdateLayerResponse -&gt; Bool
+(UpdateLayerResponse -&gt; UpdateLayerResponse -&gt; Bool)
+-&gt; (UpdateLayerResponse -&gt; UpdateLayerResponse -&gt; Bool)
+-&gt; Eq UpdateLayerResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateLayerResponse -&gt; UpdateLayerResponse -&gt; Bool
+$c/= :: UpdateLayerResponse -&gt; UpdateLayerResponse -&gt; Bool
+== :: UpdateLayerResponse -&gt; UpdateLayerResponse -&gt; Bool
+$c== :: UpdateLayerResponse -&gt; UpdateLayerResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396707"><span id="local-6989586621679396709"><span id="local-6989586621679396711"><span id="local-6989586621679396713"><span class="annot"><span class="annottext">ReadPrec [UpdateLayerResponse]
+ReadPrec UpdateLayerResponse
+Int -&gt; ReadS UpdateLayerResponse
+ReadS [UpdateLayerResponse]
+(Int -&gt; ReadS UpdateLayerResponse)
+-&gt; ReadS [UpdateLayerResponse]
+-&gt; ReadPrec UpdateLayerResponse
+-&gt; ReadPrec [UpdateLayerResponse]
+-&gt; Read UpdateLayerResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateLayerResponse]
+$creadListPrec :: ReadPrec [UpdateLayerResponse]
+readPrec :: ReadPrec UpdateLayerResponse
+$creadPrec :: ReadPrec UpdateLayerResponse
+readList :: ReadS [UpdateLayerResponse]
+$creadList :: ReadS [UpdateLayerResponse]
+readsPrec :: Int -&gt; ReadS UpdateLayerResponse
+$creadsPrec :: Int -&gt; ReadS UpdateLayerResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396701"><span id="local-6989586621679396703"><span id="local-6989586621679396705"><span class="annot"><span class="annottext">Int -&gt; UpdateLayerResponse -&gt; ShowS
+[UpdateLayerResponse] -&gt; ShowS
+UpdateLayerResponse -&gt; String
+(Int -&gt; UpdateLayerResponse -&gt; ShowS)
+-&gt; (UpdateLayerResponse -&gt; String)
+-&gt; ([UpdateLayerResponse] -&gt; ShowS)
+-&gt; Show UpdateLayerResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateLayerResponse] -&gt; ShowS
+$cshowList :: [UpdateLayerResponse] -&gt; ShowS
+show :: UpdateLayerResponse -&gt; String
+$cshow :: UpdateLayerResponse -&gt; String
+showsPrec :: Int -&gt; UpdateLayerResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateLayerResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateLayerResponse -&gt; Rep UpdateLayerResponse x)
+-&gt; (forall x. Rep UpdateLayerResponse x -&gt; UpdateLayerResponse)
+-&gt; Generic UpdateLayerResponse
+forall x. Rep UpdateLayerResponse x -&gt; UpdateLayerResponse
+forall x. UpdateLayerResponse -&gt; Rep UpdateLayerResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateLayerResponse x -&gt; UpdateLayerResponse
+$cfrom :: forall x. UpdateLayerResponse -&gt; Rep UpdateLayerResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-399"></span><span>
+</span><span id="line-400"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-401"></span><span class="hs-comment">-- Create a value of 'UpdateLayerResponse' with all optional fields omitted.</span><span>
+</span><span id="line-402"></span><span class="hs-comment">--</span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-404"></span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#newUpdateLayerResponse"><span class="hs-identifier hs-type">newUpdateLayerResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-405"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse"><span class="hs-identifier hs-type">UpdateLayerResponse</span></a></span><span>
+</span><span id="line-406"></span><span id="newUpdateLayerResponse"><span class="annot"><span class="annottext">newUpdateLayerResponse :: UpdateLayerResponse
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#newUpdateLayerResponse"><span class="hs-identifier hs-var hs-var">newUpdateLayerResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">UpdateLayerResponse
+</span><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse%27"><span class="hs-identifier hs-var">UpdateLayerResponse'</span></a></span><span>
+</span><span id="line-407"></span><span>
+</span><span id="line-408"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679396697"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.UpdateLayer.html#UpdateLayerResponse"><span class="hs-identifier hs-type">UpdateLayerResponse</span></a></span></span><span>
+</span><span id="line-409"></span></pre></body></html>

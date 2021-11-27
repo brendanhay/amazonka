@@ -1,0 +1,768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Greengrass.ListLoggerDefinitionVersions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists the versions of a logger definition.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Greengrass.ListLoggerDefinitionVersions</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#newListLoggerDefinitionVersions"><span class="hs-identifier">newListLoggerDefinitionVersions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_nextToken"><span class="hs-identifier">listLoggerDefinitionVersions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_maxResults"><span class="hs-identifier">listLoggerDefinitionVersions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_loggerDefinitionId"><span class="hs-identifier">listLoggerDefinitionVersions_loggerDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier">ListLoggerDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#newListLoggerDefinitionVersionsResponse"><span class="hs-identifier">newListLoggerDefinitionVersionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_versions"><span class="hs-identifier">listLoggerDefinitionVersionsResponse_versions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_nextToken"><span class="hs-identifier">listLoggerDefinitionVersionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_httpStatus"><span class="hs-identifier">listLoggerDefinitionVersionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.Types.html"><span class="hs-identifier">Amazonka.Greengrass.Types</span></a></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newListLoggerDefinitionVersions' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679351326"><span id="local-6989586621679351327"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLoggerDefinitionVersions"><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-var">ListLoggerDefinitionVersions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLoggerDefinitionVersions%27"><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var">ListLoggerDefinitionVersions'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AnextToken%3AListLoggerDefinitionVersions%27"><span class="annot"><span class="annottext">ListLoggerDefinitionVersions -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AnextToken%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3AmaxResults%3AListLoggerDefinitionVersions%27"><span class="annot"><span class="annottext">ListLoggerDefinitionVersions -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AmaxResults%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | The ID of the logger definition.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AloggerDefinitionId%3AListLoggerDefinitionVersions%27"><span class="annot"><span class="annottext">ListLoggerDefinitionVersions -&gt; Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AloggerDefinitionId%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var hs-var">loggerDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351318"><span id="local-6989586621679351320"><span class="annot"><span class="annottext">ListLoggerDefinitionVersions
+-&gt; ListLoggerDefinitionVersions -&gt; Bool
+(ListLoggerDefinitionVersions
+ -&gt; ListLoggerDefinitionVersions -&gt; Bool)
+-&gt; (ListLoggerDefinitionVersions
+    -&gt; ListLoggerDefinitionVersions -&gt; Bool)
+-&gt; Eq ListLoggerDefinitionVersions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListLoggerDefinitionVersions
+-&gt; ListLoggerDefinitionVersions -&gt; Bool
+$c/= :: ListLoggerDefinitionVersions
+-&gt; ListLoggerDefinitionVersions -&gt; Bool
+== :: ListLoggerDefinitionVersions
+-&gt; ListLoggerDefinitionVersions -&gt; Bool
+$c== :: ListLoggerDefinitionVersions
+-&gt; ListLoggerDefinitionVersions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351309"><span id="local-6989586621679351311"><span id="local-6989586621679351313"><span id="local-6989586621679351315"><span class="annot"><span class="annottext">ReadPrec [ListLoggerDefinitionVersions]
+ReadPrec ListLoggerDefinitionVersions
+Int -&gt; ReadS ListLoggerDefinitionVersions
+ReadS [ListLoggerDefinitionVersions]
+(Int -&gt; ReadS ListLoggerDefinitionVersions)
+-&gt; ReadS [ListLoggerDefinitionVersions]
+-&gt; ReadPrec ListLoggerDefinitionVersions
+-&gt; ReadPrec [ListLoggerDefinitionVersions]
+-&gt; Read ListLoggerDefinitionVersions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListLoggerDefinitionVersions]
+$creadListPrec :: ReadPrec [ListLoggerDefinitionVersions]
+readPrec :: ReadPrec ListLoggerDefinitionVersions
+$creadPrec :: ReadPrec ListLoggerDefinitionVersions
+readList :: ReadS [ListLoggerDefinitionVersions]
+$creadList :: ReadS [ListLoggerDefinitionVersions]
+readsPrec :: Int -&gt; ReadS ListLoggerDefinitionVersions
+$creadsPrec :: Int -&gt; ReadS ListLoggerDefinitionVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351302"><span id="local-6989586621679351304"><span id="local-6989586621679351306"><span class="annot"><span class="annottext">Int -&gt; ListLoggerDefinitionVersions -&gt; ShowS
+[ListLoggerDefinitionVersions] -&gt; ShowS
+ListLoggerDefinitionVersions -&gt; String
+(Int -&gt; ListLoggerDefinitionVersions -&gt; ShowS)
+-&gt; (ListLoggerDefinitionVersions -&gt; String)
+-&gt; ([ListLoggerDefinitionVersions] -&gt; ShowS)
+-&gt; Show ListLoggerDefinitionVersions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListLoggerDefinitionVersions] -&gt; ShowS
+$cshowList :: [ListLoggerDefinitionVersions] -&gt; ShowS
+show :: ListLoggerDefinitionVersions -&gt; String
+$cshow :: ListLoggerDefinitionVersions -&gt; String
+showsPrec :: Int -&gt; ListLoggerDefinitionVersions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListLoggerDefinitionVersions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListLoggerDefinitionVersions -&gt; Rep ListLoggerDefinitionVersions x)
+-&gt; (forall x.
+    Rep ListLoggerDefinitionVersions x -&gt; ListLoggerDefinitionVersions)
+-&gt; Generic ListLoggerDefinitionVersions
+forall x.
+Rep ListLoggerDefinitionVersions x -&gt; ListLoggerDefinitionVersions
+forall x.
+ListLoggerDefinitionVersions -&gt; Rep ListLoggerDefinitionVersions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListLoggerDefinitionVersions x -&gt; ListLoggerDefinitionVersions
+$cfrom :: forall x.
+ListLoggerDefinitionVersions -&gt; Rep ListLoggerDefinitionVersions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Create a value of 'ListLoggerDefinitionVersions' with all optional fields omitted.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'nextToken', 'listLoggerDefinitionVersions_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'maxResults', 'listLoggerDefinitionVersions_maxResults' - The maximum number of results to be returned per request.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'loggerDefinitionId', 'listLoggerDefinitionVersions_loggerDefinitionId' - The ID of the logger definition.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#newListLoggerDefinitionVersions"><span class="hs-identifier hs-type">newListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'loggerDefinitionId'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span>
+</span><span id="line-84"></span><span id="newListLoggerDefinitionVersions"><span class="annot"><span class="annottext">newListLoggerDefinitionVersions :: Text -&gt; ListLoggerDefinitionVersions
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#newListLoggerDefinitionVersions"><span class="hs-identifier hs-var hs-var">newListLoggerDefinitionVersions</span></a></span></span><span> </span><span id="local-6989586621679351297"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351297"><span class="hs-identifier hs-var">pLoggerDefinitionId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersions' :: Maybe Text -&gt; Maybe Text -&gt; Text -&gt; ListLoggerDefinitionVersions
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListLoggerDefinitionVersions' :: Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AnextToken%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListLoggerDefinitionVersions' :: Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AmaxResults%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>      </span><span class="annot"><span class="annottext">$sel:loggerDefinitionId:ListLoggerDefinitionVersions' :: Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AloggerDefinitionId%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351297"><span class="hs-identifier hs-var">pLoggerDefinitionId_</span></a></span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_nextToken"><span class="hs-identifier hs-type">listLoggerDefinitionVersions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="listLoggerDefinitionVersions_nextToken"><span class="annot"><span class="annottext">listLoggerDefinitionVersions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLoggerDefinitionVersions -&gt; f ListLoggerDefinitionVersions
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_nextToken"><span class="hs-identifier hs-var hs-var">listLoggerDefinitionVersions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggerDefinitionVersions -&gt; Maybe Text)
+-&gt; (ListLoggerDefinitionVersions
+    -&gt; Maybe Text -&gt; ListLoggerDefinitionVersions)
+-&gt; Lens
+     ListLoggerDefinitionVersions
+     ListLoggerDefinitionVersions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351295"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679351295"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351295"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351294"><span class="annot"><span class="annottext">s :: ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351293"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLoggerDefinitionVersions' :: Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AnextToken%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The maximum number of results to be returned per request.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_maxResults"><span class="hs-identifier hs-type">listLoggerDefinitionVersions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="listLoggerDefinitionVersions_maxResults"><span class="annot"><span class="annottext">listLoggerDefinitionVersions_maxResults :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLoggerDefinitionVersions -&gt; f ListLoggerDefinitionVersions
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_maxResults"><span class="hs-identifier hs-var hs-var">listLoggerDefinitionVersions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggerDefinitionVersions -&gt; Maybe Text)
+-&gt; (ListLoggerDefinitionVersions
+    -&gt; Maybe Text -&gt; ListLoggerDefinitionVersions)
+-&gt; Lens
+     ListLoggerDefinitionVersions
+     ListLoggerDefinitionVersions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351292"><span class="annot"><span class="annottext">Maybe Text
+maxResults :: Maybe Text
+$sel:maxResults:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679351292"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351292"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351291"><span class="annot"><span class="annottext">s :: ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351291"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351290"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351290"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351291"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListLoggerDefinitionVersions' :: Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AmaxResults%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351290"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The ID of the logger definition.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_loggerDefinitionId"><span class="hs-identifier hs-type">listLoggerDefinitionVersions_loggerDefinitionId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="listLoggerDefinitionVersions_loggerDefinitionId"><span class="annot"><span class="annottext">listLoggerDefinitionVersions_loggerDefinitionId :: (Text -&gt; f Text)
+-&gt; ListLoggerDefinitionVersions -&gt; f ListLoggerDefinitionVersions
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_loggerDefinitionId"><span class="hs-identifier hs-var hs-var">listLoggerDefinitionVersions_loggerDefinitionId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggerDefinitionVersions -&gt; Text)
+-&gt; (ListLoggerDefinitionVersions
+    -&gt; Text -&gt; ListLoggerDefinitionVersions)
+-&gt; Lens
+     ListLoggerDefinitionVersions ListLoggerDefinitionVersions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351289"><span class="annot"><span class="annottext">Text
+loggerDefinitionId :: Text
+$sel:loggerDefinitionId:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Text
+</span><a href="#local-6989586621679351289"><span class="hs-identifier hs-var hs-var">loggerDefinitionId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351289"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351288"><span class="annot"><span class="annottext">s :: ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351288"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351287"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351287"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351288"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:loggerDefinitionId:ListLoggerDefinitionVersions' :: Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AloggerDefinitionId%3AListLoggerDefinitionVersions%27"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351287"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679351283"><span class="annot"><span class="annottext">page :: ListLoggerDefinitionVersions
+-&gt; AWSResponse ListLoggerDefinitionVersions
+-&gt; Maybe ListLoggerDefinitionVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679351281"><span class="annot"><span class="annottext">ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351281"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679351280"><span class="annot"><span class="annottext">AWSResponse ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351280"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-108"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLoggerDefinitionVersions
+ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351280"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse
+-&gt; Getting (First Text) ListLoggerDefinitionVersionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListLoggerDefinitionVersionsResponse
+-&gt; Const (First Text) ListLoggerDefinitionVersionsResponse
+Lens' ListLoggerDefinitionVersionsResponse (Maybe Text)
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-var">listLoggerDefinitionVersionsResponse_nextToken</span></a></span><span>
+</span><span id="line-110"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListLoggerDefinitionVersionsResponse
+ -&gt; Const (First Text) ListLoggerDefinitionVersionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListLoggerDefinitionVersionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-111"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-112"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListLoggerDefinitionVersions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-114"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLoggerDefinitionVersions
+ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351280"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse
+-&gt; Getting
+     (First [VersionInformation])
+     ListLoggerDefinitionVersionsResponse
+     [VersionInformation]
+-&gt; Maybe [VersionInformation]
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe [VersionInformation]
+ -&gt; Const (First [VersionInformation]) (Maybe [VersionInformation]))
+-&gt; ListLoggerDefinitionVersionsResponse
+-&gt; Const
+     (First [VersionInformation]) ListLoggerDefinitionVersionsResponse
+Lens'
+  ListLoggerDefinitionVersionsResponse (Maybe [VersionInformation])
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_versions"><span class="hs-identifier hs-var">listLoggerDefinitionVersionsResponse_versions</span></a></span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">((Maybe [VersionInformation]
+  -&gt; Const (First [VersionInformation]) (Maybe [VersionInformation]))
+ -&gt; ListLoggerDefinitionVersionsResponse
+ -&gt; Const
+      (First [VersionInformation]) ListLoggerDefinitionVersionsResponse)
+-&gt; (([VersionInformation]
+     -&gt; Const (First [VersionInformation]) [VersionInformation])
+    -&gt; Maybe [VersionInformation]
+    -&gt; Const (First [VersionInformation]) (Maybe [VersionInformation]))
+-&gt; Getting
+     (First [VersionInformation])
+     ListLoggerDefinitionVersionsResponse
+     [VersionInformation]
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([VersionInformation]
+ -&gt; Const (First [VersionInformation]) [VersionInformation])
+-&gt; Maybe [VersionInformation]
+-&gt; Const (First [VersionInformation]) (Maybe [VersionInformation])
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-117"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-118"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListLoggerDefinitionVersions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>      </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersions -&gt; Maybe ListLoggerDefinitionVersions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListLoggerDefinitionVersions
+ -&gt; Maybe ListLoggerDefinitionVersions)
+-&gt; ListLoggerDefinitionVersions
+-&gt; Maybe ListLoggerDefinitionVersions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-121"></span><span>        </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersions
+</span><a href="#local-6989586621679351281"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-122"></span><span>          </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersions
+-&gt; (ListLoggerDefinitionVersions -&gt; ListLoggerDefinitionVersions)
+-&gt; ListLoggerDefinitionVersions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListLoggerDefinitionVersions
+-&gt; Identity ListLoggerDefinitionVersions
+Lens
+  ListLoggerDefinitionVersions
+  ListLoggerDefinitionVersions
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersions_nextToken"><span class="hs-identifier hs-var">listLoggerDefinitionVersions_nextToken</span></a></span><span>
+</span><span id="line-123"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListLoggerDefinitionVersions
+ -&gt; Identity ListLoggerDefinitionVersions)
+-&gt; Maybe Text
+-&gt; ListLoggerDefinitionVersions
+-&gt; ListLoggerDefinitionVersions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListLoggerDefinitionVersions
+ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351280"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse
+-&gt; Getting (First Text) ListLoggerDefinitionVersionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListLoggerDefinitionVersionsResponse
+-&gt; Const (First Text) ListLoggerDefinitionVersionsResponse
+Lens' ListLoggerDefinitionVersionsResponse (Maybe Text)
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-var">listLoggerDefinitionVersionsResponse_nextToken</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListLoggerDefinitionVersionsResponse
+ -&gt; Const (First Text) ListLoggerDefinitionVersionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListLoggerDefinitionVersionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-129"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679351270"><span class="annot"><span class="annottext">request :: ListLoggerDefinitionVersions
+-&gt; Request ListLoggerDefinitionVersions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; ListLoggerDefinitionVersions
+-&gt; Request ListLoggerDefinitionVersions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Greengrass.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679351266"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListLoggerDefinitionVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListLoggerDefinitionVersions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListLoggerDefinitionVersions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListLoggerDefinitionVersions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListLoggerDefinitionVersions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679351263"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351263"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679351262"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679351262"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679351261"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351261"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-135"></span><span>          </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+-&gt; Maybe Text -&gt; Int -&gt; ListLoggerDefinitionVersionsResponse
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">ListLoggerDefinitionVersionsResponse'</span></a></span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [VersionInformation]
+ -&gt; Maybe Text -&gt; Int -&gt; ListLoggerDefinitionVersionsResponse)
+-&gt; Either String (Maybe [VersionInformation])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListLoggerDefinitionVersionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [VersionInformation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Versions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [VersionInformation]))
+-&gt; Maybe [VersionInformation]
+-&gt; Either String (Maybe [VersionInformation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; ListLoggerDefinitionVersionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListLoggerDefinitionVersionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679351261"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListLoggerDefinitionVersionsResponse)
+-&gt; Either String Int
+-&gt; Either String ListLoggerDefinitionVersionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351263"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-142"></span><span>  </span><span id="local-6989586621679351252"><span id="local-6989586621679351254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span></span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679351249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span></span><span>
+</span><span id="line-146"></span><span>
+</span><span id="line-147"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-148"></span><span>  </span><span id="local-6989586621679351245"><span class="annot"><span class="annottext">toHeaders :: ListLoggerDefinitionVersions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListLoggerDefinitionVersions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-150"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-152"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-153"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-154"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679351239"><span class="annot"><span class="annottext">toPath :: ListLoggerDefinitionVersions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351235"><span id="local-6989586621679351236"><span id="local-6989586621679351237"><span class="annot"><span class="annottext">Maybe Text
+Text
+loggerDefinitionId :: Text
+maxResults :: Maybe Text
+nextToken :: Maybe Text
+$sel:loggerDefinitionId:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Text
+$sel:maxResults:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Maybe Text
+$sel:nextToken:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679351235"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-161"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/greengrass/definition/loggers/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679351235"><span class="hs-identifier hs-var">loggerDefinitionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/versions&quot;</span></span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679351231"><span class="annot"><span class="annottext">toQuery :: ListLoggerDefinitionVersions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersions%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351227"><span id="local-6989586621679351228"><span id="local-6989586621679351229"><span class="annot"><span class="annottext">Maybe Text
+Text
+loggerDefinitionId :: Text
+maxResults :: Maybe Text
+nextToken :: Maybe Text
+$sel:loggerDefinitionId:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Text
+$sel:maxResults:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Maybe Text
+$sel:nextToken:ListLoggerDefinitionVersions' :: ListLoggerDefinitionVersions -&gt; Maybe Text
+</span><a href="#local-6989586621679351227"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351229"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;MaxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351228"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-171"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- | /See:/ 'newListLoggerDefinitionVersionsResponse' smart constructor.</span><span>
+</span><span id="line-174"></span><span id="local-6989586621679351224"><span id="local-6989586621679351225"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListLoggerDefinitionVersionsResponse"><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-var">ListLoggerDefinitionVersionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListLoggerDefinitionVersionsResponse%27"><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">ListLoggerDefinitionVersionsResponse'</span></a></span></span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about a version.</span><span>
+</span><span id="line-176"></span><span>    </span><span id="%24sel%3Aversions%3AListLoggerDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse -&gt; Maybe [VersionInformation]
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3Aversions%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AnextToken%3AListLoggerDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AnextToken%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListLoggerDefinitionVersionsResponse%27"><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse -&gt; Int
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AhttpStatus%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679351217"><span id="local-6989586621679351219"><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse
+-&gt; ListLoggerDefinitionVersionsResponse -&gt; Bool
+(ListLoggerDefinitionVersionsResponse
+ -&gt; ListLoggerDefinitionVersionsResponse -&gt; Bool)
+-&gt; (ListLoggerDefinitionVersionsResponse
+    -&gt; ListLoggerDefinitionVersionsResponse -&gt; Bool)
+-&gt; Eq ListLoggerDefinitionVersionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListLoggerDefinitionVersionsResponse
+-&gt; ListLoggerDefinitionVersionsResponse -&gt; Bool
+$c/= :: ListLoggerDefinitionVersionsResponse
+-&gt; ListLoggerDefinitionVersionsResponse -&gt; Bool
+== :: ListLoggerDefinitionVersionsResponse
+-&gt; ListLoggerDefinitionVersionsResponse -&gt; Bool
+$c== :: ListLoggerDefinitionVersionsResponse
+-&gt; ListLoggerDefinitionVersionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351209"><span id="local-6989586621679351211"><span id="local-6989586621679351213"><span id="local-6989586621679351215"><span class="annot"><span class="annottext">ReadPrec [ListLoggerDefinitionVersionsResponse]
+ReadPrec ListLoggerDefinitionVersionsResponse
+Int -&gt; ReadS ListLoggerDefinitionVersionsResponse
+ReadS [ListLoggerDefinitionVersionsResponse]
+(Int -&gt; ReadS ListLoggerDefinitionVersionsResponse)
+-&gt; ReadS [ListLoggerDefinitionVersionsResponse]
+-&gt; ReadPrec ListLoggerDefinitionVersionsResponse
+-&gt; ReadPrec [ListLoggerDefinitionVersionsResponse]
+-&gt; Read ListLoggerDefinitionVersionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListLoggerDefinitionVersionsResponse]
+$creadListPrec :: ReadPrec [ListLoggerDefinitionVersionsResponse]
+readPrec :: ReadPrec ListLoggerDefinitionVersionsResponse
+$creadPrec :: ReadPrec ListLoggerDefinitionVersionsResponse
+readList :: ReadS [ListLoggerDefinitionVersionsResponse]
+$creadList :: ReadS [ListLoggerDefinitionVersionsResponse]
+readsPrec :: Int -&gt; ReadS ListLoggerDefinitionVersionsResponse
+$creadsPrec :: Int -&gt; ReadS ListLoggerDefinitionVersionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679351203"><span id="local-6989586621679351205"><span id="local-6989586621679351207"><span class="annot"><span class="annottext">Int -&gt; ListLoggerDefinitionVersionsResponse -&gt; ShowS
+[ListLoggerDefinitionVersionsResponse] -&gt; ShowS
+ListLoggerDefinitionVersionsResponse -&gt; String
+(Int -&gt; ListLoggerDefinitionVersionsResponse -&gt; ShowS)
+-&gt; (ListLoggerDefinitionVersionsResponse -&gt; String)
+-&gt; ([ListLoggerDefinitionVersionsResponse] -&gt; ShowS)
+-&gt; Show ListLoggerDefinitionVersionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListLoggerDefinitionVersionsResponse] -&gt; ShowS
+$cshowList :: [ListLoggerDefinitionVersionsResponse] -&gt; ShowS
+show :: ListLoggerDefinitionVersionsResponse -&gt; String
+$cshow :: ListLoggerDefinitionVersionsResponse -&gt; String
+showsPrec :: Int -&gt; ListLoggerDefinitionVersionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListLoggerDefinitionVersionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListLoggerDefinitionVersionsResponse
+ -&gt; Rep ListLoggerDefinitionVersionsResponse x)
+-&gt; (forall x.
+    Rep ListLoggerDefinitionVersionsResponse x
+    -&gt; ListLoggerDefinitionVersionsResponse)
+-&gt; Generic ListLoggerDefinitionVersionsResponse
+forall x.
+Rep ListLoggerDefinitionVersionsResponse x
+-&gt; ListLoggerDefinitionVersionsResponse
+forall x.
+ListLoggerDefinitionVersionsResponse
+-&gt; Rep ListLoggerDefinitionVersionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListLoggerDefinitionVersionsResponse x
+-&gt; ListLoggerDefinitionVersionsResponse
+$cfrom :: forall x.
+ListLoggerDefinitionVersionsResponse
+-&gt; Rep ListLoggerDefinitionVersionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- Create a value of 'ListLoggerDefinitionVersionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- 'versions', 'listLoggerDefinitionVersionsResponse_versions' - Information about a version.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'nextToken', 'listLoggerDefinitionVersionsResponse_nextToken' - The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'httpStatus', 'listLoggerDefinitionVersionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#newListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">newListLoggerDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-200"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-201"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-202"></span><span>  </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span>
+</span><span id="line-203"></span><span id="newListLoggerDefinitionVersionsResponse"><span class="annot"><span class="annottext">newListLoggerDefinitionVersionsResponse :: Int -&gt; ListLoggerDefinitionVersionsResponse
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#newListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-var hs-var">newListLoggerDefinitionVersionsResponse</span></a></span></span><span> </span><span id="local-6989586621679351200"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse' :: Maybe [VersionInformation]
+-&gt; Maybe Text -&gt; Int -&gt; ListLoggerDefinitionVersionsResponse
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse'</span></a></span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:versions:ListLoggerDefinitionVersionsResponse' :: Maybe [VersionInformation]
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3Aversions%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>        </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListLoggerDefinitionVersionsResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AnextToken%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListLoggerDefinitionVersionsResponse' :: Int
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AhttpStatus%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351200"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | Information about a version.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_versions"><span class="hs-identifier hs-type">listLoggerDefinitionVersionsResponse_versions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Greengrass.Types.VersionInformation.html#VersionInformation"><span class="hs-identifier hs-type">VersionInformation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span id="listLoggerDefinitionVersionsResponse_versions"><span class="annot"><span class="annottext">listLoggerDefinitionVersionsResponse_versions :: (Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+-&gt; ListLoggerDefinitionVersionsResponse
+-&gt; f ListLoggerDefinitionVersionsResponse
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_versions"><span class="hs-identifier hs-var hs-var">listLoggerDefinitionVersionsResponse_versions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggerDefinitionVersionsResponse
+ -&gt; Maybe [VersionInformation])
+-&gt; (ListLoggerDefinitionVersionsResponse
+    -&gt; Maybe [VersionInformation]
+    -&gt; ListLoggerDefinitionVersionsResponse)
+-&gt; Lens'
+     ListLoggerDefinitionVersionsResponse (Maybe [VersionInformation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351199"><span class="annot"><span class="annottext">Maybe [VersionInformation]
+versions :: Maybe [VersionInformation]
+$sel:versions:ListLoggerDefinitionVersionsResponse' :: ListLoggerDefinitionVersionsResponse -&gt; Maybe [VersionInformation]
+</span><a href="#local-6989586621679351199"><span class="hs-identifier hs-var hs-var">versions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><a href="#local-6989586621679351199"><span class="hs-identifier hs-var">versions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351198"><span class="annot"><span class="annottext">s :: ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351198"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351197"><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><a href="#local-6989586621679351197"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351198"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:versions:ListLoggerDefinitionVersionsResponse' :: Maybe [VersionInformation]
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3Aversions%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">versions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [VersionInformation]
+</span><a href="#local-6989586621679351197"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+ -&gt; ListLoggerDefinitionVersionsResponse
+ -&gt; f ListLoggerDefinitionVersionsResponse)
+-&gt; ((Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+    -&gt; Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+-&gt; (Maybe [VersionInformation] -&gt; f (Maybe [VersionInformation]))
+-&gt; ListLoggerDefinitionVersionsResponse
+-&gt; f ListLoggerDefinitionVersionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VersionInformation]
+  [VersionInformation]
+  [VersionInformation]
+  [VersionInformation]
+-&gt; Iso
+     (Maybe [VersionInformation])
+     (Maybe [VersionInformation])
+     (Maybe [VersionInformation])
+     (Maybe [VersionInformation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [VersionInformation]
+  [VersionInformation]
+  [VersionInformation]
+  [VersionInformation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- | The token for the next set of results, or \'\'null\'\' if there are no</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- additional results.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-type">listLoggerDefinitionVersionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="listLoggerDefinitionVersionsResponse_nextToken"><span class="annot"><span class="annottext">listLoggerDefinitionVersionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListLoggerDefinitionVersionsResponse
+-&gt; f ListLoggerDefinitionVersionsResponse
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listLoggerDefinitionVersionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggerDefinitionVersionsResponse -&gt; Maybe Text)
+-&gt; (ListLoggerDefinitionVersionsResponse
+    -&gt; Maybe Text -&gt; ListLoggerDefinitionVersionsResponse)
+-&gt; Lens' ListLoggerDefinitionVersionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351194"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListLoggerDefinitionVersionsResponse' :: ListLoggerDefinitionVersionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679351194"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351194"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351193"><span class="annot"><span class="annottext">s :: ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351192"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListLoggerDefinitionVersionsResponse' :: Maybe Text
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AnextToken%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679351192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_httpStatus"><span class="hs-identifier hs-type">listLoggerDefinitionVersionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span id="listLoggerDefinitionVersionsResponse_httpStatus"><span class="annot"><span class="annottext">listLoggerDefinitionVersionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListLoggerDefinitionVersionsResponse
+-&gt; f ListLoggerDefinitionVersionsResponse
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#listLoggerDefinitionVersionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listLoggerDefinitionVersionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListLoggerDefinitionVersionsResponse -&gt; Int)
+-&gt; (ListLoggerDefinitionVersionsResponse
+    -&gt; Int -&gt; ListLoggerDefinitionVersionsResponse)
+-&gt; Lens
+     ListLoggerDefinitionVersionsResponse
+     ListLoggerDefinitionVersionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679351191"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListLoggerDefinitionVersionsResponse' :: ListLoggerDefinitionVersionsResponse -&gt; Int
+</span><a href="#local-6989586621679351191"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351191"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679351190"><span class="annot"><span class="annottext">s :: ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351190"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679351189"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351189"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListLoggerDefinitionVersionsResponse
+</span><a href="#local-6989586621679351190"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListLoggerDefinitionVersionsResponse' :: Int
+</span><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#%24sel%3AhttpStatus%3AListLoggerDefinitionVersionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679351189"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-225"></span><span>  </span><span id="local-6989586621679351187"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.Greengrass.ListLoggerDefinitionVersions.html#ListLoggerDefinitionVersionsResponse"><span class="hs-identifier hs-type">ListLoggerDefinitionVersionsResponse</span></a></span></span><span>
+</span><span id="line-227"></span></pre></body></html>

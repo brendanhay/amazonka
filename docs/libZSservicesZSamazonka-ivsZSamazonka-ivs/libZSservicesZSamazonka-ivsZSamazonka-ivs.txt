@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.IVS.Types.BatchError
+module Amazonka.IVS.Types.BatchError
 
 -- | Error related to a specific channel, specified by its ARN.
 --   
@@ -46,43 +46,43 @@ batchError_code :: Lens' BatchError (Maybe Text)
 
 -- | Error message, determined by the application.
 batchError_message :: Lens' BatchError (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IVS.Types.BatchError.BatchError
-instance GHC.Show.Show Network.AWS.IVS.Types.BatchError.BatchError
-instance GHC.Read.Read Network.AWS.IVS.Types.BatchError.BatchError
-instance GHC.Classes.Eq Network.AWS.IVS.Types.BatchError.BatchError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.BatchError.BatchError
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.BatchError.BatchError
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.BatchError.BatchError
+instance GHC.Generics.Generic Amazonka.IVS.Types.BatchError.BatchError
+instance GHC.Show.Show Amazonka.IVS.Types.BatchError.BatchError
+instance GHC.Read.Read Amazonka.IVS.Types.BatchError.BatchError
+instance GHC.Classes.Eq Amazonka.IVS.Types.BatchError.BatchError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.BatchError.BatchError
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.BatchError.BatchError
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.BatchError.BatchError
 
 
-module Network.AWS.IVS.Types.ChannelLatencyMode
+module Amazonka.IVS.Types.ChannelLatencyMode
 newtype ChannelLatencyMode
 ChannelLatencyMode' :: Text -> ChannelLatencyMode
 [fromChannelLatencyMode] :: ChannelLatencyMode -> Text
 pattern ChannelLatencyMode_LOW :: ChannelLatencyMode
 pattern ChannelLatencyMode_NORMAL :: ChannelLatencyMode
-instance Network.AWS.Data.XML.ToXML Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Network.AWS.Data.XML.FromXML Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Network.AWS.Data.Log.ToLog Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Network.AWS.Data.Text.ToText Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Network.AWS.Data.Text.FromText Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance GHC.Generics.Generic Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance GHC.Classes.Ord Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance GHC.Classes.Eq Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance GHC.Read.Read Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
-instance GHC.Show.Show Network.AWS.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.XML.ToXML Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.XML.FromXML Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.Headers.ToHeader Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.Log.ToLog Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.Text.ToText Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Amazonka.Data.Text.FromText Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance GHC.Generics.Generic Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance GHC.Classes.Ord Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance GHC.Classes.Eq Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance GHC.Read.Read Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
+instance GHC.Show.Show Amazonka.IVS.Types.ChannelLatencyMode.ChannelLatencyMode
 
 
-module Network.AWS.IVS.Types.ChannelSummary
+module Amazonka.IVS.Types.ChannelSummary
 
 -- | Summary information about a channel.
 --   
@@ -177,43 +177,43 @@ channelSummary_recordingConfigurationArn :: Lens' ChannelSummary (Maybe Text)
 -- | Array of 1-50 maps, each of the form <tt>string:string
 --   (key:value)</tt>.
 channelSummary_tags :: Lens' ChannelSummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IVS.Types.ChannelSummary.ChannelSummary
-instance GHC.Show.Show Network.AWS.IVS.Types.ChannelSummary.ChannelSummary
-instance GHC.Read.Read Network.AWS.IVS.Types.ChannelSummary.ChannelSummary
-instance GHC.Classes.Eq Network.AWS.IVS.Types.ChannelSummary.ChannelSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.ChannelSummary.ChannelSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.ChannelSummary.ChannelSummary
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.ChannelSummary.ChannelSummary
+instance GHC.Generics.Generic Amazonka.IVS.Types.ChannelSummary.ChannelSummary
+instance GHC.Show.Show Amazonka.IVS.Types.ChannelSummary.ChannelSummary
+instance GHC.Read.Read Amazonka.IVS.Types.ChannelSummary.ChannelSummary
+instance GHC.Classes.Eq Amazonka.IVS.Types.ChannelSummary.ChannelSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.ChannelSummary.ChannelSummary
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.ChannelSummary.ChannelSummary
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.ChannelSummary.ChannelSummary
 
 
-module Network.AWS.IVS.Types.ChannelType
+module Amazonka.IVS.Types.ChannelType
 newtype ChannelType
 ChannelType' :: Text -> ChannelType
 [fromChannelType] :: ChannelType -> Text
 pattern ChannelType_BASIC :: ChannelType
 pattern ChannelType_STANDARD :: ChannelType
-instance Network.AWS.Data.XML.ToXML Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Network.AWS.Data.XML.FromXML Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Log.ToLog Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Text.ToText Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Network.AWS.Data.Text.FromText Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.ChannelType.ChannelType
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.ChannelType.ChannelType
-instance GHC.Generics.Generic Network.AWS.IVS.Types.ChannelType.ChannelType
-instance GHC.Classes.Ord Network.AWS.IVS.Types.ChannelType.ChannelType
-instance GHC.Classes.Eq Network.AWS.IVS.Types.ChannelType.ChannelType
-instance GHC.Read.Read Network.AWS.IVS.Types.ChannelType.ChannelType
-instance GHC.Show.Show Network.AWS.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.XML.ToXML Amazonka.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.XML.FromXML Amazonka.IVS.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IVS.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IVS.Types.ChannelType.ChannelType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.Headers.ToHeader Amazonka.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.Log.ToLog Amazonka.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.Text.ToText Amazonka.IVS.Types.ChannelType.ChannelType
+instance Amazonka.Data.Text.FromText Amazonka.IVS.Types.ChannelType.ChannelType
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.ChannelType.ChannelType
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.ChannelType.ChannelType
+instance GHC.Generics.Generic Amazonka.IVS.Types.ChannelType.ChannelType
+instance GHC.Classes.Ord Amazonka.IVS.Types.ChannelType.ChannelType
+instance GHC.Classes.Eq Amazonka.IVS.Types.ChannelType.ChannelType
+instance GHC.Read.Read Amazonka.IVS.Types.ChannelType.ChannelType
+instance GHC.Show.Show Amazonka.IVS.Types.ChannelType.ChannelType
 
 
-module Network.AWS.IVS.Types.Channel
+module Amazonka.IVS.Types.Channel
 
 -- | Object specifying a channel.
 --   
@@ -375,16 +375,16 @@ channel_tags :: Lens' Channel (Maybe (HashMap Text Text))
 -- | Channel ingest endpoint, part of the definition of an ingest server,
 --   used when you set up streaming software.
 channel_ingestEndpoint :: Lens' Channel (Maybe Text)
-instance GHC.Generics.Generic Network.AWS.IVS.Types.Channel.Channel
-instance GHC.Show.Show Network.AWS.IVS.Types.Channel.Channel
-instance GHC.Read.Read Network.AWS.IVS.Types.Channel.Channel
-instance GHC.Classes.Eq Network.AWS.IVS.Types.Channel.Channel
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.Channel.Channel
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.Channel.Channel
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.Channel.Channel
+instance GHC.Generics.Generic Amazonka.IVS.Types.Channel.Channel
+instance GHC.Show.Show Amazonka.IVS.Types.Channel.Channel
+instance GHC.Read.Read Amazonka.IVS.Types.Channel.Channel
+instance GHC.Classes.Eq Amazonka.IVS.Types.Channel.Channel
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.Channel.Channel
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.Channel.Channel
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.Channel.Channel
 
 
-module Network.AWS.IVS.Types.PlaybackKeyPair
+module Amazonka.IVS.Types.PlaybackKeyPair
 
 -- | A key pair used to sign and validate a playback authorization token.
 --   
@@ -439,16 +439,16 @@ playbackKeyPair_name :: Lens' PlaybackKeyPair (Maybe Text)
 -- | Array of 1-50 maps, each of the form <tt>string:string
 --   (key:value)</tt>.
 playbackKeyPair_tags :: Lens' PlaybackKeyPair (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
-instance GHC.Show.Show Network.AWS.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
-instance GHC.Read.Read Network.AWS.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
-instance GHC.Classes.Eq Network.AWS.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
+instance GHC.Generics.Generic Amazonka.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
+instance GHC.Show.Show Amazonka.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
+instance GHC.Read.Read Amazonka.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
+instance GHC.Classes.Eq Amazonka.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.PlaybackKeyPair.PlaybackKeyPair
 
 
-module Network.AWS.IVS.Types.PlaybackKeyPairSummary
+module Amazonka.IVS.Types.PlaybackKeyPairSummary
 
 -- | Summary information about a playback key pair.
 --   
@@ -496,44 +496,44 @@ playbackKeyPairSummary_name :: Lens' PlaybackKeyPairSummary (Maybe Text)
 -- | Array of 1-50 maps, each of the form <tt>string:string
 --   (key:value)</tt>.
 playbackKeyPairSummary_tags :: Lens' PlaybackKeyPairSummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
-instance GHC.Show.Show Network.AWS.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
-instance GHC.Read.Read Network.AWS.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
-instance GHC.Classes.Eq Network.AWS.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
+instance GHC.Generics.Generic Amazonka.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
+instance GHC.Show.Show Amazonka.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
+instance GHC.Read.Read Amazonka.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
+instance GHC.Classes.Eq Amazonka.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.PlaybackKeyPairSummary.PlaybackKeyPairSummary
 
 
-module Network.AWS.IVS.Types.RecordingConfigurationState
+module Amazonka.IVS.Types.RecordingConfigurationState
 newtype RecordingConfigurationState
 RecordingConfigurationState' :: Text -> RecordingConfigurationState
 [fromRecordingConfigurationState] :: RecordingConfigurationState -> Text
 pattern RecordingConfigurationState_ACTIVE :: RecordingConfigurationState
 pattern RecordingConfigurationState_CREATE_FAILED :: RecordingConfigurationState
 pattern RecordingConfigurationState_CREATING :: RecordingConfigurationState
-instance Network.AWS.Data.XML.ToXML Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Network.AWS.Data.XML.FromXML Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Network.AWS.Data.Log.ToLog Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Network.AWS.Data.Text.ToText Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Network.AWS.Data.Text.FromText Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance GHC.Generics.Generic Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance GHC.Classes.Ord Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance GHC.Classes.Eq Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance GHC.Read.Read Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
-instance GHC.Show.Show Network.AWS.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.XML.ToXML Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.XML.FromXML Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.Headers.ToHeader Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.Log.ToLog Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.Text.ToText Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Amazonka.Data.Text.FromText Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance GHC.Generics.Generic Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance GHC.Classes.Ord Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance GHC.Classes.Eq Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance GHC.Read.Read Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
+instance GHC.Show.Show Amazonka.IVS.Types.RecordingConfigurationState.RecordingConfigurationState
 
 
-module Network.AWS.IVS.Types.S3DestinationConfiguration
+module Amazonka.IVS.Types.S3DestinationConfiguration
 
 -- | A complex type that describes an S3 location where recorded videos
 --   will be stored.
@@ -561,17 +561,17 @@ newS3DestinationConfiguration :: Text -> S3DestinationConfiguration
 
 -- | Location (S3 bucket name) where recorded videos will be stored.
 s3DestinationConfiguration_bucketName :: Lens' S3DestinationConfiguration Text
-instance GHC.Generics.Generic Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
-instance GHC.Show.Show Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
-instance GHC.Read.Read Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
-instance GHC.Classes.Eq Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance GHC.Show.Show Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance GHC.Read.Read Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance GHC.Classes.Eq Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.Types.S3DestinationConfiguration.S3DestinationConfiguration
 
 
-module Network.AWS.IVS.Types.DestinationConfiguration
+module Amazonka.IVS.Types.DestinationConfiguration
 
 -- | A complex type that describes a location where recorded videos will be
 --   stored. Each member represents a type of destination configuration.
@@ -601,17 +601,17 @@ newDestinationConfiguration :: DestinationConfiguration
 
 -- | An S3 destination configuration where recorded videos will be stored.
 destinationConfiguration_s3 :: Lens' DestinationConfiguration (Maybe S3DestinationConfiguration)
-instance GHC.Generics.Generic Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
-instance GHC.Show.Show Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
-instance GHC.Read.Read Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
-instance GHC.Classes.Eq Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance GHC.Show.Show Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance GHC.Read.Read Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance GHC.Classes.Eq Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.Types.DestinationConfiguration.DestinationConfiguration
 
 
-module Network.AWS.IVS.Types.RecordingConfigurationSummary
+module Amazonka.IVS.Types.RecordingConfigurationSummary
 
 -- | Summary information about a RecordingConfiguration.
 --   
@@ -689,16 +689,16 @@ recordingConfigurationSummary_destinationConfiguration :: Lens' RecordingConfigu
 --   state is <tt>ACTIVE</tt>, the configuration is ready for recording a
 --   channel stream.
 recordingConfigurationSummary_state :: Lens' RecordingConfigurationSummary RecordingConfigurationState
-instance GHC.Generics.Generic Network.AWS.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
-instance GHC.Show.Show Network.AWS.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
-instance GHC.Read.Read Network.AWS.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
-instance GHC.Classes.Eq Network.AWS.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
+instance GHC.Generics.Generic Amazonka.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
+instance GHC.Show.Show Amazonka.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
+instance GHC.Read.Read Amazonka.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
+instance GHC.Classes.Eq Amazonka.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.RecordingConfigurationSummary.RecordingConfigurationSummary
 
 
-module Network.AWS.IVS.Types.RecordingConfiguration
+module Amazonka.IVS.Types.RecordingConfiguration
 
 -- | An object representing a configuration to record a channel stream.
 --   
@@ -774,44 +774,44 @@ recordingConfiguration_destinationConfiguration :: Lens' RecordingConfiguration 
 --   state is <tt>ACTIVE</tt>, the configuration is ready for recording a
 --   channel stream.
 recordingConfiguration_state :: Lens' RecordingConfiguration RecordingConfigurationState
-instance GHC.Generics.Generic Network.AWS.IVS.Types.RecordingConfiguration.RecordingConfiguration
-instance GHC.Show.Show Network.AWS.IVS.Types.RecordingConfiguration.RecordingConfiguration
-instance GHC.Read.Read Network.AWS.IVS.Types.RecordingConfiguration.RecordingConfiguration
-instance GHC.Classes.Eq Network.AWS.IVS.Types.RecordingConfiguration.RecordingConfiguration
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.RecordingConfiguration.RecordingConfiguration
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.RecordingConfiguration.RecordingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.RecordingConfiguration.RecordingConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.Types.RecordingConfiguration.RecordingConfiguration
+instance GHC.Show.Show Amazonka.IVS.Types.RecordingConfiguration.RecordingConfiguration
+instance GHC.Read.Read Amazonka.IVS.Types.RecordingConfiguration.RecordingConfiguration
+instance GHC.Classes.Eq Amazonka.IVS.Types.RecordingConfiguration.RecordingConfiguration
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.RecordingConfiguration.RecordingConfiguration
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.RecordingConfiguration.RecordingConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.RecordingConfiguration.RecordingConfiguration
 
 
-module Network.AWS.IVS.Types.StreamHealth
+module Amazonka.IVS.Types.StreamHealth
 newtype StreamHealth
 StreamHealth' :: Text -> StreamHealth
 [fromStreamHealth] :: StreamHealth -> Text
 pattern StreamHealth_HEALTHY :: StreamHealth
 pattern StreamHealth_STARVING :: StreamHealth
 pattern StreamHealth_UNKNOWN :: StreamHealth
-instance Network.AWS.Data.XML.ToXML Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Network.AWS.Data.XML.FromXML Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Network.AWS.Data.Log.ToLog Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Network.AWS.Data.Text.ToText Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Network.AWS.Data.Text.FromText Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance GHC.Generics.Generic Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance GHC.Classes.Ord Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance GHC.Classes.Eq Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance GHC.Read.Read Network.AWS.IVS.Types.StreamHealth.StreamHealth
-instance GHC.Show.Show Network.AWS.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.XML.ToXML Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.XML.FromXML Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.Headers.ToHeader Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.Log.ToLog Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.Text.ToText Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Amazonka.Data.Text.FromText Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance GHC.Generics.Generic Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance GHC.Classes.Ord Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance GHC.Classes.Eq Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance GHC.Read.Read Amazonka.IVS.Types.StreamHealth.StreamHealth
+instance GHC.Show.Show Amazonka.IVS.Types.StreamHealth.StreamHealth
 
 
-module Network.AWS.IVS.Types.StreamKey
+module Amazonka.IVS.Types.StreamKey
 
 -- | Object specifying a stream key.
 --   
@@ -864,15 +864,15 @@ streamKey_channelArn :: Lens' StreamKey (Maybe Text)
 -- | Array of 1-50 maps, each of the form <tt>string:string
 --   (key:value)</tt>.
 streamKey_tags :: Lens' StreamKey (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IVS.Types.StreamKey.StreamKey
-instance GHC.Show.Show Network.AWS.IVS.Types.StreamKey.StreamKey
-instance GHC.Classes.Eq Network.AWS.IVS.Types.StreamKey.StreamKey
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.StreamKey.StreamKey
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.StreamKey.StreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.StreamKey.StreamKey
+instance GHC.Generics.Generic Amazonka.IVS.Types.StreamKey.StreamKey
+instance GHC.Show.Show Amazonka.IVS.Types.StreamKey.StreamKey
+instance GHC.Classes.Eq Amazonka.IVS.Types.StreamKey.StreamKey
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.StreamKey.StreamKey
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.StreamKey.StreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.StreamKey.StreamKey
 
 
-module Network.AWS.IVS.Types.StreamKeySummary
+module Amazonka.IVS.Types.StreamKeySummary
 
 -- | Summary information about a stream key.
 --   
@@ -919,43 +919,43 @@ streamKeySummary_channelArn :: Lens' StreamKeySummary (Maybe Text)
 -- | Array of 1-50 maps, each of the form <tt>string:string
 --   (key:value)</tt>.
 streamKeySummary_tags :: Lens' StreamKeySummary (Maybe (HashMap Text Text))
-instance GHC.Generics.Generic Network.AWS.IVS.Types.StreamKeySummary.StreamKeySummary
-instance GHC.Show.Show Network.AWS.IVS.Types.StreamKeySummary.StreamKeySummary
-instance GHC.Read.Read Network.AWS.IVS.Types.StreamKeySummary.StreamKeySummary
-instance GHC.Classes.Eq Network.AWS.IVS.Types.StreamKeySummary.StreamKeySummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.StreamKeySummary.StreamKeySummary
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.StreamKeySummary.StreamKeySummary
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.StreamKeySummary.StreamKeySummary
+instance GHC.Generics.Generic Amazonka.IVS.Types.StreamKeySummary.StreamKeySummary
+instance GHC.Show.Show Amazonka.IVS.Types.StreamKeySummary.StreamKeySummary
+instance GHC.Read.Read Amazonka.IVS.Types.StreamKeySummary.StreamKeySummary
+instance GHC.Classes.Eq Amazonka.IVS.Types.StreamKeySummary.StreamKeySummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.StreamKeySummary.StreamKeySummary
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.StreamKeySummary.StreamKeySummary
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.StreamKeySummary.StreamKeySummary
 
 
-module Network.AWS.IVS.Types.StreamState
+module Amazonka.IVS.Types.StreamState
 newtype StreamState
 StreamState' :: Text -> StreamState
 [fromStreamState] :: StreamState -> Text
 pattern StreamState_LIVE :: StreamState
 pattern StreamState_OFFLINE :: StreamState
-instance Network.AWS.Data.XML.ToXML Network.AWS.IVS.Types.StreamState.StreamState
-instance Network.AWS.Data.XML.FromXML Network.AWS.IVS.Types.StreamState.StreamState
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.IVS.Types.StreamState.StreamState
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.Types.StreamState.StreamState
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.IVS.Types.StreamState.StreamState
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.StreamState.StreamState
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.Types.StreamState.StreamState
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.IVS.Types.StreamState.StreamState
-instance Network.AWS.Data.Log.ToLog Network.AWS.IVS.Types.StreamState.StreamState
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.IVS.Types.StreamState.StreamState
-instance Network.AWS.Data.Text.ToText Network.AWS.IVS.Types.StreamState.StreamState
-instance Network.AWS.Data.Text.FromText Network.AWS.IVS.Types.StreamState.StreamState
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.StreamState.StreamState
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.StreamState.StreamState
-instance GHC.Generics.Generic Network.AWS.IVS.Types.StreamState.StreamState
-instance GHC.Classes.Ord Network.AWS.IVS.Types.StreamState.StreamState
-instance GHC.Classes.Eq Network.AWS.IVS.Types.StreamState.StreamState
-instance GHC.Read.Read Network.AWS.IVS.Types.StreamState.StreamState
-instance GHC.Show.Show Network.AWS.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.XML.ToXML Amazonka.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.XML.FromXML Amazonka.IVS.Types.StreamState.StreamState
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.IVS.Types.StreamState.StreamState
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.Types.StreamState.StreamState
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.IVS.Types.StreamState.StreamState
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.Headers.ToHeader Amazonka.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.Log.ToLog Amazonka.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.ByteString.ToByteString Amazonka.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.Text.ToText Amazonka.IVS.Types.StreamState.StreamState
+instance Amazonka.Data.Text.FromText Amazonka.IVS.Types.StreamState.StreamState
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.StreamState.StreamState
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.StreamState.StreamState
+instance GHC.Generics.Generic Amazonka.IVS.Types.StreamState.StreamState
+instance GHC.Classes.Ord Amazonka.IVS.Types.StreamState.StreamState
+instance GHC.Classes.Eq Amazonka.IVS.Types.StreamState.StreamState
+instance GHC.Read.Read Amazonka.IVS.Types.StreamState.StreamState
+instance GHC.Show.Show Amazonka.IVS.Types.StreamState.StreamState
 
 
-module Network.AWS.IVS.Types.Stream
+module Amazonka.IVS.Types.Stream
 
 -- | Specifies a live video stream that has been ingested and distributed.
 --   
@@ -1041,16 +1041,16 @@ stream_viewerCount :: Lens' Stream (Maybe Integer)
 
 -- | The stream’s health.
 stream_health :: Lens' Stream (Maybe StreamHealth)
-instance GHC.Generics.Generic Network.AWS.IVS.Types.Stream.Stream
-instance GHC.Show.Show Network.AWS.IVS.Types.Stream.Stream
-instance GHC.Read.Read Network.AWS.IVS.Types.Stream.Stream
-instance GHC.Classes.Eq Network.AWS.IVS.Types.Stream.Stream
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.Stream.Stream
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.Stream.Stream
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.Stream.Stream
+instance GHC.Generics.Generic Amazonka.IVS.Types.Stream.Stream
+instance GHC.Show.Show Amazonka.IVS.Types.Stream.Stream
+instance GHC.Read.Read Amazonka.IVS.Types.Stream.Stream
+instance GHC.Classes.Eq Amazonka.IVS.Types.Stream.Stream
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.Stream.Stream
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.Stream.Stream
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.Stream.Stream
 
 
-module Network.AWS.IVS.Types.StreamSummary
+module Amazonka.IVS.Types.StreamSummary
 
 -- | Summary information about a stream.
 --   
@@ -1127,16 +1127,16 @@ streamSummary_viewerCount :: Lens' StreamSummary (Maybe Integer)
 
 -- | The stream’s health.
 streamSummary_health :: Lens' StreamSummary (Maybe StreamHealth)
-instance GHC.Generics.Generic Network.AWS.IVS.Types.StreamSummary.StreamSummary
-instance GHC.Show.Show Network.AWS.IVS.Types.StreamSummary.StreamSummary
-instance GHC.Read.Read Network.AWS.IVS.Types.StreamSummary.StreamSummary
-instance GHC.Classes.Eq Network.AWS.IVS.Types.StreamSummary.StreamSummary
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.IVS.Types.StreamSummary.StreamSummary
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.Types.StreamSummary.StreamSummary
-instance Control.DeepSeq.NFData Network.AWS.IVS.Types.StreamSummary.StreamSummary
+instance GHC.Generics.Generic Amazonka.IVS.Types.StreamSummary.StreamSummary
+instance GHC.Show.Show Amazonka.IVS.Types.StreamSummary.StreamSummary
+instance GHC.Read.Read Amazonka.IVS.Types.StreamSummary.StreamSummary
+instance GHC.Classes.Eq Amazonka.IVS.Types.StreamSummary.StreamSummary
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.IVS.Types.StreamSummary.StreamSummary
+instance Data.Hashable.Class.Hashable Amazonka.IVS.Types.StreamSummary.StreamSummary
+instance Control.DeepSeq.NFData Amazonka.IVS.Types.StreamSummary.StreamSummary
 
 
-module Network.AWS.IVS.Types
+module Amazonka.IVS.Types
 
 -- | API version <tt>2020-07-14</tt> of the Amazon Interactive Video
 --   Service SDK configuration.
@@ -2055,7 +2055,7 @@ streamSummary_health :: Lens' StreamSummary (Maybe StreamHealth)
 
 -- | Adds or updates tags for the Amazon Web Services resource with the
 --   specified ARN.
-module Network.AWS.IVS.TagResource
+module Amazonka.IVS.TagResource
 
 -- | <i>See:</i> <a>newTagResource</a> smart constructor.
 data TagResource
@@ -2111,22 +2111,22 @@ newTagResourceResponse :: Int -> TagResourceResponse
 
 -- | The response's http status code.
 tagResourceResponse_httpStatus :: Lens' TagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.IVS.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.IVS.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.IVS.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.IVS.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.IVS.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.IVS.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IVS.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IVS.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.IVS.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IVS.TagResource.TagResource
+instance GHC.Show.Show Amazonka.IVS.TagResource.TagResource
+instance GHC.Read.Read Amazonka.IVS.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.IVS.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.IVS.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.IVS.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.IVS.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.IVS.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IVS.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.IVS.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.TagResource.TagResource
 
 
 -- | Disconnects the incoming RTMPS stream for the specified channel. Can
@@ -2136,7 +2136,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.TagResource.TagResource
 --   Many streaming client-software libraries automatically reconnect a
 --   dropped RTMPS session, so to stop the stream permanently, you may want
 --   to first revoke the <tt>streamKey</tt> attached to the channel.
-module Network.AWS.IVS.StopStream
+module Amazonka.IVS.StopStream
 
 -- | <i>See:</i> <a>newStopStream</a> smart constructor.
 data StopStream
@@ -2183,22 +2183,22 @@ newStopStreamResponse :: Int -> StopStreamResponse
 
 -- | The response's http status code.
 stopStreamResponse_httpStatus :: Lens' StopStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.StopStream.StopStream
-instance GHC.Show.Show Network.AWS.IVS.StopStream.StopStream
-instance GHC.Read.Read Network.AWS.IVS.StopStream.StopStream
-instance GHC.Classes.Eq Network.AWS.IVS.StopStream.StopStream
-instance GHC.Generics.Generic Network.AWS.IVS.StopStream.StopStreamResponse
-instance GHC.Show.Show Network.AWS.IVS.StopStream.StopStreamResponse
-instance GHC.Read.Read Network.AWS.IVS.StopStream.StopStreamResponse
-instance GHC.Classes.Eq Network.AWS.IVS.StopStream.StopStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.StopStream.StopStream
-instance Control.DeepSeq.NFData Network.AWS.IVS.StopStream.StopStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.StopStream.StopStream
-instance Control.DeepSeq.NFData Network.AWS.IVS.StopStream.StopStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.StopStream.StopStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.StopStream.StopStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.StopStream.StopStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.StopStream.StopStream
+instance GHC.Generics.Generic Amazonka.IVS.StopStream.StopStream
+instance GHC.Show.Show Amazonka.IVS.StopStream.StopStream
+instance GHC.Read.Read Amazonka.IVS.StopStream.StopStream
+instance GHC.Classes.Eq Amazonka.IVS.StopStream.StopStream
+instance GHC.Generics.Generic Amazonka.IVS.StopStream.StopStreamResponse
+instance GHC.Show.Show Amazonka.IVS.StopStream.StopStreamResponse
+instance GHC.Read.Read Amazonka.IVS.StopStream.StopStreamResponse
+instance GHC.Classes.Eq Amazonka.IVS.StopStream.StopStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.StopStream.StopStream
+instance Control.DeepSeq.NFData Amazonka.IVS.StopStream.StopStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.StopStream.StopStream
+instance Control.DeepSeq.NFData Amazonka.IVS.StopStream.StopStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.StopStream.StopStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.StopStream.StopStream
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.StopStream.StopStream
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.StopStream.StopStream
 
 
 -- | Inserts metadata into the active stream of the specified channel. At
@@ -2208,7 +2208,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.StopStream.StopStream
 --   155 requests per second per account are allowed. Also see <a>Embedding
 --   Metadata within a Video Stream</a> in the <i>Amazon IVS User
 --   Guide</i>.
-module Network.AWS.IVS.PutMetadata
+module Amazonka.IVS.PutMetadata
 
 -- | <i>See:</i> <a>newPutMetadata</a> smart constructor.
 data PutMetadata
@@ -2254,25 +2254,25 @@ PutMetadataResponse' :: PutMetadataResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newPutMetadataResponse :: PutMetadataResponse
-instance GHC.Generics.Generic Network.AWS.IVS.PutMetadata.PutMetadata
-instance GHC.Show.Show Network.AWS.IVS.PutMetadata.PutMetadata
-instance GHC.Classes.Eq Network.AWS.IVS.PutMetadata.PutMetadata
-instance GHC.Generics.Generic Network.AWS.IVS.PutMetadata.PutMetadataResponse
-instance GHC.Show.Show Network.AWS.IVS.PutMetadata.PutMetadataResponse
-instance GHC.Read.Read Network.AWS.IVS.PutMetadata.PutMetadataResponse
-instance GHC.Classes.Eq Network.AWS.IVS.PutMetadata.PutMetadataResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.PutMetadata.PutMetadata
-instance Control.DeepSeq.NFData Network.AWS.IVS.PutMetadata.PutMetadataResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.PutMetadata.PutMetadata
-instance Control.DeepSeq.NFData Network.AWS.IVS.PutMetadata.PutMetadata
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.PutMetadata.PutMetadata
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.PutMetadata.PutMetadata
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.PutMetadata.PutMetadata
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.PutMetadata.PutMetadata
+instance GHC.Generics.Generic Amazonka.IVS.PutMetadata.PutMetadata
+instance GHC.Show.Show Amazonka.IVS.PutMetadata.PutMetadata
+instance GHC.Classes.Eq Amazonka.IVS.PutMetadata.PutMetadata
+instance GHC.Generics.Generic Amazonka.IVS.PutMetadata.PutMetadataResponse
+instance GHC.Show.Show Amazonka.IVS.PutMetadata.PutMetadataResponse
+instance GHC.Read.Read Amazonka.IVS.PutMetadata.PutMetadataResponse
+instance GHC.Classes.Eq Amazonka.IVS.PutMetadata.PutMetadataResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.PutMetadata.PutMetadata
+instance Control.DeepSeq.NFData Amazonka.IVS.PutMetadata.PutMetadataResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.PutMetadata.PutMetadata
+instance Control.DeepSeq.NFData Amazonka.IVS.PutMetadata.PutMetadata
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.PutMetadata.PutMetadata
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.PutMetadata.PutMetadata
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.PutMetadata.PutMetadata
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.PutMetadata.PutMetadata
 
 
 -- | Gets information about Amazon Web Services tags for the specified ARN.
-module Network.AWS.IVS.ListTagsForResource
+module Amazonka.IVS.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -2327,28 +2327,28 @@ newListTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
 
 listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (HashMap Text Text)
-instance GHC.Generics.Generic Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.IVS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.IVS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.IVS.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.IVS.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.IVS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.IVS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.IVS.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.IVS.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IVS.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.ListTagsForResource.ListTagsForResource
 
 
 -- | Gets summary information about live streams in your account, in the
 --   Amazon Web Services region where the API request is processed.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IVS.ListStreams
+module Amazonka.IVS.ListStreams
 
 -- | <i>See:</i> <a>newListStreams</a> smart constructor.
 data ListStreams
@@ -2429,29 +2429,29 @@ listStreamsResponse_httpStatus :: Lens' ListStreamsResponse Int
 
 -- | List of streams.
 listStreamsResponse_streams :: Lens' ListStreamsResponse [StreamSummary]
-instance GHC.Generics.Generic Network.AWS.IVS.ListStreams.ListStreams
-instance GHC.Show.Show Network.AWS.IVS.ListStreams.ListStreams
-instance GHC.Read.Read Network.AWS.IVS.ListStreams.ListStreams
-instance GHC.Classes.Eq Network.AWS.IVS.ListStreams.ListStreams
-instance GHC.Generics.Generic Network.AWS.IVS.ListStreams.ListStreamsResponse
-instance GHC.Show.Show Network.AWS.IVS.ListStreams.ListStreamsResponse
-instance GHC.Read.Read Network.AWS.IVS.ListStreams.ListStreamsResponse
-instance GHC.Classes.Eq Network.AWS.IVS.ListStreams.ListStreamsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListStreams.ListStreamsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IVS.ListStreams.ListStreams
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.ListStreams.ListStreams
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListStreams.ListStreams
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.ListStreams.ListStreams
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.ListStreams.ListStreams
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.ListStreams.ListStreams
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.IVS.ListStreams.ListStreams
+instance GHC.Show.Show Amazonka.IVS.ListStreams.ListStreams
+instance GHC.Read.Read Amazonka.IVS.ListStreams.ListStreams
+instance GHC.Classes.Eq Amazonka.IVS.ListStreams.ListStreams
+instance GHC.Generics.Generic Amazonka.IVS.ListStreams.ListStreamsResponse
+instance GHC.Show.Show Amazonka.IVS.ListStreams.ListStreamsResponse
+instance GHC.Read.Read Amazonka.IVS.ListStreams.ListStreamsResponse
+instance GHC.Classes.Eq Amazonka.IVS.ListStreams.ListStreamsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.IVS.ListStreams.ListStreamsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IVS.ListStreams.ListStreams
+instance Data.Hashable.Class.Hashable Amazonka.IVS.ListStreams.ListStreams
+instance Control.DeepSeq.NFData Amazonka.IVS.ListStreams.ListStreams
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.ListStreams.ListStreams
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.ListStreams.ListStreams
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.ListStreams.ListStreams
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.ListStreams.ListStreams
 
 
 -- | Gets summary information about stream keys for the specified channel.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IVS.ListStreamKeys
+module Amazonka.IVS.ListStreamKeys
 
 -- | <i>See:</i> <a>newListStreamKeys</a> smart constructor.
 data ListStreamKeys
@@ -2544,23 +2544,23 @@ listStreamKeysResponse_httpStatus :: Lens' ListStreamKeysResponse Int
 
 -- | List of stream keys.
 listStreamKeysResponse_streamKeys :: Lens' ListStreamKeysResponse [StreamKeySummary]
-instance GHC.Generics.Generic Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance GHC.Show.Show Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance GHC.Read.Read Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance GHC.Classes.Eq Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance GHC.Generics.Generic Network.AWS.IVS.ListStreamKeys.ListStreamKeysResponse
-instance GHC.Show.Show Network.AWS.IVS.ListStreamKeys.ListStreamKeysResponse
-instance GHC.Read.Read Network.AWS.IVS.ListStreamKeys.ListStreamKeysResponse
-instance GHC.Classes.Eq Network.AWS.IVS.ListStreamKeys.ListStreamKeysResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListStreamKeys.ListStreamKeysResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.ListStreamKeys.ListStreamKeys
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListStreamKeys.ListStreamKeys
+instance GHC.Generics.Generic Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance GHC.Show.Show Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance GHC.Read.Read Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance GHC.Classes.Eq Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance GHC.Generics.Generic Amazonka.IVS.ListStreamKeys.ListStreamKeysResponse
+instance GHC.Show.Show Amazonka.IVS.ListStreamKeys.ListStreamKeysResponse
+instance GHC.Read.Read Amazonka.IVS.ListStreamKeys.ListStreamKeysResponse
+instance GHC.Classes.Eq Amazonka.IVS.ListStreamKeys.ListStreamKeysResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance Control.DeepSeq.NFData Amazonka.IVS.ListStreamKeys.ListStreamKeysResponse
+instance Amazonka.Pager.AWSPager Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance Data.Hashable.Class.Hashable Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance Control.DeepSeq.NFData Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.ListStreamKeys.ListStreamKeys
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.ListStreamKeys.ListStreamKeys
 
 
 -- | Gets summary information about all recording configurations in your
@@ -2568,7 +2568,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListStreamKeys.ListStrea
 --   processed.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IVS.ListRecordingConfigurations
+module Amazonka.IVS.ListRecordingConfigurations
 
 -- | <i>See:</i> <a>newListRecordingConfigurations</a> smart constructor.
 data ListRecordingConfigurations
@@ -2655,23 +2655,23 @@ listRecordingConfigurationsResponse_httpStatus :: Lens' ListRecordingConfigurati
 
 -- | List of the matching recording configurations.
 listRecordingConfigurationsResponse_recordingConfigurations :: Lens' ListRecordingConfigurationsResponse [RecordingConfigurationSummary]
-instance GHC.Generics.Generic Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance GHC.Show.Show Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance GHC.Read.Read Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance GHC.Classes.Eq Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance GHC.Generics.Generic Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
-instance GHC.Show.Show Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
-instance GHC.Read.Read Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
-instance GHC.Classes.Eq Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance GHC.Generics.Generic Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance GHC.Show.Show Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance GHC.Read.Read Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance GHC.Classes.Eq Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance GHC.Generics.Generic Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
+instance GHC.Show.Show Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
+instance GHC.Read.Read Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
+instance GHC.Classes.Eq Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance Control.DeepSeq.NFData Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurationsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance Data.Hashable.Class.Hashable Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance Control.DeepSeq.NFData Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.ListRecordingConfigurations.ListRecordingConfigurations
 
 
 -- | Gets summary information about playback key pairs. For more
@@ -2679,7 +2679,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListRecordingConfigurati
 --   IVS User Guide</i>.
 --   
 --   This operation returns paginated results.
-module Network.AWS.IVS.ListPlaybackKeyPairs
+module Amazonka.IVS.ListPlaybackKeyPairs
 
 -- | <i>See:</i> <a>newListPlaybackKeyPairs</a> smart constructor.
 data ListPlaybackKeyPairs
@@ -2763,23 +2763,23 @@ listPlaybackKeyPairsResponse_httpStatus :: Lens' ListPlaybackKeyPairsResponse In
 
 -- | List of key pairs.
 listPlaybackKeyPairsResponse_keyPairs :: Lens' ListPlaybackKeyPairsResponse [PlaybackKeyPairSummary]
-instance GHC.Generics.Generic Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance GHC.Show.Show Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance GHC.Read.Read Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance GHC.Classes.Eq Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance GHC.Generics.Generic Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
-instance GHC.Show.Show Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
-instance GHC.Read.Read Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
-instance GHC.Classes.Eq Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance GHC.Generics.Generic Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance GHC.Show.Show Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance GHC.Read.Read Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance GHC.Classes.Eq Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance GHC.Generics.Generic Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
+instance GHC.Show.Show Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
+instance GHC.Read.Read Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
+instance GHC.Classes.Eq Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance Control.DeepSeq.NFData Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance Data.Hashable.Class.Hashable Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance Control.DeepSeq.NFData Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.ListPlaybackKeyPairs.ListPlaybackKeyPairs
 
 
 -- | Gets summary information about all channels in your account, in the
@@ -2790,7 +2790,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListPlaybackKeyPairs.Lis
 --   error (409 ConflictException).
 --   
 --   This operation returns paginated results.
-module Network.AWS.IVS.ListChannels
+module Amazonka.IVS.ListChannels
 
 -- | <i>See:</i> <a>newListChannels</a> smart constructor.
 data ListChannels
@@ -2894,23 +2894,23 @@ listChannelsResponse_httpStatus :: Lens' ListChannelsResponse Int
 
 -- | List of the matching channels.
 listChannelsResponse_channels :: Lens' ListChannelsResponse [ChannelSummary]
-instance GHC.Generics.Generic Network.AWS.IVS.ListChannels.ListChannels
-instance GHC.Show.Show Network.AWS.IVS.ListChannels.ListChannels
-instance GHC.Read.Read Network.AWS.IVS.ListChannels.ListChannels
-instance GHC.Classes.Eq Network.AWS.IVS.ListChannels.ListChannels
-instance GHC.Generics.Generic Network.AWS.IVS.ListChannels.ListChannelsResponse
-instance GHC.Show.Show Network.AWS.IVS.ListChannels.ListChannelsResponse
-instance GHC.Read.Read Network.AWS.IVS.ListChannels.ListChannelsResponse
-instance GHC.Classes.Eq Network.AWS.IVS.ListChannels.ListChannelsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.ListChannels.ListChannels
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListChannels.ListChannelsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.IVS.ListChannels.ListChannels
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.ListChannels.ListChannels
-instance Control.DeepSeq.NFData Network.AWS.IVS.ListChannels.ListChannels
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.ListChannels.ListChannels
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.ListChannels.ListChannels
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.ListChannels.ListChannels
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListChannels.ListChannels
+instance GHC.Generics.Generic Amazonka.IVS.ListChannels.ListChannels
+instance GHC.Show.Show Amazonka.IVS.ListChannels.ListChannels
+instance GHC.Read.Read Amazonka.IVS.ListChannels.ListChannels
+instance GHC.Classes.Eq Amazonka.IVS.ListChannels.ListChannels
+instance GHC.Generics.Generic Amazonka.IVS.ListChannels.ListChannelsResponse
+instance GHC.Show.Show Amazonka.IVS.ListChannels.ListChannelsResponse
+instance GHC.Read.Read Amazonka.IVS.ListChannels.ListChannelsResponse
+instance GHC.Classes.Eq Amazonka.IVS.ListChannels.ListChannelsResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.ListChannels.ListChannels
+instance Control.DeepSeq.NFData Amazonka.IVS.ListChannels.ListChannelsResponse
+instance Amazonka.Pager.AWSPager Amazonka.IVS.ListChannels.ListChannels
+instance Data.Hashable.Class.Hashable Amazonka.IVS.ListChannels.ListChannels
+instance Control.DeepSeq.NFData Amazonka.IVS.ListChannels.ListChannels
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.ListChannels.ListChannels
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.ListChannels.ListChannels
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.ListChannels.ListChannels
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.ListChannels.ListChannels
 
 
 -- | Imports the public portion of a new key pair and returns its
@@ -2918,7 +2918,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ListChannels.ListChannel
 --   then be used to generate viewer authorization tokens, to grant viewers
 --   access to private channels. For more information, see <a>Setting Up
 --   Private Channels</a> in the <i>Amazon IVS User Guide</i>.
-module Network.AWS.IVS.ImportPlaybackKeyPair
+module Amazonka.IVS.ImportPlaybackKeyPair
 
 -- | <i>See:</i> <a>newImportPlaybackKeyPair</a> smart constructor.
 data ImportPlaybackKeyPair
@@ -2995,26 +2995,26 @@ importPlaybackKeyPairResponse_keyPair :: Lens' ImportPlaybackKeyPairResponse (Ma
 
 -- | The response's http status code.
 importPlaybackKeyPairResponse_httpStatus :: Lens' ImportPlaybackKeyPairResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance GHC.Show.Show Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance GHC.Read.Read Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance GHC.Classes.Eq Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance GHC.Generics.Generic Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
-instance GHC.Show.Show Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
-instance GHC.Read.Read Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
-instance GHC.Classes.Eq Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance Control.DeepSeq.NFData Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance Control.DeepSeq.NFData Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance GHC.Generics.Generic Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance GHC.Show.Show Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance GHC.Read.Read Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance GHC.Classes.Eq Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance GHC.Generics.Generic Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
+instance GHC.Show.Show Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
+instance GHC.Read.Read Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
+instance GHC.Classes.Eq Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance Control.DeepSeq.NFData Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPairResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance Control.DeepSeq.NFData Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.ImportPlaybackKeyPair.ImportPlaybackKeyPair
 
 
 -- | Gets stream-key information for a specified ARN.
-module Network.AWS.IVS.GetStreamKey
+module Amazonka.IVS.GetStreamKey
 
 -- | <i>See:</i> <a>newGetStreamKey</a> smart constructor.
 data GetStreamKey
@@ -3068,26 +3068,26 @@ getStreamKeyResponse_streamKey :: Lens' GetStreamKeyResponse (Maybe StreamKey)
 
 -- | The response's http status code.
 getStreamKeyResponse_httpStatus :: Lens' GetStreamKeyResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance GHC.Show.Show Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance GHC.Read.Read Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance GHC.Classes.Eq Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance GHC.Generics.Generic Network.AWS.IVS.GetStreamKey.GetStreamKeyResponse
-instance GHC.Show.Show Network.AWS.IVS.GetStreamKey.GetStreamKeyResponse
-instance GHC.Classes.Eq Network.AWS.IVS.GetStreamKey.GetStreamKeyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetStreamKey.GetStreamKeyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.GetStreamKey.GetStreamKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.GetStreamKey.GetStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.GetStreamKey.GetStreamKey
+instance GHC.Show.Show Amazonka.IVS.GetStreamKey.GetStreamKey
+instance GHC.Read.Read Amazonka.IVS.GetStreamKey.GetStreamKey
+instance GHC.Classes.Eq Amazonka.IVS.GetStreamKey.GetStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.GetStreamKey.GetStreamKeyResponse
+instance GHC.Show.Show Amazonka.IVS.GetStreamKey.GetStreamKeyResponse
+instance GHC.Classes.Eq Amazonka.IVS.GetStreamKey.GetStreamKeyResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.GetStreamKey.GetStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.GetStreamKey.GetStreamKeyResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.GetStreamKey.GetStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.GetStreamKey.GetStreamKey
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.GetStreamKey.GetStreamKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.GetStreamKey.GetStreamKey
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.GetStreamKey.GetStreamKey
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.GetStreamKey.GetStreamKey
 
 
 -- | Gets information about the active (live) stream on a specified
 --   channel.
-module Network.AWS.IVS.GetStream
+module Amazonka.IVS.GetStream
 
 -- | <i>See:</i> <a>newGetStream</a> smart constructor.
 data GetStream
@@ -3139,26 +3139,26 @@ getStreamResponse_stream :: Lens' GetStreamResponse (Maybe Stream)
 
 -- | The response's http status code.
 getStreamResponse_httpStatus :: Lens' GetStreamResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.GetStream.GetStream
-instance GHC.Show.Show Network.AWS.IVS.GetStream.GetStream
-instance GHC.Read.Read Network.AWS.IVS.GetStream.GetStream
-instance GHC.Classes.Eq Network.AWS.IVS.GetStream.GetStream
-instance GHC.Generics.Generic Network.AWS.IVS.GetStream.GetStreamResponse
-instance GHC.Show.Show Network.AWS.IVS.GetStream.GetStreamResponse
-instance GHC.Read.Read Network.AWS.IVS.GetStream.GetStreamResponse
-instance GHC.Classes.Eq Network.AWS.IVS.GetStream.GetStreamResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.GetStream.GetStream
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetStream.GetStreamResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.GetStream.GetStream
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetStream.GetStream
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.GetStream.GetStream
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.GetStream.GetStream
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.GetStream.GetStream
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.GetStream.GetStream
+instance GHC.Generics.Generic Amazonka.IVS.GetStream.GetStream
+instance GHC.Show.Show Amazonka.IVS.GetStream.GetStream
+instance GHC.Read.Read Amazonka.IVS.GetStream.GetStream
+instance GHC.Classes.Eq Amazonka.IVS.GetStream.GetStream
+instance GHC.Generics.Generic Amazonka.IVS.GetStream.GetStreamResponse
+instance GHC.Show.Show Amazonka.IVS.GetStream.GetStreamResponse
+instance GHC.Read.Read Amazonka.IVS.GetStream.GetStreamResponse
+instance GHC.Classes.Eq Amazonka.IVS.GetStream.GetStreamResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.GetStream.GetStream
+instance Control.DeepSeq.NFData Amazonka.IVS.GetStream.GetStreamResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.GetStream.GetStream
+instance Control.DeepSeq.NFData Amazonka.IVS.GetStream.GetStream
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.GetStream.GetStream
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.GetStream.GetStream
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.GetStream.GetStream
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.GetStream.GetStream
 
 
 -- | Gets the recording configuration for the specified ARN.
-module Network.AWS.IVS.GetRecordingConfiguration
+module Amazonka.IVS.GetRecordingConfiguration
 
 -- | <i>See:</i> <a>newGetRecordingConfiguration</a> smart constructor.
 data GetRecordingConfiguration
@@ -3214,22 +3214,22 @@ getRecordingConfigurationResponse_recordingConfiguration :: Lens' GetRecordingCo
 
 -- | The response's http status code.
 getRecordingConfigurationResponse_httpStatus :: Lens' GetRecordingConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance GHC.Show.Show Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance GHC.Read.Read Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance GHC.Classes.Eq Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance GHC.Generics.Generic Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
-instance GHC.Show.Show Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
-instance GHC.Read.Read Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance GHC.Show.Show Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance GHC.Read.Read Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance GHC.Classes.Eq Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
+instance GHC.Show.Show Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
+instance GHC.Read.Read Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.GetRecordingConfiguration.GetRecordingConfiguration
 
 
 -- | Gets a specified playback authorization key pair and returns the
@@ -3238,7 +3238,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.GetRecordingConfiguratio
 --   grant viewers access to private channels. For more information, see
 --   <a>Setting Up Private Channels</a> in the <i>Amazon IVS User
 --   Guide</i>.
-module Network.AWS.IVS.GetPlaybackKeyPair
+module Amazonka.IVS.GetPlaybackKeyPair
 
 -- | <i>See:</i> <a>newGetPlaybackKeyPair</a> smart constructor.
 data GetPlaybackKeyPair
@@ -3292,27 +3292,27 @@ getPlaybackKeyPairResponse_keyPair :: Lens' GetPlaybackKeyPairResponse (Maybe Pl
 
 -- | The response's http status code.
 getPlaybackKeyPairResponse_httpStatus :: Lens' GetPlaybackKeyPairResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance GHC.Show.Show Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance GHC.Read.Read Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance GHC.Classes.Eq Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance GHC.Generics.Generic Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
-instance GHC.Show.Show Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
-instance GHC.Read.Read Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
-instance GHC.Classes.Eq Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance GHC.Generics.Generic Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance GHC.Show.Show Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance GHC.Read.Read Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance GHC.Classes.Eq Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance GHC.Generics.Generic Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
+instance GHC.Show.Show Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
+instance GHC.Read.Read Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
+instance GHC.Classes.Eq Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance Control.DeepSeq.NFData Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPairResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance Control.DeepSeq.NFData Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.GetPlaybackKeyPair.GetPlaybackKeyPair
 
 
 -- | Gets the channel configuration for the specified channel ARN. See also
 --   BatchGetChannel.
-module Network.AWS.IVS.GetChannel
+module Amazonka.IVS.GetChannel
 
 -- | <i>See:</i> <a>newGetChannel</a> smart constructor.
 data GetChannel
@@ -3365,27 +3365,27 @@ getChannelResponse_channel :: Lens' GetChannelResponse (Maybe Channel)
 
 -- | The response's http status code.
 getChannelResponse_httpStatus :: Lens' GetChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.GetChannel.GetChannel
-instance GHC.Show.Show Network.AWS.IVS.GetChannel.GetChannel
-instance GHC.Read.Read Network.AWS.IVS.GetChannel.GetChannel
-instance GHC.Classes.Eq Network.AWS.IVS.GetChannel.GetChannel
-instance GHC.Generics.Generic Network.AWS.IVS.GetChannel.GetChannelResponse
-instance GHC.Show.Show Network.AWS.IVS.GetChannel.GetChannelResponse
-instance GHC.Read.Read Network.AWS.IVS.GetChannel.GetChannelResponse
-instance GHC.Classes.Eq Network.AWS.IVS.GetChannel.GetChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.GetChannel.GetChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetChannel.GetChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.GetChannel.GetChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.GetChannel.GetChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.GetChannel.GetChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.GetChannel.GetChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.GetChannel.GetChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.GetChannel.GetChannel
+instance GHC.Generics.Generic Amazonka.IVS.GetChannel.GetChannel
+instance GHC.Show.Show Amazonka.IVS.GetChannel.GetChannel
+instance GHC.Read.Read Amazonka.IVS.GetChannel.GetChannel
+instance GHC.Classes.Eq Amazonka.IVS.GetChannel.GetChannel
+instance GHC.Generics.Generic Amazonka.IVS.GetChannel.GetChannelResponse
+instance GHC.Show.Show Amazonka.IVS.GetChannel.GetChannelResponse
+instance GHC.Read.Read Amazonka.IVS.GetChannel.GetChannelResponse
+instance GHC.Classes.Eq Amazonka.IVS.GetChannel.GetChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.GetChannel.GetChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.GetChannel.GetChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.GetChannel.GetChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.GetChannel.GetChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.GetChannel.GetChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.GetChannel.GetChannel
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.GetChannel.GetChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.GetChannel.GetChannel
 
 
 -- | Deletes the stream key for the specified ARN, so it can no longer be
 --   used to stream.
-module Network.AWS.IVS.DeleteStreamKey
+module Amazonka.IVS.DeleteStreamKey
 
 -- | <i>See:</i> <a>newDeleteStreamKey</a> smart constructor.
 data DeleteStreamKey
@@ -3420,22 +3420,22 @@ DeleteStreamKeyResponse' :: DeleteStreamKeyResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteStreamKeyResponse :: DeleteStreamKeyResponse
-instance GHC.Generics.Generic Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance GHC.Show.Show Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance GHC.Read.Read Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance GHC.Classes.Eq Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance GHC.Generics.Generic Network.AWS.IVS.DeleteStreamKey.DeleteStreamKeyResponse
-instance GHC.Show.Show Network.AWS.IVS.DeleteStreamKey.DeleteStreamKeyResponse
-instance GHC.Read.Read Network.AWS.IVS.DeleteStreamKey.DeleteStreamKeyResponse
-instance GHC.Classes.Eq Network.AWS.IVS.DeleteStreamKey.DeleteStreamKeyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeleteStreamKey.DeleteStreamKeyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.DeleteStreamKey.DeleteStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance GHC.Show.Show Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance GHC.Read.Read Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance GHC.Classes.Eq Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.DeleteStreamKey.DeleteStreamKeyResponse
+instance GHC.Show.Show Amazonka.IVS.DeleteStreamKey.DeleteStreamKeyResponse
+instance GHC.Read.Read Amazonka.IVS.DeleteStreamKey.DeleteStreamKeyResponse
+instance GHC.Classes.Eq Amazonka.IVS.DeleteStreamKey.DeleteStreamKeyResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.DeleteStreamKey.DeleteStreamKeyResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.DeleteStreamKey.DeleteStreamKey
 
 
 -- | Deletes the recording configuration for the specified ARN.
@@ -3445,7 +3445,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.DeleteStreamKey.DeleteSt
 --   this, for all channels that reference the recording configuration,
 --   first use UpdateChannel to set the <tt>recordingConfigurationArn</tt>
 --   field to an empty string, then use DeleteRecordingConfiguration.
-module Network.AWS.IVS.DeleteRecordingConfiguration
+module Amazonka.IVS.DeleteRecordingConfiguration
 
 -- | <i>See:</i> <a>newDeleteRecordingConfiguration</a> smart constructor.
 data DeleteRecordingConfiguration
@@ -3482,29 +3482,29 @@ DeleteRecordingConfigurationResponse' :: DeleteRecordingConfigurationResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteRecordingConfigurationResponse :: DeleteRecordingConfigurationResponse
-instance GHC.Generics.Generic Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance GHC.Show.Show Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance GHC.Read.Read Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance GHC.Classes.Eq Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance GHC.Generics.Generic Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
-instance GHC.Show.Show Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
-instance GHC.Read.Read Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance GHC.Show.Show Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance GHC.Read.Read Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance GHC.Classes.Eq Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
+instance GHC.Show.Show Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
+instance GHC.Read.Read Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.DeleteRecordingConfiguration.DeleteRecordingConfiguration
 
 
 -- | Deletes a specified authorization key pair. This invalidates future
 --   viewer tokens generated using the key pair’s <tt>privateKey</tt>. For
 --   more information, see <a>Setting Up Private Channels</a> in the
 --   <i>Amazon IVS User Guide</i>.
-module Network.AWS.IVS.DeletePlaybackKeyPair
+module Amazonka.IVS.DeletePlaybackKeyPair
 
 -- | <i>See:</i> <a>newDeletePlaybackKeyPair</a> smart constructor.
 data DeletePlaybackKeyPair
@@ -3552,22 +3552,22 @@ newDeletePlaybackKeyPairResponse :: Int -> DeletePlaybackKeyPairResponse
 
 -- | The response's http status code.
 deletePlaybackKeyPairResponse_httpStatus :: Lens' DeletePlaybackKeyPairResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance GHC.Show.Show Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance GHC.Read.Read Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance GHC.Classes.Eq Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance GHC.Generics.Generic Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
-instance GHC.Show.Show Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
-instance GHC.Read.Read Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
-instance GHC.Classes.Eq Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance GHC.Generics.Generic Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance GHC.Show.Show Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance GHC.Read.Read Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance GHC.Classes.Eq Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance GHC.Generics.Generic Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
+instance GHC.Show.Show Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
+instance GHC.Read.Read Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
+instance GHC.Classes.Eq Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance Control.DeepSeq.NFData Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPairResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance Control.DeepSeq.NFData Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.DeletePlaybackKeyPair.DeletePlaybackKeyPair
 
 
 -- | Deletes the specified channel and its associated stream keys.
@@ -3577,7 +3577,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.DeletePlaybackKeyPair.De
 --   wait for the Amazon EventBridge "Stream End" event (to verify that the
 --   stream's state was changed from Live to Offline), then call
 --   DeleteChannel. (See <a>Using EventBridge with Amazon IVS</a>.)
-module Network.AWS.IVS.DeleteChannel
+module Amazonka.IVS.DeleteChannel
 
 -- | <i>See:</i> <a>newDeleteChannel</a> smart constructor.
 data DeleteChannel
@@ -3612,22 +3612,22 @@ DeleteChannelResponse' :: DeleteChannelResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteChannelResponse :: DeleteChannelResponse
-instance GHC.Generics.Generic Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance GHC.Show.Show Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance GHC.Read.Read Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance GHC.Classes.Eq Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance GHC.Generics.Generic Network.AWS.IVS.DeleteChannel.DeleteChannelResponse
-instance GHC.Show.Show Network.AWS.IVS.DeleteChannel.DeleteChannelResponse
-instance GHC.Read.Read Network.AWS.IVS.DeleteChannel.DeleteChannelResponse
-instance GHC.Classes.Eq Network.AWS.IVS.DeleteChannel.DeleteChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeleteChannel.DeleteChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.DeleteChannel.DeleteChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.DeleteChannel.DeleteChannel
+instance GHC.Generics.Generic Amazonka.IVS.DeleteChannel.DeleteChannel
+instance GHC.Show.Show Amazonka.IVS.DeleteChannel.DeleteChannel
+instance GHC.Read.Read Amazonka.IVS.DeleteChannel.DeleteChannel
+instance GHC.Classes.Eq Amazonka.IVS.DeleteChannel.DeleteChannel
+instance GHC.Generics.Generic Amazonka.IVS.DeleteChannel.DeleteChannelResponse
+instance GHC.Show.Show Amazonka.IVS.DeleteChannel.DeleteChannelResponse
+instance GHC.Read.Read Amazonka.IVS.DeleteChannel.DeleteChannelResponse
+instance GHC.Classes.Eq Amazonka.IVS.DeleteChannel.DeleteChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.DeleteChannel.DeleteChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.DeleteChannel.DeleteChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.DeleteChannel.DeleteChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.DeleteChannel.DeleteChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.DeleteChannel.DeleteChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.DeleteChannel.DeleteChannel
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.DeleteChannel.DeleteChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.DeleteChannel.DeleteChannel
 
 
 -- | Creates a stream key, used to initiate a stream, for the specified
@@ -3638,7 +3638,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.DeleteChannel.DeleteChan
 --   already exists and there is a limit of 1 stream key per channel. To
 --   reset the stream key on a channel, use DeleteStreamKey and then
 --   CreateStreamKey.
-module Network.AWS.IVS.CreateStreamKey
+module Amazonka.IVS.CreateStreamKey
 
 -- | <i>See:</i> <a>newCreateStreamKey</a> smart constructor.
 data CreateStreamKey
@@ -3708,21 +3708,21 @@ createStreamKeyResponse_streamKey :: Lens' CreateStreamKeyResponse (Maybe Stream
 
 -- | The response's http status code.
 createStreamKeyResponse_httpStatus :: Lens' CreateStreamKeyResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance GHC.Show.Show Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance GHC.Read.Read Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance GHC.Classes.Eq Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance GHC.Generics.Generic Network.AWS.IVS.CreateStreamKey.CreateStreamKeyResponse
-instance GHC.Show.Show Network.AWS.IVS.CreateStreamKey.CreateStreamKeyResponse
-instance GHC.Classes.Eq Network.AWS.IVS.CreateStreamKey.CreateStreamKeyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.CreateStreamKey.CreateStreamKeyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.CreateStreamKey.CreateStreamKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.CreateStreamKey.CreateStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance GHC.Show.Show Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance GHC.Read.Read Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance GHC.Classes.Eq Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.CreateStreamKey.CreateStreamKeyResponse
+instance GHC.Show.Show Amazonka.IVS.CreateStreamKey.CreateStreamKeyResponse
+instance GHC.Classes.Eq Amazonka.IVS.CreateStreamKey.CreateStreamKeyResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.CreateStreamKey.CreateStreamKeyResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.CreateStreamKey.CreateStreamKey
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.CreateStreamKey.CreateStreamKey
 
 
 -- | Creates a new recording configuration, used to enable recording to
@@ -3741,7 +3741,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.CreateStreamKey.CreateSt
 --   in a different region as your S3 bucket, delete that recording
 --   configuration and create a new one with an S3 bucket from the correct
 --   region.
-module Network.AWS.IVS.CreateRecordingConfiguration
+module Amazonka.IVS.CreateRecordingConfiguration
 
 -- | <i>See:</i> <a>newCreateRecordingConfiguration</a> smart constructor.
 data CreateRecordingConfiguration
@@ -3823,26 +3823,26 @@ createRecordingConfigurationResponse_recordingConfiguration :: Lens' CreateRecor
 
 -- | The response's http status code.
 createRecordingConfigurationResponse_httpStatus :: Lens' CreateRecordingConfigurationResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance GHC.Show.Show Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance GHC.Read.Read Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance GHC.Classes.Eq Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance GHC.Generics.Generic Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
-instance GHC.Show.Show Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
-instance GHC.Read.Read Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
-instance GHC.Classes.Eq Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance Control.DeepSeq.NFData Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance GHC.Show.Show Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance GHC.Read.Read Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance GHC.Classes.Eq Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance GHC.Generics.Generic Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
+instance GHC.Show.Show Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
+instance GHC.Read.Read Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
+instance GHC.Classes.Eq Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfigurationResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance Control.DeepSeq.NFData Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.CreateRecordingConfiguration.CreateRecordingConfiguration
 
 
 -- | Creates a new channel and an associated stream key to start streaming.
-module Network.AWS.IVS.CreateChannel
+module Amazonka.IVS.CreateChannel
 
 -- | <i>See:</i> <a>newCreateChannel</a> smart constructor.
 data CreateChannel
@@ -4009,25 +4009,25 @@ createChannelResponse_streamKey :: Lens' CreateChannelResponse (Maybe StreamKey)
 
 -- | The response's http status code.
 createChannelResponse_httpStatus :: Lens' CreateChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.CreateChannel.CreateChannel
-instance GHC.Show.Show Network.AWS.IVS.CreateChannel.CreateChannel
-instance GHC.Read.Read Network.AWS.IVS.CreateChannel.CreateChannel
-instance GHC.Classes.Eq Network.AWS.IVS.CreateChannel.CreateChannel
-instance GHC.Generics.Generic Network.AWS.IVS.CreateChannel.CreateChannelResponse
-instance GHC.Show.Show Network.AWS.IVS.CreateChannel.CreateChannelResponse
-instance GHC.Classes.Eq Network.AWS.IVS.CreateChannel.CreateChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.CreateChannel.CreateChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.CreateChannel.CreateChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.CreateChannel.CreateChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.CreateChannel.CreateChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.CreateChannel.CreateChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.CreateChannel.CreateChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.CreateChannel.CreateChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.CreateChannel.CreateChannel
+instance GHC.Generics.Generic Amazonka.IVS.CreateChannel.CreateChannel
+instance GHC.Show.Show Amazonka.IVS.CreateChannel.CreateChannel
+instance GHC.Read.Read Amazonka.IVS.CreateChannel.CreateChannel
+instance GHC.Classes.Eq Amazonka.IVS.CreateChannel.CreateChannel
+instance GHC.Generics.Generic Amazonka.IVS.CreateChannel.CreateChannelResponse
+instance GHC.Show.Show Amazonka.IVS.CreateChannel.CreateChannelResponse
+instance GHC.Classes.Eq Amazonka.IVS.CreateChannel.CreateChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.CreateChannel.CreateChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.CreateChannel.CreateChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.CreateChannel.CreateChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.CreateChannel.CreateChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.CreateChannel.CreateChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.CreateChannel.CreateChannel
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.CreateChannel.CreateChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.CreateChannel.CreateChannel
 
 
 -- | Performs GetStreamKey on multiple ARNs simultaneously.
-module Network.AWS.IVS.BatchGetStreamKey
+module Amazonka.IVS.BatchGetStreamKey
 
 -- | <i>See:</i> <a>newBatchGetStreamKey</a> smart constructor.
 data BatchGetStreamKey
@@ -4087,25 +4087,25 @@ batchGetStreamKeyResponse_errors :: Lens' BatchGetStreamKeyResponse (Maybe [Batc
 
 -- | The response's http status code.
 batchGetStreamKeyResponse_httpStatus :: Lens' BatchGetStreamKeyResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance GHC.Show.Show Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance GHC.Read.Read Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance GHC.Classes.Eq Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance GHC.Generics.Generic Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
-instance GHC.Show.Show Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
-instance GHC.Classes.Eq Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance Control.DeepSeq.NFData Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance GHC.Show.Show Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance GHC.Read.Read Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance GHC.Classes.Eq Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance GHC.Generics.Generic Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
+instance GHC.Show.Show Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
+instance GHC.Classes.Eq Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKeyResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance Control.DeepSeq.NFData Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.BatchGetStreamKey.BatchGetStreamKey
 
 
 -- | Performs GetChannel on multiple ARNs simultaneously.
-module Network.AWS.IVS.BatchGetChannel
+module Amazonka.IVS.BatchGetChannel
 
 -- | <i>See:</i> <a>newBatchGetChannel</a> smart constructor.
 data BatchGetChannel
@@ -4169,26 +4169,26 @@ batchGetChannelResponse_errors :: Lens' BatchGetChannelResponse (Maybe [BatchErr
 
 -- | The response's http status code.
 batchGetChannelResponse_httpStatus :: Lens' BatchGetChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance GHC.Show.Show Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance GHC.Read.Read Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance GHC.Classes.Eq Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance GHC.Generics.Generic Network.AWS.IVS.BatchGetChannel.BatchGetChannelResponse
-instance GHC.Show.Show Network.AWS.IVS.BatchGetChannel.BatchGetChannelResponse
-instance GHC.Read.Read Network.AWS.IVS.BatchGetChannel.BatchGetChannelResponse
-instance GHC.Classes.Eq Network.AWS.IVS.BatchGetChannel.BatchGetChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.BatchGetChannel.BatchGetChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.BatchGetChannel.BatchGetChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.BatchGetChannel.BatchGetChannel
+instance GHC.Generics.Generic Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance GHC.Show.Show Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance GHC.Read.Read Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance GHC.Classes.Eq Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance GHC.Generics.Generic Amazonka.IVS.BatchGetChannel.BatchGetChannelResponse
+instance GHC.Show.Show Amazonka.IVS.BatchGetChannel.BatchGetChannelResponse
+instance GHC.Read.Read Amazonka.IVS.BatchGetChannel.BatchGetChannelResponse
+instance GHC.Classes.Eq Amazonka.IVS.BatchGetChannel.BatchGetChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.BatchGetChannel.BatchGetChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.BatchGetChannel.BatchGetChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.BatchGetChannel.BatchGetChannel
 
 
 -- | Removes tags from the resource with the specified ARN.
-module Network.AWS.IVS.UntagResource
+module Amazonka.IVS.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -4246,27 +4246,27 @@ newUntagResourceResponse :: Int -> UntagResourceResponse
 
 -- | The response's http status code.
 untagResourceResponse_httpStatus :: Lens' UntagResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.IVS.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.IVS.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.IVS.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.IVS.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.IVS.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.IVS.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.IVS.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IVS.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.IVS.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IVS.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.IVS.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.IVS.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.IVS.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.IVS.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.IVS.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.IVS.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.IVS.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IVS.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.IVS.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.UntagResource.UntagResource
 
 
 -- | Updates a channel's configuration. This does not affect an ongoing
 --   stream of this channel. You must stop and restart the stream for the
 --   changes to take effect.
-module Network.AWS.IVS.UpdateChannel
+module Amazonka.IVS.UpdateChannel
 
 -- | <i>See:</i> <a>newUpdateChannel</a> smart constructor.
 data UpdateChannel
@@ -4424,25 +4424,25 @@ updateChannelResponse_channel :: Lens' UpdateChannelResponse (Maybe Channel)
 
 -- | The response's http status code.
 updateChannelResponse_httpStatus :: Lens' UpdateChannelResponse Int
-instance GHC.Generics.Generic Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance GHC.Show.Show Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance GHC.Read.Read Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance GHC.Classes.Eq Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance GHC.Generics.Generic Network.AWS.IVS.UpdateChannel.UpdateChannelResponse
-instance GHC.Show.Show Network.AWS.IVS.UpdateChannel.UpdateChannelResponse
-instance GHC.Read.Read Network.AWS.IVS.UpdateChannel.UpdateChannelResponse
-instance GHC.Classes.Eq Network.AWS.IVS.UpdateChannel.UpdateChannelResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.UpdateChannel.UpdateChannelResponse
-instance Data.Hashable.Class.Hashable Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance Control.DeepSeq.NFData Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance Network.AWS.Data.Path.ToPath Network.AWS.IVS.UpdateChannel.UpdateChannel
-instance Network.AWS.Data.Query.ToQuery Network.AWS.IVS.UpdateChannel.UpdateChannel
+instance GHC.Generics.Generic Amazonka.IVS.UpdateChannel.UpdateChannel
+instance GHC.Show.Show Amazonka.IVS.UpdateChannel.UpdateChannel
+instance GHC.Read.Read Amazonka.IVS.UpdateChannel.UpdateChannel
+instance GHC.Classes.Eq Amazonka.IVS.UpdateChannel.UpdateChannel
+instance GHC.Generics.Generic Amazonka.IVS.UpdateChannel.UpdateChannelResponse
+instance GHC.Show.Show Amazonka.IVS.UpdateChannel.UpdateChannelResponse
+instance GHC.Read.Read Amazonka.IVS.UpdateChannel.UpdateChannelResponse
+instance GHC.Classes.Eq Amazonka.IVS.UpdateChannel.UpdateChannelResponse
+instance Amazonka.Types.AWSRequest Amazonka.IVS.UpdateChannel.UpdateChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.UpdateChannel.UpdateChannelResponse
+instance Data.Hashable.Class.Hashable Amazonka.IVS.UpdateChannel.UpdateChannel
+instance Control.DeepSeq.NFData Amazonka.IVS.UpdateChannel.UpdateChannel
+instance Amazonka.Data.Headers.ToHeaders Amazonka.IVS.UpdateChannel.UpdateChannel
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.IVS.UpdateChannel.UpdateChannel
+instance Amazonka.Data.Path.ToPath Amazonka.IVS.UpdateChannel.UpdateChannel
+instance Amazonka.Data.Query.ToQuery Amazonka.IVS.UpdateChannel.UpdateChannel
 
 
-module Network.AWS.IVS.Lens
+module Amazonka.IVS.Lens
 
 -- | ARN of the channel into which metadata is inserted. This channel must
 --   have an active stream.
@@ -5007,7 +5007,7 @@ streamSummary_viewerCount :: Lens' StreamSummary (Maybe Integer)
 streamSummary_health :: Lens' StreamSummary (Maybe StreamHealth)
 
 
-module Network.AWS.IVS.Waiters
+module Amazonka.IVS.Waiters
 
 
 -- | Derived from API version <tt>2020-07-14</tt> of the AWS service
@@ -5033,7 +5033,7 @@ module Network.AWS.IVS.Waiters
 --   <pre>
 --   &lt;p&gt; &lt;b&gt;Allowed Header Values&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt; &lt;b&gt;Accept:&lt;/b&gt; &lt;/code&gt; application/json&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt; &lt;b&gt;Accept-Encoding:&lt;/b&gt; &lt;/code&gt; gzip, deflate&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt; &lt;b&gt;Content-Type:&lt;/b&gt; &lt;/code&gt;application/json&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Resources&lt;/b&gt; &lt;/p&gt; &lt;p&gt;The following resources contain information about your IVS live stream (see &lt;a href="https://docs.aws.amazon.com/ivs/latest/userguide/getting-started.html"&gt; Getting Started with Amazon IVS&lt;/a&gt;):&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Channel — Stores configuration data related to your live stream. You first create a channel and then use the channel’s stream key to start your live stream. See the Channel endpoints for more information. &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Stream key — An identifier assigned by Amazon IVS when you create a channel, which is then used to authorize streaming. See the StreamKey endpoints for more information. &lt;i&gt; &lt;b&gt;Treat the stream key like a secret, since it allows anyone to stream to the channel.&lt;/b&gt; &lt;/i&gt; &lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Playback key pair — Video playback may be restricted using playback-authorization tokens, which use public-key encryption. A playback key pair is the public-private pair of keys used to sign and validate the playback-authorization token. See the PlaybackKeyPair endpoints for more information.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Recording configuration — Stores configuration related to recording a live stream and where to store the recorded content. Multiple channels can reference the same recording configuration. See the Recording Configuration endpoints for more information.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Tagging&lt;/b&gt; &lt;/p&gt; &lt;p&gt;A &lt;i&gt;tag&lt;/i&gt; is a metadata label that you assign to an Amazon Web Services resource. A tag comprises a &lt;i&gt;key&lt;/i&gt; and a &lt;i&gt;value&lt;/i&gt;, both set by you. For example, you might set a tag as &lt;code&gt;topic:nature&lt;/code&gt; to label a particular video category. See &lt;a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html"&gt;Tagging Amazon Web Services Resources&lt;/a&gt; for more information, including restrictions that apply to tags.&lt;/p&gt; &lt;p&gt;Tags can help you identify and organize your Amazon Web Services resources. For example, you can use the same tag for different resources to indicate that they are related. You can also use tags to manage access (see &lt;a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html"&gt; Access Tags&lt;/a&gt;). &lt;/p&gt; &lt;p&gt;The Amazon IVS API has these tag-related endpoints: &lt;a&gt;TagResource&lt;/a&gt;, &lt;a&gt;UntagResource&lt;/a&gt;, and &lt;a&gt;ListTagsForResource&lt;/a&gt;. The following resources support tagging: Channels, Stream Keys, Playback Key Pairs, and Recording Configurations.&lt;/p&gt; &lt;p&gt;At most 50 tags can be applied to a resource. &lt;/p&gt; &lt;p&gt; &lt;b&gt;Authentication versus Authorization&lt;/b&gt; &lt;/p&gt; &lt;p&gt;Note the differences between these concepts:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Authentication&lt;/i&gt; is about verifying identity. You need to be authenticated to sign Amazon IVS API requests.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;i&gt;Authorization&lt;/i&gt; is about granting permissions. You need to be authorized to view &lt;a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html"&gt;Amazon IVS private channels&lt;/a&gt;. (Private channels are channels that are enabled for "playback authorization.")&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Authentication&lt;/b&gt; &lt;/p&gt; &lt;p&gt;All Amazon IVS API requests must be authenticated with a signature. The Amazon Web Services Command-Line Interface (CLI) and Amazon IVS Player SDKs take care of signing the underlying API calls for you. However, if your application calls the Amazon IVS API directly, it’s your responsibility to sign the requests.&lt;/p&gt; &lt;p&gt;You generate a signature using valid Amazon Web Services credentials that have permission to perform the requested action. For example, you must sign PutMetadata requests with a signature generated from an IAM user account that has the &lt;code&gt;ivs:PutMetadata&lt;/code&gt; permission.&lt;/p&gt; &lt;p&gt;For more information:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt;Authentication and generating signatures — See &lt;a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html"&gt;Authenticating Requests (Amazon Web Services Signature Version 4)&lt;/a&gt; in the &lt;i&gt;Amazon Web Services General Reference&lt;/i&gt;.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt;Managing Amazon IVS permissions — See &lt;a href="https://docs.aws.amazon.com/ivs/latest/userguide/security-iam.html"&gt;Identity and Access Management&lt;/a&gt; on the Security page of the &lt;i&gt;Amazon IVS User Guide&lt;/i&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Channel Endpoints&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;CreateChannel&lt;/a&gt; — Creates a new channel and an associated stream key to start streaming.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;GetChannel&lt;/a&gt; — Gets the channel configuration for the specified channel ARN (Amazon Resource Name).&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;BatchGetChannel&lt;/a&gt; — Performs &lt;a&gt;GetChannel&lt;/a&gt; on multiple ARNs simultaneously.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListChannels&lt;/a&gt; — Gets summary information about all channels in your account, in the Amazon Web Services region where the API request is processed. This list can be filtered to match a specified name or recording-configuration ARN. Filters are mutually exclusive and cannot be used together. If you try to use both filters, you will get an error (409 Conflict Exception).&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;UpdateChannel&lt;/a&gt; — Updates a channel's configuration. This does not affect an ongoing stream of this channel. You must stop and restart the stream for the changes to take effect.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;DeleteChannel&lt;/a&gt; — Deletes the specified channel.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;StreamKey Endpoints&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;CreateStreamKey&lt;/a&gt; — Creates a stream key, used to initiate a stream, for the specified channel ARN.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;GetStreamKey&lt;/a&gt; — Gets stream key information for the specified ARN.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;BatchGetStreamKey&lt;/a&gt; — Performs &lt;a&gt;GetStreamKey&lt;/a&gt; on multiple ARNs simultaneously.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListStreamKeys&lt;/a&gt; — Gets summary information about stream keys for the specified channel.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;DeleteStreamKey&lt;/a&gt; — Deletes the stream key for the specified ARN, so it can no longer be used to stream.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Stream Endpoints&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;GetStream&lt;/a&gt; — Gets information about the active (live) stream on a specified channel.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListStreams&lt;/a&gt; — Gets summary information about live streams in your account, in the Amazon Web Services region where the API request is processed.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;StopStream&lt;/a&gt; — Disconnects the incoming RTMPS stream for the specified channel. Can be used in conjunction with &lt;a&gt;DeleteStreamKey&lt;/a&gt; to prevent further streaming to a channel.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;PutMetadata&lt;/a&gt; — Inserts metadata into the active stream of the specified channel. At most 5 requests per second per channel are allowed, each with a maximum 1 KB payload. (If 5 TPS is not sufficient for your needs, we recommend batching your data into a single PutMetadata call.) At most 155 requests per second per account are allowed.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;PlaybackKeyPair Endpoints&lt;/b&gt; &lt;/p&gt; &lt;p&gt;For more information, see &lt;a href="https://docs.aws.amazon.com/ivs/latest/userguide/private-channels.html"&gt;Setting Up Private Channels&lt;/a&gt; in the &lt;i&gt;Amazon IVS User Guide&lt;/i&gt;.&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ImportPlaybackKeyPair&lt;/a&gt; — Imports the public portion of a new key pair and returns its &lt;code&gt;arn&lt;/code&gt; and &lt;code&gt;fingerprint&lt;/code&gt;. The &lt;code&gt;privateKey&lt;/code&gt; can then be used to generate viewer authorization tokens, to grant viewers access to private channels (channels enabled for playback authorization).&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;GetPlaybackKeyPair&lt;/a&gt; — Gets a specified playback authorization key pair and returns the &lt;code&gt;arn&lt;/code&gt; and &lt;code&gt;fingerprint&lt;/code&gt;. The &lt;code&gt;privateKey&lt;/code&gt; held by the caller can be used to generate viewer authorization tokens, to grant viewers access to private channels.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListPlaybackKeyPairs&lt;/a&gt; — Gets summary information about playback key pairs.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;DeletePlaybackKeyPair&lt;/a&gt; — Deletes a specified authorization key pair. This invalidates future viewer tokens generated using the key pair’s &lt;code&gt;privateKey&lt;/code&gt;.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;RecordingConfiguration Endpoints&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;CreateRecordingConfiguration&lt;/a&gt; — Creates a new recording configuration, used to enable recording to Amazon S3.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;GetRecordingConfiguration&lt;/a&gt; — Gets the recording-configuration metadata for the specified ARN.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListRecordingConfigurations&lt;/a&gt; — Gets summary information about all recording configurations in your account, in the Amazon Web Services region where the API request is processed.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;DeleteRecordingConfiguration&lt;/a&gt; — Deletes the recording configuration for the specified ARN.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt; &lt;p&gt; &lt;b&gt;Amazon Web Services Tags Endpoints&lt;/b&gt; &lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;TagResource&lt;/a&gt; — Adds or updates tags for the Amazon Web Services resource with the specified ARN.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;UntagResource&lt;/a&gt; — Removes tags from the resource with the specified ARN.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;a&gt;ListTagsForResource&lt;/a&gt; — Gets information about Amazon Web Services tags for the specified ARN.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
 --   </pre>
-module Network.AWS.IVS
+module Amazonka.IVS
 
 -- | API version <tt>2020-07-14</tt> of the Amazon Interactive Video
 --   Service SDK configuration.

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KinesisAnalytics.Types.ReferenceDataSource</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.ReferenceDataSource</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.S3ReferenceDataSource.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.S3ReferenceDataSource</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.SourceSchema.html"><span class="hs-identifier">Amazonka.KinesisAnalytics.Types.SourceSchema</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the reference data source by providing the source information</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- (S3 bucket name and object key name), the resulting in-application table</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- name that is created, and the necessary schema to map the data elements</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- in the Amazon S3 object to the in-application table.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newReferenceDataSource' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679210143"><span id="local-6989586621679210144"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReferenceDataSource"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-var">ReferenceDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReferenceDataSource%27"><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-var">ReferenceDataSource'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifies the S3 bucket and object that contains the reference data.</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- Also identifies the IAM role Amazon Kinesis Analytics can assume to read</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- this object on your behalf. An Amazon Kinesis Analytics application</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- loads reference data only once. If the data changes, you call the</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- @UpdateApplication@ operation to trigger reloading of data into your</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3As3ReferenceDataSource%3AReferenceDataSource%27"><span class="annot"><span class="annottext">ReferenceDataSource -&gt; Maybe S3ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3As3ReferenceDataSource%3AReferenceDataSource%27"><span class="hs-identifier hs-var hs-var">s3ReferenceDataSource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.S3ReferenceDataSource.html#S3ReferenceDataSource"><span class="hs-identifier hs-type">S3ReferenceDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | Name of the in-application table to create.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AtableName%3AReferenceDataSource%27"><span class="annot"><span class="annottext">ReferenceDataSource -&gt; Text
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3AtableName%3AReferenceDataSource%27"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | Describes the format of the data in the streaming source, and how each</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- data element maps to corresponding columns created in the in-application</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AreferenceSchema%3AReferenceDataSource%27"><span class="annot"><span class="annottext">ReferenceDataSource -&gt; SourceSchema
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3AreferenceSchema%3AReferenceDataSource%27"><span class="hs-identifier hs-var hs-var">referenceSchema</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.SourceSchema.html#SourceSchema"><span class="hs-identifier hs-type">SourceSchema</span></a></span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679210135"><span id="local-6989586621679210137"><span class="annot"><span class="annottext">ReferenceDataSource -&gt; ReferenceDataSource -&gt; Bool
+(ReferenceDataSource -&gt; ReferenceDataSource -&gt; Bool)
+-&gt; (ReferenceDataSource -&gt; ReferenceDataSource -&gt; Bool)
+-&gt; Eq ReferenceDataSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReferenceDataSource -&gt; ReferenceDataSource -&gt; Bool
+$c/= :: ReferenceDataSource -&gt; ReferenceDataSource -&gt; Bool
+== :: ReferenceDataSource -&gt; ReferenceDataSource -&gt; Bool
+$c== :: ReferenceDataSource -&gt; ReferenceDataSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210126"><span id="local-6989586621679210128"><span id="local-6989586621679210130"><span id="local-6989586621679210132"><span class="annot"><span class="annottext">ReadPrec [ReferenceDataSource]
+ReadPrec ReferenceDataSource
+Int -&gt; ReadS ReferenceDataSource
+ReadS [ReferenceDataSource]
+(Int -&gt; ReadS ReferenceDataSource)
+-&gt; ReadS [ReferenceDataSource]
+-&gt; ReadPrec ReferenceDataSource
+-&gt; ReadPrec [ReferenceDataSource]
+-&gt; Read ReferenceDataSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ReferenceDataSource]
+$creadListPrec :: ReadPrec [ReferenceDataSource]
+readPrec :: ReadPrec ReferenceDataSource
+$creadPrec :: ReadPrec ReferenceDataSource
+readList :: ReadS [ReferenceDataSource]
+$creadList :: ReadS [ReferenceDataSource]
+readsPrec :: Int -&gt; ReadS ReferenceDataSource
+$creadsPrec :: Int -&gt; ReadS ReferenceDataSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679210119"><span id="local-6989586621679210121"><span id="local-6989586621679210123"><span class="annot"><span class="annottext">Int -&gt; ReferenceDataSource -&gt; ShowS
+[ReferenceDataSource] -&gt; ShowS
+ReferenceDataSource -&gt; String
+(Int -&gt; ReferenceDataSource -&gt; ShowS)
+-&gt; (ReferenceDataSource -&gt; String)
+-&gt; ([ReferenceDataSource] -&gt; ShowS)
+-&gt; Show ReferenceDataSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReferenceDataSource] -&gt; ShowS
+$cshowList :: [ReferenceDataSource] -&gt; ShowS
+show :: ReferenceDataSource -&gt; String
+$cshow :: ReferenceDataSource -&gt; String
+showsPrec :: Int -&gt; ReferenceDataSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReferenceDataSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ReferenceDataSource -&gt; Rep ReferenceDataSource x)
+-&gt; (forall x. Rep ReferenceDataSource x -&gt; ReferenceDataSource)
+-&gt; Generic ReferenceDataSource
+forall x. Rep ReferenceDataSource x -&gt; ReferenceDataSource
+forall x. ReferenceDataSource -&gt; Rep ReferenceDataSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ReferenceDataSource x -&gt; ReferenceDataSource
+$cfrom :: forall x. ReferenceDataSource -&gt; Rep ReferenceDataSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Create a value of 'ReferenceDataSource' with all optional fields omitted.</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 's3ReferenceDataSource', 'referenceDataSource_s3ReferenceDataSource' - Identifies the S3 bucket and object that contains the reference data.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Also identifies the IAM role Amazon Kinesis Analytics can assume to read</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- this object on your behalf. An Amazon Kinesis Analytics application</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- loads reference data only once. If the data changes, you call the</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- @UpdateApplication@ operation to trigger reloading of data into your</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'tableName', 'referenceDataSource_tableName' - Name of the in-application table to create.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- 'referenceSchema', 'referenceDataSource_referenceSchema' - Describes the format of the data in the streaming source, and how each</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- data element maps to corresponding columns created in the in-application</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-71"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#newReferenceDataSource"><span class="hs-identifier hs-type">newReferenceDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-comment">-- | 'tableName'</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-74"></span><span>  </span><span class="hs-comment">-- | 'referenceSchema'</span><span>
+</span><span id="line-75"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.SourceSchema.html#SourceSchema"><span class="hs-identifier hs-type">SourceSchema</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-76"></span><span>  </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span>
+</span><span id="line-77"></span><span id="newReferenceDataSource"><span class="annot"><span class="annottext">newReferenceDataSource :: Text -&gt; SourceSchema -&gt; ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#newReferenceDataSource"><span class="hs-identifier hs-var hs-var">newReferenceDataSource</span></a></span></span><span> </span><span id="local-6989586621679210113"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210113"><span class="hs-identifier hs-var">pTableName_</span></a></span></span><span> </span><span id="local-6989586621679210112"><span class="annot"><span class="annottext">SourceSchema
+</span><a href="#local-6989586621679210112"><span class="hs-identifier hs-var">pReferenceSchema_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>  </span><span class="annot"><span class="annottext">ReferenceDataSource' :: Maybe S3ReferenceDataSource
+-&gt; Text -&gt; SourceSchema -&gt; ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:s3ReferenceDataSource:ReferenceDataSource' :: Maybe S3ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3As3ReferenceDataSource%3AReferenceDataSource%27"><span class="hs-identifier hs-var">s3ReferenceDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-80"></span><span>        </span><span class="annot"><span class="annottext">Maybe S3ReferenceDataSource
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>      </span><span class="annot"><span class="annottext">$sel:tableName:ReferenceDataSource' :: Text
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3AtableName%3AReferenceDataSource%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210113"><span class="hs-identifier hs-var">pTableName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:referenceSchema:ReferenceDataSource' :: SourceSchema
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3AreferenceSchema%3AReferenceDataSource%27"><span class="hs-identifier hs-var">referenceSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceSchema
+</span><a href="#local-6989586621679210112"><span class="hs-identifier hs-var">pReferenceSchema_</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | Identifies the S3 bucket and object that contains the reference data.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Also identifies the IAM role Amazon Kinesis Analytics can assume to read</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- this object on your behalf. An Amazon Kinesis Analytics application</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- loads reference data only once. If the data changes, you call the</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- @UpdateApplication@ operation to trigger reloading of data into your</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- application.</span><span>
+</span><span id="line-91"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#referenceDataSource_s3ReferenceDataSource"><span class="hs-identifier hs-type">referenceDataSource_s3ReferenceDataSource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.S3ReferenceDataSource.html#S3ReferenceDataSource"><span class="hs-identifier hs-type">S3ReferenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span id="referenceDataSource_s3ReferenceDataSource"><span class="annot"><span class="annottext">referenceDataSource_s3ReferenceDataSource :: (Maybe S3ReferenceDataSource -&gt; f (Maybe S3ReferenceDataSource))
+-&gt; ReferenceDataSource -&gt; f ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#referenceDataSource_s3ReferenceDataSource"><span class="hs-identifier hs-var hs-var">referenceDataSource_s3ReferenceDataSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferenceDataSource -&gt; Maybe S3ReferenceDataSource)
+-&gt; (ReferenceDataSource
+    -&gt; Maybe S3ReferenceDataSource -&gt; ReferenceDataSource)
+-&gt; Lens
+     ReferenceDataSource
+     ReferenceDataSource
+     (Maybe S3ReferenceDataSource)
+     (Maybe S3ReferenceDataSource)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210108"><span class="annot"><span class="annottext">Maybe S3ReferenceDataSource
+s3ReferenceDataSource :: Maybe S3ReferenceDataSource
+$sel:s3ReferenceDataSource:ReferenceDataSource' :: ReferenceDataSource -&gt; Maybe S3ReferenceDataSource
+</span><a href="#local-6989586621679210108"><span class="hs-identifier hs-var hs-var">s3ReferenceDataSource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe S3ReferenceDataSource
+</span><a href="#local-6989586621679210108"><span class="hs-identifier hs-var">s3ReferenceDataSource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210107"><span class="annot"><span class="annottext">s :: ReferenceDataSource
+</span><a href="#local-6989586621679210107"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210106"><span class="annot"><span class="annottext">Maybe S3ReferenceDataSource
+</span><a href="#local-6989586621679210106"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679210107"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:s3ReferenceDataSource:ReferenceDataSource' :: Maybe S3ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3As3ReferenceDataSource%3AReferenceDataSource%27"><span class="hs-identifier hs-var">s3ReferenceDataSource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe S3ReferenceDataSource
+</span><a href="#local-6989586621679210106"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | Name of the in-application table to create.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#referenceDataSource_tableName"><span class="hs-identifier hs-type">referenceDataSource_tableName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="referenceDataSource_tableName"><span class="annot"><span class="annottext">referenceDataSource_tableName :: (Text -&gt; f Text) -&gt; ReferenceDataSource -&gt; f ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#referenceDataSource_tableName"><span class="hs-identifier hs-var hs-var">referenceDataSource_tableName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferenceDataSource -&gt; Text)
+-&gt; (ReferenceDataSource -&gt; Text -&gt; ReferenceDataSource)
+-&gt; Lens ReferenceDataSource ReferenceDataSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210104"><span class="annot"><span class="annottext">Text
+tableName :: Text
+$sel:tableName:ReferenceDataSource' :: ReferenceDataSource -&gt; Text
+</span><a href="#local-6989586621679210104"><span class="hs-identifier hs-var hs-var">tableName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210104"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210103"><span class="annot"><span class="annottext">s :: ReferenceDataSource
+</span><a href="#local-6989586621679210103"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210102"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210102"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679210103"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tableName:ReferenceDataSource' :: Text
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3AtableName%3AReferenceDataSource%27"><span class="hs-identifier hs-var">tableName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210102"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | Describes the format of the data in the streaming source, and how each</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- data element maps to corresponding columns created in the in-application</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- stream.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#referenceDataSource_referenceSchema"><span class="hs-identifier hs-type">referenceDataSource_referenceSchema</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.SourceSchema.html#SourceSchema"><span class="hs-identifier hs-type">SourceSchema</span></a></span><span>
+</span><span id="line-102"></span><span id="referenceDataSource_referenceSchema"><span class="annot"><span class="annottext">referenceDataSource_referenceSchema :: (SourceSchema -&gt; f SourceSchema)
+-&gt; ReferenceDataSource -&gt; f ReferenceDataSource
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#referenceDataSource_referenceSchema"><span class="hs-identifier hs-var hs-var">referenceDataSource_referenceSchema</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReferenceDataSource -&gt; SourceSchema)
+-&gt; (ReferenceDataSource -&gt; SourceSchema -&gt; ReferenceDataSource)
+-&gt; Lens
+     ReferenceDataSource ReferenceDataSource SourceSchema SourceSchema
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210100"><span class="annot"><span class="annottext">SourceSchema
+referenceSchema :: SourceSchema
+$sel:referenceSchema:ReferenceDataSource' :: ReferenceDataSource -&gt; SourceSchema
+</span><a href="#local-6989586621679210100"><span class="hs-identifier hs-var hs-var">referenceSchema</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SourceSchema
+</span><a href="#local-6989586621679210100"><span class="hs-identifier hs-var">referenceSchema</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679210099"><span class="annot"><span class="annottext">s :: ReferenceDataSource
+</span><a href="#local-6989586621679210099"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679210098"><span class="annot"><span class="annottext">SourceSchema
+</span><a href="#local-6989586621679210098"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReferenceDataSource
+</span><a href="#local-6989586621679210099"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:referenceSchema:ReferenceDataSource' :: SourceSchema
+</span><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#%24sel%3AreferenceSchema%3AReferenceDataSource%27"><span class="hs-identifier hs-var">referenceSchema</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">SourceSchema
+</span><a href="#local-6989586621679210098"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210094"><span id="local-6989586621679210096"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span></span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210091"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679210083"><span id="local-6989586621679210085"><span id="local-6989586621679210087"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource"><span class="hs-identifier hs-type">ReferenceDataSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679210081"><span class="annot"><span class="annottext">toJSON :: ReferenceDataSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.KinesisAnalytics.Types.ReferenceDataSource.html#ReferenceDataSource%27"><span class="hs-identifier hs-type">ReferenceDataSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679210077"><span id="local-6989586621679210078"><span id="local-6989586621679210079"><span class="annot"><span class="annottext">Maybe S3ReferenceDataSource
+Text
+SourceSchema
+referenceSchema :: SourceSchema
+tableName :: Text
+s3ReferenceDataSource :: Maybe S3ReferenceDataSource
+$sel:referenceSchema:ReferenceDataSource' :: ReferenceDataSource -&gt; SourceSchema
+$sel:tableName:ReferenceDataSource' :: ReferenceDataSource -&gt; Text
+$sel:s3ReferenceDataSource:ReferenceDataSource' :: ReferenceDataSource -&gt; Maybe S3ReferenceDataSource
+</span><a href="#local-6989586621679210077"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;S3ReferenceDataSource&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; S3ReferenceDataSource -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">(S3ReferenceDataSource -&gt; Pair)
+-&gt; Maybe S3ReferenceDataSource -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe S3ReferenceDataSource
+</span><a href="#local-6989586621679210079"><span class="hs-identifier hs-var">s3ReferenceDataSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TableName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679210078"><span class="hs-identifier hs-var">tableName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-116"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReferenceSchema&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SourceSchema -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">SourceSchema
+</span><a href="#local-6989586621679210077"><span class="hs-identifier hs-var">referenceSchema</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span></pre></body></html>

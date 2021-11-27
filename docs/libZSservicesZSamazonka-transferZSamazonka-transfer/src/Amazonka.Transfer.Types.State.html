@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Transfer.Types.State</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Transfer.Types.State</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier">State</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_OFFLINE"><span class="hs-identifier">State_OFFLINE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_ONLINE"><span class="hs-identifier">State_ONLINE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STARTING"><span class="hs-identifier">State_STARTING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_START_FAILED"><span class="hs-identifier">State_START_FAILED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STOPPING"><span class="hs-identifier">State_STOPPING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STOP_FAILED"><span class="hs-identifier">State_STOP_FAILED</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | Describes the condition of a file transfer protocol-enabled server with</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- respect to its ability to perform file operations. There are six</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- possible states: @OFFLINE@, @ONLINE@, @STARTING@, @STOPPING@,</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- @START_FAILED@, and @STOP_FAILED@.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- @OFFLINE@ indicates that the server exists, but that it is not available</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- for file operations. @ONLINE@ indicates that the server is available to</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- perform file operations. @STARTING@ indicates that the server\'s was</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- instantiated, but the server is not yet available to perform file</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- operations. Under normal conditions, it can take a couple of minutes for</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- the server to be completely operational. Both @START_FAILED@ and</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- @STOP_FAILED@ are error conditions.</span><span>
+</span><span id="line-48"></span><span id="local-6989586621679240024"><span id="local-6989586621679240025"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="State"><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-var">State</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="State%27"><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-identifier hs-var">State'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromState"><span class="annot"><span class="annottext">State -&gt; Text
+</span><a href="Amazonka.Transfer.Types.State.html#fromState"><span class="hs-identifier hs-var hs-var">fromState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679240016"><span id="local-6989586621679240018"><span id="local-6989586621679240020"><span class="annot"><span class="annottext">Int -&gt; State -&gt; ShowS
+[State] -&gt; ShowS
+State -&gt; String
+(Int -&gt; State -&gt; ShowS)
+-&gt; (State -&gt; String) -&gt; ([State] -&gt; ShowS) -&gt; Show State
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [State] -&gt; ShowS
+$cshowList :: [State] -&gt; ShowS
+show :: State -&gt; String
+$cshow :: State -&gt; String
+showsPrec :: Int -&gt; State -&gt; ShowS
+$cshowsPrec :: Int -&gt; State -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679240007"><span id="local-6989586621679240009"><span id="local-6989586621679240011"><span id="local-6989586621679240013"><span class="annot"><span class="annottext">ReadPrec [State]
+ReadPrec State
+Int -&gt; ReadS State
+ReadS [State]
+(Int -&gt; ReadS State)
+-&gt; ReadS [State]
+-&gt; ReadPrec State
+-&gt; ReadPrec [State]
+-&gt; Read State
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [State]
+$creadListPrec :: ReadPrec [State]
+readPrec :: ReadPrec State
+$creadPrec :: ReadPrec State
+readList :: ReadS [State]
+$creadList :: ReadS [State]
+readsPrec :: Int -&gt; ReadS State
+$creadsPrec :: Int -&gt; ReadS State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679240002"><span id="local-6989586621679240004"><span class="annot"><span class="annottext">State -&gt; State -&gt; Bool
+(State -&gt; State -&gt; Bool) -&gt; (State -&gt; State -&gt; Bool) -&gt; Eq State
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: State -&gt; State -&gt; Bool
+$c/= :: State -&gt; State -&gt; Bool
+== :: State -&gt; State -&gt; Bool
+$c== :: State -&gt; State -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679239986"><span id="local-6989586621679239988"><span id="local-6989586621679239990"><span id="local-6989586621679239992"><span id="local-6989586621679239994"><span id="local-6989586621679239996"><span id="local-6989586621679239998"><span class="annot"><span class="annottext">Eq State
+Eq State
+-&gt; (State -&gt; State -&gt; Ordering)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; Bool)
+-&gt; (State -&gt; State -&gt; State)
+-&gt; (State -&gt; State -&gt; State)
+-&gt; Ord State
+State -&gt; State -&gt; Bool
+State -&gt; State -&gt; Ordering
+State -&gt; State -&gt; State
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: State -&gt; State -&gt; State
+$cmin :: State -&gt; State -&gt; State
+max :: State -&gt; State -&gt; State
+$cmax :: State -&gt; State -&gt; State
+&gt;= :: State -&gt; State -&gt; Bool
+$c&gt;= :: State -&gt; State -&gt; Bool
+&gt; :: State -&gt; State -&gt; Bool
+$c&gt; :: State -&gt; State -&gt; Bool
+&lt;= :: State -&gt; State -&gt; Bool
+$c&lt;= :: State -&gt; State -&gt; Bool
+&lt; :: State -&gt; State -&gt; Bool
+$c&lt; :: State -&gt; State -&gt; Bool
+compare :: State -&gt; State -&gt; Ordering
+$ccompare :: State -&gt; State -&gt; Ordering
+$cp1Ord :: Eq State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">(forall x. State -&gt; Rep State x)
+-&gt; (forall x. Rep State x -&gt; State) -&gt; Generic State
+forall x. Rep State x -&gt; State
+forall x. State -&gt; Rep State x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep State x -&gt; State
+$cfrom :: forall x. State -&gt; Rep State x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679239978"><span id="local-6989586621679239980"><span class="annot"><span class="annottext">Int -&gt; State -&gt; Int
+State -&gt; Int
+(Int -&gt; State -&gt; Int) -&gt; (State -&gt; Int) -&gt; Hashable State
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: State -&gt; Int
+$chash :: State -&gt; Int
+hashWithSalt :: Int -&gt; State -&gt; Int
+$chashWithSalt :: Int -&gt; State -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679239975"><span class="annot"><span class="annottext">State -&gt; ()
+(State -&gt; ()) -&gt; NFData State
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: State -&gt; ()
+$crnf :: State -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679239972"><span class="annot"><span class="annottext">Text -&gt; Either String State
+(Text -&gt; Either String State) -&gt; FromText State
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String State
+$cfromText :: Text -&gt; Either String State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679239969"><span class="annot"><span class="annottext">State -&gt; Text
+(State -&gt; Text) -&gt; ToText State
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: State -&gt; Text
+$ctoText :: State -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679239966"><span class="annot"><span class="annottext">State -&gt; ByteString
+(State -&gt; ByteString) -&gt; ToByteString State
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: State -&gt; ByteString
+$ctoBS :: State -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679239963"><span class="annot"><span class="annottext">State -&gt; ByteStringBuilder
+(State -&gt; ByteStringBuilder) -&gt; ToLog State
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: State -&gt; ByteStringBuilder
+$cbuild :: State -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679239960"><span class="annot"><span class="annottext">HeaderName -&gt; State -&gt; [Header]
+(HeaderName -&gt; State -&gt; [Header]) -&gt; ToHeader State
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; State -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; State -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679239957"><span class="annot"><span class="annottext">State -&gt; QueryString
+(State -&gt; QueryString) -&gt; ToQuery State
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: State -&gt; QueryString
+$ctoQuery :: State -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679239952"><span id="local-6989586621679239954"><span class="annot"><span class="annottext">Value -&gt; Parser [State]
+Value -&gt; Parser State
+(Value -&gt; Parser State)
+-&gt; (Value -&gt; Parser [State]) -&gt; FromJSON State
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [State]
+$cparseJSONList :: Value -&gt; Parser [State]
+parseJSON :: Value -&gt; Parser State
+$cparseJSON :: Value -&gt; Parser State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679239947"><span id="local-6989586621679239949"><span class="annot"><span class="annottext">FromJSONKeyFunction [State]
+FromJSONKeyFunction State
+FromJSONKeyFunction State
+-&gt; FromJSONKeyFunction [State] -&gt; FromJSONKey State
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [State]
+$cfromJSONKeyList :: FromJSONKeyFunction [State]
+fromJSONKey :: FromJSONKeyFunction State
+$cfromJSONKey :: FromJSONKeyFunction State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679239938"><span id="local-6989586621679239940"><span id="local-6989586621679239942"><span id="local-6989586621679239944"><span class="annot"><span class="annottext">[State] -&gt; Encoding
+[State] -&gt; Value
+State -&gt; Encoding
+State -&gt; Value
+(State -&gt; Value)
+-&gt; (State -&gt; Encoding)
+-&gt; ([State] -&gt; Value)
+-&gt; ([State] -&gt; Encoding)
+-&gt; ToJSON State
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [State] -&gt; Encoding
+$ctoEncodingList :: [State] -&gt; Encoding
+toJSONList :: [State] -&gt; Value
+$ctoJSONList :: [State] -&gt; Value
+toEncoding :: State -&gt; Encoding
+$ctoEncoding :: State -&gt; Encoding
+toJSON :: State -&gt; Value
+$ctoJSON :: State -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679239933"><span id="local-6989586621679239935"><span class="annot"><span class="annottext">ToJSONKeyFunction [State]
+ToJSONKeyFunction State
+ToJSONKeyFunction State
+-&gt; ToJSONKeyFunction [State] -&gt; ToJSONKey State
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [State]
+$ctoJSONKeyList :: ToJSONKeyFunction [State]
+toJSONKey :: ToJSONKeyFunction State
+$ctoJSONKey :: ToJSONKeyFunction State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679239930"><span class="annot"><span class="annottext">[Node] -&gt; Either String State
+([Node] -&gt; Either String State) -&gt; FromXML State
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String State
+$cparseXML :: [Node] -&gt; Either String State
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span id="local-6989586621679239927"><span class="annot"><span class="annottext">State -&gt; XML
+(State -&gt; XML) -&gt; ToXML State
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: State -&gt; XML
+$ctoXML :: State -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_OFFLINE"><span class="hs-identifier hs-type">State_OFFLINE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_OFFLINE"><span id="%24mState_OFFLINE"><span id="State_OFFLINE"><span class="annot"><span class="annottext">$bState_OFFLINE :: State
+$mState_OFFLINE :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transfer.Types.State.html#%24bState_OFFLINE"><span class="hs-identifier hs-var hs-var hs-var">State_OFFLINE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;OFFLINE&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_ONLINE"><span class="hs-identifier hs-type">State_ONLINE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_ONLINE"><span id="%24mState_ONLINE"><span id="State_ONLINE"><span class="annot"><span class="annottext">$bState_ONLINE :: State
+$mState_ONLINE :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transfer.Types.State.html#%24bState_ONLINE"><span class="hs-identifier hs-var hs-var hs-var">State_ONLINE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ONLINE&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STARTING"><span class="hs-identifier hs-type">State_STARTING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_STARTING"><span id="%24mState_STARTING"><span id="State_STARTING"><span class="annot"><span class="annottext">$bState_STARTING :: State
+$mState_STARTING :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transfer.Types.State.html#%24bState_STARTING"><span class="hs-identifier hs-var hs-var hs-var">State_STARTING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STARTING&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_START_FAILED"><span class="hs-identifier hs-type">State_START_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_START_FAILED"><span id="%24mState_START_FAILED"><span id="State_START_FAILED"><span class="annot"><span class="annottext">$bState_START_FAILED :: State
+$mState_START_FAILED :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transfer.Types.State.html#%24bState_START_FAILED"><span class="hs-identifier hs-var hs-var hs-var">State_START_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;START_FAILED&quot;</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STOPPING"><span class="hs-identifier hs-type">State_STOPPING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_STOPPING"><span id="%24mState_STOPPING"><span id="State_STOPPING"><span class="annot"><span class="annottext">$bState_STOPPING :: State
+$mState_STOPPING :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transfer.Types.State.html#%24bState_STOPPING"><span class="hs-identifier hs-var hs-var hs-var">State_STOPPING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOPPING&quot;</span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STOP_FAILED"><span class="hs-identifier hs-type">State_STOP_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State"><span class="hs-identifier hs-type">State</span></a></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bState_STOP_FAILED"><span id="%24mState_STOP_FAILED"><span id="State_STOP_FAILED"><span class="annot"><span class="annottext">$bState_STOP_FAILED :: State
+$mState_STOP_FAILED :: forall r. State -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Transfer.Types.State.html#%24bState_STOP_FAILED"><span class="hs-identifier hs-var hs-var hs-var">State_STOP_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-identifier hs-type">State'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;STOP_FAILED&quot;</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_OFFLINE"><span class="hs-pragma hs-type">State_OFFLINE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_ONLINE"><span class="hs-pragma hs-type">State_ONLINE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STARTING"><span class="hs-pragma hs-type">State_STARTING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_START_FAILED"><span class="hs-pragma hs-type">State_START_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STOPPING"><span class="hs-pragma hs-type">State_STOPPING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State_STOP_FAILED"><span class="hs-pragma hs-type">State_STOP_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.Transfer.Types.State.html#State%27"><span class="hs-pragma hs-type">State'</span></a></span><span>
+</span><span id="line-99"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-100"></span></pre></body></html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.IoT.Types.BehaviorModelTrainingSummary</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoT.Types.BehaviorModelTrainingSummary</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.ModelStatus.html"><span class="hs-identifier">Amazonka.IoT.Types.ModelStatus</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The summary of an ML Detect behavior model.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBehaviorModelTrainingSummary' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679790797"><span id="local-6989586621679790798"></span></span><span class="hs-keyword">data</span><span> </span><span id="BehaviorModelTrainingSummary"><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-var">BehaviorModelTrainingSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BehaviorModelTrainingSummary%27"><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">BehaviorModelTrainingSummary'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The date the model was last refreshed.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AlastModelRefreshDate%3ABehaviorModelTrainingSummary%27"><span class="annot"><span class="annottext">BehaviorModelTrainingSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AlastModelRefreshDate%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var hs-var">lastModelRefreshDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The name of the behavior.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AbehaviorName%3ABehaviorModelTrainingSummary%27"><span class="annot"><span class="annottext">BehaviorModelTrainingSummary -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AbehaviorName%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var hs-var">behaviorName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The percentage of datapoints collected.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AdatapointsCollectionPercentage%3ABehaviorModelTrainingSummary%27"><span class="annot"><span class="annottext">BehaviorModelTrainingSummary -&gt; Maybe Double
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AdatapointsCollectionPercentage%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var hs-var">datapointsCollectionPercentage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The name of the security profile.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AsecurityProfileName%3ABehaviorModelTrainingSummary%27"><span class="annot"><span class="annottext">BehaviorModelTrainingSummary -&gt; Maybe Text
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AsecurityProfileName%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date a training model started collecting data.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AtrainingDataCollectionStartDate%3ABehaviorModelTrainingSummary%27"><span class="annot"><span class="annottext">BehaviorModelTrainingSummary -&gt; Maybe POSIX
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AtrainingDataCollectionStartDate%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var hs-var">trainingDataCollectionStartDate</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The status of the behavior model.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AmodelStatus%3ABehaviorModelTrainingSummary%27"><span class="annot"><span class="annottext">BehaviorModelTrainingSummary -&gt; Maybe ModelStatus
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AmodelStatus%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var hs-var">modelStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679790786"><span id="local-6989586621679790788"><span class="annot"><span class="annottext">BehaviorModelTrainingSummary
+-&gt; BehaviorModelTrainingSummary -&gt; Bool
+(BehaviorModelTrainingSummary
+ -&gt; BehaviorModelTrainingSummary -&gt; Bool)
+-&gt; (BehaviorModelTrainingSummary
+    -&gt; BehaviorModelTrainingSummary -&gt; Bool)
+-&gt; Eq BehaviorModelTrainingSummary
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BehaviorModelTrainingSummary
+-&gt; BehaviorModelTrainingSummary -&gt; Bool
+$c/= :: BehaviorModelTrainingSummary
+-&gt; BehaviorModelTrainingSummary -&gt; Bool
+== :: BehaviorModelTrainingSummary
+-&gt; BehaviorModelTrainingSummary -&gt; Bool
+$c== :: BehaviorModelTrainingSummary
+-&gt; BehaviorModelTrainingSummary -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790777"><span id="local-6989586621679790779"><span id="local-6989586621679790781"><span id="local-6989586621679790783"><span class="annot"><span class="annottext">ReadPrec [BehaviorModelTrainingSummary]
+ReadPrec BehaviorModelTrainingSummary
+Int -&gt; ReadS BehaviorModelTrainingSummary
+ReadS [BehaviorModelTrainingSummary]
+(Int -&gt; ReadS BehaviorModelTrainingSummary)
+-&gt; ReadS [BehaviorModelTrainingSummary]
+-&gt; ReadPrec BehaviorModelTrainingSummary
+-&gt; ReadPrec [BehaviorModelTrainingSummary]
+-&gt; Read BehaviorModelTrainingSummary
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BehaviorModelTrainingSummary]
+$creadListPrec :: ReadPrec [BehaviorModelTrainingSummary]
+readPrec :: ReadPrec BehaviorModelTrainingSummary
+$creadPrec :: ReadPrec BehaviorModelTrainingSummary
+readList :: ReadS [BehaviorModelTrainingSummary]
+$creadList :: ReadS [BehaviorModelTrainingSummary]
+readsPrec :: Int -&gt; ReadS BehaviorModelTrainingSummary
+$creadsPrec :: Int -&gt; ReadS BehaviorModelTrainingSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679790770"><span id="local-6989586621679790772"><span id="local-6989586621679790774"><span class="annot"><span class="annottext">Int -&gt; BehaviorModelTrainingSummary -&gt; ShowS
+[BehaviorModelTrainingSummary] -&gt; ShowS
+BehaviorModelTrainingSummary -&gt; String
+(Int -&gt; BehaviorModelTrainingSummary -&gt; ShowS)
+-&gt; (BehaviorModelTrainingSummary -&gt; String)
+-&gt; ([BehaviorModelTrainingSummary] -&gt; ShowS)
+-&gt; Show BehaviorModelTrainingSummary
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BehaviorModelTrainingSummary] -&gt; ShowS
+$cshowList :: [BehaviorModelTrainingSummary] -&gt; ShowS
+show :: BehaviorModelTrainingSummary -&gt; String
+$cshow :: BehaviorModelTrainingSummary -&gt; String
+showsPrec :: Int -&gt; BehaviorModelTrainingSummary -&gt; ShowS
+$cshowsPrec :: Int -&gt; BehaviorModelTrainingSummary -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BehaviorModelTrainingSummary -&gt; Rep BehaviorModelTrainingSummary x)
+-&gt; (forall x.
+    Rep BehaviorModelTrainingSummary x -&gt; BehaviorModelTrainingSummary)
+-&gt; Generic BehaviorModelTrainingSummary
+forall x.
+Rep BehaviorModelTrainingSummary x -&gt; BehaviorModelTrainingSummary
+forall x.
+BehaviorModelTrainingSummary -&gt; Rep BehaviorModelTrainingSummary x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BehaviorModelTrainingSummary x -&gt; BehaviorModelTrainingSummary
+$cfrom :: forall x.
+BehaviorModelTrainingSummary -&gt; Rep BehaviorModelTrainingSummary x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'BehaviorModelTrainingSummary' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'lastModelRefreshDate', 'behaviorModelTrainingSummary_lastModelRefreshDate' - The date the model was last refreshed.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'behaviorName', 'behaviorModelTrainingSummary_behaviorName' - The name of the behavior.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'datapointsCollectionPercentage', 'behaviorModelTrainingSummary_datapointsCollectionPercentage' - The percentage of datapoints collected.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'securityProfileName', 'behaviorModelTrainingSummary_securityProfileName' - The name of the security profile.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'trainingDataCollectionStartDate', 'behaviorModelTrainingSummary_trainingDataCollectionStartDate' - The date a training model started collecting data.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'modelStatus', 'behaviorModelTrainingSummary_modelStatus' - The status of the behavior model.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#newBehaviorModelTrainingSummary"><span class="hs-identifier hs-type">newBehaviorModelTrainingSummary</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span>
+</span><span id="line-67"></span><span id="newBehaviorModelTrainingSummary"><span class="annot"><span class="annottext">newBehaviorModelTrainingSummary :: BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#newBehaviorModelTrainingSummary"><span class="hs-identifier hs-var hs-var">newBehaviorModelTrainingSummary</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">BehaviorModelTrainingSummary' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ModelStatus
+-&gt; BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:lastModelRefreshDate:BehaviorModelTrainingSummary' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AlastModelRefreshDate%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">lastModelRefreshDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:behaviorName:BehaviorModelTrainingSummary' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AbehaviorName%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">behaviorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:datapointsCollectionPercentage:BehaviorModelTrainingSummary' :: Maybe Double
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AdatapointsCollectionPercentage%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">datapointsCollectionPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:securityProfileName:BehaviorModelTrainingSummary' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AsecurityProfileName%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>      </span><span class="annot"><span class="annottext">$sel:trainingDataCollectionStartDate:BehaviorModelTrainingSummary' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AtrainingDataCollectionStartDate%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">trainingDataCollectionStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">$sel:modelStatus:BehaviorModelTrainingSummary' :: Maybe ModelStatus
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AmodelStatus%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">modelStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The date the model was last refreshed.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_lastModelRefreshDate"><span class="hs-identifier hs-type">behaviorModelTrainingSummary_lastModelRefreshDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="behaviorModelTrainingSummary_lastModelRefreshDate"><span class="annot"><span class="annottext">behaviorModelTrainingSummary_lastModelRefreshDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_lastModelRefreshDate"><span class="hs-identifier hs-var hs-var">behaviorModelTrainingSummary_lastModelRefreshDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorModelTrainingSummary -&gt; Maybe POSIX)
+-&gt; (BehaviorModelTrainingSummary
+    -&gt; Maybe POSIX -&gt; BehaviorModelTrainingSummary)
+-&gt; Lens
+     BehaviorModelTrainingSummary
+     BehaviorModelTrainingSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790761"><span class="annot"><span class="annottext">Maybe POSIX
+lastModelRefreshDate :: Maybe POSIX
+$sel:lastModelRefreshDate:BehaviorModelTrainingSummary' :: BehaviorModelTrainingSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679790761"><span class="hs-identifier hs-var hs-var">lastModelRefreshDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790761"><span class="hs-identifier hs-var">lastModelRefreshDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790760"><span class="annot"><span class="annottext">s :: BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790760"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790759"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790759"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790760"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModelRefreshDate:BehaviorModelTrainingSummary' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AlastModelRefreshDate%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">lastModelRefreshDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790759"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BehaviorModelTrainingSummary
+-&gt; f BehaviorModelTrainingSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the behavior.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_behaviorName"><span class="hs-identifier hs-type">behaviorModelTrainingSummary_behaviorName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="behaviorModelTrainingSummary_behaviorName"><span class="annot"><span class="annottext">behaviorModelTrainingSummary_behaviorName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_behaviorName"><span class="hs-identifier hs-var hs-var">behaviorModelTrainingSummary_behaviorName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorModelTrainingSummary -&gt; Maybe Text)
+-&gt; (BehaviorModelTrainingSummary
+    -&gt; Maybe Text -&gt; BehaviorModelTrainingSummary)
+-&gt; Lens
+     BehaviorModelTrainingSummary
+     BehaviorModelTrainingSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790754"><span class="annot"><span class="annottext">Maybe Text
+behaviorName :: Maybe Text
+$sel:behaviorName:BehaviorModelTrainingSummary' :: BehaviorModelTrainingSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679790754"><span class="hs-identifier hs-var hs-var">behaviorName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790754"><span class="hs-identifier hs-var">behaviorName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790753"><span class="annot"><span class="annottext">s :: BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790753"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790752"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790752"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790753"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:behaviorName:BehaviorModelTrainingSummary' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AbehaviorName%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">behaviorName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790752"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The percentage of datapoints collected.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_datapointsCollectionPercentage"><span class="hs-identifier hs-type">behaviorModelTrainingSummary_datapointsCollectionPercentage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="behaviorModelTrainingSummary_datapointsCollectionPercentage"><span class="annot"><span class="annottext">behaviorModelTrainingSummary_datapointsCollectionPercentage :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_datapointsCollectionPercentage"><span class="hs-identifier hs-var hs-var">behaviorModelTrainingSummary_datapointsCollectionPercentage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorModelTrainingSummary -&gt; Maybe Double)
+-&gt; (BehaviorModelTrainingSummary
+    -&gt; Maybe Double -&gt; BehaviorModelTrainingSummary)
+-&gt; Lens
+     BehaviorModelTrainingSummary
+     BehaviorModelTrainingSummary
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790750"><span class="annot"><span class="annottext">Maybe Double
+datapointsCollectionPercentage :: Maybe Double
+$sel:datapointsCollectionPercentage:BehaviorModelTrainingSummary' :: BehaviorModelTrainingSummary -&gt; Maybe Double
+</span><a href="#local-6989586621679790750"><span class="hs-identifier hs-var hs-var">datapointsCollectionPercentage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790750"><span class="hs-identifier hs-var">datapointsCollectionPercentage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790749"><span class="annot"><span class="annottext">s :: BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790749"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790748"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790748"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790749"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:datapointsCollectionPercentage:BehaviorModelTrainingSummary' :: Maybe Double
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AdatapointsCollectionPercentage%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">datapointsCollectionPercentage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679790748"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The name of the security profile.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_securityProfileName"><span class="hs-identifier hs-type">behaviorModelTrainingSummary_securityProfileName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="behaviorModelTrainingSummary_securityProfileName"><span class="annot"><span class="annottext">behaviorModelTrainingSummary_securityProfileName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_securityProfileName"><span class="hs-identifier hs-var hs-var">behaviorModelTrainingSummary_securityProfileName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorModelTrainingSummary -&gt; Maybe Text)
+-&gt; (BehaviorModelTrainingSummary
+    -&gt; Maybe Text -&gt; BehaviorModelTrainingSummary)
+-&gt; Lens
+     BehaviorModelTrainingSummary
+     BehaviorModelTrainingSummary
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790746"><span class="annot"><span class="annottext">Maybe Text
+securityProfileName :: Maybe Text
+$sel:securityProfileName:BehaviorModelTrainingSummary' :: BehaviorModelTrainingSummary -&gt; Maybe Text
+</span><a href="#local-6989586621679790746"><span class="hs-identifier hs-var hs-var">securityProfileName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790746"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790745"><span class="annot"><span class="annottext">s :: BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790745"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790744"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790744"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790745"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:securityProfileName:BehaviorModelTrainingSummary' :: Maybe Text
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AsecurityProfileName%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">securityProfileName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679790744"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- | The date a training model started collecting data.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_trainingDataCollectionStartDate"><span class="hs-identifier hs-type">behaviorModelTrainingSummary_trainingDataCollectionStartDate</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span id="behaviorModelTrainingSummary_trainingDataCollectionStartDate"><span class="annot"><span class="annottext">behaviorModelTrainingSummary_trainingDataCollectionStartDate :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_trainingDataCollectionStartDate"><span class="hs-identifier hs-var hs-var">behaviorModelTrainingSummary_trainingDataCollectionStartDate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorModelTrainingSummary -&gt; Maybe POSIX)
+-&gt; (BehaviorModelTrainingSummary
+    -&gt; Maybe POSIX -&gt; BehaviorModelTrainingSummary)
+-&gt; Lens
+     BehaviorModelTrainingSummary
+     BehaviorModelTrainingSummary
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790742"><span class="annot"><span class="annottext">Maybe POSIX
+trainingDataCollectionStartDate :: Maybe POSIX
+$sel:trainingDataCollectionStartDate:BehaviorModelTrainingSummary' :: BehaviorModelTrainingSummary -&gt; Maybe POSIX
+</span><a href="#local-6989586621679790742"><span class="hs-identifier hs-var hs-var">trainingDataCollectionStartDate</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790742"><span class="hs-identifier hs-var">trainingDataCollectionStartDate</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790741"><span class="annot"><span class="annottext">s :: BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790741"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790740"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790740"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790741"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trainingDataCollectionStartDate:BehaviorModelTrainingSummary' :: Maybe POSIX
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AtrainingDataCollectionStartDate%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">trainingDataCollectionStartDate</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679790740"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; BehaviorModelTrainingSummary
+-&gt; f BehaviorModelTrainingSummary
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The status of the behavior model.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_modelStatus"><span class="hs-identifier hs-type">behaviorModelTrainingSummary_modelStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.ModelStatus.html#ModelStatus"><span class="hs-identifier hs-type">ModelStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="behaviorModelTrainingSummary_modelStatus"><span class="annot"><span class="annottext">behaviorModelTrainingSummary_modelStatus :: (Maybe ModelStatus -&gt; f (Maybe ModelStatus))
+-&gt; BehaviorModelTrainingSummary -&gt; f BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#behaviorModelTrainingSummary_modelStatus"><span class="hs-identifier hs-var hs-var">behaviorModelTrainingSummary_modelStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BehaviorModelTrainingSummary -&gt; Maybe ModelStatus)
+-&gt; (BehaviorModelTrainingSummary
+    -&gt; Maybe ModelStatus -&gt; BehaviorModelTrainingSummary)
+-&gt; Lens
+     BehaviorModelTrainingSummary
+     BehaviorModelTrainingSummary
+     (Maybe ModelStatus)
+     (Maybe ModelStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679790738"><span class="annot"><span class="annottext">Maybe ModelStatus
+modelStatus :: Maybe ModelStatus
+$sel:modelStatus:BehaviorModelTrainingSummary' :: BehaviorModelTrainingSummary -&gt; Maybe ModelStatus
+</span><a href="#local-6989586621679790738"><span class="hs-identifier hs-var hs-var">modelStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679790738"><span class="hs-identifier hs-var">modelStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679790737"><span class="annot"><span class="annottext">s :: BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790737"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679790736"><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679790736"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BehaviorModelTrainingSummary
+</span><a href="#local-6989586621679790737"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:modelStatus:BehaviorModelTrainingSummary' :: Maybe ModelStatus
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#%24sel%3AmodelStatus%3ABehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">modelStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ModelStatus
+</span><a href="#local-6989586621679790736"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790733"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679790731"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BehaviorModelTrainingSummary
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BehaviorModelTrainingSummary)
+-&gt; Value
+-&gt; Parser BehaviorModelTrainingSummary
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BehaviorModelTrainingSummary&quot;</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679790728"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790728"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Double
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe ModelStatus
+-&gt; BehaviorModelTrainingSummary
+</span><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary%27"><span class="hs-identifier hs-var">BehaviorModelTrainingSummary'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Double
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe ModelStatus
+ -&gt; BehaviorModelTrainingSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ModelStatus
+      -&gt; BehaviorModelTrainingSummary)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;lastModelRefreshDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ModelStatus
+   -&gt; BehaviorModelTrainingSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Double
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ModelStatus
+      -&gt; BehaviorModelTrainingSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;behaviorName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Double
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ModelStatus
+   -&gt; BehaviorModelTrainingSummary)
+-&gt; Parser (Maybe Double)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe ModelStatus
+      -&gt; BehaviorModelTrainingSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;datapointsCollectionPercentage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe ModelStatus
+   -&gt; BehaviorModelTrainingSummary)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe POSIX -&gt; Maybe ModelStatus -&gt; BehaviorModelTrainingSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;securityProfileName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe POSIX -&gt; Maybe ModelStatus -&gt; BehaviorModelTrainingSummary)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser (Maybe ModelStatus -&gt; BehaviorModelTrainingSummary)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trainingDataCollectionStartDate&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ModelStatus -&gt; BehaviorModelTrainingSummary)
+-&gt; Parser (Maybe ModelStatus)
+-&gt; Parser BehaviorModelTrainingSummary
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679790728"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ModelStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;modelStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679790722"><span id="local-6989586621679790724"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679790719"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.IoT.Types.BehaviorModelTrainingSummary.html#BehaviorModelTrainingSummary"><span class="hs-identifier hs-type">BehaviorModelTrainingSummary</span></a></span></span><span>
+</span><span id="line-123"></span></pre></body></html>

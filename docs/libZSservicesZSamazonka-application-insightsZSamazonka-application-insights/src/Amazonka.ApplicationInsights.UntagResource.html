@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationInsights.UntagResource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Remove one or more tags (keys and values) from a specified application.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationInsights.UntagResource</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier">UntagResource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#newUntagResource"><span class="hs-identifier">newUntagResource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResource_resourceARN"><span class="hs-identifier">untagResource_resourceARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResource_tagKeys"><span class="hs-identifier">untagResource_tagKeys</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse"><span class="hs-identifier">UntagResourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier">newUntagResourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResourceResponse_httpStatus"><span class="hs-identifier">untagResourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.Types.html"><span class="hs-identifier">Amazonka.ApplicationInsights.Types</span></a></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | /See:/ 'newUntagResource' smart constructor.</span><span>
+</span><span id="line-50"></span><span id="local-6989586621679223044"><span id="local-6989586621679223045"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResource"><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-var">UntagResource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResource%27"><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-var">UntagResource'</span></a></span></span><span>
+</span><span id="line-51"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application that you want to</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- remove one or more tags from.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AresourceARN%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; Text
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AresourceARN%3AUntagResource%27"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The tags (tag keys) that you want to remove from the resource. When you</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- specify a tag key, the action removes both that key and its associated</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- tag value.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- To remove more than one tag from the application, append the @TagKeys@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- parameter and argument for each additional tag to remove, separated by</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- an ampersand.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AtagKeys%3AUntagResource%27"><span class="annot"><span class="annottext">UntagResource -&gt; [Text]
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679223037"><span id="local-6989586621679223039"><span class="annot"><span class="annottext">UntagResource -&gt; UntagResource -&gt; Bool
+(UntagResource -&gt; UntagResource -&gt; Bool)
+-&gt; (UntagResource -&gt; UntagResource -&gt; Bool) -&gt; Eq UntagResource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UntagResource -&gt; UntagResource -&gt; Bool
+$c/= :: UntagResource -&gt; UntagResource -&gt; Bool
+== :: UntagResource -&gt; UntagResource -&gt; Bool
+$c== :: UntagResource -&gt; UntagResource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223028"><span id="local-6989586621679223030"><span id="local-6989586621679223032"><span id="local-6989586621679223034"><span class="annot"><span class="annottext">ReadPrec [UntagResource]
+ReadPrec UntagResource
+Int -&gt; ReadS UntagResource
+ReadS [UntagResource]
+(Int -&gt; ReadS UntagResource)
+-&gt; ReadS [UntagResource]
+-&gt; ReadPrec UntagResource
+-&gt; ReadPrec [UntagResource]
+-&gt; Read UntagResource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UntagResource]
+$creadListPrec :: ReadPrec [UntagResource]
+readPrec :: ReadPrec UntagResource
+$creadPrec :: ReadPrec UntagResource
+readList :: ReadS [UntagResource]
+$creadList :: ReadS [UntagResource]
+readsPrec :: Int -&gt; ReadS UntagResource
+$creadsPrec :: Int -&gt; ReadS UntagResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679223021"><span id="local-6989586621679223023"><span id="local-6989586621679223025"><span class="annot"><span class="annottext">Int -&gt; UntagResource -&gt; ShowS
+[UntagResource] -&gt; ShowS
+UntagResource -&gt; String
+(Int -&gt; UntagResource -&gt; ShowS)
+-&gt; (UntagResource -&gt; String)
+-&gt; ([UntagResource] -&gt; ShowS)
+-&gt; Show UntagResource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UntagResource] -&gt; ShowS
+$cshowList :: [UntagResource] -&gt; ShowS
+show :: UntagResource -&gt; String
+$cshow :: UntagResource -&gt; String
+showsPrec :: Int -&gt; UntagResource -&gt; ShowS
+$cshowsPrec :: Int -&gt; UntagResource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UntagResource -&gt; Rep UntagResource x)
+-&gt; (forall x. Rep UntagResource x -&gt; UntagResource)
+-&gt; Generic UntagResource
+forall x. Rep UntagResource x -&gt; UntagResource
+forall x. UntagResource -&gt; Rep UntagResource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UntagResource x -&gt; UntagResource
+$cfrom :: forall x. UntagResource -&gt; Rep UntagResource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'UntagResource' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'resourceARN', 'untagResource_resourceARN' - The Amazon Resource Name (ARN) of the application that you want to</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- remove one or more tags from.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'tagKeys', 'untagResource_tagKeys' - The tags (tag keys) that you want to remove from the resource. When you</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- specify a tag key, the action removes both that key and its associated</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- tag value.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- To remove more than one tag from the application, append the @TagKeys@</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- parameter and argument for each additional tag to remove, separated by</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- an ampersand.</span><span>
+</span><span id="line-83"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#newUntagResource"><span class="hs-identifier hs-type">newUntagResource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-comment">-- | 'resourceARN'</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span>
+</span><span id="line-87"></span><span id="newUntagResource"><span class="annot"><span class="annottext">newUntagResource :: Text -&gt; UntagResource
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#newUntagResource"><span class="hs-identifier hs-var hs-var">newUntagResource</span></a></span></span><span> </span><span id="local-6989586621679223016"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223016"><span class="hs-identifier hs-var">pResourceARN_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="annottext">UntagResource' :: Text -&gt; [Text] -&gt; UntagResource
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceARN:UntagResource' :: Text
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AresourceARN%3AUntagResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223016"><span class="hs-identifier hs-var">pResourceARN_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the application that you want to</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- remove one or more tags from.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResource_resourceARN"><span class="hs-identifier hs-type">untagResource_resourceARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-96"></span><span id="untagResource_resourceARN"><span class="annot"><span class="annottext">untagResource_resourceARN :: (Text -&gt; f Text) -&gt; UntagResource -&gt; f UntagResource
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResource_resourceARN"><span class="hs-identifier hs-var hs-var">untagResource_resourceARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UntagResource -&gt; Text)
+-&gt; (UntagResource -&gt; Text -&gt; UntagResource)
+-&gt; Lens UntagResource UntagResource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223013"><span class="annot"><span class="annottext">Text
+resourceARN :: Text
+$sel:resourceARN:UntagResource' :: UntagResource -&gt; Text
+</span><a href="#local-6989586621679223013"><span class="hs-identifier hs-var hs-var">resourceARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223013"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223012"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679223012"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223011"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223011"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679223012"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceARN:UntagResource' :: Text
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AresourceARN%3AUntagResource%27"><span class="hs-identifier hs-var">resourceARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679223011"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The tags (tag keys) that you want to remove from the resource. When you</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- specify a tag key, the action removes both that key and its associated</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- tag value.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- To remove more than one tag from the application, append the @TagKeys@</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- parameter and argument for each additional tag to remove, separated by</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- an ampersand.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResource_tagKeys"><span class="hs-identifier hs-type">untagResource_tagKeys</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span id="untagResource_tagKeys"><span class="annot"><span class="annottext">untagResource_tagKeys :: ([Text] -&gt; f [Text]) -&gt; UntagResource -&gt; f UntagResource
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResource_tagKeys"><span class="hs-identifier hs-var hs-var">untagResource_tagKeys</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UntagResource -&gt; [Text])
+-&gt; (UntagResource -&gt; [Text] -&gt; UntagResource)
+-&gt; Lens UntagResource UntagResource [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679223010"><span class="annot"><span class="annottext">[Text]
+tagKeys :: [Text]
+$sel:tagKeys:UntagResource' :: UntagResource -&gt; [Text]
+</span><a href="#local-6989586621679223010"><span class="hs-identifier hs-var hs-var">tagKeys</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223010"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679223009"><span class="annot"><span class="annottext">s :: UntagResource
+</span><a href="#local-6989586621679223009"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679223008"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223008"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResource
+</span><a href="#local-6989586621679223009"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tagKeys:UntagResource' :: [Text]
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AtagKeys%3AUntagResource%27"><span class="hs-identifier hs-var">tagKeys</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679223008"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text]) -&gt; UntagResource -&gt; f UntagResource)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; UntagResource
+-&gt; f UntagResource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-110"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>      </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679223002"><span class="annot"><span class="annottext">request :: UntagResource -&gt; Request UntagResource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UntagResource -&gt; Request UntagResource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ApplicationInsights.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679222998"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UntagResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UntagResource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse UntagResource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UntagResource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UntagResource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679222995"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679222994"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679222994"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679222993"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679222993"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; UntagResourceResponse)
+-&gt; Either String Int -&gt; Either String UntagResourceResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222995"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222986"><span id="local-6989586621679222988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679222979"><span class="annot"><span class="annottext">toHeaders :: UntagResource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UntagResource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-128"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-129"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;EC2WindowsBarleyService.UntagResource&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-130"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-131"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222969"><span id="local-6989586621679222971"><span id="local-6989586621679222973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679222967"><span class="annot"><span class="annottext">toJSON :: UntagResource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource%27"><span class="hs-identifier hs-type">UntagResource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222964"><span id="local-6989586621679222965"><span class="annot"><span class="annottext">[Text]
+Text
+tagKeys :: [Text]
+resourceARN :: Text
+$sel:tagKeys:UntagResource' :: UntagResource -&gt; [Text]
+$sel:resourceARN:UntagResource' :: UntagResource -&gt; Text
+</span><a href="#local-6989586621679222964"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679222965"><span class="hs-identifier hs-var">resourceARN</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;TagKeys&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679222964"><span class="hs-identifier hs-var">tagKeys</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679222958"><span class="annot"><span class="annottext">toPath :: UntagResource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; UntagResource -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResource"><span class="hs-identifier hs-type">UntagResource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-152"></span><span>  </span><span id="local-6989586621679222954"><span class="annot"><span class="annottext">toQuery :: UntagResource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UntagResource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newUntagResourceResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621679222951"><span id="local-6989586621679222952"></span></span><span class="hs-keyword">data</span><span> </span><span id="UntagResourceResponse"><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-var">UntagResourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UntagResourceResponse%27"><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-var">UntagResourceResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; Int
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-158"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679222946"><span id="local-6989586621679222948"><span class="annot"><span class="annottext">UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+(UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
+-&gt; (UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool)
+-&gt; Eq UntagResourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+$c/= :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+== :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+$c== :: UntagResourceResponse -&gt; UntagResourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222938"><span id="local-6989586621679222940"><span id="local-6989586621679222942"><span id="local-6989586621679222944"><span class="annot"><span class="annottext">ReadPrec [UntagResourceResponse]
+ReadPrec UntagResourceResponse
+Int -&gt; ReadS UntagResourceResponse
+ReadS [UntagResourceResponse]
+(Int -&gt; ReadS UntagResourceResponse)
+-&gt; ReadS [UntagResourceResponse]
+-&gt; ReadPrec UntagResourceResponse
+-&gt; ReadPrec [UntagResourceResponse]
+-&gt; Read UntagResourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UntagResourceResponse]
+$creadListPrec :: ReadPrec [UntagResourceResponse]
+readPrec :: ReadPrec UntagResourceResponse
+$creadPrec :: ReadPrec UntagResourceResponse
+readList :: ReadS [UntagResourceResponse]
+$creadList :: ReadS [UntagResourceResponse]
+readsPrec :: Int -&gt; ReadS UntagResourceResponse
+$creadsPrec :: Int -&gt; ReadS UntagResourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679222932"><span id="local-6989586621679222934"><span id="local-6989586621679222936"><span class="annot"><span class="annottext">Int -&gt; UntagResourceResponse -&gt; ShowS
+[UntagResourceResponse] -&gt; ShowS
+UntagResourceResponse -&gt; String
+(Int -&gt; UntagResourceResponse -&gt; ShowS)
+-&gt; (UntagResourceResponse -&gt; String)
+-&gt; ([UntagResourceResponse] -&gt; ShowS)
+-&gt; Show UntagResourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UntagResourceResponse] -&gt; ShowS
+$cshowList :: [UntagResourceResponse] -&gt; ShowS
+show :: UntagResourceResponse -&gt; String
+$cshow :: UntagResourceResponse -&gt; String
+showsPrec :: Int -&gt; UntagResourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UntagResourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UntagResourceResponse -&gt; Rep UntagResourceResponse x)
+-&gt; (forall x. Rep UntagResourceResponse x -&gt; UntagResourceResponse)
+-&gt; Generic UntagResourceResponse
+forall x. Rep UntagResourceResponse x -&gt; UntagResourceResponse
+forall x. UntagResourceResponse -&gt; Rep UntagResourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UntagResourceResponse x -&gt; UntagResourceResponse
+$cfrom :: forall x. UntagResourceResponse -&gt; Rep UntagResourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Create a value of 'UntagResourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- 'httpStatus', 'untagResourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-170"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier hs-type">newUntagResourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-172"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span>
+</span><span id="line-174"></span><span id="newUntagResourceResponse"><span class="annot"><span class="annottext">newUntagResourceResponse :: Int -&gt; UntagResourceResponse
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#newUntagResourceResponse"><span class="hs-identifier hs-var hs-var">newUntagResourceResponse</span></a></span></span><span> </span><span id="local-6989586621679222929"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222929"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="annottext">UntagResourceResponse' :: Int -&gt; UntagResourceResponse
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222929"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResourceResponse_httpStatus"><span class="hs-identifier hs-type">untagResourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-179"></span><span id="untagResourceResponse_httpStatus"><span class="annot"><span class="annottext">untagResourceResponse_httpStatus :: (Int -&gt; f Int) -&gt; UntagResourceResponse -&gt; f UntagResourceResponse
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#untagResourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">untagResourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UntagResourceResponse -&gt; Int)
+-&gt; (UntagResourceResponse -&gt; Int -&gt; UntagResourceResponse)
+-&gt; Lens UntagResourceResponse UntagResourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679222928"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UntagResourceResponse' :: UntagResourceResponse -&gt; Int
+</span><a href="#local-6989586621679222928"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222928"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679222927"><span class="annot"><span class="annottext">s :: UntagResourceResponse
+</span><a href="#local-6989586621679222927"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse%27"><span class="hs-identifier hs-type">UntagResourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679222926"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222926"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UntagResourceResponse
+</span><a href="#local-6989586621679222927"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UntagResourceResponse' :: Int
+</span><a href="Amazonka.ApplicationInsights.UntagResource.html#%24sel%3AhttpStatus%3AUntagResourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679222926"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679222924"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationInsights.UntagResource.html#UntagResourceResponse"><span class="hs-identifier hs-type">UntagResourceResponse</span></a></span></span><span>
+</span><span id="line-182"></span></pre></body></html>

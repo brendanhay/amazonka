@@ -1,0 +1,400 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Associated"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState_Associated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Associating"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState_Associating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Disassociated"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState_Disassociated</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Disassociating"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState_Disassociating</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Failed"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState_Failed</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_PendingAcceptance"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState_PendingAcceptance</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Rejected"><span class="hs-identifier">TransitGatewayMulitcastDomainAssociationState_Rejected</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span id="local-6989586621681171139"><span id="local-6989586621681171140"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TransitGatewayMulitcastDomainAssociationState"><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-var">TransitGatewayMulitcastDomainAssociationState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TransitGatewayMulitcastDomainAssociationState%27"><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-var">TransitGatewayMulitcastDomainAssociationState'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTransitGatewayMulitcastDomainAssociationState"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState -&gt; Text
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#fromTransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-var hs-var">fromTransitGatewayMulitcastDomainAssociationState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681171131"><span id="local-6989586621681171133"><span id="local-6989586621681171135"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; ShowS
+[TransitGatewayMulitcastDomainAssociationState] -&gt; ShowS
+TransitGatewayMulitcastDomainAssociationState -&gt; String
+(Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; ShowS)
+-&gt; (TransitGatewayMulitcastDomainAssociationState -&gt; String)
+-&gt; ([TransitGatewayMulitcastDomainAssociationState] -&gt; ShowS)
+-&gt; Show TransitGatewayMulitcastDomainAssociationState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TransitGatewayMulitcastDomainAssociationState] -&gt; ShowS
+$cshowList :: [TransitGatewayMulitcastDomainAssociationState] -&gt; ShowS
+show :: TransitGatewayMulitcastDomainAssociationState -&gt; String
+$cshow :: TransitGatewayMulitcastDomainAssociationState -&gt; String
+showsPrec :: Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; ShowS
+$cshowsPrec :: Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621681171122"><span id="local-6989586621681171124"><span id="local-6989586621681171126"><span id="local-6989586621681171128"><span class="annot"><span class="annottext">ReadPrec [TransitGatewayMulitcastDomainAssociationState]
+ReadPrec TransitGatewayMulitcastDomainAssociationState
+Int -&gt; ReadS TransitGatewayMulitcastDomainAssociationState
+ReadS [TransitGatewayMulitcastDomainAssociationState]
+(Int -&gt; ReadS TransitGatewayMulitcastDomainAssociationState)
+-&gt; ReadS [TransitGatewayMulitcastDomainAssociationState]
+-&gt; ReadPrec TransitGatewayMulitcastDomainAssociationState
+-&gt; ReadPrec [TransitGatewayMulitcastDomainAssociationState]
+-&gt; Read TransitGatewayMulitcastDomainAssociationState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TransitGatewayMulitcastDomainAssociationState]
+$creadListPrec :: ReadPrec [TransitGatewayMulitcastDomainAssociationState]
+readPrec :: ReadPrec TransitGatewayMulitcastDomainAssociationState
+$creadPrec :: ReadPrec TransitGatewayMulitcastDomainAssociationState
+readList :: ReadS [TransitGatewayMulitcastDomainAssociationState]
+$creadList :: ReadS [TransitGatewayMulitcastDomainAssociationState]
+readsPrec :: Int -&gt; ReadS TransitGatewayMulitcastDomainAssociationState
+$creadsPrec :: Int -&gt; ReadS TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621681171117"><span id="local-6989586621681171119"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+(TransitGatewayMulitcastDomainAssociationState
+ -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool)
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool)
+-&gt; Eq TransitGatewayMulitcastDomainAssociationState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+$c/= :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+== :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+$c== :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621681171101"><span id="local-6989586621681171103"><span id="local-6989586621681171105"><span id="local-6989586621681171107"><span id="local-6989586621681171109"><span id="local-6989586621681171111"><span id="local-6989586621681171113"><span class="annot"><span class="annottext">Eq TransitGatewayMulitcastDomainAssociationState
+Eq TransitGatewayMulitcastDomainAssociationState
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Ordering)
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool)
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool)
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool)
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool)
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState)
+-&gt; (TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState
+    -&gt; TransitGatewayMulitcastDomainAssociationState)
+-&gt; Ord TransitGatewayMulitcastDomainAssociationState
+TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Ordering
+TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+$cmin :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+max :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+$cmax :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState
+&gt;= :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+$c&gt;= :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+&gt; :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+$c&gt; :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+&lt;= :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+$c&lt;= :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+&lt; :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+$c&lt; :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Bool
+compare :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Ordering
+$ccompare :: TransitGatewayMulitcastDomainAssociationState
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Ordering
+$cp1Ord :: Eq TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TransitGatewayMulitcastDomainAssociationState
+ -&gt; Rep TransitGatewayMulitcastDomainAssociationState x)
+-&gt; (forall x.
+    Rep TransitGatewayMulitcastDomainAssociationState x
+    -&gt; TransitGatewayMulitcastDomainAssociationState)
+-&gt; Generic TransitGatewayMulitcastDomainAssociationState
+forall x.
+Rep TransitGatewayMulitcastDomainAssociationState x
+-&gt; TransitGatewayMulitcastDomainAssociationState
+forall x.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; Rep TransitGatewayMulitcastDomainAssociationState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TransitGatewayMulitcastDomainAssociationState x
+-&gt; TransitGatewayMulitcastDomainAssociationState
+$cfrom :: forall x.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; Rep TransitGatewayMulitcastDomainAssociationState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621681171093"><span id="local-6989586621681171095"><span class="annot"><span class="annottext">Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Int
+TransitGatewayMulitcastDomainAssociationState -&gt; Int
+(Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Int)
+-&gt; (TransitGatewayMulitcastDomainAssociationState -&gt; Int)
+-&gt; Hashable TransitGatewayMulitcastDomainAssociationState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TransitGatewayMulitcastDomainAssociationState -&gt; Int
+$chash :: TransitGatewayMulitcastDomainAssociationState -&gt; Int
+hashWithSalt :: Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Int
+$chashWithSalt :: Int -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621681171090"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState -&gt; ()
+(TransitGatewayMulitcastDomainAssociationState -&gt; ())
+-&gt; NFData TransitGatewayMulitcastDomainAssociationState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TransitGatewayMulitcastDomainAssociationState -&gt; ()
+$crnf :: TransitGatewayMulitcastDomainAssociationState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621681171087"><span class="annot"><span class="annottext">Text -&gt; Either String TransitGatewayMulitcastDomainAssociationState
+(Text
+ -&gt; Either String TransitGatewayMulitcastDomainAssociationState)
+-&gt; FromText TransitGatewayMulitcastDomainAssociationState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TransitGatewayMulitcastDomainAssociationState
+$cfromText :: Text -&gt; Either String TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621681171084"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState -&gt; Text
+(TransitGatewayMulitcastDomainAssociationState -&gt; Text)
+-&gt; ToText TransitGatewayMulitcastDomainAssociationState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TransitGatewayMulitcastDomainAssociationState -&gt; Text
+$ctoText :: TransitGatewayMulitcastDomainAssociationState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621681171081"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState -&gt; ByteString
+(TransitGatewayMulitcastDomainAssociationState -&gt; ByteString)
+-&gt; ToByteString TransitGatewayMulitcastDomainAssociationState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TransitGatewayMulitcastDomainAssociationState -&gt; ByteString
+$ctoBS :: TransitGatewayMulitcastDomainAssociationState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621681171078"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState -&gt; ByteStringBuilder
+(TransitGatewayMulitcastDomainAssociationState
+ -&gt; ByteStringBuilder)
+-&gt; ToLog TransitGatewayMulitcastDomainAssociationState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TransitGatewayMulitcastDomainAssociationState -&gt; ByteStringBuilder
+$cbuild :: TransitGatewayMulitcastDomainAssociationState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621681171075"><span class="annot"><span class="annottext">HeaderName
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; [Header]
+(HeaderName
+ -&gt; TransitGatewayMulitcastDomainAssociationState -&gt; [Header])
+-&gt; ToHeader TransitGatewayMulitcastDomainAssociationState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; [Header]
+$ctoHeader :: HeaderName
+-&gt; TransitGatewayMulitcastDomainAssociationState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621681171072"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState -&gt; QueryString
+(TransitGatewayMulitcastDomainAssociationState -&gt; QueryString)
+-&gt; ToQuery TransitGatewayMulitcastDomainAssociationState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TransitGatewayMulitcastDomainAssociationState -&gt; QueryString
+$ctoQuery :: TransitGatewayMulitcastDomainAssociationState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621681171067"><span id="local-6989586621681171069"><span class="annot"><span class="annottext">Value -&gt; Parser [TransitGatewayMulitcastDomainAssociationState]
+Value -&gt; Parser TransitGatewayMulitcastDomainAssociationState
+(Value -&gt; Parser TransitGatewayMulitcastDomainAssociationState)
+-&gt; (Value
+    -&gt; Parser [TransitGatewayMulitcastDomainAssociationState])
+-&gt; FromJSON TransitGatewayMulitcastDomainAssociationState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TransitGatewayMulitcastDomainAssociationState]
+$cparseJSONList :: Value -&gt; Parser [TransitGatewayMulitcastDomainAssociationState]
+parseJSON :: Value -&gt; Parser TransitGatewayMulitcastDomainAssociationState
+$cparseJSON :: Value -&gt; Parser TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621681171062"><span id="local-6989586621681171064"><span class="annot"><span class="annottext">FromJSONKeyFunction [TransitGatewayMulitcastDomainAssociationState]
+FromJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+FromJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+-&gt; FromJSONKeyFunction
+     [TransitGatewayMulitcastDomainAssociationState]
+-&gt; FromJSONKey TransitGatewayMulitcastDomainAssociationState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TransitGatewayMulitcastDomainAssociationState]
+$cfromJSONKeyList :: FromJSONKeyFunction [TransitGatewayMulitcastDomainAssociationState]
+fromJSONKey :: FromJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+$cfromJSONKey :: FromJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621681171053"><span id="local-6989586621681171055"><span id="local-6989586621681171057"><span id="local-6989586621681171059"><span class="annot"><span class="annottext">[TransitGatewayMulitcastDomainAssociationState] -&gt; Encoding
+[TransitGatewayMulitcastDomainAssociationState] -&gt; Value
+TransitGatewayMulitcastDomainAssociationState -&gt; Encoding
+TransitGatewayMulitcastDomainAssociationState -&gt; Value
+(TransitGatewayMulitcastDomainAssociationState -&gt; Value)
+-&gt; (TransitGatewayMulitcastDomainAssociationState -&gt; Encoding)
+-&gt; ([TransitGatewayMulitcastDomainAssociationState] -&gt; Value)
+-&gt; ([TransitGatewayMulitcastDomainAssociationState] -&gt; Encoding)
+-&gt; ToJSON TransitGatewayMulitcastDomainAssociationState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TransitGatewayMulitcastDomainAssociationState] -&gt; Encoding
+$ctoEncodingList :: [TransitGatewayMulitcastDomainAssociationState] -&gt; Encoding
+toJSONList :: [TransitGatewayMulitcastDomainAssociationState] -&gt; Value
+$ctoJSONList :: [TransitGatewayMulitcastDomainAssociationState] -&gt; Value
+toEncoding :: TransitGatewayMulitcastDomainAssociationState -&gt; Encoding
+$ctoEncoding :: TransitGatewayMulitcastDomainAssociationState -&gt; Encoding
+toJSON :: TransitGatewayMulitcastDomainAssociationState -&gt; Value
+$ctoJSON :: TransitGatewayMulitcastDomainAssociationState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621681171048"><span id="local-6989586621681171050"><span class="annot"><span class="annottext">ToJSONKeyFunction [TransitGatewayMulitcastDomainAssociationState]
+ToJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+ToJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+-&gt; ToJSONKeyFunction
+     [TransitGatewayMulitcastDomainAssociationState]
+-&gt; ToJSONKey TransitGatewayMulitcastDomainAssociationState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TransitGatewayMulitcastDomainAssociationState]
+$ctoJSONKeyList :: ToJSONKeyFunction [TransitGatewayMulitcastDomainAssociationState]
+toJSONKey :: ToJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+$ctoJSONKey :: ToJSONKeyFunction TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621681171045"><span class="annot"><span class="annottext">[Node]
+-&gt; Either String TransitGatewayMulitcastDomainAssociationState
+([Node]
+ -&gt; Either String TransitGatewayMulitcastDomainAssociationState)
+-&gt; FromXML TransitGatewayMulitcastDomainAssociationState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node]
+-&gt; Either String TransitGatewayMulitcastDomainAssociationState
+$cparseXML :: [Node]
+-&gt; Either String TransitGatewayMulitcastDomainAssociationState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621681171042"><span class="annot"><span class="annottext">TransitGatewayMulitcastDomainAssociationState -&gt; XML
+(TransitGatewayMulitcastDomainAssociationState -&gt; XML)
+-&gt; ToXML TransitGatewayMulitcastDomainAssociationState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TransitGatewayMulitcastDomainAssociationState -&gt; XML
+$ctoXML :: TransitGatewayMulitcastDomainAssociationState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Associated"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState_Associated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayMulitcastDomainAssociationState_Associated"><span id="%24mTransitGatewayMulitcastDomainAssociationState_Associated"><span id="TransitGatewayMulitcastDomainAssociationState_Associated"><span class="annot"><span class="annottext">$bTransitGatewayMulitcastDomainAssociationState_Associated :: TransitGatewayMulitcastDomainAssociationState
+$mTransitGatewayMulitcastDomainAssociationState_Associated :: forall r.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#%24bTransitGatewayMulitcastDomainAssociationState_Associated"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayMulitcastDomainAssociationState_Associated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associated&quot;</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Associating"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState_Associating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayMulitcastDomainAssociationState_Associating"><span id="%24mTransitGatewayMulitcastDomainAssociationState_Associating"><span id="TransitGatewayMulitcastDomainAssociationState_Associating"><span class="annot"><span class="annottext">$bTransitGatewayMulitcastDomainAssociationState_Associating :: TransitGatewayMulitcastDomainAssociationState
+$mTransitGatewayMulitcastDomainAssociationState_Associating :: forall r.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#%24bTransitGatewayMulitcastDomainAssociationState_Associating"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayMulitcastDomainAssociationState_Associating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;associating&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Disassociated"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState_Disassociated</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayMulitcastDomainAssociationState_Disassociated"><span id="%24mTransitGatewayMulitcastDomainAssociationState_Disassociated"><span id="TransitGatewayMulitcastDomainAssociationState_Disassociated"><span class="annot"><span class="annottext">$bTransitGatewayMulitcastDomainAssociationState_Disassociated :: TransitGatewayMulitcastDomainAssociationState
+$mTransitGatewayMulitcastDomainAssociationState_Disassociated :: forall r.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#%24bTransitGatewayMulitcastDomainAssociationState_Disassociated"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayMulitcastDomainAssociationState_Disassociated</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociated&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Disassociating"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState_Disassociating</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayMulitcastDomainAssociationState_Disassociating"><span id="%24mTransitGatewayMulitcastDomainAssociationState_Disassociating"><span id="TransitGatewayMulitcastDomainAssociationState_Disassociating"><span class="annot"><span class="annottext">$bTransitGatewayMulitcastDomainAssociationState_Disassociating :: TransitGatewayMulitcastDomainAssociationState
+$mTransitGatewayMulitcastDomainAssociationState_Disassociating :: forall r.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#%24bTransitGatewayMulitcastDomainAssociationState_Disassociating"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayMulitcastDomainAssociationState_Disassociating</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;disassociating&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Failed"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState_Failed</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayMulitcastDomainAssociationState_Failed"><span id="%24mTransitGatewayMulitcastDomainAssociationState_Failed"><span id="TransitGatewayMulitcastDomainAssociationState_Failed"><span class="annot"><span class="annottext">$bTransitGatewayMulitcastDomainAssociationState_Failed :: TransitGatewayMulitcastDomainAssociationState
+$mTransitGatewayMulitcastDomainAssociationState_Failed :: forall r.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#%24bTransitGatewayMulitcastDomainAssociationState_Failed"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayMulitcastDomainAssociationState_Failed</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;failed&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_PendingAcceptance"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState_PendingAcceptance</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayMulitcastDomainAssociationState_PendingAcceptance"><span id="%24mTransitGatewayMulitcastDomainAssociationState_PendingAcceptance"><span id="TransitGatewayMulitcastDomainAssociationState_PendingAcceptance"><span class="annot"><span class="annottext">$bTransitGatewayMulitcastDomainAssociationState_PendingAcceptance :: TransitGatewayMulitcastDomainAssociationState
+$mTransitGatewayMulitcastDomainAssociationState_PendingAcceptance :: forall r.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#%24bTransitGatewayMulitcastDomainAssociationState_PendingAcceptance"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayMulitcastDomainAssociationState_PendingAcceptance</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;pendingAcceptance&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Rejected"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState_Rejected</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTransitGatewayMulitcastDomainAssociationState_Rejected"><span id="%24mTransitGatewayMulitcastDomainAssociationState_Rejected"><span id="TransitGatewayMulitcastDomainAssociationState_Rejected"><span class="annot"><span class="annottext">$bTransitGatewayMulitcastDomainAssociationState_Rejected :: TransitGatewayMulitcastDomainAssociationState
+$mTransitGatewayMulitcastDomainAssociationState_Rejected :: forall r.
+TransitGatewayMulitcastDomainAssociationState
+-&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#%24bTransitGatewayMulitcastDomainAssociationState_Rejected"><span class="hs-identifier hs-var hs-var hs-var">TransitGatewayMulitcastDomainAssociationState_Rejected</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-identifier hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rejected&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Associated"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState_Associated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Associating"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState_Associating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Disassociated"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState_Disassociated</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Disassociating"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState_Disassociating</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Failed"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState_Failed</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_PendingAcceptance"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState_PendingAcceptance</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState_Rejected"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState_Rejected</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TransitGatewayMulitcastDomainAssociationState.html#TransitGatewayMulitcastDomainAssociationState%27"><span class="hs-pragma hs-type">TransitGatewayMulitcastDomainAssociationState'</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-97"></span></pre></body></html>

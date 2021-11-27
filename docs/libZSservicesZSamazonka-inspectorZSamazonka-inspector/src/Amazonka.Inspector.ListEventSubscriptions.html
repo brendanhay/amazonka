@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Inspector.ListEventSubscriptions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Lists all the event subscriptions for the assessment template that is</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- specified by the ARN of the assessment template. For more information,</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- see SubscribeToEvent and UnsubscribeFromEvent.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- This operation returns paginated results.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Inspector.ListEventSubscriptions</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier">ListEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#newListEventSubscriptions"><span class="hs-identifier">newListEventSubscriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_nextToken"><span class="hs-identifier">listEventSubscriptions_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_resourceArn"><span class="hs-identifier">listEventSubscriptions_resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_maxResults"><span class="hs-identifier">listEventSubscriptions_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier">ListEventSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#newListEventSubscriptionsResponse"><span class="hs-identifier">newListEventSubscriptionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_nextToken"><span class="hs-identifier">listEventSubscriptionsResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_httpStatus"><span class="hs-identifier">listEventSubscriptionsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_subscriptions"><span class="hs-identifier">listEventSubscriptionsResponse_subscriptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Inspector.Types.html"><span class="hs-identifier">Amazonka.Inspector.Types</span></a></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | /See:/ 'newListEventSubscriptions' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679253551"><span id="local-6989586621679253552"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEventSubscriptions"><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-var">ListEventSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEventSubscriptions%27"><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-var">ListEventSubscriptions'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | You can use this parameter when paginating results. Set the value of</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- this parameter to null on your first call to the</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- __ListEventSubscriptions__ action. Subsequent calls to the action fill</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- __nextToken__ in the request with the value of __NextToken__ from the</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- previous response to continue listing data.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AnextToken%3AListEventSubscriptions%27"><span class="annot"><span class="annottext">ListEventSubscriptions -&gt; Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AnextToken%3AListEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The ARN of the assessment template for which you want to list the</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- existing event subscriptions.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AresourceArn%3AListEventSubscriptions%27"><span class="annot"><span class="annottext">ListEventSubscriptions -&gt; Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AresourceArn%3AListEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items you</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AmaxResults%3AListEventSubscriptions%27"><span class="annot"><span class="annottext">ListEventSubscriptions -&gt; Maybe Int
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AmaxResults%3AListEventSubscriptions%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253543"><span id="local-6989586621679253545"><span class="annot"><span class="annottext">ListEventSubscriptions -&gt; ListEventSubscriptions -&gt; Bool
+(ListEventSubscriptions -&gt; ListEventSubscriptions -&gt; Bool)
+-&gt; (ListEventSubscriptions -&gt; ListEventSubscriptions -&gt; Bool)
+-&gt; Eq ListEventSubscriptions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEventSubscriptions -&gt; ListEventSubscriptions -&gt; Bool
+$c/= :: ListEventSubscriptions -&gt; ListEventSubscriptions -&gt; Bool
+== :: ListEventSubscriptions -&gt; ListEventSubscriptions -&gt; Bool
+$c== :: ListEventSubscriptions -&gt; ListEventSubscriptions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253534"><span id="local-6989586621679253536"><span id="local-6989586621679253538"><span id="local-6989586621679253540"><span class="annot"><span class="annottext">ReadPrec [ListEventSubscriptions]
+ReadPrec ListEventSubscriptions
+Int -&gt; ReadS ListEventSubscriptions
+ReadS [ListEventSubscriptions]
+(Int -&gt; ReadS ListEventSubscriptions)
+-&gt; ReadS [ListEventSubscriptions]
+-&gt; ReadPrec ListEventSubscriptions
+-&gt; ReadPrec [ListEventSubscriptions]
+-&gt; Read ListEventSubscriptions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEventSubscriptions]
+$creadListPrec :: ReadPrec [ListEventSubscriptions]
+readPrec :: ReadPrec ListEventSubscriptions
+$creadPrec :: ReadPrec ListEventSubscriptions
+readList :: ReadS [ListEventSubscriptions]
+$creadList :: ReadS [ListEventSubscriptions]
+readsPrec :: Int -&gt; ReadS ListEventSubscriptions
+$creadsPrec :: Int -&gt; ReadS ListEventSubscriptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253527"><span id="local-6989586621679253529"><span id="local-6989586621679253531"><span class="annot"><span class="annottext">Int -&gt; ListEventSubscriptions -&gt; ShowS
+[ListEventSubscriptions] -&gt; ShowS
+ListEventSubscriptions -&gt; String
+(Int -&gt; ListEventSubscriptions -&gt; ShowS)
+-&gt; (ListEventSubscriptions -&gt; String)
+-&gt; ([ListEventSubscriptions] -&gt; ShowS)
+-&gt; Show ListEventSubscriptions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEventSubscriptions] -&gt; ShowS
+$cshowList :: [ListEventSubscriptions] -&gt; ShowS
+show :: ListEventSubscriptions -&gt; String
+$cshow :: ListEventSubscriptions -&gt; String
+showsPrec :: Int -&gt; ListEventSubscriptions -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEventSubscriptions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListEventSubscriptions -&gt; Rep ListEventSubscriptions x)
+-&gt; (forall x.
+    Rep ListEventSubscriptions x -&gt; ListEventSubscriptions)
+-&gt; Generic ListEventSubscriptions
+forall x. Rep ListEventSubscriptions x -&gt; ListEventSubscriptions
+forall x. ListEventSubscriptions -&gt; Rep ListEventSubscriptions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListEventSubscriptions x -&gt; ListEventSubscriptions
+$cfrom :: forall x. ListEventSubscriptions -&gt; Rep ListEventSubscriptions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Create a value of 'ListEventSubscriptions' with all optional fields omitted.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'nextToken', 'listEventSubscriptions_nextToken' - You can use this parameter when paginating results. Set the value of</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- this parameter to null on your first call to the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- __ListEventSubscriptions__ action. Subsequent calls to the action fill</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- __nextToken__ in the request with the value of __NextToken__ from the</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- previous response to continue listing data.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'resourceArn', 'listEventSubscriptions_resourceArn' - The ARN of the assessment template for which you want to list the</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- existing event subscriptions.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'maxResults', 'listEventSubscriptions_maxResults' - You can use this parameter to indicate the maximum number of items you</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#newListEventSubscriptions"><span class="hs-identifier hs-type">newListEventSubscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span>
+</span><span id="line-94"></span><span id="newListEventSubscriptions"><span class="annot"><span class="annottext">newListEventSubscriptions :: ListEventSubscriptions
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#newListEventSubscriptions"><span class="hs-identifier hs-var hs-var">newListEventSubscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>  </span><span class="annot"><span class="annottext">ListEventSubscriptions' :: Maybe Text -&gt; Maybe Text -&gt; Maybe Int -&gt; ListEventSubscriptions
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEventSubscriptions' :: Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AnextToken%3AListEventSubscriptions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:resourceArn:ListEventSubscriptions' :: Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AresourceArn%3AListEventSubscriptions%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListEventSubscriptions' :: Maybe Int
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AmaxResults%3AListEventSubscriptions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | You can use this parameter when paginating results. Set the value of</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- this parameter to null on your first call to the</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- __ListEventSubscriptions__ action. Subsequent calls to the action fill</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- __nextToken__ in the request with the value of __NextToken__ from the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- previous response to continue listing data.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_nextToken"><span class="hs-identifier hs-type">listEventSubscriptions_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span id="listEventSubscriptions_nextToken"><span class="annot"><span class="annottext">listEventSubscriptions_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEventSubscriptions -&gt; f ListEventSubscriptions
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_nextToken"><span class="hs-identifier hs-var hs-var">listEventSubscriptions_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventSubscriptions -&gt; Maybe Text)
+-&gt; (ListEventSubscriptions -&gt; Maybe Text -&gt; ListEventSubscriptions)
+-&gt; Lens
+     ListEventSubscriptions
+     ListEventSubscriptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253521"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEventSubscriptions' :: ListEventSubscriptions -&gt; Maybe Text
+</span><a href="#local-6989586621679253521"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253521"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253520"><span class="annot"><span class="annottext">s :: ListEventSubscriptions
+</span><a href="#local-6989586621679253520"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253519"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253519"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventSubscriptions
+</span><a href="#local-6989586621679253520"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEventSubscriptions' :: Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AnextToken%3AListEventSubscriptions%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253519"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The ARN of the assessment template for which you want to list the</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- existing event subscriptions.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_resourceArn"><span class="hs-identifier hs-type">listEventSubscriptions_resourceArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="listEventSubscriptions_resourceArn"><span class="annot"><span class="annottext">listEventSubscriptions_resourceArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEventSubscriptions -&gt; f ListEventSubscriptions
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_resourceArn"><span class="hs-identifier hs-var hs-var">listEventSubscriptions_resourceArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventSubscriptions -&gt; Maybe Text)
+-&gt; (ListEventSubscriptions -&gt; Maybe Text -&gt; ListEventSubscriptions)
+-&gt; Lens
+     ListEventSubscriptions
+     ListEventSubscriptions
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253518"><span class="annot"><span class="annottext">Maybe Text
+resourceArn :: Maybe Text
+$sel:resourceArn:ListEventSubscriptions' :: ListEventSubscriptions -&gt; Maybe Text
+</span><a href="#local-6989586621679253518"><span class="hs-identifier hs-var hs-var">resourceArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253518"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253517"><span class="annot"><span class="annottext">s :: ListEventSubscriptions
+</span><a href="#local-6989586621679253517"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253516"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253516"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventSubscriptions
+</span><a href="#local-6989586621679253517"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceArn:ListEventSubscriptions' :: Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AresourceArn%3AListEventSubscriptions%27"><span class="hs-identifier hs-var">resourceArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253516"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | You can use this parameter to indicate the maximum number of items you</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- want in the response. The default value is 10. The maximum value is 500.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_maxResults"><span class="hs-identifier hs-type">listEventSubscriptions_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="listEventSubscriptions_maxResults"><span class="annot"><span class="annottext">listEventSubscriptions_maxResults :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; ListEventSubscriptions -&gt; f ListEventSubscriptions
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_maxResults"><span class="hs-identifier hs-var hs-var">listEventSubscriptions_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventSubscriptions -&gt; Maybe Int)
+-&gt; (ListEventSubscriptions -&gt; Maybe Int -&gt; ListEventSubscriptions)
+-&gt; Lens
+     ListEventSubscriptions
+     ListEventSubscriptions
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253515"><span class="annot"><span class="annottext">Maybe Int
+maxResults :: Maybe Int
+$sel:maxResults:ListEventSubscriptions' :: ListEventSubscriptions -&gt; Maybe Int
+</span><a href="#local-6989586621679253515"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679253515"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253514"><span class="annot"><span class="annottext">s :: ListEventSubscriptions
+</span><a href="#local-6989586621679253514"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253513"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679253513"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventSubscriptions
+</span><a href="#local-6989586621679253514"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListEventSubscriptions' :: Maybe Int
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AmaxResults%3AListEventSubscriptions%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679253513"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSPager</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679253509"><span class="annot"><span class="annottext">page :: ListEventSubscriptions
+-&gt; AWSResponse ListEventSubscriptions
+-&gt; Maybe ListEventSubscriptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">page</span></span></span><span> </span><span id="local-6989586621679253507"><span class="annot"><span class="annottext">ListEventSubscriptions
+</span><a href="#local-6989586621679253507"><span class="hs-identifier hs-var">rq</span></a></span></span><span> </span><span id="local-6989586621679253506"><span class="annot"><span class="annottext">AWSResponse ListEventSubscriptions
+</span><a href="#local-6989586621679253506"><span class="hs-identifier hs-var">rs</span></a></span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Maybe Text -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-123"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEventSubscriptions
+ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253506"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-124"></span><span>            </span><span class="annot"><span class="annottext">ListEventSubscriptionsResponse
+-&gt; Getting (First Text) ListEventSubscriptionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEventSubscriptionsResponse
+-&gt; Const (First Text) ListEventSubscriptionsResponse
+Lens' ListEventSubscriptionsResponse (Maybe Text)
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_nextToken"><span class="hs-identifier hs-var">listEventSubscriptionsResponse_nextToken</span></a></span><span>
+</span><span id="line-125"></span><span>              </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEventSubscriptionsResponse
+ -&gt; Const (First Text) ListEventSubscriptionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEventSubscriptionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-126"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEventSubscriptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">[Subscription] -&gt; Bool
+forall a. AWSTruncated a =&gt; a -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.stop</span></span><span>
+</span><span id="line-129"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEventSubscriptions
+ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253506"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">ListEventSubscriptionsResponse
+-&gt; Getting
+     [Subscription] ListEventSubscriptionsResponse [Subscription]
+-&gt; [Subscription]
+forall s a. s -&gt; Getting a s a -&gt; a
+</span><span class="hs-operator hs-var">Lens.^.</span></span><span> </span><span class="annot"><span class="annottext">Getting
+  [Subscription] ListEventSubscriptionsResponse [Subscription]
+Lens' ListEventSubscriptionsResponse [Subscription]
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_subscriptions"><span class="hs-identifier hs-var">listEventSubscriptionsResponse_subscriptions</span></a></span><span>
+</span><span id="line-131"></span><span>        </span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>      </span><span class="annot"><span class="annottext">Maybe ListEventSubscriptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-134"></span><span>      </span><span class="annot"><span class="annottext">ListEventSubscriptions -&gt; Maybe ListEventSubscriptions
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">(ListEventSubscriptions -&gt; Maybe ListEventSubscriptions)
+-&gt; ListEventSubscriptions -&gt; Maybe ListEventSubscriptions
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">Prelude.$</span></span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ListEventSubscriptions
+</span><a href="#local-6989586621679253507"><span class="hs-identifier hs-var">rq</span></a></span><span>
+</span><span id="line-136"></span><span>          </span><span class="annot"><span class="annottext">ListEventSubscriptions
+-&gt; (ListEventSubscriptions -&gt; ListEventSubscriptions)
+-&gt; ListEventSubscriptions
+forall a b. a -&gt; (a -&gt; b) -&gt; b
+</span><span class="hs-operator hs-var">Prelude.&amp;</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Identity (Maybe Text))
+-&gt; ListEventSubscriptions -&gt; Identity ListEventSubscriptions
+Lens
+  ListEventSubscriptions
+  ListEventSubscriptions
+  (Maybe Text)
+  (Maybe Text)
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptions_nextToken"><span class="hs-identifier hs-var">listEventSubscriptions_nextToken</span></a></span><span>
+</span><span id="line-137"></span><span>          </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Identity (Maybe Text))
+ -&gt; ListEventSubscriptions -&gt; Identity ListEventSubscriptions)
+-&gt; Maybe Text -&gt; ListEventSubscriptions -&gt; ListEventSubscriptions
+forall s t a b. ASetter s t a b -&gt; b -&gt; s -&gt; t
+</span><span class="hs-operator hs-var">Lens..~</span></span><span> </span><span class="annot"><span class="annottext">AWSResponse ListEventSubscriptions
+ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253506"><span class="hs-identifier hs-var">rs</span></a></span><span>
+</span><span id="line-138"></span><span>          </span><span class="annot"><span class="annottext">ListEventSubscriptionsResponse
+-&gt; Getting (First Text) ListEventSubscriptionsResponse Text
+-&gt; Maybe Text
+forall s a. s -&gt; Getting (First a) s a -&gt; Maybe a
+</span><span class="hs-operator hs-var">Lens.^?</span></span><span> </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; ListEventSubscriptionsResponse
+-&gt; Const (First Text) ListEventSubscriptionsResponse
+Lens' ListEventSubscriptionsResponse (Maybe Text)
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_nextToken"><span class="hs-identifier hs-var">listEventSubscriptionsResponse_nextToken</span></a></span><span>
+</span><span id="line-139"></span><span>            </span><span class="annot"><span class="annottext">((Maybe Text -&gt; Const (First Text) (Maybe Text))
+ -&gt; ListEventSubscriptionsResponse
+ -&gt; Const (First Text) ListEventSubscriptionsResponse)
+-&gt; ((Text -&gt; Const (First Text) Text)
+    -&gt; Maybe Text -&gt; Const (First Text) (Maybe Text))
+-&gt; Getting (First Text) ListEventSubscriptionsResponse Text
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Const (First Text) Text)
+-&gt; Maybe Text -&gt; Const (First Text) (Maybe Text)
+forall a b. Prism (Maybe a) (Maybe b) a b
+</span><span class="hs-identifier hs-var">Lens._Just</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-142"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-143"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>      </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679253495"><span class="annot"><span class="annottext">request :: ListEventSubscriptions -&gt; Request ListEventSubscriptions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListEventSubscriptions -&gt; Request ListEventSubscriptions
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Inspector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679253491"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListEventSubscriptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEventSubscriptions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListEventSubscriptions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListEventSubscriptions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListEventSubscriptions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679253488"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253488"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679253487"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679253487"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679253486"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253486"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Int -&gt; [Subscription] -&gt; ListEventSubscriptionsResponse
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListEventSubscriptionsResponse'</span></a></span><span>
+</span><span id="line-150"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Int -&gt; [Subscription] -&gt; ListEventSubscriptionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (Int -&gt; [Subscription] -&gt; ListEventSubscriptionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; [Subscription] -&gt; ListEventSubscriptionsResponse)
+-&gt; Either String Int
+-&gt; Either String ([Subscription] -&gt; ListEventSubscriptionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253488"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Subscription] -&gt; ListEventSubscriptionsResponse)
+-&gt; Either String [Subscription]
+-&gt; Either String ListEventSubscriptionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679253486"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe [Subscription])
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;subscriptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Subscription])
+-&gt; [Subscription] -&gt; Either String [Subscription]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Subscription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253477"><span id="local-6989586621679253479"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span></span></span><span>
+</span><span id="line-156"></span><span>
+</span><span id="line-157"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253474"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span></span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679253470"><span class="annot"><span class="annottext">toHeaders :: ListEventSubscriptions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListEventSubscriptions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-164"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;InspectorService.ListEventSubscriptions&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-165"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-166"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-168"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-169"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-170"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-171"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-172"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679253460"><span id="local-6989586621679253462"><span id="local-6989586621679253464"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679253458"><span class="annot"><span class="annottext">toJSON :: ListEventSubscriptions -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions%27"><span class="hs-identifier hs-type">ListEventSubscriptions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253454"><span id="local-6989586621679253455"><span id="local-6989586621679253456"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+maxResults :: Maybe Int
+resourceArn :: Maybe Text
+nextToken :: Maybe Text
+$sel:maxResults:ListEventSubscriptions' :: ListEventSubscriptions -&gt; Maybe Int
+$sel:resourceArn:ListEventSubscriptions' :: ListEventSubscriptions -&gt; Maybe Text
+$sel:nextToken:ListEventSubscriptions' :: ListEventSubscriptions -&gt; Maybe Text
+</span><a href="#local-6989586621679253454"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-177"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-178"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253456"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253455"><span class="hs-identifier hs-var">resourceArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679253454"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-181"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-182"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679253448"><span class="annot"><span class="annottext">toPath :: ListEventSubscriptions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListEventSubscriptions -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptions"><span class="hs-identifier hs-type">ListEventSubscriptions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-188"></span><span>  </span><span id="local-6989586621679253444"><span class="annot"><span class="annottext">toQuery :: ListEventSubscriptions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; ListEventSubscriptions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | /See:/ 'newListEventSubscriptionsResponse' smart constructor.</span><span>
+</span><span id="line-191"></span><span id="local-6989586621679253441"><span id="local-6989586621679253442"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListEventSubscriptionsResponse"><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-var">ListEventSubscriptionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListEventSubscriptionsResponse%27"><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">ListEventSubscriptionsResponse'</span></a></span></span><span>
+</span><span id="line-192"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | When a response is generated, if there is more data to be listed, this</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">-- parameter is present in the response and contains the value to use for</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- the __nextToken__ parameter in a subsequent pagination request. If there</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">-- is no more data to be listed, this parameter is set to null.</span><span>
+</span><span id="line-196"></span><span>    </span><span id="%24sel%3AnextToken%3AListEventSubscriptionsResponse%27"><span class="annot"><span class="annottext">ListEventSubscriptionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AnextToken%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListEventSubscriptionsResponse%27"><span class="annot"><span class="annottext">ListEventSubscriptionsResponse -&gt; Int
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AhttpStatus%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">-- | Details of the returned event subscriptions.</span><span>
+</span><span id="line-200"></span><span>    </span><span id="%24sel%3Asubscriptions%3AListEventSubscriptionsResponse%27"><span class="annot"><span class="annottext">ListEventSubscriptionsResponse -&gt; [Subscription]
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3Asubscriptions%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-201"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679253434"><span id="local-6989586621679253436"><span class="annot"><span class="annottext">ListEventSubscriptionsResponse
+-&gt; ListEventSubscriptionsResponse -&gt; Bool
+(ListEventSubscriptionsResponse
+ -&gt; ListEventSubscriptionsResponse -&gt; Bool)
+-&gt; (ListEventSubscriptionsResponse
+    -&gt; ListEventSubscriptionsResponse -&gt; Bool)
+-&gt; Eq ListEventSubscriptionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListEventSubscriptionsResponse
+-&gt; ListEventSubscriptionsResponse -&gt; Bool
+$c/= :: ListEventSubscriptionsResponse
+-&gt; ListEventSubscriptionsResponse -&gt; Bool
+== :: ListEventSubscriptionsResponse
+-&gt; ListEventSubscriptionsResponse -&gt; Bool
+$c== :: ListEventSubscriptionsResponse
+-&gt; ListEventSubscriptionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253426"><span id="local-6989586621679253428"><span id="local-6989586621679253430"><span id="local-6989586621679253432"><span class="annot"><span class="annottext">ReadPrec [ListEventSubscriptionsResponse]
+ReadPrec ListEventSubscriptionsResponse
+Int -&gt; ReadS ListEventSubscriptionsResponse
+ReadS [ListEventSubscriptionsResponse]
+(Int -&gt; ReadS ListEventSubscriptionsResponse)
+-&gt; ReadS [ListEventSubscriptionsResponse]
+-&gt; ReadPrec ListEventSubscriptionsResponse
+-&gt; ReadPrec [ListEventSubscriptionsResponse]
+-&gt; Read ListEventSubscriptionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListEventSubscriptionsResponse]
+$creadListPrec :: ReadPrec [ListEventSubscriptionsResponse]
+readPrec :: ReadPrec ListEventSubscriptionsResponse
+$creadPrec :: ReadPrec ListEventSubscriptionsResponse
+readList :: ReadS [ListEventSubscriptionsResponse]
+$creadList :: ReadS [ListEventSubscriptionsResponse]
+readsPrec :: Int -&gt; ReadS ListEventSubscriptionsResponse
+$creadsPrec :: Int -&gt; ReadS ListEventSubscriptionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679253420"><span id="local-6989586621679253422"><span id="local-6989586621679253424"><span class="annot"><span class="annottext">Int -&gt; ListEventSubscriptionsResponse -&gt; ShowS
+[ListEventSubscriptionsResponse] -&gt; ShowS
+ListEventSubscriptionsResponse -&gt; String
+(Int -&gt; ListEventSubscriptionsResponse -&gt; ShowS)
+-&gt; (ListEventSubscriptionsResponse -&gt; String)
+-&gt; ([ListEventSubscriptionsResponse] -&gt; ShowS)
+-&gt; Show ListEventSubscriptionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListEventSubscriptionsResponse] -&gt; ShowS
+$cshowList :: [ListEventSubscriptionsResponse] -&gt; ShowS
+show :: ListEventSubscriptionsResponse -&gt; String
+$cshow :: ListEventSubscriptionsResponse -&gt; String
+showsPrec :: Int -&gt; ListEventSubscriptionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListEventSubscriptionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListEventSubscriptionsResponse
+ -&gt; Rep ListEventSubscriptionsResponse x)
+-&gt; (forall x.
+    Rep ListEventSubscriptionsResponse x
+    -&gt; ListEventSubscriptionsResponse)
+-&gt; Generic ListEventSubscriptionsResponse
+forall x.
+Rep ListEventSubscriptionsResponse x
+-&gt; ListEventSubscriptionsResponse
+forall x.
+ListEventSubscriptionsResponse
+-&gt; Rep ListEventSubscriptionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListEventSubscriptionsResponse x
+-&gt; ListEventSubscriptionsResponse
+$cfrom :: forall x.
+ListEventSubscriptionsResponse
+-&gt; Rep ListEventSubscriptionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- Create a value of 'ListEventSubscriptionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- 'nextToken', 'listEventSubscriptionsResponse_nextToken' - When a response is generated, if there is more data to be listed, this</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- parameter is present in the response and contains the value to use for</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- the __nextToken__ parameter in a subsequent pagination request. If there</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- is no more data to be listed, this parameter is set to null.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'httpStatus', 'listEventSubscriptionsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'subscriptions', 'listEventSubscriptionsResponse_subscriptions' - Details of the returned event subscriptions.</span><span>
+</span><span id="line-220"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#newListEventSubscriptionsResponse"><span class="hs-identifier hs-type">newListEventSubscriptionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-221"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-222"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-223"></span><span>  </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span>
+</span><span id="line-224"></span><span id="newListEventSubscriptionsResponse"><span class="annot"><span class="annottext">newListEventSubscriptionsResponse :: Int -&gt; ListEventSubscriptionsResponse
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#newListEventSubscriptionsResponse"><span class="hs-identifier hs-var hs-var">newListEventSubscriptionsResponse</span></a></span></span><span> </span><span id="local-6989586621679253417"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><span class="annottext">ListEventSubscriptionsResponse' :: Maybe Text
+-&gt; Int -&gt; [Subscription] -&gt; ListEventSubscriptionsResponse
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse'</span></a></span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListEventSubscriptionsResponse' :: Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AnextToken%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListEventSubscriptionsResponse' :: Int
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AhttpStatus%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253417"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>      </span><span class="annot"><span class="annottext">$sel:subscriptions:ListEventSubscriptionsResponse' :: [Subscription]
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3Asubscriptions%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">subscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Subscription]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-231"></span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- | When a response is generated, if there is more data to be listed, this</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- parameter is present in the response and contains the value to use for</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- the __nextToken__ parameter in a subsequent pagination request. If there</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- is no more data to be listed, this parameter is set to null.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_nextToken"><span class="hs-identifier hs-type">listEventSubscriptionsResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="listEventSubscriptionsResponse_nextToken"><span class="annot"><span class="annottext">listEventSubscriptionsResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListEventSubscriptionsResponse
+-&gt; f ListEventSubscriptionsResponse
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_nextToken"><span class="hs-identifier hs-var hs-var">listEventSubscriptionsResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventSubscriptionsResponse -&gt; Maybe Text)
+-&gt; (ListEventSubscriptionsResponse
+    -&gt; Maybe Text -&gt; ListEventSubscriptionsResponse)
+-&gt; Lens' ListEventSubscriptionsResponse (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253416"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListEventSubscriptionsResponse' :: ListEventSubscriptionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679253416"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253416"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253415"><span class="annot"><span class="annottext">s :: ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253415"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253414"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253414"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253415"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListEventSubscriptionsResponse' :: Maybe Text
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AnextToken%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679253414"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_httpStatus"><span class="hs-identifier hs-type">listEventSubscriptionsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-241"></span><span id="listEventSubscriptionsResponse_httpStatus"><span class="annot"><span class="annottext">listEventSubscriptionsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListEventSubscriptionsResponse
+-&gt; f ListEventSubscriptionsResponse
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listEventSubscriptionsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventSubscriptionsResponse -&gt; Int)
+-&gt; (ListEventSubscriptionsResponse
+    -&gt; Int -&gt; ListEventSubscriptionsResponse)
+-&gt; Lens
+     ListEventSubscriptionsResponse
+     ListEventSubscriptionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253413"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListEventSubscriptionsResponse' :: ListEventSubscriptionsResponse -&gt; Int
+</span><a href="#local-6989586621679253413"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253413"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253412"><span class="annot"><span class="annottext">s :: ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253412"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253411"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253411"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253412"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListEventSubscriptionsResponse' :: Int
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3AhttpStatus%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679253411"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | Details of the returned event subscriptions.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_subscriptions"><span class="hs-identifier hs-type">listEventSubscriptionsResponse_subscriptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Inspector.Types.Subscription.html#Subscription"><span class="hs-identifier hs-type">Subscription</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-245"></span><span id="listEventSubscriptionsResponse_subscriptions"><span class="annot"><span class="annottext">listEventSubscriptionsResponse_subscriptions :: ([Subscription] -&gt; f [Subscription])
+-&gt; ListEventSubscriptionsResponse
+-&gt; f ListEventSubscriptionsResponse
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#listEventSubscriptionsResponse_subscriptions"><span class="hs-identifier hs-var hs-var">listEventSubscriptionsResponse_subscriptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListEventSubscriptionsResponse -&gt; [Subscription])
+-&gt; (ListEventSubscriptionsResponse
+    -&gt; [Subscription] -&gt; ListEventSubscriptionsResponse)
+-&gt; Lens' ListEventSubscriptionsResponse [Subscription]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679253410"><span class="annot"><span class="annottext">[Subscription]
+subscriptions :: [Subscription]
+$sel:subscriptions:ListEventSubscriptionsResponse' :: ListEventSubscriptionsResponse -&gt; [Subscription]
+</span><a href="#local-6989586621679253410"><span class="hs-identifier hs-var hs-var">subscriptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Subscription]
+</span><a href="#local-6989586621679253410"><span class="hs-identifier hs-var">subscriptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679253409"><span class="annot"><span class="annottext">s :: ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse%27"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679253408"><span class="annot"><span class="annottext">[Subscription]
+</span><a href="#local-6989586621679253408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListEventSubscriptionsResponse
+</span><a href="#local-6989586621679253409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptions:ListEventSubscriptionsResponse' :: [Subscription]
+</span><a href="Amazonka.Inspector.ListEventSubscriptions.html#%24sel%3Asubscriptions%3AListEventSubscriptionsResponse%27"><span class="hs-identifier hs-var">subscriptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Subscription]
+</span><a href="#local-6989586621679253408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Subscription] -&gt; f [Subscription])
+ -&gt; ListEventSubscriptionsResponse
+ -&gt; f ListEventSubscriptionsResponse)
+-&gt; (([Subscription] -&gt; f [Subscription])
+    -&gt; [Subscription] -&gt; f [Subscription])
+-&gt; ([Subscription] -&gt; f [Subscription])
+-&gt; ListEventSubscriptionsResponse
+-&gt; f ListEventSubscriptionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Subscription] -&gt; f [Subscription])
+-&gt; [Subscription] -&gt; f [Subscription]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-248"></span><span>  </span><span id="local-6989586621679253405"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.Inspector.ListEventSubscriptions.html#ListEventSubscriptionsResponse"><span class="hs-identifier hs-type">ListEventSubscriptionsResponse</span></a></span></span><span>
+</span><span id="line-250"></span></pre></body></html>

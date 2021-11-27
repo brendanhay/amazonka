@@ -1,0 +1,565 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ElastiCache.ModifyCacheSubnetGroup</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Modifies an existing cache subnet group.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElastiCache.ModifyCacheSubnetGroup</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#newModifyCacheSubnetGroup"><span class="hs-identifier">newModifyCacheSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_subnetIds"><span class="hs-identifier">modifyCacheSubnetGroup_subnetIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_cacheSubnetGroupDescription"><span class="hs-identifier">modifyCacheSubnetGroup_cacheSubnetGroupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_cacheSubnetGroupName"><span class="hs-identifier">modifyCacheSubnetGroup_cacheSubnetGroupName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier">ModifyCacheSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#newModifyCacheSubnetGroupResponse"><span class="hs-identifier">newModifyCacheSubnetGroupResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroupResponse_cacheSubnetGroup"><span class="hs-identifier">modifyCacheSubnetGroupResponse_cacheSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroupResponse_httpStatus"><span class="hs-identifier">modifyCacheSubnetGroupResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.html"><span class="hs-identifier">Amazonka.ElastiCache.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | Represents the input of a @ModifyCacheSubnetGroup@ operation.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- /See:/ 'newModifyCacheSubnetGroup' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679412932"><span id="local-6989586621679412933"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCacheSubnetGroup"><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-var">ModifyCacheSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCacheSubnetGroup%27"><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var">ModifyCacheSubnetGroup'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The EC2 subnet IDs for the cache subnet group.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AsubnetIds%3AModifyCacheSubnetGroup%27"><span class="annot"><span class="annottext">ModifyCacheSubnetGroup -&gt; Maybe [Text]
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AsubnetIds%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | A description of the cache subnet group.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AcacheSubnetGroupDescription%3AModifyCacheSubnetGroup%27"><span class="annot"><span class="annottext">ModifyCacheSubnetGroup -&gt; Maybe Text
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupDescription%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var hs-var">cacheSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The name for the cache subnet group. This value is stored as a lowercase</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- Constraints: Must contain no more than 255 alphanumeric characters or</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- Example: @mysubnetgroup@</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AcacheSubnetGroupName%3AModifyCacheSubnetGroup%27"><span class="annot"><span class="annottext">ModifyCacheSubnetGroup -&gt; Text
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupName%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var hs-var">cacheSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412924"><span id="local-6989586621679412926"><span class="annot"><span class="annottext">ModifyCacheSubnetGroup -&gt; ModifyCacheSubnetGroup -&gt; Bool
+(ModifyCacheSubnetGroup -&gt; ModifyCacheSubnetGroup -&gt; Bool)
+-&gt; (ModifyCacheSubnetGroup -&gt; ModifyCacheSubnetGroup -&gt; Bool)
+-&gt; Eq ModifyCacheSubnetGroup
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyCacheSubnetGroup -&gt; ModifyCacheSubnetGroup -&gt; Bool
+$c/= :: ModifyCacheSubnetGroup -&gt; ModifyCacheSubnetGroup -&gt; Bool
+== :: ModifyCacheSubnetGroup -&gt; ModifyCacheSubnetGroup -&gt; Bool
+$c== :: ModifyCacheSubnetGroup -&gt; ModifyCacheSubnetGroup -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412915"><span id="local-6989586621679412917"><span id="local-6989586621679412919"><span id="local-6989586621679412921"><span class="annot"><span class="annottext">ReadPrec [ModifyCacheSubnetGroup]
+ReadPrec ModifyCacheSubnetGroup
+Int -&gt; ReadS ModifyCacheSubnetGroup
+ReadS [ModifyCacheSubnetGroup]
+(Int -&gt; ReadS ModifyCacheSubnetGroup)
+-&gt; ReadS [ModifyCacheSubnetGroup]
+-&gt; ReadPrec ModifyCacheSubnetGroup
+-&gt; ReadPrec [ModifyCacheSubnetGroup]
+-&gt; Read ModifyCacheSubnetGroup
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyCacheSubnetGroup]
+$creadListPrec :: ReadPrec [ModifyCacheSubnetGroup]
+readPrec :: ReadPrec ModifyCacheSubnetGroup
+$creadPrec :: ReadPrec ModifyCacheSubnetGroup
+readList :: ReadS [ModifyCacheSubnetGroup]
+$creadList :: ReadS [ModifyCacheSubnetGroup]
+readsPrec :: Int -&gt; ReadS ModifyCacheSubnetGroup
+$creadsPrec :: Int -&gt; ReadS ModifyCacheSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412908"><span id="local-6989586621679412910"><span id="local-6989586621679412912"><span class="annot"><span class="annottext">Int -&gt; ModifyCacheSubnetGroup -&gt; ShowS
+[ModifyCacheSubnetGroup] -&gt; ShowS
+ModifyCacheSubnetGroup -&gt; String
+(Int -&gt; ModifyCacheSubnetGroup -&gt; ShowS)
+-&gt; (ModifyCacheSubnetGroup -&gt; String)
+-&gt; ([ModifyCacheSubnetGroup] -&gt; ShowS)
+-&gt; Show ModifyCacheSubnetGroup
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyCacheSubnetGroup] -&gt; ShowS
+$cshowList :: [ModifyCacheSubnetGroup] -&gt; ShowS
+show :: ModifyCacheSubnetGroup -&gt; String
+$cshow :: ModifyCacheSubnetGroup -&gt; String
+showsPrec :: Int -&gt; ModifyCacheSubnetGroup -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyCacheSubnetGroup -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ModifyCacheSubnetGroup -&gt; Rep ModifyCacheSubnetGroup x)
+-&gt; (forall x.
+    Rep ModifyCacheSubnetGroup x -&gt; ModifyCacheSubnetGroup)
+-&gt; Generic ModifyCacheSubnetGroup
+forall x. Rep ModifyCacheSubnetGroup x -&gt; ModifyCacheSubnetGroup
+forall x. ModifyCacheSubnetGroup -&gt; Rep ModifyCacheSubnetGroup x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ModifyCacheSubnetGroup x -&gt; ModifyCacheSubnetGroup
+$cfrom :: forall x. ModifyCacheSubnetGroup -&gt; Rep ModifyCacheSubnetGroup x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'ModifyCacheSubnetGroup' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'subnetIds', 'modifyCacheSubnetGroup_subnetIds' - The EC2 subnet IDs for the cache subnet group.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- 'cacheSubnetGroupDescription', 'modifyCacheSubnetGroup_cacheSubnetGroupDescription' - A description of the cache subnet group.</span><span>
+</span><span id="line-81"></span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- 'cacheSubnetGroupName', 'modifyCacheSubnetGroup_cacheSubnetGroupName' - The name for the cache subnet group. This value is stored as a lowercase</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- Constraints: Must contain no more than 255 alphanumeric characters or</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- Example: @mysubnetgroup@</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#newModifyCacheSubnetGroup"><span class="hs-identifier hs-type">newModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'cacheSubnetGroupName'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span>
+</span><span id="line-93"></span><span id="newModifyCacheSubnetGroup"><span class="annot"><span class="annottext">newModifyCacheSubnetGroup :: Text -&gt; ModifyCacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#newModifyCacheSubnetGroup"><span class="hs-identifier hs-var hs-var">newModifyCacheSubnetGroup</span></a></span></span><span> </span><span id="local-6989586621679412903"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412903"><span class="hs-identifier hs-var">pCacheSubnetGroupName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><span class="annottext">ModifyCacheSubnetGroup' :: Maybe [Text] -&gt; Maybe Text -&gt; Text -&gt; ModifyCacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subnetIds:ModifyCacheSubnetGroup' :: Maybe [Text]
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AsubnetIds%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheSubnetGroupDescription:ModifyCacheSubnetGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupDescription%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var">cacheSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:cacheSubnetGroupName:ModifyCacheSubnetGroup' :: Text
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupName%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412903"><span class="hs-identifier hs-var">pCacheSubnetGroupName_</span></a></span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- | The EC2 subnet IDs for the cache subnet group.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_subnetIds"><span class="hs-identifier hs-type">modifyCacheSubnetGroup_subnetIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span id="modifyCacheSubnetGroup_subnetIds"><span class="annot"><span class="annottext">modifyCacheSubnetGroup_subnetIds :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ModifyCacheSubnetGroup -&gt; f ModifyCacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_subnetIds"><span class="hs-identifier hs-var hs-var">modifyCacheSubnetGroup_subnetIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyCacheSubnetGroup -&gt; Maybe [Text])
+-&gt; (ModifyCacheSubnetGroup
+    -&gt; Maybe [Text] -&gt; ModifyCacheSubnetGroup)
+-&gt; Lens
+     ModifyCacheSubnetGroup
+     ModifyCacheSubnetGroup
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412900"><span class="annot"><span class="annottext">Maybe [Text]
+subnetIds :: Maybe [Text]
+$sel:subnetIds:ModifyCacheSubnetGroup' :: ModifyCacheSubnetGroup -&gt; Maybe [Text]
+</span><a href="#local-6989586621679412900"><span class="hs-identifier hs-var hs-var">subnetIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679412900"><span class="hs-identifier hs-var">subnetIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412899"><span class="annot"><span class="annottext">s :: ModifyCacheSubnetGroup
+</span><a href="#local-6989586621679412899"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412898"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679412898"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCacheSubnetGroup
+</span><a href="#local-6989586621679412899"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subnetIds:ModifyCacheSubnetGroup' :: Maybe [Text]
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AsubnetIds%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var">subnetIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679412898"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ModifyCacheSubnetGroup -&gt; f ModifyCacheSubnetGroup)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ModifyCacheSubnetGroup
+-&gt; f ModifyCacheSubnetGroup
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A description of the cache subnet group.</span><span>
+</span><span id="line-106"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_cacheSubnetGroupDescription"><span class="hs-identifier hs-type">modifyCacheSubnetGroup_cacheSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span id="modifyCacheSubnetGroup_cacheSubnetGroupDescription"><span class="annot"><span class="annottext">modifyCacheSubnetGroup_cacheSubnetGroupDescription :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ModifyCacheSubnetGroup -&gt; f ModifyCacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_cacheSubnetGroupDescription"><span class="hs-identifier hs-var hs-var">modifyCacheSubnetGroup_cacheSubnetGroupDescription</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyCacheSubnetGroup -&gt; Maybe Text)
+-&gt; (ModifyCacheSubnetGroup -&gt; Maybe Text -&gt; ModifyCacheSubnetGroup)
+-&gt; Lens
+     ModifyCacheSubnetGroup
+     ModifyCacheSubnetGroup
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412894"><span class="annot"><span class="annottext">Maybe Text
+cacheSubnetGroupDescription :: Maybe Text
+$sel:cacheSubnetGroupDescription:ModifyCacheSubnetGroup' :: ModifyCacheSubnetGroup -&gt; Maybe Text
+</span><a href="#local-6989586621679412894"><span class="hs-identifier hs-var hs-var">cacheSubnetGroupDescription</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412894"><span class="hs-identifier hs-var">cacheSubnetGroupDescription</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412893"><span class="annot"><span class="annottext">s :: ModifyCacheSubnetGroup
+</span><a href="#local-6989586621679412893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCacheSubnetGroup
+</span><a href="#local-6989586621679412893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSubnetGroupDescription:ModifyCacheSubnetGroup' :: Maybe Text
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupDescription%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var">cacheSubnetGroupDescription</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- | The name for the cache subnet group. This value is stored as a lowercase</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- string.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Constraints: Must contain no more than 255 alphanumeric characters or</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- hyphens.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Example: @mysubnetgroup@</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_cacheSubnetGroupName"><span class="hs-identifier hs-type">modifyCacheSubnetGroup_cacheSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="modifyCacheSubnetGroup_cacheSubnetGroupName"><span class="annot"><span class="annottext">modifyCacheSubnetGroup_cacheSubnetGroupName :: (Text -&gt; f Text)
+-&gt; ModifyCacheSubnetGroup -&gt; f ModifyCacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroup_cacheSubnetGroupName"><span class="hs-identifier hs-var hs-var">modifyCacheSubnetGroup_cacheSubnetGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyCacheSubnetGroup -&gt; Text)
+-&gt; (ModifyCacheSubnetGroup -&gt; Text -&gt; ModifyCacheSubnetGroup)
+-&gt; Lens ModifyCacheSubnetGroup ModifyCacheSubnetGroup Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412891"><span class="annot"><span class="annottext">Text
+cacheSubnetGroupName :: Text
+$sel:cacheSubnetGroupName:ModifyCacheSubnetGroup' :: ModifyCacheSubnetGroup -&gt; Text
+</span><a href="#local-6989586621679412891"><span class="hs-identifier hs-var hs-var">cacheSubnetGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412891"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412890"><span class="annot"><span class="annottext">s :: ModifyCacheSubnetGroup
+</span><a href="#local-6989586621679412890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412889"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCacheSubnetGroup
+</span><a href="#local-6989586621679412890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSubnetGroupName:ModifyCacheSubnetGroup' :: Text
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroupName%3AModifyCacheSubnetGroup%27"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679412885"><span class="annot"><span class="annottext">request :: ModifyCacheSubnetGroup -&gt; Request ModifyCacheSubnetGroup
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ModifyCacheSubnetGroup -&gt; Request ModifyCacheSubnetGroup
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ElastiCache.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679412881"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ModifyCacheSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyCacheSubnetGroup)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse ModifyCacheSubnetGroup))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ModifyCacheSubnetGroup
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ModifyCacheSubnetGroup)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ModifyCacheSubnetGroupResult&quot;</span></span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679412878"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412878"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679412877"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679412877"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679412876"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679412876"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe CacheSubnetGroup -&gt; Int -&gt; ModifyCacheSubnetGroupResponse
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">ModifyCacheSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">(Maybe CacheSubnetGroup -&gt; Int -&gt; ModifyCacheSubnetGroupResponse)
+-&gt; Either String (Maybe CacheSubnetGroup)
+-&gt; Either String (Int -&gt; ModifyCacheSubnetGroupResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679412876"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe CacheSubnetGroup)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CacheSubnetGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ModifyCacheSubnetGroupResponse)
+-&gt; Either String Int
+-&gt; Either String ModifyCacheSubnetGroupResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412878"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412868"><span id="local-6989586621679412870"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span></span></span><span>
+</span><span id="line-134"></span><span>
+</span><span id="line-135"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679412865"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span></span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-138"></span><span>  </span><span id="local-6989586621679412861"><span class="annot"><span class="annottext">toHeaders :: ModifyCacheSubnetGroup -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ModifyCacheSubnetGroup -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-141"></span><span>  </span><span id="local-6989586621679412856"><span class="annot"><span class="annottext">toPath :: ModifyCacheSubnetGroup -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ModifyCacheSubnetGroup -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679412852"><span class="annot"><span class="annottext">toQuery :: ModifyCacheSubnetGroup -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroup%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroup'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412848"><span id="local-6989586621679412849"><span id="local-6989586621679412850"><span class="annot"><span class="annottext">Maybe [Text]
+Maybe Text
+Text
+cacheSubnetGroupName :: Text
+cacheSubnetGroupDescription :: Maybe Text
+subnetIds :: Maybe [Text]
+$sel:cacheSubnetGroupName:ModifyCacheSubnetGroup' :: ModifyCacheSubnetGroup -&gt; Text
+$sel:cacheSubnetGroupDescription:ModifyCacheSubnetGroup' :: ModifyCacheSubnetGroup -&gt; Maybe Text
+$sel:subnetIds:ModifyCacheSubnetGroup' :: ModifyCacheSubnetGroup -&gt; Maybe [Text]
+</span><a href="#local-6989586621679412848"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ModifyCacheSubnetGroup&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-149"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2015-02-02&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SubnetIds&quot;</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe QueryString -&gt; QueryString
+forall a. ToQuery a =&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQuery</span></span><span>
+</span><span id="line-152"></span><span>            </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SubnetIdentifier&quot;</span></span><span>
+</span><span id="line-153"></span><span>                </span><span class="annot"><span class="annottext">([Text] -&gt; QueryString) -&gt; Maybe [Text] -&gt; Maybe QueryString
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679412850"><span class="hs-identifier hs-var">subnetIds</span></a></span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CacheSubnetGroupDescription&quot;</span></span><span>
+</span><span id="line-156"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679412849"><span class="hs-identifier hs-var">cacheSubnetGroupDescription</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CacheSubnetGroupName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679412848"><span class="hs-identifier hs-var">cacheSubnetGroupName</span></a></span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | /See:/ 'newModifyCacheSubnetGroupResponse' smart constructor.</span><span>
+</span><span id="line-161"></span><span id="local-6989586621679412844"><span id="local-6989586621679412845"></span></span><span class="hs-keyword">data</span><span> </span><span id="ModifyCacheSubnetGroupResponse"><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-var">ModifyCacheSubnetGroupResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ModifyCacheSubnetGroupResponse%27"><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">ModifyCacheSubnetGroupResponse'</span></a></span></span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="%24sel%3AcacheSubnetGroup%3AModifyCacheSubnetGroupResponse%27"><span class="annot"><span class="annottext">ModifyCacheSubnetGroupResponse -&gt; Maybe CacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroup%3AModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">cacheSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSubnetGroup.html#CacheSubnetGroup"><span class="hs-identifier hs-type">CacheSubnetGroup</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3AhttpStatus%3AModifyCacheSubnetGroupResponse%27"><span class="annot"><span class="annottext">ModifyCacheSubnetGroupResponse -&gt; Int
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AhttpStatus%3AModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679412838"><span id="local-6989586621679412840"><span class="annot"><span class="annottext">ModifyCacheSubnetGroupResponse
+-&gt; ModifyCacheSubnetGroupResponse -&gt; Bool
+(ModifyCacheSubnetGroupResponse
+ -&gt; ModifyCacheSubnetGroupResponse -&gt; Bool)
+-&gt; (ModifyCacheSubnetGroupResponse
+    -&gt; ModifyCacheSubnetGroupResponse -&gt; Bool)
+-&gt; Eq ModifyCacheSubnetGroupResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ModifyCacheSubnetGroupResponse
+-&gt; ModifyCacheSubnetGroupResponse -&gt; Bool
+$c/= :: ModifyCacheSubnetGroupResponse
+-&gt; ModifyCacheSubnetGroupResponse -&gt; Bool
+== :: ModifyCacheSubnetGroupResponse
+-&gt; ModifyCacheSubnetGroupResponse -&gt; Bool
+$c== :: ModifyCacheSubnetGroupResponse
+-&gt; ModifyCacheSubnetGroupResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412830"><span id="local-6989586621679412832"><span id="local-6989586621679412834"><span id="local-6989586621679412836"><span class="annot"><span class="annottext">ReadPrec [ModifyCacheSubnetGroupResponse]
+ReadPrec ModifyCacheSubnetGroupResponse
+Int -&gt; ReadS ModifyCacheSubnetGroupResponse
+ReadS [ModifyCacheSubnetGroupResponse]
+(Int -&gt; ReadS ModifyCacheSubnetGroupResponse)
+-&gt; ReadS [ModifyCacheSubnetGroupResponse]
+-&gt; ReadPrec ModifyCacheSubnetGroupResponse
+-&gt; ReadPrec [ModifyCacheSubnetGroupResponse]
+-&gt; Read ModifyCacheSubnetGroupResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ModifyCacheSubnetGroupResponse]
+$creadListPrec :: ReadPrec [ModifyCacheSubnetGroupResponse]
+readPrec :: ReadPrec ModifyCacheSubnetGroupResponse
+$creadPrec :: ReadPrec ModifyCacheSubnetGroupResponse
+readList :: ReadS [ModifyCacheSubnetGroupResponse]
+$creadList :: ReadS [ModifyCacheSubnetGroupResponse]
+readsPrec :: Int -&gt; ReadS ModifyCacheSubnetGroupResponse
+$creadsPrec :: Int -&gt; ReadS ModifyCacheSubnetGroupResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679412824"><span id="local-6989586621679412826"><span id="local-6989586621679412828"><span class="annot"><span class="annottext">Int -&gt; ModifyCacheSubnetGroupResponse -&gt; ShowS
+[ModifyCacheSubnetGroupResponse] -&gt; ShowS
+ModifyCacheSubnetGroupResponse -&gt; String
+(Int -&gt; ModifyCacheSubnetGroupResponse -&gt; ShowS)
+-&gt; (ModifyCacheSubnetGroupResponse -&gt; String)
+-&gt; ([ModifyCacheSubnetGroupResponse] -&gt; ShowS)
+-&gt; Show ModifyCacheSubnetGroupResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ModifyCacheSubnetGroupResponse] -&gt; ShowS
+$cshowList :: [ModifyCacheSubnetGroupResponse] -&gt; ShowS
+show :: ModifyCacheSubnetGroupResponse -&gt; String
+$cshow :: ModifyCacheSubnetGroupResponse -&gt; String
+showsPrec :: Int -&gt; ModifyCacheSubnetGroupResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ModifyCacheSubnetGroupResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ModifyCacheSubnetGroupResponse
+ -&gt; Rep ModifyCacheSubnetGroupResponse x)
+-&gt; (forall x.
+    Rep ModifyCacheSubnetGroupResponse x
+    -&gt; ModifyCacheSubnetGroupResponse)
+-&gt; Generic ModifyCacheSubnetGroupResponse
+forall x.
+Rep ModifyCacheSubnetGroupResponse x
+-&gt; ModifyCacheSubnetGroupResponse
+forall x.
+ModifyCacheSubnetGroupResponse
+-&gt; Rep ModifyCacheSubnetGroupResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ModifyCacheSubnetGroupResponse x
+-&gt; ModifyCacheSubnetGroupResponse
+$cfrom :: forall x.
+ModifyCacheSubnetGroupResponse
+-&gt; Rep ModifyCacheSubnetGroupResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Create a value of 'ModifyCacheSubnetGroupResponse' with all optional fields omitted.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'cacheSubnetGroup', 'modifyCacheSubnetGroupResponse_cacheSubnetGroup' - Undocumented member.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'httpStatus', 'modifyCacheSubnetGroupResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-179"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#newModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">newModifyCacheSubnetGroupResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-182"></span><span>  </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse</span></a></span><span>
+</span><span id="line-183"></span><span id="newModifyCacheSubnetGroupResponse"><span class="annot"><span class="annottext">newModifyCacheSubnetGroupResponse :: Int -&gt; ModifyCacheSubnetGroupResponse
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#newModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-var hs-var">newModifyCacheSubnetGroupResponse</span></a></span></span><span> </span><span id="local-6989586621679412821"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412821"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>  </span><span class="annot"><span class="annottext">ModifyCacheSubnetGroupResponse' :: Maybe CacheSubnetGroup -&gt; Int -&gt; ModifyCacheSubnetGroupResponse
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse'</span></a></span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:cacheSubnetGroup:ModifyCacheSubnetGroupResponse' :: Maybe CacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroup%3AModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">cacheSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">Maybe CacheSubnetGroup
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyCacheSubnetGroupResponse' :: Int
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AhttpStatus%3AModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412821"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-191"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroupResponse_cacheSubnetGroup"><span class="hs-identifier hs-type">modifyCacheSubnetGroupResponse_cacheSubnetGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.Types.CacheSubnetGroup.html#CacheSubnetGroup"><span class="hs-identifier hs-type">CacheSubnetGroup</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span id="modifyCacheSubnetGroupResponse_cacheSubnetGroup"><span class="annot"><span class="annottext">modifyCacheSubnetGroupResponse_cacheSubnetGroup :: (Maybe CacheSubnetGroup -&gt; f (Maybe CacheSubnetGroup))
+-&gt; ModifyCacheSubnetGroupResponse
+-&gt; f ModifyCacheSubnetGroupResponse
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroupResponse_cacheSubnetGroup"><span class="hs-identifier hs-var hs-var">modifyCacheSubnetGroupResponse_cacheSubnetGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyCacheSubnetGroupResponse -&gt; Maybe CacheSubnetGroup)
+-&gt; (ModifyCacheSubnetGroupResponse
+    -&gt; Maybe CacheSubnetGroup -&gt; ModifyCacheSubnetGroupResponse)
+-&gt; Lens
+     ModifyCacheSubnetGroupResponse
+     ModifyCacheSubnetGroupResponse
+     (Maybe CacheSubnetGroup)
+     (Maybe CacheSubnetGroup)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412820"><span class="annot"><span class="annottext">Maybe CacheSubnetGroup
+cacheSubnetGroup :: Maybe CacheSubnetGroup
+$sel:cacheSubnetGroup:ModifyCacheSubnetGroupResponse' :: ModifyCacheSubnetGroupResponse -&gt; Maybe CacheSubnetGroup
+</span><a href="#local-6989586621679412820"><span class="hs-identifier hs-var hs-var">cacheSubnetGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CacheSubnetGroup
+</span><a href="#local-6989586621679412820"><span class="hs-identifier hs-var">cacheSubnetGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412819"><span class="annot"><span class="annottext">s :: ModifyCacheSubnetGroupResponse
+</span><a href="#local-6989586621679412819"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412818"><span class="annot"><span class="annottext">Maybe CacheSubnetGroup
+</span><a href="#local-6989586621679412818"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCacheSubnetGroupResponse
+</span><a href="#local-6989586621679412819"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cacheSubnetGroup:ModifyCacheSubnetGroupResponse' :: Maybe CacheSubnetGroup
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AcacheSubnetGroup%3AModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">cacheSubnetGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CacheSubnetGroup
+</span><a href="#local-6989586621679412818"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-type">modifyCacheSubnetGroupResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span id="modifyCacheSubnetGroupResponse_httpStatus"><span class="annot"><span class="annottext">modifyCacheSubnetGroupResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ModifyCacheSubnetGroupResponse
+-&gt; f ModifyCacheSubnetGroupResponse
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#modifyCacheSubnetGroupResponse_httpStatus"><span class="hs-identifier hs-var hs-var">modifyCacheSubnetGroupResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ModifyCacheSubnetGroupResponse -&gt; Int)
+-&gt; (ModifyCacheSubnetGroupResponse
+    -&gt; Int -&gt; ModifyCacheSubnetGroupResponse)
+-&gt; Lens
+     ModifyCacheSubnetGroupResponse
+     ModifyCacheSubnetGroupResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679412817"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ModifyCacheSubnetGroupResponse' :: ModifyCacheSubnetGroupResponse -&gt; Int
+</span><a href="#local-6989586621679412817"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412817"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679412816"><span class="annot"><span class="annottext">s :: ModifyCacheSubnetGroupResponse
+</span><a href="#local-6989586621679412816"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679412815"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412815"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ModifyCacheSubnetGroupResponse
+</span><a href="#local-6989586621679412816"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ModifyCacheSubnetGroupResponse' :: Int
+</span><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#%24sel%3AhttpStatus%3AModifyCacheSubnetGroupResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679412815"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679412813"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.ElastiCache.ModifyCacheSubnetGroup.html#ModifyCacheSubnetGroupResponse"><span class="hs-identifier hs-type">ModifyCacheSubnetGroupResponse</span></a></span></span><span>
+</span><span id="line-201"></span></pre></body></html>

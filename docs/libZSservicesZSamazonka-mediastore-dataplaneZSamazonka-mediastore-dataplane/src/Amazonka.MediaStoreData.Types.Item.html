@@ -1,0 +1,370 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaStoreData.Types.Item</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaStoreData.Types.Item</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.ItemType.html"><span class="hs-identifier">Amazonka.MediaStoreData.Types.ItemType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A metadata entry for a folder or object.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newItem' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679146917"><span id="local-6989586621679146918"></span></span><span class="hs-keyword">data</span><span> </span><span id="Item"><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-var">Item</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Item%27"><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-var">Item'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ETag that represents a unique instance of the item.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AeTag%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AeTag%3AItem%27"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The length of the item in bytes.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AcontentLength%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Natural
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AcontentLength%3AItem%27"><span class="hs-identifier hs-var hs-var">contentLength</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The name of the item.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aname%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3Aname%3AItem%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | The item type (folder or object).</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Atype%27%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe ItemType
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3Atype%27%3AItem%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.ItemType.html#ItemType"><span class="hs-identifier hs-type">ItemType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The date and time that the item was last modified.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AlastModified%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AlastModified%3AItem%27"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | The content type of the item.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AcontentType%3AItem%27"><span class="annot"><span class="annottext">Item -&gt; Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AcontentType%3AItem%27"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679146906"><span id="local-6989586621679146908"><span class="annot"><span class="annottext">Item -&gt; Item -&gt; Bool
+(Item -&gt; Item -&gt; Bool) -&gt; (Item -&gt; Item -&gt; Bool) -&gt; Eq Item
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Item -&gt; Item -&gt; Bool
+$c/= :: Item -&gt; Item -&gt; Bool
+== :: Item -&gt; Item -&gt; Bool
+$c== :: Item -&gt; Item -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679146897"><span id="local-6989586621679146899"><span id="local-6989586621679146901"><span id="local-6989586621679146903"><span class="annot"><span class="annottext">ReadPrec [Item]
+ReadPrec Item
+Int -&gt; ReadS Item
+ReadS [Item]
+(Int -&gt; ReadS Item)
+-&gt; ReadS [Item] -&gt; ReadPrec Item -&gt; ReadPrec [Item] -&gt; Read Item
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Item]
+$creadListPrec :: ReadPrec [Item]
+readPrec :: ReadPrec Item
+$creadPrec :: ReadPrec Item
+readList :: ReadS [Item]
+$creadList :: ReadS [Item]
+readsPrec :: Int -&gt; ReadS Item
+$creadsPrec :: Int -&gt; ReadS Item
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679146890"><span id="local-6989586621679146892"><span id="local-6989586621679146894"><span class="annot"><span class="annottext">Int -&gt; Item -&gt; ShowS
+[Item] -&gt; ShowS
+Item -&gt; String
+(Int -&gt; Item -&gt; ShowS)
+-&gt; (Item -&gt; String) -&gt; ([Item] -&gt; ShowS) -&gt; Show Item
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Item] -&gt; ShowS
+$cshowList :: [Item] -&gt; ShowS
+show :: Item -&gt; String
+$cshow :: Item -&gt; String
+showsPrec :: Int -&gt; Item -&gt; ShowS
+$cshowsPrec :: Int -&gt; Item -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Item -&gt; Rep Item x)
+-&gt; (forall x. Rep Item x -&gt; Item) -&gt; Generic Item
+forall x. Rep Item x -&gt; Item
+forall x. Item -&gt; Rep Item x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Item x -&gt; Item
+$cfrom :: forall x. Item -&gt; Rep Item x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- Create a value of 'Item' with all optional fields omitted.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-53"></span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- 'eTag', 'item_eTag' - The ETag that represents a unique instance of the item.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'contentLength', 'item_contentLength' - The length of the item in bytes.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'name', 'item_name' - The name of the item.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- 'type'', 'item_type' - The item type (folder or object).</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- 'lastModified', 'item_lastModified' - The date and time that the item was last modified.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'contentType', 'item_contentType' - The content type of the item.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#newItem"><span class="hs-identifier hs-type">newItem</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span>
+</span><span id="line-67"></span><span id="newItem"><span class="annot"><span class="annottext">newItem :: Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#newItem"><span class="hs-identifier hs-var hs-var">newItem</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="annottext">Item' :: Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe ItemType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:eTag:Item' :: Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AeTag%3AItem%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentLength:Item' :: Maybe Natural
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AcontentLength%3AItem%27"><span class="hs-identifier hs-var">contentLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Item' :: Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3Aname%3AItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:type':Item' :: Maybe ItemType
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3Atype%27%3AItem%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ItemType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModified:Item' :: Maybe POSIX
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AlastModified%3AItem%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:contentType:Item' :: Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AcontentType%3AItem%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The ETag that represents a unique instance of the item.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_eTag"><span class="hs-identifier hs-type">item_eTag</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="item_eTag"><span class="annot"><span class="annottext">item_eTag :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#item_eTag"><span class="hs-identifier hs-var hs-var">item_eTag</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679146881"><span class="annot"><span class="annottext">Maybe Text
+eTag :: Maybe Text
+$sel:eTag:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679146881"><span class="hs-identifier hs-var hs-var">eTag</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146881"><span class="hs-identifier hs-var">eTag</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679146880"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679146880"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679146879"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146879"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679146880"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:eTag:Item' :: Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AeTag%3AItem%27"><span class="hs-identifier hs-var">eTag</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146879"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The length of the item in bytes.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_contentLength"><span class="hs-identifier hs-type">item_contentLength</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="item_contentLength"><span class="annot"><span class="annottext">item_contentLength :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#item_contentLength"><span class="hs-identifier hs-var hs-var">item_contentLength</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Natural)
+-&gt; (Item -&gt; Maybe Natural -&gt; Item)
+-&gt; Lens Item Item (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679146877"><span class="annot"><span class="annottext">Maybe Natural
+contentLength :: Maybe Natural
+$sel:contentLength:Item' :: Item -&gt; Maybe Natural
+</span><a href="#local-6989586621679146877"><span class="hs-identifier hs-var hs-var">contentLength</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679146877"><span class="hs-identifier hs-var">contentLength</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679146876"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679146876"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679146875"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679146875"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679146876"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentLength:Item' :: Maybe Natural
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AcontentLength%3AItem%27"><span class="hs-identifier hs-var">contentLength</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679146875"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The name of the item.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_name"><span class="hs-identifier hs-type">item_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span id="item_name"><span class="annot"><span class="annottext">item_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#item_name"><span class="hs-identifier hs-var hs-var">item_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679146873"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679146873"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146873"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679146872"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679146872"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679146871"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146871"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679146872"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Item' :: Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3Aname%3AItem%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146871"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- | The item type (folder or object).</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_type"><span class="hs-identifier hs-type">item_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.ItemType.html#ItemType"><span class="hs-identifier hs-type">ItemType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="item_type"><span class="annot"><span class="annottext">item_type :: (Maybe ItemType -&gt; f (Maybe ItemType)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#item_type"><span class="hs-identifier hs-var hs-var">item_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe ItemType)
+-&gt; (Item -&gt; Maybe ItemType -&gt; Item)
+-&gt; Lens Item Item (Maybe ItemType) (Maybe ItemType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679146869"><span class="annot"><span class="annottext">Maybe ItemType
+type' :: Maybe ItemType
+$sel:type':Item' :: Item -&gt; Maybe ItemType
+</span><a href="#local-6989586621679146869"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ItemType
+</span><a href="#local-6989586621679146869"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679146868"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679146868"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679146867"><span class="annot"><span class="annottext">Maybe ItemType
+</span><a href="#local-6989586621679146867"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679146868"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':Item' :: Maybe ItemType
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3Atype%27%3AItem%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ItemType
+</span><a href="#local-6989586621679146867"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | The date and time that the item was last modified.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_lastModified"><span class="hs-identifier hs-type">item_lastModified</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span id="item_lastModified"><span class="annot"><span class="annottext">item_lastModified :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#item_lastModified"><span class="hs-identifier hs-var hs-var">item_lastModified</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe POSIX)
+-&gt; (Item -&gt; Maybe POSIX -&gt; Item)
+-&gt; Lens Item Item (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679146865"><span class="annot"><span class="annottext">Maybe POSIX
+lastModified :: Maybe POSIX
+$sel:lastModified:Item' :: Item -&gt; Maybe POSIX
+</span><a href="#local-6989586621679146865"><span class="hs-identifier hs-var hs-var">lastModified</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679146865"><span class="hs-identifier hs-var">lastModified</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679146864"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679146864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679146863"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679146863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679146864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModified:Item' :: Maybe POSIX
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AlastModified%3AItem%27"><span class="hs-identifier hs-var">lastModified</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679146863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Item -&gt; f Item)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Item
+-&gt; f Item
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | The content type of the item.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#item_contentType"><span class="hs-identifier hs-type">item_contentType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span id="item_contentType"><span class="annot"><span class="annottext">item_contentType :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Item -&gt; f Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#item_contentType"><span class="hs-identifier hs-var hs-var">item_contentType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Item -&gt; Maybe Text)
+-&gt; (Item -&gt; Maybe Text -&gt; Item)
+-&gt; Lens Item Item (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679146858"><span class="annot"><span class="annottext">Maybe Text
+contentType :: Maybe Text
+$sel:contentType:Item' :: Item -&gt; Maybe Text
+</span><a href="#local-6989586621679146858"><span class="hs-identifier hs-var hs-var">contentType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146858"><span class="hs-identifier hs-var">contentType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679146857"><span class="annot"><span class="annottext">s :: Item
+</span><a href="#local-6989586621679146857"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-type">Item'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679146856"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146856"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Item
+</span><a href="#local-6989586621679146857"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:contentType:Item' :: Maybe Text
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#%24sel%3AcontentType%3AItem%27"><span class="hs-identifier hs-var">contentType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679146856"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679146853"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679146851"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Item
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Item) -&gt; Value -&gt; Parser Item
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Item&quot;</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679146848"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679146848"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe ItemType
+-&gt; Maybe POSIX
+-&gt; Maybe Text
+-&gt; Item
+</span><a href="Amazonka.MediaStoreData.Types.Item.html#Item%27"><span class="hs-identifier hs-var">Item'</span></a></span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Natural
+ -&gt; Maybe Text
+ -&gt; Maybe ItemType
+ -&gt; Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Item)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe Text
+      -&gt; Maybe ItemType
+      -&gt; Maybe POSIX
+      -&gt; Maybe Text
+      -&gt; Item)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679146848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ETag&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe Text
+   -&gt; Maybe ItemType
+   -&gt; Maybe POSIX
+   -&gt; Maybe Text
+   -&gt; Item)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe ItemType -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679146848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentLength&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe ItemType -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Item)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe ItemType -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679146848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe ItemType -&gt; Maybe POSIX -&gt; Maybe Text -&gt; Item)
+-&gt; Parser (Maybe ItemType)
+-&gt; Parser (Maybe POSIX -&gt; Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679146848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ItemType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Type&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe POSIX -&gt; Maybe Text -&gt; Item)
+-&gt; Parser (Maybe POSIX) -&gt; Parser (Maybe Text -&gt; Item)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679146848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModified&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Item) -&gt; Parser (Maybe Text) -&gt; Parser Item
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679146848"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ContentType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679146842"><span id="local-6989586621679146844"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679146839"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStoreData.Types.Item.html#Item"><span class="hs-identifier hs-type">Item</span></a></span></span><span>
+</span><span id="line-118"></span></pre></body></html>

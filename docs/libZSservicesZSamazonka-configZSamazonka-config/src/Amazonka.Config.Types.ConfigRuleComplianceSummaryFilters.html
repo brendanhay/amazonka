@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Filters the results based on the account IDs and regions.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newConfigRuleComplianceSummaryFilters' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679396515"><span id="local-6989586621679396516"></span></span><span class="hs-keyword">data</span><span> </span><span id="ConfigRuleComplianceSummaryFilters"><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-var">ConfigRuleComplianceSummaryFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ConfigRuleComplianceSummaryFilters%27"><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-var">ConfigRuleComplianceSummaryFilters'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
+</span><span id="line-31"></span><span>    </span><span id="%24sel%3AaccountId%3AConfigRuleComplianceSummaryFilters%27"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryFilters -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#%24sel%3AaccountId%3AConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- | The source region where the data is aggregated.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AawsRegion%3AConfigRuleComplianceSummaryFilters%27"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryFilters -&gt; Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#%24sel%3AawsRegion%3AConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679396508"><span id="local-6989586621679396510"><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryFilters
+-&gt; ConfigRuleComplianceSummaryFilters -&gt; Bool
+(ConfigRuleComplianceSummaryFilters
+ -&gt; ConfigRuleComplianceSummaryFilters -&gt; Bool)
+-&gt; (ConfigRuleComplianceSummaryFilters
+    -&gt; ConfigRuleComplianceSummaryFilters -&gt; Bool)
+-&gt; Eq ConfigRuleComplianceSummaryFilters
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ConfigRuleComplianceSummaryFilters
+-&gt; ConfigRuleComplianceSummaryFilters -&gt; Bool
+$c/= :: ConfigRuleComplianceSummaryFilters
+-&gt; ConfigRuleComplianceSummaryFilters -&gt; Bool
+== :: ConfigRuleComplianceSummaryFilters
+-&gt; ConfigRuleComplianceSummaryFilters -&gt; Bool
+$c== :: ConfigRuleComplianceSummaryFilters
+-&gt; ConfigRuleComplianceSummaryFilters -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396499"><span id="local-6989586621679396501"><span id="local-6989586621679396503"><span id="local-6989586621679396505"><span class="annot"><span class="annottext">ReadPrec [ConfigRuleComplianceSummaryFilters]
+ReadPrec ConfigRuleComplianceSummaryFilters
+Int -&gt; ReadS ConfigRuleComplianceSummaryFilters
+ReadS [ConfigRuleComplianceSummaryFilters]
+(Int -&gt; ReadS ConfigRuleComplianceSummaryFilters)
+-&gt; ReadS [ConfigRuleComplianceSummaryFilters]
+-&gt; ReadPrec ConfigRuleComplianceSummaryFilters
+-&gt; ReadPrec [ConfigRuleComplianceSummaryFilters]
+-&gt; Read ConfigRuleComplianceSummaryFilters
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ConfigRuleComplianceSummaryFilters]
+$creadListPrec :: ReadPrec [ConfigRuleComplianceSummaryFilters]
+readPrec :: ReadPrec ConfigRuleComplianceSummaryFilters
+$creadPrec :: ReadPrec ConfigRuleComplianceSummaryFilters
+readList :: ReadS [ConfigRuleComplianceSummaryFilters]
+$creadList :: ReadS [ConfigRuleComplianceSummaryFilters]
+readsPrec :: Int -&gt; ReadS ConfigRuleComplianceSummaryFilters
+$creadsPrec :: Int -&gt; ReadS ConfigRuleComplianceSummaryFilters
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679396492"><span id="local-6989586621679396494"><span id="local-6989586621679396496"><span class="annot"><span class="annottext">Int -&gt; ConfigRuleComplianceSummaryFilters -&gt; ShowS
+[ConfigRuleComplianceSummaryFilters] -&gt; ShowS
+ConfigRuleComplianceSummaryFilters -&gt; String
+(Int -&gt; ConfigRuleComplianceSummaryFilters -&gt; ShowS)
+-&gt; (ConfigRuleComplianceSummaryFilters -&gt; String)
+-&gt; ([ConfigRuleComplianceSummaryFilters] -&gt; ShowS)
+-&gt; Show ConfigRuleComplianceSummaryFilters
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ConfigRuleComplianceSummaryFilters] -&gt; ShowS
+$cshowList :: [ConfigRuleComplianceSummaryFilters] -&gt; ShowS
+show :: ConfigRuleComplianceSummaryFilters -&gt; String
+$cshow :: ConfigRuleComplianceSummaryFilters -&gt; String
+showsPrec :: Int -&gt; ConfigRuleComplianceSummaryFilters -&gt; ShowS
+$cshowsPrec :: Int -&gt; ConfigRuleComplianceSummaryFilters -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ConfigRuleComplianceSummaryFilters
+ -&gt; Rep ConfigRuleComplianceSummaryFilters x)
+-&gt; (forall x.
+    Rep ConfigRuleComplianceSummaryFilters x
+    -&gt; ConfigRuleComplianceSummaryFilters)
+-&gt; Generic ConfigRuleComplianceSummaryFilters
+forall x.
+Rep ConfigRuleComplianceSummaryFilters x
+-&gt; ConfigRuleComplianceSummaryFilters
+forall x.
+ConfigRuleComplianceSummaryFilters
+-&gt; Rep ConfigRuleComplianceSummaryFilters x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ConfigRuleComplianceSummaryFilters x
+-&gt; ConfigRuleComplianceSummaryFilters
+$cfrom :: forall x.
+ConfigRuleComplianceSummaryFilters
+-&gt; Rep ConfigRuleComplianceSummaryFilters x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- Create a value of 'ConfigRuleComplianceSummaryFilters' with all optional fields omitted.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- 'accountId', 'configRuleComplianceSummaryFilters_accountId' - The 12-digit account ID of the source account.</span><span>
+</span><span id="line-46"></span><span class="hs-comment">--</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- 'awsRegion', 'configRuleComplianceSummaryFilters_awsRegion' - The source region where the data is aggregated.</span><span>
+</span><span id="line-48"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#newConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">newConfigRuleComplianceSummaryFilters</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-49"></span><span>  </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span><span>
+</span><span id="line-50"></span><span id="newConfigRuleComplianceSummaryFilters"><span class="annot"><span class="annottext">newConfigRuleComplianceSummaryFilters :: ConfigRuleComplianceSummaryFilters
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#newConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-var hs-var">newConfigRuleComplianceSummaryFilters</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-51"></span><span>  </span><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryFilters' :: Maybe Text -&gt; Maybe Text -&gt; ConfigRuleComplianceSummaryFilters
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters'</span></a></span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:accountId:ConfigRuleComplianceSummaryFilters' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#%24sel%3AaccountId%3AConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-53"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:ConfigRuleComplianceSummaryFilters' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#%24sel%3AawsRegion%3AConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | The 12-digit account ID of the source account.</span><span>
+</span><span id="line-58"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#configRuleComplianceSummaryFilters_accountId"><span class="hs-identifier hs-type">configRuleComplianceSummaryFilters_accountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span id="configRuleComplianceSummaryFilters_accountId"><span class="annot"><span class="annottext">configRuleComplianceSummaryFilters_accountId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigRuleComplianceSummaryFilters
+-&gt; f ConfigRuleComplianceSummaryFilters
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#configRuleComplianceSummaryFilters_accountId"><span class="hs-identifier hs-var hs-var">configRuleComplianceSummaryFilters_accountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigRuleComplianceSummaryFilters -&gt; Maybe Text)
+-&gt; (ConfigRuleComplianceSummaryFilters
+    -&gt; Maybe Text -&gt; ConfigRuleComplianceSummaryFilters)
+-&gt; Lens
+     ConfigRuleComplianceSummaryFilters
+     ConfigRuleComplianceSummaryFilters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396483"><span class="annot"><span class="annottext">Maybe Text
+accountId :: Maybe Text
+$sel:accountId:ConfigRuleComplianceSummaryFilters' :: ConfigRuleComplianceSummaryFilters -&gt; Maybe Text
+</span><a href="#local-6989586621679396483"><span class="hs-identifier hs-var hs-var">accountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396483"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396482"><span class="annot"><span class="annottext">s :: ConfigRuleComplianceSummaryFilters
+</span><a href="#local-6989586621679396482"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396481"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396481"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryFilters
+</span><a href="#local-6989586621679396482"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accountId:ConfigRuleComplianceSummaryFilters' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#%24sel%3AaccountId%3AConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-var">accountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396481"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The source region where the data is aggregated.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#configRuleComplianceSummaryFilters_awsRegion"><span class="hs-identifier hs-type">configRuleComplianceSummaryFilters_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="configRuleComplianceSummaryFilters_awsRegion"><span class="annot"><span class="annottext">configRuleComplianceSummaryFilters_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ConfigRuleComplianceSummaryFilters
+-&gt; f ConfigRuleComplianceSummaryFilters
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#configRuleComplianceSummaryFilters_awsRegion"><span class="hs-identifier hs-var hs-var">configRuleComplianceSummaryFilters_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ConfigRuleComplianceSummaryFilters -&gt; Maybe Text)
+-&gt; (ConfigRuleComplianceSummaryFilters
+    -&gt; Maybe Text -&gt; ConfigRuleComplianceSummaryFilters)
+-&gt; Lens
+     ConfigRuleComplianceSummaryFilters
+     ConfigRuleComplianceSummaryFilters
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396479"><span class="annot"><span class="annottext">Maybe Text
+awsRegion :: Maybe Text
+$sel:awsRegion:ConfigRuleComplianceSummaryFilters' :: ConfigRuleComplianceSummaryFilters -&gt; Maybe Text
+</span><a href="#local-6989586621679396479"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396479"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679396478"><span class="annot"><span class="annottext">s :: ConfigRuleComplianceSummaryFilters
+</span><a href="#local-6989586621679396478"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679396477"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396477"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ConfigRuleComplianceSummaryFilters
+</span><a href="#local-6989586621679396478"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:ConfigRuleComplianceSummaryFilters' :: Maybe Text
+</span><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#%24sel%3AawsRegion%3AConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396477"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-66"></span><span>  </span><span id="local-6989586621679396473"><span id="local-6989586621679396475"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span></span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679396470"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679396462"><span id="local-6989586621679396464"><span id="local-6989586621679396466"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters</span></a></span></span></span></span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679396460"><span class="annot"><span class="annottext">toJSON :: ConfigRuleComplianceSummaryFilters -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Config.Types.ConfigRuleComplianceSummaryFilters.html#ConfigRuleComplianceSummaryFilters%27"><span class="hs-identifier hs-type">ConfigRuleComplianceSummaryFilters'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679396457"><span id="local-6989586621679396458"><span class="annot"><span class="annottext">Maybe Text
+awsRegion :: Maybe Text
+accountId :: Maybe Text
+$sel:awsRegion:ConfigRuleComplianceSummaryFilters' :: ConfigRuleComplianceSummaryFilters -&gt; Maybe Text
+$sel:accountId:ConfigRuleComplianceSummaryFilters' :: ConfigRuleComplianceSummaryFilters -&gt; Maybe Text
+</span><a href="#local-6989586621679396457"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-80"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccountId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396458"><span class="hs-identifier hs-var">accountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679396457"><span class="hs-identifier hs-var">awsRegion</span></a></span><span>
+</span><span id="line-82"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-83"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span></pre></body></html>

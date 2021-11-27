@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ElasticGpuSpecification</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ElasticGpuSpecification</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | A specification for an Elastic Graphics accelerator.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newElasticGpuSpecification' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621681102442"><span id="local-6989586621681102443"></span></span><span class="hs-keyword">data</span><span> </span><span id="ElasticGpuSpecification"><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification"><span class="hs-identifier hs-var">ElasticGpuSpecification</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ElasticGpuSpecification%27"><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification%27"><span class="hs-identifier hs-var">ElasticGpuSpecification'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The type of Elastic Graphics accelerator. For more information about the</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- values to specify for @Type@, see</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics&gt;,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- specifically the Elastic Graphics accelerator column, in the /Amazon</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Elastic Compute Cloud User Guide for Windows Instances/.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Atype%27%3AElasticGpuSpecification%27"><span class="annot"><span class="annottext">ElasticGpuSpecification -&gt; Text
+</span><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#%24sel%3Atype%27%3AElasticGpuSpecification%27"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681102436"><span id="local-6989586621681102438"><span class="annot"><span class="annottext">ElasticGpuSpecification -&gt; ElasticGpuSpecification -&gt; Bool
+(ElasticGpuSpecification -&gt; ElasticGpuSpecification -&gt; Bool)
+-&gt; (ElasticGpuSpecification -&gt; ElasticGpuSpecification -&gt; Bool)
+-&gt; Eq ElasticGpuSpecification
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ElasticGpuSpecification -&gt; ElasticGpuSpecification -&gt; Bool
+$c/= :: ElasticGpuSpecification -&gt; ElasticGpuSpecification -&gt; Bool
+== :: ElasticGpuSpecification -&gt; ElasticGpuSpecification -&gt; Bool
+$c== :: ElasticGpuSpecification -&gt; ElasticGpuSpecification -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102427"><span id="local-6989586621681102429"><span id="local-6989586621681102431"><span id="local-6989586621681102433"><span class="annot"><span class="annottext">ReadPrec [ElasticGpuSpecification]
+ReadPrec ElasticGpuSpecification
+Int -&gt; ReadS ElasticGpuSpecification
+ReadS [ElasticGpuSpecification]
+(Int -&gt; ReadS ElasticGpuSpecification)
+-&gt; ReadS [ElasticGpuSpecification]
+-&gt; ReadPrec ElasticGpuSpecification
+-&gt; ReadPrec [ElasticGpuSpecification]
+-&gt; Read ElasticGpuSpecification
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ElasticGpuSpecification]
+$creadListPrec :: ReadPrec [ElasticGpuSpecification]
+readPrec :: ReadPrec ElasticGpuSpecification
+$creadPrec :: ReadPrec ElasticGpuSpecification
+readList :: ReadS [ElasticGpuSpecification]
+$creadList :: ReadS [ElasticGpuSpecification]
+readsPrec :: Int -&gt; ReadS ElasticGpuSpecification
+$creadsPrec :: Int -&gt; ReadS ElasticGpuSpecification
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681102420"><span id="local-6989586621681102422"><span id="local-6989586621681102424"><span class="annot"><span class="annottext">Int -&gt; ElasticGpuSpecification -&gt; ShowS
+[ElasticGpuSpecification] -&gt; ShowS
+ElasticGpuSpecification -&gt; String
+(Int -&gt; ElasticGpuSpecification -&gt; ShowS)
+-&gt; (ElasticGpuSpecification -&gt; String)
+-&gt; ([ElasticGpuSpecification] -&gt; ShowS)
+-&gt; Show ElasticGpuSpecification
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ElasticGpuSpecification] -&gt; ShowS
+$cshowList :: [ElasticGpuSpecification] -&gt; ShowS
+show :: ElasticGpuSpecification -&gt; String
+$cshow :: ElasticGpuSpecification -&gt; String
+showsPrec :: Int -&gt; ElasticGpuSpecification -&gt; ShowS
+$cshowsPrec :: Int -&gt; ElasticGpuSpecification -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ElasticGpuSpecification -&gt; Rep ElasticGpuSpecification x)
+-&gt; (forall x.
+    Rep ElasticGpuSpecification x -&gt; ElasticGpuSpecification)
+-&gt; Generic ElasticGpuSpecification
+forall x. Rep ElasticGpuSpecification x -&gt; ElasticGpuSpecification
+forall x. ElasticGpuSpecification -&gt; Rep ElasticGpuSpecification x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ElasticGpuSpecification x -&gt; ElasticGpuSpecification
+$cfrom :: forall x. ElasticGpuSpecification -&gt; Rep ElasticGpuSpecification x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ElasticGpuSpecification' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'type'', 'elasticGpuSpecification_type' - The type of Elastic Graphics accelerator. For more information about the</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- values to specify for @Type@, see</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics&gt;,</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- specifically the Elastic Graphics accelerator column, in the /Amazon</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- Elastic Compute Cloud User Guide for Windows Instances/.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#newElasticGpuSpecification"><span class="hs-identifier hs-type">newElasticGpuSpecification</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'type''</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification"><span class="hs-identifier hs-type">ElasticGpuSpecification</span></a></span><span>
+</span><span id="line-57"></span><span id="newElasticGpuSpecification"><span class="annot"><span class="annottext">newElasticGpuSpecification :: Text -&gt; ElasticGpuSpecification
+</span><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#newElasticGpuSpecification"><span class="hs-identifier hs-var hs-var">newElasticGpuSpecification</span></a></span></span><span> </span><span id="local-6989586621681102414"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681102414"><span class="hs-identifier hs-var">pType_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-58"></span><span>  </span><span class="annot"><span class="annottext">ElasticGpuSpecification' :: Text -&gt; ElasticGpuSpecification
+</span><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification%27"><span class="hs-identifier hs-type">ElasticGpuSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ElasticGpuSpecification' :: Text
+</span><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#%24sel%3Atype%27%3AElasticGpuSpecification%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681102414"><span class="hs-identifier hs-var">pType_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- | The type of Elastic Graphics accelerator. For more information about the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- values to specify for @Type@, see</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-graphics.html#elastic-graphics-basics Elastic Graphics Basics&gt;,</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- specifically the Elastic Graphics accelerator column, in the /Amazon</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Elastic Compute Cloud User Guide for Windows Instances/.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#elasticGpuSpecification_type"><span class="hs-identifier hs-type">elasticGpuSpecification_type</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification"><span class="hs-identifier hs-type">ElasticGpuSpecification</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span id="elasticGpuSpecification_type"><span class="annot"><span class="annottext">elasticGpuSpecification_type :: (Text -&gt; f Text)
+-&gt; ElasticGpuSpecification -&gt; f ElasticGpuSpecification
+</span><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#elasticGpuSpecification_type"><span class="hs-identifier hs-var hs-var">elasticGpuSpecification_type</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ElasticGpuSpecification -&gt; Text)
+-&gt; (ElasticGpuSpecification -&gt; Text -&gt; ElasticGpuSpecification)
+-&gt; Lens ElasticGpuSpecification ElasticGpuSpecification Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification%27"><span class="hs-identifier hs-type">ElasticGpuSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102410"><span class="annot"><span class="annottext">Text
+type' :: Text
+$sel:type':ElasticGpuSpecification' :: ElasticGpuSpecification -&gt; Text
+</span><a href="#local-6989586621681102410"><span class="hs-identifier hs-var hs-var">type'</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681102410"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681102409"><span class="annot"><span class="annottext">s :: ElasticGpuSpecification
+</span><a href="#local-6989586621681102409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification%27"><span class="hs-identifier hs-type">ElasticGpuSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681102408"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681102408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ElasticGpuSpecification
+</span><a href="#local-6989586621681102409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:type':ElasticGpuSpecification' :: Text
+</span><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#%24sel%3Atype%27%3AElasticGpuSpecification%27"><span class="hs-identifier hs-var">type'</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681102408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification"><span class="hs-identifier hs-type">ElasticGpuSpecification</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102404"><span id="local-6989586621681102406"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification"><span class="hs-identifier hs-type">ElasticGpuSpecification</span></a></span></span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681102401"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification"><span class="hs-identifier hs-type">ElasticGpuSpecification</span></a></span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification"><span class="hs-identifier hs-type">ElasticGpuSpecification</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621681102397"><span class="annot"><span class="annottext">toQuery :: ElasticGpuSpecification -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ElasticGpuSpecification.html#ElasticGpuSpecification%27"><span class="hs-identifier hs-type">ElasticGpuSpecification'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681102395"><span class="annot"><span class="annottext">Text
+type' :: Text
+$sel:type':ElasticGpuSpecification' :: ElasticGpuSpecification -&gt; Text
+</span><a href="#local-6989586621681102395"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Type&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681102395"><span class="hs-identifier hs-var">type'</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-75"></span></pre></body></html>

@@ -1,0 +1,1153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.UpdateFlowOutput</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates an existing flow output.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.UpdateFlowOutput</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#newUpdateFlowOutput"><span class="hs-identifier">newUpdateFlowOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_destination"><span class="hs-identifier">updateFlowOutput_destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_maxLatency"><span class="hs-identifier">updateFlowOutput_maxLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_mediaStreamOutputConfigurations"><span class="hs-identifier">updateFlowOutput_mediaStreamOutputConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_protocol"><span class="hs-identifier">updateFlowOutput_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_encryption"><span class="hs-identifier">updateFlowOutput_encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_cidrAllowList"><span class="hs-identifier">updateFlowOutput_cidrAllowList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_smoothingLatency"><span class="hs-identifier">updateFlowOutput_smoothingLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_minLatency"><span class="hs-identifier">updateFlowOutput_minLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_description"><span class="hs-identifier">updateFlowOutput_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_port"><span class="hs-identifier">updateFlowOutput_port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_streamId"><span class="hs-identifier">updateFlowOutput_streamId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_remoteId"><span class="hs-identifier">updateFlowOutput_remoteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_vpcInterfaceAttachment"><span class="hs-identifier">updateFlowOutput_vpcInterfaceAttachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_flowArn"><span class="hs-identifier">updateFlowOutput_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_outputArn"><span class="hs-identifier">updateFlowOutput_outputArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier">UpdateFlowOutputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#newUpdateFlowOutputResponse"><span class="hs-identifier">newUpdateFlowOutputResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_flowArn"><span class="hs-identifier">updateFlowOutputResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_output"><span class="hs-identifier">updateFlowOutputResponse_output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_httpStatus"><span class="hs-identifier">updateFlowOutputResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.html"><span class="hs-identifier">Amazonka.MediaConnect.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | The fields that you want to update in the output.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- /See:/ 'newUpdateFlowOutput' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679280601"><span id="local-6989586621679280602"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFlowOutput"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-var">UpdateFlowOutput</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFlowOutput%27"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-var">UpdateFlowOutput'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The IP address where you want to send the output.</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3Adestination%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Adestination%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | The maximum latency in milliseconds for Zixi-based streams.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AmaxLatency%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AmaxLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">maxLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The media streams that are associated with the output, and the</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- parameters for those associations.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AmediaStreamOutputConfigurations%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AmediaStreamOutputConfigurations%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">mediaStreamOutputConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest.html#MediaStreamOutputConfigurationRequest"><span class="hs-identifier hs-type">MediaStreamOutputConfigurationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The protocol to use for the output.</span><span>
+</span><span id="line-76"></span><span>    </span><span id="%24sel%3Aprotocol%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Protocol
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aprotocol%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- | The type of key used for the encryption. If no keyType is provided, the</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- service will use the default setting (static-key).</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aencryption%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe UpdateEncryption
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aencryption%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.UpdateEncryption.html#UpdateEncryption"><span class="hs-identifier hs-type">UpdateEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The range of IP addresses that should be allowed to initiate output</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- requests to this flow. These IP addresses should be in the form of a</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3AcidrAllowList%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe [Text]
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AcidrAllowList%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">cidrAllowList</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- streams.</span><span>
+</span><span id="line-86"></span><span>    </span><span id="%24sel%3AsmoothingLatency%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AsmoothingLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">smoothingLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- | The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AminLatency%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AminLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">minLatency</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | A description of the output. This description appears only on the AWS</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- Elemental MediaConnect console and will not be seen by the end user.</span><span>
+</span><span id="line-95"></span><span>    </span><span id="%24sel%3Adescription%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Adescription%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- | The port to use when content is distributed to this output.</span><span>
+</span><span id="line-97"></span><span>    </span><span id="%24sel%3Aport%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aport%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- | The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AstreamId%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AstreamId%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The remote ID for the Zixi-pull stream.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AremoteId%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AremoteId%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">remoteId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | The name of the VPC interface attachment to use for this output.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3AvpcInterfaceAttachment%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Maybe VpcInterfaceAttachment
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AvpcInterfaceAttachment%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">vpcInterfaceAttachment</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.VpcInterfaceAttachment.html#VpcInterfaceAttachment"><span class="hs-identifier hs-type">VpcInterfaceAttachment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The flow that is associated with the output that you want to update.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AflowArn%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AflowArn%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | The ARN of the output that you want to update.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3AoutputArn%3AUpdateFlowOutput%27"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AoutputArn%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var hs-var">outputArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280581"><span id="local-6989586621679280583"><span class="annot"><span class="annottext">UpdateFlowOutput -&gt; UpdateFlowOutput -&gt; Bool
+(UpdateFlowOutput -&gt; UpdateFlowOutput -&gt; Bool)
+-&gt; (UpdateFlowOutput -&gt; UpdateFlowOutput -&gt; Bool)
+-&gt; Eq UpdateFlowOutput
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFlowOutput -&gt; UpdateFlowOutput -&gt; Bool
+$c/= :: UpdateFlowOutput -&gt; UpdateFlowOutput -&gt; Bool
+== :: UpdateFlowOutput -&gt; UpdateFlowOutput -&gt; Bool
+$c== :: UpdateFlowOutput -&gt; UpdateFlowOutput -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280572"><span id="local-6989586621679280574"><span id="local-6989586621679280576"><span id="local-6989586621679280578"><span class="annot"><span class="annottext">ReadPrec [UpdateFlowOutput]
+ReadPrec UpdateFlowOutput
+Int -&gt; ReadS UpdateFlowOutput
+ReadS [UpdateFlowOutput]
+(Int -&gt; ReadS UpdateFlowOutput)
+-&gt; ReadS [UpdateFlowOutput]
+-&gt; ReadPrec UpdateFlowOutput
+-&gt; ReadPrec [UpdateFlowOutput]
+-&gt; Read UpdateFlowOutput
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFlowOutput]
+$creadListPrec :: ReadPrec [UpdateFlowOutput]
+readPrec :: ReadPrec UpdateFlowOutput
+$creadPrec :: ReadPrec UpdateFlowOutput
+readList :: ReadS [UpdateFlowOutput]
+$creadList :: ReadS [UpdateFlowOutput]
+readsPrec :: Int -&gt; ReadS UpdateFlowOutput
+$creadsPrec :: Int -&gt; ReadS UpdateFlowOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280565"><span id="local-6989586621679280567"><span id="local-6989586621679280569"><span class="annot"><span class="annottext">Int -&gt; UpdateFlowOutput -&gt; ShowS
+[UpdateFlowOutput] -&gt; ShowS
+UpdateFlowOutput -&gt; String
+(Int -&gt; UpdateFlowOutput -&gt; ShowS)
+-&gt; (UpdateFlowOutput -&gt; String)
+-&gt; ([UpdateFlowOutput] -&gt; ShowS)
+-&gt; Show UpdateFlowOutput
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFlowOutput] -&gt; ShowS
+$cshowList :: [UpdateFlowOutput] -&gt; ShowS
+show :: UpdateFlowOutput -&gt; String
+$cshow :: UpdateFlowOutput -&gt; String
+showsPrec :: Int -&gt; UpdateFlowOutput -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFlowOutput -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdateFlowOutput -&gt; Rep UpdateFlowOutput x)
+-&gt; (forall x. Rep UpdateFlowOutput x -&gt; UpdateFlowOutput)
+-&gt; Generic UpdateFlowOutput
+forall x. Rep UpdateFlowOutput x -&gt; UpdateFlowOutput
+forall x. UpdateFlowOutput -&gt; Rep UpdateFlowOutput x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdateFlowOutput x -&gt; UpdateFlowOutput
+$cfrom :: forall x. UpdateFlowOutput -&gt; Rep UpdateFlowOutput x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'UpdateFlowOutput' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'destination', 'updateFlowOutput_destination' - The IP address where you want to send the output.</span><span>
+</span><span id="line-121"></span><span class="hs-comment">--</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- 'maxLatency', 'updateFlowOutput_maxLatency' - The maximum latency in milliseconds for Zixi-based streams.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'mediaStreamOutputConfigurations', 'updateFlowOutput_mediaStreamOutputConfigurations' - The media streams that are associated with the output, and the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- parameters for those associations.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'protocol', 'updateFlowOutput_protocol' - The protocol to use for the output.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'encryption', 'updateFlowOutput_encryption' - The type of key used for the encryption. If no keyType is provided, the</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- service will use the default setting (static-key).</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'cidrAllowList', 'updateFlowOutput_cidrAllowList' - The range of IP addresses that should be allowed to initiate output</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- requests to this flow. These IP addresses should be in the form of a</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'smoothingLatency', 'updateFlowOutput_smoothingLatency' - The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- streams.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'minLatency', 'updateFlowOutput_minLatency' - The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'description', 'updateFlowOutput_description' - A description of the output. This description appears only on the AWS</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- Elemental MediaConnect console and will not be seen by the end user.</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- 'port', 'updateFlowOutput_port' - The port to use when content is distributed to this output.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- 'streamId', 'updateFlowOutput_streamId' - The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'remoteId', 'updateFlowOutput_remoteId' - The remote ID for the Zixi-pull stream.</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'vpcInterfaceAttachment', 'updateFlowOutput_vpcInterfaceAttachment' - The name of the VPC interface attachment to use for this output.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- 'flowArn', 'updateFlowOutput_flowArn' - The flow that is associated with the output that you want to update.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- 'outputArn', 'updateFlowOutput_outputArn' - The ARN of the output that you want to update.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#newUpdateFlowOutput"><span class="hs-identifier hs-type">newUpdateFlowOutput</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-162"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-comment">-- | 'outputArn'</span><span>
+</span><span id="line-164"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-165"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span>
+</span><span id="line-166"></span><span id="newUpdateFlowOutput"><span class="annot"><span class="annottext">newUpdateFlowOutput :: Text -&gt; Text -&gt; UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#newUpdateFlowOutput"><span class="hs-identifier hs-var hs-var">newUpdateFlowOutput</span></a></span></span><span> </span><span id="local-6989586621679280560"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280560"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span id="local-6989586621679280559"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280559"><span class="hs-identifier hs-var">pOutputArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="annottext">UpdateFlowOutput' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe [MediaStreamOutputConfigurationRequest]
+-&gt; Maybe Protocol
+-&gt; Maybe UpdateEncryption
+-&gt; Maybe [Text]
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe VpcInterfaceAttachment
+-&gt; Text
+-&gt; Text
+-&gt; UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destination:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Adestination%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxLatency:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AmaxLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">maxLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>      </span><span class="annot"><span class="annottext">$sel:mediaStreamOutputConfigurations:UpdateFlowOutput' :: Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AmediaStreamOutputConfigurations%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">mediaStreamOutputConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamOutputConfigurationRequest]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:UpdateFlowOutput' :: Maybe Protocol
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aprotocol%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>      </span><span class="annot"><span class="annottext">$sel:encryption:UpdateFlowOutput' :: Maybe UpdateEncryption
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aencryption%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>      </span><span class="annot"><span class="annottext">$sel:cidrAllowList:UpdateFlowOutput' :: Maybe [Text]
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AcidrAllowList%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">cidrAllowList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>      </span><span class="annot"><span class="annottext">$sel:smoothingLatency:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AsmoothingLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">smoothingLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>      </span><span class="annot"><span class="annottext">$sel:minLatency:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AminLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">minLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Adescription%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>      </span><span class="annot"><span class="annottext">$sel:port:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aport%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamId:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AstreamId%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>      </span><span class="annot"><span class="annottext">$sel:remoteId:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AremoteId%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">remoteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:vpcInterfaceAttachment:UpdateFlowOutput' :: Maybe VpcInterfaceAttachment
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AvpcInterfaceAttachment%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">vpcInterfaceAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcInterfaceAttachment
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowOutput' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AflowArn%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280560"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputArn:UpdateFlowOutput' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AoutputArn%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">outputArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280559"><span class="hs-identifier hs-var">pOutputArn_</span></a></span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-184"></span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- | The IP address where you want to send the output.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_destination"><span class="hs-identifier hs-type">updateFlowOutput_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="updateFlowOutput_destination"><span class="annot"><span class="annottext">updateFlowOutput_destination :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_destination"><span class="hs-identifier hs-var hs-var">updateFlowOutput_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Text)
+-&gt; (UpdateFlowOutput -&gt; Maybe Text -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280556"><span class="annot"><span class="annottext">Maybe Text
+destination :: Maybe Text
+$sel:destination:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679280556"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280556"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280555"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280555"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280554"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280554"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280555"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Adestination%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280554"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The maximum latency in milliseconds for Zixi-based streams.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_maxLatency"><span class="hs-identifier hs-type">updateFlowOutput_maxLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="updateFlowOutput_maxLatency"><span class="annot"><span class="annottext">updateFlowOutput_maxLatency :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_maxLatency"><span class="hs-identifier hs-var hs-var">updateFlowOutput_maxLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Int)
+-&gt; (UpdateFlowOutput -&gt; Maybe Int -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280553"><span class="annot"><span class="annottext">Maybe Int
+maxLatency :: Maybe Int
+$sel:maxLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+</span><a href="#local-6989586621679280553"><span class="hs-identifier hs-var hs-var">maxLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280553"><span class="hs-identifier hs-var">maxLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280552"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280552"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280551"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280551"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280552"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxLatency:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AmaxLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">maxLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280551"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The media streams that are associated with the output, and the</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- parameters for those associations.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_mediaStreamOutputConfigurations"><span class="hs-identifier hs-type">updateFlowOutput_mediaStreamOutputConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaConnect.Types.MediaStreamOutputConfigurationRequest.html#MediaStreamOutputConfigurationRequest"><span class="hs-identifier hs-type">MediaStreamOutputConfigurationRequest</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="updateFlowOutput_mediaStreamOutputConfigurations"><span class="annot"><span class="annottext">updateFlowOutput_mediaStreamOutputConfigurations :: (Maybe [MediaStreamOutputConfigurationRequest]
+ -&gt; f (Maybe [MediaStreamOutputConfigurationRequest]))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_mediaStreamOutputConfigurations"><span class="hs-identifier hs-var hs-var">updateFlowOutput_mediaStreamOutputConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe [MediaStreamOutputConfigurationRequest])
+-&gt; (UpdateFlowOutput
+    -&gt; Maybe [MediaStreamOutputConfigurationRequest]
+    -&gt; UpdateFlowOutput)
+-&gt; Lens
+     UpdateFlowOutput
+     UpdateFlowOutput
+     (Maybe [MediaStreamOutputConfigurationRequest])
+     (Maybe [MediaStreamOutputConfigurationRequest])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280550"><span class="annot"><span class="annottext">Maybe [MediaStreamOutputConfigurationRequest]
+mediaStreamOutputConfigurations :: Maybe [MediaStreamOutputConfigurationRequest]
+$sel:mediaStreamOutputConfigurations:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="#local-6989586621679280550"><span class="hs-identifier hs-var hs-var">mediaStreamOutputConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="#local-6989586621679280550"><span class="hs-identifier hs-var">mediaStreamOutputConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280549"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280549"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280548"><span class="annot"><span class="annottext">Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="#local-6989586621679280548"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280549"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mediaStreamOutputConfigurations:UpdateFlowOutput' :: Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AmediaStreamOutputConfigurations%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">mediaStreamOutputConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="#local-6989586621679280548"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [MediaStreamOutputConfigurationRequest]
+  -&gt; f (Maybe [MediaStreamOutputConfigurationRequest]))
+ -&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput)
+-&gt; ((Maybe [MediaStreamOutputConfigurationRequest]
+     -&gt; f (Maybe [MediaStreamOutputConfigurationRequest]))
+    -&gt; Maybe [MediaStreamOutputConfigurationRequest]
+    -&gt; f (Maybe [MediaStreamOutputConfigurationRequest]))
+-&gt; (Maybe [MediaStreamOutputConfigurationRequest]
+    -&gt; f (Maybe [MediaStreamOutputConfigurationRequest]))
+-&gt; UpdateFlowOutput
+-&gt; f UpdateFlowOutput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MediaStreamOutputConfigurationRequest]
+  [MediaStreamOutputConfigurationRequest]
+  [MediaStreamOutputConfigurationRequest]
+  [MediaStreamOutputConfigurationRequest]
+-&gt; Iso
+     (Maybe [MediaStreamOutputConfigurationRequest])
+     (Maybe [MediaStreamOutputConfigurationRequest])
+     (Maybe [MediaStreamOutputConfigurationRequest])
+     (Maybe [MediaStreamOutputConfigurationRequest])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [MediaStreamOutputConfigurationRequest]
+  [MediaStreamOutputConfigurationRequest]
+  [MediaStreamOutputConfigurationRequest]
+  [MediaStreamOutputConfigurationRequest]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The protocol to use for the output.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_protocol"><span class="hs-identifier hs-type">updateFlowOutput_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Protocol.html#Protocol"><span class="hs-identifier hs-type">Protocol</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="updateFlowOutput_protocol"><span class="annot"><span class="annottext">updateFlowOutput_protocol :: (Maybe Protocol -&gt; f (Maybe Protocol))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_protocol"><span class="hs-identifier hs-var hs-var">updateFlowOutput_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Protocol)
+-&gt; (UpdateFlowOutput -&gt; Maybe Protocol -&gt; UpdateFlowOutput)
+-&gt; Lens
+     UpdateFlowOutput UpdateFlowOutput (Maybe Protocol) (Maybe Protocol)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280544"><span class="annot"><span class="annottext">Maybe Protocol
+protocol :: Maybe Protocol
+$sel:protocol:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Protocol
+</span><a href="#local-6989586621679280544"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679280544"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280543"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280543"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280542"><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679280542"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280543"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:UpdateFlowOutput' :: Maybe Protocol
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aprotocol%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679280542"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The type of key used for the encryption. If no keyType is provided, the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- service will use the default setting (static-key).</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_encryption"><span class="hs-identifier hs-type">updateFlowOutput_encryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.UpdateEncryption.html#UpdateEncryption"><span class="hs-identifier hs-type">UpdateEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="updateFlowOutput_encryption"><span class="annot"><span class="annottext">updateFlowOutput_encryption :: (Maybe UpdateEncryption -&gt; f (Maybe UpdateEncryption))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_encryption"><span class="hs-identifier hs-var hs-var">updateFlowOutput_encryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe UpdateEncryption)
+-&gt; (UpdateFlowOutput -&gt; Maybe UpdateEncryption -&gt; UpdateFlowOutput)
+-&gt; Lens
+     UpdateFlowOutput
+     UpdateFlowOutput
+     (Maybe UpdateEncryption)
+     (Maybe UpdateEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280541"><span class="annot"><span class="annottext">Maybe UpdateEncryption
+encryption :: Maybe UpdateEncryption
+$sel:encryption:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe UpdateEncryption
+</span><a href="#local-6989586621679280541"><span class="hs-identifier hs-var hs-var">encryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateEncryption
+</span><a href="#local-6989586621679280541"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280540"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280540"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280539"><span class="annot"><span class="annottext">Maybe UpdateEncryption
+</span><a href="#local-6989586621679280539"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280540"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryption:UpdateFlowOutput' :: Maybe UpdateEncryption
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aencryption%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">encryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe UpdateEncryption
+</span><a href="#local-6989586621679280539"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The range of IP addresses that should be allowed to initiate output</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- requests to this flow. These IP addresses should be in the form of a</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- Classless Inter-Domain Routing (CIDR) block; for example, 10.0.0.0\/16.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_cidrAllowList"><span class="hs-identifier hs-type">updateFlowOutput_cidrAllowList</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="updateFlowOutput_cidrAllowList"><span class="annot"><span class="annottext">updateFlowOutput_cidrAllowList :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_cidrAllowList"><span class="hs-identifier hs-var hs-var">updateFlowOutput_cidrAllowList</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe [Text])
+-&gt; (UpdateFlowOutput -&gt; Maybe [Text] -&gt; UpdateFlowOutput)
+-&gt; Lens
+     UpdateFlowOutput UpdateFlowOutput (Maybe [Text]) (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280538"><span class="annot"><span class="annottext">Maybe [Text]
+cidrAllowList :: Maybe [Text]
+$sel:cidrAllowList:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe [Text]
+</span><a href="#local-6989586621679280538"><span class="hs-identifier hs-var hs-var">cidrAllowList</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679280538"><span class="hs-identifier hs-var">cidrAllowList</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280537"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280537"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280536"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679280536"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280537"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cidrAllowList:UpdateFlowOutput' :: Maybe [Text]
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AcidrAllowList%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">cidrAllowList</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679280536"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; UpdateFlowOutput
+-&gt; f UpdateFlowOutput
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | The smoothing latency in milliseconds for RIST, RTP, and RTP-FEC</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- streams.</span><span>
+</span><span id="line-215"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_smoothingLatency"><span class="hs-identifier hs-type">updateFlowOutput_smoothingLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span id="updateFlowOutput_smoothingLatency"><span class="annot"><span class="annottext">updateFlowOutput_smoothingLatency :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_smoothingLatency"><span class="hs-identifier hs-var hs-var">updateFlowOutput_smoothingLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Int)
+-&gt; (UpdateFlowOutput -&gt; Maybe Int -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280535"><span class="annot"><span class="annottext">Maybe Int
+smoothingLatency :: Maybe Int
+$sel:smoothingLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+</span><a href="#local-6989586621679280535"><span class="hs-identifier hs-var hs-var">smoothingLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280535"><span class="hs-identifier hs-var">smoothingLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280534"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280534"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280533"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280533"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280534"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:smoothingLatency:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AsmoothingLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">smoothingLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280533"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- | The minimum latency in milliseconds for SRT-based streams. In streams</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- that use the SRT protocol, this value that you set on your MediaConnect</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- source or output represents the minimal potential latency of that</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- connection. The latency of the stream is set to the highest number</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- between the sender&#8217;s minimum latency and the receiver&#8217;s minimum latency.</span><span>
+</span><span id="line-223"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_minLatency"><span class="hs-identifier hs-type">updateFlowOutput_minLatency</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span id="updateFlowOutput_minLatency"><span class="annot"><span class="annottext">updateFlowOutput_minLatency :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_minLatency"><span class="hs-identifier hs-var hs-var">updateFlowOutput_minLatency</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Int)
+-&gt; (UpdateFlowOutput -&gt; Maybe Int -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280532"><span class="annot"><span class="annottext">Maybe Int
+minLatency :: Maybe Int
+$sel:minLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+</span><a href="#local-6989586621679280532"><span class="hs-identifier hs-var hs-var">minLatency</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280532"><span class="hs-identifier hs-var">minLatency</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280531"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280531"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280530"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280530"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280531"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minLatency:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AminLatency%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">minLatency</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280530"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-225"></span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- | A description of the output. This description appears only on the AWS</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- Elemental MediaConnect console and will not be seen by the end user.</span><span>
+</span><span id="line-228"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_description"><span class="hs-identifier hs-type">updateFlowOutput_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-229"></span><span id="updateFlowOutput_description"><span class="annot"><span class="annottext">updateFlowOutput_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_description"><span class="hs-identifier hs-var hs-var">updateFlowOutput_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Text)
+-&gt; (UpdateFlowOutput -&gt; Maybe Text -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280529"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679280529"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280529"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280528"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280528"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280527"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280527"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280528"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Adescription%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280527"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The port to use when content is distributed to this output.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_port"><span class="hs-identifier hs-type">updateFlowOutput_port</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span id="updateFlowOutput_port"><span class="annot"><span class="annottext">updateFlowOutput_port :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_port"><span class="hs-identifier hs-var hs-var">updateFlowOutput_port</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Int)
+-&gt; (UpdateFlowOutput -&gt; Maybe Int -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Int) (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280526"><span class="annot"><span class="annottext">Maybe Int
+port :: Maybe Int
+$sel:port:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+</span><a href="#local-6989586621679280526"><span class="hs-identifier hs-var hs-var">port</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280526"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280525"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280525"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280524"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280524"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280525"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:port:UpdateFlowOutput' :: Maybe Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aport%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">port</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280524"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The stream ID that you want to use for this transport. This parameter</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- applies only to Zixi-based streams.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_streamId"><span class="hs-identifier hs-type">updateFlowOutput_streamId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="updateFlowOutput_streamId"><span class="annot"><span class="annottext">updateFlowOutput_streamId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_streamId"><span class="hs-identifier hs-var hs-var">updateFlowOutput_streamId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Text)
+-&gt; (UpdateFlowOutput -&gt; Maybe Text -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280523"><span class="annot"><span class="annottext">Maybe Text
+streamId :: Maybe Text
+$sel:streamId:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679280523"><span class="hs-identifier hs-var hs-var">streamId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280523"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280522"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280522"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280521"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280521"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280522"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamId:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AstreamId%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">streamId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280521"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | The remote ID for the Zixi-pull stream.</span><span>
+</span><span id="line-241"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_remoteId"><span class="hs-identifier hs-type">updateFlowOutput_remoteId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span id="updateFlowOutput_remoteId"><span class="annot"><span class="annottext">updateFlowOutput_remoteId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_remoteId"><span class="hs-identifier hs-var hs-var">updateFlowOutput_remoteId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe Text)
+-&gt; (UpdateFlowOutput -&gt; Maybe Text -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280520"><span class="annot"><span class="annottext">Maybe Text
+remoteId :: Maybe Text
+$sel:remoteId:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679280520"><span class="hs-identifier hs-var hs-var">remoteId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280520"><span class="hs-identifier hs-var">remoteId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280519"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280519"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280518"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280518"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280519"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:remoteId:UpdateFlowOutput' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AremoteId%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">remoteId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280518"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-243"></span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- | The name of the VPC interface attachment to use for this output.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_vpcInterfaceAttachment"><span class="hs-identifier hs-type">updateFlowOutput_vpcInterfaceAttachment</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.VpcInterfaceAttachment.html#VpcInterfaceAttachment"><span class="hs-identifier hs-type">VpcInterfaceAttachment</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span id="updateFlowOutput_vpcInterfaceAttachment"><span class="annot"><span class="annottext">updateFlowOutput_vpcInterfaceAttachment :: (Maybe VpcInterfaceAttachment -&gt; f (Maybe VpcInterfaceAttachment))
+-&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_vpcInterfaceAttachment"><span class="hs-identifier hs-var hs-var">updateFlowOutput_vpcInterfaceAttachment</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Maybe VpcInterfaceAttachment)
+-&gt; (UpdateFlowOutput
+    -&gt; Maybe VpcInterfaceAttachment -&gt; UpdateFlowOutput)
+-&gt; Lens
+     UpdateFlowOutput
+     UpdateFlowOutput
+     (Maybe VpcInterfaceAttachment)
+     (Maybe VpcInterfaceAttachment)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280517"><span class="annot"><span class="annottext">Maybe VpcInterfaceAttachment
+vpcInterfaceAttachment :: Maybe VpcInterfaceAttachment
+$sel:vpcInterfaceAttachment:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe VpcInterfaceAttachment
+</span><a href="#local-6989586621679280517"><span class="hs-identifier hs-var hs-var">vpcInterfaceAttachment</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe VpcInterfaceAttachment
+</span><a href="#local-6989586621679280517"><span class="hs-identifier hs-var">vpcInterfaceAttachment</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280516"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280516"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280515"><span class="annot"><span class="annottext">Maybe VpcInterfaceAttachment
+</span><a href="#local-6989586621679280515"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280516"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vpcInterfaceAttachment:UpdateFlowOutput' :: Maybe VpcInterfaceAttachment
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AvpcInterfaceAttachment%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">vpcInterfaceAttachment</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe VpcInterfaceAttachment
+</span><a href="#local-6989586621679280515"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-247"></span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- | The flow that is associated with the output that you want to update.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_flowArn"><span class="hs-identifier hs-type">updateFlowOutput_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-250"></span><span id="updateFlowOutput_flowArn"><span class="annot"><span class="annottext">updateFlowOutput_flowArn :: (Text -&gt; f Text) -&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_flowArn"><span class="hs-identifier hs-var hs-var">updateFlowOutput_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Text)
+-&gt; (UpdateFlowOutput -&gt; Text -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280514"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Text
+</span><a href="#local-6989586621679280514"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280514"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280513"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280513"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280512"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280512"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280513"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowOutput' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AflowArn%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280512"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The ARN of the output that you want to update.</span><span>
+</span><span id="line-253"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_outputArn"><span class="hs-identifier hs-type">updateFlowOutput_outputArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-254"></span><span id="updateFlowOutput_outputArn"><span class="annot"><span class="annottext">updateFlowOutput_outputArn :: (Text -&gt; f Text) -&gt; UpdateFlowOutput -&gt; f UpdateFlowOutput
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutput_outputArn"><span class="hs-identifier hs-var hs-var">updateFlowOutput_outputArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutput -&gt; Text)
+-&gt; (UpdateFlowOutput -&gt; Text -&gt; UpdateFlowOutput)
+-&gt; Lens UpdateFlowOutput UpdateFlowOutput Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280511"><span class="annot"><span class="annottext">Text
+outputArn :: Text
+$sel:outputArn:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Text
+</span><a href="#local-6989586621679280511"><span class="hs-identifier hs-var hs-var">outputArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280511"><span class="hs-identifier hs-var">outputArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280510"><span class="annot"><span class="annottext">s :: UpdateFlowOutput
+</span><a href="#local-6989586621679280510"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280509"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280509"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutput
+</span><a href="#local-6989586621679280510"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputArn:UpdateFlowOutput' :: Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AoutputArn%3AUpdateFlowOutput%27"><span class="hs-identifier hs-var">outputArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280509"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-257"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-258"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-259"></span><span>      </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span>
+</span><span id="line-260"></span><span>  </span><span id="local-6989586621679280505"><span class="annot"><span class="annottext">request :: UpdateFlowOutput -&gt; Request UpdateFlowOutput
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdateFlowOutput -&gt; Request UpdateFlowOutput
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.putJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679280501"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdateFlowOutput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateFlowOutput)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdateFlowOutput))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdateFlowOutput
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdateFlowOutput)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-263"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679280498"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280498"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679280497"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679280497"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679280496"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280496"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-264"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Maybe Output -&gt; Int -&gt; UpdateFlowOutputResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">UpdateFlowOutputResponse'</span></a></span><span>
+</span><span id="line-265"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Maybe Output -&gt; Int -&gt; UpdateFlowOutputResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Maybe Output -&gt; Int -&gt; UpdateFlowOutputResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Output -&gt; Int -&gt; UpdateFlowOutputResponse)
+-&gt; Either String (Maybe Output)
+-&gt; Either String (Int -&gt; UpdateFlowOutputResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679280496"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Output)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;output&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; UpdateFlowOutputResponse)
+-&gt; Either String Int -&gt; Either String UpdateFlowOutputResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280498"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280488"><span id="local-6989586621679280490"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span></span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280485"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679280481"><span class="annot"><span class="annottext">toHeaders :: UpdateFlowOutput -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdateFlowOutput -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-278"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-280"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-281"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-282"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-283"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280471"><span id="local-6989586621679280473"><span id="local-6989586621679280475"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-286"></span><span>  </span><span id="local-6989586621679280469"><span class="annot"><span class="annottext">toJSON :: UpdateFlowOutput -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280453"><span id="local-6989586621679280454"><span id="local-6989586621679280455"><span id="local-6989586621679280456"><span id="local-6989586621679280457"><span id="local-6989586621679280458"><span id="local-6989586621679280459"><span id="local-6989586621679280460"><span id="local-6989586621679280461"><span id="local-6989586621679280462"><span id="local-6989586621679280463"><span id="local-6989586621679280464"><span id="local-6989586621679280465"><span id="local-6989586621679280466"><span id="local-6989586621679280467"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Text]
+Maybe [MediaStreamOutputConfigurationRequest]
+Maybe Text
+Maybe Protocol
+Maybe UpdateEncryption
+Maybe VpcInterfaceAttachment
+Text
+outputArn :: Text
+flowArn :: Text
+vpcInterfaceAttachment :: Maybe VpcInterfaceAttachment
+remoteId :: Maybe Text
+streamId :: Maybe Text
+port :: Maybe Int
+description :: Maybe Text
+minLatency :: Maybe Int
+smoothingLatency :: Maybe Int
+cidrAllowList :: Maybe [Text]
+encryption :: Maybe UpdateEncryption
+protocol :: Maybe Protocol
+mediaStreamOutputConfigurations :: Maybe [MediaStreamOutputConfigurationRequest]
+maxLatency :: Maybe Int
+destination :: Maybe Text
+$sel:outputArn:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Text
+$sel:flowArn:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Text
+$sel:vpcInterfaceAttachment:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe VpcInterfaceAttachment
+$sel:remoteId:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+$sel:streamId:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+$sel:port:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:description:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+$sel:minLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:smoothingLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:cidrAllowList:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe [Text]
+$sel:encryption:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe UpdateEncryption
+$sel:protocol:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Protocol
+$sel:mediaStreamOutputConfigurations:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe [MediaStreamOutputConfigurationRequest]
+$sel:maxLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:destination:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679280453"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-288"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-289"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280467"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxLatency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280466"><span class="hs-identifier hs-var">maxLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mediaStreamOutputConfigurations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [MediaStreamOutputConfigurationRequest] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>              </span><span class="annot"><span class="annottext">([MediaStreamOutputConfigurationRequest] -&gt; Pair)
+-&gt; Maybe [MediaStreamOutputConfigurationRequest] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [MediaStreamOutputConfigurationRequest]
+</span><a href="#local-6989586621679280465"><span class="hs-identifier hs-var">mediaStreamOutputConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Protocol -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Protocol -&gt; Pair) -&gt; Maybe Protocol -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Protocol
+</span><a href="#local-6989586621679280464"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;encryption&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; UpdateEncryption -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(UpdateEncryption -&gt; Pair) -&gt; Maybe UpdateEncryption -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe UpdateEncryption
+</span><a href="#local-6989586621679280463"><span class="hs-identifier hs-var">encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cidrAllowList&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Text] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; Pair) -&gt; Maybe [Text] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679280462"><span class="hs-identifier hs-var">cidrAllowList</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;smoothingLatency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span>              </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280461"><span class="hs-identifier hs-var">smoothingLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;minLatency&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280460"><span class="hs-identifier hs-var">minLatency</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280459"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;port&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679280458"><span class="hs-identifier hs-var">port</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;streamId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280457"><span class="hs-identifier hs-var">streamId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;remoteId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280456"><span class="hs-identifier hs-var">remoteId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;vpcInterfaceAttachment&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; VpcInterfaceAttachment -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>              </span><span class="annot"><span class="annottext">(VpcInterfaceAttachment -&gt; Pair)
+-&gt; Maybe VpcInterfaceAttachment -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe VpcInterfaceAttachment
+</span><a href="#local-6989586621679280455"><span class="hs-identifier hs-var">vpcInterfaceAttachment</span></a></span><span>
+</span><span id="line-305"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-306"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-309"></span><span>  </span><span id="local-6989586621679280447"><span class="annot"><span class="annottext">toPath :: UpdateFlowOutput -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput%27"><span class="hs-identifier hs-type">UpdateFlowOutput'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280431"><span id="local-6989586621679280432"><span id="local-6989586621679280433"><span id="local-6989586621679280434"><span id="local-6989586621679280435"><span id="local-6989586621679280436"><span id="local-6989586621679280437"><span id="local-6989586621679280438"><span id="local-6989586621679280439"><span id="local-6989586621679280440"><span id="local-6989586621679280441"><span id="local-6989586621679280442"><span id="local-6989586621679280443"><span id="local-6989586621679280444"><span id="local-6989586621679280445"><span class="annot"><span class="annottext">Maybe Int
+Maybe [Text]
+Maybe [MediaStreamOutputConfigurationRequest]
+Maybe Text
+Maybe Protocol
+Maybe UpdateEncryption
+Maybe VpcInterfaceAttachment
+Text
+outputArn :: Text
+flowArn :: Text
+vpcInterfaceAttachment :: Maybe VpcInterfaceAttachment
+remoteId :: Maybe Text
+streamId :: Maybe Text
+port :: Maybe Int
+description :: Maybe Text
+minLatency :: Maybe Int
+smoothingLatency :: Maybe Int
+cidrAllowList :: Maybe [Text]
+encryption :: Maybe UpdateEncryption
+protocol :: Maybe Protocol
+mediaStreamOutputConfigurations :: Maybe [MediaStreamOutputConfigurationRequest]
+maxLatency :: Maybe Int
+destination :: Maybe Text
+$sel:outputArn:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Text
+$sel:flowArn:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Text
+$sel:vpcInterfaceAttachment:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe VpcInterfaceAttachment
+$sel:remoteId:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+$sel:streamId:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+$sel:port:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:description:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+$sel:minLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:smoothingLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:cidrAllowList:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe [Text]
+$sel:encryption:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe UpdateEncryption
+$sel:protocol:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Protocol
+$sel:mediaStreamOutputConfigurations:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe [MediaStreamOutputConfigurationRequest]
+$sel:maxLatency:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Int
+$sel:destination:UpdateFlowOutput' :: UpdateFlowOutput -&gt; Maybe Text
+</span><a href="#local-6989586621679280431"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-311"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280432"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/outputs/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679280431"><span class="hs-identifier hs-var">outputArn</span></a></span><span>
+</span><span id="line-315"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutput"><span class="hs-identifier hs-type">UpdateFlowOutput</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679280427"><span class="annot"><span class="annottext">toQuery :: UpdateFlowOutput -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdateFlowOutput -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-319"></span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- | /See:/ 'newUpdateFlowOutputResponse' smart constructor.</span><span>
+</span><span id="line-321"></span><span id="local-6989586621679280424"><span id="local-6989586621679280425"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdateFlowOutputResponse"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-var">UpdateFlowOutputResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdateFlowOutputResponse%27"><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">UpdateFlowOutputResponse'</span></a></span></span><span>
+</span><span id="line-322"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that is associated with the updated output.</span><span>
+</span><span id="line-323"></span><span>    </span><span id="%24sel%3AflowArn%3AUpdateFlowOutputResponse%27"><span class="annot"><span class="annottext">UpdateFlowOutputResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AflowArn%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-324"></span><span>    </span><span class="hs-comment">-- | The new settings of the output that you updated.</span><span>
+</span><span id="line-325"></span><span>    </span><span id="%24sel%3Aoutput%3AUpdateFlowOutputResponse%27"><span class="annot"><span class="annottext">UpdateFlowOutputResponse -&gt; Maybe Output
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aoutput%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-327"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdateFlowOutputResponse%27"><span class="annot"><span class="annottext">UpdateFlowOutputResponse -&gt; Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AhttpStatus%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-328"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-329"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679280417"><span id="local-6989586621679280419"><span class="annot"><span class="annottext">UpdateFlowOutputResponse -&gt; UpdateFlowOutputResponse -&gt; Bool
+(UpdateFlowOutputResponse -&gt; UpdateFlowOutputResponse -&gt; Bool)
+-&gt; (UpdateFlowOutputResponse -&gt; UpdateFlowOutputResponse -&gt; Bool)
+-&gt; Eq UpdateFlowOutputResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdateFlowOutputResponse -&gt; UpdateFlowOutputResponse -&gt; Bool
+$c/= :: UpdateFlowOutputResponse -&gt; UpdateFlowOutputResponse -&gt; Bool
+== :: UpdateFlowOutputResponse -&gt; UpdateFlowOutputResponse -&gt; Bool
+$c== :: UpdateFlowOutputResponse -&gt; UpdateFlowOutputResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280409"><span id="local-6989586621679280411"><span id="local-6989586621679280413"><span id="local-6989586621679280415"><span class="annot"><span class="annottext">ReadPrec [UpdateFlowOutputResponse]
+ReadPrec UpdateFlowOutputResponse
+Int -&gt; ReadS UpdateFlowOutputResponse
+ReadS [UpdateFlowOutputResponse]
+(Int -&gt; ReadS UpdateFlowOutputResponse)
+-&gt; ReadS [UpdateFlowOutputResponse]
+-&gt; ReadPrec UpdateFlowOutputResponse
+-&gt; ReadPrec [UpdateFlowOutputResponse]
+-&gt; Read UpdateFlowOutputResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdateFlowOutputResponse]
+$creadListPrec :: ReadPrec [UpdateFlowOutputResponse]
+readPrec :: ReadPrec UpdateFlowOutputResponse
+$creadPrec :: ReadPrec UpdateFlowOutputResponse
+readList :: ReadS [UpdateFlowOutputResponse]
+$creadList :: ReadS [UpdateFlowOutputResponse]
+readsPrec :: Int -&gt; ReadS UpdateFlowOutputResponse
+$creadsPrec :: Int -&gt; ReadS UpdateFlowOutputResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679280403"><span id="local-6989586621679280405"><span id="local-6989586621679280407"><span class="annot"><span class="annottext">Int -&gt; UpdateFlowOutputResponse -&gt; ShowS
+[UpdateFlowOutputResponse] -&gt; ShowS
+UpdateFlowOutputResponse -&gt; String
+(Int -&gt; UpdateFlowOutputResponse -&gt; ShowS)
+-&gt; (UpdateFlowOutputResponse -&gt; String)
+-&gt; ([UpdateFlowOutputResponse] -&gt; ShowS)
+-&gt; Show UpdateFlowOutputResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdateFlowOutputResponse] -&gt; ShowS
+$cshowList :: [UpdateFlowOutputResponse] -&gt; ShowS
+show :: UpdateFlowOutputResponse -&gt; String
+$cshow :: UpdateFlowOutputResponse -&gt; String
+showsPrec :: Int -&gt; UpdateFlowOutputResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdateFlowOutputResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdateFlowOutputResponse -&gt; Rep UpdateFlowOutputResponse x)
+-&gt; (forall x.
+    Rep UpdateFlowOutputResponse x -&gt; UpdateFlowOutputResponse)
+-&gt; Generic UpdateFlowOutputResponse
+forall x.
+Rep UpdateFlowOutputResponse x -&gt; UpdateFlowOutputResponse
+forall x.
+UpdateFlowOutputResponse -&gt; Rep UpdateFlowOutputResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdateFlowOutputResponse x -&gt; UpdateFlowOutputResponse
+$cfrom :: forall x.
+UpdateFlowOutputResponse -&gt; Rep UpdateFlowOutputResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- Create a value of 'UpdateFlowOutputResponse' with all optional fields omitted.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-335"></span><span class="hs-comment">--</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-338"></span><span class="hs-comment">--</span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- 'flowArn', 'updateFlowOutputResponse_flowArn' - The ARN of the flow that is associated with the updated output.</span><span>
+</span><span id="line-340"></span><span class="hs-comment">--</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- 'output', 'updateFlowOutputResponse_output' - The new settings of the output that you updated.</span><span>
+</span><span id="line-342"></span><span class="hs-comment">--</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- 'httpStatus', 'updateFlowOutputResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-344"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#newUpdateFlowOutputResponse"><span class="hs-identifier hs-type">newUpdateFlowOutputResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-345"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-346"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-347"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span>
+</span><span id="line-348"></span><span id="newUpdateFlowOutputResponse"><span class="annot"><span class="annottext">newUpdateFlowOutputResponse :: Int -&gt; UpdateFlowOutputResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#newUpdateFlowOutputResponse"><span class="hs-identifier hs-var hs-var">newUpdateFlowOutputResponse</span></a></span></span><span> </span><span id="local-6989586621679280400"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-349"></span><span>  </span><span class="annot"><span class="annottext">UpdateFlowOutputResponse' :: Maybe Text -&gt; Maybe Output -&gt; Int -&gt; UpdateFlowOutputResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-type">UpdateFlowOutputResponse'</span></a></span><span>
+</span><span id="line-350"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowOutputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AflowArn%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-351"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-352"></span><span>      </span><span class="annot"><span class="annottext">$sel:output:UpdateFlowOutputResponse' :: Maybe Output
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aoutput%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Output
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-353"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFlowOutputResponse' :: Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AhttpStatus%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280400"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-354"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-355"></span><span>
+</span><span id="line-356"></span><span class="hs-comment">-- | The ARN of the flow that is associated with the updated output.</span><span>
+</span><span id="line-357"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_flowArn"><span class="hs-identifier hs-type">updateFlowOutputResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-358"></span><span id="updateFlowOutputResponse_flowArn"><span class="annot"><span class="annottext">updateFlowOutputResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdateFlowOutputResponse -&gt; f UpdateFlowOutputResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_flowArn"><span class="hs-identifier hs-var hs-var">updateFlowOutputResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutputResponse -&gt; Maybe Text)
+-&gt; (UpdateFlowOutputResponse
+    -&gt; Maybe Text -&gt; UpdateFlowOutputResponse)
+-&gt; Lens
+     UpdateFlowOutputResponse
+     UpdateFlowOutputResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-type">UpdateFlowOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280399"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:UpdateFlowOutputResponse' :: UpdateFlowOutputResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280399"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280398"><span class="annot"><span class="annottext">s :: UpdateFlowOutputResponse
+</span><a href="#local-6989586621679280398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-type">UpdateFlowOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280397"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutputResponse
+</span><a href="#local-6989586621679280398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:UpdateFlowOutputResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AflowArn%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679280397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-359"></span><span>
+</span><span id="line-360"></span><span class="hs-comment">-- | The new settings of the output that you updated.</span><span>
+</span><span id="line-361"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_output"><span class="hs-identifier hs-type">updateFlowOutputResponse_output</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Output.html#Output"><span class="hs-identifier hs-type">Output</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span id="updateFlowOutputResponse_output"><span class="annot"><span class="annottext">updateFlowOutputResponse_output :: (Maybe Output -&gt; f (Maybe Output))
+-&gt; UpdateFlowOutputResponse -&gt; f UpdateFlowOutputResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_output"><span class="hs-identifier hs-var hs-var">updateFlowOutputResponse_output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutputResponse -&gt; Maybe Output)
+-&gt; (UpdateFlowOutputResponse
+    -&gt; Maybe Output -&gt; UpdateFlowOutputResponse)
+-&gt; Lens
+     UpdateFlowOutputResponse
+     UpdateFlowOutputResponse
+     (Maybe Output)
+     (Maybe Output)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-type">UpdateFlowOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280396"><span class="annot"><span class="annottext">Maybe Output
+output :: Maybe Output
+$sel:output:UpdateFlowOutputResponse' :: UpdateFlowOutputResponse -&gt; Maybe Output
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Output
+</span><a href="#local-6989586621679280396"><span class="hs-identifier hs-var">output</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280395"><span class="annot"><span class="annottext">s :: UpdateFlowOutputResponse
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-type">UpdateFlowOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280394"><span class="annot"><span class="annottext">Maybe Output
+</span><a href="#local-6989586621679280394"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutputResponse
+</span><a href="#local-6989586621679280395"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:output:UpdateFlowOutputResponse' :: Maybe Output
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3Aoutput%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Output
+</span><a href="#local-6989586621679280394"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-363"></span><span>
+</span><span id="line-364"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-365"></span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_httpStatus"><span class="hs-identifier hs-type">updateFlowOutputResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-366"></span><span id="updateFlowOutputResponse_httpStatus"><span class="annot"><span class="annottext">updateFlowOutputResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdateFlowOutputResponse -&gt; f UpdateFlowOutputResponse
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#updateFlowOutputResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updateFlowOutputResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdateFlowOutputResponse -&gt; Int)
+-&gt; (UpdateFlowOutputResponse -&gt; Int -&gt; UpdateFlowOutputResponse)
+-&gt; Lens UpdateFlowOutputResponse UpdateFlowOutputResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-type">UpdateFlowOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679280393"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdateFlowOutputResponse' :: UpdateFlowOutputResponse -&gt; Int
+</span><a href="#local-6989586621679280393"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280393"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679280392"><span class="annot"><span class="annottext">s :: UpdateFlowOutputResponse
+</span><a href="#local-6989586621679280392"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse%27"><span class="hs-identifier hs-type">UpdateFlowOutputResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679280391"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280391"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdateFlowOutputResponse
+</span><a href="#local-6989586621679280392"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdateFlowOutputResponse' :: Int
+</span><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#%24sel%3AhttpStatus%3AUpdateFlowOutputResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679280391"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-367"></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679280389"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.UpdateFlowOutput.html#UpdateFlowOutputResponse"><span class="hs-identifier hs-type">UpdateFlowOutputResponse</span></a></span></span><span>
+</span><span id="line-369"></span></pre></body></html>

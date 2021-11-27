@@ -1,0 +1,428 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaConnect.StopFlow</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Stops a flow.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConnect.StopFlow</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier">StopFlow</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#newStopFlow"><span class="hs-identifier">newStopFlow</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlow_flowArn"><span class="hs-identifier">stopFlow_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier">StopFlowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#newStopFlowResponse"><span class="hs-identifier">newStopFlowResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_status"><span class="hs-identifier">stopFlowResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_flowArn"><span class="hs-identifier">stopFlowResponse_flowArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_httpStatus"><span class="hs-identifier">stopFlowResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.html"><span class="hs-identifier">Amazonka.MediaConnect.Types</span></a></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newStopFlow' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679274342"><span id="local-6989586621679274343"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFlow"><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-var">StopFlow</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFlow%27"><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow%27"><span class="hs-identifier hs-var">StopFlow'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the flow that you want to stop.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AflowArn%3AStopFlow%27"><span class="annot"><span class="annottext">StopFlow -&gt; Text
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AflowArn%3AStopFlow%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274336"><span id="local-6989586621679274338"><span class="annot"><span class="annottext">StopFlow -&gt; StopFlow -&gt; Bool
+(StopFlow -&gt; StopFlow -&gt; Bool)
+-&gt; (StopFlow -&gt; StopFlow -&gt; Bool) -&gt; Eq StopFlow
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopFlow -&gt; StopFlow -&gt; Bool
+$c/= :: StopFlow -&gt; StopFlow -&gt; Bool
+== :: StopFlow -&gt; StopFlow -&gt; Bool
+$c== :: StopFlow -&gt; StopFlow -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274327"><span id="local-6989586621679274329"><span id="local-6989586621679274331"><span id="local-6989586621679274333"><span class="annot"><span class="annottext">ReadPrec [StopFlow]
+ReadPrec StopFlow
+Int -&gt; ReadS StopFlow
+ReadS [StopFlow]
+(Int -&gt; ReadS StopFlow)
+-&gt; ReadS [StopFlow]
+-&gt; ReadPrec StopFlow
+-&gt; ReadPrec [StopFlow]
+-&gt; Read StopFlow
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopFlow]
+$creadListPrec :: ReadPrec [StopFlow]
+readPrec :: ReadPrec StopFlow
+$creadPrec :: ReadPrec StopFlow
+readList :: ReadS [StopFlow]
+$creadList :: ReadS [StopFlow]
+readsPrec :: Int -&gt; ReadS StopFlow
+$creadsPrec :: Int -&gt; ReadS StopFlow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274320"><span id="local-6989586621679274322"><span id="local-6989586621679274324"><span class="annot"><span class="annottext">Int -&gt; StopFlow -&gt; ShowS
+[StopFlow] -&gt; ShowS
+StopFlow -&gt; String
+(Int -&gt; StopFlow -&gt; ShowS)
+-&gt; (StopFlow -&gt; String) -&gt; ([StopFlow] -&gt; ShowS) -&gt; Show StopFlow
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopFlow] -&gt; ShowS
+$cshowList :: [StopFlow] -&gt; ShowS
+show :: StopFlow -&gt; String
+$cshow :: StopFlow -&gt; String
+showsPrec :: Int -&gt; StopFlow -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopFlow -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopFlow -&gt; Rep StopFlow x)
+-&gt; (forall x. Rep StopFlow x -&gt; StopFlow) -&gt; Generic StopFlow
+forall x. Rep StopFlow x -&gt; StopFlow
+forall x. StopFlow -&gt; Rep StopFlow x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopFlow x -&gt; StopFlow
+$cfrom :: forall x. StopFlow -&gt; Rep StopFlow x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Create a value of 'StopFlow' with all optional fields omitted.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-61"></span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'flowArn', 'stopFlow_flowArn' - The ARN of the flow that you want to stop.</span><span>
+</span><span id="line-66"></span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#newStopFlow"><span class="hs-identifier hs-type">newStopFlow</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-comment">-- | 'flowArn'</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span>
+</span><span id="line-70"></span><span id="newStopFlow"><span class="annot"><span class="annottext">newStopFlow :: Text -&gt; StopFlow
+</span><a href="Amazonka.MediaConnect.StopFlow.html#newStopFlow"><span class="hs-identifier hs-var hs-var">newStopFlow</span></a></span></span><span> </span><span id="local-6989586621679274315"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274315"><span class="hs-identifier hs-var">pFlowArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">StopFlow' :: Text -&gt; StopFlow
+</span><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow%27"><span class="hs-identifier hs-type">StopFlow'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:StopFlow' :: Text
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AflowArn%3AStopFlow%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274315"><span class="hs-identifier hs-var">pFlowArn_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The ARN of the flow that you want to stop.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlow_flowArn"><span class="hs-identifier hs-type">stopFlow_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="stopFlow_flowArn"><span class="annot"><span class="annottext">stopFlow_flowArn :: (Text -&gt; f Text) -&gt; StopFlow -&gt; f StopFlow
+</span><a href="Amazonka.MediaConnect.StopFlow.html#stopFlow_flowArn"><span class="hs-identifier hs-var hs-var">stopFlow_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFlow -&gt; Text)
+-&gt; (StopFlow -&gt; Text -&gt; StopFlow)
+-&gt; Lens StopFlow StopFlow Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow%27"><span class="hs-identifier hs-type">StopFlow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274312"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:StopFlow' :: StopFlow -&gt; Text
+</span><a href="#local-6989586621679274312"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274312"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274311"><span class="annot"><span class="annottext">s :: StopFlow
+</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow%27"><span class="hs-identifier hs-type">StopFlow'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274310"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274310"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFlow
+</span><a href="#local-6989586621679274311"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:StopFlow' :: Text
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AflowArn%3AStopFlow%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274310"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span>
+</span><span id="line-79"></span><span>  </span><span id="local-6989586621679274306"><span class="annot"><span class="annottext">request :: StopFlow -&gt; Request StopFlow
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; StopFlow -&gt; Request StopFlow
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaConnect.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621679274302"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy StopFlow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopFlow)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse StopFlow))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy StopFlow
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse StopFlow)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679274299"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274299"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679274298"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679274298"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679274297"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274297"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>          </span><span class="annot"><span class="annottext">Maybe Status -&gt; Maybe Text -&gt; Int -&gt; StopFlowResponse
+</span><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-var">StopFlowResponse'</span></a></span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Status -&gt; Maybe Text -&gt; Int -&gt; StopFlowResponse)
+-&gt; Either String (Maybe Status)
+-&gt; Either String (Maybe Text -&gt; Int -&gt; StopFlowResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Status)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; StopFlowResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; StopFlowResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679274297"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;flowArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; StopFlowResponse)
+-&gt; Either String Int -&gt; Either String StopFlowResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274299"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274289"><span id="local-6989586621679274291"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274286"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679274282"><span class="annot"><span class="annottext">toHeaders :: StopFlow -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; StopFlow -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-99"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-100"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274272"><span id="local-6989586621679274274"><span id="local-6989586621679274276"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679274270"><span class="annot"><span class="annottext">toJSON :: StopFlow -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Value -&gt; StopFlow -&gt; Value
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object -&gt; Value
+</span><span class="hs-identifier hs-var">Core.Object</span></span><span> </span><span class="annot"><span class="annottext">Object
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679274265"><span class="annot"><span class="annottext">toPath :: StopFlow -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow%27"><span class="hs-identifier hs-type">StopFlow'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274263"><span class="annot"><span class="annottext">Text
+flowArn :: Text
+$sel:flowArn:StopFlow' :: StopFlow -&gt; Text
+</span><a href="#local-6989586621679274263"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/v1/flows/stop/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679274263"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlow"><span class="hs-identifier hs-type">StopFlow</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>  </span><span id="local-6989586621679274259"><span class="annot"><span class="annottext">toQuery :: StopFlow -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; StopFlow -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | /See:/ 'newStopFlowResponse' smart constructor.</span><span>
+</span><span id="line-116"></span><span id="local-6989586621679274256"><span id="local-6989586621679274257"></span></span><span class="hs-keyword">data</span><span> </span><span id="StopFlowResponse"><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-var">StopFlowResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="StopFlowResponse%27"><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-var">StopFlowResponse'</span></a></span></span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the flow when the StopFlow process begins.</span><span>
+</span><span id="line-118"></span><span>    </span><span id="%24sel%3Astatus%3AStopFlowResponse%27"><span class="annot"><span class="annottext">StopFlowResponse -&gt; Maybe Status
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3Astatus%3AStopFlowResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- | The ARN of the flow that you stopped.</span><span>
+</span><span id="line-120"></span><span>    </span><span id="%24sel%3AflowArn%3AStopFlowResponse%27"><span class="annot"><span class="annottext">StopFlowResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AflowArn%3AStopFlowResponse%27"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-122"></span><span>    </span><span id="%24sel%3AhttpStatus%3AStopFlowResponse%27"><span class="annot"><span class="annottext">StopFlowResponse -&gt; Int
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AhttpStatus%3AStopFlowResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-123"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-124"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679274249"><span id="local-6989586621679274251"><span class="annot"><span class="annottext">StopFlowResponse -&gt; StopFlowResponse -&gt; Bool
+(StopFlowResponse -&gt; StopFlowResponse -&gt; Bool)
+-&gt; (StopFlowResponse -&gt; StopFlowResponse -&gt; Bool)
+-&gt; Eq StopFlowResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: StopFlowResponse -&gt; StopFlowResponse -&gt; Bool
+$c/= :: StopFlowResponse -&gt; StopFlowResponse -&gt; Bool
+== :: StopFlowResponse -&gt; StopFlowResponse -&gt; Bool
+$c== :: StopFlowResponse -&gt; StopFlowResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274241"><span id="local-6989586621679274243"><span id="local-6989586621679274245"><span id="local-6989586621679274247"><span class="annot"><span class="annottext">ReadPrec [StopFlowResponse]
+ReadPrec StopFlowResponse
+Int -&gt; ReadS StopFlowResponse
+ReadS [StopFlowResponse]
+(Int -&gt; ReadS StopFlowResponse)
+-&gt; ReadS [StopFlowResponse]
+-&gt; ReadPrec StopFlowResponse
+-&gt; ReadPrec [StopFlowResponse]
+-&gt; Read StopFlowResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [StopFlowResponse]
+$creadListPrec :: ReadPrec [StopFlowResponse]
+readPrec :: ReadPrec StopFlowResponse
+$creadPrec :: ReadPrec StopFlowResponse
+readList :: ReadS [StopFlowResponse]
+$creadList :: ReadS [StopFlowResponse]
+readsPrec :: Int -&gt; ReadS StopFlowResponse
+$creadsPrec :: Int -&gt; ReadS StopFlowResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679274235"><span id="local-6989586621679274237"><span id="local-6989586621679274239"><span class="annot"><span class="annottext">Int -&gt; StopFlowResponse -&gt; ShowS
+[StopFlowResponse] -&gt; ShowS
+StopFlowResponse -&gt; String
+(Int -&gt; StopFlowResponse -&gt; ShowS)
+-&gt; (StopFlowResponse -&gt; String)
+-&gt; ([StopFlowResponse] -&gt; ShowS)
+-&gt; Show StopFlowResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [StopFlowResponse] -&gt; ShowS
+$cshowList :: [StopFlowResponse] -&gt; ShowS
+show :: StopFlowResponse -&gt; String
+$cshow :: StopFlowResponse -&gt; String
+showsPrec :: Int -&gt; StopFlowResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; StopFlowResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. StopFlowResponse -&gt; Rep StopFlowResponse x)
+-&gt; (forall x. Rep StopFlowResponse x -&gt; StopFlowResponse)
+-&gt; Generic StopFlowResponse
+forall x. Rep StopFlowResponse x -&gt; StopFlowResponse
+forall x. StopFlowResponse -&gt; Rep StopFlowResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep StopFlowResponse x -&gt; StopFlowResponse
+$cfrom :: forall x. StopFlowResponse -&gt; Rep StopFlowResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- Create a value of 'StopFlowResponse' with all optional fields omitted.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-133"></span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- 'status', 'stopFlowResponse_status' - The status of the flow when the StopFlow process begins.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- 'flowArn', 'stopFlowResponse_flowArn' - The ARN of the flow that you stopped.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'httpStatus', 'stopFlowResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#newStopFlowResponse"><span class="hs-identifier hs-type">newStopFlowResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span>
+</span><span id="line-143"></span><span id="newStopFlowResponse"><span class="annot"><span class="annottext">newStopFlowResponse :: Int -&gt; StopFlowResponse
+</span><a href="Amazonka.MediaConnect.StopFlow.html#newStopFlowResponse"><span class="hs-identifier hs-var hs-var">newStopFlowResponse</span></a></span></span><span> </span><span id="local-6989586621679274232"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274232"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">StopFlowResponse' :: Maybe Status -&gt; Maybe Text -&gt; Int -&gt; StopFlowResponse
+</span><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-type">StopFlowResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:StopFlowResponse' :: Maybe Status
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3Astatus%3AStopFlowResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>      </span><span class="annot"><span class="annottext">$sel:flowArn:StopFlowResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AflowArn%3AStopFlowResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:StopFlowResponse' :: Int
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AhttpStatus%3AStopFlowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274232"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | The status of the flow when the StopFlow process begins.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_status"><span class="hs-identifier hs-type">stopFlowResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.Types.Status.html#Status"><span class="hs-identifier hs-type">Status</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="stopFlowResponse_status"><span class="annot"><span class="annottext">stopFlowResponse_status :: (Maybe Status -&gt; f (Maybe Status))
+-&gt; StopFlowResponse -&gt; f StopFlowResponse
+</span><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_status"><span class="hs-identifier hs-var hs-var">stopFlowResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFlowResponse -&gt; Maybe Status)
+-&gt; (StopFlowResponse -&gt; Maybe Status -&gt; StopFlowResponse)
+-&gt; Lens
+     StopFlowResponse StopFlowResponse (Maybe Status) (Maybe Status)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-type">StopFlowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274231"><span class="annot"><span class="annottext">Maybe Status
+status :: Maybe Status
+$sel:status:StopFlowResponse' :: StopFlowResponse -&gt; Maybe Status
+</span><a href="#local-6989586621679274231"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679274231"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274230"><span class="annot"><span class="annottext">s :: StopFlowResponse
+</span><a href="#local-6989586621679274230"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-type">StopFlowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274229"><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679274229"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFlowResponse
+</span><a href="#local-6989586621679274230"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:StopFlowResponse' :: Maybe Status
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3Astatus%3AStopFlowResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Status
+</span><a href="#local-6989586621679274229"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | The ARN of the flow that you stopped.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_flowArn"><span class="hs-identifier hs-type">stopFlowResponse_flowArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="stopFlowResponse_flowArn"><span class="annot"><span class="annottext">stopFlowResponse_flowArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; StopFlowResponse -&gt; f StopFlowResponse
+</span><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_flowArn"><span class="hs-identifier hs-var hs-var">stopFlowResponse_flowArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFlowResponse -&gt; Maybe Text)
+-&gt; (StopFlowResponse -&gt; Maybe Text -&gt; StopFlowResponse)
+-&gt; Lens StopFlowResponse StopFlowResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-type">StopFlowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274228"><span class="annot"><span class="annottext">Maybe Text
+flowArn :: Maybe Text
+$sel:flowArn:StopFlowResponse' :: StopFlowResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679274228"><span class="hs-identifier hs-var hs-var">flowArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274228"><span class="hs-identifier hs-var">flowArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274227"><span class="annot"><span class="annottext">s :: StopFlowResponse
+</span><a href="#local-6989586621679274227"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-type">StopFlowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274226"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274226"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFlowResponse
+</span><a href="#local-6989586621679274227"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:flowArn:StopFlowResponse' :: Maybe Text
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AflowArn%3AStopFlowResponse%27"><span class="hs-identifier hs-var">flowArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679274226"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-159"></span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_httpStatus"><span class="hs-identifier hs-type">stopFlowResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-160"></span><span id="stopFlowResponse_httpStatus"><span class="annot"><span class="annottext">stopFlowResponse_httpStatus :: (Int -&gt; f Int) -&gt; StopFlowResponse -&gt; f StopFlowResponse
+</span><a href="Amazonka.MediaConnect.StopFlow.html#stopFlowResponse_httpStatus"><span class="hs-identifier hs-var hs-var">stopFlowResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(StopFlowResponse -&gt; Int)
+-&gt; (StopFlowResponse -&gt; Int -&gt; StopFlowResponse)
+-&gt; Lens StopFlowResponse StopFlowResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-type">StopFlowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679274225"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:StopFlowResponse' :: StopFlowResponse -&gt; Int
+</span><a href="#local-6989586621679274225"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274225"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679274224"><span class="annot"><span class="annottext">s :: StopFlowResponse
+</span><a href="#local-6989586621679274224"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse%27"><span class="hs-identifier hs-type">StopFlowResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679274223"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274223"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">StopFlowResponse
+</span><a href="#local-6989586621679274224"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:StopFlowResponse' :: Int
+</span><a href="Amazonka.MediaConnect.StopFlow.html#%24sel%3AhttpStatus%3AStopFlowResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679274223"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679274221"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaConnect.StopFlow.html#StopFlowResponse"><span class="hs-identifier hs-type">StopFlowResponse</span></a></span></span><span>
+</span><span id="line-163"></span></pre></body></html>

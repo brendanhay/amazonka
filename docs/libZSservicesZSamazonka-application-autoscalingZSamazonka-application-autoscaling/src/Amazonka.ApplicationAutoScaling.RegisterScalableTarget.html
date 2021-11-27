@@ -1,0 +1,1258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.ApplicationAutoScaling.RegisterScalableTarget</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Registers or updates a scalable target.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- A scalable target is a resource that Application Auto Scaling can scale</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- out and scale in. Scalable targets are uniquely identified by the</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- combination of resource ID, scalable dimension, and namespace.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- When you register a new scalable target, you must specify values for</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- minimum and maximum capacity. Current capacity will be adjusted within</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- the specified range when scaling starts. Application Auto Scaling</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- scaling policies will not scale capacity to values that are outside of</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- this range.</span><span>
+</span><span id="line-34"></span><span class="hs-comment">--</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- After you register a scalable target, you do not need to register it</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- again to use other Application Auto Scaling operations. To see which</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- resources have been registered, use</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html DescribeScalableTargets&gt;.</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- You can also view the scaling policies for a service namespace by using</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DescribeScalableTargets.html DescribeScalableTargets&gt;.</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- If you no longer need a scalable target, you can deregister it by using</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/APIReference/API_DeregisterScalableTarget.html DeregisterScalableTarget&gt;.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- To update a scalable target, specify the parameters that you want to</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- change. Include the parameters that identify the scalable target:</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- resource ID, scalable dimension, and namespace. Any parameters that you</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- don\'t specify are not changed by this update request.</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- If you call the @RegisterScalableTarget@ API to update an existing</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- scalable target, Application Auto Scaling retrieves the current capacity</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- of the resource. If it is below the minimum capacity or above the</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- maximum capacity, Application Auto Scaling adjusts the capacity of the</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- scalable target to place it within these bounds, even if you don\'t</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- include the @MinCapacity@ or @MaxCapacity@ request parameters.</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ApplicationAutoScaling.RegisterScalableTarget</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier">RegisterScalableTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#newRegisterScalableTarget"><span class="hs-identifier">newRegisterScalableTarget</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_suspendedState"><span class="hs-identifier">registerScalableTarget_suspendedState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_maxCapacity"><span class="hs-identifier">registerScalableTarget_maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_minCapacity"><span class="hs-identifier">registerScalableTarget_minCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_roleARN"><span class="hs-identifier">registerScalableTarget_roleARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_serviceNamespace"><span class="hs-identifier">registerScalableTarget_serviceNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_resourceId"><span class="hs-identifier">registerScalableTarget_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_scalableDimension"><span class="hs-identifier">registerScalableTarget_scalableDimension</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse"><span class="hs-identifier">RegisterScalableTargetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#newRegisterScalableTargetResponse"><span class="hs-identifier">newRegisterScalableTargetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTargetResponse_httpStatus"><span class="hs-identifier">registerScalableTargetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.html"><span class="hs-identifier">Amazonka.ApplicationAutoScaling.Types</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | /See:/ 'newRegisterScalableTarget' smart constructor.</span><span>
+</span><span id="line-86"></span><span id="local-6989586621679186820"><span id="local-6989586621679186821"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterScalableTarget"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-var">RegisterScalableTarget</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterScalableTarget%27"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-var">RegisterScalableTarget'</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An embedded object that contains attributes and attribute values that</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- are used to suspend and resume automatic scaling. Setting the value of</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- an attribute to @true@ suspends the specified scaling activities.</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- Setting it to @false@ (default) resumes the specified scaling</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- activities.</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- __Suspension Outcomes__</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- -   For @DynamicScalingInSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     all scale-in activities that are triggered by a scaling policy are</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--     suspended.</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- -   For @DynamicScalingOutSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     all scale-out activities that are triggered by a scaling policy are</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--     suspended.</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- -   For @ScheduledScalingSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">--     all scaling activities that involve scheduled actions are suspended.</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling&gt;</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- in the /Application Auto Scaling User Guide/.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AsuspendedState%3ARegisterScalableTarget%27"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; Maybe SuspendedState
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AsuspendedState%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var hs-var">suspendedState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.SuspendedState.html#SuspendedState"><span class="hs-identifier hs-type">SuspendedState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The maximum value that you plan to scale out to. When a scaling policy</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- is in effect, Application Auto Scaling can scale out (expand) as needed</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">-- to the maximum capacity limit in response to changing demand. This</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- property is required when registering a new scalable target.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">-- Although you can specify a large maximum capacity, note that service</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">-- quotas may impose lower limits. Each service has its own default quotas</span><span>
+</span><span id="line-117"></span><span>    </span><span class="hs-comment">-- for the maximum capacity of the resource. If you want to specify a</span><span>
+</span><span id="line-118"></span><span>    </span><span class="hs-comment">-- higher limit, you can request an increase. For more information, consult</span><span>
+</span><span id="line-119"></span><span>    </span><span class="hs-comment">-- the documentation for that service. For information about the default</span><span>
+</span><span id="line-120"></span><span>    </span><span class="hs-comment">-- quotas for each service, see</span><span>
+</span><span id="line-121"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas&gt;</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-123"></span><span>    </span><span id="%24sel%3AmaxCapacity%3ARegisterScalableTarget%27"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AmaxCapacity%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- | The minimum value that you plan to scale in to. When a scaling policy is</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">-- in effect, Application Auto Scaling can scale in (contract) as needed to</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">-- the minimum capacity limit in response to changing demand. This property</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- is required when registering a new scalable target.</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">-- For certain resources, the minimum value allowed is 0. This includes</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">-- clusters, EMR clusters, and custom resources. For all other resources,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">-- the minimum value allowed is 1.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AminCapacity%3ARegisterScalableTarget%27"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AminCapacity%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var hs-var">minCapacity</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | This parameter is required for services that do not support</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">-- service-linked roles (such as Amazon EMR), and it must specify the ARN</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">-- of an IAM role that allows Application Auto Scaling to modify the</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">-- scalable target on your behalf.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- If the service supports service-linked roles, Application Auto Scaling</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">-- uses a service-linked role, which it creates if it does not yet exist.</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles&gt;.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3AroleARN%3ARegisterScalableTarget%27"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; Maybe Text
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AroleARN%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AserviceNamespace%3ARegisterScalableTarget%27"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; ServiceNamespace
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AserviceNamespace%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The identifier of the resource that is associated with the scalable</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- target. This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">--     unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- -   SageMaker endpoint variant - The resource type is @variant@ and the</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">--     unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">--     our</span><span>
+</span><span id="line-185"></span><span>    </span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-189"></span><span>    </span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-193"></span><span>    </span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span>    </span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-198"></span><span>    </span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-199"></span><span>    </span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-200"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span>    </span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-202"></span><span>    </span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-203"></span><span>    </span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-204"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span>    </span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-206"></span><span>    </span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-208"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-211"></span><span>    </span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-212"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span>    </span><span class="hs-comment">-- -   Neptune cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-214"></span><span>    </span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:mycluster@.</span><span>
+</span><span id="line-215"></span><span>    </span><span id="%24sel%3AresourceId%3ARegisterScalableTarget%27"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; Text
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AresourceId%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- | The scalable dimension associated with the scalable target. This string</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">-- consists of the service namespace, resource type, and scaling property.</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-222"></span><span>    </span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span>    </span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">--     Spot Fleet.</span><span>
+</span><span id="line-227"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-233"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-235"></span><span>    </span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-236"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-238"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-239"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-241"></span><span>    </span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-242"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span>    </span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-244"></span><span>    </span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-245"></span><span>    </span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-246"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span>    </span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-248"></span><span>    </span><span class="hs-comment">--     instances for an SageMaker model endpoint variant.</span><span>
+</span><span id="line-249"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span>    </span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-252"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span>    </span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-255"></span><span>    </span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-256"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span>    </span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-259"></span><span>    </span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-260"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span>    </span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-262"></span><span>    </span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-263"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-265"></span><span>    </span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-266"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span>    </span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-268"></span><span>    </span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-269"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-270"></span><span>    </span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-272"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-274"></span><span>    </span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-275"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-277"></span><span>    </span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-278"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span>    </span><span class="hs-comment">-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in</span><span>
+</span><span id="line-280"></span><span>    </span><span class="hs-comment">--     an Amazon Neptune DB cluster.</span><span>
+</span><span id="line-281"></span><span>    </span><span id="%24sel%3AscalableDimension%3ARegisterScalableTarget%27"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; ScalableDimension
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AscalableDimension%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-282"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-283"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186808"><span id="local-6989586621679186810"><span class="annot"><span class="annottext">RegisterScalableTarget -&gt; RegisterScalableTarget -&gt; Bool
+(RegisterScalableTarget -&gt; RegisterScalableTarget -&gt; Bool)
+-&gt; (RegisterScalableTarget -&gt; RegisterScalableTarget -&gt; Bool)
+-&gt; Eq RegisterScalableTarget
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterScalableTarget -&gt; RegisterScalableTarget -&gt; Bool
+$c/= :: RegisterScalableTarget -&gt; RegisterScalableTarget -&gt; Bool
+== :: RegisterScalableTarget -&gt; RegisterScalableTarget -&gt; Bool
+$c== :: RegisterScalableTarget -&gt; RegisterScalableTarget -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186799"><span id="local-6989586621679186801"><span id="local-6989586621679186803"><span id="local-6989586621679186805"><span class="annot"><span class="annottext">ReadPrec [RegisterScalableTarget]
+ReadPrec RegisterScalableTarget
+Int -&gt; ReadS RegisterScalableTarget
+ReadS [RegisterScalableTarget]
+(Int -&gt; ReadS RegisterScalableTarget)
+-&gt; ReadS [RegisterScalableTarget]
+-&gt; ReadPrec RegisterScalableTarget
+-&gt; ReadPrec [RegisterScalableTarget]
+-&gt; Read RegisterScalableTarget
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterScalableTarget]
+$creadListPrec :: ReadPrec [RegisterScalableTarget]
+readPrec :: ReadPrec RegisterScalableTarget
+$creadPrec :: ReadPrec RegisterScalableTarget
+readList :: ReadS [RegisterScalableTarget]
+$creadList :: ReadS [RegisterScalableTarget]
+readsPrec :: Int -&gt; ReadS RegisterScalableTarget
+$creadsPrec :: Int -&gt; ReadS RegisterScalableTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186792"><span id="local-6989586621679186794"><span id="local-6989586621679186796"><span class="annot"><span class="annottext">Int -&gt; RegisterScalableTarget -&gt; ShowS
+[RegisterScalableTarget] -&gt; ShowS
+RegisterScalableTarget -&gt; String
+(Int -&gt; RegisterScalableTarget -&gt; ShowS)
+-&gt; (RegisterScalableTarget -&gt; String)
+-&gt; ([RegisterScalableTarget] -&gt; ShowS)
+-&gt; Show RegisterScalableTarget
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterScalableTarget] -&gt; ShowS
+$cshowList :: [RegisterScalableTarget] -&gt; ShowS
+show :: RegisterScalableTarget -&gt; String
+$cshow :: RegisterScalableTarget -&gt; String
+showsPrec :: Int -&gt; RegisterScalableTarget -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterScalableTarget -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RegisterScalableTarget -&gt; Rep RegisterScalableTarget x)
+-&gt; (forall x.
+    Rep RegisterScalableTarget x -&gt; RegisterScalableTarget)
+-&gt; Generic RegisterScalableTarget
+forall x. Rep RegisterScalableTarget x -&gt; RegisterScalableTarget
+forall x. RegisterScalableTarget -&gt; Rep RegisterScalableTarget x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RegisterScalableTarget x -&gt; RegisterScalableTarget
+$cfrom :: forall x. RegisterScalableTarget -&gt; Rep RegisterScalableTarget x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-286"></span><span class="hs-comment">-- Create a value of 'RegisterScalableTarget' with all optional fields omitted.</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--</span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- 'suspendedState', 'registerScalableTarget_suspendedState' - An embedded object that contains attributes and attribute values that</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- are used to suspend and resume automatic scaling. Setting the value of</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- an attribute to @true@ suspends the specified scaling activities.</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- Setting it to @false@ (default) resumes the specified scaling</span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- activities.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- __Suspension Outcomes__</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- -   For @DynamicScalingInSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--     all scale-in activities that are triggered by a scaling policy are</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--     suspended.</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- -   For @DynamicScalingOutSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     all scale-out activities that are triggered by a scaling policy are</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     suspended.</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- -   For @ScheduledScalingSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-310"></span><span class="hs-comment">--     all scaling activities that involve scheduled actions are suspended.</span><span>
+</span><span id="line-311"></span><span class="hs-comment">--</span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling&gt;</span><span>
+</span><span id="line-314"></span><span class="hs-comment">-- in the /Application Auto Scaling User Guide/.</span><span>
+</span><span id="line-315"></span><span class="hs-comment">--</span><span>
+</span><span id="line-316"></span><span class="hs-comment">-- 'maxCapacity', 'registerScalableTarget_maxCapacity' - The maximum value that you plan to scale out to. When a scaling policy</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- is in effect, Application Auto Scaling can scale out (expand) as needed</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- to the maximum capacity limit in response to changing demand. This</span><span>
+</span><span id="line-319"></span><span class="hs-comment">-- property is required when registering a new scalable target.</span><span>
+</span><span id="line-320"></span><span class="hs-comment">--</span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- Although you can specify a large maximum capacity, note that service</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- quotas may impose lower limits. Each service has its own default quotas</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- for the maximum capacity of the resource. If you want to specify a</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- higher limit, you can request an increase. For more information, consult</span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- the documentation for that service. For information about the default</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- quotas for each service, see</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas&gt;</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-329"></span><span class="hs-comment">--</span><span>
+</span><span id="line-330"></span><span class="hs-comment">-- 'minCapacity', 'registerScalableTarget_minCapacity' - The minimum value that you plan to scale in to. When a scaling policy is</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- in effect, Application Auto Scaling can scale in (contract) as needed to</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- the minimum capacity limit in response to changing demand. This property</span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- is required when registering a new scalable target.</span><span>
+</span><span id="line-334"></span><span class="hs-comment">--</span><span>
+</span><span id="line-335"></span><span class="hs-comment">-- For certain resources, the minimum value allowed is 0. This includes</span><span>
+</span><span id="line-336"></span><span class="hs-comment">-- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB</span><span>
+</span><span id="line-337"></span><span class="hs-comment">-- clusters, EMR clusters, and custom resources. For all other resources,</span><span>
+</span><span id="line-338"></span><span class="hs-comment">-- the minimum value allowed is 1.</span><span>
+</span><span id="line-339"></span><span class="hs-comment">--</span><span>
+</span><span id="line-340"></span><span class="hs-comment">-- 'roleARN', 'registerScalableTarget_roleARN' - This parameter is required for services that do not support</span><span>
+</span><span id="line-341"></span><span class="hs-comment">-- service-linked roles (such as Amazon EMR), and it must specify the ARN</span><span>
+</span><span id="line-342"></span><span class="hs-comment">-- of an IAM role that allows Application Auto Scaling to modify the</span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- scalable target on your behalf.</span><span>
+</span><span id="line-344"></span><span class="hs-comment">--</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- If the service supports service-linked roles, Application Auto Scaling</span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- uses a service-linked role, which it creates if it does not yet exist.</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-348"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles&gt;.</span><span>
+</span><span id="line-349"></span><span class="hs-comment">--</span><span>
+</span><span id="line-350"></span><span class="hs-comment">-- 'serviceNamespace', 'registerScalableTarget_serviceNamespace' - The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-352"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-353"></span><span class="hs-comment">--</span><span>
+</span><span id="line-354"></span><span class="hs-comment">-- 'resourceId', 'registerScalableTarget_resourceId' - The identifier of the resource that is associated with the scalable</span><span>
+</span><span id="line-355"></span><span class="hs-comment">-- target. This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-356"></span><span class="hs-comment">--</span><span>
+</span><span id="line-357"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-358"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-359"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-360"></span><span class="hs-comment">--</span><span>
+</span><span id="line-361"></span><span class="hs-comment">-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the</span><span>
+</span><span id="line-362"></span><span class="hs-comment">--     unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-363"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-364"></span><span class="hs-comment">--</span><span>
+</span><span id="line-365"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-366"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-367"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-368"></span><span class="hs-comment">--</span><span>
+</span><span id="line-369"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-370"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-371"></span><span class="hs-comment">--</span><span>
+</span><span id="line-372"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-373"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-374"></span><span class="hs-comment">--</span><span>
+</span><span id="line-375"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-376"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-377"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-378"></span><span class="hs-comment">--</span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-380"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-381"></span><span class="hs-comment">--</span><span>
+</span><span id="line-382"></span><span class="hs-comment">-- -   SageMaker endpoint variant - The resource type is @variant@ and the</span><span>
+</span><span id="line-383"></span><span class="hs-comment">--     unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-384"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-385"></span><span class="hs-comment">--</span><span>
+</span><span id="line-386"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-387"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-388"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-389"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-390"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-391"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-392"></span><span class="hs-comment">--</span><span>
+</span><span id="line-393"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-394"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-395"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-396"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-397"></span><span class="hs-comment">--</span><span>
+</span><span id="line-398"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-399"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-400"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-401"></span><span class="hs-comment">--</span><span>
+</span><span id="line-402"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-403"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-404"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-405"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-406"></span><span class="hs-comment">--</span><span>
+</span><span id="line-407"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-408"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-409"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-410"></span><span class="hs-comment">--</span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-412"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-413"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-414"></span><span class="hs-comment">--</span><span>
+</span><span id="line-415"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-416"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-417"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-418"></span><span class="hs-comment">--</span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- -   Neptune cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-420"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:mycluster@.</span><span>
+</span><span id="line-421"></span><span class="hs-comment">--</span><span>
+</span><span id="line-422"></span><span class="hs-comment">-- 'scalableDimension', 'registerScalableTarget_scalableDimension' - The scalable dimension associated with the scalable target. This string</span><span>
+</span><span id="line-423"></span><span class="hs-comment">-- consists of the service namespace, resource type, and scaling property.</span><span>
+</span><span id="line-424"></span><span class="hs-comment">--</span><span>
+</span><span id="line-425"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-426"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-427"></span><span class="hs-comment">--</span><span>
+</span><span id="line-428"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-429"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-430"></span><span class="hs-comment">--</span><span>
+</span><span id="line-431"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-432"></span><span class="hs-comment">--     Spot Fleet.</span><span>
+</span><span id="line-433"></span><span class="hs-comment">--</span><span>
+</span><span id="line-434"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-435"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-436"></span><span class="hs-comment">--</span><span>
+</span><span id="line-437"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-438"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-439"></span><span class="hs-comment">--</span><span>
+</span><span id="line-440"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-441"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-442"></span><span class="hs-comment">--</span><span>
+</span><span id="line-443"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-444"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-445"></span><span class="hs-comment">--</span><span>
+</span><span id="line-446"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-447"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-448"></span><span class="hs-comment">--</span><span>
+</span><span id="line-449"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-450"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-451"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-452"></span><span class="hs-comment">--</span><span>
+</span><span id="line-453"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-454"></span><span class="hs-comment">--     instances for an SageMaker model endpoint variant.</span><span>
+</span><span id="line-455"></span><span class="hs-comment">--</span><span>
+</span><span id="line-456"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-457"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-458"></span><span class="hs-comment">--</span><span>
+</span><span id="line-459"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-460"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-461"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-462"></span><span class="hs-comment">--</span><span>
+</span><span id="line-463"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-464"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-465"></span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-466"></span><span class="hs-comment">--</span><span>
+</span><span id="line-467"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-468"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-469"></span><span class="hs-comment">--</span><span>
+</span><span id="line-470"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-471"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-472"></span><span class="hs-comment">--</span><span>
+</span><span id="line-473"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-474"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-475"></span><span class="hs-comment">--</span><span>
+</span><span id="line-476"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-477"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-478"></span><span class="hs-comment">--</span><span>
+</span><span id="line-479"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-480"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-481"></span><span class="hs-comment">--</span><span>
+</span><span id="line-482"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-483"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-484"></span><span class="hs-comment">--</span><span>
+</span><span id="line-485"></span><span class="hs-comment">-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in</span><span>
+</span><span id="line-486"></span><span class="hs-comment">--     an Amazon Neptune DB cluster.</span><span>
+</span><span id="line-487"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#newRegisterScalableTarget"><span class="hs-identifier hs-type">newRegisterScalableTarget</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-488"></span><span>  </span><span class="hs-comment">-- | 'serviceNamespace'</span><span>
+</span><span id="line-489"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-490"></span><span>  </span><span class="hs-comment">-- | 'resourceId'</span><span>
+</span><span id="line-491"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-492"></span><span>  </span><span class="hs-comment">-- | 'scalableDimension'</span><span>
+</span><span id="line-493"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-494"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span>
+</span><span id="line-495"></span><span id="newRegisterScalableTarget"><span class="annot"><span class="annottext">newRegisterScalableTarget :: ServiceNamespace
+-&gt; Text -&gt; ScalableDimension -&gt; RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#newRegisterScalableTarget"><span class="hs-identifier hs-var hs-var">newRegisterScalableTarget</span></a></span></span><span>
+</span><span id="line-496"></span><span>  </span><span id="local-6989586621679186787"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186787"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span></span><span>
+</span><span id="line-497"></span><span>  </span><span id="local-6989586621679186786"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186786"><span class="hs-identifier hs-var">pResourceId_</span></a></span></span><span>
+</span><span id="line-498"></span><span>  </span><span id="local-6989586621679186785"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186785"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-499"></span><span>    </span><span class="annot"><span class="annottext">RegisterScalableTarget' :: Maybe SuspendedState
+-&gt; Maybe Int
+-&gt; Maybe Int
+-&gt; Maybe Text
+-&gt; ServiceNamespace
+-&gt; Text
+-&gt; ScalableDimension
+-&gt; RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span>
+</span><span id="line-500"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:suspendedState:RegisterScalableTarget' :: Maybe SuspendedState
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AsuspendedState%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">suspendedState</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-501"></span><span>          </span><span class="annot"><span class="annottext">Maybe SuspendedState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-502"></span><span>        </span><span class="annot"><span class="annottext">$sel:maxCapacity:RegisterScalableTarget' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AmaxCapacity%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-503"></span><span>        </span><span class="annot"><span class="annottext">$sel:minCapacity:RegisterScalableTarget' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AminCapacity%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">minCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-504"></span><span>        </span><span class="annot"><span class="annottext">$sel:roleARN:RegisterScalableTarget' :: Maybe Text
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AroleARN%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-505"></span><span>        </span><span class="annot"><span class="annottext">$sel:serviceNamespace:RegisterScalableTarget' :: ServiceNamespace
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AserviceNamespace%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186787"><span class="hs-identifier hs-var">pServiceNamespace_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-506"></span><span>        </span><span class="annot"><span class="annottext">$sel:resourceId:RegisterScalableTarget' :: Text
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AresourceId%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186786"><span class="hs-identifier hs-var">pResourceId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-507"></span><span>        </span><span class="annot"><span class="annottext">$sel:scalableDimension:RegisterScalableTarget' :: ScalableDimension
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AscalableDimension%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186785"><span class="hs-identifier hs-var">pScalableDimension_</span></a></span><span>
+</span><span id="line-508"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-509"></span><span>
+</span><span id="line-510"></span><span class="hs-comment">-- | An embedded object that contains attributes and attribute values that</span><span>
+</span><span id="line-511"></span><span class="hs-comment">-- are used to suspend and resume automatic scaling. Setting the value of</span><span>
+</span><span id="line-512"></span><span class="hs-comment">-- an attribute to @true@ suspends the specified scaling activities.</span><span>
+</span><span id="line-513"></span><span class="hs-comment">-- Setting it to @false@ (default) resumes the specified scaling</span><span>
+</span><span id="line-514"></span><span class="hs-comment">-- activities.</span><span>
+</span><span id="line-515"></span><span class="hs-comment">--</span><span>
+</span><span id="line-516"></span><span class="hs-comment">-- __Suspension Outcomes__</span><span>
+</span><span id="line-517"></span><span class="hs-comment">--</span><span>
+</span><span id="line-518"></span><span class="hs-comment">-- -   For @DynamicScalingInSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-519"></span><span class="hs-comment">--     all scale-in activities that are triggered by a scaling policy are</span><span>
+</span><span id="line-520"></span><span class="hs-comment">--     suspended.</span><span>
+</span><span id="line-521"></span><span class="hs-comment">--</span><span>
+</span><span id="line-522"></span><span class="hs-comment">-- -   For @DynamicScalingOutSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-523"></span><span class="hs-comment">--     all scale-out activities that are triggered by a scaling policy are</span><span>
+</span><span id="line-524"></span><span class="hs-comment">--     suspended.</span><span>
+</span><span id="line-525"></span><span class="hs-comment">--</span><span>
+</span><span id="line-526"></span><span class="hs-comment">-- -   For @ScheduledScalingSuspended@, while a suspension is in effect,</span><span>
+</span><span id="line-527"></span><span class="hs-comment">--     all scaling activities that involve scheduled actions are suspended.</span><span>
+</span><span id="line-528"></span><span class="hs-comment">--</span><span>
+</span><span id="line-529"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-530"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/application-auto-scaling-suspend-resume-scaling.html Suspending and resuming scaling&gt;</span><span>
+</span><span id="line-531"></span><span class="hs-comment">-- in the /Application Auto Scaling User Guide/.</span><span>
+</span><span id="line-532"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_suspendedState"><span class="hs-identifier hs-type">registerScalableTarget_suspendedState</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.SuspendedState.html#SuspendedState"><span class="hs-identifier hs-type">SuspendedState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-533"></span><span id="registerScalableTarget_suspendedState"><span class="annot"><span class="annottext">registerScalableTarget_suspendedState :: (Maybe SuspendedState -&gt; f (Maybe SuspendedState))
+-&gt; RegisterScalableTarget -&gt; f RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_suspendedState"><span class="hs-identifier hs-var hs-var">registerScalableTarget_suspendedState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTarget -&gt; Maybe SuspendedState)
+-&gt; (RegisterScalableTarget
+    -&gt; Maybe SuspendedState -&gt; RegisterScalableTarget)
+-&gt; Lens
+     RegisterScalableTarget
+     RegisterScalableTarget
+     (Maybe SuspendedState)
+     (Maybe SuspendedState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186782"><span class="annot"><span class="annottext">Maybe SuspendedState
+suspendedState :: Maybe SuspendedState
+$sel:suspendedState:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe SuspendedState
+</span><a href="#local-6989586621679186782"><span class="hs-identifier hs-var hs-var">suspendedState</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SuspendedState
+</span><a href="#local-6989586621679186782"><span class="hs-identifier hs-var">suspendedState</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186781"><span class="annot"><span class="annottext">s :: RegisterScalableTarget
+</span><a href="#local-6989586621679186781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186780"><span class="annot"><span class="annottext">Maybe SuspendedState
+</span><a href="#local-6989586621679186780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTarget
+</span><a href="#local-6989586621679186781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:suspendedState:RegisterScalableTarget' :: Maybe SuspendedState
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AsuspendedState%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">suspendedState</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SuspendedState
+</span><a href="#local-6989586621679186780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-534"></span><span>
+</span><span id="line-535"></span><span class="hs-comment">-- | The maximum value that you plan to scale out to. When a scaling policy</span><span>
+</span><span id="line-536"></span><span class="hs-comment">-- is in effect, Application Auto Scaling can scale out (expand) as needed</span><span>
+</span><span id="line-537"></span><span class="hs-comment">-- to the maximum capacity limit in response to changing demand. This</span><span>
+</span><span id="line-538"></span><span class="hs-comment">-- property is required when registering a new scalable target.</span><span>
+</span><span id="line-539"></span><span class="hs-comment">--</span><span>
+</span><span id="line-540"></span><span class="hs-comment">-- Although you can specify a large maximum capacity, note that service</span><span>
+</span><span id="line-541"></span><span class="hs-comment">-- quotas may impose lower limits. Each service has its own default quotas</span><span>
+</span><span id="line-542"></span><span class="hs-comment">-- for the maximum capacity of the resource. If you want to specify a</span><span>
+</span><span id="line-543"></span><span class="hs-comment">-- higher limit, you can request an increase. For more information, consult</span><span>
+</span><span id="line-544"></span><span class="hs-comment">-- the documentation for that service. For information about the default</span><span>
+</span><span id="line-545"></span><span class="hs-comment">-- quotas for each service, see</span><span>
+</span><span id="line-546"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/general/latest/gr/aws-service-information.html Service Endpoints and Quotas&gt;</span><span>
+</span><span id="line-547"></span><span class="hs-comment">-- in the /Amazon Web Services General Reference/.</span><span>
+</span><span id="line-548"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_maxCapacity"><span class="hs-identifier hs-type">registerScalableTarget_maxCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-549"></span><span id="registerScalableTarget_maxCapacity"><span class="annot"><span class="annottext">registerScalableTarget_maxCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RegisterScalableTarget -&gt; f RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_maxCapacity"><span class="hs-identifier hs-var hs-var">registerScalableTarget_maxCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTarget -&gt; Maybe Int)
+-&gt; (RegisterScalableTarget -&gt; Maybe Int -&gt; RegisterScalableTarget)
+-&gt; Lens
+     RegisterScalableTarget
+     RegisterScalableTarget
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186779"><span class="annot"><span class="annottext">Maybe Int
+maxCapacity :: Maybe Int
+$sel:maxCapacity:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe Int
+</span><a href="#local-6989586621679186779"><span class="hs-identifier hs-var hs-var">maxCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186779"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186778"><span class="annot"><span class="annottext">s :: RegisterScalableTarget
+</span><a href="#local-6989586621679186778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186777"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTarget
+</span><a href="#local-6989586621679186778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxCapacity:RegisterScalableTarget' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AmaxCapacity%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-550"></span><span>
+</span><span id="line-551"></span><span class="hs-comment">-- | The minimum value that you plan to scale in to. When a scaling policy is</span><span>
+</span><span id="line-552"></span><span class="hs-comment">-- in effect, Application Auto Scaling can scale in (contract) as needed to</span><span>
+</span><span id="line-553"></span><span class="hs-comment">-- the minimum capacity limit in response to changing demand. This property</span><span>
+</span><span id="line-554"></span><span class="hs-comment">-- is required when registering a new scalable target.</span><span>
+</span><span id="line-555"></span><span class="hs-comment">--</span><span>
+</span><span id="line-556"></span><span class="hs-comment">-- For certain resources, the minimum value allowed is 0. This includes</span><span>
+</span><span id="line-557"></span><span class="hs-comment">-- Lambda provisioned concurrency, Spot Fleet, ECS services, Aurora DB</span><span>
+</span><span id="line-558"></span><span class="hs-comment">-- clusters, EMR clusters, and custom resources. For all other resources,</span><span>
+</span><span id="line-559"></span><span class="hs-comment">-- the minimum value allowed is 1.</span><span>
+</span><span id="line-560"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_minCapacity"><span class="hs-identifier hs-type">registerScalableTarget_minCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-561"></span><span id="registerScalableTarget_minCapacity"><span class="annot"><span class="annottext">registerScalableTarget_minCapacity :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; RegisterScalableTarget -&gt; f RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_minCapacity"><span class="hs-identifier hs-var hs-var">registerScalableTarget_minCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTarget -&gt; Maybe Int)
+-&gt; (RegisterScalableTarget -&gt; Maybe Int -&gt; RegisterScalableTarget)
+-&gt; Lens
+     RegisterScalableTarget
+     RegisterScalableTarget
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186776"><span class="annot"><span class="annottext">Maybe Int
+minCapacity :: Maybe Int
+$sel:minCapacity:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe Int
+</span><a href="#local-6989586621679186776"><span class="hs-identifier hs-var hs-var">minCapacity</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186776"><span class="hs-identifier hs-var">minCapacity</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186775"><span class="annot"><span class="annottext">s :: RegisterScalableTarget
+</span><a href="#local-6989586621679186775"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186774"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186774"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTarget
+</span><a href="#local-6989586621679186775"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:minCapacity:RegisterScalableTarget' :: Maybe Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AminCapacity%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">minCapacity</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186774"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-562"></span><span>
+</span><span id="line-563"></span><span class="hs-comment">-- | This parameter is required for services that do not support</span><span>
+</span><span id="line-564"></span><span class="hs-comment">-- service-linked roles (such as Amazon EMR), and it must specify the ARN</span><span>
+</span><span id="line-565"></span><span class="hs-comment">-- of an IAM role that allows Application Auto Scaling to modify the</span><span>
+</span><span id="line-566"></span><span class="hs-comment">-- scalable target on your behalf.</span><span>
+</span><span id="line-567"></span><span class="hs-comment">--</span><span>
+</span><span id="line-568"></span><span class="hs-comment">-- If the service supports service-linked roles, Application Auto Scaling</span><span>
+</span><span id="line-569"></span><span class="hs-comment">-- uses a service-linked role, which it creates if it does not yet exist.</span><span>
+</span><span id="line-570"></span><span class="hs-comment">-- For more information, see</span><span>
+</span><span id="line-571"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles Application Auto Scaling IAM roles&gt;.</span><span>
+</span><span id="line-572"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_roleARN"><span class="hs-identifier hs-type">registerScalableTarget_roleARN</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-573"></span><span id="registerScalableTarget_roleARN"><span class="annot"><span class="annottext">registerScalableTarget_roleARN :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RegisterScalableTarget -&gt; f RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_roleARN"><span class="hs-identifier hs-var hs-var">registerScalableTarget_roleARN</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTarget -&gt; Maybe Text)
+-&gt; (RegisterScalableTarget -&gt; Maybe Text -&gt; RegisterScalableTarget)
+-&gt; Lens
+     RegisterScalableTarget
+     RegisterScalableTarget
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186773"><span class="annot"><span class="annottext">Maybe Text
+roleARN :: Maybe Text
+$sel:roleARN:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe Text
+</span><a href="#local-6989586621679186773"><span class="hs-identifier hs-var hs-var">roleARN</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186773"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186772"><span class="annot"><span class="annottext">s :: RegisterScalableTarget
+</span><a href="#local-6989586621679186772"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186771"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186771"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTarget
+</span><a href="#local-6989586621679186772"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:roleARN:RegisterScalableTarget' :: Maybe Text
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AroleARN%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">roleARN</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186771"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-574"></span><span>
+</span><span id="line-575"></span><span class="hs-comment">-- | The namespace of the Amazon Web Services service that provides the</span><span>
+</span><span id="line-576"></span><span class="hs-comment">-- resource. For a resource provided by your own application or service,</span><span>
+</span><span id="line-577"></span><span class="hs-comment">-- use @custom-resource@ instead.</span><span>
+</span><span id="line-578"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_serviceNamespace"><span class="hs-identifier hs-type">registerScalableTarget_serviceNamespace</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ServiceNamespace.html#ServiceNamespace"><span class="hs-identifier hs-type">ServiceNamespace</span></a></span><span>
+</span><span id="line-579"></span><span id="registerScalableTarget_serviceNamespace"><span class="annot"><span class="annottext">registerScalableTarget_serviceNamespace :: (ServiceNamespace -&gt; f ServiceNamespace)
+-&gt; RegisterScalableTarget -&gt; f RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_serviceNamespace"><span class="hs-identifier hs-var hs-var">registerScalableTarget_serviceNamespace</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTarget -&gt; ServiceNamespace)
+-&gt; (RegisterScalableTarget
+    -&gt; ServiceNamespace -&gt; RegisterScalableTarget)
+-&gt; Lens
+     RegisterScalableTarget
+     RegisterScalableTarget
+     ServiceNamespace
+     ServiceNamespace
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186770"><span class="annot"><span class="annottext">ServiceNamespace
+serviceNamespace :: ServiceNamespace
+$sel:serviceNamespace:RegisterScalableTarget' :: RegisterScalableTarget -&gt; ServiceNamespace
+</span><a href="#local-6989586621679186770"><span class="hs-identifier hs-var hs-var">serviceNamespace</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186770"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186769"><span class="annot"><span class="annottext">s :: RegisterScalableTarget
+</span><a href="#local-6989586621679186769"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186768"><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186768"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTarget
+</span><a href="#local-6989586621679186769"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serviceNamespace:RegisterScalableTarget' :: ServiceNamespace
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AserviceNamespace%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186768"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-580"></span><span>
+</span><span id="line-581"></span><span class="hs-comment">-- | The identifier of the resource that is associated with the scalable</span><span>
+</span><span id="line-582"></span><span class="hs-comment">-- target. This string consists of the resource type and unique identifier.</span><span>
+</span><span id="line-583"></span><span class="hs-comment">--</span><span>
+</span><span id="line-584"></span><span class="hs-comment">-- -   ECS service - The resource type is @service@ and the unique</span><span>
+</span><span id="line-585"></span><span class="hs-comment">--     identifier is the cluster name and service name. Example:</span><span>
+</span><span id="line-586"></span><span class="hs-comment">--     @service\/default\/sample-webapp@.</span><span>
+</span><span id="line-587"></span><span class="hs-comment">--</span><span>
+</span><span id="line-588"></span><span class="hs-comment">-- -   Spot Fleet - The resource type is @spot-fleet-request@ and the</span><span>
+</span><span id="line-589"></span><span class="hs-comment">--     unique identifier is the Spot Fleet request ID. Example:</span><span>
+</span><span id="line-590"></span><span class="hs-comment">--     @spot-fleet-request\/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE@.</span><span>
+</span><span id="line-591"></span><span class="hs-comment">--</span><span>
+</span><span id="line-592"></span><span class="hs-comment">-- -   EMR cluster - The resource type is @instancegroup@ and the unique</span><span>
+</span><span id="line-593"></span><span class="hs-comment">--     identifier is the cluster ID and instance group ID. Example:</span><span>
+</span><span id="line-594"></span><span class="hs-comment">--     @instancegroup\/j-2EEZNYKUA1NTV\/ig-1791Y4E1L8YI0@.</span><span>
+</span><span id="line-595"></span><span class="hs-comment">--</span><span>
+</span><span id="line-596"></span><span class="hs-comment">-- -   AppStream 2.0 fleet - The resource type is @fleet@ and the unique</span><span>
+</span><span id="line-597"></span><span class="hs-comment">--     identifier is the fleet name. Example: @fleet\/sample-fleet@.</span><span>
+</span><span id="line-598"></span><span class="hs-comment">--</span><span>
+</span><span id="line-599"></span><span class="hs-comment">-- -   DynamoDB table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-600"></span><span class="hs-comment">--     identifier is the table name. Example: @table\/my-table@.</span><span>
+</span><span id="line-601"></span><span class="hs-comment">--</span><span>
+</span><span id="line-602"></span><span class="hs-comment">-- -   DynamoDB global secondary index - The resource type is @index@ and</span><span>
+</span><span id="line-603"></span><span class="hs-comment">--     the unique identifier is the index name. Example:</span><span>
+</span><span id="line-604"></span><span class="hs-comment">--     @table\/my-table\/index\/my-table-index@.</span><span>
+</span><span id="line-605"></span><span class="hs-comment">--</span><span>
+</span><span id="line-606"></span><span class="hs-comment">-- -   Aurora DB cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-607"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:my-db-cluster@.</span><span>
+</span><span id="line-608"></span><span class="hs-comment">--</span><span>
+</span><span id="line-609"></span><span class="hs-comment">-- -   SageMaker endpoint variant - The resource type is @variant@ and the</span><span>
+</span><span id="line-610"></span><span class="hs-comment">--     unique identifier is the resource ID. Example:</span><span>
+</span><span id="line-611"></span><span class="hs-comment">--     @endpoint\/my-end-point\/variant\/KMeansClustering@.</span><span>
+</span><span id="line-612"></span><span class="hs-comment">--</span><span>
+</span><span id="line-613"></span><span class="hs-comment">-- -   Custom resources are not supported with a resource type. This</span><span>
+</span><span id="line-614"></span><span class="hs-comment">--     parameter must specify the @OutputValue@ from the CloudFormation</span><span>
+</span><span id="line-615"></span><span class="hs-comment">--     template stack used to access the resources. The unique identifier</span><span>
+</span><span id="line-616"></span><span class="hs-comment">--     is defined by the service provider. More information is available in</span><span>
+</span><span id="line-617"></span><span class="hs-comment">--     our</span><span>
+</span><span id="line-618"></span><span class="hs-comment">--     &lt;https://github.com/aws/aws-auto-scaling-custom-resource GitHub repository&gt;.</span><span>
+</span><span id="line-619"></span><span class="hs-comment">--</span><span>
+</span><span id="line-620"></span><span class="hs-comment">-- -   Amazon Comprehend document classification endpoint - The resource</span><span>
+</span><span id="line-621"></span><span class="hs-comment">--     type and unique identifier are specified using the endpoint ARN.</span><span>
+</span><span id="line-622"></span><span class="hs-comment">--     Example:</span><span>
+</span><span id="line-623"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:document-classifier-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-624"></span><span class="hs-comment">--</span><span>
+</span><span id="line-625"></span><span class="hs-comment">-- -   Amazon Comprehend entity recognizer endpoint - The resource type and</span><span>
+</span><span id="line-626"></span><span class="hs-comment">--     unique identifier are specified using the endpoint ARN. Example:</span><span>
+</span><span id="line-627"></span><span class="hs-comment">--     @arn:aws:comprehend:us-west-2:123456789012:entity-recognizer-endpoint\/EXAMPLE@.</span><span>
+</span><span id="line-628"></span><span class="hs-comment">--</span><span>
+</span><span id="line-629"></span><span class="hs-comment">-- -   Lambda provisioned concurrency - The resource type is @function@ and</span><span>
+</span><span id="line-630"></span><span class="hs-comment">--     the unique identifier is the function name with a function version</span><span>
+</span><span id="line-631"></span><span class="hs-comment">--     or alias name suffix that is not @$LATEST@. Example:</span><span>
+</span><span id="line-632"></span><span class="hs-comment">--     @function:my-function:prod@ or @function:my-function:1@.</span><span>
+</span><span id="line-633"></span><span class="hs-comment">--</span><span>
+</span><span id="line-634"></span><span class="hs-comment">-- -   Amazon Keyspaces table - The resource type is @table@ and the unique</span><span>
+</span><span id="line-635"></span><span class="hs-comment">--     identifier is the table name. Example:</span><span>
+</span><span id="line-636"></span><span class="hs-comment">--     @keyspace\/mykeyspace\/table\/mytable@.</span><span>
+</span><span id="line-637"></span><span class="hs-comment">--</span><span>
+</span><span id="line-638"></span><span class="hs-comment">-- -   Amazon MSK cluster - The resource type and unique identifier are</span><span>
+</span><span id="line-639"></span><span class="hs-comment">--     specified using the cluster ARN. Example:</span><span>
+</span><span id="line-640"></span><span class="hs-comment">--     @arn:aws:kafka:us-east-1:123456789012:cluster\/demo-cluster-1\/6357e0b2-0e6a-4b86-a0b4-70df934c2e31-5@.</span><span>
+</span><span id="line-641"></span><span class="hs-comment">--</span><span>
+</span><span id="line-642"></span><span class="hs-comment">-- -   Amazon ElastiCache replication group - The resource type is</span><span>
+</span><span id="line-643"></span><span class="hs-comment">--     @replication-group@ and the unique identifier is the replication</span><span>
+</span><span id="line-644"></span><span class="hs-comment">--     group name. Example: @replication-group\/mycluster@.</span><span>
+</span><span id="line-645"></span><span class="hs-comment">--</span><span>
+</span><span id="line-646"></span><span class="hs-comment">-- -   Neptune cluster - The resource type is @cluster@ and the unique</span><span>
+</span><span id="line-647"></span><span class="hs-comment">--     identifier is the cluster name. Example: @cluster:mycluster@.</span><span>
+</span><span id="line-648"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_resourceId"><span class="hs-identifier hs-type">registerScalableTarget_resourceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-649"></span><span id="registerScalableTarget_resourceId"><span class="annot"><span class="annottext">registerScalableTarget_resourceId :: (Text -&gt; f Text)
+-&gt; RegisterScalableTarget -&gt; f RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_resourceId"><span class="hs-identifier hs-var hs-var">registerScalableTarget_resourceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTarget -&gt; Text)
+-&gt; (RegisterScalableTarget -&gt; Text -&gt; RegisterScalableTarget)
+-&gt; Lens RegisterScalableTarget RegisterScalableTarget Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186767"><span class="annot"><span class="annottext">Text
+resourceId :: Text
+$sel:resourceId:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Text
+</span><a href="#local-6989586621679186767"><span class="hs-identifier hs-var hs-var">resourceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186767"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186766"><span class="annot"><span class="annottext">s :: RegisterScalableTarget
+</span><a href="#local-6989586621679186766"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186765"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186765"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTarget
+</span><a href="#local-6989586621679186766"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceId:RegisterScalableTarget' :: Text
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AresourceId%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">resourceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186765"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-650"></span><span>
+</span><span id="line-651"></span><span class="hs-comment">-- | The scalable dimension associated with the scalable target. This string</span><span>
+</span><span id="line-652"></span><span class="hs-comment">-- consists of the service namespace, resource type, and scaling property.</span><span>
+</span><span id="line-653"></span><span class="hs-comment">--</span><span>
+</span><span id="line-654"></span><span class="hs-comment">-- -   @ecs:service:DesiredCount@ - The desired task count of an ECS</span><span>
+</span><span id="line-655"></span><span class="hs-comment">--     service.</span><span>
+</span><span id="line-656"></span><span class="hs-comment">--</span><span>
+</span><span id="line-657"></span><span class="hs-comment">-- -   @elasticmapreduce:instancegroup:InstanceCount@ - The instance count</span><span>
+</span><span id="line-658"></span><span class="hs-comment">--     of an EMR Instance Group.</span><span>
+</span><span id="line-659"></span><span class="hs-comment">--</span><span>
+</span><span id="line-660"></span><span class="hs-comment">-- -   @ec2:spot-fleet-request:TargetCapacity@ - The target capacity of a</span><span>
+</span><span id="line-661"></span><span class="hs-comment">--     Spot Fleet.</span><span>
+</span><span id="line-662"></span><span class="hs-comment">--</span><span>
+</span><span id="line-663"></span><span class="hs-comment">-- -   @appstream:fleet:DesiredCapacity@ - The desired capacity of an</span><span>
+</span><span id="line-664"></span><span class="hs-comment">--     AppStream 2.0 fleet.</span><span>
+</span><span id="line-665"></span><span class="hs-comment">--</span><span>
+</span><span id="line-666"></span><span class="hs-comment">-- -   @dynamodb:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-667"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-668"></span><span class="hs-comment">--</span><span>
+</span><span id="line-669"></span><span class="hs-comment">-- -   @dynamodb:table:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-670"></span><span class="hs-comment">--     for a DynamoDB table.</span><span>
+</span><span id="line-671"></span><span class="hs-comment">--</span><span>
+</span><span id="line-672"></span><span class="hs-comment">-- -   @dynamodb:index:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-673"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-674"></span><span class="hs-comment">--</span><span>
+</span><span id="line-675"></span><span class="hs-comment">-- -   @dynamodb:index:WriteCapacityUnits@ - The provisioned write capacity</span><span>
+</span><span id="line-676"></span><span class="hs-comment">--     for a DynamoDB global secondary index.</span><span>
+</span><span id="line-677"></span><span class="hs-comment">--</span><span>
+</span><span id="line-678"></span><span class="hs-comment">-- -   @rds:cluster:ReadReplicaCount@ - The count of Aurora Replicas in an</span><span>
+</span><span id="line-679"></span><span class="hs-comment">--     Aurora DB cluster. Available for Aurora MySQL-compatible edition and</span><span>
+</span><span id="line-680"></span><span class="hs-comment">--     Aurora PostgreSQL-compatible edition.</span><span>
+</span><span id="line-681"></span><span class="hs-comment">--</span><span>
+</span><span id="line-682"></span><span class="hs-comment">-- -   @sagemaker:variant:DesiredInstanceCount@ - The number of EC2</span><span>
+</span><span id="line-683"></span><span class="hs-comment">--     instances for an SageMaker model endpoint variant.</span><span>
+</span><span id="line-684"></span><span class="hs-comment">--</span><span>
+</span><span id="line-685"></span><span class="hs-comment">-- -   @custom-resource:ResourceType:Property@ - The scalable dimension for</span><span>
+</span><span id="line-686"></span><span class="hs-comment">--     a custom resource provided by your own application or service.</span><span>
+</span><span id="line-687"></span><span class="hs-comment">--</span><span>
+</span><span id="line-688"></span><span class="hs-comment">-- -   @comprehend:document-classifier-endpoint:DesiredInferenceUnits@ -</span><span>
+</span><span id="line-689"></span><span class="hs-comment">--     The number of inference units for an Amazon Comprehend document</span><span>
+</span><span id="line-690"></span><span class="hs-comment">--     classification endpoint.</span><span>
+</span><span id="line-691"></span><span class="hs-comment">--</span><span>
+</span><span id="line-692"></span><span class="hs-comment">-- -   @comprehend:entity-recognizer-endpoint:DesiredInferenceUnits@ - The</span><span>
+</span><span id="line-693"></span><span class="hs-comment">--     number of inference units for an Amazon Comprehend entity recognizer</span><span>
+</span><span id="line-694"></span><span class="hs-comment">--     endpoint.</span><span>
+</span><span id="line-695"></span><span class="hs-comment">--</span><span>
+</span><span id="line-696"></span><span class="hs-comment">-- -   @lambda:function:ProvisionedConcurrency@ - The provisioned</span><span>
+</span><span id="line-697"></span><span class="hs-comment">--     concurrency for a Lambda function.</span><span>
+</span><span id="line-698"></span><span class="hs-comment">--</span><span>
+</span><span id="line-699"></span><span class="hs-comment">-- -   @cassandra:table:ReadCapacityUnits@ - The provisioned read capacity</span><span>
+</span><span id="line-700"></span><span class="hs-comment">--     for an Amazon Keyspaces table.</span><span>
+</span><span id="line-701"></span><span class="hs-comment">--</span><span>
+</span><span id="line-702"></span><span class="hs-comment">-- -   @cassandra:table:WriteCapacityUnits@ - The provisioned write</span><span>
+</span><span id="line-703"></span><span class="hs-comment">--     capacity for an Amazon Keyspaces table.</span><span>
+</span><span id="line-704"></span><span class="hs-comment">--</span><span>
+</span><span id="line-705"></span><span class="hs-comment">-- -   @kafka:broker-storage:VolumeSize@ - The provisioned volume size (in</span><span>
+</span><span id="line-706"></span><span class="hs-comment">--     GiB) for brokers in an Amazon MSK cluster.</span><span>
+</span><span id="line-707"></span><span class="hs-comment">--</span><span>
+</span><span id="line-708"></span><span class="hs-comment">-- -   @elasticache:replication-group:NodeGroups@ - The number of node</span><span>
+</span><span id="line-709"></span><span class="hs-comment">--     groups for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-710"></span><span class="hs-comment">--</span><span>
+</span><span id="line-711"></span><span class="hs-comment">-- -   @elasticache:replication-group:Replicas@ - The number of replicas</span><span>
+</span><span id="line-712"></span><span class="hs-comment">--     per node group for an Amazon ElastiCache replication group.</span><span>
+</span><span id="line-713"></span><span class="hs-comment">--</span><span>
+</span><span id="line-714"></span><span class="hs-comment">-- -   @neptune:cluster:ReadReplicaCount@ - The count of read replicas in</span><span>
+</span><span id="line-715"></span><span class="hs-comment">--     an Amazon Neptune DB cluster.</span><span>
+</span><span id="line-716"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_scalableDimension"><span class="hs-identifier hs-type">registerScalableTarget_scalableDimension</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.Types.ScalableDimension.html#ScalableDimension"><span class="hs-identifier hs-type">ScalableDimension</span></a></span><span>
+</span><span id="line-717"></span><span id="registerScalableTarget_scalableDimension"><span class="annot"><span class="annottext">registerScalableTarget_scalableDimension :: (ScalableDimension -&gt; f ScalableDimension)
+-&gt; RegisterScalableTarget -&gt; f RegisterScalableTarget
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTarget_scalableDimension"><span class="hs-identifier hs-var hs-var">registerScalableTarget_scalableDimension</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTarget -&gt; ScalableDimension)
+-&gt; (RegisterScalableTarget
+    -&gt; ScalableDimension -&gt; RegisterScalableTarget)
+-&gt; Lens
+     RegisterScalableTarget
+     RegisterScalableTarget
+     ScalableDimension
+     ScalableDimension
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186764"><span class="annot"><span class="annottext">ScalableDimension
+scalableDimension :: ScalableDimension
+$sel:scalableDimension:RegisterScalableTarget' :: RegisterScalableTarget -&gt; ScalableDimension
+</span><a href="#local-6989586621679186764"><span class="hs-identifier hs-var hs-var">scalableDimension</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186764"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186763"><span class="annot"><span class="annottext">s :: RegisterScalableTarget
+</span><a href="#local-6989586621679186763"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186762"><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186762"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTarget
+</span><a href="#local-6989586621679186763"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:scalableDimension:RegisterScalableTarget' :: ScalableDimension
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AscalableDimension%3ARegisterScalableTarget%27"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186762"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-718"></span><span>
+</span><span id="line-719"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-720"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-721"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-722"></span><span>      </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse"><span class="hs-identifier hs-type">RegisterScalableTargetResponse</span></a></span><span>
+</span><span id="line-723"></span><span>  </span><span id="local-6989586621679186758"><span class="annot"><span class="annottext">request :: RegisterScalableTarget -&gt; Request RegisterScalableTarget
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RegisterScalableTarget -&gt; Request RegisterScalableTarget
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.ApplicationAutoScaling.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-724"></span><span>  </span><span id="local-6989586621679186754"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RegisterScalableTarget
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterScalableTarget)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-725"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; ()
+ -&gt; Either String (AWSResponse RegisterScalableTarget))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RegisterScalableTarget
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RegisterScalableTarget)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; () -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveEmpty</span></span><span>
+</span><span id="line-726"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679186751"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186751"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679186750"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679186750"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679186749"><span class="annot"><span class="annottext">()
+</span><a href="#local-6989586621679186749"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-727"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; RegisterScalableTargetResponse
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse%27"><span class="hs-identifier hs-var">RegisterScalableTargetResponse'</span></a></span><span>
+</span><span id="line-728"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; RegisterScalableTargetResponse)
+-&gt; Either String Int
+-&gt; Either String RegisterScalableTargetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186751"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-729"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-730"></span><span>
+</span><span id="line-731"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186742"><span id="local-6989586621679186744"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span></span></span><span>
+</span><span id="line-732"></span><span>
+</span><span id="line-733"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186739"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span></span><span>
+</span><span id="line-734"></span><span>
+</span><span id="line-735"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-736"></span><span>  </span><span id="local-6989586621679186735"><span class="annot"><span class="annottext">toHeaders :: RegisterScalableTarget -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-737"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RegisterScalableTarget -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-738"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-739"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-740"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AnyScaleFrontendService.RegisterScalableTarget&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-741"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-742"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-743"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-744"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-745"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-746"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-747"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-748"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-749"></span><span>
+</span><span id="line-750"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679186725"><span id="local-6989586621679186727"><span id="local-6989586621679186729"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-751"></span><span>  </span><span id="local-6989586621679186723"><span class="annot"><span class="annottext">toJSON :: RegisterScalableTarget -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget%27"><span class="hs-identifier hs-type">RegisterScalableTarget'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186715"><span id="local-6989586621679186716"><span id="local-6989586621679186717"><span id="local-6989586621679186718"><span id="local-6989586621679186719"><span id="local-6989586621679186720"><span id="local-6989586621679186721"><span class="annot"><span class="annottext">Maybe Int
+Maybe Text
+Maybe SuspendedState
+Text
+ScalableDimension
+ServiceNamespace
+scalableDimension :: ScalableDimension
+resourceId :: Text
+serviceNamespace :: ServiceNamespace
+roleARN :: Maybe Text
+minCapacity :: Maybe Int
+maxCapacity :: Maybe Int
+suspendedState :: Maybe SuspendedState
+$sel:scalableDimension:RegisterScalableTarget' :: RegisterScalableTarget -&gt; ScalableDimension
+$sel:resourceId:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Text
+$sel:serviceNamespace:RegisterScalableTarget' :: RegisterScalableTarget -&gt; ServiceNamespace
+$sel:roleARN:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe Text
+$sel:minCapacity:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe Int
+$sel:maxCapacity:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe Int
+$sel:suspendedState:RegisterScalableTarget' :: RegisterScalableTarget -&gt; Maybe SuspendedState
+</span><a href="#local-6989586621679186715"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-752"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-753"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-754"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SuspendedState&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SuspendedState -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-755"></span><span>              </span><span class="annot"><span class="annottext">(SuspendedState -&gt; Pair) -&gt; Maybe SuspendedState -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SuspendedState
+</span><a href="#local-6989586621679186721"><span class="hs-identifier hs-var">suspendedState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-756"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186720"><span class="hs-identifier hs-var">maxCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-757"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MinCapacity&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679186719"><span class="hs-identifier hs-var">minCapacity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-758"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RoleARN&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679186718"><span class="hs-identifier hs-var">roleARN</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-759"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-760"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServiceNamespace&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ServiceNamespace -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ServiceNamespace
+</span><a href="#local-6989586621679186717"><span class="hs-identifier hs-var">serviceNamespace</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-761"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ResourceId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679186716"><span class="hs-identifier hs-var">resourceId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-762"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-763"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ScalableDimension&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ScalableDimension -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ScalableDimension
+</span><a href="#local-6989586621679186715"><span class="hs-identifier hs-var">scalableDimension</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-764"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-765"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-766"></span><span>
+</span><span id="line-767"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-768"></span><span>  </span><span id="local-6989586621679186709"><span class="annot"><span class="annottext">toPath :: RegisterScalableTarget -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RegisterScalableTarget -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-769"></span><span>
+</span><span id="line-770"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTarget"><span class="hs-identifier hs-type">RegisterScalableTarget</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-771"></span><span>  </span><span id="local-6989586621679186705"><span class="annot"><span class="annottext">toQuery :: RegisterScalableTarget -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RegisterScalableTarget -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-772"></span><span>
+</span><span id="line-773"></span><span class="hs-comment">-- | /See:/ 'newRegisterScalableTargetResponse' smart constructor.</span><span>
+</span><span id="line-774"></span><span id="local-6989586621679186702"><span id="local-6989586621679186703"></span></span><span class="hs-keyword">data</span><span> </span><span id="RegisterScalableTargetResponse"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse"><span class="hs-identifier hs-var">RegisterScalableTargetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RegisterScalableTargetResponse%27"><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse%27"><span class="hs-identifier hs-var">RegisterScalableTargetResponse'</span></a></span></span><span>
+</span><span id="line-775"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-776"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARegisterScalableTargetResponse%27"><span class="annot"><span class="annottext">RegisterScalableTargetResponse -&gt; Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AhttpStatus%3ARegisterScalableTargetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-777"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-778"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679186697"><span id="local-6989586621679186699"><span class="annot"><span class="annottext">RegisterScalableTargetResponse
+-&gt; RegisterScalableTargetResponse -&gt; Bool
+(RegisterScalableTargetResponse
+ -&gt; RegisterScalableTargetResponse -&gt; Bool)
+-&gt; (RegisterScalableTargetResponse
+    -&gt; RegisterScalableTargetResponse -&gt; Bool)
+-&gt; Eq RegisterScalableTargetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RegisterScalableTargetResponse
+-&gt; RegisterScalableTargetResponse -&gt; Bool
+$c/= :: RegisterScalableTargetResponse
+-&gt; RegisterScalableTargetResponse -&gt; Bool
+== :: RegisterScalableTargetResponse
+-&gt; RegisterScalableTargetResponse -&gt; Bool
+$c== :: RegisterScalableTargetResponse
+-&gt; RegisterScalableTargetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186689"><span id="local-6989586621679186691"><span id="local-6989586621679186693"><span id="local-6989586621679186695"><span class="annot"><span class="annottext">ReadPrec [RegisterScalableTargetResponse]
+ReadPrec RegisterScalableTargetResponse
+Int -&gt; ReadS RegisterScalableTargetResponse
+ReadS [RegisterScalableTargetResponse]
+(Int -&gt; ReadS RegisterScalableTargetResponse)
+-&gt; ReadS [RegisterScalableTargetResponse]
+-&gt; ReadPrec RegisterScalableTargetResponse
+-&gt; ReadPrec [RegisterScalableTargetResponse]
+-&gt; Read RegisterScalableTargetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RegisterScalableTargetResponse]
+$creadListPrec :: ReadPrec [RegisterScalableTargetResponse]
+readPrec :: ReadPrec RegisterScalableTargetResponse
+$creadPrec :: ReadPrec RegisterScalableTargetResponse
+readList :: ReadS [RegisterScalableTargetResponse]
+$creadList :: ReadS [RegisterScalableTargetResponse]
+readsPrec :: Int -&gt; ReadS RegisterScalableTargetResponse
+$creadsPrec :: Int -&gt; ReadS RegisterScalableTargetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679186683"><span id="local-6989586621679186685"><span id="local-6989586621679186687"><span class="annot"><span class="annottext">Int -&gt; RegisterScalableTargetResponse -&gt; ShowS
+[RegisterScalableTargetResponse] -&gt; ShowS
+RegisterScalableTargetResponse -&gt; String
+(Int -&gt; RegisterScalableTargetResponse -&gt; ShowS)
+-&gt; (RegisterScalableTargetResponse -&gt; String)
+-&gt; ([RegisterScalableTargetResponse] -&gt; ShowS)
+-&gt; Show RegisterScalableTargetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RegisterScalableTargetResponse] -&gt; ShowS
+$cshowList :: [RegisterScalableTargetResponse] -&gt; ShowS
+show :: RegisterScalableTargetResponse -&gt; String
+$cshow :: RegisterScalableTargetResponse -&gt; String
+showsPrec :: Int -&gt; RegisterScalableTargetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RegisterScalableTargetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RegisterScalableTargetResponse
+ -&gt; Rep RegisterScalableTargetResponse x)
+-&gt; (forall x.
+    Rep RegisterScalableTargetResponse x
+    -&gt; RegisterScalableTargetResponse)
+-&gt; Generic RegisterScalableTargetResponse
+forall x.
+Rep RegisterScalableTargetResponse x
+-&gt; RegisterScalableTargetResponse
+forall x.
+RegisterScalableTargetResponse
+-&gt; Rep RegisterScalableTargetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RegisterScalableTargetResponse x
+-&gt; RegisterScalableTargetResponse
+$cfrom :: forall x.
+RegisterScalableTargetResponse
+-&gt; Rep RegisterScalableTargetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-779"></span><span>
+</span><span id="line-780"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-781"></span><span class="hs-comment">-- Create a value of 'RegisterScalableTargetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-782"></span><span class="hs-comment">--</span><span>
+</span><span id="line-783"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-784"></span><span class="hs-comment">--</span><span>
+</span><span id="line-785"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-786"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-787"></span><span class="hs-comment">--</span><span>
+</span><span id="line-788"></span><span class="hs-comment">-- 'httpStatus', 'registerScalableTargetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-789"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#newRegisterScalableTargetResponse"><span class="hs-identifier hs-type">newRegisterScalableTargetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-790"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-791"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-792"></span><span>  </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse"><span class="hs-identifier hs-type">RegisterScalableTargetResponse</span></a></span><span>
+</span><span id="line-793"></span><span id="newRegisterScalableTargetResponse"><span class="annot"><span class="annottext">newRegisterScalableTargetResponse :: Int -&gt; RegisterScalableTargetResponse
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#newRegisterScalableTargetResponse"><span class="hs-identifier hs-var hs-var">newRegisterScalableTargetResponse</span></a></span></span><span> </span><span id="local-6989586621679186680"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-794"></span><span>  </span><span class="annot"><span class="annottext">RegisterScalableTargetResponse' :: Int -&gt; RegisterScalableTargetResponse
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse%27"><span class="hs-identifier hs-type">RegisterScalableTargetResponse'</span></a></span><span>
+</span><span id="line-795"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterScalableTargetResponse' :: Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AhttpStatus%3ARegisterScalableTargetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-796"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186680"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-797"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-798"></span><span>
+</span><span id="line-799"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-800"></span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTargetResponse_httpStatus"><span class="hs-identifier hs-type">registerScalableTargetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse"><span class="hs-identifier hs-type">RegisterScalableTargetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-801"></span><span id="registerScalableTargetResponse_httpStatus"><span class="annot"><span class="annottext">registerScalableTargetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RegisterScalableTargetResponse
+-&gt; f RegisterScalableTargetResponse
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#registerScalableTargetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">registerScalableTargetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RegisterScalableTargetResponse -&gt; Int)
+-&gt; (RegisterScalableTargetResponse
+    -&gt; Int -&gt; RegisterScalableTargetResponse)
+-&gt; Lens
+     RegisterScalableTargetResponse
+     RegisterScalableTargetResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse%27"><span class="hs-identifier hs-type">RegisterScalableTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679186679"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RegisterScalableTargetResponse' :: RegisterScalableTargetResponse -&gt; Int
+</span><a href="#local-6989586621679186679"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186679"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679186678"><span class="annot"><span class="annottext">s :: RegisterScalableTargetResponse
+</span><a href="#local-6989586621679186678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse%27"><span class="hs-identifier hs-type">RegisterScalableTargetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679186677"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RegisterScalableTargetResponse
+</span><a href="#local-6989586621679186678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RegisterScalableTargetResponse' :: Int
+</span><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#%24sel%3AhttpStatus%3ARegisterScalableTargetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679186677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse"><span class="hs-identifier hs-type">RegisterScalableTargetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-802"></span><span>
+</span><span id="line-803"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-804"></span><span>  </span><span id="local-6989586621679186675"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-805"></span><span>    </span><span class="annot"><a href="Amazonka.ApplicationAutoScaling.RegisterScalableTarget.html#RegisterScalableTargetResponse"><span class="hs-identifier hs-type">RegisterScalableTargetResponse</span></a></span></span><span>
+</span><span id="line-806"></span></pre></body></html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.Tier</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.Tier</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier"><span class="hs-identifier">Tier</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Bulk"><span class="hs-identifier">Tier_Bulk</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Expedited"><span class="hs-identifier">Tier_Expedited</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Standard"><span class="hs-identifier">Tier_Standard</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span id="local-6989586621679557037"><span id="local-6989586621679557038"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Tier"><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-var">Tier</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Tier%27"><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier%27"><span class="hs-identifier hs-var">Tier'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromTier"><span class="annot"><span class="annottext">Tier -&gt; Text
+</span><a href="Amazonka.S3.Types.Tier.html#fromTier"><span class="hs-identifier hs-var hs-var">fromTier</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679557029"><span id="local-6989586621679557031"><span id="local-6989586621679557033"><span class="annot"><span class="annottext">Int -&gt; Tier -&gt; ShowS
+[Tier] -&gt; ShowS
+Tier -&gt; String
+(Int -&gt; Tier -&gt; ShowS)
+-&gt; (Tier -&gt; String) -&gt; ([Tier] -&gt; ShowS) -&gt; Show Tier
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Tier] -&gt; ShowS
+$cshowList :: [Tier] -&gt; ShowS
+show :: Tier -&gt; String
+$cshow :: Tier -&gt; String
+showsPrec :: Int -&gt; Tier -&gt; ShowS
+$cshowsPrec :: Int -&gt; Tier -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>      </span><span id="local-6989586621679557020"><span id="local-6989586621679557022"><span id="local-6989586621679557024"><span id="local-6989586621679557026"><span class="annot"><span class="annottext">ReadPrec [Tier]
+ReadPrec Tier
+Int -&gt; ReadS Tier
+ReadS [Tier]
+(Int -&gt; ReadS Tier)
+-&gt; ReadS [Tier] -&gt; ReadPrec Tier -&gt; ReadPrec [Tier] -&gt; Read Tier
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Tier]
+$creadListPrec :: ReadPrec [Tier]
+readPrec :: ReadPrec Tier
+$creadPrec :: ReadPrec Tier
+readList :: ReadS [Tier]
+$creadList :: ReadS [Tier]
+readsPrec :: Int -&gt; ReadS Tier
+$creadsPrec :: Int -&gt; ReadS Tier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679557015"><span id="local-6989586621679557017"><span class="annot"><span class="annottext">Tier -&gt; Tier -&gt; Bool
+(Tier -&gt; Tier -&gt; Bool) -&gt; (Tier -&gt; Tier -&gt; Bool) -&gt; Eq Tier
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Tier -&gt; Tier -&gt; Bool
+$c/= :: Tier -&gt; Tier -&gt; Bool
+== :: Tier -&gt; Tier -&gt; Bool
+$c== :: Tier -&gt; Tier -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679556999"><span id="local-6989586621679557001"><span id="local-6989586621679557003"><span id="local-6989586621679557005"><span id="local-6989586621679557007"><span id="local-6989586621679557009"><span id="local-6989586621679557011"><span class="annot"><span class="annottext">Eq Tier
+Eq Tier
+-&gt; (Tier -&gt; Tier -&gt; Ordering)
+-&gt; (Tier -&gt; Tier -&gt; Bool)
+-&gt; (Tier -&gt; Tier -&gt; Bool)
+-&gt; (Tier -&gt; Tier -&gt; Bool)
+-&gt; (Tier -&gt; Tier -&gt; Bool)
+-&gt; (Tier -&gt; Tier -&gt; Tier)
+-&gt; (Tier -&gt; Tier -&gt; Tier)
+-&gt; Ord Tier
+Tier -&gt; Tier -&gt; Bool
+Tier -&gt; Tier -&gt; Ordering
+Tier -&gt; Tier -&gt; Tier
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Tier -&gt; Tier -&gt; Tier
+$cmin :: Tier -&gt; Tier -&gt; Tier
+max :: Tier -&gt; Tier -&gt; Tier
+$cmax :: Tier -&gt; Tier -&gt; Tier
+&gt;= :: Tier -&gt; Tier -&gt; Bool
+$c&gt;= :: Tier -&gt; Tier -&gt; Bool
+&gt; :: Tier -&gt; Tier -&gt; Bool
+$c&gt; :: Tier -&gt; Tier -&gt; Bool
+&lt;= :: Tier -&gt; Tier -&gt; Bool
+$c&lt;= :: Tier -&gt; Tier -&gt; Bool
+&lt; :: Tier -&gt; Tier -&gt; Bool
+$c&lt; :: Tier -&gt; Tier -&gt; Bool
+compare :: Tier -&gt; Tier -&gt; Ordering
+$ccompare :: Tier -&gt; Tier -&gt; Ordering
+$cp1Ord :: Eq Tier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Tier -&gt; Rep Tier x)
+-&gt; (forall x. Rep Tier x -&gt; Tier) -&gt; Generic Tier
+forall x. Rep Tier x -&gt; Tier
+forall x. Tier -&gt; Rep Tier x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Tier x -&gt; Tier
+$cfrom :: forall x. Tier -&gt; Rep Tier x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679556991"><span id="local-6989586621679556993"><span class="annot"><span class="annottext">Int -&gt; Tier -&gt; Int
+Tier -&gt; Int
+(Int -&gt; Tier -&gt; Int) -&gt; (Tier -&gt; Int) -&gt; Hashable Tier
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Tier -&gt; Int
+$chash :: Tier -&gt; Int
+hashWithSalt :: Int -&gt; Tier -&gt; Int
+$chashWithSalt :: Int -&gt; Tier -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679556988"><span class="annot"><span class="annottext">Tier -&gt; ()
+(Tier -&gt; ()) -&gt; NFData Tier
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Tier -&gt; ()
+$crnf :: Tier -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679556985"><span class="annot"><span class="annottext">Text -&gt; Either String Tier
+(Text -&gt; Either String Tier) -&gt; FromText Tier
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Tier
+$cfromText :: Text -&gt; Either String Tier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679556982"><span class="annot"><span class="annottext">Tier -&gt; Text
+(Tier -&gt; Text) -&gt; ToText Tier
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Tier -&gt; Text
+$ctoText :: Tier -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679556979"><span class="annot"><span class="annottext">Tier -&gt; ByteString
+(Tier -&gt; ByteString) -&gt; ToByteString Tier
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Tier -&gt; ByteString
+$ctoBS :: Tier -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679556976"><span class="annot"><span class="annottext">Tier -&gt; ByteStringBuilder
+(Tier -&gt; ByteStringBuilder) -&gt; ToLog Tier
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Tier -&gt; ByteStringBuilder
+$cbuild :: Tier -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679556973"><span class="annot"><span class="annottext">HeaderName -&gt; Tier -&gt; [Header]
+(HeaderName -&gt; Tier -&gt; [Header]) -&gt; ToHeader Tier
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Tier -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Tier -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679556970"><span class="annot"><span class="annottext">Tier -&gt; QueryString
+(Tier -&gt; QueryString) -&gt; ToQuery Tier
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Tier -&gt; QueryString
+$ctoQuery :: Tier -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679556965"><span id="local-6989586621679556967"><span class="annot"><span class="annottext">Value -&gt; Parser [Tier]
+Value -&gt; Parser Tier
+(Value -&gt; Parser Tier) -&gt; (Value -&gt; Parser [Tier]) -&gt; FromJSON Tier
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Tier]
+$cparseJSONList :: Value -&gt; Parser [Tier]
+parseJSON :: Value -&gt; Parser Tier
+$cparseJSON :: Value -&gt; Parser Tier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679556960"><span id="local-6989586621679556962"><span class="annot"><span class="annottext">FromJSONKeyFunction [Tier]
+FromJSONKeyFunction Tier
+FromJSONKeyFunction Tier
+-&gt; FromJSONKeyFunction [Tier] -&gt; FromJSONKey Tier
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Tier]
+$cfromJSONKeyList :: FromJSONKeyFunction [Tier]
+fromJSONKey :: FromJSONKeyFunction Tier
+$cfromJSONKey :: FromJSONKeyFunction Tier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679556951"><span id="local-6989586621679556953"><span id="local-6989586621679556955"><span id="local-6989586621679556957"><span class="annot"><span class="annottext">[Tier] -&gt; Encoding
+[Tier] -&gt; Value
+Tier -&gt; Encoding
+Tier -&gt; Value
+(Tier -&gt; Value)
+-&gt; (Tier -&gt; Encoding)
+-&gt; ([Tier] -&gt; Value)
+-&gt; ([Tier] -&gt; Encoding)
+-&gt; ToJSON Tier
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Tier] -&gt; Encoding
+$ctoEncodingList :: [Tier] -&gt; Encoding
+toJSONList :: [Tier] -&gt; Value
+$ctoJSONList :: [Tier] -&gt; Value
+toEncoding :: Tier -&gt; Encoding
+$ctoEncoding :: Tier -&gt; Encoding
+toJSON :: Tier -&gt; Value
+$ctoJSON :: Tier -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679556946"><span id="local-6989586621679556948"><span class="annot"><span class="annottext">ToJSONKeyFunction [Tier]
+ToJSONKeyFunction Tier
+ToJSONKeyFunction Tier
+-&gt; ToJSONKeyFunction [Tier] -&gt; ToJSONKey Tier
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Tier]
+$ctoJSONKeyList :: ToJSONKeyFunction [Tier]
+toJSONKey :: ToJSONKeyFunction Tier
+$ctoJSONKey :: ToJSONKeyFunction Tier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679556943"><span class="annot"><span class="annottext">[Node] -&gt; Either String Tier
+([Node] -&gt; Either String Tier) -&gt; FromXML Tier
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Tier
+$cparseXML :: [Node] -&gt; Either String Tier
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679556940"><span class="annot"><span class="annottext">Tier -&gt; XML
+(Tier -&gt; XML) -&gt; ToXML Tier
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Tier -&gt; XML
+$ctoXML :: Tier -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Bulk"><span class="hs-identifier hs-type">Tier_Bulk</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTier_Bulk"><span id="%24mTier_Bulk"><span id="Tier_Bulk"><span class="annot"><span class="annottext">$bTier_Bulk :: Tier
+$mTier_Bulk :: forall r. Tier -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.Tier.html#%24bTier_Bulk"><span class="hs-identifier hs-var hs-var hs-var">Tier_Bulk</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier%27"><span class="hs-identifier hs-type">Tier'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Bulk&quot;</span></span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Expedited"><span class="hs-identifier hs-type">Tier_Expedited</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTier_Expedited"><span id="%24mTier_Expedited"><span id="Tier_Expedited"><span class="annot"><span class="annottext">$bTier_Expedited :: Tier
+$mTier_Expedited :: forall r. Tier -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.Tier.html#%24bTier_Expedited"><span class="hs-identifier hs-var hs-var hs-var">Tier_Expedited</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier%27"><span class="hs-identifier hs-type">Tier'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Expedited&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Standard"><span class="hs-identifier hs-type">Tier_Standard</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier"><span class="hs-identifier hs-type">Tier</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTier_Standard"><span id="%24mTier_Standard"><span id="Tier_Standard"><span class="annot"><span class="annottext">$bTier_Standard :: Tier
+$mTier_Standard :: forall r. Tier -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.S3.Types.Tier.html#%24bTier_Standard"><span class="hs-identifier hs-var hs-var hs-var">Tier_Standard</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier%27"><span class="hs-identifier hs-type">Tier'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Standard&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Bulk"><span class="hs-pragma hs-type">Tier_Bulk</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Expedited"><span class="hs-pragma hs-type">Tier_Expedited</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier_Standard"><span class="hs-pragma hs-type">Tier_Standard</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.Tier.html#Tier%27"><span class="hs-pragma hs-type">Tier'</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-74"></span></pre></body></html>

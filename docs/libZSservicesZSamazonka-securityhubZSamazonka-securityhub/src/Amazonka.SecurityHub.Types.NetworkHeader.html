@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.NetworkHeader</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.NetworkHeader</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkPathComponentDetails.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.NetworkPathComponentDetails</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Details about a network path component that occurs before or after the</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- current component.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newNetworkHeader' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679982503"><span id="local-6989586621679982504"></span></span><span class="hs-keyword">data</span><span> </span><span id="NetworkHeader"><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-var">NetworkHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NetworkHeader%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-var">NetworkHeader'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the destination of the component.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Adestination%3ANetworkHeader%27"><span class="annot"><span class="annottext">NetworkHeader -&gt; Maybe NetworkPathComponentDetails
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Adestination%3ANetworkHeader%27"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkPathComponentDetails.html#NetworkPathComponentDetails"><span class="hs-identifier hs-type">NetworkPathComponentDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The protocol used for the component.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Aprotocol%3ANetworkHeader%27"><span class="annot"><span class="annottext">NetworkHeader -&gt; Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Aprotocol%3ANetworkHeader%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | Information about the origin of the component.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Asource%3ANetworkHeader%27"><span class="annot"><span class="annottext">NetworkHeader -&gt; Maybe NetworkPathComponentDetails
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Asource%3ANetworkHeader%27"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkPathComponentDetails.html#NetworkPathComponentDetails"><span class="hs-identifier hs-type">NetworkPathComponentDetails</span></a></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679982495"><span id="local-6989586621679982497"><span class="annot"><span class="annottext">NetworkHeader -&gt; NetworkHeader -&gt; Bool
+(NetworkHeader -&gt; NetworkHeader -&gt; Bool)
+-&gt; (NetworkHeader -&gt; NetworkHeader -&gt; Bool) -&gt; Eq NetworkHeader
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NetworkHeader -&gt; NetworkHeader -&gt; Bool
+$c/= :: NetworkHeader -&gt; NetworkHeader -&gt; Bool
+== :: NetworkHeader -&gt; NetworkHeader -&gt; Bool
+$c== :: NetworkHeader -&gt; NetworkHeader -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679982486"><span id="local-6989586621679982488"><span id="local-6989586621679982490"><span id="local-6989586621679982492"><span class="annot"><span class="annottext">ReadPrec [NetworkHeader]
+ReadPrec NetworkHeader
+Int -&gt; ReadS NetworkHeader
+ReadS [NetworkHeader]
+(Int -&gt; ReadS NetworkHeader)
+-&gt; ReadS [NetworkHeader]
+-&gt; ReadPrec NetworkHeader
+-&gt; ReadPrec [NetworkHeader]
+-&gt; Read NetworkHeader
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NetworkHeader]
+$creadListPrec :: ReadPrec [NetworkHeader]
+readPrec :: ReadPrec NetworkHeader
+$creadPrec :: ReadPrec NetworkHeader
+readList :: ReadS [NetworkHeader]
+$creadList :: ReadS [NetworkHeader]
+readsPrec :: Int -&gt; ReadS NetworkHeader
+$creadsPrec :: Int -&gt; ReadS NetworkHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679982479"><span id="local-6989586621679982481"><span id="local-6989586621679982483"><span class="annot"><span class="annottext">Int -&gt; NetworkHeader -&gt; ShowS
+[NetworkHeader] -&gt; ShowS
+NetworkHeader -&gt; String
+(Int -&gt; NetworkHeader -&gt; ShowS)
+-&gt; (NetworkHeader -&gt; String)
+-&gt; ([NetworkHeader] -&gt; ShowS)
+-&gt; Show NetworkHeader
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NetworkHeader] -&gt; ShowS
+$cshowList :: [NetworkHeader] -&gt; ShowS
+show :: NetworkHeader -&gt; String
+$cshow :: NetworkHeader -&gt; String
+showsPrec :: Int -&gt; NetworkHeader -&gt; ShowS
+$cshowsPrec :: Int -&gt; NetworkHeader -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. NetworkHeader -&gt; Rep NetworkHeader x)
+-&gt; (forall x. Rep NetworkHeader x -&gt; NetworkHeader)
+-&gt; Generic NetworkHeader
+forall x. Rep NetworkHeader x -&gt; NetworkHeader
+forall x. NetworkHeader -&gt; Rep NetworkHeader x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep NetworkHeader x -&gt; NetworkHeader
+$cfrom :: forall x. NetworkHeader -&gt; Rep NetworkHeader x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'NetworkHeader' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'destination', 'networkHeader_destination' - Information about the destination of the component.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'protocol', 'networkHeader_protocol' - The protocol used for the component.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'source', 'networkHeader_source' - Information about the origin of the component.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#newNetworkHeader"><span class="hs-identifier hs-type">newNetworkHeader</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span><span>
+</span><span id="line-56"></span><span id="newNetworkHeader"><span class="annot"><span class="annottext">newNetworkHeader :: NetworkHeader
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#newNetworkHeader"><span class="hs-identifier hs-var hs-var">newNetworkHeader</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">NetworkHeader' :: Maybe NetworkPathComponentDetails
+-&gt; Maybe Text -&gt; Maybe NetworkPathComponentDetails -&gt; NetworkHeader
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:destination:NetworkHeader' :: Maybe NetworkPathComponentDetails
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Adestination%3ANetworkHeader%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span class="annot"><span class="annottext">$sel:protocol:NetworkHeader' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Aprotocol%3ANetworkHeader%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:source:NetworkHeader' :: Maybe NetworkPathComponentDetails
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Asource%3ANetworkHeader%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | Information about the destination of the component.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#networkHeader_destination"><span class="hs-identifier hs-type">networkHeader_destination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkPathComponentDetails.html#NetworkPathComponentDetails"><span class="hs-identifier hs-type">NetworkPathComponentDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-65"></span><span id="networkHeader_destination"><span class="annot"><span class="annottext">networkHeader_destination :: (Maybe NetworkPathComponentDetails
+ -&gt; f (Maybe NetworkPathComponentDetails))
+-&gt; NetworkHeader -&gt; f NetworkHeader
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#networkHeader_destination"><span class="hs-identifier hs-var hs-var">networkHeader_destination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkHeader -&gt; Maybe NetworkPathComponentDetails)
+-&gt; (NetworkHeader
+    -&gt; Maybe NetworkPathComponentDetails -&gt; NetworkHeader)
+-&gt; Lens
+     NetworkHeader
+     NetworkHeader
+     (Maybe NetworkPathComponentDetails)
+     (Maybe NetworkPathComponentDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982470"><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+destination :: Maybe NetworkPathComponentDetails
+$sel:destination:NetworkHeader' :: NetworkHeader -&gt; Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982470"><span class="hs-identifier hs-var hs-var">destination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982470"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982469"><span class="annot"><span class="annottext">s :: NetworkHeader
+</span><a href="#local-6989586621679982469"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982468"><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982468"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkHeader
+</span><a href="#local-6989586621679982469"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destination:NetworkHeader' :: Maybe NetworkPathComponentDetails
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Adestination%3ANetworkHeader%27"><span class="hs-identifier hs-var">destination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982468"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- | The protocol used for the component.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#networkHeader_protocol"><span class="hs-identifier hs-type">networkHeader_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span id="networkHeader_protocol"><span class="annot"><span class="annottext">networkHeader_protocol :: (Maybe Text -&gt; f (Maybe Text)) -&gt; NetworkHeader -&gt; f NetworkHeader
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#networkHeader_protocol"><span class="hs-identifier hs-var hs-var">networkHeader_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkHeader -&gt; Maybe Text)
+-&gt; (NetworkHeader -&gt; Maybe Text -&gt; NetworkHeader)
+-&gt; Lens NetworkHeader NetworkHeader (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982466"><span class="annot"><span class="annottext">Maybe Text
+protocol :: Maybe Text
+$sel:protocol:NetworkHeader' :: NetworkHeader -&gt; Maybe Text
+</span><a href="#local-6989586621679982466"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982466"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982465"><span class="annot"><span class="annottext">s :: NetworkHeader
+</span><a href="#local-6989586621679982465"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982464"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982464"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkHeader
+</span><a href="#local-6989586621679982465"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:NetworkHeader' :: Maybe Text
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Aprotocol%3ANetworkHeader%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982464"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- | Information about the origin of the component.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#networkHeader_source"><span class="hs-identifier hs-type">networkHeader_source</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkPathComponentDetails.html#NetworkPathComponentDetails"><span class="hs-identifier hs-type">NetworkPathComponentDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-73"></span><span id="networkHeader_source"><span class="annot"><span class="annottext">networkHeader_source :: (Maybe NetworkPathComponentDetails
+ -&gt; f (Maybe NetworkPathComponentDetails))
+-&gt; NetworkHeader -&gt; f NetworkHeader
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#networkHeader_source"><span class="hs-identifier hs-var hs-var">networkHeader_source</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NetworkHeader -&gt; Maybe NetworkPathComponentDetails)
+-&gt; (NetworkHeader
+    -&gt; Maybe NetworkPathComponentDetails -&gt; NetworkHeader)
+-&gt; Lens
+     NetworkHeader
+     NetworkHeader
+     (Maybe NetworkPathComponentDetails)
+     (Maybe NetworkPathComponentDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982462"><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+source :: Maybe NetworkPathComponentDetails
+$sel:source:NetworkHeader' :: NetworkHeader -&gt; Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982462"><span class="hs-identifier hs-var hs-var">source</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982462"><span class="hs-identifier hs-var">source</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679982461"><span class="annot"><span class="annottext">s :: NetworkHeader
+</span><a href="#local-6989586621679982461"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679982460"><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982460"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NetworkHeader
+</span><a href="#local-6989586621679982461"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:source:NetworkHeader' :: Maybe NetworkPathComponentDetails
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#%24sel%3Asource%3ANetworkHeader%27"><span class="hs-identifier hs-var">source</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982460"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982457"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679982455"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser NetworkHeader
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser NetworkHeader)
+-&gt; Value
+-&gt; Parser NetworkHeader
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;NetworkHeader&quot;</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679982452"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982452"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>          </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+-&gt; Maybe Text -&gt; Maybe NetworkPathComponentDetails -&gt; NetworkHeader
+</span><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-var">NetworkHeader'</span></a></span><span>
+</span><span id="line-81"></span><span>            </span><span class="annot"><span class="annottext">(Maybe NetworkPathComponentDetails
+ -&gt; Maybe Text
+ -&gt; Maybe NetworkPathComponentDetails
+ -&gt; NetworkHeader)
+-&gt; Parser (Maybe NetworkPathComponentDetails)
+-&gt; Parser
+     (Maybe Text -&gt; Maybe NetworkPathComponentDetails -&gt; NetworkHeader)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkPathComponentDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Destination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text -&gt; Maybe NetworkPathComponentDetails -&gt; NetworkHeader)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe NetworkPathComponentDetails -&gt; NetworkHeader)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe NetworkPathComponentDetails -&gt; NetworkHeader)
+-&gt; Parser (Maybe NetworkPathComponentDetails)
+-&gt; Parser NetworkHeader
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679982452"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe NetworkPathComponentDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982446"><span id="local-6989586621679982448"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982443"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679982435"><span id="local-6989586621679982437"><span id="local-6989586621679982439"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader"><span class="hs-identifier hs-type">NetworkHeader</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679982433"><span class="annot"><span class="annottext">toJSON :: NetworkHeader -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.NetworkHeader.html#NetworkHeader%27"><span class="hs-identifier hs-type">NetworkHeader'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679982429"><span id="local-6989586621679982430"><span id="local-6989586621679982431"><span class="annot"><span class="annottext">Maybe Text
+Maybe NetworkPathComponentDetails
+source :: Maybe NetworkPathComponentDetails
+protocol :: Maybe Text
+destination :: Maybe NetworkPathComponentDetails
+$sel:source:NetworkHeader' :: NetworkHeader -&gt; Maybe NetworkPathComponentDetails
+$sel:protocol:NetworkHeader' :: NetworkHeader -&gt; Maybe Text
+$sel:destination:NetworkHeader' :: NetworkHeader -&gt; Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982429"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-93"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-94"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Destination&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkPathComponentDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NetworkPathComponentDetails -&gt; Pair)
+-&gt; Maybe NetworkPathComponentDetails -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982431"><span class="hs-identifier hs-var">destination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679982430"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Source&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NetworkPathComponentDetails -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(NetworkPathComponentDetails -&gt; Pair)
+-&gt; Maybe NetworkPathComponentDetails -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe NetworkPathComponentDetails
+</span><a href="#local-6989586621679982429"><span class="hs-identifier hs-var">source</span></a></span><span>
+</span><span id="line-97"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span></pre></body></html>

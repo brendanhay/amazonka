@@ -1,0 +1,1533 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaPackage.DescribeOriginEndpoint</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets details about an existing OriginEndpoint.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaPackage.DescribeOriginEndpoint</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier">DescribeOriginEndpoint</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#newDescribeOriginEndpoint"><span class="hs-identifier">newDescribeOriginEndpoint</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpoint_id"><span class="hs-identifier">describeOriginEndpoint_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#newDescribeOriginEndpointResponse"><span class="hs-identifier">newDescribeOriginEndpointResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_whitelist"><span class="hs-identifier">describeOriginEndpointResponse_whitelist</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_hlsPackage"><span class="hs-identifier">describeOriginEndpointResponse_hlsPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_arn"><span class="hs-identifier">describeOriginEndpointResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_manifestName"><span class="hs-identifier">describeOriginEndpointResponse_manifestName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_url"><span class="hs-identifier">describeOriginEndpointResponse_url</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_authorization"><span class="hs-identifier">describeOriginEndpointResponse_authorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_channelId"><span class="hs-identifier">describeOriginEndpointResponse_channelId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_startoverWindowSeconds"><span class="hs-identifier">describeOriginEndpointResponse_startoverWindowSeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_dashPackage"><span class="hs-identifier">describeOriginEndpointResponse_dashPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_mssPackage"><span class="hs-identifier">describeOriginEndpointResponse_mssPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_id"><span class="hs-identifier">describeOriginEndpointResponse_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_timeDelaySeconds"><span class="hs-identifier">describeOriginEndpointResponse_timeDelaySeconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_cmafPackage"><span class="hs-identifier">describeOriginEndpointResponse_cmafPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_description"><span class="hs-identifier">describeOriginEndpointResponse_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_tags"><span class="hs-identifier">describeOriginEndpointResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_origination"><span class="hs-identifier">describeOriginEndpointResponse_origination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_httpStatus"><span class="hs-identifier">describeOriginEndpointResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.html"><span class="hs-identifier">Amazonka.MediaPackage.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | /See:/ 'newDescribeOriginEndpoint' smart constructor.</span><span>
+</span><span id="line-65"></span><span id="local-6989586621679242408"><span id="local-6989586621679242409"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOriginEndpoint"><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-var">DescribeOriginEndpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOriginEndpoint%27"><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint%27"><span class="hs-identifier hs-var">DescribeOriginEndpoint'</span></a></span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the OriginEndpoint.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3Aid%3ADescribeOriginEndpoint%27"><span class="annot"><span class="annottext">DescribeOriginEndpoint -&gt; Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aid%3ADescribeOriginEndpoint%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242402"><span id="local-6989586621679242404"><span class="annot"><span class="annottext">DescribeOriginEndpoint -&gt; DescribeOriginEndpoint -&gt; Bool
+(DescribeOriginEndpoint -&gt; DescribeOriginEndpoint -&gt; Bool)
+-&gt; (DescribeOriginEndpoint -&gt; DescribeOriginEndpoint -&gt; Bool)
+-&gt; Eq DescribeOriginEndpoint
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeOriginEndpoint -&gt; DescribeOriginEndpoint -&gt; Bool
+$c/= :: DescribeOriginEndpoint -&gt; DescribeOriginEndpoint -&gt; Bool
+== :: DescribeOriginEndpoint -&gt; DescribeOriginEndpoint -&gt; Bool
+$c== :: DescribeOriginEndpoint -&gt; DescribeOriginEndpoint -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242393"><span id="local-6989586621679242395"><span id="local-6989586621679242397"><span id="local-6989586621679242399"><span class="annot"><span class="annottext">ReadPrec [DescribeOriginEndpoint]
+ReadPrec DescribeOriginEndpoint
+Int -&gt; ReadS DescribeOriginEndpoint
+ReadS [DescribeOriginEndpoint]
+(Int -&gt; ReadS DescribeOriginEndpoint)
+-&gt; ReadS [DescribeOriginEndpoint]
+-&gt; ReadPrec DescribeOriginEndpoint
+-&gt; ReadPrec [DescribeOriginEndpoint]
+-&gt; Read DescribeOriginEndpoint
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeOriginEndpoint]
+$creadListPrec :: ReadPrec [DescribeOriginEndpoint]
+readPrec :: ReadPrec DescribeOriginEndpoint
+$creadPrec :: ReadPrec DescribeOriginEndpoint
+readList :: ReadS [DescribeOriginEndpoint]
+$creadList :: ReadS [DescribeOriginEndpoint]
+readsPrec :: Int -&gt; ReadS DescribeOriginEndpoint
+$creadsPrec :: Int -&gt; ReadS DescribeOriginEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242386"><span id="local-6989586621679242388"><span id="local-6989586621679242390"><span class="annot"><span class="annottext">Int -&gt; DescribeOriginEndpoint -&gt; ShowS
+[DescribeOriginEndpoint] -&gt; ShowS
+DescribeOriginEndpoint -&gt; String
+(Int -&gt; DescribeOriginEndpoint -&gt; ShowS)
+-&gt; (DescribeOriginEndpoint -&gt; String)
+-&gt; ([DescribeOriginEndpoint] -&gt; ShowS)
+-&gt; Show DescribeOriginEndpoint
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeOriginEndpoint] -&gt; ShowS
+$cshowList :: [DescribeOriginEndpoint] -&gt; ShowS
+show :: DescribeOriginEndpoint -&gt; String
+$cshow :: DescribeOriginEndpoint -&gt; String
+showsPrec :: Int -&gt; DescribeOriginEndpoint -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeOriginEndpoint -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeOriginEndpoint -&gt; Rep DescribeOriginEndpoint x)
+-&gt; (forall x.
+    Rep DescribeOriginEndpoint x -&gt; DescribeOriginEndpoint)
+-&gt; Generic DescribeOriginEndpoint
+forall x. Rep DescribeOriginEndpoint x -&gt; DescribeOriginEndpoint
+forall x. DescribeOriginEndpoint -&gt; Rep DescribeOriginEndpoint x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeOriginEndpoint x -&gt; DescribeOriginEndpoint
+$cfrom :: forall x. DescribeOriginEndpoint -&gt; Rep DescribeOriginEndpoint x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'DescribeOriginEndpoint' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'id', 'describeOriginEndpoint_id' - The ID of the OriginEndpoint.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#newDescribeOriginEndpoint"><span class="hs-identifier hs-type">newDescribeOriginEndpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'id'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span>
+</span><span id="line-84"></span><span id="newDescribeOriginEndpoint"><span class="annot"><span class="annottext">newDescribeOriginEndpoint :: Text -&gt; DescribeOriginEndpoint
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#newDescribeOriginEndpoint"><span class="hs-identifier hs-var hs-var">newDescribeOriginEndpoint</span></a></span></span><span> </span><span id="local-6989586621679242381"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242381"><span class="hs-identifier hs-var">pId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DescribeOriginEndpoint' :: Text -&gt; DescribeOriginEndpoint
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint%27"><span class="hs-identifier hs-type">DescribeOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeOriginEndpoint' :: Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aid%3ADescribeOriginEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242381"><span class="hs-identifier hs-var">pId_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- | The ID of the OriginEndpoint.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpoint_id"><span class="hs-identifier hs-type">describeOriginEndpoint_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-89"></span><span id="describeOriginEndpoint_id"><span class="annot"><span class="annottext">describeOriginEndpoint_id :: (Text -&gt; f Text)
+-&gt; DescribeOriginEndpoint -&gt; f DescribeOriginEndpoint
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpoint_id"><span class="hs-identifier hs-var hs-var">describeOriginEndpoint_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpoint -&gt; Text)
+-&gt; (DescribeOriginEndpoint -&gt; Text -&gt; DescribeOriginEndpoint)
+-&gt; Lens DescribeOriginEndpoint DescribeOriginEndpoint Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint%27"><span class="hs-identifier hs-type">DescribeOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242378"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeOriginEndpoint' :: DescribeOriginEndpoint -&gt; Text
+</span><a href="#local-6989586621679242378"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242378"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242377"><span class="annot"><span class="annottext">s :: DescribeOriginEndpoint
+</span><a href="#local-6989586621679242377"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint%27"><span class="hs-identifier hs-type">DescribeOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242376"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242376"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpoint
+</span><a href="#local-6989586621679242377"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeOriginEndpoint' :: Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aid%3ADescribeOriginEndpoint%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242376"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-93"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679242372"><span class="annot"><span class="annottext">request :: DescribeOriginEndpoint -&gt; Request DescribeOriginEndpoint
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeOriginEndpoint -&gt; Request DescribeOriginEndpoint
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaPackage.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679242368"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeOriginEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeOriginEndpoint)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeOriginEndpoint))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeOriginEndpoint
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeOriginEndpoint)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679242365"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242365"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679242364"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679242364"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679242363"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+-&gt; Maybe HlsPackage
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Authorization
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe DashPackage
+-&gt; Maybe MssPackage
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe CmafPackage
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Origination
+-&gt; Int
+-&gt; DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">DescribeOriginEndpointResponse'</span></a></span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Text]
+ -&gt; Maybe HlsPackage
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Authorization
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe DashPackage
+ -&gt; Maybe MssPackage
+ -&gt; Maybe Text
+ -&gt; Maybe Int
+ -&gt; Maybe CmafPackage
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe Origination
+ -&gt; Int
+ -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe [Text])
+-&gt; Either
+     String
+     (Maybe HlsPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Authorization
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;whitelist&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Either String (Maybe [Text])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe HlsPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Authorization
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe HlsPackage)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Authorization
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe HlsPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;hlsPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Authorization
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Authorization
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Authorization
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Authorization
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;manifestName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Authorization
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Authorization
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;url&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Authorization
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Authorization)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Authorization)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;authorization&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;channelId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-107"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe DashPackage
+      -&gt; Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;startoverWindowSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe DashPackage
+   -&gt; Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe DashPackage)
+-&gt; Either
+     String
+     (Maybe MssPackage
+      -&gt; Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe DashPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dashPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe MssPackage
+   -&gt; Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe MssPackage)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe MssPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;mssPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Int
+      -&gt; Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Int
+   -&gt; Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Int)
+-&gt; Either
+     String
+     (Maybe CmafPackage
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeDelaySeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe CmafPackage
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe CmafPackage)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe Origination
+      -&gt; Int
+      -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe CmafPackage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;cmafPackage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe Origination
+   -&gt; Int
+   -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe Origination -&gt; Int -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;description&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe Origination -&gt; Int -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either
+     String (Maybe Origination -&gt; Int -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Origination -&gt; Int -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String (Maybe Origination)
+-&gt; Either String (Int -&gt; DescribeOriginEndpointResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679242363"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Origination)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;origination&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeOriginEndpointResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeOriginEndpointResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242365"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242354"><span id="local-6989586621679242356"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span></span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679242351"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679242347"><span class="annot"><span class="annottext">toHeaders :: DescribeOriginEndpoint -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeOriginEndpoint -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-127"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-128"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-129"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-130"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-135"></span><span>  </span><span id="local-6989586621679242341"><span class="annot"><span class="annottext">toPath :: DescribeOriginEndpoint -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint%27"><span class="hs-identifier hs-type">DescribeOriginEndpoint'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242339"><span class="annot"><span class="annottext">Text
+id :: Text
+$sel:id:DescribeOriginEndpoint' :: DescribeOriginEndpoint -&gt; Text
+</span><a href="#local-6989586621679242339"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/origin_endpoints/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679242339"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpoint"><span class="hs-identifier hs-type">DescribeOriginEndpoint</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679242335"><span class="annot"><span class="annottext">toQuery :: DescribeOriginEndpoint -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeOriginEndpoint -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | /See:/ 'newDescribeOriginEndpointResponse' smart constructor.</span><span>
+</span><span id="line-143"></span><span id="local-6989586621679242332"><span id="local-6989586621679242333"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeOriginEndpointResponse"><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-var">DescribeOriginEndpointResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeOriginEndpointResponse%27"><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">DescribeOriginEndpointResponse'</span></a></span></span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A list of source IP CIDR blocks that will be allowed to access the</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-146"></span><span>    </span><span id="%24sel%3Awhitelist%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe [Text]
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Awhitelist%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">whitelist</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span id="%24sel%3AhlsPackage%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe HlsPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AhlsPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">hlsPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.</span><span>
+</span><span id="line-149"></span><span>    </span><span id="%24sel%3Aarn%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aarn%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">-- | A short string appended to the end of the OriginEndpoint URL.</span><span>
+</span><span id="line-151"></span><span>    </span><span id="%24sel%3AmanifestName%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AmanifestName%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">manifestName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- | The URL of the packaged OriginEndpoint for consumption.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3Aurl%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aurl%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3Aauthorization%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Authorization
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aauthorization%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">authorization</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.Authorization.html#Authorization"><span class="hs-identifier hs-type">Authorization</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The ID of the Channel the OriginEndpoint is associated with.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AchannelId%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AchannelId%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | Maximum duration (seconds) of content to retain for startover playback.</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- If not specified, startover playback will be disabled for the</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AstartoverWindowSeconds%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AstartoverWindowSeconds%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">startoverWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AdashPackage%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe DashPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AdashPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">dashPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3AmssPackage%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe MssPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AmssPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">mssPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- | The ID of the OriginEndpoint.</span><span>
+</span><span id="line-164"></span><span>    </span><span id="%24sel%3Aid%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aid%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">-- | Amount of delay (seconds) to enforce on the playback of live content. If</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">-- not specified, there will be no time delay in effect for the</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3AtimeDelaySeconds%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AtimeDelaySeconds%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">timeDelaySeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span id="%24sel%3AcmafPackage%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe CmafPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AcmafPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">cmafPackage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">-- | A short text description of the OriginEndpoint.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3Adescription%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Adescription%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span id="%24sel%3Atags%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Atags%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- | Control whether origination of video is allowed for this OriginEndpoint.</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">-- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- other form of access control. If set to DENY, the OriginEndpoint may not</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- be requested. This can be helpful for Live to VOD harvesting, or for</span><span>
+</span><span id="line-177"></span><span>    </span><span class="hs-comment">-- temporarily disabling origination</span><span>
+</span><span id="line-178"></span><span>    </span><span id="%24sel%3Aorigination%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Maybe Origination
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aorigination%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">origination</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.Origination.html#Origination"><span class="hs-identifier hs-type">Origination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeOriginEndpointResponse%27"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse -&gt; Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AhttpStatus%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-181"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679242311"><span id="local-6989586621679242313"><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+-&gt; DescribeOriginEndpointResponse -&gt; Bool
+(DescribeOriginEndpointResponse
+ -&gt; DescribeOriginEndpointResponse -&gt; Bool)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; DescribeOriginEndpointResponse -&gt; Bool)
+-&gt; Eq DescribeOriginEndpointResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeOriginEndpointResponse
+-&gt; DescribeOriginEndpointResponse -&gt; Bool
+$c/= :: DescribeOriginEndpointResponse
+-&gt; DescribeOriginEndpointResponse -&gt; Bool
+== :: DescribeOriginEndpointResponse
+-&gt; DescribeOriginEndpointResponse -&gt; Bool
+$c== :: DescribeOriginEndpointResponse
+-&gt; DescribeOriginEndpointResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242303"><span id="local-6989586621679242305"><span id="local-6989586621679242307"><span id="local-6989586621679242309"><span class="annot"><span class="annottext">ReadPrec [DescribeOriginEndpointResponse]
+ReadPrec DescribeOriginEndpointResponse
+Int -&gt; ReadS DescribeOriginEndpointResponse
+ReadS [DescribeOriginEndpointResponse]
+(Int -&gt; ReadS DescribeOriginEndpointResponse)
+-&gt; ReadS [DescribeOriginEndpointResponse]
+-&gt; ReadPrec DescribeOriginEndpointResponse
+-&gt; ReadPrec [DescribeOriginEndpointResponse]
+-&gt; Read DescribeOriginEndpointResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeOriginEndpointResponse]
+$creadListPrec :: ReadPrec [DescribeOriginEndpointResponse]
+readPrec :: ReadPrec DescribeOriginEndpointResponse
+$creadPrec :: ReadPrec DescribeOriginEndpointResponse
+readList :: ReadS [DescribeOriginEndpointResponse]
+$creadList :: ReadS [DescribeOriginEndpointResponse]
+readsPrec :: Int -&gt; ReadS DescribeOriginEndpointResponse
+$creadsPrec :: Int -&gt; ReadS DescribeOriginEndpointResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679242297"><span id="local-6989586621679242299"><span id="local-6989586621679242301"><span class="annot"><span class="annottext">Int -&gt; DescribeOriginEndpointResponse -&gt; ShowS
+[DescribeOriginEndpointResponse] -&gt; ShowS
+DescribeOriginEndpointResponse -&gt; String
+(Int -&gt; DescribeOriginEndpointResponse -&gt; ShowS)
+-&gt; (DescribeOriginEndpointResponse -&gt; String)
+-&gt; ([DescribeOriginEndpointResponse] -&gt; ShowS)
+-&gt; Show DescribeOriginEndpointResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeOriginEndpointResponse] -&gt; ShowS
+$cshowList :: [DescribeOriginEndpointResponse] -&gt; ShowS
+show :: DescribeOriginEndpointResponse -&gt; String
+$cshow :: DescribeOriginEndpointResponse -&gt; String
+showsPrec :: Int -&gt; DescribeOriginEndpointResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeOriginEndpointResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeOriginEndpointResponse
+ -&gt; Rep DescribeOriginEndpointResponse x)
+-&gt; (forall x.
+    Rep DescribeOriginEndpointResponse x
+    -&gt; DescribeOriginEndpointResponse)
+-&gt; Generic DescribeOriginEndpointResponse
+forall x.
+Rep DescribeOriginEndpointResponse x
+-&gt; DescribeOriginEndpointResponse
+forall x.
+DescribeOriginEndpointResponse
+-&gt; Rep DescribeOriginEndpointResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeOriginEndpointResponse x
+-&gt; DescribeOriginEndpointResponse
+$cfrom :: forall x.
+DescribeOriginEndpointResponse
+-&gt; Rep DescribeOriginEndpointResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- Create a value of 'DescribeOriginEndpointResponse' with all optional fields omitted.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'whitelist', 'describeOriginEndpointResponse_whitelist' - A list of source IP CIDR blocks that will be allowed to access the</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'hlsPackage', 'describeOriginEndpointResponse_hlsPackage' - Undocumented member.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'arn', 'describeOriginEndpointResponse_arn' - The Amazon Resource Name (ARN) assigned to the OriginEndpoint.</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- 'manifestName', 'describeOriginEndpointResponse_manifestName' - A short string appended to the end of the OriginEndpoint URL.</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- 'url', 'describeOriginEndpointResponse_url' - The URL of the packaged OriginEndpoint for consumption.</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'authorization', 'describeOriginEndpointResponse_authorization' - Undocumented member.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'channelId', 'describeOriginEndpointResponse_channelId' - The ID of the Channel the OriginEndpoint is associated with.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'startoverWindowSeconds', 'describeOriginEndpointResponse_startoverWindowSeconds' - Maximum duration (seconds) of content to retain for startover playback.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- If not specified, startover playback will be disabled for the</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'dashPackage', 'describeOriginEndpointResponse_dashPackage' - Undocumented member.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'mssPackage', 'describeOriginEndpointResponse_mssPackage' - Undocumented member.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'id', 'describeOriginEndpointResponse_id' - The ID of the OriginEndpoint.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'timeDelaySeconds', 'describeOriginEndpointResponse_timeDelaySeconds' - Amount of delay (seconds) to enforce on the playback of live content. If</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- not specified, there will be no time delay in effect for the</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'cmafPackage', 'describeOriginEndpointResponse_cmafPackage' - Undocumented member.</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- 'description', 'describeOriginEndpointResponse_description' - A short text description of the OriginEndpoint.</span><span>
+</span><span id="line-224"></span><span class="hs-comment">--</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- 'tags', 'describeOriginEndpointResponse_tags' - Undocumented member.</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- 'origination', 'describeOriginEndpointResponse_origination' - Control whether origination of video is allowed for this OriginEndpoint.</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- other form of access control. If set to DENY, the OriginEndpoint may not</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- be requested. This can be helpful for Live to VOD harvesting, or for</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- temporarily disabling origination</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- 'httpStatus', 'describeOriginEndpointResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-234"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#newDescribeOriginEndpointResponse"><span class="hs-identifier hs-type">newDescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-236"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-237"></span><span>  </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span>
+</span><span id="line-238"></span><span id="newDescribeOriginEndpointResponse"><span class="annot"><span class="annottext">newDescribeOriginEndpointResponse :: Int -&gt; DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#newDescribeOriginEndpointResponse"><span class="hs-identifier hs-var hs-var">newDescribeOriginEndpointResponse</span></a></span></span><span> </span><span id="local-6989586621679242294"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242294"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-239"></span><span>  </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse' :: Maybe [Text]
+-&gt; Maybe HlsPackage
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Authorization
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe DashPackage
+-&gt; Maybe MssPackage
+-&gt; Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe CmafPackage
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe Origination
+-&gt; Int
+-&gt; DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span>
+</span><span id="line-240"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:whitelist:DescribeOriginEndpointResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Awhitelist%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">whitelist</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-241"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-242"></span><span>      </span><span class="annot"><span class="annottext">$sel:hlsPackage:DescribeOriginEndpointResponse' :: Maybe HlsPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AhlsPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aarn%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>      </span><span class="annot"><span class="annottext">$sel:manifestName:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AmanifestName%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">manifestName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>      </span><span class="annot"><span class="annottext">$sel:url:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aurl%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>      </span><span class="annot"><span class="annottext">$sel:authorization:DescribeOriginEndpointResponse' :: Maybe Authorization
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aauthorization%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">authorization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Authorization
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>      </span><span class="annot"><span class="annottext">$sel:channelId:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AchannelId%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>      </span><span class="annot"><span class="annottext">$sel:startoverWindowSeconds:DescribeOriginEndpointResponse' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AstartoverWindowSeconds%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">startoverWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>      </span><span class="annot"><span class="annottext">$sel:dashPackage:DescribeOriginEndpointResponse' :: Maybe DashPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AdashPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">dashPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>      </span><span class="annot"><span class="annottext">$sel:mssPackage:DescribeOriginEndpointResponse' :: Maybe MssPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AmssPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">mssPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aid%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeDelaySeconds:DescribeOriginEndpointResponse' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AtimeDelaySeconds%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">timeDelaySeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:cmafPackage:DescribeOriginEndpointResponse' :: Maybe CmafPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AcmafPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-254"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Adescription%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:DescribeOriginEndpointResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Atags%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>      </span><span class="annot"><span class="annottext">$sel:origination:DescribeOriginEndpointResponse' :: Maybe Origination
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aorigination%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">origination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Origination
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOriginEndpointResponse' :: Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AhttpStatus%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242294"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-258"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-259"></span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- | A list of source IP CIDR blocks that will be allowed to access the</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-262"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_whitelist"><span class="hs-identifier hs-type">describeOriginEndpointResponse_whitelist</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-263"></span><span id="describeOriginEndpointResponse_whitelist"><span class="annot"><span class="annottext">describeOriginEndpointResponse_whitelist :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_whitelist"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_whitelist</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe [Text])
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe [Text] -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242293"><span class="annot"><span class="annottext">Maybe [Text]
+whitelist :: Maybe [Text]
+$sel:whitelist:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe [Text]
+</span><a href="#local-6989586621679242293"><span class="hs-identifier hs-var hs-var">whitelist</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679242293"><span class="hs-identifier hs-var">whitelist</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242292"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242291"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679242291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:whitelist:DescribeOriginEndpointResponse' :: Maybe [Text]
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Awhitelist%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">whitelist</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679242291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; DescribeOriginEndpointResponse
+ -&gt; f DescribeOriginEndpointResponse)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-264"></span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-266"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_hlsPackage"><span class="hs-identifier hs-type">describeOriginEndpointResponse_hlsPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.HlsPackage.html#HlsPackage"><span class="hs-identifier hs-type">HlsPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span id="describeOriginEndpointResponse_hlsPackage"><span class="annot"><span class="annottext">describeOriginEndpointResponse_hlsPackage :: (Maybe HlsPackage -&gt; f (Maybe HlsPackage))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_hlsPackage"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_hlsPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe HlsPackage)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe HlsPackage -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe HlsPackage)
+     (Maybe HlsPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242287"><span class="annot"><span class="annottext">Maybe HlsPackage
+hlsPackage :: Maybe HlsPackage
+$sel:hlsPackage:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe HlsPackage
+</span><a href="#local-6989586621679242287"><span class="hs-identifier hs-var hs-var">hlsPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679242287"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242286"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242285"><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679242285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:hlsPackage:DescribeOriginEndpointResponse' :: Maybe HlsPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AhlsPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">hlsPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HlsPackage
+</span><a href="#local-6989586621679242285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) assigned to the OriginEndpoint.</span><span>
+</span><span id="line-270"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_arn"><span class="hs-identifier hs-type">describeOriginEndpointResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span id="describeOriginEndpointResponse_arn"><span class="annot"><span class="annottext">describeOriginEndpointResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_arn"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Text)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Text -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242284"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242284"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242284"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242283"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242282"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aarn%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-272"></span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- | A short string appended to the end of the OriginEndpoint URL.</span><span>
+</span><span id="line-274"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_manifestName"><span class="hs-identifier hs-type">describeOriginEndpointResponse_manifestName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-275"></span><span id="describeOriginEndpointResponse_manifestName"><span class="annot"><span class="annottext">describeOriginEndpointResponse_manifestName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_manifestName"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_manifestName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Text)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Text -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242281"><span class="annot"><span class="annottext">Maybe Text
+manifestName :: Maybe Text
+$sel:manifestName:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242281"><span class="hs-identifier hs-var hs-var">manifestName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242281"><span class="hs-identifier hs-var">manifestName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242280"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242279"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:manifestName:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AmanifestName%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">manifestName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-276"></span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- | The URL of the packaged OriginEndpoint for consumption.</span><span>
+</span><span id="line-278"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_url"><span class="hs-identifier hs-type">describeOriginEndpointResponse_url</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-279"></span><span id="describeOriginEndpointResponse_url"><span class="annot"><span class="annottext">describeOriginEndpointResponse_url :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_url"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_url</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Text)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Text -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242278"><span class="annot"><span class="annottext">Maybe Text
+url :: Maybe Text
+$sel:url:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242278"><span class="hs-identifier hs-var hs-var">url</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242278"><span class="hs-identifier hs-var">url</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242277"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242277"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242276"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242276"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242277"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:url:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aurl%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">url</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242276"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-282"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_authorization"><span class="hs-identifier hs-type">describeOriginEndpointResponse_authorization</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.Authorization.html#Authorization"><span class="hs-identifier hs-type">Authorization</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-283"></span><span id="describeOriginEndpointResponse_authorization"><span class="annot"><span class="annottext">describeOriginEndpointResponse_authorization :: (Maybe Authorization -&gt; f (Maybe Authorization))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_authorization"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_authorization</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Authorization)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Authorization -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Authorization)
+     (Maybe Authorization)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242275"><span class="annot"><span class="annottext">Maybe Authorization
+authorization :: Maybe Authorization
+$sel:authorization:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Authorization
+</span><a href="#local-6989586621679242275"><span class="hs-identifier hs-var hs-var">authorization</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Authorization
+</span><a href="#local-6989586621679242275"><span class="hs-identifier hs-var">authorization</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242274"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242274"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242273"><span class="annot"><span class="annottext">Maybe Authorization
+</span><a href="#local-6989586621679242273"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242274"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:authorization:DescribeOriginEndpointResponse' :: Maybe Authorization
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aauthorization%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">authorization</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Authorization
+</span><a href="#local-6989586621679242273"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>
+</span><span id="line-285"></span><span class="hs-comment">-- | The ID of the Channel the OriginEndpoint is associated with.</span><span>
+</span><span id="line-286"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_channelId"><span class="hs-identifier hs-type">describeOriginEndpointResponse_channelId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span id="describeOriginEndpointResponse_channelId"><span class="annot"><span class="annottext">describeOriginEndpointResponse_channelId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_channelId"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_channelId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Text)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Text -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242272"><span class="annot"><span class="annottext">Maybe Text
+channelId :: Maybe Text
+$sel:channelId:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242272"><span class="hs-identifier hs-var hs-var">channelId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242272"><span class="hs-identifier hs-var">channelId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242271"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242271"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242270"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242270"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242271"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:channelId:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AchannelId%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">channelId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242270"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- | Maximum duration (seconds) of content to retain for startover playback.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- If not specified, startover playback will be disabled for the</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-292"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_startoverWindowSeconds"><span class="hs-identifier hs-type">describeOriginEndpointResponse_startoverWindowSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-293"></span><span id="describeOriginEndpointResponse_startoverWindowSeconds"><span class="annot"><span class="annottext">describeOriginEndpointResponse_startoverWindowSeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_startoverWindowSeconds"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_startoverWindowSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Int)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Int -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242269"><span class="annot"><span class="annottext">Maybe Int
+startoverWindowSeconds :: Maybe Int
+$sel:startoverWindowSeconds:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679242269"><span class="hs-identifier hs-var hs-var">startoverWindowSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242269"><span class="hs-identifier hs-var">startoverWindowSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242268"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242267"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:startoverWindowSeconds:DescribeOriginEndpointResponse' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AstartoverWindowSeconds%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">startoverWindowSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-294"></span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-296"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_dashPackage"><span class="hs-identifier hs-type">describeOriginEndpointResponse_dashPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.DashPackage.html#DashPackage"><span class="hs-identifier hs-type">DashPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-297"></span><span id="describeOriginEndpointResponse_dashPackage"><span class="annot"><span class="annottext">describeOriginEndpointResponse_dashPackage :: (Maybe DashPackage -&gt; f (Maybe DashPackage))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_dashPackage"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_dashPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe DashPackage)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe DashPackage -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe DashPackage)
+     (Maybe DashPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242266"><span class="annot"><span class="annottext">Maybe DashPackage
+dashPackage :: Maybe DashPackage
+$sel:dashPackage:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe DashPackage
+</span><a href="#local-6989586621679242266"><span class="hs-identifier hs-var hs-var">dashPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679242266"><span class="hs-identifier hs-var">dashPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242265"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242265"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242264"><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679242264"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242265"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dashPackage:DescribeOriginEndpointResponse' :: Maybe DashPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AdashPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">dashPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DashPackage
+</span><a href="#local-6989586621679242264"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-300"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_mssPackage"><span class="hs-identifier hs-type">describeOriginEndpointResponse_mssPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.MssPackage.html#MssPackage"><span class="hs-identifier hs-type">MssPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-301"></span><span id="describeOriginEndpointResponse_mssPackage"><span class="annot"><span class="annottext">describeOriginEndpointResponse_mssPackage :: (Maybe MssPackage -&gt; f (Maybe MssPackage))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_mssPackage"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_mssPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe MssPackage)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe MssPackage -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe MssPackage)
+     (Maybe MssPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242263"><span class="annot"><span class="annottext">Maybe MssPackage
+mssPackage :: Maybe MssPackage
+$sel:mssPackage:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe MssPackage
+</span><a href="#local-6989586621679242263"><span class="hs-identifier hs-var hs-var">mssPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679242263"><span class="hs-identifier hs-var">mssPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242262"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242262"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242261"><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679242261"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242262"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mssPackage:DescribeOriginEndpointResponse' :: Maybe MssPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AmssPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">mssPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe MssPackage
+</span><a href="#local-6989586621679242261"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>
+</span><span id="line-303"></span><span class="hs-comment">-- | The ID of the OriginEndpoint.</span><span>
+</span><span id="line-304"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_id"><span class="hs-identifier hs-type">describeOriginEndpointResponse_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span id="describeOriginEndpointResponse_id"><span class="annot"><span class="annottext">describeOriginEndpointResponse_id :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_id"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Text)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Text -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242260"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242260"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242260"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242259"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242259"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242258"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242258"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242259"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aid%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242258"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-306"></span><span>
+</span><span id="line-307"></span><span class="hs-comment">-- | Amount of delay (seconds) to enforce on the playback of live content. If</span><span>
+</span><span id="line-308"></span><span class="hs-comment">-- not specified, there will be no time delay in effect for the</span><span>
+</span><span id="line-309"></span><span class="hs-comment">-- OriginEndpoint.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_timeDelaySeconds"><span class="hs-identifier hs-type">describeOriginEndpointResponse_timeDelaySeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="describeOriginEndpointResponse_timeDelaySeconds"><span class="annot"><span class="annottext">describeOriginEndpointResponse_timeDelaySeconds :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_timeDelaySeconds"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_timeDelaySeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Int)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Int -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242257"><span class="annot"><span class="annottext">Maybe Int
+timeDelaySeconds :: Maybe Int
+$sel:timeDelaySeconds:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Int
+</span><a href="#local-6989586621679242257"><span class="hs-identifier hs-var hs-var">timeDelaySeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242257"><span class="hs-identifier hs-var">timeDelaySeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242256"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242256"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242255"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242255"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242256"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeDelaySeconds:DescribeOriginEndpointResponse' :: Maybe Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AtimeDelaySeconds%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">timeDelaySeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679242255"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_cmafPackage"><span class="hs-identifier hs-type">describeOriginEndpointResponse_cmafPackage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.CmafPackage.html#CmafPackage"><span class="hs-identifier hs-type">CmafPackage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-315"></span><span id="describeOriginEndpointResponse_cmafPackage"><span class="annot"><span class="annottext">describeOriginEndpointResponse_cmafPackage :: (Maybe CmafPackage -&gt; f (Maybe CmafPackage))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_cmafPackage"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_cmafPackage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe CmafPackage)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe CmafPackage -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe CmafPackage)
+     (Maybe CmafPackage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242254"><span class="annot"><span class="annottext">Maybe CmafPackage
+cmafPackage :: Maybe CmafPackage
+$sel:cmafPackage:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe CmafPackage
+</span><a href="#local-6989586621679242254"><span class="hs-identifier hs-var hs-var">cmafPackage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679242254"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242253"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242253"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242252"><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679242252"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242253"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:cmafPackage:DescribeOriginEndpointResponse' :: Maybe CmafPackage
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AcmafPackage%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">cmafPackage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe CmafPackage
+</span><a href="#local-6989586621679242252"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- | A short text description of the OriginEndpoint.</span><span>
+</span><span id="line-318"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_description"><span class="hs-identifier hs-type">describeOriginEndpointResponse_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span id="describeOriginEndpointResponse_description"><span class="annot"><span class="annottext">describeOriginEndpointResponse_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_description"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Text)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Text -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242251"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679242251"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242251"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242250"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242250"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242249"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242249"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242250"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:DescribeOriginEndpointResponse' :: Maybe Text
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Adescription%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679242249"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>
+</span><span id="line-321"></span><span class="hs-comment">-- | Undocumented member.</span><span>
+</span><span id="line-322"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_tags"><span class="hs-identifier hs-type">describeOriginEndpointResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span id="describeOriginEndpointResponse_tags"><span class="annot"><span class="annottext">describeOriginEndpointResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_tags"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242248"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679242248"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679242248"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242247"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242247"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242246"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679242246"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242247"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:DescribeOriginEndpointResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Atags%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679242246"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; DescribeOriginEndpointResponse
+ -&gt; f DescribeOriginEndpointResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-324"></span><span>
+</span><span id="line-325"></span><span class="hs-comment">-- | Control whether origination of video is allowed for this OriginEndpoint.</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- If set to ALLOW, the OriginEndpoint may by requested, pursuant to any</span><span>
+</span><span id="line-327"></span><span class="hs-comment">-- other form of access control. If set to DENY, the OriginEndpoint may not</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- be requested. This can be helpful for Live to VOD harvesting, or for</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- temporarily disabling origination</span><span>
+</span><span id="line-330"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_origination"><span class="hs-identifier hs-type">describeOriginEndpointResponse_origination</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.Types.Origination.html#Origination"><span class="hs-identifier hs-type">Origination</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-331"></span><span id="describeOriginEndpointResponse_origination"><span class="annot"><span class="annottext">describeOriginEndpointResponse_origination :: (Maybe Origination -&gt; f (Maybe Origination))
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_origination"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_origination</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Maybe Origination)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Maybe Origination -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     (Maybe Origination)
+     (Maybe Origination)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242245"><span class="annot"><span class="annottext">Maybe Origination
+origination :: Maybe Origination
+$sel:origination:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Maybe Origination
+</span><a href="#local-6989586621679242245"><span class="hs-identifier hs-var hs-var">origination</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Origination
+</span><a href="#local-6989586621679242245"><span class="hs-identifier hs-var">origination</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242244"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242244"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242243"><span class="annot"><span class="annottext">Maybe Origination
+</span><a href="#local-6989586621679242243"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242244"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:origination:DescribeOriginEndpointResponse' :: Maybe Origination
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3Aorigination%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">origination</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Origination
+</span><a href="#local-6989586621679242243"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-332"></span><span>
+</span><span id="line-333"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-334"></span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_httpStatus"><span class="hs-identifier hs-type">describeOriginEndpointResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-335"></span><span id="describeOriginEndpointResponse_httpStatus"><span class="annot"><span class="annottext">describeOriginEndpointResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeOriginEndpointResponse
+-&gt; f DescribeOriginEndpointResponse
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#describeOriginEndpointResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeOriginEndpointResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeOriginEndpointResponse -&gt; Int)
+-&gt; (DescribeOriginEndpointResponse
+    -&gt; Int -&gt; DescribeOriginEndpointResponse)
+-&gt; Lens
+     DescribeOriginEndpointResponse
+     DescribeOriginEndpointResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679242242"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeOriginEndpointResponse' :: DescribeOriginEndpointResponse -&gt; Int
+</span><a href="#local-6989586621679242242"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242242"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679242241"><span class="annot"><span class="annottext">s :: DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242241"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse%27"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679242240"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242240"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeOriginEndpointResponse
+</span><a href="#local-6989586621679242241"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeOriginEndpointResponse' :: Int
+</span><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#%24sel%3AhttpStatus%3ADescribeOriginEndpointResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679242240"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-336"></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-338"></span><span>  </span><span id="local-6989586621679242238"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-339"></span><span>    </span><span class="annot"><a href="Amazonka.MediaPackage.DescribeOriginEndpoint.html#DescribeOriginEndpointResponse"><span class="hs-identifier hs-type">DescribeOriginEndpointResponse</span></a></span></span><span>
+</span><span id="line-340"></span></pre></body></html>

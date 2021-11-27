@@ -1,0 +1,752 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.IoTEventsData.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.IoTEventsData.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_InvalidRequestException"><span class="hs-identifier">_InvalidRequestException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_InternalFailureException"><span class="hs-identifier">_InternalFailureException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_ServiceUnavailableException"><span class="hs-identifier">_ServiceUnavailableException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlarmStateName</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html#AlarmStateName"><span class="hs-identifier">AlarmStateName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ComparisonOperator</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ComparisonOperator.html#ComparisonOperator"><span class="hs-identifier">ComparisonOperator</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomerActionName</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerActionName.html#CustomerActionName"><span class="hs-identifier">CustomerActionName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ErrorCode</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ErrorCode.html#ErrorCode"><span class="hs-identifier">ErrorCode</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EventType</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EventType.html#EventType"><span class="hs-identifier">EventType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TriggerType</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TriggerType.html#TriggerType"><span class="hs-identifier">TriggerType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AcknowledgeActionConfiguration</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.html#AcknowledgeActionConfiguration"><span class="hs-identifier">AcknowledgeActionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.html#newAcknowledgeActionConfiguration"><span class="hs-identifier">newAcknowledgeActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.html#acknowledgeActionConfiguration_note"><span class="hs-identifier">acknowledgeActionConfiguration_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AcknowledgeAlarmActionRequest</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#AcknowledgeAlarmActionRequest"><span class="hs-identifier">AcknowledgeAlarmActionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#newAcknowledgeAlarmActionRequest"><span class="hs-identifier">newAcknowledgeAlarmActionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#acknowledgeAlarmActionRequest_keyValue"><span class="hs-identifier">acknowledgeAlarmActionRequest_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#acknowledgeAlarmActionRequest_note"><span class="hs-identifier">acknowledgeAlarmActionRequest_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#acknowledgeAlarmActionRequest_requestId"><span class="hs-identifier">acknowledgeAlarmActionRequest_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html#acknowledgeAlarmActionRequest_alarmModelName"><span class="hs-identifier">acknowledgeAlarmActionRequest_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Alarm</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#Alarm"><span class="hs-identifier">Alarm</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#newAlarm"><span class="hs-identifier">newAlarm</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#alarm_keyValue"><span class="hs-identifier">alarm_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#alarm_creationTime"><span class="hs-identifier">alarm_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#alarm_alarmState"><span class="hs-identifier">alarm_alarmState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#alarm_alarmModelName"><span class="hs-identifier">alarm_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#alarm_severity"><span class="hs-identifier">alarm_severity</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#alarm_lastUpdateTime"><span class="hs-identifier">alarm_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html#alarm_alarmModelVersion"><span class="hs-identifier">alarm_alarmModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlarmState</span></span><span>
+</span><span id="line-69"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmState.html#AlarmState"><span class="hs-identifier">AlarmState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmState.html#newAlarmState"><span class="hs-identifier">newAlarmState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmState.html#alarmState_customerAction"><span class="hs-identifier">alarmState_customerAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmState.html#alarmState_stateName"><span class="hs-identifier">alarmState_stateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmState.html#alarmState_ruleEvaluation"><span class="hs-identifier">alarmState_ruleEvaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmState.html#alarmState_systemEvent"><span class="hs-identifier">alarmState_systemEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AlarmSummary</span></span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#AlarmSummary"><span class="hs-identifier">AlarmSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#newAlarmSummary"><span class="hs-identifier">newAlarmSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#alarmSummary_keyValue"><span class="hs-identifier">alarmSummary_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#alarmSummary_creationTime"><span class="hs-identifier">alarmSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#alarmSummary_alarmModelName"><span class="hs-identifier">alarmSummary_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#alarmSummary_stateName"><span class="hs-identifier">alarmSummary_stateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#alarmSummary_lastUpdateTime"><span class="hs-identifier">alarmSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html#alarmSummary_alarmModelVersion"><span class="hs-identifier">alarmSummary_alarmModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchAlarmActionErrorEntry</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html#BatchAlarmActionErrorEntry"><span class="hs-identifier">BatchAlarmActionErrorEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html#newBatchAlarmActionErrorEntry"><span class="hs-identifier">newBatchAlarmActionErrorEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html#batchAlarmActionErrorEntry_requestId"><span class="hs-identifier">batchAlarmActionErrorEntry_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html#batchAlarmActionErrorEntry_errorCode"><span class="hs-identifier">batchAlarmActionErrorEntry_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html#batchAlarmActionErrorEntry_errorMessage"><span class="hs-identifier">batchAlarmActionErrorEntry_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchPutMessageErrorEntry</span></span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html#BatchPutMessageErrorEntry"><span class="hs-identifier">BatchPutMessageErrorEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html#newBatchPutMessageErrorEntry"><span class="hs-identifier">newBatchPutMessageErrorEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_errorCode"><span class="hs-identifier">batchPutMessageErrorEntry_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_errorMessage"><span class="hs-identifier">batchPutMessageErrorEntry_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html#batchPutMessageErrorEntry_messageId"><span class="hs-identifier">batchPutMessageErrorEntry_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><span class="hs-comment">-- * BatchUpdateDetectorErrorEntry</span></span><span>
+</span><span id="line-101"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.html#BatchUpdateDetectorErrorEntry"><span class="hs-identifier">BatchUpdateDetectorErrorEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.html#newBatchUpdateDetectorErrorEntry"><span class="hs-identifier">newBatchUpdateDetectorErrorEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.html#batchUpdateDetectorErrorEntry_errorCode"><span class="hs-identifier">batchUpdateDetectorErrorEntry_errorCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.html#batchUpdateDetectorErrorEntry_errorMessage"><span class="hs-identifier">batchUpdateDetectorErrorEntry_errorMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.html#batchUpdateDetectorErrorEntry_messageId"><span class="hs-identifier">batchUpdateDetectorErrorEntry_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="hs-comment">-- * CustomerAction</span></span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#CustomerAction"><span class="hs-identifier">CustomerAction</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#newCustomerAction"><span class="hs-identifier">newCustomerAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_resetActionConfiguration"><span class="hs-identifier">customerAction_resetActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_actionName"><span class="hs-identifier">customerAction_actionName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_snoozeActionConfiguration"><span class="hs-identifier">customerAction_snoozeActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_enableActionConfiguration"><span class="hs-identifier">customerAction_enableActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_disableActionConfiguration"><span class="hs-identifier">customerAction_disableActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html#customerAction_acknowledgeActionConfiguration"><span class="hs-identifier">customerAction_acknowledgeActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Detector</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#Detector"><span class="hs-identifier">Detector</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#newDetector"><span class="hs-identifier">newDetector</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#detector_keyValue"><span class="hs-identifier">detector_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#detector_creationTime"><span class="hs-identifier">detector_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#detector_state"><span class="hs-identifier">detector_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#detector_detectorModelName"><span class="hs-identifier">detector_detectorModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#detector_detectorModelVersion"><span class="hs-identifier">detector_detectorModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html#detector_lastUpdateTime"><span class="hs-identifier">detector_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DetectorState</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#DetectorState"><span class="hs-identifier">DetectorState</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#newDetectorState"><span class="hs-identifier">newDetectorState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_stateName"><span class="hs-identifier">detectorState_stateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_variables"><span class="hs-identifier">detectorState_variables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html#detectorState_timers"><span class="hs-identifier">detectorState_timers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DetectorStateDefinition</span></span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateDefinition.html#DetectorStateDefinition"><span class="hs-identifier">DetectorStateDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateDefinition.html#newDetectorStateDefinition"><span class="hs-identifier">newDetectorStateDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateDefinition.html#detectorStateDefinition_stateName"><span class="hs-identifier">detectorStateDefinition_stateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateDefinition.html#detectorStateDefinition_variables"><span class="hs-identifier">detectorStateDefinition_variables</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateDefinition.html#detectorStateDefinition_timers"><span class="hs-identifier">detectorStateDefinition_timers</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DetectorStateSummary</span></span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateSummary.html#DetectorStateSummary"><span class="hs-identifier">DetectorStateSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateSummary.html#newDetectorStateSummary"><span class="hs-identifier">newDetectorStateSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateSummary.html#detectorStateSummary_stateName"><span class="hs-identifier">detectorStateSummary_stateName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DetectorSummary</span></span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#DetectorSummary"><span class="hs-identifier">DetectorSummary</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#newDetectorSummary"><span class="hs-identifier">newDetectorSummary</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#detectorSummary_keyValue"><span class="hs-identifier">detectorSummary_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#detectorSummary_creationTime"><span class="hs-identifier">detectorSummary_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#detectorSummary_state"><span class="hs-identifier">detectorSummary_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#detectorSummary_detectorModelName"><span class="hs-identifier">detectorSummary_detectorModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#detectorSummary_detectorModelVersion"><span class="hs-identifier">detectorSummary_detectorModelVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html#detectorSummary_lastUpdateTime"><span class="hs-identifier">detectorSummary_lastUpdateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DisableActionConfiguration</span></span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableActionConfiguration.html#DisableActionConfiguration"><span class="hs-identifier">DisableActionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableActionConfiguration.html#newDisableActionConfiguration"><span class="hs-identifier">newDisableActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableActionConfiguration.html#disableActionConfiguration_note"><span class="hs-identifier">disableActionConfiguration_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DisableAlarmActionRequest</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.html#DisableAlarmActionRequest"><span class="hs-identifier">DisableAlarmActionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.html#newDisableAlarmActionRequest"><span class="hs-identifier">newDisableAlarmActionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.html#disableAlarmActionRequest_keyValue"><span class="hs-identifier">disableAlarmActionRequest_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.html#disableAlarmActionRequest_note"><span class="hs-identifier">disableAlarmActionRequest_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.html#disableAlarmActionRequest_requestId"><span class="hs-identifier">disableAlarmActionRequest_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.html#disableAlarmActionRequest_alarmModelName"><span class="hs-identifier">disableAlarmActionRequest_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EnableActionConfiguration</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableActionConfiguration.html#EnableActionConfiguration"><span class="hs-identifier">EnableActionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableActionConfiguration.html#newEnableActionConfiguration"><span class="hs-identifier">newEnableActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableActionConfiguration.html#enableActionConfiguration_note"><span class="hs-identifier">enableActionConfiguration_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EnableAlarmActionRequest</span></span><span>
+</span><span id="line-175"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.html#EnableAlarmActionRequest"><span class="hs-identifier">EnableAlarmActionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.html#newEnableAlarmActionRequest"><span class="hs-identifier">newEnableAlarmActionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.html#enableAlarmActionRequest_keyValue"><span class="hs-identifier">enableAlarmActionRequest_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.html#enableAlarmActionRequest_note"><span class="hs-identifier">enableAlarmActionRequest_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.html#enableAlarmActionRequest_requestId"><span class="hs-identifier">enableAlarmActionRequest_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.html#enableAlarmActionRequest_alarmModelName"><span class="hs-identifier">enableAlarmActionRequest_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Message</span></span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#Message"><span class="hs-identifier">Message</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#newMessage"><span class="hs-identifier">newMessage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#message_timestamp"><span class="hs-identifier">message_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#message_messageId"><span class="hs-identifier">message_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#message_inputName"><span class="hs-identifier">message_inputName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html#message_payload"><span class="hs-identifier">message_payload</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResetActionConfiguration</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetActionConfiguration.html#ResetActionConfiguration"><span class="hs-identifier">ResetActionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetActionConfiguration.html#newResetActionConfiguration"><span class="hs-identifier">newResetActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetActionConfiguration.html#resetActionConfiguration_note"><span class="hs-identifier">resetActionConfiguration_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResetAlarmActionRequest</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.html#ResetAlarmActionRequest"><span class="hs-identifier">ResetAlarmActionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.html#newResetAlarmActionRequest"><span class="hs-identifier">newResetAlarmActionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.html#resetAlarmActionRequest_keyValue"><span class="hs-identifier">resetAlarmActionRequest_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.html#resetAlarmActionRequest_note"><span class="hs-identifier">resetAlarmActionRequest_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.html#resetAlarmActionRequest_requestId"><span class="hs-identifier">resetAlarmActionRequest_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.html#resetAlarmActionRequest_alarmModelName"><span class="hs-identifier">resetAlarmActionRequest_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RuleEvaluation</span></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.RuleEvaluation.html#RuleEvaluation"><span class="hs-identifier">RuleEvaluation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.RuleEvaluation.html#newRuleEvaluation"><span class="hs-identifier">newRuleEvaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.RuleEvaluation.html#ruleEvaluation_simpleRuleEvaluation"><span class="hs-identifier">ruleEvaluation_simpleRuleEvaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SimpleRuleEvaluation</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.html#SimpleRuleEvaluation"><span class="hs-identifier">SimpleRuleEvaluation</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.html#newSimpleRuleEvaluation"><span class="hs-identifier">newSimpleRuleEvaluation</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.html#simpleRuleEvaluation_thresholdValue"><span class="hs-identifier">simpleRuleEvaluation_thresholdValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.html#simpleRuleEvaluation_inputPropertyValue"><span class="hs-identifier">simpleRuleEvaluation_inputPropertyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.html#simpleRuleEvaluation_operator"><span class="hs-identifier">simpleRuleEvaluation_operator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-214"></span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SnoozeActionConfiguration</span></span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html#SnoozeActionConfiguration"><span class="hs-identifier">SnoozeActionConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html#newSnoozeActionConfiguration"><span class="hs-identifier">newSnoozeActionConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html#snoozeActionConfiguration_note"><span class="hs-identifier">snoozeActionConfiguration_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html#snoozeActionConfiguration_snoozeDuration"><span class="hs-identifier">snoozeActionConfiguration_snoozeDuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SnoozeAlarmActionRequest</span></span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html#SnoozeAlarmActionRequest"><span class="hs-identifier">SnoozeAlarmActionRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html#newSnoozeAlarmActionRequest"><span class="hs-identifier">newSnoozeAlarmActionRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_keyValue"><span class="hs-identifier">snoozeAlarmActionRequest_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_note"><span class="hs-identifier">snoozeAlarmActionRequest_note</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_requestId"><span class="hs-identifier">snoozeAlarmActionRequest_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_alarmModelName"><span class="hs-identifier">snoozeAlarmActionRequest_alarmModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html#snoozeAlarmActionRequest_snoozeDuration"><span class="hs-identifier">snoozeAlarmActionRequest_snoozeDuration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><span class="hs-comment">-- * StateChangeConfiguration</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.StateChangeConfiguration.html#StateChangeConfiguration"><span class="hs-identifier">StateChangeConfiguration</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.StateChangeConfiguration.html#newStateChangeConfiguration"><span class="hs-identifier">newStateChangeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.StateChangeConfiguration.html#stateChangeConfiguration_triggerType"><span class="hs-identifier">stateChangeConfiguration_triggerType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><span class="hs-comment">-- * SystemEvent</span></span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SystemEvent.html#SystemEvent"><span class="hs-identifier">SystemEvent</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SystemEvent.html#newSystemEvent"><span class="hs-identifier">newSystemEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SystemEvent.html#systemEvent_eventType"><span class="hs-identifier">systemEvent_eventType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SystemEvent.html#systemEvent_stateChangeConfiguration"><span class="hs-identifier">systemEvent_stateChangeConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Timer</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html#Timer"><span class="hs-identifier">Timer</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html#newTimer"><span class="hs-identifier">newTimer</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html#timer_name"><span class="hs-identifier">timer_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html#timer_timestamp"><span class="hs-identifier">timer_timestamp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TimerDefinition</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimerDefinition.html#TimerDefinition"><span class="hs-identifier">TimerDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimerDefinition.html#newTimerDefinition"><span class="hs-identifier">newTimerDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimerDefinition.html#timerDefinition_name"><span class="hs-identifier">timerDefinition_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimerDefinition.html#timerDefinition_seconds"><span class="hs-identifier">timerDefinition_seconds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="hs-comment">-- * TimestampValue</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimestampValue.html#TimestampValue"><span class="hs-identifier">TimestampValue</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimestampValue.html#newTimestampValue"><span class="hs-identifier">newTimestampValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimestampValue.html#timestampValue_timeInMillis"><span class="hs-identifier">timestampValue_timeInMillis</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><span class="hs-comment">-- * UpdateDetectorRequest</span></span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.UpdateDetectorRequest.html#UpdateDetectorRequest"><span class="hs-identifier">UpdateDetectorRequest</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.UpdateDetectorRequest.html#newUpdateDetectorRequest"><span class="hs-identifier">newUpdateDetectorRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_keyValue"><span class="hs-identifier">updateDetectorRequest_keyValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_messageId"><span class="hs-identifier">updateDetectorRequest_messageId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_detectorModelName"><span class="hs-identifier">updateDetectorRequest_detectorModelName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.UpdateDetectorRequest.html#updateDetectorRequest_state"><span class="hs-identifier">updateDetectorRequest_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-265"></span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Variable</span></span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html#Variable"><span class="hs-identifier">Variable</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html#newVariable"><span class="hs-identifier">newVariable</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html#variable_name"><span class="hs-identifier">variable_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html#variable_value"><span class="hs-identifier">variable_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><span class="hs-comment">-- * VariableDefinition</span></span><span>
+</span><span id="line-273"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.VariableDefinition.html#VariableDefinition"><span class="hs-identifier">VariableDefinition</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.VariableDefinition.html#newVariableDefinition"><span class="hs-identifier">newVariableDefinition</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.VariableDefinition.html#variableDefinition_name"><span class="hs-identifier">variableDefinition_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.VariableDefinition.html#variableDefinition_value"><span class="hs-identifier">variableDefinition_value</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-278"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-279"></span><span>
+</span><span id="line-280"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-281"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.AcknowledgeActionConfiguration</span></a></span><span>
+</span><span id="line-282"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.AcknowledgeAlarmActionRequest</span></a></span><span>
+</span><span id="line-283"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Alarm.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.Alarm</span></a></span><span>
+</span><span id="line-284"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmState.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.AlarmState</span></a></span><span>
+</span><span id="line-285"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmStateName.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.AlarmStateName</span></a></span><span>
+</span><span id="line-286"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.AlarmSummary.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.AlarmSummary</span></a></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.BatchAlarmActionErrorEntry</span></a></span><span>
+</span><span id="line-288"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.BatchPutMessageErrorEntry</span></a></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.BatchUpdateDetectorErrorEntry</span></a></span><span>
+</span><span id="line-290"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ComparisonOperator.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.ComparisonOperator</span></a></span><span>
+</span><span id="line-291"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerAction.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.CustomerAction</span></a></span><span>
+</span><span id="line-292"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.CustomerActionName.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.CustomerActionName</span></a></span><span>
+</span><span id="line-293"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Detector.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.Detector</span></a></span><span>
+</span><span id="line-294"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorState.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.DetectorState</span></a></span><span>
+</span><span id="line-295"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateDefinition.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.DetectorStateDefinition</span></a></span><span>
+</span><span id="line-296"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorStateSummary.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.DetectorStateSummary</span></a></span><span>
+</span><span id="line-297"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DetectorSummary.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.DetectorSummary</span></a></span><span>
+</span><span id="line-298"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.DisableActionConfiguration</span></a></span><span>
+</span><span id="line-299"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.DisableAlarmActionRequest.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.DisableAlarmActionRequest</span></a></span><span>
+</span><span id="line-300"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.EnableActionConfiguration</span></a></span><span>
+</span><span id="line-301"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EnableAlarmActionRequest.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.EnableAlarmActionRequest</span></a></span><span>
+</span><span id="line-302"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ErrorCode.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.ErrorCode</span></a></span><span>
+</span><span id="line-303"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.EventType.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.EventType</span></a></span><span>
+</span><span id="line-304"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Message.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.Message</span></a></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.ResetActionConfiguration</span></a></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.ResetAlarmActionRequest.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.ResetAlarmActionRequest</span></a></span><span>
+</span><span id="line-307"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.RuleEvaluation.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.RuleEvaluation</span></a></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SimpleRuleEvaluation.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.SimpleRuleEvaluation</span></a></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeActionConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.SnoozeActionConfiguration</span></a></span><span>
+</span><span id="line-310"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.SnoozeAlarmActionRequest</span></a></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.StateChangeConfiguration.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.StateChangeConfiguration</span></a></span><span>
+</span><span id="line-312"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.SystemEvent.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.SystemEvent</span></a></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Timer.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.Timer</span></a></span><span>
+</span><span id="line-314"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimerDefinition.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.TimerDefinition</span></a></span><span>
+</span><span id="line-315"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TimestampValue.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.TimestampValue</span></a></span><span>
+</span><span id="line-316"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.TriggerType.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.TriggerType</span></a></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.UpdateDetectorRequest.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.UpdateDetectorRequest</span></a></span><span>
+</span><span id="line-318"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.Variable.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.Variable</span></a></span><span>
+</span><span id="line-319"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.IoTEventsData.Types.VariableDefinition.html"><span class="hs-identifier">Amazonka.IoTEventsData.Types.VariableDefinition</span></a></span><span>
+</span><span id="line-320"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-321"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-322"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-323"></span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- | API version @2018-10-23@ of the Amazon IoT Events Data SDK configuration.</span><span>
+</span><span id="line-325"></span><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-326"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-327"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-328"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;IoTEventsData&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-329"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-330"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;data.iotevents&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-331"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ioteventsdata&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-332"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2018-10-23&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-333"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-337"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-338"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;IoTEventsData&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-339"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679184972"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-340"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-341"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-342"></span><span>    </span><span id="local-6989586621679184972"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679184972"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-343"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-344"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-345"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-346"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-347"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679184966"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-348"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-349"></span><span>    </span><span id="local-6989586621679184966"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679184966"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679184965"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-350"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-351"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-352"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-353"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-355"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-356"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-357"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-358"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-359"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-360"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-361"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-362"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-363"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-364"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-365"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-366"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-367"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-368"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-369"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-370"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-371"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-372"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-373"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-374"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-375"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-376"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-377"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-378"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-379"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-380"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-381"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-382"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-383"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-384"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-385"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-386"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-387"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-388"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-389"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-390"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-391"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679184965"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-392"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-393"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-394"></span><span>
+</span><span id="line-395"></span><span class="hs-comment">-- | The request was invalid.</span><span>
+</span><span id="line-396"></span><span id="local-6989586621679184960"><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_InvalidRequestException"><span class="hs-identifier hs-type">_InvalidRequestException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679184960"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679184960"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-397"></span><span id="_InvalidRequestException"><span class="annot"><span class="annottext">_InvalidRequestException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.IoTEventsData.Types.html#_InvalidRequestException"><span class="hs-identifier hs-var hs-var">_InvalidRequestException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-398"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-399"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-400"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InvalidRequestException&quot;</span></span><span>
+</span><span id="line-401"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-402"></span><span>
+</span><span id="line-403"></span><span class="hs-comment">-- | The request could not be completed due to throttling.</span><span>
+</span><span id="line-404"></span><span id="local-6989586621679184958"><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679184958"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679184958"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-405"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.IoTEventsData.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-406"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-407"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-408"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-409"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-410"></span><span>
+</span><span id="line-411"></span><span class="hs-comment">-- | An internal failure occurred.</span><span>
+</span><span id="line-412"></span><span id="local-6989586621679184957"><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_InternalFailureException"><span class="hs-identifier hs-type">_InternalFailureException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679184957"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679184957"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-413"></span><span id="_InternalFailureException"><span class="annot"><span class="annottext">_InternalFailureException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.IoTEventsData.Types.html#_InternalFailureException"><span class="hs-identifier hs-var hs-var">_InternalFailureException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-414"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-415"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-416"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalFailureException&quot;</span></span><span>
+</span><span id="line-417"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-418"></span><span>
+</span><span id="line-419"></span><span class="hs-comment">-- | The service is currently unavailable.</span><span>
+</span><span id="line-420"></span><span id="local-6989586621679184956"><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-type">_ServiceUnavailableException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679184956"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679184956"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-421"></span><span id="_ServiceUnavailableException"><span class="annot"><span class="annottext">_ServiceUnavailableException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.IoTEventsData.Types.html#_ServiceUnavailableException"><span class="hs-identifier hs-var hs-var">_ServiceUnavailableException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-422"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-423"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-424"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceUnavailableException&quot;</span></span><span>
+</span><span id="line-425"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span>
+</span><span id="line-426"></span><span>
+</span><span id="line-427"></span><span class="hs-comment">-- | The resource was not found.</span><span>
+</span><span id="line-428"></span><span id="local-6989586621679184955"><span class="annot"><a href="Amazonka.IoTEventsData.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679184955"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679184955"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-429"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.IoTEventsData.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-430"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-431"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.IoTEventsData.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-432"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-433"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-434"></span></pre></body></html>

@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Backup.ListProtectedResources</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns an array of resources successfully backed up by Backup,</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- including the time the resource was saved, an Amazon Resource Name (ARN)</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- of the resource, and a resource type.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Backup.ListProtectedResources</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier">ListProtectedResources</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#newListProtectedResources"><span class="hs-identifier">newListProtectedResources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResources_nextToken"><span class="hs-identifier">listProtectedResources_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResources_maxResults"><span class="hs-identifier">listProtectedResources_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier">ListProtectedResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#newListProtectedResourcesResponse"><span class="hs-identifier">newListProtectedResourcesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_results"><span class="hs-identifier">listProtectedResourcesResponse_results</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_nextToken"><span class="hs-identifier">listProtectedResourcesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_httpStatus"><span class="hs-identifier">listProtectedResourcesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Backup.Types.html"><span class="hs-identifier">Amazonka.Backup.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newListProtectedResources' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679314719"><span id="local-6989586621679314720"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProtectedResources"><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-var">ListProtectedResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProtectedResources%27"><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources%27"><span class="hs-identifier hs-var">ListProtectedResources'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3AnextToken%3AListProtectedResources%27"><span class="annot"><span class="annottext">ListProtectedResources -&gt; Maybe Text
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AnextToken%3AListProtectedResources%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | The maximum number of items to be returned.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AmaxResults%3AListProtectedResources%27"><span class="annot"><span class="annottext">ListProtectedResources -&gt; Maybe Natural
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AmaxResults%3AListProtectedResources%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314712"><span id="local-6989586621679314714"><span class="annot"><span class="annottext">ListProtectedResources -&gt; ListProtectedResources -&gt; Bool
+(ListProtectedResources -&gt; ListProtectedResources -&gt; Bool)
+-&gt; (ListProtectedResources -&gt; ListProtectedResources -&gt; Bool)
+-&gt; Eq ListProtectedResources
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProtectedResources -&gt; ListProtectedResources -&gt; Bool
+$c/= :: ListProtectedResources -&gt; ListProtectedResources -&gt; Bool
+== :: ListProtectedResources -&gt; ListProtectedResources -&gt; Bool
+$c== :: ListProtectedResources -&gt; ListProtectedResources -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314703"><span id="local-6989586621679314705"><span id="local-6989586621679314707"><span id="local-6989586621679314709"><span class="annot"><span class="annottext">ReadPrec [ListProtectedResources]
+ReadPrec ListProtectedResources
+Int -&gt; ReadS ListProtectedResources
+ReadS [ListProtectedResources]
+(Int -&gt; ReadS ListProtectedResources)
+-&gt; ReadS [ListProtectedResources]
+-&gt; ReadPrec ListProtectedResources
+-&gt; ReadPrec [ListProtectedResources]
+-&gt; Read ListProtectedResources
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProtectedResources]
+$creadListPrec :: ReadPrec [ListProtectedResources]
+readPrec :: ReadPrec ListProtectedResources
+$creadPrec :: ReadPrec ListProtectedResources
+readList :: ReadS [ListProtectedResources]
+$creadList :: ReadS [ListProtectedResources]
+readsPrec :: Int -&gt; ReadS ListProtectedResources
+$creadsPrec :: Int -&gt; ReadS ListProtectedResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314696"><span id="local-6989586621679314698"><span id="local-6989586621679314700"><span class="annot"><span class="annottext">Int -&gt; ListProtectedResources -&gt; ShowS
+[ListProtectedResources] -&gt; ShowS
+ListProtectedResources -&gt; String
+(Int -&gt; ListProtectedResources -&gt; ShowS)
+-&gt; (ListProtectedResources -&gt; String)
+-&gt; ([ListProtectedResources] -&gt; ShowS)
+-&gt; Show ListProtectedResources
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProtectedResources] -&gt; ShowS
+$cshowList :: [ListProtectedResources] -&gt; ShowS
+show :: ListProtectedResources -&gt; String
+$cshow :: ListProtectedResources -&gt; String
+showsPrec :: Int -&gt; ListProtectedResources -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProtectedResources -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. ListProtectedResources -&gt; Rep ListProtectedResources x)
+-&gt; (forall x.
+    Rep ListProtectedResources x -&gt; ListProtectedResources)
+-&gt; Generic ListProtectedResources
+forall x. Rep ListProtectedResources x -&gt; ListProtectedResources
+forall x. ListProtectedResources -&gt; Rep ListProtectedResources x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep ListProtectedResources x -&gt; ListProtectedResources
+$cfrom :: forall x. ListProtectedResources -&gt; Rep ListProtectedResources x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ListProtectedResources' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'nextToken', 'listProtectedResources_nextToken' - The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'maxResults', 'listProtectedResources_maxResults' - The maximum number of items to be returned.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#newListProtectedResources"><span class="hs-identifier hs-type">newListProtectedResources</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span>
+</span><span id="line-81"></span><span id="newListProtectedResources"><span class="annot"><span class="annottext">newListProtectedResources :: ListProtectedResources
+</span><a href="Amazonka.Backup.ListProtectedResources.html#newListProtectedResources"><span class="hs-identifier hs-var hs-var">newListProtectedResources</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">ListProtectedResources' :: Maybe Text -&gt; Maybe Natural -&gt; ListProtectedResources
+</span><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources%27"><span class="hs-identifier hs-type">ListProtectedResources'</span></a></span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:nextToken:ListProtectedResources' :: Maybe Text
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AnextToken%3AListProtectedResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-85"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:ListProtectedResources' :: Maybe Natural
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AmaxResults%3AListProtectedResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResources_nextToken"><span class="hs-identifier hs-type">listProtectedResources_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="listProtectedResources_nextToken"><span class="annot"><span class="annottext">listProtectedResources_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProtectedResources -&gt; f ListProtectedResources
+</span><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResources_nextToken"><span class="hs-identifier hs-var hs-var">listProtectedResources_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProtectedResources -&gt; Maybe Text)
+-&gt; (ListProtectedResources -&gt; Maybe Text -&gt; ListProtectedResources)
+-&gt; Lens
+     ListProtectedResources
+     ListProtectedResources
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources%27"><span class="hs-identifier hs-type">ListProtectedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314689"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProtectedResources' :: ListProtectedResources -&gt; Maybe Text
+</span><a href="#local-6989586621679314689"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314689"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314688"><span class="annot"><span class="annottext">s :: ListProtectedResources
+</span><a href="#local-6989586621679314688"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources%27"><span class="hs-identifier hs-type">ListProtectedResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314687"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314687"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProtectedResources
+</span><a href="#local-6989586621679314688"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProtectedResources' :: Maybe Text
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AnextToken%3AListProtectedResources%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314687"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The maximum number of items to be returned.</span><span>
+</span><span id="line-96"></span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResources_maxResults"><span class="hs-identifier hs-type">listProtectedResources_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span id="listProtectedResources_maxResults"><span class="annot"><span class="annottext">listProtectedResources_maxResults :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ListProtectedResources -&gt; f ListProtectedResources
+</span><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResources_maxResults"><span class="hs-identifier hs-var hs-var">listProtectedResources_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProtectedResources -&gt; Maybe Natural)
+-&gt; (ListProtectedResources
+    -&gt; Maybe Natural -&gt; ListProtectedResources)
+-&gt; Lens
+     ListProtectedResources
+     ListProtectedResources
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources%27"><span class="hs-identifier hs-type">ListProtectedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314686"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:ListProtectedResources' :: ListProtectedResources -&gt; Maybe Natural
+</span><a href="#local-6989586621679314686"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314686"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314685"><span class="annot"><span class="annottext">s :: ListProtectedResources
+</span><a href="#local-6989586621679314685"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources%27"><span class="hs-identifier hs-type">ListProtectedResources'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314684"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314684"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProtectedResources
+</span><a href="#local-6989586621679314685"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:ListProtectedResources' :: Maybe Natural
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AmaxResults%3AListProtectedResources%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314684"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-101"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679314680"><span class="annot"><span class="annottext">request :: ListProtectedResources -&gt; Request ListProtectedResources
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; ListProtectedResources -&gt; Request ListProtectedResources
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Backup.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-104"></span><span>  </span><span id="local-6989586621679314676"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy ListProtectedResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProtectedResources)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse ListProtectedResources))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy ListProtectedResources
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse ListProtectedResources)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-106"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679314673"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314673"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679314672"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679314672"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679314671"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314671"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-107"></span><span>          </span><span class="annot"><span class="annottext">Maybe [ProtectedResource]
+-&gt; Maybe Text -&gt; Int -&gt; ListProtectedResourcesResponse
+</span><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">ListProtectedResourcesResponse'</span></a></span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [ProtectedResource]
+ -&gt; Maybe Text -&gt; Int -&gt; ListProtectedResourcesResponse)
+-&gt; Either String (Maybe [ProtectedResource])
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; ListProtectedResourcesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [ProtectedResource]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Results&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [ProtectedResource]))
+-&gt; Maybe [ProtectedResource]
+-&gt; Either String (Maybe [ProtectedResource])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [ProtectedResource]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; ListProtectedResourcesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; ListProtectedResourcesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679314671"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; ListProtectedResourcesResponse)
+-&gt; Either String Int
+-&gt; Either String ListProtectedResourcesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314673"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314662"><span id="local-6989586621679314664"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span></span></span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679314659"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span></span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-118"></span><span>  </span><span id="local-6989586621679314655"><span class="annot"><span class="annottext">toHeaders :: ListProtectedResources -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; ListProtectedResources -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-120"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-122"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-123"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-124"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679314649"><span class="annot"><span class="annottext">toPath :: ListProtectedResources -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ListProtectedResources -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/resources/&quot;</span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources"><span class="hs-identifier hs-type">ListProtectedResources</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-132"></span><span>  </span><span id="local-6989586621679314645"><span class="annot"><span class="annottext">toQuery :: ListProtectedResources -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResources%27"><span class="hs-identifier hs-type">ListProtectedResources'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314642"><span id="local-6989586621679314643"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+$sel:maxResults:ListProtectedResources' :: ListProtectedResources -&gt; Maybe Natural
+$sel:nextToken:ListProtectedResources' :: ListProtectedResources -&gt; Maybe Text
+</span><a href="#local-6989586621679314642"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314643"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Natural -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679314642"><span class="hs-identifier hs-var">maxResults</span></a></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | /See:/ 'newListProtectedResourcesResponse' smart constructor.</span><span>
+</span><span id="line-139"></span><span id="local-6989586621679314639"><span id="local-6989586621679314640"></span></span><span class="hs-keyword">data</span><span> </span><span id="ListProtectedResourcesResponse"><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-var">ListProtectedResourcesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ListProtectedResourcesResponse%27"><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">ListProtectedResourcesResponse'</span></a></span></span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of resources successfully backed up by Backup including the</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- time the resource was saved, an Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">-- resource, and a resource type.</span><span>
+</span><span id="line-143"></span><span>    </span><span id="%24sel%3Aresults%3AListProtectedResourcesResponse%27"><span class="annot"><span class="annottext">ListProtectedResourcesResponse -&gt; Maybe [ProtectedResource]
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3Aresults%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Backup.Types.ProtectedResource.html#ProtectedResource"><span class="hs-identifier hs-type">ProtectedResource</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-148"></span><span>    </span><span id="%24sel%3AnextToken%3AListProtectedResourcesResponse%27"><span class="annot"><span class="annottext">ListProtectedResourcesResponse -&gt; Maybe Text
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AnextToken%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span>    </span><span id="%24sel%3AhttpStatus%3AListProtectedResourcesResponse%27"><span class="annot"><span class="annottext">ListProtectedResourcesResponse -&gt; Int
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AhttpStatus%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-152"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679314632"><span id="local-6989586621679314634"><span class="annot"><span class="annottext">ListProtectedResourcesResponse
+-&gt; ListProtectedResourcesResponse -&gt; Bool
+(ListProtectedResourcesResponse
+ -&gt; ListProtectedResourcesResponse -&gt; Bool)
+-&gt; (ListProtectedResourcesResponse
+    -&gt; ListProtectedResourcesResponse -&gt; Bool)
+-&gt; Eq ListProtectedResourcesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ListProtectedResourcesResponse
+-&gt; ListProtectedResourcesResponse -&gt; Bool
+$c/= :: ListProtectedResourcesResponse
+-&gt; ListProtectedResourcesResponse -&gt; Bool
+== :: ListProtectedResourcesResponse
+-&gt; ListProtectedResourcesResponse -&gt; Bool
+$c== :: ListProtectedResourcesResponse
+-&gt; ListProtectedResourcesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314624"><span id="local-6989586621679314626"><span id="local-6989586621679314628"><span id="local-6989586621679314630"><span class="annot"><span class="annottext">ReadPrec [ListProtectedResourcesResponse]
+ReadPrec ListProtectedResourcesResponse
+Int -&gt; ReadS ListProtectedResourcesResponse
+ReadS [ListProtectedResourcesResponse]
+(Int -&gt; ReadS ListProtectedResourcesResponse)
+-&gt; ReadS [ListProtectedResourcesResponse]
+-&gt; ReadPrec ListProtectedResourcesResponse
+-&gt; ReadPrec [ListProtectedResourcesResponse]
+-&gt; Read ListProtectedResourcesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ListProtectedResourcesResponse]
+$creadListPrec :: ReadPrec [ListProtectedResourcesResponse]
+readPrec :: ReadPrec ListProtectedResourcesResponse
+$creadPrec :: ReadPrec ListProtectedResourcesResponse
+readList :: ReadS [ListProtectedResourcesResponse]
+$creadList :: ReadS [ListProtectedResourcesResponse]
+readsPrec :: Int -&gt; ReadS ListProtectedResourcesResponse
+$creadsPrec :: Int -&gt; ReadS ListProtectedResourcesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679314618"><span id="local-6989586621679314620"><span id="local-6989586621679314622"><span class="annot"><span class="annottext">Int -&gt; ListProtectedResourcesResponse -&gt; ShowS
+[ListProtectedResourcesResponse] -&gt; ShowS
+ListProtectedResourcesResponse -&gt; String
+(Int -&gt; ListProtectedResourcesResponse -&gt; ShowS)
+-&gt; (ListProtectedResourcesResponse -&gt; String)
+-&gt; ([ListProtectedResourcesResponse] -&gt; ShowS)
+-&gt; Show ListProtectedResourcesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ListProtectedResourcesResponse] -&gt; ShowS
+$cshowList :: [ListProtectedResourcesResponse] -&gt; ShowS
+show :: ListProtectedResourcesResponse -&gt; String
+$cshow :: ListProtectedResourcesResponse -&gt; String
+showsPrec :: Int -&gt; ListProtectedResourcesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; ListProtectedResourcesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ListProtectedResourcesResponse
+ -&gt; Rep ListProtectedResourcesResponse x)
+-&gt; (forall x.
+    Rep ListProtectedResourcesResponse x
+    -&gt; ListProtectedResourcesResponse)
+-&gt; Generic ListProtectedResourcesResponse
+forall x.
+Rep ListProtectedResourcesResponse x
+-&gt; ListProtectedResourcesResponse
+forall x.
+ListProtectedResourcesResponse
+-&gt; Rep ListProtectedResourcesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ListProtectedResourcesResponse x
+-&gt; ListProtectedResourcesResponse
+$cfrom :: forall x.
+ListProtectedResourcesResponse
+-&gt; Rep ListProtectedResourcesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- Create a value of 'ListProtectedResourcesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- 'results', 'listProtectedResourcesResponse_results' - An array of resources successfully backed up by Backup including the</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- time the resource was saved, an Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- resource, and a resource type.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'nextToken', 'listProtectedResourcesResponse_nextToken' - The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'listProtectedResourcesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#newListProtectedResourcesResponse"><span class="hs-identifier hs-type">newListProtectedResourcesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newListProtectedResourcesResponse"><span class="annot"><span class="annottext">newListProtectedResourcesResponse :: Int -&gt; ListProtectedResourcesResponse
+</span><a href="Amazonka.Backup.ListProtectedResources.html#newListProtectedResourcesResponse"><span class="hs-identifier hs-var hs-var">newListProtectedResourcesResponse</span></a></span></span><span> </span><span id="local-6989586621679314615"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">ListProtectedResourcesResponse' :: Maybe [ProtectedResource]
+-&gt; Maybe Text -&gt; Int -&gt; ListProtectedResourcesResponse
+</span><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-type">ListProtectedResourcesResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:results:ListProtectedResourcesResponse' :: Maybe [ProtectedResource]
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3Aresults%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [ProtectedResource]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:ListProtectedResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AnextToken%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:ListProtectedResourcesResponse' :: Int
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AhttpStatus%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314615"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | An array of resources successfully backed up by Backup including the</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- time the resource was saved, an Amazon Resource Name (ARN) of the</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- resource, and a resource type.</span><span>
+</span><span id="line-187"></span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_results"><span class="hs-identifier hs-type">listProtectedResourcesResponse_results</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Backup.Types.ProtectedResource.html#ProtectedResource"><span class="hs-identifier hs-type">ProtectedResource</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-188"></span><span id="listProtectedResourcesResponse_results"><span class="annot"><span class="annottext">listProtectedResourcesResponse_results :: (Maybe [ProtectedResource] -&gt; f (Maybe [ProtectedResource]))
+-&gt; ListProtectedResourcesResponse
+-&gt; f ListProtectedResourcesResponse
+</span><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_results"><span class="hs-identifier hs-var hs-var">listProtectedResourcesResponse_results</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProtectedResourcesResponse -&gt; Maybe [ProtectedResource])
+-&gt; (ListProtectedResourcesResponse
+    -&gt; Maybe [ProtectedResource] -&gt; ListProtectedResourcesResponse)
+-&gt; Lens
+     ListProtectedResourcesResponse
+     ListProtectedResourcesResponse
+     (Maybe [ProtectedResource])
+     (Maybe [ProtectedResource])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-type">ListProtectedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314614"><span class="annot"><span class="annottext">Maybe [ProtectedResource]
+results :: Maybe [ProtectedResource]
+$sel:results:ListProtectedResourcesResponse' :: ListProtectedResourcesResponse -&gt; Maybe [ProtectedResource]
+</span><a href="#local-6989586621679314614"><span class="hs-identifier hs-var hs-var">results</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [ProtectedResource]
+</span><a href="#local-6989586621679314614"><span class="hs-identifier hs-var">results</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314613"><span class="annot"><span class="annottext">s :: ListProtectedResourcesResponse
+</span><a href="#local-6989586621679314613"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-type">ListProtectedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314612"><span class="annot"><span class="annottext">Maybe [ProtectedResource]
+</span><a href="#local-6989586621679314612"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProtectedResourcesResponse
+</span><a href="#local-6989586621679314613"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:results:ListProtectedResourcesResponse' :: Maybe [ProtectedResource]
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3Aresults%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">results</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [ProtectedResource]
+</span><a href="#local-6989586621679314612"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [ProtectedResource] -&gt; f (Maybe [ProtectedResource]))
+ -&gt; ListProtectedResourcesResponse
+ -&gt; f ListProtectedResourcesResponse)
+-&gt; ((Maybe [ProtectedResource] -&gt; f (Maybe [ProtectedResource]))
+    -&gt; Maybe [ProtectedResource] -&gt; f (Maybe [ProtectedResource]))
+-&gt; (Maybe [ProtectedResource] -&gt; f (Maybe [ProtectedResource]))
+-&gt; ListProtectedResourcesResponse
+-&gt; f ListProtectedResourcesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProtectedResource]
+  [ProtectedResource]
+  [ProtectedResource]
+  [ProtectedResource]
+-&gt; Iso
+     (Maybe [ProtectedResource])
+     (Maybe [ProtectedResource])
+     (Maybe [ProtectedResource])
+     (Maybe [ProtectedResource])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [ProtectedResource]
+  [ProtectedResource]
+  [ProtectedResource]
+  [ProtectedResource]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- | The next item following a partial list of returned items. For example,</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- if a request is made to return @maxResults@ number of items, @NextToken@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- allows you to return more items in your list starting at the location</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- pointed to by the next token.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_nextToken"><span class="hs-identifier hs-type">listProtectedResourcesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span id="listProtectedResourcesResponse_nextToken"><span class="annot"><span class="annottext">listProtectedResourcesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ListProtectedResourcesResponse
+-&gt; f ListProtectedResourcesResponse
+</span><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_nextToken"><span class="hs-identifier hs-var hs-var">listProtectedResourcesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProtectedResourcesResponse -&gt; Maybe Text)
+-&gt; (ListProtectedResourcesResponse
+    -&gt; Maybe Text -&gt; ListProtectedResourcesResponse)
+-&gt; Lens
+     ListProtectedResourcesResponse
+     ListProtectedResourcesResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-type">ListProtectedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314608"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:ListProtectedResourcesResponse' :: ListProtectedResourcesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679314608"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314608"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314607"><span class="annot"><span class="annottext">s :: ListProtectedResourcesResponse
+</span><a href="#local-6989586621679314607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-type">ListProtectedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314606"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProtectedResourcesResponse
+</span><a href="#local-6989586621679314607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:ListProtectedResourcesResponse' :: Maybe Text
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AnextToken%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679314606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_httpStatus"><span class="hs-identifier hs-type">listProtectedResourcesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-199"></span><span id="listProtectedResourcesResponse_httpStatus"><span class="annot"><span class="annottext">listProtectedResourcesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; ListProtectedResourcesResponse
+-&gt; f ListProtectedResourcesResponse
+</span><a href="Amazonka.Backup.ListProtectedResources.html#listProtectedResourcesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">listProtectedResourcesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ListProtectedResourcesResponse -&gt; Int)
+-&gt; (ListProtectedResourcesResponse
+    -&gt; Int -&gt; ListProtectedResourcesResponse)
+-&gt; Lens
+     ListProtectedResourcesResponse
+     ListProtectedResourcesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-type">ListProtectedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679314605"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:ListProtectedResourcesResponse' :: ListProtectedResourcesResponse -&gt; Int
+</span><a href="#local-6989586621679314605"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314605"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679314604"><span class="annot"><span class="annottext">s :: ListProtectedResourcesResponse
+</span><a href="#local-6989586621679314604"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse%27"><span class="hs-identifier hs-type">ListProtectedResourcesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679314603"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314603"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ListProtectedResourcesResponse
+</span><a href="#local-6989586621679314604"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:ListProtectedResourcesResponse' :: Int
+</span><a href="Amazonka.Backup.ListProtectedResources.html#%24sel%3AhttpStatus%3AListProtectedResourcesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679314603"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-202"></span><span>  </span><span id="local-6989586621679314601"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><a href="Amazonka.Backup.ListProtectedResources.html#ListProtectedResourcesResponse"><span class="hs-identifier hs-type">ListProtectedResourcesResponse</span></a></span></span><span>
+</span><span id="line-204"></span></pre></body></html>

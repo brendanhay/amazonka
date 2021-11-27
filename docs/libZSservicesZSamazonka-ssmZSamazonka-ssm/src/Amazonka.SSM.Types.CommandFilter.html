@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SSM.Types.CommandFilter</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SSM.Types.CommandFilter</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html"><span class="hs-identifier">Amazonka.SSM.Types.CommandFilterKey</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Describes a command filter.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- An instance ID can\'t be specified when a command status is @Pending@</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- because the command hasn\'t run on the instance yet.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newCommandFilter' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679789654"><span id="local-6989586621679789655"></span></span><span class="hs-keyword">data</span><span> </span><span id="CommandFilter"><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-var">CommandFilter</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CommandFilter%27"><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-var">CommandFilter'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Akey%3ACommandFilter%27"><span class="annot"><span class="annottext">CommandFilter -&gt; CommandFilterKey
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#%24sel%3Akey%3ACommandFilter%27"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The filter value. Valid values for each filter key are as follows:</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- -   __InvokedAfter__: Specify a timestamp to limit your results. For</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">--     example, specify @2021-07-07T00:00:00Z@ to see a list of command</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">--     executions occurring July 7, 2021, and later.</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- -   __InvokedBefore__: Specify a timestamp to limit your results. For</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">--     example, specify @2021-07-07T00:00:00Z@ to see a list of command</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">--     executions from before July 7, 2021.</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- -   __Status__: Specify a valid command status to see a list of all</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">--     command executions with that status. The status choices depend on</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--     the API you call.</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">--     The status values you can specify for @ListCommands@ are:</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">--     -   @Pending@</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">--     -   @InProgress@</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">--     -   @Success@</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--     -   @Cancelled@</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">--     -   @Failed@</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">--     -   @TimedOut@ (this includes both Delivery and Execution time outs)</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">--     -   @AccessDenied@</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">--     -   @DeliveryTimedOut@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">--     -   @ExecutionTimedOut@</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">--     -   @Incomplete@</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">--     -   @NoInstancesInTag@</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--     -   @LimitExceeded@</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--     The status values you can specify for @ListCommandInvocations@ are:</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">--     -   @Pending@</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">--     -   @InProgress@</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">--     -   @Delayed@</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--     -   @Success@</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--     -   @Cancelled@</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">--     -   @Failed@</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">--     -   @TimedOut@ (this includes both Delivery and Execution time outs)</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">--     -   @AccessDenied@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--     -   @DeliveryTimedOut@</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">--     -   @ExecutionTimedOut@</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">--     -   @Undeliverable@</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">--     -   @InvalidPlatform@</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">--     -   @Terminated@</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- -   __DocumentName__: Specify name of the Amazon Web Services Systems</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">--     Manager document (SSM document) for which you want to see command</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">--     execution results. For example, specify @AWS-RunPatchBaseline@ to</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">--     see command executions that used this SSM document to perform</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">--     security patching operations on instances.</span><span>
+</span><span id="line-109"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- -   __ExecutionStage__: Specify one of the following values:</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span>    </span><span class="hs-comment">--     -   @Executing@: Returns a list of command executions that are</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">--         currently still running.</span><span>
+</span><span id="line-114"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span>    </span><span class="hs-comment">--     -   @Complete@: Returns a list of command executions that have</span><span>
+</span><span id="line-116"></span><span>    </span><span class="hs-comment">--         already completed.</span><span>
+</span><span id="line-117"></span><span>    </span><span id="%24sel%3Avalue%3ACommandFilter%27"><span class="annot"><span class="annottext">CommandFilter -&gt; Text
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#%24sel%3Avalue%3ACommandFilter%27"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-118"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679789647"><span id="local-6989586621679789649"><span class="annot"><span class="annottext">CommandFilter -&gt; CommandFilter -&gt; Bool
+(CommandFilter -&gt; CommandFilter -&gt; Bool)
+-&gt; (CommandFilter -&gt; CommandFilter -&gt; Bool) -&gt; Eq CommandFilter
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CommandFilter -&gt; CommandFilter -&gt; Bool
+$c/= :: CommandFilter -&gt; CommandFilter -&gt; Bool
+== :: CommandFilter -&gt; CommandFilter -&gt; Bool
+$c== :: CommandFilter -&gt; CommandFilter -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789638"><span id="local-6989586621679789640"><span id="local-6989586621679789642"><span id="local-6989586621679789644"><span class="annot"><span class="annottext">ReadPrec [CommandFilter]
+ReadPrec CommandFilter
+Int -&gt; ReadS CommandFilter
+ReadS [CommandFilter]
+(Int -&gt; ReadS CommandFilter)
+-&gt; ReadS [CommandFilter]
+-&gt; ReadPrec CommandFilter
+-&gt; ReadPrec [CommandFilter]
+-&gt; Read CommandFilter
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CommandFilter]
+$creadListPrec :: ReadPrec [CommandFilter]
+readPrec :: ReadPrec CommandFilter
+$creadPrec :: ReadPrec CommandFilter
+readList :: ReadS [CommandFilter]
+$creadList :: ReadS [CommandFilter]
+readsPrec :: Int -&gt; ReadS CommandFilter
+$creadsPrec :: Int -&gt; ReadS CommandFilter
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679789631"><span id="local-6989586621679789633"><span id="local-6989586621679789635"><span class="annot"><span class="annottext">Int -&gt; CommandFilter -&gt; ShowS
+[CommandFilter] -&gt; ShowS
+CommandFilter -&gt; String
+(Int -&gt; CommandFilter -&gt; ShowS)
+-&gt; (CommandFilter -&gt; String)
+-&gt; ([CommandFilter] -&gt; ShowS)
+-&gt; Show CommandFilter
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CommandFilter] -&gt; ShowS
+$cshowList :: [CommandFilter] -&gt; ShowS
+show :: CommandFilter -&gt; String
+$cshow :: CommandFilter -&gt; String
+showsPrec :: Int -&gt; CommandFilter -&gt; ShowS
+$cshowsPrec :: Int -&gt; CommandFilter -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CommandFilter -&gt; Rep CommandFilter x)
+-&gt; (forall x. Rep CommandFilter x -&gt; CommandFilter)
+-&gt; Generic CommandFilter
+forall x. Rep CommandFilter x -&gt; CommandFilter
+forall x. CommandFilter -&gt; Rep CommandFilter x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CommandFilter x -&gt; CommandFilter
+$cfrom :: forall x. CommandFilter -&gt; Rep CommandFilter x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- Create a value of 'CommandFilter' with all optional fields omitted.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'key', 'commandFilter_key' - The name of the filter.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'value', 'commandFilter_value' - The filter value. Valid values for each filter key are as follows:</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- -   __InvokedAfter__: Specify a timestamp to limit your results. For</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--     example, specify @2021-07-07T00:00:00Z@ to see a list of command</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--     executions occurring July 7, 2021, and later.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- -   __InvokedBefore__: Specify a timestamp to limit your results. For</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--     example, specify @2021-07-07T00:00:00Z@ to see a list of command</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--     executions from before July 7, 2021.</span><span>
+</span><span id="line-140"></span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- -   __Status__: Specify a valid command status to see a list of all</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--     command executions with that status. The status choices depend on</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--     the API you call.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--     The status values you can specify for @ListCommands@ are:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">--     -   @Pending@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--     -   @InProgress@</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--     -   @Success@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--     -   @Cancelled@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--     -   @Failed@</span><span>
+</span><span id="line-156"></span><span class="hs-comment">--</span><span>
+</span><span id="line-157"></span><span class="hs-comment">--     -   @TimedOut@ (this includes both Delivery and Execution time outs)</span><span>
+</span><span id="line-158"></span><span class="hs-comment">--</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--     -   @AccessDenied@</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--     -   @DeliveryTimedOut@</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--     -   @ExecutionTimedOut@</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--     -   @Incomplete@</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--     -   @NoInstancesInTag@</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--     -   @LimitExceeded@</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--     The status values you can specify for @ListCommandInvocations@ are:</span><span>
+</span><span id="line-172"></span><span class="hs-comment">--</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--     -   @Pending@</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--     -   @InProgress@</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--     -   @Delayed@</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--     -   @Success@</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--     -   @Cancelled@</span><span>
+</span><span id="line-182"></span><span class="hs-comment">--</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--     -   @Failed@</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--     -   @TimedOut@ (this includes both Delivery and Execution time outs)</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">--     -   @AccessDenied@</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--     -   @DeliveryTimedOut@</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--     -   @ExecutionTimedOut@</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     -   @Undeliverable@</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--     -   @InvalidPlatform@</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--     -   @Terminated@</span><span>
+</span><span id="line-198"></span><span class="hs-comment">--</span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- -   __DocumentName__: Specify name of the Amazon Web Services Systems</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     Manager document (SSM document) for which you want to see command</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     execution results. For example, specify @AWS-RunPatchBaseline@ to</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--     see command executions that used this SSM document to perform</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     security patching operations on instances.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- -   __ExecutionStage__: Specify one of the following values:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">--     -   @Executing@: Returns a list of command executions that are</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--         currently still running.</span><span>
+</span><span id="line-209"></span><span class="hs-comment">--</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     -   @Complete@: Returns a list of command executions that have</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--         already completed.</span><span>
+</span><span id="line-212"></span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#newCommandFilter"><span class="hs-identifier hs-type">newCommandFilter</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'key'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'value'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span>
+</span><span id="line-218"></span><span id="newCommandFilter"><span class="annot"><span class="annottext">newCommandFilter :: CommandFilterKey -&gt; Text -&gt; CommandFilter
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#newCommandFilter"><span class="hs-identifier hs-var hs-var">newCommandFilter</span></a></span></span><span> </span><span id="local-6989586621679789625"><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789625"><span class="hs-identifier hs-var">pKey_</span></a></span></span><span> </span><span id="local-6989586621679789624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789624"><span class="hs-identifier hs-var">pValue_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-219"></span><span>  </span><span class="annot"><span class="annottext">CommandFilter' :: CommandFilterKey -&gt; Text -&gt; CommandFilter
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:CommandFilter' :: CommandFilterKey
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#%24sel%3Akey%3ACommandFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789625"><span class="hs-identifier hs-var">pKey_</span></a></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">$sel:value:CommandFilter' :: Text
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#%24sel%3Avalue%3ACommandFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789624"><span class="hs-identifier hs-var">pValue_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- | The name of the filter.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#commandFilter_key"><span class="hs-identifier hs-type">commandFilter_key</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilterKey.html#CommandFilterKey"><span class="hs-identifier hs-type">CommandFilterKey</span></a></span><span>
+</span><span id="line-223"></span><span id="commandFilter_key"><span class="annot"><span class="annottext">commandFilter_key :: (CommandFilterKey -&gt; f CommandFilterKey)
+-&gt; CommandFilter -&gt; f CommandFilter
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#commandFilter_key"><span class="hs-identifier hs-var hs-var">commandFilter_key</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandFilter -&gt; CommandFilterKey)
+-&gt; (CommandFilter -&gt; CommandFilterKey -&gt; CommandFilter)
+-&gt; Lens
+     CommandFilter CommandFilter CommandFilterKey CommandFilterKey
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789620"><span class="annot"><span class="annottext">CommandFilterKey
+key :: CommandFilterKey
+$sel:key:CommandFilter' :: CommandFilter -&gt; CommandFilterKey
+</span><a href="#local-6989586621679789620"><span class="hs-identifier hs-var hs-var">key</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789620"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789619"><span class="annot"><span class="annottext">s :: CommandFilter
+</span><a href="#local-6989586621679789619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789618"><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilter
+</span><a href="#local-6989586621679789619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:key:CommandFilter' :: CommandFilterKey
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#%24sel%3Akey%3ACommandFilter%27"><span class="hs-identifier hs-var">key</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- | The filter value. Valid values for each filter key are as follows:</span><span>
+</span><span id="line-226"></span><span class="hs-comment">--</span><span>
+</span><span id="line-227"></span><span class="hs-comment">-- -   __InvokedAfter__: Specify a timestamp to limit your results. For</span><span>
+</span><span id="line-228"></span><span class="hs-comment">--     example, specify @2021-07-07T00:00:00Z@ to see a list of command</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--     executions occurring July 7, 2021, and later.</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   __InvokedBefore__: Specify a timestamp to limit your results. For</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     example, specify @2021-07-07T00:00:00Z@ to see a list of command</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--     executions from before July 7, 2021.</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- -   __Status__: Specify a valid command status to see a list of all</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     command executions with that status. The status choices depend on</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--     the API you call.</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     The status values you can specify for @ListCommands@ are:</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     -   @Pending@</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--     -   @InProgress@</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">--     -   @Success@</span><span>
+</span><span id="line-246"></span><span class="hs-comment">--</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--     -   @Cancelled@</span><span>
+</span><span id="line-248"></span><span class="hs-comment">--</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--     -   @Failed@</span><span>
+</span><span id="line-250"></span><span class="hs-comment">--</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     -   @TimedOut@ (this includes both Delivery and Execution time outs)</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--     -   @AccessDenied@</span><span>
+</span><span id="line-254"></span><span class="hs-comment">--</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--     -   @DeliveryTimedOut@</span><span>
+</span><span id="line-256"></span><span class="hs-comment">--</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--     -   @ExecutionTimedOut@</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">--     -   @Incomplete@</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--     -   @NoInstancesInTag@</span><span>
+</span><span id="line-262"></span><span class="hs-comment">--</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     -   @LimitExceeded@</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">--     The status values you can specify for @ListCommandInvocations@ are:</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     -   @Pending@</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">--     -   @InProgress@</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     -   @Delayed@</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--     -   @Success@</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--     -   @Cancelled@</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     -   @Failed@</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--     -   @TimedOut@ (this includes both Delivery and Execution time outs)</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     -   @AccessDenied@</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--     -   @DeliveryTimedOut@</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--     -   @ExecutionTimedOut@</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     -   @Undeliverable@</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--     -   @InvalidPlatform@</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">--     -   @Terminated@</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- -   __DocumentName__: Specify name of the Amazon Web Services Systems</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--     Manager document (SSM document) for which you want to see command</span><span>
+</span><span id="line-295"></span><span class="hs-comment">--     execution results. For example, specify @AWS-RunPatchBaseline@ to</span><span>
+</span><span id="line-296"></span><span class="hs-comment">--     see command executions that used this SSM document to perform</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--     security patching operations on instances.</span><span>
+</span><span id="line-298"></span><span class="hs-comment">--</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- -   __ExecutionStage__: Specify one of the following values:</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     -   @Executing@: Returns a list of command executions that are</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--         currently still running.</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--     -   @Complete@: Returns a list of command executions that have</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--         already completed.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#commandFilter_value"><span class="hs-identifier hs-type">commandFilter_value</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-307"></span><span id="commandFilter_value"><span class="annot"><span class="annottext">commandFilter_value :: (Text -&gt; f Text) -&gt; CommandFilter -&gt; f CommandFilter
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#commandFilter_value"><span class="hs-identifier hs-var hs-var">commandFilter_value</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CommandFilter -&gt; Text)
+-&gt; (CommandFilter -&gt; Text -&gt; CommandFilter)
+-&gt; Lens CommandFilter CommandFilter Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789616"><span class="annot"><span class="annottext">Text
+value :: Text
+$sel:value:CommandFilter' :: CommandFilter -&gt; Text
+</span><a href="#local-6989586621679789616"><span class="hs-identifier hs-var hs-var">value</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789616"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679789615"><span class="annot"><span class="annottext">s :: CommandFilter
+</span><a href="#local-6989586621679789615"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679789614"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789614"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CommandFilter
+</span><a href="#local-6989586621679789615"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:value:CommandFilter' :: Text
+</span><a href="Amazonka.SSM.Types.CommandFilter.html#%24sel%3Avalue%3ACommandFilter%27"><span class="hs-identifier hs-var">value</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789614"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789610"><span id="local-6989586621679789612"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span></span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789607"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679789599"><span id="local-6989586621679789601"><span id="local-6989586621679789603"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter"><span class="hs-identifier hs-type">CommandFilter</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-314"></span><span>  </span><span id="local-6989586621679789597"><span class="annot"><span class="annottext">toJSON :: CommandFilter -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.SSM.Types.CommandFilter.html#CommandFilter%27"><span class="hs-identifier hs-type">CommandFilter'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679789594"><span id="local-6989586621679789595"><span class="annot"><span class="annottext">Text
+CommandFilterKey
+value :: Text
+key :: CommandFilterKey
+$sel:value:CommandFilter' :: CommandFilter -&gt; Text
+$sel:key:CommandFilter' :: CommandFilter -&gt; CommandFilterKey
+</span><a href="#local-6989586621679789594"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-316"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-317"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; CommandFilterKey -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">CommandFilterKey
+</span><a href="#local-6989586621679789595"><span class="hs-identifier hs-var">key</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679789594"><span class="hs-identifier hs-var">value</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-320"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span></pre></body></html>

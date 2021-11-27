@@ -1,0 +1,657 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SNS.GetSubscriptionAttributes</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns all of the properties of a subscription.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SNS.GetSubscriptionAttributes</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributes"><span class="hs-identifier">newGetSubscriptionAttributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributes_subscriptionArn"><span class="hs-identifier">getSubscriptionAttributes_subscriptionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier">GetSubscriptionAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributesResponse"><span class="hs-identifier">newGetSubscriptionAttributesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributesResponse_attributes"><span class="hs-identifier">getSubscriptionAttributesResponse_attributes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributesResponse_httpStatus"><span class="hs-identifier">getSubscriptionAttributesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SNS.Types.html"><span class="hs-identifier">Amazonka.SNS.Types</span></a></span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- | Input for GetSubscriptionAttributes.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- /See:/ 'newGetSubscriptionAttributes' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679197131"><span id="local-6989586621679197132"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionAttributes"><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-var">GetSubscriptionAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionAttributes%27"><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-var">GetSubscriptionAttributes'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ARN of the subscription whose properties you want to get.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="annot"><span class="annottext">GetSubscriptionAttributes -&gt; Text
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197125"><span id="local-6989586621679197127"><span class="annot"><span class="annottext">GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
+(GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool)
+-&gt; (GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool)
+-&gt; Eq GetSubscriptionAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
+$c/= :: GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
+== :: GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
+$c== :: GetSubscriptionAttributes -&gt; GetSubscriptionAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197116"><span id="local-6989586621679197118"><span id="local-6989586621679197120"><span id="local-6989586621679197122"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionAttributes]
+ReadPrec GetSubscriptionAttributes
+Int -&gt; ReadS GetSubscriptionAttributes
+ReadS [GetSubscriptionAttributes]
+(Int -&gt; ReadS GetSubscriptionAttributes)
+-&gt; ReadS [GetSubscriptionAttributes]
+-&gt; ReadPrec GetSubscriptionAttributes
+-&gt; ReadPrec [GetSubscriptionAttributes]
+-&gt; Read GetSubscriptionAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSubscriptionAttributes]
+$creadListPrec :: ReadPrec [GetSubscriptionAttributes]
+readPrec :: ReadPrec GetSubscriptionAttributes
+$creadPrec :: ReadPrec GetSubscriptionAttributes
+readList :: ReadS [GetSubscriptionAttributes]
+$creadList :: ReadS [GetSubscriptionAttributes]
+readsPrec :: Int -&gt; ReadS GetSubscriptionAttributes
+$creadsPrec :: Int -&gt; ReadS GetSubscriptionAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197109"><span id="local-6989586621679197111"><span id="local-6989586621679197113"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionAttributes -&gt; ShowS
+[GetSubscriptionAttributes] -&gt; ShowS
+GetSubscriptionAttributes -&gt; String
+(Int -&gt; GetSubscriptionAttributes -&gt; ShowS)
+-&gt; (GetSubscriptionAttributes -&gt; String)
+-&gt; ([GetSubscriptionAttributes] -&gt; ShowS)
+-&gt; Show GetSubscriptionAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSubscriptionAttributes] -&gt; ShowS
+$cshowList :: [GetSubscriptionAttributes] -&gt; ShowS
+show :: GetSubscriptionAttributes -&gt; String
+$cshow :: GetSubscriptionAttributes -&gt; String
+showsPrec :: Int -&gt; GetSubscriptionAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSubscriptionAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSubscriptionAttributes -&gt; Rep GetSubscriptionAttributes x)
+-&gt; (forall x.
+    Rep GetSubscriptionAttributes x -&gt; GetSubscriptionAttributes)
+-&gt; Generic GetSubscriptionAttributes
+forall x.
+Rep GetSubscriptionAttributes x -&gt; GetSubscriptionAttributes
+forall x.
+GetSubscriptionAttributes -&gt; Rep GetSubscriptionAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSubscriptionAttributes x -&gt; GetSubscriptionAttributes
+$cfrom :: forall x.
+GetSubscriptionAttributes -&gt; Rep GetSubscriptionAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'GetSubscriptionAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'subscriptionArn', 'getSubscriptionAttributes_subscriptionArn' - The ARN of the subscription whose properties you want to get.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributes"><span class="hs-identifier hs-type">newGetSubscriptionAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'subscriptionArn'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span>
+</span><span id="line-71"></span><span id="newGetSubscriptionAttributes"><span class="annot"><span class="annottext">newGetSubscriptionAttributes :: Text -&gt; GetSubscriptionAttributes
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributes"><span class="hs-identifier hs-var hs-var">newGetSubscriptionAttributes</span></a></span></span><span> </span><span id="local-6989586621679197104"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197104"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><span class="annottext">GetSubscriptionAttributes' :: Text -&gt; GetSubscriptionAttributes
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:subscriptionArn:GetSubscriptionAttributes' :: Text
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197104"><span class="hs-identifier hs-var">pSubscriptionArn_</span></a></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The ARN of the subscription whose properties you want to get.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributes_subscriptionArn"><span class="hs-identifier hs-type">getSubscriptionAttributes_subscriptionArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="getSubscriptionAttributes_subscriptionArn"><span class="annot"><span class="annottext">getSubscriptionAttributes_subscriptionArn :: (Text -&gt; f Text)
+-&gt; GetSubscriptionAttributes -&gt; f GetSubscriptionAttributes
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributes_subscriptionArn"><span class="hs-identifier hs-var hs-var">getSubscriptionAttributes_subscriptionArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionAttributes -&gt; Text)
+-&gt; (GetSubscriptionAttributes -&gt; Text -&gt; GetSubscriptionAttributes)
+-&gt; Lens
+     GetSubscriptionAttributes GetSubscriptionAttributes Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197101"><span class="annot"><span class="annottext">Text
+subscriptionArn :: Text
+$sel:subscriptionArn:GetSubscriptionAttributes' :: GetSubscriptionAttributes -&gt; Text
+</span><a href="#local-6989586621679197101"><span class="hs-identifier hs-var hs-var">subscriptionArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197101"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197100"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributes
+</span><a href="#local-6989586621679197100"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197099"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197099"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributes
+</span><a href="#local-6989586621679197100"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subscriptionArn:GetSubscriptionAttributes' :: Text
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3AsubscriptionArn%3AGetSubscriptionAttributes%27"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197099"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-83"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-84"></span><span>      </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span>
+</span><span id="line-85"></span><span>  </span><span id="local-6989586621679197095"><span class="annot"><span class="annottext">request :: GetSubscriptionAttributes -&gt; Request GetSubscriptionAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; GetSubscriptionAttributes -&gt; Request GetSubscriptionAttributes
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SNS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679197091"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetSubscriptionAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSubscriptionAttributes)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse GetSubscriptionAttributes))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetSubscriptionAttributes
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetSubscriptionAttributes)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GetSubscriptionAttributesResult&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679197088"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197088"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679197087"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679197087"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679197086"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679197086"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+-&gt; Int -&gt; GetSubscriptionAttributesResponse
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Maybe (HashMap Text Text)
+ -&gt; Int -&gt; GetSubscriptionAttributesResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; GetSubscriptionAttributesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679197086"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Attributes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-92"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe (HashMap Text Text)))
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String (HashMap Text Text))
+-&gt; [Node] -&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap Text Text)
+forall k v.
+(Eq k, Hashable k, FromText k, FromXML v) =&gt;
+Text -&gt; Text -&gt; Text -&gt; [Node] -&gt; Either String (HashMap k v)
+</span><span class="hs-identifier hs-var">Core.parseXMLMap</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;entry&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;key&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;value&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetSubscriptionAttributesResponse)
+-&gt; Either String Int
+-&gt; Either String GetSubscriptionAttributesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197088"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197075"><span id="local-6989586621679197077"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span></span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679197072"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span></span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span id="local-6989586621679197068"><span class="annot"><span class="annottext">toHeaders :: GetSubscriptionAttributes -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetSubscriptionAttributes -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679197063"><span class="annot"><span class="annottext">toPath :: GetSubscriptionAttributes -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetSubscriptionAttributes -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes"><span class="hs-identifier hs-type">GetSubscriptionAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679197059"><span class="annot"><span class="annottext">toQuery :: GetSubscriptionAttributes -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributes%27"><span class="hs-identifier hs-type">GetSubscriptionAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197057"><span class="annot"><span class="annottext">Text
+subscriptionArn :: Text
+$sel:subscriptionArn:GetSubscriptionAttributes' :: GetSubscriptionAttributes -&gt; Text
+</span><a href="#local-6989586621679197057"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;GetSubscriptionAttributes&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-03-31&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SubscriptionArn&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679197057"><span class="hs-identifier hs-var">subscriptionArn</span></a></span><span>
+</span><span id="line-115"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | Response for GetSubscriptionAttributes action.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- /See:/ 'newGetSubscriptionAttributesResponse' smart constructor.</span><span>
+</span><span id="line-120"></span><span id="local-6989586621679197054"><span id="local-6989586621679197055"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetSubscriptionAttributesResponse"><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetSubscriptionAttributesResponse%27"><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">GetSubscriptionAttributesResponse'</span></a></span></span><span>
+</span><span id="line-121"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A map of the subscription\'s attributes. Attributes in this map include</span><span>
+</span><span id="line-122"></span><span>    </span><span class="hs-comment">-- the following:</span><span>
+</span><span id="line-123"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span>    </span><span class="hs-comment">-- -   @ConfirmationWasAuthenticated@ &#8211; @true@ if the subscription</span><span>
+</span><span id="line-125"></span><span>    </span><span class="hs-comment">--     confirmation request was authenticated.</span><span>
+</span><span id="line-126"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- -   @DeliveryPolicy@ &#8211; The JSON serialization of the subscription\'s</span><span>
+</span><span id="line-128"></span><span>    </span><span class="hs-comment">--     delivery policy.</span><span>
+</span><span id="line-129"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-comment">-- -   @EffectiveDeliveryPolicy@ &#8211; The JSON serialization of the effective</span><span>
+</span><span id="line-131"></span><span>    </span><span class="hs-comment">--     delivery policy that takes into account the topic delivery policy</span><span>
+</span><span id="line-132"></span><span>    </span><span class="hs-comment">--     and account system defaults.</span><span>
+</span><span id="line-133"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- -   @FilterPolicy@ &#8211; The filter policy JSON that is assigned to the</span><span>
+</span><span id="line-135"></span><span>    </span><span class="hs-comment">--     subscription. For more information, see</span><span>
+</span><span id="line-136"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering&gt;</span><span>
+</span><span id="line-137"></span><span>    </span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-138"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span>    </span><span class="hs-comment">-- -   @Owner@ &#8211; The account ID of the subscription\'s owner.</span><span>
+</span><span id="line-140"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-141"></span><span>    </span><span class="hs-comment">-- -   @PendingConfirmation@ &#8211; @true@ if the subscription hasn\'t been</span><span>
+</span><span id="line-142"></span><span>    </span><span class="hs-comment">--     confirmed. To confirm a pending subscription, call the</span><span>
+</span><span id="line-143"></span><span>    </span><span class="hs-comment">--     @ConfirmSubscription@ action with a confirmation token.</span><span>
+</span><span id="line-144"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-comment">-- -   @RawMessageDelivery@ &#8211; @true@ if raw message delivery is enabled for</span><span>
+</span><span id="line-146"></span><span>    </span><span class="hs-comment">--     the subscription. Raw messages are free of JSON formatting and can</span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-comment">--     be sent to HTTP\/S and Amazon SQS endpoints.</span><span>
+</span><span id="line-148"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span>    </span><span class="hs-comment">-- -   @RedrivePolicy@ &#8211; When specified, sends undeliverable messages to</span><span>
+</span><span id="line-150"></span><span>    </span><span class="hs-comment">--     the specified Amazon SQS dead-letter queue. Messages that can\'t be</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">--     delivered due to client errors (for example, when the subscribed</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">--     endpoint is unreachable) or server errors (for example, when the</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">--     service that powers the subscribed endpoint becomes unavailable) are</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">--     held in the dead-letter queue for further analysis or reprocessing.</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- -   @SubscriptionArn@ &#8211; The subscription\'s ARN.</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- -   @TopicArn@ &#8211; The topic ARN that the subscription is associated with.</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span>    </span><span class="hs-comment">-- The following attribute applies only to Amazon Kinesis Data Firehose</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- delivery stream subscriptions:</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span>    </span><span class="hs-comment">-- -   @SubscriptionRoleArn@ &#8211; The ARN of the IAM role that has the</span><span>
+</span><span id="line-164"></span><span>    </span><span class="hs-comment">--     following:</span><span>
+</span><span id="line-165"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span>    </span><span class="hs-comment">--     -   Permission to write to the Kinesis Data Firehose delivery stream</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span>    </span><span class="hs-comment">--     -   Amazon SNS listed as a trusted entity</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span>    </span><span class="hs-comment">--     Specifying a valid ARN for this attribute is required for Kinesis</span><span>
+</span><span id="line-171"></span><span>    </span><span class="hs-comment">--     Data Firehose delivery stream subscriptions. For more information,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">--     see</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams&gt;</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-175"></span><span>    </span><span id="%24sel%3Aattributes%3AGetSubscriptionAttributesResponse%27"><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3Aattributes%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse -&gt; Int
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-178"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679197048"><span id="local-6989586621679197050"><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
+-&gt; GetSubscriptionAttributesResponse -&gt; Bool
+(GetSubscriptionAttributesResponse
+ -&gt; GetSubscriptionAttributesResponse -&gt; Bool)
+-&gt; (GetSubscriptionAttributesResponse
+    -&gt; GetSubscriptionAttributesResponse -&gt; Bool)
+-&gt; Eq GetSubscriptionAttributesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetSubscriptionAttributesResponse
+-&gt; GetSubscriptionAttributesResponse -&gt; Bool
+$c/= :: GetSubscriptionAttributesResponse
+-&gt; GetSubscriptionAttributesResponse -&gt; Bool
+== :: GetSubscriptionAttributesResponse
+-&gt; GetSubscriptionAttributesResponse -&gt; Bool
+$c== :: GetSubscriptionAttributesResponse
+-&gt; GetSubscriptionAttributesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197040"><span id="local-6989586621679197042"><span id="local-6989586621679197044"><span id="local-6989586621679197046"><span class="annot"><span class="annottext">ReadPrec [GetSubscriptionAttributesResponse]
+ReadPrec GetSubscriptionAttributesResponse
+Int -&gt; ReadS GetSubscriptionAttributesResponse
+ReadS [GetSubscriptionAttributesResponse]
+(Int -&gt; ReadS GetSubscriptionAttributesResponse)
+-&gt; ReadS [GetSubscriptionAttributesResponse]
+-&gt; ReadPrec GetSubscriptionAttributesResponse
+-&gt; ReadPrec [GetSubscriptionAttributesResponse]
+-&gt; Read GetSubscriptionAttributesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetSubscriptionAttributesResponse]
+$creadListPrec :: ReadPrec [GetSubscriptionAttributesResponse]
+readPrec :: ReadPrec GetSubscriptionAttributesResponse
+$creadPrec :: ReadPrec GetSubscriptionAttributesResponse
+readList :: ReadS [GetSubscriptionAttributesResponse]
+$creadList :: ReadS [GetSubscriptionAttributesResponse]
+readsPrec :: Int -&gt; ReadS GetSubscriptionAttributesResponse
+$creadsPrec :: Int -&gt; ReadS GetSubscriptionAttributesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679197034"><span id="local-6989586621679197036"><span id="local-6989586621679197038"><span class="annot"><span class="annottext">Int -&gt; GetSubscriptionAttributesResponse -&gt; ShowS
+[GetSubscriptionAttributesResponse] -&gt; ShowS
+GetSubscriptionAttributesResponse -&gt; String
+(Int -&gt; GetSubscriptionAttributesResponse -&gt; ShowS)
+-&gt; (GetSubscriptionAttributesResponse -&gt; String)
+-&gt; ([GetSubscriptionAttributesResponse] -&gt; ShowS)
+-&gt; Show GetSubscriptionAttributesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetSubscriptionAttributesResponse] -&gt; ShowS
+$cshowList :: [GetSubscriptionAttributesResponse] -&gt; ShowS
+show :: GetSubscriptionAttributesResponse -&gt; String
+$cshow :: GetSubscriptionAttributesResponse -&gt; String
+showsPrec :: Int -&gt; GetSubscriptionAttributesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetSubscriptionAttributesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetSubscriptionAttributesResponse
+ -&gt; Rep GetSubscriptionAttributesResponse x)
+-&gt; (forall x.
+    Rep GetSubscriptionAttributesResponse x
+    -&gt; GetSubscriptionAttributesResponse)
+-&gt; Generic GetSubscriptionAttributesResponse
+forall x.
+Rep GetSubscriptionAttributesResponse x
+-&gt; GetSubscriptionAttributesResponse
+forall x.
+GetSubscriptionAttributesResponse
+-&gt; Rep GetSubscriptionAttributesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetSubscriptionAttributesResponse x
+-&gt; GetSubscriptionAttributesResponse
+$cfrom :: forall x.
+GetSubscriptionAttributesResponse
+-&gt; Rep GetSubscriptionAttributesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- Create a value of 'GetSubscriptionAttributesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-185"></span><span class="hs-comment">--</span><span>
+</span><span id="line-186"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-188"></span><span class="hs-comment">--</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- 'attributes', 'getSubscriptionAttributesResponse_attributes' - A map of the subscription\'s attributes. Attributes in this map include</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- the following:</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- -   @ConfirmationWasAuthenticated@ &#8211; @true@ if the subscription</span><span>
+</span><span id="line-193"></span><span class="hs-comment">--     confirmation request was authenticated.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- -   @DeliveryPolicy@ &#8211; The JSON serialization of the subscription\'s</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--     delivery policy.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- -   @EffectiveDeliveryPolicy@ &#8211; The JSON serialization of the effective</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--     delivery policy that takes into account the topic delivery policy</span><span>
+</span><span id="line-200"></span><span class="hs-comment">--     and account system defaults.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- -   @FilterPolicy@ &#8211; The filter policy JSON that is assigned to the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--     subscription. For more information, see</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering&gt;</span><span>
+</span><span id="line-205"></span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- -   @Owner@ &#8211; The account ID of the subscription\'s owner.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- -   @PendingConfirmation@ &#8211; @true@ if the subscription hasn\'t been</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--     confirmed. To confirm a pending subscription, call the</span><span>
+</span><span id="line-211"></span><span class="hs-comment">--     @ConfirmSubscription@ action with a confirmation token.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- -   @RawMessageDelivery@ &#8211; @true@ if raw message delivery is enabled for</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--     the subscription. Raw messages are free of JSON formatting and can</span><span>
+</span><span id="line-215"></span><span class="hs-comment">--     be sent to HTTP\/S and Amazon SQS endpoints.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- -   @RedrivePolicy@ &#8211; When specified, sends undeliverable messages to</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--     the specified Amazon SQS dead-letter queue. Messages that can\'t be</span><span>
+</span><span id="line-219"></span><span class="hs-comment">--     delivered due to client errors (for example, when the subscribed</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--     endpoint is unreachable) or server errors (for example, when the</span><span>
+</span><span id="line-221"></span><span class="hs-comment">--     service that powers the subscribed endpoint becomes unavailable) are</span><span>
+</span><span id="line-222"></span><span class="hs-comment">--     held in the dead-letter queue for further analysis or reprocessing.</span><span>
+</span><span id="line-223"></span><span class="hs-comment">--</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- -   @SubscriptionArn@ &#8211; The subscription\'s ARN.</span><span>
+</span><span id="line-225"></span><span class="hs-comment">--</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- -   @TopicArn@ &#8211; The topic ARN that the subscription is associated with.</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- The following attribute applies only to Amazon Kinesis Data Firehose</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- delivery stream subscriptions:</span><span>
+</span><span id="line-230"></span><span class="hs-comment">--</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- -   @SubscriptionRoleArn@ &#8211; The ARN of the IAM role that has the</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--     following:</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">--     -   Permission to write to the Kinesis Data Firehose delivery stream</span><span>
+</span><span id="line-235"></span><span class="hs-comment">--</span><span>
+</span><span id="line-236"></span><span class="hs-comment">--     -   Amazon SNS listed as a trusted entity</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">--     Specifying a valid ARN for this attribute is required for Kinesis</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     Data Firehose delivery stream subscriptions. For more information,</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams&gt;</span><span>
+</span><span id="line-242"></span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-243"></span><span class="hs-comment">--</span><span>
+</span><span id="line-244"></span><span class="hs-comment">-- 'httpStatus', 'getSubscriptionAttributesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-245"></span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">newGetSubscriptionAttributesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-246"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-248"></span><span>  </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span>
+</span><span id="line-249"></span><span id="newGetSubscriptionAttributesResponse"><span class="annot"><span class="annottext">newGetSubscriptionAttributesResponse :: Int -&gt; GetSubscriptionAttributesResponse
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#newGetSubscriptionAttributesResponse"><span class="hs-identifier hs-var hs-var">newGetSubscriptionAttributesResponse</span></a></span></span><span> </span><span id="local-6989586621679197031"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197031"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-250"></span><span>  </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse' :: Maybe (HashMap Text Text)
+-&gt; Int -&gt; GetSubscriptionAttributesResponse
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span>
+</span><span id="line-251"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:attributes:GetSubscriptionAttributesResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3Aattributes%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>        </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-253"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionAttributesResponse' :: Int
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197031"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-254"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-255"></span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- | A map of the subscription\'s attributes. Attributes in this map include</span><span>
+</span><span id="line-257"></span><span class="hs-comment">-- the following:</span><span>
+</span><span id="line-258"></span><span class="hs-comment">--</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- -   @ConfirmationWasAuthenticated@ &#8211; @true@ if the subscription</span><span>
+</span><span id="line-260"></span><span class="hs-comment">--     confirmation request was authenticated.</span><span>
+</span><span id="line-261"></span><span class="hs-comment">--</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- -   @DeliveryPolicy@ &#8211; The JSON serialization of the subscription\'s</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--     delivery policy.</span><span>
+</span><span id="line-264"></span><span class="hs-comment">--</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- -   @EffectiveDeliveryPolicy@ &#8211; The JSON serialization of the effective</span><span>
+</span><span id="line-266"></span><span class="hs-comment">--     delivery policy that takes into account the topic delivery policy</span><span>
+</span><span id="line-267"></span><span class="hs-comment">--     and account system defaults.</span><span>
+</span><span id="line-268"></span><span class="hs-comment">--</span><span>
+</span><span id="line-269"></span><span class="hs-comment">-- -   @FilterPolicy@ &#8211; The filter policy JSON that is assigned to the</span><span>
+</span><span id="line-270"></span><span class="hs-comment">--     subscription. For more information, see</span><span>
+</span><span id="line-271"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-message-filtering.html Amazon SNS Message Filtering&gt;</span><span>
+</span><span id="line-272"></span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-273"></span><span class="hs-comment">--</span><span>
+</span><span id="line-274"></span><span class="hs-comment">-- -   @Owner@ &#8211; The account ID of the subscription\'s owner.</span><span>
+</span><span id="line-275"></span><span class="hs-comment">--</span><span>
+</span><span id="line-276"></span><span class="hs-comment">-- -   @PendingConfirmation@ &#8211; @true@ if the subscription hasn\'t been</span><span>
+</span><span id="line-277"></span><span class="hs-comment">--     confirmed. To confirm a pending subscription, call the</span><span>
+</span><span id="line-278"></span><span class="hs-comment">--     @ConfirmSubscription@ action with a confirmation token.</span><span>
+</span><span id="line-279"></span><span class="hs-comment">--</span><span>
+</span><span id="line-280"></span><span class="hs-comment">-- -   @RawMessageDelivery@ &#8211; @true@ if raw message delivery is enabled for</span><span>
+</span><span id="line-281"></span><span class="hs-comment">--     the subscription. Raw messages are free of JSON formatting and can</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--     be sent to HTTP\/S and Amazon SQS endpoints.</span><span>
+</span><span id="line-283"></span><span class="hs-comment">--</span><span>
+</span><span id="line-284"></span><span class="hs-comment">-- -   @RedrivePolicy@ &#8211; When specified, sends undeliverable messages to</span><span>
+</span><span id="line-285"></span><span class="hs-comment">--     the specified Amazon SQS dead-letter queue. Messages that can\'t be</span><span>
+</span><span id="line-286"></span><span class="hs-comment">--     delivered due to client errors (for example, when the subscribed</span><span>
+</span><span id="line-287"></span><span class="hs-comment">--     endpoint is unreachable) or server errors (for example, when the</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--     service that powers the subscribed endpoint becomes unavailable) are</span><span>
+</span><span id="line-289"></span><span class="hs-comment">--     held in the dead-letter queue for further analysis or reprocessing.</span><span>
+</span><span id="line-290"></span><span class="hs-comment">--</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- -   @SubscriptionArn@ &#8211; The subscription\'s ARN.</span><span>
+</span><span id="line-292"></span><span class="hs-comment">--</span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- -   @TopicArn@ &#8211; The topic ARN that the subscription is associated with.</span><span>
+</span><span id="line-294"></span><span class="hs-comment">--</span><span>
+</span><span id="line-295"></span><span class="hs-comment">-- The following attribute applies only to Amazon Kinesis Data Firehose</span><span>
+</span><span id="line-296"></span><span class="hs-comment">-- delivery stream subscriptions:</span><span>
+</span><span id="line-297"></span><span class="hs-comment">--</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- -   @SubscriptionRoleArn@ &#8211; The ARN of the IAM role that has the</span><span>
+</span><span id="line-299"></span><span class="hs-comment">--     following:</span><span>
+</span><span id="line-300"></span><span class="hs-comment">--</span><span>
+</span><span id="line-301"></span><span class="hs-comment">--     -   Permission to write to the Kinesis Data Firehose delivery stream</span><span>
+</span><span id="line-302"></span><span class="hs-comment">--</span><span>
+</span><span id="line-303"></span><span class="hs-comment">--     -   Amazon SNS listed as a trusted entity</span><span>
+</span><span id="line-304"></span><span class="hs-comment">--</span><span>
+</span><span id="line-305"></span><span class="hs-comment">--     Specifying a valid ARN for this attribute is required for Kinesis</span><span>
+</span><span id="line-306"></span><span class="hs-comment">--     Data Firehose delivery stream subscriptions. For more information,</span><span>
+</span><span id="line-307"></span><span class="hs-comment">--     see</span><span>
+</span><span id="line-308"></span><span class="hs-comment">--     &lt;https://docs.aws.amazon.com/sns/latest/dg/sns-firehose-as-subscriber.html Fanout to Kinesis Data Firehose delivery streams&gt;</span><span>
+</span><span id="line-309"></span><span class="hs-comment">--     in the /Amazon SNS Developer Guide/.</span><span>
+</span><span id="line-310"></span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributesResponse_attributes"><span class="hs-identifier hs-type">getSubscriptionAttributesResponse_attributes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span id="getSubscriptionAttributesResponse_attributes"><span class="annot"><span class="annottext">getSubscriptionAttributesResponse_attributes :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetSubscriptionAttributesResponse
+-&gt; f GetSubscriptionAttributesResponse
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributesResponse_attributes"><span class="hs-identifier hs-var hs-var">getSubscriptionAttributesResponse_attributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionAttributesResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (GetSubscriptionAttributesResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; GetSubscriptionAttributesResponse)
+-&gt; Lens
+     GetSubscriptionAttributesResponse
+     GetSubscriptionAttributesResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197030"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+attributes :: Maybe (HashMap Text Text)
+$sel:attributes:GetSubscriptionAttributesResponse' :: GetSubscriptionAttributesResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197030"><span class="hs-identifier hs-var hs-var">attributes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197030"><span class="hs-identifier hs-var">attributes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197029"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197028"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:attributes:GetSubscriptionAttributesResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3Aattributes%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">attributes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679197028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; GetSubscriptionAttributesResponse
+ -&gt; f GetSubscriptionAttributesResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; GetSubscriptionAttributesResponse
+-&gt; f GetSubscriptionAttributesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-312"></span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-314"></span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributesResponse_httpStatus"><span class="hs-identifier hs-type">getSubscriptionAttributesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-315"></span><span id="getSubscriptionAttributesResponse_httpStatus"><span class="annot"><span class="annottext">getSubscriptionAttributesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetSubscriptionAttributesResponse
+-&gt; f GetSubscriptionAttributesResponse
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#getSubscriptionAttributesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getSubscriptionAttributesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetSubscriptionAttributesResponse -&gt; Int)
+-&gt; (GetSubscriptionAttributesResponse
+    -&gt; Int -&gt; GetSubscriptionAttributesResponse)
+-&gt; Lens
+     GetSubscriptionAttributesResponse
+     GetSubscriptionAttributesResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679197024"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetSubscriptionAttributesResponse' :: GetSubscriptionAttributesResponse -&gt; Int
+</span><a href="#local-6989586621679197024"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197024"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679197023"><span class="annot"><span class="annottext">s :: GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679197022"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetSubscriptionAttributesResponse
+</span><a href="#local-6989586621679197023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetSubscriptionAttributesResponse' :: Int
+</span><a href="Amazonka.SNS.GetSubscriptionAttributes.html#%24sel%3AhttpStatus%3AGetSubscriptionAttributesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679197022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>
+</span><span id="line-317"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-318"></span><span>  </span><span id="local-6989586621679197020"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Amazonka.SNS.GetSubscriptionAttributes.html#GetSubscriptionAttributesResponse"><span class="hs-identifier hs-type">GetSubscriptionAttributesResponse</span></a></span></span><span>
+</span><span id="line-320"></span></pre></body></html>

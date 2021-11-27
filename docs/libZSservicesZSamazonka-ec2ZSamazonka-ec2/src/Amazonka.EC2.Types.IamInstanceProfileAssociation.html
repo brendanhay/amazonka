@@ -1,0 +1,413 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.IamInstanceProfileAssociation</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.IamInstanceProfileAssociation</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfile.html"><span class="hs-identifier">Amazonka.EC2.Types.IamInstanceProfile</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociationState.html"><span class="hs-identifier">Amazonka.EC2.Types.IamInstanceProfileAssociationState</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | Describes an association between an IAM instance profile and an</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- instance.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newIamInstanceProfileAssociation' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621681112479"><span id="local-6989586621681112480"></span></span><span class="hs-keyword">data</span><span> </span><span id="IamInstanceProfileAssociation"><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-var">IamInstanceProfileAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IamInstanceProfileAssociation%27"><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">IamInstanceProfileAssociation'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the association.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AassociationId%3AIamInstanceProfileAssociation%27"><span class="annot"><span class="annottext">IamInstanceProfileAssociation -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AassociationId%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AinstanceId%3AIamInstanceProfileAssociation%27"><span class="annot"><span class="annottext">IamInstanceProfileAssociation -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AinstanceId%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The state of the association.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Astate%3AIamInstanceProfileAssociation%27"><span class="annot"><span class="annottext">IamInstanceProfileAssociation
+-&gt; Maybe IamInstanceProfileAssociationState
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3Astate%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociationState.html#IamInstanceProfileAssociationState"><span class="hs-identifier hs-type">IamInstanceProfileAssociationState</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- | The IAM instance profile.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3AiamInstanceProfile%3AIamInstanceProfileAssociation%27"><span class="annot"><span class="annottext">IamInstanceProfileAssociation -&gt; Maybe IamInstanceProfile
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfile%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfile.html#IamInstanceProfile"><span class="hs-identifier hs-type">IamInstanceProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The time the IAM instance profile was associated with the instance.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3Atimestamp%3AIamInstanceProfileAssociation%27"><span class="annot"><span class="annottext">IamInstanceProfileAssociation -&gt; Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3Atimestamp%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ISO8601</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681112469"><span id="local-6989586621681112471"><span class="annot"><span class="annottext">IamInstanceProfileAssociation
+-&gt; IamInstanceProfileAssociation -&gt; Bool
+(IamInstanceProfileAssociation
+ -&gt; IamInstanceProfileAssociation -&gt; Bool)
+-&gt; (IamInstanceProfileAssociation
+    -&gt; IamInstanceProfileAssociation -&gt; Bool)
+-&gt; Eq IamInstanceProfileAssociation
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IamInstanceProfileAssociation
+-&gt; IamInstanceProfileAssociation -&gt; Bool
+$c/= :: IamInstanceProfileAssociation
+-&gt; IamInstanceProfileAssociation -&gt; Bool
+== :: IamInstanceProfileAssociation
+-&gt; IamInstanceProfileAssociation -&gt; Bool
+$c== :: IamInstanceProfileAssociation
+-&gt; IamInstanceProfileAssociation -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112460"><span id="local-6989586621681112462"><span id="local-6989586621681112464"><span id="local-6989586621681112466"><span class="annot"><span class="annottext">ReadPrec [IamInstanceProfileAssociation]
+ReadPrec IamInstanceProfileAssociation
+Int -&gt; ReadS IamInstanceProfileAssociation
+ReadS [IamInstanceProfileAssociation]
+(Int -&gt; ReadS IamInstanceProfileAssociation)
+-&gt; ReadS [IamInstanceProfileAssociation]
+-&gt; ReadPrec IamInstanceProfileAssociation
+-&gt; ReadPrec [IamInstanceProfileAssociation]
+-&gt; Read IamInstanceProfileAssociation
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IamInstanceProfileAssociation]
+$creadListPrec :: ReadPrec [IamInstanceProfileAssociation]
+readPrec :: ReadPrec IamInstanceProfileAssociation
+$creadPrec :: ReadPrec IamInstanceProfileAssociation
+readList :: ReadS [IamInstanceProfileAssociation]
+$creadList :: ReadS [IamInstanceProfileAssociation]
+readsPrec :: Int -&gt; ReadS IamInstanceProfileAssociation
+$creadsPrec :: Int -&gt; ReadS IamInstanceProfileAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681112453"><span id="local-6989586621681112455"><span id="local-6989586621681112457"><span class="annot"><span class="annottext">Int -&gt; IamInstanceProfileAssociation -&gt; ShowS
+[IamInstanceProfileAssociation] -&gt; ShowS
+IamInstanceProfileAssociation -&gt; String
+(Int -&gt; IamInstanceProfileAssociation -&gt; ShowS)
+-&gt; (IamInstanceProfileAssociation -&gt; String)
+-&gt; ([IamInstanceProfileAssociation] -&gt; ShowS)
+-&gt; Show IamInstanceProfileAssociation
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IamInstanceProfileAssociation] -&gt; ShowS
+$cshowList :: [IamInstanceProfileAssociation] -&gt; ShowS
+show :: IamInstanceProfileAssociation -&gt; String
+$cshow :: IamInstanceProfileAssociation -&gt; String
+showsPrec :: Int -&gt; IamInstanceProfileAssociation -&gt; ShowS
+$cshowsPrec :: Int -&gt; IamInstanceProfileAssociation -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ IamInstanceProfileAssociation
+ -&gt; Rep IamInstanceProfileAssociation x)
+-&gt; (forall x.
+    Rep IamInstanceProfileAssociation x
+    -&gt; IamInstanceProfileAssociation)
+-&gt; Generic IamInstanceProfileAssociation
+forall x.
+Rep IamInstanceProfileAssociation x
+-&gt; IamInstanceProfileAssociation
+forall x.
+IamInstanceProfileAssociation
+-&gt; Rep IamInstanceProfileAssociation x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep IamInstanceProfileAssociation x
+-&gt; IamInstanceProfileAssociation
+$cfrom :: forall x.
+IamInstanceProfileAssociation
+-&gt; Rep IamInstanceProfileAssociation x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'IamInstanceProfileAssociation' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'associationId', 'iamInstanceProfileAssociation_associationId' - The ID of the association.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- 'instanceId', 'iamInstanceProfileAssociation_instanceId' - The ID of the instance.</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- 'state', 'iamInstanceProfileAssociation_state' - The state of the association.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- 'iamInstanceProfile', 'iamInstanceProfileAssociation_iamInstanceProfile' - The IAM instance profile.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'timestamp', 'iamInstanceProfileAssociation_timestamp' - The time the IAM instance profile was associated with the instance.</span><span>
+</span><span id="line-64"></span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#newIamInstanceProfileAssociation"><span class="hs-identifier hs-type">newIamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-65"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span>
+</span><span id="line-66"></span><span id="newIamInstanceProfileAssociation"><span class="annot"><span class="annottext">newIamInstanceProfileAssociation :: IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#newIamInstanceProfileAssociation"><span class="hs-identifier hs-var hs-var">newIamInstanceProfileAssociation</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="annottext">IamInstanceProfileAssociation' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe IamInstanceProfileAssociationState
+-&gt; Maybe IamInstanceProfile
+-&gt; Maybe ISO8601
+-&gt; IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:associationId:IamInstanceProfileAssociation' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AassociationId%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceId:IamInstanceProfileAssociation' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AinstanceId%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>      </span><span class="annot"><span class="annottext">$sel:state:IamInstanceProfileAssociation' :: Maybe IamInstanceProfileAssociationState
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3Astate%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociationState
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:IamInstanceProfileAssociation' :: Maybe IamInstanceProfile
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfile%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>      </span><span class="annot"><span class="annottext">$sel:timestamp:IamInstanceProfileAssociation' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3Atimestamp%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The ID of the association.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_associationId"><span class="hs-identifier hs-type">iamInstanceProfileAssociation_associationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span id="iamInstanceProfileAssociation_associationId"><span class="annot"><span class="annottext">iamInstanceProfileAssociation_associationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IamInstanceProfileAssociation -&gt; f IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_associationId"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation_associationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IamInstanceProfileAssociation -&gt; Maybe Text)
+-&gt; (IamInstanceProfileAssociation
+    -&gt; Maybe Text -&gt; IamInstanceProfileAssociation)
+-&gt; Lens
+     IamInstanceProfileAssociation
+     IamInstanceProfileAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112444"><span class="annot"><span class="annottext">Maybe Text
+associationId :: Maybe Text
+$sel:associationId:IamInstanceProfileAssociation' :: IamInstanceProfileAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621681112444"><span class="hs-identifier hs-var hs-var">associationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112444"><span class="hs-identifier hs-var">associationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112443"><span class="annot"><span class="annottext">s :: IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112443"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112442"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112442"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112443"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associationId:IamInstanceProfileAssociation' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AassociationId%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">associationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112442"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | The ID of the instance.</span><span>
+</span><span id="line-81"></span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_instanceId"><span class="hs-identifier hs-type">iamInstanceProfileAssociation_instanceId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span id="iamInstanceProfileAssociation_instanceId"><span class="annot"><span class="annottext">iamInstanceProfileAssociation_instanceId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IamInstanceProfileAssociation -&gt; f IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_instanceId"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation_instanceId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IamInstanceProfileAssociation -&gt; Maybe Text)
+-&gt; (IamInstanceProfileAssociation
+    -&gt; Maybe Text -&gt; IamInstanceProfileAssociation)
+-&gt; Lens
+     IamInstanceProfileAssociation
+     IamInstanceProfileAssociation
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112440"><span class="annot"><span class="annottext">Maybe Text
+instanceId :: Maybe Text
+$sel:instanceId:IamInstanceProfileAssociation' :: IamInstanceProfileAssociation -&gt; Maybe Text
+</span><a href="#local-6989586621681112440"><span class="hs-identifier hs-var hs-var">instanceId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112440"><span class="hs-identifier hs-var">instanceId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112439"><span class="annot"><span class="annottext">s :: IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112439"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112438"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112438"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112439"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceId:IamInstanceProfileAssociation' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AinstanceId%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">instanceId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681112438"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The state of the association.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_state"><span class="hs-identifier hs-type">iamInstanceProfileAssociation_state</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociationState.html#IamInstanceProfileAssociationState"><span class="hs-identifier hs-type">IamInstanceProfileAssociationState</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span id="iamInstanceProfileAssociation_state"><span class="annot"><span class="annottext">iamInstanceProfileAssociation_state :: (Maybe IamInstanceProfileAssociationState
+ -&gt; f (Maybe IamInstanceProfileAssociationState))
+-&gt; IamInstanceProfileAssociation -&gt; f IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_state"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation_state</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IamInstanceProfileAssociation
+ -&gt; Maybe IamInstanceProfileAssociationState)
+-&gt; (IamInstanceProfileAssociation
+    -&gt; Maybe IamInstanceProfileAssociationState
+    -&gt; IamInstanceProfileAssociation)
+-&gt; Lens
+     IamInstanceProfileAssociation
+     IamInstanceProfileAssociation
+     (Maybe IamInstanceProfileAssociationState)
+     (Maybe IamInstanceProfileAssociationState)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112436"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociationState
+state :: Maybe IamInstanceProfileAssociationState
+$sel:state:IamInstanceProfileAssociation' :: IamInstanceProfileAssociation
+-&gt; Maybe IamInstanceProfileAssociationState
+</span><a href="#local-6989586621681112436"><span class="hs-identifier hs-var hs-var">state</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociationState
+</span><a href="#local-6989586621681112436"><span class="hs-identifier hs-var">state</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112435"><span class="annot"><span class="annottext">s :: IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112435"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112434"><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociationState
+</span><a href="#local-6989586621681112434"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112435"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:state:IamInstanceProfileAssociation' :: Maybe IamInstanceProfileAssociationState
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3Astate%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">state</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfileAssociationState
+</span><a href="#local-6989586621681112434"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The IAM instance profile.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_iamInstanceProfile"><span class="hs-identifier hs-type">iamInstanceProfileAssociation_iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfile.html#IamInstanceProfile"><span class="hs-identifier hs-type">IamInstanceProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-90"></span><span id="iamInstanceProfileAssociation_iamInstanceProfile"><span class="annot"><span class="annottext">iamInstanceProfileAssociation_iamInstanceProfile :: (Maybe IamInstanceProfile -&gt; f (Maybe IamInstanceProfile))
+-&gt; IamInstanceProfileAssociation -&gt; f IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_iamInstanceProfile"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation_iamInstanceProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IamInstanceProfileAssociation -&gt; Maybe IamInstanceProfile)
+-&gt; (IamInstanceProfileAssociation
+    -&gt; Maybe IamInstanceProfile -&gt; IamInstanceProfileAssociation)
+-&gt; Lens
+     IamInstanceProfileAssociation
+     IamInstanceProfileAssociation
+     (Maybe IamInstanceProfile)
+     (Maybe IamInstanceProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112432"><span class="annot"><span class="annottext">Maybe IamInstanceProfile
+iamInstanceProfile :: Maybe IamInstanceProfile
+$sel:iamInstanceProfile:IamInstanceProfileAssociation' :: IamInstanceProfileAssociation -&gt; Maybe IamInstanceProfile
+</span><a href="#local-6989586621681112432"><span class="hs-identifier hs-var hs-var">iamInstanceProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfile
+</span><a href="#local-6989586621681112432"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112431"><span class="annot"><span class="annottext">s :: IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112431"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112430"><span class="annot"><span class="annottext">Maybe IamInstanceProfile
+</span><a href="#local-6989586621681112430"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112431"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:iamInstanceProfile:IamInstanceProfileAssociation' :: Maybe IamInstanceProfile
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3AiamInstanceProfile%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">iamInstanceProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IamInstanceProfile
+</span><a href="#local-6989586621681112430"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- | The time the IAM instance profile was associated with the instance.</span><span>
+</span><span id="line-93"></span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_timestamp"><span class="hs-identifier hs-type">iamInstanceProfileAssociation_timestamp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span id="iamInstanceProfileAssociation_timestamp"><span class="annot"><span class="annottext">iamInstanceProfileAssociation_timestamp :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; IamInstanceProfileAssociation -&gt; f IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#iamInstanceProfileAssociation_timestamp"><span class="hs-identifier hs-var hs-var">iamInstanceProfileAssociation_timestamp</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IamInstanceProfileAssociation -&gt; Maybe ISO8601)
+-&gt; (IamInstanceProfileAssociation
+    -&gt; Maybe ISO8601 -&gt; IamInstanceProfileAssociation)
+-&gt; Lens
+     IamInstanceProfileAssociation
+     IamInstanceProfileAssociation
+     (Maybe ISO8601)
+     (Maybe ISO8601)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681112428"><span class="annot"><span class="annottext">Maybe ISO8601
+timestamp :: Maybe ISO8601
+$sel:timestamp:IamInstanceProfileAssociation' :: IamInstanceProfileAssociation -&gt; Maybe ISO8601
+</span><a href="#local-6989586621681112428"><span class="hs-identifier hs-var hs-var">timestamp</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681112428"><span class="hs-identifier hs-var">timestamp</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681112427"><span class="annot"><span class="annottext">s :: IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112427"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-type">IamInstanceProfileAssociation'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681112426"><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681112426"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IamInstanceProfileAssociation
+</span><a href="#local-6989586621681112427"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timestamp:IamInstanceProfileAssociation' :: Maybe ISO8601
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#%24sel%3Atimestamp%3AIamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">timestamp</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ISO8601
+</span><a href="#local-6989586621681112426"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe ISO8601 -&gt; f (Maybe ISO8601))
+ -&gt; IamInstanceProfileAssociation
+ -&gt; f IamInstanceProfileAssociation)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe ISO8601 -&gt; f (Maybe ISO8601))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; IamInstanceProfileAssociation
+-&gt; f IamInstanceProfileAssociation
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+-&gt; Iso
+     (Maybe ISO8601) (Maybe ISO8601) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso ISO8601 ISO8601 UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-97"></span><span>  </span><span id="local-6989586621681112420"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IamInstanceProfileAssociation
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681112418"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112418"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe IamInstanceProfileAssociationState
+-&gt; Maybe IamInstanceProfile
+-&gt; Maybe ISO8601
+-&gt; IamInstanceProfileAssociation
+</span><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation%27"><span class="hs-identifier hs-var">IamInstanceProfileAssociation'</span></a></span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe IamInstanceProfileAssociationState
+ -&gt; Maybe IamInstanceProfile
+ -&gt; Maybe ISO8601
+ -&gt; IamInstanceProfileAssociation)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe IamInstanceProfileAssociationState
+      -&gt; Maybe IamInstanceProfile
+      -&gt; Maybe ISO8601
+      -&gt; IamInstanceProfileAssociation)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe IamInstanceProfileAssociationState
+   -&gt; Maybe IamInstanceProfile
+   -&gt; Maybe ISO8601
+   -&gt; IamInstanceProfileAssociation)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe IamInstanceProfileAssociationState
+      -&gt; Maybe IamInstanceProfile
+      -&gt; Maybe ISO8601
+      -&gt; IamInstanceProfileAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;instanceId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe IamInstanceProfileAssociationState
+   -&gt; Maybe IamInstanceProfile
+   -&gt; Maybe ISO8601
+   -&gt; IamInstanceProfileAssociation)
+-&gt; Either String (Maybe IamInstanceProfileAssociationState)
+-&gt; Either
+     String
+     (Maybe IamInstanceProfile
+      -&gt; Maybe ISO8601 -&gt; IamInstanceProfileAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text -&gt; Either String (Maybe IamInstanceProfileAssociationState)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;state&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe IamInstanceProfile
+   -&gt; Maybe ISO8601 -&gt; IamInstanceProfileAssociation)
+-&gt; Either String (Maybe IamInstanceProfile)
+-&gt; Either String (Maybe ISO8601 -&gt; IamInstanceProfileAssociation)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe IamInstanceProfile)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;iamInstanceProfile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe ISO8601 -&gt; IamInstanceProfileAssociation)
+-&gt; Either String (Maybe ISO8601)
+-&gt; Either String IamInstanceProfileAssociation
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681112418"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe ISO8601)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timestamp&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621681112412"><span id="local-6989586621681112414"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681112409"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.IamInstanceProfileAssociation.html#IamInstanceProfileAssociation"><span class="hs-identifier hs-type">IamInstanceProfileAssociation</span></a></span></span><span>
+</span><span id="line-110"></span></pre></body></html>

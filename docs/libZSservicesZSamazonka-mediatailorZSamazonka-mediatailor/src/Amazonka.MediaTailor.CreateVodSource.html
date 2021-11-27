@@ -1,0 +1,1048 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.MediaTailor.CreateVodSource</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates name for a specific VOD source in a source location.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaTailor.CreateVodSource</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier">CreateVodSource</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#newCreateVodSource"><span class="hs-identifier">newCreateVodSource</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_tags"><span class="hs-identifier">createVodSource_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_sourceLocationName"><span class="hs-identifier">createVodSource_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_vodSourceName"><span class="hs-identifier">createVodSource_vodSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_httpPackageConfigurations"><span class="hs-identifier">createVodSource_httpPackageConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#newCreateVodSourceResponse"><span class="hs-identifier">newCreateVodSourceResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_creationTime"><span class="hs-identifier">createVodSourceResponse_creationTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_sourceLocationName"><span class="hs-identifier">createVodSourceResponse_sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_arn"><span class="hs-identifier">createVodSourceResponse_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_lastModifiedTime"><span class="hs-identifier">createVodSourceResponse_lastModifiedTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_httpPackageConfigurations"><span class="hs-identifier">createVodSourceResponse_httpPackageConfigurations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_vodSourceName"><span class="hs-identifier">createVodSourceResponse_vodSourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_tags"><span class="hs-identifier">createVodSourceResponse_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_httpStatus"><span class="hs-identifier">createVodSourceResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.Types.html"><span class="hs-identifier">Amazonka.MediaTailor.Types</span></a></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- | /See:/ 'newCreateVodSource' smart constructor.</span><span>
+</span><span id="line-59"></span><span id="local-6989586621679276043"><span id="local-6989586621679276044"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVodSource"><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-var">CreateVodSource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVodSource%27"><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-var">CreateVodSource'</span></a></span></span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The tags to assign to the VOD source.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3Atags%3ACreateVodSource%27"><span class="annot"><span class="annottext">CreateVodSource -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Atags%3ACreateVodSource%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The identifier for the source location you are working on.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AsourceLocationName%3ACreateVodSource%27"><span class="annot"><span class="annottext">CreateVodSource -&gt; Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AsourceLocationName%3ACreateVodSource%27"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The identifier for the VOD source you are working on.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AvodSourceName%3ACreateVodSource%27"><span class="annot"><span class="annottext">CreateVodSource -&gt; Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AvodSourceName%3ACreateVodSource%27"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- | An array of HTTP package configuration parameters for this VOD source.</span><span>
+</span><span id="line-67"></span><span>    </span><span id="%24sel%3AhttpPackageConfigurations%3ACreateVodSource%27"><span class="annot"><span class="annottext">CreateVodSource -&gt; [HttpPackageConfiguration]
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpPackageConfigurations%3ACreateVodSource%27"><span class="hs-identifier hs-var hs-var">httpPackageConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#HttpPackageConfiguration"><span class="hs-identifier hs-type">HttpPackageConfiguration</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276034"><span id="local-6989586621679276036"><span class="annot"><span class="annottext">CreateVodSource -&gt; CreateVodSource -&gt; Bool
+(CreateVodSource -&gt; CreateVodSource -&gt; Bool)
+-&gt; (CreateVodSource -&gt; CreateVodSource -&gt; Bool)
+-&gt; Eq CreateVodSource
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateVodSource -&gt; CreateVodSource -&gt; Bool
+$c/= :: CreateVodSource -&gt; CreateVodSource -&gt; Bool
+== :: CreateVodSource -&gt; CreateVodSource -&gt; Bool
+$c== :: CreateVodSource -&gt; CreateVodSource -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276025"><span id="local-6989586621679276027"><span id="local-6989586621679276029"><span id="local-6989586621679276031"><span class="annot"><span class="annottext">ReadPrec [CreateVodSource]
+ReadPrec CreateVodSource
+Int -&gt; ReadS CreateVodSource
+ReadS [CreateVodSource]
+(Int -&gt; ReadS CreateVodSource)
+-&gt; ReadS [CreateVodSource]
+-&gt; ReadPrec CreateVodSource
+-&gt; ReadPrec [CreateVodSource]
+-&gt; Read CreateVodSource
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateVodSource]
+$creadListPrec :: ReadPrec [CreateVodSource]
+readPrec :: ReadPrec CreateVodSource
+$creadPrec :: ReadPrec CreateVodSource
+readList :: ReadS [CreateVodSource]
+$creadList :: ReadS [CreateVodSource]
+readsPrec :: Int -&gt; ReadS CreateVodSource
+$creadsPrec :: Int -&gt; ReadS CreateVodSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276018"><span id="local-6989586621679276020"><span id="local-6989586621679276022"><span class="annot"><span class="annottext">Int -&gt; CreateVodSource -&gt; ShowS
+[CreateVodSource] -&gt; ShowS
+CreateVodSource -&gt; String
+(Int -&gt; CreateVodSource -&gt; ShowS)
+-&gt; (CreateVodSource -&gt; String)
+-&gt; ([CreateVodSource] -&gt; ShowS)
+-&gt; Show CreateVodSource
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateVodSource] -&gt; ShowS
+$cshowList :: [CreateVodSource] -&gt; ShowS
+show :: CreateVodSource -&gt; String
+$cshow :: CreateVodSource -&gt; String
+showsPrec :: Int -&gt; CreateVodSource -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateVodSource -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateVodSource -&gt; Rep CreateVodSource x)
+-&gt; (forall x. Rep CreateVodSource x -&gt; CreateVodSource)
+-&gt; Generic CreateVodSource
+forall x. Rep CreateVodSource x -&gt; CreateVodSource
+forall x. CreateVodSource -&gt; Rep CreateVodSource x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateVodSource x -&gt; CreateVodSource
+$cfrom :: forall x. CreateVodSource -&gt; Rep CreateVodSource x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Create a value of 'CreateVodSource' with all optional fields omitted.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'tags', 'createVodSource_tags' - The tags to assign to the VOD source.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'sourceLocationName', 'createVodSource_sourceLocationName' - The identifier for the source location you are working on.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'vodSourceName', 'createVodSource_vodSourceName' - The identifier for the VOD source you are working on.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'httpPackageConfigurations', 'createVodSource_httpPackageConfigurations' - An array of HTTP package configuration parameters for this VOD source.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#newCreateVodSource"><span class="hs-identifier hs-type">newCreateVodSource</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'sourceLocationName'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'vodSourceName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span>
+</span><span id="line-92"></span><span id="newCreateVodSource"><span class="annot"><span class="annottext">newCreateVodSource :: Text -&gt; Text -&gt; CreateVodSource
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#newCreateVodSource"><span class="hs-identifier hs-var hs-var">newCreateVodSource</span></a></span></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679276013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276013"><span class="hs-identifier hs-var">pSourceLocationName_</span></a></span></span><span>
+</span><span id="line-94"></span><span>  </span><span id="local-6989586621679276012"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276012"><span class="hs-identifier hs-var">pVodSourceName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><span class="annottext">CreateVodSource' :: Maybe (HashMap Text Text)
+-&gt; Text -&gt; Text -&gt; [HttpPackageConfiguration] -&gt; CreateVodSource
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:tags:CreateVodSource' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Atags%3ACreateVodSource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceLocationName:CreateVodSource' :: Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AsourceLocationName%3ACreateVodSource%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276013"><span class="hs-identifier hs-var">pSourceLocationName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>        </span><span class="annot"><span class="annottext">$sel:vodSourceName:CreateVodSource' :: Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AvodSourceName%3ACreateVodSource%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276012"><span class="hs-identifier hs-var">pVodSourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpPackageConfigurations:CreateVodSource' :: [HttpPackageConfiguration]
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpPackageConfigurations%3ACreateVodSource%27"><span class="hs-identifier hs-var">httpPackageConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | The tags to assign to the VOD source.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_tags"><span class="hs-identifier hs-type">createVodSource_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span id="createVodSource_tags"><span class="annot"><span class="annottext">createVodSource_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateVodSource -&gt; f CreateVodSource
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_tags"><span class="hs-identifier hs-var hs-var">createVodSource_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSource -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateVodSource
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateVodSource)
+-&gt; Lens
+     CreateVodSource
+     CreateVodSource
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276009"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateVodSource' :: CreateVodSource -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679276009"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679276009"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276008"><span class="annot"><span class="annottext">s :: CreateVodSource
+</span><a href="#local-6989586621679276008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276007"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679276007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSource
+</span><a href="#local-6989586621679276008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateVodSource' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Atags%3ACreateVodSource%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679276007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateVodSource -&gt; f CreateVodSource)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateVodSource
+-&gt; f CreateVodSource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The identifier for the source location you are working on.</span><span>
+</span><span id="line-107"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_sourceLocationName"><span class="hs-identifier hs-type">createVodSource_sourceLocationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span id="createVodSource_sourceLocationName"><span class="annot"><span class="annottext">createVodSource_sourceLocationName :: (Text -&gt; f Text) -&gt; CreateVodSource -&gt; f CreateVodSource
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_sourceLocationName"><span class="hs-identifier hs-var hs-var">createVodSource_sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSource -&gt; Text)
+-&gt; (CreateVodSource -&gt; Text -&gt; CreateVodSource)
+-&gt; Lens CreateVodSource CreateVodSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276003"><span class="annot"><span class="annottext">Text
+sourceLocationName :: Text
+$sel:sourceLocationName:CreateVodSource' :: CreateVodSource -&gt; Text
+</span><a href="#local-6989586621679276003"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276003"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276002"><span class="annot"><span class="annottext">s :: CreateVodSource
+</span><a href="#local-6989586621679276002"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276001"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276001"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSource
+</span><a href="#local-6989586621679276002"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLocationName:CreateVodSource' :: Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AsourceLocationName%3ACreateVodSource%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276001"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- | The identifier for the VOD source you are working on.</span><span>
+</span><span id="line-111"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_vodSourceName"><span class="hs-identifier hs-type">createVodSource_vodSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-112"></span><span id="createVodSource_vodSourceName"><span class="annot"><span class="annottext">createVodSource_vodSourceName :: (Text -&gt; f Text) -&gt; CreateVodSource -&gt; f CreateVodSource
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_vodSourceName"><span class="hs-identifier hs-var hs-var">createVodSource_vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSource -&gt; Text)
+-&gt; (CreateVodSource -&gt; Text -&gt; CreateVodSource)
+-&gt; Lens CreateVodSource CreateVodSource Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276000"><span class="annot"><span class="annottext">Text
+vodSourceName :: Text
+$sel:vodSourceName:CreateVodSource' :: CreateVodSource -&gt; Text
+</span><a href="#local-6989586621679276000"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679276000"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275999"><span class="annot"><span class="annottext">s :: CreateVodSource
+</span><a href="#local-6989586621679275999"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275998"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275998"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSource
+</span><a href="#local-6989586621679275999"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vodSourceName:CreateVodSource' :: Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AvodSourceName%3ACreateVodSource%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275998"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- | An array of HTTP package configuration parameters for this VOD source.</span><span>
+</span><span id="line-115"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_httpPackageConfigurations"><span class="hs-identifier hs-type">createVodSource_httpPackageConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#HttpPackageConfiguration"><span class="hs-identifier hs-type">HttpPackageConfiguration</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-116"></span><span id="createVodSource_httpPackageConfigurations"><span class="annot"><span class="annottext">createVodSource_httpPackageConfigurations :: ([HttpPackageConfiguration] -&gt; f [HttpPackageConfiguration])
+-&gt; CreateVodSource -&gt; f CreateVodSource
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSource_httpPackageConfigurations"><span class="hs-identifier hs-var hs-var">createVodSource_httpPackageConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSource -&gt; [HttpPackageConfiguration])
+-&gt; (CreateVodSource
+    -&gt; [HttpPackageConfiguration] -&gt; CreateVodSource)
+-&gt; Lens
+     CreateVodSource
+     CreateVodSource
+     [HttpPackageConfiguration]
+     [HttpPackageConfiguration]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275997"><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+httpPackageConfigurations :: [HttpPackageConfiguration]
+$sel:httpPackageConfigurations:CreateVodSource' :: CreateVodSource -&gt; [HttpPackageConfiguration]
+</span><a href="#local-6989586621679275997"><span class="hs-identifier hs-var hs-var">httpPackageConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+</span><a href="#local-6989586621679275997"><span class="hs-identifier hs-var">httpPackageConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275996"><span class="annot"><span class="annottext">s :: CreateVodSource
+</span><a href="#local-6989586621679275996"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275995"><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+</span><a href="#local-6989586621679275995"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSource
+</span><a href="#local-6989586621679275996"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpPackageConfigurations:CreateVodSource' :: [HttpPackageConfiguration]
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpPackageConfigurations%3ACreateVodSource%27"><span class="hs-identifier hs-var">httpPackageConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+</span><a href="#local-6989586621679275995"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([HttpPackageConfiguration] -&gt; f [HttpPackageConfiguration])
+ -&gt; CreateVodSource -&gt; f CreateVodSource)
+-&gt; (([HttpPackageConfiguration] -&gt; f [HttpPackageConfiguration])
+    -&gt; [HttpPackageConfiguration] -&gt; f [HttpPackageConfiguration])
+-&gt; ([HttpPackageConfiguration] -&gt; f [HttpPackageConfiguration])
+-&gt; CreateVodSource
+-&gt; f CreateVodSource
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([HttpPackageConfiguration] -&gt; f [HttpPackageConfiguration])
+-&gt; [HttpPackageConfiguration] -&gt; f [HttpPackageConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-120"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>      </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span>
+</span><span id="line-122"></span><span>  </span><span id="local-6989586621679275991"><span class="annot"><span class="annottext">request :: CreateVodSource -&gt; Request CreateVodSource
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateVodSource -&gt; Request CreateVodSource
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.MediaTailor.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679275987"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateVodSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateVodSource)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateVodSource))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateVodSource
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse CreateVodSource)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-125"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275984"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275984"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275983"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679275983"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275982"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-126"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe [HttpPackageConfiguration]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-var">CreateVodSourceResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe POSIX
+ -&gt; Maybe [HttpPackageConfiguration]
+ -&gt; Maybe Text
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Int
+ -&gt; CreateVodSourceResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [HttpPackageConfiguration]
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateVodSourceResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [HttpPackageConfiguration]
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateVodSourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe POSIX
+      -&gt; Maybe [HttpPackageConfiguration]
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateVodSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SourceLocationName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe POSIX
+   -&gt; Maybe [HttpPackageConfiguration]
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateVodSourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe POSIX
+      -&gt; Maybe [HttpPackageConfiguration]
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateVodSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe POSIX
+   -&gt; Maybe [HttpPackageConfiguration]
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateVodSourceResponse)
+-&gt; Either String (Maybe POSIX)
+-&gt; Either
+     String
+     (Maybe [HttpPackageConfiguration]
+      -&gt; Maybe Text
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Int
+      -&gt; CreateVodSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LastModifiedTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe [HttpPackageConfiguration]
+   -&gt; Maybe Text
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Int
+   -&gt; CreateVodSourceResponse)
+-&gt; Either String (Maybe [HttpPackageConfiguration])
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateVodSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (Maybe [HttpPackageConfiguration]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpPackageConfigurations&quot;</span></span><span>
+</span><span id="line-132"></span><span>                            </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [HttpPackageConfiguration]))
+-&gt; Maybe [HttpPackageConfiguration]
+-&gt; Either String (Maybe [HttpPackageConfiguration])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [HttpPackageConfiguration]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-133"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (HashMap Text Text) -&gt; Int -&gt; CreateVodSourceResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateVodSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VodSourceName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (HashMap Text Text) -&gt; Int -&gt; CreateVodSourceResponse)
+-&gt; Either String (Maybe (HashMap Text Text))
+-&gt; Either String (Int -&gt; CreateVodSourceResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275982"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text)
+-&gt; Either String (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateVodSourceResponse)
+-&gt; Either String Int -&gt; Either String CreateVodSourceResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275984"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275973"><span id="local-6989586621679275975"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span></span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275970"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span></span><span>
+</span><span id="line-142"></span><span>
+</span><span id="line-143"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-144"></span><span>  </span><span id="local-6989586621679275966"><span class="annot"><span class="annottext">toHeaders :: CreateVodSource -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateVodSource -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-148"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-150"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275956"><span id="local-6989586621679275958"><span id="local-6989586621679275960"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679275954"><span class="annot"><span class="annottext">toJSON :: CreateVodSource -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275949"><span id="local-6989586621679275950"><span id="local-6989586621679275951"><span id="local-6989586621679275952"><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+Maybe (HashMap Text Text)
+Text
+httpPackageConfigurations :: [HttpPackageConfiguration]
+vodSourceName :: Text
+sourceLocationName :: Text
+tags :: Maybe (HashMap Text Text)
+$sel:httpPackageConfigurations:CreateVodSource' :: CreateVodSource -&gt; [HttpPackageConfiguration]
+$sel:vodSourceName:CreateVodSource' :: CreateVodSource -&gt; Text
+$sel:sourceLocationName:CreateVodSource' :: CreateVodSource -&gt; Text
+$sel:tags:CreateVodSource' :: CreateVodSource -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679275949"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-158"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679275952"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-160"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;HttpPackageConfigurations&quot;</span></span><span>
+</span><span id="line-161"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; [HttpPackageConfiguration] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+</span><a href="#local-6989586621679275949"><span class="hs-identifier hs-var">httpPackageConfigurations</span></a></span><span>
+</span><span id="line-162"></span><span>              </span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679275943"><span class="annot"><span class="annottext">toPath :: CreateVodSource -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource%27"><span class="hs-identifier hs-type">CreateVodSource'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275938"><span id="local-6989586621679275939"><span id="local-6989586621679275940"><span id="local-6989586621679275941"><span class="annot"><span class="annottext">[HttpPackageConfiguration]
+Maybe (HashMap Text Text)
+Text
+httpPackageConfigurations :: [HttpPackageConfiguration]
+vodSourceName :: Text
+sourceLocationName :: Text
+tags :: Maybe (HashMap Text Text)
+$sel:httpPackageConfigurations:CreateVodSource' :: CreateVodSource -&gt; [HttpPackageConfiguration]
+$sel:vodSourceName:CreateVodSource' :: CreateVodSource -&gt; Text
+$sel:sourceLocationName:CreateVodSource' :: CreateVodSource -&gt; Text
+$sel:tags:CreateVodSource' :: CreateVodSource -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679275938"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/sourceLocation/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-170"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275940"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/vodSource/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275939"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span>
+</span><span id="line-173"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSource"><span class="hs-identifier hs-type">CreateVodSource</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-176"></span><span>  </span><span id="local-6989586621679275934"><span class="annot"><span class="annottext">toQuery :: CreateVodSource -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateVodSource -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-177"></span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- | /See:/ 'newCreateVodSourceResponse' smart constructor.</span><span>
+</span><span id="line-179"></span><span id="local-6989586621679275931"><span id="local-6989586621679275932"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateVodSourceResponse"><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-var">CreateVodSourceResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateVodSourceResponse%27"><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-var">CreateVodSourceResponse'</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The timestamp that indicates when the VOD source was created.</span><span>
+</span><span id="line-181"></span><span>    </span><span id="%24sel%3AcreationTime%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AcreationTime%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- | The name of the source location associated with the VOD source.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AsourceLocationName%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AsourceLocationName%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-comment">-- | The ARN of the VOD source.</span><span>
+</span><span id="line-185"></span><span>    </span><span id="%24sel%3Aarn%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Aarn%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="hs-comment">-- | The ARN for the VOD source.</span><span>
+</span><span id="line-187"></span><span>    </span><span id="%24sel%3AlastModifiedTime%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AlastModifiedTime%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="hs-comment">-- | The HTTP package configurations.</span><span>
+</span><span id="line-189"></span><span>    </span><span id="%24sel%3AhttpPackageConfigurations%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Maybe [HttpPackageConfiguration]
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpPackageConfigurations%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">httpPackageConfigurations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#HttpPackageConfiguration"><span class="hs-identifier hs-type">HttpPackageConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>    </span><span class="hs-comment">-- | The name of the VOD source.</span><span>
+</span><span id="line-191"></span><span>    </span><span id="%24sel%3AvodSourceName%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AvodSourceName%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-comment">-- | The tags assigned to the VOD source.</span><span>
+</span><span id="line-193"></span><span>    </span><span id="%24sel%3Atags%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Atags%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-195"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateVodSourceResponse%27"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; Int
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpStatus%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-196"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-197"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275919"><span id="local-6989586621679275921"><span class="annot"><span class="annottext">CreateVodSourceResponse -&gt; CreateVodSourceResponse -&gt; Bool
+(CreateVodSourceResponse -&gt; CreateVodSourceResponse -&gt; Bool)
+-&gt; (CreateVodSourceResponse -&gt; CreateVodSourceResponse -&gt; Bool)
+-&gt; Eq CreateVodSourceResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateVodSourceResponse -&gt; CreateVodSourceResponse -&gt; Bool
+$c/= :: CreateVodSourceResponse -&gt; CreateVodSourceResponse -&gt; Bool
+== :: CreateVodSourceResponse -&gt; CreateVodSourceResponse -&gt; Bool
+$c== :: CreateVodSourceResponse -&gt; CreateVodSourceResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275911"><span id="local-6989586621679275913"><span id="local-6989586621679275915"><span id="local-6989586621679275917"><span class="annot"><span class="annottext">ReadPrec [CreateVodSourceResponse]
+ReadPrec CreateVodSourceResponse
+Int -&gt; ReadS CreateVodSourceResponse
+ReadS [CreateVodSourceResponse]
+(Int -&gt; ReadS CreateVodSourceResponse)
+-&gt; ReadS [CreateVodSourceResponse]
+-&gt; ReadPrec CreateVodSourceResponse
+-&gt; ReadPrec [CreateVodSourceResponse]
+-&gt; Read CreateVodSourceResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateVodSourceResponse]
+$creadListPrec :: ReadPrec [CreateVodSourceResponse]
+readPrec :: ReadPrec CreateVodSourceResponse
+$creadPrec :: ReadPrec CreateVodSourceResponse
+readList :: ReadS [CreateVodSourceResponse]
+$creadList :: ReadS [CreateVodSourceResponse]
+readsPrec :: Int -&gt; ReadS CreateVodSourceResponse
+$creadsPrec :: Int -&gt; ReadS CreateVodSourceResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275905"><span id="local-6989586621679275907"><span id="local-6989586621679275909"><span class="annot"><span class="annottext">Int -&gt; CreateVodSourceResponse -&gt; ShowS
+[CreateVodSourceResponse] -&gt; ShowS
+CreateVodSourceResponse -&gt; String
+(Int -&gt; CreateVodSourceResponse -&gt; ShowS)
+-&gt; (CreateVodSourceResponse -&gt; String)
+-&gt; ([CreateVodSourceResponse] -&gt; ShowS)
+-&gt; Show CreateVodSourceResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateVodSourceResponse] -&gt; ShowS
+$cshowList :: [CreateVodSourceResponse] -&gt; ShowS
+show :: CreateVodSourceResponse -&gt; String
+$cshow :: CreateVodSourceResponse -&gt; String
+showsPrec :: Int -&gt; CreateVodSourceResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateVodSourceResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateVodSourceResponse -&gt; Rep CreateVodSourceResponse x)
+-&gt; (forall x.
+    Rep CreateVodSourceResponse x -&gt; CreateVodSourceResponse)
+-&gt; Generic CreateVodSourceResponse
+forall x. Rep CreateVodSourceResponse x -&gt; CreateVodSourceResponse
+forall x. CreateVodSourceResponse -&gt; Rep CreateVodSourceResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateVodSourceResponse x -&gt; CreateVodSourceResponse
+$cfrom :: forall x. CreateVodSourceResponse -&gt; Rep CreateVodSourceResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- Create a value of 'CreateVodSourceResponse' with all optional fields omitted.</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-203"></span><span class="hs-comment">--</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-206"></span><span class="hs-comment">--</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- 'creationTime', 'createVodSourceResponse_creationTime' - The timestamp that indicates when the VOD source was created.</span><span>
+</span><span id="line-208"></span><span class="hs-comment">--</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- 'sourceLocationName', 'createVodSourceResponse_sourceLocationName' - The name of the source location associated with the VOD source.</span><span>
+</span><span id="line-210"></span><span class="hs-comment">--</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- 'arn', 'createVodSourceResponse_arn' - The ARN of the VOD source.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- 'lastModifiedTime', 'createVodSourceResponse_lastModifiedTime' - The ARN for the VOD source.</span><span>
+</span><span id="line-214"></span><span class="hs-comment">--</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- 'httpPackageConfigurations', 'createVodSourceResponse_httpPackageConfigurations' - The HTTP package configurations.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- 'vodSourceName', 'createVodSourceResponse_vodSourceName' - The name of the VOD source.</span><span>
+</span><span id="line-218"></span><span class="hs-comment">--</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- 'tags', 'createVodSourceResponse_tags' - The tags assigned to the VOD source.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- 'httpStatus', 'createVodSourceResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-222"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#newCreateVodSourceResponse"><span class="hs-identifier hs-type">newCreateVodSourceResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-223"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-224"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-225"></span><span>  </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span>
+</span><span id="line-226"></span><span id="newCreateVodSourceResponse"><span class="annot"><span class="annottext">newCreateVodSourceResponse :: Int -&gt; CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#newCreateVodSourceResponse"><span class="hs-identifier hs-var hs-var">newCreateVodSourceResponse</span></a></span></span><span> </span><span id="local-6989586621679275902"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-227"></span><span>  </span><span class="annot"><span class="annottext">CreateVodSourceResponse' :: Maybe POSIX
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe POSIX
+-&gt; Maybe [HttpPackageConfiguration]
+-&gt; Maybe Text
+-&gt; Maybe (HashMap Text Text)
+-&gt; Int
+-&gt; CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:CreateVodSourceResponse' :: Maybe POSIX
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AcreationTime%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-229"></span><span>        </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>      </span><span class="annot"><span class="annottext">$sel:sourceLocationName:CreateVodSourceResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AsourceLocationName%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:CreateVodSourceResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Aarn%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>      </span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateVodSourceResponse' :: Maybe POSIX
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AlastModifiedTime%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpPackageConfigurations:CreateVodSourceResponse' :: Maybe [HttpPackageConfiguration]
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpPackageConfigurations%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">httpPackageConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpPackageConfiguration]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-234"></span><span>      </span><span class="annot"><span class="annottext">$sel:vodSourceName:CreateVodSourceResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AvodSourceName%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-235"></span><span>      </span><span class="annot"><span class="annottext">$sel:tags:CreateVodSourceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Atags%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVodSourceResponse' :: Int
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpStatus%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275902"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-237"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | The timestamp that indicates when the VOD source was created.</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_creationTime"><span class="hs-identifier hs-type">createVodSourceResponse_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span id="createVodSourceResponse_creationTime"><span class="annot"><span class="annottext">createVodSourceResponse_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_creationTime"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Maybe POSIX)
+-&gt; (CreateVodSourceResponse
+    -&gt; Maybe POSIX -&gt; CreateVodSourceResponse)
+-&gt; Lens
+     CreateVodSourceResponse
+     CreateVodSourceResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275901"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679275901"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679275901"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275900"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275900"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275899"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679275899"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275900"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:CreateVodSourceResponse' :: Maybe POSIX
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AcreationTime%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679275899"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateVodSourceResponse
+-&gt; f CreateVodSourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The name of the source location associated with the VOD source.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_sourceLocationName"><span class="hs-identifier hs-type">createVodSourceResponse_sourceLocationName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span id="createVodSourceResponse_sourceLocationName"><span class="annot"><span class="annottext">createVodSourceResponse_sourceLocationName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_sourceLocationName"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_sourceLocationName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Maybe Text)
+-&gt; (CreateVodSourceResponse
+    -&gt; Maybe Text -&gt; CreateVodSourceResponse)
+-&gt; Lens
+     CreateVodSourceResponse
+     CreateVodSourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275897"><span class="annot"><span class="annottext">Maybe Text
+sourceLocationName :: Maybe Text
+$sel:sourceLocationName:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275897"><span class="hs-identifier hs-var hs-var">sourceLocationName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275897"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275896"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275896"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275895"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275895"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275896"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceLocationName:CreateVodSourceResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AsourceLocationName%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">sourceLocationName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275895"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The ARN of the VOD source.</span><span>
+</span><span id="line-248"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_arn"><span class="hs-identifier hs-type">createVodSourceResponse_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span id="createVodSourceResponse_arn"><span class="annot"><span class="annottext">createVodSourceResponse_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_arn"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Maybe Text)
+-&gt; (CreateVodSourceResponse
+    -&gt; Maybe Text -&gt; CreateVodSourceResponse)
+-&gt; Lens
+     CreateVodSourceResponse
+     CreateVodSourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275894"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275894"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275894"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275893"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275893"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275892"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275892"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275893"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:CreateVodSourceResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Aarn%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275892"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-250"></span><span>
+</span><span id="line-251"></span><span class="hs-comment">-- | The ARN for the VOD source.</span><span>
+</span><span id="line-252"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_lastModifiedTime"><span class="hs-identifier hs-type">createVodSourceResponse_lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span id="createVodSourceResponse_lastModifiedTime"><span class="annot"><span class="annottext">createVodSourceResponse_lastModifiedTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_lastModifiedTime"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_lastModifiedTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Maybe POSIX)
+-&gt; (CreateVodSourceResponse
+    -&gt; Maybe POSIX -&gt; CreateVodSourceResponse)
+-&gt; Lens
+     CreateVodSourceResponse
+     CreateVodSourceResponse
+     (Maybe POSIX)
+     (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275891"><span class="annot"><span class="annottext">Maybe POSIX
+lastModifiedTime :: Maybe POSIX
+$sel:lastModifiedTime:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Maybe POSIX
+</span><a href="#local-6989586621679275891"><span class="hs-identifier hs-var hs-var">lastModifiedTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679275891"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275890"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275890"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275889"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679275889"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275890"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:lastModifiedTime:CreateVodSourceResponse' :: Maybe POSIX
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AlastModifiedTime%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">lastModifiedTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679275889"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX))
+ -&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; CreateVodSourceResponse
+-&gt; f CreateVodSourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-254"></span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- | The HTTP package configurations.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_httpPackageConfigurations"><span class="hs-identifier hs-type">createVodSourceResponse_httpPackageConfigurations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.MediaTailor.Types.HttpPackageConfiguration.html#HttpPackageConfiguration"><span class="hs-identifier hs-type">HttpPackageConfiguration</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-257"></span><span id="createVodSourceResponse_httpPackageConfigurations"><span class="annot"><span class="annottext">createVodSourceResponse_httpPackageConfigurations :: (Maybe [HttpPackageConfiguration]
+ -&gt; f (Maybe [HttpPackageConfiguration]))
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_httpPackageConfigurations"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_httpPackageConfigurations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Maybe [HttpPackageConfiguration])
+-&gt; (CreateVodSourceResponse
+    -&gt; Maybe [HttpPackageConfiguration] -&gt; CreateVodSourceResponse)
+-&gt; Lens
+     CreateVodSourceResponse
+     CreateVodSourceResponse
+     (Maybe [HttpPackageConfiguration])
+     (Maybe [HttpPackageConfiguration])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275888"><span class="annot"><span class="annottext">Maybe [HttpPackageConfiguration]
+httpPackageConfigurations :: Maybe [HttpPackageConfiguration]
+$sel:httpPackageConfigurations:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Maybe [HttpPackageConfiguration]
+</span><a href="#local-6989586621679275888"><span class="hs-identifier hs-var hs-var">httpPackageConfigurations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpPackageConfiguration]
+</span><a href="#local-6989586621679275888"><span class="hs-identifier hs-var">httpPackageConfigurations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275887"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275887"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275886"><span class="annot"><span class="annottext">Maybe [HttpPackageConfiguration]
+</span><a href="#local-6989586621679275886"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275887"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpPackageConfigurations:CreateVodSourceResponse' :: Maybe [HttpPackageConfiguration]
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpPackageConfigurations%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">httpPackageConfigurations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [HttpPackageConfiguration]
+</span><a href="#local-6989586621679275886"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [HttpPackageConfiguration]
+  -&gt; f (Maybe [HttpPackageConfiguration]))
+ -&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse)
+-&gt; ((Maybe [HttpPackageConfiguration]
+     -&gt; f (Maybe [HttpPackageConfiguration]))
+    -&gt; Maybe [HttpPackageConfiguration]
+    -&gt; f (Maybe [HttpPackageConfiguration]))
+-&gt; (Maybe [HttpPackageConfiguration]
+    -&gt; f (Maybe [HttpPackageConfiguration]))
+-&gt; CreateVodSourceResponse
+-&gt; f CreateVodSourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HttpPackageConfiguration]
+  [HttpPackageConfiguration]
+  [HttpPackageConfiguration]
+  [HttpPackageConfiguration]
+-&gt; Iso
+     (Maybe [HttpPackageConfiguration])
+     (Maybe [HttpPackageConfiguration])
+     (Maybe [HttpPackageConfiguration])
+     (Maybe [HttpPackageConfiguration])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [HttpPackageConfiguration]
+  [HttpPackageConfiguration]
+  [HttpPackageConfiguration]
+  [HttpPackageConfiguration]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | The name of the VOD source.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_vodSourceName"><span class="hs-identifier hs-type">createVodSourceResponse_vodSourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span id="createVodSourceResponse_vodSourceName"><span class="annot"><span class="annottext">createVodSourceResponse_vodSourceName :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_vodSourceName"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_vodSourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Maybe Text)
+-&gt; (CreateVodSourceResponse
+    -&gt; Maybe Text -&gt; CreateVodSourceResponse)
+-&gt; Lens
+     CreateVodSourceResponse
+     CreateVodSourceResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275885"><span class="annot"><span class="annottext">Maybe Text
+vodSourceName :: Maybe Text
+$sel:vodSourceName:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679275885"><span class="hs-identifier hs-var hs-var">vodSourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275885"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275884"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275884"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275883"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275883"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275884"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:vodSourceName:CreateVodSourceResponse' :: Maybe Text
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AvodSourceName%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">vodSourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275883"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-comment">-- | The tags assigned to the VOD source.</span><span>
+</span><span id="line-264"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_tags"><span class="hs-identifier hs-type">createVodSourceResponse_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-265"></span><span id="createVodSourceResponse_tags"><span class="annot"><span class="annottext">createVodSourceResponse_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_tags"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateVodSourceResponse
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateVodSourceResponse)
+-&gt; Lens
+     CreateVodSourceResponse
+     CreateVodSourceResponse
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275882"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679275882"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679275882"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275881"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275881"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275880"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679275880"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275881"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateVodSourceResponse' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3Atags%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679275880"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateVodSourceResponse
+-&gt; f CreateVodSourceResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-268"></span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_httpStatus"><span class="hs-identifier hs-type">createVodSourceResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-269"></span><span id="createVodSourceResponse_httpStatus"><span class="annot"><span class="annottext">createVodSourceResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateVodSourceResponse -&gt; f CreateVodSourceResponse
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#createVodSourceResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createVodSourceResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateVodSourceResponse -&gt; Int)
+-&gt; (CreateVodSourceResponse -&gt; Int -&gt; CreateVodSourceResponse)
+-&gt; Lens CreateVodSourceResponse CreateVodSourceResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275879"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateVodSourceResponse' :: CreateVodSourceResponse -&gt; Int
+</span><a href="#local-6989586621679275879"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275879"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275878"><span class="annot"><span class="annottext">s :: CreateVodSourceResponse
+</span><a href="#local-6989586621679275878"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse%27"><span class="hs-identifier hs-type">CreateVodSourceResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275877"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275877"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateVodSourceResponse
+</span><a href="#local-6989586621679275878"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateVodSourceResponse' :: Int
+</span><a href="Amazonka.MediaTailor.CreateVodSource.html#%24sel%3AhttpStatus%3ACreateVodSourceResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275877"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-270"></span><span>
+</span><span id="line-271"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275875"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaTailor.CreateVodSource.html#CreateVodSourceResponse"><span class="hs-identifier hs-type">CreateVodSourceResponse</span></a></span></span><span>
+</span><span id="line-272"></span></pre></body></html>

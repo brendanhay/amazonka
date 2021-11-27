@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaLive.Types.VideoBlackFailoverSettings</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaLive.Types.VideoBlackFailoverSettings</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Placeholder documentation for VideoBlackFailoverSettings</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- /See:/ 'newVideoBlackFailoverSettings' smart constructor.</span><span>
+</span><span id="line-29"></span><span id="local-6989586621679928780"><span id="local-6989586621679928781"></span></span><span class="hs-keyword">data</span><span> </span><span id="VideoBlackFailoverSettings"><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-var">VideoBlackFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="VideoBlackFailoverSettings%27"><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">VideoBlackFailoverSettings'</span></a></span></span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time (in milliseconds) that the active input must be black</span><span>
+</span><span id="line-31"></span><span>    </span><span class="hs-comment">-- before automatic input failover occurs.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AvideoBlackThresholdMsec%3AVideoBlackFailoverSettings%27"><span class="annot"><span class="annottext">VideoBlackFailoverSettings -&gt; Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AvideoBlackThresholdMsec%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var hs-var">videoBlackThresholdMsec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | A value used in calculating the threshold below which MediaLive</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- considers a pixel to be \'black\'. For the input to be considered black,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- every pixel in a frame must be below this threshold. The threshold is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- calculated as a percentage (expressed as a decimal) of white. Therefore</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- .1 means 10% white (or 90% black). Note how the formula works for any</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- color depth. For example, if you set this field to 0.1 in 10-bit color</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- depth: (1023*0.1=102.3), which means a pixel value of 102 or less is</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- \'black\'. If you set this field to .1 in an 8-bit color depth:</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- (255*0.1=25.5), which means a pixel value of 25 or less is \'black\'.</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- The range is 0.0 to 1.0, with any number of decimal places.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3AblackDetectThreshold%3AVideoBlackFailoverSettings%27"><span class="annot"><span class="annottext">VideoBlackFailoverSettings -&gt; Maybe Double
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AblackDetectThreshold%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var hs-var">blackDetectThreshold</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679928773"><span id="local-6989586621679928775"><span class="annot"><span class="annottext">VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
+(VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool)
+-&gt; (VideoBlackFailoverSettings
+    -&gt; VideoBlackFailoverSettings -&gt; Bool)
+-&gt; Eq VideoBlackFailoverSettings
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
+$c/= :: VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
+== :: VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
+$c== :: VideoBlackFailoverSettings -&gt; VideoBlackFailoverSettings -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679928764"><span id="local-6989586621679928766"><span id="local-6989586621679928768"><span id="local-6989586621679928770"><span class="annot"><span class="annottext">ReadPrec [VideoBlackFailoverSettings]
+ReadPrec VideoBlackFailoverSettings
+Int -&gt; ReadS VideoBlackFailoverSettings
+ReadS [VideoBlackFailoverSettings]
+(Int -&gt; ReadS VideoBlackFailoverSettings)
+-&gt; ReadS [VideoBlackFailoverSettings]
+-&gt; ReadPrec VideoBlackFailoverSettings
+-&gt; ReadPrec [VideoBlackFailoverSettings]
+-&gt; Read VideoBlackFailoverSettings
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [VideoBlackFailoverSettings]
+$creadListPrec :: ReadPrec [VideoBlackFailoverSettings]
+readPrec :: ReadPrec VideoBlackFailoverSettings
+$creadPrec :: ReadPrec VideoBlackFailoverSettings
+readList :: ReadS [VideoBlackFailoverSettings]
+$creadList :: ReadS [VideoBlackFailoverSettings]
+readsPrec :: Int -&gt; ReadS VideoBlackFailoverSettings
+$creadsPrec :: Int -&gt; ReadS VideoBlackFailoverSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679928757"><span id="local-6989586621679928759"><span id="local-6989586621679928761"><span class="annot"><span class="annottext">Int -&gt; VideoBlackFailoverSettings -&gt; ShowS
+[VideoBlackFailoverSettings] -&gt; ShowS
+VideoBlackFailoverSettings -&gt; String
+(Int -&gt; VideoBlackFailoverSettings -&gt; ShowS)
+-&gt; (VideoBlackFailoverSettings -&gt; String)
+-&gt; ([VideoBlackFailoverSettings] -&gt; ShowS)
+-&gt; Show VideoBlackFailoverSettings
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [VideoBlackFailoverSettings] -&gt; ShowS
+$cshowList :: [VideoBlackFailoverSettings] -&gt; ShowS
+show :: VideoBlackFailoverSettings -&gt; String
+$cshow :: VideoBlackFailoverSettings -&gt; String
+showsPrec :: Int -&gt; VideoBlackFailoverSettings -&gt; ShowS
+$cshowsPrec :: Int -&gt; VideoBlackFailoverSettings -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ VideoBlackFailoverSettings -&gt; Rep VideoBlackFailoverSettings x)
+-&gt; (forall x.
+    Rep VideoBlackFailoverSettings x -&gt; VideoBlackFailoverSettings)
+-&gt; Generic VideoBlackFailoverSettings
+forall x.
+Rep VideoBlackFailoverSettings x -&gt; VideoBlackFailoverSettings
+forall x.
+VideoBlackFailoverSettings -&gt; Rep VideoBlackFailoverSettings x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep VideoBlackFailoverSettings x -&gt; VideoBlackFailoverSettings
+$cfrom :: forall x.
+VideoBlackFailoverSettings -&gt; Rep VideoBlackFailoverSettings x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- Create a value of 'VideoBlackFailoverSettings' with all optional fields omitted.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- 'videoBlackThresholdMsec', 'videoBlackFailoverSettings_videoBlackThresholdMsec' - The amount of time (in milliseconds) that the active input must be black</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- before automatic input failover occurs.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'blackDetectThreshold', 'videoBlackFailoverSettings_blackDetectThreshold' - A value used in calculating the threshold below which MediaLive</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- considers a pixel to be \'black\'. For the input to be considered black,</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- every pixel in a frame must be below this threshold. The threshold is</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- calculated as a percentage (expressed as a decimal) of white. Therefore</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- .1 means 10% white (or 90% black). Note how the formula works for any</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- color depth. For example, if you set this field to 0.1 in 10-bit color</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- depth: (1023*0.1=102.3), which means a pixel value of 102 or less is</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- \'black\'. If you set this field to .1 in an 8-bit color depth:</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- (255*0.1=25.5), which means a pixel value of 25 or less is \'black\'.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The range is 0.0 to 1.0, with any number of decimal places.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#newVideoBlackFailoverSettings"><span class="hs-identifier hs-type">newVideoBlackFailoverSettings</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span>
+</span><span id="line-70"></span><span id="newVideoBlackFailoverSettings"><span class="annot"><span class="annottext">newVideoBlackFailoverSettings :: VideoBlackFailoverSettings
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#newVideoBlackFailoverSettings"><span class="hs-identifier hs-var hs-var">newVideoBlackFailoverSettings</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="annottext">VideoBlackFailoverSettings' :: Maybe Natural -&gt; Maybe Double -&gt; VideoBlackFailoverSettings
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AvideoBlackThresholdMsec%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>      </span><span class="annot"><span class="annottext">$sel:blackDetectThreshold:VideoBlackFailoverSettings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AblackDetectThreshold%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The amount of time (in milliseconds) that the active input must be black</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- before automatic input failover occurs.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#videoBlackFailoverSettings_videoBlackThresholdMsec"><span class="hs-identifier hs-type">videoBlackFailoverSettings_videoBlackThresholdMsec</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span id="videoBlackFailoverSettings_videoBlackThresholdMsec"><span class="annot"><span class="annottext">videoBlackFailoverSettings_videoBlackThresholdMsec :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; VideoBlackFailoverSettings -&gt; f VideoBlackFailoverSettings
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#videoBlackFailoverSettings_videoBlackThresholdMsec"><span class="hs-identifier hs-var hs-var">videoBlackFailoverSettings_videoBlackThresholdMsec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoBlackFailoverSettings -&gt; Maybe Natural)
+-&gt; (VideoBlackFailoverSettings
+    -&gt; Maybe Natural -&gt; VideoBlackFailoverSettings)
+-&gt; Lens
+     VideoBlackFailoverSettings
+     VideoBlackFailoverSettings
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928748"><span class="annot"><span class="annottext">Maybe Natural
+videoBlackThresholdMsec :: Maybe Natural
+$sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679928748"><span class="hs-identifier hs-var hs-var">videoBlackThresholdMsec</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679928748"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928747"><span class="annot"><span class="annottext">s :: VideoBlackFailoverSettings
+</span><a href="#local-6989586621679928747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928746"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679928746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoBlackFailoverSettings
+</span><a href="#local-6989586621679928747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: Maybe Natural
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AvideoBlackThresholdMsec%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679928746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- | A value used in calculating the threshold below which MediaLive</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- considers a pixel to be \'black\'. For the input to be considered black,</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- every pixel in a frame must be below this threshold. The threshold is</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- calculated as a percentage (expressed as a decimal) of white. Therefore</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- .1 means 10% white (or 90% black). Note how the formula works for any</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- color depth. For example, if you set this field to 0.1 in 10-bit color</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- depth: (1023*0.1=102.3), which means a pixel value of 102 or less is</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- \'black\'. If you set this field to .1 in an 8-bit color depth:</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- (255*0.1=25.5), which means a pixel value of 25 or less is \'black\'.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- The range is 0.0 to 1.0, with any number of decimal places.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#videoBlackFailoverSettings_blackDetectThreshold"><span class="hs-identifier hs-type">videoBlackFailoverSettings_blackDetectThreshold</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span id="videoBlackFailoverSettings_blackDetectThreshold"><span class="annot"><span class="annottext">videoBlackFailoverSettings_blackDetectThreshold :: (Maybe Double -&gt; f (Maybe Double))
+-&gt; VideoBlackFailoverSettings -&gt; f VideoBlackFailoverSettings
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#videoBlackFailoverSettings_blackDetectThreshold"><span class="hs-identifier hs-var hs-var">videoBlackFailoverSettings_blackDetectThreshold</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(VideoBlackFailoverSettings -&gt; Maybe Double)
+-&gt; (VideoBlackFailoverSettings
+    -&gt; Maybe Double -&gt; VideoBlackFailoverSettings)
+-&gt; Lens
+     VideoBlackFailoverSettings
+     VideoBlackFailoverSettings
+     (Maybe Double)
+     (Maybe Double)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928744"><span class="annot"><span class="annottext">Maybe Double
+blackDetectThreshold :: Maybe Double
+$sel:blackDetectThreshold:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Double
+</span><a href="#local-6989586621679928744"><span class="hs-identifier hs-var hs-var">blackDetectThreshold</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679928744"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679928743"><span class="annot"><span class="annottext">s :: VideoBlackFailoverSettings
+</span><a href="#local-6989586621679928743"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679928742"><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679928742"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VideoBlackFailoverSettings
+</span><a href="#local-6989586621679928743"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:blackDetectThreshold:VideoBlackFailoverSettings' :: Maybe Double
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#%24sel%3AblackDetectThreshold%3AVideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679928742"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928739"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-96"></span><span>  </span><span id="local-6989586621679928737"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser VideoBlackFailoverSettings
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser VideoBlackFailoverSettings)
+-&gt; Value
+-&gt; Parser VideoBlackFailoverSettings
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;VideoBlackFailoverSettings&quot;</span></span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679928734"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679928734"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-100"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural -&gt; Maybe Double -&gt; VideoBlackFailoverSettings
+</span><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-var">VideoBlackFailoverSettings'</span></a></span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural -&gt; Maybe Double -&gt; VideoBlackFailoverSettings)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Double -&gt; VideoBlackFailoverSettings)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679928734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoBlackThresholdMsec&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Double -&gt; VideoBlackFailoverSettings)
+-&gt; Parser (Maybe Double) -&gt; Parser VideoBlackFailoverSettings
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679928734"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Double)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blackDetectThreshold&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928728"><span id="local-6989586621679928730"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span></span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928725"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679928717"><span id="local-6989586621679928719"><span id="local-6989586621679928721"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings"><span class="hs-identifier hs-type">VideoBlackFailoverSettings</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679928715"><span class="annot"><span class="annottext">toJSON :: VideoBlackFailoverSettings -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.MediaLive.Types.VideoBlackFailoverSettings.html#VideoBlackFailoverSettings%27"><span class="hs-identifier hs-type">VideoBlackFailoverSettings'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679928712"><span id="local-6989586621679928713"><span class="annot"><span class="annottext">Maybe Double
+Maybe Natural
+blackDetectThreshold :: Maybe Double
+videoBlackThresholdMsec :: Maybe Natural
+$sel:blackDetectThreshold:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Double
+$sel:videoBlackThresholdMsec:VideoBlackFailoverSettings' :: VideoBlackFailoverSettings -&gt; Maybe Natural
+</span><a href="#local-6989586621679928712"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-113"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;videoBlackThresholdMsec&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679928713"><span class="hs-identifier hs-var">videoBlackThresholdMsec</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;blackDetectThreshold&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>              </span><span class="annot"><span class="annottext">(Double -&gt; Pair) -&gt; Maybe Double -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Double
+</span><a href="#local-6989586621679928712"><span class="hs-identifier hs-var">blackDetectThreshold</span></a></span><span>
+</span><span id="line-117"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span></pre></body></html>

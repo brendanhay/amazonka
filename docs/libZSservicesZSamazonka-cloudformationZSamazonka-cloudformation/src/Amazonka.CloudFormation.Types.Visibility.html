@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.CloudFormation.Types.Visibility</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CloudFormation.Types.Visibility</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility"><span class="hs-identifier">Visibility</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility_PRIVATE"><span class="hs-identifier">Visibility_PRIVATE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility_PUBLIC"><span class="hs-identifier">Visibility_PUBLIC</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679428471"><span id="local-6989586621679428472"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="Visibility"><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility"><span class="hs-identifier hs-var">Visibility</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Visibility%27"><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility%27"><span class="hs-identifier hs-var">Visibility'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromVisibility"><span class="annot"><span class="annottext">Visibility -&gt; Text
+</span><a href="Amazonka.CloudFormation.Types.Visibility.html#fromVisibility"><span class="hs-identifier hs-var hs-var">fromVisibility</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428463"><span id="local-6989586621679428465"><span id="local-6989586621679428467"><span class="annot"><span class="annottext">Int -&gt; Visibility -&gt; ShowS
+[Visibility] -&gt; ShowS
+Visibility -&gt; String
+(Int -&gt; Visibility -&gt; ShowS)
+-&gt; (Visibility -&gt; String)
+-&gt; ([Visibility] -&gt; ShowS)
+-&gt; Show Visibility
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Visibility] -&gt; ShowS
+$cshowList :: [Visibility] -&gt; ShowS
+show :: Visibility -&gt; String
+$cshow :: Visibility -&gt; String
+showsPrec :: Int -&gt; Visibility -&gt; ShowS
+$cshowsPrec :: Int -&gt; Visibility -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679428454"><span id="local-6989586621679428456"><span id="local-6989586621679428458"><span id="local-6989586621679428460"><span class="annot"><span class="annottext">ReadPrec [Visibility]
+ReadPrec Visibility
+Int -&gt; ReadS Visibility
+ReadS [Visibility]
+(Int -&gt; ReadS Visibility)
+-&gt; ReadS [Visibility]
+-&gt; ReadPrec Visibility
+-&gt; ReadPrec [Visibility]
+-&gt; Read Visibility
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Visibility]
+$creadListPrec :: ReadPrec [Visibility]
+readPrec :: ReadPrec Visibility
+$creadPrec :: ReadPrec Visibility
+readList :: ReadS [Visibility]
+$creadList :: ReadS [Visibility]
+readsPrec :: Int -&gt; ReadS Visibility
+$creadsPrec :: Int -&gt; ReadS Visibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679428449"><span id="local-6989586621679428451"><span class="annot"><span class="annottext">Visibility -&gt; Visibility -&gt; Bool
+(Visibility -&gt; Visibility -&gt; Bool)
+-&gt; (Visibility -&gt; Visibility -&gt; Bool) -&gt; Eq Visibility
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Visibility -&gt; Visibility -&gt; Bool
+$c/= :: Visibility -&gt; Visibility -&gt; Bool
+== :: Visibility -&gt; Visibility -&gt; Bool
+$c== :: Visibility -&gt; Visibility -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679428433"><span id="local-6989586621679428435"><span id="local-6989586621679428437"><span id="local-6989586621679428439"><span id="local-6989586621679428441"><span id="local-6989586621679428443"><span id="local-6989586621679428445"><span class="annot"><span class="annottext">Eq Visibility
+Eq Visibility
+-&gt; (Visibility -&gt; Visibility -&gt; Ordering)
+-&gt; (Visibility -&gt; Visibility -&gt; Bool)
+-&gt; (Visibility -&gt; Visibility -&gt; Bool)
+-&gt; (Visibility -&gt; Visibility -&gt; Bool)
+-&gt; (Visibility -&gt; Visibility -&gt; Bool)
+-&gt; (Visibility -&gt; Visibility -&gt; Visibility)
+-&gt; (Visibility -&gt; Visibility -&gt; Visibility)
+-&gt; Ord Visibility
+Visibility -&gt; Visibility -&gt; Bool
+Visibility -&gt; Visibility -&gt; Ordering
+Visibility -&gt; Visibility -&gt; Visibility
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: Visibility -&gt; Visibility -&gt; Visibility
+$cmin :: Visibility -&gt; Visibility -&gt; Visibility
+max :: Visibility -&gt; Visibility -&gt; Visibility
+$cmax :: Visibility -&gt; Visibility -&gt; Visibility
+&gt;= :: Visibility -&gt; Visibility -&gt; Bool
+$c&gt;= :: Visibility -&gt; Visibility -&gt; Bool
+&gt; :: Visibility -&gt; Visibility -&gt; Bool
+$c&gt; :: Visibility -&gt; Visibility -&gt; Bool
+&lt;= :: Visibility -&gt; Visibility -&gt; Bool
+$c&lt;= :: Visibility -&gt; Visibility -&gt; Bool
+&lt; :: Visibility -&gt; Visibility -&gt; Bool
+$c&lt; :: Visibility -&gt; Visibility -&gt; Bool
+compare :: Visibility -&gt; Visibility -&gt; Ordering
+$ccompare :: Visibility -&gt; Visibility -&gt; Ordering
+$cp1Ord :: Eq Visibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. Visibility -&gt; Rep Visibility x)
+-&gt; (forall x. Rep Visibility x -&gt; Visibility) -&gt; Generic Visibility
+forall x. Rep Visibility x -&gt; Visibility
+forall x. Visibility -&gt; Rep Visibility x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Visibility x -&gt; Visibility
+$cfrom :: forall x. Visibility -&gt; Rep Visibility x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679428425"><span id="local-6989586621679428427"><span class="annot"><span class="annottext">Int -&gt; Visibility -&gt; Int
+Visibility -&gt; Int
+(Int -&gt; Visibility -&gt; Int)
+-&gt; (Visibility -&gt; Int) -&gt; Hashable Visibility
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: Visibility -&gt; Int
+$chash :: Visibility -&gt; Int
+hashWithSalt :: Int -&gt; Visibility -&gt; Int
+$chashWithSalt :: Int -&gt; Visibility -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679428422"><span class="annot"><span class="annottext">Visibility -&gt; ()
+(Visibility -&gt; ()) -&gt; NFData Visibility
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: Visibility -&gt; ()
+$crnf :: Visibility -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679428419"><span class="annot"><span class="annottext">Text -&gt; Either String Visibility
+(Text -&gt; Either String Visibility) -&gt; FromText Visibility
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String Visibility
+$cfromText :: Text -&gt; Either String Visibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679428416"><span class="annot"><span class="annottext">Visibility -&gt; Text
+(Visibility -&gt; Text) -&gt; ToText Visibility
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: Visibility -&gt; Text
+$ctoText :: Visibility -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679428413"><span class="annot"><span class="annottext">Visibility -&gt; ByteString
+(Visibility -&gt; ByteString) -&gt; ToByteString Visibility
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: Visibility -&gt; ByteString
+$ctoBS :: Visibility -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679428410"><span class="annot"><span class="annottext">Visibility -&gt; ByteStringBuilder
+(Visibility -&gt; ByteStringBuilder) -&gt; ToLog Visibility
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: Visibility -&gt; ByteStringBuilder
+$cbuild :: Visibility -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679428407"><span class="annot"><span class="annottext">HeaderName -&gt; Visibility -&gt; [Header]
+(HeaderName -&gt; Visibility -&gt; [Header]) -&gt; ToHeader Visibility
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; Visibility -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; Visibility -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679428404"><span class="annot"><span class="annottext">Visibility -&gt; QueryString
+(Visibility -&gt; QueryString) -&gt; ToQuery Visibility
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: Visibility -&gt; QueryString
+$ctoQuery :: Visibility -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679428399"><span id="local-6989586621679428401"><span class="annot"><span class="annottext">Value -&gt; Parser [Visibility]
+Value -&gt; Parser Visibility
+(Value -&gt; Parser Visibility)
+-&gt; (Value -&gt; Parser [Visibility]) -&gt; FromJSON Visibility
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [Visibility]
+$cparseJSONList :: Value -&gt; Parser [Visibility]
+parseJSON :: Value -&gt; Parser Visibility
+$cparseJSON :: Value -&gt; Parser Visibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679428394"><span id="local-6989586621679428396"><span class="annot"><span class="annottext">FromJSONKeyFunction [Visibility]
+FromJSONKeyFunction Visibility
+FromJSONKeyFunction Visibility
+-&gt; FromJSONKeyFunction [Visibility] -&gt; FromJSONKey Visibility
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [Visibility]
+$cfromJSONKeyList :: FromJSONKeyFunction [Visibility]
+fromJSONKey :: FromJSONKeyFunction Visibility
+$cfromJSONKey :: FromJSONKeyFunction Visibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679428385"><span id="local-6989586621679428387"><span id="local-6989586621679428389"><span id="local-6989586621679428391"><span class="annot"><span class="annottext">[Visibility] -&gt; Encoding
+[Visibility] -&gt; Value
+Visibility -&gt; Encoding
+Visibility -&gt; Value
+(Visibility -&gt; Value)
+-&gt; (Visibility -&gt; Encoding)
+-&gt; ([Visibility] -&gt; Value)
+-&gt; ([Visibility] -&gt; Encoding)
+-&gt; ToJSON Visibility
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [Visibility] -&gt; Encoding
+$ctoEncodingList :: [Visibility] -&gt; Encoding
+toJSONList :: [Visibility] -&gt; Value
+$ctoJSONList :: [Visibility] -&gt; Value
+toEncoding :: Visibility -&gt; Encoding
+$ctoEncoding :: Visibility -&gt; Encoding
+toJSON :: Visibility -&gt; Value
+$ctoJSON :: Visibility -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679428380"><span id="local-6989586621679428382"><span class="annot"><span class="annottext">ToJSONKeyFunction [Visibility]
+ToJSONKeyFunction Visibility
+ToJSONKeyFunction Visibility
+-&gt; ToJSONKeyFunction [Visibility] -&gt; ToJSONKey Visibility
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [Visibility]
+$ctoJSONKeyList :: ToJSONKeyFunction [Visibility]
+toJSONKey :: ToJSONKeyFunction Visibility
+$ctoJSONKey :: ToJSONKeyFunction Visibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679428377"><span class="annot"><span class="annottext">[Node] -&gt; Either String Visibility
+([Node] -&gt; Either String Visibility) -&gt; FromXML Visibility
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String Visibility
+$cparseXML :: [Node] -&gt; Either String Visibility
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679428374"><span class="annot"><span class="annottext">Visibility -&gt; XML
+(Visibility -&gt; XML) -&gt; ToXML Visibility
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: Visibility -&gt; XML
+$ctoXML :: Visibility -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility_PRIVATE"><span class="hs-identifier hs-type">Visibility_PRIVATE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility"><span class="hs-identifier hs-type">Visibility</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVisibility_PRIVATE"><span id="%24mVisibility_PRIVATE"><span id="Visibility_PRIVATE"><span class="annot"><span class="annottext">$bVisibility_PRIVATE :: Visibility
+$mVisibility_PRIVATE :: forall r. Visibility -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.Visibility.html#%24bVisibility_PRIVATE"><span class="hs-identifier hs-var hs-var hs-var">Visibility_PRIVATE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility%27"><span class="hs-identifier hs-type">Visibility'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PRIVATE&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility_PUBLIC"><span class="hs-identifier hs-type">Visibility_PUBLIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility"><span class="hs-identifier hs-type">Visibility</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bVisibility_PUBLIC"><span id="%24mVisibility_PUBLIC"><span id="Visibility_PUBLIC"><span class="annot"><span class="annottext">$bVisibility_PUBLIC :: Visibility
+$mVisibility_PUBLIC :: forall r. Visibility -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.CloudFormation.Types.Visibility.html#%24bVisibility_PUBLIC"><span class="hs-identifier hs-var hs-var hs-var">Visibility_PUBLIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility%27"><span class="hs-identifier hs-type">Visibility'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PUBLIC&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility_PRIVATE"><span class="hs-pragma hs-type">Visibility_PRIVATE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility_PUBLIC"><span class="hs-pragma hs-type">Visibility_PUBLIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.CloudFormation.Types.Visibility.html#Visibility%27"><span class="hs-pragma hs-type">Visibility'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

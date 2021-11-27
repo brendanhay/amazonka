@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.S3.Types.NoncurrentVersionTransition</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.S3.Types.NoncurrentVersionTransition</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Internal.html"><span class="hs-identifier">Amazonka.S3.Internal</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html"><span class="hs-identifier">Amazonka.S3.Types.TransitionStorageClass</span></a></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Container for the transition rule that describes when noncurrent objects</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- transition to the @STANDARD_IA@, @ONEZONE_IA@, @INTELLIGENT_TIERING@,</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- @GLACIER@, or @DEEP_ARCHIVE@ storage class. If your bucket is</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- versioning-enabled (or versioning is suspended), you can set this action</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- to request that Amazon S3 transition noncurrent object versions to the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- @STANDARD_IA@, @ONEZONE_IA@, @INTELLIGENT_TIERING@, @GLACIER@, or</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- @DEEP_ARCHIVE@ storage class at a specific period in the object\'s</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- lifetime.</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newNoncurrentVersionTransition' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679558066"><span id="local-6989586621679558067"></span></span><span class="hs-keyword">data</span><span> </span><span id="NoncurrentVersionTransition"><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-var">NoncurrentVersionTransition</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="NoncurrentVersionTransition%27"><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-var">NoncurrentVersionTransition'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the number of days an object is noncurrent before Amazon S3</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- can perform the associated action. For information about the noncurrent</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- days calculations, see</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent&gt;</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3AnoncurrentDays%3ANoncurrentVersionTransition%27"><span class="annot"><span class="annottext">NoncurrentVersionTransition -&gt; Int
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var hs-var">noncurrentDays</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The class of storage used to store the object.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="annot"><span class="annottext">NoncurrentVersionTransition -&gt; TransitionStorageClass
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679558059"><span id="local-6989586621679558061"><span class="annot"><span class="annottext">NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
+(NoncurrentVersionTransition
+ -&gt; NoncurrentVersionTransition -&gt; Bool)
+-&gt; (NoncurrentVersionTransition
+    -&gt; NoncurrentVersionTransition -&gt; Bool)
+-&gt; Eq NoncurrentVersionTransition
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
+$c/= :: NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
+== :: NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
+$c== :: NoncurrentVersionTransition -&gt; NoncurrentVersionTransition -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558050"><span id="local-6989586621679558052"><span id="local-6989586621679558054"><span id="local-6989586621679558056"><span class="annot"><span class="annottext">ReadPrec [NoncurrentVersionTransition]
+ReadPrec NoncurrentVersionTransition
+Int -&gt; ReadS NoncurrentVersionTransition
+ReadS [NoncurrentVersionTransition]
+(Int -&gt; ReadS NoncurrentVersionTransition)
+-&gt; ReadS [NoncurrentVersionTransition]
+-&gt; ReadPrec NoncurrentVersionTransition
+-&gt; ReadPrec [NoncurrentVersionTransition]
+-&gt; Read NoncurrentVersionTransition
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [NoncurrentVersionTransition]
+$creadListPrec :: ReadPrec [NoncurrentVersionTransition]
+readPrec :: ReadPrec NoncurrentVersionTransition
+$creadPrec :: ReadPrec NoncurrentVersionTransition
+readList :: ReadS [NoncurrentVersionTransition]
+$creadList :: ReadS [NoncurrentVersionTransition]
+readsPrec :: Int -&gt; ReadS NoncurrentVersionTransition
+$creadsPrec :: Int -&gt; ReadS NoncurrentVersionTransition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679558043"><span id="local-6989586621679558045"><span id="local-6989586621679558047"><span class="annot"><span class="annottext">Int -&gt; NoncurrentVersionTransition -&gt; ShowS
+[NoncurrentVersionTransition] -&gt; ShowS
+NoncurrentVersionTransition -&gt; String
+(Int -&gt; NoncurrentVersionTransition -&gt; ShowS)
+-&gt; (NoncurrentVersionTransition -&gt; String)
+-&gt; ([NoncurrentVersionTransition] -&gt; ShowS)
+-&gt; Show NoncurrentVersionTransition
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [NoncurrentVersionTransition] -&gt; ShowS
+$cshowList :: [NoncurrentVersionTransition] -&gt; ShowS
+show :: NoncurrentVersionTransition -&gt; String
+$cshow :: NoncurrentVersionTransition -&gt; String
+showsPrec :: Int -&gt; NoncurrentVersionTransition -&gt; ShowS
+$cshowsPrec :: Int -&gt; NoncurrentVersionTransition -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ NoncurrentVersionTransition -&gt; Rep NoncurrentVersionTransition x)
+-&gt; (forall x.
+    Rep NoncurrentVersionTransition x -&gt; NoncurrentVersionTransition)
+-&gt; Generic NoncurrentVersionTransition
+forall x.
+Rep NoncurrentVersionTransition x -&gt; NoncurrentVersionTransition
+forall x.
+NoncurrentVersionTransition -&gt; Rep NoncurrentVersionTransition x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep NoncurrentVersionTransition x -&gt; NoncurrentVersionTransition
+$cfrom :: forall x.
+NoncurrentVersionTransition -&gt; Rep NoncurrentVersionTransition x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Create a value of 'NoncurrentVersionTransition' with all optional fields omitted.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'noncurrentDays', 'noncurrentVersionTransition_noncurrentDays' - Specifies the number of days an object is noncurrent before Amazon S3</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- can perform the associated action. For information about the noncurrent</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- days calculations, see</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent&gt;</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- 'storageClass', 'noncurrentVersionTransition_storageClass' - The class of storage used to store the object.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#newNoncurrentVersionTransition"><span class="hs-identifier hs-type">newNoncurrentVersionTransition</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-comment">-- | 'noncurrentDays'</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-comment">-- | 'storageClass'</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span>
+</span><span id="line-71"></span><span id="newNoncurrentVersionTransition"><span class="annot"><span class="annottext">newNoncurrentVersionTransition :: Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#newNoncurrentVersionTransition"><span class="hs-identifier hs-var hs-var">newNoncurrentVersionTransition</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span id="local-6989586621679558037"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558037"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679558036"><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558036"><span class="hs-identifier hs-var">pStorageClass_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><span class="annottext">NoncurrentVersionTransition' :: Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span>
+</span><span id="line-75"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionTransition' :: Int
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-76"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558037"><span class="hs-identifier hs-var">pNoncurrentDays_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>        </span><span class="annot"><span class="annottext">$sel:storageClass:NoncurrentVersionTransition' :: TransitionStorageClass
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558036"><span class="hs-identifier hs-var">pStorageClass_</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- | Specifies the number of days an object is noncurrent before Amazon S3</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- can perform the associated action. For information about the noncurrent</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- days calculations, see</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/intro-lifecycle-rules.html#non-current-days-calculations How Amazon S3 Calculates How Long an Object Has Been Noncurrent&gt;</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- in the /Amazon S3 User Guide/.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#noncurrentVersionTransition_noncurrentDays"><span class="hs-identifier hs-type">noncurrentVersionTransition_noncurrentDays</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-86"></span><span id="noncurrentVersionTransition_noncurrentDays"><span class="annot"><span class="annottext">noncurrentVersionTransition_noncurrentDays :: (Int -&gt; f Int)
+-&gt; NoncurrentVersionTransition -&gt; f NoncurrentVersionTransition
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#noncurrentVersionTransition_noncurrentDays"><span class="hs-identifier hs-var hs-var">noncurrentVersionTransition_noncurrentDays</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NoncurrentVersionTransition -&gt; Int)
+-&gt; (NoncurrentVersionTransition
+    -&gt; Int -&gt; NoncurrentVersionTransition)
+-&gt; Lens
+     NoncurrentVersionTransition NoncurrentVersionTransition Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558032"><span class="annot"><span class="annottext">Int
+noncurrentDays :: Int
+$sel:noncurrentDays:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; Int
+</span><a href="#local-6989586621679558032"><span class="hs-identifier hs-var hs-var">noncurrentDays</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558032"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558031"><span class="annot"><span class="annottext">s :: NoncurrentVersionTransition
+</span><a href="#local-6989586621679558031"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558030"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558030"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionTransition
+</span><a href="#local-6989586621679558031"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:noncurrentDays:NoncurrentVersionTransition' :: Int
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#%24sel%3AnoncurrentDays%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558030"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- | The class of storage used to store the object.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#noncurrentVersionTransition_storageClass"><span class="hs-identifier hs-type">noncurrentVersionTransition_storageClass</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.TransitionStorageClass.html#TransitionStorageClass"><span class="hs-identifier hs-type">TransitionStorageClass</span></a></span><span>
+</span><span id="line-90"></span><span id="noncurrentVersionTransition_storageClass"><span class="annot"><span class="annottext">noncurrentVersionTransition_storageClass :: (TransitionStorageClass -&gt; f TransitionStorageClass)
+-&gt; NoncurrentVersionTransition -&gt; f NoncurrentVersionTransition
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#noncurrentVersionTransition_storageClass"><span class="hs-identifier hs-var hs-var">noncurrentVersionTransition_storageClass</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(NoncurrentVersionTransition -&gt; TransitionStorageClass)
+-&gt; (NoncurrentVersionTransition
+    -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition)
+-&gt; Lens
+     NoncurrentVersionTransition
+     NoncurrentVersionTransition
+     TransitionStorageClass
+     TransitionStorageClass
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558028"><span class="annot"><span class="annottext">TransitionStorageClass
+storageClass :: TransitionStorageClass
+$sel:storageClass:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; TransitionStorageClass
+</span><a href="#local-6989586621679558028"><span class="hs-identifier hs-var hs-var">storageClass</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558028"><span class="hs-identifier hs-var">storageClass</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679558027"><span class="annot"><span class="annottext">s :: NoncurrentVersionTransition
+</span><a href="#local-6989586621679558027"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679558026"><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558026"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NoncurrentVersionTransition
+</span><a href="#local-6989586621679558027"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:storageClass:NoncurrentVersionTransition' :: TransitionStorageClass
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#%24sel%3AstorageClass%3ANoncurrentVersionTransition%27"><span class="hs-identifier hs-var">storageClass</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558026"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span>
+</span><span id="line-92"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679558023"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String NoncurrentVersionTransition
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679558021"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558021"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition
+</span><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-var">NoncurrentVersionTransition'</span></a></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">(Int -&gt; TransitionStorageClass -&gt; NoncurrentVersionTransition)
+-&gt; Either String Int
+-&gt; Either
+     String (TransitionStorageClass -&gt; NoncurrentVersionTransition)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String Int
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;NoncurrentDays&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (TransitionStorageClass -&gt; NoncurrentVersionTransition)
+-&gt; Either String TransitionStorageClass
+-&gt; Either String NoncurrentVersionTransition
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679558021"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String TransitionStorageClass
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558015"><span id="local-6989586621679558017"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679558012"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToXML</span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition"><span class="hs-identifier hs-type">NoncurrentVersionTransition</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-103"></span><span>  </span><span id="local-6989586621679558008"><span class="annot"><span class="annottext">toXML :: NoncurrentVersionTransition -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toXML</span></span></span><span> </span><span class="annot"><a href="Amazonka.S3.Types.NoncurrentVersionTransition.html#NoncurrentVersionTransition%27"><span class="hs-identifier hs-type">NoncurrentVersionTransition'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679558005"><span id="local-6989586621679558006"><span class="annot"><span class="annottext">Int
+TransitionStorageClass
+storageClass :: TransitionStorageClass
+noncurrentDays :: Int
+$sel:storageClass:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; TransitionStorageClass
+$sel:noncurrentDays:NoncurrentVersionTransition' :: NoncurrentVersionTransition -&gt; Int
+</span><a href="#local-6989586621679558005"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><span class="annottext">[XML] -&gt; XML
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-105"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;NoncurrentDays&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; Int -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679558006"><span class="hs-identifier hs-var">noncurrentDays</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>        </span><span class="annot"><span class="annottext">Name
+</span><span class="hs-string">&quot;StorageClass&quot;</span></span><span> </span><span class="annot"><span class="annottext">Name -&gt; TransitionStorageClass -&gt; XML
+forall a. ToXML a =&gt; Name -&gt; a -&gt; XML
+</span><span class="hs-operator hs-var">Core.@=</span></span><span> </span><span class="annot"><span class="annottext">TransitionStorageClass
+</span><a href="#local-6989586621679558005"><span class="hs-identifier hs-var">storageClass</span></a></span><span>
+</span><span id="line-107"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-108"></span></pre></body></html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AdminStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AdminStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus"><span class="hs-identifier">AdminStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus_DISABLE_IN_PROGRESS"><span class="hs-identifier">AdminStatus_DISABLE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus_ENABLED"><span class="hs-identifier">AdminStatus_ENABLED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679933003"><span id="local-6989586621679933004"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AdminStatus"><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus"><span class="hs-identifier hs-var">AdminStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AdminStatus%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus%27"><span class="hs-identifier hs-var">AdminStatus'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAdminStatus"><span class="annot"><span class="annottext">AdminStatus -&gt; Text
+</span><a href="Amazonka.SecurityHub.Types.AdminStatus.html#fromAdminStatus"><span class="hs-identifier hs-var hs-var">fromAdminStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679932995"><span id="local-6989586621679932997"><span id="local-6989586621679932999"><span class="annot"><span class="annottext">Int -&gt; AdminStatus -&gt; ShowS
+[AdminStatus] -&gt; ShowS
+AdminStatus -&gt; String
+(Int -&gt; AdminStatus -&gt; ShowS)
+-&gt; (AdminStatus -&gt; String)
+-&gt; ([AdminStatus] -&gt; ShowS)
+-&gt; Show AdminStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AdminStatus] -&gt; ShowS
+$cshowList :: [AdminStatus] -&gt; ShowS
+show :: AdminStatus -&gt; String
+$cshow :: AdminStatus -&gt; String
+showsPrec :: Int -&gt; AdminStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AdminStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679932986"><span id="local-6989586621679932988"><span id="local-6989586621679932990"><span id="local-6989586621679932992"><span class="annot"><span class="annottext">ReadPrec [AdminStatus]
+ReadPrec AdminStatus
+Int -&gt; ReadS AdminStatus
+ReadS [AdminStatus]
+(Int -&gt; ReadS AdminStatus)
+-&gt; ReadS [AdminStatus]
+-&gt; ReadPrec AdminStatus
+-&gt; ReadPrec [AdminStatus]
+-&gt; Read AdminStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AdminStatus]
+$creadListPrec :: ReadPrec [AdminStatus]
+readPrec :: ReadPrec AdminStatus
+$creadPrec :: ReadPrec AdminStatus
+readList :: ReadS [AdminStatus]
+$creadList :: ReadS [AdminStatus]
+readsPrec :: Int -&gt; ReadS AdminStatus
+$creadsPrec :: Int -&gt; ReadS AdminStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679932981"><span id="local-6989586621679932983"><span class="annot"><span class="annottext">AdminStatus -&gt; AdminStatus -&gt; Bool
+(AdminStatus -&gt; AdminStatus -&gt; Bool)
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; Bool) -&gt; Eq AdminStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AdminStatus -&gt; AdminStatus -&gt; Bool
+$c/= :: AdminStatus -&gt; AdminStatus -&gt; Bool
+== :: AdminStatus -&gt; AdminStatus -&gt; Bool
+$c== :: AdminStatus -&gt; AdminStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679932965"><span id="local-6989586621679932967"><span id="local-6989586621679932969"><span id="local-6989586621679932971"><span id="local-6989586621679932973"><span id="local-6989586621679932975"><span id="local-6989586621679932977"><span class="annot"><span class="annottext">Eq AdminStatus
+Eq AdminStatus
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; Ordering)
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; Bool)
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; Bool)
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; Bool)
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; Bool)
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; AdminStatus)
+-&gt; (AdminStatus -&gt; AdminStatus -&gt; AdminStatus)
+-&gt; Ord AdminStatus
+AdminStatus -&gt; AdminStatus -&gt; Bool
+AdminStatus -&gt; AdminStatus -&gt; Ordering
+AdminStatus -&gt; AdminStatus -&gt; AdminStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AdminStatus -&gt; AdminStatus -&gt; AdminStatus
+$cmin :: AdminStatus -&gt; AdminStatus -&gt; AdminStatus
+max :: AdminStatus -&gt; AdminStatus -&gt; AdminStatus
+$cmax :: AdminStatus -&gt; AdminStatus -&gt; AdminStatus
+&gt;= :: AdminStatus -&gt; AdminStatus -&gt; Bool
+$c&gt;= :: AdminStatus -&gt; AdminStatus -&gt; Bool
+&gt; :: AdminStatus -&gt; AdminStatus -&gt; Bool
+$c&gt; :: AdminStatus -&gt; AdminStatus -&gt; Bool
+&lt;= :: AdminStatus -&gt; AdminStatus -&gt; Bool
+$c&lt;= :: AdminStatus -&gt; AdminStatus -&gt; Bool
+&lt; :: AdminStatus -&gt; AdminStatus -&gt; Bool
+$c&lt; :: AdminStatus -&gt; AdminStatus -&gt; Bool
+compare :: AdminStatus -&gt; AdminStatus -&gt; Ordering
+$ccompare :: AdminStatus -&gt; AdminStatus -&gt; Ordering
+$cp1Ord :: Eq AdminStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AdminStatus -&gt; Rep AdminStatus x)
+-&gt; (forall x. Rep AdminStatus x -&gt; AdminStatus)
+-&gt; Generic AdminStatus
+forall x. Rep AdminStatus x -&gt; AdminStatus
+forall x. AdminStatus -&gt; Rep AdminStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AdminStatus x -&gt; AdminStatus
+$cfrom :: forall x. AdminStatus -&gt; Rep AdminStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679932957"><span id="local-6989586621679932959"><span class="annot"><span class="annottext">Int -&gt; AdminStatus -&gt; Int
+AdminStatus -&gt; Int
+(Int -&gt; AdminStatus -&gt; Int)
+-&gt; (AdminStatus -&gt; Int) -&gt; Hashable AdminStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AdminStatus -&gt; Int
+$chash :: AdminStatus -&gt; Int
+hashWithSalt :: Int -&gt; AdminStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AdminStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679932954"><span class="annot"><span class="annottext">AdminStatus -&gt; ()
+(AdminStatus -&gt; ()) -&gt; NFData AdminStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AdminStatus -&gt; ()
+$crnf :: AdminStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679932951"><span class="annot"><span class="annottext">Text -&gt; Either String AdminStatus
+(Text -&gt; Either String AdminStatus) -&gt; FromText AdminStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AdminStatus
+$cfromText :: Text -&gt; Either String AdminStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679932948"><span class="annot"><span class="annottext">AdminStatus -&gt; Text
+(AdminStatus -&gt; Text) -&gt; ToText AdminStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AdminStatus -&gt; Text
+$ctoText :: AdminStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679932945"><span class="annot"><span class="annottext">AdminStatus -&gt; ByteString
+(AdminStatus -&gt; ByteString) -&gt; ToByteString AdminStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AdminStatus -&gt; ByteString
+$ctoBS :: AdminStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679932942"><span class="annot"><span class="annottext">AdminStatus -&gt; ByteStringBuilder
+(AdminStatus -&gt; ByteStringBuilder) -&gt; ToLog AdminStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AdminStatus -&gt; ByteStringBuilder
+$cbuild :: AdminStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679932939"><span class="annot"><span class="annottext">HeaderName -&gt; AdminStatus -&gt; [Header]
+(HeaderName -&gt; AdminStatus -&gt; [Header]) -&gt; ToHeader AdminStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AdminStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AdminStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679932936"><span class="annot"><span class="annottext">AdminStatus -&gt; QueryString
+(AdminStatus -&gt; QueryString) -&gt; ToQuery AdminStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AdminStatus -&gt; QueryString
+$ctoQuery :: AdminStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679932931"><span id="local-6989586621679932933"><span class="annot"><span class="annottext">Value -&gt; Parser [AdminStatus]
+Value -&gt; Parser AdminStatus
+(Value -&gt; Parser AdminStatus)
+-&gt; (Value -&gt; Parser [AdminStatus]) -&gt; FromJSON AdminStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AdminStatus]
+$cparseJSONList :: Value -&gt; Parser [AdminStatus]
+parseJSON :: Value -&gt; Parser AdminStatus
+$cparseJSON :: Value -&gt; Parser AdminStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679932926"><span id="local-6989586621679932928"><span class="annot"><span class="annottext">FromJSONKeyFunction [AdminStatus]
+FromJSONKeyFunction AdminStatus
+FromJSONKeyFunction AdminStatus
+-&gt; FromJSONKeyFunction [AdminStatus] -&gt; FromJSONKey AdminStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AdminStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AdminStatus]
+fromJSONKey :: FromJSONKeyFunction AdminStatus
+$cfromJSONKey :: FromJSONKeyFunction AdminStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679932917"><span id="local-6989586621679932919"><span id="local-6989586621679932921"><span id="local-6989586621679932923"><span class="annot"><span class="annottext">[AdminStatus] -&gt; Encoding
+[AdminStatus] -&gt; Value
+AdminStatus -&gt; Encoding
+AdminStatus -&gt; Value
+(AdminStatus -&gt; Value)
+-&gt; (AdminStatus -&gt; Encoding)
+-&gt; ([AdminStatus] -&gt; Value)
+-&gt; ([AdminStatus] -&gt; Encoding)
+-&gt; ToJSON AdminStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AdminStatus] -&gt; Encoding
+$ctoEncodingList :: [AdminStatus] -&gt; Encoding
+toJSONList :: [AdminStatus] -&gt; Value
+$ctoJSONList :: [AdminStatus] -&gt; Value
+toEncoding :: AdminStatus -&gt; Encoding
+$ctoEncoding :: AdminStatus -&gt; Encoding
+toJSON :: AdminStatus -&gt; Value
+$ctoJSON :: AdminStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679932912"><span id="local-6989586621679932914"><span class="annot"><span class="annottext">ToJSONKeyFunction [AdminStatus]
+ToJSONKeyFunction AdminStatus
+ToJSONKeyFunction AdminStatus
+-&gt; ToJSONKeyFunction [AdminStatus] -&gt; ToJSONKey AdminStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AdminStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AdminStatus]
+toJSONKey :: ToJSONKeyFunction AdminStatus
+$ctoJSONKey :: ToJSONKeyFunction AdminStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679932909"><span class="annot"><span class="annottext">[Node] -&gt; Either String AdminStatus
+([Node] -&gt; Either String AdminStatus) -&gt; FromXML AdminStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AdminStatus
+$cparseXML :: [Node] -&gt; Either String AdminStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679932906"><span class="annot"><span class="annottext">AdminStatus -&gt; XML
+(AdminStatus -&gt; XML) -&gt; ToXML AdminStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AdminStatus -&gt; XML
+$ctoXML :: AdminStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus_DISABLE_IN_PROGRESS"><span class="hs-identifier hs-type">AdminStatus_DISABLE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus"><span class="hs-identifier hs-type">AdminStatus</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAdminStatus_DISABLE_IN_PROGRESS"><span id="%24mAdminStatus_DISABLE_IN_PROGRESS"><span id="AdminStatus_DISABLE_IN_PROGRESS"><span class="annot"><span class="annottext">$bAdminStatus_DISABLE_IN_PROGRESS :: AdminStatus
+$mAdminStatus_DISABLE_IN_PROGRESS :: forall r. AdminStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.AdminStatus.html#%24bAdminStatus_DISABLE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AdminStatus_DISABLE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus%27"><span class="hs-identifier hs-type">AdminStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus_ENABLED"><span class="hs-identifier hs-type">AdminStatus_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus"><span class="hs-identifier hs-type">AdminStatus</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAdminStatus_ENABLED"><span id="%24mAdminStatus_ENABLED"><span id="AdminStatus_ENABLED"><span class="annot"><span class="annottext">$bAdminStatus_ENABLED :: AdminStatus
+$mAdminStatus_ENABLED :: forall r. AdminStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SecurityHub.Types.AdminStatus.html#%24bAdminStatus_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">AdminStatus_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus%27"><span class="hs-identifier hs-type">AdminStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus_DISABLE_IN_PROGRESS"><span class="hs-pragma hs-type">AdminStatus_DISABLE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus_ENABLED"><span class="hs-pragma hs-type">AdminStatus_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AdminStatus.html#AdminStatus%27"><span class="hs-pragma hs-type">AdminStatus'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

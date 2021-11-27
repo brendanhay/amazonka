@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FraudDetector.GetRules</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Get all rules for a detector (paginated) if @ruleId@ and @ruleVersion@</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- are not specified. Gets all rules for the detector and the @ruleId@ if</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- present (paginated). Gets a specific rule if both the @ruleId@ and the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @ruleVersion@ are specified.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- This is a paginated API. Providing null maxResults results in retrieving</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- maximum of 100 records per page. If you provide maxResults the value</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- must be between 50 and 100. To get the next page result, a provide a</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- pagination token from GetRulesResult as part of your request. Null</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- pagination token fetches the records from the beginning.</span><span>
+</span><span id="line-33"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FraudDetector.GetRules</span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier">GetRules</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#newGetRules"><span class="hs-identifier">newGetRules</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_ruleVersion"><span class="hs-identifier">getRules_ruleVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_ruleId"><span class="hs-identifier">getRules_ruleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_nextToken"><span class="hs-identifier">getRules_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_maxResults"><span class="hs-identifier">getRules_maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_detectorId"><span class="hs-identifier">getRules_detectorId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier">GetRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#newGetRulesResponse"><span class="hs-identifier">newGetRulesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_ruleDetails"><span class="hs-identifier">getRulesResponse_ruleDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_nextToken"><span class="hs-identifier">getRulesResponse_nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_httpStatus"><span class="hs-identifier">getRulesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.Types.html"><span class="hs-identifier">Amazonka.FraudDetector.Types</span></a></span><span>
+</span><span id="line-58"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- | /See:/ 'newGetRules' smart constructor.</span><span>
+</span><span id="line-64"></span><span id="local-6989586621679312327"><span id="local-6989586621679312328"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRules"><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-var">GetRules</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRules%27"><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-var">GetRules'</span></a></span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The rule version.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AruleVersion%3AGetRules%27"><span class="annot"><span class="annottext">GetRules -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleVersion%3AGetRules%27"><span class="hs-identifier hs-var hs-var">ruleVersion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- | The rule ID.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3AruleId%3AGetRules%27"><span class="annot"><span class="annottext">GetRules -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleId%3AGetRules%27"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The next page token.</span><span>
+</span><span id="line-70"></span><span>    </span><span id="%24sel%3AnextToken%3AGetRules%27"><span class="annot"><span class="annottext">GetRules -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AnextToken%3AGetRules%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- | The maximum number of rules to return for the request.</span><span>
+</span><span id="line-72"></span><span>    </span><span id="%24sel%3AmaxResults%3AGetRules%27"><span class="annot"><span class="annottext">GetRules -&gt; Maybe Natural
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AmaxResults%3AGetRules%27"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- | The detector ID.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3AdetectorId%3AGetRules%27"><span class="annot"><span class="annottext">GetRules -&gt; Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AdetectorId%3AGetRules%27"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-76"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312317"><span id="local-6989586621679312319"><span class="annot"><span class="annottext">GetRules -&gt; GetRules -&gt; Bool
+(GetRules -&gt; GetRules -&gt; Bool)
+-&gt; (GetRules -&gt; GetRules -&gt; Bool) -&gt; Eq GetRules
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRules -&gt; GetRules -&gt; Bool
+$c/= :: GetRules -&gt; GetRules -&gt; Bool
+== :: GetRules -&gt; GetRules -&gt; Bool
+$c== :: GetRules -&gt; GetRules -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312308"><span id="local-6989586621679312310"><span id="local-6989586621679312312"><span id="local-6989586621679312314"><span class="annot"><span class="annottext">ReadPrec [GetRules]
+ReadPrec GetRules
+Int -&gt; ReadS GetRules
+ReadS [GetRules]
+(Int -&gt; ReadS GetRules)
+-&gt; ReadS [GetRules]
+-&gt; ReadPrec GetRules
+-&gt; ReadPrec [GetRules]
+-&gt; Read GetRules
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetRules]
+$creadListPrec :: ReadPrec [GetRules]
+readPrec :: ReadPrec GetRules
+$creadPrec :: ReadPrec GetRules
+readList :: ReadS [GetRules]
+$creadList :: ReadS [GetRules]
+readsPrec :: Int -&gt; ReadS GetRules
+$creadsPrec :: Int -&gt; ReadS GetRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312301"><span id="local-6989586621679312303"><span id="local-6989586621679312305"><span class="annot"><span class="annottext">Int -&gt; GetRules -&gt; ShowS
+[GetRules] -&gt; ShowS
+GetRules -&gt; String
+(Int -&gt; GetRules -&gt; ShowS)
+-&gt; (GetRules -&gt; String) -&gt; ([GetRules] -&gt; ShowS) -&gt; Show GetRules
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRules] -&gt; ShowS
+$cshowList :: [GetRules] -&gt; ShowS
+show :: GetRules -&gt; String
+$cshow :: GetRules -&gt; String
+showsPrec :: Int -&gt; GetRules -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRules -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetRules -&gt; Rep GetRules x)
+-&gt; (forall x. Rep GetRules x -&gt; GetRules) -&gt; Generic GetRules
+forall x. Rep GetRules x -&gt; GetRules
+forall x. GetRules -&gt; Rep GetRules x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetRules x -&gt; GetRules
+$cfrom :: forall x. GetRules -&gt; Rep GetRules x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Create a value of 'GetRules' with all optional fields omitted.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'ruleVersion', 'getRules_ruleVersion' - The rule version.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'ruleId', 'getRules_ruleId' - The rule ID.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'nextToken', 'getRules_nextToken' - The next page token.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'maxResults', 'getRules_maxResults' - The maximum number of rules to return for the request.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'detectorId', 'getRules_detectorId' - The detector ID.</span><span>
+</span><span id="line-95"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#newGetRules"><span class="hs-identifier hs-type">newGetRules</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-96"></span><span>  </span><span class="hs-comment">-- | 'detectorId'</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span>
+</span><span id="line-99"></span><span id="newGetRules"><span class="annot"><span class="annottext">newGetRules :: Text -&gt; GetRules
+</span><a href="Amazonka.FraudDetector.GetRules.html#newGetRules"><span class="hs-identifier hs-var hs-var">newGetRules</span></a></span></span><span> </span><span id="local-6989586621679312296"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312296"><span class="hs-identifier hs-var">pDetectorId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><span class="annottext">GetRules' :: Maybe Text
+-&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Natural -&gt; Text -&gt; GetRules
+</span><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleVersion:GetRules' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleVersion%3AGetRules%27"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>      </span><span class="annot"><span class="annottext">$sel:ruleId:GetRules' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleId%3AGetRules%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetRules' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AnextToken%3AGetRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxResults:GetRules' :: Maybe Natural
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AmaxResults%3AGetRules%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:detectorId:GetRules' :: Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AdetectorId%3AGetRules%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312296"><span class="hs-identifier hs-var">pDetectorId_</span></a></span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | The rule version.</span><span>
+</span><span id="line-109"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_ruleVersion"><span class="hs-identifier hs-type">getRules_ruleVersion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span id="getRules_ruleVersion"><span class="annot"><span class="annottext">getRules_ruleVersion :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetRules -&gt; f GetRules
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRules_ruleVersion"><span class="hs-identifier hs-var hs-var">getRules_ruleVersion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRules -&gt; Maybe Text)
+-&gt; (GetRules -&gt; Maybe Text -&gt; GetRules)
+-&gt; Lens GetRules GetRules (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312293"><span class="annot"><span class="annottext">Maybe Text
+ruleVersion :: Maybe Text
+$sel:ruleVersion:GetRules' :: GetRules -&gt; Maybe Text
+</span><a href="#local-6989586621679312293"><span class="hs-identifier hs-var hs-var">ruleVersion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312293"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312292"><span class="annot"><span class="annottext">s :: GetRules
+</span><a href="#local-6989586621679312292"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312291"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312291"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRules
+</span><a href="#local-6989586621679312292"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleVersion:GetRules' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleVersion%3AGetRules%27"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312291"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | The rule ID.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_ruleId"><span class="hs-identifier hs-type">getRules_ruleId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="getRules_ruleId"><span class="annot"><span class="annottext">getRules_ruleId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetRules -&gt; f GetRules
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRules_ruleId"><span class="hs-identifier hs-var hs-var">getRules_ruleId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRules -&gt; Maybe Text)
+-&gt; (GetRules -&gt; Maybe Text -&gt; GetRules)
+-&gt; Lens GetRules GetRules (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312290"><span class="annot"><span class="annottext">Maybe Text
+ruleId :: Maybe Text
+$sel:ruleId:GetRules' :: GetRules -&gt; Maybe Text
+</span><a href="#local-6989586621679312290"><span class="hs-identifier hs-var hs-var">ruleId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312290"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312289"><span class="annot"><span class="annottext">s :: GetRules
+</span><a href="#local-6989586621679312289"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312288"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312288"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRules
+</span><a href="#local-6989586621679312289"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleId:GetRules' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleId%3AGetRules%27"><span class="hs-identifier hs-var">ruleId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312288"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The next page token.</span><span>
+</span><span id="line-117"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_nextToken"><span class="hs-identifier hs-type">getRules_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span id="getRules_nextToken"><span class="annot"><span class="annottext">getRules_nextToken :: (Maybe Text -&gt; f (Maybe Text)) -&gt; GetRules -&gt; f GetRules
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRules_nextToken"><span class="hs-identifier hs-var hs-var">getRules_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRules -&gt; Maybe Text)
+-&gt; (GetRules -&gt; Maybe Text -&gt; GetRules)
+-&gt; Lens GetRules GetRules (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312287"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetRules' :: GetRules -&gt; Maybe Text
+</span><a href="#local-6989586621679312287"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312287"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312286"><span class="annot"><span class="annottext">s :: GetRules
+</span><a href="#local-6989586621679312286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312285"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRules
+</span><a href="#local-6989586621679312286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetRules' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AnextToken%3AGetRules%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- | The maximum number of rules to return for the request.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_maxResults"><span class="hs-identifier hs-type">getRules_maxResults</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span id="getRules_maxResults"><span class="annot"><span class="annottext">getRules_maxResults :: (Maybe Natural -&gt; f (Maybe Natural)) -&gt; GetRules -&gt; f GetRules
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRules_maxResults"><span class="hs-identifier hs-var hs-var">getRules_maxResults</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRules -&gt; Maybe Natural)
+-&gt; (GetRules -&gt; Maybe Natural -&gt; GetRules)
+-&gt; Lens GetRules GetRules (Maybe Natural) (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312284"><span class="annot"><span class="annottext">Maybe Natural
+maxResults :: Maybe Natural
+$sel:maxResults:GetRules' :: GetRules -&gt; Maybe Natural
+</span><a href="#local-6989586621679312284"><span class="hs-identifier hs-var hs-var">maxResults</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312284"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312283"><span class="annot"><span class="annottext">s :: GetRules
+</span><a href="#local-6989586621679312283"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312282"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312282"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRules
+</span><a href="#local-6989586621679312283"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxResults:GetRules' :: Maybe Natural
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AmaxResults%3AGetRules%27"><span class="hs-identifier hs-var">maxResults</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312282"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- | The detector ID.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRules_detectorId"><span class="hs-identifier hs-type">getRules_detectorId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-126"></span><span id="getRules_detectorId"><span class="annot"><span class="annottext">getRules_detectorId :: (Text -&gt; f Text) -&gt; GetRules -&gt; f GetRules
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRules_detectorId"><span class="hs-identifier hs-var hs-var">getRules_detectorId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRules -&gt; Text)
+-&gt; (GetRules -&gt; Text -&gt; GetRules)
+-&gt; Lens GetRules GetRules Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312281"><span class="annot"><span class="annottext">Text
+detectorId :: Text
+$sel:detectorId:GetRules' :: GetRules -&gt; Text
+</span><a href="#local-6989586621679312281"><span class="hs-identifier hs-var hs-var">detectorId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312281"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312280"><span class="annot"><span class="annottext">s :: GetRules
+</span><a href="#local-6989586621679312280"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312279"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312279"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRules
+</span><a href="#local-6989586621679312280"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:detectorId:GetRules' :: Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AdetectorId%3AGetRules%27"><span class="hs-identifier hs-var">detectorId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312279"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span id="local-6989586621679312275"><span class="annot"><span class="annottext">request :: GetRules -&gt; Request GetRules
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetRules -&gt; Request GetRules
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FraudDetector.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-131"></span><span>  </span><span id="local-6989586621679312271"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetRules)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetRules))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetRules
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse GetRules)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-133"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679312268"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312268"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679312267"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679312267"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679312266"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312266"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-134"></span><span>          </span><span class="annot"><span class="annottext">Maybe [RuleDetail] -&gt; Maybe Text -&gt; Int -&gt; GetRulesResponse
+</span><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-var">GetRulesResponse'</span></a></span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [RuleDetail] -&gt; Maybe Text -&gt; Int -&gt; GetRulesResponse)
+-&gt; Either String (Maybe [RuleDetail])
+-&gt; Either String (Maybe Text -&gt; Int -&gt; GetRulesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [RuleDetail]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleDetails&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [RuleDetail]))
+-&gt; Maybe [RuleDetail] -&gt; Either String (Maybe [RuleDetail])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [RuleDetail]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; Int -&gt; GetRulesResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; GetRulesResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679312266"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetRulesResponse)
+-&gt; Either String Int -&gt; Either String GetRulesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312268"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312257"><span id="local-6989586621679312259"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312254"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span></span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-145"></span><span>  </span><span id="local-6989586621679312250"><span class="annot"><span class="annottext">toHeaders :: GetRules -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetRules -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-148"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-149"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSHawksNestServiceFacade.GetRules&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-150"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-151"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-153"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-154"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-155"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312240"><span id="local-6989586621679312242"><span id="local-6989586621679312244"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-160"></span><span>  </span><span id="local-6989586621679312238"><span class="annot"><span class="annottext">toJSON :: GetRules -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules%27"><span class="hs-identifier hs-type">GetRules'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312232"><span id="local-6989586621679312233"><span id="local-6989586621679312234"><span id="local-6989586621679312235"><span id="local-6989586621679312236"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+Text
+detectorId :: Text
+maxResults :: Maybe Natural
+nextToken :: Maybe Text
+ruleId :: Maybe Text
+ruleVersion :: Maybe Text
+$sel:detectorId:GetRules' :: GetRules -&gt; Text
+$sel:maxResults:GetRules' :: GetRules -&gt; Maybe Natural
+$sel:nextToken:GetRules' :: GetRules -&gt; Maybe Text
+$sel:ruleId:GetRules' :: GetRules -&gt; Maybe Text
+$sel:ruleVersion:GetRules' :: GetRules -&gt; Maybe Text
+</span><a href="#local-6989586621679312232"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-162"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-163"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleVersion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312236"><span class="hs-identifier hs-var">ruleVersion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ruleId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312235"><span class="hs-identifier hs-var">ruleId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;nextToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312234"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;maxResults&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679312233"><span class="hs-identifier hs-var">maxResults</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;detectorId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679312232"><span class="hs-identifier hs-var">detectorId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-172"></span><span>  </span><span id="local-6989586621679312226"><span class="annot"><span class="annottext">toPath :: GetRules -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetRules -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRules"><span class="hs-identifier hs-type">GetRules</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-175"></span><span>  </span><span id="local-6989586621679312222"><span class="annot"><span class="annottext">toQuery :: GetRules -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetRules -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- | /See:/ 'newGetRulesResponse' smart constructor.</span><span>
+</span><span id="line-178"></span><span id="local-6989586621679312219"><span id="local-6989586621679312220"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetRulesResponse"><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-var">GetRulesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetRulesResponse%27"><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-var">GetRulesResponse'</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The details of the requested rule.</span><span>
+</span><span id="line-180"></span><span>    </span><span id="%24sel%3AruleDetails%3AGetRulesResponse%27"><span class="annot"><span class="annottext">GetRulesResponse -&gt; Maybe [RuleDetail]
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleDetails%3AGetRulesResponse%27"><span class="hs-identifier hs-var hs-var">ruleDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#RuleDetail"><span class="hs-identifier hs-type">RuleDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- | The next page token to be used in subsequent requests.</span><span>
+</span><span id="line-182"></span><span>    </span><span id="%24sel%3AnextToken%3AGetRulesResponse%27"><span class="annot"><span class="annottext">GetRulesResponse -&gt; Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AnextToken%3AGetRulesResponse%27"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-184"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetRulesResponse%27"><span class="annot"><span class="annottext">GetRulesResponse -&gt; Int
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AhttpStatus%3AGetRulesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679312212"><span id="local-6989586621679312214"><span class="annot"><span class="annottext">GetRulesResponse -&gt; GetRulesResponse -&gt; Bool
+(GetRulesResponse -&gt; GetRulesResponse -&gt; Bool)
+-&gt; (GetRulesResponse -&gt; GetRulesResponse -&gt; Bool)
+-&gt; Eq GetRulesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetRulesResponse -&gt; GetRulesResponse -&gt; Bool
+$c/= :: GetRulesResponse -&gt; GetRulesResponse -&gt; Bool
+== :: GetRulesResponse -&gt; GetRulesResponse -&gt; Bool
+$c== :: GetRulesResponse -&gt; GetRulesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679312206"><span id="local-6989586621679312208"><span id="local-6989586621679312210"><span class="annot"><span class="annottext">Int -&gt; GetRulesResponse -&gt; ShowS
+[GetRulesResponse] -&gt; ShowS
+GetRulesResponse -&gt; String
+(Int -&gt; GetRulesResponse -&gt; ShowS)
+-&gt; (GetRulesResponse -&gt; String)
+-&gt; ([GetRulesResponse] -&gt; ShowS)
+-&gt; Show GetRulesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetRulesResponse] -&gt; ShowS
+$cshowList :: [GetRulesResponse] -&gt; ShowS
+show :: GetRulesResponse -&gt; String
+$cshow :: GetRulesResponse -&gt; String
+showsPrec :: Int -&gt; GetRulesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetRulesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetRulesResponse -&gt; Rep GetRulesResponse x)
+-&gt; (forall x. Rep GetRulesResponse x -&gt; GetRulesResponse)
+-&gt; Generic GetRulesResponse
+forall x. Rep GetRulesResponse x -&gt; GetRulesResponse
+forall x. GetRulesResponse -&gt; Rep GetRulesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetRulesResponse x -&gt; GetRulesResponse
+$cfrom :: forall x. GetRulesResponse -&gt; Rep GetRulesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- Create a value of 'GetRulesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-190"></span><span class="hs-comment">--</span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-192"></span><span class="hs-comment">--</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-195"></span><span class="hs-comment">--</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- 'ruleDetails', 'getRulesResponse_ruleDetails' - The details of the requested rule.</span><span>
+</span><span id="line-197"></span><span class="hs-comment">--</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- 'nextToken', 'getRulesResponse_nextToken' - The next page token to be used in subsequent requests.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- 'httpStatus', 'getRulesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-201"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#newGetRulesResponse"><span class="hs-identifier hs-type">newGetRulesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-202"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-203"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-204"></span><span>  </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span>
+</span><span id="line-205"></span><span id="newGetRulesResponse"><span class="annot"><span class="annottext">newGetRulesResponse :: Int -&gt; GetRulesResponse
+</span><a href="Amazonka.FraudDetector.GetRules.html#newGetRulesResponse"><span class="hs-identifier hs-var hs-var">newGetRulesResponse</span></a></span></span><span> </span><span id="local-6989586621679312203"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312203"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-206"></span><span>  </span><span class="annot"><span class="annottext">GetRulesResponse' :: Maybe [RuleDetail] -&gt; Maybe Text -&gt; Int -&gt; GetRulesResponse
+</span><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-type">GetRulesResponse'</span></a></span><span>
+</span><span id="line-207"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:ruleDetails:GetRulesResponse' :: Maybe [RuleDetail]
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleDetails%3AGetRulesResponse%27"><span class="hs-identifier hs-var">ruleDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleDetail]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:nextToken:GetRulesResponse' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AnextToken%3AGetRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetRulesResponse' :: Int
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AhttpStatus%3AGetRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312203"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-210"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | The details of the requested rule.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_ruleDetails"><span class="hs-identifier hs-type">getRulesResponse_ruleDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.FraudDetector.Types.RuleDetail.html#RuleDetail"><span class="hs-identifier hs-type">RuleDetail</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="getRulesResponse_ruleDetails"><span class="annot"><span class="annottext">getRulesResponse_ruleDetails :: (Maybe [RuleDetail] -&gt; f (Maybe [RuleDetail]))
+-&gt; GetRulesResponse -&gt; f GetRulesResponse
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_ruleDetails"><span class="hs-identifier hs-var hs-var">getRulesResponse_ruleDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRulesResponse -&gt; Maybe [RuleDetail])
+-&gt; (GetRulesResponse -&gt; Maybe [RuleDetail] -&gt; GetRulesResponse)
+-&gt; Lens
+     GetRulesResponse
+     GetRulesResponse
+     (Maybe [RuleDetail])
+     (Maybe [RuleDetail])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-type">GetRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312202"><span class="annot"><span class="annottext">Maybe [RuleDetail]
+ruleDetails :: Maybe [RuleDetail]
+$sel:ruleDetails:GetRulesResponse' :: GetRulesResponse -&gt; Maybe [RuleDetail]
+</span><a href="#local-6989586621679312202"><span class="hs-identifier hs-var hs-var">ruleDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleDetail]
+</span><a href="#local-6989586621679312202"><span class="hs-identifier hs-var">ruleDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312201"><span class="annot"><span class="annottext">s :: GetRulesResponse
+</span><a href="#local-6989586621679312201"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-type">GetRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312200"><span class="annot"><span class="annottext">Maybe [RuleDetail]
+</span><a href="#local-6989586621679312200"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRulesResponse
+</span><a href="#local-6989586621679312201"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleDetails:GetRulesResponse' :: Maybe [RuleDetail]
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AruleDetails%3AGetRulesResponse%27"><span class="hs-identifier hs-var">ruleDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [RuleDetail]
+</span><a href="#local-6989586621679312200"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [RuleDetail] -&gt; f (Maybe [RuleDetail]))
+ -&gt; GetRulesResponse -&gt; f GetRulesResponse)
+-&gt; ((Maybe [RuleDetail] -&gt; f (Maybe [RuleDetail]))
+    -&gt; Maybe [RuleDetail] -&gt; f (Maybe [RuleDetail]))
+-&gt; (Maybe [RuleDetail] -&gt; f (Maybe [RuleDetail]))
+-&gt; GetRulesResponse
+-&gt; f GetRulesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RuleDetail] [RuleDetail] [RuleDetail] [RuleDetail]
+-&gt; Iso
+     (Maybe [RuleDetail])
+     (Maybe [RuleDetail])
+     (Maybe [RuleDetail])
+     (Maybe [RuleDetail])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [RuleDetail] [RuleDetail] [RuleDetail] [RuleDetail]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The next page token to be used in subsequent requests.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_nextToken"><span class="hs-identifier hs-type">getRulesResponse_nextToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="getRulesResponse_nextToken"><span class="annot"><span class="annottext">getRulesResponse_nextToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; GetRulesResponse -&gt; f GetRulesResponse
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_nextToken"><span class="hs-identifier hs-var hs-var">getRulesResponse_nextToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRulesResponse -&gt; Maybe Text)
+-&gt; (GetRulesResponse -&gt; Maybe Text -&gt; GetRulesResponse)
+-&gt; Lens GetRulesResponse GetRulesResponse (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-type">GetRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312196"><span class="annot"><span class="annottext">Maybe Text
+nextToken :: Maybe Text
+$sel:nextToken:GetRulesResponse' :: GetRulesResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679312196"><span class="hs-identifier hs-var hs-var">nextToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312196"><span class="hs-identifier hs-var">nextToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312195"><span class="annot"><span class="annottext">s :: GetRulesResponse
+</span><a href="#local-6989586621679312195"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-type">GetRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312194"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312194"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRulesResponse
+</span><a href="#local-6989586621679312195"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:nextToken:GetRulesResponse' :: Maybe Text
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AnextToken%3AGetRulesResponse%27"><span class="hs-identifier hs-var">nextToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679312194"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_httpStatus"><span class="hs-identifier hs-type">getRulesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-222"></span><span id="getRulesResponse_httpStatus"><span class="annot"><span class="annottext">getRulesResponse_httpStatus :: (Int -&gt; f Int) -&gt; GetRulesResponse -&gt; f GetRulesResponse
+</span><a href="Amazonka.FraudDetector.GetRules.html#getRulesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getRulesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetRulesResponse -&gt; Int)
+-&gt; (GetRulesResponse -&gt; Int -&gt; GetRulesResponse)
+-&gt; Lens GetRulesResponse GetRulesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-type">GetRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679312193"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetRulesResponse' :: GetRulesResponse -&gt; Int
+</span><a href="#local-6989586621679312193"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312193"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679312192"><span class="annot"><span class="annottext">s :: GetRulesResponse
+</span><a href="#local-6989586621679312192"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse%27"><span class="hs-identifier hs-type">GetRulesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679312191"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312191"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetRulesResponse
+</span><a href="#local-6989586621679312192"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetRulesResponse' :: Int
+</span><a href="Amazonka.FraudDetector.GetRules.html#%24sel%3AhttpStatus%3AGetRulesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679312191"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679312189"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FraudDetector.GetRules.html#GetRulesResponse"><span class="hs-identifier hs-type">GetRulesResponse</span></a></span></span><span>
+</span><span id="line-225"></span></pre></body></html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.SipRuleTargetApplication</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.SipRuleTargetApplication</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- | Target SIP media application and other details, such as priority and AWS</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Region, to be specified in the SIP rule. Only one SIP rule per AWS</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Region can be provided.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newSipRuleTargetApplication' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679518068"><span id="local-6989586621679518069"></span></span><span class="hs-keyword">data</span><span> </span><span id="SipRuleTargetApplication"><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-var">SipRuleTargetApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SipRuleTargetApplication%27"><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-var">SipRuleTargetApplication'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Priority of the SIP media application in the target list.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Apriority%3ASipRuleTargetApplication%27"><span class="annot"><span class="annottext">SipRuleTargetApplication -&gt; Maybe Natural
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3Apriority%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The AWS Region of the target application.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AawsRegion%3ASipRuleTargetApplication%27"><span class="annot"><span class="annottext">SipRuleTargetApplication -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3AawsRegion%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The SIP media application ID.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AsipMediaApplicationId%3ASipRuleTargetApplication%27"><span class="annot"><span class="annottext">SipRuleTargetApplication -&gt; Maybe Text
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3AsipMediaApplicationId%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var hs-var">sipMediaApplicationId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679518060"><span id="local-6989586621679518062"><span class="annot"><span class="annottext">SipRuleTargetApplication -&gt; SipRuleTargetApplication -&gt; Bool
+(SipRuleTargetApplication -&gt; SipRuleTargetApplication -&gt; Bool)
+-&gt; (SipRuleTargetApplication -&gt; SipRuleTargetApplication -&gt; Bool)
+-&gt; Eq SipRuleTargetApplication
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SipRuleTargetApplication -&gt; SipRuleTargetApplication -&gt; Bool
+$c/= :: SipRuleTargetApplication -&gt; SipRuleTargetApplication -&gt; Bool
+== :: SipRuleTargetApplication -&gt; SipRuleTargetApplication -&gt; Bool
+$c== :: SipRuleTargetApplication -&gt; SipRuleTargetApplication -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679518051"><span id="local-6989586621679518053"><span id="local-6989586621679518055"><span id="local-6989586621679518057"><span class="annot"><span class="annottext">ReadPrec [SipRuleTargetApplication]
+ReadPrec SipRuleTargetApplication
+Int -&gt; ReadS SipRuleTargetApplication
+ReadS [SipRuleTargetApplication]
+(Int -&gt; ReadS SipRuleTargetApplication)
+-&gt; ReadS [SipRuleTargetApplication]
+-&gt; ReadPrec SipRuleTargetApplication
+-&gt; ReadPrec [SipRuleTargetApplication]
+-&gt; Read SipRuleTargetApplication
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SipRuleTargetApplication]
+$creadListPrec :: ReadPrec [SipRuleTargetApplication]
+readPrec :: ReadPrec SipRuleTargetApplication
+$creadPrec :: ReadPrec SipRuleTargetApplication
+readList :: ReadS [SipRuleTargetApplication]
+$creadList :: ReadS [SipRuleTargetApplication]
+readsPrec :: Int -&gt; ReadS SipRuleTargetApplication
+$creadsPrec :: Int -&gt; ReadS SipRuleTargetApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679518044"><span id="local-6989586621679518046"><span id="local-6989586621679518048"><span class="annot"><span class="annottext">Int -&gt; SipRuleTargetApplication -&gt; ShowS
+[SipRuleTargetApplication] -&gt; ShowS
+SipRuleTargetApplication -&gt; String
+(Int -&gt; SipRuleTargetApplication -&gt; ShowS)
+-&gt; (SipRuleTargetApplication -&gt; String)
+-&gt; ([SipRuleTargetApplication] -&gt; ShowS)
+-&gt; Show SipRuleTargetApplication
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SipRuleTargetApplication] -&gt; ShowS
+$cshowList :: [SipRuleTargetApplication] -&gt; ShowS
+show :: SipRuleTargetApplication -&gt; String
+$cshow :: SipRuleTargetApplication -&gt; String
+showsPrec :: Int -&gt; SipRuleTargetApplication -&gt; ShowS
+$cshowsPrec :: Int -&gt; SipRuleTargetApplication -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ SipRuleTargetApplication -&gt; Rep SipRuleTargetApplication x)
+-&gt; (forall x.
+    Rep SipRuleTargetApplication x -&gt; SipRuleTargetApplication)
+-&gt; Generic SipRuleTargetApplication
+forall x.
+Rep SipRuleTargetApplication x -&gt; SipRuleTargetApplication
+forall x.
+SipRuleTargetApplication -&gt; Rep SipRuleTargetApplication x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SipRuleTargetApplication x -&gt; SipRuleTargetApplication
+$cfrom :: forall x.
+SipRuleTargetApplication -&gt; Rep SipRuleTargetApplication x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- Create a value of 'SipRuleTargetApplication' with all optional fields omitted.</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-48"></span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- 'priority', 'sipRuleTargetApplication_priority' - Priority of the SIP media application in the target list.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'awsRegion', 'sipRuleTargetApplication_awsRegion' - The AWS Region of the target application.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'sipMediaApplicationId', 'sipRuleTargetApplication_sipMediaApplicationId' - The SIP media application ID.</span><span>
+</span><span id="line-54"></span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#newSipRuleTargetApplication"><span class="hs-identifier hs-type">newSipRuleTargetApplication</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span>
+</span><span id="line-56"></span><span id="newSipRuleTargetApplication"><span class="annot"><span class="annottext">newSipRuleTargetApplication :: SipRuleTargetApplication
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#newSipRuleTargetApplication"><span class="hs-identifier hs-var hs-var">newSipRuleTargetApplication</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="annottext">SipRuleTargetApplication' :: Maybe Natural
+-&gt; Maybe Text -&gt; Maybe Text -&gt; SipRuleTargetApplication
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:priority:SipRuleTargetApplication' :: Maybe Natural
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3Apriority%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>        </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span class="annot"><span class="annottext">$sel:awsRegion:SipRuleTargetApplication' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3AawsRegion%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:sipMediaApplicationId:SipRuleTargetApplication' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3AsipMediaApplicationId%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var">sipMediaApplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Priority of the SIP media application in the target list.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#sipRuleTargetApplication_priority"><span class="hs-identifier hs-type">sipRuleTargetApplication_priority</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-66"></span><span id="sipRuleTargetApplication_priority"><span class="annot"><span class="annottext">sipRuleTargetApplication_priority :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; SipRuleTargetApplication -&gt; f SipRuleTargetApplication
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#sipRuleTargetApplication_priority"><span class="hs-identifier hs-var hs-var">sipRuleTargetApplication_priority</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SipRuleTargetApplication -&gt; Maybe Natural)
+-&gt; (SipRuleTargetApplication
+    -&gt; Maybe Natural -&gt; SipRuleTargetApplication)
+-&gt; Lens
+     SipRuleTargetApplication
+     SipRuleTargetApplication
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679518035"><span class="annot"><span class="annottext">Maybe Natural
+priority :: Maybe Natural
+$sel:priority:SipRuleTargetApplication' :: SipRuleTargetApplication -&gt; Maybe Natural
+</span><a href="#local-6989586621679518035"><span class="hs-identifier hs-var hs-var">priority</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679518035"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679518034"><span class="annot"><span class="annottext">s :: SipRuleTargetApplication
+</span><a href="#local-6989586621679518034"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679518033"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679518033"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SipRuleTargetApplication
+</span><a href="#local-6989586621679518034"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:priority:SipRuleTargetApplication' :: Maybe Natural
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3Apriority%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var">priority</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679518033"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | The AWS Region of the target application.</span><span>
+</span><span id="line-69"></span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#sipRuleTargetApplication_awsRegion"><span class="hs-identifier hs-type">sipRuleTargetApplication_awsRegion</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-70"></span><span id="sipRuleTargetApplication_awsRegion"><span class="annot"><span class="annottext">sipRuleTargetApplication_awsRegion :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SipRuleTargetApplication -&gt; f SipRuleTargetApplication
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#sipRuleTargetApplication_awsRegion"><span class="hs-identifier hs-var hs-var">sipRuleTargetApplication_awsRegion</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SipRuleTargetApplication -&gt; Maybe Text)
+-&gt; (SipRuleTargetApplication
+    -&gt; Maybe Text -&gt; SipRuleTargetApplication)
+-&gt; Lens
+     SipRuleTargetApplication
+     SipRuleTargetApplication
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679518031"><span class="annot"><span class="annottext">Maybe Text
+awsRegion :: Maybe Text
+$sel:awsRegion:SipRuleTargetApplication' :: SipRuleTargetApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679518031"><span class="hs-identifier hs-var hs-var">awsRegion</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679518031"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679518030"><span class="annot"><span class="annottext">s :: SipRuleTargetApplication
+</span><a href="#local-6989586621679518030"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679518029"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679518029"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SipRuleTargetApplication
+</span><a href="#local-6989586621679518030"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsRegion:SipRuleTargetApplication' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3AawsRegion%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var">awsRegion</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679518029"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | The SIP media application ID.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#sipRuleTargetApplication_sipMediaApplicationId"><span class="hs-identifier hs-type">sipRuleTargetApplication_sipMediaApplicationId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="sipRuleTargetApplication_sipMediaApplicationId"><span class="annot"><span class="annottext">sipRuleTargetApplication_sipMediaApplicationId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; SipRuleTargetApplication -&gt; f SipRuleTargetApplication
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#sipRuleTargetApplication_sipMediaApplicationId"><span class="hs-identifier hs-var hs-var">sipRuleTargetApplication_sipMediaApplicationId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(SipRuleTargetApplication -&gt; Maybe Text)
+-&gt; (SipRuleTargetApplication
+    -&gt; Maybe Text -&gt; SipRuleTargetApplication)
+-&gt; Lens
+     SipRuleTargetApplication
+     SipRuleTargetApplication
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679518027"><span class="annot"><span class="annottext">Maybe Text
+sipMediaApplicationId :: Maybe Text
+$sel:sipMediaApplicationId:SipRuleTargetApplication' :: SipRuleTargetApplication -&gt; Maybe Text
+</span><a href="#local-6989586621679518027"><span class="hs-identifier hs-var hs-var">sipMediaApplicationId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679518027"><span class="hs-identifier hs-var">sipMediaApplicationId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679518026"><span class="annot"><span class="annottext">s :: SipRuleTargetApplication
+</span><a href="#local-6989586621679518026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679518025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679518025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">SipRuleTargetApplication
+</span><a href="#local-6989586621679518026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sipMediaApplicationId:SipRuleTargetApplication' :: Maybe Text
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#%24sel%3AsipMediaApplicationId%3ASipRuleTargetApplication%27"><span class="hs-identifier hs-var">sipMediaApplicationId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679518025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679518022"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-77"></span><span>  </span><span id="local-6989586621679518020"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser SipRuleTargetApplication
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser SipRuleTargetApplication)
+-&gt; Value
+-&gt; Parser SipRuleTargetApplication
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;SipRuleTargetApplication&quot;</span></span><span>
+</span><span id="line-80"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679518017"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679518017"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+-&gt; Maybe Text -&gt; Maybe Text -&gt; SipRuleTargetApplication
+</span><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-var">SipRuleTargetApplication'</span></a></span><span>
+</span><span id="line-82"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Natural
+ -&gt; Maybe Text -&gt; Maybe Text -&gt; SipRuleTargetApplication)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; SipRuleTargetApplication)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679518017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; SipRuleTargetApplication)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; SipRuleTargetApplication)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679518017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; SipRuleTargetApplication)
+-&gt; Parser (Maybe Text) -&gt; Parser SipRuleTargetApplication
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679518017"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SipMediaApplicationId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-85"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679518011"><span id="local-6989586621679518013"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span></span></span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679518008"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679518000"><span id="local-6989586621679518002"><span id="local-6989586621679518004"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication"><span class="hs-identifier hs-type">SipRuleTargetApplication</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679517998"><span class="annot"><span class="annottext">toJSON :: SipRuleTargetApplication -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.SipRuleTargetApplication.html#SipRuleTargetApplication%27"><span class="hs-identifier hs-type">SipRuleTargetApplication'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679517994"><span id="local-6989586621679517995"><span id="local-6989586621679517996"><span class="annot"><span class="annottext">Maybe Natural
+Maybe Text
+sipMediaApplicationId :: Maybe Text
+awsRegion :: Maybe Text
+priority :: Maybe Natural
+$sel:sipMediaApplicationId:SipRuleTargetApplication' :: SipRuleTargetApplication -&gt; Maybe Text
+$sel:awsRegion:SipRuleTargetApplication' :: SipRuleTargetApplication -&gt; Maybe Text
+$sel:priority:SipRuleTargetApplication' :: SipRuleTargetApplication -&gt; Maybe Natural
+</span><a href="#local-6989586621679517994"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-95"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Priority&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679517996"><span class="hs-identifier hs-var">priority</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AwsRegion&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679517995"><span class="hs-identifier hs-var">awsRegion</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SipMediaApplicationId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-98"></span><span>              </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679517994"><span class="hs-identifier hs-var">sipMediaApplicationId</span></a></span><span>
+</span><span id="line-99"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-100"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span></pre></body></html>

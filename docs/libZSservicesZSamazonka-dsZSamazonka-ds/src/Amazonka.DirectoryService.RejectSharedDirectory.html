@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DirectoryService.RejectSharedDirectory</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Rejects a directory sharing request that was sent from the directory</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- owner account.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DirectoryService.RejectSharedDirectory</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier">RejectSharedDirectory</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#newRejectSharedDirectory"><span class="hs-identifier">newRejectSharedDirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectory_sharedDirectoryId"><span class="hs-identifier">rejectSharedDirectory_sharedDirectoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier">RejectSharedDirectoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#newRejectSharedDirectoryResponse"><span class="hs-identifier">newRejectSharedDirectoryResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectoryResponse_sharedDirectoryId"><span class="hs-identifier">rejectSharedDirectoryResponse_sharedDirectoryId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectoryResponse_httpStatus"><span class="hs-identifier">rejectSharedDirectoryResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.Types.html"><span class="hs-identifier">Amazonka.DirectoryService.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newRejectSharedDirectory' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621679304442"><span id="local-6989586621679304443"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectSharedDirectory"><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-var">RejectSharedDirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectSharedDirectory%27"><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory%27"><span class="hs-identifier hs-var">RejectSharedDirectory'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
+</span><span id="line-54"></span><span>    </span><span id="%24sel%3AsharedDirectoryId%3ARejectSharedDirectory%27"><span class="annot"><span class="annottext">RejectSharedDirectory -&gt; Text
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AsharedDirectoryId%3ARejectSharedDirectory%27"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304436"><span id="local-6989586621679304438"><span class="annot"><span class="annottext">RejectSharedDirectory -&gt; RejectSharedDirectory -&gt; Bool
+(RejectSharedDirectory -&gt; RejectSharedDirectory -&gt; Bool)
+-&gt; (RejectSharedDirectory -&gt; RejectSharedDirectory -&gt; Bool)
+-&gt; Eq RejectSharedDirectory
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RejectSharedDirectory -&gt; RejectSharedDirectory -&gt; Bool
+$c/= :: RejectSharedDirectory -&gt; RejectSharedDirectory -&gt; Bool
+== :: RejectSharedDirectory -&gt; RejectSharedDirectory -&gt; Bool
+$c== :: RejectSharedDirectory -&gt; RejectSharedDirectory -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304427"><span id="local-6989586621679304429"><span id="local-6989586621679304431"><span id="local-6989586621679304433"><span class="annot"><span class="annottext">ReadPrec [RejectSharedDirectory]
+ReadPrec RejectSharedDirectory
+Int -&gt; ReadS RejectSharedDirectory
+ReadS [RejectSharedDirectory]
+(Int -&gt; ReadS RejectSharedDirectory)
+-&gt; ReadS [RejectSharedDirectory]
+-&gt; ReadPrec RejectSharedDirectory
+-&gt; ReadPrec [RejectSharedDirectory]
+-&gt; Read RejectSharedDirectory
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RejectSharedDirectory]
+$creadListPrec :: ReadPrec [RejectSharedDirectory]
+readPrec :: ReadPrec RejectSharedDirectory
+$creadPrec :: ReadPrec RejectSharedDirectory
+readList :: ReadS [RejectSharedDirectory]
+$creadList :: ReadS [RejectSharedDirectory]
+readsPrec :: Int -&gt; ReadS RejectSharedDirectory
+$creadsPrec :: Int -&gt; ReadS RejectSharedDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304420"><span id="local-6989586621679304422"><span id="local-6989586621679304424"><span class="annot"><span class="annottext">Int -&gt; RejectSharedDirectory -&gt; ShowS
+[RejectSharedDirectory] -&gt; ShowS
+RejectSharedDirectory -&gt; String
+(Int -&gt; RejectSharedDirectory -&gt; ShowS)
+-&gt; (RejectSharedDirectory -&gt; String)
+-&gt; ([RejectSharedDirectory] -&gt; ShowS)
+-&gt; Show RejectSharedDirectory
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RejectSharedDirectory] -&gt; ShowS
+$cshowList :: [RejectSharedDirectory] -&gt; ShowS
+show :: RejectSharedDirectory -&gt; String
+$cshow :: RejectSharedDirectory -&gt; String
+showsPrec :: Int -&gt; RejectSharedDirectory -&gt; ShowS
+$cshowsPrec :: Int -&gt; RejectSharedDirectory -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. RejectSharedDirectory -&gt; Rep RejectSharedDirectory x)
+-&gt; (forall x. Rep RejectSharedDirectory x -&gt; RejectSharedDirectory)
+-&gt; Generic RejectSharedDirectory
+forall x. Rep RejectSharedDirectory x -&gt; RejectSharedDirectory
+forall x. RejectSharedDirectory -&gt; Rep RejectSharedDirectory x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RejectSharedDirectory x -&gt; RejectSharedDirectory
+$cfrom :: forall x. RejectSharedDirectory -&gt; Rep RejectSharedDirectory x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- Create a value of 'RejectSharedDirectory' with all optional fields omitted.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- 'sharedDirectoryId', 'rejectSharedDirectory_sharedDirectoryId' - Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
+</span><span id="line-68"></span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#newRejectSharedDirectory"><span class="hs-identifier hs-type">newRejectSharedDirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-69"></span><span>  </span><span class="hs-comment">-- | 'sharedDirectoryId'</span><span>
+</span><span id="line-70"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span>
+</span><span id="line-72"></span><span id="newRejectSharedDirectory"><span class="annot"><span class="annottext">newRejectSharedDirectory :: Text -&gt; RejectSharedDirectory
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#newRejectSharedDirectory"><span class="hs-identifier hs-var hs-var">newRejectSharedDirectory</span></a></span></span><span> </span><span id="local-6989586621679304415"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304415"><span class="hs-identifier hs-var">pSharedDirectoryId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><span class="annottext">RejectSharedDirectory' :: Text -&gt; RejectSharedDirectory
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory%27"><span class="hs-identifier hs-type">RejectSharedDirectory'</span></a></span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:RejectSharedDirectory' :: Text
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AsharedDirectoryId%3ARejectSharedDirectory%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>        </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304415"><span class="hs-identifier hs-var">pSharedDirectoryId_</span></a></span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- This identifier is different for each directory owner account.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectory_sharedDirectoryId"><span class="hs-identifier hs-type">rejectSharedDirectory_sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-81"></span><span id="rejectSharedDirectory_sharedDirectoryId"><span class="annot"><span class="annottext">rejectSharedDirectory_sharedDirectoryId :: (Text -&gt; f Text)
+-&gt; RejectSharedDirectory -&gt; f RejectSharedDirectory
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectory_sharedDirectoryId"><span class="hs-identifier hs-var hs-var">rejectSharedDirectory_sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectSharedDirectory -&gt; Text)
+-&gt; (RejectSharedDirectory -&gt; Text -&gt; RejectSharedDirectory)
+-&gt; Lens RejectSharedDirectory RejectSharedDirectory Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory%27"><span class="hs-identifier hs-type">RejectSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304412"><span class="annot"><span class="annottext">Text
+sharedDirectoryId :: Text
+$sel:sharedDirectoryId:RejectSharedDirectory' :: RejectSharedDirectory -&gt; Text
+</span><a href="#local-6989586621679304412"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304412"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304411"><span class="annot"><span class="annottext">s :: RejectSharedDirectory
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory%27"><span class="hs-identifier hs-type">RejectSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304410"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304410"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectSharedDirectory
+</span><a href="#local-6989586621679304411"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:RejectSharedDirectory' :: Text
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AsharedDirectoryId%3ARejectSharedDirectory%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304410"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-84"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-85"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse</span></a></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679304406"><span class="annot"><span class="annottext">request :: RejectSharedDirectory -&gt; Request RejectSharedDirectory
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; RejectSharedDirectory -&gt; Request RejectSharedDirectory
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DirectoryService.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-88"></span><span>  </span><span id="local-6989586621679304402"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy RejectSharedDirectory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RejectSharedDirectory)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse RejectSharedDirectory))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy RejectSharedDirectory
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse RejectSharedDirectory)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-90"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679304399"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304399"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679304398"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679304398"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679304397"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304397"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; RejectSharedDirectoryResponse
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var">RejectSharedDirectoryResponse'</span></a></span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; RejectSharedDirectoryResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; RejectSharedDirectoryResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679304397"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedDirectoryId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; RejectSharedDirectoryResponse)
+-&gt; Either String Int -&gt; Either String RejectSharedDirectoryResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304399"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304389"><span id="local-6989586621679304391"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304386"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span></span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span id="local-6989586621679304382"><span class="annot"><span class="annottext">toHeaders :: RejectSharedDirectory -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; RejectSharedDirectory -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-104"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-105"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DirectoryService_20150416.RejectSharedDirectory&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-106"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-107"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-109"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-110"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-111"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-113"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304372"><span id="local-6989586621679304374"><span id="local-6989586621679304376"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679304370"><span class="annot"><span class="annottext">toJSON :: RejectSharedDirectory -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory%27"><span class="hs-identifier hs-type">RejectSharedDirectory'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304368"><span class="annot"><span class="annottext">Text
+sharedDirectoryId :: Text
+$sel:sharedDirectoryId:RejectSharedDirectory' :: RejectSharedDirectory -&gt; Text
+</span><a href="#local-6989586621679304368"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-119"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-120"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedDirectoryId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679304368"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679304362"><span class="annot"><span class="annottext">toPath :: RejectSharedDirectory -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; RejectSharedDirectory -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectory"><span class="hs-identifier hs-type">RejectSharedDirectory</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679304358"><span class="annot"><span class="annottext">toQuery :: RejectSharedDirectory -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; RejectSharedDirectory -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- | /See:/ 'newRejectSharedDirectoryResponse' smart constructor.</span><span>
+</span><span id="line-131"></span><span id="local-6989586621679304355"><span id="local-6989586621679304356"></span></span><span class="hs-keyword">data</span><span> </span><span id="RejectSharedDirectoryResponse"><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-var">RejectSharedDirectoryResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RejectSharedDirectoryResponse%27"><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var">RejectSharedDirectoryResponse'</span></a></span></span><span>
+</span><span id="line-132"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-133"></span><span>    </span><span id="%24sel%3AsharedDirectoryId%3ARejectSharedDirectoryResponse%27"><span class="annot"><span class="annottext">RejectSharedDirectoryResponse -&gt; Maybe Text
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AsharedDirectoryId%3ARejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-135"></span><span>    </span><span id="%24sel%3AhttpStatus%3ARejectSharedDirectoryResponse%27"><span class="annot"><span class="annottext">RejectSharedDirectoryResponse -&gt; Int
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AhttpStatus%3ARejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-136"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-137"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679304349"><span id="local-6989586621679304351"><span class="annot"><span class="annottext">RejectSharedDirectoryResponse
+-&gt; RejectSharedDirectoryResponse -&gt; Bool
+(RejectSharedDirectoryResponse
+ -&gt; RejectSharedDirectoryResponse -&gt; Bool)
+-&gt; (RejectSharedDirectoryResponse
+    -&gt; RejectSharedDirectoryResponse -&gt; Bool)
+-&gt; Eq RejectSharedDirectoryResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RejectSharedDirectoryResponse
+-&gt; RejectSharedDirectoryResponse -&gt; Bool
+$c/= :: RejectSharedDirectoryResponse
+-&gt; RejectSharedDirectoryResponse -&gt; Bool
+== :: RejectSharedDirectoryResponse
+-&gt; RejectSharedDirectoryResponse -&gt; Bool
+$c== :: RejectSharedDirectoryResponse
+-&gt; RejectSharedDirectoryResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304341"><span id="local-6989586621679304343"><span id="local-6989586621679304345"><span id="local-6989586621679304347"><span class="annot"><span class="annottext">ReadPrec [RejectSharedDirectoryResponse]
+ReadPrec RejectSharedDirectoryResponse
+Int -&gt; ReadS RejectSharedDirectoryResponse
+ReadS [RejectSharedDirectoryResponse]
+(Int -&gt; ReadS RejectSharedDirectoryResponse)
+-&gt; ReadS [RejectSharedDirectoryResponse]
+-&gt; ReadPrec RejectSharedDirectoryResponse
+-&gt; ReadPrec [RejectSharedDirectoryResponse]
+-&gt; Read RejectSharedDirectoryResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RejectSharedDirectoryResponse]
+$creadListPrec :: ReadPrec [RejectSharedDirectoryResponse]
+readPrec :: ReadPrec RejectSharedDirectoryResponse
+$creadPrec :: ReadPrec RejectSharedDirectoryResponse
+readList :: ReadS [RejectSharedDirectoryResponse]
+$creadList :: ReadS [RejectSharedDirectoryResponse]
+readsPrec :: Int -&gt; ReadS RejectSharedDirectoryResponse
+$creadsPrec :: Int -&gt; ReadS RejectSharedDirectoryResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679304335"><span id="local-6989586621679304337"><span id="local-6989586621679304339"><span class="annot"><span class="annottext">Int -&gt; RejectSharedDirectoryResponse -&gt; ShowS
+[RejectSharedDirectoryResponse] -&gt; ShowS
+RejectSharedDirectoryResponse -&gt; String
+(Int -&gt; RejectSharedDirectoryResponse -&gt; ShowS)
+-&gt; (RejectSharedDirectoryResponse -&gt; String)
+-&gt; ([RejectSharedDirectoryResponse] -&gt; ShowS)
+-&gt; Show RejectSharedDirectoryResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RejectSharedDirectoryResponse] -&gt; ShowS
+$cshowList :: [RejectSharedDirectoryResponse] -&gt; ShowS
+show :: RejectSharedDirectoryResponse -&gt; String
+$cshow :: RejectSharedDirectoryResponse -&gt; String
+showsPrec :: Int -&gt; RejectSharedDirectoryResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; RejectSharedDirectoryResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ RejectSharedDirectoryResponse
+ -&gt; Rep RejectSharedDirectoryResponse x)
+-&gt; (forall x.
+    Rep RejectSharedDirectoryResponse x
+    -&gt; RejectSharedDirectoryResponse)
+-&gt; Generic RejectSharedDirectoryResponse
+forall x.
+Rep RejectSharedDirectoryResponse x
+-&gt; RejectSharedDirectoryResponse
+forall x.
+RejectSharedDirectoryResponse
+-&gt; Rep RejectSharedDirectoryResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep RejectSharedDirectoryResponse x
+-&gt; RejectSharedDirectoryResponse
+$cfrom :: forall x.
+RejectSharedDirectoryResponse
+-&gt; Rep RejectSharedDirectoryResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- Create a value of 'RejectSharedDirectoryResponse' with all optional fields omitted.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'sharedDirectoryId', 'rejectSharedDirectoryResponse_sharedDirectoryId' - Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- 'httpStatus', 'rejectSharedDirectoryResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#newRejectSharedDirectoryResponse"><span class="hs-identifier hs-type">newRejectSharedDirectoryResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse</span></a></span><span>
+</span><span id="line-154"></span><span id="newRejectSharedDirectoryResponse"><span class="annot"><span class="annottext">newRejectSharedDirectoryResponse :: Int -&gt; RejectSharedDirectoryResponse
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#newRejectSharedDirectoryResponse"><span class="hs-identifier hs-var hs-var">newRejectSharedDirectoryResponse</span></a></span></span><span> </span><span id="local-6989586621679304332"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304332"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>  </span><span class="annot"><span class="annottext">RejectSharedDirectoryResponse' :: Maybe Text -&gt; Int -&gt; RejectSharedDirectoryResponse
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse%27"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse'</span></a></span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:RejectSharedDirectoryResponse' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AsharedDirectoryId%3ARejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-157"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:RejectSharedDirectoryResponse' :: Int
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AhttpStatus%3ARejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304332"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- | Identifier of the shared directory in the directory consumer account.</span><span>
+</span><span id="line-162"></span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectoryResponse_sharedDirectoryId"><span class="hs-identifier hs-type">rejectSharedDirectoryResponse_sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span id="rejectSharedDirectoryResponse_sharedDirectoryId"><span class="annot"><span class="annottext">rejectSharedDirectoryResponse_sharedDirectoryId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; RejectSharedDirectoryResponse -&gt; f RejectSharedDirectoryResponse
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectoryResponse_sharedDirectoryId"><span class="hs-identifier hs-var hs-var">rejectSharedDirectoryResponse_sharedDirectoryId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectSharedDirectoryResponse -&gt; Maybe Text)
+-&gt; (RejectSharedDirectoryResponse
+    -&gt; Maybe Text -&gt; RejectSharedDirectoryResponse)
+-&gt; Lens
+     RejectSharedDirectoryResponse
+     RejectSharedDirectoryResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse%27"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304331"><span class="annot"><span class="annottext">Maybe Text
+sharedDirectoryId :: Maybe Text
+$sel:sharedDirectoryId:RejectSharedDirectoryResponse' :: RejectSharedDirectoryResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679304331"><span class="hs-identifier hs-var hs-var">sharedDirectoryId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304331"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304330"><span class="annot"><span class="annottext">s :: RejectSharedDirectoryResponse
+</span><a href="#local-6989586621679304330"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse%27"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304329"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304329"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectSharedDirectoryResponse
+</span><a href="#local-6989586621679304330"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedDirectoryId:RejectSharedDirectoryResponse' :: Maybe Text
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AsharedDirectoryId%3ARejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var">sharedDirectoryId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679304329"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-166"></span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectoryResponse_httpStatus"><span class="hs-identifier hs-type">rejectSharedDirectoryResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-167"></span><span id="rejectSharedDirectoryResponse_httpStatus"><span class="annot"><span class="annottext">rejectSharedDirectoryResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; RejectSharedDirectoryResponse -&gt; f RejectSharedDirectoryResponse
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#rejectSharedDirectoryResponse_httpStatus"><span class="hs-identifier hs-var hs-var">rejectSharedDirectoryResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(RejectSharedDirectoryResponse -&gt; Int)
+-&gt; (RejectSharedDirectoryResponse
+    -&gt; Int -&gt; RejectSharedDirectoryResponse)
+-&gt; Lens
+     RejectSharedDirectoryResponse RejectSharedDirectoryResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse%27"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679304328"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:RejectSharedDirectoryResponse' :: RejectSharedDirectoryResponse -&gt; Int
+</span><a href="#local-6989586621679304328"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304328"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679304327"><span class="annot"><span class="annottext">s :: RejectSharedDirectoryResponse
+</span><a href="#local-6989586621679304327"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse%27"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679304326"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304326"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">RejectSharedDirectoryResponse
+</span><a href="#local-6989586621679304327"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:RejectSharedDirectoryResponse' :: Int
+</span><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#%24sel%3AhttpStatus%3ARejectSharedDirectoryResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679304326"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679304324"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DirectoryService.RejectSharedDirectory.html#RejectSharedDirectoryResponse"><span class="hs-identifier hs-type">RejectSharedDirectoryResponse</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

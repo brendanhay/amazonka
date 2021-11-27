@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ChimeSDKMessaging.Types.FallbackAction</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ChimeSDKMessaging.Types.FallbackAction</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction"><span class="hs-identifier">FallbackAction</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction_ABORT"><span class="hs-identifier">FallbackAction_ABORT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction_CONTINUE"><span class="hs-identifier">FallbackAction_CONTINUE</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679230659"><span id="local-6989586621679230660"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="FallbackAction"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction"><span class="hs-identifier hs-var">FallbackAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FallbackAction%27"><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction%27"><span class="hs-identifier hs-var">FallbackAction'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromFallbackAction"><span class="annot"><span class="annottext">FallbackAction -&gt; Text
+</span><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#fromFallbackAction"><span class="hs-identifier hs-var hs-var">fromFallbackAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230651"><span id="local-6989586621679230653"><span id="local-6989586621679230655"><span class="annot"><span class="annottext">Int -&gt; FallbackAction -&gt; ShowS
+[FallbackAction] -&gt; ShowS
+FallbackAction -&gt; String
+(Int -&gt; FallbackAction -&gt; ShowS)
+-&gt; (FallbackAction -&gt; String)
+-&gt; ([FallbackAction] -&gt; ShowS)
+-&gt; Show FallbackAction
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FallbackAction] -&gt; ShowS
+$cshowList :: [FallbackAction] -&gt; ShowS
+show :: FallbackAction -&gt; String
+$cshow :: FallbackAction -&gt; String
+showsPrec :: Int -&gt; FallbackAction -&gt; ShowS
+$cshowsPrec :: Int -&gt; FallbackAction -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679230642"><span id="local-6989586621679230644"><span id="local-6989586621679230646"><span id="local-6989586621679230648"><span class="annot"><span class="annottext">ReadPrec [FallbackAction]
+ReadPrec FallbackAction
+Int -&gt; ReadS FallbackAction
+ReadS [FallbackAction]
+(Int -&gt; ReadS FallbackAction)
+-&gt; ReadS [FallbackAction]
+-&gt; ReadPrec FallbackAction
+-&gt; ReadPrec [FallbackAction]
+-&gt; Read FallbackAction
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FallbackAction]
+$creadListPrec :: ReadPrec [FallbackAction]
+readPrec :: ReadPrec FallbackAction
+$creadPrec :: ReadPrec FallbackAction
+readList :: ReadS [FallbackAction]
+$creadList :: ReadS [FallbackAction]
+readsPrec :: Int -&gt; ReadS FallbackAction
+$creadsPrec :: Int -&gt; ReadS FallbackAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679230637"><span id="local-6989586621679230639"><span class="annot"><span class="annottext">FallbackAction -&gt; FallbackAction -&gt; Bool
+(FallbackAction -&gt; FallbackAction -&gt; Bool)
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; Bool) -&gt; Eq FallbackAction
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FallbackAction -&gt; FallbackAction -&gt; Bool
+$c/= :: FallbackAction -&gt; FallbackAction -&gt; Bool
+== :: FallbackAction -&gt; FallbackAction -&gt; Bool
+$c== :: FallbackAction -&gt; FallbackAction -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679230621"><span id="local-6989586621679230623"><span id="local-6989586621679230625"><span id="local-6989586621679230627"><span id="local-6989586621679230629"><span id="local-6989586621679230631"><span id="local-6989586621679230633"><span class="annot"><span class="annottext">Eq FallbackAction
+Eq FallbackAction
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; Ordering)
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; Bool)
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; Bool)
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; Bool)
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; Bool)
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; FallbackAction)
+-&gt; (FallbackAction -&gt; FallbackAction -&gt; FallbackAction)
+-&gt; Ord FallbackAction
+FallbackAction -&gt; FallbackAction -&gt; Bool
+FallbackAction -&gt; FallbackAction -&gt; Ordering
+FallbackAction -&gt; FallbackAction -&gt; FallbackAction
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: FallbackAction -&gt; FallbackAction -&gt; FallbackAction
+$cmin :: FallbackAction -&gt; FallbackAction -&gt; FallbackAction
+max :: FallbackAction -&gt; FallbackAction -&gt; FallbackAction
+$cmax :: FallbackAction -&gt; FallbackAction -&gt; FallbackAction
+&gt;= :: FallbackAction -&gt; FallbackAction -&gt; Bool
+$c&gt;= :: FallbackAction -&gt; FallbackAction -&gt; Bool
+&gt; :: FallbackAction -&gt; FallbackAction -&gt; Bool
+$c&gt; :: FallbackAction -&gt; FallbackAction -&gt; Bool
+&lt;= :: FallbackAction -&gt; FallbackAction -&gt; Bool
+$c&lt;= :: FallbackAction -&gt; FallbackAction -&gt; Bool
+&lt; :: FallbackAction -&gt; FallbackAction -&gt; Bool
+$c&lt; :: FallbackAction -&gt; FallbackAction -&gt; Bool
+compare :: FallbackAction -&gt; FallbackAction -&gt; Ordering
+$ccompare :: FallbackAction -&gt; FallbackAction -&gt; Ordering
+$cp1Ord :: Eq FallbackAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. FallbackAction -&gt; Rep FallbackAction x)
+-&gt; (forall x. Rep FallbackAction x -&gt; FallbackAction)
+-&gt; Generic FallbackAction
+forall x. Rep FallbackAction x -&gt; FallbackAction
+forall x. FallbackAction -&gt; Rep FallbackAction x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FallbackAction x -&gt; FallbackAction
+$cfrom :: forall x. FallbackAction -&gt; Rep FallbackAction x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679230613"><span id="local-6989586621679230615"><span class="annot"><span class="annottext">Int -&gt; FallbackAction -&gt; Int
+FallbackAction -&gt; Int
+(Int -&gt; FallbackAction -&gt; Int)
+-&gt; (FallbackAction -&gt; Int) -&gt; Hashable FallbackAction
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: FallbackAction -&gt; Int
+$chash :: FallbackAction -&gt; Int
+hashWithSalt :: Int -&gt; FallbackAction -&gt; Int
+$chashWithSalt :: Int -&gt; FallbackAction -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679230610"><span class="annot"><span class="annottext">FallbackAction -&gt; ()
+(FallbackAction -&gt; ()) -&gt; NFData FallbackAction
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: FallbackAction -&gt; ()
+$crnf :: FallbackAction -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679230607"><span class="annot"><span class="annottext">Text -&gt; Either String FallbackAction
+(Text -&gt; Either String FallbackAction) -&gt; FromText FallbackAction
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String FallbackAction
+$cfromText :: Text -&gt; Either String FallbackAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679230604"><span class="annot"><span class="annottext">FallbackAction -&gt; Text
+(FallbackAction -&gt; Text) -&gt; ToText FallbackAction
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: FallbackAction -&gt; Text
+$ctoText :: FallbackAction -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679230601"><span class="annot"><span class="annottext">FallbackAction -&gt; ByteString
+(FallbackAction -&gt; ByteString) -&gt; ToByteString FallbackAction
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: FallbackAction -&gt; ByteString
+$ctoBS :: FallbackAction -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679230598"><span class="annot"><span class="annottext">FallbackAction -&gt; ByteStringBuilder
+(FallbackAction -&gt; ByteStringBuilder) -&gt; ToLog FallbackAction
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: FallbackAction -&gt; ByteStringBuilder
+$cbuild :: FallbackAction -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679230595"><span class="annot"><span class="annottext">HeaderName -&gt; FallbackAction -&gt; [Header]
+(HeaderName -&gt; FallbackAction -&gt; [Header])
+-&gt; ToHeader FallbackAction
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; FallbackAction -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; FallbackAction -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679230592"><span class="annot"><span class="annottext">FallbackAction -&gt; QueryString
+(FallbackAction -&gt; QueryString) -&gt; ToQuery FallbackAction
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: FallbackAction -&gt; QueryString
+$ctoQuery :: FallbackAction -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679230587"><span id="local-6989586621679230589"><span class="annot"><span class="annottext">Value -&gt; Parser [FallbackAction]
+Value -&gt; Parser FallbackAction
+(Value -&gt; Parser FallbackAction)
+-&gt; (Value -&gt; Parser [FallbackAction]) -&gt; FromJSON FallbackAction
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [FallbackAction]
+$cparseJSONList :: Value -&gt; Parser [FallbackAction]
+parseJSON :: Value -&gt; Parser FallbackAction
+$cparseJSON :: Value -&gt; Parser FallbackAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679230582"><span id="local-6989586621679230584"><span class="annot"><span class="annottext">FromJSONKeyFunction [FallbackAction]
+FromJSONKeyFunction FallbackAction
+FromJSONKeyFunction FallbackAction
+-&gt; FromJSONKeyFunction [FallbackAction]
+-&gt; FromJSONKey FallbackAction
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [FallbackAction]
+$cfromJSONKeyList :: FromJSONKeyFunction [FallbackAction]
+fromJSONKey :: FromJSONKeyFunction FallbackAction
+$cfromJSONKey :: FromJSONKeyFunction FallbackAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679230573"><span id="local-6989586621679230575"><span id="local-6989586621679230577"><span id="local-6989586621679230579"><span class="annot"><span class="annottext">[FallbackAction] -&gt; Encoding
+[FallbackAction] -&gt; Value
+FallbackAction -&gt; Encoding
+FallbackAction -&gt; Value
+(FallbackAction -&gt; Value)
+-&gt; (FallbackAction -&gt; Encoding)
+-&gt; ([FallbackAction] -&gt; Value)
+-&gt; ([FallbackAction] -&gt; Encoding)
+-&gt; ToJSON FallbackAction
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [FallbackAction] -&gt; Encoding
+$ctoEncodingList :: [FallbackAction] -&gt; Encoding
+toJSONList :: [FallbackAction] -&gt; Value
+$ctoJSONList :: [FallbackAction] -&gt; Value
+toEncoding :: FallbackAction -&gt; Encoding
+$ctoEncoding :: FallbackAction -&gt; Encoding
+toJSON :: FallbackAction -&gt; Value
+$ctoJSON :: FallbackAction -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679230568"><span id="local-6989586621679230570"><span class="annot"><span class="annottext">ToJSONKeyFunction [FallbackAction]
+ToJSONKeyFunction FallbackAction
+ToJSONKeyFunction FallbackAction
+-&gt; ToJSONKeyFunction [FallbackAction] -&gt; ToJSONKey FallbackAction
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [FallbackAction]
+$ctoJSONKeyList :: ToJSONKeyFunction [FallbackAction]
+toJSONKey :: ToJSONKeyFunction FallbackAction
+$ctoJSONKey :: ToJSONKeyFunction FallbackAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679230565"><span class="annot"><span class="annottext">[Node] -&gt; Either String FallbackAction
+([Node] -&gt; Either String FallbackAction) -&gt; FromXML FallbackAction
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String FallbackAction
+$cparseXML :: [Node] -&gt; Either String FallbackAction
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679230562"><span class="annot"><span class="annottext">FallbackAction -&gt; XML
+(FallbackAction -&gt; XML) -&gt; ToXML FallbackAction
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: FallbackAction -&gt; XML
+$ctoXML :: FallbackAction -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction_ABORT"><span class="hs-identifier hs-type">FallbackAction_ABORT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction"><span class="hs-identifier hs-type">FallbackAction</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFallbackAction_ABORT"><span id="%24mFallbackAction_ABORT"><span id="FallbackAction_ABORT"><span class="annot"><span class="annottext">$bFallbackAction_ABORT :: FallbackAction
+$mFallbackAction_ABORT :: forall r. FallbackAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#%24bFallbackAction_ABORT"><span class="hs-identifier hs-var hs-var hs-var">FallbackAction_ABORT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction%27"><span class="hs-identifier hs-type">FallbackAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ABORT&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction_CONTINUE"><span class="hs-identifier hs-type">FallbackAction_CONTINUE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction"><span class="hs-identifier hs-type">FallbackAction</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bFallbackAction_CONTINUE"><span id="%24mFallbackAction_CONTINUE"><span id="FallbackAction_CONTINUE"><span class="annot"><span class="annottext">$bFallbackAction_CONTINUE :: FallbackAction
+$mFallbackAction_CONTINUE :: forall r. FallbackAction -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#%24bFallbackAction_CONTINUE"><span class="hs-identifier hs-var hs-var hs-var">FallbackAction_CONTINUE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction%27"><span class="hs-identifier hs-type">FallbackAction'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CONTINUE&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction_ABORT"><span class="hs-pragma hs-type">FallbackAction_ABORT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction_CONTINUE"><span class="hs-pragma hs-type">FallbackAction_CONTINUE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.ChimeSDKMessaging.Types.FallbackAction.html#FallbackAction%27"><span class="hs-pragma hs-type">FallbackAction'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

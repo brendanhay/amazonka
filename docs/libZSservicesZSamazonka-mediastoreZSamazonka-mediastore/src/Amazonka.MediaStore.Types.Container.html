@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaStore.Types.Container</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaStore.Types.Container</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.ContainerStatus.html"><span class="hs-identifier">Amazonka.MediaStore.Types.ContainerStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | This section describes operations that you can perform on an AWS</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Elemental MediaStore container.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newContainer' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679163277"><span id="local-6989586621679163278"></span></span><span class="hs-keyword">data</span><span> </span><span id="Container"><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-var">Container</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Container%27"><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-var">Container'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unix timestamp.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AcreationTime%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe POSIX
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3AcreationTime%3AContainer%27"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The status of container creation or deletion. The status is one of the</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- creating the container, the status is @CREATING@. When the endpoint is</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- available, the status changes to @ACTIVE@.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3Astatus%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe ContainerStatus
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Astatus%3AContainer%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.ContainerStatus.html#ContainerStatus"><span class="hs-identifier hs-type">ContainerStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | The state of access logging on the container. This value is @false@ by</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- default, indicating that AWS Elemental MediaStore does not send access</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- logs to Amazon CloudWatch Logs. When you enable access logging on the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- container, MediaStore changes this value to @true@, indicating that the</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- service delivers access logs for objects stored in that container to</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AaccessLoggingEnabled%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe Bool
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3AaccessLoggingEnabled%3AContainer%27"><span class="hs-identifier hs-var hs-var">accessLoggingEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the container. The ARN has the</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- arn:aws:\&lt;region&gt;:\&lt;account that owns this container&gt;:container\/\&lt;name</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- of container&gt;</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3Aarn%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aarn%3AContainer%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | The name of the container.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3Aname%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aname%3AContainer%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The DNS endpoint of the container. Use the endpoint to identify the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- specific container when sending requests to the data plane. The service</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- assigns this value when the container is created. Once the value has</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- been assigned, it does not change.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Aendpoint%3AContainer%27"><span class="annot"><span class="annottext">Container -&gt; Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aendpoint%3AContainer%27"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679163266"><span id="local-6989586621679163268"><span class="annot"><span class="annottext">Container -&gt; Container -&gt; Bool
+(Container -&gt; Container -&gt; Bool)
+-&gt; (Container -&gt; Container -&gt; Bool) -&gt; Eq Container
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Container -&gt; Container -&gt; Bool
+$c/= :: Container -&gt; Container -&gt; Bool
+== :: Container -&gt; Container -&gt; Bool
+$c== :: Container -&gt; Container -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163257"><span id="local-6989586621679163259"><span id="local-6989586621679163261"><span id="local-6989586621679163263"><span class="annot"><span class="annottext">ReadPrec [Container]
+ReadPrec Container
+Int -&gt; ReadS Container
+ReadS [Container]
+(Int -&gt; ReadS Container)
+-&gt; ReadS [Container]
+-&gt; ReadPrec Container
+-&gt; ReadPrec [Container]
+-&gt; Read Container
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Container]
+$creadListPrec :: ReadPrec [Container]
+readPrec :: ReadPrec Container
+$creadPrec :: ReadPrec Container
+readList :: ReadS [Container]
+$creadList :: ReadS [Container]
+readsPrec :: Int -&gt; ReadS Container
+$creadsPrec :: Int -&gt; ReadS Container
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679163250"><span id="local-6989586621679163252"><span id="local-6989586621679163254"><span class="annot"><span class="annottext">Int -&gt; Container -&gt; ShowS
+[Container] -&gt; ShowS
+Container -&gt; String
+(Int -&gt; Container -&gt; ShowS)
+-&gt; (Container -&gt; String)
+-&gt; ([Container] -&gt; ShowS)
+-&gt; Show Container
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Container] -&gt; ShowS
+$cshowList :: [Container] -&gt; ShowS
+show :: Container -&gt; String
+$cshow :: Container -&gt; String
+showsPrec :: Int -&gt; Container -&gt; ShowS
+$cshowsPrec :: Int -&gt; Container -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Container -&gt; Rep Container x)
+-&gt; (forall x. Rep Container x -&gt; Container) -&gt; Generic Container
+forall x. Rep Container x -&gt; Container
+forall x. Container -&gt; Rep Container x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Container x -&gt; Container
+$cfrom :: forall x. Container -&gt; Rep Container x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'Container' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'creationTime', 'container_creationTime' - Unix timestamp.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'status', 'container_status' - The status of container creation or deletion. The status is one of the</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- creating the container, the status is @CREATING@. When the endpoint is</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- available, the status changes to @ACTIVE@.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'accessLoggingEnabled', 'container_accessLoggingEnabled' - The state of access logging on the container. This value is @false@ by</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- default, indicating that AWS Elemental MediaStore does not send access</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- logs to Amazon CloudWatch Logs. When you enable access logging on the</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- container, MediaStore changes this value to @true@, indicating that the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- service delivers access logs for objects stored in that container to</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'arn', 'container_arn' - The Amazon Resource Name (ARN) of the container. The ARN has the</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- arn:aws:\&lt;region&gt;:\&lt;account that owns this container&gt;:container\/\&lt;name</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- of container&gt;</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'name', 'container_name' - The name of the container.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'endpoint', 'container_endpoint' - The DNS endpoint of the container. Use the endpoint to identify the</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- specific container when sending requests to the data plane. The service</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- assigns this value when the container is created. Once the value has</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- been assigned, it does not change.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#newContainer"><span class="hs-identifier hs-type">newContainer</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span>
+</span><span id="line-102"></span><span id="newContainer"><span class="annot"><span class="annottext">newContainer :: Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#newContainer"><span class="hs-identifier hs-var hs-var">newContainer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><span class="annottext">Container' :: Maybe POSIX
+-&gt; Maybe ContainerStatus
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:creationTime:Container' :: Maybe POSIX
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3AcreationTime%3AContainer%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:Container' :: Maybe ContainerStatus
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Astatus%3AContainer%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerStatus
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>      </span><span class="annot"><span class="annottext">$sel:accessLoggingEnabled:Container' :: Maybe Bool
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3AaccessLoggingEnabled%3AContainer%27"><span class="hs-identifier hs-var">accessLoggingEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Container' :: Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aarn%3AContainer%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><span class="annottext">$sel:name:Container' :: Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aname%3AContainer%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>      </span><span class="annot"><span class="annottext">$sel:endpoint:Container' :: Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aendpoint%3AContainer%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- | Unix timestamp.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#container_creationTime"><span class="hs-identifier hs-type">container_creationTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span id="container_creationTime"><span class="annot"><span class="annottext">container_creationTime :: (Maybe UTCTime -&gt; f (Maybe UTCTime)) -&gt; Container -&gt; f Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#container_creationTime"><span class="hs-identifier hs-var hs-var">container_creationTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe POSIX)
+-&gt; (Container -&gt; Maybe POSIX -&gt; Container)
+-&gt; Lens Container Container (Maybe POSIX) (Maybe POSIX)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163241"><span class="annot"><span class="annottext">Maybe POSIX
+creationTime :: Maybe POSIX
+$sel:creationTime:Container' :: Container -&gt; Maybe POSIX
+</span><a href="#local-6989586621679163241"><span class="hs-identifier hs-var hs-var">creationTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163241"><span class="hs-identifier hs-var">creationTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163240"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163240"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163239"><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163239"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163240"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:creationTime:Container' :: Maybe POSIX
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3AcreationTime%3AContainer%27"><span class="hs-identifier hs-var">creationTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe POSIX
+</span><a href="#local-6989586621679163239"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe POSIX -&gt; f (Maybe POSIX)) -&gt; Container -&gt; f Container)
+-&gt; ((Maybe UTCTime -&gt; f (Maybe UTCTime))
+    -&gt; Maybe POSIX -&gt; f (Maybe POSIX))
+-&gt; (Maybe UTCTime -&gt; f (Maybe UTCTime))
+-&gt; Container
+-&gt; f Container
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+-&gt; Iso (Maybe POSIX) (Maybe POSIX) (Maybe UTCTime) (Maybe UTCTime)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso POSIX POSIX UTCTime UTCTime
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- | The status of container creation or deletion. The status is one of the</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- following: @CREATING@, @ACTIVE@, or @DELETING@. While the service is</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- creating the container, the status is @CREATING@. When the endpoint is</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- available, the status changes to @ACTIVE@.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#container_status"><span class="hs-identifier hs-type">container_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.ContainerStatus.html#ContainerStatus"><span class="hs-identifier hs-type">ContainerStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="container_status"><span class="annot"><span class="annottext">container_status :: (Maybe ContainerStatus -&gt; f (Maybe ContainerStatus))
+-&gt; Container -&gt; f Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#container_status"><span class="hs-identifier hs-var hs-var">container_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe ContainerStatus)
+-&gt; (Container -&gt; Maybe ContainerStatus -&gt; Container)
+-&gt; Lens
+     Container Container (Maybe ContainerStatus) (Maybe ContainerStatus)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163234"><span class="annot"><span class="annottext">Maybe ContainerStatus
+status :: Maybe ContainerStatus
+$sel:status:Container' :: Container -&gt; Maybe ContainerStatus
+</span><a href="#local-6989586621679163234"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerStatus
+</span><a href="#local-6989586621679163234"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163233"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163233"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163232"><span class="annot"><span class="annottext">Maybe ContainerStatus
+</span><a href="#local-6989586621679163232"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163233"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Container' :: Maybe ContainerStatus
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Astatus%3AContainer%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ContainerStatus
+</span><a href="#local-6989586621679163232"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The state of access logging on the container. This value is @false@ by</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- default, indicating that AWS Elemental MediaStore does not send access</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- logs to Amazon CloudWatch Logs. When you enable access logging on the</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- container, MediaStore changes this value to @true@, indicating that the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- service delivers access logs for objects stored in that container to</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- CloudWatch Logs.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#container_accessLoggingEnabled"><span class="hs-identifier hs-type">container_accessLoggingEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="container_accessLoggingEnabled"><span class="annot"><span class="annottext">container_accessLoggingEnabled :: (Maybe Bool -&gt; f (Maybe Bool)) -&gt; Container -&gt; f Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#container_accessLoggingEnabled"><span class="hs-identifier hs-var hs-var">container_accessLoggingEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe Bool)
+-&gt; (Container -&gt; Maybe Bool -&gt; Container)
+-&gt; Lens Container Container (Maybe Bool) (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163230"><span class="annot"><span class="annottext">Maybe Bool
+accessLoggingEnabled :: Maybe Bool
+$sel:accessLoggingEnabled:Container' :: Container -&gt; Maybe Bool
+</span><a href="#local-6989586621679163230"><span class="hs-identifier hs-var hs-var">accessLoggingEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679163230"><span class="hs-identifier hs-var">accessLoggingEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163229"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163229"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163228"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679163228"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163229"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:accessLoggingEnabled:Container' :: Maybe Bool
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3AaccessLoggingEnabled%3AContainer%27"><span class="hs-identifier hs-var">accessLoggingEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679163228"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the container. The ARN has the</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- following format:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- arn:aws:\&lt;region&gt;:\&lt;account that owns this container&gt;:container\/\&lt;name</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- of container&gt;</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- For example: arn:aws:mediastore:us-west-2:111122223333:container\/movies</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#container_arn"><span class="hs-identifier hs-type">container_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="container_arn"><span class="annot"><span class="annottext">container_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Container -&gt; f Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#container_arn"><span class="hs-identifier hs-var hs-var">container_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe Text)
+-&gt; (Container -&gt; Maybe Text -&gt; Container)
+-&gt; Lens Container Container (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163226"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Container' :: Container -&gt; Maybe Text
+</span><a href="#local-6989586621679163226"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163226"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163225"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163225"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163224"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163224"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163225"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Container' :: Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aarn%3AContainer%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163224"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | The name of the container.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#container_name"><span class="hs-identifier hs-type">container_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="container_name"><span class="annot"><span class="annottext">container_name :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Container -&gt; f Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#container_name"><span class="hs-identifier hs-var hs-var">container_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe Text)
+-&gt; (Container -&gt; Maybe Text -&gt; Container)
+-&gt; Lens Container Container (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163222"><span class="annot"><span class="annottext">Maybe Text
+name :: Maybe Text
+$sel:name:Container' :: Container -&gt; Maybe Text
+</span><a href="#local-6989586621679163222"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163222"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163221"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163221"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163220"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163220"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163221"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:Container' :: Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aname%3AContainer%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163220"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | The DNS endpoint of the container. Use the endpoint to identify the</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- specific container when sending requests to the data plane. The service</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- assigns this value when the container is created. Once the value has</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- been assigned, it does not change.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#container_endpoint"><span class="hs-identifier hs-type">container_endpoint</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-151"></span><span id="container_endpoint"><span class="annot"><span class="annottext">container_endpoint :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Container -&gt; f Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#container_endpoint"><span class="hs-identifier hs-var hs-var">container_endpoint</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Container -&gt; Maybe Text)
+-&gt; (Container -&gt; Maybe Text -&gt; Container)
+-&gt; Lens Container Container (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679163218"><span class="annot"><span class="annottext">Maybe Text
+endpoint :: Maybe Text
+$sel:endpoint:Container' :: Container -&gt; Maybe Text
+</span><a href="#local-6989586621679163218"><span class="hs-identifier hs-var hs-var">endpoint</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163218"><span class="hs-identifier hs-var">endpoint</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679163217"><span class="annot"><span class="annottext">s :: Container
+</span><a href="#local-6989586621679163217"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-type">Container'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679163216"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163216"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Container
+</span><a href="#local-6989586621679163217"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:endpoint:Container' :: Maybe Text
+</span><a href="Amazonka.MediaStore.Types.Container.html#%24sel%3Aendpoint%3AContainer%27"><span class="hs-identifier hs-var">endpoint</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679163216"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163213"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-154"></span><span>  </span><span id="local-6989586621679163211"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Container
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Container) -&gt; Value -&gt; Parser Container
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-156"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Container&quot;</span></span><span>
+</span><span id="line-157"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679163208"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163208"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-158"></span><span>          </span><span class="annot"><span class="annottext">Maybe POSIX
+-&gt; Maybe ContainerStatus
+-&gt; Maybe Bool
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Container
+</span><a href="Amazonka.MediaStore.Types.Container.html#Container%27"><span class="hs-identifier hs-var">Container'</span></a></span><span>
+</span><span id="line-159"></span><span>            </span><span class="annot"><span class="annottext">(Maybe POSIX
+ -&gt; Maybe ContainerStatus
+ -&gt; Maybe Bool
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Container)
+-&gt; Parser (Maybe POSIX)
+-&gt; Parser
+     (Maybe ContainerStatus
+      -&gt; Maybe Bool
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Container)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe POSIX)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CreationTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-160"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ContainerStatus
+   -&gt; Maybe Bool
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Container)
+-&gt; Parser (Maybe ContainerStatus)
+-&gt; Parser
+     (Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Container)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe ContainerStatus)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool -&gt; Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Container)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Container)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AccessLoggingEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Maybe Text -&gt; Container)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe Text -&gt; Maybe Text -&gt; Container)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ARN&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Text -&gt; Container)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Text -&gt; Container)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-164"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Container)
+-&gt; Parser (Maybe Text) -&gt; Parser Container
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679163208"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Endpoint&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163202"><span id="local-6989586621679163204"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span></span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679163199"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.MediaStore.Types.Container.html#Container"><span class="hs-identifier hs-type">Container</span></a></span></span><span>
+</span><span id="line-170"></span></pre></body></html>

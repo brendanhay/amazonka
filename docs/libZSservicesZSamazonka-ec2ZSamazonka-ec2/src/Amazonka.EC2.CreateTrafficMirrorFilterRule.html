@@ -1,0 +1,1064 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.CreateTrafficMirrorFilterRule</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Creates a Traffic Mirror filter rule.</span><span>
+</span><span id="line-24"></span><span class="hs-comment">--</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- A Traffic Mirror rule defines the Traffic Mirror source traffic to</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- mirror.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- You need the Traffic Mirror filter ID when you create the rule.</span><span>
+</span><span id="line-29"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.CreateTrafficMirrorFilterRule</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#newCreateTrafficMirrorFilterRule"><span class="hs-identifier">newCreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_clientToken"><span class="hs-identifier">createTrafficMirrorFilterRule_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_protocol"><span class="hs-identifier">createTrafficMirrorFilterRule_protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_destinationPortRange"><span class="hs-identifier">createTrafficMirrorFilterRule_destinationPortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_sourcePortRange"><span class="hs-identifier">createTrafficMirrorFilterRule_sourcePortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_description"><span class="hs-identifier">createTrafficMirrorFilterRule_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_dryRun"><span class="hs-identifier">createTrafficMirrorFilterRule_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_trafficMirrorFilterId"><span class="hs-identifier">createTrafficMirrorFilterRule_trafficMirrorFilterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_trafficDirection"><span class="hs-identifier">createTrafficMirrorFilterRule_trafficDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_ruleNumber"><span class="hs-identifier">createTrafficMirrorFilterRule_ruleNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_ruleAction"><span class="hs-identifier">createTrafficMirrorFilterRule_ruleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_destinationCidrBlock"><span class="hs-identifier">createTrafficMirrorFilterRule_destinationCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_sourceCidrBlock"><span class="hs-identifier">createTrafficMirrorFilterRule_sourceCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier">CreateTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#newCreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier">newCreateTrafficMirrorFilterRuleResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="hs-identifier">createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_clientToken"><span class="hs-identifier">createTrafficMirrorFilterRuleResponse_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_httpStatus"><span class="hs-identifier">createTrafficMirrorFilterRuleResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newCreateTrafficMirrorFilterRule' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621681289231"><span id="local-6989586621681289232"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrafficMirrorFilterRule"><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-var">CreateTrafficMirrorFilterRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrafficMirrorFilterRule%27"><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">CreateTrafficMirrorFilterRule'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AclientToken%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | The protocol, for example UDP, to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- For information about the protocol value, see</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- &lt;https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers&gt;</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- on the Internet Assigned Numbers Authority (IANA) website.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3Aprotocol%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Maybe Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3Aprotocol%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- | The destination port range.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3AdestinationPortRange%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdestinationPortRange%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">destinationPortRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | The source port range.</span><span>
+</span><span id="line-81"></span><span>    </span><span id="%24sel%3AsourcePortRange%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AsourcePortRange%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">sourcePortRange</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- | The description of the Traffic Mirror rule.</span><span>
+</span><span id="line-83"></span><span>    </span><span id="%24sel%3Adescription%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3Adescription%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-88"></span><span>    </span><span id="%24sel%3AdryRun%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdryRun%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- | The ID of the filter that this rule is associated with.</span><span>
+</span><span id="line-90"></span><span>    </span><span id="%24sel%3AtrafficMirrorFilterId%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterId%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- | The type of traffic.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3AtrafficDirection%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; TrafficDirection
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficDirection%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">trafficDirection</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficDirection.html#TrafficDirection"><span class="hs-identifier hs-type">TrafficDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | The number of the Traffic Mirror rule. This number must be unique for</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- each Traffic Mirror rule in a given direction. The rules are processed</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- in ascending order by rule number.</span><span>
+</span><span id="line-96"></span><span>    </span><span id="%24sel%3AruleNumber%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AruleNumber%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- | The action to take on the filtered traffic.</span><span>
+</span><span id="line-98"></span><span>    </span><span id="%24sel%3AruleAction%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; TrafficMirrorRuleAction
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AruleAction%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction"><span class="hs-identifier hs-type">TrafficMirrorRuleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- | The destination CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-100"></span><span>    </span><span id="%24sel%3AdestinationCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdestinationCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>    </span><span class="hs-comment">-- | The source CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AsourceCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule -&gt; Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AsourceCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var hs-var">sourceCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681289214"><span id="local-6989586621681289216"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+-&gt; CreateTrafficMirrorFilterRule -&gt; Bool
+(CreateTrafficMirrorFilterRule
+ -&gt; CreateTrafficMirrorFilterRule -&gt; Bool)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; CreateTrafficMirrorFilterRule -&gt; Bool)
+-&gt; Eq CreateTrafficMirrorFilterRule
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTrafficMirrorFilterRule
+-&gt; CreateTrafficMirrorFilterRule -&gt; Bool
+$c/= :: CreateTrafficMirrorFilterRule
+-&gt; CreateTrafficMirrorFilterRule -&gt; Bool
+== :: CreateTrafficMirrorFilterRule
+-&gt; CreateTrafficMirrorFilterRule -&gt; Bool
+$c== :: CreateTrafficMirrorFilterRule
+-&gt; CreateTrafficMirrorFilterRule -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681289205"><span id="local-6989586621681289207"><span id="local-6989586621681289209"><span id="local-6989586621681289211"><span class="annot"><span class="annottext">ReadPrec [CreateTrafficMirrorFilterRule]
+ReadPrec CreateTrafficMirrorFilterRule
+Int -&gt; ReadS CreateTrafficMirrorFilterRule
+ReadS [CreateTrafficMirrorFilterRule]
+(Int -&gt; ReadS CreateTrafficMirrorFilterRule)
+-&gt; ReadS [CreateTrafficMirrorFilterRule]
+-&gt; ReadPrec CreateTrafficMirrorFilterRule
+-&gt; ReadPrec [CreateTrafficMirrorFilterRule]
+-&gt; Read CreateTrafficMirrorFilterRule
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTrafficMirrorFilterRule]
+$creadListPrec :: ReadPrec [CreateTrafficMirrorFilterRule]
+readPrec :: ReadPrec CreateTrafficMirrorFilterRule
+$creadPrec :: ReadPrec CreateTrafficMirrorFilterRule
+readList :: ReadS [CreateTrafficMirrorFilterRule]
+$creadList :: ReadS [CreateTrafficMirrorFilterRule]
+readsPrec :: Int -&gt; ReadS CreateTrafficMirrorFilterRule
+$creadsPrec :: Int -&gt; ReadS CreateTrafficMirrorFilterRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681289198"><span id="local-6989586621681289200"><span id="local-6989586621681289202"><span class="annot"><span class="annottext">Int -&gt; CreateTrafficMirrorFilterRule -&gt; ShowS
+[CreateTrafficMirrorFilterRule] -&gt; ShowS
+CreateTrafficMirrorFilterRule -&gt; String
+(Int -&gt; CreateTrafficMirrorFilterRule -&gt; ShowS)
+-&gt; (CreateTrafficMirrorFilterRule -&gt; String)
+-&gt; ([CreateTrafficMirrorFilterRule] -&gt; ShowS)
+-&gt; Show CreateTrafficMirrorFilterRule
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTrafficMirrorFilterRule] -&gt; ShowS
+$cshowList :: [CreateTrafficMirrorFilterRule] -&gt; ShowS
+show :: CreateTrafficMirrorFilterRule -&gt; String
+$cshow :: CreateTrafficMirrorFilterRule -&gt; String
+showsPrec :: Int -&gt; CreateTrafficMirrorFilterRule -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTrafficMirrorFilterRule -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTrafficMirrorFilterRule
+ -&gt; Rep CreateTrafficMirrorFilterRule x)
+-&gt; (forall x.
+    Rep CreateTrafficMirrorFilterRule x
+    -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Generic CreateTrafficMirrorFilterRule
+forall x.
+Rep CreateTrafficMirrorFilterRule x
+-&gt; CreateTrafficMirrorFilterRule
+forall x.
+CreateTrafficMirrorFilterRule
+-&gt; Rep CreateTrafficMirrorFilterRule x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTrafficMirrorFilterRule x
+-&gt; CreateTrafficMirrorFilterRule
+$cfrom :: forall x.
+CreateTrafficMirrorFilterRule
+-&gt; Rep CreateTrafficMirrorFilterRule x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Create a value of 'CreateTrafficMirrorFilterRule' with all optional fields omitted.</span><span>
+</span><span id="line-108"></span><span class="hs-comment">--</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-110"></span><span class="hs-comment">--</span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- 'clientToken', 'createTrafficMirrorFilterRule_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-117"></span><span class="hs-comment">--</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- 'protocol', 'createTrafficMirrorFilterRule_protocol' - The protocol, for example UDP, to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- For information about the protocol value, see</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- &lt;https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers&gt;</span><span>
+</span><span id="line-122"></span><span class="hs-comment">-- on the Internet Assigned Numbers Authority (IANA) website.</span><span>
+</span><span id="line-123"></span><span class="hs-comment">--</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- 'destinationPortRange', 'createTrafficMirrorFilterRule_destinationPortRange' - The destination port range.</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'sourcePortRange', 'createTrafficMirrorFilterRule_sourcePortRange' - The source port range.</span><span>
+</span><span id="line-127"></span><span class="hs-comment">--</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- 'description', 'createTrafficMirrorFilterRule_description' - The description of the Traffic Mirror rule.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'dryRun', 'createTrafficMirrorFilterRule_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'trafficMirrorFilterId', 'createTrafficMirrorFilterRule_trafficMirrorFilterId' - The ID of the filter that this rule is associated with.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- 'trafficDirection', 'createTrafficMirrorFilterRule_trafficDirection' - The type of traffic.</span><span>
+</span><span id="line-138"></span><span class="hs-comment">--</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- 'ruleNumber', 'createTrafficMirrorFilterRule_ruleNumber' - The number of the Traffic Mirror rule. This number must be unique for</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- each Traffic Mirror rule in a given direction. The rules are processed</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- in ascending order by rule number.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- 'ruleAction', 'createTrafficMirrorFilterRule_ruleAction' - The action to take on the filtered traffic.</span><span>
+</span><span id="line-144"></span><span class="hs-comment">--</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- 'destinationCidrBlock', 'createTrafficMirrorFilterRule_destinationCidrBlock' - The destination CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- 'sourceCidrBlock', 'createTrafficMirrorFilterRule_sourceCidrBlock' - The source CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-148"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#newCreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">newCreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-149"></span><span>  </span><span class="hs-comment">-- | 'trafficMirrorFilterId'</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-comment">-- | 'trafficDirection'</span><span>
+</span><span id="line-152"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficDirection.html#TrafficDirection"><span class="hs-identifier hs-type">TrafficDirection</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-153"></span><span>  </span><span class="hs-comment">-- | 'ruleNumber'</span><span>
+</span><span id="line-154"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-comment">-- | 'ruleAction'</span><span>
+</span><span id="line-156"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction"><span class="hs-identifier hs-type">TrafficMirrorRuleAction</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-comment">-- | 'destinationCidrBlock'</span><span>
+</span><span id="line-158"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-comment">-- | 'sourceCidrBlock'</span><span>
+</span><span id="line-160"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-161"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span>
+</span><span id="line-162"></span><span id="newCreateTrafficMirrorFilterRule"><span class="annot"><span class="annottext">newCreateTrafficMirrorFilterRule :: Text
+-&gt; TrafficDirection
+-&gt; Int
+-&gt; TrafficMirrorRuleAction
+-&gt; Text
+-&gt; Text
+-&gt; CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#newCreateTrafficMirrorFilterRule"><span class="hs-identifier hs-var hs-var">newCreateTrafficMirrorFilterRule</span></a></span></span><span>
+</span><span id="line-163"></span><span>  </span><span id="local-6989586621681289193"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289193"><span class="hs-identifier hs-var">pTrafficMirrorFilterId_</span></a></span></span><span>
+</span><span id="line-164"></span><span>  </span><span id="local-6989586621681289192"><span class="annot"><span class="annottext">TrafficDirection
+</span><a href="#local-6989586621681289192"><span class="hs-identifier hs-var">pTrafficDirection_</span></a></span></span><span>
+</span><span id="line-165"></span><span>  </span><span id="local-6989586621681289191"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289191"><span class="hs-identifier hs-var">pRuleNumber_</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621681289190"><span class="annot"><span class="annottext">TrafficMirrorRuleAction
+</span><a href="#local-6989586621681289190"><span class="hs-identifier hs-var">pRuleAction_</span></a></span></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621681289189"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289189"><span class="hs-identifier hs-var">pDestinationCidrBlock_</span></a></span></span><span>
+</span><span id="line-168"></span><span>  </span><span id="local-6989586621681289188"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289188"><span class="hs-identifier hs-var">pSourceCidrBlock_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule' :: Maybe Text
+-&gt; Maybe Int
+-&gt; Maybe TrafficMirrorPortRangeRequest
+-&gt; Maybe TrafficMirrorPortRangeRequest
+-&gt; Maybe Text
+-&gt; Maybe Bool
+-&gt; Text
+-&gt; TrafficDirection
+-&gt; Int
+-&gt; TrafficMirrorRuleAction
+-&gt; Text
+-&gt; Text
+-&gt; CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span>
+</span><span id="line-170"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:CreateTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AclientToken%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-171"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>        </span><span class="annot"><span class="annottext">$sel:protocol:CreateTrafficMirrorFilterRule' :: Maybe Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3Aprotocol%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationPortRange:CreateTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdestinationPortRange%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourcePortRange:CreateTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AsourcePortRange%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3Adescription%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-176"></span><span>        </span><span class="annot"><span class="annottext">$sel:dryRun:CreateTrafficMirrorFilterRule' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdryRun%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-177"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterId:CreateTrafficMirrorFilterRule' :: Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterId%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289193"><span class="hs-identifier hs-var">pTrafficMirrorFilterId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">$sel:trafficDirection:CreateTrafficMirrorFilterRule' :: TrafficDirection
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficDirection%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficDirection
+</span><a href="#local-6989586621681289192"><span class="hs-identifier hs-var">pTrafficDirection_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleNumber:CreateTrafficMirrorFilterRule' :: Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AruleNumber%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289191"><span class="hs-identifier hs-var">pRuleNumber_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>        </span><span class="annot"><span class="annottext">$sel:ruleAction:CreateTrafficMirrorFilterRule' :: TrafficMirrorRuleAction
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AruleAction%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficMirrorRuleAction
+</span><a href="#local-6989586621681289190"><span class="hs-identifier hs-var">pRuleAction_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>        </span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:CreateTrafficMirrorFilterRule' :: Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdestinationCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289189"><span class="hs-identifier hs-var">pDestinationCidrBlock_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-184"></span><span>        </span><span class="annot"><span class="annottext">$sel:sourceCidrBlock:CreateTrafficMirrorFilterRule' :: Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AsourceCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289188"><span class="hs-identifier hs-var">pSourceCidrBlock_</span></a></span><span>
+</span><span id="line-185"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_clientToken"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="createTrafficMirrorFilterRule_clientToken"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_clientToken"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Maybe Text)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Maybe Text -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289185"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621681289185"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289185"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289184"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289184"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289183"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289183"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289184"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AclientToken%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289183"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The protocol, for example UDP, to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- For information about the protocol value, see</span><span>
+</span><span id="line-196"></span><span class="hs-comment">-- &lt;https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml Protocol Numbers&gt;</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- on the Internet Assigned Numbers Authority (IANA) website.</span><span>
+</span><span id="line-198"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_protocol"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_protocol</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-199"></span><span id="createTrafficMirrorFilterRule_protocol"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_protocol :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_protocol"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_protocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Maybe Int)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Maybe Int -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289182"><span class="annot"><span class="annottext">Maybe Int
+protocol :: Maybe Int
+$sel:protocol:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Int
+</span><a href="#local-6989586621681289182"><span class="hs-identifier hs-var hs-var">protocol</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681289182"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289181"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289180"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681289180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:protocol:CreateTrafficMirrorFilterRule' :: Maybe Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3Aprotocol%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">protocol</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681289180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- | The destination port range.</span><span>
+</span><span id="line-202"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_destinationPortRange"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_destinationPortRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-203"></span><span id="createTrafficMirrorFilterRule_destinationPortRange"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_destinationPortRange :: (Maybe TrafficMirrorPortRangeRequest
+ -&gt; f (Maybe TrafficMirrorPortRangeRequest))
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_destinationPortRange"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_destinationPortRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule
+ -&gt; Maybe TrafficMirrorPortRangeRequest)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Maybe TrafficMirrorPortRangeRequest
+    -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     (Maybe TrafficMirrorPortRangeRequest)
+     (Maybe TrafficMirrorPortRangeRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289179"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+destinationPortRange :: Maybe TrafficMirrorPortRangeRequest
+$sel:destinationPortRange:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289179"><span class="hs-identifier hs-var hs-var">destinationPortRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289179"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289178"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289178"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289177"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289177"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289178"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationPortRange:CreateTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdestinationPortRange%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289177"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- | The source port range.</span><span>
+</span><span id="line-206"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_sourcePortRange"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_sourcePortRange</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorPortRangeRequest.html#TrafficMirrorPortRangeRequest"><span class="hs-identifier hs-type">TrafficMirrorPortRangeRequest</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-207"></span><span id="createTrafficMirrorFilterRule_sourcePortRange"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_sourcePortRange :: (Maybe TrafficMirrorPortRangeRequest
+ -&gt; f (Maybe TrafficMirrorPortRangeRequest))
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_sourcePortRange"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_sourcePortRange</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule
+ -&gt; Maybe TrafficMirrorPortRangeRequest)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Maybe TrafficMirrorPortRangeRequest
+    -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     (Maybe TrafficMirrorPortRangeRequest)
+     (Maybe TrafficMirrorPortRangeRequest)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289176"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+sourcePortRange :: Maybe TrafficMirrorPortRangeRequest
+$sel:sourcePortRange:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289176"><span class="hs-identifier hs-var hs-var">sourcePortRange</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289176"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289175"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289175"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289174"><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289174"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289175"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourcePortRange:CreateTrafficMirrorFilterRule' :: Maybe TrafficMirrorPortRangeRequest
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AsourcePortRange%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289174"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- | The description of the Traffic Mirror rule.</span><span>
+</span><span id="line-210"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_description"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span id="createTrafficMirrorFilterRule_description"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_description"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Maybe Text)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Maybe Text -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289173"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621681289173"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289173"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289172"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289172"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289171"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289171"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289172"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateTrafficMirrorFilterRule' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3Adescription%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289171"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-217"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_dryRun"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span id="createTrafficMirrorFilterRule_dryRun"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_dryRun"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Maybe Bool)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Maybe Bool -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289170"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Bool
+</span><a href="#local-6989586621681289170"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681289170"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289169"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289169"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289168"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681289168"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289169"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:CreateTrafficMirrorFilterRule' :: Maybe Bool
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdryRun%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681289168"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- | The ID of the filter that this rule is associated with.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_trafficMirrorFilterId"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_trafficMirrorFilterId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-222"></span><span id="createTrafficMirrorFilterRule_trafficMirrorFilterId"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_trafficMirrorFilterId :: (Text -&gt; f Text)
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_trafficMirrorFilterId"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_trafficMirrorFilterId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Text)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Text -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289167"><span class="annot"><span class="annottext">Text
+trafficMirrorFilterId :: Text
+$sel:trafficMirrorFilterId:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Text
+</span><a href="#local-6989586621681289167"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289167"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289166"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289166"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289165"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289165"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289166"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterId:CreateTrafficMirrorFilterRule' :: Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterId%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289165"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The type of traffic.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_trafficDirection"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_trafficDirection</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficDirection.html#TrafficDirection"><span class="hs-identifier hs-type">TrafficDirection</span></a></span><span>
+</span><span id="line-226"></span><span id="createTrafficMirrorFilterRule_trafficDirection"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_trafficDirection :: (TrafficDirection -&gt; f TrafficDirection)
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_trafficDirection"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_trafficDirection</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; TrafficDirection)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; TrafficDirection -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     TrafficDirection
+     TrafficDirection
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289164"><span class="annot"><span class="annottext">TrafficDirection
+trafficDirection :: TrafficDirection
+$sel:trafficDirection:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; TrafficDirection
+</span><a href="#local-6989586621681289164"><span class="hs-identifier hs-var hs-var">trafficDirection</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficDirection
+</span><a href="#local-6989586621681289164"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289163"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289163"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289162"><span class="annot"><span class="annottext">TrafficDirection
+</span><a href="#local-6989586621681289162"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289163"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficDirection:CreateTrafficMirrorFilterRule' :: TrafficDirection
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficDirection%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficDirection
+</span><a href="#local-6989586621681289162"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | The number of the Traffic Mirror rule. This number must be unique for</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- each Traffic Mirror rule in a given direction. The rules are processed</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- in ascending order by rule number.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_ruleNumber"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_ruleNumber</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-232"></span><span id="createTrafficMirrorFilterRule_ruleNumber"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_ruleNumber :: (Int -&gt; f Int)
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_ruleNumber"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_ruleNumber</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Int)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Int -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule CreateTrafficMirrorFilterRule Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289161"><span class="annot"><span class="annottext">Int
+ruleNumber :: Int
+$sel:ruleNumber:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Int
+</span><a href="#local-6989586621681289161"><span class="hs-identifier hs-var hs-var">ruleNumber</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289161"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289160"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289160"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289159"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289160"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleNumber:CreateTrafficMirrorFilterRule' :: Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AruleNumber%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289159"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | The action to take on the filtered traffic.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_ruleAction"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_ruleAction</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorRuleAction.html#TrafficMirrorRuleAction"><span class="hs-identifier hs-type">TrafficMirrorRuleAction</span></a></span><span>
+</span><span id="line-236"></span><span id="createTrafficMirrorFilterRule_ruleAction"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_ruleAction :: (TrafficMirrorRuleAction -&gt; f TrafficMirrorRuleAction)
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_ruleAction"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_ruleAction</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; TrafficMirrorRuleAction)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; TrafficMirrorRuleAction -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     TrafficMirrorRuleAction
+     TrafficMirrorRuleAction
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289158"><span class="annot"><span class="annottext">TrafficMirrorRuleAction
+ruleAction :: TrafficMirrorRuleAction
+$sel:ruleAction:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; TrafficMirrorRuleAction
+</span><a href="#local-6989586621681289158"><span class="hs-identifier hs-var hs-var">ruleAction</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">TrafficMirrorRuleAction
+</span><a href="#local-6989586621681289158"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289157"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289157"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289156"><span class="annot"><span class="annottext">TrafficMirrorRuleAction
+</span><a href="#local-6989586621681289156"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289157"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleAction:CreateTrafficMirrorFilterRule' :: TrafficMirrorRuleAction
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AruleAction%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">ruleAction</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">TrafficMirrorRuleAction
+</span><a href="#local-6989586621681289156"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The destination CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-239"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_destinationCidrBlock"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-240"></span><span id="createTrafficMirrorFilterRule_destinationCidrBlock"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_destinationCidrBlock :: (Text -&gt; f Text)
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_destinationCidrBlock"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_destinationCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Text)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Text -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289155"><span class="annot"><span class="annottext">Text
+destinationCidrBlock :: Text
+$sel:destinationCidrBlock:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Text
+</span><a href="#local-6989586621681289155"><span class="hs-identifier hs-var hs-var">destinationCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289155"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289154"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289154"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289153"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289153"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289154"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:destinationCidrBlock:CreateTrafficMirrorFilterRule' :: Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AdestinationCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289153"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-241"></span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- | The source CIDR block to assign to the Traffic Mirror rule.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_sourceCidrBlock"><span class="hs-identifier hs-type">createTrafficMirrorFilterRule_sourceCidrBlock</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-244"></span><span id="createTrafficMirrorFilterRule_sourceCidrBlock"><span class="annot"><span class="annottext">createTrafficMirrorFilterRule_sourceCidrBlock :: (Text -&gt; f Text)
+-&gt; CreateTrafficMirrorFilterRule -&gt; f CreateTrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRule_sourceCidrBlock"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRule_sourceCidrBlock</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRule -&gt; Text)
+-&gt; (CreateTrafficMirrorFilterRule
+    -&gt; Text -&gt; CreateTrafficMirrorFilterRule)
+-&gt; Lens
+     CreateTrafficMirrorFilterRule
+     CreateTrafficMirrorFilterRule
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289152"><span class="annot"><span class="annottext">Text
+sourceCidrBlock :: Text
+$sel:sourceCidrBlock:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Text
+</span><a href="#local-6989586621681289152"><span class="hs-identifier hs-var hs-var">sourceCidrBlock</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289152"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289151"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289151"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289150"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289150"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRule
+</span><a href="#local-6989586621681289151"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sourceCidrBlock:CreateTrafficMirrorFilterRule' :: Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AsourceCidrBlock%3ACreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289150"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-247"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span>
+</span><span id="line-249"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-250"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-251"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-252"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span>
+</span><span id="line-253"></span><span>  </span><span id="local-6989586621681289146"><span class="annot"><span class="annottext">request :: CreateTrafficMirrorFilterRule
+-&gt; Request CreateTrafficMirrorFilterRule
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateTrafficMirrorFilterRule
+-&gt; Request CreateTrafficMirrorFilterRule
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-254"></span><span>  </span><span id="local-6989586621681289142"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateTrafficMirrorFilterRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTrafficMirrorFilterRule)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse CreateTrafficMirrorFilterRule))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateTrafficMirrorFilterRule
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateTrafficMirrorFilterRule)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-256"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681289139"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289139"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681289138"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681289138"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681289137"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681289137"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-257"></span><span>          </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+-&gt; Maybe Text -&gt; Int -&gt; CreateTrafficMirrorFilterRuleResponse
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span>
+</span><span id="line-258"></span><span>            </span><span class="annot"><span class="annottext">(Maybe TrafficMirrorFilterRule
+ -&gt; Maybe Text -&gt; Int -&gt; CreateTrafficMirrorFilterRuleResponse)
+-&gt; Either String (Maybe TrafficMirrorFilterRule)
+-&gt; Either
+     String (Maybe Text -&gt; Int -&gt; CreateTrafficMirrorFilterRuleResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681289137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe TrafficMirrorFilterRule)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;trafficMirrorFilterRule&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-259"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (Maybe Text -&gt; Int -&gt; CreateTrafficMirrorFilterRuleResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateTrafficMirrorFilterRuleResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681289137"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;clientToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-260"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateTrafficMirrorFilterRuleResponse)
+-&gt; Either String Int
+-&gt; Either String CreateTrafficMirrorFilterRuleResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289139"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-261"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-264"></span><span>  </span><span id="local-6989586621681289129"><span id="local-6989586621681289131"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span></span></span><span>
+</span><span id="line-266"></span><span>
+</span><span id="line-267"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621681289126"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span></span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-270"></span><span>  </span><span id="local-6989586621681289122"><span class="annot"><span class="annottext">toHeaders :: CreateTrafficMirrorFilterRule -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateTrafficMirrorFilterRule -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-273"></span><span>  </span><span id="local-6989586621681289117"><span class="annot"><span class="annottext">toPath :: CreateTrafficMirrorFilterRule -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateTrafficMirrorFilterRule -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-274"></span><span>
+</span><span id="line-275"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-276"></span><span>  </span><span id="local-6989586621681289113"><span class="annot"><span class="annottext">toQuery :: CreateTrafficMirrorFilterRule -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRule%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRule'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289100"><span id="local-6989586621681289101"><span id="local-6989586621681289102"><span id="local-6989586621681289103"><span id="local-6989586621681289104"><span id="local-6989586621681289105"><span id="local-6989586621681289106"><span id="local-6989586621681289107"><span id="local-6989586621681289108"><span id="local-6989586621681289109"><span id="local-6989586621681289110"><span id="local-6989586621681289111"><span class="annot"><span class="annottext">Int
+Maybe Bool
+Maybe Int
+Maybe Text
+Maybe TrafficMirrorPortRangeRequest
+Text
+TrafficDirection
+TrafficMirrorRuleAction
+sourceCidrBlock :: Text
+destinationCidrBlock :: Text
+ruleAction :: TrafficMirrorRuleAction
+ruleNumber :: Int
+trafficDirection :: TrafficDirection
+trafficMirrorFilterId :: Text
+dryRun :: Maybe Bool
+description :: Maybe Text
+sourcePortRange :: Maybe TrafficMirrorPortRangeRequest
+destinationPortRange :: Maybe TrafficMirrorPortRangeRequest
+protocol :: Maybe Int
+clientToken :: Maybe Text
+$sel:sourceCidrBlock:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Text
+$sel:destinationCidrBlock:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Text
+$sel:ruleAction:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; TrafficMirrorRuleAction
+$sel:ruleNumber:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Int
+$sel:trafficDirection:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; TrafficDirection
+$sel:trafficMirrorFilterId:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Text
+$sel:dryRun:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Bool
+$sel:description:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Text
+$sel:sourcePortRange:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+$sel:destinationPortRange:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule
+-&gt; Maybe TrafficMirrorPortRangeRequest
+$sel:protocol:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Int
+$sel:clientToken:CreateTrafficMirrorFilterRule' :: CreateTrafficMirrorFilterRule -&gt; Maybe Text
+</span><a href="#local-6989586621681289100"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-278"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-279"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;CreateTrafficMirrorFilterRule&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-280"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-281"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-283"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ClientToken&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289111"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Protocol&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621681289110"><span class="hs-identifier hs-var">protocol</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationPortRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TrafficMirrorPortRangeRequest -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289109"><span class="hs-identifier hs-var">destinationPortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourcePortRange&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe TrafficMirrorPortRangeRequest -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorPortRangeRequest
+</span><a href="#local-6989586621681289108"><span class="hs-identifier hs-var">sourcePortRange</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289107"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-289"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681289106"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-290"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrafficMirrorFilterId&quot;</span></span><span>
+</span><span id="line-291"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289105"><span class="hs-identifier hs-var">trafficMirrorFilterId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;TrafficDirection&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TrafficDirection -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">TrafficDirection
+</span><a href="#local-6989586621681289104"><span class="hs-identifier hs-var">trafficDirection</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleNumber&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Int -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289103"><span class="hs-identifier hs-var">ruleNumber</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleAction&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; TrafficMirrorRuleAction -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">TrafficMirrorRuleAction
+</span><a href="#local-6989586621681289102"><span class="hs-identifier hs-var">ruleAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DestinationCidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289101"><span class="hs-identifier hs-var">destinationCidrBlock</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;SourceCidrBlock&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621681289100"><span class="hs-identifier hs-var">sourceCidrBlock</span></a></span><span>
+</span><span id="line-297"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- | /See:/ 'newCreateTrafficMirrorFilterRuleResponse' smart constructor.</span><span>
+</span><span id="line-300"></span><span id="local-6989586621681289097"><span id="local-6989586621681289098"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateTrafficMirrorFilterRuleResponse"><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-var">CreateTrafficMirrorFilterRuleResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateTrafficMirrorFilterRuleResponse%27"><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">CreateTrafficMirrorFilterRuleResponse'</span></a></span></span><span>
+</span><span id="line-301"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Traffic Mirror rule.</span><span>
+</span><span id="line-302"></span><span>    </span><span id="%24sel%3AtrafficMirrorFilterRule%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse
+-&gt; Maybe TrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRule%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterRule</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorFilterRule.html#TrafficMirrorFilterRule"><span class="hs-identifier hs-type">TrafficMirrorFilterRule</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-304"></span><span>    </span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-305"></span><span>    </span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-306"></span><span>    </span><span id="%24sel%3AclientToken%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse -&gt; Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AclientToken%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-307"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-308"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse -&gt; Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AhttpStatus%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-309"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-310"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681289090"><span id="local-6989586621681289092"><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse
+-&gt; CreateTrafficMirrorFilterRuleResponse -&gt; Bool
+(CreateTrafficMirrorFilterRuleResponse
+ -&gt; CreateTrafficMirrorFilterRuleResponse -&gt; Bool)
+-&gt; (CreateTrafficMirrorFilterRuleResponse
+    -&gt; CreateTrafficMirrorFilterRuleResponse -&gt; Bool)
+-&gt; Eq CreateTrafficMirrorFilterRuleResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateTrafficMirrorFilterRuleResponse
+-&gt; CreateTrafficMirrorFilterRuleResponse -&gt; Bool
+$c/= :: CreateTrafficMirrorFilterRuleResponse
+-&gt; CreateTrafficMirrorFilterRuleResponse -&gt; Bool
+== :: CreateTrafficMirrorFilterRuleResponse
+-&gt; CreateTrafficMirrorFilterRuleResponse -&gt; Bool
+$c== :: CreateTrafficMirrorFilterRuleResponse
+-&gt; CreateTrafficMirrorFilterRuleResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681289082"><span id="local-6989586621681289084"><span id="local-6989586621681289086"><span id="local-6989586621681289088"><span class="annot"><span class="annottext">ReadPrec [CreateTrafficMirrorFilterRuleResponse]
+ReadPrec CreateTrafficMirrorFilterRuleResponse
+Int -&gt; ReadS CreateTrafficMirrorFilterRuleResponse
+ReadS [CreateTrafficMirrorFilterRuleResponse]
+(Int -&gt; ReadS CreateTrafficMirrorFilterRuleResponse)
+-&gt; ReadS [CreateTrafficMirrorFilterRuleResponse]
+-&gt; ReadPrec CreateTrafficMirrorFilterRuleResponse
+-&gt; ReadPrec [CreateTrafficMirrorFilterRuleResponse]
+-&gt; Read CreateTrafficMirrorFilterRuleResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateTrafficMirrorFilterRuleResponse]
+$creadListPrec :: ReadPrec [CreateTrafficMirrorFilterRuleResponse]
+readPrec :: ReadPrec CreateTrafficMirrorFilterRuleResponse
+$creadPrec :: ReadPrec CreateTrafficMirrorFilterRuleResponse
+readList :: ReadS [CreateTrafficMirrorFilterRuleResponse]
+$creadList :: ReadS [CreateTrafficMirrorFilterRuleResponse]
+readsPrec :: Int -&gt; ReadS CreateTrafficMirrorFilterRuleResponse
+$creadsPrec :: Int -&gt; ReadS CreateTrafficMirrorFilterRuleResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681289076"><span id="local-6989586621681289078"><span id="local-6989586621681289080"><span class="annot"><span class="annottext">Int -&gt; CreateTrafficMirrorFilterRuleResponse -&gt; ShowS
+[CreateTrafficMirrorFilterRuleResponse] -&gt; ShowS
+CreateTrafficMirrorFilterRuleResponse -&gt; String
+(Int -&gt; CreateTrafficMirrorFilterRuleResponse -&gt; ShowS)
+-&gt; (CreateTrafficMirrorFilterRuleResponse -&gt; String)
+-&gt; ([CreateTrafficMirrorFilterRuleResponse] -&gt; ShowS)
+-&gt; Show CreateTrafficMirrorFilterRuleResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateTrafficMirrorFilterRuleResponse] -&gt; ShowS
+$cshowList :: [CreateTrafficMirrorFilterRuleResponse] -&gt; ShowS
+show :: CreateTrafficMirrorFilterRuleResponse -&gt; String
+$cshow :: CreateTrafficMirrorFilterRuleResponse -&gt; String
+showsPrec :: Int -&gt; CreateTrafficMirrorFilterRuleResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateTrafficMirrorFilterRuleResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateTrafficMirrorFilterRuleResponse
+ -&gt; Rep CreateTrafficMirrorFilterRuleResponse x)
+-&gt; (forall x.
+    Rep CreateTrafficMirrorFilterRuleResponse x
+    -&gt; CreateTrafficMirrorFilterRuleResponse)
+-&gt; Generic CreateTrafficMirrorFilterRuleResponse
+forall x.
+Rep CreateTrafficMirrorFilterRuleResponse x
+-&gt; CreateTrafficMirrorFilterRuleResponse
+forall x.
+CreateTrafficMirrorFilterRuleResponse
+-&gt; Rep CreateTrafficMirrorFilterRuleResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateTrafficMirrorFilterRuleResponse x
+-&gt; CreateTrafficMirrorFilterRuleResponse
+$cfrom :: forall x.
+CreateTrafficMirrorFilterRuleResponse
+-&gt; Rep CreateTrafficMirrorFilterRuleResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-311"></span><span>
+</span><span id="line-312"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- Create a value of 'CreateTrafficMirrorFilterRuleResponse' with all optional fields omitted.</span><span>
+</span><span id="line-314"></span><span class="hs-comment">--</span><span>
+</span><span id="line-315"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-316"></span><span class="hs-comment">--</span><span>
+</span><span id="line-317"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-318"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-319"></span><span class="hs-comment">--</span><span>
+</span><span id="line-320"></span><span class="hs-comment">-- 'trafficMirrorFilterRule', 'createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule' - The Traffic Mirror rule.</span><span>
+</span><span id="line-321"></span><span class="hs-comment">--</span><span>
+</span><span id="line-322"></span><span class="hs-comment">-- 'clientToken', 'createTrafficMirrorFilterRuleResponse_clientToken' - Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- 'httpStatus', 'createTrafficMirrorFilterRuleResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-327"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#newCreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">newCreateTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-328"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-329"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-330"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span>
+</span><span id="line-331"></span><span id="newCreateTrafficMirrorFilterRuleResponse"><span class="annot"><span class="annottext">newCreateTrafficMirrorFilterRuleResponse :: Int -&gt; CreateTrafficMirrorFilterRuleResponse
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#newCreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-var hs-var">newCreateTrafficMirrorFilterRuleResponse</span></a></span></span><span> </span><span id="local-6989586621681289073"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289073"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-332"></span><span>  </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse' :: Maybe TrafficMirrorFilterRule
+-&gt; Maybe Text -&gt; Int -&gt; CreateTrafficMirrorFilterRuleResponse
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span>
+</span><span id="line-333"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterRule:CreateTrafficMirrorFilterRuleResponse' :: Maybe TrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRule%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">trafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-334"></span><span>        </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-335"></span><span>      </span><span class="annot"><span class="annottext">$sel:clientToken:CreateTrafficMirrorFilterRuleResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AclientToken%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-336"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrafficMirrorFilterRuleResponse' :: Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AhttpStatus%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289073"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-337"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-338"></span><span>
+</span><span id="line-339"></span><span class="hs-comment">-- | The Traffic Mirror rule.</span><span>
+</span><span id="line-340"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="hs-identifier hs-type">createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.TrafficMirrorFilterRule.html#TrafficMirrorFilterRule"><span class="hs-identifier hs-type">TrafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-341"></span><span id="createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="annot"><span class="annottext">createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule :: (Maybe TrafficMirrorFilterRule
+ -&gt; f (Maybe TrafficMirrorFilterRule))
+-&gt; CreateTrafficMirrorFilterRuleResponse
+-&gt; f CreateTrafficMirrorFilterRuleResponse
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRuleResponse_trafficMirrorFilterRule</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRuleResponse
+ -&gt; Maybe TrafficMirrorFilterRule)
+-&gt; (CreateTrafficMirrorFilterRuleResponse
+    -&gt; Maybe TrafficMirrorFilterRule
+    -&gt; CreateTrafficMirrorFilterRuleResponse)
+-&gt; Lens
+     CreateTrafficMirrorFilterRuleResponse
+     CreateTrafficMirrorFilterRuleResponse
+     (Maybe TrafficMirrorFilterRule)
+     (Maybe TrafficMirrorFilterRule)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289072"><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+trafficMirrorFilterRule :: Maybe TrafficMirrorFilterRule
+$sel:trafficMirrorFilterRule:CreateTrafficMirrorFilterRuleResponse' :: CreateTrafficMirrorFilterRuleResponse
+-&gt; Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681289072"><span class="hs-identifier hs-var hs-var">trafficMirrorFilterRule</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681289072"><span class="hs-identifier hs-var">trafficMirrorFilterRule</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289071"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681289071"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289070"><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681289070"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681289071"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:trafficMirrorFilterRule:CreateTrafficMirrorFilterRuleResponse' :: Maybe TrafficMirrorFilterRule
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AtrafficMirrorFilterRule%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">trafficMirrorFilterRule</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe TrafficMirrorFilterRule
+</span><a href="#local-6989586621681289070"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-342"></span><span>
+</span><span id="line-343"></span><span class="hs-comment">-- | Unique, case-sensitive identifier that you provide to ensure the</span><span>
+</span><span id="line-344"></span><span class="hs-comment">-- idempotency of the request. For more information, see</span><span>
+</span><span id="line-345"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html How to ensure idempotency&gt;.</span><span>
+</span><span id="line-346"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_clientToken"><span class="hs-identifier hs-type">createTrafficMirrorFilterRuleResponse_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-347"></span><span id="createTrafficMirrorFilterRuleResponse_clientToken"><span class="annot"><span class="annottext">createTrafficMirrorFilterRuleResponse_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateTrafficMirrorFilterRuleResponse
+-&gt; f CreateTrafficMirrorFilterRuleResponse
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_clientToken"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRuleResponse_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRuleResponse -&gt; Maybe Text)
+-&gt; (CreateTrafficMirrorFilterRuleResponse
+    -&gt; Maybe Text -&gt; CreateTrafficMirrorFilterRuleResponse)
+-&gt; Lens
+     CreateTrafficMirrorFilterRuleResponse
+     CreateTrafficMirrorFilterRuleResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289069"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:CreateTrafficMirrorFilterRuleResponse' :: CreateTrafficMirrorFilterRuleResponse -&gt; Maybe Text
+</span><a href="#local-6989586621681289069"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289069"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289068"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681289068"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289067"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289067"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681289068"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:CreateTrafficMirrorFilterRuleResponse' :: Maybe Text
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AclientToken%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681289067"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-348"></span><span>
+</span><span id="line-349"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-350"></span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_httpStatus"><span class="hs-identifier hs-type">createTrafficMirrorFilterRuleResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-351"></span><span id="createTrafficMirrorFilterRuleResponse_httpStatus"><span class="annot"><span class="annottext">createTrafficMirrorFilterRuleResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateTrafficMirrorFilterRuleResponse
+-&gt; f CreateTrafficMirrorFilterRuleResponse
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#createTrafficMirrorFilterRuleResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createTrafficMirrorFilterRuleResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateTrafficMirrorFilterRuleResponse -&gt; Int)
+-&gt; (CreateTrafficMirrorFilterRuleResponse
+    -&gt; Int -&gt; CreateTrafficMirrorFilterRuleResponse)
+-&gt; Lens
+     CreateTrafficMirrorFilterRuleResponse
+     CreateTrafficMirrorFilterRuleResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681289066"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateTrafficMirrorFilterRuleResponse' :: CreateTrafficMirrorFilterRuleResponse -&gt; Int
+</span><a href="#local-6989586621681289066"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289066"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681289065"><span class="annot"><span class="annottext">s :: CreateTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681289065"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681289064"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289064"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateTrafficMirrorFilterRuleResponse
+</span><a href="#local-6989586621681289065"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateTrafficMirrorFilterRuleResponse' :: Int
+</span><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#%24sel%3AhttpStatus%3ACreateTrafficMirrorFilterRuleResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681289064"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-352"></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-354"></span><span>  </span><span id="local-6989586621681289062"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-355"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.CreateTrafficMirrorFilterRule.html#CreateTrafficMirrorFilterRuleResponse"><span class="hs-identifier hs-type">CreateTrafficMirrorFilterRuleResponse</span></a></span></span><span>
+</span><span id="line-356"></span></pre></body></html>

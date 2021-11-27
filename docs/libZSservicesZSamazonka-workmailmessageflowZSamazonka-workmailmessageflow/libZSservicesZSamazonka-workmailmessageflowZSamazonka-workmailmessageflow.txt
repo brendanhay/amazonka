@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.WorkMailMessageFlow.Types.S3Reference
+module Amazonka.WorkMailMessageFlow.Types.S3Reference
 
 -- | Amazon S3 object representing the updated message content, in MIME
 --   format.
@@ -57,16 +57,16 @@ s3Reference_bucket :: Lens' S3Reference Text
 
 -- | The S3 key object name.
 s3Reference_key :: Lens' S3Reference Text
-instance GHC.Generics.Generic Network.AWS.WorkMailMessageFlow.Types.S3Reference.S3Reference
-instance GHC.Show.Show Network.AWS.WorkMailMessageFlow.Types.S3Reference.S3Reference
-instance GHC.Read.Read Network.AWS.WorkMailMessageFlow.Types.S3Reference.S3Reference
-instance GHC.Classes.Eq Network.AWS.WorkMailMessageFlow.Types.S3Reference.S3Reference
-instance Data.Hashable.Class.Hashable Network.AWS.WorkMailMessageFlow.Types.S3Reference.S3Reference
-instance Control.DeepSeq.NFData Network.AWS.WorkMailMessageFlow.Types.S3Reference.S3Reference
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkMailMessageFlow.Types.S3Reference.S3Reference
+instance GHC.Generics.Generic Amazonka.WorkMailMessageFlow.Types.S3Reference.S3Reference
+instance GHC.Show.Show Amazonka.WorkMailMessageFlow.Types.S3Reference.S3Reference
+instance GHC.Read.Read Amazonka.WorkMailMessageFlow.Types.S3Reference.S3Reference
+instance GHC.Classes.Eq Amazonka.WorkMailMessageFlow.Types.S3Reference.S3Reference
+instance Data.Hashable.Class.Hashable Amazonka.WorkMailMessageFlow.Types.S3Reference.S3Reference
+instance Control.DeepSeq.NFData Amazonka.WorkMailMessageFlow.Types.S3Reference.S3Reference
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkMailMessageFlow.Types.S3Reference.S3Reference
 
 
-module Network.AWS.WorkMailMessageFlow.Types.RawMessageContent
+module Amazonka.WorkMailMessageFlow.Types.RawMessageContent
 
 -- | Provides the MIME content of the updated email message as an S3
 --   object. All MIME content must meet the following criteria:
@@ -112,16 +112,16 @@ newRawMessageContent :: S3Reference -> RawMessageContent
 
 -- | The S3 reference of an email message.
 rawMessageContent_s3Reference :: Lens' RawMessageContent S3Reference
-instance GHC.Generics.Generic Network.AWS.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
-instance GHC.Show.Show Network.AWS.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
-instance GHC.Read.Read Network.AWS.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
-instance GHC.Classes.Eq Network.AWS.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
-instance Data.Hashable.Class.Hashable Network.AWS.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
-instance Control.DeepSeq.NFData Network.AWS.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
+instance GHC.Generics.Generic Amazonka.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
+instance GHC.Show.Show Amazonka.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
+instance GHC.Read.Read Amazonka.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
+instance GHC.Classes.Eq Amazonka.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
+instance Data.Hashable.Class.Hashable Amazonka.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
+instance Control.DeepSeq.NFData Amazonka.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkMailMessageFlow.Types.RawMessageContent.RawMessageContent
 
 
-module Network.AWS.WorkMailMessageFlow.Types
+module Amazonka.WorkMailMessageFlow.Types
 
 -- | API version <tt>2019-05-01</tt> of the Amazon WorkMail Message Flow
 --   SDK configuration.
@@ -262,7 +262,7 @@ s3Reference_key :: Lens' S3Reference Text
 --   <tt>PutRawMessageContent</tt> on a delivered or sent message, the
 --   message remains unchanged, even though <a>GetRawMessageContent</a>
 --   returns an updated message.
-module Network.AWS.WorkMailMessageFlow.PutRawMessageContent
+module Amazonka.WorkMailMessageFlow.PutRawMessageContent
 
 -- | <i>See:</i> <a>newPutRawMessageContent</a> smart constructor.
 data PutRawMessageContent
@@ -321,27 +321,27 @@ newPutRawMessageContentResponse :: Int -> PutRawMessageContentResponse
 
 -- | The response's http status code.
 putRawMessageContentResponse_httpStatus :: Lens' PutRawMessageContentResponse Int
-instance GHC.Generics.Generic Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance GHC.Show.Show Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance GHC.Read.Read Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance GHC.Classes.Eq Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance GHC.Generics.Generic Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
-instance GHC.Show.Show Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
-instance GHC.Read.Read Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
-instance GHC.Classes.Eq Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance Control.DeepSeq.NFData Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
-instance Data.Hashable.Class.Hashable Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance Control.DeepSeq.NFData Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance GHC.Generics.Generic Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance GHC.Show.Show Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance GHC.Read.Read Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance GHC.Classes.Eq Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance GHC.Generics.Generic Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
+instance GHC.Show.Show Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
+instance GHC.Read.Read Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
+instance GHC.Classes.Eq Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance Control.DeepSeq.NFData Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContentResponse
+instance Data.Hashable.Class.Hashable Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance Control.DeepSeq.NFData Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance Amazonka.Data.Path.ToPath Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkMailMessageFlow.PutRawMessageContent.PutRawMessageContent
 
 
 -- | Retrieves the raw content of an in-transit email message, in MIME
 --   format.
-module Network.AWS.WorkMailMessageFlow.GetRawMessageContent
+module Amazonka.WorkMailMessageFlow.GetRawMessageContent
 
 -- | <i>See:</i> <a>newGetRawMessageContent</a> smart constructor.
 data GetRawMessageContent
@@ -400,21 +400,21 @@ getRawMessageContentResponse_httpStatus :: Lens' GetRawMessageContentResponse In
 
 -- | The raw content of the email message, in MIME format.
 getRawMessageContentResponse_messageContent :: Lens' GetRawMessageContentResponse ResponseBody
-instance GHC.Generics.Generic Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance GHC.Show.Show Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance GHC.Read.Read Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance GHC.Classes.Eq Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance GHC.Generics.Generic Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContentResponse
-instance GHC.Show.Show Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContentResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance Data.Hashable.Class.Hashable Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance Control.DeepSeq.NFData Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance Network.AWS.Data.Path.ToPath Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
-instance Network.AWS.Data.Query.ToQuery Network.AWS.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance GHC.Generics.Generic Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance GHC.Show.Show Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance GHC.Read.Read Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance GHC.Classes.Eq Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance GHC.Generics.Generic Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContentResponse
+instance GHC.Show.Show Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContentResponse
+instance Amazonka.Types.AWSRequest Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance Data.Hashable.Class.Hashable Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance Control.DeepSeq.NFData Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance Amazonka.Data.Headers.ToHeaders Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance Amazonka.Data.Path.ToPath Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
+instance Amazonka.Data.Query.ToQuery Amazonka.WorkMailMessageFlow.GetRawMessageContent.GetRawMessageContent
 
 
-module Network.AWS.WorkMailMessageFlow.Lens
+module Amazonka.WorkMailMessageFlow.Lens
 
 -- | The identifier of the email message being updated.
 putRawMessageContent_messageId :: Lens' PutRawMessageContent Text
@@ -448,7 +448,7 @@ s3Reference_bucket :: Lens' S3Reference Text
 s3Reference_key :: Lens' S3Reference Text
 
 
-module Network.AWS.WorkMailMessageFlow.Waiters
+module Amazonka.WorkMailMessageFlow.Waiters
 
 
 -- | Derived from API version <tt>2019-05-01</tt> of the AWS service
@@ -456,7 +456,7 @@ module Network.AWS.WorkMailMessageFlow.Waiters
 --   
 --   The WorkMail Message Flow API provides access to email messages as
 --   they are being sent and received by a WorkMail organization.
-module Network.AWS.WorkMailMessageFlow
+module Amazonka.WorkMailMessageFlow
 
 -- | API version <tt>2019-05-01</tt> of the Amazon WorkMail Message Flow
 --   SDK configuration.

@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.html"><span class="hs-identifier">Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | The output of Records that have been retrieved in a batch.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newBatchGetRecordResultDetail' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679141903"><span id="local-6989586621679141904"></span></span><span class="hs-keyword">data</span><span> </span><span id="BatchGetRecordResultDetail"><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-var">BatchGetRecordResultDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="BatchGetRecordResultDetail%27"><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">BatchGetRecordResultDetail'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The @FeatureGroupName@ containing Records you retrieved in a batch.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AfeatureGroupName%3ABatchGetRecordResultDetail%27"><span class="annot"><span class="annottext">BatchGetRecordResultDetail -&gt; Text
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3AfeatureGroupName%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var hs-var">featureGroupName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The value of the record identifer in string format.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordResultDetail%27"><span class="annot"><span class="annottext">BatchGetRecordResultDetail -&gt; Text
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var hs-var">recordIdentifierValueAsString</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | The @Record@ retrieved.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Arecord%3ABatchGetRecordResultDetail%27"><span class="annot"><span class="annottext">BatchGetRecordResultDetail -&gt; NonEmpty FeatureValue
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3Arecord%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var hs-var">record</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.html#FeatureValue"><span class="hs-identifier hs-type">FeatureValue</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679141895"><span id="local-6989586621679141897"><span class="annot"><span class="annottext">BatchGetRecordResultDetail -&gt; BatchGetRecordResultDetail -&gt; Bool
+(BatchGetRecordResultDetail -&gt; BatchGetRecordResultDetail -&gt; Bool)
+-&gt; (BatchGetRecordResultDetail
+    -&gt; BatchGetRecordResultDetail -&gt; Bool)
+-&gt; Eq BatchGetRecordResultDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: BatchGetRecordResultDetail -&gt; BatchGetRecordResultDetail -&gt; Bool
+$c/= :: BatchGetRecordResultDetail -&gt; BatchGetRecordResultDetail -&gt; Bool
+== :: BatchGetRecordResultDetail -&gt; BatchGetRecordResultDetail -&gt; Bool
+$c== :: BatchGetRecordResultDetail -&gt; BatchGetRecordResultDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141886"><span id="local-6989586621679141888"><span id="local-6989586621679141890"><span id="local-6989586621679141892"><span class="annot"><span class="annottext">ReadPrec [BatchGetRecordResultDetail]
+ReadPrec BatchGetRecordResultDetail
+Int -&gt; ReadS BatchGetRecordResultDetail
+ReadS [BatchGetRecordResultDetail]
+(Int -&gt; ReadS BatchGetRecordResultDetail)
+-&gt; ReadS [BatchGetRecordResultDetail]
+-&gt; ReadPrec BatchGetRecordResultDetail
+-&gt; ReadPrec [BatchGetRecordResultDetail]
+-&gt; Read BatchGetRecordResultDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [BatchGetRecordResultDetail]
+$creadListPrec :: ReadPrec [BatchGetRecordResultDetail]
+readPrec :: ReadPrec BatchGetRecordResultDetail
+$creadPrec :: ReadPrec BatchGetRecordResultDetail
+readList :: ReadS [BatchGetRecordResultDetail]
+$creadList :: ReadS [BatchGetRecordResultDetail]
+readsPrec :: Int -&gt; ReadS BatchGetRecordResultDetail
+$creadsPrec :: Int -&gt; ReadS BatchGetRecordResultDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679141879"><span id="local-6989586621679141881"><span id="local-6989586621679141883"><span class="annot"><span class="annottext">Int -&gt; BatchGetRecordResultDetail -&gt; ShowS
+[BatchGetRecordResultDetail] -&gt; ShowS
+BatchGetRecordResultDetail -&gt; String
+(Int -&gt; BatchGetRecordResultDetail -&gt; ShowS)
+-&gt; (BatchGetRecordResultDetail -&gt; String)
+-&gt; ([BatchGetRecordResultDetail] -&gt; ShowS)
+-&gt; Show BatchGetRecordResultDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [BatchGetRecordResultDetail] -&gt; ShowS
+$cshowList :: [BatchGetRecordResultDetail] -&gt; ShowS
+show :: BatchGetRecordResultDetail -&gt; String
+$cshow :: BatchGetRecordResultDetail -&gt; String
+showsPrec :: Int -&gt; BatchGetRecordResultDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; BatchGetRecordResultDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ BatchGetRecordResultDetail -&gt; Rep BatchGetRecordResultDetail x)
+-&gt; (forall x.
+    Rep BatchGetRecordResultDetail x -&gt; BatchGetRecordResultDetail)
+-&gt; Generic BatchGetRecordResultDetail
+forall x.
+Rep BatchGetRecordResultDetail x -&gt; BatchGetRecordResultDetail
+forall x.
+BatchGetRecordResultDetail -&gt; Rep BatchGetRecordResultDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep BatchGetRecordResultDetail x -&gt; BatchGetRecordResultDetail
+$cfrom :: forall x.
+BatchGetRecordResultDetail -&gt; Rep BatchGetRecordResultDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'BatchGetRecordResultDetail' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'featureGroupName', 'batchGetRecordResultDetail_featureGroupName' - The @FeatureGroupName@ containing Records you retrieved in a batch.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'recordIdentifierValueAsString', 'batchGetRecordResultDetail_recordIdentifierValueAsString' - The value of the record identifer in string format.</span><span>
+</span><span id="line-51"></span><span class="hs-comment">--</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- 'record', 'batchGetRecordResultDetail_record' - The @Record@ retrieved.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#newBatchGetRecordResultDetail"><span class="hs-identifier hs-type">newBatchGetRecordResultDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'featureGroupName'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-comment">-- | 'recordIdentifierValueAsString'</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-comment">-- | 'record'</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.html#FeatureValue"><span class="hs-identifier hs-type">FeatureValue</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-60"></span><span>  </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span><span>
+</span><span id="line-61"></span><span id="newBatchGetRecordResultDetail"><span class="annot"><span class="annottext">newBatchGetRecordResultDetail :: Text -&gt; Text -&gt; NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#newBatchGetRecordResultDetail"><span class="hs-identifier hs-var hs-var">newBatchGetRecordResultDetail</span></a></span></span><span>
+</span><span id="line-62"></span><span>  </span><span id="local-6989586621679141873"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141873"><span class="hs-identifier hs-var">pFeatureGroupName_</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span id="local-6989586621679141872"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141872"><span class="hs-identifier hs-var">pRecordIdentifierValueAsString_</span></a></span></span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679141871"><span class="annot"><span class="annottext">NonEmpty FeatureValue
+</span><a href="#local-6989586621679141871"><span class="hs-identifier hs-var">pRecord_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><span class="annottext">BatchGetRecordResultDetail' :: Text -&gt; Text -&gt; NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-type">BatchGetRecordResultDetail'</span></a></span><span>
+</span><span id="line-66"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:featureGroupName:BatchGetRecordResultDetail' :: Text
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3AfeatureGroupName%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-67"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141873"><span class="hs-identifier hs-var">pFeatureGroupName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>        </span><span class="annot"><span class="annottext">$sel:recordIdentifierValueAsString:BatchGetRecordResultDetail' :: Text
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">recordIdentifierValueAsString</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-69"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141872"><span class="hs-identifier hs-var">pRecordIdentifierValueAsString_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>        </span><span class="annot"><span class="annottext">$sel:record:BatchGetRecordResultDetail' :: NonEmpty FeatureValue
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3Arecord%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">record</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty FeatureValue) (Identity (NonEmpty FeatureValue))
+-&gt; Tagged
+     (NonEmpty FeatureValue) (Identity (NonEmpty FeatureValue))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty FeatureValue) (Identity (NonEmpty FeatureValue))
+ -&gt; Tagged
+      (NonEmpty FeatureValue) (Identity (NonEmpty FeatureValue)))
+-&gt; NonEmpty FeatureValue -&gt; NonEmpty FeatureValue
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty FeatureValue
+</span><a href="#local-6989586621679141871"><span class="hs-identifier hs-var">pRecord_</span></a></span><span>
+</span><span id="line-71"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- | The @FeatureGroupName@ containing Records you retrieved in a batch.</span><span>
+</span><span id="line-74"></span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_featureGroupName"><span class="hs-identifier hs-type">batchGetRecordResultDetail_featureGroupName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-75"></span><span id="batchGetRecordResultDetail_featureGroupName"><span class="annot"><span class="annottext">batchGetRecordResultDetail_featureGroupName :: (Text -&gt; f Text)
+-&gt; BatchGetRecordResultDetail -&gt; f BatchGetRecordResultDetail
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_featureGroupName"><span class="hs-identifier hs-var hs-var">batchGetRecordResultDetail_featureGroupName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetRecordResultDetail -&gt; Text)
+-&gt; (BatchGetRecordResultDetail
+    -&gt; Text -&gt; BatchGetRecordResultDetail)
+-&gt; Lens
+     BatchGetRecordResultDetail BatchGetRecordResultDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-type">BatchGetRecordResultDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141865"><span class="annot"><span class="annottext">Text
+featureGroupName :: Text
+$sel:featureGroupName:BatchGetRecordResultDetail' :: BatchGetRecordResultDetail -&gt; Text
+</span><a href="#local-6989586621679141865"><span class="hs-identifier hs-var hs-var">featureGroupName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141865"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141864"><span class="annot"><span class="annottext">s :: BatchGetRecordResultDetail
+</span><a href="#local-6989586621679141864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-type">BatchGetRecordResultDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141863"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRecordResultDetail
+</span><a href="#local-6989586621679141864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:featureGroupName:BatchGetRecordResultDetail' :: Text
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3AfeatureGroupName%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">featureGroupName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- | The value of the record identifer in string format.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_recordIdentifierValueAsString"><span class="hs-identifier hs-type">batchGetRecordResultDetail_recordIdentifierValueAsString</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-79"></span><span id="batchGetRecordResultDetail_recordIdentifierValueAsString"><span class="annot"><span class="annottext">batchGetRecordResultDetail_recordIdentifierValueAsString :: (Text -&gt; f Text)
+-&gt; BatchGetRecordResultDetail -&gt; f BatchGetRecordResultDetail
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_recordIdentifierValueAsString"><span class="hs-identifier hs-var hs-var">batchGetRecordResultDetail_recordIdentifierValueAsString</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetRecordResultDetail -&gt; Text)
+-&gt; (BatchGetRecordResultDetail
+    -&gt; Text -&gt; BatchGetRecordResultDetail)
+-&gt; Lens
+     BatchGetRecordResultDetail BatchGetRecordResultDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-type">BatchGetRecordResultDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141861"><span class="annot"><span class="annottext">Text
+recordIdentifierValueAsString :: Text
+$sel:recordIdentifierValueAsString:BatchGetRecordResultDetail' :: BatchGetRecordResultDetail -&gt; Text
+</span><a href="#local-6989586621679141861"><span class="hs-identifier hs-var hs-var">recordIdentifierValueAsString</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141861"><span class="hs-identifier hs-var">recordIdentifierValueAsString</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141860"><span class="annot"><span class="annottext">s :: BatchGetRecordResultDetail
+</span><a href="#local-6989586621679141860"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-type">BatchGetRecordResultDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141859"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141859"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRecordResultDetail
+</span><a href="#local-6989586621679141860"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:recordIdentifierValueAsString:BatchGetRecordResultDetail' :: Text
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3ArecordIdentifierValueAsString%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">recordIdentifierValueAsString</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679141859"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The @Record@ retrieved.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_record"><span class="hs-identifier hs-type">batchGetRecordResultDetail_record</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.FeatureValue.html#FeatureValue"><span class="hs-identifier hs-type">FeatureValue</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="batchGetRecordResultDetail_record"><span class="annot"><span class="annottext">batchGetRecordResultDetail_record :: (NonEmpty FeatureValue -&gt; f (NonEmpty FeatureValue))
+-&gt; BatchGetRecordResultDetail -&gt; f BatchGetRecordResultDetail
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#batchGetRecordResultDetail_record"><span class="hs-identifier hs-var hs-var">batchGetRecordResultDetail_record</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(BatchGetRecordResultDetail -&gt; NonEmpty FeatureValue)
+-&gt; (BatchGetRecordResultDetail
+    -&gt; NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail)
+-&gt; Lens
+     BatchGetRecordResultDetail
+     BatchGetRecordResultDetail
+     (NonEmpty FeatureValue)
+     (NonEmpty FeatureValue)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-type">BatchGetRecordResultDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679141857"><span class="annot"><span class="annottext">NonEmpty FeatureValue
+record :: NonEmpty FeatureValue
+$sel:record:BatchGetRecordResultDetail' :: BatchGetRecordResultDetail -&gt; NonEmpty FeatureValue
+</span><a href="#local-6989586621679141857"><span class="hs-identifier hs-var hs-var">record</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty FeatureValue
+</span><a href="#local-6989586621679141857"><span class="hs-identifier hs-var">record</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679141856"><span class="annot"><span class="annottext">s :: BatchGetRecordResultDetail
+</span><a href="#local-6989586621679141856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-type">BatchGetRecordResultDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679141855"><span class="annot"><span class="annottext">NonEmpty FeatureValue
+</span><a href="#local-6989586621679141855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">BatchGetRecordResultDetail
+</span><a href="#local-6989586621679141856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:record:BatchGetRecordResultDetail' :: NonEmpty FeatureValue
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#%24sel%3Arecord%3ABatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">record</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty FeatureValue
+</span><a href="#local-6989586621679141855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty FeatureValue -&gt; f (NonEmpty FeatureValue))
+ -&gt; BatchGetRecordResultDetail -&gt; f BatchGetRecordResultDetail)
+-&gt; ((NonEmpty FeatureValue -&gt; f (NonEmpty FeatureValue))
+    -&gt; NonEmpty FeatureValue -&gt; f (NonEmpty FeatureValue))
+-&gt; (NonEmpty FeatureValue -&gt; f (NonEmpty FeatureValue))
+-&gt; BatchGetRecordResultDetail
+-&gt; f BatchGetRecordResultDetail
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty FeatureValue -&gt; f (NonEmpty FeatureValue))
+-&gt; NonEmpty FeatureValue -&gt; f (NonEmpty FeatureValue)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141851"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679141849"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser BatchGetRecordResultDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser BatchGetRecordResultDetail)
+-&gt; Value
+-&gt; Parser BatchGetRecordResultDetail
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;BatchGetRecordResultDetail&quot;</span></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679141846"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141846"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail
+</span><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail%27"><span class="hs-identifier hs-var">BatchGetRecordResultDetail'</span></a></span><span>
+</span><span id="line-91"></span><span>            </span><span class="annot"><span class="annottext">(Text
+ -&gt; Text -&gt; NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail)
+-&gt; Parser Text
+-&gt; Parser
+     (Text -&gt; NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FeatureGroupName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Text -&gt; NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail)
+-&gt; Parser Text
+-&gt; Parser (NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RecordIdentifierValueAsString&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-93"></span><span>            </span><span class="annot"><span class="annottext">Parser (NonEmpty FeatureValue -&gt; BatchGetRecordResultDetail)
+-&gt; Parser (NonEmpty FeatureValue)
+-&gt; Parser BatchGetRecordResultDetail
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679141846"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (NonEmpty FeatureValue)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Record&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141840"><span id="local-6989586621679141842"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span></span></span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679141837"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SageMakerFeatureStoreRuntime.Types.BatchGetRecordResultDetail.html#BatchGetRecordResultDetail"><span class="hs-identifier hs-type">BatchGetRecordResultDetail</span></a></span></span><span>
+</span><span id="line-99"></span></pre></body></html>

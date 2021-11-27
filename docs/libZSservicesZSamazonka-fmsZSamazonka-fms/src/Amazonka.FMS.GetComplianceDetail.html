@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.FMS.GetComplianceDetail</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Returns detailed compliance information about the specified member</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- account. Details include resources that are in and out of compliance</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- with the specified policy.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- -   Resources are considered noncompliant for WAF and Shield Advanced</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--     policies if the specified policy has not been applied to them.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- -   Resources are considered noncompliant for security group policies if</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--     they are in scope of the policy, they violate one or more of the</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--     policy rules, and remediation is disabled or not possible.</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- -   Resources are considered noncompliant for Network Firewall policies</span><span>
+</span><span id="line-35"></span><span class="hs-comment">--     if a firewall is missing in the VPC, if the firewall endpoint isn\'t</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--     set up in an expected Availability Zone and subnet, if a subnet</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--     created by the Firewall Manager doesn\'t have the expected route</span><span>
+</span><span id="line-38"></span><span class="hs-comment">--     table, and for modifications to a firewall policy that violate the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">--     Firewall Manager policy\'s rules.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- -   Resources are considered noncompliant for DNS Firewall policies if a</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--     DNS Firewall rule group is missing from the rule group associations</span><span>
+</span><span id="line-43"></span><span class="hs-comment">--     for the VPC.</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.FMS.GetComplianceDetail</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier">GetComplianceDetail</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#newGetComplianceDetail"><span class="hs-identifier">newGetComplianceDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetail_policyId"><span class="hs-identifier">getComplianceDetail_policyId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetail_memberAccount"><span class="hs-identifier">getComplianceDetail_memberAccount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier">GetComplianceDetailResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#newGetComplianceDetailResponse"><span class="hs-identifier">newGetComplianceDetailResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetailResponse_policyComplianceDetail"><span class="hs-identifier">getComplianceDetailResponse_policyComplianceDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetailResponse_httpStatus"><span class="hs-identifier">getComplianceDetailResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.html"><span class="hs-identifier">Amazonka.FMS.Types</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | /See:/ 'newGetComplianceDetail' smart constructor.</span><span>
+</span><span id="line-71"></span><span id="local-6989586621679256519"><span id="local-6989586621679256520"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetComplianceDetail"><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-var">GetComplianceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetComplianceDetail%27"><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail%27"><span class="hs-identifier hs-var">GetComplianceDetail'</span></a></span></span><span>
+</span><span id="line-72"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the policy that you want to get the details for. @PolicyId@ is</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- returned by @PutPolicy@ and by @ListPolicies@.</span><span>
+</span><span id="line-74"></span><span>    </span><span id="%24sel%3ApolicyId%3AGetComplianceDetail%27"><span class="annot"><span class="annottext">GetComplianceDetail -&gt; Text
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3ApolicyId%3AGetComplianceDetail%27"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- | The Amazon Web Services account that owns the resources that you want to</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- get the details for.</span><span>
+</span><span id="line-77"></span><span>    </span><span id="%24sel%3AmemberAccount%3AGetComplianceDetail%27"><span class="annot"><span class="annottext">GetComplianceDetail -&gt; Text
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3AmemberAccount%3AGetComplianceDetail%27"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256512"><span id="local-6989586621679256514"><span class="annot"><span class="annottext">GetComplianceDetail -&gt; GetComplianceDetail -&gt; Bool
+(GetComplianceDetail -&gt; GetComplianceDetail -&gt; Bool)
+-&gt; (GetComplianceDetail -&gt; GetComplianceDetail -&gt; Bool)
+-&gt; Eq GetComplianceDetail
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetComplianceDetail -&gt; GetComplianceDetail -&gt; Bool
+$c/= :: GetComplianceDetail -&gt; GetComplianceDetail -&gt; Bool
+== :: GetComplianceDetail -&gt; GetComplianceDetail -&gt; Bool
+$c== :: GetComplianceDetail -&gt; GetComplianceDetail -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256503"><span id="local-6989586621679256505"><span id="local-6989586621679256507"><span id="local-6989586621679256509"><span class="annot"><span class="annottext">ReadPrec [GetComplianceDetail]
+ReadPrec GetComplianceDetail
+Int -&gt; ReadS GetComplianceDetail
+ReadS [GetComplianceDetail]
+(Int -&gt; ReadS GetComplianceDetail)
+-&gt; ReadS [GetComplianceDetail]
+-&gt; ReadPrec GetComplianceDetail
+-&gt; ReadPrec [GetComplianceDetail]
+-&gt; Read GetComplianceDetail
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetComplianceDetail]
+$creadListPrec :: ReadPrec [GetComplianceDetail]
+readPrec :: ReadPrec GetComplianceDetail
+$creadPrec :: ReadPrec GetComplianceDetail
+readList :: ReadS [GetComplianceDetail]
+$creadList :: ReadS [GetComplianceDetail]
+readsPrec :: Int -&gt; ReadS GetComplianceDetail
+$creadsPrec :: Int -&gt; ReadS GetComplianceDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256496"><span id="local-6989586621679256498"><span id="local-6989586621679256500"><span class="annot"><span class="annottext">Int -&gt; GetComplianceDetail -&gt; ShowS
+[GetComplianceDetail] -&gt; ShowS
+GetComplianceDetail -&gt; String
+(Int -&gt; GetComplianceDetail -&gt; ShowS)
+-&gt; (GetComplianceDetail -&gt; String)
+-&gt; ([GetComplianceDetail] -&gt; ShowS)
+-&gt; Show GetComplianceDetail
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetComplianceDetail] -&gt; ShowS
+$cshowList :: [GetComplianceDetail] -&gt; ShowS
+show :: GetComplianceDetail -&gt; String
+$cshow :: GetComplianceDetail -&gt; String
+showsPrec :: Int -&gt; GetComplianceDetail -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetComplianceDetail -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetComplianceDetail -&gt; Rep GetComplianceDetail x)
+-&gt; (forall x. Rep GetComplianceDetail x -&gt; GetComplianceDetail)
+-&gt; Generic GetComplianceDetail
+forall x. Rep GetComplianceDetail x -&gt; GetComplianceDetail
+forall x. GetComplianceDetail -&gt; Rep GetComplianceDetail x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetComplianceDetail x -&gt; GetComplianceDetail
+$cfrom :: forall x. GetComplianceDetail -&gt; Rep GetComplianceDetail x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- Create a value of 'GetComplianceDetail' with all optional fields omitted.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-88"></span><span class="hs-comment">--</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- 'policyId', 'getComplianceDetail_policyId' - The ID of the policy that you want to get the details for. @PolicyId@ is</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- returned by @PutPolicy@ and by @ListPolicies@.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'memberAccount', 'getComplianceDetail_memberAccount' - The Amazon Web Services account that owns the resources that you want to</span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- get the details for.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#newGetComplianceDetail"><span class="hs-identifier hs-type">newGetComplianceDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-95"></span><span>  </span><span class="hs-comment">-- | 'policyId'</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>  </span><span class="hs-comment">-- | 'memberAccount'</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span>
+</span><span id="line-100"></span><span id="newGetComplianceDetail"><span class="annot"><span class="annottext">newGetComplianceDetail :: Text -&gt; Text -&gt; GetComplianceDetail
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#newGetComplianceDetail"><span class="hs-identifier hs-var hs-var">newGetComplianceDetail</span></a></span></span><span> </span><span id="local-6989586621679256491"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256491"><span class="hs-identifier hs-var">pPolicyId_</span></a></span></span><span> </span><span id="local-6989586621679256490"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256490"><span class="hs-identifier hs-var">pMemberAccount_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><span class="annottext">GetComplianceDetail' :: Text -&gt; Text -&gt; GetComplianceDetail
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail%27"><span class="hs-identifier hs-type">GetComplianceDetail'</span></a></span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyId:GetComplianceDetail' :: Text
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3ApolicyId%3AGetComplianceDetail%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256491"><span class="hs-identifier hs-var">pPolicyId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><span class="annottext">$sel:memberAccount:GetComplianceDetail' :: Text
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3AmemberAccount%3AGetComplianceDetail%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256490"><span class="hs-identifier hs-var">pMemberAccount_</span></a></span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- | The ID of the policy that you want to get the details for. @PolicyId@ is</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- returned by @PutPolicy@ and by @ListPolicies@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetail_policyId"><span class="hs-identifier hs-type">getComplianceDetail_policyId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="getComplianceDetail_policyId"><span class="annot"><span class="annottext">getComplianceDetail_policyId :: (Text -&gt; f Text) -&gt; GetComplianceDetail -&gt; f GetComplianceDetail
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetail_policyId"><span class="hs-identifier hs-var hs-var">getComplianceDetail_policyId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceDetail -&gt; Text)
+-&gt; (GetComplianceDetail -&gt; Text -&gt; GetComplianceDetail)
+-&gt; Lens GetComplianceDetail GetComplianceDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail%27"><span class="hs-identifier hs-type">GetComplianceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256487"><span class="annot"><span class="annottext">Text
+policyId :: Text
+$sel:policyId:GetComplianceDetail' :: GetComplianceDetail -&gt; Text
+</span><a href="#local-6989586621679256487"><span class="hs-identifier hs-var hs-var">policyId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256487"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256486"><span class="annot"><span class="annottext">s :: GetComplianceDetail
+</span><a href="#local-6989586621679256486"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail%27"><span class="hs-identifier hs-type">GetComplianceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256485"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256485"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceDetail
+</span><a href="#local-6989586621679256486"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyId:GetComplianceDetail' :: Text
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3ApolicyId%3AGetComplianceDetail%27"><span class="hs-identifier hs-var">policyId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256485"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The Amazon Web Services account that owns the resources that you want to</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- get the details for.</span><span>
+</span><span id="line-113"></span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetail_memberAccount"><span class="hs-identifier hs-type">getComplianceDetail_memberAccount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-114"></span><span id="getComplianceDetail_memberAccount"><span class="annot"><span class="annottext">getComplianceDetail_memberAccount :: (Text -&gt; f Text) -&gt; GetComplianceDetail -&gt; f GetComplianceDetail
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetail_memberAccount"><span class="hs-identifier hs-var hs-var">getComplianceDetail_memberAccount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceDetail -&gt; Text)
+-&gt; (GetComplianceDetail -&gt; Text -&gt; GetComplianceDetail)
+-&gt; Lens GetComplianceDetail GetComplianceDetail Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail%27"><span class="hs-identifier hs-type">GetComplianceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256484"><span class="annot"><span class="annottext">Text
+memberAccount :: Text
+$sel:memberAccount:GetComplianceDetail' :: GetComplianceDetail -&gt; Text
+</span><a href="#local-6989586621679256484"><span class="hs-identifier hs-var hs-var">memberAccount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256484"><span class="hs-identifier hs-var">memberAccount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256483"><span class="annot"><span class="annottext">s :: GetComplianceDetail
+</span><a href="#local-6989586621679256483"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail%27"><span class="hs-identifier hs-type">GetComplianceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256482"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256482"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceDetail
+</span><a href="#local-6989586621679256483"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:memberAccount:GetComplianceDetail' :: Text
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3AmemberAccount%3AGetComplianceDetail%27"><span class="hs-identifier hs-var">memberAccount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256482"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-117"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-118"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>      </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-type">GetComplianceDetailResponse</span></a></span><span>
+</span><span id="line-120"></span><span>  </span><span id="local-6989586621679256478"><span class="annot"><span class="annottext">request :: GetComplianceDetail -&gt; Request GetComplianceDetail
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetComplianceDetail -&gt; Request GetComplianceDetail
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.FMS.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621679256474"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetComplianceDetail
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetComplianceDetail)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse GetComplianceDetail))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetComplianceDetail
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetComplianceDetail)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-123"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679256471"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256471"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679256470"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679256470"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679256469"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256469"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe PolicyComplianceDetail -&gt; Int -&gt; GetComplianceDetailResponse
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse%27"><span class="hs-identifier hs-var">GetComplianceDetailResponse'</span></a></span><span>
+</span><span id="line-125"></span><span>            </span><span class="annot"><span class="annottext">(Maybe PolicyComplianceDetail
+ -&gt; Int -&gt; GetComplianceDetailResponse)
+-&gt; Either String (Maybe PolicyComplianceDetail)
+-&gt; Either String (Int -&gt; GetComplianceDetailResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679256469"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe PolicyComplianceDetail)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyComplianceDetail&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; GetComplianceDetailResponse)
+-&gt; Either String Int -&gt; Either String GetComplianceDetailResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256471"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-128"></span><span>
+</span><span id="line-129"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256461"><span id="local-6989586621679256463"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span></span></span><span>
+</span><span id="line-130"></span><span>
+</span><span id="line-131"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256458"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span></span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679256454"><span class="annot"><span class="annottext">toHeaders :: GetComplianceDetail -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetComplianceDetail -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-138"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;AWSFMS_20180101.GetComplianceDetail&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-139"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-140"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-143"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-144"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256444"><span id="local-6989586621679256446"><span id="local-6989586621679256448"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679256442"><span class="annot"><span class="annottext">toJSON :: GetComplianceDetail -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail%27"><span class="hs-identifier hs-type">GetComplianceDetail'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256439"><span id="local-6989586621679256440"><span class="annot"><span class="annottext">Text
+memberAccount :: Text
+policyId :: Text
+$sel:memberAccount:GetComplianceDetail' :: GetComplianceDetail -&gt; Text
+$sel:policyId:GetComplianceDetail' :: GetComplianceDetail -&gt; Text
+</span><a href="#local-6989586621679256439"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-151"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-152"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PolicyId&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256440"><span class="hs-identifier hs-var">policyId</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-154"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MemberAccount&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679256439"><span class="hs-identifier hs-var">memberAccount</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-156"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679256433"><span class="annot"><span class="annottext">toPath :: GetComplianceDetail -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetComplianceDetail -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetail"><span class="hs-identifier hs-type">GetComplianceDetail</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679256429"><span class="annot"><span class="annottext">toQuery :: GetComplianceDetail -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetComplianceDetail -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- | /See:/ 'newGetComplianceDetailResponse' smart constructor.</span><span>
+</span><span id="line-165"></span><span id="local-6989586621679256426"><span id="local-6989586621679256427"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetComplianceDetailResponse"><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-var">GetComplianceDetailResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetComplianceDetailResponse%27"><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse%27"><span class="hs-identifier hs-var">GetComplianceDetailResponse'</span></a></span></span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the resources and the policy that you specified in the</span><span>
+</span><span id="line-167"></span><span>    </span><span class="hs-comment">-- @GetComplianceDetail@ request.</span><span>
+</span><span id="line-168"></span><span>    </span><span id="%24sel%3ApolicyComplianceDetail%3AGetComplianceDetailResponse%27"><span class="annot"><span class="annottext">GetComplianceDetailResponse -&gt; Maybe PolicyComplianceDetail
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3ApolicyComplianceDetail%3AGetComplianceDetailResponse%27"><span class="hs-identifier hs-var hs-var">policyComplianceDetail</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.PolicyComplianceDetail.html#PolicyComplianceDetail"><span class="hs-identifier hs-type">PolicyComplianceDetail</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-170"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetComplianceDetailResponse%27"><span class="annot"><span class="annottext">GetComplianceDetailResponse -&gt; Int
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3AhttpStatus%3AGetComplianceDetailResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-171"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679256420"><span id="local-6989586621679256422"><span class="annot"><span class="annottext">GetComplianceDetailResponse -&gt; GetComplianceDetailResponse -&gt; Bool
+(GetComplianceDetailResponse
+ -&gt; GetComplianceDetailResponse -&gt; Bool)
+-&gt; (GetComplianceDetailResponse
+    -&gt; GetComplianceDetailResponse -&gt; Bool)
+-&gt; Eq GetComplianceDetailResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetComplianceDetailResponse -&gt; GetComplianceDetailResponse -&gt; Bool
+$c/= :: GetComplianceDetailResponse -&gt; GetComplianceDetailResponse -&gt; Bool
+== :: GetComplianceDetailResponse -&gt; GetComplianceDetailResponse -&gt; Bool
+$c== :: GetComplianceDetailResponse -&gt; GetComplianceDetailResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256412"><span id="local-6989586621679256414"><span id="local-6989586621679256416"><span id="local-6989586621679256418"><span class="annot"><span class="annottext">ReadPrec [GetComplianceDetailResponse]
+ReadPrec GetComplianceDetailResponse
+Int -&gt; ReadS GetComplianceDetailResponse
+ReadS [GetComplianceDetailResponse]
+(Int -&gt; ReadS GetComplianceDetailResponse)
+-&gt; ReadS [GetComplianceDetailResponse]
+-&gt; ReadPrec GetComplianceDetailResponse
+-&gt; ReadPrec [GetComplianceDetailResponse]
+-&gt; Read GetComplianceDetailResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetComplianceDetailResponse]
+$creadListPrec :: ReadPrec [GetComplianceDetailResponse]
+readPrec :: ReadPrec GetComplianceDetailResponse
+$creadPrec :: ReadPrec GetComplianceDetailResponse
+readList :: ReadS [GetComplianceDetailResponse]
+$creadList :: ReadS [GetComplianceDetailResponse]
+readsPrec :: Int -&gt; ReadS GetComplianceDetailResponse
+$creadsPrec :: Int -&gt; ReadS GetComplianceDetailResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679256406"><span id="local-6989586621679256408"><span id="local-6989586621679256410"><span class="annot"><span class="annottext">Int -&gt; GetComplianceDetailResponse -&gt; ShowS
+[GetComplianceDetailResponse] -&gt; ShowS
+GetComplianceDetailResponse -&gt; String
+(Int -&gt; GetComplianceDetailResponse -&gt; ShowS)
+-&gt; (GetComplianceDetailResponse -&gt; String)
+-&gt; ([GetComplianceDetailResponse] -&gt; ShowS)
+-&gt; Show GetComplianceDetailResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetComplianceDetailResponse] -&gt; ShowS
+$cshowList :: [GetComplianceDetailResponse] -&gt; ShowS
+show :: GetComplianceDetailResponse -&gt; String
+$cshow :: GetComplianceDetailResponse -&gt; String
+showsPrec :: Int -&gt; GetComplianceDetailResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetComplianceDetailResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetComplianceDetailResponse -&gt; Rep GetComplianceDetailResponse x)
+-&gt; (forall x.
+    Rep GetComplianceDetailResponse x -&gt; GetComplianceDetailResponse)
+-&gt; Generic GetComplianceDetailResponse
+forall x.
+Rep GetComplianceDetailResponse x -&gt; GetComplianceDetailResponse
+forall x.
+GetComplianceDetailResponse -&gt; Rep GetComplianceDetailResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetComplianceDetailResponse x -&gt; GetComplianceDetailResponse
+$cfrom :: forall x.
+GetComplianceDetailResponse -&gt; Rep GetComplianceDetailResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- Create a value of 'GetComplianceDetailResponse' with all optional fields omitted.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-178"></span><span class="hs-comment">--</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-181"></span><span class="hs-comment">--</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- 'policyComplianceDetail', 'getComplianceDetailResponse_policyComplianceDetail' - Information about the resources and the policy that you specified in the</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- @GetComplianceDetail@ request.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- 'httpStatus', 'getComplianceDetailResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#newGetComplianceDetailResponse"><span class="hs-identifier hs-type">newGetComplianceDetailResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-189"></span><span>  </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-type">GetComplianceDetailResponse</span></a></span><span>
+</span><span id="line-190"></span><span id="newGetComplianceDetailResponse"><span class="annot"><span class="annottext">newGetComplianceDetailResponse :: Int -&gt; GetComplianceDetailResponse
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#newGetComplianceDetailResponse"><span class="hs-identifier hs-var hs-var">newGetComplianceDetailResponse</span></a></span></span><span> </span><span id="local-6989586621679256403"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256403"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-191"></span><span>  </span><span class="annot"><span class="annottext">GetComplianceDetailResponse' :: Maybe PolicyComplianceDetail -&gt; Int -&gt; GetComplianceDetailResponse
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse%27"><span class="hs-identifier hs-type">GetComplianceDetailResponse'</span></a></span><span>
+</span><span id="line-192"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:policyComplianceDetail:GetComplianceDetailResponse' :: Maybe PolicyComplianceDetail
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3ApolicyComplianceDetail%3AGetComplianceDetailResponse%27"><span class="hs-identifier hs-var">policyComplianceDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">Maybe PolicyComplianceDetail
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:GetComplianceDetailResponse' :: Int
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3AhttpStatus%3AGetComplianceDetailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256403"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-195"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- | Information about the resources and the policy that you specified in the</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- @GetComplianceDetail@ request.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetailResponse_policyComplianceDetail"><span class="hs-identifier hs-type">getComplianceDetailResponse_policyComplianceDetail</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-type">GetComplianceDetailResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.Types.PolicyComplianceDetail.html#PolicyComplianceDetail"><span class="hs-identifier hs-type">PolicyComplianceDetail</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="getComplianceDetailResponse_policyComplianceDetail"><span class="annot"><span class="annottext">getComplianceDetailResponse_policyComplianceDetail :: (Maybe PolicyComplianceDetail -&gt; f (Maybe PolicyComplianceDetail))
+-&gt; GetComplianceDetailResponse -&gt; f GetComplianceDetailResponse
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetailResponse_policyComplianceDetail"><span class="hs-identifier hs-var hs-var">getComplianceDetailResponse_policyComplianceDetail</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceDetailResponse -&gt; Maybe PolicyComplianceDetail)
+-&gt; (GetComplianceDetailResponse
+    -&gt; Maybe PolicyComplianceDetail -&gt; GetComplianceDetailResponse)
+-&gt; Lens
+     GetComplianceDetailResponse
+     GetComplianceDetailResponse
+     (Maybe PolicyComplianceDetail)
+     (Maybe PolicyComplianceDetail)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse%27"><span class="hs-identifier hs-type">GetComplianceDetailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256402"><span class="annot"><span class="annottext">Maybe PolicyComplianceDetail
+policyComplianceDetail :: Maybe PolicyComplianceDetail
+$sel:policyComplianceDetail:GetComplianceDetailResponse' :: GetComplianceDetailResponse -&gt; Maybe PolicyComplianceDetail
+</span><a href="#local-6989586621679256402"><span class="hs-identifier hs-var hs-var">policyComplianceDetail</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyComplianceDetail
+</span><a href="#local-6989586621679256402"><span class="hs-identifier hs-var">policyComplianceDetail</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256401"><span class="annot"><span class="annottext">s :: GetComplianceDetailResponse
+</span><a href="#local-6989586621679256401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse%27"><span class="hs-identifier hs-type">GetComplianceDetailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256400"><span class="annot"><span class="annottext">Maybe PolicyComplianceDetail
+</span><a href="#local-6989586621679256400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceDetailResponse
+</span><a href="#local-6989586621679256401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:policyComplianceDetail:GetComplianceDetailResponse' :: Maybe PolicyComplianceDetail
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3ApolicyComplianceDetail%3AGetComplianceDetailResponse%27"><span class="hs-identifier hs-var">policyComplianceDetail</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PolicyComplianceDetail
+</span><a href="#local-6989586621679256400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-type">GetComplianceDetailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetailResponse_httpStatus"><span class="hs-identifier hs-type">getComplianceDetailResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-type">GetComplianceDetailResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-204"></span><span id="getComplianceDetailResponse_httpStatus"><span class="annot"><span class="annottext">getComplianceDetailResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetComplianceDetailResponse -&gt; f GetComplianceDetailResponse
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#getComplianceDetailResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getComplianceDetailResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetComplianceDetailResponse -&gt; Int)
+-&gt; (GetComplianceDetailResponse
+    -&gt; Int -&gt; GetComplianceDetailResponse)
+-&gt; Lens
+     GetComplianceDetailResponse GetComplianceDetailResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse%27"><span class="hs-identifier hs-type">GetComplianceDetailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679256399"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetComplianceDetailResponse' :: GetComplianceDetailResponse -&gt; Int
+</span><a href="#local-6989586621679256399"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256399"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679256398"><span class="annot"><span class="annottext">s :: GetComplianceDetailResponse
+</span><a href="#local-6989586621679256398"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse%27"><span class="hs-identifier hs-type">GetComplianceDetailResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679256397"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256397"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetComplianceDetailResponse
+</span><a href="#local-6989586621679256398"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetComplianceDetailResponse' :: Int
+</span><a href="Amazonka.FMS.GetComplianceDetail.html#%24sel%3AhttpStatus%3AGetComplianceDetailResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679256397"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-type">GetComplianceDetailResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679256395"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.FMS.GetComplianceDetail.html#GetComplianceDetailResponse"><span class="hs-identifier hs-type">GetComplianceDetailResponse</span></a></span></span><span>
+</span><span id="line-207"></span></pre></body></html>

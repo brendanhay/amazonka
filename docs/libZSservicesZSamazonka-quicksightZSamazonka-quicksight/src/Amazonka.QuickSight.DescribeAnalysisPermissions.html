@@ -1,0 +1,715 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.QuickSight.DescribeAnalysisPermissions</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Provides the read and write permissions for an analysis.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.QuickSight.DescribeAnalysisPermissions</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier">DescribeAnalysisPermissions</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#newDescribeAnalysisPermissions"><span class="hs-identifier">newDescribeAnalysisPermissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissions_awsAccountId"><span class="hs-identifier">describeAnalysisPermissions_awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissions_analysisId"><span class="hs-identifier">describeAnalysisPermissions_analysisId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier">DescribeAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#newDescribeAnalysisPermissionsResponse"><span class="hs-identifier">newDescribeAnalysisPermissionsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_requestId"><span class="hs-identifier">describeAnalysisPermissionsResponse_requestId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_analysisId"><span class="hs-identifier">describeAnalysisPermissionsResponse_analysisId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_analysisArn"><span class="hs-identifier">describeAnalysisPermissionsResponse_analysisArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_permissions"><span class="hs-identifier">describeAnalysisPermissionsResponse_permissions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_status"><span class="hs-identifier">describeAnalysisPermissionsResponse_status</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.html"><span class="hs-identifier">Amazonka.QuickSight.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | /See:/ 'newDescribeAnalysisPermissions' smart constructor.</span><span>
+</span><span id="line-54"></span><span id="local-6989586621679587870"><span id="local-6989586621679587871"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAnalysisPermissions"><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-var">DescribeAnalysisPermissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAnalysisPermissions%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions%27"><span class="hs-identifier hs-var">DescribeAnalysisPermissions'</span></a></span></span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the analysis</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- whose permissions you\'re describing. You must be using the Amazon Web</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- Services account that the analysis is in.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AawsAccountId%3ADescribeAnalysisPermissions%27"><span class="annot"><span class="annottext">DescribeAnalysisPermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AawsAccountId%3ADescribeAnalysisPermissions%27"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- | The ID of the analysis whose permissions you\'re describing. The ID is</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- part of the analysis URL.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AanalysisId%3ADescribeAnalysisPermissions%27"><span class="annot"><span class="annottext">DescribeAnalysisPermissions -&gt; Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisId%3ADescribeAnalysisPermissions%27"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679587863"><span id="local-6989586621679587865"><span class="annot"><span class="annottext">DescribeAnalysisPermissions -&gt; DescribeAnalysisPermissions -&gt; Bool
+(DescribeAnalysisPermissions
+ -&gt; DescribeAnalysisPermissions -&gt; Bool)
+-&gt; (DescribeAnalysisPermissions
+    -&gt; DescribeAnalysisPermissions -&gt; Bool)
+-&gt; Eq DescribeAnalysisPermissions
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAnalysisPermissions -&gt; DescribeAnalysisPermissions -&gt; Bool
+$c/= :: DescribeAnalysisPermissions -&gt; DescribeAnalysisPermissions -&gt; Bool
+== :: DescribeAnalysisPermissions -&gt; DescribeAnalysisPermissions -&gt; Bool
+$c== :: DescribeAnalysisPermissions -&gt; DescribeAnalysisPermissions -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587854"><span id="local-6989586621679587856"><span id="local-6989586621679587858"><span id="local-6989586621679587860"><span class="annot"><span class="annottext">ReadPrec [DescribeAnalysisPermissions]
+ReadPrec DescribeAnalysisPermissions
+Int -&gt; ReadS DescribeAnalysisPermissions
+ReadS [DescribeAnalysisPermissions]
+(Int -&gt; ReadS DescribeAnalysisPermissions)
+-&gt; ReadS [DescribeAnalysisPermissions]
+-&gt; ReadPrec DescribeAnalysisPermissions
+-&gt; ReadPrec [DescribeAnalysisPermissions]
+-&gt; Read DescribeAnalysisPermissions
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAnalysisPermissions]
+$creadListPrec :: ReadPrec [DescribeAnalysisPermissions]
+readPrec :: ReadPrec DescribeAnalysisPermissions
+$creadPrec :: ReadPrec DescribeAnalysisPermissions
+readList :: ReadS [DescribeAnalysisPermissions]
+$creadList :: ReadS [DescribeAnalysisPermissions]
+readsPrec :: Int -&gt; ReadS DescribeAnalysisPermissions
+$creadsPrec :: Int -&gt; ReadS DescribeAnalysisPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587847"><span id="local-6989586621679587849"><span id="local-6989586621679587851"><span class="annot"><span class="annottext">Int -&gt; DescribeAnalysisPermissions -&gt; ShowS
+[DescribeAnalysisPermissions] -&gt; ShowS
+DescribeAnalysisPermissions -&gt; String
+(Int -&gt; DescribeAnalysisPermissions -&gt; ShowS)
+-&gt; (DescribeAnalysisPermissions -&gt; String)
+-&gt; ([DescribeAnalysisPermissions] -&gt; ShowS)
+-&gt; Show DescribeAnalysisPermissions
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAnalysisPermissions] -&gt; ShowS
+$cshowList :: [DescribeAnalysisPermissions] -&gt; ShowS
+show :: DescribeAnalysisPermissions -&gt; String
+$cshow :: DescribeAnalysisPermissions -&gt; String
+showsPrec :: Int -&gt; DescribeAnalysisPermissions -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAnalysisPermissions -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAnalysisPermissions -&gt; Rep DescribeAnalysisPermissions x)
+-&gt; (forall x.
+    Rep DescribeAnalysisPermissions x -&gt; DescribeAnalysisPermissions)
+-&gt; Generic DescribeAnalysisPermissions
+forall x.
+Rep DescribeAnalysisPermissions x -&gt; DescribeAnalysisPermissions
+forall x.
+DescribeAnalysisPermissions -&gt; Rep DescribeAnalysisPermissions x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAnalysisPermissions x -&gt; DescribeAnalysisPermissions
+$cfrom :: forall x.
+DescribeAnalysisPermissions -&gt; Rep DescribeAnalysisPermissions x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'DescribeAnalysisPermissions' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'awsAccountId', 'describeAnalysisPermissions_awsAccountId' - The ID of the Amazon Web Services account that contains the analysis</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- whose permissions you\'re describing. You must be using the Amazon Web</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- Services account that the analysis is in.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'analysisId', 'describeAnalysisPermissions_analysisId' - The ID of the analysis whose permissions you\'re describing. The ID is</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- part of the analysis URL.</span><span>
+</span><span id="line-79"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#newDescribeAnalysisPermissions"><span class="hs-identifier hs-type">newDescribeAnalysisPermissions</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-80"></span><span>  </span><span class="hs-comment">-- | 'awsAccountId'</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-comment">-- | 'analysisId'</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span>
+</span><span id="line-85"></span><span id="newDescribeAnalysisPermissions"><span class="annot"><span class="annottext">newDescribeAnalysisPermissions :: Text -&gt; Text -&gt; DescribeAnalysisPermissions
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#newDescribeAnalysisPermissions"><span class="hs-identifier hs-var hs-var">newDescribeAnalysisPermissions</span></a></span></span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679587842"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587842"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span></span><span>
+</span><span id="line-87"></span><span>  </span><span id="local-6989586621679587841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587841"><span class="hs-identifier hs-var">pAnalysisId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><span class="annottext">DescribeAnalysisPermissions' :: Text -&gt; Text -&gt; DescribeAnalysisPermissions
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissions'</span></a></span><span>
+</span><span id="line-89"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeAnalysisPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AawsAccountId%3ADescribeAnalysisPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587842"><span class="hs-identifier hs-var">pAwsAccountId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">$sel:analysisId:DescribeAnalysisPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisId%3ADescribeAnalysisPermissions%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587841"><span class="hs-identifier hs-var">pAnalysisId_</span></a></span><span>
+</span><span id="line-92"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- | The ID of the Amazon Web Services account that contains the analysis</span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- whose permissions you\'re describing. You must be using the Amazon Web</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- Services account that the analysis is in.</span><span>
+</span><span id="line-97"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissions_awsAccountId"><span class="hs-identifier hs-type">describeAnalysisPermissions_awsAccountId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-98"></span><span id="describeAnalysisPermissions_awsAccountId"><span class="annot"><span class="annottext">describeAnalysisPermissions_awsAccountId :: (Text -&gt; f Text)
+-&gt; DescribeAnalysisPermissions -&gt; f DescribeAnalysisPermissions
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissions_awsAccountId"><span class="hs-identifier hs-var hs-var">describeAnalysisPermissions_awsAccountId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnalysisPermissions -&gt; Text)
+-&gt; (DescribeAnalysisPermissions
+    -&gt; Text -&gt; DescribeAnalysisPermissions)
+-&gt; Lens
+     DescribeAnalysisPermissions DescribeAnalysisPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587838"><span class="annot"><span class="annottext">Text
+awsAccountId :: Text
+$sel:awsAccountId:DescribeAnalysisPermissions' :: DescribeAnalysisPermissions -&gt; Text
+</span><a href="#local-6989586621679587838"><span class="hs-identifier hs-var hs-var">awsAccountId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587838"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587837"><span class="annot"><span class="annottext">s :: DescribeAnalysisPermissions
+</span><a href="#local-6989586621679587837"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587836"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587836"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnalysisPermissions
+</span><a href="#local-6989586621679587837"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:awsAccountId:DescribeAnalysisPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AawsAccountId%3ADescribeAnalysisPermissions%27"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587836"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The ID of the analysis whose permissions you\'re describing. The ID is</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- part of the analysis URL.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissions_analysisId"><span class="hs-identifier hs-type">describeAnalysisPermissions_analysisId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="describeAnalysisPermissions_analysisId"><span class="annot"><span class="annottext">describeAnalysisPermissions_analysisId :: (Text -&gt; f Text)
+-&gt; DescribeAnalysisPermissions -&gt; f DescribeAnalysisPermissions
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissions_analysisId"><span class="hs-identifier hs-var hs-var">describeAnalysisPermissions_analysisId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnalysisPermissions -&gt; Text)
+-&gt; (DescribeAnalysisPermissions
+    -&gt; Text -&gt; DescribeAnalysisPermissions)
+-&gt; Lens
+     DescribeAnalysisPermissions DescribeAnalysisPermissions Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587835"><span class="annot"><span class="annottext">Text
+analysisId :: Text
+$sel:analysisId:DescribeAnalysisPermissions' :: DescribeAnalysisPermissions -&gt; Text
+</span><a href="#local-6989586621679587835"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587835"><span class="hs-identifier hs-var">analysisId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587834"><span class="annot"><span class="annottext">s :: DescribeAnalysisPermissions
+</span><a href="#local-6989586621679587834"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587833"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587833"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnalysisPermissions
+</span><a href="#local-6989586621679587834"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisId:DescribeAnalysisPermissions' :: Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisId%3ADescribeAnalysisPermissions%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587833"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-107"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-108"></span><span>      </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679587829"><span class="annot"><span class="annottext">request :: DescribeAnalysisPermissions -&gt; Request DescribeAnalysisPermissions
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DescribeAnalysisPermissions
+-&gt; Request DescribeAnalysisPermissions
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.QuickSight.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-110"></span><span>  </span><span id="local-6989586621679587825"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeAnalysisPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAnalysisPermissions)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeAnalysisPermissions))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeAnalysisPermissions
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeAnalysisPermissions)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679587822"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587822"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679587821"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679587821"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679587820"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587820"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-113"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">DescribeAnalysisPermissionsResponse'</span></a></span><span>
+</span><span id="line-114"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe (NonEmpty ResourcePermission)
+ -&gt; Int
+ -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; DescribeAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;RequestId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe Text
+      -&gt; Maybe (NonEmpty ResourcePermission)
+      -&gt; Int
+      -&gt; DescribeAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Text
+   -&gt; Maybe (NonEmpty ResourcePermission)
+   -&gt; Int
+   -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String
+     (Maybe (NonEmpty ResourcePermission)
+      -&gt; Int -&gt; DescribeAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AnalysisArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe (NonEmpty ResourcePermission)
+   -&gt; Int -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Either String (Maybe (NonEmpty ResourcePermission))
+-&gt; Either String (Int -&gt; DescribeAnalysisPermissionsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679587820"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Either String (Maybe (NonEmpty ResourcePermission))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Permissions&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Either String Int
+-&gt; Either String DescribeAnalysisPermissionsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587822"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679587812"><span id="local-6989586621679587814"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span></span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679587809"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span></span><span>
+</span><span id="line-124"></span><span>
+</span><span id="line-125"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679587805"><span class="annot"><span class="annottext">toHeaders :: DescribeAnalysisPermissions -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeAnalysisPermissions -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-129"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-130"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.0&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-131"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-132"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-134"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-137"></span><span>  </span><span id="local-6989586621679587799"><span class="annot"><span class="annottext">toPath :: DescribeAnalysisPermissions -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissions'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587796"><span id="local-6989586621679587797"><span class="annot"><span class="annottext">Text
+analysisId :: Text
+awsAccountId :: Text
+$sel:analysisId:DescribeAnalysisPermissions' :: DescribeAnalysisPermissions -&gt; Text
+$sel:awsAccountId:DescribeAnalysisPermissions' :: DescribeAnalysisPermissions -&gt; Text
+</span><a href="#local-6989586621679587796"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/accounts/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587797"><span class="hs-identifier hs-var">awsAccountId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/analyses/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679587796"><span class="hs-identifier hs-var">analysisId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/permissions&quot;</span></span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissions"><span class="hs-identifier hs-type">DescribeAnalysisPermissions</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679587792"><span class="annot"><span class="annottext">toQuery :: DescribeAnalysisPermissions -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeAnalysisPermissions -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | /See:/ 'newDescribeAnalysisPermissionsResponse' smart constructor.</span><span>
+</span><span id="line-150"></span><span id="local-6989586621679587789"><span id="local-6989586621679587790"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeAnalysisPermissionsResponse"><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-var">DescribeAnalysisPermissionsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeAnalysisPermissionsResponse%27"><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">DescribeAnalysisPermissionsResponse'</span></a></span></span><span>
+</span><span id="line-151"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-152"></span><span>    </span><span id="%24sel%3ArequestId%3ADescribeAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3ArequestId%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>    </span><span class="hs-comment">-- | The ID of the analysis whose permissions you\'re describing.</span><span>
+</span><span id="line-154"></span><span>    </span><span id="%24sel%3AanalysisId%3ADescribeAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisId%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the analysis whose permissions you\'re</span><span>
+</span><span id="line-156"></span><span>    </span><span class="hs-comment">-- describing.</span><span>
+</span><span id="line-157"></span><span>    </span><span id="%24sel%3AanalysisArn%3ADescribeAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisArn%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">analysisArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="hs-comment">-- | A structure that describes the principals and the resource-level</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- permissions on an analysis.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3Apermissions%3ADescribeAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3Apermissions%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-161"></span><span>    </span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-162"></span><span>    </span><span id="%24sel%3Astatus%3ADescribeAnalysisPermissionsResponse%27"><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse -&gt; Int
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3Astatus%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-163"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679587780"><span id="local-6989586621679587782"><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse
+-&gt; DescribeAnalysisPermissionsResponse -&gt; Bool
+(DescribeAnalysisPermissionsResponse
+ -&gt; DescribeAnalysisPermissionsResponse -&gt; Bool)
+-&gt; (DescribeAnalysisPermissionsResponse
+    -&gt; DescribeAnalysisPermissionsResponse -&gt; Bool)
+-&gt; Eq DescribeAnalysisPermissionsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeAnalysisPermissionsResponse
+-&gt; DescribeAnalysisPermissionsResponse -&gt; Bool
+$c/= :: DescribeAnalysisPermissionsResponse
+-&gt; DescribeAnalysisPermissionsResponse -&gt; Bool
+== :: DescribeAnalysisPermissionsResponse
+-&gt; DescribeAnalysisPermissionsResponse -&gt; Bool
+$c== :: DescribeAnalysisPermissionsResponse
+-&gt; DescribeAnalysisPermissionsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587772"><span id="local-6989586621679587774"><span id="local-6989586621679587776"><span id="local-6989586621679587778"><span class="annot"><span class="annottext">ReadPrec [DescribeAnalysisPermissionsResponse]
+ReadPrec DescribeAnalysisPermissionsResponse
+Int -&gt; ReadS DescribeAnalysisPermissionsResponse
+ReadS [DescribeAnalysisPermissionsResponse]
+(Int -&gt; ReadS DescribeAnalysisPermissionsResponse)
+-&gt; ReadS [DescribeAnalysisPermissionsResponse]
+-&gt; ReadPrec DescribeAnalysisPermissionsResponse
+-&gt; ReadPrec [DescribeAnalysisPermissionsResponse]
+-&gt; Read DescribeAnalysisPermissionsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeAnalysisPermissionsResponse]
+$creadListPrec :: ReadPrec [DescribeAnalysisPermissionsResponse]
+readPrec :: ReadPrec DescribeAnalysisPermissionsResponse
+$creadPrec :: ReadPrec DescribeAnalysisPermissionsResponse
+readList :: ReadS [DescribeAnalysisPermissionsResponse]
+$creadList :: ReadS [DescribeAnalysisPermissionsResponse]
+readsPrec :: Int -&gt; ReadS DescribeAnalysisPermissionsResponse
+$creadsPrec :: Int -&gt; ReadS DescribeAnalysisPermissionsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679587766"><span id="local-6989586621679587768"><span id="local-6989586621679587770"><span class="annot"><span class="annottext">Int -&gt; DescribeAnalysisPermissionsResponse -&gt; ShowS
+[DescribeAnalysisPermissionsResponse] -&gt; ShowS
+DescribeAnalysisPermissionsResponse -&gt; String
+(Int -&gt; DescribeAnalysisPermissionsResponse -&gt; ShowS)
+-&gt; (DescribeAnalysisPermissionsResponse -&gt; String)
+-&gt; ([DescribeAnalysisPermissionsResponse] -&gt; ShowS)
+-&gt; Show DescribeAnalysisPermissionsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeAnalysisPermissionsResponse] -&gt; ShowS
+$cshowList :: [DescribeAnalysisPermissionsResponse] -&gt; ShowS
+show :: DescribeAnalysisPermissionsResponse -&gt; String
+$cshow :: DescribeAnalysisPermissionsResponse -&gt; String
+showsPrec :: Int -&gt; DescribeAnalysisPermissionsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeAnalysisPermissionsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeAnalysisPermissionsResponse
+ -&gt; Rep DescribeAnalysisPermissionsResponse x)
+-&gt; (forall x.
+    Rep DescribeAnalysisPermissionsResponse x
+    -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Generic DescribeAnalysisPermissionsResponse
+forall x.
+Rep DescribeAnalysisPermissionsResponse x
+-&gt; DescribeAnalysisPermissionsResponse
+forall x.
+DescribeAnalysisPermissionsResponse
+-&gt; Rep DescribeAnalysisPermissionsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeAnalysisPermissionsResponse x
+-&gt; DescribeAnalysisPermissionsResponse
+$cfrom :: forall x.
+DescribeAnalysisPermissionsResponse
+-&gt; Rep DescribeAnalysisPermissionsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Create a value of 'DescribeAnalysisPermissionsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-173"></span><span class="hs-comment">--</span><span>
+</span><span id="line-174"></span><span class="hs-comment">-- 'requestId', 'describeAnalysisPermissionsResponse_requestId' - The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-175"></span><span class="hs-comment">--</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- 'analysisId', 'describeAnalysisPermissionsResponse_analysisId' - The ID of the analysis whose permissions you\'re describing.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'analysisArn', 'describeAnalysisPermissionsResponse_analysisArn' - The Amazon Resource Name (ARN) of the analysis whose permissions you\'re</span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- describing.</span><span>
+</span><span id="line-180"></span><span class="hs-comment">--</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- 'permissions', 'describeAnalysisPermissionsResponse_permissions' - A structure that describes the principals and the resource-level</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- permissions on an analysis.</span><span>
+</span><span id="line-183"></span><span class="hs-comment">--</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- 'status', 'describeAnalysisPermissionsResponse_status' - The HTTP status of the request.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#newDescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">newDescribeAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-186"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-187"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-188"></span><span>  </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span>
+</span><span id="line-189"></span><span id="newDescribeAnalysisPermissionsResponse"><span class="annot"><span class="annottext">newDescribeAnalysisPermissionsResponse :: Int -&gt; DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#newDescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-var hs-var">newDescribeAnalysisPermissionsResponse</span></a></span></span><span> </span><span id="local-6989586621679587763"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587763"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-190"></span><span>  </span><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe (NonEmpty ResourcePermission)
+-&gt; Int
+-&gt; DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span>
+</span><span id="line-191"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:requestId:DescribeAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3ArequestId%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisId:DescribeAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisId%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>      </span><span class="annot"><span class="annottext">$sel:analysisArn:DescribeAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisArn%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-195"></span><span>      </span><span class="annot"><span class="annottext">$sel:permissions:DescribeAnalysisPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3Apermissions%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:DescribeAnalysisPermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3Astatus%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587763"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-198"></span><span>
+</span><span id="line-199"></span><span class="hs-comment">-- | The Amazon Web Services request ID for this operation.</span><span>
+</span><span id="line-200"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_requestId"><span class="hs-identifier hs-type">describeAnalysisPermissionsResponse_requestId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span id="describeAnalysisPermissionsResponse_requestId"><span class="annot"><span class="annottext">describeAnalysisPermissionsResponse_requestId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAnalysisPermissionsResponse
+-&gt; f DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_requestId"><span class="hs-identifier hs-var hs-var">describeAnalysisPermissionsResponse_requestId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnalysisPermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeAnalysisPermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Lens
+     DescribeAnalysisPermissionsResponse
+     DescribeAnalysisPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587762"><span class="annot"><span class="annottext">Maybe Text
+requestId :: Maybe Text
+$sel:requestId:DescribeAnalysisPermissionsResponse' :: DescribeAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679587762"><span class="hs-identifier hs-var hs-var">requestId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587762"><span class="hs-identifier hs-var">requestId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587761"><span class="annot"><span class="annottext">s :: DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587761"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587760"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587760"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587761"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:requestId:DescribeAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3ArequestId%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">requestId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587760"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- | The ID of the analysis whose permissions you\'re describing.</span><span>
+</span><span id="line-204"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_analysisId"><span class="hs-identifier hs-type">describeAnalysisPermissionsResponse_analysisId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span id="describeAnalysisPermissionsResponse_analysisId"><span class="annot"><span class="annottext">describeAnalysisPermissionsResponse_analysisId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAnalysisPermissionsResponse
+-&gt; f DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_analysisId"><span class="hs-identifier hs-var hs-var">describeAnalysisPermissionsResponse_analysisId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnalysisPermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeAnalysisPermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Lens
+     DescribeAnalysisPermissionsResponse
+     DescribeAnalysisPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587759"><span class="annot"><span class="annottext">Maybe Text
+analysisId :: Maybe Text
+$sel:analysisId:DescribeAnalysisPermissionsResponse' :: DescribeAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679587759"><span class="hs-identifier hs-var hs-var">analysisId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587759"><span class="hs-identifier hs-var">analysisId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587758"><span class="annot"><span class="annottext">s :: DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587758"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587757"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587757"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587758"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisId:DescribeAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisId%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587757"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the analysis whose permissions you\'re</span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- describing.</span><span>
+</span><span id="line-209"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_analysisArn"><span class="hs-identifier hs-type">describeAnalysisPermissionsResponse_analysisArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span id="describeAnalysisPermissionsResponse_analysisArn"><span class="annot"><span class="annottext">describeAnalysisPermissionsResponse_analysisArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DescribeAnalysisPermissionsResponse
+-&gt; f DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_analysisArn"><span class="hs-identifier hs-var hs-var">describeAnalysisPermissionsResponse_analysisArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnalysisPermissionsResponse -&gt; Maybe Text)
+-&gt; (DescribeAnalysisPermissionsResponse
+    -&gt; Maybe Text -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Lens
+     DescribeAnalysisPermissionsResponse
+     DescribeAnalysisPermissionsResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587756"><span class="annot"><span class="annottext">Maybe Text
+analysisArn :: Maybe Text
+$sel:analysisArn:DescribeAnalysisPermissionsResponse' :: DescribeAnalysisPermissionsResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679587756"><span class="hs-identifier hs-var hs-var">analysisArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587756"><span class="hs-identifier hs-var">analysisArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587755"><span class="annot"><span class="annottext">s :: DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587755"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587754"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587754"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587755"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:analysisArn:DescribeAnalysisPermissionsResponse' :: Maybe Text
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3AanalysisArn%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">analysisArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679587754"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- | A structure that describes the principals and the resource-level</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- permissions on an analysis.</span><span>
+</span><span id="line-214"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_permissions"><span class="hs-identifier hs-type">describeAnalysisPermissionsResponse_permissions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.Types.ResourcePermission.html#ResourcePermission"><span class="hs-identifier hs-type">ResourcePermission</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span id="describeAnalysisPermissionsResponse_permissions"><span class="annot"><span class="annottext">describeAnalysisPermissionsResponse_permissions :: (Maybe (NonEmpty ResourcePermission)
+ -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; DescribeAnalysisPermissionsResponse
+-&gt; f DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_permissions"><span class="hs-identifier hs-var hs-var">describeAnalysisPermissionsResponse_permissions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnalysisPermissionsResponse
+ -&gt; Maybe (NonEmpty ResourcePermission))
+-&gt; (DescribeAnalysisPermissionsResponse
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Lens
+     DescribeAnalysisPermissionsResponse
+     DescribeAnalysisPermissionsResponse
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587753"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+permissions :: Maybe (NonEmpty ResourcePermission)
+$sel:permissions:DescribeAnalysisPermissionsResponse' :: DescribeAnalysisPermissionsResponse
+-&gt; Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587753"><span class="hs-identifier hs-var hs-var">permissions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587753"><span class="hs-identifier hs-var">permissions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587752"><span class="annot"><span class="annottext">s :: DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587752"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587751"><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587751"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587752"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:permissions:DescribeAnalysisPermissionsResponse' :: Maybe (NonEmpty ResourcePermission)
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3Apermissions%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">permissions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (NonEmpty ResourcePermission)
+</span><a href="#local-6989586621679587751"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (NonEmpty ResourcePermission)
+  -&gt; f (Maybe (NonEmpty ResourcePermission)))
+ -&gt; DescribeAnalysisPermissionsResponse
+ -&gt; f DescribeAnalysisPermissionsResponse)
+-&gt; ((Maybe (NonEmpty ResourcePermission)
+     -&gt; f (Maybe (NonEmpty ResourcePermission)))
+    -&gt; Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; (Maybe (NonEmpty ResourcePermission)
+    -&gt; f (Maybe (NonEmpty ResourcePermission)))
+-&gt; DescribeAnalysisPermissionsResponse
+-&gt; f DescribeAnalysisPermissionsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+-&gt; Iso
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+     (Maybe (NonEmpty ResourcePermission))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+  (NonEmpty ResourcePermission)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-216"></span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- | The HTTP status of the request.</span><span>
+</span><span id="line-218"></span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_status"><span class="hs-identifier hs-type">describeAnalysisPermissionsResponse_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-219"></span><span id="describeAnalysisPermissionsResponse_status"><span class="annot"><span class="annottext">describeAnalysisPermissionsResponse_status :: (Int -&gt; f Int)
+-&gt; DescribeAnalysisPermissionsResponse
+-&gt; f DescribeAnalysisPermissionsResponse
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#describeAnalysisPermissionsResponse_status"><span class="hs-identifier hs-var hs-var">describeAnalysisPermissionsResponse_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeAnalysisPermissionsResponse -&gt; Int)
+-&gt; (DescribeAnalysisPermissionsResponse
+    -&gt; Int -&gt; DescribeAnalysisPermissionsResponse)
+-&gt; Lens
+     DescribeAnalysisPermissionsResponse
+     DescribeAnalysisPermissionsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679587747"><span class="annot"><span class="annottext">Int
+status :: Int
+$sel:status:DescribeAnalysisPermissionsResponse' :: DescribeAnalysisPermissionsResponse -&gt; Int
+</span><a href="#local-6989586621679587747"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587747"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679587746"><span class="annot"><span class="annottext">s :: DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587746"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679587745"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587745"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeAnalysisPermissionsResponse
+</span><a href="#local-6989586621679587746"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:DescribeAnalysisPermissionsResponse' :: Int
+</span><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#%24sel%3Astatus%3ADescribeAnalysisPermissionsResponse%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679587745"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>
+</span><span id="line-221"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679587743"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.QuickSight.DescribeAnalysisPermissions.html#DescribeAnalysisPermissionsResponse"><span class="hs-identifier hs-type">DescribeAnalysisPermissionsResponse</span></a></span></span><span>
+</span><span id="line-224"></span></pre></body></html>

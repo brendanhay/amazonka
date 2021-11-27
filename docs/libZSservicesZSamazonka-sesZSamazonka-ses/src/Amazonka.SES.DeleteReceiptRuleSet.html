@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.SES.DeleteReceiptRuleSet</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes the specified receipt rule set and all of the receipt rules it</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- contains.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- The currently active rule set cannot be deleted.</span><span>
+</span><span id="line-27"></span><span class="hs-comment">--</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- For information about managing receipt rule sets, see the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-30"></span><span class="hs-comment">--</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- You can execute this operation no more than once per second.</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.DeleteReceiptRuleSet</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier">DeleteReceiptRuleSet</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#newDeleteReceiptRuleSet"><span class="hs-identifier">newDeleteReceiptRuleSet</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#deleteReceiptRuleSet_ruleSetName"><span class="hs-identifier">deleteReceiptRuleSet_ruleSetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse"><span class="hs-identifier">DeleteReceiptRuleSetResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#newDeleteReceiptRuleSetResponse"><span class="hs-identifier">newDeleteReceiptRuleSetResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#deleteReceiptRuleSetResponse_httpStatus"><span class="hs-identifier">deleteReceiptRuleSetResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.html"><span class="hs-identifier">Amazonka.SES.Types</span></a></span><span>
+</span><span id="line-55"></span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- | Represents a request to delete a receipt rule set and all of the receipt</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- rules it contains. You use receipt rule sets to receive email with</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Amazon SES. For more information, see the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html Amazon SES Developer Guide&gt;.</span><span>
+</span><span id="line-60"></span><span class="hs-comment">--</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- /See:/ 'newDeleteReceiptRuleSet' smart constructor.</span><span>
+</span><span id="line-62"></span><span id="local-6989586621679286304"><span id="local-6989586621679286305"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReceiptRuleSet"><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-var">DeleteReceiptRuleSet</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReceiptRuleSet%27"><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet%27"><span class="hs-identifier hs-var">DeleteReceiptRuleSet'</span></a></span></span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the receipt rule set to delete.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AruleSetName%3ADeleteReceiptRuleSet%27"><span class="annot"><span class="annottext">DeleteReceiptRuleSet -&gt; Text
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#%24sel%3AruleSetName%3ADeleteReceiptRuleSet%27"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-65"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286298"><span id="local-6989586621679286300"><span class="annot"><span class="annottext">DeleteReceiptRuleSet -&gt; DeleteReceiptRuleSet -&gt; Bool
+(DeleteReceiptRuleSet -&gt; DeleteReceiptRuleSet -&gt; Bool)
+-&gt; (DeleteReceiptRuleSet -&gt; DeleteReceiptRuleSet -&gt; Bool)
+-&gt; Eq DeleteReceiptRuleSet
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReceiptRuleSet -&gt; DeleteReceiptRuleSet -&gt; Bool
+$c/= :: DeleteReceiptRuleSet -&gt; DeleteReceiptRuleSet -&gt; Bool
+== :: DeleteReceiptRuleSet -&gt; DeleteReceiptRuleSet -&gt; Bool
+$c== :: DeleteReceiptRuleSet -&gt; DeleteReceiptRuleSet -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286289"><span id="local-6989586621679286291"><span id="local-6989586621679286293"><span id="local-6989586621679286295"><span class="annot"><span class="annottext">ReadPrec [DeleteReceiptRuleSet]
+ReadPrec DeleteReceiptRuleSet
+Int -&gt; ReadS DeleteReceiptRuleSet
+ReadS [DeleteReceiptRuleSet]
+(Int -&gt; ReadS DeleteReceiptRuleSet)
+-&gt; ReadS [DeleteReceiptRuleSet]
+-&gt; ReadPrec DeleteReceiptRuleSet
+-&gt; ReadPrec [DeleteReceiptRuleSet]
+-&gt; Read DeleteReceiptRuleSet
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReceiptRuleSet]
+$creadListPrec :: ReadPrec [DeleteReceiptRuleSet]
+readPrec :: ReadPrec DeleteReceiptRuleSet
+$creadPrec :: ReadPrec DeleteReceiptRuleSet
+readList :: ReadS [DeleteReceiptRuleSet]
+$creadList :: ReadS [DeleteReceiptRuleSet]
+readsPrec :: Int -&gt; ReadS DeleteReceiptRuleSet
+$creadsPrec :: Int -&gt; ReadS DeleteReceiptRuleSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286282"><span id="local-6989586621679286284"><span id="local-6989586621679286286"><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRuleSet -&gt; ShowS
+[DeleteReceiptRuleSet] -&gt; ShowS
+DeleteReceiptRuleSet -&gt; String
+(Int -&gt; DeleteReceiptRuleSet -&gt; ShowS)
+-&gt; (DeleteReceiptRuleSet -&gt; String)
+-&gt; ([DeleteReceiptRuleSet] -&gt; ShowS)
+-&gt; Show DeleteReceiptRuleSet
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReceiptRuleSet] -&gt; ShowS
+$cshowList :: [DeleteReceiptRuleSet] -&gt; ShowS
+show :: DeleteReceiptRuleSet -&gt; String
+$cshow :: DeleteReceiptRuleSet -&gt; String
+showsPrec :: Int -&gt; DeleteReceiptRuleSet -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReceiptRuleSet -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteReceiptRuleSet -&gt; Rep DeleteReceiptRuleSet x)
+-&gt; (forall x. Rep DeleteReceiptRuleSet x -&gt; DeleteReceiptRuleSet)
+-&gt; Generic DeleteReceiptRuleSet
+forall x. Rep DeleteReceiptRuleSet x -&gt; DeleteReceiptRuleSet
+forall x. DeleteReceiptRuleSet -&gt; Rep DeleteReceiptRuleSet x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteReceiptRuleSet x -&gt; DeleteReceiptRuleSet
+$cfrom :: forall x. DeleteReceiptRuleSet -&gt; Rep DeleteReceiptRuleSet x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Create a value of 'DeleteReceiptRuleSet' with all optional fields omitted.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'ruleSetName', 'deleteReceiptRuleSet_ruleSetName' - The name of the receipt rule set to delete.</span><span>
+</span><span id="line-77"></span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#newDeleteReceiptRuleSet"><span class="hs-identifier hs-type">newDeleteReceiptRuleSet</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-78"></span><span>  </span><span class="hs-comment">-- | 'ruleSetName'</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span>
+</span><span id="line-81"></span><span id="newDeleteReceiptRuleSet"><span class="annot"><span class="annottext">newDeleteReceiptRuleSet :: Text -&gt; DeleteReceiptRuleSet
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#newDeleteReceiptRuleSet"><span class="hs-identifier hs-var hs-var">newDeleteReceiptRuleSet</span></a></span></span><span> </span><span id="local-6989586621679286277"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286277"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="annottext">DeleteReceiptRuleSet' :: Text -&gt; DeleteReceiptRuleSet
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet%27"><span class="hs-identifier hs-type">DeleteReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:DeleteReceiptRuleSet' :: Text
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#%24sel%3AruleSetName%3ADeleteReceiptRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286277"><span class="hs-identifier hs-var">pRuleSetName_</span></a></span><span class="hs-special">}</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- | The name of the receipt rule set to delete.</span><span>
+</span><span id="line-85"></span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#deleteReceiptRuleSet_ruleSetName"><span class="hs-identifier hs-type">deleteReceiptRuleSet_ruleSetName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-86"></span><span id="deleteReceiptRuleSet_ruleSetName"><span class="annot"><span class="annottext">deleteReceiptRuleSet_ruleSetName :: (Text -&gt; f Text) -&gt; DeleteReceiptRuleSet -&gt; f DeleteReceiptRuleSet
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#deleteReceiptRuleSet_ruleSetName"><span class="hs-identifier hs-var hs-var">deleteReceiptRuleSet_ruleSetName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReceiptRuleSet -&gt; Text)
+-&gt; (DeleteReceiptRuleSet -&gt; Text -&gt; DeleteReceiptRuleSet)
+-&gt; Lens DeleteReceiptRuleSet DeleteReceiptRuleSet Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet%27"><span class="hs-identifier hs-type">DeleteReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286274"><span class="annot"><span class="annottext">Text
+ruleSetName :: Text
+$sel:ruleSetName:DeleteReceiptRuleSet' :: DeleteReceiptRuleSet -&gt; Text
+</span><a href="#local-6989586621679286274"><span class="hs-identifier hs-var hs-var">ruleSetName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286274"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286273"><span class="annot"><span class="annottext">s :: DeleteReceiptRuleSet
+</span><a href="#local-6989586621679286273"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet%27"><span class="hs-identifier hs-type">DeleteReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286272"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286272"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRuleSet
+</span><a href="#local-6989586621679286273"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ruleSetName:DeleteReceiptRuleSet' :: Text
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#%24sel%3AruleSetName%3ADeleteReceiptRuleSet%27"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286272"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-90"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>      </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679286268"><span class="annot"><span class="annottext">request :: DeleteReceiptRuleSet -&gt; Request DeleteReceiptRuleSet
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteReceiptRuleSet -&gt; Request DeleteReceiptRuleSet
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.SES.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679286264"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteReceiptRuleSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReceiptRuleSet)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">Text
+-&gt; (Int
+    -&gt; ResponseHeaders
+    -&gt; [Node]
+    -&gt; Either String (AWSResponse DeleteReceiptRuleSet))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteReceiptRuleSet
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteReceiptRuleSet)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+Text
+-&gt; (Int
+    -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXMLWrapper</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeleteReceiptRuleSetResult&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679286261"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286261"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679286260"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679286260"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679286259"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679286259"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRuleSetResponse
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">DeleteReceiptRuleSetResponse'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; DeleteReceiptRuleSetResponse)
+-&gt; Either String Int -&gt; Either String DeleteReceiptRuleSetResponse
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286261"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286252"><span id="local-6989586621679286254"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span></span></span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286249"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679286245"><span class="annot"><span class="annottext">toHeaders :: DeleteReceiptRuleSet -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteReceiptRuleSet -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679286240"><span class="annot"><span class="annottext">toPath :: DeleteReceiptRuleSet -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteReceiptRuleSet -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet"><span class="hs-identifier hs-type">DeleteReceiptRuleSet</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span id="local-6989586621679286236"><span class="annot"><span class="annottext">toQuery :: DeleteReceiptRuleSet -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSet%27"><span class="hs-identifier hs-type">DeleteReceiptRuleSet'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286234"><span class="annot"><span class="annottext">Text
+ruleSetName :: Text
+$sel:ruleSetName:DeleteReceiptRuleSet' :: DeleteReceiptRuleSet -&gt; Text
+</span><a href="#local-6989586621679286234"><span class="hs-glyph hs-var hs-var">..</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-115"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteReceiptRuleSet&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-116"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-117"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2010-12-01&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;RuleSetName&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Text -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679286234"><span class="hs-identifier hs-var">ruleSetName</span></a></span><span>
+</span><span id="line-119"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | An empty element returned on a successful request.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- /See:/ 'newDeleteReceiptRuleSetResponse' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679286231"><span id="local-6989586621679286232"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteReceiptRuleSetResponse"><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse"><span class="hs-identifier hs-var">DeleteReceiptRuleSetResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteReceiptRuleSetResponse%27"><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">DeleteReceiptRuleSetResponse'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteReceiptRuleSetResponse%27"><span class="annot"><span class="annottext">DeleteReceiptRuleSetResponse -&gt; Int
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#%24sel%3AhttpStatus%3ADeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-128"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679286226"><span id="local-6989586621679286228"><span class="annot"><span class="annottext">DeleteReceiptRuleSetResponse
+-&gt; DeleteReceiptRuleSetResponse -&gt; Bool
+(DeleteReceiptRuleSetResponse
+ -&gt; DeleteReceiptRuleSetResponse -&gt; Bool)
+-&gt; (DeleteReceiptRuleSetResponse
+    -&gt; DeleteReceiptRuleSetResponse -&gt; Bool)
+-&gt; Eq DeleteReceiptRuleSetResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteReceiptRuleSetResponse
+-&gt; DeleteReceiptRuleSetResponse -&gt; Bool
+$c/= :: DeleteReceiptRuleSetResponse
+-&gt; DeleteReceiptRuleSetResponse -&gt; Bool
+== :: DeleteReceiptRuleSetResponse
+-&gt; DeleteReceiptRuleSetResponse -&gt; Bool
+$c== :: DeleteReceiptRuleSetResponse
+-&gt; DeleteReceiptRuleSetResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286218"><span id="local-6989586621679286220"><span id="local-6989586621679286222"><span id="local-6989586621679286224"><span class="annot"><span class="annottext">ReadPrec [DeleteReceiptRuleSetResponse]
+ReadPrec DeleteReceiptRuleSetResponse
+Int -&gt; ReadS DeleteReceiptRuleSetResponse
+ReadS [DeleteReceiptRuleSetResponse]
+(Int -&gt; ReadS DeleteReceiptRuleSetResponse)
+-&gt; ReadS [DeleteReceiptRuleSetResponse]
+-&gt; ReadPrec DeleteReceiptRuleSetResponse
+-&gt; ReadPrec [DeleteReceiptRuleSetResponse]
+-&gt; Read DeleteReceiptRuleSetResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteReceiptRuleSetResponse]
+$creadListPrec :: ReadPrec [DeleteReceiptRuleSetResponse]
+readPrec :: ReadPrec DeleteReceiptRuleSetResponse
+$creadPrec :: ReadPrec DeleteReceiptRuleSetResponse
+readList :: ReadS [DeleteReceiptRuleSetResponse]
+$creadList :: ReadS [DeleteReceiptRuleSetResponse]
+readsPrec :: Int -&gt; ReadS DeleteReceiptRuleSetResponse
+$creadsPrec :: Int -&gt; ReadS DeleteReceiptRuleSetResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679286212"><span id="local-6989586621679286214"><span id="local-6989586621679286216"><span class="annot"><span class="annottext">Int -&gt; DeleteReceiptRuleSetResponse -&gt; ShowS
+[DeleteReceiptRuleSetResponse] -&gt; ShowS
+DeleteReceiptRuleSetResponse -&gt; String
+(Int -&gt; DeleteReceiptRuleSetResponse -&gt; ShowS)
+-&gt; (DeleteReceiptRuleSetResponse -&gt; String)
+-&gt; ([DeleteReceiptRuleSetResponse] -&gt; ShowS)
+-&gt; Show DeleteReceiptRuleSetResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteReceiptRuleSetResponse] -&gt; ShowS
+$cshowList :: [DeleteReceiptRuleSetResponse] -&gt; ShowS
+show :: DeleteReceiptRuleSetResponse -&gt; String
+$cshow :: DeleteReceiptRuleSetResponse -&gt; String
+showsPrec :: Int -&gt; DeleteReceiptRuleSetResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteReceiptRuleSetResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteReceiptRuleSetResponse -&gt; Rep DeleteReceiptRuleSetResponse x)
+-&gt; (forall x.
+    Rep DeleteReceiptRuleSetResponse x -&gt; DeleteReceiptRuleSetResponse)
+-&gt; Generic DeleteReceiptRuleSetResponse
+forall x.
+Rep DeleteReceiptRuleSetResponse x -&gt; DeleteReceiptRuleSetResponse
+forall x.
+DeleteReceiptRuleSetResponse -&gt; Rep DeleteReceiptRuleSetResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteReceiptRuleSetResponse x -&gt; DeleteReceiptRuleSetResponse
+$cfrom :: forall x.
+DeleteReceiptRuleSetResponse -&gt; Rep DeleteReceiptRuleSetResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- Create a value of 'DeleteReceiptRuleSetResponse' with all optional fields omitted.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'httpStatus', 'deleteReceiptRuleSetResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#newDeleteReceiptRuleSetResponse"><span class="hs-identifier hs-type">newDeleteReceiptRuleSetResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-140"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-141"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-142"></span><span>  </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse</span></a></span><span>
+</span><span id="line-143"></span><span id="newDeleteReceiptRuleSetResponse"><span class="annot"><span class="annottext">newDeleteReceiptRuleSetResponse :: Int -&gt; DeleteReceiptRuleSetResponse
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#newDeleteReceiptRuleSetResponse"><span class="hs-identifier hs-var hs-var">newDeleteReceiptRuleSetResponse</span></a></span></span><span> </span><span id="local-6989586621679286209"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-144"></span><span>  </span><span class="annot"><span class="annottext">DeleteReceiptRuleSetResponse' :: Int -&gt; DeleteReceiptRuleSetResponse
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse'</span></a></span><span>
+</span><span id="line-145"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReceiptRuleSetResponse' :: Int
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#%24sel%3AhttpStatus%3ADeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286209"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-147"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-150"></span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#deleteReceiptRuleSetResponse_httpStatus"><span class="hs-identifier hs-type">deleteReceiptRuleSetResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-151"></span><span id="deleteReceiptRuleSetResponse_httpStatus"><span class="annot"><span class="annottext">deleteReceiptRuleSetResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteReceiptRuleSetResponse -&gt; f DeleteReceiptRuleSetResponse
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#deleteReceiptRuleSetResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteReceiptRuleSetResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteReceiptRuleSetResponse -&gt; Int)
+-&gt; (DeleteReceiptRuleSetResponse
+    -&gt; Int -&gt; DeleteReceiptRuleSetResponse)
+-&gt; Lens
+     DeleteReceiptRuleSetResponse DeleteReceiptRuleSetResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679286208"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteReceiptRuleSetResponse' :: DeleteReceiptRuleSetResponse -&gt; Int
+</span><a href="#local-6989586621679286208"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286208"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679286207"><span class="annot"><span class="annottext">s :: DeleteReceiptRuleSetResponse
+</span><a href="#local-6989586621679286207"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679286206"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286206"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteReceiptRuleSetResponse
+</span><a href="#local-6989586621679286207"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteReceiptRuleSetResponse' :: Int
+</span><a href="Amazonka.SES.DeleteReceiptRuleSet.html#%24sel%3AhttpStatus%3ADeleteReceiptRuleSetResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679286206"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679286204"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.SES.DeleteReceiptRuleSet.html#DeleteReceiptRuleSetResponse"><span class="hs-identifier hs-type">DeleteReceiptRuleSetResponse</span></a></span></span><span>
+</span><span id="line-154"></span></pre></body></html>

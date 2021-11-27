@@ -1,0 +1,1254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MGN.Types.ReplicationConfigurationTemplate</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MGN.Types.ReplicationConfigurationTemplate</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting.html"><span class="hs-identifier">Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html"><span class="hs-identifier">Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption.html"><span class="hs-identifier">Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | /See:/ 'newReplicationConfigurationTemplate' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679229732"><span id="local-6989586621679229733"></span></span><span class="hs-keyword">data</span><span> </span><span id="ReplicationConfigurationTemplate"><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-var">ReplicationConfigurationTemplate</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ReplicationConfigurationTemplate%27"><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">ReplicationConfigurationTemplate'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Replication Configuration template create Public IP.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AcreatePublicIP%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AcreatePublicIP%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">createPublicIP</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template Staging Area Tags.</span><span>
+</span><span id="line-34"></span><span>    </span><span id="%24sel%3AstagingAreaTags%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AstagingAreaTags%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">stagingAreaTags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template ARN.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Aarn%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3Aarn%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template Staging Area subnet ID.</span><span>
+</span><span id="line-38"></span><span>    </span><span id="%24sel%3AstagingAreaSubnetId%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AstagingAreaSubnetId%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">stagingAreaSubnetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template server instance type.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AreplicationServerInstanceType%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationServerInstanceType%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">replicationServerInstanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template EBS encryption.</span><span>
+</span><span id="line-42"></span><span>    </span><span id="%24sel%3AebsEncryption%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AebsEncryption%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">ebsEncryption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption.html#ReplicationConfigurationEbsEncryption"><span class="hs-identifier hs-type">ReplicationConfigurationEbsEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template associate default Application</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- Migration Service Security group.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3AassociateDefaultSecurityGroup%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AassociateDefaultSecurityGroup%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">associateDefaultSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template server Security Groups IDs.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AreplicationServersSecurityGroupsIDs%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe [Text]
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationServersSecurityGroupsIDs%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">replicationServersSecurityGroupsIDs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template EBS encryption key ARN.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3AebsEncryptionKeyArn%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AebsEncryptionKeyArn%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">ebsEncryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template use dedault large Staging Disk type.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AdefaultLargeStagingDiskType%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AdefaultLargeStagingDiskType%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">defaultLargeStagingDiskType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template bandwidth throtting.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AbandwidthThrottling%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Natural
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AbandwidthThrottling%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">bandwidthThrottling</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template data plane routing.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AdataPlaneRouting%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AdataPlaneRouting%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">dataPlaneRouting</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting.html#ReplicationConfigurationDataPlaneRouting"><span class="hs-identifier hs-type">ReplicationConfigurationDataPlaneRouting</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template use Dedicated Replication Server.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AuseDedicatedReplicationServer%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AuseDedicatedReplicationServer%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">useDedicatedReplicationServer</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template Tags.</span><span>
+</span><span id="line-59"></span><span>    </span><span id="%24sel%3Atags%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3Atags%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- | Replication Configuration template template ID.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AreplicationConfigurationTemplateID%3AReplicationConfigurationTemplate%27"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate -&gt; Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationConfigurationTemplateID%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplateID</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679229712"><span id="local-6989586621679229714"><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+-&gt; ReplicationConfigurationTemplate -&gt; Bool
+(ReplicationConfigurationTemplate
+ -&gt; ReplicationConfigurationTemplate -&gt; Bool)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; ReplicationConfigurationTemplate -&gt; Bool)
+-&gt; Eq ReplicationConfigurationTemplate
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ReplicationConfigurationTemplate
+-&gt; ReplicationConfigurationTemplate -&gt; Bool
+$c/= :: ReplicationConfigurationTemplate
+-&gt; ReplicationConfigurationTemplate -&gt; Bool
+== :: ReplicationConfigurationTemplate
+-&gt; ReplicationConfigurationTemplate -&gt; Bool
+$c== :: ReplicationConfigurationTemplate
+-&gt; ReplicationConfigurationTemplate -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679229705"><span id="local-6989586621679229707"><span id="local-6989586621679229709"><span class="annot"><span class="annottext">Int -&gt; ReplicationConfigurationTemplate -&gt; ShowS
+[ReplicationConfigurationTemplate] -&gt; ShowS
+ReplicationConfigurationTemplate -&gt; String
+(Int -&gt; ReplicationConfigurationTemplate -&gt; ShowS)
+-&gt; (ReplicationConfigurationTemplate -&gt; String)
+-&gt; ([ReplicationConfigurationTemplate] -&gt; ShowS)
+-&gt; Show ReplicationConfigurationTemplate
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ReplicationConfigurationTemplate] -&gt; ShowS
+$cshowList :: [ReplicationConfigurationTemplate] -&gt; ShowS
+show :: ReplicationConfigurationTemplate -&gt; String
+$cshow :: ReplicationConfigurationTemplate -&gt; String
+showsPrec :: Int -&gt; ReplicationConfigurationTemplate -&gt; ShowS
+$cshowsPrec :: Int -&gt; ReplicationConfigurationTemplate -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ReplicationConfigurationTemplate
+ -&gt; Rep ReplicationConfigurationTemplate x)
+-&gt; (forall x.
+    Rep ReplicationConfigurationTemplate x
+    -&gt; ReplicationConfigurationTemplate)
+-&gt; Generic ReplicationConfigurationTemplate
+forall x.
+Rep ReplicationConfigurationTemplate x
+-&gt; ReplicationConfigurationTemplate
+forall x.
+ReplicationConfigurationTemplate
+-&gt; Rep ReplicationConfigurationTemplate x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ReplicationConfigurationTemplate x
+-&gt; ReplicationConfigurationTemplate
+$cfrom :: forall x.
+ReplicationConfigurationTemplate
+-&gt; Rep ReplicationConfigurationTemplate x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- Create a value of 'ReplicationConfigurationTemplate' with all optional fields omitted.</span><span>
+</span><span id="line-67"></span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- 'createPublicIP', 'replicationConfigurationTemplate_createPublicIP' - Replication Configuration template create Public IP.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'stagingAreaTags', 'replicationConfigurationTemplate_stagingAreaTags' - Replication Configuration template Staging Area Tags.</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'arn', 'replicationConfigurationTemplate_arn' - Replication Configuration template ARN.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'stagingAreaSubnetId', 'replicationConfigurationTemplate_stagingAreaSubnetId' - Replication Configuration template Staging Area subnet ID.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'replicationServerInstanceType', 'replicationConfigurationTemplate_replicationServerInstanceType' - Replication Configuration template server instance type.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'ebsEncryption', 'replicationConfigurationTemplate_ebsEncryption' - Replication Configuration template EBS encryption.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'associateDefaultSecurityGroup', 'replicationConfigurationTemplate_associateDefaultSecurityGroup' - Replication Configuration template associate default Application</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- Migration Service Security group.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'replicationServersSecurityGroupsIDs', 'replicationConfigurationTemplate_replicationServersSecurityGroupsIDs' - Replication Configuration template server Security Groups IDs.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- 'ebsEncryptionKeyArn', 'replicationConfigurationTemplate_ebsEncryptionKeyArn' - Replication Configuration template EBS encryption key ARN.</span><span>
+</span><span id="line-91"></span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- 'defaultLargeStagingDiskType', 'replicationConfigurationTemplate_defaultLargeStagingDiskType' - Replication Configuration template use dedault large Staging Disk type.</span><span>
+</span><span id="line-93"></span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span class="hs-comment">-- 'bandwidthThrottling', 'replicationConfigurationTemplate_bandwidthThrottling' - Replication Configuration template bandwidth throtting.</span><span>
+</span><span id="line-95"></span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- 'dataPlaneRouting', 'replicationConfigurationTemplate_dataPlaneRouting' - Replication Configuration template data plane routing.</span><span>
+</span><span id="line-97"></span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- 'useDedicatedReplicationServer', 'replicationConfigurationTemplate_useDedicatedReplicationServer' - Replication Configuration template use Dedicated Replication Server.</span><span>
+</span><span id="line-99"></span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- 'tags', 'replicationConfigurationTemplate_tags' - Replication Configuration template Tags.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- 'replicationConfigurationTemplateID', 'replicationConfigurationTemplate_replicationConfigurationTemplateID' - Replication Configuration template template ID.</span><span>
+</span><span id="line-103"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#newReplicationConfigurationTemplate"><span class="hs-identifier hs-type">newReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-104"></span><span>  </span><span class="hs-comment">-- | 'replicationConfigurationTemplateID'</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span>
+</span><span id="line-107"></span><span id="newReplicationConfigurationTemplate"><span class="annot"><span class="annottext">newReplicationConfigurationTemplate :: Text -&gt; ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#newReplicationConfigurationTemplate"><span class="hs-identifier hs-var hs-var">newReplicationConfigurationTemplate</span></a></span></span><span>
+</span><span id="line-108"></span><span>  </span><span id="local-6989586621679229699"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229699"><span class="hs-identifier hs-var">pReplicationConfigurationTemplateID_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate' :: Maybe Bool
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; Maybe Natural
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+-&gt; Maybe Bool
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Text
+-&gt; ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span>
+</span><span id="line-110"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:createPublicIP:ReplicationConfigurationTemplate' :: Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AcreatePublicIP%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">createPublicIP</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-111"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>        </span><span class="annot"><span class="annottext">$sel:stagingAreaTags:ReplicationConfigurationTemplate' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AstagingAreaTags%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">stagingAreaTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>        </span><span class="annot"><span class="annottext">$sel:arn:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3Aarn%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>        </span><span class="annot"><span class="annottext">$sel:stagingAreaSubnetId:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AstagingAreaSubnetId%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">stagingAreaSubnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationServerInstanceType:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationServerInstanceType%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">replicationServerInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-116"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-117"></span><span>        </span><span class="annot"><span class="annottext">$sel:ebsEncryption:ReplicationConfigurationTemplate' :: Maybe ReplicationConfigurationEbsEncryption
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AebsEncryption%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">ebsEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>        </span><span class="annot"><span class="annottext">$sel:associateDefaultSecurityGroup:ReplicationConfigurationTemplate' :: Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AassociateDefaultSecurityGroup%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">associateDefaultSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationServersSecurityGroupsIDs:ReplicationConfigurationTemplate' :: Maybe [Text]
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationServersSecurityGroupsIDs%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">replicationServersSecurityGroupsIDs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-121"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-122"></span><span>        </span><span class="annot"><span class="annottext">$sel:ebsEncryptionKeyArn:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AebsEncryptionKeyArn%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">ebsEncryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-123"></span><span>        </span><span class="annot"><span class="annottext">$sel:defaultLargeStagingDiskType:ReplicationConfigurationTemplate' :: Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AdefaultLargeStagingDiskType%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">defaultLargeStagingDiskType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>          </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>        </span><span class="annot"><span class="annottext">$sel:bandwidthThrottling:ReplicationConfigurationTemplate' :: Maybe Natural
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AbandwidthThrottling%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">bandwidthThrottling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>        </span><span class="annot"><span class="annottext">$sel:dataPlaneRouting:ReplicationConfigurationTemplate' :: Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AdataPlaneRouting%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">dataPlaneRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>        </span><span class="annot"><span class="annottext">$sel:useDedicatedReplicationServer:ReplicationConfigurationTemplate' :: Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AuseDedicatedReplicationServer%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">useDedicatedReplicationServer</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:ReplicationConfigurationTemplate' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3Atags%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicationConfigurationTemplateID:ReplicationConfigurationTemplate' :: Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationConfigurationTemplateID%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">replicationConfigurationTemplateID</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-131"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229699"><span class="hs-identifier hs-var">pReplicationConfigurationTemplateID_</span></a></span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- | Replication Configuration template create Public IP.</span><span>
+</span><span id="line-135"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_createPublicIP"><span class="hs-identifier hs-type">replicationConfigurationTemplate_createPublicIP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span id="replicationConfigurationTemplate_createPublicIP"><span class="annot"><span class="annottext">replicationConfigurationTemplate_createPublicIP :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_createPublicIP"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_createPublicIP</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Bool)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Bool -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229695"><span class="annot"><span class="annottext">Maybe Bool
+createPublicIP :: Maybe Bool
+$sel:createPublicIP:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Bool
+</span><a href="#local-6989586621679229695"><span class="hs-identifier hs-var hs-var">createPublicIP</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229695"><span class="hs-identifier hs-var">createPublicIP</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229694"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229694"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229693"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229693"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229694"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:createPublicIP:ReplicationConfigurationTemplate' :: Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AcreatePublicIP%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">createPublicIP</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229693"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- | Replication Configuration template Staging Area Tags.</span><span>
+</span><span id="line-139"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_stagingAreaTags"><span class="hs-identifier hs-type">replicationConfigurationTemplate_stagingAreaTags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-140"></span><span id="replicationConfigurationTemplate_stagingAreaTags"><span class="annot"><span class="annottext">replicationConfigurationTemplate_stagingAreaTags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_stagingAreaTags"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_stagingAreaTags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate
+ -&gt; Maybe (Sensitive (HashMap Text Text)))
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229691"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+stagingAreaTags :: Maybe (Sensitive (HashMap Text Text))
+$sel:stagingAreaTags:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229691"><span class="hs-identifier hs-var hs-var">stagingAreaTags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229691"><span class="hs-identifier hs-var">stagingAreaTags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229690"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229690"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229689"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229689"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229690"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stagingAreaTags:ReplicationConfigurationTemplate' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AstagingAreaTags%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">stagingAreaTags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229689"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+  -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+ -&gt; ReplicationConfigurationTemplate
+ -&gt; f ReplicationConfigurationTemplate)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; (Exchange
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (Identity (HashMap Text Text))
+    -&gt; Exchange
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (Identity (HashMap Text Text)))
+-&gt; AnIso
+     (Sensitive (HashMap Text Text))
+     (Sensitive (HashMap Text Text))
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (Identity (HashMap Text Text))
+-&gt; Exchange
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (Identity (HashMap Text Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- | Replication Configuration template ARN.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_arn"><span class="hs-identifier hs-type">replicationConfigurationTemplate_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span id="replicationConfigurationTemplate_arn"><span class="annot"><span class="annottext">replicationConfigurationTemplate_arn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_arn"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Text)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Text -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229683"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679229683"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229683"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229682"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229682"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229681"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229681"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229682"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3Aarn%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229681"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- | Replication Configuration template Staging Area subnet ID.</span><span>
+</span><span id="line-147"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_stagingAreaSubnetId"><span class="hs-identifier hs-type">replicationConfigurationTemplate_stagingAreaSubnetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span id="replicationConfigurationTemplate_stagingAreaSubnetId"><span class="annot"><span class="annottext">replicationConfigurationTemplate_stagingAreaSubnetId :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_stagingAreaSubnetId"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_stagingAreaSubnetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Text)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Text -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229679"><span class="annot"><span class="annottext">Maybe Text
+stagingAreaSubnetId :: Maybe Text
+$sel:stagingAreaSubnetId:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679229679"><span class="hs-identifier hs-var hs-var">stagingAreaSubnetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229679"><span class="hs-identifier hs-var">stagingAreaSubnetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229678"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229678"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229677"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229677"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229678"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:stagingAreaSubnetId:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AstagingAreaSubnetId%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">stagingAreaSubnetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229677"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- | Replication Configuration template server instance type.</span><span>
+</span><span id="line-151"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_replicationServerInstanceType"><span class="hs-identifier hs-type">replicationConfigurationTemplate_replicationServerInstanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-152"></span><span id="replicationConfigurationTemplate_replicationServerInstanceType"><span class="annot"><span class="annottext">replicationConfigurationTemplate_replicationServerInstanceType :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_replicationServerInstanceType"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_replicationServerInstanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Text)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Text -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229675"><span class="annot"><span class="annottext">Maybe Text
+replicationServerInstanceType :: Maybe Text
+$sel:replicationServerInstanceType:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679229675"><span class="hs-identifier hs-var hs-var">replicationServerInstanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229675"><span class="hs-identifier hs-var">replicationServerInstanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229674"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229674"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229673"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229673"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229674"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationServerInstanceType:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationServerInstanceType%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">replicationServerInstanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229673"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | Replication Configuration template EBS encryption.</span><span>
+</span><span id="line-155"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_ebsEncryption"><span class="hs-identifier hs-type">replicationConfigurationTemplate_ebsEncryption</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationEbsEncryption.html#ReplicationConfigurationEbsEncryption"><span class="hs-identifier hs-type">ReplicationConfigurationEbsEncryption</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-156"></span><span id="replicationConfigurationTemplate_ebsEncryption"><span class="annot"><span class="annottext">replicationConfigurationTemplate_ebsEncryption :: (Maybe ReplicationConfigurationEbsEncryption
+ -&gt; f (Maybe ReplicationConfigurationEbsEncryption))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_ebsEncryption"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_ebsEncryption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate
+ -&gt; Maybe ReplicationConfigurationEbsEncryption)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe ReplicationConfigurationEbsEncryption
+    -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe ReplicationConfigurationEbsEncryption)
+     (Maybe ReplicationConfigurationEbsEncryption)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229671"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+ebsEncryption :: Maybe ReplicationConfigurationEbsEncryption
+$sel:ebsEncryption:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679229671"><span class="hs-identifier hs-var hs-var">ebsEncryption</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679229671"><span class="hs-identifier hs-var">ebsEncryption</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229670"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229670"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229669"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679229669"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229670"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebsEncryption:ReplicationConfigurationTemplate' :: Maybe ReplicationConfigurationEbsEncryption
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AebsEncryption%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">ebsEncryption</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationEbsEncryption
+</span><a href="#local-6989586621679229669"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | Replication Configuration template associate default Application</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- Migration Service Security group.</span><span>
+</span><span id="line-160"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_associateDefaultSecurityGroup"><span class="hs-identifier hs-type">replicationConfigurationTemplate_associateDefaultSecurityGroup</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span id="replicationConfigurationTemplate_associateDefaultSecurityGroup"><span class="annot"><span class="annottext">replicationConfigurationTemplate_associateDefaultSecurityGroup :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_associateDefaultSecurityGroup"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_associateDefaultSecurityGroup</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Bool)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Bool -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229667"><span class="annot"><span class="annottext">Maybe Bool
+associateDefaultSecurityGroup :: Maybe Bool
+$sel:associateDefaultSecurityGroup:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Bool
+</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var hs-var">associateDefaultSecurityGroup</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229667"><span class="hs-identifier hs-var">associateDefaultSecurityGroup</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229666"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229666"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229665"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229665"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229666"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:associateDefaultSecurityGroup:ReplicationConfigurationTemplate' :: Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AassociateDefaultSecurityGroup%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">associateDefaultSecurityGroup</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229665"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-162"></span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- | Replication Configuration template server Security Groups IDs.</span><span>
+</span><span id="line-164"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_replicationServersSecurityGroupsIDs"><span class="hs-identifier hs-type">replicationConfigurationTemplate_replicationServersSecurityGroupsIDs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-165"></span><span id="replicationConfigurationTemplate_replicationServersSecurityGroupsIDs"><span class="annot"><span class="annottext">replicationConfigurationTemplate_replicationServersSecurityGroupsIDs :: (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_replicationServersSecurityGroupsIDs"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_replicationServersSecurityGroupsIDs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe [Text])
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe [Text] -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe [Text])
+     (Maybe [Text])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229663"><span class="annot"><span class="annottext">Maybe [Text]
+replicationServersSecurityGroupsIDs :: Maybe [Text]
+$sel:replicationServersSecurityGroupsIDs:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe [Text]
+</span><a href="#local-6989586621679229663"><span class="hs-identifier hs-var hs-var">replicationServersSecurityGroupsIDs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679229663"><span class="hs-identifier hs-var">replicationServersSecurityGroupsIDs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229662"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229662"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229661"><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679229661"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229662"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationServersSecurityGroupsIDs:ReplicationConfigurationTemplate' :: Maybe [Text]
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationServersSecurityGroupsIDs%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">replicationServersSecurityGroupsIDs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+</span><a href="#local-6989586621679229661"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Text] -&gt; f (Maybe [Text]))
+ -&gt; ReplicationConfigurationTemplate
+ -&gt; f ReplicationConfigurationTemplate)
+-&gt; ((Maybe [Text] -&gt; f (Maybe [Text]))
+    -&gt; Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; (Maybe [Text] -&gt; f (Maybe [Text]))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+-&gt; Iso (Maybe [Text]) (Maybe [Text]) (Maybe [Text]) (Maybe [Text])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Text] [Text] [Text] [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- | Replication Configuration template EBS encryption key ARN.</span><span>
+</span><span id="line-168"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_ebsEncryptionKeyArn"><span class="hs-identifier hs-type">replicationConfigurationTemplate_ebsEncryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-169"></span><span id="replicationConfigurationTemplate_ebsEncryptionKeyArn"><span class="annot"><span class="annottext">replicationConfigurationTemplate_ebsEncryptionKeyArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_ebsEncryptionKeyArn"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_ebsEncryptionKeyArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Text)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Text -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229659"><span class="annot"><span class="annottext">Maybe Text
+ebsEncryptionKeyArn :: Maybe Text
+$sel:ebsEncryptionKeyArn:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Text
+</span><a href="#local-6989586621679229659"><span class="hs-identifier hs-var hs-var">ebsEncryptionKeyArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229659"><span class="hs-identifier hs-var">ebsEncryptionKeyArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229658"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229658"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229657"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229657"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229658"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:ebsEncryptionKeyArn:ReplicationConfigurationTemplate' :: Maybe Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AebsEncryptionKeyArn%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">ebsEncryptionKeyArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679229657"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- | Replication Configuration template use dedault large Staging Disk type.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_defaultLargeStagingDiskType"><span class="hs-identifier hs-type">replicationConfigurationTemplate_defaultLargeStagingDiskType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationDefaultLargeStagingDiskType.html#ReplicationConfigurationDefaultLargeStagingDiskType"><span class="hs-identifier hs-type">ReplicationConfigurationDefaultLargeStagingDiskType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span id="replicationConfigurationTemplate_defaultLargeStagingDiskType"><span class="annot"><span class="annottext">replicationConfigurationTemplate_defaultLargeStagingDiskType :: (Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+ -&gt; f (Maybe ReplicationConfigurationDefaultLargeStagingDiskType))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_defaultLargeStagingDiskType"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_defaultLargeStagingDiskType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate
+ -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+    -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+     (Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229655"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+defaultLargeStagingDiskType :: Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+$sel:defaultLargeStagingDiskType:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679229655"><span class="hs-identifier hs-var hs-var">defaultLargeStagingDiskType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679229655"><span class="hs-identifier hs-var">defaultLargeStagingDiskType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229654"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229654"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229653"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679229653"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229654"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:defaultLargeStagingDiskType:ReplicationConfigurationTemplate' :: Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AdefaultLargeStagingDiskType%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">defaultLargeStagingDiskType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+</span><a href="#local-6989586621679229653"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- | Replication Configuration template bandwidth throtting.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_bandwidthThrottling"><span class="hs-identifier hs-type">replicationConfigurationTemplate_bandwidthThrottling</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span><span id="replicationConfigurationTemplate_bandwidthThrottling"><span class="annot"><span class="annottext">replicationConfigurationTemplate_bandwidthThrottling :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_bandwidthThrottling"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_bandwidthThrottling</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Natural)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Natural -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229651"><span class="annot"><span class="annottext">Maybe Natural
+bandwidthThrottling :: Maybe Natural
+$sel:bandwidthThrottling:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Natural
+</span><a href="#local-6989586621679229651"><span class="hs-identifier hs-var hs-var">bandwidthThrottling</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679229651"><span class="hs-identifier hs-var">bandwidthThrottling</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229650"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229650"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229649"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679229649"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229650"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:bandwidthThrottling:ReplicationConfigurationTemplate' :: Maybe Natural
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AbandwidthThrottling%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">bandwidthThrottling</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679229649"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-comment">-- | Replication Configuration template data plane routing.</span><span>
+</span><span id="line-180"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_dataPlaneRouting"><span class="hs-identifier hs-type">replicationConfigurationTemplate_dataPlaneRouting</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationDataPlaneRouting.html#ReplicationConfigurationDataPlaneRouting"><span class="hs-identifier hs-type">ReplicationConfigurationDataPlaneRouting</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-181"></span><span id="replicationConfigurationTemplate_dataPlaneRouting"><span class="annot"><span class="annottext">replicationConfigurationTemplate_dataPlaneRouting :: (Maybe ReplicationConfigurationDataPlaneRouting
+ -&gt; f (Maybe ReplicationConfigurationDataPlaneRouting))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_dataPlaneRouting"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_dataPlaneRouting</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate
+ -&gt; Maybe ReplicationConfigurationDataPlaneRouting)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+    -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe ReplicationConfigurationDataPlaneRouting)
+     (Maybe ReplicationConfigurationDataPlaneRouting)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229647"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+dataPlaneRouting :: Maybe ReplicationConfigurationDataPlaneRouting
+$sel:dataPlaneRouting:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679229647"><span class="hs-identifier hs-var hs-var">dataPlaneRouting</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679229647"><span class="hs-identifier hs-var">dataPlaneRouting</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229646"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229646"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229645"><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679229645"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229646"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataPlaneRouting:ReplicationConfigurationTemplate' :: Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AdataPlaneRouting%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">dataPlaneRouting</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ReplicationConfigurationDataPlaneRouting
+</span><a href="#local-6989586621679229645"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | Replication Configuration template use Dedicated Replication Server.</span><span>
+</span><span id="line-184"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_useDedicatedReplicationServer"><span class="hs-identifier hs-type">replicationConfigurationTemplate_useDedicatedReplicationServer</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-185"></span><span id="replicationConfigurationTemplate_useDedicatedReplicationServer"><span class="annot"><span class="annottext">replicationConfigurationTemplate_useDedicatedReplicationServer :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_useDedicatedReplicationServer"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_useDedicatedReplicationServer</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Maybe Bool)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe Bool -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229643"><span class="annot"><span class="annottext">Maybe Bool
+useDedicatedReplicationServer :: Maybe Bool
+$sel:useDedicatedReplicationServer:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Maybe Bool
+</span><a href="#local-6989586621679229643"><span class="hs-identifier hs-var hs-var">useDedicatedReplicationServer</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229643"><span class="hs-identifier hs-var">useDedicatedReplicationServer</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229642"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229642"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229641"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229641"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229642"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:useDedicatedReplicationServer:ReplicationConfigurationTemplate' :: Maybe Bool
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AuseDedicatedReplicationServer%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">useDedicatedReplicationServer</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679229641"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- | Replication Configuration template Tags.</span><span>
+</span><span id="line-188"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_tags"><span class="hs-identifier hs-type">replicationConfigurationTemplate_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-189"></span><span id="replicationConfigurationTemplate_tags"><span class="annot"><span class="annottext">replicationConfigurationTemplate_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_tags"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate
+ -&gt; Maybe (Sensitive (HashMap Text Text)))
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229639"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+tags :: Maybe (Sensitive (HashMap Text Text))
+$sel:tags:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate
+-&gt; Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229639"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229638"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229638"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229637"><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229638"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:ReplicationConfigurationTemplate' :: Maybe (Sensitive (HashMap Text Text))
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3Atags%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+</span><a href="#local-6989586621679229637"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive (HashMap Text Text))
+  -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+ -&gt; ReplicationConfigurationTemplate
+ -&gt; f ReplicationConfigurationTemplate)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (Sensitive (HashMap Text Text))
+    -&gt; f (Maybe (Sensitive (HashMap Text Text))))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (Sensitive (HashMap Text Text)))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (Sensitive (HashMap Text Text))
+  (Sensitive (HashMap Text Text))
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; (Exchange
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (HashMap Text Text)
+      (Identity (HashMap Text Text))
+    -&gt; Exchange
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (HashMap Text Text)
+         (Identity (HashMap Text Text)))
+-&gt; AnIso
+     (Sensitive (HashMap Text Text))
+     (Sensitive (HashMap Text Text))
+     (HashMap Text Text)
+     (HashMap Text Text)
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Exchange
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (Identity (HashMap Text Text))
+-&gt; Exchange
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (HashMap Text Text)
+     (Identity (HashMap Text Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span class="hs-special">)</span><span>
+</span><span id="line-190"></span><span>
+</span><span id="line-191"></span><span class="hs-comment">-- | Replication Configuration template template ID.</span><span>
+</span><span id="line-192"></span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_replicationConfigurationTemplateID"><span class="hs-identifier hs-type">replicationConfigurationTemplate_replicationConfigurationTemplateID</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-193"></span><span id="replicationConfigurationTemplate_replicationConfigurationTemplateID"><span class="annot"><span class="annottext">replicationConfigurationTemplate_replicationConfigurationTemplateID :: (Text -&gt; f Text)
+-&gt; ReplicationConfigurationTemplate
+-&gt; f ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#replicationConfigurationTemplate_replicationConfigurationTemplateID"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplate_replicationConfigurationTemplateID</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ReplicationConfigurationTemplate -&gt; Text)
+-&gt; (ReplicationConfigurationTemplate
+    -&gt; Text -&gt; ReplicationConfigurationTemplate)
+-&gt; Lens
+     ReplicationConfigurationTemplate
+     ReplicationConfigurationTemplate
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679229635"><span class="annot"><span class="annottext">Text
+replicationConfigurationTemplateID :: Text
+$sel:replicationConfigurationTemplateID:ReplicationConfigurationTemplate' :: ReplicationConfigurationTemplate -&gt; Text
+</span><a href="#local-6989586621679229635"><span class="hs-identifier hs-var hs-var">replicationConfigurationTemplateID</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229635"><span class="hs-identifier hs-var">replicationConfigurationTemplateID</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679229634"><span class="annot"><span class="annottext">s :: ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229634"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679229633"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229633"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicationConfigurationTemplate
+</span><a href="#local-6989586621679229634"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicationConfigurationTemplateID:ReplicationConfigurationTemplate' :: Text
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#%24sel%3AreplicationConfigurationTemplateID%3AReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">replicationConfigurationTemplateID</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679229633"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-196"></span><span>  </span><span id="local-6989586621679229630"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span></span><span>
+</span><span id="line-198"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-199"></span><span>  </span><span id="local-6989586621679229628"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser ReplicationConfigurationTemplate
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser ReplicationConfigurationTemplate)
+-&gt; Value
+-&gt; Parser ReplicationConfigurationTemplate
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;ReplicationConfigurationTemplate&quot;</span></span><span>
+</span><span id="line-202"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679229625"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-203"></span><span>          </span><span class="annot"><span class="annottext">Maybe Bool
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe ReplicationConfigurationEbsEncryption
+-&gt; Maybe Bool
+-&gt; Maybe [Text]
+-&gt; Maybe Text
+-&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+-&gt; Maybe Natural
+-&gt; Maybe ReplicationConfigurationDataPlaneRouting
+-&gt; Maybe Bool
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Text
+-&gt; ReplicationConfigurationTemplate
+</span><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate%27"><span class="hs-identifier hs-var">ReplicationConfigurationTemplate'</span></a></span><span>
+</span><span id="line-204"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Bool
+ -&gt; Maybe (Sensitive (HashMap Text Text))
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe ReplicationConfigurationEbsEncryption
+ -&gt; Maybe Bool
+ -&gt; Maybe [Text]
+ -&gt; Maybe Text
+ -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+ -&gt; Maybe Natural
+ -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+ -&gt; Maybe Bool
+ -&gt; Maybe (Sensitive (HashMap Text Text))
+ -&gt; Text
+ -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe (Sensitive (HashMap Text Text))
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationEbsEncryption
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;createPublicIP&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive (HashMap Text Text))
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationEbsEncryption
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationEbsEncryption
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stagingAreaTags&quot;</span></span><span>
+</span><span id="line-206"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-207"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationEbsEncryption
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationEbsEncryption
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationEbsEncryption
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ReplicationConfigurationEbsEncryption
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;stagingAreaSubnetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-210"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ReplicationConfigurationEbsEncryption
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ReplicationConfigurationEbsEncryption
+      -&gt; Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replicationServerInstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-211"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReplicationConfigurationEbsEncryption
+   -&gt; Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe ReplicationConfigurationEbsEncryption)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ReplicationConfigurationEbsEncryption)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ebsEncryption&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-212"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe [Text]
+      -&gt; Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;associateDefaultSecurityGroup&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-213"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [Text]
+   -&gt; Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe [Text])
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Text]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replicationServersSecurityGroupsIDs&quot;</span></span><span>
+</span><span id="line-214"></span><span>                            </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Text]))
+-&gt; Maybe [Text] -&gt; Parser (Maybe [Text])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-215"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-216"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+      -&gt; Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ebsEncryptionKeyArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-217"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReplicationConfigurationDefaultLargeStagingDiskType
+   -&gt; Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser
+     (Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+-&gt; Parser
+     (Maybe Natural
+      -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe ReplicationConfigurationDefaultLargeStagingDiskType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;defaultLargeStagingDiskType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-218"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Natural
+   -&gt; Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Natural)
+-&gt; Parser
+     (Maybe ReplicationConfigurationDataPlaneRouting
+      -&gt; Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;bandwidthThrottling&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-219"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe ReplicationConfigurationDataPlaneRouting
+   -&gt; Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe ReplicationConfigurationDataPlaneRouting)
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text
+      -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe ReplicationConfigurationDataPlaneRouting)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;dataPlaneRouting&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-220"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text
+   -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe (Sensitive (HashMap Text Text))
+      -&gt; Text -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;useDedicatedReplicationServer&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-221"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive (HashMap Text Text))
+   -&gt; Text -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
+-&gt; Parser (Text -&gt; ReplicationConfigurationTemplate)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text -&gt; Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (Sensitive (HashMap Text Text))))
+-&gt; Maybe (Sensitive (HashMap Text Text))
+-&gt; Parser (Maybe (Sensitive (HashMap Text Text)))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive (HashMap Text Text))
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; ReplicationConfigurationTemplate)
+-&gt; Parser Text -&gt; Parser ReplicationConfigurationTemplate
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679229625"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;replicationConfigurationTemplateID&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-224"></span><span>
+</span><span id="line-225"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-226"></span><span>  </span><span id="local-6989586621679229617"><span id="local-6989586621679229619"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span></span></span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-230"></span><span>  </span><span id="local-6989586621679229614"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.MGN.Types.ReplicationConfigurationTemplate.html#ReplicationConfigurationTemplate"><span class="hs-identifier hs-type">ReplicationConfigurationTemplate</span></a></span></span><span>
+</span><span id="line-232"></span></pre></body></html>

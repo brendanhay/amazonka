@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.MediaConvert.Types.XavcFramerateControl</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.MediaConvert.Types.XavcFramerateControl</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl"><span class="hs-identifier">XavcFramerateControl</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier">XavcFramerateControl_INITIALIZE_FROM_SOURCE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl_SPECIFIED"><span class="hs-identifier">XavcFramerateControl_SPECIFIED</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- | If you are using the console, use the Frame rate setting to specify the</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- frame rate for this output. If you want to keep the same frame rate as</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- the input video, choose Follow source. If you want to do frame rate</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- conversion, choose a frame rate from the dropdown list. The framerates</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- shown in the dropdown list are decimal approximations of fractions. If</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- you are creating your transcoding job specification as a JSON file</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- without the console, use FramerateControl to specify which value the</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- service uses for the frame rate for this output. Choose</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- INITIALIZE_FROM_SOURCE if you want the service to use the frame rate</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- from the input. Choose SPECIFIED if you want the service to use the</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- frame rate that you specify in the settings FramerateNumerator and</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- FramerateDenominator.</span><span>
+</span><span id="line-44"></span><span id="local-6989586621680020385"><span id="local-6989586621680020386"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="XavcFramerateControl"><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl"><span class="hs-identifier hs-var">XavcFramerateControl</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="XavcFramerateControl%27"><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl%27"><span class="hs-identifier hs-var">XavcFramerateControl'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromXavcFramerateControl"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; Text
+</span><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#fromXavcFramerateControl"><span class="hs-identifier hs-var hs-var">fromXavcFramerateControl</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020377"><span id="local-6989586621680020379"><span id="local-6989586621680020381"><span class="annot"><span class="annottext">Int -&gt; XavcFramerateControl -&gt; ShowS
+[XavcFramerateControl] -&gt; ShowS
+XavcFramerateControl -&gt; String
+(Int -&gt; XavcFramerateControl -&gt; ShowS)
+-&gt; (XavcFramerateControl -&gt; String)
+-&gt; ([XavcFramerateControl] -&gt; ShowS)
+-&gt; Show XavcFramerateControl
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [XavcFramerateControl] -&gt; ShowS
+$cshowList :: [XavcFramerateControl] -&gt; ShowS
+show :: XavcFramerateControl -&gt; String
+$cshow :: XavcFramerateControl -&gt; String
+showsPrec :: Int -&gt; XavcFramerateControl -&gt; ShowS
+$cshowsPrec :: Int -&gt; XavcFramerateControl -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621680020368"><span id="local-6989586621680020370"><span id="local-6989586621680020372"><span id="local-6989586621680020374"><span class="annot"><span class="annottext">ReadPrec [XavcFramerateControl]
+ReadPrec XavcFramerateControl
+Int -&gt; ReadS XavcFramerateControl
+ReadS [XavcFramerateControl]
+(Int -&gt; ReadS XavcFramerateControl)
+-&gt; ReadS [XavcFramerateControl]
+-&gt; ReadPrec XavcFramerateControl
+-&gt; ReadPrec [XavcFramerateControl]
+-&gt; Read XavcFramerateControl
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [XavcFramerateControl]
+$creadListPrec :: ReadPrec [XavcFramerateControl]
+readPrec :: ReadPrec XavcFramerateControl
+$creadPrec :: ReadPrec XavcFramerateControl
+readList :: ReadS [XavcFramerateControl]
+$creadList :: ReadS [XavcFramerateControl]
+readsPrec :: Int -&gt; ReadS XavcFramerateControl
+$creadsPrec :: Int -&gt; ReadS XavcFramerateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621680020363"><span id="local-6989586621680020365"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+(XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool)
+-&gt; (XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool)
+-&gt; Eq XavcFramerateControl
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+$c/= :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+== :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+$c== :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621680020347"><span id="local-6989586621680020349"><span id="local-6989586621680020351"><span id="local-6989586621680020353"><span id="local-6989586621680020355"><span id="local-6989586621680020357"><span id="local-6989586621680020359"><span class="annot"><span class="annottext">Eq XavcFramerateControl
+Eq XavcFramerateControl
+-&gt; (XavcFramerateControl -&gt; XavcFramerateControl -&gt; Ordering)
+-&gt; (XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool)
+-&gt; (XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool)
+-&gt; (XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool)
+-&gt; (XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool)
+-&gt; (XavcFramerateControl
+    -&gt; XavcFramerateControl -&gt; XavcFramerateControl)
+-&gt; (XavcFramerateControl
+    -&gt; XavcFramerateControl -&gt; XavcFramerateControl)
+-&gt; Ord XavcFramerateControl
+XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+XavcFramerateControl -&gt; XavcFramerateControl -&gt; Ordering
+XavcFramerateControl
+-&gt; XavcFramerateControl -&gt; XavcFramerateControl
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: XavcFramerateControl
+-&gt; XavcFramerateControl -&gt; XavcFramerateControl
+$cmin :: XavcFramerateControl
+-&gt; XavcFramerateControl -&gt; XavcFramerateControl
+max :: XavcFramerateControl
+-&gt; XavcFramerateControl -&gt; XavcFramerateControl
+$cmax :: XavcFramerateControl
+-&gt; XavcFramerateControl -&gt; XavcFramerateControl
+&gt;= :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+$c&gt;= :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+&gt; :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+$c&gt; :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+&lt;= :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+$c&lt;= :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+&lt; :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+$c&lt; :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Bool
+compare :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Ordering
+$ccompare :: XavcFramerateControl -&gt; XavcFramerateControl -&gt; Ordering
+$cp1Ord :: Eq XavcFramerateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x. XavcFramerateControl -&gt; Rep XavcFramerateControl x)
+-&gt; (forall x. Rep XavcFramerateControl x -&gt; XavcFramerateControl)
+-&gt; Generic XavcFramerateControl
+forall x. Rep XavcFramerateControl x -&gt; XavcFramerateControl
+forall x. XavcFramerateControl -&gt; Rep XavcFramerateControl x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep XavcFramerateControl x -&gt; XavcFramerateControl
+$cfrom :: forall x. XavcFramerateControl -&gt; Rep XavcFramerateControl x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621680020339"><span id="local-6989586621680020341"><span class="annot"><span class="annottext">Int -&gt; XavcFramerateControl -&gt; Int
+XavcFramerateControl -&gt; Int
+(Int -&gt; XavcFramerateControl -&gt; Int)
+-&gt; (XavcFramerateControl -&gt; Int) -&gt; Hashable XavcFramerateControl
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: XavcFramerateControl -&gt; Int
+$chash :: XavcFramerateControl -&gt; Int
+hashWithSalt :: Int -&gt; XavcFramerateControl -&gt; Int
+$chashWithSalt :: Int -&gt; XavcFramerateControl -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621680020336"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; ()
+(XavcFramerateControl -&gt; ()) -&gt; NFData XavcFramerateControl
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: XavcFramerateControl -&gt; ()
+$crnf :: XavcFramerateControl -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621680020333"><span class="annot"><span class="annottext">Text -&gt; Either String XavcFramerateControl
+(Text -&gt; Either String XavcFramerateControl)
+-&gt; FromText XavcFramerateControl
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String XavcFramerateControl
+$cfromText :: Text -&gt; Either String XavcFramerateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621680020330"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; Text
+(XavcFramerateControl -&gt; Text) -&gt; ToText XavcFramerateControl
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: XavcFramerateControl -&gt; Text
+$ctoText :: XavcFramerateControl -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621680020327"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; ByteString
+(XavcFramerateControl -&gt; ByteString)
+-&gt; ToByteString XavcFramerateControl
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: XavcFramerateControl -&gt; ByteString
+$ctoBS :: XavcFramerateControl -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621680020324"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; ByteStringBuilder
+(XavcFramerateControl -&gt; ByteStringBuilder)
+-&gt; ToLog XavcFramerateControl
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: XavcFramerateControl -&gt; ByteStringBuilder
+$cbuild :: XavcFramerateControl -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621680020321"><span class="annot"><span class="annottext">HeaderName -&gt; XavcFramerateControl -&gt; [Header]
+(HeaderName -&gt; XavcFramerateControl -&gt; [Header])
+-&gt; ToHeader XavcFramerateControl
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; XavcFramerateControl -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; XavcFramerateControl -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621680020318"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; QueryString
+(XavcFramerateControl -&gt; QueryString)
+-&gt; ToQuery XavcFramerateControl
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: XavcFramerateControl -&gt; QueryString
+$ctoQuery :: XavcFramerateControl -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621680020313"><span id="local-6989586621680020315"><span class="annot"><span class="annottext">Value -&gt; Parser [XavcFramerateControl]
+Value -&gt; Parser XavcFramerateControl
+(Value -&gt; Parser XavcFramerateControl)
+-&gt; (Value -&gt; Parser [XavcFramerateControl])
+-&gt; FromJSON XavcFramerateControl
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [XavcFramerateControl]
+$cparseJSONList :: Value -&gt; Parser [XavcFramerateControl]
+parseJSON :: Value -&gt; Parser XavcFramerateControl
+$cparseJSON :: Value -&gt; Parser XavcFramerateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621680020308"><span id="local-6989586621680020310"><span class="annot"><span class="annottext">FromJSONKeyFunction [XavcFramerateControl]
+FromJSONKeyFunction XavcFramerateControl
+FromJSONKeyFunction XavcFramerateControl
+-&gt; FromJSONKeyFunction [XavcFramerateControl]
+-&gt; FromJSONKey XavcFramerateControl
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [XavcFramerateControl]
+$cfromJSONKeyList :: FromJSONKeyFunction [XavcFramerateControl]
+fromJSONKey :: FromJSONKeyFunction XavcFramerateControl
+$cfromJSONKey :: FromJSONKeyFunction XavcFramerateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621680020299"><span id="local-6989586621680020301"><span id="local-6989586621680020303"><span id="local-6989586621680020305"><span class="annot"><span class="annottext">[XavcFramerateControl] -&gt; Encoding
+[XavcFramerateControl] -&gt; Value
+XavcFramerateControl -&gt; Encoding
+XavcFramerateControl -&gt; Value
+(XavcFramerateControl -&gt; Value)
+-&gt; (XavcFramerateControl -&gt; Encoding)
+-&gt; ([XavcFramerateControl] -&gt; Value)
+-&gt; ([XavcFramerateControl] -&gt; Encoding)
+-&gt; ToJSON XavcFramerateControl
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [XavcFramerateControl] -&gt; Encoding
+$ctoEncodingList :: [XavcFramerateControl] -&gt; Encoding
+toJSONList :: [XavcFramerateControl] -&gt; Value
+$ctoJSONList :: [XavcFramerateControl] -&gt; Value
+toEncoding :: XavcFramerateControl -&gt; Encoding
+$ctoEncoding :: XavcFramerateControl -&gt; Encoding
+toJSON :: XavcFramerateControl -&gt; Value
+$ctoJSON :: XavcFramerateControl -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621680020294"><span id="local-6989586621680020296"><span class="annot"><span class="annottext">ToJSONKeyFunction [XavcFramerateControl]
+ToJSONKeyFunction XavcFramerateControl
+ToJSONKeyFunction XavcFramerateControl
+-&gt; ToJSONKeyFunction [XavcFramerateControl]
+-&gt; ToJSONKey XavcFramerateControl
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [XavcFramerateControl]
+$ctoJSONKeyList :: ToJSONKeyFunction [XavcFramerateControl]
+toJSONKey :: ToJSONKeyFunction XavcFramerateControl
+$ctoJSONKey :: ToJSONKeyFunction XavcFramerateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621680020291"><span class="annot"><span class="annottext">[Node] -&gt; Either String XavcFramerateControl
+([Node] -&gt; Either String XavcFramerateControl)
+-&gt; FromXML XavcFramerateControl
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String XavcFramerateControl
+$cparseXML :: [Node] -&gt; Either String XavcFramerateControl
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621680020288"><span class="annot"><span class="annottext">XavcFramerateControl -&gt; XML
+(XavcFramerateControl -&gt; XML) -&gt; ToXML XavcFramerateControl
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: XavcFramerateControl -&gt; XML
+$ctoXML :: XavcFramerateControl -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier hs-type">XavcFramerateControl_INITIALIZE_FROM_SOURCE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl"><span class="hs-identifier hs-type">XavcFramerateControl</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavcFramerateControl_INITIALIZE_FROM_SOURCE"><span id="%24mXavcFramerateControl_INITIALIZE_FROM_SOURCE"><span id="XavcFramerateControl_INITIALIZE_FROM_SOURCE"><span class="annot"><span class="annottext">$bXavcFramerateControl_INITIALIZE_FROM_SOURCE :: XavcFramerateControl
+$mXavcFramerateControl_INITIALIZE_FROM_SOURCE :: forall r. XavcFramerateControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#%24bXavcFramerateControl_INITIALIZE_FROM_SOURCE"><span class="hs-identifier hs-var hs-var hs-var">XavcFramerateControl_INITIALIZE_FROM_SOURCE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl%27"><span class="hs-identifier hs-type">XavcFramerateControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;INITIALIZE_FROM_SOURCE&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl_SPECIFIED"><span class="hs-identifier hs-type">XavcFramerateControl_SPECIFIED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl"><span class="hs-identifier hs-type">XavcFramerateControl</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bXavcFramerateControl_SPECIFIED"><span id="%24mXavcFramerateControl_SPECIFIED"><span id="XavcFramerateControl_SPECIFIED"><span class="annot"><span class="annottext">$bXavcFramerateControl_SPECIFIED :: XavcFramerateControl
+$mXavcFramerateControl_SPECIFIED :: forall r. XavcFramerateControl -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#%24bXavcFramerateControl_SPECIFIED"><span class="hs-identifier hs-var hs-var hs-var">XavcFramerateControl_SPECIFIED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl%27"><span class="hs-identifier hs-type">XavcFramerateControl'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPECIFIED&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl_INITIALIZE_FROM_SOURCE"><span class="hs-pragma hs-type">XavcFramerateControl_INITIALIZE_FROM_SOURCE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl_SPECIFIED"><span class="hs-pragma hs-type">XavcFramerateControl_SPECIFIED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.MediaConvert.Types.XavcFramerateControl.html#XavcFramerateControl%27"><span class="hs-pragma hs-type">XavcFramerateControl'</span></a></span><span>
+</span><span id="line-82"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-83"></span></pre></body></html>

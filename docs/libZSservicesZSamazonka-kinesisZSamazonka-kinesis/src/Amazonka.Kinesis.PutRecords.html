@@ -1,0 +1,742 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Kinesis.PutRecords</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Writes multiple data records into a Kinesis data stream in a single call</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- (also referred to as a @PutRecords@ request). Use this operation to send</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- data into the stream for data ingestion and processing.</span><span>
+</span><span id="line-26"></span><span class="hs-comment">--</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Each @PutRecords@ request can support up to 500 records. Each record in</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- the request can be as large as 1 MiB, up to a limit of 5 MiB for the</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- entire request, including partition keys. Each shard can support writes</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- up to 1,000 records per second, up to a maximum data write total of 1</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- MiB per second.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- You must specify the name of the stream that captures, stores, and</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- transports the data; and an array of request @Records@, with each record</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- in the array requiring a partition key and data blob. The record size</span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- limit applies to the total size of the partition key and data blob.</span><span>
+</span><span id="line-37"></span><span class="hs-comment">--</span><span>
+</span><span id="line-38"></span><span class="hs-comment">-- The data blob can be any type of data; for example, a segment from a log</span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- file, geographic\/location data, website clickstream data, and so on.</span><span>
+</span><span id="line-40"></span><span class="hs-comment">--</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- The partition key is used by Kinesis Data Streams as input to a hash</span><span>
+</span><span id="line-42"></span><span class="hs-comment">-- function that maps the partition key and associated data to a specific</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- shard. An MD5 hash function is used to map partition keys to 128-bit</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- integer values and to map associated data records to shards. As a result</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- of this hashing mechanism, all data records with the same partition key</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- map to the same shard within the stream. For more information, see</span><span>
+</span><span id="line-47"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-add-data-to-stream Adding Data to a Stream&gt;</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- in the /Amazon Kinesis Data Streams Developer Guide/.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- Each record in the @Records@ array may include an optional parameter,</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- @ExplicitHashKey@, which overrides the partition key to shard mapping.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- This parameter allows a data producer to determine explicitly the shard</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- where the record is stored. For more information, see</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesis/latest/dev/developing-producers-with-sdk.html#kinesis-using-sdk-java-putrecords Adding Multiple Records with PutRecords&gt;</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- in the /Amazon Kinesis Data Streams Developer Guide/.</span><span>
+</span><span id="line-56"></span><span class="hs-comment">--</span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- The @PutRecords@ response includes an array of response @Records@. Each</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- record in the response array directly correlates with a record in the</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- request array using natural ordering, from the top to the bottom of the</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- request and response. The response @Records@ array always includes the</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- same number of records as the request array.</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- The response @Records@ array includes both successfully and</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- unsuccessfully processed records. Kinesis Data Streams attempts to</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- process all records in each @PutRecords@ request. A single record</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- failure does not stop the processing of subsequent records. As a result,</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- PutRecords doesn\'t guarantee the ordering of records. If you need to</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- read records in the same order they are written to the stream, use</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- PutRecord instead of @PutRecords@, and write to the same shard.</span><span>
+</span><span id="line-70"></span><span class="hs-comment">--</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- A successfully processed record includes @ShardId@ and @SequenceNumber@</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- values. The @ShardId@ parameter identifies the shard in the stream where</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- the record is stored. The @SequenceNumber@ parameter is an identifier</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- assigned to the put record, unique to all records in the stream.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- An unsuccessfully processed record includes @ErrorCode@ and</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- @ErrorMessage@ values. @ErrorCode@ reflects the type of error and can be</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- one of the following values: @ProvisionedThroughputExceededException@ or</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- @InternalFailure@. @ErrorMessage@ provides more detailed information</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- about the @ProvisionedThroughputExceededException@ exception including</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- the account ID, stream name, and shard ID of the record that was</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- throttled. For more information about partially successful responses,</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- see</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/kinesis/latest/dev/kinesis-using-sdk-java-add-data-to-stream.html#kinesis-using-sdk-java-putrecords Adding Multiple Records with PutRecords&gt;</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- in the /Amazon Kinesis Data Streams Developer Guide/.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- After you write a record to a stream, you cannot modify that record or</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- its order within the stream.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">--</span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- By default, data records are accessible for 24 hours from the time that</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- they are added to a stream. You can use IncreaseStreamRetentionPeriod or</span><span>
+</span><span id="line-92"></span><span class="hs-comment">-- DecreaseStreamRetentionPeriod to modify this retention period.</span><span>
+</span><span id="line-93"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Kinesis.PutRecords</span><span>
+</span><span id="line-94"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-95"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier">PutRecords</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#newPutRecords"><span class="hs-identifier">newPutRecords</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecords_records"><span class="hs-identifier">putRecords_records</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecords_streamName"><span class="hs-identifier">putRecords_streamName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier">PutRecordsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#newPutRecordsResponse"><span class="hs-identifier">newPutRecordsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_encryptionType"><span class="hs-identifier">putRecordsResponse_encryptionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_failedRecordCount"><span class="hs-identifier">putRecordsResponse_failedRecordCount</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_httpStatus"><span class="hs-identifier">putRecordsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_records"><span class="hs-identifier">putRecordsResponse_records</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-115"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.html"><span class="hs-identifier">Amazonka.Kinesis.Types</span></a></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-117"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- | A @PutRecords@ request.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- /See:/ 'newPutRecords' smart constructor.</span><span>
+</span><span id="line-124"></span><span id="local-6989586621679200998"><span id="local-6989586621679200999"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecords"><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-var">PutRecords</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecords%27"><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords%27"><span class="hs-identifier hs-var">PutRecords'</span></a></span></span><span>
+</span><span id="line-125"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The records associated with the request.</span><span>
+</span><span id="line-126"></span><span>    </span><span id="%24sel%3Arecords%3APutRecords%27"><span class="annot"><span class="annottext">PutRecords -&gt; NonEmpty PutRecordsRequestEntry
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3Arecords%3APutRecords%27"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-comment">-- | The stream name associated with the request.</span><span>
+</span><span id="line-128"></span><span>    </span><span id="%24sel%3AstreamName%3APutRecords%27"><span class="annot"><span class="annottext">PutRecords -&gt; Text
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AstreamName%3APutRecords%27"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-129"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200991"><span id="local-6989586621679200993"><span class="annot"><span class="annottext">PutRecords -&gt; PutRecords -&gt; Bool
+(PutRecords -&gt; PutRecords -&gt; Bool)
+-&gt; (PutRecords -&gt; PutRecords -&gt; Bool) -&gt; Eq PutRecords
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRecords -&gt; PutRecords -&gt; Bool
+$c/= :: PutRecords -&gt; PutRecords -&gt; Bool
+== :: PutRecords -&gt; PutRecords -&gt; Bool
+$c== :: PutRecords -&gt; PutRecords -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200982"><span id="local-6989586621679200984"><span id="local-6989586621679200986"><span id="local-6989586621679200988"><span class="annot"><span class="annottext">ReadPrec [PutRecords]
+ReadPrec PutRecords
+Int -&gt; ReadS PutRecords
+ReadS [PutRecords]
+(Int -&gt; ReadS PutRecords)
+-&gt; ReadS [PutRecords]
+-&gt; ReadPrec PutRecords
+-&gt; ReadPrec [PutRecords]
+-&gt; Read PutRecords
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRecords]
+$creadListPrec :: ReadPrec [PutRecords]
+readPrec :: ReadPrec PutRecords
+$creadPrec :: ReadPrec PutRecords
+readList :: ReadS [PutRecords]
+$creadList :: ReadS [PutRecords]
+readsPrec :: Int -&gt; ReadS PutRecords
+$creadsPrec :: Int -&gt; ReadS PutRecords
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200975"><span id="local-6989586621679200977"><span id="local-6989586621679200979"><span class="annot"><span class="annottext">Int -&gt; PutRecords -&gt; ShowS
+[PutRecords] -&gt; ShowS
+PutRecords -&gt; String
+(Int -&gt; PutRecords -&gt; ShowS)
+-&gt; (PutRecords -&gt; String)
+-&gt; ([PutRecords] -&gt; ShowS)
+-&gt; Show PutRecords
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRecords] -&gt; ShowS
+$cshowList :: [PutRecords] -&gt; ShowS
+show :: PutRecords -&gt; String
+$cshow :: PutRecords -&gt; String
+showsPrec :: Int -&gt; PutRecords -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRecords -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutRecords -&gt; Rep PutRecords x)
+-&gt; (forall x. Rep PutRecords x -&gt; PutRecords) -&gt; Generic PutRecords
+forall x. Rep PutRecords x -&gt; PutRecords
+forall x. PutRecords -&gt; Rep PutRecords x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutRecords x -&gt; PutRecords
+$cfrom :: forall x. PutRecords -&gt; Rep PutRecords x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- Create a value of 'PutRecords' with all optional fields omitted.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-136"></span><span class="hs-comment">--</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-139"></span><span class="hs-comment">--</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- 'records', 'putRecords_records' - The records associated with the request.</span><span>
+</span><span id="line-141"></span><span class="hs-comment">--</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- 'streamName', 'putRecords_streamName' - The stream name associated with the request.</span><span>
+</span><span id="line-143"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#newPutRecords"><span class="hs-identifier hs-type">newPutRecords</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>  </span><span class="hs-comment">-- | 'records'</span><span>
+</span><span id="line-145"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-146"></span><span>  </span><span class="hs-comment">-- | 'streamName'</span><span>
+</span><span id="line-147"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-148"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span>
+</span><span id="line-149"></span><span id="newPutRecords"><span class="annot"><span class="annottext">newPutRecords :: NonEmpty PutRecordsRequestEntry -&gt; Text -&gt; PutRecords
+</span><a href="Amazonka.Kinesis.PutRecords.html#newPutRecords"><span class="hs-identifier hs-var hs-var">newPutRecords</span></a></span></span><span> </span><span id="local-6989586621679200970"><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200970"><span class="hs-identifier hs-var">pRecords_</span></a></span></span><span> </span><span id="local-6989586621679200969"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200969"><span class="hs-identifier hs-var">pStreamName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-150"></span><span>  </span><span class="annot"><span class="annottext">PutRecords' :: NonEmpty PutRecordsRequestEntry -&gt; Text -&gt; PutRecords
+</span><a href="Amazonka.Kinesis.PutRecords.html#PutRecords%27"><span class="hs-identifier hs-type">PutRecords'</span></a></span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:records:PutRecords' :: NonEmpty PutRecordsRequestEntry
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3Arecords%3APutRecords%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty PutRecordsRequestEntry)
+  (Identity (NonEmpty PutRecordsRequestEntry))
+-&gt; Tagged
+     (NonEmpty PutRecordsRequestEntry)
+     (Identity (NonEmpty PutRecordsRequestEntry))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty PutRecordsRequestEntry)
+   (Identity (NonEmpty PutRecordsRequestEntry))
+ -&gt; Tagged
+      (NonEmpty PutRecordsRequestEntry)
+      (Identity (NonEmpty PutRecordsRequestEntry)))
+-&gt; NonEmpty PutRecordsRequestEntry
+-&gt; NonEmpty PutRecordsRequestEntry
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200970"><span class="hs-identifier hs-var">pRecords_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-153"></span><span>      </span><span class="annot"><span class="annottext">$sel:streamName:PutRecords' :: Text
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AstreamName%3APutRecords%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200969"><span class="hs-identifier hs-var">pStreamName_</span></a></span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-155"></span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- | The records associated with the request.</span><span>
+</span><span id="line-157"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecords_records"><span class="hs-identifier hs-type">putRecords_records</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.PutRecordsRequestEntry.html#PutRecordsRequestEntry"><span class="hs-identifier hs-type">PutRecordsRequestEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span id="putRecords_records"><span class="annot"><span class="annottext">putRecords_records :: (NonEmpty PutRecordsRequestEntry
+ -&gt; f (NonEmpty PutRecordsRequestEntry))
+-&gt; PutRecords -&gt; f PutRecords
+</span><a href="Amazonka.Kinesis.PutRecords.html#putRecords_records"><span class="hs-identifier hs-var hs-var">putRecords_records</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecords -&gt; NonEmpty PutRecordsRequestEntry)
+-&gt; (PutRecords -&gt; NonEmpty PutRecordsRequestEntry -&gt; PutRecords)
+-&gt; Lens
+     PutRecords
+     PutRecords
+     (NonEmpty PutRecordsRequestEntry)
+     (NonEmpty PutRecordsRequestEntry)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords%27"><span class="hs-identifier hs-type">PutRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200964"><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+records :: NonEmpty PutRecordsRequestEntry
+$sel:records:PutRecords' :: PutRecords -&gt; NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200964"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200964"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200963"><span class="annot"><span class="annottext">s :: PutRecords
+</span><a href="#local-6989586621679200963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords%27"><span class="hs-identifier hs-type">PutRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200962"><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecords
+</span><a href="#local-6989586621679200963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:PutRecords' :: NonEmpty PutRecordsRequestEntry
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3Arecords%3APutRecords%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PutRecordsRequestEntry
+  -&gt; f (NonEmpty PutRecordsRequestEntry))
+ -&gt; PutRecords -&gt; f PutRecords)
+-&gt; ((NonEmpty PutRecordsRequestEntry
+     -&gt; f (NonEmpty PutRecordsRequestEntry))
+    -&gt; NonEmpty PutRecordsRequestEntry
+    -&gt; f (NonEmpty PutRecordsRequestEntry))
+-&gt; (NonEmpty PutRecordsRequestEntry
+    -&gt; f (NonEmpty PutRecordsRequestEntry))
+-&gt; PutRecords
+-&gt; f PutRecords
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty PutRecordsRequestEntry
+ -&gt; f (NonEmpty PutRecordsRequestEntry))
+-&gt; NonEmpty PutRecordsRequestEntry
+-&gt; f (NonEmpty PutRecordsRequestEntry)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- | The stream name associated with the request.</span><span>
+</span><span id="line-161"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecords_streamName"><span class="hs-identifier hs-type">putRecords_streamName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-162"></span><span id="putRecords_streamName"><span class="annot"><span class="annottext">putRecords_streamName :: (Text -&gt; f Text) -&gt; PutRecords -&gt; f PutRecords
+</span><a href="Amazonka.Kinesis.PutRecords.html#putRecords_streamName"><span class="hs-identifier hs-var hs-var">putRecords_streamName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecords -&gt; Text)
+-&gt; (PutRecords -&gt; Text -&gt; PutRecords)
+-&gt; Lens PutRecords PutRecords Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords%27"><span class="hs-identifier hs-type">PutRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200960"><span class="annot"><span class="annottext">Text
+streamName :: Text
+$sel:streamName:PutRecords' :: PutRecords -&gt; Text
+</span><a href="#local-6989586621679200960"><span class="hs-identifier hs-var hs-var">streamName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200960"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200959"><span class="annot"><span class="annottext">s :: PutRecords
+</span><a href="#local-6989586621679200959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords%27"><span class="hs-identifier hs-type">PutRecords'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200958"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecords
+</span><a href="#local-6989586621679200959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:streamName:PutRecords' :: Text
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AstreamName%3APutRecords%27"><span class="hs-identifier hs-var">streamName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">type</span><span> </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679200954"><span class="annot"><span class="annottext">request :: PutRecords -&gt; Request PutRecords
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; PutRecords -&gt; Request PutRecords
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Kinesis.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-167"></span><span>  </span><span id="local-6989586621679200950"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy PutRecords
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutRecords)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-168"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse PutRecords))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy PutRecords
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse PutRecords)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-169"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679200947"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200947"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679200946"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679200946"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679200945"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200945"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>          </span><span class="annot"><span class="annottext">Maybe EncryptionType
+-&gt; Maybe Natural
+-&gt; Int
+-&gt; NonEmpty PutRecordsResultEntry
+-&gt; PutRecordsResponse
+</span><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-var">PutRecordsResponse'</span></a></span><span>
+</span><span id="line-171"></span><span>            </span><span class="annot"><span class="annottext">(Maybe EncryptionType
+ -&gt; Maybe Natural
+ -&gt; Int
+ -&gt; NonEmpty PutRecordsResultEntry
+ -&gt; PutRecordsResponse)
+-&gt; Either String (Maybe EncryptionType)
+-&gt; Either
+     String
+     (Maybe Natural
+      -&gt; Int -&gt; NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe EncryptionType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;EncryptionType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-172"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Maybe Natural
+   -&gt; Int -&gt; NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse)
+-&gt; Either String (Maybe Natural)
+-&gt; Either
+     String
+     (Int -&gt; NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Natural)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FailedRecordCount&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-173"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String
+  (Int -&gt; NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200947"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-174"></span><span>            </span><span class="annot"><span class="annottext">Either
+  String (NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse)
+-&gt; Either String (NonEmpty PutRecordsResultEntry)
+-&gt; Either String PutRecordsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679200945"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (NonEmpty PutRecordsResultEntry)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Records&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-175"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-176"></span><span>
+</span><span id="line-177"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200936"><span id="local-6989586621679200938"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span></span></span><span>
+</span><span id="line-178"></span><span>
+</span><span id="line-179"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200933"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span></span><span>
+</span><span id="line-180"></span><span>
+</span><span id="line-181"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679200929"><span class="annot"><span class="annottext">toHeaders :: PutRecords -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; PutRecords -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-185"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-186"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Kinesis_20131202.PutRecords&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-187"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-188"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-190"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-191"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-192"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-193"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-194"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-195"></span><span>
+</span><span id="line-196"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200919"><span id="local-6989586621679200921"><span id="local-6989586621679200923"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-197"></span><span>  </span><span id="local-6989586621679200917"><span class="annot"><span class="annottext">toJSON :: PutRecords -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords%27"><span class="hs-identifier hs-type">PutRecords'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200914"><span id="local-6989586621679200915"><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+Text
+streamName :: Text
+records :: NonEmpty PutRecordsRequestEntry
+$sel:streamName:PutRecords' :: PutRecords -&gt; Text
+$sel:records:PutRecords' :: PutRecords -&gt; NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200914"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-199"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-200"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Records&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty PutRecordsRequestEntry -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PutRecordsRequestEntry
+</span><a href="#local-6989586621679200915"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;StreamName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679200914"><span class="hs-identifier hs-var">streamName</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-202"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-203"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span>
+</span><span id="line-205"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-206"></span><span>  </span><span id="local-6989586621679200908"><span class="annot"><span class="annottext">toPath :: PutRecords -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; PutRecords -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecords"><span class="hs-identifier hs-type">PutRecords</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-209"></span><span>  </span><span id="local-6989586621679200904"><span class="annot"><span class="annottext">toQuery :: PutRecords -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; PutRecords -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | @PutRecords@ results.</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- /See:/ 'newPutRecordsResponse' smart constructor.</span><span>
+</span><span id="line-214"></span><span id="local-6989586621679200901"><span id="local-6989586621679200902"></span></span><span class="hs-keyword">data</span><span> </span><span id="PutRecordsResponse"><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-var">PutRecordsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="PutRecordsResponse%27"><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-var">PutRecordsResponse'</span></a></span></span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The encryption type used on the records. This parameter can be one of</span><span>
+</span><span id="line-216"></span><span>    </span><span class="hs-comment">-- the following values:</span><span>
+</span><span id="line-217"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-218"></span><span>    </span><span class="hs-comment">-- -   @NONE@: Do not encrypt the records.</span><span>
+</span><span id="line-219"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-220"></span><span>    </span><span class="hs-comment">-- -   @KMS@: Use server-side encryption on the records using a</span><span>
+</span><span id="line-221"></span><span>    </span><span class="hs-comment">--     customer-managed AWS KMS key.</span><span>
+</span><span id="line-222"></span><span>    </span><span id="%24sel%3AencryptionType%3APutRecordsResponse%27"><span class="annot"><span class="annottext">PutRecordsResponse -&gt; Maybe EncryptionType
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AencryptionType%3APutRecordsResponse%27"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="hs-comment">-- | The number of unsuccessfully processed records in a @PutRecords@</span><span>
+</span><span id="line-224"></span><span>    </span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-225"></span><span>    </span><span id="%24sel%3AfailedRecordCount%3APutRecordsResponse%27"><span class="annot"><span class="annottext">PutRecordsResponse -&gt; Maybe Natural
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AfailedRecordCount%3APutRecordsResponse%27"><span class="hs-identifier hs-var hs-var">failedRecordCount</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-227"></span><span>    </span><span id="%24sel%3AhttpStatus%3APutRecordsResponse%27"><span class="annot"><span class="annottext">PutRecordsResponse -&gt; Int
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AhttpStatus%3APutRecordsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>    </span><span class="hs-comment">-- | An array of successfully and unsuccessfully processed record results,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="hs-comment">-- correlated with the request by natural ordering. A record that is</span><span>
+</span><span id="line-230"></span><span>    </span><span class="hs-comment">-- successfully added to a stream includes @SequenceNumber@ and @ShardId@</span><span>
+</span><span id="line-231"></span><span>    </span><span class="hs-comment">-- in the result. A record that fails to be added to a stream includes</span><span>
+</span><span id="line-232"></span><span>    </span><span class="hs-comment">-- @ErrorCode@ and @ErrorMessage@ in the result.</span><span>
+</span><span id="line-233"></span><span>    </span><span id="%24sel%3Arecords%3APutRecordsResponse%27"><span class="annot"><span class="annottext">PutRecordsResponse -&gt; NonEmpty PutRecordsResultEntry
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3Arecords%3APutRecordsResponse%27"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span>
+</span><span id="line-234"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-235"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679200893"><span id="local-6989586621679200895"><span class="annot"><span class="annottext">PutRecordsResponse -&gt; PutRecordsResponse -&gt; Bool
+(PutRecordsResponse -&gt; PutRecordsResponse -&gt; Bool)
+-&gt; (PutRecordsResponse -&gt; PutRecordsResponse -&gt; Bool)
+-&gt; Eq PutRecordsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: PutRecordsResponse -&gt; PutRecordsResponse -&gt; Bool
+$c/= :: PutRecordsResponse -&gt; PutRecordsResponse -&gt; Bool
+== :: PutRecordsResponse -&gt; PutRecordsResponse -&gt; Bool
+$c== :: PutRecordsResponse -&gt; PutRecordsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200885"><span id="local-6989586621679200887"><span id="local-6989586621679200889"><span id="local-6989586621679200891"><span class="annot"><span class="annottext">ReadPrec [PutRecordsResponse]
+ReadPrec PutRecordsResponse
+Int -&gt; ReadS PutRecordsResponse
+ReadS [PutRecordsResponse]
+(Int -&gt; ReadS PutRecordsResponse)
+-&gt; ReadS [PutRecordsResponse]
+-&gt; ReadPrec PutRecordsResponse
+-&gt; ReadPrec [PutRecordsResponse]
+-&gt; Read PutRecordsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [PutRecordsResponse]
+$creadListPrec :: ReadPrec [PutRecordsResponse]
+readPrec :: ReadPrec PutRecordsResponse
+$creadPrec :: ReadPrec PutRecordsResponse
+readList :: ReadS [PutRecordsResponse]
+$creadList :: ReadS [PutRecordsResponse]
+readsPrec :: Int -&gt; ReadS PutRecordsResponse
+$creadsPrec :: Int -&gt; ReadS PutRecordsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679200879"><span id="local-6989586621679200881"><span id="local-6989586621679200883"><span class="annot"><span class="annottext">Int -&gt; PutRecordsResponse -&gt; ShowS
+[PutRecordsResponse] -&gt; ShowS
+PutRecordsResponse -&gt; String
+(Int -&gt; PutRecordsResponse -&gt; ShowS)
+-&gt; (PutRecordsResponse -&gt; String)
+-&gt; ([PutRecordsResponse] -&gt; ShowS)
+-&gt; Show PutRecordsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [PutRecordsResponse] -&gt; ShowS
+$cshowList :: [PutRecordsResponse] -&gt; ShowS
+show :: PutRecordsResponse -&gt; String
+$cshow :: PutRecordsResponse -&gt; String
+showsPrec :: Int -&gt; PutRecordsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; PutRecordsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. PutRecordsResponse -&gt; Rep PutRecordsResponse x)
+-&gt; (forall x. Rep PutRecordsResponse x -&gt; PutRecordsResponse)
+-&gt; Generic PutRecordsResponse
+forall x. Rep PutRecordsResponse x -&gt; PutRecordsResponse
+forall x. PutRecordsResponse -&gt; Rep PutRecordsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep PutRecordsResponse x -&gt; PutRecordsResponse
+$cfrom :: forall x. PutRecordsResponse -&gt; Rep PutRecordsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-236"></span><span>
+</span><span id="line-237"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- Create a value of 'PutRecordsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-241"></span><span class="hs-comment">--</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- 'encryptionType', 'putRecordsResponse_encryptionType' - The encryption type used on the records. This parameter can be one of</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- the following values:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @NONE@: Do not encrypt the records.</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   @KMS@: Use server-side encryption on the records using a</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--     customer-managed AWS KMS key.</span><span>
+</span><span id="line-252"></span><span class="hs-comment">--</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- 'failedRecordCount', 'putRecordsResponse_failedRecordCount' - The number of unsuccessfully processed records in a @PutRecords@</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-255"></span><span class="hs-comment">--</span><span>
+</span><span id="line-256"></span><span class="hs-comment">-- 'httpStatus', 'putRecordsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-257"></span><span class="hs-comment">--</span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- 'records', 'putRecordsResponse_records' - An array of successfully and unsuccessfully processed record results,</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- correlated with the request by natural ordering. A record that is</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- successfully added to a stream includes @SequenceNumber@ and @ShardId@</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- in the result. A record that fails to be added to a stream includes</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- @ErrorCode@ and @ErrorMessage@ in the result.</span><span>
+</span><span id="line-263"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#newPutRecordsResponse"><span class="hs-identifier hs-type">newPutRecordsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-265"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-266"></span><span>  </span><span class="hs-comment">-- | 'records'</span><span>
+</span><span id="line-267"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-268"></span><span>  </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span>
+</span><span id="line-269"></span><span id="newPutRecordsResponse"><span class="annot"><span class="annottext">newPutRecordsResponse :: Int -&gt; NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse
+</span><a href="Amazonka.Kinesis.PutRecords.html#newPutRecordsResponse"><span class="hs-identifier hs-var hs-var">newPutRecordsResponse</span></a></span></span><span> </span><span id="local-6989586621679200876"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span id="local-6989586621679200875"><span class="annot"><span class="annottext">NonEmpty PutRecordsResultEntry
+</span><a href="#local-6989586621679200875"><span class="hs-identifier hs-var">pRecords_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-270"></span><span>  </span><span class="annot"><span class="annottext">PutRecordsResponse' :: Maybe EncryptionType
+-&gt; Maybe Natural
+-&gt; Int
+-&gt; NonEmpty PutRecordsResultEntry
+-&gt; PutRecordsResponse
+</span><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span>
+</span><span id="line-271"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:encryptionType:PutRecordsResponse' :: Maybe EncryptionType
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AencryptionType%3APutRecordsResponse%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-272"></span><span>        </span><span class="annot"><span class="annottext">Maybe EncryptionType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>      </span><span class="annot"><span class="annottext">$sel:failedRecordCount:PutRecordsResponse' :: Maybe Natural
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AfailedRecordCount%3APutRecordsResponse%27"><span class="hs-identifier hs-var">failedRecordCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-274"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:PutRecordsResponse' :: Int
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AhttpStatus%3APutRecordsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200876"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-275"></span><span>      </span><span class="annot"><span class="annottext">$sel:records:PutRecordsResponse' :: NonEmpty PutRecordsResultEntry
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3Arecords%3APutRecordsResponse%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged
+  (NonEmpty PutRecordsResultEntry)
+  (Identity (NonEmpty PutRecordsResultEntry))
+-&gt; Tagged
+     (NonEmpty PutRecordsResultEntry)
+     (Identity (NonEmpty PutRecordsResultEntry))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged
+   (NonEmpty PutRecordsResultEntry)
+   (Identity (NonEmpty PutRecordsResultEntry))
+ -&gt; Tagged
+      (NonEmpty PutRecordsResultEntry)
+      (Identity (NonEmpty PutRecordsResultEntry)))
+-&gt; NonEmpty PutRecordsResultEntry -&gt; NonEmpty PutRecordsResultEntry
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty PutRecordsResultEntry
+</span><a href="#local-6989586621679200875"><span class="hs-identifier hs-var">pRecords_</span></a></span><span>
+</span><span id="line-276"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-277"></span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- | The encryption type used on the records. This parameter can be one of</span><span>
+</span><span id="line-279"></span><span class="hs-comment">-- the following values:</span><span>
+</span><span id="line-280"></span><span class="hs-comment">--</span><span>
+</span><span id="line-281"></span><span class="hs-comment">-- -   @NONE@: Do not encrypt the records.</span><span>
+</span><span id="line-282"></span><span class="hs-comment">--</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- -   @KMS@: Use server-side encryption on the records using a</span><span>
+</span><span id="line-284"></span><span class="hs-comment">--     customer-managed AWS KMS key.</span><span>
+</span><span id="line-285"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_encryptionType"><span class="hs-identifier hs-type">putRecordsResponse_encryptionType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.EncryptionType.html#EncryptionType"><span class="hs-identifier hs-type">EncryptionType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span id="putRecordsResponse_encryptionType"><span class="annot"><span class="annottext">putRecordsResponse_encryptionType :: (Maybe EncryptionType -&gt; f (Maybe EncryptionType))
+-&gt; PutRecordsResponse -&gt; f PutRecordsResponse
+</span><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_encryptionType"><span class="hs-identifier hs-var hs-var">putRecordsResponse_encryptionType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResponse -&gt; Maybe EncryptionType)
+-&gt; (PutRecordsResponse
+    -&gt; Maybe EncryptionType -&gt; PutRecordsResponse)
+-&gt; Lens
+     PutRecordsResponse
+     PutRecordsResponse
+     (Maybe EncryptionType)
+     (Maybe EncryptionType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200874"><span class="annot"><span class="annottext">Maybe EncryptionType
+encryptionType :: Maybe EncryptionType
+$sel:encryptionType:PutRecordsResponse' :: PutRecordsResponse -&gt; Maybe EncryptionType
+</span><a href="#local-6989586621679200874"><span class="hs-identifier hs-var hs-var">encryptionType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679200874"><span class="hs-identifier hs-var">encryptionType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200873"><span class="annot"><span class="annottext">s :: PutRecordsResponse
+</span><a href="#local-6989586621679200873"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200872"><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679200872"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResponse
+</span><a href="#local-6989586621679200873"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:encryptionType:PutRecordsResponse' :: Maybe EncryptionType
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AencryptionType%3APutRecordsResponse%27"><span class="hs-identifier hs-var">encryptionType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EncryptionType
+</span><a href="#local-6989586621679200872"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-287"></span><span>
+</span><span id="line-288"></span><span class="hs-comment">-- | The number of unsuccessfully processed records in a @PutRecords@</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- request.</span><span>
+</span><span id="line-290"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_failedRecordCount"><span class="hs-identifier hs-type">putRecordsResponse_failedRecordCount</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-291"></span><span id="putRecordsResponse_failedRecordCount"><span class="annot"><span class="annottext">putRecordsResponse_failedRecordCount :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; PutRecordsResponse -&gt; f PutRecordsResponse
+</span><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_failedRecordCount"><span class="hs-identifier hs-var hs-var">putRecordsResponse_failedRecordCount</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResponse -&gt; Maybe Natural)
+-&gt; (PutRecordsResponse -&gt; Maybe Natural -&gt; PutRecordsResponse)
+-&gt; Lens
+     PutRecordsResponse
+     PutRecordsResponse
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200871"><span class="annot"><span class="annottext">Maybe Natural
+failedRecordCount :: Maybe Natural
+$sel:failedRecordCount:PutRecordsResponse' :: PutRecordsResponse -&gt; Maybe Natural
+</span><a href="#local-6989586621679200871"><span class="hs-identifier hs-var hs-var">failedRecordCount</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679200871"><span class="hs-identifier hs-var">failedRecordCount</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200870"><span class="annot"><span class="annottext">s :: PutRecordsResponse
+</span><a href="#local-6989586621679200870"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200869"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679200869"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResponse
+</span><a href="#local-6989586621679200870"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:failedRecordCount:PutRecordsResponse' :: Maybe Natural
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AfailedRecordCount%3APutRecordsResponse%27"><span class="hs-identifier hs-var">failedRecordCount</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679200869"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>
+</span><span id="line-293"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-294"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_httpStatus"><span class="hs-identifier hs-type">putRecordsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-295"></span><span id="putRecordsResponse_httpStatus"><span class="annot"><span class="annottext">putRecordsResponse_httpStatus :: (Int -&gt; f Int) -&gt; PutRecordsResponse -&gt; f PutRecordsResponse
+</span><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">putRecordsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResponse -&gt; Int)
+-&gt; (PutRecordsResponse -&gt; Int -&gt; PutRecordsResponse)
+-&gt; Lens PutRecordsResponse PutRecordsResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200868"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:PutRecordsResponse' :: PutRecordsResponse -&gt; Int
+</span><a href="#local-6989586621679200868"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200868"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200867"><span class="annot"><span class="annottext">s :: PutRecordsResponse
+</span><a href="#local-6989586621679200867"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200866"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200866"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResponse
+</span><a href="#local-6989586621679200867"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:PutRecordsResponse' :: Int
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3AhttpStatus%3APutRecordsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679200866"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span>
+</span><span id="line-297"></span><span class="hs-comment">-- | An array of successfully and unsuccessfully processed record results,</span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- correlated with the request by natural ordering. A record that is</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- successfully added to a stream includes @SequenceNumber@ and @ShardId@</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- in the result. A record that fails to be added to a stream includes</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- @ErrorCode@ and @ErrorMessage@ in the result.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_records"><span class="hs-identifier hs-type">putRecordsResponse_records</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.Types.PutRecordsResultEntry.html#PutRecordsResultEntry"><span class="hs-identifier hs-type">PutRecordsResultEntry</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="putRecordsResponse_records"><span class="annot"><span class="annottext">putRecordsResponse_records :: (NonEmpty PutRecordsResultEntry
+ -&gt; f (NonEmpty PutRecordsResultEntry))
+-&gt; PutRecordsResponse -&gt; f PutRecordsResponse
+</span><a href="Amazonka.Kinesis.PutRecords.html#putRecordsResponse_records"><span class="hs-identifier hs-var hs-var">putRecordsResponse_records</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(PutRecordsResponse -&gt; NonEmpty PutRecordsResultEntry)
+-&gt; (PutRecordsResponse
+    -&gt; NonEmpty PutRecordsResultEntry -&gt; PutRecordsResponse)
+-&gt; Lens
+     PutRecordsResponse
+     PutRecordsResponse
+     (NonEmpty PutRecordsResultEntry)
+     (NonEmpty PutRecordsResultEntry)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679200865"><span class="annot"><span class="annottext">NonEmpty PutRecordsResultEntry
+records :: NonEmpty PutRecordsResultEntry
+$sel:records:PutRecordsResponse' :: PutRecordsResponse -&gt; NonEmpty PutRecordsResultEntry
+</span><a href="#local-6989586621679200865"><span class="hs-identifier hs-var hs-var">records</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty PutRecordsResultEntry
+</span><a href="#local-6989586621679200865"><span class="hs-identifier hs-var">records</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679200864"><span class="annot"><span class="annottext">s :: PutRecordsResponse
+</span><a href="#local-6989586621679200864"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse%27"><span class="hs-identifier hs-type">PutRecordsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679200863"><span class="annot"><span class="annottext">NonEmpty PutRecordsResultEntry
+</span><a href="#local-6989586621679200863"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">PutRecordsResponse
+</span><a href="#local-6989586621679200864"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:records:PutRecordsResponse' :: NonEmpty PutRecordsResultEntry
+</span><a href="Amazonka.Kinesis.PutRecords.html#%24sel%3Arecords%3APutRecordsResponse%27"><span class="hs-identifier hs-var">records</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty PutRecordsResultEntry
+</span><a href="#local-6989586621679200863"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty PutRecordsResultEntry
+  -&gt; f (NonEmpty PutRecordsResultEntry))
+ -&gt; PutRecordsResponse -&gt; f PutRecordsResponse)
+-&gt; ((NonEmpty PutRecordsResultEntry
+     -&gt; f (NonEmpty PutRecordsResultEntry))
+    -&gt; NonEmpty PutRecordsResultEntry
+    -&gt; f (NonEmpty PutRecordsResultEntry))
+-&gt; (NonEmpty PutRecordsResultEntry
+    -&gt; f (NonEmpty PutRecordsResultEntry))
+-&gt; PutRecordsResponse
+-&gt; f PutRecordsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty PutRecordsResultEntry
+ -&gt; f (NonEmpty PutRecordsResultEntry))
+-&gt; NonEmpty PutRecordsResultEntry
+-&gt; f (NonEmpty PutRecordsResultEntry)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679200861"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Kinesis.PutRecords.html#PutRecordsResponse"><span class="hs-identifier hs-type">PutRecordsResponse</span></a></span></span><span>
+</span><span id="line-306"></span></pre></body></html>

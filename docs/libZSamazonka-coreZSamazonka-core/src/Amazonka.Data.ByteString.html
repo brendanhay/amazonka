@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">--</span><span>
+</span><span id="line-2"></span><span>
+</span><span id="line-3"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-4"></span><span class="hs-comment">-- Module      : Amazonka.Data.ByteString</span><span>
+</span><span id="line-5"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-7"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- Stability   : provisional</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-10"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Data.ByteString</span><span>
+</span><span id="line-11"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * ByteString</span></span><span>
+</span><span id="line-12"></span><span>    </span><span class="annot"><span class="hs-identifier">ByteString</span></span><span class="hs-special">,</span><span>
+</span><span id="line-13"></span><span>    </span><span class="annot"><a href="Amazonka.Prelude.html#ByteStringLazy"><span class="hs-identifier">ByteStringLazy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-14"></span><span>    </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier">ToByteString</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-15"></span><span>    </span><span class="annot"><a href="Amazonka.Data.ByteString.html#showBS"><span class="hs-identifier">showBS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-16"></span><span>    </span><span class="annot"><a href="Amazonka.Data.ByteString.html#stripBS"><span class="hs-identifier">stripBS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-17"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-18"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-19"></span><span>
+</span><span id="line-20"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html"><span class="hs-identifier">Amazonka.Data.Text</span></a></span><span>
+</span><span id="line-21"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Prelude.html"><span class="hs-identifier">Amazonka.Prelude</span></a></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Builder</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Build</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Char8</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">BS8</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.ByteString.Lazy</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">LBS</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.CaseInsensitive</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">CI</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Char</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Char</span></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Data.Text.Encoding</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Text</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Network.HTTP.Types</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">HTTP</span></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Numeric</span></span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span id="local-6989586621679180629"><span class="annot"><a href="Amazonka.Data.ByteString.html#showBS"><span class="hs-identifier hs-type">showBS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679180629"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679180629"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span></span><span>
+</span><span id="line-32"></span><span id="showBS"><span class="annot"><span class="annottext">showBS :: a -&gt; String
+</span><a href="Amazonka.Data.ByteString.html#showBS"><span class="hs-identifier hs-var hs-var">showBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; String
+</span><span class="hs-identifier hs-var">BS8.unpack</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; String) -&gt; (a -&gt; ByteString) -&gt; a -&gt; String
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="annot"><a href="Amazonka.Data.ByteString.html#stripBS"><span class="hs-identifier hs-type">stripBS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-35"></span><span id="stripBS"><span class="annot"><span class="annottext">stripBS :: ByteString -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#stripBS"><span class="hs-identifier hs-var hs-var">stripBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Char -&gt; Bool) -&gt; ByteString -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.dropWhile</span></span><span> </span><span class="annot"><span class="annottext">Char -&gt; Bool
+</span><span class="hs-identifier hs-var">Char.isSpace</span></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString)
+-&gt; (ByteString -&gt; ByteString) -&gt; ByteString -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(ByteString, ByteString) -&gt; ByteString
+forall a b. (a, b) -&gt; a
+</span><span class="hs-identifier hs-var">fst</span></span><span> </span><span class="annot"><span class="annottext">((ByteString, ByteString) -&gt; ByteString)
+-&gt; (ByteString -&gt; (ByteString, ByteString))
+-&gt; ByteString
+-&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">(Char -&gt; Bool) -&gt; ByteString -&gt; (ByteString, ByteString)
+</span><span class="hs-identifier hs-var">BS8.spanEnd</span></span><span> </span><span class="annot"><span class="annottext">Char -&gt; Bool
+</span><span class="hs-identifier hs-var">Char.isSpace</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">class</span><span> </span><span id="ToByteString"><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-var">ToByteString</span></a></span></span><span> </span><span id="local-6989586621679180654"><span class="annot"><a href="#local-6989586621679180654"><span class="hs-identifier hs-type">a</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-38"></span><span>  </span><span id="toBS"><span class="annot"><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-type">toBS</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="#local-6989586621679180654"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-keyword">default</span><span> </span><span id="toBS"><span class="annot"><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-type">toBS</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Data.Text.html#ToText"><span class="hs-identifier hs-type">ToText</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679180654"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679180654"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span>
+</span><span id="line-40"></span><span>  </span><span id="local-6989586621679180622"><span class="annot"><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var hs-var">toBS</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+</span><span class="hs-identifier hs-var">Text.encodeUtf8</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; ByteString) -&gt; (a -&gt; Text) -&gt; a -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">a -&gt; Text
+forall a. ToText a =&gt; a -&gt; Text
+</span><a href="Amazonka.Data.Text.html#toText"><span class="hs-identifier hs-var">toText</span></a></span></span><span>
+</span><span id="line-41"></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">ByteString</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>  </span><span id="local-6989586621679180617"><span class="annot"><span class="annottext">toBS :: ByteString -&gt; ByteString
+</span><a href="#local-6989586621679180617"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+forall a. a -&gt; a
+</span><span class="hs-identifier hs-var">id</span></span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="Amazonka.Prelude.html#ByteStringBuilder"><span class="hs-identifier hs-type">ByteStringBuilder</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>  </span><span id="local-6989586621679180614"><span class="annot"><span class="annottext">toBS :: ByteStringBuilder -&gt; ByteString
+</span><a href="#local-6989586621679180614"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteString -&gt; ByteString)
+-&gt; (ByteStringBuilder -&gt; ByteString)
+-&gt; ByteStringBuilder
+-&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteString
+</span><span class="hs-identifier hs-var">Build.toLazyByteString</span></span><span>
+</span><span id="line-47"></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="Amazonka.Prelude.html#ByteStringLazy"><span class="hs-identifier hs-type">ByteStringLazy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>  </span><span id="local-6989586621679180611"><span class="annot"><span class="annottext">toBS :: ByteString -&gt; ByteString
+</span><a href="#local-6989586621679180611"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString
+</span><span class="hs-identifier hs-var">LBS.toStrict</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Text</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-52"></span><span>  </span><span id="local-6989586621679180608"><span class="annot"><span class="annottext">toBS :: Text -&gt; ByteString
+</span><a href="#local-6989586621679180608"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+</span><span class="hs-identifier hs-var">Text.encodeUtf8</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-55"></span><span>  </span><span id="local-6989586621679180606"><span class="annot"><span class="annottext">toBS :: String -&gt; ByteString
+</span><a href="#local-6989586621679180606"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.pack</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Int</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679180603"><span class="annot"><span class="annottext">toBS :: Int -&gt; ByteString
+</span><a href="#local-6989586621679180603"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteStringBuilder -&gt; ByteString)
+-&gt; (Int -&gt; ByteStringBuilder) -&gt; Int -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var">Build.intDec</span></span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Integer</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-61"></span><span>  </span><span id="local-6989586621679180600"><span class="annot"><span class="annottext">toBS :: Integer -&gt; ByteString
+</span><a href="#local-6989586621679180600"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteStringBuilder -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(ByteStringBuilder -&gt; ByteString)
+-&gt; (Integer -&gt; ByteStringBuilder) -&gt; Integer -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var">Build.integerDec</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Natural</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-64"></span><span>  </span><span id="local-6989586621679180597"><span class="annot"><span class="annottext">toBS :: Natural -&gt; ByteString
+</span><a href="#local-6989586621679180597"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Integer -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(Integer -&gt; ByteString)
+-&gt; (Natural -&gt; Integer) -&gt; Natural -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Natural -&gt; Integer
+forall a. Integral a =&gt; a -&gt; Integer
+</span><span class="hs-identifier hs-var">toInteger</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Double</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-67"></span><span>  </span><span id="local-6989586621679180595"><span class="annot"><span class="annottext">toBS :: Double -&gt; ByteString
+</span><a href="#local-6989586621679180595"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(String -&gt; ByteString)
+-&gt; (Double -&gt; String) -&gt; Double -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">(String -&gt; String) -&gt; String -&gt; String
+forall a b. (a -&gt; b) -&gt; a -&gt; b
+</span><span class="hs-operator hs-var">$</span></span><span> </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;&quot;</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((String -&gt; String) -&gt; String)
+-&gt; (Double -&gt; String -&gt; String) -&gt; Double -&gt; String
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int -&gt; Double -&gt; String -&gt; String
+forall a. RealFloat a =&gt; Maybe Int -&gt; a -&gt; String -&gt; String
+</span><span class="hs-identifier hs-var">Numeric.showFFloat</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Nothing</span></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">HTTP.StdMethod</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span id="local-6989586621679180592"><span class="annot"><span class="annottext">toBS :: StdMethod -&gt; ByteString
+</span><a href="#local-6989586621679180592"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">StdMethod -&gt; ByteString
+</span><span class="hs-identifier hs-var">HTTP.renderStdMethod</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">UTCTime</span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679180589"><span class="annot"><span class="annottext">toBS :: UTCTime -&gt; ByteString
+</span><a href="#local-6989586621679180589"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">String -&gt; ByteString
+</span><span class="hs-identifier hs-var">BS8.pack</span></span><span> </span><span class="annot"><span class="annottext">(String -&gt; ByteString)
+-&gt; (UTCTime -&gt; String) -&gt; UTCTime -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">UTCTime -&gt; String
+forall a. Show a =&gt; a -&gt; String
+</span><span class="hs-identifier hs-var">show</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span id="local-6989586621679180587"><span class="hs-keyword">instance</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="annot"><a href="#local-6989586621679180587"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><a href="Amazonka.Data.ByteString.html#ToByteString"><span class="hs-identifier hs-type">ToByteString</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">CI</span></span><span> </span><span class="annot"><a href="#local-6989586621679180587"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679180585"><span class="annot"><span class="annottext">toBS :: CI a -&gt; ByteString
+</span><a href="#local-6989586621679180585"><span class="hs-identifier hs-var hs-var hs-var hs-var">toBS</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">a -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><a href="Amazonka.Data.ByteString.html#toBS"><span class="hs-identifier hs-var">toBS</span></a></span><span> </span><span class="annot"><span class="annottext">(a -&gt; ByteString) -&gt; (CI a -&gt; a) -&gt; CI a -&gt; ByteString
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">.</span></span><span> </span><span class="annot"><span class="annottext">CI a -&gt; a
+forall s. CI s -&gt; s
+</span><span class="hs-identifier hs-var hs-var">CI.original</span></span></span><span>
+</span><span id="line-77"></span></pre></body></html>

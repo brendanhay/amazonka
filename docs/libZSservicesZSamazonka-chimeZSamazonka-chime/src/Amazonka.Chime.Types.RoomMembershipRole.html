@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Chime.Types.RoomMembershipRole</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Chime.Types.RoomMembershipRole</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole"><span class="hs-identifier">RoomMembershipRole</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole_Administrator"><span class="hs-identifier">RoomMembershipRole_Administrator</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole_Member"><span class="hs-identifier">RoomMembershipRole_Member</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679516607"><span id="local-6989586621679516608"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RoomMembershipRole"><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole"><span class="hs-identifier hs-var">RoomMembershipRole</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoomMembershipRole%27"><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole%27"><span class="hs-identifier hs-var">RoomMembershipRole'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRoomMembershipRole"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; Text
+</span><a href="Amazonka.Chime.Types.RoomMembershipRole.html#fromRoomMembershipRole"><span class="hs-identifier hs-var hs-var">fromRoomMembershipRole</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679516599"><span id="local-6989586621679516601"><span id="local-6989586621679516603"><span class="annot"><span class="annottext">Int -&gt; RoomMembershipRole -&gt; ShowS
+[RoomMembershipRole] -&gt; ShowS
+RoomMembershipRole -&gt; String
+(Int -&gt; RoomMembershipRole -&gt; ShowS)
+-&gt; (RoomMembershipRole -&gt; String)
+-&gt; ([RoomMembershipRole] -&gt; ShowS)
+-&gt; Show RoomMembershipRole
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RoomMembershipRole] -&gt; ShowS
+$cshowList :: [RoomMembershipRole] -&gt; ShowS
+show :: RoomMembershipRole -&gt; String
+$cshow :: RoomMembershipRole -&gt; String
+showsPrec :: Int -&gt; RoomMembershipRole -&gt; ShowS
+$cshowsPrec :: Int -&gt; RoomMembershipRole -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679516590"><span id="local-6989586621679516592"><span id="local-6989586621679516594"><span id="local-6989586621679516596"><span class="annot"><span class="annottext">ReadPrec [RoomMembershipRole]
+ReadPrec RoomMembershipRole
+Int -&gt; ReadS RoomMembershipRole
+ReadS [RoomMembershipRole]
+(Int -&gt; ReadS RoomMembershipRole)
+-&gt; ReadS [RoomMembershipRole]
+-&gt; ReadPrec RoomMembershipRole
+-&gt; ReadPrec [RoomMembershipRole]
+-&gt; Read RoomMembershipRole
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RoomMembershipRole]
+$creadListPrec :: ReadPrec [RoomMembershipRole]
+readPrec :: ReadPrec RoomMembershipRole
+$creadPrec :: ReadPrec RoomMembershipRole
+readList :: ReadS [RoomMembershipRole]
+$creadList :: ReadS [RoomMembershipRole]
+readsPrec :: Int -&gt; ReadS RoomMembershipRole
+$creadsPrec :: Int -&gt; ReadS RoomMembershipRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679516585"><span id="local-6989586621679516587"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+(RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool)
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool)
+-&gt; Eq RoomMembershipRole
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+$c/= :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+== :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+$c== :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679516569"><span id="local-6989586621679516571"><span id="local-6989586621679516573"><span id="local-6989586621679516575"><span id="local-6989586621679516577"><span id="local-6989586621679516579"><span id="local-6989586621679516581"><span class="annot"><span class="annottext">Eq RoomMembershipRole
+Eq RoomMembershipRole
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; Ordering)
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool)
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool)
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool)
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool)
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; RoomMembershipRole)
+-&gt; (RoomMembershipRole -&gt; RoomMembershipRole -&gt; RoomMembershipRole)
+-&gt; Ord RoomMembershipRole
+RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+RoomMembershipRole -&gt; RoomMembershipRole -&gt; Ordering
+RoomMembershipRole -&gt; RoomMembershipRole -&gt; RoomMembershipRole
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; RoomMembershipRole
+$cmin :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; RoomMembershipRole
+max :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; RoomMembershipRole
+$cmax :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; RoomMembershipRole
+&gt;= :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+$c&gt;= :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+&gt; :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+$c&gt; :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+&lt;= :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+$c&lt;= :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+&lt; :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+$c&lt; :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Bool
+compare :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Ordering
+$ccompare :: RoomMembershipRole -&gt; RoomMembershipRole -&gt; Ordering
+$cp1Ord :: Eq RoomMembershipRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RoomMembershipRole -&gt; Rep RoomMembershipRole x)
+-&gt; (forall x. Rep RoomMembershipRole x -&gt; RoomMembershipRole)
+-&gt; Generic RoomMembershipRole
+forall x. Rep RoomMembershipRole x -&gt; RoomMembershipRole
+forall x. RoomMembershipRole -&gt; Rep RoomMembershipRole x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RoomMembershipRole x -&gt; RoomMembershipRole
+$cfrom :: forall x. RoomMembershipRole -&gt; Rep RoomMembershipRole x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679516561"><span id="local-6989586621679516563"><span class="annot"><span class="annottext">Int -&gt; RoomMembershipRole -&gt; Int
+RoomMembershipRole -&gt; Int
+(Int -&gt; RoomMembershipRole -&gt; Int)
+-&gt; (RoomMembershipRole -&gt; Int) -&gt; Hashable RoomMembershipRole
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RoomMembershipRole -&gt; Int
+$chash :: RoomMembershipRole -&gt; Int
+hashWithSalt :: Int -&gt; RoomMembershipRole -&gt; Int
+$chashWithSalt :: Int -&gt; RoomMembershipRole -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679516558"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; ()
+(RoomMembershipRole -&gt; ()) -&gt; NFData RoomMembershipRole
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RoomMembershipRole -&gt; ()
+$crnf :: RoomMembershipRole -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679516555"><span class="annot"><span class="annottext">Text -&gt; Either String RoomMembershipRole
+(Text -&gt; Either String RoomMembershipRole)
+-&gt; FromText RoomMembershipRole
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RoomMembershipRole
+$cfromText :: Text -&gt; Either String RoomMembershipRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679516552"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; Text
+(RoomMembershipRole -&gt; Text) -&gt; ToText RoomMembershipRole
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RoomMembershipRole -&gt; Text
+$ctoText :: RoomMembershipRole -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679516549"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; ByteString
+(RoomMembershipRole -&gt; ByteString)
+-&gt; ToByteString RoomMembershipRole
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RoomMembershipRole -&gt; ByteString
+$ctoBS :: RoomMembershipRole -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679516546"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; ByteStringBuilder
+(RoomMembershipRole -&gt; ByteStringBuilder)
+-&gt; ToLog RoomMembershipRole
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RoomMembershipRole -&gt; ByteStringBuilder
+$cbuild :: RoomMembershipRole -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679516543"><span class="annot"><span class="annottext">HeaderName -&gt; RoomMembershipRole -&gt; [Header]
+(HeaderName -&gt; RoomMembershipRole -&gt; [Header])
+-&gt; ToHeader RoomMembershipRole
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RoomMembershipRole -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RoomMembershipRole -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679516540"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; QueryString
+(RoomMembershipRole -&gt; QueryString) -&gt; ToQuery RoomMembershipRole
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RoomMembershipRole -&gt; QueryString
+$ctoQuery :: RoomMembershipRole -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679516535"><span id="local-6989586621679516537"><span class="annot"><span class="annottext">Value -&gt; Parser [RoomMembershipRole]
+Value -&gt; Parser RoomMembershipRole
+(Value -&gt; Parser RoomMembershipRole)
+-&gt; (Value -&gt; Parser [RoomMembershipRole])
+-&gt; FromJSON RoomMembershipRole
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RoomMembershipRole]
+$cparseJSONList :: Value -&gt; Parser [RoomMembershipRole]
+parseJSON :: Value -&gt; Parser RoomMembershipRole
+$cparseJSON :: Value -&gt; Parser RoomMembershipRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679516530"><span id="local-6989586621679516532"><span class="annot"><span class="annottext">FromJSONKeyFunction [RoomMembershipRole]
+FromJSONKeyFunction RoomMembershipRole
+FromJSONKeyFunction RoomMembershipRole
+-&gt; FromJSONKeyFunction [RoomMembershipRole]
+-&gt; FromJSONKey RoomMembershipRole
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RoomMembershipRole]
+$cfromJSONKeyList :: FromJSONKeyFunction [RoomMembershipRole]
+fromJSONKey :: FromJSONKeyFunction RoomMembershipRole
+$cfromJSONKey :: FromJSONKeyFunction RoomMembershipRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679516521"><span id="local-6989586621679516523"><span id="local-6989586621679516525"><span id="local-6989586621679516527"><span class="annot"><span class="annottext">[RoomMembershipRole] -&gt; Encoding
+[RoomMembershipRole] -&gt; Value
+RoomMembershipRole -&gt; Encoding
+RoomMembershipRole -&gt; Value
+(RoomMembershipRole -&gt; Value)
+-&gt; (RoomMembershipRole -&gt; Encoding)
+-&gt; ([RoomMembershipRole] -&gt; Value)
+-&gt; ([RoomMembershipRole] -&gt; Encoding)
+-&gt; ToJSON RoomMembershipRole
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RoomMembershipRole] -&gt; Encoding
+$ctoEncodingList :: [RoomMembershipRole] -&gt; Encoding
+toJSONList :: [RoomMembershipRole] -&gt; Value
+$ctoJSONList :: [RoomMembershipRole] -&gt; Value
+toEncoding :: RoomMembershipRole -&gt; Encoding
+$ctoEncoding :: RoomMembershipRole -&gt; Encoding
+toJSON :: RoomMembershipRole -&gt; Value
+$ctoJSON :: RoomMembershipRole -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679516516"><span id="local-6989586621679516518"><span class="annot"><span class="annottext">ToJSONKeyFunction [RoomMembershipRole]
+ToJSONKeyFunction RoomMembershipRole
+ToJSONKeyFunction RoomMembershipRole
+-&gt; ToJSONKeyFunction [RoomMembershipRole]
+-&gt; ToJSONKey RoomMembershipRole
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RoomMembershipRole]
+$ctoJSONKeyList :: ToJSONKeyFunction [RoomMembershipRole]
+toJSONKey :: ToJSONKeyFunction RoomMembershipRole
+$ctoJSONKey :: ToJSONKeyFunction RoomMembershipRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679516513"><span class="annot"><span class="annottext">[Node] -&gt; Either String RoomMembershipRole
+([Node] -&gt; Either String RoomMembershipRole)
+-&gt; FromXML RoomMembershipRole
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RoomMembershipRole
+$cparseXML :: [Node] -&gt; Either String RoomMembershipRole
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679516510"><span class="annot"><span class="annottext">RoomMembershipRole -&gt; XML
+(RoomMembershipRole -&gt; XML) -&gt; ToXML RoomMembershipRole
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RoomMembershipRole -&gt; XML
+$ctoXML :: RoomMembershipRole -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole_Administrator"><span class="hs-identifier hs-type">RoomMembershipRole_Administrator</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole"><span class="hs-identifier hs-type">RoomMembershipRole</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoomMembershipRole_Administrator"><span id="%24mRoomMembershipRole_Administrator"><span id="RoomMembershipRole_Administrator"><span class="annot"><span class="annottext">$bRoomMembershipRole_Administrator :: RoomMembershipRole
+$mRoomMembershipRole_Administrator :: forall r. RoomMembershipRole -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.RoomMembershipRole.html#%24bRoomMembershipRole_Administrator"><span class="hs-identifier hs-var hs-var hs-var">RoomMembershipRole_Administrator</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole%27"><span class="hs-identifier hs-type">RoomMembershipRole'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Administrator&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole_Member"><span class="hs-identifier hs-type">RoomMembershipRole_Member</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole"><span class="hs-identifier hs-type">RoomMembershipRole</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoomMembershipRole_Member"><span id="%24mRoomMembershipRole_Member"><span id="RoomMembershipRole_Member"><span class="annot"><span class="annottext">$bRoomMembershipRole_Member :: RoomMembershipRole
+$mRoomMembershipRole_Member :: forall r. RoomMembershipRole -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Chime.Types.RoomMembershipRole.html#%24bRoomMembershipRole_Member"><span class="hs-identifier hs-var hs-var hs-var">RoomMembershipRole_Member</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole%27"><span class="hs-identifier hs-type">RoomMembershipRole'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Member&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole_Administrator"><span class="hs-pragma hs-type">RoomMembershipRole_Administrator</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole_Member"><span class="hs-pragma hs-type">RoomMembershipRole_Member</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Chime.Types.RoomMembershipRole.html#RoomMembershipRole%27"><span class="hs-pragma hs-type">RoomMembershipRole'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

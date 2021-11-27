@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpsWorks.Types.AppType</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpsWorks.Types.AppType</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier">AppType</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Aws_flow_ruby"><span class="hs-identifier">AppType_Aws_flow_ruby</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Java"><span class="hs-identifier">AppType_Java</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Nodejs"><span class="hs-identifier">AppType_Nodejs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Other"><span class="hs-identifier">AppType_Other</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Php"><span class="hs-identifier">AppType_Php</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Rails"><span class="hs-identifier">AppType_Rails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Static"><span class="hs-identifier">AppType_Static</span></a></span><span>
+</span><span id="line-30"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-32"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-35"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span id="local-6989586621679371665"><span id="local-6989586621679371666"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AppType"><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-var">AppType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AppType%27"><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-var">AppType'</span></a></span></span><span> </span><span class="hs-special">{</span><span id="fromAppType"><span class="annot"><span class="annottext">AppType -&gt; Text
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#fromAppType"><span class="hs-identifier hs-var hs-var">fromAppType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371657"><span id="local-6989586621679371659"><span id="local-6989586621679371661"><span class="annot"><span class="annottext">Int -&gt; AppType -&gt; ShowS
+[AppType] -&gt; ShowS
+AppType -&gt; String
+(Int -&gt; AppType -&gt; ShowS)
+-&gt; (AppType -&gt; String) -&gt; ([AppType] -&gt; ShowS) -&gt; Show AppType
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AppType] -&gt; ShowS
+$cshowList :: [AppType] -&gt; ShowS
+show :: AppType -&gt; String
+$cshow :: AppType -&gt; String
+showsPrec :: Int -&gt; AppType -&gt; ShowS
+$cshowsPrec :: Int -&gt; AppType -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679371648"><span id="local-6989586621679371650"><span id="local-6989586621679371652"><span id="local-6989586621679371654"><span class="annot"><span class="annottext">ReadPrec [AppType]
+ReadPrec AppType
+Int -&gt; ReadS AppType
+ReadS [AppType]
+(Int -&gt; ReadS AppType)
+-&gt; ReadS [AppType]
+-&gt; ReadPrec AppType
+-&gt; ReadPrec [AppType]
+-&gt; Read AppType
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AppType]
+$creadListPrec :: ReadPrec [AppType]
+readPrec :: ReadPrec AppType
+$creadPrec :: ReadPrec AppType
+readList :: ReadS [AppType]
+$creadList :: ReadS [AppType]
+readsPrec :: Int -&gt; ReadS AppType
+$creadsPrec :: Int -&gt; ReadS AppType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679371643"><span id="local-6989586621679371645"><span class="annot"><span class="annottext">AppType -&gt; AppType -&gt; Bool
+(AppType -&gt; AppType -&gt; Bool)
+-&gt; (AppType -&gt; AppType -&gt; Bool) -&gt; Eq AppType
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AppType -&gt; AppType -&gt; Bool
+$c/= :: AppType -&gt; AppType -&gt; Bool
+== :: AppType -&gt; AppType -&gt; Bool
+$c== :: AppType -&gt; AppType -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679371627"><span id="local-6989586621679371629"><span id="local-6989586621679371631"><span id="local-6989586621679371633"><span id="local-6989586621679371635"><span id="local-6989586621679371637"><span id="local-6989586621679371639"><span class="annot"><span class="annottext">Eq AppType
+Eq AppType
+-&gt; (AppType -&gt; AppType -&gt; Ordering)
+-&gt; (AppType -&gt; AppType -&gt; Bool)
+-&gt; (AppType -&gt; AppType -&gt; Bool)
+-&gt; (AppType -&gt; AppType -&gt; Bool)
+-&gt; (AppType -&gt; AppType -&gt; Bool)
+-&gt; (AppType -&gt; AppType -&gt; AppType)
+-&gt; (AppType -&gt; AppType -&gt; AppType)
+-&gt; Ord AppType
+AppType -&gt; AppType -&gt; Bool
+AppType -&gt; AppType -&gt; Ordering
+AppType -&gt; AppType -&gt; AppType
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AppType -&gt; AppType -&gt; AppType
+$cmin :: AppType -&gt; AppType -&gt; AppType
+max :: AppType -&gt; AppType -&gt; AppType
+$cmax :: AppType -&gt; AppType -&gt; AppType
+&gt;= :: AppType -&gt; AppType -&gt; Bool
+$c&gt;= :: AppType -&gt; AppType -&gt; Bool
+&gt; :: AppType -&gt; AppType -&gt; Bool
+$c&gt; :: AppType -&gt; AppType -&gt; Bool
+&lt;= :: AppType -&gt; AppType -&gt; Bool
+$c&lt;= :: AppType -&gt; AppType -&gt; Bool
+&lt; :: AppType -&gt; AppType -&gt; Bool
+$c&lt; :: AppType -&gt; AppType -&gt; Bool
+compare :: AppType -&gt; AppType -&gt; Ordering
+$ccompare :: AppType -&gt; AppType -&gt; Ordering
+$cp1Ord :: Eq AppType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AppType -&gt; Rep AppType x)
+-&gt; (forall x. Rep AppType x -&gt; AppType) -&gt; Generic AppType
+forall x. Rep AppType x -&gt; AppType
+forall x. AppType -&gt; Rep AppType x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AppType x -&gt; AppType
+$cfrom :: forall x. AppType -&gt; Rep AppType x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679371619"><span id="local-6989586621679371621"><span class="annot"><span class="annottext">Int -&gt; AppType -&gt; Int
+AppType -&gt; Int
+(Int -&gt; AppType -&gt; Int) -&gt; (AppType -&gt; Int) -&gt; Hashable AppType
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AppType -&gt; Int
+$chash :: AppType -&gt; Int
+hashWithSalt :: Int -&gt; AppType -&gt; Int
+$chashWithSalt :: Int -&gt; AppType -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679371616"><span class="annot"><span class="annottext">AppType -&gt; ()
+(AppType -&gt; ()) -&gt; NFData AppType
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AppType -&gt; ()
+$crnf :: AppType -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679371613"><span class="annot"><span class="annottext">Text -&gt; Either String AppType
+(Text -&gt; Either String AppType) -&gt; FromText AppType
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AppType
+$cfromText :: Text -&gt; Either String AppType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679371610"><span class="annot"><span class="annottext">AppType -&gt; Text
+(AppType -&gt; Text) -&gt; ToText AppType
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AppType -&gt; Text
+$ctoText :: AppType -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679371607"><span class="annot"><span class="annottext">AppType -&gt; ByteString
+(AppType -&gt; ByteString) -&gt; ToByteString AppType
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AppType -&gt; ByteString
+$ctoBS :: AppType -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679371604"><span class="annot"><span class="annottext">AppType -&gt; ByteStringBuilder
+(AppType -&gt; ByteStringBuilder) -&gt; ToLog AppType
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AppType -&gt; ByteStringBuilder
+$cbuild :: AppType -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679371601"><span class="annot"><span class="annottext">HeaderName -&gt; AppType -&gt; [Header]
+(HeaderName -&gt; AppType -&gt; [Header]) -&gt; ToHeader AppType
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AppType -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AppType -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679371598"><span class="annot"><span class="annottext">AppType -&gt; QueryString
+(AppType -&gt; QueryString) -&gt; ToQuery AppType
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AppType -&gt; QueryString
+$ctoQuery :: AppType -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679371593"><span id="local-6989586621679371595"><span class="annot"><span class="annottext">Value -&gt; Parser [AppType]
+Value -&gt; Parser AppType
+(Value -&gt; Parser AppType)
+-&gt; (Value -&gt; Parser [AppType]) -&gt; FromJSON AppType
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AppType]
+$cparseJSONList :: Value -&gt; Parser [AppType]
+parseJSON :: Value -&gt; Parser AppType
+$cparseJSON :: Value -&gt; Parser AppType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679371588"><span id="local-6989586621679371590"><span class="annot"><span class="annottext">FromJSONKeyFunction [AppType]
+FromJSONKeyFunction AppType
+FromJSONKeyFunction AppType
+-&gt; FromJSONKeyFunction [AppType] -&gt; FromJSONKey AppType
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AppType]
+$cfromJSONKeyList :: FromJSONKeyFunction [AppType]
+fromJSONKey :: FromJSONKeyFunction AppType
+$cfromJSONKey :: FromJSONKeyFunction AppType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679371579"><span id="local-6989586621679371581"><span id="local-6989586621679371583"><span id="local-6989586621679371585"><span class="annot"><span class="annottext">[AppType] -&gt; Encoding
+[AppType] -&gt; Value
+AppType -&gt; Encoding
+AppType -&gt; Value
+(AppType -&gt; Value)
+-&gt; (AppType -&gt; Encoding)
+-&gt; ([AppType] -&gt; Value)
+-&gt; ([AppType] -&gt; Encoding)
+-&gt; ToJSON AppType
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AppType] -&gt; Encoding
+$ctoEncodingList :: [AppType] -&gt; Encoding
+toJSONList :: [AppType] -&gt; Value
+$ctoJSONList :: [AppType] -&gt; Value
+toEncoding :: AppType -&gt; Encoding
+$ctoEncoding :: AppType -&gt; Encoding
+toJSON :: AppType -&gt; Value
+$ctoJSON :: AppType -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679371574"><span id="local-6989586621679371576"><span class="annot"><span class="annottext">ToJSONKeyFunction [AppType]
+ToJSONKeyFunction AppType
+ToJSONKeyFunction AppType
+-&gt; ToJSONKeyFunction [AppType] -&gt; ToJSONKey AppType
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AppType]
+$ctoJSONKeyList :: ToJSONKeyFunction [AppType]
+toJSONKey :: ToJSONKeyFunction AppType
+$ctoJSONKey :: ToJSONKeyFunction AppType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679371571"><span class="annot"><span class="annottext">[Node] -&gt; Either String AppType
+([Node] -&gt; Either String AppType) -&gt; FromXML AppType
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AppType
+$cparseXML :: [Node] -&gt; Either String AppType
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679371568"><span class="annot"><span class="annottext">AppType -&gt; XML
+(AppType -&gt; XML) -&gt; ToXML AppType
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AppType -&gt; XML
+$ctoXML :: AppType -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Aws_flow_ruby"><span class="hs-identifier hs-type">AppType_Aws_flow_ruby</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppType_Aws_flow_ruby"><span id="%24mAppType_Aws_flow_ruby"><span id="AppType_Aws_flow_ruby"><span class="annot"><span class="annottext">$bAppType_Aws_flow_ruby :: AppType
+$mAppType_Aws_flow_ruby :: forall r. AppType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#%24bAppType_Aws_flow_ruby"><span class="hs-identifier hs-var hs-var hs-var">AppType_Aws_flow_ruby</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-type">AppType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;aws-flow-ruby&quot;</span></span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Java"><span class="hs-identifier hs-type">AppType_Java</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
+</span><span id="line-66"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppType_Java"><span id="%24mAppType_Java"><span id="AppType_Java"><span class="annot"><span class="annottext">$bAppType_Java :: AppType
+$mAppType_Java :: forall r. AppType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#%24bAppType_Java"><span class="hs-identifier hs-var hs-var hs-var">AppType_Java</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-type">AppType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;java&quot;</span></span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Nodejs"><span class="hs-identifier hs-type">AppType_Nodejs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppType_Nodejs"><span id="%24mAppType_Nodejs"><span id="AppType_Nodejs"><span class="annot"><span class="annottext">$bAppType_Nodejs :: AppType
+$mAppType_Nodejs :: forall r. AppType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#%24bAppType_Nodejs"><span class="hs-identifier hs-var hs-var hs-var">AppType_Nodejs</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-type">AppType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;nodejs&quot;</span></span><span>
+</span><span id="line-70"></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Other"><span class="hs-identifier hs-type">AppType_Other</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppType_Other"><span id="%24mAppType_Other"><span id="AppType_Other"><span class="annot"><span class="annottext">$bAppType_Other :: AppType
+$mAppType_Other :: forall r. AppType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#%24bAppType_Other"><span class="hs-identifier hs-var hs-var hs-var">AppType_Other</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-type">AppType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;other&quot;</span></span><span>
+</span><span id="line-73"></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Php"><span class="hs-identifier hs-type">AppType_Php</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppType_Php"><span id="%24mAppType_Php"><span id="AppType_Php"><span class="annot"><span class="annottext">$bAppType_Php :: AppType
+$mAppType_Php :: forall r. AppType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#%24bAppType_Php"><span class="hs-identifier hs-var hs-var hs-var">AppType_Php</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-type">AppType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;php&quot;</span></span><span>
+</span><span id="line-76"></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Rails"><span class="hs-identifier hs-type">AppType_Rails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppType_Rails"><span id="%24mAppType_Rails"><span id="AppType_Rails"><span class="annot"><span class="annottext">$bAppType_Rails :: AppType
+$mAppType_Rails :: forall r. AppType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#%24bAppType_Rails"><span class="hs-identifier hs-var hs-var hs-var">AppType_Rails</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-type">AppType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rails&quot;</span></span><span>
+</span><span id="line-79"></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Static"><span class="hs-identifier hs-type">AppType_Static</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType"><span class="hs-identifier hs-type">AppType</span></a></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAppType_Static"><span id="%24mAppType_Static"><span id="AppType_Static"><span class="annot"><span class="annottext">$bAppType_Static :: AppType
+$mAppType_Static :: forall r. AppType -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpsWorks.Types.AppType.html#%24bAppType_Static"><span class="hs-identifier hs-var hs-var hs-var">AppType_Static</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-identifier hs-type">AppType'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;static&quot;</span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Aws_flow_ruby"><span class="hs-pragma hs-type">AppType_Aws_flow_ruby</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Java"><span class="hs-pragma hs-type">AppType_Java</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Nodejs"><span class="hs-pragma hs-type">AppType_Nodejs</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Other"><span class="hs-pragma hs-type">AppType_Other</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Php"><span class="hs-pragma hs-type">AppType_Php</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Rails"><span class="hs-pragma hs-type">AppType_Rails</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType_Static"><span class="hs-pragma hs-type">AppType_Static</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.OpsWorks.Types.AppType.html#AppType%27"><span class="hs-pragma hs-type">AppType'</span></a></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-93"></span></pre></body></html>

@@ -1,0 +1,606 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.EC2.DeleteVpcEndpointConnectionNotifications</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes one or more VPC endpoint connection notifications.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.DeleteVpcEndpointConnectionNotifications</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier">DeleteVpcEndpointConnectionNotifications</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#newDeleteVpcEndpointConnectionNotifications"><span class="hs-identifier">newDeleteVpcEndpointConnectionNotifications</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotifications_dryRun"><span class="hs-identifier">deleteVpcEndpointConnectionNotifications_dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotifications_connectionNotificationIds"><span class="hs-identifier">deleteVpcEndpointConnectionNotifications_connectionNotificationIds</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#newDeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier">newDeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotificationsResponse_unsuccessful"><span class="hs-identifier">deleteVpcEndpointConnectionNotificationsResponse_unsuccessful</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotificationsResponse_httpStatus"><span class="hs-identifier">deleteVpcEndpointConnectionNotificationsResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-41"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.html"><span class="hs-identifier">Amazonka.EC2.Types</span></a></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- | /See:/ 'newDeleteVpcEndpointConnectionNotifications' smart constructor.</span><span>
+</span><span id="line-51"></span><span id="local-6989586621681275039"><span id="local-6989586621681275040"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcEndpointConnectionNotifications"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-var">DeleteVpcEndpointConnectionNotifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcEndpointConnectionNotifications%27"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-var">DeleteVpcEndpointConnectionNotifications'</span></a></span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AdryRun%3ADeleteVpcEndpointConnectionNotifications%27"><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotifications -&gt; Maybe Bool
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AdryRun%3ADeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | One or more notification IDs.</span><span>
+</span><span id="line-58"></span><span>    </span><span id="%24sel%3AconnectionNotificationIds%3ADeleteVpcEndpointConnectionNotifications%27"><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotifications -&gt; [Text]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AconnectionNotificationIds%3ADeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-var hs-var">connectionNotificationIds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681275032"><span id="local-6989586621681275034"><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotifications
+-&gt; DeleteVpcEndpointConnectionNotifications -&gt; Bool
+(DeleteVpcEndpointConnectionNotifications
+ -&gt; DeleteVpcEndpointConnectionNotifications -&gt; Bool)
+-&gt; (DeleteVpcEndpointConnectionNotifications
+    -&gt; DeleteVpcEndpointConnectionNotifications -&gt; Bool)
+-&gt; Eq DeleteVpcEndpointConnectionNotifications
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteVpcEndpointConnectionNotifications
+-&gt; DeleteVpcEndpointConnectionNotifications -&gt; Bool
+$c/= :: DeleteVpcEndpointConnectionNotifications
+-&gt; DeleteVpcEndpointConnectionNotifications -&gt; Bool
+== :: DeleteVpcEndpointConnectionNotifications
+-&gt; DeleteVpcEndpointConnectionNotifications -&gt; Bool
+$c== :: DeleteVpcEndpointConnectionNotifications
+-&gt; DeleteVpcEndpointConnectionNotifications -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681275023"><span id="local-6989586621681275025"><span id="local-6989586621681275027"><span id="local-6989586621681275029"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcEndpointConnectionNotifications]
+ReadPrec DeleteVpcEndpointConnectionNotifications
+Int -&gt; ReadS DeleteVpcEndpointConnectionNotifications
+ReadS [DeleteVpcEndpointConnectionNotifications]
+(Int -&gt; ReadS DeleteVpcEndpointConnectionNotifications)
+-&gt; ReadS [DeleteVpcEndpointConnectionNotifications]
+-&gt; ReadPrec DeleteVpcEndpointConnectionNotifications
+-&gt; ReadPrec [DeleteVpcEndpointConnectionNotifications]
+-&gt; Read DeleteVpcEndpointConnectionNotifications
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteVpcEndpointConnectionNotifications]
+$creadListPrec :: ReadPrec [DeleteVpcEndpointConnectionNotifications]
+readPrec :: ReadPrec DeleteVpcEndpointConnectionNotifications
+$creadPrec :: ReadPrec DeleteVpcEndpointConnectionNotifications
+readList :: ReadS [DeleteVpcEndpointConnectionNotifications]
+$creadList :: ReadS [DeleteVpcEndpointConnectionNotifications]
+readsPrec :: Int -&gt; ReadS DeleteVpcEndpointConnectionNotifications
+$creadsPrec :: Int -&gt; ReadS DeleteVpcEndpointConnectionNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681275016"><span id="local-6989586621681275018"><span id="local-6989586621681275020"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcEndpointConnectionNotifications -&gt; ShowS
+[DeleteVpcEndpointConnectionNotifications] -&gt; ShowS
+DeleteVpcEndpointConnectionNotifications -&gt; String
+(Int -&gt; DeleteVpcEndpointConnectionNotifications -&gt; ShowS)
+-&gt; (DeleteVpcEndpointConnectionNotifications -&gt; String)
+-&gt; ([DeleteVpcEndpointConnectionNotifications] -&gt; ShowS)
+-&gt; Show DeleteVpcEndpointConnectionNotifications
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteVpcEndpointConnectionNotifications] -&gt; ShowS
+$cshowList :: [DeleteVpcEndpointConnectionNotifications] -&gt; ShowS
+show :: DeleteVpcEndpointConnectionNotifications -&gt; String
+$cshow :: DeleteVpcEndpointConnectionNotifications -&gt; String
+showsPrec :: Int -&gt; DeleteVpcEndpointConnectionNotifications -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteVpcEndpointConnectionNotifications -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteVpcEndpointConnectionNotifications
+ -&gt; Rep DeleteVpcEndpointConnectionNotifications x)
+-&gt; (forall x.
+    Rep DeleteVpcEndpointConnectionNotifications x
+    -&gt; DeleteVpcEndpointConnectionNotifications)
+-&gt; Generic DeleteVpcEndpointConnectionNotifications
+forall x.
+Rep DeleteVpcEndpointConnectionNotifications x
+-&gt; DeleteVpcEndpointConnectionNotifications
+forall x.
+DeleteVpcEndpointConnectionNotifications
+-&gt; Rep DeleteVpcEndpointConnectionNotifications x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteVpcEndpointConnectionNotifications x
+-&gt; DeleteVpcEndpointConnectionNotifications
+$cfrom :: forall x.
+DeleteVpcEndpointConnectionNotifications
+-&gt; Rep DeleteVpcEndpointConnectionNotifications x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-61"></span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- Create a value of 'DeleteVpcEndpointConnectionNotifications' with all optional fields omitted.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'dryRun', 'deleteVpcEndpointConnectionNotifications_dryRun' - Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'connectionNotificationIds', 'deleteVpcEndpointConnectionNotifications_connectionNotificationIds' - One or more notification IDs.</span><span>
+</span><span id="line-76"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#newDeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">newDeleteVpcEndpointConnectionNotifications</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-77"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span>
+</span><span id="line-78"></span><span id="newDeleteVpcEndpointConnectionNotifications"><span class="annot"><span class="annottext">newDeleteVpcEndpointConnectionNotifications :: DeleteVpcEndpointConnectionNotifications
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#newDeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-var hs-var">newDeleteVpcEndpointConnectionNotifications</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-79"></span><span>  </span><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotifications' :: Maybe Bool -&gt; [Text] -&gt; DeleteVpcEndpointConnectionNotifications
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications'</span></a></span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:dryRun:DeleteVpcEndpointConnectionNotifications' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AdryRun%3ADeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-81"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>      </span><span class="annot"><span class="annottext">$sel:connectionNotificationIds:DeleteVpcEndpointConnectionNotifications' :: [Text]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AconnectionNotificationIds%3ADeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-var">connectionNotificationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>        </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- | Checks whether you have the required permissions for the action, without</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- actually making the request, and provides an error response. If you have</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- the required permissions, the error response is @DryRunOperation@.</span><span>
+</span><span id="line-89"></span><span class="hs-comment">-- Otherwise, it is @UnauthorizedOperation@.</span><span>
+</span><span id="line-90"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotifications_dryRun"><span class="hs-identifier hs-type">deleteVpcEndpointConnectionNotifications_dryRun</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-91"></span><span id="deleteVpcEndpointConnectionNotifications_dryRun"><span class="annot"><span class="annottext">deleteVpcEndpointConnectionNotifications_dryRun :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; DeleteVpcEndpointConnectionNotifications
+-&gt; f DeleteVpcEndpointConnectionNotifications
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotifications_dryRun"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointConnectionNotifications_dryRun</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointConnectionNotifications -&gt; Maybe Bool)
+-&gt; (DeleteVpcEndpointConnectionNotifications
+    -&gt; Maybe Bool -&gt; DeleteVpcEndpointConnectionNotifications)
+-&gt; Lens
+     DeleteVpcEndpointConnectionNotifications
+     DeleteVpcEndpointConnectionNotifications
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681275009"><span class="annot"><span class="annottext">Maybe Bool
+dryRun :: Maybe Bool
+$sel:dryRun:DeleteVpcEndpointConnectionNotifications' :: DeleteVpcEndpointConnectionNotifications -&gt; Maybe Bool
+</span><a href="#local-6989586621681275009"><span class="hs-identifier hs-var hs-var">dryRun</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681275009"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681275008"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointConnectionNotifications
+</span><a href="#local-6989586621681275008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681275007"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681275007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotifications
+</span><a href="#local-6989586621681275008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dryRun:DeleteVpcEndpointConnectionNotifications' :: Maybe Bool
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AdryRun%3ADeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-var">dryRun</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681275007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-comment">-- | One or more notification IDs.</span><span>
+</span><span id="line-94"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotifications_connectionNotificationIds"><span class="hs-identifier hs-type">deleteVpcEndpointConnectionNotifications_connectionNotificationIds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-95"></span><span id="deleteVpcEndpointConnectionNotifications_connectionNotificationIds"><span class="annot"><span class="annottext">deleteVpcEndpointConnectionNotifications_connectionNotificationIds :: ([Text] -&gt; f [Text])
+-&gt; DeleteVpcEndpointConnectionNotifications
+-&gt; f DeleteVpcEndpointConnectionNotifications
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotifications_connectionNotificationIds"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointConnectionNotifications_connectionNotificationIds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointConnectionNotifications -&gt; [Text])
+-&gt; (DeleteVpcEndpointConnectionNotifications
+    -&gt; [Text] -&gt; DeleteVpcEndpointConnectionNotifications)
+-&gt; Lens
+     DeleteVpcEndpointConnectionNotifications
+     DeleteVpcEndpointConnectionNotifications
+     [Text]
+     [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681275006"><span class="annot"><span class="annottext">[Text]
+connectionNotificationIds :: [Text]
+$sel:connectionNotificationIds:DeleteVpcEndpointConnectionNotifications' :: DeleteVpcEndpointConnectionNotifications -&gt; [Text]
+</span><a href="#local-6989586621681275006"><span class="hs-identifier hs-var hs-var">connectionNotificationIds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681275006"><span class="hs-identifier hs-var">connectionNotificationIds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681275005"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointConnectionNotifications
+</span><a href="#local-6989586621681275005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681275004"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681275004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotifications
+</span><a href="#local-6989586621681275005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:connectionNotificationIds:DeleteVpcEndpointConnectionNotifications' :: [Text]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AconnectionNotificationIds%3ADeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-var">connectionNotificationIds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681275004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; DeleteVpcEndpointConnectionNotifications
+ -&gt; f DeleteVpcEndpointConnectionNotifications)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; DeleteVpcEndpointConnectionNotifications
+-&gt; f DeleteVpcEndpointConnectionNotifications
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span>
+</span><span id="line-100"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-102"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span>
+</span><span id="line-103"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621681274998"><span class="annot"><span class="annottext">request :: DeleteVpcEndpointConnectionNotifications
+-&gt; Request DeleteVpcEndpointConnectionNotifications
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; DeleteVpcEndpointConnectionNotifications
+-&gt; Request DeleteVpcEndpointConnectionNotifications
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postQuery</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.EC2.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621681274994"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteVpcEndpointConnectionNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeleteVpcEndpointConnectionNotifications)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either
+      String (AWSResponse DeleteVpcEndpointConnectionNotifications))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteVpcEndpointConnectionNotifications
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error
+        (ClientResponse
+           (AWSResponse DeleteVpcEndpointConnectionNotifications)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621681274991"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274991"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621681274990"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621681274990"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621681274989"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681274989"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+-&gt; Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var">DeleteVpcEndpointConnectionNotificationsResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [UnsuccessfulItem]
+ -&gt; Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse)
+-&gt; Either String (Maybe [UnsuccessfulItem])
+-&gt; Either
+     String (Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681274989"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;unsuccessful&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-111"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String (Maybe [UnsuccessfulItem]))
+-&gt; Either String (Maybe [UnsuccessfulItem])
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">([Node] -&gt; Either String [UnsuccessfulItem])
+-&gt; [Node] -&gt; Either String (Maybe [UnsuccessfulItem])
+forall (f :: * -&gt; *) a b.
+Applicative f =&gt;
+([a] -&gt; f b) -&gt; [a] -&gt; f (Maybe b)
+</span><span class="hs-identifier hs-var">Core.may</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [UnsuccessfulItem]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;item&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>              </span><span class="annot"><span class="annottext">Either
+  String (Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse)
+-&gt; Either String Int
+-&gt; Either String DeleteVpcEndpointConnectionNotificationsResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274991"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-117"></span><span>  </span><span id="local-6989586621681274978"><span id="local-6989586621681274980"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span></span></span><span>
+</span><span id="line-119"></span><span>
+</span><span id="line-120"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-121"></span><span>  </span><span id="local-6989586621681274975"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span></span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span>
+</span><span id="line-126"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span>
+</span><span id="line-127"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621681274971"><span class="annot"><span class="annottext">toHeaders :: DeleteVpcEndpointConnectionNotifications -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+-&gt; DeleteVpcEndpointConnectionNotifications -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-129"></span><span>
+</span><span id="line-130"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-131"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span>
+</span><span id="line-133"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621681274966"><span class="annot"><span class="annottext">toPath :: DeleteVpcEndpointConnectionNotifications -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+-&gt; DeleteVpcEndpointConnectionNotifications -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-137"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications</span></a></span><span>
+</span><span id="line-139"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621681274962"><span class="annot"><span class="annottext">toQuery :: DeleteVpcEndpointConnectionNotifications -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotifications%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotifications'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274959"><span id="local-6989586621681274960"><span class="annot"><span class="annottext">[Text]
+Maybe Bool
+connectionNotificationIds :: [Text]
+dryRun :: Maybe Bool
+$sel:connectionNotificationIds:DeleteVpcEndpointConnectionNotifications' :: DeleteVpcEndpointConnectionNotifications -&gt; [Text]
+$sel:dryRun:DeleteVpcEndpointConnectionNotifications' :: DeleteVpcEndpointConnectionNotifications -&gt; Maybe Bool
+</span><a href="#local-6989586621681274959"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[QueryString] -&gt; QueryString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Action&quot;</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DeleteVpcEndpointConnectionNotifications&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>                      </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-145"></span><span>                  </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Version&quot;</span></span><span>
+</span><span id="line-147"></span><span>          </span><span class="annot"><span class="annottext">ByteString -&gt; ByteString -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2016-11-15&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;DryRun&quot;</span></span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; Maybe Bool -&gt; QueryString
+forall a. ToQuery a =&gt; ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-operator hs-var">Core.=:</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621681274960"><span class="hs-identifier hs-var">dryRun</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>        </span><span class="annot"><span class="annottext">ByteString -&gt; [Text] -&gt; QueryString
+forall a.
+(IsList a, ToQuery (Item a)) =&gt;
+ByteString -&gt; a -&gt; QueryString
+</span><span class="hs-identifier hs-var">Core.toQueryList</span></span><span>
+</span><span id="line-150"></span><span>          </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;ConnectionNotificationId&quot;</span></span><span>
+</span><span id="line-151"></span><span>          </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621681274959"><span class="hs-identifier hs-var">connectionNotificationIds</span></a></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- | /See:/ 'newDeleteVpcEndpointConnectionNotificationsResponse' smart constructor.</span><span>
+</span><span id="line-155"></span><span id="local-6989586621681274955"><span id="local-6989586621681274956"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteVpcEndpointConnectionNotificationsResponse"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-var">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var">DeleteVpcEndpointConnectionNotificationsResponse'</span></a></span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Information about the notifications that could not be deleted</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- successfully.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3Aunsuccessful%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; Maybe [UnsuccessfulItem]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3Aunsuccessful%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulItem.html#UnsuccessfulItem"><span class="hs-identifier hs-type">UnsuccessfulItem</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-160"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotificationsResponse -&gt; Int
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AhttpStatus%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-162"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681274949"><span id="local-6989586621681274951"><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; Bool
+(DeleteVpcEndpointConnectionNotificationsResponse
+ -&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; Bool)
+-&gt; (DeleteVpcEndpointConnectionNotificationsResponse
+    -&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; Bool)
+-&gt; Eq DeleteVpcEndpointConnectionNotificationsResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; Bool
+$c/= :: DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; Bool
+== :: DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; Bool
+$c== :: DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681274941"><span id="local-6989586621681274943"><span id="local-6989586621681274945"><span id="local-6989586621681274947"><span class="annot"><span class="annottext">ReadPrec [DeleteVpcEndpointConnectionNotificationsResponse]
+ReadPrec DeleteVpcEndpointConnectionNotificationsResponse
+Int -&gt; ReadS DeleteVpcEndpointConnectionNotificationsResponse
+ReadS [DeleteVpcEndpointConnectionNotificationsResponse]
+(Int -&gt; ReadS DeleteVpcEndpointConnectionNotificationsResponse)
+-&gt; ReadS [DeleteVpcEndpointConnectionNotificationsResponse]
+-&gt; ReadPrec DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; ReadPrec [DeleteVpcEndpointConnectionNotificationsResponse]
+-&gt; Read DeleteVpcEndpointConnectionNotificationsResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteVpcEndpointConnectionNotificationsResponse]
+$creadListPrec :: ReadPrec [DeleteVpcEndpointConnectionNotificationsResponse]
+readPrec :: ReadPrec DeleteVpcEndpointConnectionNotificationsResponse
+$creadPrec :: ReadPrec DeleteVpcEndpointConnectionNotificationsResponse
+readList :: ReadS [DeleteVpcEndpointConnectionNotificationsResponse]
+$creadList :: ReadS [DeleteVpcEndpointConnectionNotificationsResponse]
+readsPrec :: Int -&gt; ReadS DeleteVpcEndpointConnectionNotificationsResponse
+$creadsPrec :: Int -&gt; ReadS DeleteVpcEndpointConnectionNotificationsResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681274935"><span id="local-6989586621681274937"><span id="local-6989586621681274939"><span class="annot"><span class="annottext">Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; ShowS
+[DeleteVpcEndpointConnectionNotificationsResponse] -&gt; ShowS
+DeleteVpcEndpointConnectionNotificationsResponse -&gt; String
+(Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; ShowS)
+-&gt; (DeleteVpcEndpointConnectionNotificationsResponse -&gt; String)
+-&gt; ([DeleteVpcEndpointConnectionNotificationsResponse] -&gt; ShowS)
+-&gt; Show DeleteVpcEndpointConnectionNotificationsResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteVpcEndpointConnectionNotificationsResponse] -&gt; ShowS
+$cshowList :: [DeleteVpcEndpointConnectionNotificationsResponse] -&gt; ShowS
+show :: DeleteVpcEndpointConnectionNotificationsResponse -&gt; String
+$cshow :: DeleteVpcEndpointConnectionNotificationsResponse -&gt; String
+showsPrec :: Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteVpcEndpointConnectionNotificationsResponse
+ -&gt; Rep DeleteVpcEndpointConnectionNotificationsResponse x)
+-&gt; (forall x.
+    Rep DeleteVpcEndpointConnectionNotificationsResponse x
+    -&gt; DeleteVpcEndpointConnectionNotificationsResponse)
+-&gt; Generic DeleteVpcEndpointConnectionNotificationsResponse
+forall x.
+Rep DeleteVpcEndpointConnectionNotificationsResponse x
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse
+forall x.
+DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; Rep DeleteVpcEndpointConnectionNotificationsResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteVpcEndpointConnectionNotificationsResponse x
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse
+$cfrom :: forall x.
+DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; Rep DeleteVpcEndpointConnectionNotificationsResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-163"></span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Create a value of 'DeleteVpcEndpointConnectionNotificationsResponse' with all optional fields omitted.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-168"></span><span class="hs-comment">--</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'unsuccessful', 'deleteVpcEndpointConnectionNotificationsResponse_unsuccessful' - Information about the notifications that could not be deleted</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- successfully.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'httpStatus', 'deleteVpcEndpointConnectionNotificationsResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-176"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#newDeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">newDeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span>
+</span><span id="line-180"></span><span id="newDeleteVpcEndpointConnectionNotificationsResponse"><span class="annot"><span class="annottext">newDeleteVpcEndpointConnectionNotificationsResponse :: Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#newDeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-var hs-var">newDeleteVpcEndpointConnectionNotificationsResponse</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621681274932"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274932"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotificationsResponse' :: Maybe [UnsuccessfulItem]
+-&gt; Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse'</span></a></span><span>
+</span><span id="line-183"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:unsuccessful:DeleteVpcEndpointConnectionNotificationsResponse' :: Maybe [UnsuccessfulItem]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3Aunsuccessful%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-184"></span><span>          </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVpcEndpointConnectionNotificationsResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AhttpStatus%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274932"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-186"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | Information about the notifications that could not be deleted</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- successfully.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotificationsResponse_unsuccessful"><span class="hs-identifier hs-type">deleteVpcEndpointConnectionNotificationsResponse_unsuccessful</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.EC2.Types.UnsuccessfulItem.html#UnsuccessfulItem"><span class="hs-identifier hs-type">UnsuccessfulItem</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="deleteVpcEndpointConnectionNotificationsResponse_unsuccessful"><span class="annot"><span class="annottext">deleteVpcEndpointConnectionNotificationsResponse_unsuccessful :: (Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; f DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotificationsResponse_unsuccessful"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointConnectionNotificationsResponse_unsuccessful</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointConnectionNotificationsResponse
+ -&gt; Maybe [UnsuccessfulItem])
+-&gt; (DeleteVpcEndpointConnectionNotificationsResponse
+    -&gt; Maybe [UnsuccessfulItem]
+    -&gt; DeleteVpcEndpointConnectionNotificationsResponse)
+-&gt; Lens
+     DeleteVpcEndpointConnectionNotificationsResponse
+     DeleteVpcEndpointConnectionNotificationsResponse
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274931"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+unsuccessful :: Maybe [UnsuccessfulItem]
+$sel:unsuccessful:DeleteVpcEndpointConnectionNotificationsResponse' :: DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274931"><span class="hs-identifier hs-var hs-var">unsuccessful</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274931"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681274930"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="#local-6989586621681274930"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681274929"><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274929"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="#local-6989586621681274930"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:unsuccessful:DeleteVpcEndpointConnectionNotificationsResponse' :: Maybe [UnsuccessfulItem]
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3Aunsuccessful%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var">unsuccessful</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [UnsuccessfulItem]
+</span><a href="#local-6989586621681274929"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+ -&gt; DeleteVpcEndpointConnectionNotificationsResponse
+ -&gt; f DeleteVpcEndpointConnectionNotificationsResponse)
+-&gt; ((Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+    -&gt; Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; (Maybe [UnsuccessfulItem] -&gt; f (Maybe [UnsuccessfulItem]))
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; f DeleteVpcEndpointConnectionNotificationsResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+-&gt; Iso
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+     (Maybe [UnsuccessfulItem])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+  [UnsuccessfulItem]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotificationsResponse_httpStatus"><span class="hs-identifier hs-type">deleteVpcEndpointConnectionNotificationsResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="deleteVpcEndpointConnectionNotificationsResponse_httpStatus"><span class="annot"><span class="annottext">deleteVpcEndpointConnectionNotificationsResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteVpcEndpointConnectionNotificationsResponse
+-&gt; f DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#deleteVpcEndpointConnectionNotificationsResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteVpcEndpointConnectionNotificationsResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteVpcEndpointConnectionNotificationsResponse -&gt; Int)
+-&gt; (DeleteVpcEndpointConnectionNotificationsResponse
+    -&gt; Int -&gt; DeleteVpcEndpointConnectionNotificationsResponse)
+-&gt; Lens
+     DeleteVpcEndpointConnectionNotificationsResponse
+     DeleteVpcEndpointConnectionNotificationsResponse
+     Int
+     Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681274927"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteVpcEndpointConnectionNotificationsResponse' :: DeleteVpcEndpointConnectionNotificationsResponse -&gt; Int
+</span><a href="#local-6989586621681274927"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274927"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681274926"><span class="annot"><span class="annottext">s :: DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="#local-6989586621681274926"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681274925"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274925"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteVpcEndpointConnectionNotificationsResponse
+</span><a href="#local-6989586621681274926"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteVpcEndpointConnectionNotificationsResponse' :: Int
+</span><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#%24sel%3AhttpStatus%3ADeleteVpcEndpointConnectionNotificationsResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621681274925"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-198"></span><span>  </span><span id="local-6989586621681274923"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.DeleteVpcEndpointConnectionNotifications.html#DeleteVpcEndpointConnectionNotificationsResponse"><span class="hs-identifier hs-type">DeleteVpcEndpointConnectionNotificationsResponse</span></a></span></span><span>
+</span><span id="line-200"></span></pre></body></html>

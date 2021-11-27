@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AccessAnalyzer.Types.AccessPreviewStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AccessAnalyzer.Types.AccessPreviewStatus</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_COMPLETED"><span class="hs-identifier">AccessPreviewStatus_COMPLETED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_CREATING"><span class="hs-identifier">AccessPreviewStatus_CREATING</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_FAILED"><span class="hs-identifier">AccessPreviewStatus_FAILED</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679243481"><span id="local-6989586621679243482"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AccessPreviewStatus"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-var">AccessPreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AccessPreviewStatus%27"><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus%27"><span class="hs-identifier hs-var">AccessPreviewStatus'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAccessPreviewStatus"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; Text
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#fromAccessPreviewStatus"><span class="hs-identifier hs-var hs-var">fromAccessPreviewStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243473"><span id="local-6989586621679243475"><span id="local-6989586621679243477"><span class="annot"><span class="annottext">Int -&gt; AccessPreviewStatus -&gt; ShowS
+[AccessPreviewStatus] -&gt; ShowS
+AccessPreviewStatus -&gt; String
+(Int -&gt; AccessPreviewStatus -&gt; ShowS)
+-&gt; (AccessPreviewStatus -&gt; String)
+-&gt; ([AccessPreviewStatus] -&gt; ShowS)
+-&gt; Show AccessPreviewStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AccessPreviewStatus] -&gt; ShowS
+$cshowList :: [AccessPreviewStatus] -&gt; ShowS
+show :: AccessPreviewStatus -&gt; String
+$cshow :: AccessPreviewStatus -&gt; String
+showsPrec :: Int -&gt; AccessPreviewStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; AccessPreviewStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679243464"><span id="local-6989586621679243466"><span id="local-6989586621679243468"><span id="local-6989586621679243470"><span class="annot"><span class="annottext">ReadPrec [AccessPreviewStatus]
+ReadPrec AccessPreviewStatus
+Int -&gt; ReadS AccessPreviewStatus
+ReadS [AccessPreviewStatus]
+(Int -&gt; ReadS AccessPreviewStatus)
+-&gt; ReadS [AccessPreviewStatus]
+-&gt; ReadPrec AccessPreviewStatus
+-&gt; ReadPrec [AccessPreviewStatus]
+-&gt; Read AccessPreviewStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AccessPreviewStatus]
+$creadListPrec :: ReadPrec [AccessPreviewStatus]
+readPrec :: ReadPrec AccessPreviewStatus
+$creadPrec :: ReadPrec AccessPreviewStatus
+readList :: ReadS [AccessPreviewStatus]
+$creadList :: ReadS [AccessPreviewStatus]
+readsPrec :: Int -&gt; ReadS AccessPreviewStatus
+$creadsPrec :: Int -&gt; ReadS AccessPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679243459"><span id="local-6989586621679243461"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+(AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool)
+-&gt; (AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool)
+-&gt; Eq AccessPreviewStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+$c/= :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+== :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+$c== :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679243443"><span id="local-6989586621679243445"><span id="local-6989586621679243447"><span id="local-6989586621679243449"><span id="local-6989586621679243451"><span id="local-6989586621679243453"><span id="local-6989586621679243455"><span class="annot"><span class="annottext">Eq AccessPreviewStatus
+Eq AccessPreviewStatus
+-&gt; (AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Ordering)
+-&gt; (AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool)
+-&gt; (AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool)
+-&gt; (AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool)
+-&gt; (AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool)
+-&gt; (AccessPreviewStatus
+    -&gt; AccessPreviewStatus -&gt; AccessPreviewStatus)
+-&gt; (AccessPreviewStatus
+    -&gt; AccessPreviewStatus -&gt; AccessPreviewStatus)
+-&gt; Ord AccessPreviewStatus
+AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Ordering
+AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; AccessPreviewStatus
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; AccessPreviewStatus
+$cmin :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; AccessPreviewStatus
+max :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; AccessPreviewStatus
+$cmax :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; AccessPreviewStatus
+&gt;= :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+$c&gt;= :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+&gt; :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+$c&gt; :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+&lt;= :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+$c&lt;= :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+&lt; :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+$c&lt; :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Bool
+compare :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Ordering
+$ccompare :: AccessPreviewStatus -&gt; AccessPreviewStatus -&gt; Ordering
+$cp1Ord :: Eq AccessPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AccessPreviewStatus -&gt; Rep AccessPreviewStatus x)
+-&gt; (forall x. Rep AccessPreviewStatus x -&gt; AccessPreviewStatus)
+-&gt; Generic AccessPreviewStatus
+forall x. Rep AccessPreviewStatus x -&gt; AccessPreviewStatus
+forall x. AccessPreviewStatus -&gt; Rep AccessPreviewStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AccessPreviewStatus x -&gt; AccessPreviewStatus
+$cfrom :: forall x. AccessPreviewStatus -&gt; Rep AccessPreviewStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679243435"><span id="local-6989586621679243437"><span class="annot"><span class="annottext">Int -&gt; AccessPreviewStatus -&gt; Int
+AccessPreviewStatus -&gt; Int
+(Int -&gt; AccessPreviewStatus -&gt; Int)
+-&gt; (AccessPreviewStatus -&gt; Int) -&gt; Hashable AccessPreviewStatus
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AccessPreviewStatus -&gt; Int
+$chash :: AccessPreviewStatus -&gt; Int
+hashWithSalt :: Int -&gt; AccessPreviewStatus -&gt; Int
+$chashWithSalt :: Int -&gt; AccessPreviewStatus -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679243432"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; ()
+(AccessPreviewStatus -&gt; ()) -&gt; NFData AccessPreviewStatus
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AccessPreviewStatus -&gt; ()
+$crnf :: AccessPreviewStatus -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679243429"><span class="annot"><span class="annottext">Text -&gt; Either String AccessPreviewStatus
+(Text -&gt; Either String AccessPreviewStatus)
+-&gt; FromText AccessPreviewStatus
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AccessPreviewStatus
+$cfromText :: Text -&gt; Either String AccessPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679243426"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; Text
+(AccessPreviewStatus -&gt; Text) -&gt; ToText AccessPreviewStatus
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AccessPreviewStatus -&gt; Text
+$ctoText :: AccessPreviewStatus -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679243423"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; ByteString
+(AccessPreviewStatus -&gt; ByteString)
+-&gt; ToByteString AccessPreviewStatus
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AccessPreviewStatus -&gt; ByteString
+$ctoBS :: AccessPreviewStatus -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679243420"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; ByteStringBuilder
+(AccessPreviewStatus -&gt; ByteStringBuilder)
+-&gt; ToLog AccessPreviewStatus
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AccessPreviewStatus -&gt; ByteStringBuilder
+$cbuild :: AccessPreviewStatus -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679243417"><span class="annot"><span class="annottext">HeaderName -&gt; AccessPreviewStatus -&gt; [Header]
+(HeaderName -&gt; AccessPreviewStatus -&gt; [Header])
+-&gt; ToHeader AccessPreviewStatus
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AccessPreviewStatus -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AccessPreviewStatus -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679243414"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; QueryString
+(AccessPreviewStatus -&gt; QueryString) -&gt; ToQuery AccessPreviewStatus
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AccessPreviewStatus -&gt; QueryString
+$ctoQuery :: AccessPreviewStatus -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679243409"><span id="local-6989586621679243411"><span class="annot"><span class="annottext">Value -&gt; Parser [AccessPreviewStatus]
+Value -&gt; Parser AccessPreviewStatus
+(Value -&gt; Parser AccessPreviewStatus)
+-&gt; (Value -&gt; Parser [AccessPreviewStatus])
+-&gt; FromJSON AccessPreviewStatus
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AccessPreviewStatus]
+$cparseJSONList :: Value -&gt; Parser [AccessPreviewStatus]
+parseJSON :: Value -&gt; Parser AccessPreviewStatus
+$cparseJSON :: Value -&gt; Parser AccessPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679243404"><span id="local-6989586621679243406"><span class="annot"><span class="annottext">FromJSONKeyFunction [AccessPreviewStatus]
+FromJSONKeyFunction AccessPreviewStatus
+FromJSONKeyFunction AccessPreviewStatus
+-&gt; FromJSONKeyFunction [AccessPreviewStatus]
+-&gt; FromJSONKey AccessPreviewStatus
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AccessPreviewStatus]
+$cfromJSONKeyList :: FromJSONKeyFunction [AccessPreviewStatus]
+fromJSONKey :: FromJSONKeyFunction AccessPreviewStatus
+$cfromJSONKey :: FromJSONKeyFunction AccessPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679243395"><span id="local-6989586621679243397"><span id="local-6989586621679243399"><span id="local-6989586621679243401"><span class="annot"><span class="annottext">[AccessPreviewStatus] -&gt; Encoding
+[AccessPreviewStatus] -&gt; Value
+AccessPreviewStatus -&gt; Encoding
+AccessPreviewStatus -&gt; Value
+(AccessPreviewStatus -&gt; Value)
+-&gt; (AccessPreviewStatus -&gt; Encoding)
+-&gt; ([AccessPreviewStatus] -&gt; Value)
+-&gt; ([AccessPreviewStatus] -&gt; Encoding)
+-&gt; ToJSON AccessPreviewStatus
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AccessPreviewStatus] -&gt; Encoding
+$ctoEncodingList :: [AccessPreviewStatus] -&gt; Encoding
+toJSONList :: [AccessPreviewStatus] -&gt; Value
+$ctoJSONList :: [AccessPreviewStatus] -&gt; Value
+toEncoding :: AccessPreviewStatus -&gt; Encoding
+$ctoEncoding :: AccessPreviewStatus -&gt; Encoding
+toJSON :: AccessPreviewStatus -&gt; Value
+$ctoJSON :: AccessPreviewStatus -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679243390"><span id="local-6989586621679243392"><span class="annot"><span class="annottext">ToJSONKeyFunction [AccessPreviewStatus]
+ToJSONKeyFunction AccessPreviewStatus
+ToJSONKeyFunction AccessPreviewStatus
+-&gt; ToJSONKeyFunction [AccessPreviewStatus]
+-&gt; ToJSONKey AccessPreviewStatus
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AccessPreviewStatus]
+$ctoJSONKeyList :: ToJSONKeyFunction [AccessPreviewStatus]
+toJSONKey :: ToJSONKeyFunction AccessPreviewStatus
+$ctoJSONKey :: ToJSONKeyFunction AccessPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679243387"><span class="annot"><span class="annottext">[Node] -&gt; Either String AccessPreviewStatus
+([Node] -&gt; Either String AccessPreviewStatus)
+-&gt; FromXML AccessPreviewStatus
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AccessPreviewStatus
+$cparseXML :: [Node] -&gt; Either String AccessPreviewStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679243384"><span class="annot"><span class="annottext">AccessPreviewStatus -&gt; XML
+(AccessPreviewStatus -&gt; XML) -&gt; ToXML AccessPreviewStatus
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AccessPreviewStatus -&gt; XML
+$ctoXML :: AccessPreviewStatus -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_COMPLETED"><span class="hs-identifier hs-type">AccessPreviewStatus_COMPLETED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessPreviewStatus_COMPLETED"><span id="%24mAccessPreviewStatus_COMPLETED"><span id="AccessPreviewStatus_COMPLETED"><span class="annot"><span class="annottext">$bAccessPreviewStatus_COMPLETED :: AccessPreviewStatus
+$mAccessPreviewStatus_COMPLETED :: forall r. AccessPreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#%24bAccessPreviewStatus_COMPLETED"><span class="hs-identifier hs-var hs-var hs-var">AccessPreviewStatus_COMPLETED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus%27"><span class="hs-identifier hs-type">AccessPreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;COMPLETED&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_CREATING"><span class="hs-identifier hs-type">AccessPreviewStatus_CREATING</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessPreviewStatus_CREATING"><span id="%24mAccessPreviewStatus_CREATING"><span id="AccessPreviewStatus_CREATING"><span class="annot"><span class="annottext">$bAccessPreviewStatus_CREATING :: AccessPreviewStatus
+$mAccessPreviewStatus_CREATING :: forall r. AccessPreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#%24bAccessPreviewStatus_CREATING"><span class="hs-identifier hs-var hs-var hs-var">AccessPreviewStatus_CREATING</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus%27"><span class="hs-identifier hs-type">AccessPreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;CREATING&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_FAILED"><span class="hs-identifier hs-type">AccessPreviewStatus_FAILED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus"><span class="hs-identifier hs-type">AccessPreviewStatus</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAccessPreviewStatus_FAILED"><span id="%24mAccessPreviewStatus_FAILED"><span id="AccessPreviewStatus_FAILED"><span class="annot"><span class="annottext">$bAccessPreviewStatus_FAILED :: AccessPreviewStatus
+$mAccessPreviewStatus_FAILED :: forall r. AccessPreviewStatus -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#%24bAccessPreviewStatus_FAILED"><span class="hs-identifier hs-var hs-var hs-var">AccessPreviewStatus_FAILED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus%27"><span class="hs-identifier hs-type">AccessPreviewStatus'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;FAILED&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_COMPLETED"><span class="hs-pragma hs-type">AccessPreviewStatus_COMPLETED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_CREATING"><span class="hs-pragma hs-type">AccessPreviewStatus_CREATING</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus_FAILED"><span class="hs-pragma hs-type">AccessPreviewStatus_FAILED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.AccessAnalyzer.Types.AccessPreviewStatus.html#AccessPreviewStatus%27"><span class="hs-pragma hs-type">AccessPreviewStatus'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

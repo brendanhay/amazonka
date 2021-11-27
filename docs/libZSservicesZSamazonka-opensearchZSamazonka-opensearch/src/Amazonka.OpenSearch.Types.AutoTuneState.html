@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.OpenSearch.Types.AutoTuneState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.OpenSearch.Types.AutoTuneState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier">AutoTuneState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED"><span class="hs-identifier">AutoTuneState_DISABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE"><span class="hs-identifier">AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_ERROR"><span class="hs-identifier">AutoTuneState_DISABLED_AND_ROLLBACK_ERROR</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS"><span class="hs-identifier">AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED"><span class="hs-identifier">AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLE_IN_PROGRESS"><span class="hs-identifier">AutoTuneState_DISABLE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ENABLED"><span class="hs-identifier">AutoTuneState_ENABLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ENABLE_IN_PROGRESS"><span class="hs-identifier">AutoTuneState_ENABLE_IN_PROGRESS</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ERROR"><span class="hs-identifier">AutoTuneState_ERROR</span></a></span><span>
+</span><span id="line-32"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-37"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span class="hs-comment">-- | The Auto-Tune state for the domain. For valid states see</span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html Auto-Tune for Amazon OpenSearch Service&gt;.</span><span>
+</span><span id="line-41"></span><span id="local-6989586621679296742"><span id="local-6989586621679296743"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AutoTuneState"><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-var">AutoTuneState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AutoTuneState%27"><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-var">AutoTuneState'</span></a></span></span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAutoTuneState"><span class="annot"><span class="annottext">AutoTuneState -&gt; Text
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#fromAutoTuneState"><span class="hs-identifier hs-var hs-var">fromAutoTuneState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-43"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296734"><span id="local-6989586621679296736"><span id="local-6989586621679296738"><span class="annot"><span class="annottext">Int -&gt; AutoTuneState -&gt; ShowS
+[AutoTuneState] -&gt; ShowS
+AutoTuneState -&gt; String
+(Int -&gt; AutoTuneState -&gt; ShowS)
+-&gt; (AutoTuneState -&gt; String)
+-&gt; ([AutoTuneState] -&gt; ShowS)
+-&gt; Show AutoTuneState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AutoTuneState] -&gt; ShowS
+$cshowList :: [AutoTuneState] -&gt; ShowS
+show :: AutoTuneState -&gt; String
+$cshow :: AutoTuneState -&gt; String
+showsPrec :: Int -&gt; AutoTuneState -&gt; ShowS
+$cshowsPrec :: Int -&gt; AutoTuneState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679296725"><span id="local-6989586621679296727"><span id="local-6989586621679296729"><span id="local-6989586621679296731"><span class="annot"><span class="annottext">ReadPrec [AutoTuneState]
+ReadPrec AutoTuneState
+Int -&gt; ReadS AutoTuneState
+ReadS [AutoTuneState]
+(Int -&gt; ReadS AutoTuneState)
+-&gt; ReadS [AutoTuneState]
+-&gt; ReadPrec AutoTuneState
+-&gt; ReadPrec [AutoTuneState]
+-&gt; Read AutoTuneState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AutoTuneState]
+$creadListPrec :: ReadPrec [AutoTuneState]
+readPrec :: ReadPrec AutoTuneState
+$creadPrec :: ReadPrec AutoTuneState
+readList :: ReadS [AutoTuneState]
+$creadList :: ReadS [AutoTuneState]
+readsPrec :: Int -&gt; ReadS AutoTuneState
+$creadsPrec :: Int -&gt; ReadS AutoTuneState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679296720"><span id="local-6989586621679296722"><span class="annot"><span class="annottext">AutoTuneState -&gt; AutoTuneState -&gt; Bool
+(AutoTuneState -&gt; AutoTuneState -&gt; Bool)
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Bool) -&gt; Eq AutoTuneState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+$c/= :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+== :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+$c== :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679296704"><span id="local-6989586621679296706"><span id="local-6989586621679296708"><span id="local-6989586621679296710"><span id="local-6989586621679296712"><span id="local-6989586621679296714"><span id="local-6989586621679296716"><span class="annot"><span class="annottext">Eq AutoTuneState
+Eq AutoTuneState
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Ordering)
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Bool)
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Bool)
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Bool)
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; Bool)
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; AutoTuneState)
+-&gt; (AutoTuneState -&gt; AutoTuneState -&gt; AutoTuneState)
+-&gt; Ord AutoTuneState
+AutoTuneState -&gt; AutoTuneState -&gt; Bool
+AutoTuneState -&gt; AutoTuneState -&gt; Ordering
+AutoTuneState -&gt; AutoTuneState -&gt; AutoTuneState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AutoTuneState -&gt; AutoTuneState -&gt; AutoTuneState
+$cmin :: AutoTuneState -&gt; AutoTuneState -&gt; AutoTuneState
+max :: AutoTuneState -&gt; AutoTuneState -&gt; AutoTuneState
+$cmax :: AutoTuneState -&gt; AutoTuneState -&gt; AutoTuneState
+&gt;= :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+$c&gt;= :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+&gt; :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+$c&gt; :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+&lt;= :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+$c&lt;= :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+&lt; :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+$c&lt; :: AutoTuneState -&gt; AutoTuneState -&gt; Bool
+compare :: AutoTuneState -&gt; AutoTuneState -&gt; Ordering
+$ccompare :: AutoTuneState -&gt; AutoTuneState -&gt; Ordering
+$cp1Ord :: Eq AutoTuneState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AutoTuneState -&gt; Rep AutoTuneState x)
+-&gt; (forall x. Rep AutoTuneState x -&gt; AutoTuneState)
+-&gt; Generic AutoTuneState
+forall x. Rep AutoTuneState x -&gt; AutoTuneState
+forall x. AutoTuneState -&gt; Rep AutoTuneState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AutoTuneState x -&gt; AutoTuneState
+$cfrom :: forall x. AutoTuneState -&gt; Rep AutoTuneState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679296696"><span id="local-6989586621679296698"><span class="annot"><span class="annottext">Int -&gt; AutoTuneState -&gt; Int
+AutoTuneState -&gt; Int
+(Int -&gt; AutoTuneState -&gt; Int)
+-&gt; (AutoTuneState -&gt; Int) -&gt; Hashable AutoTuneState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AutoTuneState -&gt; Int
+$chash :: AutoTuneState -&gt; Int
+hashWithSalt :: Int -&gt; AutoTuneState -&gt; Int
+$chashWithSalt :: Int -&gt; AutoTuneState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679296693"><span class="annot"><span class="annottext">AutoTuneState -&gt; ()
+(AutoTuneState -&gt; ()) -&gt; NFData AutoTuneState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AutoTuneState -&gt; ()
+$crnf :: AutoTuneState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679296690"><span class="annot"><span class="annottext">Text -&gt; Either String AutoTuneState
+(Text -&gt; Either String AutoTuneState) -&gt; FromText AutoTuneState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AutoTuneState
+$cfromText :: Text -&gt; Either String AutoTuneState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679296687"><span class="annot"><span class="annottext">AutoTuneState -&gt; Text
+(AutoTuneState -&gt; Text) -&gt; ToText AutoTuneState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AutoTuneState -&gt; Text
+$ctoText :: AutoTuneState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679296684"><span class="annot"><span class="annottext">AutoTuneState -&gt; ByteString
+(AutoTuneState -&gt; ByteString) -&gt; ToByteString AutoTuneState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AutoTuneState -&gt; ByteString
+$ctoBS :: AutoTuneState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679296681"><span class="annot"><span class="annottext">AutoTuneState -&gt; ByteStringBuilder
+(AutoTuneState -&gt; ByteStringBuilder) -&gt; ToLog AutoTuneState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AutoTuneState -&gt; ByteStringBuilder
+$cbuild :: AutoTuneState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679296678"><span class="annot"><span class="annottext">HeaderName -&gt; AutoTuneState -&gt; [Header]
+(HeaderName -&gt; AutoTuneState -&gt; [Header]) -&gt; ToHeader AutoTuneState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AutoTuneState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AutoTuneState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679296675"><span class="annot"><span class="annottext">AutoTuneState -&gt; QueryString
+(AutoTuneState -&gt; QueryString) -&gt; ToQuery AutoTuneState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AutoTuneState -&gt; QueryString
+$ctoQuery :: AutoTuneState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679296670"><span id="local-6989586621679296672"><span class="annot"><span class="annottext">Value -&gt; Parser [AutoTuneState]
+Value -&gt; Parser AutoTuneState
+(Value -&gt; Parser AutoTuneState)
+-&gt; (Value -&gt; Parser [AutoTuneState]) -&gt; FromJSON AutoTuneState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AutoTuneState]
+$cparseJSONList :: Value -&gt; Parser [AutoTuneState]
+parseJSON :: Value -&gt; Parser AutoTuneState
+$cparseJSON :: Value -&gt; Parser AutoTuneState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679296665"><span id="local-6989586621679296667"><span class="annot"><span class="annottext">FromJSONKeyFunction [AutoTuneState]
+FromJSONKeyFunction AutoTuneState
+FromJSONKeyFunction AutoTuneState
+-&gt; FromJSONKeyFunction [AutoTuneState] -&gt; FromJSONKey AutoTuneState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AutoTuneState]
+$cfromJSONKeyList :: FromJSONKeyFunction [AutoTuneState]
+fromJSONKey :: FromJSONKeyFunction AutoTuneState
+$cfromJSONKey :: FromJSONKeyFunction AutoTuneState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679296656"><span id="local-6989586621679296658"><span id="local-6989586621679296660"><span id="local-6989586621679296662"><span class="annot"><span class="annottext">[AutoTuneState] -&gt; Encoding
+[AutoTuneState] -&gt; Value
+AutoTuneState -&gt; Encoding
+AutoTuneState -&gt; Value
+(AutoTuneState -&gt; Value)
+-&gt; (AutoTuneState -&gt; Encoding)
+-&gt; ([AutoTuneState] -&gt; Value)
+-&gt; ([AutoTuneState] -&gt; Encoding)
+-&gt; ToJSON AutoTuneState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AutoTuneState] -&gt; Encoding
+$ctoEncodingList :: [AutoTuneState] -&gt; Encoding
+toJSONList :: [AutoTuneState] -&gt; Value
+$ctoJSONList :: [AutoTuneState] -&gt; Value
+toEncoding :: AutoTuneState -&gt; Encoding
+$ctoEncoding :: AutoTuneState -&gt; Encoding
+toJSON :: AutoTuneState -&gt; Value
+$ctoJSON :: AutoTuneState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679296651"><span id="local-6989586621679296653"><span class="annot"><span class="annottext">ToJSONKeyFunction [AutoTuneState]
+ToJSONKeyFunction AutoTuneState
+ToJSONKeyFunction AutoTuneState
+-&gt; ToJSONKeyFunction [AutoTuneState] -&gt; ToJSONKey AutoTuneState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AutoTuneState]
+$ctoJSONKeyList :: ToJSONKeyFunction [AutoTuneState]
+toJSONKey :: ToJSONKeyFunction AutoTuneState
+$ctoJSONKey :: ToJSONKeyFunction AutoTuneState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679296648"><span class="annot"><span class="annottext">[Node] -&gt; Either String AutoTuneState
+([Node] -&gt; Either String AutoTuneState) -&gt; FromXML AutoTuneState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AutoTuneState
+$cparseXML :: [Node] -&gt; Either String AutoTuneState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679296645"><span class="annot"><span class="annottext">AutoTuneState -&gt; XML
+(AutoTuneState -&gt; XML) -&gt; ToXML AutoTuneState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AutoTuneState -&gt; XML
+$ctoXML :: AutoTuneState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED"><span class="hs-identifier hs-type">AutoTuneState_DISABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_DISABLED"><span id="%24mAutoTuneState_DISABLED"><span id="AutoTuneState_DISABLED"><span class="annot"><span class="annottext">$bAutoTuneState_DISABLED :: AutoTuneState
+$mAutoTuneState_DISABLED :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_DISABLED"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_DISABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED&quot;</span></span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE"><span class="hs-identifier hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE"><span id="%24mAutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE"><span id="AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE"><span class="annot"><span class="annottext">$bAutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE :: AutoTuneState
+$mAutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED_AND_ROLLBACK_COMPLETE&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_ERROR"><span class="hs-identifier hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_DISABLED_AND_ROLLBACK_ERROR"><span id="%24mAutoTuneState_DISABLED_AND_ROLLBACK_ERROR"><span id="AutoTuneState_DISABLED_AND_ROLLBACK_ERROR"><span class="annot"><span class="annottext">$bAutoTuneState_DISABLED_AND_ROLLBACK_ERROR :: AutoTuneState
+$mAutoTuneState_DISABLED_AND_ROLLBACK_ERROR :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_DISABLED_AND_ROLLBACK_ERROR"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_DISABLED_AND_ROLLBACK_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED_AND_ROLLBACK_ERROR&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS"><span id="%24mAutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS"><span id="AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS"><span class="annot"><span class="annottext">$bAutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS :: AutoTuneState
+$mAutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED_AND_ROLLBACK_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED"><span class="hs-identifier hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED"><span id="%24mAutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED"><span id="AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED"><span class="annot"><span class="annottext">$bAutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED :: AutoTuneState
+$mAutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLED_AND_ROLLBACK_SCHEDULED&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLE_IN_PROGRESS"><span class="hs-identifier hs-type">AutoTuneState_DISABLE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_DISABLE_IN_PROGRESS"><span id="%24mAutoTuneState_DISABLE_IN_PROGRESS"><span id="AutoTuneState_DISABLE_IN_PROGRESS"><span class="annot"><span class="annottext">$bAutoTuneState_DISABLE_IN_PROGRESS :: AutoTuneState
+$mAutoTuneState_DISABLE_IN_PROGRESS :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_DISABLE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_DISABLE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DISABLE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ENABLED"><span class="hs-identifier hs-type">AutoTuneState_ENABLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_ENABLED"><span id="%24mAutoTuneState_ENABLED"><span id="AutoTuneState_ENABLED"><span class="annot"><span class="annottext">$bAutoTuneState_ENABLED :: AutoTuneState
+$mAutoTuneState_ENABLED :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_ENABLED"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_ENABLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLED&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ENABLE_IN_PROGRESS"><span class="hs-identifier hs-type">AutoTuneState_ENABLE_IN_PROGRESS</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_ENABLE_IN_PROGRESS"><span id="%24mAutoTuneState_ENABLE_IN_PROGRESS"><span id="AutoTuneState_ENABLE_IN_PROGRESS"><span class="annot"><span class="annottext">$bAutoTuneState_ENABLE_IN_PROGRESS :: AutoTuneState
+$mAutoTuneState_ENABLE_IN_PROGRESS :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_ENABLE_IN_PROGRESS"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_ENABLE_IN_PROGRESS</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ENABLE_IN_PROGRESS&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ERROR"><span class="hs-identifier hs-type">AutoTuneState_ERROR</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState"><span class="hs-identifier hs-type">AutoTuneState</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAutoTuneState_ERROR"><span id="%24mAutoTuneState_ERROR"><span id="AutoTuneState_ERROR"><span class="annot"><span class="annottext">$bAutoTuneState_ERROR :: AutoTuneState
+$mAutoTuneState_ERROR :: forall r. AutoTuneState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#%24bAutoTuneState_ERROR"><span class="hs-identifier hs-var hs-var hs-var">AutoTuneState_ERROR</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-identifier hs-type">AutoTuneState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ERROR&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-97"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED"><span class="hs-pragma hs-type">AutoTuneState_DISABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-98"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE"><span class="hs-pragma hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_COMPLETE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-99"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_ERROR"><span class="hs-pragma hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-100"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS"><span class="hs-pragma hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-101"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED"><span class="hs-pragma hs-type">AutoTuneState_DISABLED_AND_ROLLBACK_SCHEDULED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-102"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_DISABLE_IN_PROGRESS"><span class="hs-pragma hs-type">AutoTuneState_DISABLE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-103"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ENABLED"><span class="hs-pragma hs-type">AutoTuneState_ENABLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-104"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ENABLE_IN_PROGRESS"><span class="hs-pragma hs-type">AutoTuneState_ENABLE_IN_PROGRESS</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-105"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState_ERROR"><span class="hs-pragma hs-type">AutoTuneState_ERROR</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-106"></span><span>  </span><span class="annot"><a href="Amazonka.OpenSearch.Types.AutoTuneState.html#AutoTuneState%27"><span class="hs-pragma hs-type">AutoTuneState'</span></a></span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-108"></span></pre></body></html>

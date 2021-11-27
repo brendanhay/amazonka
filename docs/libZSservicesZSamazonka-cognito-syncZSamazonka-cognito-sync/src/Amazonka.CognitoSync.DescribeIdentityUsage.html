@@ -1,0 +1,483 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.CognitoSync.DescribeIdentityUsage</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Gets usage information for an identity, including number of datasets and</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- data usage.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- This API can be called with temporary user credentials provided by</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- Cognito Identity or with developer credentials.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.CognitoSync.DescribeIdentityUsage</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsage"><span class="hs-identifier">newDescribeIdentityUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsage_identityPoolId"><span class="hs-identifier">describeIdentityUsage_identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsage_identityId"><span class="hs-identifier">describeIdentityUsage_identityId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier">DescribeIdentityUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsageResponse"><span class="hs-identifier">newDescribeIdentityUsageResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsageResponse_identityUsage"><span class="hs-identifier">describeIdentityUsageResponse_identityUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsageResponse_httpStatus"><span class="hs-identifier">describeIdentityUsageResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.Types.html"><span class="hs-identifier">Amazonka.CognitoSync.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | A request for information about the usage of an identity pool.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- /See:/ 'newDescribeIdentityUsage' smart constructor.</span><span>
+</span><span id="line-57"></span><span id="local-6989586621679177716"><span id="local-6989586621679177717"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityUsage"><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-var">DescribeIdentityUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityUsage%27"><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-var">DescribeIdentityUsage'</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AidentityPoolId%3ADescribeIdentityUsage%27"><span class="annot"><span class="annottext">DescribeIdentityUsage -&gt; Text
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="annot"><span class="annottext">DescribeIdentityUsage -&gt; Text
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177709"><span id="local-6989586621679177711"><span class="annot"><span class="annottext">DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
+(DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool)
+-&gt; (DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool)
+-&gt; Eq DescribeIdentityUsage
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
+$c/= :: DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
+== :: DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
+$c== :: DescribeIdentityUsage -&gt; DescribeIdentityUsage -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177700"><span id="local-6989586621679177702"><span id="local-6989586621679177704"><span id="local-6989586621679177706"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityUsage]
+ReadPrec DescribeIdentityUsage
+Int -&gt; ReadS DescribeIdentityUsage
+ReadS [DescribeIdentityUsage]
+(Int -&gt; ReadS DescribeIdentityUsage)
+-&gt; ReadS [DescribeIdentityUsage]
+-&gt; ReadPrec DescribeIdentityUsage
+-&gt; ReadPrec [DescribeIdentityUsage]
+-&gt; Read DescribeIdentityUsage
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIdentityUsage]
+$creadListPrec :: ReadPrec [DescribeIdentityUsage]
+readPrec :: ReadPrec DescribeIdentityUsage
+$creadPrec :: ReadPrec DescribeIdentityUsage
+readList :: ReadS [DescribeIdentityUsage]
+$creadList :: ReadS [DescribeIdentityUsage]
+readsPrec :: Int -&gt; ReadS DescribeIdentityUsage
+$creadsPrec :: Int -&gt; ReadS DescribeIdentityUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177693"><span id="local-6989586621679177695"><span id="local-6989586621679177697"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityUsage -&gt; ShowS
+[DescribeIdentityUsage] -&gt; ShowS
+DescribeIdentityUsage -&gt; String
+(Int -&gt; DescribeIdentityUsage -&gt; ShowS)
+-&gt; (DescribeIdentityUsage -&gt; String)
+-&gt; ([DescribeIdentityUsage] -&gt; ShowS)
+-&gt; Show DescribeIdentityUsage
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIdentityUsage] -&gt; ShowS
+$cshowList :: [DescribeIdentityUsage] -&gt; ShowS
+show :: DescribeIdentityUsage -&gt; String
+$cshow :: DescribeIdentityUsage -&gt; String
+showsPrec :: Int -&gt; DescribeIdentityUsage -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIdentityUsage -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DescribeIdentityUsage -&gt; Rep DescribeIdentityUsage x)
+-&gt; (forall x. Rep DescribeIdentityUsage x -&gt; DescribeIdentityUsage)
+-&gt; Generic DescribeIdentityUsage
+forall x. Rep DescribeIdentityUsage x -&gt; DescribeIdentityUsage
+forall x. DescribeIdentityUsage -&gt; Rep DescribeIdentityUsage x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DescribeIdentityUsage x -&gt; DescribeIdentityUsage
+$cfrom :: forall x. DescribeIdentityUsage -&gt; Rep DescribeIdentityUsage x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DescribeIdentityUsage' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'identityPoolId', 'describeIdentityUsage_identityPoolId' - A name-spaced GUID (for example,</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-80"></span><span class="hs-comment">--</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- 'identityId', 'describeIdentityUsage_identityId' - A name-spaced GUID (for example,</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-84"></span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsage"><span class="hs-identifier hs-type">newDescribeIdentityUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-85"></span><span>  </span><span class="hs-comment">-- | 'identityPoolId'</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-87"></span><span>  </span><span class="hs-comment">-- | 'identityId'</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span>
+</span><span id="line-90"></span><span id="newDescribeIdentityUsage"><span class="annot"><span class="annottext">newDescribeIdentityUsage :: Text -&gt; Text -&gt; DescribeIdentityUsage
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsage"><span class="hs-identifier hs-var hs-var">newDescribeIdentityUsage</span></a></span></span><span>
+</span><span id="line-91"></span><span>  </span><span id="local-6989586621679177688"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177688"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679177687"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177687"><span class="hs-identifier hs-var">pIdentityId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><span class="annottext">DescribeIdentityUsage' :: Text -&gt; Text -&gt; DescribeIdentityUsage
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span>
+</span><span id="line-94"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityPoolId:DescribeIdentityUsage' :: Text
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>          </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177688"><span class="hs-identifier hs-var">pIdentityPoolId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>        </span><span class="annot"><span class="annottext">$sel:identityId:DescribeIdentityUsage' :: Text
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177687"><span class="hs-identifier hs-var">pIdentityId_</span></a></span><span>
+</span><span id="line-97"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-101"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-102"></span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsage_identityPoolId"><span class="hs-identifier hs-type">describeIdentityUsage_identityPoolId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-103"></span><span id="describeIdentityUsage_identityPoolId"><span class="annot"><span class="annottext">describeIdentityUsage_identityPoolId :: (Text -&gt; f Text)
+-&gt; DescribeIdentityUsage -&gt; f DescribeIdentityUsage
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsage_identityPoolId"><span class="hs-identifier hs-var hs-var">describeIdentityUsage_identityPoolId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityUsage -&gt; Text)
+-&gt; (DescribeIdentityUsage -&gt; Text -&gt; DescribeIdentityUsage)
+-&gt; Lens DescribeIdentityUsage DescribeIdentityUsage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177684"><span class="annot"><span class="annottext">Text
+identityPoolId :: Text
+$sel:identityPoolId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
+</span><a href="#local-6989586621679177684"><span class="hs-identifier hs-var hs-var">identityPoolId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177684"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177683"><span class="annot"><span class="annottext">s :: DescribeIdentityUsage
+</span><a href="#local-6989586621679177683"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177682"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177682"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsage
+</span><a href="#local-6989586621679177683"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityPoolId:DescribeIdentityUsage' :: Text
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityPoolId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177682"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- | A name-spaced GUID (for example,</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- Cognito. GUID generation is unique within a region.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsage_identityId"><span class="hs-identifier hs-type">describeIdentityUsage_identityId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-109"></span><span id="describeIdentityUsage_identityId"><span class="annot"><span class="annottext">describeIdentityUsage_identityId :: (Text -&gt; f Text)
+-&gt; DescribeIdentityUsage -&gt; f DescribeIdentityUsage
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsage_identityId"><span class="hs-identifier hs-var hs-var">describeIdentityUsage_identityId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityUsage -&gt; Text)
+-&gt; (DescribeIdentityUsage -&gt; Text -&gt; DescribeIdentityUsage)
+-&gt; Lens DescribeIdentityUsage DescribeIdentityUsage Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177681"><span class="annot"><span class="annottext">Text
+identityId :: Text
+$sel:identityId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
+</span><a href="#local-6989586621679177681"><span class="hs-identifier hs-var hs-var">identityId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177681"><span class="hs-identifier hs-var">identityId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177680"><span class="annot"><span class="annottext">s :: DescribeIdentityUsage
+</span><a href="#local-6989586621679177680"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177679"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177679"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsage
+</span><a href="#local-6989586621679177680"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityId:DescribeIdentityUsage' :: Text
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityId%3ADescribeIdentityUsage%27"><span class="hs-identifier hs-var">identityId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177679"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-112"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-113"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-114"></span><span>      </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span id="local-6989586621679177675"><span class="annot"><span class="annottext">request :: DescribeIdentityUsage -&gt; Request DescribeIdentityUsage
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DescribeIdentityUsage -&gt; Request DescribeIdentityUsage
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.CognitoSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-116"></span><span>  </span><span id="local-6989586621679177671"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DescribeIdentityUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeIdentityUsage)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DescribeIdentityUsage))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DescribeIdentityUsage
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DescribeIdentityUsage)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-118"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679177668"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177668"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679177667"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679177667"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679177666"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177666"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-119"></span><span>          </span><span class="annot"><span class="annottext">Maybe IdentityUsage -&gt; Int -&gt; DescribeIdentityUsageResponse
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse'</span></a></span><span>
+</span><span id="line-120"></span><span>            </span><span class="annot"><span class="annottext">(Maybe IdentityUsage -&gt; Int -&gt; DescribeIdentityUsageResponse)
+-&gt; Either String (Maybe IdentityUsage)
+-&gt; Either String (Int -&gt; DescribeIdentityUsageResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679177666"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe IdentityUsage)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IdentityUsage&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DescribeIdentityUsageResponse)
+-&gt; Either String Int -&gt; Either String DescribeIdentityUsageResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177668"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-123"></span><span>
+</span><span id="line-124"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177658"><span id="local-6989586621679177660"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span></span></span><span>
+</span><span id="line-125"></span><span>
+</span><span id="line-126"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177655"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span></span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-129"></span><span>  </span><span id="local-6989586621679177651"><span class="annot"><span class="annottext">toHeaders :: DescribeIdentityUsage -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DescribeIdentityUsage -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-132"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-133"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-134"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-135"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-137"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>
+</span><span id="line-139"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-140"></span><span>  </span><span id="local-6989586621679177645"><span class="annot"><span class="annottext">toPath :: DescribeIdentityUsage -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage%27"><span class="hs-identifier hs-type">DescribeIdentityUsage'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177642"><span id="local-6989586621679177643"><span class="annot"><span class="annottext">Text
+identityId :: Text
+identityPoolId :: Text
+$sel:identityId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
+$sel:identityPoolId:DescribeIdentityUsage' :: DescribeIdentityUsage -&gt; Text
+</span><a href="#local-6989586621679177642"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identitypools/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177643"><span class="hs-identifier hs-var">identityPoolId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-144"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/identities/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-145"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679177642"><span class="hs-identifier hs-var">identityId</span></a></span><span>
+</span><span id="line-146"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsage"><span class="hs-identifier hs-type">DescribeIdentityUsage</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-149"></span><span>  </span><span id="local-6989586621679177638"><span class="annot"><span class="annottext">toQuery :: DescribeIdentityUsage -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DescribeIdentityUsage -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-150"></span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- | The response to a successful DescribeIdentityUsage request.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- /See:/ 'newDescribeIdentityUsageResponse' smart constructor.</span><span>
+</span><span id="line-154"></span><span id="local-6989586621679177635"><span id="local-6989586621679177636"></span></span><span class="hs-keyword">data</span><span> </span><span id="DescribeIdentityUsageResponse"><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DescribeIdentityUsageResponse%27"><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">DescribeIdentityUsageResponse'</span></a></span></span><span>
+</span><span id="line-155"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Usage information for the identity.</span><span>
+</span><span id="line-156"></span><span>    </span><span id="%24sel%3AidentityUsage%3ADescribeIdentityUsageResponse%27"><span class="annot"><span class="annottext">DescribeIdentityUsageResponse -&gt; Maybe IdentityUsage
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityUsage%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var hs-var">identityUsage</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.Types.IdentityUsage.html#IdentityUsage"><span class="hs-identifier hs-type">IdentityUsage</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-158"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="annot"><span class="annottext">DescribeIdentityUsageResponse -&gt; Int
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-159"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679177629"><span id="local-6989586621679177631"><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
+-&gt; DescribeIdentityUsageResponse -&gt; Bool
+(DescribeIdentityUsageResponse
+ -&gt; DescribeIdentityUsageResponse -&gt; Bool)
+-&gt; (DescribeIdentityUsageResponse
+    -&gt; DescribeIdentityUsageResponse -&gt; Bool)
+-&gt; Eq DescribeIdentityUsageResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DescribeIdentityUsageResponse
+-&gt; DescribeIdentityUsageResponse -&gt; Bool
+$c/= :: DescribeIdentityUsageResponse
+-&gt; DescribeIdentityUsageResponse -&gt; Bool
+== :: DescribeIdentityUsageResponse
+-&gt; DescribeIdentityUsageResponse -&gt; Bool
+$c== :: DescribeIdentityUsageResponse
+-&gt; DescribeIdentityUsageResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177621"><span id="local-6989586621679177623"><span id="local-6989586621679177625"><span id="local-6989586621679177627"><span class="annot"><span class="annottext">ReadPrec [DescribeIdentityUsageResponse]
+ReadPrec DescribeIdentityUsageResponse
+Int -&gt; ReadS DescribeIdentityUsageResponse
+ReadS [DescribeIdentityUsageResponse]
+(Int -&gt; ReadS DescribeIdentityUsageResponse)
+-&gt; ReadS [DescribeIdentityUsageResponse]
+-&gt; ReadPrec DescribeIdentityUsageResponse
+-&gt; ReadPrec [DescribeIdentityUsageResponse]
+-&gt; Read DescribeIdentityUsageResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DescribeIdentityUsageResponse]
+$creadListPrec :: ReadPrec [DescribeIdentityUsageResponse]
+readPrec :: ReadPrec DescribeIdentityUsageResponse
+$creadPrec :: ReadPrec DescribeIdentityUsageResponse
+readList :: ReadS [DescribeIdentityUsageResponse]
+$creadList :: ReadS [DescribeIdentityUsageResponse]
+readsPrec :: Int -&gt; ReadS DescribeIdentityUsageResponse
+$creadsPrec :: Int -&gt; ReadS DescribeIdentityUsageResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679177615"><span id="local-6989586621679177617"><span id="local-6989586621679177619"><span class="annot"><span class="annottext">Int -&gt; DescribeIdentityUsageResponse -&gt; ShowS
+[DescribeIdentityUsageResponse] -&gt; ShowS
+DescribeIdentityUsageResponse -&gt; String
+(Int -&gt; DescribeIdentityUsageResponse -&gt; ShowS)
+-&gt; (DescribeIdentityUsageResponse -&gt; String)
+-&gt; ([DescribeIdentityUsageResponse] -&gt; ShowS)
+-&gt; Show DescribeIdentityUsageResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DescribeIdentityUsageResponse] -&gt; ShowS
+$cshowList :: [DescribeIdentityUsageResponse] -&gt; ShowS
+show :: DescribeIdentityUsageResponse -&gt; String
+$cshow :: DescribeIdentityUsageResponse -&gt; String
+showsPrec :: Int -&gt; DescribeIdentityUsageResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DescribeIdentityUsageResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DescribeIdentityUsageResponse
+ -&gt; Rep DescribeIdentityUsageResponse x)
+-&gt; (forall x.
+    Rep DescribeIdentityUsageResponse x
+    -&gt; DescribeIdentityUsageResponse)
+-&gt; Generic DescribeIdentityUsageResponse
+forall x.
+Rep DescribeIdentityUsageResponse x
+-&gt; DescribeIdentityUsageResponse
+forall x.
+DescribeIdentityUsageResponse
+-&gt; Rep DescribeIdentityUsageResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DescribeIdentityUsageResponse x
+-&gt; DescribeIdentityUsageResponse
+$cfrom :: forall x.
+DescribeIdentityUsageResponse
+-&gt; Rep DescribeIdentityUsageResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-161"></span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- Create a value of 'DescribeIdentityUsageResponse' with all optional fields omitted.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- 'identityUsage', 'describeIdentityUsageResponse_identityUsage' - Usage information for the identity.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- 'httpStatus', 'describeIdentityUsageResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-173"></span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsageResponse"><span class="hs-identifier hs-type">newDescribeIdentityUsageResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span>
+</span><span id="line-177"></span><span id="newDescribeIdentityUsageResponse"><span class="annot"><span class="annottext">newDescribeIdentityUsageResponse :: Int -&gt; DescribeIdentityUsageResponse
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#newDescribeIdentityUsageResponse"><span class="hs-identifier hs-var hs-var">newDescribeIdentityUsageResponse</span></a></span></span><span> </span><span id="local-6989586621679177612"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse' :: Maybe IdentityUsage -&gt; Int -&gt; DescribeIdentityUsageResponse
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span>
+</span><span id="line-179"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:identityUsage:DescribeIdentityUsageResponse' :: Maybe IdentityUsage
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityUsage%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">identityUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-180"></span><span>        </span><span class="annot"><span class="annottext">Maybe IdentityUsage
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityUsageResponse' :: Int
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177612"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- | Usage information for the identity.</span><span>
+</span><span id="line-185"></span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsageResponse_identityUsage"><span class="hs-identifier hs-type">describeIdentityUsageResponse_identityUsage</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.Types.IdentityUsage.html#IdentityUsage"><span class="hs-identifier hs-type">IdentityUsage</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span id="describeIdentityUsageResponse_identityUsage"><span class="annot"><span class="annottext">describeIdentityUsageResponse_identityUsage :: (Maybe IdentityUsage -&gt; f (Maybe IdentityUsage))
+-&gt; DescribeIdentityUsageResponse -&gt; f DescribeIdentityUsageResponse
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsageResponse_identityUsage"><span class="hs-identifier hs-var hs-var">describeIdentityUsageResponse_identityUsage</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityUsageResponse -&gt; Maybe IdentityUsage)
+-&gt; (DescribeIdentityUsageResponse
+    -&gt; Maybe IdentityUsage -&gt; DescribeIdentityUsageResponse)
+-&gt; Lens
+     DescribeIdentityUsageResponse
+     DescribeIdentityUsageResponse
+     (Maybe IdentityUsage)
+     (Maybe IdentityUsage)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177611"><span class="annot"><span class="annottext">Maybe IdentityUsage
+identityUsage :: Maybe IdentityUsage
+$sel:identityUsage:DescribeIdentityUsageResponse' :: DescribeIdentityUsageResponse -&gt; Maybe IdentityUsage
+</span><a href="#local-6989586621679177611"><span class="hs-identifier hs-var hs-var">identityUsage</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityUsage
+</span><a href="#local-6989586621679177611"><span class="hs-identifier hs-var">identityUsage</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177610"><span class="annot"><span class="annottext">s :: DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177610"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177609"><span class="annot"><span class="annottext">Maybe IdentityUsage
+</span><a href="#local-6989586621679177609"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177610"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:identityUsage:DescribeIdentityUsageResponse' :: Maybe IdentityUsage
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AidentityUsage%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">identityUsage</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe IdentityUsage
+</span><a href="#local-6989586621679177609"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-189"></span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsageResponse_httpStatus"><span class="hs-identifier hs-type">describeIdentityUsageResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-190"></span><span id="describeIdentityUsageResponse_httpStatus"><span class="annot"><span class="annottext">describeIdentityUsageResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DescribeIdentityUsageResponse -&gt; f DescribeIdentityUsageResponse
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#describeIdentityUsageResponse_httpStatus"><span class="hs-identifier hs-var hs-var">describeIdentityUsageResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DescribeIdentityUsageResponse -&gt; Int)
+-&gt; (DescribeIdentityUsageResponse
+    -&gt; Int -&gt; DescribeIdentityUsageResponse)
+-&gt; Lens
+     DescribeIdentityUsageResponse DescribeIdentityUsageResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679177608"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DescribeIdentityUsageResponse' :: DescribeIdentityUsageResponse -&gt; Int
+</span><a href="#local-6989586621679177608"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177608"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679177607"><span class="annot"><span class="annottext">s :: DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177607"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse%27"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679177606"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177606"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DescribeIdentityUsageResponse
+</span><a href="#local-6989586621679177607"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DescribeIdentityUsageResponse' :: Int
+</span><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#%24sel%3AhttpStatus%3ADescribeIdentityUsageResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679177606"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span>
+</span><span id="line-192"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679177604"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.CognitoSync.DescribeIdentityUsage.html#DescribeIdentityUsageResponse"><span class="hs-identifier hs-type">DescribeIdentityUsageResponse</span></a></span></span><span>
+</span><span id="line-193"></span></pre></body></html>

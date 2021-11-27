@@ -1,0 +1,718 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.AppConfig.CreateDeploymentStrategy</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- A deployment strategy defines important criteria for rolling out your</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- configuration to the designated targets. A deployment strategy includes:</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- the overall duration required, a percentage of targets to receive the</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- deployment during each interval, an algorithm that defines how</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- percentage grows, and bake time.</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppConfig.CreateDeploymentStrategy</span><span>
+</span><span id="line-29"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#newCreateDeploymentStrategy"><span class="hs-identifier">newCreateDeploymentStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_finalBakeTimeInMinutes"><span class="hs-identifier">createDeploymentStrategy_finalBakeTimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_description"><span class="hs-identifier">createDeploymentStrategy_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_growthType"><span class="hs-identifier">createDeploymentStrategy_growthType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_tags"><span class="hs-identifier">createDeploymentStrategy_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_name"><span class="hs-identifier">createDeploymentStrategy_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_deploymentDurationInMinutes"><span class="hs-identifier">createDeploymentStrategy_deploymentDurationInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_growthFactor"><span class="hs-identifier">createDeploymentStrategy_growthFactor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_replicateTo"><span class="hs-identifier">createDeploymentStrategy_replicateTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#DeploymentStrategy"><span class="hs-identifier">DeploymentStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#newDeploymentStrategy"><span class="hs-identifier">newDeploymentStrategy</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_growthFactor"><span class="hs-identifier">deploymentStrategy_growthFactor</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_replicateTo"><span class="hs-identifier">deploymentStrategy_replicateTo</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_name"><span class="hs-identifier">deploymentStrategy_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_id"><span class="hs-identifier">deploymentStrategy_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_deploymentDurationInMinutes"><span class="hs-identifier">deploymentStrategy_deploymentDurationInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_finalBakeTimeInMinutes"><span class="hs-identifier">deploymentStrategy_finalBakeTimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_description"><span class="hs-identifier">deploymentStrategy_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#deploymentStrategy_growthType"><span class="hs-identifier">deploymentStrategy_growthType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-57"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-58"></span><span>
+</span><span id="line-59"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.html"><span class="hs-identifier">Amazonka.AppConfig.Types</span></a></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- | /See:/ 'newCreateDeploymentStrategy' smart constructor.</span><span>
+</span><span id="line-67"></span><span id="local-6989586621679207070"><span id="local-6989586621679207071"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateDeploymentStrategy"><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-var">CreateDeploymentStrategy</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateDeploymentStrategy%27"><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-var">CreateDeploymentStrategy'</span></a></span></span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The amount of time AppConfig monitors for alarms before considering the</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- deployment to be complete and no longer eligible for automatic roll</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- back.</span><span>
+</span><span id="line-71"></span><span>    </span><span id="%24sel%3AfinalBakeTimeInMinutes%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; Maybe Natural
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AfinalBakeTimeInMinutes%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">finalBakeTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- | A description of the deployment strategy.</span><span>
+</span><span id="line-73"></span><span>    </span><span id="%24sel%3Adescription%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; Maybe Text
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Adescription%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- | The algorithm used to define how percentage grows over time. AWS</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- AppConfig supports the following growth types:</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- __Linear__: For this type, AppConfig processes the deployment by</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- dividing the total number of targets by the value specified for</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- @Step percentage@. For example, a linear deployment that uses a</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- @Step percentage@ of 10 deploys the configuration to 10 percent of the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- hosts. After those deployments are complete, the system deploys the</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- configuration to the next 10 percent. This continues until 100% of the</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- targets have successfully received the configuration.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- __Exponential__: For this type, AppConfig processes the deployment</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- exponentially using the following formula: @G*(2^N)@. In this formula,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- @G@ is the growth factor specified by the user and @N@ is the number of</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- steps until the configuration is deployed to all targets. For example,</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- if you specify a growth factor of 2, then the system rolls out the</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- configuration as follows:</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- @2*(2^0)@</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">-- @2*(2^1)@</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- @2*(2^2)@</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- Expressed numerically, the deployment rolls out as follows: 2% of the</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- targets, 4% of the targets, 8% of the targets, and continues until the</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- configuration has been deployed to all targets.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3AgrowthType%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; Maybe GrowthType
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AgrowthType%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">growthType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.GrowthType.html#GrowthType"><span class="hs-identifier hs-type">GrowthType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | Metadata to assign to the deployment strategy. Tags help organize and</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- categorize your AppConfig resources. Each tag consists of a key and an</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- optional value, both of which you define.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3Atags%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Atags%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- | A name for the deployment strategy.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3Aname%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; Text
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Aname%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="hs-comment">-- | Total amount of time for a deployment to last.</span><span>
+</span><span id="line-109"></span><span>    </span><span id="%24sel%3AdeploymentDurationInMinutes%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; Natural
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AdeploymentDurationInMinutes%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">deploymentDurationInMinutes</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="hs-comment">-- | The percentage of targets to receive a deployed configuration during</span><span>
+</span><span id="line-111"></span><span>    </span><span class="hs-comment">-- each interval.</span><span>
+</span><span id="line-112"></span><span>    </span><span id="%24sel%3AgrowthFactor%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; Double
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AgrowthFactor%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">growthFactor</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="hs-comment">-- | Save the deployment strategy to a Systems Manager (SSM) document.</span><span>
+</span><span id="line-114"></span><span>    </span><span id="%24sel%3AreplicateTo%3ACreateDeploymentStrategy%27"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; ReplicateTo
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AreplicateTo%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var hs-var">replicateTo</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.ReplicateTo.html#ReplicateTo"><span class="hs-identifier hs-type">ReplicateTo</span></a></span><span>
+</span><span id="line-115"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-116"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679207057"><span id="local-6989586621679207059"><span class="annot"><span class="annottext">CreateDeploymentStrategy -&gt; CreateDeploymentStrategy -&gt; Bool
+(CreateDeploymentStrategy -&gt; CreateDeploymentStrategy -&gt; Bool)
+-&gt; (CreateDeploymentStrategy -&gt; CreateDeploymentStrategy -&gt; Bool)
+-&gt; Eq CreateDeploymentStrategy
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateDeploymentStrategy -&gt; CreateDeploymentStrategy -&gt; Bool
+$c/= :: CreateDeploymentStrategy -&gt; CreateDeploymentStrategy -&gt; Bool
+== :: CreateDeploymentStrategy -&gt; CreateDeploymentStrategy -&gt; Bool
+$c== :: CreateDeploymentStrategy -&gt; CreateDeploymentStrategy -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207048"><span id="local-6989586621679207050"><span id="local-6989586621679207052"><span id="local-6989586621679207054"><span class="annot"><span class="annottext">ReadPrec [CreateDeploymentStrategy]
+ReadPrec CreateDeploymentStrategy
+Int -&gt; ReadS CreateDeploymentStrategy
+ReadS [CreateDeploymentStrategy]
+(Int -&gt; ReadS CreateDeploymentStrategy)
+-&gt; ReadS [CreateDeploymentStrategy]
+-&gt; ReadPrec CreateDeploymentStrategy
+-&gt; ReadPrec [CreateDeploymentStrategy]
+-&gt; Read CreateDeploymentStrategy
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateDeploymentStrategy]
+$creadListPrec :: ReadPrec [CreateDeploymentStrategy]
+readPrec :: ReadPrec CreateDeploymentStrategy
+$creadPrec :: ReadPrec CreateDeploymentStrategy
+readList :: ReadS [CreateDeploymentStrategy]
+$creadList :: ReadS [CreateDeploymentStrategy]
+readsPrec :: Int -&gt; ReadS CreateDeploymentStrategy
+$creadsPrec :: Int -&gt; ReadS CreateDeploymentStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679207041"><span id="local-6989586621679207043"><span id="local-6989586621679207045"><span class="annot"><span class="annottext">Int -&gt; CreateDeploymentStrategy -&gt; ShowS
+[CreateDeploymentStrategy] -&gt; ShowS
+CreateDeploymentStrategy -&gt; String
+(Int -&gt; CreateDeploymentStrategy -&gt; ShowS)
+-&gt; (CreateDeploymentStrategy -&gt; String)
+-&gt; ([CreateDeploymentStrategy] -&gt; ShowS)
+-&gt; Show CreateDeploymentStrategy
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateDeploymentStrategy] -&gt; ShowS
+$cshowList :: [CreateDeploymentStrategy] -&gt; ShowS
+show :: CreateDeploymentStrategy -&gt; String
+$cshow :: CreateDeploymentStrategy -&gt; String
+showsPrec :: Int -&gt; CreateDeploymentStrategy -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateDeploymentStrategy -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateDeploymentStrategy -&gt; Rep CreateDeploymentStrategy x)
+-&gt; (forall x.
+    Rep CreateDeploymentStrategy x -&gt; CreateDeploymentStrategy)
+-&gt; Generic CreateDeploymentStrategy
+forall x.
+Rep CreateDeploymentStrategy x -&gt; CreateDeploymentStrategy
+forall x.
+CreateDeploymentStrategy -&gt; Rep CreateDeploymentStrategy x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateDeploymentStrategy x -&gt; CreateDeploymentStrategy
+$cfrom :: forall x.
+CreateDeploymentStrategy -&gt; Rep CreateDeploymentStrategy x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- Create a value of 'CreateDeploymentStrategy' with all optional fields omitted.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-125"></span><span class="hs-comment">--</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- 'finalBakeTimeInMinutes', 'createDeploymentStrategy_finalBakeTimeInMinutes' - The amount of time AppConfig monitors for alarms before considering the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- deployment to be complete and no longer eligible for automatic roll</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- back.</span><span>
+</span><span id="line-129"></span><span class="hs-comment">--</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- 'description', 'createDeploymentStrategy_description' - A description of the deployment strategy.</span><span>
+</span><span id="line-131"></span><span class="hs-comment">--</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- 'growthType', 'createDeploymentStrategy_growthType' - The algorithm used to define how percentage grows over time. AWS</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- AppConfig supports the following growth types:</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- __Linear__: For this type, AppConfig processes the deployment by</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- dividing the total number of targets by the value specified for</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- @Step percentage@. For example, a linear deployment that uses a</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- @Step percentage@ of 10 deploys the configuration to 10 percent of the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- hosts. After those deployments are complete, the system deploys the</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- configuration to the next 10 percent. This continues until 100% of the</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- targets have successfully received the configuration.</span><span>
+</span><span id="line-142"></span><span class="hs-comment">--</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- __Exponential__: For this type, AppConfig processes the deployment</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- exponentially using the following formula: @G*(2^N)@. In this formula,</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- @G@ is the growth factor specified by the user and @N@ is the number of</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- steps until the configuration is deployed to all targets. For example,</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- if you specify a growth factor of 2, then the system rolls out the</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- configuration as follows:</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- @2*(2^0)@</span><span>
+</span><span id="line-151"></span><span class="hs-comment">--</span><span>
+</span><span id="line-152"></span><span class="hs-comment">-- @2*(2^1)@</span><span>
+</span><span id="line-153"></span><span class="hs-comment">--</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- @2*(2^2)@</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- Expressed numerically, the deployment rolls out as follows: 2% of the</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- targets, 4% of the targets, 8% of the targets, and continues until the</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- configuration has been deployed to all targets.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'tags', 'createDeploymentStrategy_tags' - Metadata to assign to the deployment strategy. Tags help organize and</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- categorize your AppConfig resources. Each tag consists of a key and an</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- optional value, both of which you define.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- 'name', 'createDeploymentStrategy_name' - A name for the deployment strategy.</span><span>
+</span><span id="line-165"></span><span class="hs-comment">--</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- 'deploymentDurationInMinutes', 'createDeploymentStrategy_deploymentDurationInMinutes' - Total amount of time for a deployment to last.</span><span>
+</span><span id="line-167"></span><span class="hs-comment">--</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- 'growthFactor', 'createDeploymentStrategy_growthFactor' - The percentage of targets to receive a deployed configuration during</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- each interval.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'replicateTo', 'createDeploymentStrategy_replicateTo' - Save the deployment strategy to a Systems Manager (SSM) document.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#newCreateDeploymentStrategy"><span class="hs-identifier hs-type">newCreateDeploymentStrategy</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'name'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="hs-comment">-- | 'deploymentDurationInMinutes'</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-177"></span><span>  </span><span class="hs-comment">-- | 'growthFactor'</span><span>
+</span><span id="line-178"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'replicateTo'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.Types.ReplicateTo.html#ReplicateTo"><span class="hs-identifier hs-type">ReplicateTo</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span>
+</span><span id="line-182"></span><span id="newCreateDeploymentStrategy"><span class="annot"><span class="annottext">newCreateDeploymentStrategy :: Text
+-&gt; Natural -&gt; Double -&gt; ReplicateTo -&gt; CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#newCreateDeploymentStrategy"><span class="hs-identifier hs-var hs-var">newCreateDeploymentStrategy</span></a></span></span><span>
+</span><span id="line-183"></span><span>  </span><span id="local-6989586621679207036"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207036"><span class="hs-identifier hs-var">pName_</span></a></span></span><span>
+</span><span id="line-184"></span><span>  </span><span id="local-6989586621679207035"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679207035"><span class="hs-identifier hs-var">pDeploymentDurationInMinutes_</span></a></span></span><span>
+</span><span id="line-185"></span><span>  </span><span id="local-6989586621679207034"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679207034"><span class="hs-identifier hs-var">pGrowthFactor_</span></a></span></span><span>
+</span><span id="line-186"></span><span>  </span><span id="local-6989586621679207033"><span class="annot"><span class="annottext">ReplicateTo
+</span><a href="#local-6989586621679207033"><span class="hs-identifier hs-var">pReplicateTo_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><span class="annottext">CreateDeploymentStrategy' :: Maybe Natural
+-&gt; Maybe Text
+-&gt; Maybe GrowthType
+-&gt; Maybe (HashMap Text Text)
+-&gt; Text
+-&gt; Natural
+-&gt; Double
+-&gt; ReplicateTo
+-&gt; CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span>
+</span><span id="line-188"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:finalBakeTimeInMinutes:CreateDeploymentStrategy' :: Maybe Natural
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AfinalBakeTimeInMinutes%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">finalBakeTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-189"></span><span>          </span><span class="annot"><span class="annottext">Maybe Natural
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:description:CreateDeploymentStrategy' :: Maybe Text
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Adescription%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:growthType:CreateDeploymentStrategy' :: Maybe GrowthType
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AgrowthType%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">growthType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrowthType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateDeploymentStrategy' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Atags%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>        </span><span class="annot"><span class="annottext">$sel:name:CreateDeploymentStrategy' :: Text
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Aname%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207036"><span class="hs-identifier hs-var">pName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>        </span><span class="annot"><span class="annottext">$sel:deploymentDurationInMinutes:CreateDeploymentStrategy' :: Natural
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AdeploymentDurationInMinutes%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">deploymentDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-195"></span><span>          </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679207035"><span class="hs-identifier hs-var">pDeploymentDurationInMinutes_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-196"></span><span>        </span><span class="annot"><span class="annottext">$sel:growthFactor:CreateDeploymentStrategy' :: Double
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AgrowthFactor%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">growthFactor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679207034"><span class="hs-identifier hs-var">pGrowthFactor_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>        </span><span class="annot"><span class="annottext">$sel:replicateTo:CreateDeploymentStrategy' :: ReplicateTo
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AreplicateTo%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">replicateTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicateTo
+</span><a href="#local-6989586621679207033"><span class="hs-identifier hs-var">pReplicateTo_</span></a></span><span>
+</span><span id="line-198"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-199"></span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- | The amount of time AppConfig monitors for alarms before considering the</span><span>
+</span><span id="line-201"></span><span class="hs-comment">-- deployment to be complete and no longer eligible for automatic roll</span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- back.</span><span>
+</span><span id="line-203"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_finalBakeTimeInMinutes"><span class="hs-identifier hs-type">createDeploymentStrategy_finalBakeTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span class="hs-special">)</span><span>
+</span><span id="line-204"></span><span id="createDeploymentStrategy_finalBakeTimeInMinutes"><span class="annot"><span class="annottext">createDeploymentStrategy_finalBakeTimeInMinutes :: (Maybe Natural -&gt; f (Maybe Natural))
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_finalBakeTimeInMinutes"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_finalBakeTimeInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; Maybe Natural)
+-&gt; (CreateDeploymentStrategy
+    -&gt; Maybe Natural -&gt; CreateDeploymentStrategy)
+-&gt; Lens
+     CreateDeploymentStrategy
+     CreateDeploymentStrategy
+     (Maybe Natural)
+     (Maybe Natural)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207030"><span class="annot"><span class="annottext">Maybe Natural
+finalBakeTimeInMinutes :: Maybe Natural
+$sel:finalBakeTimeInMinutes:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe Natural
+</span><a href="#local-6989586621679207030"><span class="hs-identifier hs-var hs-var">finalBakeTimeInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679207030"><span class="hs-identifier hs-var">finalBakeTimeInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207029"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207029"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207028"><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679207028"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207029"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:finalBakeTimeInMinutes:CreateDeploymentStrategy' :: Maybe Natural
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AfinalBakeTimeInMinutes%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">finalBakeTimeInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679207028"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-205"></span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- | A description of the deployment strategy.</span><span>
+</span><span id="line-207"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_description"><span class="hs-identifier hs-type">createDeploymentStrategy_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-208"></span><span id="createDeploymentStrategy_description"><span class="annot"><span class="annottext">createDeploymentStrategy_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_description"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; Maybe Text)
+-&gt; (CreateDeploymentStrategy
+    -&gt; Maybe Text -&gt; CreateDeploymentStrategy)
+-&gt; Lens
+     CreateDeploymentStrategy
+     CreateDeploymentStrategy
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207027"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe Text
+</span><a href="#local-6989586621679207027"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207027"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207026"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207026"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207025"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207025"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207026"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:CreateDeploymentStrategy' :: Maybe Text
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Adescription%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679207025"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-209"></span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- | The algorithm used to define how percentage grows over time. AWS</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- AppConfig supports the following growth types:</span><span>
+</span><span id="line-212"></span><span class="hs-comment">--</span><span>
+</span><span id="line-213"></span><span class="hs-comment">-- __Linear__: For this type, AppConfig processes the deployment by</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- dividing the total number of targets by the value specified for</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @Step percentage@. For example, a linear deployment that uses a</span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- @Step percentage@ of 10 deploys the configuration to 10 percent of the</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- hosts. After those deployments are complete, the system deploys the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- configuration to the next 10 percent. This continues until 100% of the</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- targets have successfully received the configuration.</span><span>
+</span><span id="line-220"></span><span class="hs-comment">--</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- __Exponential__: For this type, AppConfig processes the deployment</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- exponentially using the following formula: @G*(2^N)@. In this formula,</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- @G@ is the growth factor specified by the user and @N@ is the number of</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- steps until the configuration is deployed to all targets. For example,</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- if you specify a growth factor of 2, then the system rolls out the</span><span>
+</span><span id="line-226"></span><span class="hs-comment">-- configuration as follows:</span><span>
+</span><span id="line-227"></span><span class="hs-comment">--</span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- @2*(2^0)@</span><span>
+</span><span id="line-229"></span><span class="hs-comment">--</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- @2*(2^1)@</span><span>
+</span><span id="line-231"></span><span class="hs-comment">--</span><span>
+</span><span id="line-232"></span><span class="hs-comment">-- @2*(2^2)@</span><span>
+</span><span id="line-233"></span><span class="hs-comment">--</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- Expressed numerically, the deployment rolls out as follows: 2% of the</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- targets, 4% of the targets, 8% of the targets, and continues until the</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- configuration has been deployed to all targets.</span><span>
+</span><span id="line-237"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_growthType"><span class="hs-identifier hs-type">createDeploymentStrategy_growthType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.GrowthType.html#GrowthType"><span class="hs-identifier hs-type">GrowthType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span id="createDeploymentStrategy_growthType"><span class="annot"><span class="annottext">createDeploymentStrategy_growthType :: (Maybe GrowthType -&gt; f (Maybe GrowthType))
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_growthType"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_growthType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; Maybe GrowthType)
+-&gt; (CreateDeploymentStrategy
+    -&gt; Maybe GrowthType -&gt; CreateDeploymentStrategy)
+-&gt; Lens
+     CreateDeploymentStrategy
+     CreateDeploymentStrategy
+     (Maybe GrowthType)
+     (Maybe GrowthType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207024"><span class="annot"><span class="annottext">Maybe GrowthType
+growthType :: Maybe GrowthType
+$sel:growthType:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe GrowthType
+</span><a href="#local-6989586621679207024"><span class="hs-identifier hs-var hs-var">growthType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe GrowthType
+</span><a href="#local-6989586621679207024"><span class="hs-identifier hs-var">growthType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207023"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207023"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207022"><span class="annot"><span class="annottext">Maybe GrowthType
+</span><a href="#local-6989586621679207022"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207023"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:growthType:CreateDeploymentStrategy' :: Maybe GrowthType
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AgrowthType%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">growthType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe GrowthType
+</span><a href="#local-6989586621679207022"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-239"></span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- | Metadata to assign to the deployment strategy. Tags help organize and</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- categorize your AppConfig resources. Each tag consists of a key and an</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- optional value, both of which you define.</span><span>
+</span><span id="line-243"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_tags"><span class="hs-identifier hs-type">createDeploymentStrategy_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-244"></span><span id="createDeploymentStrategy_tags"><span class="annot"><span class="annottext">createDeploymentStrategy_tags :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_tags"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; Maybe (HashMap Text Text))
+-&gt; (CreateDeploymentStrategy
+    -&gt; Maybe (HashMap Text Text) -&gt; CreateDeploymentStrategy)
+-&gt; Lens
+     CreateDeploymentStrategy
+     CreateDeploymentStrategy
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207021"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+tags :: Maybe (HashMap Text Text)
+$sel:tags:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207021"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207021"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207020"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207020"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207019"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207019"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207020"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateDeploymentStrategy' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Atags%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679207019"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; CreateDeploymentStrategy
+-&gt; f CreateDeploymentStrategy
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-245"></span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- | A name for the deployment strategy.</span><span>
+</span><span id="line-247"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_name"><span class="hs-identifier hs-type">createDeploymentStrategy_name</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-248"></span><span id="createDeploymentStrategy_name"><span class="annot"><span class="annottext">createDeploymentStrategy_name :: (Text -&gt; f Text)
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_name"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_name</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; Text)
+-&gt; (CreateDeploymentStrategy -&gt; Text -&gt; CreateDeploymentStrategy)
+-&gt; Lens CreateDeploymentStrategy CreateDeploymentStrategy Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207015"><span class="annot"><span class="annottext">Text
+name :: Text
+$sel:name:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Text
+</span><a href="#local-6989586621679207015"><span class="hs-identifier hs-var hs-var">name</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207015"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207014"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207014"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207013"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207013"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207014"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:name:CreateDeploymentStrategy' :: Text
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3Aname%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">name</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679207013"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-249"></span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- | Total amount of time for a deployment to last.</span><span>
+</span><span id="line-251"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_deploymentDurationInMinutes"><span class="hs-identifier hs-type">createDeploymentStrategy_deploymentDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Natural</span></span><span>
+</span><span id="line-252"></span><span id="createDeploymentStrategy_deploymentDurationInMinutes"><span class="annot"><span class="annottext">createDeploymentStrategy_deploymentDurationInMinutes :: (Natural -&gt; f Natural)
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_deploymentDurationInMinutes"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_deploymentDurationInMinutes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; Natural)
+-&gt; (CreateDeploymentStrategy
+    -&gt; Natural -&gt; CreateDeploymentStrategy)
+-&gt; Lens
+     CreateDeploymentStrategy CreateDeploymentStrategy Natural Natural
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207012"><span class="annot"><span class="annottext">Natural
+deploymentDurationInMinutes :: Natural
+$sel:deploymentDurationInMinutes:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Natural
+</span><a href="#local-6989586621679207012"><span class="hs-identifier hs-var hs-var">deploymentDurationInMinutes</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679207012"><span class="hs-identifier hs-var">deploymentDurationInMinutes</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207011"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207011"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207010"><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679207010"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207011"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:deploymentDurationInMinutes:CreateDeploymentStrategy' :: Natural
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AdeploymentDurationInMinutes%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">deploymentDurationInMinutes</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679207010"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-253"></span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- | The percentage of targets to receive a deployed configuration during</span><span>
+</span><span id="line-255"></span><span class="hs-comment">-- each interval.</span><span>
+</span><span id="line-256"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_growthFactor"><span class="hs-identifier hs-type">createDeploymentStrategy_growthFactor</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Double</span></span><span>
+</span><span id="line-257"></span><span id="createDeploymentStrategy_growthFactor"><span class="annot"><span class="annottext">createDeploymentStrategy_growthFactor :: (Double -&gt; f Double)
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_growthFactor"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_growthFactor</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; Double)
+-&gt; (CreateDeploymentStrategy -&gt; Double -&gt; CreateDeploymentStrategy)
+-&gt; Lens
+     CreateDeploymentStrategy CreateDeploymentStrategy Double Double
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207009"><span class="annot"><span class="annottext">Double
+growthFactor :: Double
+$sel:growthFactor:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Double
+</span><a href="#local-6989586621679207009"><span class="hs-identifier hs-var hs-var">growthFactor</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679207009"><span class="hs-identifier hs-var">growthFactor</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207008"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207008"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207007"><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679207007"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207008"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:growthFactor:CreateDeploymentStrategy' :: Double
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AgrowthFactor%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">growthFactor</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679207007"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-258"></span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- | Save the deployment strategy to a Systems Manager (SSM) document.</span><span>
+</span><span id="line-260"></span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_replicateTo"><span class="hs-identifier hs-type">createDeploymentStrategy_replicateTo</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.Types.ReplicateTo.html#ReplicateTo"><span class="hs-identifier hs-type">ReplicateTo</span></a></span><span>
+</span><span id="line-261"></span><span id="createDeploymentStrategy_replicateTo"><span class="annot"><span class="annottext">createDeploymentStrategy_replicateTo :: (ReplicateTo -&gt; f ReplicateTo)
+-&gt; CreateDeploymentStrategy -&gt; f CreateDeploymentStrategy
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#createDeploymentStrategy_replicateTo"><span class="hs-identifier hs-var hs-var">createDeploymentStrategy_replicateTo</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateDeploymentStrategy -&gt; ReplicateTo)
+-&gt; (CreateDeploymentStrategy
+    -&gt; ReplicateTo -&gt; CreateDeploymentStrategy)
+-&gt; Lens
+     CreateDeploymentStrategy
+     CreateDeploymentStrategy
+     ReplicateTo
+     ReplicateTo
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679207006"><span class="annot"><span class="annottext">ReplicateTo
+replicateTo :: ReplicateTo
+$sel:replicateTo:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; ReplicateTo
+</span><a href="#local-6989586621679207006"><span class="hs-identifier hs-var hs-var">replicateTo</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ReplicateTo
+</span><a href="#local-6989586621679207006"><span class="hs-identifier hs-var">replicateTo</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679207005"><span class="annot"><span class="annottext">s :: CreateDeploymentStrategy
+</span><a href="#local-6989586621679207005"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679207004"><span class="annot"><span class="annottext">ReplicateTo
+</span><a href="#local-6989586621679207004"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateDeploymentStrategy
+</span><a href="#local-6989586621679207005"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:replicateTo:CreateDeploymentStrategy' :: ReplicateTo
+</span><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#%24sel%3AreplicateTo%3ACreateDeploymentStrategy%27"><span class="hs-identifier hs-var">replicateTo</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ReplicateTo
+</span><a href="#local-6989586621679207004"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-262"></span><span>
+</span><span id="line-263"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-264"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-265"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-266"></span><span>      </span><span class="annot"><a href="Amazonka.AppConfig.Types.DeploymentStrategy.html#DeploymentStrategy"><span class="hs-identifier hs-type">DeploymentStrategy</span></a></span><span>
+</span><span id="line-267"></span><span>  </span><span id="local-6989586621679207000"><span class="annot"><span class="annottext">request :: CreateDeploymentStrategy -&gt; Request CreateDeploymentStrategy
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service
+-&gt; CreateDeploymentStrategy -&gt; Request CreateDeploymentStrategy
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.AppConfig.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-268"></span><span>  </span><span id="local-6989586621679206996"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateDeploymentStrategy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDeploymentStrategy)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateDeploymentStrategy))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateDeploymentStrategy
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateDeploymentStrategy)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-270"></span><span>      </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679206993"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679206993"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679206992"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679206992"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679206991"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206991"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Object -&gt; Either String DeploymentStrategy
+forall a. FromJSON a =&gt; Object -&gt; Either String a
+</span><span class="hs-identifier hs-var">Core.eitherParseJSON</span></span><span> </span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679206991"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206986"><span id="local-6989586621679206988"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span></span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206983"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span></span><span>
+</span><span id="line-275"></span><span>
+</span><span id="line-276"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-277"></span><span>  </span><span id="local-6989586621679206979"><span class="annot"><span class="annottext">toHeaders :: CreateDeploymentStrategy -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-278"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateDeploymentStrategy -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-279"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-280"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-281"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-282"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-283"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-284"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-285"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679206969"><span id="local-6989586621679206971"><span id="local-6989586621679206973"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-288"></span><span>  </span><span id="local-6989586621679206967"><span class="annot"><span class="annottext">toJSON :: CreateDeploymentStrategy -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy%27"><span class="hs-identifier hs-type">CreateDeploymentStrategy'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679206958"><span id="local-6989586621679206959"><span id="local-6989586621679206960"><span id="local-6989586621679206961"><span id="local-6989586621679206962"><span id="local-6989586621679206963"><span id="local-6989586621679206964"><span id="local-6989586621679206965"><span class="annot"><span class="annottext">Double
+Natural
+Maybe Natural
+Maybe Text
+Maybe (HashMap Text Text)
+Maybe GrowthType
+Text
+ReplicateTo
+replicateTo :: ReplicateTo
+growthFactor :: Double
+deploymentDurationInMinutes :: Natural
+name :: Text
+tags :: Maybe (HashMap Text Text)
+growthType :: Maybe GrowthType
+description :: Maybe Text
+finalBakeTimeInMinutes :: Maybe Natural
+$sel:replicateTo:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; ReplicateTo
+$sel:growthFactor:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Double
+$sel:deploymentDurationInMinutes:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Natural
+$sel:name:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Text
+$sel:tags:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe (HashMap Text Text)
+$sel:growthType:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe GrowthType
+$sel:description:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe Text
+$sel:finalBakeTimeInMinutes:CreateDeploymentStrategy' :: CreateDeploymentStrategy -&gt; Maybe Natural
+</span><a href="#local-6989586621679206958"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-290"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-291"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FinalBakeTimeInMinutes&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-292"></span><span>              </span><span class="annot"><span class="annottext">(Natural -&gt; Pair) -&gt; Maybe Natural -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Natural
+</span><a href="#local-6989586621679206965"><span class="hs-identifier hs-var">finalBakeTimeInMinutes</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679206964"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrowthType&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; GrowthType -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(GrowthType -&gt; Pair) -&gt; Maybe GrowthType -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe GrowthType
+</span><a href="#local-6989586621679206963"><span class="hs-identifier hs-var">growthType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; HashMap Text Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(HashMap Text Text -&gt; Pair)
+-&gt; Maybe (HashMap Text Text) -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679206962"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Name&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679206961"><span class="hs-identifier hs-var">name</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-298"></span><span>              </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DeploymentDurationInMinutes&quot;</span></span><span>
+</span><span id="line-299"></span><span>                  </span><span class="annot"><span class="annottext">Text -&gt; Natural -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Natural
+</span><a href="#local-6989586621679206960"><span class="hs-identifier hs-var">deploymentDurationInMinutes</span></a></span><span>
+</span><span id="line-300"></span><span>              </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;GrowthFactor&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Double -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Double
+</span><a href="#local-6989586621679206959"><span class="hs-identifier hs-var">growthFactor</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ReplicateTo&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; ReplicateTo -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">ReplicateTo
+</span><a href="#local-6989586621679206958"><span class="hs-identifier hs-var">replicateTo</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-304"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-307"></span><span>  </span><span id="local-6989586621679206951"><span class="annot"><span class="annottext">toPath :: CreateDeploymentStrategy -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateDeploymentStrategy -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/deploymentstrategies&quot;</span></span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.AppConfig.CreateDeploymentStrategy.html#CreateDeploymentStrategy"><span class="hs-identifier hs-type">CreateDeploymentStrategy</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621679206947"><span class="annot"><span class="annottext">toQuery :: CreateDeploymentStrategy -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateDeploymentStrategy -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-311"></span></pre></body></html>

@@ -5,7 +5,7 @@
 @version 2.0
 
 
-module Network.AWS.DataExchange.Types.AssetDestinationEntry
+module Amazonka.DataExchange.Types.AssetDestinationEntry
 
 -- | The destination for the asset.
 --   
@@ -52,17 +52,17 @@ assetDestinationEntry_bucket :: Lens' AssetDestinationEntry Text
 
 -- | The unique identifier for the asset.
 assetDestinationEntry_assetId :: Lens' AssetDestinationEntry Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.AssetDestinationEntry.AssetDestinationEntry
 
 
-module Network.AWS.DataExchange.Types.AssetSourceEntry
+module Amazonka.DataExchange.Types.AssetSourceEntry
 
 -- | The source of the assets.
 --   
@@ -97,17 +97,17 @@ assetSourceEntry_bucket :: Lens' AssetSourceEntry Text
 
 -- | The name of the object in Amazon S3 for the asset.
 assetSourceEntry_key :: Lens' AssetSourceEntry Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.AssetSourceEntry.AssetSourceEntry
 
 
-module Network.AWS.DataExchange.Types.AssetType
+module Amazonka.DataExchange.Types.AssetType
 
 -- | The type of asset that is added to a data set.
 newtype AssetType
@@ -115,28 +115,28 @@ AssetType' :: Text -> AssetType
 [fromAssetType] :: AssetType -> Text
 pattern AssetType_REDSHIFT_DATA_SHARE :: AssetType
 pattern AssetType_S3_SNAPSHOT :: AssetType
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.AssetType.AssetType
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.AssetType.AssetType
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.AssetType.AssetType
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.AssetType.AssetType
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.AssetType.AssetType
-instance GHC.Read.Read Network.AWS.DataExchange.Types.AssetType.AssetType
-instance GHC.Show.Show Network.AWS.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.AssetType.AssetType
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.AssetType.AssetType
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.AssetType.AssetType
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.AssetType.AssetType
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.AssetType.AssetType
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.AssetType.AssetType
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.AssetType.AssetType
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.AssetType.AssetType
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.AssetType.AssetType
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.AssetType.AssetType
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.AssetType.AssetType
+instance GHC.Read.Read Amazonka.DataExchange.Types.AssetType.AssetType
+instance GHC.Show.Show Amazonka.DataExchange.Types.AssetType.AssetType
 
 
-module Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry
+module Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry
 
 -- | A revision destination is the Amazon S3 bucket folder destination to
 --   where the export will be sent.
@@ -181,17 +181,17 @@ autoExportRevisionDestinationEntry_keyPattern :: Lens' AutoExportRevisionDestina
 
 -- | The S3 bucket that is the destination for the event action.
 autoExportRevisionDestinationEntry_bucket :: Lens' AutoExportRevisionDestinationEntry Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.AutoExportRevisionDestinationEntry
 
 
-module Network.AWS.DataExchange.Types.Code
+module Amazonka.DataExchange.Types.Code
 newtype Code
 Code' :: Text -> Code
 [fromCode] :: Code -> Text
@@ -202,28 +202,28 @@ pattern Code_MALWARE_SCAN_ENCRYPTED_FILE :: Code
 pattern Code_RESOURCE_NOT_FOUND_EXCEPTION :: Code
 pattern Code_SERVICE_QUOTA_EXCEEDED_EXCEPTION :: Code
 pattern Code_VALIDATION_EXCEPTION :: Code
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.Code.Code
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.Code.Code
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.Code.Code
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.Code.Code
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.Code.Code
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.Code.Code
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.Code.Code
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.Code.Code
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.Code.Code
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.Code.Code
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.Code.Code
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.Code.Code
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.Code.Code
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.Code.Code
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.Code.Code
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.Code.Code
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.Code.Code
-instance GHC.Read.Read Network.AWS.DataExchange.Types.Code.Code
-instance GHC.Show.Show Network.AWS.DataExchange.Types.Code.Code
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.Code.Code
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.Code.Code
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.Code.Code
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.Code.Code
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.Code.Code
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.Code.Code
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.Code.Code
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.Code.Code
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.Code.Code
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.Code.Code
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.Code.Code
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.Code.Code
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.Code.Code
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.Code.Code
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.Code.Code
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.Code.Code
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.Code.Code
+instance GHC.Read.Read Amazonka.DataExchange.Types.Code.Code
+instance GHC.Show.Show Amazonka.DataExchange.Types.Code.Code
 
 
-module Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
+module Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails
 
 -- | Details of the operation to be performed by the job.
 --   
@@ -275,16 +275,16 @@ exportAssetToSignedUrlRequestDetails_assetId :: Lens' ExportAssetToSignedUrlRequ
 -- | The unique identifier for the revision associated with this export
 --   request.
 exportAssetToSignedUrlRequestDetails_revisionId :: Lens' ExportAssetToSignedUrlRequestDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.ExportAssetToSignedUrlRequestDetails
 
 
-module Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
+module Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails
 
 -- | The details of the export to signed URL response.
 --   
@@ -356,16 +356,16 @@ exportAssetToSignedUrlResponseDetails_assetId :: Lens' ExportAssetToSignedUrlRes
 -- | The unique identifier for the revision associated with this export
 --   response.
 exportAssetToSignedUrlResponseDetails_revisionId :: Lens' ExportAssetToSignedUrlResponseDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.ExportAssetToSignedUrlResponseDetails
 
 
-module Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
+module Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails
 
 -- | Information about the job error.
 --   
@@ -393,16 +393,16 @@ newImportAssetFromSignedUrlJobErrorDetails :: Text -> ImportAssetFromSignedUrlJo
 
 -- | Information about the job error.
 importAssetFromSignedUrlJobErrorDetails_assetName :: Lens' ImportAssetFromSignedUrlJobErrorDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.ImportAssetFromSignedUrlJobErrorDetails
 
 
-module Network.AWS.DataExchange.Types.Details
+module Amazonka.DataExchange.Types.Details
 
 -- | Information about the job error.
 --   
@@ -438,16 +438,16 @@ details_importAssetFromSignedUrlJobErrorDetails :: Lens' Details (Maybe ImportAs
 
 -- | Information about the job error.
 details_importAssetsFromS3JobErrorDetails :: Lens' Details (Maybe [AssetSourceEntry])
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.Details.Details
-instance GHC.Show.Show Network.AWS.DataExchange.Types.Details.Details
-instance GHC.Read.Read Network.AWS.DataExchange.Types.Details.Details
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.Details.Details
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.Details.Details
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.Details.Details
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.Details.Details
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.Details.Details
+instance GHC.Show.Show Amazonka.DataExchange.Types.Details.Details
+instance GHC.Read.Read Amazonka.DataExchange.Types.Details.Details
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.Details.Details
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.Details.Details
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.Details.Details
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.Details.Details
 
 
-module Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
+module Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails
 
 -- | Details of the operation to be performed by the job.
 --   
@@ -515,16 +515,16 @@ importAssetFromSignedUrlRequestDetails_assetName :: Lens' ImportAssetFromSignedU
 -- | The unique identifier for the revision associated with this import
 --   request.
 importAssetFromSignedUrlRequestDetails_revisionId :: Lens' ImportAssetFromSignedUrlRequestDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.ImportAssetFromSignedUrlRequestDetails
 
 
-module Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
+module Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails
 
 -- | The details in the response for an import request, including the
 --   signed URL and other information.
@@ -611,16 +611,16 @@ importAssetFromSignedUrlResponseDetails_assetName :: Lens' ImportAssetFromSigned
 -- | The unique identifier for the revision associated with this import
 --   response.
 importAssetFromSignedUrlResponseDetails_revisionId :: Lens' ImportAssetFromSignedUrlResponseDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.ImportAssetFromSignedUrlResponseDetails
 
 
-module Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails
+module Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails
 
 -- | Details of the operation to be performed by the job.
 --   
@@ -672,16 +672,16 @@ importAssetsFromS3RequestDetails_assetSources :: Lens' ImportAssetsFromS3Request
 -- | The unique identifier for the revision associated with this import
 --   request.
 importAssetsFromS3RequestDetails_revisionId :: Lens' ImportAssetsFromS3RequestDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.ImportAssetsFromS3RequestDetails
 
 
-module Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails
+module Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails
 
 -- | Details from an import from Amazon S3 response.
 --   
@@ -733,16 +733,16 @@ importAssetsFromS3ResponseDetails_assetSources :: Lens' ImportAssetsFromS3Respon
 -- | The unique identifier for the revision associated with this import
 --   response.
 importAssetsFromS3ResponseDetails_revisionId :: Lens' ImportAssetsFromS3ResponseDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.ImportAssetsFromS3ResponseDetails
 
 
-module Network.AWS.DataExchange.Types.JobErrorLimitName
+module Amazonka.DataExchange.Types.JobErrorLimitName
 
 -- | The name of the limit that was reached.
 newtype JobErrorLimitName
@@ -751,28 +751,28 @@ JobErrorLimitName' :: Text -> JobErrorLimitName
 pattern JobErrorLimitName_Amazon_Redshift_datashare_assets_per_revision :: JobErrorLimitName
 pattern JobErrorLimitName_Asset_size_in_GB :: JobErrorLimitName
 pattern JobErrorLimitName_Assets_per_revision :: JobErrorLimitName
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance GHC.Read.Read Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
-instance GHC.Show.Show Network.AWS.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance GHC.Read.Read Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
+instance GHC.Show.Show Amazonka.DataExchange.Types.JobErrorLimitName.JobErrorLimitName
 
 
-module Network.AWS.DataExchange.Types.JobErrorResourceTypes
+module Amazonka.DataExchange.Types.JobErrorResourceTypes
 
 -- | The types of resource which the job error can apply to.
 newtype JobErrorResourceTypes
@@ -781,28 +781,28 @@ JobErrorResourceTypes' :: Text -> JobErrorResourceTypes
 pattern JobErrorResourceTypes_ASSET :: JobErrorResourceTypes
 pattern JobErrorResourceTypes_DATA_SET :: JobErrorResourceTypes
 pattern JobErrorResourceTypes_REVISION :: JobErrorResourceTypes
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance GHC.Read.Read Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
-instance GHC.Show.Show Network.AWS.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance GHC.Read.Read Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
+instance GHC.Show.Show Amazonka.DataExchange.Types.JobErrorResourceTypes.JobErrorResourceTypes
 
 
-module Network.AWS.DataExchange.Types.JobError
+module Amazonka.DataExchange.Types.JobError
 
 -- | An error that occurred with the job request.
 --   
@@ -881,16 +881,16 @@ jobError_message :: Lens' JobError Text
 
 -- | The code for the job error.
 jobError_code :: Lens' JobError Code
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.JobError.JobError
-instance GHC.Show.Show Network.AWS.DataExchange.Types.JobError.JobError
-instance GHC.Read.Read Network.AWS.DataExchange.Types.JobError.JobError
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.JobError.JobError
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.JobError.JobError
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.JobError.JobError
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.JobError.JobError
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.JobError.JobError
+instance GHC.Show.Show Amazonka.DataExchange.Types.JobError.JobError
+instance GHC.Read.Read Amazonka.DataExchange.Types.JobError.JobError
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.JobError.JobError
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.JobError.JobError
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.JobError.JobError
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.JobError.JobError
 
 
-module Network.AWS.DataExchange.Types.Origin
+module Amazonka.DataExchange.Types.Origin
 
 -- | A property that defines the data set as OWNED by the account (for
 --   providers) or ENTITLED to the account (for subscribers). When an owned
@@ -902,28 +902,28 @@ Origin' :: Text -> Origin
 [fromOrigin] :: Origin -> Text
 pattern Origin_ENTITLED :: Origin
 pattern Origin_OWNED :: Origin
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.Origin.Origin
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.Origin.Origin
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.Origin.Origin
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.Origin.Origin
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.Origin.Origin
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.Origin.Origin
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.Origin.Origin
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.Origin.Origin
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.Origin.Origin
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.Origin.Origin
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.Origin.Origin
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.Origin.Origin
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.Origin.Origin
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.Origin.Origin
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.Origin.Origin
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.Origin.Origin
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.Origin.Origin
-instance GHC.Read.Read Network.AWS.DataExchange.Types.Origin.Origin
-instance GHC.Show.Show Network.AWS.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.Origin.Origin
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.Origin.Origin
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.Origin.Origin
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.Origin.Origin
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.Origin.Origin
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.Origin.Origin
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.Origin.Origin
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.Origin.Origin
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.Origin.Origin
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.Origin.Origin
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.Origin.Origin
+instance GHC.Read.Read Amazonka.DataExchange.Types.Origin.Origin
+instance GHC.Show.Show Amazonka.DataExchange.Types.Origin.Origin
 
 
-module Network.AWS.DataExchange.Types.OriginDetails
+module Amazonka.DataExchange.Types.OriginDetails
 
 -- | Information about the origin of the data set.
 --   
@@ -949,16 +949,16 @@ newOriginDetails :: Text -> OriginDetails
 
 -- | The product ID of the origin of the data set.
 originDetails_productId :: Lens' OriginDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.OriginDetails.OriginDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.OriginDetails.OriginDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.OriginDetails.OriginDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.OriginDetails.OriginDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.OriginDetails.OriginDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.OriginDetails.OriginDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.OriginDetails.OriginDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.OriginDetails.OriginDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.OriginDetails.OriginDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.OriginDetails.OriginDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.OriginDetails.OriginDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.OriginDetails.OriginDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.OriginDetails.OriginDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.OriginDetails.OriginDetails
 
 
-module Network.AWS.DataExchange.Types.DataSetEntry
+module Amazonka.DataExchange.Types.DataSetEntry
 
 -- | A data set is an AWS resource with one or more revisions.
 --   
@@ -1080,16 +1080,16 @@ dataSetEntry_updatedAt :: Lens' DataSetEntry UTCTime
 
 -- | The name of the data set.
 dataSetEntry_name :: Lens' DataSetEntry Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.DataSetEntry.DataSetEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.DataSetEntry.DataSetEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.DataSetEntry.DataSetEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.DataSetEntry.DataSetEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.DataSetEntry.DataSetEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.DataSetEntry.DataSetEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.DataSetEntry.DataSetEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.DataSetEntry.DataSetEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.DataSetEntry.DataSetEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.DataSetEntry.DataSetEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.DataSetEntry.DataSetEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.DataSetEntry.DataSetEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.DataSetEntry.DataSetEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.DataSetEntry.DataSetEntry
 
 
-module Network.AWS.DataExchange.Types.RedshiftDataShareAsset
+module Amazonka.DataExchange.Types.RedshiftDataShareAsset
 
 -- | The Amazon Redshift datashare asset.
 --   
@@ -1116,16 +1116,16 @@ newRedshiftDataShareAsset :: Text -> RedshiftDataShareAsset
 
 -- | The Amazon Resource Name (ARN) of the datashare asset.
 redshiftDataShareAsset_arn :: Lens' RedshiftDataShareAsset Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
-instance GHC.Show.Show Network.AWS.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
-instance GHC.Read.Read Network.AWS.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
+instance GHC.Show.Show Amazonka.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
+instance GHC.Read.Read Amazonka.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.RedshiftDataShareAsset.RedshiftDataShareAsset
 
 
-module Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry
+module Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry
 
 -- | The source of the Amazon Redshift datashare asset.
 --   
@@ -1153,17 +1153,17 @@ newRedshiftDataShareAssetSourceEntry :: Text -> RedshiftDataShareAssetSourceEntr
 
 -- | The Amazon Resource Name (ARN) of the datashare asset.
 redshiftDataShareAssetSourceEntry_dataShareArn :: Lens' RedshiftDataShareAssetSourceEntry Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.RedshiftDataShareAssetSourceEntry
 
 
-module Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
+module Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails
 
 -- | Details from an import from Amazon Redshift datashare response.
 --   
@@ -1222,16 +1222,16 @@ importAssetsFromRedshiftDataSharesResponseDetails_assetSources :: Lens' ImportAs
 -- | The unique identifier for the revision associated with this import
 --   job.
 importAssetsFromRedshiftDataSharesResponseDetails_revisionId :: Lens' ImportAssetsFromRedshiftDataSharesResponseDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.ImportAssetsFromRedshiftDataSharesResponseDetails
 
 
-module Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
+module Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails
 
 -- | Details from an import from Amazon Redshift datashare request.
 --   
@@ -1289,16 +1289,16 @@ importAssetsFromRedshiftDataSharesRequestDetails_assetSources :: Lens' ImportAss
 -- | The unique identifier for the revision associated with this import
 --   job.
 importAssetsFromRedshiftDataSharesRequestDetails_revisionId :: Lens' ImportAssetsFromRedshiftDataSharesRequestDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.ImportAssetsFromRedshiftDataSharesRequestDetails
 
 
-module Network.AWS.DataExchange.Types.RevisionDestinationEntry
+module Amazonka.DataExchange.Types.RevisionDestinationEntry
 
 -- | The destination where the assets in the revision will be exported.
 --   
@@ -1351,17 +1351,17 @@ revisionDestinationEntry_bucket :: Lens' RevisionDestinationEntry Text
 
 -- | The unique identifier for the revision.
 revisionDestinationEntry_revisionId :: Lens' RevisionDestinationEntry Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.RevisionDestinationEntry.RevisionDestinationEntry
 
 
-module Network.AWS.DataExchange.Types.RevisionEntry
+module Amazonka.DataExchange.Types.RevisionEntry
 
 -- | A revision is a container for one or more assets.
 --   
@@ -1483,16 +1483,16 @@ revisionEntry_arn :: Lens' RevisionEntry Text
 -- | The date and time that the revision was last updated, in ISO 8601
 --   format.
 revisionEntry_updatedAt :: Lens' RevisionEntry UTCTime
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.RevisionEntry.RevisionEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.RevisionEntry.RevisionEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.RevisionEntry.RevisionEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.RevisionEntry.RevisionEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.RevisionEntry.RevisionEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.RevisionEntry.RevisionEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.RevisionEntry.RevisionEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.RevisionEntry.RevisionEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.RevisionEntry.RevisionEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.RevisionEntry.RevisionEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.RevisionEntry.RevisionEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.RevisionEntry.RevisionEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.RevisionEntry.RevisionEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.RevisionEntry.RevisionEntry
 
 
-module Network.AWS.DataExchange.Types.RevisionPublished
+module Amazonka.DataExchange.Types.RevisionPublished
 
 -- | Information about the published revision.
 --   
@@ -1519,17 +1519,17 @@ newRevisionPublished :: Text -> RevisionPublished
 
 -- | The data set ID of the published revision.
 revisionPublished_dataSetId :: Lens' RevisionPublished Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
-instance GHC.Show.Show Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
-instance GHC.Read.Read Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.RevisionPublished.RevisionPublished
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
+instance GHC.Show.Show Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
+instance GHC.Read.Read Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.RevisionPublished.RevisionPublished
 
 
-module Network.AWS.DataExchange.Types.Event
+module Amazonka.DataExchange.Types.Event
 
 -- | What occurs to start an action.
 --   
@@ -1554,17 +1554,17 @@ newEvent :: Event
 
 -- | What occurs to start the revision publish action.
 event_revisionPublished :: Lens' Event (Maybe RevisionPublished)
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.Event.Event
-instance GHC.Show.Show Network.AWS.DataExchange.Types.Event.Event
-instance GHC.Read.Read Network.AWS.DataExchange.Types.Event.Event
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.Event.Event
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.Event.Event
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.Event.Event
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.Event.Event
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.Event.Event
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.Event.Event
+instance GHC.Show.Show Amazonka.DataExchange.Types.Event.Event
+instance GHC.Read.Read Amazonka.DataExchange.Types.Event.Event
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.Event.Event
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.Event.Event
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.Event.Event
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.Event.Event
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.Event.Event
 
 
-module Network.AWS.DataExchange.Types.S3SnapshotAsset
+module Amazonka.DataExchange.Types.S3SnapshotAsset
 
 -- | The S3 object that is the asset.
 --   
@@ -1590,16 +1590,16 @@ newS3SnapshotAsset :: Double -> S3SnapshotAsset
 
 -- | The size of the S3 object that is the object.
 s3SnapshotAsset_size :: Lens' S3SnapshotAsset Double
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
-instance GHC.Show.Show Network.AWS.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
-instance GHC.Read.Read Network.AWS.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
+instance GHC.Show.Show Amazonka.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
+instance GHC.Read.Read Amazonka.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.S3SnapshotAsset.S3SnapshotAsset
 
 
-module Network.AWS.DataExchange.Types.AssetDetails
+module Amazonka.DataExchange.Types.AssetDetails
 
 -- | Information about the asset.
 --   
@@ -1635,16 +1635,16 @@ assetDetails_s3SnapshotAsset :: Lens' AssetDetails (Maybe S3SnapshotAsset)
 
 -- | The Amazon Redshift datashare that is the asset.
 assetDetails_redshiftDataShareAsset :: Lens' AssetDetails (Maybe RedshiftDataShareAsset)
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.AssetDetails.AssetDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.AssetDetails.AssetDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.AssetDetails.AssetDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.AssetDetails.AssetDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.AssetDetails.AssetDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.AssetDetails.AssetDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.AssetDetails.AssetDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.AssetDetails.AssetDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.AssetDetails.AssetDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.AssetDetails.AssetDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.AssetDetails.AssetDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.AssetDetails.AssetDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.AssetDetails.AssetDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.AssetDetails.AssetDetails
 
 
-module Network.AWS.DataExchange.Types.AssetEntry
+module Amazonka.DataExchange.Types.AssetEntry
 
 -- | An asset in AWS Data Exchange is a piece of data. The asset can be a
 --   structured data file, an image file, or some other data file that can
@@ -1766,16 +1766,16 @@ assetEntry_revisionId :: Lens' AssetEntry Text
 --   key is used as the asset name. When exporting to Amazon S3, the asset
 --   name is used as default target S3 object key.
 assetEntry_name :: Lens' AssetEntry Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.AssetEntry.AssetEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.AssetEntry.AssetEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.AssetEntry.AssetEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.AssetEntry.AssetEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.AssetEntry.AssetEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.AssetEntry.AssetEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.AssetEntry.AssetEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.AssetEntry.AssetEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.AssetEntry.AssetEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.AssetEntry.AssetEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.AssetEntry.AssetEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.AssetEntry.AssetEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.AssetEntry.AssetEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.AssetEntry.AssetEntry
 
 
-module Network.AWS.DataExchange.Types.ServerSideEncryptionTypes
+module Amazonka.DataExchange.Types.ServerSideEncryptionTypes
 
 -- | The types of encryption supported in export jobs to Amazon S3.
 newtype ServerSideEncryptionTypes
@@ -1783,28 +1783,28 @@ ServerSideEncryptionTypes' :: Text -> ServerSideEncryptionTypes
 [fromServerSideEncryptionTypes] :: ServerSideEncryptionTypes -> Text
 pattern ServerSideEncryptionTypes_AES256 :: ServerSideEncryptionTypes
 pattern ServerSideEncryptionTypes_Aws_kms :: ServerSideEncryptionTypes
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance GHC.Read.Read Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
+instance GHC.Show.Show Amazonka.DataExchange.Types.ServerSideEncryptionTypes.ServerSideEncryptionTypes
 
 
-module Network.AWS.DataExchange.Types.ExportServerSideEncryption
+module Amazonka.DataExchange.Types.ExportServerSideEncryption
 
 -- | Encryption configuration of the export job. Includes the encryption
 --   type in addition to the AWS KMS key. The KMS key is only necessary if
@@ -1851,17 +1851,17 @@ exportServerSideEncryption_kmsKeyArn :: Lens' ExportServerSideEncryption (Maybe 
 -- | The type of server side encryption used for encrypting the objects in
 --   Amazon S3.
 exportServerSideEncryption_type :: Lens' ExportServerSideEncryption ServerSideEncryptionTypes
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance GHC.Show.Show Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance GHC.Read.Read Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ExportServerSideEncryption.ExportServerSideEncryption
 
 
-module Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails
+module Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails
 
 -- | Details about the export revisions to Amazon S3 response.
 --   
@@ -1921,16 +1921,16 @@ exportRevisionsToS3ResponseDetails_revisionDestinations :: Lens' ExportRevisions
 -- | The unique identifier for the data set associated with this export
 --   job.
 exportRevisionsToS3ResponseDetails_dataSetId :: Lens' ExportRevisionsToS3ResponseDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.ExportRevisionsToS3ResponseDetails
 
 
-module Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails
+module Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails
 
 -- | Details of the operation to be performed by the job.
 --   
@@ -1980,16 +1980,16 @@ exportRevisionsToS3RequestDetails_revisionDestinations :: Lens' ExportRevisionsT
 -- | The unique identifier for the data set associated with this export
 --   job.
 exportRevisionsToS3RequestDetails_dataSetId :: Lens' ExportRevisionsToS3RequestDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.ExportRevisionsToS3RequestDetails
 
 
-module Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails
+module Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails
 
 -- | Details about the export to Amazon S3 response.
 --   
@@ -2051,16 +2051,16 @@ exportAssetsToS3ResponseDetails_dataSetId :: Lens' ExportAssetsToS3ResponseDetai
 -- | The unique identifier for the revision associated with this export
 --   response.
 exportAssetsToS3ResponseDetails_revisionId :: Lens' ExportAssetsToS3ResponseDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.ExportAssetsToS3ResponseDetails
 
 
-module Network.AWS.DataExchange.Types.ResponseDetails
+module Amazonka.DataExchange.Types.ResponseDetails
 
 -- | Details for the response.
 --   
@@ -2137,16 +2137,16 @@ responseDetails_importAssetsFromS3 :: Lens' ResponseDetails (Maybe ImportAssetsF
 
 -- | Details for the export to signed URL response.
 responseDetails_exportAssetToSignedUrl :: Lens' ResponseDetails (Maybe ExportAssetToSignedUrlResponseDetails)
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ResponseDetails.ResponseDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ResponseDetails.ResponseDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ResponseDetails.ResponseDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ResponseDetails.ResponseDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.ResponseDetails.ResponseDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ResponseDetails.ResponseDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ResponseDetails.ResponseDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ResponseDetails.ResponseDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ResponseDetails.ResponseDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ResponseDetails.ResponseDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ResponseDetails.ResponseDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.ResponseDetails.ResponseDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ResponseDetails.ResponseDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ResponseDetails.ResponseDetails
 
 
-module Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails
+module Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails
 
 -- | Details of the operation to be performed by the job.
 --   
@@ -2208,16 +2208,16 @@ exportAssetsToS3RequestDetails_dataSetId :: Lens' ExportAssetsToS3RequestDetails
 -- | The unique identifier for the revision associated with this export
 --   request.
 exportAssetsToS3RequestDetails_revisionId :: Lens' ExportAssetsToS3RequestDetails Text
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.ExportAssetsToS3RequestDetails
 
 
-module Network.AWS.DataExchange.Types.RequestDetails
+module Amazonka.DataExchange.Types.RequestDetails
 
 -- | The details for the request.
 --   
@@ -2294,16 +2294,16 @@ requestDetails_importAssetsFromS3 :: Lens' RequestDetails (Maybe ImportAssetsFro
 
 -- | Details about the export to signed URL request.
 requestDetails_exportAssetToSignedUrl :: Lens' RequestDetails (Maybe ExportAssetToSignedUrlRequestDetails)
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.RequestDetails.RequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.RequestDetails.RequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.RequestDetails.RequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.RequestDetails.RequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.RequestDetails.RequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.RequestDetails.RequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.RequestDetails.RequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.RequestDetails.RequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.RequestDetails.RequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.RequestDetails.RequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.RequestDetails.RequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.RequestDetails.RequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.RequestDetails.RequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.RequestDetails.RequestDetails
 
 
-module Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails
+module Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails
 
 -- | Details of the operation to be performed by the job.
 --   
@@ -2344,17 +2344,17 @@ autoExportRevisionToS3RequestDetails_encryption :: Lens' AutoExportRevisionToS3R
 -- | A revision destination is the Amazon S3 bucket folder destination to
 --   where the export will be sent.
 autoExportRevisionToS3RequestDetails_revisionDestination :: Lens' AutoExportRevisionToS3RequestDetails AutoExportRevisionDestinationEntry
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
-instance GHC.Show.Show Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
-instance GHC.Read.Read Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance GHC.Show.Show Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance GHC.Read.Read Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.AutoExportRevisionToS3RequestDetails
 
 
-module Network.AWS.DataExchange.Types.Action
+module Amazonka.DataExchange.Types.Action
 
 -- | What occurs after a certain event.
 --   
@@ -2380,17 +2380,17 @@ newAction :: Action
 
 -- | Details for the export revision to Amazon S3 action.
 action_exportRevisionToS3 :: Lens' Action (Maybe AutoExportRevisionToS3RequestDetails)
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.Action.Action
-instance GHC.Show.Show Network.AWS.DataExchange.Types.Action.Action
-instance GHC.Read.Read Network.AWS.DataExchange.Types.Action.Action
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.Action.Action
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.Action.Action
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.Action.Action
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.Action.Action
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.Action.Action
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.Action.Action
+instance GHC.Show.Show Amazonka.DataExchange.Types.Action.Action
+instance GHC.Read.Read Amazonka.DataExchange.Types.Action.Action
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.Action.Action
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.Action.Action
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.Action.Action
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.Action.Action
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.Action.Action
 
 
-module Network.AWS.DataExchange.Types.EventActionEntry
+module Amazonka.DataExchange.Types.EventActionEntry
 
 -- | An event action is an object that defines the relationship between a
 --   specific event and an automated action that will be taken on behalf of
@@ -2469,16 +2469,16 @@ eventActionEntry_arn :: Lens' EventActionEntry Text
 -- | The date and time that the event action was last updated, in ISO 8601
 --   format.
 eventActionEntry_updatedAt :: Lens' EventActionEntry UTCTime
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.EventActionEntry.EventActionEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.EventActionEntry.EventActionEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.EventActionEntry.EventActionEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.EventActionEntry.EventActionEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.EventActionEntry.EventActionEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.EventActionEntry.EventActionEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.EventActionEntry.EventActionEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.EventActionEntry.EventActionEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.EventActionEntry.EventActionEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.EventActionEntry.EventActionEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.EventActionEntry.EventActionEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.EventActionEntry.EventActionEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.EventActionEntry.EventActionEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.EventActionEntry.EventActionEntry
 
 
-module Network.AWS.DataExchange.Types.State
+module Amazonka.DataExchange.Types.State
 newtype State
 State' :: Text -> State
 [fromState] :: State -> Text
@@ -2488,28 +2488,28 @@ pattern State_ERROR :: State
 pattern State_IN_PROGRESS :: State
 pattern State_TIMED_OUT :: State
 pattern State_WAITING :: State
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.State.State
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.State.State
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.State.State
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.State.State
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.State.State
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.State.State
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.State.State
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.State.State
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.State.State
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.State.State
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.State.State
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.State.State
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.State.State
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.State.State
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.State.State
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.State.State
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.State.State
-instance GHC.Read.Read Network.AWS.DataExchange.Types.State.State
-instance GHC.Show.Show Network.AWS.DataExchange.Types.State.State
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.State.State
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.State.State
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.State.State
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.State.State
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.State.State
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.State.State
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.State.State
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.State.State
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.State.State
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.State.State
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.State.State
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.State.State
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.State.State
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.State.State
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.State.State
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.State.State
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.State.State
+instance GHC.Read.Read Amazonka.DataExchange.Types.State.State
+instance GHC.Show.Show Amazonka.DataExchange.Types.State.State
 
 
-module Network.AWS.DataExchange.Types.Type
+module Amazonka.DataExchange.Types.Type
 newtype Type
 Type' :: Text -> Type
 [fromType] :: Type -> Text
@@ -2519,28 +2519,28 @@ pattern Type_EXPORT_REVISIONS_TO_S3 :: Type
 pattern Type_IMPORT_ASSETS_FROM_REDSHIFT_DATA_SHARES :: Type
 pattern Type_IMPORT_ASSETS_FROM_S3 :: Type
 pattern Type_IMPORT_ASSET_FROM_SIGNED_URL :: Type
-instance Network.AWS.Data.XML.ToXML Network.AWS.DataExchange.Types.Type.Type
-instance Network.AWS.Data.XML.FromXML Network.AWS.DataExchange.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSONKey Network.AWS.DataExchange.Types.Type.Type
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSONKey Network.AWS.DataExchange.Types.Type.Type
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.Type.Type
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.Types.Type.Type
-instance Network.AWS.Data.Headers.ToHeader Network.AWS.DataExchange.Types.Type.Type
-instance Network.AWS.Data.Log.ToLog Network.AWS.DataExchange.Types.Type.Type
-instance Network.AWS.Data.ByteString.ToByteString Network.AWS.DataExchange.Types.Type.Type
-instance Network.AWS.Data.Text.ToText Network.AWS.DataExchange.Types.Type.Type
-instance Network.AWS.Data.Text.FromText Network.AWS.DataExchange.Types.Type.Type
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.Type.Type
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.Type.Type
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.Type.Type
-instance GHC.Classes.Ord Network.AWS.DataExchange.Types.Type.Type
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.Type.Type
-instance GHC.Read.Read Network.AWS.DataExchange.Types.Type.Type
-instance GHC.Show.Show Network.AWS.DataExchange.Types.Type.Type
+instance Amazonka.Data.XML.ToXML Amazonka.DataExchange.Types.Type.Type
+instance Amazonka.Data.XML.FromXML Amazonka.DataExchange.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSONKey Amazonka.DataExchange.Types.Type.Type
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSONKey Amazonka.DataExchange.Types.Type.Type
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.Type.Type
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.Types.Type.Type
+instance Amazonka.Data.Headers.ToHeader Amazonka.DataExchange.Types.Type.Type
+instance Amazonka.Data.Log.ToLog Amazonka.DataExchange.Types.Type.Type
+instance Amazonka.Data.ByteString.ToByteString Amazonka.DataExchange.Types.Type.Type
+instance Amazonka.Data.Text.ToText Amazonka.DataExchange.Types.Type.Type
+instance Amazonka.Data.Text.FromText Amazonka.DataExchange.Types.Type.Type
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.Type.Type
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.Type.Type
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.Type.Type
+instance GHC.Classes.Ord Amazonka.DataExchange.Types.Type.Type
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.Type.Type
+instance GHC.Read.Read Amazonka.DataExchange.Types.Type.Type
+instance GHC.Show.Show Amazonka.DataExchange.Types.Type.Type
 
 
-module Network.AWS.DataExchange.Types.JobEntry
+module Amazonka.DataExchange.Types.JobEntry
 
 -- | AWS Data Exchange Jobs are asynchronous import or export operations
 --   used to create or copy assets. A data set owner can both import and
@@ -2632,16 +2632,16 @@ jobEntry_arn :: Lens' JobEntry Text
 
 -- | The date and time that the job was last updated, in ISO 8601 format.
 jobEntry_updatedAt :: Lens' JobEntry UTCTime
-instance GHC.Generics.Generic Network.AWS.DataExchange.Types.JobEntry.JobEntry
-instance GHC.Show.Show Network.AWS.DataExchange.Types.JobEntry.JobEntry
-instance GHC.Read.Read Network.AWS.DataExchange.Types.JobEntry.JobEntry
-instance GHC.Classes.Eq Network.AWS.DataExchange.Types.JobEntry.JobEntry
-instance Data.Aeson.Types.FromJSON.FromJSON Network.AWS.DataExchange.Types.JobEntry.JobEntry
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.Types.JobEntry.JobEntry
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.Types.JobEntry.JobEntry
+instance GHC.Generics.Generic Amazonka.DataExchange.Types.JobEntry.JobEntry
+instance GHC.Show.Show Amazonka.DataExchange.Types.JobEntry.JobEntry
+instance GHC.Read.Read Amazonka.DataExchange.Types.JobEntry.JobEntry
+instance GHC.Classes.Eq Amazonka.DataExchange.Types.JobEntry.JobEntry
+instance Data.Aeson.Types.FromJSON.FromJSON Amazonka.DataExchange.Types.JobEntry.JobEntry
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.Types.JobEntry.JobEntry
+instance Control.DeepSeq.NFData Amazonka.DataExchange.Types.JobEntry.JobEntry
 
 
-module Network.AWS.DataExchange.Types
+module Amazonka.DataExchange.Types
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Data Exchange SDK
 --   configuration.
@@ -4761,7 +4761,7 @@ s3SnapshotAsset_size :: Lens' S3SnapshotAsset Double
 
 
 -- | This operation tags a resource.
-module Network.AWS.DataExchange.TagResource
+module Amazonka.DataExchange.TagResource
 
 -- | The request body for TagResource.
 --   
@@ -4809,26 +4809,26 @@ TagResourceResponse' :: TagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newTagResourceResponse :: TagResourceResponse
-instance GHC.Generics.Generic Network.AWS.DataExchange.TagResource.TagResource
-instance GHC.Show.Show Network.AWS.DataExchange.TagResource.TagResource
-instance GHC.Read.Read Network.AWS.DataExchange.TagResource.TagResource
-instance GHC.Classes.Eq Network.AWS.DataExchange.TagResource.TagResource
-instance GHC.Generics.Generic Network.AWS.DataExchange.TagResource.TagResourceResponse
-instance GHC.Show.Show Network.AWS.DataExchange.TagResource.TagResourceResponse
-instance GHC.Read.Read Network.AWS.DataExchange.TagResource.TagResourceResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.TagResource.TagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.TagResource.TagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.TagResource.TagResource
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.TagResource.TagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.TagResource.TagResource
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.TagResource.TagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.TagResource.TagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.DataExchange.TagResource.TagResource
+instance GHC.Show.Show Amazonka.DataExchange.TagResource.TagResource
+instance GHC.Read.Read Amazonka.DataExchange.TagResource.TagResource
+instance GHC.Classes.Eq Amazonka.DataExchange.TagResource.TagResource
+instance GHC.Generics.Generic Amazonka.DataExchange.TagResource.TagResourceResponse
+instance GHC.Show.Show Amazonka.DataExchange.TagResource.TagResourceResponse
+instance GHC.Read.Read Amazonka.DataExchange.TagResource.TagResourceResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.TagResource.TagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.DataExchange.TagResource.TagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.TagResource.TagResource
+instance Control.DeepSeq.NFData Amazonka.DataExchange.TagResource.TagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.TagResource.TagResource
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.TagResource.TagResource
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.TagResource.TagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.TagResource.TagResource
 
 
 -- | This operation starts a job.
-module Network.AWS.DataExchange.StartJob
+module Amazonka.DataExchange.StartJob
 
 -- | <i>See:</i> <a>newStartJob</a> smart constructor.
 data StartJob
@@ -4874,26 +4874,26 @@ newStartJobResponse :: Int -> StartJobResponse
 
 -- | The response's http status code.
 startJobResponse_httpStatus :: Lens' StartJobResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.StartJob.StartJob
-instance GHC.Show.Show Network.AWS.DataExchange.StartJob.StartJob
-instance GHC.Read.Read Network.AWS.DataExchange.StartJob.StartJob
-instance GHC.Classes.Eq Network.AWS.DataExchange.StartJob.StartJob
-instance GHC.Generics.Generic Network.AWS.DataExchange.StartJob.StartJobResponse
-instance GHC.Show.Show Network.AWS.DataExchange.StartJob.StartJobResponse
-instance GHC.Read.Read Network.AWS.DataExchange.StartJob.StartJobResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.StartJob.StartJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.StartJob.StartJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.StartJob.StartJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.StartJob.StartJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.StartJob.StartJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.StartJob.StartJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.StartJob.StartJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.StartJob.StartJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.StartJob.StartJob
+instance GHC.Generics.Generic Amazonka.DataExchange.StartJob.StartJob
+instance GHC.Show.Show Amazonka.DataExchange.StartJob.StartJob
+instance GHC.Read.Read Amazonka.DataExchange.StartJob.StartJob
+instance GHC.Classes.Eq Amazonka.DataExchange.StartJob.StartJob
+instance GHC.Generics.Generic Amazonka.DataExchange.StartJob.StartJobResponse
+instance GHC.Show.Show Amazonka.DataExchange.StartJob.StartJobResponse
+instance GHC.Read.Read Amazonka.DataExchange.StartJob.StartJobResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.StartJob.StartJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.StartJob.StartJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.StartJob.StartJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.StartJob.StartJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.StartJob.StartJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.StartJob.StartJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.StartJob.StartJob
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.StartJob.StartJob
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.StartJob.StartJob
 
 
 -- | This operation lists the tags on the resource.
-module Network.AWS.DataExchange.ListTagsForResource
+module Amazonka.DataExchange.ListTagsForResource
 
 -- | <i>See:</i> <a>newListTagsForResource</a> smart constructor.
 data ListTagsForResource
@@ -4954,28 +4954,28 @@ listTagsForResourceResponse_tags :: Lens' ListTagsForResourceResponse (Maybe (Ha
 
 -- | The response's http status code.
 listTagsForResourceResponse_httpStatus :: Lens' ListTagsForResourceResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance GHC.Show.Show Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance GHC.Read.Read Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Show.Show Network.AWS.DataExchange.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Read.Read Network.AWS.DataExchange.ListTagsForResource.ListTagsForResourceResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListTagsForResource.ListTagsForResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListTagsForResource.ListTagsForResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance GHC.Show.Show Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance GHC.Read.Read Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance GHC.Classes.Eq Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance GHC.Generics.Generic Amazonka.DataExchange.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Show.Show Amazonka.DataExchange.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Read.Read Amazonka.DataExchange.ListTagsForResource.ListTagsForResourceResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.ListTagsForResource.ListTagsForResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListTagsForResource.ListTagsForResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.ListTagsForResource.ListTagsForResource
 
 
 -- | This operation lists a revision's assets sorted alphabetically in
 --   descending order.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataExchange.ListRevisionAssets
+module Amazonka.DataExchange.ListRevisionAssets
 
 -- | <i>See:</i> <a>newListRevisionAssets</a> smart constructor.
 data ListRevisionAssets
@@ -5078,29 +5078,29 @@ listRevisionAssetsResponse_assets :: Lens' ListRevisionAssetsResponse (Maybe [As
 
 -- | The response's http status code.
 listRevisionAssetsResponse_httpStatus :: Lens' ListRevisionAssetsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance GHC.Show.Show Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance GHC.Read.Read Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
-instance GHC.Show.Show Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
-instance GHC.Read.Read Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance GHC.Generics.Generic Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance GHC.Show.Show Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance GHC.Read.Read Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance GHC.Classes.Eq Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance GHC.Generics.Generic Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
+instance GHC.Show.Show Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
+instance GHC.Read.Read Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.ListRevisionAssets.ListRevisionAssets
 
 
 -- | This operation lists your jobs sorted by CreatedAt in descending
 --   order.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataExchange.ListJobs
+module Amazonka.DataExchange.ListJobs
 
 -- | <i>See:</i> <a>newListJobs</a> smart constructor.
 data ListJobs
@@ -5197,28 +5197,28 @@ listJobsResponse_jobs :: Lens' ListJobsResponse (Maybe [JobEntry])
 
 -- | The response's http status code.
 listJobsResponse_httpStatus :: Lens' ListJobsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListJobs.ListJobs
-instance GHC.Show.Show Network.AWS.DataExchange.ListJobs.ListJobs
-instance GHC.Read.Read Network.AWS.DataExchange.ListJobs.ListJobs
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListJobs.ListJobs
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListJobs.ListJobsResponse
-instance GHC.Show.Show Network.AWS.DataExchange.ListJobs.ListJobsResponse
-instance GHC.Read.Read Network.AWS.DataExchange.ListJobs.ListJobsResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListJobs.ListJobsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListJobs.ListJobsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataExchange.ListJobs.ListJobs
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.ListJobs.ListJobs
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListJobs.ListJobs
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.ListJobs.ListJobs
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.ListJobs.ListJobs
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.DataExchange.ListJobs.ListJobs
+instance GHC.Show.Show Amazonka.DataExchange.ListJobs.ListJobs
+instance GHC.Read.Read Amazonka.DataExchange.ListJobs.ListJobs
+instance GHC.Classes.Eq Amazonka.DataExchange.ListJobs.ListJobs
+instance GHC.Generics.Generic Amazonka.DataExchange.ListJobs.ListJobsResponse
+instance GHC.Show.Show Amazonka.DataExchange.ListJobs.ListJobsResponse
+instance GHC.Read.Read Amazonka.DataExchange.ListJobs.ListJobsResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.ListJobs.ListJobsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListJobs.ListJobsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataExchange.ListJobs.ListJobs
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.ListJobs.ListJobs
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListJobs.ListJobs
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.ListJobs.ListJobs
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.ListJobs.ListJobs
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.ListJobs.ListJobs
 
 
 -- | This operation lists your event actions.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataExchange.ListEventActions
+module Amazonka.DataExchange.ListEventActions
 
 -- | <i>See:</i> <a>newListEventActions</a> smart constructor.
 data ListEventActions
@@ -5311,22 +5311,22 @@ listEventActionsResponse_nextToken :: Lens' ListEventActionsResponse (Maybe Text
 
 -- | The response's http status code.
 listEventActionsResponse_httpStatus :: Lens' ListEventActionsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance GHC.Show.Show Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance GHC.Read.Read Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListEventActions.ListEventActionsResponse
-instance GHC.Show.Show Network.AWS.DataExchange.ListEventActions.ListEventActionsResponse
-instance GHC.Read.Read Network.AWS.DataExchange.ListEventActions.ListEventActionsResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListEventActions.ListEventActionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListEventActions.ListEventActionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.ListEventActions.ListEventActions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.ListEventActions.ListEventActions
+instance GHC.Generics.Generic Amazonka.DataExchange.ListEventActions.ListEventActions
+instance GHC.Show.Show Amazonka.DataExchange.ListEventActions.ListEventActions
+instance GHC.Read.Read Amazonka.DataExchange.ListEventActions.ListEventActions
+instance GHC.Classes.Eq Amazonka.DataExchange.ListEventActions.ListEventActions
+instance GHC.Generics.Generic Amazonka.DataExchange.ListEventActions.ListEventActionsResponse
+instance GHC.Show.Show Amazonka.DataExchange.ListEventActions.ListEventActionsResponse
+instance GHC.Read.Read Amazonka.DataExchange.ListEventActions.ListEventActionsResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.ListEventActions.ListEventActionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.ListEventActions.ListEventActions
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListEventActions.ListEventActionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataExchange.ListEventActions.ListEventActions
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.ListEventActions.ListEventActions
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListEventActions.ListEventActions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.ListEventActions.ListEventActions
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.ListEventActions.ListEventActions
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.ListEventActions.ListEventActions
 
 
 -- | This operation lists your data sets. When listing by origin OWNED,
@@ -5335,7 +5335,7 @@ instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.ListEventAction
 --   ignored.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataExchange.ListDataSets
+module Amazonka.DataExchange.ListDataSets
 
 -- | <i>See:</i> <a>newListDataSets</a> smart constructor.
 data ListDataSets
@@ -5429,29 +5429,29 @@ listDataSetsResponse_dataSets :: Lens' ListDataSetsResponse (Maybe [DataSetEntry
 
 -- | The response's http status code.
 listDataSetsResponse_httpStatus :: Lens' ListDataSetsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance GHC.Show.Show Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance GHC.Read.Read Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListDataSets.ListDataSetsResponse
-instance GHC.Show.Show Network.AWS.DataExchange.ListDataSets.ListDataSetsResponse
-instance GHC.Read.Read Network.AWS.DataExchange.ListDataSets.ListDataSetsResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListDataSets.ListDataSetsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListDataSets.ListDataSetsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.ListDataSets.ListDataSets
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.ListDataSets.ListDataSets
+instance GHC.Generics.Generic Amazonka.DataExchange.ListDataSets.ListDataSets
+instance GHC.Show.Show Amazonka.DataExchange.ListDataSets.ListDataSets
+instance GHC.Read.Read Amazonka.DataExchange.ListDataSets.ListDataSets
+instance GHC.Classes.Eq Amazonka.DataExchange.ListDataSets.ListDataSets
+instance GHC.Generics.Generic Amazonka.DataExchange.ListDataSets.ListDataSetsResponse
+instance GHC.Show.Show Amazonka.DataExchange.ListDataSets.ListDataSetsResponse
+instance GHC.Read.Read Amazonka.DataExchange.ListDataSets.ListDataSetsResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.ListDataSets.ListDataSetsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.ListDataSets.ListDataSets
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListDataSets.ListDataSetsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataExchange.ListDataSets.ListDataSets
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.ListDataSets.ListDataSets
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListDataSets.ListDataSets
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.ListDataSets.ListDataSets
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.ListDataSets.ListDataSets
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.ListDataSets.ListDataSets
 
 
 -- | This operation lists a data set's revisions sorted by CreatedAt in
 --   descending order.
 --   
 --   This operation returns paginated results.
-module Network.AWS.DataExchange.ListDataSetRevisions
+module Amazonka.DataExchange.ListDataSetRevisions
 
 -- | <i>See:</i> <a>newListDataSetRevisions</a> smart constructor.
 data ListDataSetRevisions
@@ -5544,26 +5544,26 @@ listDataSetRevisionsResponse_revisions :: Lens' ListDataSetRevisionsResponse (Ma
 
 -- | The response's http status code.
 listDataSetRevisionsResponse_httpStatus :: Lens' ListDataSetRevisionsResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance GHC.Show.Show Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance GHC.Read.Read Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance GHC.Generics.Generic Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
-instance GHC.Show.Show Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
-instance GHC.Read.Read Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
-instance Network.AWS.Pager.AWSPager Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance GHC.Generics.Generic Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance GHC.Show.Show Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance GHC.Read.Read Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance GHC.Classes.Eq Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance GHC.Generics.Generic Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
+instance GHC.Show.Show Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
+instance GHC.Read.Read Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisionsResponse
+instance Amazonka.Pager.AWSPager Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance Control.DeepSeq.NFData Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.ListDataSetRevisions.ListDataSetRevisions
 
 
 -- | This operation returns information about a revision.
-module Network.AWS.DataExchange.GetRevision
+module Amazonka.DataExchange.GetRevision
 
 -- | <i>See:</i> <a>newGetRevision</a> smart constructor.
 data GetRevision
@@ -5738,25 +5738,25 @@ getRevisionResponse_tags :: Lens' GetRevisionResponse (Maybe (HashMap Text Text)
 
 -- | The response's http status code.
 getRevisionResponse_httpStatus :: Lens' GetRevisionResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetRevision.GetRevision
-instance GHC.Show.Show Network.AWS.DataExchange.GetRevision.GetRevision
-instance GHC.Read.Read Network.AWS.DataExchange.GetRevision.GetRevision
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetRevision.GetRevision
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetRevision.GetRevisionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.GetRevision.GetRevisionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.GetRevision.GetRevisionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetRevision.GetRevisionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.GetRevision.GetRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetRevision.GetRevisionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.GetRevision.GetRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetRevision.GetRevision
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.GetRevision.GetRevision
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.GetRevision.GetRevision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.GetRevision.GetRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.GetRevision.GetRevision
+instance GHC.Show.Show Amazonka.DataExchange.GetRevision.GetRevision
+instance GHC.Read.Read Amazonka.DataExchange.GetRevision.GetRevision
+instance GHC.Classes.Eq Amazonka.DataExchange.GetRevision.GetRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.GetRevision.GetRevisionResponse
+instance GHC.Show.Show Amazonka.DataExchange.GetRevision.GetRevisionResponse
+instance GHC.Read.Read Amazonka.DataExchange.GetRevision.GetRevisionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.GetRevision.GetRevisionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.GetRevision.GetRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetRevision.GetRevisionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.GetRevision.GetRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetRevision.GetRevision
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.GetRevision.GetRevision
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.GetRevision.GetRevision
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.GetRevision.GetRevision
 
 
 -- | This operation returns information about a job.
-module Network.AWS.DataExchange.GetJob
+module Amazonka.DataExchange.GetJob
 
 -- | <i>See:</i> <a>newGetJob</a> smart constructor.
 data GetJob
@@ -5874,25 +5874,25 @@ getJobResponse_errors :: Lens' GetJobResponse (Maybe [JobError])
 
 -- | The response's http status code.
 getJobResponse_httpStatus :: Lens' GetJobResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetJob.GetJob
-instance GHC.Show.Show Network.AWS.DataExchange.GetJob.GetJob
-instance GHC.Read.Read Network.AWS.DataExchange.GetJob.GetJob
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetJob.GetJob
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetJob.GetJobResponse
-instance GHC.Show.Show Network.AWS.DataExchange.GetJob.GetJobResponse
-instance GHC.Read.Read Network.AWS.DataExchange.GetJob.GetJobResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetJob.GetJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.GetJob.GetJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetJob.GetJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.GetJob.GetJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetJob.GetJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.GetJob.GetJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.GetJob.GetJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.GetJob.GetJob
+instance GHC.Generics.Generic Amazonka.DataExchange.GetJob.GetJob
+instance GHC.Show.Show Amazonka.DataExchange.GetJob.GetJob
+instance GHC.Read.Read Amazonka.DataExchange.GetJob.GetJob
+instance GHC.Classes.Eq Amazonka.DataExchange.GetJob.GetJob
+instance GHC.Generics.Generic Amazonka.DataExchange.GetJob.GetJobResponse
+instance GHC.Show.Show Amazonka.DataExchange.GetJob.GetJobResponse
+instance GHC.Read.Read Amazonka.DataExchange.GetJob.GetJobResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.GetJob.GetJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.GetJob.GetJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetJob.GetJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.GetJob.GetJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetJob.GetJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.GetJob.GetJob
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.GetJob.GetJob
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.GetJob.GetJob
 
 
 -- | This operation retrieves information about an event action.
-module Network.AWS.DataExchange.GetEventAction
+module Amazonka.DataExchange.GetEventAction
 
 -- | <i>See:</i> <a>newGetEventAction</a> smart constructor.
 data GetEventAction
@@ -6003,25 +6003,25 @@ getEventActionResponse_updatedAt :: Lens' GetEventActionResponse (Maybe UTCTime)
 
 -- | The response's http status code.
 getEventActionResponse_httpStatus :: Lens' GetEventActionResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance GHC.Show.Show Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance GHC.Read.Read Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetEventAction.GetEventActionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.GetEventAction.GetEventActionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.GetEventAction.GetEventActionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetEventAction.GetEventActionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetEventAction.GetEventActionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.GetEventAction.GetEventAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.GetEventAction.GetEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.GetEventAction.GetEventAction
+instance GHC.Show.Show Amazonka.DataExchange.GetEventAction.GetEventAction
+instance GHC.Read.Read Amazonka.DataExchange.GetEventAction.GetEventAction
+instance GHC.Classes.Eq Amazonka.DataExchange.GetEventAction.GetEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.GetEventAction.GetEventActionResponse
+instance GHC.Show.Show Amazonka.DataExchange.GetEventAction.GetEventActionResponse
+instance GHC.Read.Read Amazonka.DataExchange.GetEventAction.GetEventActionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.GetEventAction.GetEventActionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.GetEventAction.GetEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetEventAction.GetEventActionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.GetEventAction.GetEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetEventAction.GetEventAction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.GetEventAction.GetEventAction
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.GetEventAction.GetEventAction
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.GetEventAction.GetEventAction
 
 
 -- | This operation returns information about a data set.
-module Network.AWS.DataExchange.GetDataSet
+module Amazonka.DataExchange.GetDataSet
 
 -- | <i>See:</i> <a>newGetDataSet</a> smart constructor.
 data GetDataSet
@@ -6188,25 +6188,25 @@ getDataSetResponse_tags :: Lens' GetDataSetResponse (Maybe (HashMap Text Text))
 
 -- | The response's http status code.
 getDataSetResponse_httpStatus :: Lens' GetDataSetResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance GHC.Show.Show Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance GHC.Read.Read Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetDataSet.GetDataSetResponse
-instance GHC.Show.Show Network.AWS.DataExchange.GetDataSet.GetDataSetResponse
-instance GHC.Read.Read Network.AWS.DataExchange.GetDataSet.GetDataSetResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetDataSet.GetDataSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetDataSet.GetDataSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.GetDataSet.GetDataSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.GetDataSet.GetDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.GetDataSet.GetDataSet
+instance GHC.Show.Show Amazonka.DataExchange.GetDataSet.GetDataSet
+instance GHC.Read.Read Amazonka.DataExchange.GetDataSet.GetDataSet
+instance GHC.Classes.Eq Amazonka.DataExchange.GetDataSet.GetDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.GetDataSet.GetDataSetResponse
+instance GHC.Show.Show Amazonka.DataExchange.GetDataSet.GetDataSetResponse
+instance GHC.Read.Read Amazonka.DataExchange.GetDataSet.GetDataSetResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.GetDataSet.GetDataSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.GetDataSet.GetDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetDataSet.GetDataSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.GetDataSet.GetDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetDataSet.GetDataSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.GetDataSet.GetDataSet
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.GetDataSet.GetDataSet
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.GetDataSet.GetDataSet
 
 
 -- | This operation returns information about an asset.
-module Network.AWS.DataExchange.GetAsset
+module Amazonka.DataExchange.GetAsset
 
 -- | <i>See:</i> <a>newGetAsset</a> smart constructor.
 data GetAsset
@@ -6376,25 +6376,25 @@ getAssetResponse_revisionId :: Lens' GetAssetResponse (Maybe Text)
 
 -- | The response's http status code.
 getAssetResponse_httpStatus :: Lens' GetAssetResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetAsset.GetAsset
-instance GHC.Show.Show Network.AWS.DataExchange.GetAsset.GetAsset
-instance GHC.Read.Read Network.AWS.DataExchange.GetAsset.GetAsset
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetAsset.GetAsset
-instance GHC.Generics.Generic Network.AWS.DataExchange.GetAsset.GetAssetResponse
-instance GHC.Show.Show Network.AWS.DataExchange.GetAsset.GetAssetResponse
-instance GHC.Read.Read Network.AWS.DataExchange.GetAsset.GetAssetResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.GetAsset.GetAssetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.GetAsset.GetAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetAsset.GetAssetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.GetAsset.GetAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.GetAsset.GetAsset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.GetAsset.GetAsset
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.GetAsset.GetAsset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.GetAsset.GetAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.GetAsset.GetAsset
+instance GHC.Show.Show Amazonka.DataExchange.GetAsset.GetAsset
+instance GHC.Read.Read Amazonka.DataExchange.GetAsset.GetAsset
+instance GHC.Classes.Eq Amazonka.DataExchange.GetAsset.GetAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.GetAsset.GetAssetResponse
+instance GHC.Show.Show Amazonka.DataExchange.GetAsset.GetAssetResponse
+instance GHC.Read.Read Amazonka.DataExchange.GetAsset.GetAssetResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.GetAsset.GetAssetResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.GetAsset.GetAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetAsset.GetAssetResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.GetAsset.GetAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.GetAsset.GetAsset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.GetAsset.GetAsset
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.GetAsset.GetAsset
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.GetAsset.GetAsset
 
 
 -- | This operation deletes a revision.
-module Network.AWS.DataExchange.DeleteRevision
+module Amazonka.DataExchange.DeleteRevision
 
 -- | <i>See:</i> <a>newDeleteRevision</a> smart constructor.
 data DeleteRevision
@@ -6439,25 +6439,25 @@ DeleteRevisionResponse' :: DeleteRevisionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteRevisionResponse :: DeleteRevisionResponse
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteRevision.DeleteRevisionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteRevision.DeleteRevisionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteRevision.DeleteRevisionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteRevision.DeleteRevisionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteRevision.DeleteRevisionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.DeleteRevision.DeleteRevision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.DeleteRevision.DeleteRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance GHC.Show.Show Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance GHC.Read.Read Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteRevision.DeleteRevisionResponse
+instance GHC.Show.Show Amazonka.DataExchange.DeleteRevision.DeleteRevisionResponse
+instance GHC.Read.Read Amazonka.DataExchange.DeleteRevision.DeleteRevisionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteRevision.DeleteRevisionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteRevision.DeleteRevisionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.DeleteRevision.DeleteRevision
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.DeleteRevision.DeleteRevision
 
 
 -- | This operation deletes the event action.
-module Network.AWS.DataExchange.DeleteEventAction
+module Amazonka.DataExchange.DeleteEventAction
 
 -- | <i>See:</i> <a>newDeleteEventAction</a> smart constructor.
 data DeleteEventAction
@@ -6493,25 +6493,25 @@ DeleteEventActionResponse' :: DeleteEventActionResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteEventActionResponse :: DeleteEventActionResponse
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteEventAction.DeleteEventActionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteEventAction.DeleteEventActionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteEventAction.DeleteEventActionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteEventAction.DeleteEventActionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteEventAction.DeleteEventActionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.DeleteEventAction.DeleteEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance GHC.Show.Show Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance GHC.Read.Read Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteEventAction.DeleteEventActionResponse
+instance GHC.Show.Show Amazonka.DataExchange.DeleteEventAction.DeleteEventActionResponse
+instance GHC.Read.Read Amazonka.DataExchange.DeleteEventAction.DeleteEventActionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteEventAction.DeleteEventActionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteEventAction.DeleteEventActionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.DeleteEventAction.DeleteEventAction
 
 
 -- | This operation deletes a data set.
-module Network.AWS.DataExchange.DeleteDataSet
+module Amazonka.DataExchange.DeleteDataSet
 
 -- | <i>See:</i> <a>newDeleteDataSet</a> smart constructor.
 data DeleteDataSet
@@ -6546,25 +6546,25 @@ DeleteDataSetResponse' :: DeleteDataSetResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteDataSetResponse :: DeleteDataSetResponse
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteDataSet.DeleteDataSetResponse
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteDataSet.DeleteDataSetResponse
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteDataSet.DeleteDataSetResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteDataSet.DeleteDataSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteDataSet.DeleteDataSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.DeleteDataSet.DeleteDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance GHC.Show.Show Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance GHC.Read.Read Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteDataSet.DeleteDataSetResponse
+instance GHC.Show.Show Amazonka.DataExchange.DeleteDataSet.DeleteDataSetResponse
+instance GHC.Read.Read Amazonka.DataExchange.DeleteDataSet.DeleteDataSetResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteDataSet.DeleteDataSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteDataSet.DeleteDataSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.DeleteDataSet.DeleteDataSet
 
 
 -- | This operation deletes an asset.
-module Network.AWS.DataExchange.DeleteAsset
+module Amazonka.DataExchange.DeleteAsset
 
 -- | <i>See:</i> <a>newDeleteAsset</a> smart constructor.
 data DeleteAsset
@@ -6616,25 +6616,25 @@ DeleteAssetResponse' :: DeleteAssetResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newDeleteAssetResponse :: DeleteAssetResponse
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance GHC.Generics.Generic Network.AWS.DataExchange.DeleteAsset.DeleteAssetResponse
-instance GHC.Show.Show Network.AWS.DataExchange.DeleteAsset.DeleteAssetResponse
-instance GHC.Read.Read Network.AWS.DataExchange.DeleteAsset.DeleteAssetResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.DeleteAsset.DeleteAssetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteAsset.DeleteAssetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.DeleteAsset.DeleteAsset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.DeleteAsset.DeleteAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance GHC.Show.Show Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance GHC.Read.Read Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.DeleteAsset.DeleteAssetResponse
+instance GHC.Show.Show Amazonka.DataExchange.DeleteAsset.DeleteAssetResponse
+instance GHC.Read.Read Amazonka.DataExchange.DeleteAsset.DeleteAssetResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.DeleteAsset.DeleteAssetResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteAsset.DeleteAssetResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.DeleteAsset.DeleteAsset
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.DeleteAsset.DeleteAsset
 
 
 -- | This operation creates a revision for a data set.
-module Network.AWS.DataExchange.CreateRevision
+module Amazonka.DataExchange.CreateRevision
 
 -- | The request body for CreateRevision.
 --   
@@ -6834,26 +6834,26 @@ createRevisionResponse_tags :: Lens' CreateRevisionResponse (Maybe (HashMap Text
 
 -- | The response's http status code.
 createRevisionResponse_httpStatus :: Lens' CreateRevisionResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance GHC.Show.Show Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance GHC.Read.Read Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateRevision.CreateRevisionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.CreateRevision.CreateRevisionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.CreateRevision.CreateRevisionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateRevision.CreateRevisionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateRevision.CreateRevisionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.CreateRevision.CreateRevision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.CreateRevision.CreateRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateRevision.CreateRevision
+instance GHC.Show.Show Amazonka.DataExchange.CreateRevision.CreateRevision
+instance GHC.Read.Read Amazonka.DataExchange.CreateRevision.CreateRevision
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateRevision.CreateRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateRevision.CreateRevisionResponse
+instance GHC.Show.Show Amazonka.DataExchange.CreateRevision.CreateRevisionResponse
+instance GHC.Read.Read Amazonka.DataExchange.CreateRevision.CreateRevisionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateRevision.CreateRevisionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.CreateRevision.CreateRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateRevision.CreateRevisionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.CreateRevision.CreateRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateRevision.CreateRevision
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.CreateRevision.CreateRevision
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.CreateRevision.CreateRevision
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.CreateRevision.CreateRevision
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.CreateRevision.CreateRevision
 
 
 -- | This operation creates a job.
-module Network.AWS.DataExchange.CreateJob
+module Amazonka.DataExchange.CreateJob
 
 -- | The request body for CreateJob.
 --   
@@ -6984,26 +6984,26 @@ createJobResponse_errors :: Lens' CreateJobResponse (Maybe [JobError])
 
 -- | The response's http status code.
 createJobResponse_httpStatus :: Lens' CreateJobResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateJob.CreateJob
-instance GHC.Show.Show Network.AWS.DataExchange.CreateJob.CreateJob
-instance GHC.Read.Read Network.AWS.DataExchange.CreateJob.CreateJob
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateJob.CreateJob
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateJob.CreateJobResponse
-instance GHC.Show.Show Network.AWS.DataExchange.CreateJob.CreateJobResponse
-instance GHC.Read.Read Network.AWS.DataExchange.CreateJob.CreateJobResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateJob.CreateJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateJob.CreateJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.CreateJob.CreateJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateJob.CreateJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.CreateJob.CreateJob
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.CreateJob.CreateJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.CreateJob.CreateJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateJob.CreateJob
+instance GHC.Show.Show Amazonka.DataExchange.CreateJob.CreateJob
+instance GHC.Read.Read Amazonka.DataExchange.CreateJob.CreateJob
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateJob.CreateJob
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateJob.CreateJobResponse
+instance GHC.Show.Show Amazonka.DataExchange.CreateJob.CreateJobResponse
+instance GHC.Read.Read Amazonka.DataExchange.CreateJob.CreateJobResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateJob.CreateJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateJob.CreateJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.CreateJob.CreateJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateJob.CreateJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.CreateJob.CreateJob
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.CreateJob.CreateJob
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.CreateJob.CreateJob
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.CreateJob.CreateJob
 
 
 -- | This operation creates an event action.
-module Network.AWS.DataExchange.CreateEventAction
+module Amazonka.DataExchange.CreateEventAction
 
 -- | The request body for CreateEventAction.
 --   
@@ -7125,26 +7125,26 @@ createEventActionResponse_updatedAt :: Lens' CreateEventActionResponse (Maybe UT
 
 -- | The response's http status code.
 createEventActionResponse_httpStatus :: Lens' CreateEventActionResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance GHC.Show.Show Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance GHC.Read.Read Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateEventAction.CreateEventActionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.CreateEventAction.CreateEventActionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.CreateEventAction.CreateEventActionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateEventAction.CreateEventActionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateEventAction.CreateEventActionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.CreateEventAction.CreateEventAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.CreateEventAction.CreateEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance GHC.Show.Show Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance GHC.Read.Read Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateEventAction.CreateEventActionResponse
+instance GHC.Show.Show Amazonka.DataExchange.CreateEventAction.CreateEventActionResponse
+instance GHC.Read.Read Amazonka.DataExchange.CreateEventAction.CreateEventActionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateEventAction.CreateEventActionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateEventAction.CreateEventActionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.CreateEventAction.CreateEventAction
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.CreateEventAction.CreateEventAction
 
 
 -- | This operation creates a data set.
-module Network.AWS.DataExchange.CreateDataSet
+module Amazonka.DataExchange.CreateDataSet
 
 -- | The request body for CreateDataSet.
 --   
@@ -7356,27 +7356,27 @@ createDataSetResponse_tags :: Lens' CreateDataSetResponse (Maybe (HashMap Text T
 
 -- | The response's http status code.
 createDataSetResponse_httpStatus :: Lens' CreateDataSetResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance GHC.Show.Show Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance GHC.Read.Read Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance GHC.Generics.Generic Network.AWS.DataExchange.CreateDataSet.CreateDataSetResponse
-instance GHC.Show.Show Network.AWS.DataExchange.CreateDataSet.CreateDataSetResponse
-instance GHC.Read.Read Network.AWS.DataExchange.CreateDataSet.CreateDataSetResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.CreateDataSet.CreateDataSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateDataSet.CreateDataSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.CreateDataSet.CreateDataSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.CreateDataSet.CreateDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance GHC.Show.Show Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance GHC.Read.Read Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.CreateDataSet.CreateDataSetResponse
+instance GHC.Show.Show Amazonka.DataExchange.CreateDataSet.CreateDataSetResponse
+instance GHC.Read.Read Amazonka.DataExchange.CreateDataSet.CreateDataSetResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.CreateDataSet.CreateDataSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateDataSet.CreateDataSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.CreateDataSet.CreateDataSet
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.CreateDataSet.CreateDataSet
 
 
 -- | This operation cancels a job. Jobs can be cancelled only when they are
 --   in the WAITING state.
-module Network.AWS.DataExchange.CancelJob
+module Amazonka.DataExchange.CancelJob
 
 -- | <i>See:</i> <a>newCancelJob</a> smart constructor.
 data CancelJob
@@ -7410,25 +7410,25 @@ CancelJobResponse' :: CancelJobResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newCancelJobResponse :: CancelJobResponse
-instance GHC.Generics.Generic Network.AWS.DataExchange.CancelJob.CancelJob
-instance GHC.Show.Show Network.AWS.DataExchange.CancelJob.CancelJob
-instance GHC.Read.Read Network.AWS.DataExchange.CancelJob.CancelJob
-instance GHC.Classes.Eq Network.AWS.DataExchange.CancelJob.CancelJob
-instance GHC.Generics.Generic Network.AWS.DataExchange.CancelJob.CancelJobResponse
-instance GHC.Show.Show Network.AWS.DataExchange.CancelJob.CancelJobResponse
-instance GHC.Read.Read Network.AWS.DataExchange.CancelJob.CancelJobResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.CancelJob.CancelJobResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CancelJob.CancelJobResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.CancelJob.CancelJob
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.CancelJob.CancelJob
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.CancelJob.CancelJob
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.CancelJob.CancelJob
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.DataExchange.CancelJob.CancelJob
+instance GHC.Show.Show Amazonka.DataExchange.CancelJob.CancelJob
+instance GHC.Read.Read Amazonka.DataExchange.CancelJob.CancelJob
+instance GHC.Classes.Eq Amazonka.DataExchange.CancelJob.CancelJob
+instance GHC.Generics.Generic Amazonka.DataExchange.CancelJob.CancelJobResponse
+instance GHC.Show.Show Amazonka.DataExchange.CancelJob.CancelJobResponse
+instance GHC.Read.Read Amazonka.DataExchange.CancelJob.CancelJobResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.CancelJob.CancelJobResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CancelJob.CancelJobResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.CancelJob.CancelJob
+instance Control.DeepSeq.NFData Amazonka.DataExchange.CancelJob.CancelJob
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.CancelJob.CancelJob
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.CancelJob.CancelJob
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.CancelJob.CancelJob
 
 
 -- | This operation removes one or more tags from a resource.
-module Network.AWS.DataExchange.UntagResource
+module Amazonka.DataExchange.UntagResource
 
 -- | <i>See:</i> <a>newUntagResource</a> smart constructor.
 data UntagResource
@@ -7475,25 +7475,25 @@ UntagResourceResponse' :: UntagResourceResponse
 --   Use <a>generic-lens</a> or <a>optics</a> to modify other optional
 --   fields.
 newUntagResourceResponse :: UntagResourceResponse
-instance GHC.Generics.Generic Network.AWS.DataExchange.UntagResource.UntagResource
-instance GHC.Show.Show Network.AWS.DataExchange.UntagResource.UntagResource
-instance GHC.Read.Read Network.AWS.DataExchange.UntagResource.UntagResource
-instance GHC.Classes.Eq Network.AWS.DataExchange.UntagResource.UntagResource
-instance GHC.Generics.Generic Network.AWS.DataExchange.UntagResource.UntagResourceResponse
-instance GHC.Show.Show Network.AWS.DataExchange.UntagResource.UntagResourceResponse
-instance GHC.Read.Read Network.AWS.DataExchange.UntagResource.UntagResourceResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.UntagResource.UntagResourceResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UntagResource.UntagResourceResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.UntagResource.UntagResource
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UntagResource.UntagResource
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.UntagResource.UntagResource
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.UntagResource.UntagResource
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.DataExchange.UntagResource.UntagResource
+instance GHC.Show.Show Amazonka.DataExchange.UntagResource.UntagResource
+instance GHC.Read.Read Amazonka.DataExchange.UntagResource.UntagResource
+instance GHC.Classes.Eq Amazonka.DataExchange.UntagResource.UntagResource
+instance GHC.Generics.Generic Amazonka.DataExchange.UntagResource.UntagResourceResponse
+instance GHC.Show.Show Amazonka.DataExchange.UntagResource.UntagResourceResponse
+instance GHC.Read.Read Amazonka.DataExchange.UntagResource.UntagResourceResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.UntagResource.UntagResourceResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UntagResource.UntagResourceResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.UntagResource.UntagResource
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UntagResource.UntagResource
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.UntagResource.UntagResource
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.UntagResource.UntagResource
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.UntagResource.UntagResource
 
 
 -- | This operation updates an asset.
-module Network.AWS.DataExchange.UpdateAsset
+module Amazonka.DataExchange.UpdateAsset
 
 -- | The request body for UpdateAsset.
 --   
@@ -7683,26 +7683,26 @@ updateAssetResponse_revisionId :: Lens' UpdateAssetResponse (Maybe Text)
 
 -- | The response's http status code.
 updateAssetResponse_httpStatus :: Lens' UpdateAssetResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateAsset.UpdateAssetResponse
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateAsset.UpdateAssetResponse
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateAsset.UpdateAssetResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateAsset.UpdateAssetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateAsset.UpdateAssetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.UpdateAsset.UpdateAsset
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.UpdateAsset.UpdateAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance GHC.Show.Show Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance GHC.Read.Read Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateAsset.UpdateAssetResponse
+instance GHC.Show.Show Amazonka.DataExchange.UpdateAsset.UpdateAssetResponse
+instance GHC.Read.Read Amazonka.DataExchange.UpdateAsset.UpdateAssetResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateAsset.UpdateAssetResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateAsset.UpdateAssetResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.UpdateAsset.UpdateAsset
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.UpdateAsset.UpdateAsset
 
 
 -- | This operation updates a data set.
-module Network.AWS.DataExchange.UpdateDataSet
+module Amazonka.DataExchange.UpdateDataSet
 
 -- | The request body for UpdateDataSet.
 --   
@@ -7881,26 +7881,26 @@ updateDataSetResponse_description :: Lens' UpdateDataSetResponse (Maybe Text)
 
 -- | The response's http status code.
 updateDataSetResponse_httpStatus :: Lens' UpdateDataSetResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateDataSet.UpdateDataSetResponse
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateDataSet.UpdateDataSetResponse
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateDataSet.UpdateDataSetResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateDataSet.UpdateDataSetResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateDataSet.UpdateDataSetResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.UpdateDataSet.UpdateDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance GHC.Show.Show Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance GHC.Read.Read Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateDataSet.UpdateDataSetResponse
+instance GHC.Show.Show Amazonka.DataExchange.UpdateDataSet.UpdateDataSetResponse
+instance GHC.Read.Read Amazonka.DataExchange.UpdateDataSet.UpdateDataSetResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateDataSet.UpdateDataSetResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateDataSet.UpdateDataSetResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.UpdateDataSet.UpdateDataSet
 
 
 -- | This operation updates the event action.
-module Network.AWS.DataExchange.UpdateEventAction
+module Amazonka.DataExchange.UpdateEventAction
 
 -- | The request body for UpdateEventAction.
 --   
@@ -8023,26 +8023,26 @@ updateEventActionResponse_updatedAt :: Lens' UpdateEventActionResponse (Maybe UT
 
 -- | The response's http status code.
 updateEventActionResponse_httpStatus :: Lens' UpdateEventActionResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateEventAction.UpdateEventActionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateEventAction.UpdateEventActionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateEventAction.UpdateEventActionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateEventAction.UpdateEventActionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateEventAction.UpdateEventActionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.UpdateEventAction.UpdateEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance GHC.Show.Show Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance GHC.Read.Read Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateEventAction.UpdateEventActionResponse
+instance GHC.Show.Show Amazonka.DataExchange.UpdateEventAction.UpdateEventActionResponse
+instance GHC.Read.Read Amazonka.DataExchange.UpdateEventAction.UpdateEventActionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateEventAction.UpdateEventActionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateEventAction.UpdateEventActionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.UpdateEventAction.UpdateEventAction
 
 
 -- | This operation updates a revision.
-module Network.AWS.DataExchange.UpdateRevision
+module Amazonka.DataExchange.UpdateRevision
 
 -- | The request body for UpdateRevision.
 --   
@@ -8237,25 +8237,25 @@ updateRevisionResponse_comment :: Lens' UpdateRevisionResponse (Maybe Text)
 
 -- | The response's http status code.
 updateRevisionResponse_httpStatus :: Lens' UpdateRevisionResponse Int
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance GHC.Generics.Generic Network.AWS.DataExchange.UpdateRevision.UpdateRevisionResponse
-instance GHC.Show.Show Network.AWS.DataExchange.UpdateRevision.UpdateRevisionResponse
-instance GHC.Read.Read Network.AWS.DataExchange.UpdateRevision.UpdateRevisionResponse
-instance GHC.Classes.Eq Network.AWS.DataExchange.UpdateRevision.UpdateRevisionResponse
-instance Network.AWS.Types.AWSRequest Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateRevision.UpdateRevisionResponse
-instance Data.Hashable.Class.Hashable Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance Control.DeepSeq.NFData Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance Network.AWS.Data.Headers.ToHeaders Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance Data.Aeson.Types.ToJSON.ToJSON Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance Network.AWS.Data.Path.ToPath Network.AWS.DataExchange.UpdateRevision.UpdateRevision
-instance Network.AWS.Data.Query.ToQuery Network.AWS.DataExchange.UpdateRevision.UpdateRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance GHC.Show.Show Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance GHC.Read.Read Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance GHC.Generics.Generic Amazonka.DataExchange.UpdateRevision.UpdateRevisionResponse
+instance GHC.Show.Show Amazonka.DataExchange.UpdateRevision.UpdateRevisionResponse
+instance GHC.Read.Read Amazonka.DataExchange.UpdateRevision.UpdateRevisionResponse
+instance GHC.Classes.Eq Amazonka.DataExchange.UpdateRevision.UpdateRevisionResponse
+instance Amazonka.Types.AWSRequest Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateRevision.UpdateRevisionResponse
+instance Data.Hashable.Class.Hashable Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance Control.DeepSeq.NFData Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance Amazonka.Data.Headers.ToHeaders Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance Data.Aeson.Types.ToJSON.ToJSON Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance Amazonka.Data.Path.ToPath Amazonka.DataExchange.UpdateRevision.UpdateRevision
+instance Amazonka.Data.Query.ToQuery Amazonka.DataExchange.UpdateRevision.UpdateRevision
 
 
-module Network.AWS.DataExchange.Lens
+module Amazonka.DataExchange.Lens
 
 -- | The unique identifier for the event action.
 getEventAction_eventActionId :: Lens' GetEventAction Text
@@ -9417,7 +9417,7 @@ revisionPublished_dataSetId :: Lens' RevisionPublished Text
 s3SnapshotAsset_size :: Lens' S3SnapshotAsset Double
 
 
-module Network.AWS.DataExchange.Waiters
+module Amazonka.DataExchange.Waiters
 
 
 -- | Derived from API version <tt>2017-07-25</tt> of the AWS service
@@ -9446,7 +9446,7 @@ module Network.AWS.DataExchange.Waiters
 --   data file, an image file, or some other data file. Jobs are
 --   asynchronous import or export operations used to create or copy
 --   assets.
-module Network.AWS.DataExchange
+module Amazonka.DataExchange
 
 -- | API version <tt>2017-07-25</tt> of the Amazon Data Exchange SDK
 --   configuration.

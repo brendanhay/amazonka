@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.KMS.Types.AlgorithmSpec</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.KMS.Types.AlgorithmSpec</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec"><span class="hs-identifier">AlgorithmSpec</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_OAEP_SHA_1"><span class="hs-identifier">AlgorithmSpec_RSAES_OAEP_SHA_1</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_OAEP_SHA_256"><span class="hs-identifier">AlgorithmSpec_RSAES_OAEP_SHA_256</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_PKCS1_V1_5"><span class="hs-identifier">AlgorithmSpec_RSAES_PKCS1_V1_5</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679246009"><span id="local-6989586621679246010"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AlgorithmSpec"><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec"><span class="hs-identifier hs-var">AlgorithmSpec</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AlgorithmSpec%27"><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec%27"><span class="hs-identifier hs-var">AlgorithmSpec'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAlgorithmSpec"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; Text
+</span><a href="Amazonka.KMS.Types.AlgorithmSpec.html#fromAlgorithmSpec"><span class="hs-identifier hs-var hs-var">fromAlgorithmSpec</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679246001"><span id="local-6989586621679246003"><span id="local-6989586621679246005"><span class="annot"><span class="annottext">Int -&gt; AlgorithmSpec -&gt; ShowS
+[AlgorithmSpec] -&gt; ShowS
+AlgorithmSpec -&gt; String
+(Int -&gt; AlgorithmSpec -&gt; ShowS)
+-&gt; (AlgorithmSpec -&gt; String)
+-&gt; ([AlgorithmSpec] -&gt; ShowS)
+-&gt; Show AlgorithmSpec
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AlgorithmSpec] -&gt; ShowS
+$cshowList :: [AlgorithmSpec] -&gt; ShowS
+show :: AlgorithmSpec -&gt; String
+$cshow :: AlgorithmSpec -&gt; String
+showsPrec :: Int -&gt; AlgorithmSpec -&gt; ShowS
+$cshowsPrec :: Int -&gt; AlgorithmSpec -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679245992"><span id="local-6989586621679245994"><span id="local-6989586621679245996"><span id="local-6989586621679245998"><span class="annot"><span class="annottext">ReadPrec [AlgorithmSpec]
+ReadPrec AlgorithmSpec
+Int -&gt; ReadS AlgorithmSpec
+ReadS [AlgorithmSpec]
+(Int -&gt; ReadS AlgorithmSpec)
+-&gt; ReadS [AlgorithmSpec]
+-&gt; ReadPrec AlgorithmSpec
+-&gt; ReadPrec [AlgorithmSpec]
+-&gt; Read AlgorithmSpec
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AlgorithmSpec]
+$creadListPrec :: ReadPrec [AlgorithmSpec]
+readPrec :: ReadPrec AlgorithmSpec
+$creadPrec :: ReadPrec AlgorithmSpec
+readList :: ReadS [AlgorithmSpec]
+$creadList :: ReadS [AlgorithmSpec]
+readsPrec :: Int -&gt; ReadS AlgorithmSpec
+$creadsPrec :: Int -&gt; ReadS AlgorithmSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679245987"><span id="local-6989586621679245989"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+(AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool)
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool) -&gt; Eq AlgorithmSpec
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+$c/= :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+== :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+$c== :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679245971"><span id="local-6989586621679245973"><span id="local-6989586621679245975"><span id="local-6989586621679245977"><span id="local-6989586621679245979"><span id="local-6989586621679245981"><span id="local-6989586621679245983"><span class="annot"><span class="annottext">Eq AlgorithmSpec
+Eq AlgorithmSpec
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; Ordering)
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool)
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool)
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool)
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool)
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; AlgorithmSpec)
+-&gt; (AlgorithmSpec -&gt; AlgorithmSpec -&gt; AlgorithmSpec)
+-&gt; Ord AlgorithmSpec
+AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+AlgorithmSpec -&gt; AlgorithmSpec -&gt; Ordering
+AlgorithmSpec -&gt; AlgorithmSpec -&gt; AlgorithmSpec
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; AlgorithmSpec
+$cmin :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; AlgorithmSpec
+max :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; AlgorithmSpec
+$cmax :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; AlgorithmSpec
+&gt;= :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+$c&gt;= :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+&gt; :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+$c&gt; :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+&lt;= :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+$c&lt;= :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+&lt; :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+$c&lt; :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Bool
+compare :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Ordering
+$ccompare :: AlgorithmSpec -&gt; AlgorithmSpec -&gt; Ordering
+$cp1Ord :: Eq AlgorithmSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AlgorithmSpec -&gt; Rep AlgorithmSpec x)
+-&gt; (forall x. Rep AlgorithmSpec x -&gt; AlgorithmSpec)
+-&gt; Generic AlgorithmSpec
+forall x. Rep AlgorithmSpec x -&gt; AlgorithmSpec
+forall x. AlgorithmSpec -&gt; Rep AlgorithmSpec x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AlgorithmSpec x -&gt; AlgorithmSpec
+$cfrom :: forall x. AlgorithmSpec -&gt; Rep AlgorithmSpec x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679245963"><span id="local-6989586621679245965"><span class="annot"><span class="annottext">Int -&gt; AlgorithmSpec -&gt; Int
+AlgorithmSpec -&gt; Int
+(Int -&gt; AlgorithmSpec -&gt; Int)
+-&gt; (AlgorithmSpec -&gt; Int) -&gt; Hashable AlgorithmSpec
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AlgorithmSpec -&gt; Int
+$chash :: AlgorithmSpec -&gt; Int
+hashWithSalt :: Int -&gt; AlgorithmSpec -&gt; Int
+$chashWithSalt :: Int -&gt; AlgorithmSpec -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679245960"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; ()
+(AlgorithmSpec -&gt; ()) -&gt; NFData AlgorithmSpec
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AlgorithmSpec -&gt; ()
+$crnf :: AlgorithmSpec -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679245957"><span class="annot"><span class="annottext">Text -&gt; Either String AlgorithmSpec
+(Text -&gt; Either String AlgorithmSpec) -&gt; FromText AlgorithmSpec
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AlgorithmSpec
+$cfromText :: Text -&gt; Either String AlgorithmSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679245954"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; Text
+(AlgorithmSpec -&gt; Text) -&gt; ToText AlgorithmSpec
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AlgorithmSpec -&gt; Text
+$ctoText :: AlgorithmSpec -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679245951"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; ByteString
+(AlgorithmSpec -&gt; ByteString) -&gt; ToByteString AlgorithmSpec
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AlgorithmSpec -&gt; ByteString
+$ctoBS :: AlgorithmSpec -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679245948"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; ByteStringBuilder
+(AlgorithmSpec -&gt; ByteStringBuilder) -&gt; ToLog AlgorithmSpec
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AlgorithmSpec -&gt; ByteStringBuilder
+$cbuild :: AlgorithmSpec -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679245945"><span class="annot"><span class="annottext">HeaderName -&gt; AlgorithmSpec -&gt; [Header]
+(HeaderName -&gt; AlgorithmSpec -&gt; [Header]) -&gt; ToHeader AlgorithmSpec
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AlgorithmSpec -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AlgorithmSpec -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679245942"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; QueryString
+(AlgorithmSpec -&gt; QueryString) -&gt; ToQuery AlgorithmSpec
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AlgorithmSpec -&gt; QueryString
+$ctoQuery :: AlgorithmSpec -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679245937"><span id="local-6989586621679245939"><span class="annot"><span class="annottext">Value -&gt; Parser [AlgorithmSpec]
+Value -&gt; Parser AlgorithmSpec
+(Value -&gt; Parser AlgorithmSpec)
+-&gt; (Value -&gt; Parser [AlgorithmSpec]) -&gt; FromJSON AlgorithmSpec
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AlgorithmSpec]
+$cparseJSONList :: Value -&gt; Parser [AlgorithmSpec]
+parseJSON :: Value -&gt; Parser AlgorithmSpec
+$cparseJSON :: Value -&gt; Parser AlgorithmSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679245932"><span id="local-6989586621679245934"><span class="annot"><span class="annottext">FromJSONKeyFunction [AlgorithmSpec]
+FromJSONKeyFunction AlgorithmSpec
+FromJSONKeyFunction AlgorithmSpec
+-&gt; FromJSONKeyFunction [AlgorithmSpec] -&gt; FromJSONKey AlgorithmSpec
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AlgorithmSpec]
+$cfromJSONKeyList :: FromJSONKeyFunction [AlgorithmSpec]
+fromJSONKey :: FromJSONKeyFunction AlgorithmSpec
+$cfromJSONKey :: FromJSONKeyFunction AlgorithmSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679245923"><span id="local-6989586621679245925"><span id="local-6989586621679245927"><span id="local-6989586621679245929"><span class="annot"><span class="annottext">[AlgorithmSpec] -&gt; Encoding
+[AlgorithmSpec] -&gt; Value
+AlgorithmSpec -&gt; Encoding
+AlgorithmSpec -&gt; Value
+(AlgorithmSpec -&gt; Value)
+-&gt; (AlgorithmSpec -&gt; Encoding)
+-&gt; ([AlgorithmSpec] -&gt; Value)
+-&gt; ([AlgorithmSpec] -&gt; Encoding)
+-&gt; ToJSON AlgorithmSpec
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AlgorithmSpec] -&gt; Encoding
+$ctoEncodingList :: [AlgorithmSpec] -&gt; Encoding
+toJSONList :: [AlgorithmSpec] -&gt; Value
+$ctoJSONList :: [AlgorithmSpec] -&gt; Value
+toEncoding :: AlgorithmSpec -&gt; Encoding
+$ctoEncoding :: AlgorithmSpec -&gt; Encoding
+toJSON :: AlgorithmSpec -&gt; Value
+$ctoJSON :: AlgorithmSpec -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679245918"><span id="local-6989586621679245920"><span class="annot"><span class="annottext">ToJSONKeyFunction [AlgorithmSpec]
+ToJSONKeyFunction AlgorithmSpec
+ToJSONKeyFunction AlgorithmSpec
+-&gt; ToJSONKeyFunction [AlgorithmSpec] -&gt; ToJSONKey AlgorithmSpec
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AlgorithmSpec]
+$ctoJSONKeyList :: ToJSONKeyFunction [AlgorithmSpec]
+toJSONKey :: ToJSONKeyFunction AlgorithmSpec
+$ctoJSONKey :: ToJSONKeyFunction AlgorithmSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679245915"><span class="annot"><span class="annottext">[Node] -&gt; Either String AlgorithmSpec
+([Node] -&gt; Either String AlgorithmSpec) -&gt; FromXML AlgorithmSpec
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AlgorithmSpec
+$cparseXML :: [Node] -&gt; Either String AlgorithmSpec
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679245912"><span class="annot"><span class="annottext">AlgorithmSpec -&gt; XML
+(AlgorithmSpec -&gt; XML) -&gt; ToXML AlgorithmSpec
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AlgorithmSpec -&gt; XML
+$ctoXML :: AlgorithmSpec -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_OAEP_SHA_1"><span class="hs-identifier hs-type">AlgorithmSpec_RSAES_OAEP_SHA_1</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec"><span class="hs-identifier hs-type">AlgorithmSpec</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithmSpec_RSAES_OAEP_SHA_1"><span id="%24mAlgorithmSpec_RSAES_OAEP_SHA_1"><span id="AlgorithmSpec_RSAES_OAEP_SHA_1"><span class="annot"><span class="annottext">$bAlgorithmSpec_RSAES_OAEP_SHA_1 :: AlgorithmSpec
+$mAlgorithmSpec_RSAES_OAEP_SHA_1 :: forall r. AlgorithmSpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.AlgorithmSpec.html#%24bAlgorithmSpec_RSAES_OAEP_SHA_1"><span class="hs-identifier hs-var hs-var hs-var">AlgorithmSpec_RSAES_OAEP_SHA_1</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec%27"><span class="hs-identifier hs-type">AlgorithmSpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSAES_OAEP_SHA_1&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_OAEP_SHA_256"><span class="hs-identifier hs-type">AlgorithmSpec_RSAES_OAEP_SHA_256</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec"><span class="hs-identifier hs-type">AlgorithmSpec</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithmSpec_RSAES_OAEP_SHA_256"><span id="%24mAlgorithmSpec_RSAES_OAEP_SHA_256"><span id="AlgorithmSpec_RSAES_OAEP_SHA_256"><span class="annot"><span class="annottext">$bAlgorithmSpec_RSAES_OAEP_SHA_256 :: AlgorithmSpec
+$mAlgorithmSpec_RSAES_OAEP_SHA_256 :: forall r. AlgorithmSpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.AlgorithmSpec.html#%24bAlgorithmSpec_RSAES_OAEP_SHA_256"><span class="hs-identifier hs-var hs-var hs-var">AlgorithmSpec_RSAES_OAEP_SHA_256</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec%27"><span class="hs-identifier hs-type">AlgorithmSpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSAES_OAEP_SHA_256&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_PKCS1_V1_5"><span class="hs-identifier hs-type">AlgorithmSpec_RSAES_PKCS1_V1_5</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec"><span class="hs-identifier hs-type">AlgorithmSpec</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAlgorithmSpec_RSAES_PKCS1_V1_5"><span id="%24mAlgorithmSpec_RSAES_PKCS1_V1_5"><span id="AlgorithmSpec_RSAES_PKCS1_V1_5"><span class="annot"><span class="annottext">$bAlgorithmSpec_RSAES_PKCS1_V1_5 :: AlgorithmSpec
+$mAlgorithmSpec_RSAES_PKCS1_V1_5 :: forall r. AlgorithmSpec -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.KMS.Types.AlgorithmSpec.html#%24bAlgorithmSpec_RSAES_PKCS1_V1_5"><span class="hs-identifier hs-var hs-var hs-var">AlgorithmSpec_RSAES_PKCS1_V1_5</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec%27"><span class="hs-identifier hs-type">AlgorithmSpec'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;RSAES_PKCS1_V1_5&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_OAEP_SHA_1"><span class="hs-pragma hs-type">AlgorithmSpec_RSAES_OAEP_SHA_1</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_OAEP_SHA_256"><span class="hs-pragma hs-type">AlgorithmSpec_RSAES_OAEP_SHA_256</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec_RSAES_PKCS1_V1_5"><span class="hs-pragma hs-type">AlgorithmSpec_RSAES_PKCS1_V1_5</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.KMS.Types.AlgorithmSpec.html#AlgorithmSpec%27"><span class="hs-pragma hs-type">AlgorithmSpec'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

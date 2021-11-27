@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.Types.InstanceAccessProtocol</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.Types.InstanceAccessProtocol</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol"><span class="hs-identifier">InstanceAccessProtocol</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol_Rdp"><span class="hs-identifier">InstanceAccessProtocol_Rdp</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol_Ssh"><span class="hs-identifier">InstanceAccessProtocol_Ssh</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679611260"><span id="local-6989586621679611261"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="InstanceAccessProtocol"><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol"><span class="hs-identifier hs-var">InstanceAccessProtocol</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="InstanceAccessProtocol%27"><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol%27"><span class="hs-identifier hs-var">InstanceAccessProtocol'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromInstanceAccessProtocol"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; Text
+</span><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#fromInstanceAccessProtocol"><span class="hs-identifier hs-var hs-var">fromInstanceAccessProtocol</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611252"><span id="local-6989586621679611254"><span id="local-6989586621679611256"><span class="annot"><span class="annottext">Int -&gt; InstanceAccessProtocol -&gt; ShowS
+[InstanceAccessProtocol] -&gt; ShowS
+InstanceAccessProtocol -&gt; String
+(Int -&gt; InstanceAccessProtocol -&gt; ShowS)
+-&gt; (InstanceAccessProtocol -&gt; String)
+-&gt; ([InstanceAccessProtocol] -&gt; ShowS)
+-&gt; Show InstanceAccessProtocol
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [InstanceAccessProtocol] -&gt; ShowS
+$cshowList :: [InstanceAccessProtocol] -&gt; ShowS
+show :: InstanceAccessProtocol -&gt; String
+$cshow :: InstanceAccessProtocol -&gt; String
+showsPrec :: Int -&gt; InstanceAccessProtocol -&gt; ShowS
+$cshowsPrec :: Int -&gt; InstanceAccessProtocol -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679611243"><span id="local-6989586621679611245"><span id="local-6989586621679611247"><span id="local-6989586621679611249"><span class="annot"><span class="annottext">ReadPrec [InstanceAccessProtocol]
+ReadPrec InstanceAccessProtocol
+Int -&gt; ReadS InstanceAccessProtocol
+ReadS [InstanceAccessProtocol]
+(Int -&gt; ReadS InstanceAccessProtocol)
+-&gt; ReadS [InstanceAccessProtocol]
+-&gt; ReadPrec InstanceAccessProtocol
+-&gt; ReadPrec [InstanceAccessProtocol]
+-&gt; Read InstanceAccessProtocol
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [InstanceAccessProtocol]
+$creadListPrec :: ReadPrec [InstanceAccessProtocol]
+readPrec :: ReadPrec InstanceAccessProtocol
+$creadPrec :: ReadPrec InstanceAccessProtocol
+readList :: ReadS [InstanceAccessProtocol]
+$creadList :: ReadS [InstanceAccessProtocol]
+readsPrec :: Int -&gt; ReadS InstanceAccessProtocol
+$creadsPrec :: Int -&gt; ReadS InstanceAccessProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679611238"><span id="local-6989586621679611240"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+(InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool)
+-&gt; (InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool)
+-&gt; Eq InstanceAccessProtocol
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+$c/= :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+== :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+$c== :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679611222"><span id="local-6989586621679611224"><span id="local-6989586621679611226"><span id="local-6989586621679611228"><span id="local-6989586621679611230"><span id="local-6989586621679611232"><span id="local-6989586621679611234"><span class="annot"><span class="annottext">Eq InstanceAccessProtocol
+Eq InstanceAccessProtocol
+-&gt; (InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Ordering)
+-&gt; (InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool)
+-&gt; (InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool)
+-&gt; (InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool)
+-&gt; (InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool)
+-&gt; (InstanceAccessProtocol
+    -&gt; InstanceAccessProtocol -&gt; InstanceAccessProtocol)
+-&gt; (InstanceAccessProtocol
+    -&gt; InstanceAccessProtocol -&gt; InstanceAccessProtocol)
+-&gt; Ord InstanceAccessProtocol
+InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Ordering
+InstanceAccessProtocol
+-&gt; InstanceAccessProtocol -&gt; InstanceAccessProtocol
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: InstanceAccessProtocol
+-&gt; InstanceAccessProtocol -&gt; InstanceAccessProtocol
+$cmin :: InstanceAccessProtocol
+-&gt; InstanceAccessProtocol -&gt; InstanceAccessProtocol
+max :: InstanceAccessProtocol
+-&gt; InstanceAccessProtocol -&gt; InstanceAccessProtocol
+$cmax :: InstanceAccessProtocol
+-&gt; InstanceAccessProtocol -&gt; InstanceAccessProtocol
+&gt;= :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+$c&gt;= :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+&gt; :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+$c&gt; :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+&lt;= :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+$c&lt;= :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+&lt; :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+$c&lt; :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Bool
+compare :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Ordering
+$ccompare :: InstanceAccessProtocol -&gt; InstanceAccessProtocol -&gt; Ordering
+$cp1Ord :: Eq InstanceAccessProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. InstanceAccessProtocol -&gt; Rep InstanceAccessProtocol x)
+-&gt; (forall x.
+    Rep InstanceAccessProtocol x -&gt; InstanceAccessProtocol)
+-&gt; Generic InstanceAccessProtocol
+forall x. Rep InstanceAccessProtocol x -&gt; InstanceAccessProtocol
+forall x. InstanceAccessProtocol -&gt; Rep InstanceAccessProtocol x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep InstanceAccessProtocol x -&gt; InstanceAccessProtocol
+$cfrom :: forall x. InstanceAccessProtocol -&gt; Rep InstanceAccessProtocol x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679611214"><span id="local-6989586621679611216"><span class="annot"><span class="annottext">Int -&gt; InstanceAccessProtocol -&gt; Int
+InstanceAccessProtocol -&gt; Int
+(Int -&gt; InstanceAccessProtocol -&gt; Int)
+-&gt; (InstanceAccessProtocol -&gt; Int)
+-&gt; Hashable InstanceAccessProtocol
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: InstanceAccessProtocol -&gt; Int
+$chash :: InstanceAccessProtocol -&gt; Int
+hashWithSalt :: Int -&gt; InstanceAccessProtocol -&gt; Int
+$chashWithSalt :: Int -&gt; InstanceAccessProtocol -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679611211"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; ()
+(InstanceAccessProtocol -&gt; ()) -&gt; NFData InstanceAccessProtocol
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: InstanceAccessProtocol -&gt; ()
+$crnf :: InstanceAccessProtocol -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679611208"><span class="annot"><span class="annottext">Text -&gt; Either String InstanceAccessProtocol
+(Text -&gt; Either String InstanceAccessProtocol)
+-&gt; FromText InstanceAccessProtocol
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String InstanceAccessProtocol
+$cfromText :: Text -&gt; Either String InstanceAccessProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679611205"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; Text
+(InstanceAccessProtocol -&gt; Text) -&gt; ToText InstanceAccessProtocol
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: InstanceAccessProtocol -&gt; Text
+$ctoText :: InstanceAccessProtocol -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679611202"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; ByteString
+(InstanceAccessProtocol -&gt; ByteString)
+-&gt; ToByteString InstanceAccessProtocol
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: InstanceAccessProtocol -&gt; ByteString
+$ctoBS :: InstanceAccessProtocol -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679611199"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; ByteStringBuilder
+(InstanceAccessProtocol -&gt; ByteStringBuilder)
+-&gt; ToLog InstanceAccessProtocol
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: InstanceAccessProtocol -&gt; ByteStringBuilder
+$cbuild :: InstanceAccessProtocol -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679611196"><span class="annot"><span class="annottext">HeaderName -&gt; InstanceAccessProtocol -&gt; [Header]
+(HeaderName -&gt; InstanceAccessProtocol -&gt; [Header])
+-&gt; ToHeader InstanceAccessProtocol
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; InstanceAccessProtocol -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; InstanceAccessProtocol -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679611193"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; QueryString
+(InstanceAccessProtocol -&gt; QueryString)
+-&gt; ToQuery InstanceAccessProtocol
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: InstanceAccessProtocol -&gt; QueryString
+$ctoQuery :: InstanceAccessProtocol -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679611188"><span id="local-6989586621679611190"><span class="annot"><span class="annottext">Value -&gt; Parser [InstanceAccessProtocol]
+Value -&gt; Parser InstanceAccessProtocol
+(Value -&gt; Parser InstanceAccessProtocol)
+-&gt; (Value -&gt; Parser [InstanceAccessProtocol])
+-&gt; FromJSON InstanceAccessProtocol
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [InstanceAccessProtocol]
+$cparseJSONList :: Value -&gt; Parser [InstanceAccessProtocol]
+parseJSON :: Value -&gt; Parser InstanceAccessProtocol
+$cparseJSON :: Value -&gt; Parser InstanceAccessProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679611183"><span id="local-6989586621679611185"><span class="annot"><span class="annottext">FromJSONKeyFunction [InstanceAccessProtocol]
+FromJSONKeyFunction InstanceAccessProtocol
+FromJSONKeyFunction InstanceAccessProtocol
+-&gt; FromJSONKeyFunction [InstanceAccessProtocol]
+-&gt; FromJSONKey InstanceAccessProtocol
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [InstanceAccessProtocol]
+$cfromJSONKeyList :: FromJSONKeyFunction [InstanceAccessProtocol]
+fromJSONKey :: FromJSONKeyFunction InstanceAccessProtocol
+$cfromJSONKey :: FromJSONKeyFunction InstanceAccessProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679611174"><span id="local-6989586621679611176"><span id="local-6989586621679611178"><span id="local-6989586621679611180"><span class="annot"><span class="annottext">[InstanceAccessProtocol] -&gt; Encoding
+[InstanceAccessProtocol] -&gt; Value
+InstanceAccessProtocol -&gt; Encoding
+InstanceAccessProtocol -&gt; Value
+(InstanceAccessProtocol -&gt; Value)
+-&gt; (InstanceAccessProtocol -&gt; Encoding)
+-&gt; ([InstanceAccessProtocol] -&gt; Value)
+-&gt; ([InstanceAccessProtocol] -&gt; Encoding)
+-&gt; ToJSON InstanceAccessProtocol
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [InstanceAccessProtocol] -&gt; Encoding
+$ctoEncodingList :: [InstanceAccessProtocol] -&gt; Encoding
+toJSONList :: [InstanceAccessProtocol] -&gt; Value
+$ctoJSONList :: [InstanceAccessProtocol] -&gt; Value
+toEncoding :: InstanceAccessProtocol -&gt; Encoding
+$ctoEncoding :: InstanceAccessProtocol -&gt; Encoding
+toJSON :: InstanceAccessProtocol -&gt; Value
+$ctoJSON :: InstanceAccessProtocol -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679611169"><span id="local-6989586621679611171"><span class="annot"><span class="annottext">ToJSONKeyFunction [InstanceAccessProtocol]
+ToJSONKeyFunction InstanceAccessProtocol
+ToJSONKeyFunction InstanceAccessProtocol
+-&gt; ToJSONKeyFunction [InstanceAccessProtocol]
+-&gt; ToJSONKey InstanceAccessProtocol
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [InstanceAccessProtocol]
+$ctoJSONKeyList :: ToJSONKeyFunction [InstanceAccessProtocol]
+toJSONKey :: ToJSONKeyFunction InstanceAccessProtocol
+$ctoJSONKey :: ToJSONKeyFunction InstanceAccessProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679611166"><span class="annot"><span class="annottext">[Node] -&gt; Either String InstanceAccessProtocol
+([Node] -&gt; Either String InstanceAccessProtocol)
+-&gt; FromXML InstanceAccessProtocol
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String InstanceAccessProtocol
+$cparseXML :: [Node] -&gt; Either String InstanceAccessProtocol
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679611163"><span class="annot"><span class="annottext">InstanceAccessProtocol -&gt; XML
+(InstanceAccessProtocol -&gt; XML) -&gt; ToXML InstanceAccessProtocol
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: InstanceAccessProtocol -&gt; XML
+$ctoXML :: InstanceAccessProtocol -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol_Rdp"><span class="hs-identifier hs-type">InstanceAccessProtocol_Rdp</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol"><span class="hs-identifier hs-type">InstanceAccessProtocol</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAccessProtocol_Rdp"><span id="%24mInstanceAccessProtocol_Rdp"><span id="InstanceAccessProtocol_Rdp"><span class="annot"><span class="annottext">$bInstanceAccessProtocol_Rdp :: InstanceAccessProtocol
+$mInstanceAccessProtocol_Rdp :: forall r.
+InstanceAccessProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#%24bInstanceAccessProtocol_Rdp"><span class="hs-identifier hs-var hs-var hs-var">InstanceAccessProtocol_Rdp</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol%27"><span class="hs-identifier hs-type">InstanceAccessProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;rdp&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol_Ssh"><span class="hs-identifier hs-type">InstanceAccessProtocol_Ssh</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol"><span class="hs-identifier hs-type">InstanceAccessProtocol</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bInstanceAccessProtocol_Ssh"><span id="%24mInstanceAccessProtocol_Ssh"><span id="InstanceAccessProtocol_Ssh"><span class="annot"><span class="annottext">$bInstanceAccessProtocol_Ssh :: InstanceAccessProtocol
+$mInstanceAccessProtocol_Ssh :: forall r.
+InstanceAccessProtocol -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#%24bInstanceAccessProtocol_Ssh"><span class="hs-identifier hs-var hs-var hs-var">InstanceAccessProtocol_Ssh</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol%27"><span class="hs-identifier hs-type">InstanceAccessProtocol'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ssh&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol_Rdp"><span class="hs-pragma hs-type">InstanceAccessProtocol_Rdp</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol_Ssh"><span class="hs-pragma hs-type">InstanceAccessProtocol_Ssh</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.Types.InstanceAccessProtocol.html#InstanceAccessProtocol%27"><span class="hs-pragma hs-type">InstanceAccessProtocol'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

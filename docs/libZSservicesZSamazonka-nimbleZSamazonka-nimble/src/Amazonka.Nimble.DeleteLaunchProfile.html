@@ -1,0 +1,508 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Nimble.DeleteLaunchProfile</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Permanently delete a launch profile.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Nimble.DeleteLaunchProfile</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier">DeleteLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#newDeleteLaunchProfile"><span class="hs-identifier">newDeleteLaunchProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_clientToken"><span class="hs-identifier">deleteLaunchProfile_clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_studioId"><span class="hs-identifier">deleteLaunchProfile_studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_launchProfileId"><span class="hs-identifier">deleteLaunchProfile_launchProfileId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier">DeleteLaunchProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#newDeleteLaunchProfileResponse"><span class="hs-identifier">newDeleteLaunchProfileResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfileResponse_launchProfile"><span class="hs-identifier">deleteLaunchProfileResponse_launchProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfileResponse_httpStatus"><span class="hs-identifier">deleteLaunchProfileResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.html"><span class="hs-identifier">Amazonka.Nimble.Types</span></a></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-50"></span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- | /See:/ 'newDeleteLaunchProfile' smart constructor.</span><span>
+</span><span id="line-52"></span><span id="local-6989586621679296818"><span id="local-6989586621679296819"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLaunchProfile"><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-var">DeleteLaunchProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLaunchProfile%27"><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-var">DeleteLaunchProfile'</span></a></span></span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-61"></span><span>    </span><span id="%24sel%3AclientToken%3ADeleteLaunchProfile%27"><span class="annot"><span class="annottext">DeleteLaunchProfile -&gt; Maybe Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AclientToken%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-63"></span><span>    </span><span id="%24sel%3AstudioId%3ADeleteLaunchProfile%27"><span class="annot"><span class="annottext">DeleteLaunchProfile -&gt; Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AstudioId%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-65"></span><span>    </span><span id="%24sel%3AlaunchProfileId%3ADeleteLaunchProfile%27"><span class="annot"><span class="annottext">DeleteLaunchProfile -&gt; Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AlaunchProfileId%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-66"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296810"><span id="local-6989586621679296812"><span class="annot"><span class="annottext">DeleteLaunchProfile -&gt; DeleteLaunchProfile -&gt; Bool
+(DeleteLaunchProfile -&gt; DeleteLaunchProfile -&gt; Bool)
+-&gt; (DeleteLaunchProfile -&gt; DeleteLaunchProfile -&gt; Bool)
+-&gt; Eq DeleteLaunchProfile
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLaunchProfile -&gt; DeleteLaunchProfile -&gt; Bool
+$c/= :: DeleteLaunchProfile -&gt; DeleteLaunchProfile -&gt; Bool
+== :: DeleteLaunchProfile -&gt; DeleteLaunchProfile -&gt; Bool
+$c== :: DeleteLaunchProfile -&gt; DeleteLaunchProfile -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296801"><span id="local-6989586621679296803"><span id="local-6989586621679296805"><span id="local-6989586621679296807"><span class="annot"><span class="annottext">ReadPrec [DeleteLaunchProfile]
+ReadPrec DeleteLaunchProfile
+Int -&gt; ReadS DeleteLaunchProfile
+ReadS [DeleteLaunchProfile]
+(Int -&gt; ReadS DeleteLaunchProfile)
+-&gt; ReadS [DeleteLaunchProfile]
+-&gt; ReadPrec DeleteLaunchProfile
+-&gt; ReadPrec [DeleteLaunchProfile]
+-&gt; Read DeleteLaunchProfile
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLaunchProfile]
+$creadListPrec :: ReadPrec [DeleteLaunchProfile]
+readPrec :: ReadPrec DeleteLaunchProfile
+$creadPrec :: ReadPrec DeleteLaunchProfile
+readList :: ReadS [DeleteLaunchProfile]
+$creadList :: ReadS [DeleteLaunchProfile]
+readsPrec :: Int -&gt; ReadS DeleteLaunchProfile
+$creadsPrec :: Int -&gt; ReadS DeleteLaunchProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296794"><span id="local-6989586621679296796"><span id="local-6989586621679296798"><span class="annot"><span class="annottext">Int -&gt; DeleteLaunchProfile -&gt; ShowS
+[DeleteLaunchProfile] -&gt; ShowS
+DeleteLaunchProfile -&gt; String
+(Int -&gt; DeleteLaunchProfile -&gt; ShowS)
+-&gt; (DeleteLaunchProfile -&gt; String)
+-&gt; ([DeleteLaunchProfile] -&gt; ShowS)
+-&gt; Show DeleteLaunchProfile
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLaunchProfile] -&gt; ShowS
+$cshowList :: [DeleteLaunchProfile] -&gt; ShowS
+show :: DeleteLaunchProfile -&gt; String
+$cshow :: DeleteLaunchProfile -&gt; String
+showsPrec :: Int -&gt; DeleteLaunchProfile -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLaunchProfile -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteLaunchProfile -&gt; Rep DeleteLaunchProfile x)
+-&gt; (forall x. Rep DeleteLaunchProfile x -&gt; DeleteLaunchProfile)
+-&gt; Generic DeleteLaunchProfile
+forall x. Rep DeleteLaunchProfile x -&gt; DeleteLaunchProfile
+forall x. DeleteLaunchProfile -&gt; Rep DeleteLaunchProfile x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteLaunchProfile x -&gt; DeleteLaunchProfile
+$cfrom :: forall x. DeleteLaunchProfile -&gt; Rep DeleteLaunchProfile x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- Create a value of 'DeleteLaunchProfile' with all optional fields omitted.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-76"></span><span class="hs-comment">--</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- 'clientToken', 'deleteLaunchProfile_clientToken' - To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'studioId', 'deleteLaunchProfile_studioId' - The studio ID.</span><span>
+</span><span id="line-87"></span><span class="hs-comment">--</span><span>
+</span><span id="line-88"></span><span class="hs-comment">-- 'launchProfileId', 'deleteLaunchProfile_launchProfileId' - The launch profile ID.</span><span>
+</span><span id="line-89"></span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#newDeleteLaunchProfile"><span class="hs-identifier hs-type">newDeleteLaunchProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-comment">-- | 'studioId'</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-comment">-- | 'launchProfileId'</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-94"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span>
+</span><span id="line-95"></span><span id="newDeleteLaunchProfile"><span class="annot"><span class="annottext">newDeleteLaunchProfile :: Text -&gt; Text -&gt; DeleteLaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#newDeleteLaunchProfile"><span class="hs-identifier hs-var hs-var">newDeleteLaunchProfile</span></a></span></span><span> </span><span id="local-6989586621679296789"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296789"><span class="hs-identifier hs-var">pStudioId_</span></a></span></span><span> </span><span id="local-6989586621679296788"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296788"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-96"></span><span>  </span><span class="annot"><span class="annottext">DeleteLaunchProfile' :: Maybe Text -&gt; Text -&gt; Text -&gt; DeleteLaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:clientToken:DeleteLaunchProfile' :: Maybe Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AclientToken%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>      </span><span class="annot"><span class="annottext">$sel:studioId:DeleteLaunchProfile' :: Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AstudioId%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296789"><span class="hs-identifier hs-var">pStudioId_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>      </span><span class="annot"><span class="annottext">$sel:launchProfileId:DeleteLaunchProfile' :: Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AlaunchProfileId%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296788"><span class="hs-identifier hs-var">pLaunchProfileId_</span></a></span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- | To make an idempotent API request using one of these actions, specify a</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- client token in the request. You should not reuse the same client token</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- for other API requests. If you retry a request that completed</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- successfully using the same client token and the same parameters, the</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- retry succeeds without performing any further actions. If you retry a</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- successful request using the same client token, but one or more of the</span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- parameters are different, the retry fails with a ValidationException</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- error.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_clientToken"><span class="hs-identifier hs-type">deleteLaunchProfile_clientToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="deleteLaunchProfile_clientToken"><span class="annot"><span class="annottext">deleteLaunchProfile_clientToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; DeleteLaunchProfile -&gt; f DeleteLaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_clientToken"><span class="hs-identifier hs-var hs-var">deleteLaunchProfile_clientToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLaunchProfile -&gt; Maybe Text)
+-&gt; (DeleteLaunchProfile -&gt; Maybe Text -&gt; DeleteLaunchProfile)
+-&gt; Lens
+     DeleteLaunchProfile DeleteLaunchProfile (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296785"><span class="annot"><span class="annottext">Maybe Text
+clientToken :: Maybe Text
+$sel:clientToken:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679296785"><span class="hs-identifier hs-var hs-var">clientToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296785"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296784"><span class="annot"><span class="annottext">s :: DeleteLaunchProfile
+</span><a href="#local-6989586621679296784"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296783"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296783"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchProfile
+</span><a href="#local-6989586621679296784"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:clientToken:DeleteLaunchProfile' :: Maybe Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AclientToken%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var">clientToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296783"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | The studio ID.</span><span>
+</span><span id="line-114"></span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_studioId"><span class="hs-identifier hs-type">deleteLaunchProfile_studioId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-115"></span><span id="deleteLaunchProfile_studioId"><span class="annot"><span class="annottext">deleteLaunchProfile_studioId :: (Text -&gt; f Text) -&gt; DeleteLaunchProfile -&gt; f DeleteLaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_studioId"><span class="hs-identifier hs-var hs-var">deleteLaunchProfile_studioId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLaunchProfile -&gt; Text)
+-&gt; (DeleteLaunchProfile -&gt; Text -&gt; DeleteLaunchProfile)
+-&gt; Lens DeleteLaunchProfile DeleteLaunchProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296782"><span class="annot"><span class="annottext">Text
+studioId :: Text
+$sel:studioId:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Text
+</span><a href="#local-6989586621679296782"><span class="hs-identifier hs-var hs-var">studioId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296782"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296781"><span class="annot"><span class="annottext">s :: DeleteLaunchProfile
+</span><a href="#local-6989586621679296781"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296780"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296780"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchProfile
+</span><a href="#local-6989586621679296781"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:studioId:DeleteLaunchProfile' :: Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AstudioId%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var">studioId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296780"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-116"></span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- | The launch profile ID.</span><span>
+</span><span id="line-118"></span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_launchProfileId"><span class="hs-identifier hs-type">deleteLaunchProfile_launchProfileId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-119"></span><span id="deleteLaunchProfile_launchProfileId"><span class="annot"><span class="annottext">deleteLaunchProfile_launchProfileId :: (Text -&gt; f Text) -&gt; DeleteLaunchProfile -&gt; f DeleteLaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfile_launchProfileId"><span class="hs-identifier hs-var hs-var">deleteLaunchProfile_launchProfileId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLaunchProfile -&gt; Text)
+-&gt; (DeleteLaunchProfile -&gt; Text -&gt; DeleteLaunchProfile)
+-&gt; Lens DeleteLaunchProfile DeleteLaunchProfile Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296779"><span class="annot"><span class="annottext">Text
+launchProfileId :: Text
+$sel:launchProfileId:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Text
+</span><a href="#local-6989586621679296779"><span class="hs-identifier hs-var hs-var">launchProfileId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296779"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296778"><span class="annot"><span class="annottext">s :: DeleteLaunchProfile
+</span><a href="#local-6989586621679296778"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296777"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296777"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchProfile
+</span><a href="#local-6989586621679296778"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfileId:DeleteLaunchProfile' :: Text
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AlaunchProfileId%3ADeleteLaunchProfile%27"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296777"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-120"></span><span>
+</span><span id="line-121"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-123"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-124"></span><span>      </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse</span></a></span><span>
+</span><span id="line-125"></span><span>  </span><span id="local-6989586621679296773"><span class="annot"><span class="annottext">request :: DeleteLaunchProfile -&gt; Request DeleteLaunchProfile
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteLaunchProfile -&gt; Request DeleteLaunchProfile
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.delete</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Nimble.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-126"></span><span>  </span><span id="local-6989586621679296769"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteLaunchProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteLaunchProfile)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteLaunchProfile))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteLaunchProfile
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteLaunchProfile)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-128"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679296766"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296766"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679296765"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679296765"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679296764"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296764"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-129"></span><span>          </span><span class="annot"><span class="annottext">Maybe LaunchProfile -&gt; Int -&gt; DeleteLaunchProfileResponse
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var">DeleteLaunchProfileResponse'</span></a></span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">(Maybe LaunchProfile -&gt; Int -&gt; DeleteLaunchProfileResponse)
+-&gt; Either String (Maybe LaunchProfile)
+-&gt; Either String (Int -&gt; DeleteLaunchProfileResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679296764"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe LaunchProfile)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;launchProfile&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteLaunchProfileResponse)
+-&gt; Either String Int -&gt; Either String DeleteLaunchProfileResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296766"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296756"><span id="local-6989586621679296758"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296753"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679296749"><span class="annot"><span class="annottext">toHeaders :: DeleteLaunchProfile -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296745"><span id="local-6989586621679296746"><span id="local-6989586621679296747"><span class="annot"><span class="annottext">Maybe Text
+Text
+launchProfileId :: Text
+studioId :: Text
+clientToken :: Maybe Text
+$sel:launchProfileId:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Text
+$sel:studioId:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Text
+$sel:clientToken:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679296745"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Client-Token&quot;</span></span><span> </span><span class="annot"><span class="annottext">HeaderName -&gt; Maybe Text -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679296747"><span class="hs-identifier hs-var">clientToken</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>        </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-143"></span><span>          </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-145"></span><span>
+</span><span id="line-146"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-147"></span><span>  </span><span id="local-6989586621679296741"><span class="annot"><span class="annottext">toPath :: DeleteLaunchProfile -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile%27"><span class="hs-identifier hs-type">DeleteLaunchProfile'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296737"><span id="local-6989586621679296738"><span id="local-6989586621679296739"><span class="annot"><span class="annottext">Maybe Text
+Text
+launchProfileId :: Text
+studioId :: Text
+clientToken :: Maybe Text
+$sel:launchProfileId:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Text
+$sel:studioId:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Text
+$sel:clientToken:DeleteLaunchProfile' :: DeleteLaunchProfile -&gt; Maybe Text
+</span><a href="#local-6989586621679296737"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-149"></span><span>      </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2020-08-01/studios/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296738"><span class="hs-identifier hs-var">studioId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>        </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/launch-profiles/&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>        </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679296737"><span class="hs-identifier hs-var">launchProfileId</span></a></span><span>
+</span><span id="line-153"></span><span>      </span><span class="hs-special">]</span><span>
+</span><span id="line-154"></span><span>
+</span><span id="line-155"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfile"><span class="hs-identifier hs-type">DeleteLaunchProfile</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-156"></span><span>  </span><span id="local-6989586621679296733"><span class="annot"><span class="annottext">toQuery :: DeleteLaunchProfile -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteLaunchProfile -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- | /See:/ 'newDeleteLaunchProfileResponse' smart constructor.</span><span>
+</span><span id="line-159"></span><span id="local-6989586621679296729"><span id="local-6989586621679296730"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteLaunchProfileResponse"><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-var">DeleteLaunchProfileResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteLaunchProfileResponse%27"><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var">DeleteLaunchProfileResponse'</span></a></span></span><span>
+</span><span id="line-160"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The launch profile.</span><span>
+</span><span id="line-161"></span><span>    </span><span id="%24sel%3AlaunchProfile%3ADeleteLaunchProfileResponse%27"><span class="annot"><span class="annottext">DeleteLaunchProfileResponse -&gt; Maybe LaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AlaunchProfile%3ADeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var hs-var">launchProfile</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.LaunchProfile.html#LaunchProfile"><span class="hs-identifier hs-type">LaunchProfile</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-162"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-163"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteLaunchProfileResponse%27"><span class="annot"><span class="annottext">DeleteLaunchProfileResponse -&gt; Int
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AhttpStatus%3ADeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-164"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-165"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679296723"><span id="local-6989586621679296725"><span class="annot"><span class="annottext">DeleteLaunchProfileResponse -&gt; DeleteLaunchProfileResponse -&gt; Bool
+(DeleteLaunchProfileResponse
+ -&gt; DeleteLaunchProfileResponse -&gt; Bool)
+-&gt; (DeleteLaunchProfileResponse
+    -&gt; DeleteLaunchProfileResponse -&gt; Bool)
+-&gt; Eq DeleteLaunchProfileResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteLaunchProfileResponse -&gt; DeleteLaunchProfileResponse -&gt; Bool
+$c/= :: DeleteLaunchProfileResponse -&gt; DeleteLaunchProfileResponse -&gt; Bool
+== :: DeleteLaunchProfileResponse -&gt; DeleteLaunchProfileResponse -&gt; Bool
+$c== :: DeleteLaunchProfileResponse -&gt; DeleteLaunchProfileResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296715"><span id="local-6989586621679296717"><span id="local-6989586621679296719"><span id="local-6989586621679296721"><span class="annot"><span class="annottext">ReadPrec [DeleteLaunchProfileResponse]
+ReadPrec DeleteLaunchProfileResponse
+Int -&gt; ReadS DeleteLaunchProfileResponse
+ReadS [DeleteLaunchProfileResponse]
+(Int -&gt; ReadS DeleteLaunchProfileResponse)
+-&gt; ReadS [DeleteLaunchProfileResponse]
+-&gt; ReadPrec DeleteLaunchProfileResponse
+-&gt; ReadPrec [DeleteLaunchProfileResponse]
+-&gt; Read DeleteLaunchProfileResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteLaunchProfileResponse]
+$creadListPrec :: ReadPrec [DeleteLaunchProfileResponse]
+readPrec :: ReadPrec DeleteLaunchProfileResponse
+$creadPrec :: ReadPrec DeleteLaunchProfileResponse
+readList :: ReadS [DeleteLaunchProfileResponse]
+$creadList :: ReadS [DeleteLaunchProfileResponse]
+readsPrec :: Int -&gt; ReadS DeleteLaunchProfileResponse
+$creadsPrec :: Int -&gt; ReadS DeleteLaunchProfileResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679296709"><span id="local-6989586621679296711"><span id="local-6989586621679296713"><span class="annot"><span class="annottext">Int -&gt; DeleteLaunchProfileResponse -&gt; ShowS
+[DeleteLaunchProfileResponse] -&gt; ShowS
+DeleteLaunchProfileResponse -&gt; String
+(Int -&gt; DeleteLaunchProfileResponse -&gt; ShowS)
+-&gt; (DeleteLaunchProfileResponse -&gt; String)
+-&gt; ([DeleteLaunchProfileResponse] -&gt; ShowS)
+-&gt; Show DeleteLaunchProfileResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteLaunchProfileResponse] -&gt; ShowS
+$cshowList :: [DeleteLaunchProfileResponse] -&gt; ShowS
+show :: DeleteLaunchProfileResponse -&gt; String
+$cshow :: DeleteLaunchProfileResponse -&gt; String
+showsPrec :: Int -&gt; DeleteLaunchProfileResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteLaunchProfileResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteLaunchProfileResponse -&gt; Rep DeleteLaunchProfileResponse x)
+-&gt; (forall x.
+    Rep DeleteLaunchProfileResponse x -&gt; DeleteLaunchProfileResponse)
+-&gt; Generic DeleteLaunchProfileResponse
+forall x.
+Rep DeleteLaunchProfileResponse x -&gt; DeleteLaunchProfileResponse
+forall x.
+DeleteLaunchProfileResponse -&gt; Rep DeleteLaunchProfileResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteLaunchProfileResponse x -&gt; DeleteLaunchProfileResponse
+$cfrom :: forall x.
+DeleteLaunchProfileResponse -&gt; Rep DeleteLaunchProfileResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-166"></span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- Create a value of 'DeleteLaunchProfileResponse' with all optional fields omitted.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'launchProfile', 'deleteLaunchProfileResponse_launchProfile' - The launch profile.</span><span>
+</span><span id="line-176"></span><span class="hs-comment">--</span><span>
+</span><span id="line-177"></span><span class="hs-comment">-- 'httpStatus', 'deleteLaunchProfileResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-178"></span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#newDeleteLaunchProfileResponse"><span class="hs-identifier hs-type">newDeleteLaunchProfileResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-179"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-180"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-181"></span><span>  </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse</span></a></span><span>
+</span><span id="line-182"></span><span id="newDeleteLaunchProfileResponse"><span class="annot"><span class="annottext">newDeleteLaunchProfileResponse :: Int -&gt; DeleteLaunchProfileResponse
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#newDeleteLaunchProfileResponse"><span class="hs-identifier hs-var hs-var">newDeleteLaunchProfileResponse</span></a></span></span><span> </span><span id="local-6989586621679296706"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>  </span><span class="annot"><span class="annottext">DeleteLaunchProfileResponse' :: Maybe LaunchProfile -&gt; Int -&gt; DeleteLaunchProfileResponse
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse%27"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse'</span></a></span><span>
+</span><span id="line-184"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:launchProfile:DeleteLaunchProfileResponse' :: Maybe LaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AlaunchProfile%3ADeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var">launchProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">Maybe LaunchProfile
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLaunchProfileResponse' :: Int
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AhttpStatus%3ADeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296706"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-187"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The launch profile.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfileResponse_launchProfile"><span class="hs-identifier hs-type">deleteLaunchProfileResponse_launchProfile</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.Types.LaunchProfile.html#LaunchProfile"><span class="hs-identifier hs-type">LaunchProfile</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-191"></span><span id="deleteLaunchProfileResponse_launchProfile"><span class="annot"><span class="annottext">deleteLaunchProfileResponse_launchProfile :: (Maybe LaunchProfile -&gt; f (Maybe LaunchProfile))
+-&gt; DeleteLaunchProfileResponse -&gt; f DeleteLaunchProfileResponse
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfileResponse_launchProfile"><span class="hs-identifier hs-var hs-var">deleteLaunchProfileResponse_launchProfile</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLaunchProfileResponse -&gt; Maybe LaunchProfile)
+-&gt; (DeleteLaunchProfileResponse
+    -&gt; Maybe LaunchProfile -&gt; DeleteLaunchProfileResponse)
+-&gt; Lens
+     DeleteLaunchProfileResponse
+     DeleteLaunchProfileResponse
+     (Maybe LaunchProfile)
+     (Maybe LaunchProfile)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse%27"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296705"><span class="annot"><span class="annottext">Maybe LaunchProfile
+launchProfile :: Maybe LaunchProfile
+$sel:launchProfile:DeleteLaunchProfileResponse' :: DeleteLaunchProfileResponse -&gt; Maybe LaunchProfile
+</span><a href="#local-6989586621679296705"><span class="hs-identifier hs-var hs-var">launchProfile</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchProfile
+</span><a href="#local-6989586621679296705"><span class="hs-identifier hs-var">launchProfile</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296704"><span class="annot"><span class="annottext">s :: DeleteLaunchProfileResponse
+</span><a href="#local-6989586621679296704"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse%27"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296703"><span class="annot"><span class="annottext">Maybe LaunchProfile
+</span><a href="#local-6989586621679296703"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchProfileResponse
+</span><a href="#local-6989586621679296704"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:launchProfile:DeleteLaunchProfileResponse' :: Maybe LaunchProfile
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AlaunchProfile%3ADeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var">launchProfile</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe LaunchProfile
+</span><a href="#local-6989586621679296703"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-194"></span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfileResponse_httpStatus"><span class="hs-identifier hs-type">deleteLaunchProfileResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-195"></span><span id="deleteLaunchProfileResponse_httpStatus"><span class="annot"><span class="annottext">deleteLaunchProfileResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteLaunchProfileResponse -&gt; f DeleteLaunchProfileResponse
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#deleteLaunchProfileResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteLaunchProfileResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteLaunchProfileResponse -&gt; Int)
+-&gt; (DeleteLaunchProfileResponse
+    -&gt; Int -&gt; DeleteLaunchProfileResponse)
+-&gt; Lens
+     DeleteLaunchProfileResponse DeleteLaunchProfileResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse%27"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679296702"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteLaunchProfileResponse' :: DeleteLaunchProfileResponse -&gt; Int
+</span><a href="#local-6989586621679296702"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296702"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679296701"><span class="annot"><span class="annottext">s :: DeleteLaunchProfileResponse
+</span><a href="#local-6989586621679296701"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse%27"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679296700"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296700"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteLaunchProfileResponse
+</span><a href="#local-6989586621679296701"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteLaunchProfileResponse' :: Int
+</span><a href="Amazonka.Nimble.DeleteLaunchProfile.html#%24sel%3AhttpStatus%3ADeleteLaunchProfileResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679296700"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span>
+</span><span id="line-197"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679296698"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Nimble.DeleteLaunchProfile.html#DeleteLaunchProfileResponse"><span class="hs-identifier hs-type">DeleteLaunchProfileResponse</span></a></span></span><span>
+</span><span id="line-198"></span></pre></body></html>

@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Route53.GetCheckerIpRanges</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Route 53 does not perform authorization for this API because it</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- retrieves information that is already available to the public.</span><span>
+</span><span id="line-25"></span><span class="hs-comment">--</span><span>
+</span><span id="line-26"></span><span class="hs-comment">-- @GetCheckerIpRanges@ still works, but we recommend that you download</span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- ip-ranges.json, which includes IP address ranges for all Amazon Web</span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- Services services. For more information, see</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- &lt;https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/route-53-ip-addresses.html IP Address Ranges of Amazon Route 53 Servers&gt;</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- in the /Amazon Route 53 Developer Guide/.</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53.GetCheckerIpRanges</span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier">GetCheckerIpRanges</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#newGetCheckerIpRanges"><span class="hs-identifier">newGetCheckerIpRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier">GetCheckerIpRangesResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#newGetCheckerIpRangesResponse"><span class="hs-identifier">newGetCheckerIpRangesResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#getCheckerIpRangesResponse_httpStatus"><span class="hs-identifier">getCheckerIpRangesResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#getCheckerIpRangesResponse_checkerIpRanges"><span class="hs-identifier">getCheckerIpRangesResponse_checkerIpRanges</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Route53.Types.html"><span class="hs-identifier">Amazonka.Route53.Types</span></a></span><span>
+</span><span id="line-52"></span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- | Empty request.</span><span>
+</span><span id="line-54"></span><span class="hs-comment">--</span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- /See:/ 'newGetCheckerIpRanges' smart constructor.</span><span>
+</span><span id="line-56"></span><span id="local-6989586621679307195"><span id="local-6989586621679307196"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCheckerIpRanges"><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-var">GetCheckerIpRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCheckerIpRanges%27"><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges%27"><span class="hs-identifier hs-var">GetCheckerIpRanges'</span></a></span></span><span>
+</span><span id="line-57"></span><span>  </span><span class="hs-special">{</span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307190"><span id="local-6989586621679307192"><span class="annot"><span class="annottext">GetCheckerIpRanges -&gt; GetCheckerIpRanges -&gt; Bool
+(GetCheckerIpRanges -&gt; GetCheckerIpRanges -&gt; Bool)
+-&gt; (GetCheckerIpRanges -&gt; GetCheckerIpRanges -&gt; Bool)
+-&gt; Eq GetCheckerIpRanges
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCheckerIpRanges -&gt; GetCheckerIpRanges -&gt; Bool
+$c/= :: GetCheckerIpRanges -&gt; GetCheckerIpRanges -&gt; Bool
+== :: GetCheckerIpRanges -&gt; GetCheckerIpRanges -&gt; Bool
+$c== :: GetCheckerIpRanges -&gt; GetCheckerIpRanges -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307181"><span id="local-6989586621679307183"><span id="local-6989586621679307185"><span id="local-6989586621679307187"><span class="annot"><span class="annottext">ReadPrec [GetCheckerIpRanges]
+ReadPrec GetCheckerIpRanges
+Int -&gt; ReadS GetCheckerIpRanges
+ReadS [GetCheckerIpRanges]
+(Int -&gt; ReadS GetCheckerIpRanges)
+-&gt; ReadS [GetCheckerIpRanges]
+-&gt; ReadPrec GetCheckerIpRanges
+-&gt; ReadPrec [GetCheckerIpRanges]
+-&gt; Read GetCheckerIpRanges
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCheckerIpRanges]
+$creadListPrec :: ReadPrec [GetCheckerIpRanges]
+readPrec :: ReadPrec GetCheckerIpRanges
+$creadPrec :: ReadPrec GetCheckerIpRanges
+readList :: ReadS [GetCheckerIpRanges]
+$creadList :: ReadS [GetCheckerIpRanges]
+readsPrec :: Int -&gt; ReadS GetCheckerIpRanges
+$creadsPrec :: Int -&gt; ReadS GetCheckerIpRanges
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307174"><span id="local-6989586621679307176"><span id="local-6989586621679307178"><span class="annot"><span class="annottext">Int -&gt; GetCheckerIpRanges -&gt; ShowS
+[GetCheckerIpRanges] -&gt; ShowS
+GetCheckerIpRanges -&gt; String
+(Int -&gt; GetCheckerIpRanges -&gt; ShowS)
+-&gt; (GetCheckerIpRanges -&gt; String)
+-&gt; ([GetCheckerIpRanges] -&gt; ShowS)
+-&gt; Show GetCheckerIpRanges
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCheckerIpRanges] -&gt; ShowS
+$cshowList :: [GetCheckerIpRanges] -&gt; ShowS
+show :: GetCheckerIpRanges -&gt; String
+$cshow :: GetCheckerIpRanges -&gt; String
+showsPrec :: Int -&gt; GetCheckerIpRanges -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCheckerIpRanges -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. GetCheckerIpRanges -&gt; Rep GetCheckerIpRanges x)
+-&gt; (forall x. Rep GetCheckerIpRanges x -&gt; GetCheckerIpRanges)
+-&gt; Generic GetCheckerIpRanges
+forall x. Rep GetCheckerIpRanges x -&gt; GetCheckerIpRanges
+forall x. GetCheckerIpRanges -&gt; Rep GetCheckerIpRanges x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep GetCheckerIpRanges x -&gt; GetCheckerIpRanges
+$cfrom :: forall x. GetCheckerIpRanges -&gt; Rep GetCheckerIpRanges x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'GetCheckerIpRanges' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#newGetCheckerIpRanges"><span class="hs-identifier hs-type">newGetCheckerIpRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-66"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span><span>
+</span><span id="line-67"></span><span id="newGetCheckerIpRanges"><span class="annot"><span class="annottext">newGetCheckerIpRanges :: GetCheckerIpRanges
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#newGetCheckerIpRanges"><span class="hs-identifier hs-var hs-var">newGetCheckerIpRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">GetCheckerIpRanges
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges%27"><span class="hs-identifier hs-var">GetCheckerIpRanges'</span></a></span><span>
+</span><span id="line-68"></span><span>
+</span><span id="line-69"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-71"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-72"></span><span>      </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span id="local-6989586621679307166"><span class="annot"><span class="annottext">request :: GetCheckerIpRanges -&gt; Request GetCheckerIpRanges
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; GetCheckerIpRanges -&gt; Request GetCheckerIpRanges
+forall a. ToRequest a =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.get</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Route53.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679307162"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy GetCheckerIpRanges
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCheckerIpRanges)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; [Node]
+ -&gt; Either String (AWSResponse GetCheckerIpRanges))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy GetCheckerIpRanges
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse GetCheckerIpRanges)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; [Node] -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveXML</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679307159"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307159"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679307158"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679307158"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679307157"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307157"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-77"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; [Text] -&gt; GetCheckerIpRangesResponse
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var">GetCheckerIpRangesResponse'</span></a></span><span>
+</span><span id="line-78"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; [Text] -&gt; GetCheckerIpRangesResponse)
+-&gt; Either String Int
+-&gt; Either String ([Text] -&gt; GetCheckerIpRangesResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307159"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">Either String ([Text] -&gt; GetCheckerIpRangesResponse)
+-&gt; Either String [Text] -&gt; Either String GetCheckerIpRangesResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679307157"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe [Node])
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;CheckerIpRanges&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe [Node]) -&gt; [Node] -&gt; Either String [Node]
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">[Node]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-80"></span><span>                            </span><span class="annot"><span class="annottext">Either String [Node]
+-&gt; ([Node] -&gt; Either String [Text]) -&gt; Either String [Text]
+forall (m :: * -&gt; *) a b. Monad m =&gt; m a -&gt; (a -&gt; m b) -&gt; m b
+</span><span class="hs-operator hs-var">Prelude.&gt;&gt;=</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [Node] -&gt; Either String [Text]
+forall a. FromXML a =&gt; Text -&gt; [Node] -&gt; Either String [a]
+</span><span class="hs-identifier hs-var">Core.parseXMLList</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;member&quot;</span></span><span>
+</span><span id="line-81"></span><span>                        </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307147"><span id="local-6989586621679307149"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span></span></span><span>
+</span><span id="line-85"></span><span>
+</span><span id="line-86"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307144"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span></span><span>
+</span><span id="line-87"></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-89"></span><span>  </span><span id="local-6989586621679307140"><span class="annot"><span class="annottext">toHeaders :: GetCheckerIpRanges -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; GetCheckerIpRanges -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ResponseHeaders
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-90"></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-92"></span><span>  </span><span id="local-6989586621679307135"><span class="annot"><span class="annottext">toPath :: GetCheckerIpRanges -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; GetCheckerIpRanges -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/2013-04-01/checkeripranges&quot;</span></span><span>
+</span><span id="line-93"></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRanges"><span class="hs-identifier hs-type">GetCheckerIpRanges</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-95"></span><span>  </span><span id="local-6989586621679307131"><span class="annot"><span class="annottext">toQuery :: GetCheckerIpRanges -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; GetCheckerIpRanges -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-96"></span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- | A complex type that contains the @CheckerIpRanges@ element.</span><span>
+</span><span id="line-98"></span><span class="hs-comment">--</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- /See:/ 'newGetCheckerIpRangesResponse' smart constructor.</span><span>
+</span><span id="line-100"></span><span id="local-6989586621679307128"><span id="local-6989586621679307129"></span></span><span class="hs-keyword">data</span><span> </span><span id="GetCheckerIpRangesResponse"><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-var">GetCheckerIpRangesResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="GetCheckerIpRangesResponse%27"><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var">GetCheckerIpRangesResponse'</span></a></span></span><span>
+</span><span id="line-101"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-102"></span><span>    </span><span id="%24sel%3AhttpStatus%3AGetCheckerIpRangesResponse%27"><span class="annot"><span class="annottext">GetCheckerIpRangesResponse -&gt; Int
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#%24sel%3AhttpStatus%3AGetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- | A complex type that contains sorted list of IP ranges in CIDR format for</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- Amazon Route 53 health checkers.</span><span>
+</span><span id="line-105"></span><span>    </span><span id="%24sel%3AcheckerIpRanges%3AGetCheckerIpRangesResponse%27"><span class="annot"><span class="annottext">GetCheckerIpRangesResponse -&gt; [Text]
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#%24sel%3AcheckerIpRanges%3AGetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var hs-var">checkerIpRanges</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-106"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-107"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679307122"><span id="local-6989586621679307124"><span class="annot"><span class="annottext">GetCheckerIpRangesResponse -&gt; GetCheckerIpRangesResponse -&gt; Bool
+(GetCheckerIpRangesResponse -&gt; GetCheckerIpRangesResponse -&gt; Bool)
+-&gt; (GetCheckerIpRangesResponse
+    -&gt; GetCheckerIpRangesResponse -&gt; Bool)
+-&gt; Eq GetCheckerIpRangesResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: GetCheckerIpRangesResponse -&gt; GetCheckerIpRangesResponse -&gt; Bool
+$c/= :: GetCheckerIpRangesResponse -&gt; GetCheckerIpRangesResponse -&gt; Bool
+== :: GetCheckerIpRangesResponse -&gt; GetCheckerIpRangesResponse -&gt; Bool
+$c== :: GetCheckerIpRangesResponse -&gt; GetCheckerIpRangesResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307114"><span id="local-6989586621679307116"><span id="local-6989586621679307118"><span id="local-6989586621679307120"><span class="annot"><span class="annottext">ReadPrec [GetCheckerIpRangesResponse]
+ReadPrec GetCheckerIpRangesResponse
+Int -&gt; ReadS GetCheckerIpRangesResponse
+ReadS [GetCheckerIpRangesResponse]
+(Int -&gt; ReadS GetCheckerIpRangesResponse)
+-&gt; ReadS [GetCheckerIpRangesResponse]
+-&gt; ReadPrec GetCheckerIpRangesResponse
+-&gt; ReadPrec [GetCheckerIpRangesResponse]
+-&gt; Read GetCheckerIpRangesResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [GetCheckerIpRangesResponse]
+$creadListPrec :: ReadPrec [GetCheckerIpRangesResponse]
+readPrec :: ReadPrec GetCheckerIpRangesResponse
+$creadPrec :: ReadPrec GetCheckerIpRangesResponse
+readList :: ReadS [GetCheckerIpRangesResponse]
+$creadList :: ReadS [GetCheckerIpRangesResponse]
+readsPrec :: Int -&gt; ReadS GetCheckerIpRangesResponse
+$creadsPrec :: Int -&gt; ReadS GetCheckerIpRangesResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679307108"><span id="local-6989586621679307110"><span id="local-6989586621679307112"><span class="annot"><span class="annottext">Int -&gt; GetCheckerIpRangesResponse -&gt; ShowS
+[GetCheckerIpRangesResponse] -&gt; ShowS
+GetCheckerIpRangesResponse -&gt; String
+(Int -&gt; GetCheckerIpRangesResponse -&gt; ShowS)
+-&gt; (GetCheckerIpRangesResponse -&gt; String)
+-&gt; ([GetCheckerIpRangesResponse] -&gt; ShowS)
+-&gt; Show GetCheckerIpRangesResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [GetCheckerIpRangesResponse] -&gt; ShowS
+$cshowList :: [GetCheckerIpRangesResponse] -&gt; ShowS
+show :: GetCheckerIpRangesResponse -&gt; String
+$cshow :: GetCheckerIpRangesResponse -&gt; String
+showsPrec :: Int -&gt; GetCheckerIpRangesResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; GetCheckerIpRangesResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ GetCheckerIpRangesResponse -&gt; Rep GetCheckerIpRangesResponse x)
+-&gt; (forall x.
+    Rep GetCheckerIpRangesResponse x -&gt; GetCheckerIpRangesResponse)
+-&gt; Generic GetCheckerIpRangesResponse
+forall x.
+Rep GetCheckerIpRangesResponse x -&gt; GetCheckerIpRangesResponse
+forall x.
+GetCheckerIpRangesResponse -&gt; Rep GetCheckerIpRangesResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep GetCheckerIpRangesResponse x -&gt; GetCheckerIpRangesResponse
+$cfrom :: forall x.
+GetCheckerIpRangesResponse -&gt; Rep GetCheckerIpRangesResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-108"></span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-110"></span><span class="hs-comment">-- Create a value of 'GetCheckerIpRangesResponse' with all optional fields omitted.</span><span>
+</span><span id="line-111"></span><span class="hs-comment">--</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- 'httpStatus', 'getCheckerIpRangesResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'checkerIpRanges', 'getCheckerIpRangesResponse_checkerIpRanges' - A complex type that contains sorted list of IP ranges in CIDR format for</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- Amazon Route 53 health checkers.</span><span>
+</span><span id="line-121"></span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#newGetCheckerIpRangesResponse"><span class="hs-identifier hs-type">newGetCheckerIpRangesResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-122"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse</span></a></span><span>
+</span><span id="line-125"></span><span id="newGetCheckerIpRangesResponse"><span class="annot"><span class="annottext">newGetCheckerIpRangesResponse :: Int -&gt; GetCheckerIpRangesResponse
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#newGetCheckerIpRangesResponse"><span class="hs-identifier hs-var hs-var">newGetCheckerIpRangesResponse</span></a></span></span><span> </span><span id="local-6989586621679307105"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><span class="annottext">GetCheckerIpRangesResponse' :: Int -&gt; [Text] -&gt; GetCheckerIpRangesResponse
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse%27"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse'</span></a></span><span>
+</span><span id="line-127"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:GetCheckerIpRangesResponse' :: Int
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#%24sel%3AhttpStatus%3AGetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-128"></span><span>        </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307105"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>      </span><span class="annot"><span class="annottext">$sel:checkerIpRanges:GetCheckerIpRangesResponse' :: [Text]
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#%24sel%3AcheckerIpRanges%3AGetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var">checkerIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-130"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-133"></span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#getCheckerIpRangesResponse_httpStatus"><span class="hs-identifier hs-type">getCheckerIpRangesResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-134"></span><span id="getCheckerIpRangesResponse_httpStatus"><span class="annot"><span class="annottext">getCheckerIpRangesResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; GetCheckerIpRangesResponse -&gt; f GetCheckerIpRangesResponse
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#getCheckerIpRangesResponse_httpStatus"><span class="hs-identifier hs-var hs-var">getCheckerIpRangesResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCheckerIpRangesResponse -&gt; Int)
+-&gt; (GetCheckerIpRangesResponse
+    -&gt; Int -&gt; GetCheckerIpRangesResponse)
+-&gt; Lens
+     GetCheckerIpRangesResponse GetCheckerIpRangesResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse%27"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307102"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:GetCheckerIpRangesResponse' :: GetCheckerIpRangesResponse -&gt; Int
+</span><a href="#local-6989586621679307102"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307102"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307101"><span class="annot"><span class="annottext">s :: GetCheckerIpRangesResponse
+</span><a href="#local-6989586621679307101"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse%27"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307100"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307100"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCheckerIpRangesResponse
+</span><a href="#local-6989586621679307101"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:GetCheckerIpRangesResponse' :: Int
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#%24sel%3AhttpStatus%3AGetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679307100"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- | A complex type that contains sorted list of IP ranges in CIDR format for</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- Amazon Route 53 health checkers.</span><span>
+</span><span id="line-138"></span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#getCheckerIpRangesResponse_checkerIpRanges"><span class="hs-identifier hs-type">getCheckerIpRangesResponse_checkerIpRanges</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse</span></a></span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">]</span><span>
+</span><span id="line-139"></span><span id="getCheckerIpRangesResponse_checkerIpRanges"><span class="annot"><span class="annottext">getCheckerIpRangesResponse_checkerIpRanges :: ([Text] -&gt; f [Text])
+-&gt; GetCheckerIpRangesResponse -&gt; f GetCheckerIpRangesResponse
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#getCheckerIpRangesResponse_checkerIpRanges"><span class="hs-identifier hs-var hs-var">getCheckerIpRangesResponse_checkerIpRanges</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(GetCheckerIpRangesResponse -&gt; [Text])
+-&gt; (GetCheckerIpRangesResponse
+    -&gt; [Text] -&gt; GetCheckerIpRangesResponse)
+-&gt; Lens
+     GetCheckerIpRangesResponse GetCheckerIpRangesResponse [Text] [Text]
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse%27"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679307099"><span class="annot"><span class="annottext">[Text]
+checkerIpRanges :: [Text]
+$sel:checkerIpRanges:GetCheckerIpRangesResponse' :: GetCheckerIpRangesResponse -&gt; [Text]
+</span><a href="#local-6989586621679307099"><span class="hs-identifier hs-var hs-var">checkerIpRanges</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679307099"><span class="hs-identifier hs-var">checkerIpRanges</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679307098"><span class="annot"><span class="annottext">s :: GetCheckerIpRangesResponse
+</span><a href="#local-6989586621679307098"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse%27"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679307097"><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679307097"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">GetCheckerIpRangesResponse
+</span><a href="#local-6989586621679307098"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:checkerIpRanges:GetCheckerIpRangesResponse' :: [Text]
+</span><a href="Amazonka.Route53.GetCheckerIpRanges.html#%24sel%3AcheckerIpRanges%3AGetCheckerIpRangesResponse%27"><span class="hs-identifier hs-var">checkerIpRanges</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">[Text]
+</span><a href="#local-6989586621679307097"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(([Text] -&gt; f [Text])
+ -&gt; GetCheckerIpRangesResponse -&gt; f GetCheckerIpRangesResponse)
+-&gt; (([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text])
+-&gt; ([Text] -&gt; f [Text])
+-&gt; GetCheckerIpRangesResponse
+-&gt; f GetCheckerIpRangesResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">([Text] -&gt; f [Text]) -&gt; [Text] -&gt; f [Text]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-140"></span><span>
+</span><span id="line-141"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679307093"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Route53.GetCheckerIpRanges.html#GetCheckerIpRangesResponse"><span class="hs-identifier hs-type">GetCheckerIpRangesResponse</span></a></span></span><span>
+</span><span id="line-142"></span></pre></body></html>

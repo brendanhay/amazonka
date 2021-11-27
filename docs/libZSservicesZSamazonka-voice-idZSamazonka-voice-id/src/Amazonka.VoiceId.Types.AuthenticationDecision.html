@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.VoiceId.Types.AuthenticationDecision</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.VoiceId.Types.AuthenticationDecision</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier">AuthenticationDecision</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_ACCEPT"><span class="hs-identifier">AuthenticationDecision_ACCEPT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_NOT_ENOUGH_SPEECH"><span class="hs-identifier">AuthenticationDecision_NOT_ENOUGH_SPEECH</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_REJECT"><span class="hs-identifier">AuthenticationDecision_REJECT</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED"><span class="hs-identifier">AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_NOT_ENROLLED"><span class="hs-identifier">AuthenticationDecision_SPEAKER_NOT_ENROLLED</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_OPTED_OUT"><span class="hs-identifier">AuthenticationDecision_SPEAKER_OPTED_OUT</span></a></span><span>
+</span><span id="line-29"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-31"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-34"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span id="local-6989586621679200254"><span id="local-6989586621679200255"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="AuthenticationDecision"><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-var">AuthenticationDecision</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AuthenticationDecision%27"><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-identifier hs-var">AuthenticationDecision'</span></a></span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromAuthenticationDecision"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; Text
+</span><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#fromAuthenticationDecision"><span class="hs-identifier hs-var hs-var">fromAuthenticationDecision</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-38"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200246"><span id="local-6989586621679200248"><span id="local-6989586621679200250"><span class="annot"><span class="annottext">Int -&gt; AuthenticationDecision -&gt; ShowS
+[AuthenticationDecision] -&gt; ShowS
+AuthenticationDecision -&gt; String
+(Int -&gt; AuthenticationDecision -&gt; ShowS)
+-&gt; (AuthenticationDecision -&gt; String)
+-&gt; ([AuthenticationDecision] -&gt; ShowS)
+-&gt; Show AuthenticationDecision
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AuthenticationDecision] -&gt; ShowS
+$cshowList :: [AuthenticationDecision] -&gt; ShowS
+show :: AuthenticationDecision -&gt; String
+$cshow :: AuthenticationDecision -&gt; String
+showsPrec :: Int -&gt; AuthenticationDecision -&gt; ShowS
+$cshowsPrec :: Int -&gt; AuthenticationDecision -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span id="local-6989586621679200237"><span id="local-6989586621679200239"><span id="local-6989586621679200241"><span id="local-6989586621679200243"><span class="annot"><span class="annottext">ReadPrec [AuthenticationDecision]
+ReadPrec AuthenticationDecision
+Int -&gt; ReadS AuthenticationDecision
+ReadS [AuthenticationDecision]
+(Int -&gt; ReadS AuthenticationDecision)
+-&gt; ReadS [AuthenticationDecision]
+-&gt; ReadPrec AuthenticationDecision
+-&gt; ReadPrec [AuthenticationDecision]
+-&gt; Read AuthenticationDecision
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [AuthenticationDecision]
+$creadListPrec :: ReadPrec [AuthenticationDecision]
+readPrec :: ReadPrec AuthenticationDecision
+$creadPrec :: ReadPrec AuthenticationDecision
+readList :: ReadS [AuthenticationDecision]
+$creadList :: ReadS [AuthenticationDecision]
+readsPrec :: Int -&gt; ReadS AuthenticationDecision
+$creadsPrec :: Int -&gt; ReadS AuthenticationDecision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>      </span><span id="local-6989586621679200232"><span id="local-6989586621679200234"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+(AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool)
+-&gt; (AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool)
+-&gt; Eq AuthenticationDecision
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+$c/= :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+== :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+$c== :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>      </span><span id="local-6989586621679200216"><span id="local-6989586621679200218"><span id="local-6989586621679200220"><span id="local-6989586621679200222"><span id="local-6989586621679200224"><span id="local-6989586621679200226"><span id="local-6989586621679200228"><span class="annot"><span class="annottext">Eq AuthenticationDecision
+Eq AuthenticationDecision
+-&gt; (AuthenticationDecision -&gt; AuthenticationDecision -&gt; Ordering)
+-&gt; (AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool)
+-&gt; (AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool)
+-&gt; (AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool)
+-&gt; (AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool)
+-&gt; (AuthenticationDecision
+    -&gt; AuthenticationDecision -&gt; AuthenticationDecision)
+-&gt; (AuthenticationDecision
+    -&gt; AuthenticationDecision -&gt; AuthenticationDecision)
+-&gt; Ord AuthenticationDecision
+AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+AuthenticationDecision -&gt; AuthenticationDecision -&gt; Ordering
+AuthenticationDecision
+-&gt; AuthenticationDecision -&gt; AuthenticationDecision
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: AuthenticationDecision
+-&gt; AuthenticationDecision -&gt; AuthenticationDecision
+$cmin :: AuthenticationDecision
+-&gt; AuthenticationDecision -&gt; AuthenticationDecision
+max :: AuthenticationDecision
+-&gt; AuthenticationDecision -&gt; AuthenticationDecision
+$cmax :: AuthenticationDecision
+-&gt; AuthenticationDecision -&gt; AuthenticationDecision
+&gt;= :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+$c&gt;= :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+&gt; :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+$c&gt; :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+&lt;= :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+$c&lt;= :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+&lt; :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+$c&lt; :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Bool
+compare :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Ordering
+$ccompare :: AuthenticationDecision -&gt; AuthenticationDecision -&gt; Ordering
+$cp1Ord :: Eq AuthenticationDecision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span class="annot"><span class="annottext">(forall x. AuthenticationDecision -&gt; Rep AuthenticationDecision x)
+-&gt; (forall x.
+    Rep AuthenticationDecision x -&gt; AuthenticationDecision)
+-&gt; Generic AuthenticationDecision
+forall x. Rep AuthenticationDecision x -&gt; AuthenticationDecision
+forall x. AuthenticationDecision -&gt; Rep AuthenticationDecision x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep AuthenticationDecision x -&gt; AuthenticationDecision
+$cfrom :: forall x. AuthenticationDecision -&gt; Rep AuthenticationDecision x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679200208"><span id="local-6989586621679200210"><span class="annot"><span class="annottext">Int -&gt; AuthenticationDecision -&gt; Int
+AuthenticationDecision -&gt; Int
+(Int -&gt; AuthenticationDecision -&gt; Int)
+-&gt; (AuthenticationDecision -&gt; Int)
+-&gt; Hashable AuthenticationDecision
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: AuthenticationDecision -&gt; Int
+$chash :: AuthenticationDecision -&gt; Int
+hashWithSalt :: Int -&gt; AuthenticationDecision -&gt; Int
+$chashWithSalt :: Int -&gt; AuthenticationDecision -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679200205"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; ()
+(AuthenticationDecision -&gt; ()) -&gt; NFData AuthenticationDecision
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: AuthenticationDecision -&gt; ()
+$crnf :: AuthenticationDecision -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679200202"><span class="annot"><span class="annottext">Text -&gt; Either String AuthenticationDecision
+(Text -&gt; Either String AuthenticationDecision)
+-&gt; FromText AuthenticationDecision
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String AuthenticationDecision
+$cfromText :: Text -&gt; Either String AuthenticationDecision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679200199"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; Text
+(AuthenticationDecision -&gt; Text) -&gt; ToText AuthenticationDecision
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: AuthenticationDecision -&gt; Text
+$ctoText :: AuthenticationDecision -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679200196"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; ByteString
+(AuthenticationDecision -&gt; ByteString)
+-&gt; ToByteString AuthenticationDecision
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: AuthenticationDecision -&gt; ByteString
+$ctoBS :: AuthenticationDecision -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679200193"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; ByteStringBuilder
+(AuthenticationDecision -&gt; ByteStringBuilder)
+-&gt; ToLog AuthenticationDecision
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: AuthenticationDecision -&gt; ByteStringBuilder
+$cbuild :: AuthenticationDecision -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679200190"><span class="annot"><span class="annottext">HeaderName -&gt; AuthenticationDecision -&gt; [Header]
+(HeaderName -&gt; AuthenticationDecision -&gt; [Header])
+-&gt; ToHeader AuthenticationDecision
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; AuthenticationDecision -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; AuthenticationDecision -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679200187"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; QueryString
+(AuthenticationDecision -&gt; QueryString)
+-&gt; ToQuery AuthenticationDecision
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: AuthenticationDecision -&gt; QueryString
+$ctoQuery :: AuthenticationDecision -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679200182"><span id="local-6989586621679200184"><span class="annot"><span class="annottext">Value -&gt; Parser [AuthenticationDecision]
+Value -&gt; Parser AuthenticationDecision
+(Value -&gt; Parser AuthenticationDecision)
+-&gt; (Value -&gt; Parser [AuthenticationDecision])
+-&gt; FromJSON AuthenticationDecision
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [AuthenticationDecision]
+$cparseJSONList :: Value -&gt; Parser [AuthenticationDecision]
+parseJSON :: Value -&gt; Parser AuthenticationDecision
+$cparseJSON :: Value -&gt; Parser AuthenticationDecision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679200177"><span id="local-6989586621679200179"><span class="annot"><span class="annottext">FromJSONKeyFunction [AuthenticationDecision]
+FromJSONKeyFunction AuthenticationDecision
+FromJSONKeyFunction AuthenticationDecision
+-&gt; FromJSONKeyFunction [AuthenticationDecision]
+-&gt; FromJSONKey AuthenticationDecision
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [AuthenticationDecision]
+$cfromJSONKeyList :: FromJSONKeyFunction [AuthenticationDecision]
+fromJSONKey :: FromJSONKeyFunction AuthenticationDecision
+$cfromJSONKey :: FromJSONKeyFunction AuthenticationDecision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679200168"><span id="local-6989586621679200170"><span id="local-6989586621679200172"><span id="local-6989586621679200174"><span class="annot"><span class="annottext">[AuthenticationDecision] -&gt; Encoding
+[AuthenticationDecision] -&gt; Value
+AuthenticationDecision -&gt; Encoding
+AuthenticationDecision -&gt; Value
+(AuthenticationDecision -&gt; Value)
+-&gt; (AuthenticationDecision -&gt; Encoding)
+-&gt; ([AuthenticationDecision] -&gt; Value)
+-&gt; ([AuthenticationDecision] -&gt; Encoding)
+-&gt; ToJSON AuthenticationDecision
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [AuthenticationDecision] -&gt; Encoding
+$ctoEncodingList :: [AuthenticationDecision] -&gt; Encoding
+toJSONList :: [AuthenticationDecision] -&gt; Value
+$ctoJSONList :: [AuthenticationDecision] -&gt; Value
+toEncoding :: AuthenticationDecision -&gt; Encoding
+$ctoEncoding :: AuthenticationDecision -&gt; Encoding
+toJSON :: AuthenticationDecision -&gt; Value
+$ctoJSON :: AuthenticationDecision -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679200163"><span id="local-6989586621679200165"><span class="annot"><span class="annottext">ToJSONKeyFunction [AuthenticationDecision]
+ToJSONKeyFunction AuthenticationDecision
+ToJSONKeyFunction AuthenticationDecision
+-&gt; ToJSONKeyFunction [AuthenticationDecision]
+-&gt; ToJSONKey AuthenticationDecision
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [AuthenticationDecision]
+$ctoJSONKeyList :: ToJSONKeyFunction [AuthenticationDecision]
+toJSONKey :: ToJSONKeyFunction AuthenticationDecision
+$ctoJSONKey :: ToJSONKeyFunction AuthenticationDecision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679200160"><span class="annot"><span class="annottext">[Node] -&gt; Either String AuthenticationDecision
+([Node] -&gt; Either String AuthenticationDecision)
+-&gt; FromXML AuthenticationDecision
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String AuthenticationDecision
+$cparseXML :: [Node] -&gt; Either String AuthenticationDecision
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679200157"><span class="annot"><span class="annottext">AuthenticationDecision -&gt; XML
+(AuthenticationDecision -&gt; XML) -&gt; ToXML AuthenticationDecision
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: AuthenticationDecision -&gt; XML
+$ctoXML :: AuthenticationDecision -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_ACCEPT"><span class="hs-identifier hs-type">AuthenticationDecision_ACCEPT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationDecision_ACCEPT"><span id="%24mAuthenticationDecision_ACCEPT"><span id="AuthenticationDecision_ACCEPT"><span class="annot"><span class="annottext">$bAuthenticationDecision_ACCEPT :: AuthenticationDecision
+$mAuthenticationDecision_ACCEPT :: forall r.
+AuthenticationDecision -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#%24bAuthenticationDecision_ACCEPT"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationDecision_ACCEPT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-identifier hs-type">AuthenticationDecision'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ACCEPT&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_NOT_ENOUGH_SPEECH"><span class="hs-identifier hs-type">AuthenticationDecision_NOT_ENOUGH_SPEECH</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationDecision_NOT_ENOUGH_SPEECH"><span id="%24mAuthenticationDecision_NOT_ENOUGH_SPEECH"><span id="AuthenticationDecision_NOT_ENOUGH_SPEECH"><span class="annot"><span class="annottext">$bAuthenticationDecision_NOT_ENOUGH_SPEECH :: AuthenticationDecision
+$mAuthenticationDecision_NOT_ENOUGH_SPEECH :: forall r.
+AuthenticationDecision -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#%24bAuthenticationDecision_NOT_ENOUGH_SPEECH"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationDecision_NOT_ENOUGH_SPEECH</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-identifier hs-type">AuthenticationDecision'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NOT_ENOUGH_SPEECH&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_REJECT"><span class="hs-identifier hs-type">AuthenticationDecision_REJECT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span>
+</span><span id="line-71"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationDecision_REJECT"><span id="%24mAuthenticationDecision_REJECT"><span id="AuthenticationDecision_REJECT"><span class="annot"><span class="annottext">$bAuthenticationDecision_REJECT :: AuthenticationDecision
+$mAuthenticationDecision_REJECT :: forall r.
+AuthenticationDecision -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#%24bAuthenticationDecision_REJECT"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationDecision_REJECT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-identifier hs-type">AuthenticationDecision'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;REJECT&quot;</span></span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED"><span class="hs-identifier hs-type">AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span>
+</span><span id="line-74"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationDecision_SPEAKER_ID_NOT_PROVIDED"><span id="%24mAuthenticationDecision_SPEAKER_ID_NOT_PROVIDED"><span id="AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED"><span class="annot"><span class="annottext">$bAuthenticationDecision_SPEAKER_ID_NOT_PROVIDED :: AuthenticationDecision
+$mAuthenticationDecision_SPEAKER_ID_NOT_PROVIDED :: forall r.
+AuthenticationDecision -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#%24bAuthenticationDecision_SPEAKER_ID_NOT_PROVIDED"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-identifier hs-type">AuthenticationDecision'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEAKER_ID_NOT_PROVIDED&quot;</span></span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_NOT_ENROLLED"><span class="hs-identifier hs-type">AuthenticationDecision_SPEAKER_NOT_ENROLLED</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span>
+</span><span id="line-77"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationDecision_SPEAKER_NOT_ENROLLED"><span id="%24mAuthenticationDecision_SPEAKER_NOT_ENROLLED"><span id="AuthenticationDecision_SPEAKER_NOT_ENROLLED"><span class="annot"><span class="annottext">$bAuthenticationDecision_SPEAKER_NOT_ENROLLED :: AuthenticationDecision
+$mAuthenticationDecision_SPEAKER_NOT_ENROLLED :: forall r.
+AuthenticationDecision -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#%24bAuthenticationDecision_SPEAKER_NOT_ENROLLED"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationDecision_SPEAKER_NOT_ENROLLED</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-identifier hs-type">AuthenticationDecision'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEAKER_NOT_ENROLLED&quot;</span></span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_OPTED_OUT"><span class="hs-identifier hs-type">AuthenticationDecision_SPEAKER_OPTED_OUT</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision"><span class="hs-identifier hs-type">AuthenticationDecision</span></a></span><span>
+</span><span id="line-80"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bAuthenticationDecision_SPEAKER_OPTED_OUT"><span id="%24mAuthenticationDecision_SPEAKER_OPTED_OUT"><span id="AuthenticationDecision_SPEAKER_OPTED_OUT"><span class="annot"><span class="annottext">$bAuthenticationDecision_SPEAKER_OPTED_OUT :: AuthenticationDecision
+$mAuthenticationDecision_SPEAKER_OPTED_OUT :: forall r.
+AuthenticationDecision -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#%24bAuthenticationDecision_SPEAKER_OPTED_OUT"><span class="hs-identifier hs-var hs-var hs-var">AuthenticationDecision_SPEAKER_OPTED_OUT</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-identifier hs-type">AuthenticationDecision'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SPEAKER_OPTED_OUT&quot;</span></span><span>
+</span><span id="line-81"></span><span>
+</span><span id="line-82"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_ACCEPT"><span class="hs-pragma hs-type">AuthenticationDecision_ACCEPT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-84"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_NOT_ENOUGH_SPEECH"><span class="hs-pragma hs-type">AuthenticationDecision_NOT_ENOUGH_SPEECH</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_REJECT"><span class="hs-pragma hs-type">AuthenticationDecision_REJECT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-86"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED"><span class="hs-pragma hs-type">AuthenticationDecision_SPEAKER_ID_NOT_PROVIDED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-87"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_NOT_ENROLLED"><span class="hs-pragma hs-type">AuthenticationDecision_SPEAKER_NOT_ENROLLED</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision_SPEAKER_OPTED_OUT"><span class="hs-pragma hs-type">AuthenticationDecision_SPEAKER_OPTED_OUT</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-89"></span><span>  </span><span class="annot"><a href="Amazonka.VoiceId.Types.AuthenticationDecision.html#AuthenticationDecision%27"><span class="hs-pragma hs-type">AuthenticationDecision'</span></a></span><span>
+</span><span id="line-90"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-91"></span></pre></body></html>

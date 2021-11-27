@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.AppFlow.Types.TrendmicroConnectorOperator</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.AppFlow.Types.TrendmicroConnectorOperator</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_ADDITION"><span class="hs-identifier">TrendmicroConnectorOperator_ADDITION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_DIVISION"><span class="hs-identifier">TrendmicroConnectorOperator_DIVISION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_EQUAL_TO"><span class="hs-identifier">TrendmicroConnectorOperator_EQUAL_TO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_ALL"><span class="hs-identifier">TrendmicroConnectorOperator_MASK_ALL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_FIRST_N"><span class="hs-identifier">TrendmicroConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_LAST_N"><span class="hs-identifier">TrendmicroConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MULTIPLICATION"><span class="hs-identifier">TrendmicroConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_NO_OP"><span class="hs-identifier">TrendmicroConnectorOperator_NO_OP</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_PROJECTION"><span class="hs-identifier">TrendmicroConnectorOperator_PROJECTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_SUBTRACTION"><span class="hs-identifier">TrendmicroConnectorOperator_SUBTRACTION</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier">TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier">TrendmicroConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier">TrendmicroConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>        </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier">TrendmicroConnectorOperator_VALIDATE_NUMERIC</span></a></span><span>
+</span><span id="line-37"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-40"></span><span>
+</span><span id="line-41"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-42"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span id="local-6989586621679325880"><span id="local-6989586621679325881"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="TrendmicroConnectorOperator"><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-var">TrendmicroConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="TrendmicroConnectorOperator%27"><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-var">TrendmicroConnectorOperator'</span></a></span></span><span>
+</span><span id="line-45"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromTrendmicroConnectorOperator"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; Text
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#fromTrendmicroConnectorOperator"><span class="hs-identifier hs-var hs-var">fromTrendmicroConnectorOperator</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-46"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-48"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325872"><span id="local-6989586621679325874"><span id="local-6989586621679325876"><span class="annot"><span class="annottext">Int -&gt; TrendmicroConnectorOperator -&gt; ShowS
+[TrendmicroConnectorOperator] -&gt; ShowS
+TrendmicroConnectorOperator -&gt; String
+(Int -&gt; TrendmicroConnectorOperator -&gt; ShowS)
+-&gt; (TrendmicroConnectorOperator -&gt; String)
+-&gt; ([TrendmicroConnectorOperator] -&gt; ShowS)
+-&gt; Show TrendmicroConnectorOperator
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [TrendmicroConnectorOperator] -&gt; ShowS
+$cshowList :: [TrendmicroConnectorOperator] -&gt; ShowS
+show :: TrendmicroConnectorOperator -&gt; String
+$cshow :: TrendmicroConnectorOperator -&gt; String
+showsPrec :: Int -&gt; TrendmicroConnectorOperator -&gt; ShowS
+$cshowsPrec :: Int -&gt; TrendmicroConnectorOperator -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679325863"><span id="local-6989586621679325865"><span id="local-6989586621679325867"><span id="local-6989586621679325869"><span class="annot"><span class="annottext">ReadPrec [TrendmicroConnectorOperator]
+ReadPrec TrendmicroConnectorOperator
+Int -&gt; ReadS TrendmicroConnectorOperator
+ReadS [TrendmicroConnectorOperator]
+(Int -&gt; ReadS TrendmicroConnectorOperator)
+-&gt; ReadS [TrendmicroConnectorOperator]
+-&gt; ReadPrec TrendmicroConnectorOperator
+-&gt; ReadPrec [TrendmicroConnectorOperator]
+-&gt; Read TrendmicroConnectorOperator
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [TrendmicroConnectorOperator]
+$creadListPrec :: ReadPrec [TrendmicroConnectorOperator]
+readPrec :: ReadPrec TrendmicroConnectorOperator
+$creadPrec :: ReadPrec TrendmicroConnectorOperator
+readList :: ReadS [TrendmicroConnectorOperator]
+$creadList :: ReadS [TrendmicroConnectorOperator]
+readsPrec :: Int -&gt; ReadS TrendmicroConnectorOperator
+$creadsPrec :: Int -&gt; ReadS TrendmicroConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679325858"><span id="local-6989586621679325860"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+(TrendmicroConnectorOperator
+ -&gt; TrendmicroConnectorOperator -&gt; Bool)
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; Bool)
+-&gt; Eq TrendmicroConnectorOperator
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+$c/= :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+== :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+$c== :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679325842"><span id="local-6989586621679325844"><span id="local-6989586621679325846"><span id="local-6989586621679325848"><span id="local-6989586621679325850"><span id="local-6989586621679325852"><span id="local-6989586621679325854"><span class="annot"><span class="annottext">Eq TrendmicroConnectorOperator
+Eq TrendmicroConnectorOperator
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; Ordering)
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; Bool)
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; Bool)
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; Bool)
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; Bool)
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator)
+-&gt; (TrendmicroConnectorOperator
+    -&gt; TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator)
+-&gt; Ord TrendmicroConnectorOperator
+TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; Ordering
+TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator
+$cmin :: TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator
+max :: TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator
+$cmax :: TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator
+&gt;= :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+$c&gt;= :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+&gt; :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+$c&gt; :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+&lt;= :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+$c&lt;= :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+&lt; :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+$c&lt; :: TrendmicroConnectorOperator -&gt; TrendmicroConnectorOperator -&gt; Bool
+compare :: TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; Ordering
+$ccompare :: TrendmicroConnectorOperator
+-&gt; TrendmicroConnectorOperator -&gt; Ordering
+$cp1Ord :: Eq TrendmicroConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ TrendmicroConnectorOperator -&gt; Rep TrendmicroConnectorOperator x)
+-&gt; (forall x.
+    Rep TrendmicroConnectorOperator x -&gt; TrendmicroConnectorOperator)
+-&gt; Generic TrendmicroConnectorOperator
+forall x.
+Rep TrendmicroConnectorOperator x -&gt; TrendmicroConnectorOperator
+forall x.
+TrendmicroConnectorOperator -&gt; Rep TrendmicroConnectorOperator x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep TrendmicroConnectorOperator x -&gt; TrendmicroConnectorOperator
+$cfrom :: forall x.
+TrendmicroConnectorOperator -&gt; Rep TrendmicroConnectorOperator x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679325834"><span id="local-6989586621679325836"><span class="annot"><span class="annottext">Int -&gt; TrendmicroConnectorOperator -&gt; Int
+TrendmicroConnectorOperator -&gt; Int
+(Int -&gt; TrendmicroConnectorOperator -&gt; Int)
+-&gt; (TrendmicroConnectorOperator -&gt; Int)
+-&gt; Hashable TrendmicroConnectorOperator
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: TrendmicroConnectorOperator -&gt; Int
+$chash :: TrendmicroConnectorOperator -&gt; Int
+hashWithSalt :: Int -&gt; TrendmicroConnectorOperator -&gt; Int
+$chashWithSalt :: Int -&gt; TrendmicroConnectorOperator -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679325831"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; ()
+(TrendmicroConnectorOperator -&gt; ())
+-&gt; NFData TrendmicroConnectorOperator
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: TrendmicroConnectorOperator -&gt; ()
+$crnf :: TrendmicroConnectorOperator -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679325828"><span class="annot"><span class="annottext">Text -&gt; Either String TrendmicroConnectorOperator
+(Text -&gt; Either String TrendmicroConnectorOperator)
+-&gt; FromText TrendmicroConnectorOperator
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String TrendmicroConnectorOperator
+$cfromText :: Text -&gt; Either String TrendmicroConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>      </span><span id="local-6989586621679325825"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; Text
+(TrendmicroConnectorOperator -&gt; Text)
+-&gt; ToText TrendmicroConnectorOperator
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: TrendmicroConnectorOperator -&gt; Text
+$ctoText :: TrendmicroConnectorOperator -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>      </span><span id="local-6989586621679325822"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; ByteString
+(TrendmicroConnectorOperator -&gt; ByteString)
+-&gt; ToByteString TrendmicroConnectorOperator
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: TrendmicroConnectorOperator -&gt; ByteString
+$ctoBS :: TrendmicroConnectorOperator -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span id="local-6989586621679325819"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; ByteStringBuilder
+(TrendmicroConnectorOperator -&gt; ByteStringBuilder)
+-&gt; ToLog TrendmicroConnectorOperator
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: TrendmicroConnectorOperator -&gt; ByteStringBuilder
+$cbuild :: TrendmicroConnectorOperator -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>      </span><span id="local-6989586621679325816"><span class="annot"><span class="annottext">HeaderName -&gt; TrendmicroConnectorOperator -&gt; [Header]
+(HeaderName -&gt; TrendmicroConnectorOperator -&gt; [Header])
+-&gt; ToHeader TrendmicroConnectorOperator
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; TrendmicroConnectorOperator -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; TrendmicroConnectorOperator -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>      </span><span id="local-6989586621679325813"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; QueryString
+(TrendmicroConnectorOperator -&gt; QueryString)
+-&gt; ToQuery TrendmicroConnectorOperator
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: TrendmicroConnectorOperator -&gt; QueryString
+$ctoQuery :: TrendmicroConnectorOperator -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-64"></span><span>      </span><span id="local-6989586621679325808"><span id="local-6989586621679325810"><span class="annot"><span class="annottext">Value -&gt; Parser [TrendmicroConnectorOperator]
+Value -&gt; Parser TrendmicroConnectorOperator
+(Value -&gt; Parser TrendmicroConnectorOperator)
+-&gt; (Value -&gt; Parser [TrendmicroConnectorOperator])
+-&gt; FromJSON TrendmicroConnectorOperator
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [TrendmicroConnectorOperator]
+$cparseJSONList :: Value -&gt; Parser [TrendmicroConnectorOperator]
+parseJSON :: Value -&gt; Parser TrendmicroConnectorOperator
+$cparseJSON :: Value -&gt; Parser TrendmicroConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>      </span><span id="local-6989586621679325803"><span id="local-6989586621679325805"><span class="annot"><span class="annottext">FromJSONKeyFunction [TrendmicroConnectorOperator]
+FromJSONKeyFunction TrendmicroConnectorOperator
+FromJSONKeyFunction TrendmicroConnectorOperator
+-&gt; FromJSONKeyFunction [TrendmicroConnectorOperator]
+-&gt; FromJSONKey TrendmicroConnectorOperator
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [TrendmicroConnectorOperator]
+$cfromJSONKeyList :: FromJSONKeyFunction [TrendmicroConnectorOperator]
+fromJSONKey :: FromJSONKeyFunction TrendmicroConnectorOperator
+$cfromJSONKey :: FromJSONKeyFunction TrendmicroConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>      </span><span id="local-6989586621679325794"><span id="local-6989586621679325796"><span id="local-6989586621679325798"><span id="local-6989586621679325800"><span class="annot"><span class="annottext">[TrendmicroConnectorOperator] -&gt; Encoding
+[TrendmicroConnectorOperator] -&gt; Value
+TrendmicroConnectorOperator -&gt; Encoding
+TrendmicroConnectorOperator -&gt; Value
+(TrendmicroConnectorOperator -&gt; Value)
+-&gt; (TrendmicroConnectorOperator -&gt; Encoding)
+-&gt; ([TrendmicroConnectorOperator] -&gt; Value)
+-&gt; ([TrendmicroConnectorOperator] -&gt; Encoding)
+-&gt; ToJSON TrendmicroConnectorOperator
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [TrendmicroConnectorOperator] -&gt; Encoding
+$ctoEncodingList :: [TrendmicroConnectorOperator] -&gt; Encoding
+toJSONList :: [TrendmicroConnectorOperator] -&gt; Value
+$ctoJSONList :: [TrendmicroConnectorOperator] -&gt; Value
+toEncoding :: TrendmicroConnectorOperator -&gt; Encoding
+$ctoEncoding :: TrendmicroConnectorOperator -&gt; Encoding
+toJSON :: TrendmicroConnectorOperator -&gt; Value
+$ctoJSON :: TrendmicroConnectorOperator -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span id="local-6989586621679325789"><span id="local-6989586621679325791"><span class="annot"><span class="annottext">ToJSONKeyFunction [TrendmicroConnectorOperator]
+ToJSONKeyFunction TrendmicroConnectorOperator
+ToJSONKeyFunction TrendmicroConnectorOperator
+-&gt; ToJSONKeyFunction [TrendmicroConnectorOperator]
+-&gt; ToJSONKey TrendmicroConnectorOperator
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [TrendmicroConnectorOperator]
+$ctoJSONKeyList :: ToJSONKeyFunction [TrendmicroConnectorOperator]
+toJSONKey :: ToJSONKeyFunction TrendmicroConnectorOperator
+$ctoJSONKey :: ToJSONKeyFunction TrendmicroConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span id="local-6989586621679325786"><span class="annot"><span class="annottext">[Node] -&gt; Either String TrendmicroConnectorOperator
+([Node] -&gt; Either String TrendmicroConnectorOperator)
+-&gt; FromXML TrendmicroConnectorOperator
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String TrendmicroConnectorOperator
+$cparseXML :: [Node] -&gt; Either String TrendmicroConnectorOperator
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span id="local-6989586621679325783"><span class="annot"><span class="annottext">TrendmicroConnectorOperator -&gt; XML
+(TrendmicroConnectorOperator -&gt; XML)
+-&gt; ToXML TrendmicroConnectorOperator
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: TrendmicroConnectorOperator -&gt; XML
+$ctoXML :: TrendmicroConnectorOperator -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_ADDITION"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_ADDITION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_ADDITION"><span id="%24mTrendmicroConnectorOperator_ADDITION"><span id="TrendmicroConnectorOperator_ADDITION"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_ADDITION :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_ADDITION :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_ADDITION"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_ADDITION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;ADDITION&quot;</span></span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_DIVISION"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_DIVISION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-76"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_DIVISION"><span id="%24mTrendmicroConnectorOperator_DIVISION"><span id="TrendmicroConnectorOperator_DIVISION"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_DIVISION :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_DIVISION :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_DIVISION"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_DIVISION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;DIVISION&quot;</span></span><span>
+</span><span id="line-77"></span><span>
+</span><span id="line-78"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_EQUAL_TO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_EQUAL_TO"><span id="%24mTrendmicroConnectorOperator_EQUAL_TO"><span id="TrendmicroConnectorOperator_EQUAL_TO"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_EQUAL_TO :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_EQUAL_TO :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_EQUAL_TO"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_EQUAL_TO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;EQUAL_TO&quot;</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_ALL"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_MASK_ALL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-82"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_MASK_ALL"><span id="%24mTrendmicroConnectorOperator_MASK_ALL"><span id="TrendmicroConnectorOperator_MASK_ALL"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_MASK_ALL :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_MASK_ALL :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_MASK_ALL"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_MASK_ALL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_ALL&quot;</span></span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_MASK_FIRST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_MASK_FIRST_N"><span id="%24mTrendmicroConnectorOperator_MASK_FIRST_N"><span id="TrendmicroConnectorOperator_MASK_FIRST_N"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_MASK_FIRST_N :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_MASK_FIRST_N :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_MASK_FIRST_N"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_MASK_FIRST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_FIRST_N&quot;</span></span><span>
+</span><span id="line-86"></span><span>
+</span><span id="line-87"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_MASK_LAST_N</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-88"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_MASK_LAST_N"><span id="%24mTrendmicroConnectorOperator_MASK_LAST_N"><span id="TrendmicroConnectorOperator_MASK_LAST_N"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_MASK_LAST_N :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_MASK_LAST_N :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_MASK_LAST_N"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_MASK_LAST_N</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MASK_LAST_N&quot;</span></span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_MULTIPLICATION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-91"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_MULTIPLICATION"><span id="%24mTrendmicroConnectorOperator_MULTIPLICATION"><span id="TrendmicroConnectorOperator_MULTIPLICATION"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_MULTIPLICATION :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_MULTIPLICATION :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_MULTIPLICATION"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_MULTIPLICATION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;MULTIPLICATION&quot;</span></span><span>
+</span><span id="line-92"></span><span>
+</span><span id="line-93"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_NO_OP"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_NO_OP</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-94"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_NO_OP"><span id="%24mTrendmicroConnectorOperator_NO_OP"><span id="TrendmicroConnectorOperator_NO_OP"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_NO_OP :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_NO_OP :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_NO_OP"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_NO_OP</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;NO_OP&quot;</span></span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_PROJECTION"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_PROJECTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-97"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_PROJECTION"><span id="%24mTrendmicroConnectorOperator_PROJECTION"><span id="TrendmicroConnectorOperator_PROJECTION"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_PROJECTION :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_PROJECTION :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_PROJECTION"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_PROJECTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;PROJECTION&quot;</span></span><span>
+</span><span id="line-98"></span><span>
+</span><span id="line-99"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_SUBTRACTION</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-100"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_SUBTRACTION"><span id="%24mTrendmicroConnectorOperator_SUBTRACTION"><span id="TrendmicroConnectorOperator_SUBTRACTION"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_SUBTRACTION :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_SUBTRACTION :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_SUBTRACTION"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_SUBTRACTION</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;SUBTRACTION&quot;</span></span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-103"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="%24mTrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE"><span id="TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NEGATIVE&quot;</span></span><span>
+</span><span id="line-104"></span><span>
+</span><span id="line-105"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_VALIDATE_NON_NULL</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-106"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_VALIDATE_NON_NULL"><span id="%24mTrendmicroConnectorOperator_VALIDATE_NON_NULL"><span id="TrendmicroConnectorOperator_VALIDATE_NON_NULL"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_VALIDATE_NON_NULL :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_VALIDATE_NON_NULL :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_VALIDATE_NON_NULL"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_VALIDATE_NON_NULL</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_NULL&quot;</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-109"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_VALIDATE_NON_ZERO"><span id="%24mTrendmicroConnectorOperator_VALIDATE_NON_ZERO"><span id="TrendmicroConnectorOperator_VALIDATE_NON_ZERO"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_VALIDATE_NON_ZERO :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_VALIDATE_NON_ZERO :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_VALIDATE_NON_ZERO</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NON_ZERO&quot;</span></span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-type">TrendmicroConnectorOperator_VALIDATE_NUMERIC</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator"><span class="hs-identifier hs-type">TrendmicroConnectorOperator</span></a></span><span>
+</span><span id="line-112"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bTrendmicroConnectorOperator_VALIDATE_NUMERIC"><span id="%24mTrendmicroConnectorOperator_VALIDATE_NUMERIC"><span id="TrendmicroConnectorOperator_VALIDATE_NUMERIC"><span class="annot"><span class="annottext">$bTrendmicroConnectorOperator_VALIDATE_NUMERIC :: TrendmicroConnectorOperator
+$mTrendmicroConnectorOperator_VALIDATE_NUMERIC :: forall r.
+TrendmicroConnectorOperator -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#%24bTrendmicroConnectorOperator_VALIDATE_NUMERIC"><span class="hs-identifier hs-var hs-var hs-var">TrendmicroConnectorOperator_VALIDATE_NUMERIC</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-identifier hs-type">TrendmicroConnectorOperator'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;VALIDATE_NUMERIC&quot;</span></span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-115"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_ADDITION"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_ADDITION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-116"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_DIVISION"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_DIVISION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-117"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_EQUAL_TO"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_EQUAL_TO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-118"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_ALL"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_MASK_ALL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-119"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_FIRST_N"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_MASK_FIRST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-120"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MASK_LAST_N"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_MASK_LAST_N</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-121"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_MULTIPLICATION"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_MULTIPLICATION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-122"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_NO_OP"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_NO_OP</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-123"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_PROJECTION"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_PROJECTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-124"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_SUBTRACTION"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_SUBTRACTION</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-125"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_VALIDATE_NON_NEGATIVE</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-126"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_NULL"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_VALIDATE_NON_NULL</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-127"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NON_ZERO"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_VALIDATE_NON_ZERO</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-128"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator_VALIDATE_NUMERIC"><span class="hs-pragma hs-type">TrendmicroConnectorOperator_VALIDATE_NUMERIC</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-129"></span><span>  </span><span class="annot"><a href="Amazonka.AppFlow.Types.TrendmicroConnectorOperator.html#TrendmicroConnectorOperator%27"><span class="hs-pragma hs-type">TrendmicroConnectorOperator'</span></a></span><span>
+</span><span id="line-130"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-131"></span></pre></body></html>

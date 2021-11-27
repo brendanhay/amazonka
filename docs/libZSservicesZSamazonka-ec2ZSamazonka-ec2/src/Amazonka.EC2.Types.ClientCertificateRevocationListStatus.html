@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.EC2.Types.ClientCertificateRevocationListStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.EC2.Types.ClientCertificateRevocationListStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Internal.html"><span class="hs-identifier">Amazonka.EC2.Internal</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatusCode.html"><span class="hs-identifier">Amazonka.EC2.Types.ClientCertificateRevocationListStatusCode</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Describes the state of a client certificate revocation list.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newClientCertificateRevocationListStatus' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621681093121"><span id="local-6989586621681093122"></span></span><span class="hs-keyword">data</span><span> </span><span id="ClientCertificateRevocationListStatus"><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-var">ClientCertificateRevocationListStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="ClientCertificateRevocationListStatus%27"><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var">ClientCertificateRevocationListStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The state of the client certificate revocation list.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Acode%3AClientCertificateRevocationListStatus%27"><span class="annot"><span class="annottext">ClientCertificateRevocationListStatus
+-&gt; Maybe ClientCertificateRevocationListStatusCode
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#%24sel%3Acode%3AClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatusCode.html#ClientCertificateRevocationListStatusCode"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatusCode</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | A message about the status of the client certificate revocation list, if</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Amessage%3AClientCertificateRevocationListStatus%27"><span class="annot"><span class="annottext">ClientCertificateRevocationListStatus -&gt; Maybe Text
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#%24sel%3Amessage%3AClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621681093114"><span id="local-6989586621681093116"><span class="annot"><span class="annottext">ClientCertificateRevocationListStatus
+-&gt; ClientCertificateRevocationListStatus -&gt; Bool
+(ClientCertificateRevocationListStatus
+ -&gt; ClientCertificateRevocationListStatus -&gt; Bool)
+-&gt; (ClientCertificateRevocationListStatus
+    -&gt; ClientCertificateRevocationListStatus -&gt; Bool)
+-&gt; Eq ClientCertificateRevocationListStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: ClientCertificateRevocationListStatus
+-&gt; ClientCertificateRevocationListStatus -&gt; Bool
+$c/= :: ClientCertificateRevocationListStatus
+-&gt; ClientCertificateRevocationListStatus -&gt; Bool
+== :: ClientCertificateRevocationListStatus
+-&gt; ClientCertificateRevocationListStatus -&gt; Bool
+$c== :: ClientCertificateRevocationListStatus
+-&gt; ClientCertificateRevocationListStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093105"><span id="local-6989586621681093107"><span id="local-6989586621681093109"><span id="local-6989586621681093111"><span class="annot"><span class="annottext">ReadPrec [ClientCertificateRevocationListStatus]
+ReadPrec ClientCertificateRevocationListStatus
+Int -&gt; ReadS ClientCertificateRevocationListStatus
+ReadS [ClientCertificateRevocationListStatus]
+(Int -&gt; ReadS ClientCertificateRevocationListStatus)
+-&gt; ReadS [ClientCertificateRevocationListStatus]
+-&gt; ReadPrec ClientCertificateRevocationListStatus
+-&gt; ReadPrec [ClientCertificateRevocationListStatus]
+-&gt; Read ClientCertificateRevocationListStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [ClientCertificateRevocationListStatus]
+$creadListPrec :: ReadPrec [ClientCertificateRevocationListStatus]
+readPrec :: ReadPrec ClientCertificateRevocationListStatus
+$creadPrec :: ReadPrec ClientCertificateRevocationListStatus
+readList :: ReadS [ClientCertificateRevocationListStatus]
+$creadList :: ReadS [ClientCertificateRevocationListStatus]
+readsPrec :: Int -&gt; ReadS ClientCertificateRevocationListStatus
+$creadsPrec :: Int -&gt; ReadS ClientCertificateRevocationListStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621681093098"><span id="local-6989586621681093100"><span id="local-6989586621681093102"><span class="annot"><span class="annottext">Int -&gt; ClientCertificateRevocationListStatus -&gt; ShowS
+[ClientCertificateRevocationListStatus] -&gt; ShowS
+ClientCertificateRevocationListStatus -&gt; String
+(Int -&gt; ClientCertificateRevocationListStatus -&gt; ShowS)
+-&gt; (ClientCertificateRevocationListStatus -&gt; String)
+-&gt; ([ClientCertificateRevocationListStatus] -&gt; ShowS)
+-&gt; Show ClientCertificateRevocationListStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [ClientCertificateRevocationListStatus] -&gt; ShowS
+$cshowList :: [ClientCertificateRevocationListStatus] -&gt; ShowS
+show :: ClientCertificateRevocationListStatus -&gt; String
+$cshow :: ClientCertificateRevocationListStatus -&gt; String
+showsPrec :: Int -&gt; ClientCertificateRevocationListStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; ClientCertificateRevocationListStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ ClientCertificateRevocationListStatus
+ -&gt; Rep ClientCertificateRevocationListStatus x)
+-&gt; (forall x.
+    Rep ClientCertificateRevocationListStatus x
+    -&gt; ClientCertificateRevocationListStatus)
+-&gt; Generic ClientCertificateRevocationListStatus
+forall x.
+Rep ClientCertificateRevocationListStatus x
+-&gt; ClientCertificateRevocationListStatus
+forall x.
+ClientCertificateRevocationListStatus
+-&gt; Rep ClientCertificateRevocationListStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep ClientCertificateRevocationListStatus x
+-&gt; ClientCertificateRevocationListStatus
+$cfrom :: forall x.
+ClientCertificateRevocationListStatus
+-&gt; Rep ClientCertificateRevocationListStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'ClientCertificateRevocationListStatus' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'code', 'clientCertificateRevocationListStatus_code' - The state of the client certificate revocation list.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'message', 'clientCertificateRevocationListStatus_message' - A message about the status of the client certificate revocation list, if</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#newClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">newClientCertificateRevocationListStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span><span>
+</span><span id="line-54"></span><span id="newClientCertificateRevocationListStatus"><span class="annot"><span class="annottext">newClientCertificateRevocationListStatus :: ClientCertificateRevocationListStatus
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#newClientCertificateRevocationListStatus"><span class="hs-identifier hs-var hs-var">newClientCertificateRevocationListStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><span class="annottext">ClientCertificateRevocationListStatus' :: Maybe ClientCertificateRevocationListStatusCode
+-&gt; Maybe Text -&gt; ClientCertificateRevocationListStatus
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus'</span></a></span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:code:ClientCertificateRevocationListStatus' :: Maybe ClientCertificateRevocationListStatusCode
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#%24sel%3Acode%3AClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-57"></span><span>        </span><span class="annot"><span class="annottext">Maybe ClientCertificateRevocationListStatusCode
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span class="annot"><span class="annottext">$sel:message:ClientCertificateRevocationListStatus' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#%24sel%3Amessage%3AClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- | The state of the client certificate revocation list.</span><span>
+</span><span id="line-62"></span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#clientCertificateRevocationListStatus_code"><span class="hs-identifier hs-type">clientCertificateRevocationListStatus_code</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatusCode.html#ClientCertificateRevocationListStatusCode"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatusCode</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span id="clientCertificateRevocationListStatus_code"><span class="annot"><span class="annottext">clientCertificateRevocationListStatus_code :: (Maybe ClientCertificateRevocationListStatusCode
+ -&gt; f (Maybe ClientCertificateRevocationListStatusCode))
+-&gt; ClientCertificateRevocationListStatus
+-&gt; f ClientCertificateRevocationListStatus
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#clientCertificateRevocationListStatus_code"><span class="hs-identifier hs-var hs-var">clientCertificateRevocationListStatus_code</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificateRevocationListStatus
+ -&gt; Maybe ClientCertificateRevocationListStatusCode)
+-&gt; (ClientCertificateRevocationListStatus
+    -&gt; Maybe ClientCertificateRevocationListStatusCode
+    -&gt; ClientCertificateRevocationListStatus)
+-&gt; Lens
+     ClientCertificateRevocationListStatus
+     ClientCertificateRevocationListStatus
+     (Maybe ClientCertificateRevocationListStatusCode)
+     (Maybe ClientCertificateRevocationListStatusCode)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093089"><span class="annot"><span class="annottext">Maybe ClientCertificateRevocationListStatusCode
+code :: Maybe ClientCertificateRevocationListStatusCode
+$sel:code:ClientCertificateRevocationListStatus' :: ClientCertificateRevocationListStatus
+-&gt; Maybe ClientCertificateRevocationListStatusCode
+</span><a href="#local-6989586621681093089"><span class="hs-identifier hs-var hs-var">code</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe ClientCertificateRevocationListStatusCode
+</span><a href="#local-6989586621681093089"><span class="hs-identifier hs-var">code</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093088"><span class="annot"><span class="annottext">s :: ClientCertificateRevocationListStatus
+</span><a href="#local-6989586621681093088"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093087"><span class="annot"><span class="annottext">Maybe ClientCertificateRevocationListStatusCode
+</span><a href="#local-6989586621681093087"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificateRevocationListStatus
+</span><a href="#local-6989586621681093088"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:code:ClientCertificateRevocationListStatus' :: Maybe ClientCertificateRevocationListStatusCode
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#%24sel%3Acode%3AClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var">code</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe ClientCertificateRevocationListStatusCode
+</span><a href="#local-6989586621681093087"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | A message about the status of the client certificate revocation list, if</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- applicable.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#clientCertificateRevocationListStatus_message"><span class="hs-identifier hs-type">clientCertificateRevocationListStatus_message</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="clientCertificateRevocationListStatus_message"><span class="annot"><span class="annottext">clientCertificateRevocationListStatus_message :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; ClientCertificateRevocationListStatus
+-&gt; f ClientCertificateRevocationListStatus
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#clientCertificateRevocationListStatus_message"><span class="hs-identifier hs-var hs-var">clientCertificateRevocationListStatus_message</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(ClientCertificateRevocationListStatus -&gt; Maybe Text)
+-&gt; (ClientCertificateRevocationListStatus
+    -&gt; Maybe Text -&gt; ClientCertificateRevocationListStatus)
+-&gt; Lens
+     ClientCertificateRevocationListStatus
+     ClientCertificateRevocationListStatus
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621681093085"><span class="annot"><span class="annottext">Maybe Text
+message :: Maybe Text
+$sel:message:ClientCertificateRevocationListStatus' :: ClientCertificateRevocationListStatus -&gt; Maybe Text
+</span><a href="#local-6989586621681093085"><span class="hs-identifier hs-var hs-var">message</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093085"><span class="hs-identifier hs-var">message</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621681093084"><span class="annot"><span class="annottext">s :: ClientCertificateRevocationListStatus
+</span><a href="#local-6989586621681093084"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621681093083"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093083"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">ClientCertificateRevocationListStatus
+</span><a href="#local-6989586621681093084"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:message:ClientCertificateRevocationListStatus' :: Maybe Text
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#%24sel%3Amessage%3AClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var">message</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621681093083"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span><span>
+</span><span id="line-73"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621681093080"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String ClientCertificateRevocationListStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621681093078"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093078"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">Maybe ClientCertificateRevocationListStatusCode
+-&gt; Maybe Text -&gt; ClientCertificateRevocationListStatus
+</span><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus%27"><span class="hs-identifier hs-var">ClientCertificateRevocationListStatus'</span></a></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">(Maybe ClientCertificateRevocationListStatusCode
+ -&gt; Maybe Text -&gt; ClientCertificateRevocationListStatus)
+-&gt; Either String (Maybe ClientCertificateRevocationListStatusCode)
+-&gt; Either
+     String (Maybe Text -&gt; ClientCertificateRevocationListStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node]
+-&gt; Text
+-&gt; Either String (Maybe ClientCertificateRevocationListStatusCode)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;code&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-77"></span><span>      </span><span class="annot"><span class="annottext">Either String (Maybe Text -&gt; ClientCertificateRevocationListStatus)
+-&gt; Either String (Maybe Text)
+-&gt; Either String ClientCertificateRevocationListStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621681093078"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;message&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-78"></span><span>
+</span><span id="line-79"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-80"></span><span>  </span><span id="local-6989586621681093072"><span id="local-6989586621681093074"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span></span></span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-84"></span><span>  </span><span id="local-6989586621681093069"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.EC2.Types.ClientCertificateRevocationListStatus.html#ClientCertificateRevocationListStatus"><span class="hs-identifier hs-type">ClientCertificateRevocationListStatus</span></a></span></span><span>
+</span><span id="line-86"></span></pre></body></html>

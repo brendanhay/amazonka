@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SES.Types.IdentityVerificationAttributes</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SES.Types.IdentityVerificationAttributes</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.VerificationStatus.html"><span class="hs-identifier">Amazonka.SES.Types.VerificationStatus</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Represents the verification attributes of a single identity.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newIdentityVerificationAttributes' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679276302"><span id="local-6989586621679276303"></span></span><span class="hs-keyword">data</span><span> </span><span id="IdentityVerificationAttributes"><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-var">IdentityVerificationAttributes</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="IdentityVerificationAttributes%27"><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-var">IdentityVerificationAttributes'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The verification token for a domain identity. Null for email address</span><span>
+</span><span id="line-32"></span><span>    </span><span class="hs-comment">-- identities.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3AverificationToken%3AIdentityVerificationAttributes%27"><span class="annot"><span class="annottext">IdentityVerificationAttributes -&gt; Maybe Text
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationToken%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var hs-var">verificationToken</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | The verification status of the identity: \&quot;Pending\&quot;, \&quot;Success\&quot;,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- \&quot;Failed\&quot;, or \&quot;TemporaryFailure\&quot;.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="annot"><span class="annottext">IdentityVerificationAttributes -&gt; VerificationStatus
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var hs-var">verificationStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.VerificationStatus.html#VerificationStatus"><span class="hs-identifier hs-type">VerificationStatus</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679276295"><span id="local-6989586621679276297"><span class="annot"><span class="annottext">IdentityVerificationAttributes
+-&gt; IdentityVerificationAttributes -&gt; Bool
+(IdentityVerificationAttributes
+ -&gt; IdentityVerificationAttributes -&gt; Bool)
+-&gt; (IdentityVerificationAttributes
+    -&gt; IdentityVerificationAttributes -&gt; Bool)
+-&gt; Eq IdentityVerificationAttributes
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: IdentityVerificationAttributes
+-&gt; IdentityVerificationAttributes -&gt; Bool
+$c/= :: IdentityVerificationAttributes
+-&gt; IdentityVerificationAttributes -&gt; Bool
+== :: IdentityVerificationAttributes
+-&gt; IdentityVerificationAttributes -&gt; Bool
+$c== :: IdentityVerificationAttributes
+-&gt; IdentityVerificationAttributes -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276286"><span id="local-6989586621679276288"><span id="local-6989586621679276290"><span id="local-6989586621679276292"><span class="annot"><span class="annottext">ReadPrec [IdentityVerificationAttributes]
+ReadPrec IdentityVerificationAttributes
+Int -&gt; ReadS IdentityVerificationAttributes
+ReadS [IdentityVerificationAttributes]
+(Int -&gt; ReadS IdentityVerificationAttributes)
+-&gt; ReadS [IdentityVerificationAttributes]
+-&gt; ReadPrec IdentityVerificationAttributes
+-&gt; ReadPrec [IdentityVerificationAttributes]
+-&gt; Read IdentityVerificationAttributes
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [IdentityVerificationAttributes]
+$creadListPrec :: ReadPrec [IdentityVerificationAttributes]
+readPrec :: ReadPrec IdentityVerificationAttributes
+$creadPrec :: ReadPrec IdentityVerificationAttributes
+readList :: ReadS [IdentityVerificationAttributes]
+$creadList :: ReadS [IdentityVerificationAttributes]
+readsPrec :: Int -&gt; ReadS IdentityVerificationAttributes
+$creadsPrec :: Int -&gt; ReadS IdentityVerificationAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679276279"><span id="local-6989586621679276281"><span id="local-6989586621679276283"><span class="annot"><span class="annottext">Int -&gt; IdentityVerificationAttributes -&gt; ShowS
+[IdentityVerificationAttributes] -&gt; ShowS
+IdentityVerificationAttributes -&gt; String
+(Int -&gt; IdentityVerificationAttributes -&gt; ShowS)
+-&gt; (IdentityVerificationAttributes -&gt; String)
+-&gt; ([IdentityVerificationAttributes] -&gt; ShowS)
+-&gt; Show IdentityVerificationAttributes
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [IdentityVerificationAttributes] -&gt; ShowS
+$cshowList :: [IdentityVerificationAttributes] -&gt; ShowS
+show :: IdentityVerificationAttributes -&gt; String
+$cshow :: IdentityVerificationAttributes -&gt; String
+showsPrec :: Int -&gt; IdentityVerificationAttributes -&gt; ShowS
+$cshowsPrec :: Int -&gt; IdentityVerificationAttributes -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ IdentityVerificationAttributes
+ -&gt; Rep IdentityVerificationAttributes x)
+-&gt; (forall x.
+    Rep IdentityVerificationAttributes x
+    -&gt; IdentityVerificationAttributes)
+-&gt; Generic IdentityVerificationAttributes
+forall x.
+Rep IdentityVerificationAttributes x
+-&gt; IdentityVerificationAttributes
+forall x.
+IdentityVerificationAttributes
+-&gt; Rep IdentityVerificationAttributes x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep IdentityVerificationAttributes x
+-&gt; IdentityVerificationAttributes
+$cfrom :: forall x.
+IdentityVerificationAttributes
+-&gt; Rep IdentityVerificationAttributes x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'IdentityVerificationAttributes' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'verificationToken', 'identityVerificationAttributes_verificationToken' - The verification token for a domain identity. Null for email address</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- identities.</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'verificationStatus', 'identityVerificationAttributes_verificationStatus' - The verification status of the identity: \&quot;Pending\&quot;, \&quot;Success\&quot;,</span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- \&quot;Failed\&quot;, or \&quot;TemporaryFailure\&quot;.</span><span>
+</span><span id="line-53"></span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#newIdentityVerificationAttributes"><span class="hs-identifier hs-type">newIdentityVerificationAttributes</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-comment">-- | 'verificationStatus'</span><span>
+</span><span id="line-55"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.VerificationStatus.html#VerificationStatus"><span class="hs-identifier hs-type">VerificationStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span>
+</span><span id="line-57"></span><span id="newIdentityVerificationAttributes"><span class="annot"><span class="annottext">newIdentityVerificationAttributes :: VerificationStatus -&gt; IdentityVerificationAttributes
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#newIdentityVerificationAttributes"><span class="hs-identifier hs-var hs-var">newIdentityVerificationAttributes</span></a></span></span><span>
+</span><span id="line-58"></span><span>  </span><span id="local-6989586621679276273"><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276273"><span class="hs-identifier hs-var">pVerificationStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><span class="annottext">IdentityVerificationAttributes' :: Maybe Text -&gt; VerificationStatus -&gt; IdentityVerificationAttributes
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span>
+</span><span id="line-60"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:verificationToken:IdentityVerificationAttributes' :: Maybe Text
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationToken%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var">verificationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-61"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>        </span><span class="annot"><span class="annottext">$sel:verificationStatus:IdentityVerificationAttributes' :: VerificationStatus
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var">verificationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276273"><span class="hs-identifier hs-var">pVerificationStatus_</span></a></span><span>
+</span><span id="line-63"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-64"></span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- | The verification token for a domain identity. Null for email address</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- identities.</span><span>
+</span><span id="line-67"></span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#identityVerificationAttributes_verificationToken"><span class="hs-identifier hs-type">identityVerificationAttributes_verificationToken</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-68"></span><span id="identityVerificationAttributes_verificationToken"><span class="annot"><span class="annottext">identityVerificationAttributes_verificationToken :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; IdentityVerificationAttributes
+-&gt; f IdentityVerificationAttributes
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#identityVerificationAttributes_verificationToken"><span class="hs-identifier hs-var hs-var">identityVerificationAttributes_verificationToken</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IdentityVerificationAttributes -&gt; Maybe Text)
+-&gt; (IdentityVerificationAttributes
+    -&gt; Maybe Text -&gt; IdentityVerificationAttributes)
+-&gt; Lens
+     IdentityVerificationAttributes
+     IdentityVerificationAttributes
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276269"><span class="annot"><span class="annottext">Maybe Text
+verificationToken :: Maybe Text
+$sel:verificationToken:IdentityVerificationAttributes' :: IdentityVerificationAttributes -&gt; Maybe Text
+</span><a href="#local-6989586621679276269"><span class="hs-identifier hs-var hs-var">verificationToken</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276269"><span class="hs-identifier hs-var">verificationToken</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276268"><span class="annot"><span class="annottext">s :: IdentityVerificationAttributes
+</span><a href="#local-6989586621679276268"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276267"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276267"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityVerificationAttributes
+</span><a href="#local-6989586621679276268"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationToken:IdentityVerificationAttributes' :: Maybe Text
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationToken%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var">verificationToken</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679276267"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- | The verification status of the identity: \&quot;Pending\&quot;, \&quot;Success\&quot;,</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- \&quot;Failed\&quot;, or \&quot;TemporaryFailure\&quot;.</span><span>
+</span><span id="line-72"></span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#identityVerificationAttributes_verificationStatus"><span class="hs-identifier hs-type">identityVerificationAttributes_verificationStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.VerificationStatus.html#VerificationStatus"><span class="hs-identifier hs-type">VerificationStatus</span></a></span><span>
+</span><span id="line-73"></span><span id="identityVerificationAttributes_verificationStatus"><span class="annot"><span class="annottext">identityVerificationAttributes_verificationStatus :: (VerificationStatus -&gt; f VerificationStatus)
+-&gt; IdentityVerificationAttributes
+-&gt; f IdentityVerificationAttributes
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#identityVerificationAttributes_verificationStatus"><span class="hs-identifier hs-var hs-var">identityVerificationAttributes_verificationStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(IdentityVerificationAttributes -&gt; VerificationStatus)
+-&gt; (IdentityVerificationAttributes
+    -&gt; VerificationStatus -&gt; IdentityVerificationAttributes)
+-&gt; Lens
+     IdentityVerificationAttributes
+     IdentityVerificationAttributes
+     VerificationStatus
+     VerificationStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679276265"><span class="annot"><span class="annottext">VerificationStatus
+verificationStatus :: VerificationStatus
+$sel:verificationStatus:IdentityVerificationAttributes' :: IdentityVerificationAttributes -&gt; VerificationStatus
+</span><a href="#local-6989586621679276265"><span class="hs-identifier hs-var hs-var">verificationStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276265"><span class="hs-identifier hs-var">verificationStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679276264"><span class="annot"><span class="annottext">s :: IdentityVerificationAttributes
+</span><a href="#local-6989586621679276264"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-type">IdentityVerificationAttributes'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679276263"><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276263"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">IdentityVerificationAttributes
+</span><a href="#local-6989586621679276264"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:verificationStatus:IdentityVerificationAttributes' :: VerificationStatus
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#%24sel%3AverificationStatus%3AIdentityVerificationAttributes%27"><span class="hs-identifier hs-var">verificationStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">VerificationStatus
+</span><a href="#local-6989586621679276263"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span>
+</span><span id="line-75"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.FromXML</span></span><span> </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-76"></span><span>  </span><span id="local-6989586621679276260"><span class="annot"><span class="annottext">parseXML :: [Node] -&gt; Either String IdentityVerificationAttributes
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseXML</span></span></span><span> </span><span id="local-6989586621679276258"><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679276258"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><span class="annottext">Maybe Text -&gt; VerificationStatus -&gt; IdentityVerificationAttributes
+</span><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes%27"><span class="hs-identifier hs-var">IdentityVerificationAttributes'</span></a></span><span>
+</span><span id="line-78"></span><span>      </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; VerificationStatus -&gt; IdentityVerificationAttributes)
+-&gt; Either String (Maybe Text)
+-&gt; Either
+     String (VerificationStatus -&gt; IdentityVerificationAttributes)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679276258"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..@?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VerificationToken&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span>      </span><span class="annot"><span class="annottext">Either
+  String (VerificationStatus -&gt; IdentityVerificationAttributes)
+-&gt; Either String VerificationStatus
+-&gt; Either String IdentityVerificationAttributes
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">[Node]
+</span><a href="#local-6989586621679276258"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">[Node] -&gt; Text -&gt; Either String VerificationStatus
+forall a. FromXML a =&gt; [Node] -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..@</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;VerificationStatus&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-82"></span><span>  </span><span id="local-6989586621679276251"><span id="local-6989586621679276253"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-83"></span><span>    </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-86"></span><span>  </span><span id="local-6989586621679276248"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.SES.Types.IdentityVerificationAttributes.html#IdentityVerificationAttributes"><span class="hs-identifier hs-type">IdentityVerificationAttributes</span></a></span></span><span>
+</span><span id="line-88"></span></pre></body></html>

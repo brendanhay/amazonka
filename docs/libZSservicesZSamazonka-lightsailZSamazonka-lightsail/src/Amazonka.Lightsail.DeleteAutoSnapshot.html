@@ -1,0 +1,507 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Lightsail.DeleteAutoSnapshot</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Deletes an automatic snapshot of an instance or disk. For more</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- information, see the</span><span>
+</span><span id="line-25"></span><span class="hs-comment">-- &lt;https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots Amazon Lightsail Developer Guide&gt;.</span><span>
+</span><span id="line-26"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Lightsail.DeleteAutoSnapshot</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier">DeleteAutoSnapshot</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#newDeleteAutoSnapshot"><span class="hs-identifier">newDeleteAutoSnapshot</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshot_resourceName"><span class="hs-identifier">deleteAutoSnapshot_resourceName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshot_date"><span class="hs-identifier">deleteAutoSnapshot_date</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier">DeleteAutoSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#newDeleteAutoSnapshotResponse"><span class="hs-identifier">newDeleteAutoSnapshotResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshotResponse_operations"><span class="hs-identifier">deleteAutoSnapshotResponse_operations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshotResponse_httpStatus"><span class="hs-identifier">deleteAutoSnapshotResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-44"></span><span>
+</span><span id="line-45"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-46"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.Types.html"><span class="hs-identifier">Amazonka.Lightsail.Types</span></a></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span class="hs-comment">-- | /See:/ 'newDeleteAutoSnapshot' smart constructor.</span><span>
+</span><span id="line-53"></span><span id="local-6989586621679655652"><span id="local-6989586621679655653"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAutoSnapshot"><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-var">DeleteAutoSnapshot</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAutoSnapshot%27"><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot%27"><span class="hs-identifier hs-var">DeleteAutoSnapshot'</span></a></span></span><span>
+</span><span id="line-54"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the source instance or disk from which to delete the</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- automatic snapshot.</span><span>
+</span><span id="line-56"></span><span>    </span><span id="%24sel%3AresourceName%3ADeleteAutoSnapshot%27"><span class="annot"><span class="annottext">DeleteAutoSnapshot -&gt; Text
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3AresourceName%3ADeleteAutoSnapshot%27"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- | The date of the automatic snapshot to delete in @YYYY-MM-DD@ format. Use</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- the @get auto snapshots@ operation to get the available automatic</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- snapshots for a resource.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3Adate%3ADeleteAutoSnapshot%27"><span class="annot"><span class="annottext">DeleteAutoSnapshot -&gt; Text
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3Adate%3ADeleteAutoSnapshot%27"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-62"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655645"><span id="local-6989586621679655647"><span class="annot"><span class="annottext">DeleteAutoSnapshot -&gt; DeleteAutoSnapshot -&gt; Bool
+(DeleteAutoSnapshot -&gt; DeleteAutoSnapshot -&gt; Bool)
+-&gt; (DeleteAutoSnapshot -&gt; DeleteAutoSnapshot -&gt; Bool)
+-&gt; Eq DeleteAutoSnapshot
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAutoSnapshot -&gt; DeleteAutoSnapshot -&gt; Bool
+$c/= :: DeleteAutoSnapshot -&gt; DeleteAutoSnapshot -&gt; Bool
+== :: DeleteAutoSnapshot -&gt; DeleteAutoSnapshot -&gt; Bool
+$c== :: DeleteAutoSnapshot -&gt; DeleteAutoSnapshot -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655636"><span id="local-6989586621679655638"><span id="local-6989586621679655640"><span id="local-6989586621679655642"><span class="annot"><span class="annottext">ReadPrec [DeleteAutoSnapshot]
+ReadPrec DeleteAutoSnapshot
+Int -&gt; ReadS DeleteAutoSnapshot
+ReadS [DeleteAutoSnapshot]
+(Int -&gt; ReadS DeleteAutoSnapshot)
+-&gt; ReadS [DeleteAutoSnapshot]
+-&gt; ReadPrec DeleteAutoSnapshot
+-&gt; ReadPrec [DeleteAutoSnapshot]
+-&gt; Read DeleteAutoSnapshot
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAutoSnapshot]
+$creadListPrec :: ReadPrec [DeleteAutoSnapshot]
+readPrec :: ReadPrec DeleteAutoSnapshot
+$creadPrec :: ReadPrec DeleteAutoSnapshot
+readList :: ReadS [DeleteAutoSnapshot]
+$creadList :: ReadS [DeleteAutoSnapshot]
+readsPrec :: Int -&gt; ReadS DeleteAutoSnapshot
+$creadsPrec :: Int -&gt; ReadS DeleteAutoSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655629"><span id="local-6989586621679655631"><span id="local-6989586621679655633"><span class="annot"><span class="annottext">Int -&gt; DeleteAutoSnapshot -&gt; ShowS
+[DeleteAutoSnapshot] -&gt; ShowS
+DeleteAutoSnapshot -&gt; String
+(Int -&gt; DeleteAutoSnapshot -&gt; ShowS)
+-&gt; (DeleteAutoSnapshot -&gt; String)
+-&gt; ([DeleteAutoSnapshot] -&gt; ShowS)
+-&gt; Show DeleteAutoSnapshot
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAutoSnapshot] -&gt; ShowS
+$cshowList :: [DeleteAutoSnapshot] -&gt; ShowS
+show :: DeleteAutoSnapshot -&gt; String
+$cshow :: DeleteAutoSnapshot -&gt; String
+showsPrec :: Int -&gt; DeleteAutoSnapshot -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAutoSnapshot -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. DeleteAutoSnapshot -&gt; Rep DeleteAutoSnapshot x)
+-&gt; (forall x. Rep DeleteAutoSnapshot x -&gt; DeleteAutoSnapshot)
+-&gt; Generic DeleteAutoSnapshot
+forall x. Rep DeleteAutoSnapshot x -&gt; DeleteAutoSnapshot
+forall x. DeleteAutoSnapshot -&gt; Rep DeleteAutoSnapshot x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep DeleteAutoSnapshot x -&gt; DeleteAutoSnapshot
+$cfrom :: forall x. DeleteAutoSnapshot -&gt; Rep DeleteAutoSnapshot x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- Create a value of 'DeleteAutoSnapshot' with all optional fields omitted.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'resourceName', 'deleteAutoSnapshot_resourceName' - The name of the source instance or disk from which to delete the</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- automatic snapshot.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- 'date', 'deleteAutoSnapshot_date' - The date of the automatic snapshot to delete in @YYYY-MM-DD@ format. Use</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- the @get auto snapshots@ operation to get the available automatic</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- snapshots for a resource.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#newDeleteAutoSnapshot"><span class="hs-identifier hs-type">newDeleteAutoSnapshot</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-79"></span><span>  </span><span class="hs-comment">-- | 'resourceName'</span><span>
+</span><span id="line-80"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-81"></span><span>  </span><span class="hs-comment">-- | 'date'</span><span>
+</span><span id="line-82"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span>
+</span><span id="line-84"></span><span id="newDeleteAutoSnapshot"><span class="annot"><span class="annottext">newDeleteAutoSnapshot :: Text -&gt; Text -&gt; DeleteAutoSnapshot
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#newDeleteAutoSnapshot"><span class="hs-identifier hs-var hs-var">newDeleteAutoSnapshot</span></a></span></span><span> </span><span id="local-6989586621679655624"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655624"><span class="hs-identifier hs-var">pResourceName_</span></a></span></span><span> </span><span id="local-6989586621679655623"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655623"><span class="hs-identifier hs-var">pDate_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>  </span><span class="annot"><span class="annottext">DeleteAutoSnapshot' :: Text -&gt; Text -&gt; DeleteAutoSnapshot
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot%27"><span class="hs-identifier hs-type">DeleteAutoSnapshot'</span></a></span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:resourceName:DeleteAutoSnapshot' :: Text
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3AresourceName%3ADeleteAutoSnapshot%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655624"><span class="hs-identifier hs-var">pResourceName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>      </span><span class="annot"><span class="annottext">$sel:date:DeleteAutoSnapshot' :: Text
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3Adate%3ADeleteAutoSnapshot%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655623"><span class="hs-identifier hs-var">pDate_</span></a></span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span class="hs-comment">-- | The name of the source instance or disk from which to delete the</span><span>
+</span><span id="line-91"></span><span class="hs-comment">-- automatic snapshot.</span><span>
+</span><span id="line-92"></span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshot_resourceName"><span class="hs-identifier hs-type">deleteAutoSnapshot_resourceName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-93"></span><span id="deleteAutoSnapshot_resourceName"><span class="annot"><span class="annottext">deleteAutoSnapshot_resourceName :: (Text -&gt; f Text) -&gt; DeleteAutoSnapshot -&gt; f DeleteAutoSnapshot
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshot_resourceName"><span class="hs-identifier hs-var hs-var">deleteAutoSnapshot_resourceName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAutoSnapshot -&gt; Text)
+-&gt; (DeleteAutoSnapshot -&gt; Text -&gt; DeleteAutoSnapshot)
+-&gt; Lens DeleteAutoSnapshot DeleteAutoSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot%27"><span class="hs-identifier hs-type">DeleteAutoSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655620"><span class="annot"><span class="annottext">Text
+resourceName :: Text
+$sel:resourceName:DeleteAutoSnapshot' :: DeleteAutoSnapshot -&gt; Text
+</span><a href="#local-6989586621679655620"><span class="hs-identifier hs-var hs-var">resourceName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655620"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655619"><span class="annot"><span class="annottext">s :: DeleteAutoSnapshot
+</span><a href="#local-6989586621679655619"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot%27"><span class="hs-identifier hs-type">DeleteAutoSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655618"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655618"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoSnapshot
+</span><a href="#local-6989586621679655619"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resourceName:DeleteAutoSnapshot' :: Text
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3AresourceName%3ADeleteAutoSnapshot%27"><span class="hs-identifier hs-var">resourceName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655618"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-94"></span><span>
+</span><span id="line-95"></span><span class="hs-comment">-- | The date of the automatic snapshot to delete in @YYYY-MM-DD@ format. Use</span><span>
+</span><span id="line-96"></span><span class="hs-comment">-- the @get auto snapshots@ operation to get the available automatic</span><span>
+</span><span id="line-97"></span><span class="hs-comment">-- snapshots for a resource.</span><span>
+</span><span id="line-98"></span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshot_date"><span class="hs-identifier hs-type">deleteAutoSnapshot_date</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-99"></span><span id="deleteAutoSnapshot_date"><span class="annot"><span class="annottext">deleteAutoSnapshot_date :: (Text -&gt; f Text) -&gt; DeleteAutoSnapshot -&gt; f DeleteAutoSnapshot
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshot_date"><span class="hs-identifier hs-var hs-var">deleteAutoSnapshot_date</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAutoSnapshot -&gt; Text)
+-&gt; (DeleteAutoSnapshot -&gt; Text -&gt; DeleteAutoSnapshot)
+-&gt; Lens DeleteAutoSnapshot DeleteAutoSnapshot Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot%27"><span class="hs-identifier hs-type">DeleteAutoSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655617"><span class="annot"><span class="annottext">Text
+date :: Text
+$sel:date:DeleteAutoSnapshot' :: DeleteAutoSnapshot -&gt; Text
+</span><a href="#local-6989586621679655617"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655617"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655616"><span class="annot"><span class="annottext">s :: DeleteAutoSnapshot
+</span><a href="#local-6989586621679655616"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot%27"><span class="hs-identifier hs-type">DeleteAutoSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655615"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655615"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoSnapshot
+</span><a href="#local-6989586621679655616"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:date:DeleteAutoSnapshot' :: Text
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3Adate%3ADeleteAutoSnapshot%27"><span class="hs-identifier hs-var">date</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655615"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>
+</span><span id="line-101"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-102"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-103"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-104"></span><span>      </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse</span></a></span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679655611"><span class="annot"><span class="annottext">request :: DeleteAutoSnapshot -&gt; Request DeleteAutoSnapshot
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; DeleteAutoSnapshot -&gt; Request DeleteAutoSnapshot
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Lightsail.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-106"></span><span>  </span><span id="local-6989586621679655607"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy DeleteAutoSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAutoSnapshot)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse DeleteAutoSnapshot))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy DeleteAutoSnapshot
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse DeleteAutoSnapshot)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-108"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679655604"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655604"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679655603"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679655603"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679655602"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679655602"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-109"></span><span>          </span><span class="annot"><span class="annottext">Maybe [Operation] -&gt; Int -&gt; DeleteAutoSnapshotResponse
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteAutoSnapshotResponse'</span></a></span><span>
+</span><span id="line-110"></span><span>            </span><span class="annot"><span class="annottext">(Maybe [Operation] -&gt; Int -&gt; DeleteAutoSnapshotResponse)
+-&gt; Either String (Maybe [Operation])
+-&gt; Either String (Int -&gt; DeleteAutoSnapshotResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679655602"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe (Maybe [Operation]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;operations&quot;</span></span><span> </span><span class="annot"><span class="annottext">Either String (Maybe (Maybe [Operation]))
+-&gt; Maybe [Operation] -&gt; Either String (Maybe [Operation])
+forall (f :: * -&gt; *) a. Functor f =&gt; f (Maybe a) -&gt; a -&gt; f a
+</span><span class="hs-operator hs-var">Core..!@</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; DeleteAutoSnapshotResponse)
+-&gt; Either String Int -&gt; Either String DeleteAutoSnapshotResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655604"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span>
+</span><span id="line-114"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655593"><span id="local-6989586621679655595"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span></span></span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655590"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span></span><span>
+</span><span id="line-117"></span><span>
+</span><span id="line-118"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-119"></span><span>  </span><span id="local-6989586621679655586"><span class="annot"><span class="annottext">toHeaders :: DeleteAutoSnapshot -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; DeleteAutoSnapshot -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-121"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-122"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-123"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;Lightsail_20161128.DeleteAutoSnapshot&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-124"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-125"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-127"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-128"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-129"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>
+</span><span id="line-133"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655576"><span id="local-6989586621679655578"><span id="local-6989586621679655580"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-134"></span><span>  </span><span id="local-6989586621679655574"><span class="annot"><span class="annottext">toJSON :: DeleteAutoSnapshot -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot%27"><span class="hs-identifier hs-type">DeleteAutoSnapshot'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655571"><span id="local-6989586621679655572"><span class="annot"><span class="annottext">Text
+date :: Text
+resourceName :: Text
+$sel:date:DeleteAutoSnapshot' :: DeleteAutoSnapshot -&gt; Text
+$sel:resourceName:DeleteAutoSnapshot' :: DeleteAutoSnapshot -&gt; Text
+</span><a href="#local-6989586621679655571"><span class="hs-glyph hs-var hs-var hs-var hs-var">..</span></a></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-136"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-137"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resourceName&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655572"><span class="hs-identifier hs-var">resourceName</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-138"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;date&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679655571"><span class="hs-identifier hs-var">date</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-140"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-143"></span><span>  </span><span id="local-6989586621679655565"><span class="annot"><span class="annottext">toPath :: DeleteAutoSnapshot -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; DeleteAutoSnapshot -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-144"></span><span>
+</span><span id="line-145"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshot"><span class="hs-identifier hs-type">DeleteAutoSnapshot</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-146"></span><span>  </span><span id="local-6989586621679655561"><span class="annot"><span class="annottext">toQuery :: DeleteAutoSnapshot -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; DeleteAutoSnapshot -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-147"></span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- | /See:/ 'newDeleteAutoSnapshotResponse' smart constructor.</span><span>
+</span><span id="line-149"></span><span id="local-6989586621679655558"><span id="local-6989586621679655559"></span></span><span class="hs-keyword">data</span><span> </span><span id="DeleteAutoSnapshotResponse"><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-var">DeleteAutoSnapshotResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="DeleteAutoSnapshotResponse%27"><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var">DeleteAutoSnapshotResponse'</span></a></span></span><span>
+</span><span id="line-150"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-151"></span><span>    </span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-152"></span><span>    </span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-153"></span><span>    </span><span id="%24sel%3Aoperations%3ADeleteAutoSnapshotResponse%27"><span class="annot"><span class="annottext">DeleteAutoSnapshotResponse -&gt; Maybe [Operation]
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3Aoperations%3ADeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-155"></span><span>    </span><span id="%24sel%3AhttpStatus%3ADeleteAutoSnapshotResponse%27"><span class="annot"><span class="annottext">DeleteAutoSnapshotResponse -&gt; Int
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3AhttpStatus%3ADeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-156"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-157"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679655552"><span id="local-6989586621679655554"><span class="annot"><span class="annottext">DeleteAutoSnapshotResponse -&gt; DeleteAutoSnapshotResponse -&gt; Bool
+(DeleteAutoSnapshotResponse -&gt; DeleteAutoSnapshotResponse -&gt; Bool)
+-&gt; (DeleteAutoSnapshotResponse
+    -&gt; DeleteAutoSnapshotResponse -&gt; Bool)
+-&gt; Eq DeleteAutoSnapshotResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: DeleteAutoSnapshotResponse -&gt; DeleteAutoSnapshotResponse -&gt; Bool
+$c/= :: DeleteAutoSnapshotResponse -&gt; DeleteAutoSnapshotResponse -&gt; Bool
+== :: DeleteAutoSnapshotResponse -&gt; DeleteAutoSnapshotResponse -&gt; Bool
+$c== :: DeleteAutoSnapshotResponse -&gt; DeleteAutoSnapshotResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655544"><span id="local-6989586621679655546"><span id="local-6989586621679655548"><span id="local-6989586621679655550"><span class="annot"><span class="annottext">ReadPrec [DeleteAutoSnapshotResponse]
+ReadPrec DeleteAutoSnapshotResponse
+Int -&gt; ReadS DeleteAutoSnapshotResponse
+ReadS [DeleteAutoSnapshotResponse]
+(Int -&gt; ReadS DeleteAutoSnapshotResponse)
+-&gt; ReadS [DeleteAutoSnapshotResponse]
+-&gt; ReadPrec DeleteAutoSnapshotResponse
+-&gt; ReadPrec [DeleteAutoSnapshotResponse]
+-&gt; Read DeleteAutoSnapshotResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [DeleteAutoSnapshotResponse]
+$creadListPrec :: ReadPrec [DeleteAutoSnapshotResponse]
+readPrec :: ReadPrec DeleteAutoSnapshotResponse
+$creadPrec :: ReadPrec DeleteAutoSnapshotResponse
+readList :: ReadS [DeleteAutoSnapshotResponse]
+$creadList :: ReadS [DeleteAutoSnapshotResponse]
+readsPrec :: Int -&gt; ReadS DeleteAutoSnapshotResponse
+$creadsPrec :: Int -&gt; ReadS DeleteAutoSnapshotResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679655538"><span id="local-6989586621679655540"><span id="local-6989586621679655542"><span class="annot"><span class="annottext">Int -&gt; DeleteAutoSnapshotResponse -&gt; ShowS
+[DeleteAutoSnapshotResponse] -&gt; ShowS
+DeleteAutoSnapshotResponse -&gt; String
+(Int -&gt; DeleteAutoSnapshotResponse -&gt; ShowS)
+-&gt; (DeleteAutoSnapshotResponse -&gt; String)
+-&gt; ([DeleteAutoSnapshotResponse] -&gt; ShowS)
+-&gt; Show DeleteAutoSnapshotResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [DeleteAutoSnapshotResponse] -&gt; ShowS
+$cshowList :: [DeleteAutoSnapshotResponse] -&gt; ShowS
+show :: DeleteAutoSnapshotResponse -&gt; String
+$cshow :: DeleteAutoSnapshotResponse -&gt; String
+showsPrec :: Int -&gt; DeleteAutoSnapshotResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; DeleteAutoSnapshotResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ DeleteAutoSnapshotResponse -&gt; Rep DeleteAutoSnapshotResponse x)
+-&gt; (forall x.
+    Rep DeleteAutoSnapshotResponse x -&gt; DeleteAutoSnapshotResponse)
+-&gt; Generic DeleteAutoSnapshotResponse
+forall x.
+Rep DeleteAutoSnapshotResponse x -&gt; DeleteAutoSnapshotResponse
+forall x.
+DeleteAutoSnapshotResponse -&gt; Rep DeleteAutoSnapshotResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep DeleteAutoSnapshotResponse x -&gt; DeleteAutoSnapshotResponse
+$cfrom :: forall x.
+DeleteAutoSnapshotResponse -&gt; Rep DeleteAutoSnapshotResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-158"></span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- Create a value of 'DeleteAutoSnapshotResponse' with all optional fields omitted.</span><span>
+</span><span id="line-161"></span><span class="hs-comment">--</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-163"></span><span class="hs-comment">--</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-166"></span><span class="hs-comment">--</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- 'operations', 'deleteAutoSnapshotResponse_operations' - An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-169"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-170"></span><span class="hs-comment">--</span><span>
+</span><span id="line-171"></span><span class="hs-comment">-- 'httpStatus', 'deleteAutoSnapshotResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-172"></span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#newDeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">newDeleteAutoSnapshotResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-173"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-174"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse</span></a></span><span>
+</span><span id="line-176"></span><span id="newDeleteAutoSnapshotResponse"><span class="annot"><span class="annottext">newDeleteAutoSnapshotResponse :: Int -&gt; DeleteAutoSnapshotResponse
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#newDeleteAutoSnapshotResponse"><span class="hs-identifier hs-var hs-var">newDeleteAutoSnapshotResponse</span></a></span></span><span> </span><span id="local-6989586621679655535"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655535"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-177"></span><span>  </span><span class="annot"><span class="annottext">DeleteAutoSnapshotResponse' :: Maybe [Operation] -&gt; Int -&gt; DeleteAutoSnapshotResponse
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse'</span></a></span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:operations:DeleteAutoSnapshotResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3Aoperations%3ADeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-179"></span><span>        </span><span class="annot"><span class="annottext">Maybe [Operation]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAutoSnapshotResponse' :: Int
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3AhttpStatus%3ADeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655535"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-182"></span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- | An array of objects that describe the result of the action, such as the</span><span>
+</span><span id="line-184"></span><span class="hs-comment">-- status of the request, the timestamp of the request, and the resources</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- affected by the request.</span><span>
+</span><span id="line-186"></span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshotResponse_operations"><span class="hs-identifier hs-type">deleteAutoSnapshotResponse_operations</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.Lightsail.Types.Operation.html#Operation"><span class="hs-identifier hs-type">Operation</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-187"></span><span id="deleteAutoSnapshotResponse_operations"><span class="annot"><span class="annottext">deleteAutoSnapshotResponse_operations :: (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; DeleteAutoSnapshotResponse -&gt; f DeleteAutoSnapshotResponse
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshotResponse_operations"><span class="hs-identifier hs-var hs-var">deleteAutoSnapshotResponse_operations</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAutoSnapshotResponse -&gt; Maybe [Operation])
+-&gt; (DeleteAutoSnapshotResponse
+    -&gt; Maybe [Operation] -&gt; DeleteAutoSnapshotResponse)
+-&gt; Lens
+     DeleteAutoSnapshotResponse
+     DeleteAutoSnapshotResponse
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655534"><span class="annot"><span class="annottext">Maybe [Operation]
+operations :: Maybe [Operation]
+$sel:operations:DeleteAutoSnapshotResponse' :: DeleteAutoSnapshotResponse -&gt; Maybe [Operation]
+</span><a href="#local-6989586621679655534"><span class="hs-identifier hs-var hs-var">operations</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679655534"><span class="hs-identifier hs-var">operations</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655533"><span class="annot"><span class="annottext">s :: DeleteAutoSnapshotResponse
+</span><a href="#local-6989586621679655533"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655532"><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679655532"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoSnapshotResponse
+</span><a href="#local-6989586621679655533"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:operations:DeleteAutoSnapshotResponse' :: Maybe [Operation]
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3Aoperations%3ADeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var">operations</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Operation]
+</span><a href="#local-6989586621679655532"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Operation] -&gt; f (Maybe [Operation]))
+ -&gt; DeleteAutoSnapshotResponse -&gt; f DeleteAutoSnapshotResponse)
+-&gt; ((Maybe [Operation] -&gt; f (Maybe [Operation]))
+    -&gt; Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; (Maybe [Operation] -&gt; f (Maybe [Operation]))
+-&gt; DeleteAutoSnapshotResponse
+-&gt; f DeleteAutoSnapshotResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+-&gt; Iso
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+     (Maybe [Operation])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Operation] [Operation] [Operation] [Operation]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-188"></span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-190"></span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshotResponse_httpStatus"><span class="hs-identifier hs-type">deleteAutoSnapshotResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-191"></span><span id="deleteAutoSnapshotResponse_httpStatus"><span class="annot"><span class="annottext">deleteAutoSnapshotResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; DeleteAutoSnapshotResponse -&gt; f DeleteAutoSnapshotResponse
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#deleteAutoSnapshotResponse_httpStatus"><span class="hs-identifier hs-var hs-var">deleteAutoSnapshotResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(DeleteAutoSnapshotResponse -&gt; Int)
+-&gt; (DeleteAutoSnapshotResponse
+    -&gt; Int -&gt; DeleteAutoSnapshotResponse)
+-&gt; Lens
+     DeleteAutoSnapshotResponse DeleteAutoSnapshotResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679655528"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:DeleteAutoSnapshotResponse' :: DeleteAutoSnapshotResponse -&gt; Int
+</span><a href="#local-6989586621679655528"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655528"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679655527"><span class="annot"><span class="annottext">s :: DeleteAutoSnapshotResponse
+</span><a href="#local-6989586621679655527"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679655526"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655526"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">DeleteAutoSnapshotResponse
+</span><a href="#local-6989586621679655527"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:DeleteAutoSnapshotResponse' :: Int
+</span><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#%24sel%3AhttpStatus%3ADeleteAutoSnapshotResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679655526"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-192"></span><span>
+</span><span id="line-193"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679655524"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Lightsail.DeleteAutoSnapshot.html#DeleteAutoSnapshotResponse"><span class="hs-identifier hs-type">DeleteAutoSnapshotResponse</span></a></span></span><span>
+</span><span id="line-194"></span></pre></body></html>

@@ -1,0 +1,963 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticTranscoder.Types.Job</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticTranscoder.Types.Job</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobInput.html"><span class="hs-identifier">Amazonka.ElasticTranscoder.Types.JobInput</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobOutput.html"><span class="hs-identifier">Amazonka.ElasticTranscoder.Types.JobOutput</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Playlist.html"><span class="hs-identifier">Amazonka.ElasticTranscoder.Types.Playlist</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Timing.html"><span class="hs-identifier">Amazonka.ElasticTranscoder.Types.Timing</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-28"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- | A section of the response body that provides information about the job</span><span>
+</span><span id="line-31"></span><span class="hs-comment">-- that is created.</span><span>
+</span><span id="line-32"></span><span class="hs-comment">--</span><span>
+</span><span id="line-33"></span><span class="hs-comment">-- /See:/ 'newJob' smart constructor.</span><span>
+</span><span id="line-34"></span><span id="local-6989586621679213491"><span id="local-6989586621679213492"></span></span><span class="hs-keyword">data</span><span> </span><span id="Job"><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-var">Job</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="Job%27"><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The status of the job: @Submitted@, @Progressing@, @Complete@,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- @Canceled@, or @Error@.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Astatus%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The @Id@ of the pipeline that you want Elastic Transcoder to use for</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- transcoding. The pipeline determines several settings, including the</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- Amazon S3 bucket from which Elastic Transcoder gets the files to</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- transcode and the bucket into which Elastic Transcoder puts the</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- transcoded files.</span><span>
+</span><span id="line-43"></span><span>    </span><span id="%24sel%3ApipelineId%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3ApipelineId%3AJob%27"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the job.</span><span>
+</span><span id="line-45"></span><span>    </span><span id="%24sel%3Aarn%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- | Information about the files that you\'re transcoding. If you specified</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- multiple files for this job, Elastic Transcoder stitches the files</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- together to make one output.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Ainputs%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe [JobInput]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Ainputs%3AJob%27"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | A section of the request or response body that provides information</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- about the file that is being transcoded.</span><span>
+</span><span id="line-52"></span><span>    </span><span id="%24sel%3Ainput%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe JobInput
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Ainput%3AJob%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>    </span><span class="hs-comment">-- | User-defined metadata that you want to associate with an Elastic</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- Transcoder job. You specify metadata in @key\/value@ pairs, and you can</span><span>
+</span><span id="line-55"></span><span>    </span><span class="hs-comment">-- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- guarantee that @key\/value@ pairs are returned in the same order in</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">-- which you specify them.</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- Metadata @keys@ and @values@ must use characters from the following</span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-comment">-- list:</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-comment">-- -   @0-9@</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span>    </span><span class="hs-comment">-- -   @A-Z@ and @a-z@</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- -   @Space@</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-68"></span><span>    </span><span class="hs-comment">-- -   The following symbols: @_.:\/=+-%\@@</span><span>
+</span><span id="line-69"></span><span>    </span><span id="%24sel%3AuserMetadata%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe (HashMap Text Text)
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3AuserMetadata%3AJob%27"><span class="hs-identifier hs-var hs-var">userMetadata</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- | Information about the output files. We recommend that you use the</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- transcode a file into only one format. Do not use both the @Outputs@ and</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- @Output@ syntaxes in the same request. You can create a maximum of 30</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">-- outputs per job.</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- If you specify more than one output for a job, Elastic Transcoder</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">-- creates the files for each output in the order in which you specify them</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- in the job.</span><span>
+</span><span id="line-79"></span><span>    </span><span id="%24sel%3Aoutputs%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe [JobOutput]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aoutputs%3AJob%27"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobOutput.html#JobOutput"><span class="hs-identifier hs-type">JobOutput</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- | If you specified one output for a job, information about that output. If</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- you specified multiple outputs for a job, the Output object lists</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- information about the first output. This duplicates the information that</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- is listed for the first output in the Outputs object.</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- Outputs recommended instead.</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span>    </span><span class="hs-comment">-- A section of the request or response body that provides information</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- about the transcoded (target) file.</span><span>
+</span><span id="line-89"></span><span>    </span><span id="%24sel%3Aoutput%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe JobOutput
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aoutput%3AJob%27"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobOutput.html#JobOutput"><span class="hs-identifier hs-type">JobOutput</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- | The identifier that Elastic Transcoder assigned to the job. You use this</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">-- value to get settings for the job or to delete the job.</span><span>
+</span><span id="line-92"></span><span>    </span><span id="%24sel%3Aid%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aid%3AJob%27"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- | Outputs in Fragmented MP4 or MPEG-TS format only.</span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- If you specify a preset in @PresetId@ for which the value of @Container@</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- is fmp4 (Fragmented MP4) or ts (MPEG-TS), @Playlists@ contains</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">-- information about the master playlists that you want Elastic Transcoder</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- to create.</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- The maximum number of master playlists in a job is 30.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Aplaylists%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe [Playlist]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aplaylists%3AJob%27"><span class="hs-identifier hs-var hs-var">playlists</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Playlist.html#Playlist"><span class="hs-identifier hs-type">Playlist</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The value, if any, that you want Elastic Transcoder to prepend to the</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- names of all files that this job creates, including output files,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="hs-comment">-- thumbnails, and playlists. We recommend that you add a \/ or some other</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- delimiter to the end of the @OutputKeyPrefix@.</span><span>
+</span><span id="line-106"></span><span>    </span><span id="%24sel%3AoutputKeyPrefix%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3AoutputKeyPrefix%3AJob%27"><span class="hs-identifier hs-var hs-var">outputKeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="hs-comment">-- | Details about the timing of a job.</span><span>
+</span><span id="line-108"></span><span>    </span><span id="%24sel%3Atiming%3AJob%27"><span class="annot"><span class="annottext">Job -&gt; Maybe Timing
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Atiming%3AJob%27"><span class="hs-identifier hs-var hs-var">timing</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-110"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679213474"><span id="local-6989586621679213476"><span class="annot"><span class="annottext">Job -&gt; Job -&gt; Bool
+(Job -&gt; Job -&gt; Bool) -&gt; (Job -&gt; Job -&gt; Bool) -&gt; Eq Job
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Job -&gt; Job -&gt; Bool
+$c/= :: Job -&gt; Job -&gt; Bool
+== :: Job -&gt; Job -&gt; Bool
+$c== :: Job -&gt; Job -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213465"><span id="local-6989586621679213467"><span id="local-6989586621679213469"><span id="local-6989586621679213471"><span class="annot"><span class="annottext">ReadPrec [Job]
+ReadPrec Job
+Int -&gt; ReadS Job
+ReadS [Job]
+(Int -&gt; ReadS Job)
+-&gt; ReadS [Job] -&gt; ReadPrec Job -&gt; ReadPrec [Job] -&gt; Read Job
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [Job]
+$creadListPrec :: ReadPrec [Job]
+readPrec :: ReadPrec Job
+$creadPrec :: ReadPrec Job
+readList :: ReadS [Job]
+$creadList :: ReadS [Job]
+readsPrec :: Int -&gt; ReadS Job
+$creadsPrec :: Int -&gt; ReadS Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679213458"><span id="local-6989586621679213460"><span id="local-6989586621679213462"><span class="annot"><span class="annottext">Int -&gt; Job -&gt; ShowS
+[Job] -&gt; ShowS
+Job -&gt; String
+(Int -&gt; Job -&gt; ShowS)
+-&gt; (Job -&gt; String) -&gt; ([Job] -&gt; ShowS) -&gt; Show Job
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Job] -&gt; ShowS
+$cshowList :: [Job] -&gt; ShowS
+show :: Job -&gt; String
+$cshow :: Job -&gt; String
+showsPrec :: Int -&gt; Job -&gt; ShowS
+$cshowsPrec :: Int -&gt; Job -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. Job -&gt; Rep Job x)
+-&gt; (forall x. Rep Job x -&gt; Job) -&gt; Generic Job
+forall x. Rep Job x -&gt; Job
+forall x. Job -&gt; Rep Job x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep Job x -&gt; Job
+$cfrom :: forall x. Job -&gt; Rep Job x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- Create a value of 'Job' with all optional fields omitted.</span><span>
+</span><span id="line-114"></span><span class="hs-comment">--</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-116"></span><span class="hs-comment">--</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-118"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-119"></span><span class="hs-comment">--</span><span>
+</span><span id="line-120"></span><span class="hs-comment">-- 'status', 'job_status' - The status of the job: @Submitted@, @Progressing@, @Complete@,</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- @Canceled@, or @Error@.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'pipelineId', 'job_pipelineId' - The @Id@ of the pipeline that you want Elastic Transcoder to use for</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- transcoding. The pipeline determines several settings, including the</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- Amazon S3 bucket from which Elastic Transcoder gets the files to</span><span>
+</span><span id="line-126"></span><span class="hs-comment">-- transcode and the bucket into which Elastic Transcoder puts the</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- transcoded files.</span><span>
+</span><span id="line-128"></span><span class="hs-comment">--</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- 'arn', 'job_arn' - The Amazon Resource Name (ARN) for the job.</span><span>
+</span><span id="line-130"></span><span class="hs-comment">--</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- 'inputs', 'job_inputs' - Information about the files that you\'re transcoding. If you specified</span><span>
+</span><span id="line-132"></span><span class="hs-comment">-- multiple files for this job, Elastic Transcoder stitches the files</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- together to make one output.</span><span>
+</span><span id="line-134"></span><span class="hs-comment">--</span><span>
+</span><span id="line-135"></span><span class="hs-comment">-- 'input', 'job_input' - A section of the request or response body that provides information</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- about the file that is being transcoded.</span><span>
+</span><span id="line-137"></span><span class="hs-comment">--</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- 'userMetadata', 'job_userMetadata' - User-defined metadata that you want to associate with an Elastic</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- Transcoder job. You specify metadata in @key\/value@ pairs, and you can</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- guarantee that @key\/value@ pairs are returned in the same order in</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- which you specify them.</span><span>
+</span><span id="line-143"></span><span class="hs-comment">--</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- Metadata @keys@ and @values@ must use characters from the following</span><span>
+</span><span id="line-145"></span><span class="hs-comment">-- list:</span><span>
+</span><span id="line-146"></span><span class="hs-comment">--</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- -   @0-9@</span><span>
+</span><span id="line-148"></span><span class="hs-comment">--</span><span>
+</span><span id="line-149"></span><span class="hs-comment">-- -   @A-Z@ and @a-z@</span><span>
+</span><span id="line-150"></span><span class="hs-comment">--</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- -   @Space@</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- -   The following symbols: @_.:\/=+-%\@@</span><span>
+</span><span id="line-154"></span><span class="hs-comment">--</span><span>
+</span><span id="line-155"></span><span class="hs-comment">-- 'outputs', 'job_outputs' - Information about the output files. We recommend that you use the</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- transcode a file into only one format. Do not use both the @Outputs@ and</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- @Output@ syntaxes in the same request. You can create a maximum of 30</span><span>
+</span><span id="line-159"></span><span class="hs-comment">-- outputs per job.</span><span>
+</span><span id="line-160"></span><span class="hs-comment">--</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- If you specify more than one output for a job, Elastic Transcoder</span><span>
+</span><span id="line-162"></span><span class="hs-comment">-- creates the files for each output in the order in which you specify them</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- in the job.</span><span>
+</span><span id="line-164"></span><span class="hs-comment">--</span><span>
+</span><span id="line-165"></span><span class="hs-comment">-- 'output', 'job_output' - If you specified one output for a job, information about that output. If</span><span>
+</span><span id="line-166"></span><span class="hs-comment">-- you specified multiple outputs for a job, the Output object lists</span><span>
+</span><span id="line-167"></span><span class="hs-comment">-- information about the first output. This duplicates the information that</span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- is listed for the first output in the Outputs object.</span><span>
+</span><span id="line-169"></span><span class="hs-comment">--</span><span>
+</span><span id="line-170"></span><span class="hs-comment">-- Outputs recommended instead.</span><span>
+</span><span id="line-171"></span><span class="hs-comment">--</span><span>
+</span><span id="line-172"></span><span class="hs-comment">-- A section of the request or response body that provides information</span><span>
+</span><span id="line-173"></span><span class="hs-comment">-- about the transcoded (target) file.</span><span>
+</span><span id="line-174"></span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span class="hs-comment">-- 'id', 'job_id' - The identifier that Elastic Transcoder assigned to the job. You use this</span><span>
+</span><span id="line-176"></span><span class="hs-comment">-- value to get settings for the job or to delete the job.</span><span>
+</span><span id="line-177"></span><span class="hs-comment">--</span><span>
+</span><span id="line-178"></span><span class="hs-comment">-- 'playlists', 'job_playlists' - Outputs in Fragmented MP4 or MPEG-TS format only.</span><span>
+</span><span id="line-179"></span><span class="hs-comment">--</span><span>
+</span><span id="line-180"></span><span class="hs-comment">-- If you specify a preset in @PresetId@ for which the value of @Container@</span><span>
+</span><span id="line-181"></span><span class="hs-comment">-- is fmp4 (Fragmented MP4) or ts (MPEG-TS), @Playlists@ contains</span><span>
+</span><span id="line-182"></span><span class="hs-comment">-- information about the master playlists that you want Elastic Transcoder</span><span>
+</span><span id="line-183"></span><span class="hs-comment">-- to create.</span><span>
+</span><span id="line-184"></span><span class="hs-comment">--</span><span>
+</span><span id="line-185"></span><span class="hs-comment">-- The maximum number of master playlists in a job is 30.</span><span>
+</span><span id="line-186"></span><span class="hs-comment">--</span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- 'outputKeyPrefix', 'job_outputKeyPrefix' - The value, if any, that you want Elastic Transcoder to prepend to the</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- names of all files that this job creates, including output files,</span><span>
+</span><span id="line-189"></span><span class="hs-comment">-- thumbnails, and playlists. We recommend that you add a \/ or some other</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- delimiter to the end of the @OutputKeyPrefix@.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- 'timing', 'job_timing' - Details about the timing of a job.</span><span>
+</span><span id="line-193"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#newJob"><span class="hs-identifier hs-type">newJob</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-194"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span>
+</span><span id="line-195"></span><span id="newJob"><span class="annot"><span class="annottext">newJob :: Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#newJob"><span class="hs-identifier hs-var hs-var">newJob</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-196"></span><span>  </span><span class="annot"><span class="annottext">Job' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [JobInput]
+-&gt; Maybe JobInput
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [JobOutput]
+-&gt; Maybe JobOutput
+-&gt; Maybe Text
+-&gt; Maybe [Playlist]
+-&gt; Maybe Text
+-&gt; Maybe Timing
+-&gt; Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span>
+</span><span id="line-197"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>      </span><span class="annot"><span class="annottext">$sel:pipelineId:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3ApipelineId%3AJob%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>      </span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>      </span><span class="annot"><span class="annottext">$sel:inputs:Job' :: Maybe [JobInput]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Ainputs%3AJob%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobInput]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>      </span><span class="annot"><span class="annottext">$sel:input:Job' :: Maybe JobInput
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Ainput%3AJob%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobInput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>      </span><span class="annot"><span class="annottext">$sel:userMetadata:Job' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3AuserMetadata%3AJob%27"><span class="hs-identifier hs-var">userMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-203"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputs:Job' :: Maybe [JobOutput]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aoutputs%3AJob%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobOutput]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-204"></span><span>      </span><span class="annot"><span class="annottext">$sel:output:Job' :: Maybe JobOutput
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aoutput%3AJob%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobOutput
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>      </span><span class="annot"><span class="annottext">$sel:id:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aid%3AJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>      </span><span class="annot"><span class="annottext">$sel:playlists:Job' :: Maybe [Playlist]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aplaylists%3AJob%27"><span class="hs-identifier hs-var">playlists</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Playlist]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>      </span><span class="annot"><span class="annottext">$sel:outputKeyPrefix:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3AoutputKeyPrefix%3AJob%27"><span class="hs-identifier hs-var">outputKeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>      </span><span class="annot"><span class="annottext">$sel:timing:Job' :: Maybe Timing
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Atiming%3AJob%27"><span class="hs-identifier hs-var">timing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Timing
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-209"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-210"></span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- | The status of the job: @Submitted@, @Progressing@, @Complete@,</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- @Canceled@, or @Error@.</span><span>
+</span><span id="line-213"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_status"><span class="hs-identifier hs-type">job_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-214"></span><span id="job_status"><span class="annot"><span class="annottext">job_status :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_status"><span class="hs-identifier hs-var hs-var">job_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213449"><span class="annot"><span class="annottext">Maybe Text
+status :: Maybe Text
+$sel:status:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679213449"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213449"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213448"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213448"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213447"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213447"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213448"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Astatus%3AJob%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213447"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-215"></span><span>
+</span><span id="line-216"></span><span class="hs-comment">-- | The @Id@ of the pipeline that you want Elastic Transcoder to use for</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- transcoding. The pipeline determines several settings, including the</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- Amazon S3 bucket from which Elastic Transcoder gets the files to</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- transcode and the bucket into which Elastic Transcoder puts the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- transcoded files.</span><span>
+</span><span id="line-221"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_pipelineId"><span class="hs-identifier hs-type">job_pipelineId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-222"></span><span id="job_pipelineId"><span class="annot"><span class="annottext">job_pipelineId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_pipelineId"><span class="hs-identifier hs-var hs-var">job_pipelineId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213445"><span class="annot"><span class="annottext">Maybe Text
+pipelineId :: Maybe Text
+$sel:pipelineId:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679213445"><span class="hs-identifier hs-var hs-var">pipelineId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213445"><span class="hs-identifier hs-var">pipelineId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213444"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213444"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213443"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213443"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213444"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pipelineId:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3ApipelineId%3AJob%27"><span class="hs-identifier hs-var">pipelineId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213443"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-223"></span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) for the job.</span><span>
+</span><span id="line-225"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_arn"><span class="hs-identifier hs-type">job_arn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-226"></span><span id="job_arn"><span class="annot"><span class="annottext">job_arn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_arn"><span class="hs-identifier hs-var hs-var">job_arn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213441"><span class="annot"><span class="annottext">Maybe Text
+arn :: Maybe Text
+$sel:arn:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679213441"><span class="hs-identifier hs-var hs-var">arn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213441"><span class="hs-identifier hs-var">arn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213440"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213440"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213439"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213439"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213440"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:arn:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aarn%3AJob%27"><span class="hs-identifier hs-var">arn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213439"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-227"></span><span>
+</span><span id="line-228"></span><span class="hs-comment">-- | Information about the files that you\'re transcoding. If you specified</span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- multiple files for this job, Elastic Transcoder stitches the files</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- together to make one output.</span><span>
+</span><span id="line-231"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_inputs"><span class="hs-identifier hs-type">job_inputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-232"></span><span id="job_inputs"><span class="annot"><span class="annottext">job_inputs :: (Maybe [JobInput] -&gt; f (Maybe [JobInput])) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_inputs"><span class="hs-identifier hs-var hs-var">job_inputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe [JobInput])
+-&gt; (Job -&gt; Maybe [JobInput] -&gt; Job)
+-&gt; Lens Job Job (Maybe [JobInput]) (Maybe [JobInput])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213437"><span class="annot"><span class="annottext">Maybe [JobInput]
+inputs :: Maybe [JobInput]
+$sel:inputs:Job' :: Job -&gt; Maybe [JobInput]
+</span><a href="#local-6989586621679213437"><span class="hs-identifier hs-var hs-var">inputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobInput]
+</span><a href="#local-6989586621679213437"><span class="hs-identifier hs-var">inputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213436"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213436"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213435"><span class="annot"><span class="annottext">Maybe [JobInput]
+</span><a href="#local-6989586621679213435"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213436"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputs:Job' :: Maybe [JobInput]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Ainputs%3AJob%27"><span class="hs-identifier hs-var">inputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobInput]
+</span><a href="#local-6989586621679213435"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobInput] -&gt; f (Maybe [JobInput])) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe [JobInput] -&gt; f (Maybe [JobInput]))
+    -&gt; Maybe [JobInput] -&gt; f (Maybe [JobInput]))
+-&gt; (Maybe [JobInput] -&gt; f (Maybe [JobInput]))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobInput] [JobInput] [JobInput] [JobInput]
+-&gt; Iso
+     (Maybe [JobInput])
+     (Maybe [JobInput])
+     (Maybe [JobInput])
+     (Maybe [JobInput])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobInput] [JobInput] [JobInput] [JobInput]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- | A section of the request or response body that provides information</span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- about the file that is being transcoded.</span><span>
+</span><span id="line-236"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_input"><span class="hs-identifier hs-type">job_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobInput.html#JobInput"><span class="hs-identifier hs-type">JobInput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span id="job_input"><span class="annot"><span class="annottext">job_input :: (Maybe JobInput -&gt; f (Maybe JobInput)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_input"><span class="hs-identifier hs-var hs-var">job_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe JobInput)
+-&gt; (Job -&gt; Maybe JobInput -&gt; Job)
+-&gt; Lens Job Job (Maybe JobInput) (Maybe JobInput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213430"><span class="annot"><span class="annottext">Maybe JobInput
+input :: Maybe JobInput
+$sel:input:Job' :: Job -&gt; Maybe JobInput
+</span><a href="#local-6989586621679213430"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobInput
+</span><a href="#local-6989586621679213430"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213429"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213429"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213428"><span class="annot"><span class="annottext">Maybe JobInput
+</span><a href="#local-6989586621679213428"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213429"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:Job' :: Maybe JobInput
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Ainput%3AJob%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobInput
+</span><a href="#local-6989586621679213428"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-238"></span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- | User-defined metadata that you want to associate with an Elastic</span><span>
+</span><span id="line-240"></span><span class="hs-comment">-- Transcoder job. You specify metadata in @key\/value@ pairs, and you can</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- add up to 10 @key\/value@ pairs per job. Elastic Transcoder does not</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- guarantee that @key\/value@ pairs are returned in the same order in</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- which you specify them.</span><span>
+</span><span id="line-244"></span><span class="hs-comment">--</span><span>
+</span><span id="line-245"></span><span class="hs-comment">-- Metadata @keys@ and @values@ must use characters from the following</span><span>
+</span><span id="line-246"></span><span class="hs-comment">-- list:</span><span>
+</span><span id="line-247"></span><span class="hs-comment">--</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- -   @0-9@</span><span>
+</span><span id="line-249"></span><span class="hs-comment">--</span><span>
+</span><span id="line-250"></span><span class="hs-comment">-- -   @A-Z@ and @a-z@</span><span>
+</span><span id="line-251"></span><span class="hs-comment">--</span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- -   @Space@</span><span>
+</span><span id="line-253"></span><span class="hs-comment">--</span><span>
+</span><span id="line-254"></span><span class="hs-comment">-- -   The following symbols: @_.:\/=+-%\@@</span><span>
+</span><span id="line-255"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_userMetadata"><span class="hs-identifier hs-type">job_userMetadata</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.HashMap</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-256"></span><span id="job_userMetadata"><span class="annot"><span class="annottext">job_userMetadata :: (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_userMetadata"><span class="hs-identifier hs-var hs-var">job_userMetadata</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe (HashMap Text Text))
+-&gt; (Job -&gt; Maybe (HashMap Text Text) -&gt; Job)
+-&gt; Lens
+     Job Job (Maybe (HashMap Text Text)) (Maybe (HashMap Text Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213426"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+userMetadata :: Maybe (HashMap Text Text)
+$sel:userMetadata:Job' :: Job -&gt; Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213426"><span class="hs-identifier hs-var hs-var">userMetadata</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213426"><span class="hs-identifier hs-var">userMetadata</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213425"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213425"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213424"><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213424"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213425"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:userMetadata:Job' :: Maybe (HashMap Text Text)
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3AuserMetadata%3AJob%27"><span class="hs-identifier hs-var">userMetadata</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+</span><a href="#local-6989586621679213424"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+ -&gt; Job -&gt; f Job)
+-&gt; ((Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+    -&gt; Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; (Maybe (HashMap Text Text) -&gt; f (Maybe (HashMap Text Text)))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+-&gt; Iso
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+     (Maybe (HashMap Text Text))
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+  (HashMap Text Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-257"></span><span>
+</span><span id="line-258"></span><span class="hs-comment">-- | Information about the output files. We recommend that you use the</span><span>
+</span><span id="line-259"></span><span class="hs-comment">-- @Outputs@ syntax for all jobs, even when you want Elastic Transcoder to</span><span>
+</span><span id="line-260"></span><span class="hs-comment">-- transcode a file into only one format. Do not use both the @Outputs@ and</span><span>
+</span><span id="line-261"></span><span class="hs-comment">-- @Output@ syntaxes in the same request. You can create a maximum of 30</span><span>
+</span><span id="line-262"></span><span class="hs-comment">-- outputs per job.</span><span>
+</span><span id="line-263"></span><span class="hs-comment">--</span><span>
+</span><span id="line-264"></span><span class="hs-comment">-- If you specify more than one output for a job, Elastic Transcoder</span><span>
+</span><span id="line-265"></span><span class="hs-comment">-- creates the files for each output in the order in which you specify them</span><span>
+</span><span id="line-266"></span><span class="hs-comment">-- in the job.</span><span>
+</span><span id="line-267"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_outputs"><span class="hs-identifier hs-type">job_outputs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobOutput.html#JobOutput"><span class="hs-identifier hs-type">JobOutput</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span id="job_outputs"><span class="annot"><span class="annottext">job_outputs :: (Maybe [JobOutput] -&gt; f (Maybe [JobOutput])) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_outputs"><span class="hs-identifier hs-var hs-var">job_outputs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe [JobOutput])
+-&gt; (Job -&gt; Maybe [JobOutput] -&gt; Job)
+-&gt; Lens Job Job (Maybe [JobOutput]) (Maybe [JobOutput])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213422"><span class="annot"><span class="annottext">Maybe [JobOutput]
+outputs :: Maybe [JobOutput]
+$sel:outputs:Job' :: Job -&gt; Maybe [JobOutput]
+</span><a href="#local-6989586621679213422"><span class="hs-identifier hs-var hs-var">outputs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [JobOutput]
+</span><a href="#local-6989586621679213422"><span class="hs-identifier hs-var">outputs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213421"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213421"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213420"><span class="annot"><span class="annottext">Maybe [JobOutput]
+</span><a href="#local-6989586621679213420"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213421"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputs:Job' :: Maybe [JobOutput]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aoutputs%3AJob%27"><span class="hs-identifier hs-var">outputs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [JobOutput]
+</span><a href="#local-6989586621679213420"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [JobOutput] -&gt; f (Maybe [JobOutput])) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe [JobOutput] -&gt; f (Maybe [JobOutput]))
+    -&gt; Maybe [JobOutput] -&gt; f (Maybe [JobOutput]))
+-&gt; (Maybe [JobOutput] -&gt; f (Maybe [JobOutput]))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobOutput] [JobOutput] [JobOutput] [JobOutput]
+-&gt; Iso
+     (Maybe [JobOutput])
+     (Maybe [JobOutput])
+     (Maybe [JobOutput])
+     (Maybe [JobOutput])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [JobOutput] [JobOutput] [JobOutput] [JobOutput]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-comment">-- | If you specified one output for a job, information about that output. If</span><span>
+</span><span id="line-271"></span><span class="hs-comment">-- you specified multiple outputs for a job, the Output object lists</span><span>
+</span><span id="line-272"></span><span class="hs-comment">-- information about the first output. This duplicates the information that</span><span>
+</span><span id="line-273"></span><span class="hs-comment">-- is listed for the first output in the Outputs object.</span><span>
+</span><span id="line-274"></span><span class="hs-comment">--</span><span>
+</span><span id="line-275"></span><span class="hs-comment">-- Outputs recommended instead.</span><span>
+</span><span id="line-276"></span><span class="hs-comment">--</span><span>
+</span><span id="line-277"></span><span class="hs-comment">-- A section of the request or response body that provides information</span><span>
+</span><span id="line-278"></span><span class="hs-comment">-- about the transcoded (target) file.</span><span>
+</span><span id="line-279"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_output"><span class="hs-identifier hs-type">job_output</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.JobOutput.html#JobOutput"><span class="hs-identifier hs-type">JobOutput</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-280"></span><span id="job_output"><span class="annot"><span class="annottext">job_output :: (Maybe JobOutput -&gt; f (Maybe JobOutput)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_output"><span class="hs-identifier hs-var hs-var">job_output</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe JobOutput)
+-&gt; (Job -&gt; Maybe JobOutput -&gt; Job)
+-&gt; Lens Job Job (Maybe JobOutput) (Maybe JobOutput)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213418"><span class="annot"><span class="annottext">Maybe JobOutput
+output :: Maybe JobOutput
+$sel:output:Job' :: Job -&gt; Maybe JobOutput
+</span><a href="#local-6989586621679213418"><span class="hs-identifier hs-var hs-var">output</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe JobOutput
+</span><a href="#local-6989586621679213418"><span class="hs-identifier hs-var">output</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213417"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213417"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213416"><span class="annot"><span class="annottext">Maybe JobOutput
+</span><a href="#local-6989586621679213416"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213417"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:output:Job' :: Maybe JobOutput
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aoutput%3AJob%27"><span class="hs-identifier hs-var">output</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe JobOutput
+</span><a href="#local-6989586621679213416"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-281"></span><span>
+</span><span id="line-282"></span><span class="hs-comment">-- | The identifier that Elastic Transcoder assigned to the job. You use this</span><span>
+</span><span id="line-283"></span><span class="hs-comment">-- value to get settings for the job or to delete the job.</span><span>
+</span><span id="line-284"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_id"><span class="hs-identifier hs-type">job_id</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-285"></span><span id="job_id"><span class="annot"><span class="annottext">job_id :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_id"><span class="hs-identifier hs-var hs-var">job_id</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213414"><span class="annot"><span class="annottext">Maybe Text
+id :: Maybe Text
+$sel:id:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679213414"><span class="hs-identifier hs-var hs-var">id</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213414"><span class="hs-identifier hs-var">id</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213413"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213413"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213412"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213412"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213413"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:id:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aid%3AJob%27"><span class="hs-identifier hs-var">id</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213412"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>
+</span><span id="line-287"></span><span class="hs-comment">-- | Outputs in Fragmented MP4 or MPEG-TS format only.</span><span>
+</span><span id="line-288"></span><span class="hs-comment">--</span><span>
+</span><span id="line-289"></span><span class="hs-comment">-- If you specify a preset in @PresetId@ for which the value of @Container@</span><span>
+</span><span id="line-290"></span><span class="hs-comment">-- is fmp4 (Fragmented MP4) or ts (MPEG-TS), @Playlists@ contains</span><span>
+</span><span id="line-291"></span><span class="hs-comment">-- information about the master playlists that you want Elastic Transcoder</span><span>
+</span><span id="line-292"></span><span class="hs-comment">-- to create.</span><span>
+</span><span id="line-293"></span><span class="hs-comment">--</span><span>
+</span><span id="line-294"></span><span class="hs-comment">-- The maximum number of master playlists in a job is 30.</span><span>
+</span><span id="line-295"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_playlists"><span class="hs-identifier hs-type">job_playlists</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Playlist.html#Playlist"><span class="hs-identifier hs-type">Playlist</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-296"></span><span id="job_playlists"><span class="annot"><span class="annottext">job_playlists :: (Maybe [Playlist] -&gt; f (Maybe [Playlist])) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_playlists"><span class="hs-identifier hs-var hs-var">job_playlists</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe [Playlist])
+-&gt; (Job -&gt; Maybe [Playlist] -&gt; Job)
+-&gt; Lens Job Job (Maybe [Playlist]) (Maybe [Playlist])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213410"><span class="annot"><span class="annottext">Maybe [Playlist]
+playlists :: Maybe [Playlist]
+$sel:playlists:Job' :: Job -&gt; Maybe [Playlist]
+</span><a href="#local-6989586621679213410"><span class="hs-identifier hs-var hs-var">playlists</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [Playlist]
+</span><a href="#local-6989586621679213410"><span class="hs-identifier hs-var">playlists</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213409"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213409"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213408"><span class="annot"><span class="annottext">Maybe [Playlist]
+</span><a href="#local-6989586621679213408"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213409"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:playlists:Job' :: Maybe [Playlist]
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Aplaylists%3AJob%27"><span class="hs-identifier hs-var">playlists</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [Playlist]
+</span><a href="#local-6989586621679213408"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [Playlist] -&gt; f (Maybe [Playlist])) -&gt; Job -&gt; f Job)
+-&gt; ((Maybe [Playlist] -&gt; f (Maybe [Playlist]))
+    -&gt; Maybe [Playlist] -&gt; f (Maybe [Playlist]))
+-&gt; (Maybe [Playlist] -&gt; f (Maybe [Playlist]))
+-&gt; Job
+-&gt; f Job
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Playlist] [Playlist] [Playlist] [Playlist]
+-&gt; Iso
+     (Maybe [Playlist])
+     (Maybe [Playlist])
+     (Maybe [Playlist])
+     (Maybe [Playlist])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [Playlist] [Playlist] [Playlist] [Playlist]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-297"></span><span>
+</span><span id="line-298"></span><span class="hs-comment">-- | The value, if any, that you want Elastic Transcoder to prepend to the</span><span>
+</span><span id="line-299"></span><span class="hs-comment">-- names of all files that this job creates, including output files,</span><span>
+</span><span id="line-300"></span><span class="hs-comment">-- thumbnails, and playlists. We recommend that you add a \/ or some other</span><span>
+</span><span id="line-301"></span><span class="hs-comment">-- delimiter to the end of the @OutputKeyPrefix@.</span><span>
+</span><span id="line-302"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_outputKeyPrefix"><span class="hs-identifier hs-type">job_outputKeyPrefix</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-303"></span><span id="job_outputKeyPrefix"><span class="annot"><span class="annottext">job_outputKeyPrefix :: (Maybe Text -&gt; f (Maybe Text)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_outputKeyPrefix"><span class="hs-identifier hs-var hs-var">job_outputKeyPrefix</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Text)
+-&gt; (Job -&gt; Maybe Text -&gt; Job)
+-&gt; Lens Job Job (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213406"><span class="annot"><span class="annottext">Maybe Text
+outputKeyPrefix :: Maybe Text
+$sel:outputKeyPrefix:Job' :: Job -&gt; Maybe Text
+</span><a href="#local-6989586621679213406"><span class="hs-identifier hs-var hs-var">outputKeyPrefix</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213406"><span class="hs-identifier hs-var">outputKeyPrefix</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213405"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213405"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213404"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213404"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213405"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:outputKeyPrefix:Job' :: Maybe Text
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3AoutputKeyPrefix%3AJob%27"><span class="hs-identifier hs-var">outputKeyPrefix</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679213404"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-comment">-- | Details about the timing of a job.</span><span>
+</span><span id="line-306"></span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_timing"><span class="hs-identifier hs-type">job_timing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Timing.html#Timing"><span class="hs-identifier hs-type">Timing</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-307"></span><span id="job_timing"><span class="annot"><span class="annottext">job_timing :: (Maybe Timing -&gt; f (Maybe Timing)) -&gt; Job -&gt; f Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#job_timing"><span class="hs-identifier hs-var hs-var">job_timing</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(Job -&gt; Maybe Timing)
+-&gt; (Job -&gt; Maybe Timing -&gt; Job)
+-&gt; Lens Job Job (Maybe Timing) (Maybe Timing)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679213402"><span class="annot"><span class="annottext">Maybe Timing
+timing :: Maybe Timing
+$sel:timing:Job' :: Job -&gt; Maybe Timing
+</span><a href="#local-6989586621679213402"><span class="hs-identifier hs-var hs-var">timing</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Timing
+</span><a href="#local-6989586621679213402"><span class="hs-identifier hs-var">timing</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679213401"><span class="annot"><span class="annottext">s :: Job
+</span><a href="#local-6989586621679213401"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-type">Job'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679213400"><span class="annot"><span class="annottext">Maybe Timing
+</span><a href="#local-6989586621679213400"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Job
+</span><a href="#local-6989586621679213401"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timing:Job' :: Maybe Timing
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#%24sel%3Atiming%3AJob%27"><span class="hs-identifier hs-var">timing</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Timing
+</span><a href="#local-6989586621679213400"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-308"></span><span>
+</span><span id="line-309"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213397"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-310"></span><span>  </span><span id="local-6989586621679213395"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser Job
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><span class="annottext">String -&gt; (Object -&gt; Parser Job) -&gt; Value -&gt; Parser Job
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-312"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;Job&quot;</span></span><span>
+</span><span id="line-313"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679213392"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-314"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe [JobInput]
+-&gt; Maybe JobInput
+-&gt; Maybe (HashMap Text Text)
+-&gt; Maybe [JobOutput]
+-&gt; Maybe JobOutput
+-&gt; Maybe Text
+-&gt; Maybe [Playlist]
+-&gt; Maybe Text
+-&gt; Maybe Timing
+-&gt; Job
+</span><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job%27"><span class="hs-identifier hs-var">Job'</span></a></span><span>
+</span><span id="line-315"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe [JobInput]
+ -&gt; Maybe JobInput
+ -&gt; Maybe (HashMap Text Text)
+ -&gt; Maybe [JobOutput]
+ -&gt; Maybe JobOutput
+ -&gt; Maybe Text
+ -&gt; Maybe [Playlist]
+ -&gt; Maybe Text
+ -&gt; Maybe Timing
+ -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe Text
+      -&gt; Maybe [JobInput]
+      -&gt; Maybe JobInput
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [JobOutput]
+      -&gt; Maybe JobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe [Playlist]
+      -&gt; Maybe Text
+      -&gt; Maybe Timing
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-316"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe Text
+   -&gt; Maybe [JobInput]
+   -&gt; Maybe JobInput
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [JobOutput]
+   -&gt; Maybe JobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe [Playlist]
+   -&gt; Maybe Text
+   -&gt; Maybe Timing
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [JobInput]
+      -&gt; Maybe JobInput
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [JobOutput]
+      -&gt; Maybe JobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe [Playlist]
+      -&gt; Maybe Text
+      -&gt; Maybe Timing
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PipelineId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-317"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [JobInput]
+   -&gt; Maybe JobInput
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [JobOutput]
+   -&gt; Maybe JobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe [Playlist]
+   -&gt; Maybe Text
+   -&gt; Maybe Timing
+   -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe [JobInput]
+      -&gt; Maybe JobInput
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [JobOutput]
+      -&gt; Maybe JobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe [Playlist]
+      -&gt; Maybe Text
+      -&gt; Maybe Timing
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Arn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-318"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [JobInput]
+   -&gt; Maybe JobInput
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [JobOutput]
+   -&gt; Maybe JobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe [Playlist]
+   -&gt; Maybe Text
+   -&gt; Maybe Timing
+   -&gt; Job)
+-&gt; Parser (Maybe [JobInput])
+-&gt; Parser
+     (Maybe JobInput
+      -&gt; Maybe (HashMap Text Text)
+      -&gt; Maybe [JobOutput]
+      -&gt; Maybe JobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe [Playlist]
+      -&gt; Maybe Text
+      -&gt; Maybe Timing
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobInput]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Inputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JobInput]))
+-&gt; Maybe [JobInput] -&gt; Parser (Maybe [JobInput])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobInput]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-319"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobInput
+   -&gt; Maybe (HashMap Text Text)
+   -&gt; Maybe [JobOutput]
+   -&gt; Maybe JobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe [Playlist]
+   -&gt; Maybe Text
+   -&gt; Maybe Timing
+   -&gt; Job)
+-&gt; Parser (Maybe JobInput)
+-&gt; Parser
+     (Maybe (HashMap Text Text)
+      -&gt; Maybe [JobOutput]
+      -&gt; Maybe JobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe [Playlist]
+      -&gt; Maybe Text
+      -&gt; Maybe Timing
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobInput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Input&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-320"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (HashMap Text Text)
+   -&gt; Maybe [JobOutput]
+   -&gt; Maybe JobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe [Playlist]
+   -&gt; Maybe Text
+   -&gt; Maybe Timing
+   -&gt; Job)
+-&gt; Parser (Maybe (HashMap Text Text))
+-&gt; Parser
+     (Maybe [JobOutput]
+      -&gt; Maybe JobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe [Playlist]
+      -&gt; Maybe Text
+      -&gt; Maybe Timing
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe (HashMap Text Text)))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UserMetadata&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe (HashMap Text Text)))
+-&gt; Maybe (HashMap Text Text) -&gt; Parser (Maybe (HashMap Text Text))
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe (HashMap Text Text)
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-321"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe [JobOutput]
+   -&gt; Maybe JobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe [Playlist]
+   -&gt; Maybe Text
+   -&gt; Maybe Timing
+   -&gt; Job)
+-&gt; Parser (Maybe [JobOutput])
+-&gt; Parser
+     (Maybe JobOutput
+      -&gt; Maybe Text
+      -&gt; Maybe [Playlist]
+      -&gt; Maybe Text
+      -&gt; Maybe Timing
+      -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [JobOutput]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Outputs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [JobOutput]))
+-&gt; Maybe [JobOutput] -&gt; Parser (Maybe [JobOutput])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [JobOutput]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe JobOutput
+   -&gt; Maybe Text
+   -&gt; Maybe [Playlist]
+   -&gt; Maybe Text
+   -&gt; Maybe Timing
+   -&gt; Job)
+-&gt; Parser (Maybe JobOutput)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe [Playlist] -&gt; Maybe Text -&gt; Maybe Timing -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe JobOutput)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Output&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-323"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe [Playlist] -&gt; Maybe Text -&gt; Maybe Timing -&gt; Job)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe [Playlist] -&gt; Maybe Text -&gt; Maybe Timing -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Id&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-324"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe [Playlist] -&gt; Maybe Text -&gt; Maybe Timing -&gt; Job)
+-&gt; Parser (Maybe [Playlist])
+-&gt; Parser (Maybe Text -&gt; Maybe Timing -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Maybe [Playlist]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Playlists&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser (Maybe (Maybe [Playlist]))
+-&gt; Maybe [Playlist] -&gt; Parser (Maybe [Playlist])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe [Playlist]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-325"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe Timing -&gt; Job)
+-&gt; Parser (Maybe Text) -&gt; Parser (Maybe Timing -&gt; Job)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;OutputKeyPrefix&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-326"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Timing -&gt; Job) -&gt; Parser (Maybe Timing) -&gt; Parser Job
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679213392"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Timing)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Timing&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-327"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span>
+</span><span id="line-329"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213385"><span id="local-6989586621679213387"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span></span><span>
+</span><span id="line-330"></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679213382"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticTranscoder.Types.Job.html#Job"><span class="hs-identifier hs-type">Job</span></a></span></span><span>
+</span><span id="line-332"></span></pre></body></html>

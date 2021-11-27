@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-5"></span><span>
+</span><span id="line-6"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-9"></span><span class="hs-comment">-- Module      : Amazonka.DataExchange.Types</span><span>
+</span><span id="line-10"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-12"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-15"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataExchange.Types</span><span>
+</span><span id="line-16"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Service Configuration</span></span><span>
+</span><span id="line-17"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-18"></span><span>
+</span><span id="line-19"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Errors</span></span><span>
+</span><span id="line-20"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ValidationException"><span class="hs-identifier">_ValidationException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-21"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#_AccessDeniedException"><span class="hs-identifier">_AccessDeniedException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ConflictException"><span class="hs-identifier">_ConflictException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ServiceLimitExceededException"><span class="hs-identifier">_ServiceLimitExceededException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ThrottlingException"><span class="hs-identifier">_ThrottlingException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#_InternalServerException"><span class="hs-identifier">_InternalServerException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ResourceNotFoundException"><span class="hs-identifier">_ResourceNotFoundException</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssetType</span></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html#AssetType"><span class="hs-identifier">AssetType</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Code</span></span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Code.html#Code"><span class="hs-identifier">Code</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobErrorLimitName</span></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorLimitName.html#JobErrorLimitName"><span class="hs-identifier">JobErrorLimitName</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobErrorResourceTypes</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html#JobErrorResourceTypes"><span class="hs-identifier">JobErrorResourceTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Origin</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Origin.html#Origin"><span class="hs-identifier">Origin</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ServerSideEncryptionTypes</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ServerSideEncryptionTypes.html#ServerSideEncryptionTypes"><span class="hs-identifier">ServerSideEncryptionTypes</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><span class="hs-comment">-- * State</span></span><span>
+</span><span id="line-47"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html#State"><span class="hs-identifier">State</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>
+</span><span id="line-49"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Type</span></span><span>
+</span><span id="line-50"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Type.html#Type"><span class="hs-identifier">Type</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>
+</span><span id="line-52"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Action</span></span><span>
+</span><span id="line-53"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html#Action"><span class="hs-identifier">Action</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html#newAction"><span class="hs-identifier">newAction</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html#action_exportRevisionToS3"><span class="hs-identifier">action_exportRevisionToS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssetDestinationEntry</span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDestinationEntry.html#AssetDestinationEntry"><span class="hs-identifier">AssetDestinationEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-59"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDestinationEntry.html#newAssetDestinationEntry"><span class="hs-identifier">newAssetDestinationEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-60"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDestinationEntry.html#assetDestinationEntry_key"><span class="hs-identifier">assetDestinationEntry_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDestinationEntry.html#assetDestinationEntry_bucket"><span class="hs-identifier">assetDestinationEntry_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-62"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDestinationEntry.html#assetDestinationEntry_assetId"><span class="hs-identifier">assetDestinationEntry_assetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssetDetails</span></span><span>
+</span><span id="line-65"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDetails.html#AssetDetails"><span class="hs-identifier">AssetDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-66"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDetails.html#newAssetDetails"><span class="hs-identifier">newAssetDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDetails.html#assetDetails_s3SnapshotAsset"><span class="hs-identifier">assetDetails_s3SnapshotAsset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDetails.html#assetDetails_redshiftDataShareAsset"><span class="hs-identifier">assetDetails_redshiftDataShareAsset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssetEntry</span></span><span>
+</span><span id="line-71"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#AssetEntry"><span class="hs-identifier">AssetEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-72"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#newAssetEntry"><span class="hs-identifier">newAssetEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-73"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_sourceId"><span class="hs-identifier">assetEntry_sourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-74"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_assetType"><span class="hs-identifier">assetEntry_assetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_createdAt"><span class="hs-identifier">assetEntry_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_dataSetId"><span class="hs-identifier">assetEntry_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-77"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_id"><span class="hs-identifier">assetEntry_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-78"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_arn"><span class="hs-identifier">assetEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-79"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_assetDetails"><span class="hs-identifier">assetEntry_assetDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-80"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_updatedAt"><span class="hs-identifier">assetEntry_updatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-81"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_revisionId"><span class="hs-identifier">assetEntry_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html#assetEntry_name"><span class="hs-identifier">assetEntry_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-83"></span><span>
+</span><span id="line-84"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AssetSourceEntry</span></span><span>
+</span><span id="line-85"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetSourceEntry.html#AssetSourceEntry"><span class="hs-identifier">AssetSourceEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetSourceEntry.html#newAssetSourceEntry"><span class="hs-identifier">newAssetSourceEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-87"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetSourceEntry.html#assetSourceEntry_bucket"><span class="hs-identifier">assetSourceEntry_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetSourceEntry.html#assetSourceEntry_key"><span class="hs-identifier">assetSourceEntry_key</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-89"></span><span>
+</span><span id="line-90"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AutoExportRevisionDestinationEntry</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.html#AutoExportRevisionDestinationEntry"><span class="hs-identifier">AutoExportRevisionDestinationEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.html#newAutoExportRevisionDestinationEntry"><span class="hs-identifier">newAutoExportRevisionDestinationEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.html#autoExportRevisionDestinationEntry_keyPattern"><span class="hs-identifier">autoExportRevisionDestinationEntry_keyPattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.html#autoExportRevisionDestinationEntry_bucket"><span class="hs-identifier">autoExportRevisionDestinationEntry_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>
+</span><span id="line-96"></span><span>    </span><span class="annot"><span class="hs-comment">-- * AutoExportRevisionToS3RequestDetails</span></span><span>
+</span><span id="line-97"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.html#AutoExportRevisionToS3RequestDetails"><span class="hs-identifier">AutoExportRevisionToS3RequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-98"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.html#newAutoExportRevisionToS3RequestDetails"><span class="hs-identifier">newAutoExportRevisionToS3RequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-99"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.html#autoExportRevisionToS3RequestDetails_encryption"><span class="hs-identifier">autoExportRevisionToS3RequestDetails_encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-100"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.html#autoExportRevisionToS3RequestDetails_revisionDestination"><span class="hs-identifier">autoExportRevisionToS3RequestDetails_revisionDestination</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-101"></span><span>
+</span><span id="line-102"></span><span>    </span><span class="annot"><span class="hs-comment">-- * DataSetEntry</span></span><span>
+</span><span id="line-103"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#DataSetEntry"><span class="hs-identifier">DataSetEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-104"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#newDataSetEntry"><span class="hs-identifier">newDataSetEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_sourceId"><span class="hs-identifier">dataSetEntry_sourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_originDetails"><span class="hs-identifier">dataSetEntry_originDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-107"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_origin"><span class="hs-identifier">dataSetEntry_origin</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-108"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_assetType"><span class="hs-identifier">dataSetEntry_assetType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-109"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_description"><span class="hs-identifier">dataSetEntry_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_createdAt"><span class="hs-identifier">dataSetEntry_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-111"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_id"><span class="hs-identifier">dataSetEntry_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-112"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_arn"><span class="hs-identifier">dataSetEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-113"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_updatedAt"><span class="hs-identifier">dataSetEntry_updatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-114"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html#dataSetEntry_name"><span class="hs-identifier">dataSetEntry_name</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-115"></span><span>
+</span><span id="line-116"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Details</span></span><span>
+</span><span id="line-117"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Details.html#Details"><span class="hs-identifier">Details</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-118"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Details.html#newDetails"><span class="hs-identifier">newDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-119"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Details.html#details_importAssetFromSignedUrlJobErrorDetails"><span class="hs-identifier">details_importAssetFromSignedUrlJobErrorDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-120"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Details.html#details_importAssetsFromS3JobErrorDetails"><span class="hs-identifier">details_importAssetsFromS3JobErrorDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-121"></span><span>
+</span><span id="line-122"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Event</span></span><span>
+</span><span id="line-123"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html#Event"><span class="hs-identifier">Event</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-124"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html#newEvent"><span class="hs-identifier">newEvent</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html#event_revisionPublished"><span class="hs-identifier">event_revisionPublished</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span>    </span><span class="annot"><span class="hs-comment">-- * EventActionEntry</span></span><span>
+</span><span id="line-128"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#EventActionEntry"><span class="hs-identifier">EventActionEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#newEventActionEntry"><span class="hs-identifier">newEventActionEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-130"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_action"><span class="hs-identifier">eventActionEntry_action</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-131"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_createdAt"><span class="hs-identifier">eventActionEntry_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-132"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_event"><span class="hs-identifier">eventActionEntry_event</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-133"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_id"><span class="hs-identifier">eventActionEntry_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_arn"><span class="hs-identifier">eventActionEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-135"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html#eventActionEntry_updatedAt"><span class="hs-identifier">eventActionEntry_updatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-136"></span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExportAssetToSignedUrlRequestDetails</span></span><span>
+</span><span id="line-138"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.html#ExportAssetToSignedUrlRequestDetails"><span class="hs-identifier">ExportAssetToSignedUrlRequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-139"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.html#newExportAssetToSignedUrlRequestDetails"><span class="hs-identifier">newExportAssetToSignedUrlRequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.html#exportAssetToSignedUrlRequestDetails_dataSetId"><span class="hs-identifier">exportAssetToSignedUrlRequestDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-141"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.html#exportAssetToSignedUrlRequestDetails_assetId"><span class="hs-identifier">exportAssetToSignedUrlRequestDetails_assetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-142"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.html#exportAssetToSignedUrlRequestDetails_revisionId"><span class="hs-identifier">exportAssetToSignedUrlRequestDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-143"></span><span>
+</span><span id="line-144"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExportAssetToSignedUrlResponseDetails</span></span><span>
+</span><span id="line-145"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html#ExportAssetToSignedUrlResponseDetails"><span class="hs-identifier">ExportAssetToSignedUrlResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-146"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html#newExportAssetToSignedUrlResponseDetails"><span class="hs-identifier">newExportAssetToSignedUrlResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-147"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html#exportAssetToSignedUrlResponseDetails_signedUrl"><span class="hs-identifier">exportAssetToSignedUrlResponseDetails_signedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-148"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html#exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt"><span class="hs-identifier">exportAssetToSignedUrlResponseDetails_signedUrlExpiresAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-149"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html#exportAssetToSignedUrlResponseDetails_dataSetId"><span class="hs-identifier">exportAssetToSignedUrlResponseDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-150"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html#exportAssetToSignedUrlResponseDetails_assetId"><span class="hs-identifier">exportAssetToSignedUrlResponseDetails_assetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html#exportAssetToSignedUrlResponseDetails_revisionId"><span class="hs-identifier">exportAssetToSignedUrlResponseDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-152"></span><span>
+</span><span id="line-153"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExportAssetsToS3RequestDetails</span></span><span>
+</span><span id="line-154"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.html#ExportAssetsToS3RequestDetails"><span class="hs-identifier">ExportAssetsToS3RequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-155"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.html#newExportAssetsToS3RequestDetails"><span class="hs-identifier">newExportAssetsToS3RequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.html#exportAssetsToS3RequestDetails_encryption"><span class="hs-identifier">exportAssetsToS3RequestDetails_encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-157"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.html#exportAssetsToS3RequestDetails_assetDestinations"><span class="hs-identifier">exportAssetsToS3RequestDetails_assetDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-158"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.html#exportAssetsToS3RequestDetails_dataSetId"><span class="hs-identifier">exportAssetsToS3RequestDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-159"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.html#exportAssetsToS3RequestDetails_revisionId"><span class="hs-identifier">exportAssetsToS3RequestDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-160"></span><span>
+</span><span id="line-161"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExportAssetsToS3ResponseDetails</span></span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.html#ExportAssetsToS3ResponseDetails"><span class="hs-identifier">ExportAssetsToS3ResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.html#newExportAssetsToS3ResponseDetails"><span class="hs-identifier">newExportAssetsToS3ResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-164"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.html#exportAssetsToS3ResponseDetails_encryption"><span class="hs-identifier">exportAssetsToS3ResponseDetails_encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-165"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.html#exportAssetsToS3ResponseDetails_assetDestinations"><span class="hs-identifier">exportAssetsToS3ResponseDetails_assetDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-166"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.html#exportAssetsToS3ResponseDetails_dataSetId"><span class="hs-identifier">exportAssetsToS3ResponseDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-167"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.html#exportAssetsToS3ResponseDetails_revisionId"><span class="hs-identifier">exportAssetsToS3ResponseDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>
+</span><span id="line-169"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExportRevisionsToS3RequestDetails</span></span><span>
+</span><span id="line-170"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#ExportRevisionsToS3RequestDetails"><span class="hs-identifier">ExportRevisionsToS3RequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#newExportRevisionsToS3RequestDetails"><span class="hs-identifier">newExportRevisionsToS3RequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_encryption"><span class="hs-identifier">exportRevisionsToS3RequestDetails_encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_revisionDestinations"><span class="hs-identifier">exportRevisionsToS3RequestDetails_revisionDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html#exportRevisionsToS3RequestDetails_dataSetId"><span class="hs-identifier">exportRevisionsToS3RequestDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-175"></span><span>
+</span><span id="line-176"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExportRevisionsToS3ResponseDetails</span></span><span>
+</span><span id="line-177"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.html#ExportRevisionsToS3ResponseDetails"><span class="hs-identifier">ExportRevisionsToS3ResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.html#newExportRevisionsToS3ResponseDetails"><span class="hs-identifier">newExportRevisionsToS3ResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-179"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.html#exportRevisionsToS3ResponseDetails_encryption"><span class="hs-identifier">exportRevisionsToS3ResponseDetails_encryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.html#exportRevisionsToS3ResponseDetails_eventActionArn"><span class="hs-identifier">exportRevisionsToS3ResponseDetails_eventActionArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-181"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.html#exportRevisionsToS3ResponseDetails_revisionDestinations"><span class="hs-identifier">exportRevisionsToS3ResponseDetails_revisionDestinations</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-182"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.html#exportRevisionsToS3ResponseDetails_dataSetId"><span class="hs-identifier">exportRevisionsToS3ResponseDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-183"></span><span>
+</span><span id="line-184"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ExportServerSideEncryption</span></span><span>
+</span><span id="line-185"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html#ExportServerSideEncryption"><span class="hs-identifier">ExportServerSideEncryption</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html#newExportServerSideEncryption"><span class="hs-identifier">newExportServerSideEncryption</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html#exportServerSideEncryption_kmsKeyArn"><span class="hs-identifier">exportServerSideEncryption_kmsKeyArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html#exportServerSideEncryption_type"><span class="hs-identifier">exportServerSideEncryption_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>
+</span><span id="line-190"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImportAssetFromSignedUrlJobErrorDetails</span></span><span>
+</span><span id="line-191"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.html#ImportAssetFromSignedUrlJobErrorDetails"><span class="hs-identifier">ImportAssetFromSignedUrlJobErrorDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-192"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.html#newImportAssetFromSignedUrlJobErrorDetails"><span class="hs-identifier">newImportAssetFromSignedUrlJobErrorDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-193"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.html#importAssetFromSignedUrlJobErrorDetails_assetName"><span class="hs-identifier">importAssetFromSignedUrlJobErrorDetails_assetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-194"></span><span>
+</span><span id="line-195"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImportAssetFromSignedUrlRequestDetails</span></span><span>
+</span><span id="line-196"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.html#ImportAssetFromSignedUrlRequestDetails"><span class="hs-identifier">ImportAssetFromSignedUrlRequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-197"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.html#newImportAssetFromSignedUrlRequestDetails"><span class="hs-identifier">newImportAssetFromSignedUrlRequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-198"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.html#importAssetFromSignedUrlRequestDetails_dataSetId"><span class="hs-identifier">importAssetFromSignedUrlRequestDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-199"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.html#importAssetFromSignedUrlRequestDetails_md5Hash"><span class="hs-identifier">importAssetFromSignedUrlRequestDetails_md5Hash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-200"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.html#importAssetFromSignedUrlRequestDetails_assetName"><span class="hs-identifier">importAssetFromSignedUrlRequestDetails_assetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-201"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.html#importAssetFromSignedUrlRequestDetails_revisionId"><span class="hs-identifier">importAssetFromSignedUrlRequestDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-202"></span><span>
+</span><span id="line-203"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImportAssetFromSignedUrlResponseDetails</span></span><span>
+</span><span id="line-204"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#ImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier">ImportAssetFromSignedUrlResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-205"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#newImportAssetFromSignedUrlResponseDetails"><span class="hs-identifier">newImportAssetFromSignedUrlResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-206"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_signedUrl"><span class="hs-identifier">importAssetFromSignedUrlResponseDetails_signedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-207"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt"><span class="hs-identifier">importAssetFromSignedUrlResponseDetails_signedUrlExpiresAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-208"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_md5Hash"><span class="hs-identifier">importAssetFromSignedUrlResponseDetails_md5Hash</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-209"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_dataSetId"><span class="hs-identifier">importAssetFromSignedUrlResponseDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-210"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_assetName"><span class="hs-identifier">importAssetFromSignedUrlResponseDetails_assetName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-211"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html#importAssetFromSignedUrlResponseDetails_revisionId"><span class="hs-identifier">importAssetFromSignedUrlResponseDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-212"></span><span>
+</span><span id="line-213"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImportAssetsFromRedshiftDataSharesRequestDetails</span></span><span>
+</span><span id="line-214"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.html#ImportAssetsFromRedshiftDataSharesRequestDetails"><span class="hs-identifier">ImportAssetsFromRedshiftDataSharesRequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-215"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.html#newImportAssetsFromRedshiftDataSharesRequestDetails"><span class="hs-identifier">newImportAssetsFromRedshiftDataSharesRequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-216"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.html#importAssetsFromRedshiftDataSharesRequestDetails_dataSetId"><span class="hs-identifier">importAssetsFromRedshiftDataSharesRequestDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-217"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.html#importAssetsFromRedshiftDataSharesRequestDetails_assetSources"><span class="hs-identifier">importAssetsFromRedshiftDataSharesRequestDetails_assetSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-218"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.html#importAssetsFromRedshiftDataSharesRequestDetails_revisionId"><span class="hs-identifier">importAssetsFromRedshiftDataSharesRequestDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-219"></span><span>
+</span><span id="line-220"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImportAssetsFromRedshiftDataSharesResponseDetails</span></span><span>
+</span><span id="line-221"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.html#ImportAssetsFromRedshiftDataSharesResponseDetails"><span class="hs-identifier">ImportAssetsFromRedshiftDataSharesResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-222"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.html#newImportAssetsFromRedshiftDataSharesResponseDetails"><span class="hs-identifier">newImportAssetsFromRedshiftDataSharesResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.html#importAssetsFromRedshiftDataSharesResponseDetails_dataSetId"><span class="hs-identifier">importAssetsFromRedshiftDataSharesResponseDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-224"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.html#importAssetsFromRedshiftDataSharesResponseDetails_assetSources"><span class="hs-identifier">importAssetsFromRedshiftDataSharesResponseDetails_assetSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-225"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.html#importAssetsFromRedshiftDataSharesResponseDetails_revisionId"><span class="hs-identifier">importAssetsFromRedshiftDataSharesResponseDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>
+</span><span id="line-227"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImportAssetsFromS3RequestDetails</span></span><span>
+</span><span id="line-228"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.html#ImportAssetsFromS3RequestDetails"><span class="hs-identifier">ImportAssetsFromS3RequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-229"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.html#newImportAssetsFromS3RequestDetails"><span class="hs-identifier">newImportAssetsFromS3RequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-230"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.html#importAssetsFromS3RequestDetails_dataSetId"><span class="hs-identifier">importAssetsFromS3RequestDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-231"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.html#importAssetsFromS3RequestDetails_assetSources"><span class="hs-identifier">importAssetsFromS3RequestDetails_assetSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-232"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.html#importAssetsFromS3RequestDetails_revisionId"><span class="hs-identifier">importAssetsFromS3RequestDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-233"></span><span>
+</span><span id="line-234"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ImportAssetsFromS3ResponseDetails</span></span><span>
+</span><span id="line-235"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#ImportAssetsFromS3ResponseDetails"><span class="hs-identifier">ImportAssetsFromS3ResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-236"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#newImportAssetsFromS3ResponseDetails"><span class="hs-identifier">newImportAssetsFromS3ResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-237"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_dataSetId"><span class="hs-identifier">importAssetsFromS3ResponseDetails_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-238"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_assetSources"><span class="hs-identifier">importAssetsFromS3ResponseDetails_assetSources</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-239"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html#importAssetsFromS3ResponseDetails_revisionId"><span class="hs-identifier">importAssetsFromS3ResponseDetails_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-240"></span><span>
+</span><span id="line-241"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobEntry</span></span><span>
+</span><span id="line-242"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#JobEntry"><span class="hs-identifier">JobEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-243"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#newJobEntry"><span class="hs-identifier">newJobEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-244"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_errors"><span class="hs-identifier">jobEntry_errors</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-245"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_type"><span class="hs-identifier">jobEntry_type</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-246"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_details"><span class="hs-identifier">jobEntry_details</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-247"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_state"><span class="hs-identifier">jobEntry_state</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-248"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_createdAt"><span class="hs-identifier">jobEntry_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-249"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_id"><span class="hs-identifier">jobEntry_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-250"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_arn"><span class="hs-identifier">jobEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-251"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html#jobEntry_updatedAt"><span class="hs-identifier">jobEntry_updatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span>    </span><span class="annot"><span class="hs-comment">-- * JobError</span></span><span>
+</span><span id="line-254"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#JobError"><span class="hs-identifier">JobError</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-255"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#newJobError"><span class="hs-identifier">newJobError</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-256"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#jobError_resourceId"><span class="hs-identifier">jobError_resourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-257"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#jobError_limitName"><span class="hs-identifier">jobError_limitName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-258"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#jobError_resourceType"><span class="hs-identifier">jobError_resourceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-259"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#jobError_details"><span class="hs-identifier">jobError_details</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-260"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#jobError_limitValue"><span class="hs-identifier">jobError_limitValue</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-261"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#jobError_message"><span class="hs-identifier">jobError_message</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-262"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html#jobError_code"><span class="hs-identifier">jobError_code</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-263"></span><span>
+</span><span id="line-264"></span><span>    </span><span class="annot"><span class="hs-comment">-- * OriginDetails</span></span><span>
+</span><span id="line-265"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.OriginDetails.html#OriginDetails"><span class="hs-identifier">OriginDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-266"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.OriginDetails.html#newOriginDetails"><span class="hs-identifier">newOriginDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-267"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.OriginDetails.html#originDetails_productId"><span class="hs-identifier">originDetails_productId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-268"></span><span>
+</span><span id="line-269"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RedshiftDataShareAsset</span></span><span>
+</span><span id="line-270"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAsset.html#RedshiftDataShareAsset"><span class="hs-identifier">RedshiftDataShareAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-271"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAsset.html#newRedshiftDataShareAsset"><span class="hs-identifier">newRedshiftDataShareAsset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-272"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAsset.html#redshiftDataShareAsset_arn"><span class="hs-identifier">redshiftDataShareAsset_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RedshiftDataShareAssetSourceEntry</span></span><span>
+</span><span id="line-275"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.html#RedshiftDataShareAssetSourceEntry"><span class="hs-identifier">RedshiftDataShareAssetSourceEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.html#newRedshiftDataShareAssetSourceEntry"><span class="hs-identifier">newRedshiftDataShareAssetSourceEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-277"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.html#redshiftDataShareAssetSourceEntry_dataShareArn"><span class="hs-identifier">redshiftDataShareAssetSourceEntry_dataShareArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-278"></span><span>
+</span><span id="line-279"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RequestDetails</span></span><span>
+</span><span id="line-280"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#RequestDetails"><span class="hs-identifier">RequestDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-281"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#newRequestDetails"><span class="hs-identifier">newRequestDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#requestDetails_exportAssetsToS3"><span class="hs-identifier">requestDetails_exportAssetsToS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-283"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#requestDetails_exportRevisionsToS3"><span class="hs-identifier">requestDetails_exportRevisionsToS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-284"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#requestDetails_importAssetFromSignedUrl"><span class="hs-identifier">requestDetails_importAssetFromSignedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-285"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#requestDetails_importAssetsFromRedshiftDataShares"><span class="hs-identifier">requestDetails_importAssetsFromRedshiftDataShares</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-286"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#requestDetails_importAssetsFromS3"><span class="hs-identifier">requestDetails_importAssetsFromS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-287"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html#requestDetails_exportAssetToSignedUrl"><span class="hs-identifier">requestDetails_exportAssetToSignedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span>    </span><span class="annot"><span class="hs-comment">-- * ResponseDetails</span></span><span>
+</span><span id="line-290"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#ResponseDetails"><span class="hs-identifier">ResponseDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#newResponseDetails"><span class="hs-identifier">newResponseDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-292"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#responseDetails_exportAssetsToS3"><span class="hs-identifier">responseDetails_exportAssetsToS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-293"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#responseDetails_exportRevisionsToS3"><span class="hs-identifier">responseDetails_exportRevisionsToS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#responseDetails_importAssetFromSignedUrl"><span class="hs-identifier">responseDetails_importAssetFromSignedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#responseDetails_importAssetsFromRedshiftDataShares"><span class="hs-identifier">responseDetails_importAssetsFromRedshiftDataShares</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#responseDetails_importAssetsFromS3"><span class="hs-identifier">responseDetails_importAssetsFromS3</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html#responseDetails_exportAssetToSignedUrl"><span class="hs-identifier">responseDetails_exportAssetToSignedUrl</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-298"></span><span>
+</span><span id="line-299"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RevisionDestinationEntry</span></span><span>
+</span><span id="line-300"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html#RevisionDestinationEntry"><span class="hs-identifier">RevisionDestinationEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html#newRevisionDestinationEntry"><span class="hs-identifier">newRevisionDestinationEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-302"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html#revisionDestinationEntry_keyPattern"><span class="hs-identifier">revisionDestinationEntry_keyPattern</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-303"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html#revisionDestinationEntry_bucket"><span class="hs-identifier">revisionDestinationEntry_bucket</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-304"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html#revisionDestinationEntry_revisionId"><span class="hs-identifier">revisionDestinationEntry_revisionId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-305"></span><span>
+</span><span id="line-306"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RevisionEntry</span></span><span>
+</span><span id="line-307"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#RevisionEntry"><span class="hs-identifier">RevisionEntry</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-308"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#newRevisionEntry"><span class="hs-identifier">newRevisionEntry</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-309"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_sourceId"><span class="hs-identifier">revisionEntry_sourceId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-310"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_finalized"><span class="hs-identifier">revisionEntry_finalized</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-311"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_comment"><span class="hs-identifier">revisionEntry_comment</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-312"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_createdAt"><span class="hs-identifier">revisionEntry_createdAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-313"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_dataSetId"><span class="hs-identifier">revisionEntry_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-314"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_id"><span class="hs-identifier">revisionEntry_id</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-315"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_arn"><span class="hs-identifier">revisionEntry_arn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-316"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html#revisionEntry_updatedAt"><span class="hs-identifier">revisionEntry_updatedAt</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-317"></span><span>
+</span><span id="line-318"></span><span>    </span><span class="annot"><span class="hs-comment">-- * RevisionPublished</span></span><span>
+</span><span id="line-319"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionPublished.html#RevisionPublished"><span class="hs-identifier">RevisionPublished</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-320"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionPublished.html#newRevisionPublished"><span class="hs-identifier">newRevisionPublished</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-321"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionPublished.html#revisionPublished_dataSetId"><span class="hs-identifier">revisionPublished_dataSetId</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span>    </span><span class="annot"><span class="hs-comment">-- * S3SnapshotAsset</span></span><span>
+</span><span id="line-324"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.S3SnapshotAsset.html#S3SnapshotAsset"><span class="hs-identifier">S3SnapshotAsset</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-325"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.S3SnapshotAsset.html#newS3SnapshotAsset"><span class="hs-identifier">newS3SnapshotAsset</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-326"></span><span>    </span><span class="annot"><a href="Amazonka.DataExchange.Types.S3SnapshotAsset.html#s3SnapshotAsset_size"><span class="hs-identifier">s3SnapshotAsset_size</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-327"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-328"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-329"></span><span>
+</span><span id="line-330"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-331"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Action.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Action</span></a></span><span>
+</span><span id="line-332"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDestinationEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.AssetDestinationEntry</span></a></span><span>
+</span><span id="line-333"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.AssetDetails</span></a></span><span>
+</span><span id="line-334"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.AssetEntry</span></a></span><span>
+</span><span id="line-335"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetSourceEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.AssetSourceEntry</span></a></span><span>
+</span><span id="line-336"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AssetType.html"><span class="hs-identifier">Amazonka.DataExchange.Types.AssetType</span></a></span><span>
+</span><span id="line-337"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.AutoExportRevisionDestinationEntry</span></a></span><span>
+</span><span id="line-338"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.AutoExportRevisionToS3RequestDetails</span></a></span><span>
+</span><span id="line-339"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Code.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Code</span></a></span><span>
+</span><span id="line-340"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.DataSetEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.DataSetEntry</span></a></span><span>
+</span><span id="line-341"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Details.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Details</span></a></span><span>
+</span><span id="line-342"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Event.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Event</span></a></span><span>
+</span><span id="line-343"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.EventActionEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.EventActionEntry</span></a></span><span>
+</span><span id="line-344"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportAssetToSignedUrlRequestDetails</span></a></span><span>
+</span><span id="line-345"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportAssetToSignedUrlResponseDetails</span></a></span><span>
+</span><span id="line-346"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportAssetsToS3RequestDetails</span></a></span><span>
+</span><span id="line-347"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportAssetsToS3ResponseDetails</span></a></span><span>
+</span><span id="line-348"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportRevisionsToS3RequestDetails</span></a></span><span>
+</span><span id="line-349"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportRevisionsToS3ResponseDetails</span></a></span><span>
+</span><span id="line-350"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ExportServerSideEncryption.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ExportServerSideEncryption</span></a></span><span>
+</span><span id="line-351"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetFromSignedUrlJobErrorDetails</span></a></span><span>
+</span><span id="line-352"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetFromSignedUrlRequestDetails</span></a></span><span>
+</span><span id="line-353"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetFromSignedUrlResponseDetails</span></a></span><span>
+</span><span id="line-354"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesRequestDetails</span></a></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetsFromRedshiftDataSharesResponseDetails</span></a></span><span>
+</span><span id="line-356"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetsFromS3RequestDetails</span></a></span><span>
+</span><span id="line-357"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ImportAssetsFromS3ResponseDetails</span></a></span><span>
+</span><span id="line-358"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.JobEntry</span></a></span><span>
+</span><span id="line-359"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobError.html"><span class="hs-identifier">Amazonka.DataExchange.Types.JobError</span></a></span><span>
+</span><span id="line-360"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorLimitName.html"><span class="hs-identifier">Amazonka.DataExchange.Types.JobErrorLimitName</span></a></span><span>
+</span><span id="line-361"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.JobErrorResourceTypes.html"><span class="hs-identifier">Amazonka.DataExchange.Types.JobErrorResourceTypes</span></a></span><span>
+</span><span id="line-362"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Origin.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Origin</span></a></span><span>
+</span><span id="line-363"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.OriginDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.OriginDetails</span></a></span><span>
+</span><span id="line-364"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAsset.html"><span class="hs-identifier">Amazonka.DataExchange.Types.RedshiftDataShareAsset</span></a></span><span>
+</span><span id="line-365"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.RedshiftDataShareAssetSourceEntry</span></a></span><span>
+</span><span id="line-366"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.RequestDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.RequestDetails</span></a></span><span>
+</span><span id="line-367"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ResponseDetails.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ResponseDetails</span></a></span><span>
+</span><span id="line-368"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionDestinationEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.RevisionDestinationEntry</span></a></span><span>
+</span><span id="line-369"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionEntry.html"><span class="hs-identifier">Amazonka.DataExchange.Types.RevisionEntry</span></a></span><span>
+</span><span id="line-370"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.RevisionPublished.html"><span class="hs-identifier">Amazonka.DataExchange.Types.RevisionPublished</span></a></span><span>
+</span><span id="line-371"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.S3SnapshotAsset.html"><span class="hs-identifier">Amazonka.DataExchange.Types.S3SnapshotAsset</span></a></span><span>
+</span><span id="line-372"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.ServerSideEncryptionTypes.html"><span class="hs-identifier">Amazonka.DataExchange.Types.ServerSideEncryptionTypes</span></a></span><span>
+</span><span id="line-373"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.State.html"><span class="hs-identifier">Amazonka.DataExchange.Types.State</span></a></span><span>
+</span><span id="line-374"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataExchange.Types.Type.html"><span class="hs-identifier">Amazonka.DataExchange.Types.Type</span></a></span><span>
+</span><span id="line-375"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-376"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-377"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Sign.V4</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Sign</span></span><span>
+</span><span id="line-378"></span><span>
+</span><span id="line-379"></span><span class="hs-comment">-- | API version @2017-07-25@ of the Amazon Data Exchange SDK configuration.</span><span>
+</span><span id="line-380"></span><span class="annot"><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-type">defaultService</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-381"></span><span id="defaultService"><span class="annot"><span class="annottext">defaultService :: Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var hs-var">defaultService</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-382"></span><span>  </span><span class="annot"><span class="annottext">Service :: Abbrev
+-&gt; Signer
+-&gt; ByteString
+-&gt; ByteString
+-&gt; ByteString
+-&gt; (Region -&gt; Endpoint)
+-&gt; Maybe Seconds
+-&gt; (Status -&gt; Bool)
+-&gt; (Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error)
+-&gt; Retry
+-&gt; Service
+</span><span class="hs-identifier hs-type">Core.Service</span></span><span>
+</span><span id="line-383"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_serviceAbbrev:Service :: Abbrev
+</span><span class="hs-identifier hs-var">Core._serviceAbbrev</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;DataExchange&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-384"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigner:Service :: Signer
+</span><span class="hs-identifier hs-var">Core._serviceSigner</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Signer
+</span><span class="hs-identifier hs-var">Sign.v4</span></span><span class="hs-special">,</span><span>
+</span><span id="line-385"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpointPrefix:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceEndpointPrefix</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;dataexchange&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-386"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceSigningName:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceSigningName</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;dataexchange&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-387"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceVersion:Service :: ByteString
+</span><span class="hs-identifier hs-var">Core._serviceVersion</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;2017-07-25&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-388"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceEndpoint:Service :: Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core._serviceEndpoint</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-389"></span><span>        </span><span class="annot"><span class="annottext">Service -&gt; Region -&gt; Endpoint
+</span><span class="hs-identifier hs-var">Core.defaultEndpoint</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-390"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceTimeout:Service :: Maybe Seconds
+</span><span class="hs-identifier hs-var">Core._serviceTimeout</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Seconds -&gt; Maybe Seconds
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">Seconds
+</span><span class="hs-number">70</span></span><span class="hs-special">,</span><span>
+</span><span id="line-391"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceCheck:Service :: Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core._serviceCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Status -&gt; Bool
+</span><span class="hs-identifier hs-var">Core.statusSuccess</span></span><span class="hs-special">,</span><span>
+</span><span id="line-392"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceError:Service :: Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core._serviceError</span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-393"></span><span>        </span><span class="annot"><span class="annottext">Abbrev -&gt; Status -&gt; [Header] -&gt; ByteStringLazy -&gt; Error
+</span><span class="hs-identifier hs-var">Core.parseJSONError</span></span><span> </span><span class="annot"><span class="annottext">Abbrev
+</span><span class="hs-string">&quot;DataExchange&quot;</span></span><span class="hs-special">,</span><span>
+</span><span id="line-394"></span><span>      </span><span class="annot"><span class="annottext">$sel:_serviceRetry:Service :: Retry
+</span><span class="hs-identifier hs-var">Core._serviceRetry</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Retry
+</span><a href="#local-6989586621679239922"><span class="hs-identifier hs-var">retry</span></a></span><span>
+</span><span id="line-395"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-396"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-397"></span><span>    </span><span id="local-6989586621679239922"><span class="annot"><span class="annottext">retry :: Retry
+</span><a href="#local-6989586621679239922"><span class="hs-identifier hs-var hs-var">retry</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-398"></span><span>      </span><span class="annot"><span class="annottext">Exponential :: Double -&gt; Int -&gt; Int -&gt; (ServiceError -&gt; Maybe Text) -&gt; Retry
+</span><span class="hs-identifier hs-type">Core.Exponential</span></span><span>
+</span><span id="line-399"></span><span>        </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:_retryBase:Exponential :: Double
+</span><span class="hs-identifier hs-var">Core._retryBase</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Double
+</span><span class="hs-number">5.0e-2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-400"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryGrowth:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryGrowth</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">2</span></span><span class="hs-special">,</span><span>
+</span><span id="line-401"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryAttempts:Exponential :: Int
+</span><span class="hs-identifier hs-var">Core._retryAttempts</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">5</span></span><span class="hs-special">,</span><span>
+</span><span id="line-402"></span><span>          </span><span class="annot"><span class="annottext">$sel:_retryCheck:Exponential :: ServiceError -&gt; Maybe Text
+</span><span class="hs-identifier hs-var">Core._retryCheck</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ServiceError -&gt; Maybe Text
+forall a. IsString a =&gt; ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679239916"><span class="hs-identifier hs-var">check</span></a></span><span>
+</span><span id="line-403"></span><span>        </span><span class="hs-special">}</span><span>
+</span><span id="line-404"></span><span>    </span><span id="local-6989586621679239916"><span class="annot"><span class="annottext">check :: ServiceError -&gt; Maybe a
+</span><a href="#local-6989586621679239916"><span class="hs-identifier hs-var hs-var">check</span></a></span></span><span> </span><span id="local-6989586621679239915"><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span></span><span>
+</span><span id="line-405"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-406"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottledException&quot;</span></span><span>
+</span><span id="line-407"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-408"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-409"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-410"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttled_exception&quot;</span></span><span>
+</span><span id="line-411"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-412"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;too_many_requests&quot;</span></span><span>
+</span><span id="line-413"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-414"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-415"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-416"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-417"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-418"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling_exception&quot;</span></span><span>
+</span><span id="line-419"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-420"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;Throttling&quot;</span></span><span>
+</span><span id="line-421"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-422"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-423"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-424"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throttling&quot;</span></span><span>
+</span><span id="line-425"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-426"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span>
+</span><span id="line-427"></span><span>              </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ProvisionedThroughputExceededException&quot;</span></span><span>
+</span><span id="line-428"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-429"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-430"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-431"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;throughput_exceeded&quot;</span></span><span>
+</span><span id="line-432"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">504</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-433"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;gateway_timeout&quot;</span></span><span>
+</span><span id="line-434"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span>
+</span><span id="line-435"></span><span>          </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ErrorCode -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+ErrorCode -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasCode</span></span><span> </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;RequestThrottledException&quot;</span></span><span>
+</span><span id="line-436"></span><span>              </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+-&gt; Getting Any ServiceError ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-437"></span><span>          </span><span class="hs-special">)</span><span>
+</span><span id="line-438"></span><span>          </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-439"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;request_throttled_exception&quot;</span></span><span>
+</span><span id="line-440"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">502</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-441"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;bad_gateway&quot;</span></span><span>
+</span><span id="line-442"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">503</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-443"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;service_unavailable&quot;</span></span><span>
+</span><span id="line-444"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-445"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;general_server_error&quot;</span></span><span>
+</span><span id="line-446"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Getting Any ServiceError ServiceError -&gt; ServiceError -&gt; Bool
+forall s a. Getting Any s a -&gt; s -&gt; Bool
+</span><span class="hs-identifier hs-var">Lens.has</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Getting Any ServiceError ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">509</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">ServiceError
+</span><a href="#local-6989586621679239915"><span class="hs-identifier hs-var">e</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-447"></span><span>        </span><span class="annot"><span class="annottext">a -&gt; Maybe a
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="annot"><span class="annottext">a
+</span><span class="hs-string">&quot;limit_exceeded&quot;</span></span><span>
+</span><span id="line-448"></span><span>      </span><span class="hs-glyph">|</span><span> </span><span class="annot"><span class="annottext">Bool
+</span><span class="hs-identifier hs-var">Prelude.otherwise</span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe a
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-449"></span><span>
+</span><span id="line-450"></span><span class="hs-comment">-- | The request was invalid.</span><span>
+</span><span id="line-451"></span><span id="local-6989586621679239910"><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ValidationException"><span class="hs-identifier hs-type">_ValidationException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239910"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239910"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-452"></span><span id="_ValidationException"><span class="annot"><span class="annottext">_ValidationException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataExchange.Types.html#_ValidationException"><span class="hs-identifier hs-var hs-var">_ValidationException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-453"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-454"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-455"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ValidationException&quot;</span></span><span>
+</span><span id="line-456"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">400</span></span><span>
+</span><span id="line-457"></span><span>
+</span><span id="line-458"></span><span class="hs-comment">-- | Access to the resource is denied.</span><span>
+</span><span id="line-459"></span><span id="local-6989586621679239908"><span class="annot"><a href="Amazonka.DataExchange.Types.html#_AccessDeniedException"><span class="hs-identifier hs-type">_AccessDeniedException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239908"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239908"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-460"></span><span id="_AccessDeniedException"><span class="annot"><span class="annottext">_AccessDeniedException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataExchange.Types.html#_AccessDeniedException"><span class="hs-identifier hs-var hs-var">_AccessDeniedException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-461"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-462"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-463"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;AccessDeniedException&quot;</span></span><span>
+</span><span id="line-464"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">403</span></span><span>
+</span><span id="line-465"></span><span>
+</span><span id="line-466"></span><span class="hs-comment">-- | The request couldn\'t be completed because it conflicted with the</span><span>
+</span><span id="line-467"></span><span class="hs-comment">-- current state of the resource.</span><span>
+</span><span id="line-468"></span><span id="local-6989586621679239907"><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ConflictException"><span class="hs-identifier hs-type">_ConflictException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239907"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239907"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-469"></span><span id="_ConflictException"><span class="annot"><span class="annottext">_ConflictException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataExchange.Types.html#_ConflictException"><span class="hs-identifier hs-var hs-var">_ConflictException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-470"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-471"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-472"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ConflictException&quot;</span></span><span>
+</span><span id="line-473"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">409</span></span><span>
+</span><span id="line-474"></span><span>
+</span><span id="line-475"></span><span class="hs-comment">-- | The request has exceeded the quotas imposed by the service.</span><span>
+</span><span id="line-476"></span><span id="local-6989586621679239906"><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ServiceLimitExceededException"><span class="hs-identifier hs-type">_ServiceLimitExceededException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239906"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239906"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-477"></span><span id="_ServiceLimitExceededException"><span class="annot"><span class="annottext">_ServiceLimitExceededException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataExchange.Types.html#_ServiceLimitExceededException"><span class="hs-identifier hs-var hs-var">_ServiceLimitExceededException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-478"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-479"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-480"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ServiceLimitExceededException&quot;</span></span><span>
+</span><span id="line-481"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">402</span></span><span>
+</span><span id="line-482"></span><span>
+</span><span id="line-483"></span><span class="hs-comment">-- | The limit on the number of requests per second was exceeded.</span><span>
+</span><span id="line-484"></span><span id="local-6989586621679239905"><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ThrottlingException"><span class="hs-identifier hs-type">_ThrottlingException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239905"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239905"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-485"></span><span id="_ThrottlingException"><span class="annot"><span class="annottext">_ThrottlingException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataExchange.Types.html#_ThrottlingException"><span class="hs-identifier hs-var hs-var">_ThrottlingException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-486"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-487"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-488"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ThrottlingException&quot;</span></span><span>
+</span><span id="line-489"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">429</span></span><span>
+</span><span id="line-490"></span><span>
+</span><span id="line-491"></span><span class="hs-comment">-- | An exception occurred with the service.</span><span>
+</span><span id="line-492"></span><span id="local-6989586621679239904"><span class="annot"><a href="Amazonka.DataExchange.Types.html#_InternalServerException"><span class="hs-identifier hs-type">_InternalServerException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239904"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239904"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-493"></span><span id="_InternalServerException"><span class="annot"><span class="annottext">_InternalServerException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataExchange.Types.html#_InternalServerException"><span class="hs-identifier hs-var hs-var">_InternalServerException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-494"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-495"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-496"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;InternalServerException&quot;</span></span><span>
+</span><span id="line-497"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">500</span></span><span>
+</span><span id="line-498"></span><span>
+</span><span id="line-499"></span><span class="hs-comment">-- | The resource couldn\'t be found.</span><span>
+</span><span id="line-500"></span><span id="local-6989586621679239903"><span class="annot"><a href="Amazonka.DataExchange.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-type">_ResourceNotFoundException</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AsError</span></span><span> </span><span class="annot"><a href="#local-6989586621679239903"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Getting</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.First</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span><span class="hs-special">)</span><span> </span><span class="annot"><a href="#local-6989586621679239903"><span class="hs-identifier hs-type">a</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ServiceError</span></span></span><span>
+</span><span id="line-501"></span><span id="_ResourceNotFoundException"><span class="annot"><span class="annottext">_ResourceNotFoundException :: Getting (First ServiceError) a ServiceError
+</span><a href="Amazonka.DataExchange.Types.html#_ResourceNotFoundException"><span class="hs-identifier hs-var hs-var">_ResourceNotFoundException</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-502"></span><span>  </span><span class="annot"><span class="annottext">Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+forall a.
+AsError a =&gt;
+Service -&gt; ErrorCode -&gt; Getting (First ServiceError) a ServiceError
+</span><span class="hs-identifier hs-var">Core._MatchServiceError</span></span><span>
+</span><span id="line-503"></span><span>    </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataExchange.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-504"></span><span>    </span><span class="annot"><span class="annottext">ErrorCode
+</span><span class="hs-string">&quot;ResourceNotFoundException&quot;</span></span><span>
+</span><span id="line-505"></span><span>    </span><span class="annot"><span class="annottext">Getting (First ServiceError) a ServiceError
+-&gt; ((ServiceError -&gt; Const (First ServiceError) ServiceError)
+    -&gt; ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; Getting (First ServiceError) a ServiceError
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">Int
+-&gt; (ServiceError -&gt; Const (First ServiceError) ServiceError)
+-&gt; ServiceError
+-&gt; Const (First ServiceError) ServiceError
+forall (f :: * -&gt; *) (p :: * -&gt; * -&gt; *).
+(Applicative f, Choice p) =&gt;
+Int -&gt; Optic' p f ServiceError ServiceError
+</span><span class="hs-identifier hs-var">Core.hasStatus</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><span class="hs-number">404</span></span><span>
+</span><span id="line-506"></span></pre></body></html>

@@ -1,0 +1,682 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.Location.UpdatePlaceIndex</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Updates the specified properties of a given place index resource.</span><span>
+</span><span id="line-24"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Location.UpdatePlaceIndex</span><span>
+</span><span id="line-25"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-26"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#newUpdatePlaceIndex"><span class="hs-identifier">newUpdatePlaceIndex</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_pricingPlan"><span class="hs-identifier">updatePlaceIndex_pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_dataSourceConfiguration"><span class="hs-identifier">updatePlaceIndex_dataSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_description"><span class="hs-identifier">updatePlaceIndex_description</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_indexName"><span class="hs-identifier">updatePlaceIndex_indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier">UpdatePlaceIndexResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#newUpdatePlaceIndexResponse"><span class="hs-identifier">newUpdatePlaceIndexResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>
+</span><span id="line-39"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_httpStatus"><span class="hs-identifier">updatePlaceIndexResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_indexArn"><span class="hs-identifier">updatePlaceIndexResponse_indexArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_indexName"><span class="hs-identifier">updatePlaceIndexResponse_indexName</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>    </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_updateTime"><span class="hs-identifier">updatePlaceIndexResponse_updateTime</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-45"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-46"></span><span>
+</span><span id="line-47"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-48"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-49"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.Location.Types.html"><span class="hs-identifier">Amazonka.Location.Types</span></a></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-53"></span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- | /See:/ 'newUpdatePlaceIndex' smart constructor.</span><span>
+</span><span id="line-55"></span><span id="local-6989586621679275602"><span id="local-6989586621679275603"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePlaceIndex"><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-var">UpdatePlaceIndex</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePlaceIndex%27"><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-var">UpdatePlaceIndex'</span></a></span></span><span>
+</span><span id="line-56"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Updates the pricing plan for the place index resource.</span><span>
+</span><span id="line-57"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-comment">-- For more information about each pricing plan option restrictions, see</span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-60"></span><span>    </span><span id="%24sel%3ApricingPlan%3AUpdatePlaceIndex%27"><span class="annot"><span class="annottext">UpdatePlaceIndex -&gt; Maybe PricingPlan
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3ApricingPlan%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>    </span><span class="hs-comment">-- | Updates the data storage option for the place index resource.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3AdataSourceConfiguration%3AUpdatePlaceIndex%27"><span class="annot"><span class="annottext">UpdatePlaceIndex -&gt; Maybe DataSourceConfiguration
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AdataSourceConfiguration%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">dataSourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.DataSourceConfiguration.html#DataSourceConfiguration"><span class="hs-identifier hs-type">DataSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | Updates the description for the place index resource.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3Adescription%3AUpdatePlaceIndex%27"><span class="annot"><span class="annottext">UpdatePlaceIndex -&gt; Maybe Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3Adescription%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The name of the place index resource to update.</span><span>
+</span><span id="line-66"></span><span>    </span><span id="%24sel%3AindexName%3AUpdatePlaceIndex%27"><span class="annot"><span class="annottext">UpdatePlaceIndex -&gt; Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexName%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-67"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-68"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275593"><span id="local-6989586621679275595"><span class="annot"><span class="annottext">UpdatePlaceIndex -&gt; UpdatePlaceIndex -&gt; Bool
+(UpdatePlaceIndex -&gt; UpdatePlaceIndex -&gt; Bool)
+-&gt; (UpdatePlaceIndex -&gt; UpdatePlaceIndex -&gt; Bool)
+-&gt; Eq UpdatePlaceIndex
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePlaceIndex -&gt; UpdatePlaceIndex -&gt; Bool
+$c/= :: UpdatePlaceIndex -&gt; UpdatePlaceIndex -&gt; Bool
+== :: UpdatePlaceIndex -&gt; UpdatePlaceIndex -&gt; Bool
+$c== :: UpdatePlaceIndex -&gt; UpdatePlaceIndex -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275584"><span id="local-6989586621679275586"><span id="local-6989586621679275588"><span id="local-6989586621679275590"><span class="annot"><span class="annottext">ReadPrec [UpdatePlaceIndex]
+ReadPrec UpdatePlaceIndex
+Int -&gt; ReadS UpdatePlaceIndex
+ReadS [UpdatePlaceIndex]
+(Int -&gt; ReadS UpdatePlaceIndex)
+-&gt; ReadS [UpdatePlaceIndex]
+-&gt; ReadPrec UpdatePlaceIndex
+-&gt; ReadPrec [UpdatePlaceIndex]
+-&gt; Read UpdatePlaceIndex
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePlaceIndex]
+$creadListPrec :: ReadPrec [UpdatePlaceIndex]
+readPrec :: ReadPrec UpdatePlaceIndex
+$creadPrec :: ReadPrec UpdatePlaceIndex
+readList :: ReadS [UpdatePlaceIndex]
+$creadList :: ReadS [UpdatePlaceIndex]
+readsPrec :: Int -&gt; ReadS UpdatePlaceIndex
+$creadsPrec :: Int -&gt; ReadS UpdatePlaceIndex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275577"><span id="local-6989586621679275579"><span id="local-6989586621679275581"><span class="annot"><span class="annottext">Int -&gt; UpdatePlaceIndex -&gt; ShowS
+[UpdatePlaceIndex] -&gt; ShowS
+UpdatePlaceIndex -&gt; String
+(Int -&gt; UpdatePlaceIndex -&gt; ShowS)
+-&gt; (UpdatePlaceIndex -&gt; String)
+-&gt; ([UpdatePlaceIndex] -&gt; ShowS)
+-&gt; Show UpdatePlaceIndex
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePlaceIndex] -&gt; ShowS
+$cshowList :: [UpdatePlaceIndex] -&gt; ShowS
+show :: UpdatePlaceIndex -&gt; String
+$cshow :: UpdatePlaceIndex -&gt; String
+showsPrec :: Int -&gt; UpdatePlaceIndex -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePlaceIndex -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. UpdatePlaceIndex -&gt; Rep UpdatePlaceIndex x)
+-&gt; (forall x. Rep UpdatePlaceIndex x -&gt; UpdatePlaceIndex)
+-&gt; Generic UpdatePlaceIndex
+forall x. Rep UpdatePlaceIndex x -&gt; UpdatePlaceIndex
+forall x. UpdatePlaceIndex -&gt; Rep UpdatePlaceIndex x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep UpdatePlaceIndex x -&gt; UpdatePlaceIndex
+$cfrom :: forall x. UpdatePlaceIndex -&gt; Rep UpdatePlaceIndex x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- Create a value of 'UpdatePlaceIndex' with all optional fields omitted.</span><span>
+</span><span id="line-72"></span><span class="hs-comment">--</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-74"></span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'pricingPlan', 'updatePlaceIndex_pricingPlan' - Updates the pricing plan for the place index resource.</span><span>
+</span><span id="line-79"></span><span class="hs-comment">--</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- For more information about each pricing plan option restrictions, see</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-82"></span><span class="hs-comment">--</span><span>
+</span><span id="line-83"></span><span class="hs-comment">-- 'dataSourceConfiguration', 'updatePlaceIndex_dataSourceConfiguration' - Updates the data storage option for the place index resource.</span><span>
+</span><span id="line-84"></span><span class="hs-comment">--</span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- 'description', 'updatePlaceIndex_description' - Updates the description for the place index resource.</span><span>
+</span><span id="line-86"></span><span class="hs-comment">--</span><span>
+</span><span id="line-87"></span><span class="hs-comment">-- 'indexName', 'updatePlaceIndex_indexName' - The name of the place index resource to update.</span><span>
+</span><span id="line-88"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#newUpdatePlaceIndex"><span class="hs-identifier hs-type">newUpdatePlaceIndex</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-89"></span><span>  </span><span class="hs-comment">-- | 'indexName'</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-91"></span><span>  </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span>
+</span><span id="line-92"></span><span id="newUpdatePlaceIndex"><span class="annot"><span class="annottext">newUpdatePlaceIndex :: Text -&gt; UpdatePlaceIndex
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#newUpdatePlaceIndex"><span class="hs-identifier hs-var hs-var">newUpdatePlaceIndex</span></a></span></span><span> </span><span id="local-6989586621679275572"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275572"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>  </span><span class="annot"><span class="annottext">UpdatePlaceIndex' :: Maybe PricingPlan
+-&gt; Maybe DataSourceConfiguration
+-&gt; Maybe Text
+-&gt; Text
+-&gt; UpdatePlaceIndex
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span>
+</span><span id="line-94"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:pricingPlan:UpdatePlaceIndex' :: Maybe PricingPlan
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3ApricingPlan%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PricingPlan
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:dataSourceConfiguration:UpdatePlaceIndex' :: Maybe DataSourceConfiguration
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AdataSourceConfiguration%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:description:UpdatePlaceIndex' :: Maybe Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3Adescription%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-97"></span><span>      </span><span class="annot"><span class="annottext">$sel:indexName:UpdatePlaceIndex' :: Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexName%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275572"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | Updates the pricing plan for the place index resource.</span><span>
+</span><span id="line-101"></span><span class="hs-comment">--</span><span>
+</span><span id="line-102"></span><span class="hs-comment">-- For more information about each pricing plan option restrictions, see</span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- &lt;https://aws.amazon.com/location/pricing/ Amazon Location Service pricing&gt;.</span><span>
+</span><span id="line-104"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_pricingPlan"><span class="hs-identifier hs-type">updatePlaceIndex_pricingPlan</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.PricingPlan.html#PricingPlan"><span class="hs-identifier hs-type">PricingPlan</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-105"></span><span id="updatePlaceIndex_pricingPlan"><span class="annot"><span class="annottext">updatePlaceIndex_pricingPlan :: (Maybe PricingPlan -&gt; f (Maybe PricingPlan))
+-&gt; UpdatePlaceIndex -&gt; f UpdatePlaceIndex
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_pricingPlan"><span class="hs-identifier hs-var hs-var">updatePlaceIndex_pricingPlan</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndex -&gt; Maybe PricingPlan)
+-&gt; (UpdatePlaceIndex -&gt; Maybe PricingPlan -&gt; UpdatePlaceIndex)
+-&gt; Lens
+     UpdatePlaceIndex
+     UpdatePlaceIndex
+     (Maybe PricingPlan)
+     (Maybe PricingPlan)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275569"><span class="annot"><span class="annottext">Maybe PricingPlan
+pricingPlan :: Maybe PricingPlan
+$sel:pricingPlan:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe PricingPlan
+</span><a href="#local-6989586621679275569"><span class="hs-identifier hs-var hs-var">pricingPlan</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679275569"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275568"><span class="annot"><span class="annottext">s :: UpdatePlaceIndex
+</span><a href="#local-6989586621679275568"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275567"><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679275567"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndex
+</span><a href="#local-6989586621679275568"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:pricingPlan:UpdatePlaceIndex' :: Maybe PricingPlan
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3ApricingPlan%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679275567"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- | Updates the data storage option for the place index resource.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_dataSourceConfiguration"><span class="hs-identifier hs-type">updatePlaceIndex_dataSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.Location.Types.DataSourceConfiguration.html#DataSourceConfiguration"><span class="hs-identifier hs-type">DataSourceConfiguration</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="updatePlaceIndex_dataSourceConfiguration"><span class="annot"><span class="annottext">updatePlaceIndex_dataSourceConfiguration :: (Maybe DataSourceConfiguration
+ -&gt; f (Maybe DataSourceConfiguration))
+-&gt; UpdatePlaceIndex -&gt; f UpdatePlaceIndex
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_dataSourceConfiguration"><span class="hs-identifier hs-var hs-var">updatePlaceIndex_dataSourceConfiguration</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndex -&gt; Maybe DataSourceConfiguration)
+-&gt; (UpdatePlaceIndex
+    -&gt; Maybe DataSourceConfiguration -&gt; UpdatePlaceIndex)
+-&gt; Lens
+     UpdatePlaceIndex
+     UpdatePlaceIndex
+     (Maybe DataSourceConfiguration)
+     (Maybe DataSourceConfiguration)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275566"><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+dataSourceConfiguration :: Maybe DataSourceConfiguration
+$sel:dataSourceConfiguration:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679275566"><span class="hs-identifier hs-var hs-var">dataSourceConfiguration</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679275566"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275565"><span class="annot"><span class="annottext">s :: UpdatePlaceIndex
+</span><a href="#local-6989586621679275565"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275564"><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679275564"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndex
+</span><a href="#local-6989586621679275565"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:dataSourceConfiguration:UpdatePlaceIndex' :: Maybe DataSourceConfiguration
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AdataSourceConfiguration%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679275564"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | Updates the description for the place index resource.</span><span>
+</span><span id="line-112"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_description"><span class="hs-identifier hs-type">updatePlaceIndex_description</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-113"></span><span id="updatePlaceIndex_description"><span class="annot"><span class="annottext">updatePlaceIndex_description :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; UpdatePlaceIndex -&gt; f UpdatePlaceIndex
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_description"><span class="hs-identifier hs-var hs-var">updatePlaceIndex_description</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndex -&gt; Maybe Text)
+-&gt; (UpdatePlaceIndex -&gt; Maybe Text -&gt; UpdatePlaceIndex)
+-&gt; Lens UpdatePlaceIndex UpdatePlaceIndex (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275563"><span class="annot"><span class="annottext">Maybe Text
+description :: Maybe Text
+$sel:description:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe Text
+</span><a href="#local-6989586621679275563"><span class="hs-identifier hs-var hs-var">description</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275563"><span class="hs-identifier hs-var">description</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275562"><span class="annot"><span class="annottext">s :: UpdatePlaceIndex
+</span><a href="#local-6989586621679275562"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275561"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275561"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndex
+</span><a href="#local-6989586621679275562"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:description:UpdatePlaceIndex' :: Maybe Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3Adescription%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">description</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275561"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-114"></span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- | The name of the place index resource to update.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_indexName"><span class="hs-identifier hs-type">updatePlaceIndex_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-117"></span><span id="updatePlaceIndex_indexName"><span class="annot"><span class="annottext">updatePlaceIndex_indexName :: (Text -&gt; f Text) -&gt; UpdatePlaceIndex -&gt; f UpdatePlaceIndex
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndex_indexName"><span class="hs-identifier hs-var hs-var">updatePlaceIndex_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndex -&gt; Text)
+-&gt; (UpdatePlaceIndex -&gt; Text -&gt; UpdatePlaceIndex)
+-&gt; Lens UpdatePlaceIndex UpdatePlaceIndex Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275560"><span class="annot"><span class="annottext">Text
+indexName :: Text
+$sel:indexName:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Text
+</span><a href="#local-6989586621679275560"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275560"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275559"><span class="annot"><span class="annottext">s :: UpdatePlaceIndex
+</span><a href="#local-6989586621679275559"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275558"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275558"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndex
+</span><a href="#local-6989586621679275559"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:UpdatePlaceIndex' :: Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexName%3AUpdatePlaceIndex%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275558"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-120"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-121"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-122"></span><span>      </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span>
+</span><span id="line-123"></span><span>  </span><span id="local-6989586621679275554"><span class="annot"><span class="annottext">request :: UpdatePlaceIndex -&gt; Request UpdatePlaceIndex
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; UpdatePlaceIndex -&gt; Request UpdatePlaceIndex
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.patchJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.Location.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-124"></span><span>  </span><span id="local-6989586621679275550"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy UpdatePlaceIndex
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdatePlaceIndex)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-125"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse UpdatePlaceIndex))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy UpdatePlaceIndex
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse UpdatePlaceIndex)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-126"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679275547"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275547"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679275546"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679275546"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679275545"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275545"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-127"></span><span>          </span><span class="annot"><span class="annottext">Int -&gt; Text -&gt; Text -&gt; POSIX -&gt; UpdatePlaceIndexResponse
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">UpdatePlaceIndexResponse'</span></a></span><span>
+</span><span id="line-128"></span><span>            </span><span class="annot"><span class="annottext">(Int -&gt; Text -&gt; Text -&gt; POSIX -&gt; UpdatePlaceIndexResponse)
+-&gt; Either String Int
+-&gt; Either
+     String (Text -&gt; Text -&gt; POSIX -&gt; UpdatePlaceIndexResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275547"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-129"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; Text -&gt; POSIX -&gt; UpdatePlaceIndexResponse)
+-&gt; Either String Text
+-&gt; Either String (Text -&gt; POSIX -&gt; UpdatePlaceIndexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span>            </span><span class="annot"><span class="annottext">Either String (Text -&gt; POSIX -&gt; UpdatePlaceIndexResponse)
+-&gt; Either String Text
+-&gt; Either String (POSIX -&gt; UpdatePlaceIndexResponse)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;IndexName&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>            </span><span class="annot"><span class="annottext">Either String (POSIX -&gt; UpdatePlaceIndexResponse)
+-&gt; Either String POSIX -&gt; Either String UpdatePlaceIndexResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679275545"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String POSIX
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String a
+</span><span class="hs-operator hs-var">Core..:&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;UpdateTime&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-132"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-133"></span><span>
+</span><span id="line-134"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275537"><span id="local-6989586621679275539"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span></span></span><span>
+</span><span id="line-135"></span><span>
+</span><span id="line-136"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275534"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span></span><span>
+</span><span id="line-137"></span><span>
+</span><span id="line-138"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-139"></span><span>  </span><span id="local-6989586621679275530"><span class="annot"><span class="annottext">toHeaders :: UpdatePlaceIndex -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-140"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; UpdatePlaceIndex -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-141"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-142"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-144"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-145"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-147"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>
+</span><span id="line-149"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275520"><span id="local-6989586621679275522"><span id="local-6989586621679275524"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-150"></span><span>  </span><span id="local-6989586621679275518"><span class="annot"><span class="annottext">toJSON :: UpdatePlaceIndex -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275513"><span id="local-6989586621679275514"><span id="local-6989586621679275515"><span id="local-6989586621679275516"><span class="annot"><span class="annottext">Maybe Text
+Maybe DataSourceConfiguration
+Maybe PricingPlan
+Text
+indexName :: Text
+description :: Maybe Text
+dataSourceConfiguration :: Maybe DataSourceConfiguration
+pricingPlan :: Maybe PricingPlan
+$sel:indexName:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Text
+$sel:description:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe Text
+$sel:dataSourceConfiguration:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe DataSourceConfiguration
+$sel:pricingPlan:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe PricingPlan
+</span><a href="#local-6989586621679275513"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-151"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-152"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-153"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;PricingPlan&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; PricingPlan -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(PricingPlan -&gt; Pair) -&gt; Maybe PricingPlan -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe PricingPlan
+</span><a href="#local-6989586621679275516"><span class="hs-identifier hs-var">pricingPlan</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-154"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;DataSourceConfiguration&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; DataSourceConfiguration -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-155"></span><span>              </span><span class="annot"><span class="annottext">(DataSourceConfiguration -&gt; Pair)
+-&gt; Maybe DataSourceConfiguration -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe DataSourceConfiguration
+</span><a href="#local-6989586621679275515"><span class="hs-identifier hs-var">dataSourceConfiguration</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-156"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Description&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679275514"><span class="hs-identifier hs-var">description</span></a></span><span>
+</span><span id="line-157"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-158"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-159"></span><span>
+</span><span id="line-160"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-161"></span><span>  </span><span id="local-6989586621679275507"><span class="annot"><span class="annottext">toPath :: UpdatePlaceIndex -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex%27"><span class="hs-identifier hs-type">UpdatePlaceIndex'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275502"><span id="local-6989586621679275503"><span id="local-6989586621679275504"><span id="local-6989586621679275505"><span class="annot"><span class="annottext">Maybe Text
+Maybe DataSourceConfiguration
+Maybe PricingPlan
+Text
+indexName :: Text
+description :: Maybe Text
+dataSourceConfiguration :: Maybe DataSourceConfiguration
+pricingPlan :: Maybe PricingPlan
+$sel:indexName:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Text
+$sel:description:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe Text
+$sel:dataSourceConfiguration:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe DataSourceConfiguration
+$sel:pricingPlan:UpdatePlaceIndex' :: UpdatePlaceIndex -&gt; Maybe PricingPlan
+</span><a href="#local-6989586621679275502"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-162"></span><span>    </span><span class="annot"><span class="annottext">[ByteString] -&gt; ByteString
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-163"></span><span>      </span><span class="hs-special">[</span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/places/v0/indexes/&quot;</span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">Text -&gt; ByteString
+forall a. ToByteString a =&gt; a -&gt; ByteString
+</span><span class="hs-identifier hs-var">Core.toBS</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275502"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">]</span><span>
+</span><span id="line-164"></span><span>
+</span><span id="line-165"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndex"><span class="hs-identifier hs-type">UpdatePlaceIndex</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-166"></span><span>  </span><span id="local-6989586621679275498"><span class="annot"><span class="annottext">toQuery :: UpdatePlaceIndex -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; UpdatePlaceIndex -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-167"></span><span>
+</span><span id="line-168"></span><span class="hs-comment">-- | /See:/ 'newUpdatePlaceIndexResponse' smart constructor.</span><span>
+</span><span id="line-169"></span><span id="local-6989586621679275495"><span id="local-6989586621679275496"></span></span><span class="hs-keyword">data</span><span> </span><span id="UpdatePlaceIndexResponse"><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-var">UpdatePlaceIndexResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="UpdatePlaceIndexResponse%27"><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">UpdatePlaceIndexResponse'</span></a></span></span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-171"></span><span>    </span><span id="%24sel%3AhttpStatus%3AUpdatePlaceIndexResponse%27"><span class="annot"><span class="annottext">UpdatePlaceIndexResponse -&gt; Int
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AhttpStatus%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the upated place index resource. Used</span><span>
+</span><span id="line-173"></span><span>    </span><span class="hs-comment">-- to specify a resource across AWS.</span><span>
+</span><span id="line-174"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-175"></span><span>    </span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-176"></span><span>    </span><span class="hs-comment">--     @arn:aws:geo:region:account-id:place- index\/ExamplePlaceIndex@</span><span>
+</span><span id="line-177"></span><span>    </span><span id="%24sel%3AindexArn%3AUpdatePlaceIndexResponse%27"><span class="annot"><span class="annottext">UpdatePlaceIndexResponse -&gt; Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexArn%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">indexArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-178"></span><span>    </span><span class="hs-comment">-- | The name of the updated place index resource.</span><span>
+</span><span id="line-179"></span><span>    </span><span id="%24sel%3AindexName%3AUpdatePlaceIndexResponse%27"><span class="annot"><span class="annottext">UpdatePlaceIndexResponse -&gt; Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexName%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-180"></span><span>    </span><span class="hs-comment">-- | The timestamp for when the place index resource was last updated in</span><span>
+</span><span id="line-181"></span><span>    </span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-182"></span><span>    </span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-183"></span><span>    </span><span id="%24sel%3AupdateTime%3AUpdatePlaceIndexResponse%27"><span class="annot"><span class="annottext">UpdatePlaceIndexResponse -&gt; POSIX
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AupdateTime%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.POSIX</span></span><span>
+</span><span id="line-184"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-185"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679275487"><span id="local-6989586621679275489"><span class="annot"><span class="annottext">UpdatePlaceIndexResponse -&gt; UpdatePlaceIndexResponse -&gt; Bool
+(UpdatePlaceIndexResponse -&gt; UpdatePlaceIndexResponse -&gt; Bool)
+-&gt; (UpdatePlaceIndexResponse -&gt; UpdatePlaceIndexResponse -&gt; Bool)
+-&gt; Eq UpdatePlaceIndexResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: UpdatePlaceIndexResponse -&gt; UpdatePlaceIndexResponse -&gt; Bool
+$c/= :: UpdatePlaceIndexResponse -&gt; UpdatePlaceIndexResponse -&gt; Bool
+== :: UpdatePlaceIndexResponse -&gt; UpdatePlaceIndexResponse -&gt; Bool
+$c== :: UpdatePlaceIndexResponse -&gt; UpdatePlaceIndexResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275479"><span id="local-6989586621679275481"><span id="local-6989586621679275483"><span id="local-6989586621679275485"><span class="annot"><span class="annottext">ReadPrec [UpdatePlaceIndexResponse]
+ReadPrec UpdatePlaceIndexResponse
+Int -&gt; ReadS UpdatePlaceIndexResponse
+ReadS [UpdatePlaceIndexResponse]
+(Int -&gt; ReadS UpdatePlaceIndexResponse)
+-&gt; ReadS [UpdatePlaceIndexResponse]
+-&gt; ReadPrec UpdatePlaceIndexResponse
+-&gt; ReadPrec [UpdatePlaceIndexResponse]
+-&gt; Read UpdatePlaceIndexResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [UpdatePlaceIndexResponse]
+$creadListPrec :: ReadPrec [UpdatePlaceIndexResponse]
+readPrec :: ReadPrec UpdatePlaceIndexResponse
+$creadPrec :: ReadPrec UpdatePlaceIndexResponse
+readList :: ReadS [UpdatePlaceIndexResponse]
+$creadList :: ReadS [UpdatePlaceIndexResponse]
+readsPrec :: Int -&gt; ReadS UpdatePlaceIndexResponse
+$creadsPrec :: Int -&gt; ReadS UpdatePlaceIndexResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679275473"><span id="local-6989586621679275475"><span id="local-6989586621679275477"><span class="annot"><span class="annottext">Int -&gt; UpdatePlaceIndexResponse -&gt; ShowS
+[UpdatePlaceIndexResponse] -&gt; ShowS
+UpdatePlaceIndexResponse -&gt; String
+(Int -&gt; UpdatePlaceIndexResponse -&gt; ShowS)
+-&gt; (UpdatePlaceIndexResponse -&gt; String)
+-&gt; ([UpdatePlaceIndexResponse] -&gt; ShowS)
+-&gt; Show UpdatePlaceIndexResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [UpdatePlaceIndexResponse] -&gt; ShowS
+$cshowList :: [UpdatePlaceIndexResponse] -&gt; ShowS
+show :: UpdatePlaceIndexResponse -&gt; String
+$cshow :: UpdatePlaceIndexResponse -&gt; String
+showsPrec :: Int -&gt; UpdatePlaceIndexResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; UpdatePlaceIndexResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ UpdatePlaceIndexResponse -&gt; Rep UpdatePlaceIndexResponse x)
+-&gt; (forall x.
+    Rep UpdatePlaceIndexResponse x -&gt; UpdatePlaceIndexResponse)
+-&gt; Generic UpdatePlaceIndexResponse
+forall x.
+Rep UpdatePlaceIndexResponse x -&gt; UpdatePlaceIndexResponse
+forall x.
+UpdatePlaceIndexResponse -&gt; Rep UpdatePlaceIndexResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep UpdatePlaceIndexResponse x -&gt; UpdatePlaceIndexResponse
+$cfrom :: forall x.
+UpdatePlaceIndexResponse -&gt; Rep UpdatePlaceIndexResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-186"></span><span>
+</span><span id="line-187"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-188"></span><span class="hs-comment">-- Create a value of 'UpdatePlaceIndexResponse' with all optional fields omitted.</span><span>
+</span><span id="line-189"></span><span class="hs-comment">--</span><span>
+</span><span id="line-190"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-191"></span><span class="hs-comment">--</span><span>
+</span><span id="line-192"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-193"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-194"></span><span class="hs-comment">--</span><span>
+</span><span id="line-195"></span><span class="hs-comment">-- 'httpStatus', 'updatePlaceIndexResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-196"></span><span class="hs-comment">--</span><span>
+</span><span id="line-197"></span><span class="hs-comment">-- 'indexArn', 'updatePlaceIndexResponse_indexArn' - The Amazon Resource Name (ARN) of the upated place index resource. Used</span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- to specify a resource across AWS.</span><span>
+</span><span id="line-199"></span><span class="hs-comment">--</span><span>
+</span><span id="line-200"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-201"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:place- index\/ExamplePlaceIndex@</span><span>
+</span><span id="line-202"></span><span class="hs-comment">--</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- 'indexName', 'updatePlaceIndexResponse_indexName' - The name of the updated place index resource.</span><span>
+</span><span id="line-204"></span><span class="hs-comment">--</span><span>
+</span><span id="line-205"></span><span class="hs-comment">-- 'updateTime', 'updatePlaceIndexResponse_updateTime' - The timestamp for when the place index resource was last updated in</span><span>
+</span><span id="line-206"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-207"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-208"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#newUpdatePlaceIndexResponse"><span class="hs-identifier hs-type">newUpdatePlaceIndexResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-209"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-210"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-211"></span><span>  </span><span class="hs-comment">-- | 'indexArn'</span><span>
+</span><span id="line-212"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-213"></span><span>  </span><span class="hs-comment">-- | 'indexName'</span><span>
+</span><span id="line-214"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-215"></span><span>  </span><span class="hs-comment">-- | 'updateTime'</span><span>
+</span><span id="line-216"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-217"></span><span>  </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span>
+</span><span id="line-218"></span><span id="newUpdatePlaceIndexResponse"><span class="annot"><span class="annottext">newUpdatePlaceIndexResponse :: Int -&gt; Text -&gt; Text -&gt; UTCTime -&gt; UpdatePlaceIndexResponse
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#newUpdatePlaceIndexResponse"><span class="hs-identifier hs-var hs-var">newUpdatePlaceIndexResponse</span></a></span></span><span>
+</span><span id="line-219"></span><span>  </span><span id="local-6989586621679275470"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275470"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span>
+</span><span id="line-220"></span><span>  </span><span id="local-6989586621679275469"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275469"><span class="hs-identifier hs-var">pIndexArn_</span></a></span></span><span>
+</span><span id="line-221"></span><span>  </span><span id="local-6989586621679275468"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275468"><span class="hs-identifier hs-var">pIndexName_</span></a></span></span><span>
+</span><span id="line-222"></span><span>  </span><span id="local-6989586621679275467"><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679275467"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-223"></span><span>    </span><span class="annot"><span class="annottext">UpdatePlaceIndexResponse' :: Int -&gt; Text -&gt; Text -&gt; POSIX -&gt; UpdatePlaceIndexResponse
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span>
+</span><span id="line-224"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePlaceIndexResponse' :: Int
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AhttpStatus%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-225"></span><span>          </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275470"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-226"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexArn:UpdatePlaceIndexResponse' :: Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexArn%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275469"><span class="hs-identifier hs-var">pIndexArn_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-227"></span><span>        </span><span class="annot"><span class="annottext">$sel:indexName:UpdatePlaceIndexResponse' :: Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexName%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275468"><span class="hs-identifier hs-var">pIndexName_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-228"></span><span>        </span><span class="annot"><span class="annottext">$sel:updateTime:UpdatePlaceIndexResponse' :: POSIX
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AupdateTime%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged UTCTime (Identity UTCTime) -&gt; Tagged POSIX (Identity POSIX)
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span> </span><span class="annot"><span class="annottext">(Tagged UTCTime (Identity UTCTime)
+ -&gt; Tagged POSIX (Identity POSIX))
+-&gt; UTCTime -&gt; POSIX
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">UTCTime
+</span><a href="#local-6989586621679275467"><span class="hs-identifier hs-var">pUpdateTime_</span></a></span><span>
+</span><span id="line-229"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-230"></span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-232"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_httpStatus"><span class="hs-identifier hs-type">updatePlaceIndexResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-233"></span><span id="updatePlaceIndexResponse_httpStatus"><span class="annot"><span class="annottext">updatePlaceIndexResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; UpdatePlaceIndexResponse -&gt; f UpdatePlaceIndexResponse
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_httpStatus"><span class="hs-identifier hs-var hs-var">updatePlaceIndexResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndexResponse -&gt; Int)
+-&gt; (UpdatePlaceIndexResponse -&gt; Int -&gt; UpdatePlaceIndexResponse)
+-&gt; Lens UpdatePlaceIndexResponse UpdatePlaceIndexResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275464"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:UpdatePlaceIndexResponse' :: UpdatePlaceIndexResponse -&gt; Int
+</span><a href="#local-6989586621679275464"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275464"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275463"><span class="annot"><span class="annottext">s :: UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275463"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275462"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275462"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275463"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:UpdatePlaceIndexResponse' :: Int
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AhttpStatus%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679275462"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-234"></span><span>
+</span><span id="line-235"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the upated place index resource. Used</span><span>
+</span><span id="line-236"></span><span class="hs-comment">-- to specify a resource across AWS.</span><span>
+</span><span id="line-237"></span><span class="hs-comment">--</span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- -   Format example:</span><span>
+</span><span id="line-239"></span><span class="hs-comment">--     @arn:aws:geo:region:account-id:place- index\/ExamplePlaceIndex@</span><span>
+</span><span id="line-240"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_indexArn"><span class="hs-identifier hs-type">updatePlaceIndexResponse_indexArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-241"></span><span id="updatePlaceIndexResponse_indexArn"><span class="annot"><span class="annottext">updatePlaceIndexResponse_indexArn :: (Text -&gt; f Text)
+-&gt; UpdatePlaceIndexResponse -&gt; f UpdatePlaceIndexResponse
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_indexArn"><span class="hs-identifier hs-var hs-var">updatePlaceIndexResponse_indexArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndexResponse -&gt; Text)
+-&gt; (UpdatePlaceIndexResponse -&gt; Text -&gt; UpdatePlaceIndexResponse)
+-&gt; Lens UpdatePlaceIndexResponse UpdatePlaceIndexResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275461"><span class="annot"><span class="annottext">Text
+indexArn :: Text
+$sel:indexArn:UpdatePlaceIndexResponse' :: UpdatePlaceIndexResponse -&gt; Text
+</span><a href="#local-6989586621679275461"><span class="hs-identifier hs-var hs-var">indexArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275461"><span class="hs-identifier hs-var">indexArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275460"><span class="annot"><span class="annottext">s :: UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275460"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275459"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275459"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275460"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexArn:UpdatePlaceIndexResponse' :: Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexArn%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275459"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-242"></span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- | The name of the updated place index resource.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_indexName"><span class="hs-identifier hs-type">updatePlaceIndexResponse_indexName</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-245"></span><span id="updatePlaceIndexResponse_indexName"><span class="annot"><span class="annottext">updatePlaceIndexResponse_indexName :: (Text -&gt; f Text)
+-&gt; UpdatePlaceIndexResponse -&gt; f UpdatePlaceIndexResponse
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_indexName"><span class="hs-identifier hs-var hs-var">updatePlaceIndexResponse_indexName</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndexResponse -&gt; Text)
+-&gt; (UpdatePlaceIndexResponse -&gt; Text -&gt; UpdatePlaceIndexResponse)
+-&gt; Lens UpdatePlaceIndexResponse UpdatePlaceIndexResponse Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275458"><span class="annot"><span class="annottext">Text
+indexName :: Text
+$sel:indexName:UpdatePlaceIndexResponse' :: UpdatePlaceIndexResponse -&gt; Text
+</span><a href="#local-6989586621679275458"><span class="hs-identifier hs-var hs-var">indexName</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275458"><span class="hs-identifier hs-var">indexName</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275457"><span class="annot"><span class="annottext">s :: UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275457"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275456"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275456"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275457"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:indexName:UpdatePlaceIndexResponse' :: Text
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AindexName%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">indexName</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679275456"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The timestamp for when the place index resource was last updated in</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- &lt;https://www.iso.org/iso-8601-date-and-time-format.html ISO 8601&gt;</span><span>
+</span><span id="line-249"></span><span class="hs-comment">-- format: @YYYY-MM-DDThh:mm:ss.sssZ@.</span><span>
+</span><span id="line-250"></span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_updateTime"><span class="hs-identifier hs-type">updatePlaceIndexResponse_updateTime</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.UTCTime</span></span><span>
+</span><span id="line-251"></span><span id="updatePlaceIndexResponse_updateTime"><span class="annot"><span class="annottext">updatePlaceIndexResponse_updateTime :: (UTCTime -&gt; f UTCTime)
+-&gt; UpdatePlaceIndexResponse -&gt; f UpdatePlaceIndexResponse
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#updatePlaceIndexResponse_updateTime"><span class="hs-identifier hs-var hs-var">updatePlaceIndexResponse_updateTime</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(UpdatePlaceIndexResponse -&gt; POSIX)
+-&gt; (UpdatePlaceIndexResponse -&gt; POSIX -&gt; UpdatePlaceIndexResponse)
+-&gt; Lens
+     UpdatePlaceIndexResponse UpdatePlaceIndexResponse POSIX POSIX
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679275455"><span class="annot"><span class="annottext">POSIX
+updateTime :: POSIX
+$sel:updateTime:UpdatePlaceIndexResponse' :: UpdatePlaceIndexResponse -&gt; POSIX
+</span><a href="#local-6989586621679275455"><span class="hs-identifier hs-var hs-var">updateTime</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679275455"><span class="hs-identifier hs-var">updateTime</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679275454"><span class="annot"><span class="annottext">s :: UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275454"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse%27"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679275453"><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679275453"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">UpdatePlaceIndexResponse
+</span><a href="#local-6989586621679275454"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:updateTime:UpdatePlaceIndexResponse' :: POSIX
+</span><a href="Amazonka.Location.UpdatePlaceIndex.html#%24sel%3AupdateTime%3AUpdatePlaceIndexResponse%27"><span class="hs-identifier hs-var">updateTime</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">POSIX
+</span><a href="#local-6989586621679275453"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((POSIX -&gt; f POSIX)
+ -&gt; UpdatePlaceIndexResponse -&gt; f UpdatePlaceIndexResponse)
+-&gt; ((UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX)
+-&gt; (UTCTime -&gt; f UTCTime)
+-&gt; UpdatePlaceIndexResponse
+-&gt; f UpdatePlaceIndexResponse
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(UTCTime -&gt; f UTCTime) -&gt; POSIX -&gt; f POSIX
+forall (a :: Format). Iso' (Time a) UTCTime
+</span><span class="hs-identifier hs-var">Core._Time</span></span><span>
+</span><span id="line-252"></span><span>
+</span><span id="line-253"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679275450"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.Location.UpdatePlaceIndex.html#UpdatePlaceIndexResponse"><span class="hs-identifier hs-type">UpdatePlaceIndexResponse</span></a></span></span><span>
+</span><span id="line-254"></span></pre></body></html>

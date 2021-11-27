@@ -1,0 +1,374 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.GameLift.Types.FleetCapacity</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.GameLift.Types.FleetCapacity</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.EC2InstanceCounts.html"><span class="hs-identifier">Amazonka.GameLift.Types.EC2InstanceCounts</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.EC2InstanceType.html"><span class="hs-identifier">Amazonka.GameLift.Types.EC2InstanceType</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Current resource capacity settings in a specified fleet or location. The</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- location value might refer to a fleet\'s remote location or its home</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Region.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- __Related actions__</span><span>
+</span><span id="line-33"></span><span class="hs-comment">--</span><span>
+</span><span id="line-34"></span><span class="hs-comment">-- DescribeFleetCapacity | DescribeFleetLocationCapacity |</span><span>
+</span><span id="line-35"></span><span class="hs-comment">-- UpdateFleetCapacity</span><span>
+</span><span id="line-36"></span><span class="hs-comment">--</span><span>
+</span><span id="line-37"></span><span class="hs-comment">-- /See:/ 'newFleetCapacity' smart constructor.</span><span>
+</span><span id="line-38"></span><span id="local-6989586621679430338"><span id="local-6989586621679430339"></span></span><span class="hs-keyword">data</span><span> </span><span id="FleetCapacity"><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-var">FleetCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="FleetCapacity%27"><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-var">FleetCapacity'</span></a></span></span><span>
+</span><span id="line-39"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The fleet location for the instance count information, expressed as an</span><span>
+</span><span id="line-40"></span><span>    </span><span class="hs-comment">-- AWS Region code, such as @us-west-2@.</span><span>
+</span><span id="line-41"></span><span>    </span><span id="%24sel%3Alocation%3AFleetCapacity%27"><span class="annot"><span class="annottext">FleetCapacity -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3Alocation%3AFleetCapacity%27"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-46"></span><span>    </span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-47"></span><span>    </span><span id="%24sel%3AfleetArn%3AFleetCapacity%27"><span class="annot"><span class="annottext">FleetCapacity -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AfleetArn%3AFleetCapacity%27"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- | The EC2 instance type that is used for all instances in a fleet. The</span><span>
+</span><span id="line-49"></span><span>    </span><span class="hs-comment">-- instance type determines the computing resources in use, including CPU,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- memory, storage, and networking capacity. See</span><span>
+</span><span id="line-51"></span><span>    </span><span class="hs-comment">-- &lt;http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types&gt;</span><span>
+</span><span id="line-52"></span><span>    </span><span class="hs-comment">-- for detailed descriptions.</span><span>
+</span><span id="line-53"></span><span>    </span><span id="%24sel%3AinstanceType%3AFleetCapacity%27"><span class="annot"><span class="annottext">FleetCapacity -&gt; Maybe EC2InstanceType
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AinstanceType%3AFleetCapacity%27"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.EC2InstanceType.html#EC2InstanceType"><span class="hs-identifier hs-type">EC2InstanceType</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>    </span><span class="hs-comment">-- | A unique identifier for the fleet associated with the location.</span><span>
+</span><span id="line-55"></span><span>    </span><span id="%24sel%3AfleetId%3AFleetCapacity%27"><span class="annot"><span class="annottext">FleetCapacity -&gt; Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AfleetId%3AFleetCapacity%27"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>    </span><span class="hs-comment">-- | The current instance count and capacity settings for the fleet location.</span><span>
+</span><span id="line-57"></span><span>    </span><span id="%24sel%3AinstanceCounts%3AFleetCapacity%27"><span class="annot"><span class="annottext">FleetCapacity -&gt; Maybe EC2InstanceCounts
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AinstanceCounts%3AFleetCapacity%27"><span class="hs-identifier hs-var hs-var">instanceCounts</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.EC2InstanceCounts.html#EC2InstanceCounts"><span class="hs-identifier hs-type">EC2InstanceCounts</span></a></span><span>
+</span><span id="line-58"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-59"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679430328"><span id="local-6989586621679430330"><span class="annot"><span class="annottext">FleetCapacity -&gt; FleetCapacity -&gt; Bool
+(FleetCapacity -&gt; FleetCapacity -&gt; Bool)
+-&gt; (FleetCapacity -&gt; FleetCapacity -&gt; Bool) -&gt; Eq FleetCapacity
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: FleetCapacity -&gt; FleetCapacity -&gt; Bool
+$c/= :: FleetCapacity -&gt; FleetCapacity -&gt; Bool
+== :: FleetCapacity -&gt; FleetCapacity -&gt; Bool
+$c== :: FleetCapacity -&gt; FleetCapacity -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430319"><span id="local-6989586621679430321"><span id="local-6989586621679430323"><span id="local-6989586621679430325"><span class="annot"><span class="annottext">ReadPrec [FleetCapacity]
+ReadPrec FleetCapacity
+Int -&gt; ReadS FleetCapacity
+ReadS [FleetCapacity]
+(Int -&gt; ReadS FleetCapacity)
+-&gt; ReadS [FleetCapacity]
+-&gt; ReadPrec FleetCapacity
+-&gt; ReadPrec [FleetCapacity]
+-&gt; Read FleetCapacity
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [FleetCapacity]
+$creadListPrec :: ReadPrec [FleetCapacity]
+readPrec :: ReadPrec FleetCapacity
+$creadPrec :: ReadPrec FleetCapacity
+readList :: ReadS [FleetCapacity]
+$creadList :: ReadS [FleetCapacity]
+readsPrec :: Int -&gt; ReadS FleetCapacity
+$creadsPrec :: Int -&gt; ReadS FleetCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679430312"><span id="local-6989586621679430314"><span id="local-6989586621679430316"><span class="annot"><span class="annottext">Int -&gt; FleetCapacity -&gt; ShowS
+[FleetCapacity] -&gt; ShowS
+FleetCapacity -&gt; String
+(Int -&gt; FleetCapacity -&gt; ShowS)
+-&gt; (FleetCapacity -&gt; String)
+-&gt; ([FleetCapacity] -&gt; ShowS)
+-&gt; Show FleetCapacity
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [FleetCapacity] -&gt; ShowS
+$cshowList :: [FleetCapacity] -&gt; ShowS
+show :: FleetCapacity -&gt; String
+$cshow :: FleetCapacity -&gt; String
+showsPrec :: Int -&gt; FleetCapacity -&gt; ShowS
+$cshowsPrec :: Int -&gt; FleetCapacity -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. FleetCapacity -&gt; Rep FleetCapacity x)
+-&gt; (forall x. Rep FleetCapacity x -&gt; FleetCapacity)
+-&gt; Generic FleetCapacity
+forall x. Rep FleetCapacity x -&gt; FleetCapacity
+forall x. FleetCapacity -&gt; Rep FleetCapacity x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep FleetCapacity x -&gt; FleetCapacity
+$cfrom :: forall x. FleetCapacity -&gt; Rep FleetCapacity x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-62"></span><span class="hs-comment">-- Create a value of 'FleetCapacity' with all optional fields omitted.</span><span>
+</span><span id="line-63"></span><span class="hs-comment">--</span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-65"></span><span class="hs-comment">--</span><span>
+</span><span id="line-66"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-68"></span><span class="hs-comment">--</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- 'location', 'fleetCapacity_location' - The fleet location for the instance count information, expressed as an</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- AWS Region code, such as @us-west-2@.</span><span>
+</span><span id="line-71"></span><span class="hs-comment">--</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- 'fleetArn', 'fleetCapacity_fleetArn' - The Amazon Resource Name</span><span>
+</span><span id="line-73"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-75"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-77"></span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span class="hs-comment">-- 'instanceType', 'fleetCapacity_instanceType' - The EC2 instance type that is used for all instances in a fleet. The</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- instance type determines the computing resources in use, including CPU,</span><span>
+</span><span id="line-80"></span><span class="hs-comment">-- memory, storage, and networking capacity. See</span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types&gt;</span><span>
+</span><span id="line-82"></span><span class="hs-comment">-- for detailed descriptions.</span><span>
+</span><span id="line-83"></span><span class="hs-comment">--</span><span>
+</span><span id="line-84"></span><span class="hs-comment">-- 'fleetId', 'fleetCapacity_fleetId' - A unique identifier for the fleet associated with the location.</span><span>
+</span><span id="line-85"></span><span class="hs-comment">--</span><span>
+</span><span id="line-86"></span><span class="hs-comment">-- 'instanceCounts', 'fleetCapacity_instanceCounts' - The current instance count and capacity settings for the fleet location.</span><span>
+</span><span id="line-87"></span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#newFleetCapacity"><span class="hs-identifier hs-type">newFleetCapacity</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-88"></span><span>  </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span>
+</span><span id="line-89"></span><span id="newFleetCapacity"><span class="annot"><span class="annottext">newFleetCapacity :: FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#newFleetCapacity"><span class="hs-identifier hs-var hs-var">newFleetCapacity</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-90"></span><span>  </span><span class="annot"><span class="annottext">FleetCapacity' :: Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EC2InstanceType
+-&gt; Maybe Text
+-&gt; Maybe EC2InstanceCounts
+-&gt; FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:location:FleetCapacity' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3Alocation%3AFleetCapacity%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetArn:FleetCapacity' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AfleetArn%3AFleetCapacity%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-93"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceType:FleetCapacity' :: Maybe EC2InstanceType
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AinstanceType%3AFleetCapacity%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceType
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:fleetId:FleetCapacity' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AfleetId%3AFleetCapacity%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">$sel:instanceCounts:FleetCapacity' :: Maybe EC2InstanceCounts
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AinstanceCounts%3AFleetCapacity%27"><span class="hs-identifier hs-var">instanceCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceCounts
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-97"></span><span>
+</span><span id="line-98"></span><span class="hs-comment">-- | The fleet location for the instance count information, expressed as an</span><span>
+</span><span id="line-99"></span><span class="hs-comment">-- AWS Region code, such as @us-west-2@.</span><span>
+</span><span id="line-100"></span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_location"><span class="hs-identifier hs-type">fleetCapacity_location</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span id="fleetCapacity_location"><span class="annot"><span class="annottext">fleetCapacity_location :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FleetCapacity -&gt; f FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_location"><span class="hs-identifier hs-var hs-var">fleetCapacity_location</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetCapacity -&gt; Maybe Text)
+-&gt; (FleetCapacity -&gt; Maybe Text -&gt; FleetCapacity)
+-&gt; Lens FleetCapacity FleetCapacity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430303"><span class="annot"><span class="annottext">Maybe Text
+location :: Maybe Text
+$sel:location:FleetCapacity' :: FleetCapacity -&gt; Maybe Text
+</span><a href="#local-6989586621679430303"><span class="hs-identifier hs-var hs-var">location</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430303"><span class="hs-identifier hs-var">location</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430302"><span class="annot"><span class="annottext">s :: FleetCapacity
+</span><a href="#local-6989586621679430302"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430301"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430301"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetCapacity
+</span><a href="#local-6989586621679430302"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:location:FleetCapacity' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3Alocation%3AFleetCapacity%27"><span class="hs-identifier hs-var">location</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430301"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>
+</span><span id="line-103"></span><span class="hs-comment">-- | The Amazon Resource Name</span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- (&lt;https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-arn-format.html ARN&gt;)</span><span>
+</span><span id="line-105"></span><span class="hs-comment">-- that is assigned to a GameLift fleet resource and uniquely identifies</span><span>
+</span><span id="line-106"></span><span class="hs-comment">-- it. ARNs are unique across all Regions. Format is</span><span>
+</span><span id="line-107"></span><span class="hs-comment">-- @arn:aws:gamelift:\&lt;region&gt;::fleet\/fleet-a1234567-b8c9-0d1e-2fa3-b45c6d7e8912@.</span><span>
+</span><span id="line-108"></span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_fleetArn"><span class="hs-identifier hs-type">fleetCapacity_fleetArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-109"></span><span id="fleetCapacity_fleetArn"><span class="annot"><span class="annottext">fleetCapacity_fleetArn :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FleetCapacity -&gt; f FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_fleetArn"><span class="hs-identifier hs-var hs-var">fleetCapacity_fleetArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetCapacity -&gt; Maybe Text)
+-&gt; (FleetCapacity -&gt; Maybe Text -&gt; FleetCapacity)
+-&gt; Lens FleetCapacity FleetCapacity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430299"><span class="annot"><span class="annottext">Maybe Text
+fleetArn :: Maybe Text
+$sel:fleetArn:FleetCapacity' :: FleetCapacity -&gt; Maybe Text
+</span><a href="#local-6989586621679430299"><span class="hs-identifier hs-var hs-var">fleetArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430299"><span class="hs-identifier hs-var">fleetArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430298"><span class="annot"><span class="annottext">s :: FleetCapacity
+</span><a href="#local-6989586621679430298"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430297"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430297"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetCapacity
+</span><a href="#local-6989586621679430298"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetArn:FleetCapacity' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AfleetArn%3AFleetCapacity%27"><span class="hs-identifier hs-var">fleetArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430297"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- | The EC2 instance type that is used for all instances in a fleet. The</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- instance type determines the computing resources in use, including CPU,</span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- memory, storage, and networking capacity. See</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- &lt;http://aws.amazon.com/ec2/instance-types/ Amazon EC2 Instance Types&gt;</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- for detailed descriptions.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_instanceType"><span class="hs-identifier hs-type">fleetCapacity_instanceType</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.EC2InstanceType.html#EC2InstanceType"><span class="hs-identifier hs-type">EC2InstanceType</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="fleetCapacity_instanceType"><span class="annot"><span class="annottext">fleetCapacity_instanceType :: (Maybe EC2InstanceType -&gt; f (Maybe EC2InstanceType))
+-&gt; FleetCapacity -&gt; f FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_instanceType"><span class="hs-identifier hs-var hs-var">fleetCapacity_instanceType</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetCapacity -&gt; Maybe EC2InstanceType)
+-&gt; (FleetCapacity -&gt; Maybe EC2InstanceType -&gt; FleetCapacity)
+-&gt; Lens
+     FleetCapacity
+     FleetCapacity
+     (Maybe EC2InstanceType)
+     (Maybe EC2InstanceType)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430295"><span class="annot"><span class="annottext">Maybe EC2InstanceType
+instanceType :: Maybe EC2InstanceType
+$sel:instanceType:FleetCapacity' :: FleetCapacity -&gt; Maybe EC2InstanceType
+</span><a href="#local-6989586621679430295"><span class="hs-identifier hs-var hs-var">instanceType</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceType
+</span><a href="#local-6989586621679430295"><span class="hs-identifier hs-var">instanceType</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430294"><span class="annot"><span class="annottext">s :: FleetCapacity
+</span><a href="#local-6989586621679430294"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430293"><span class="annot"><span class="annottext">Maybe EC2InstanceType
+</span><a href="#local-6989586621679430293"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetCapacity
+</span><a href="#local-6989586621679430294"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceType:FleetCapacity' :: Maybe EC2InstanceType
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AinstanceType%3AFleetCapacity%27"><span class="hs-identifier hs-var">instanceType</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceType
+</span><a href="#local-6989586621679430293"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | A unique identifier for the fleet associated with the location.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_fleetId"><span class="hs-identifier hs-type">fleetCapacity_fleetId</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="fleetCapacity_fleetId"><span class="annot"><span class="annottext">fleetCapacity_fleetId :: (Maybe Text -&gt; f (Maybe Text)) -&gt; FleetCapacity -&gt; f FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_fleetId"><span class="hs-identifier hs-var hs-var">fleetCapacity_fleetId</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetCapacity -&gt; Maybe Text)
+-&gt; (FleetCapacity -&gt; Maybe Text -&gt; FleetCapacity)
+-&gt; Lens FleetCapacity FleetCapacity (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430291"><span class="annot"><span class="annottext">Maybe Text
+fleetId :: Maybe Text
+$sel:fleetId:FleetCapacity' :: FleetCapacity -&gt; Maybe Text
+</span><a href="#local-6989586621679430291"><span class="hs-identifier hs-var hs-var">fleetId</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430291"><span class="hs-identifier hs-var">fleetId</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430290"><span class="annot"><span class="annottext">s :: FleetCapacity
+</span><a href="#local-6989586621679430290"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430289"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430289"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetCapacity
+</span><a href="#local-6989586621679430290"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:fleetId:FleetCapacity' :: Maybe Text
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AfleetId%3AFleetCapacity%27"><span class="hs-identifier hs-var">fleetId</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679430289"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The current instance count and capacity settings for the fleet location.</span><span>
+</span><span id="line-124"></span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_instanceCounts"><span class="hs-identifier hs-type">fleetCapacity_instanceCounts</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.EC2InstanceCounts.html#EC2InstanceCounts"><span class="hs-identifier hs-type">EC2InstanceCounts</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-125"></span><span id="fleetCapacity_instanceCounts"><span class="annot"><span class="annottext">fleetCapacity_instanceCounts :: (Maybe EC2InstanceCounts -&gt; f (Maybe EC2InstanceCounts))
+-&gt; FleetCapacity -&gt; f FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#fleetCapacity_instanceCounts"><span class="hs-identifier hs-var hs-var">fleetCapacity_instanceCounts</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(FleetCapacity -&gt; Maybe EC2InstanceCounts)
+-&gt; (FleetCapacity -&gt; Maybe EC2InstanceCounts -&gt; FleetCapacity)
+-&gt; Lens
+     FleetCapacity
+     FleetCapacity
+     (Maybe EC2InstanceCounts)
+     (Maybe EC2InstanceCounts)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679430287"><span class="annot"><span class="annottext">Maybe EC2InstanceCounts
+instanceCounts :: Maybe EC2InstanceCounts
+$sel:instanceCounts:FleetCapacity' :: FleetCapacity -&gt; Maybe EC2InstanceCounts
+</span><a href="#local-6989586621679430287"><span class="hs-identifier hs-var hs-var">instanceCounts</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceCounts
+</span><a href="#local-6989586621679430287"><span class="hs-identifier hs-var">instanceCounts</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679430286"><span class="annot"><span class="annottext">s :: FleetCapacity
+</span><a href="#local-6989586621679430286"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-type">FleetCapacity'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679430285"><span class="annot"><span class="annottext">Maybe EC2InstanceCounts
+</span><a href="#local-6989586621679430285"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">FleetCapacity
+</span><a href="#local-6989586621679430286"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:instanceCounts:FleetCapacity' :: Maybe EC2InstanceCounts
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#%24sel%3AinstanceCounts%3AFleetCapacity%27"><span class="hs-identifier hs-var">instanceCounts</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe EC2InstanceCounts
+</span><a href="#local-6989586621679430285"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span>
+</span><span id="line-127"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430282"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-128"></span><span>  </span><span id="local-6989586621679430280"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser FleetCapacity
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-129"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser FleetCapacity)
+-&gt; Value
+-&gt; Parser FleetCapacity
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-130"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;FleetCapacity&quot;</span></span><span>
+</span><span id="line-131"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679430277"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430277"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-132"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text
+-&gt; Maybe Text
+-&gt; Maybe EC2InstanceType
+-&gt; Maybe Text
+-&gt; Maybe EC2InstanceCounts
+-&gt; FleetCapacity
+</span><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity%27"><span class="hs-identifier hs-var">FleetCapacity'</span></a></span><span>
+</span><span id="line-133"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text
+ -&gt; Maybe Text
+ -&gt; Maybe EC2InstanceType
+ -&gt; Maybe Text
+ -&gt; Maybe EC2InstanceCounts
+ -&gt; FleetCapacity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe Text
+      -&gt; Maybe EC2InstanceType
+      -&gt; Maybe Text
+      -&gt; Maybe EC2InstanceCounts
+      -&gt; FleetCapacity)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Location&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-134"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Text
+   -&gt; Maybe EC2InstanceType
+   -&gt; Maybe Text
+   -&gt; Maybe EC2InstanceCounts
+   -&gt; FleetCapacity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser
+     (Maybe EC2InstanceType
+      -&gt; Maybe Text -&gt; Maybe EC2InstanceCounts -&gt; FleetCapacity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-135"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe EC2InstanceType
+   -&gt; Maybe Text -&gt; Maybe EC2InstanceCounts -&gt; FleetCapacity)
+-&gt; Parser (Maybe EC2InstanceType)
+-&gt; Parser (Maybe Text -&gt; Maybe EC2InstanceCounts -&gt; FleetCapacity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2InstanceType)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceType&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-136"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe Text -&gt; Maybe EC2InstanceCounts -&gt; FleetCapacity)
+-&gt; Parser (Maybe Text)
+-&gt; Parser (Maybe EC2InstanceCounts -&gt; FleetCapacity)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;FleetId&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-137"></span><span>            </span><span class="annot"><span class="annottext">Parser (Maybe EC2InstanceCounts -&gt; FleetCapacity)
+-&gt; Parser (Maybe EC2InstanceCounts) -&gt; Parser FleetCapacity
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679430277"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe EC2InstanceCounts)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InstanceCounts&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-138"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-139"></span><span>
+</span><span id="line-140"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430271"><span id="local-6989586621679430273"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span></span></span><span>
+</span><span id="line-141"></span><span>
+</span><span id="line-142"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679430268"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.GameLift.Types.FleetCapacity.html#FleetCapacity"><span class="hs-identifier hs-type">FleetCapacity</span></a></span></span><span>
+</span><span id="line-143"></span></pre></body></html>

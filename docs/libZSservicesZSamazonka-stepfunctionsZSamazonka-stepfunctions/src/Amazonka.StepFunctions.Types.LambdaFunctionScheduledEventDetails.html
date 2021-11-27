@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.html"><span class="hs-identifier">Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails</span></a></span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Contains details about a lambda function scheduled during an execution.</span><span>
+</span><span id="line-28"></span><span class="hs-comment">--</span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- /See:/ 'newLambdaFunctionScheduledEventDetails' smart constructor.</span><span>
+</span><span id="line-30"></span><span id="local-6989586621679224990"><span id="local-6989586621679224991"></span></span><span class="hs-keyword">data</span><span> </span><span id="LambdaFunctionScheduledEventDetails"><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-var">LambdaFunctionScheduledEventDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="LambdaFunctionScheduledEventDetails%27"><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">LambdaFunctionScheduledEventDetails'</span></a></span></span><span>
+</span><span id="line-31"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Contains details about input for an execution history event.</span><span>
+</span><span id="line-32"></span><span>    </span><span id="%24sel%3AinputDetails%3ALambdaFunctionScheduledEventDetails%27"><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails
+-&gt; Maybe HistoryEventExecutionDataDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3AinputDetails%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var hs-var">inputDetails</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.html#HistoryEventExecutionDataDetails"><span class="hs-identifier hs-type">HistoryEventExecutionDataDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="hs-comment">-- | The JSON data input to the lambda function. Length constraints apply to</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- the payload size, and are expressed as bytes in UTF-8 encoding.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3Ainput%3ALambdaFunctionScheduledEventDetails%27"><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails -&gt; Maybe (Sensitive Text)
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3Ainput%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The maximum allowed duration of the lambda function.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3AtimeoutInSeconds%3ALambdaFunctionScheduledEventDetails%27"><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails -&gt; Maybe Integer
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3AtimeoutInSeconds%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the scheduled lambda function.</span><span>
+</span><span id="line-39"></span><span>    </span><span id="%24sel%3Aresource%3ALambdaFunctionScheduledEventDetails%27"><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails -&gt; Text
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3Aresource%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-40"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-41"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679224981"><span id="local-6989586621679224983"><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails
+-&gt; LambdaFunctionScheduledEventDetails -&gt; Bool
+(LambdaFunctionScheduledEventDetails
+ -&gt; LambdaFunctionScheduledEventDetails -&gt; Bool)
+-&gt; (LambdaFunctionScheduledEventDetails
+    -&gt; LambdaFunctionScheduledEventDetails -&gt; Bool)
+-&gt; Eq LambdaFunctionScheduledEventDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: LambdaFunctionScheduledEventDetails
+-&gt; LambdaFunctionScheduledEventDetails -&gt; Bool
+$c/= :: LambdaFunctionScheduledEventDetails
+-&gt; LambdaFunctionScheduledEventDetails -&gt; Bool
+== :: LambdaFunctionScheduledEventDetails
+-&gt; LambdaFunctionScheduledEventDetails -&gt; Bool
+$c== :: LambdaFunctionScheduledEventDetails
+-&gt; LambdaFunctionScheduledEventDetails -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679224974"><span id="local-6989586621679224976"><span id="local-6989586621679224978"><span class="annot"><span class="annottext">Int -&gt; LambdaFunctionScheduledEventDetails -&gt; ShowS
+[LambdaFunctionScheduledEventDetails] -&gt; ShowS
+LambdaFunctionScheduledEventDetails -&gt; String
+(Int -&gt; LambdaFunctionScheduledEventDetails -&gt; ShowS)
+-&gt; (LambdaFunctionScheduledEventDetails -&gt; String)
+-&gt; ([LambdaFunctionScheduledEventDetails] -&gt; ShowS)
+-&gt; Show LambdaFunctionScheduledEventDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [LambdaFunctionScheduledEventDetails] -&gt; ShowS
+$cshowList :: [LambdaFunctionScheduledEventDetails] -&gt; ShowS
+show :: LambdaFunctionScheduledEventDetails -&gt; String
+$cshow :: LambdaFunctionScheduledEventDetails -&gt; String
+showsPrec :: Int -&gt; LambdaFunctionScheduledEventDetails -&gt; ShowS
+$cshowsPrec :: Int -&gt; LambdaFunctionScheduledEventDetails -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ LambdaFunctionScheduledEventDetails
+ -&gt; Rep LambdaFunctionScheduledEventDetails x)
+-&gt; (forall x.
+    Rep LambdaFunctionScheduledEventDetails x
+    -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Generic LambdaFunctionScheduledEventDetails
+forall x.
+Rep LambdaFunctionScheduledEventDetails x
+-&gt; LambdaFunctionScheduledEventDetails
+forall x.
+LambdaFunctionScheduledEventDetails
+-&gt; Rep LambdaFunctionScheduledEventDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep LambdaFunctionScheduledEventDetails x
+-&gt; LambdaFunctionScheduledEventDetails
+$cfrom :: forall x.
+LambdaFunctionScheduledEventDetails
+-&gt; Rep LambdaFunctionScheduledEventDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-42"></span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-44"></span><span class="hs-comment">-- Create a value of 'LambdaFunctionScheduledEventDetails' with all optional fields omitted.</span><span>
+</span><span id="line-45"></span><span class="hs-comment">--</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-49"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-50"></span><span class="hs-comment">--</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- 'inputDetails', 'lambdaFunctionScheduledEventDetails_inputDetails' - Contains details about input for an execution history event.</span><span>
+</span><span id="line-52"></span><span class="hs-comment">--</span><span>
+</span><span id="line-53"></span><span class="hs-comment">-- 'input', 'lambdaFunctionScheduledEventDetails_input' - The JSON data input to the lambda function. Length constraints apply to</span><span>
+</span><span id="line-54"></span><span class="hs-comment">-- the payload size, and are expressed as bytes in UTF-8 encoding.</span><span>
+</span><span id="line-55"></span><span class="hs-comment">--</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- 'timeoutInSeconds', 'lambdaFunctionScheduledEventDetails_timeoutInSeconds' - The maximum allowed duration of the lambda function.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- 'resource', 'lambdaFunctionScheduledEventDetails_resource' - The Amazon Resource Name (ARN) of the scheduled lambda function.</span><span>
+</span><span id="line-59"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#newLambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">newLambdaFunctionScheduledEventDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-60"></span><span>  </span><span class="hs-comment">-- | 'resource'</span><span>
+</span><span id="line-61"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-62"></span><span>  </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span>
+</span><span id="line-63"></span><span id="newLambdaFunctionScheduledEventDetails"><span class="annot"><span class="annottext">newLambdaFunctionScheduledEventDetails :: Text -&gt; LambdaFunctionScheduledEventDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#newLambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-var hs-var">newLambdaFunctionScheduledEventDetails</span></a></span></span><span> </span><span id="local-6989586621679224968"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224968"><span class="hs-identifier hs-var">pResource_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-64"></span><span>  </span><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails' :: Maybe HistoryEventExecutionDataDetails
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Integer
+-&gt; Text
+-&gt; LambdaFunctionScheduledEventDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:inputDetails:LambdaFunctionScheduledEventDetails' :: Maybe HistoryEventExecutionDataDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3AinputDetails%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">inputDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-66"></span><span>        </span><span class="annot"><span class="annottext">Maybe HistoryEventExecutionDataDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-67"></span><span>      </span><span class="annot"><span class="annottext">$sel:input:LambdaFunctionScheduledEventDetails' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3Ainput%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-68"></span><span>      </span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:LambdaFunctionScheduledEventDetails' :: Maybe Integer
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3AtimeoutInSeconds%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>      </span><span class="annot"><span class="annottext">$sel:resource:LambdaFunctionScheduledEventDetails' :: Text
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3Aresource%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224968"><span class="hs-identifier hs-var">pResource_</span></a></span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-71"></span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- | Contains details about input for an execution history event.</span><span>
+</span><span id="line-73"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_inputDetails"><span class="hs-identifier hs-type">lambdaFunctionScheduledEventDetails_inputDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.HistoryEventExecutionDataDetails.html#HistoryEventExecutionDataDetails"><span class="hs-identifier hs-type">HistoryEventExecutionDataDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-74"></span><span id="lambdaFunctionScheduledEventDetails_inputDetails"><span class="annot"><span class="annottext">lambdaFunctionScheduledEventDetails_inputDetails :: (Maybe HistoryEventExecutionDataDetails
+ -&gt; f (Maybe HistoryEventExecutionDataDetails))
+-&gt; LambdaFunctionScheduledEventDetails
+-&gt; f LambdaFunctionScheduledEventDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_inputDetails"><span class="hs-identifier hs-var hs-var">lambdaFunctionScheduledEventDetails_inputDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionScheduledEventDetails
+ -&gt; Maybe HistoryEventExecutionDataDetails)
+-&gt; (LambdaFunctionScheduledEventDetails
+    -&gt; Maybe HistoryEventExecutionDataDetails
+    -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Lens
+     LambdaFunctionScheduledEventDetails
+     LambdaFunctionScheduledEventDetails
+     (Maybe HistoryEventExecutionDataDetails)
+     (Maybe HistoryEventExecutionDataDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224964"><span class="annot"><span class="annottext">Maybe HistoryEventExecutionDataDetails
+inputDetails :: Maybe HistoryEventExecutionDataDetails
+$sel:inputDetails:LambdaFunctionScheduledEventDetails' :: LambdaFunctionScheduledEventDetails
+-&gt; Maybe HistoryEventExecutionDataDetails
+</span><a href="#local-6989586621679224964"><span class="hs-identifier hs-var hs-var">inputDetails</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe HistoryEventExecutionDataDetails
+</span><a href="#local-6989586621679224964"><span class="hs-identifier hs-var">inputDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224963"><span class="annot"><span class="annottext">s :: LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224963"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224962"><span class="annot"><span class="annottext">Maybe HistoryEventExecutionDataDetails
+</span><a href="#local-6989586621679224962"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224963"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:inputDetails:LambdaFunctionScheduledEventDetails' :: Maybe HistoryEventExecutionDataDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3AinputDetails%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">inputDetails</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe HistoryEventExecutionDataDetails
+</span><a href="#local-6989586621679224962"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-75"></span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- | The JSON data input to the lambda function. Length constraints apply to</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- the payload size, and are expressed as bytes in UTF-8 encoding.</span><span>
+</span><span id="line-78"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_input"><span class="hs-identifier hs-type">lambdaFunctionScheduledEventDetails_input</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-79"></span><span id="lambdaFunctionScheduledEventDetails_input"><span class="annot"><span class="annottext">lambdaFunctionScheduledEventDetails_input :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaFunctionScheduledEventDetails
+-&gt; f LambdaFunctionScheduledEventDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_input"><span class="hs-identifier hs-var hs-var">lambdaFunctionScheduledEventDetails_input</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionScheduledEventDetails -&gt; Maybe (Sensitive Text))
+-&gt; (LambdaFunctionScheduledEventDetails
+    -&gt; Maybe (Sensitive Text) -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Lens
+     LambdaFunctionScheduledEventDetails
+     LambdaFunctionScheduledEventDetails
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224960"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+input :: Maybe (Sensitive Text)
+$sel:input:LambdaFunctionScheduledEventDetails' :: LambdaFunctionScheduledEventDetails -&gt; Maybe (Sensitive Text)
+</span><a href="#local-6989586621679224960"><span class="hs-identifier hs-var hs-var">input</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679224960"><span class="hs-identifier hs-var">input</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224959"><span class="annot"><span class="annottext">s :: LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224959"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224958"><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679224958"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224959"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:input:LambdaFunctionScheduledEventDetails' :: Maybe (Sensitive Text)
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3Ainput%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">input</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe (Sensitive Text)
+</span><a href="#local-6989586621679224958"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+ -&gt; LambdaFunctionScheduledEventDetails
+ -&gt; f LambdaFunctionScheduledEventDetails)
+-&gt; ((Maybe Text -&gt; f (Maybe Text))
+    -&gt; Maybe (Sensitive Text) -&gt; f (Maybe (Sensitive Text)))
+-&gt; (Maybe Text -&gt; f (Maybe Text))
+-&gt; LambdaFunctionScheduledEventDetails
+-&gt; f LambdaFunctionScheduledEventDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+-&gt; Iso
+     (Maybe (Sensitive Text))
+     (Maybe (Sensitive Text))
+     (Maybe Text)
+     (Maybe Text)
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso (Sensitive Text) (Sensitive Text) Text Text
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-80"></span><span>
+</span><span id="line-81"></span><span class="hs-comment">-- | The maximum allowed duration of the lambda function.</span><span>
+</span><span id="line-82"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_timeoutInSeconds"><span class="hs-identifier hs-type">lambdaFunctionScheduledEventDetails_timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Integer</span></span><span class="hs-special">)</span><span>
+</span><span id="line-83"></span><span id="lambdaFunctionScheduledEventDetails_timeoutInSeconds"><span class="annot"><span class="annottext">lambdaFunctionScheduledEventDetails_timeoutInSeconds :: (Maybe Integer -&gt; f (Maybe Integer))
+-&gt; LambdaFunctionScheduledEventDetails
+-&gt; f LambdaFunctionScheduledEventDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_timeoutInSeconds"><span class="hs-identifier hs-var hs-var">lambdaFunctionScheduledEventDetails_timeoutInSeconds</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionScheduledEventDetails -&gt; Maybe Integer)
+-&gt; (LambdaFunctionScheduledEventDetails
+    -&gt; Maybe Integer -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Lens
+     LambdaFunctionScheduledEventDetails
+     LambdaFunctionScheduledEventDetails
+     (Maybe Integer)
+     (Maybe Integer)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224953"><span class="annot"><span class="annottext">Maybe Integer
+timeoutInSeconds :: Maybe Integer
+$sel:timeoutInSeconds:LambdaFunctionScheduledEventDetails' :: LambdaFunctionScheduledEventDetails -&gt; Maybe Integer
+</span><a href="#local-6989586621679224953"><span class="hs-identifier hs-var hs-var">timeoutInSeconds</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679224953"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224952"><span class="annot"><span class="annottext">s :: LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224952"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224951"><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679224951"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224952"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:timeoutInSeconds:LambdaFunctionScheduledEventDetails' :: Maybe Integer
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3AtimeoutInSeconds%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">timeoutInSeconds</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Integer
+</span><a href="#local-6989586621679224951"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the scheduled lambda function.</span><span>
+</span><span id="line-86"></span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_resource"><span class="hs-identifier hs-type">lambdaFunctionScheduledEventDetails_resource</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-87"></span><span id="lambdaFunctionScheduledEventDetails_resource"><span class="annot"><span class="annottext">lambdaFunctionScheduledEventDetails_resource :: (Text -&gt; f Text)
+-&gt; LambdaFunctionScheduledEventDetails
+-&gt; f LambdaFunctionScheduledEventDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#lambdaFunctionScheduledEventDetails_resource"><span class="hs-identifier hs-var hs-var">lambdaFunctionScheduledEventDetails_resource</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(LambdaFunctionScheduledEventDetails -&gt; Text)
+-&gt; (LambdaFunctionScheduledEventDetails
+    -&gt; Text -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Lens
+     LambdaFunctionScheduledEventDetails
+     LambdaFunctionScheduledEventDetails
+     Text
+     Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679224949"><span class="annot"><span class="annottext">Text
+resource :: Text
+$sel:resource:LambdaFunctionScheduledEventDetails' :: LambdaFunctionScheduledEventDetails -&gt; Text
+</span><a href="#local-6989586621679224949"><span class="hs-identifier hs-var hs-var">resource</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224949"><span class="hs-identifier hs-var">resource</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679224948"><span class="annot"><span class="annottext">s :: LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224948"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679224947"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224947"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">LambdaFunctionScheduledEventDetails
+</span><a href="#local-6989586621679224948"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:resource:LambdaFunctionScheduledEventDetails' :: Text
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#%24sel%3Aresource%3ALambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">resource</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679224947"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-88"></span><span>
+</span><span id="line-89"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-90"></span><span>  </span><span id="local-6989586621679224944"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-91"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span></span><span>
+</span><span id="line-92"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-93"></span><span>  </span><span id="local-6989586621679224942"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser LambdaFunctionScheduledEventDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-94"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser LambdaFunctionScheduledEventDetails)
+-&gt; Value
+-&gt; Parser LambdaFunctionScheduledEventDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-95"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;LambdaFunctionScheduledEventDetails&quot;</span></span><span>
+</span><span id="line-96"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679224939"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224939"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-97"></span><span>          </span><span class="annot"><span class="annottext">Maybe HistoryEventExecutionDataDetails
+-&gt; Maybe (Sensitive Text)
+-&gt; Maybe Integer
+-&gt; Text
+-&gt; LambdaFunctionScheduledEventDetails
+</span><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails%27"><span class="hs-identifier hs-var">LambdaFunctionScheduledEventDetails'</span></a></span><span>
+</span><span id="line-98"></span><span>            </span><span class="annot"><span class="annottext">(Maybe HistoryEventExecutionDataDetails
+ -&gt; Maybe (Sensitive Text)
+ -&gt; Maybe Integer
+ -&gt; Text
+ -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Parser (Maybe HistoryEventExecutionDataDetails)
+-&gt; Parser
+     (Maybe (Sensitive Text)
+      -&gt; Maybe Integer -&gt; Text -&gt; LambdaFunctionScheduledEventDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe HistoryEventExecutionDataDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;inputDetails&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-99"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe (Sensitive Text)
+   -&gt; Maybe Integer -&gt; Text -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Parser (Maybe (Sensitive Text))
+-&gt; Parser
+     (Maybe Integer -&gt; Text -&gt; LambdaFunctionScheduledEventDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe (Sensitive Text))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;input&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-100"></span><span>            </span><span class="annot"><span class="annottext">Parser
+  (Maybe Integer -&gt; Text -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Parser (Maybe Integer)
+-&gt; Parser (Text -&gt; LambdaFunctionScheduledEventDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Integer)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;timeoutInSeconds&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-101"></span><span>            </span><span class="annot"><span class="annottext">Parser (Text -&gt; LambdaFunctionScheduledEventDetails)
+-&gt; Parser Text -&gt; Parser LambdaFunctionScheduledEventDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679224939"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser Text
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;resource&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-105"></span><span>  </span><span id="local-6989586621679224932"><span id="local-6989586621679224934"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-106"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span></span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-109"></span><span>  </span><span id="local-6989586621679224929"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-110"></span><span>    </span><span class="annot"><a href="Amazonka.StepFunctions.Types.LambdaFunctionScheduledEventDetails.html#LambdaFunctionScheduledEventDetails"><span class="hs-identifier hs-type">LambdaFunctionScheduledEventDetails</span></a></span></span><span>
+</span><span id="line-111"></span></pre></body></html>

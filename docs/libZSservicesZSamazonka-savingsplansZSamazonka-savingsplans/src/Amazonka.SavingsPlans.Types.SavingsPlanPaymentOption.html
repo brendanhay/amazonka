@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption"><span class="hs-identifier">SavingsPlanPaymentOption</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_All_Upfront"><span class="hs-identifier">SavingsPlanPaymentOption_All_Upfront</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_No_Upfront"><span class="hs-identifier">SavingsPlanPaymentOption_No_Upfront</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-25"></span><span>        </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_Partial_Upfront"><span class="hs-identifier">SavingsPlanPaymentOption_Partial_Upfront</span></a></span><span>
+</span><span id="line-26"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-27"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-31"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-32"></span><span>
+</span><span id="line-33"></span><span id="local-6989586621679187294"><span id="local-6989586621679187295"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="SavingsPlanPaymentOption"><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption"><span class="hs-identifier hs-var">SavingsPlanPaymentOption</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="SavingsPlanPaymentOption%27"><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption%27"><span class="hs-identifier hs-var">SavingsPlanPaymentOption'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromSavingsPlanPaymentOption"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; Text
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#fromSavingsPlanPaymentOption"><span class="hs-identifier hs-var hs-var">fromSavingsPlanPaymentOption</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-35"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187286"><span id="local-6989586621679187288"><span id="local-6989586621679187290"><span class="annot"><span class="annottext">Int -&gt; SavingsPlanPaymentOption -&gt; ShowS
+[SavingsPlanPaymentOption] -&gt; ShowS
+SavingsPlanPaymentOption -&gt; String
+(Int -&gt; SavingsPlanPaymentOption -&gt; ShowS)
+-&gt; (SavingsPlanPaymentOption -&gt; String)
+-&gt; ([SavingsPlanPaymentOption] -&gt; ShowS)
+-&gt; Show SavingsPlanPaymentOption
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [SavingsPlanPaymentOption] -&gt; ShowS
+$cshowList :: [SavingsPlanPaymentOption] -&gt; ShowS
+show :: SavingsPlanPaymentOption -&gt; String
+$cshow :: SavingsPlanPaymentOption -&gt; String
+showsPrec :: Int -&gt; SavingsPlanPaymentOption -&gt; ShowS
+$cshowsPrec :: Int -&gt; SavingsPlanPaymentOption -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679187277"><span id="local-6989586621679187279"><span id="local-6989586621679187281"><span id="local-6989586621679187283"><span class="annot"><span class="annottext">ReadPrec [SavingsPlanPaymentOption]
+ReadPrec SavingsPlanPaymentOption
+Int -&gt; ReadS SavingsPlanPaymentOption
+ReadS [SavingsPlanPaymentOption]
+(Int -&gt; ReadS SavingsPlanPaymentOption)
+-&gt; ReadS [SavingsPlanPaymentOption]
+-&gt; ReadPrec SavingsPlanPaymentOption
+-&gt; ReadPrec [SavingsPlanPaymentOption]
+-&gt; Read SavingsPlanPaymentOption
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [SavingsPlanPaymentOption]
+$creadListPrec :: ReadPrec [SavingsPlanPaymentOption]
+readPrec :: ReadPrec SavingsPlanPaymentOption
+$creadPrec :: ReadPrec SavingsPlanPaymentOption
+readList :: ReadS [SavingsPlanPaymentOption]
+$creadList :: ReadS [SavingsPlanPaymentOption]
+readsPrec :: Int -&gt; ReadS SavingsPlanPaymentOption
+$creadsPrec :: Int -&gt; ReadS SavingsPlanPaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679187272"><span id="local-6989586621679187274"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+(SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool)
+-&gt; (SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool)
+-&gt; Eq SavingsPlanPaymentOption
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+$c/= :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+== :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+$c== :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span id="local-6989586621679187256"><span id="local-6989586621679187258"><span id="local-6989586621679187260"><span id="local-6989586621679187262"><span id="local-6989586621679187264"><span id="local-6989586621679187266"><span id="local-6989586621679187268"><span class="annot"><span class="annottext">Eq SavingsPlanPaymentOption
+Eq SavingsPlanPaymentOption
+-&gt; (SavingsPlanPaymentOption
+    -&gt; SavingsPlanPaymentOption -&gt; Ordering)
+-&gt; (SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool)
+-&gt; (SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool)
+-&gt; (SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool)
+-&gt; (SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool)
+-&gt; (SavingsPlanPaymentOption
+    -&gt; SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption)
+-&gt; (SavingsPlanPaymentOption
+    -&gt; SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption)
+-&gt; Ord SavingsPlanPaymentOption
+SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Ordering
+SavingsPlanPaymentOption
+-&gt; SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: SavingsPlanPaymentOption
+-&gt; SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption
+$cmin :: SavingsPlanPaymentOption
+-&gt; SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption
+max :: SavingsPlanPaymentOption
+-&gt; SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption
+$cmax :: SavingsPlanPaymentOption
+-&gt; SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption
+&gt;= :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+$c&gt;= :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+&gt; :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+$c&gt; :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+&lt;= :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+$c&lt;= :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+&lt; :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+$c&lt; :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Bool
+compare :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Ordering
+$ccompare :: SavingsPlanPaymentOption -&gt; SavingsPlanPaymentOption -&gt; Ordering
+$cp1Ord :: Eq SavingsPlanPaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>      </span><span class="annot"><span class="annottext">(forall x.
+ SavingsPlanPaymentOption -&gt; Rep SavingsPlanPaymentOption x)
+-&gt; (forall x.
+    Rep SavingsPlanPaymentOption x -&gt; SavingsPlanPaymentOption)
+-&gt; Generic SavingsPlanPaymentOption
+forall x.
+Rep SavingsPlanPaymentOption x -&gt; SavingsPlanPaymentOption
+forall x.
+SavingsPlanPaymentOption -&gt; Rep SavingsPlanPaymentOption x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep SavingsPlanPaymentOption x -&gt; SavingsPlanPaymentOption
+$cfrom :: forall x.
+SavingsPlanPaymentOption -&gt; Rep SavingsPlanPaymentOption x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-44"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679187248"><span id="local-6989586621679187250"><span class="annot"><span class="annottext">Int -&gt; SavingsPlanPaymentOption -&gt; Int
+SavingsPlanPaymentOption -&gt; Int
+(Int -&gt; SavingsPlanPaymentOption -&gt; Int)
+-&gt; (SavingsPlanPaymentOption -&gt; Int)
+-&gt; Hashable SavingsPlanPaymentOption
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: SavingsPlanPaymentOption -&gt; Int
+$chash :: SavingsPlanPaymentOption -&gt; Int
+hashWithSalt :: Int -&gt; SavingsPlanPaymentOption -&gt; Int
+$chashWithSalt :: Int -&gt; SavingsPlanPaymentOption -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679187245"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; ()
+(SavingsPlanPaymentOption -&gt; ()) -&gt; NFData SavingsPlanPaymentOption
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: SavingsPlanPaymentOption -&gt; ()
+$crnf :: SavingsPlanPaymentOption -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679187242"><span class="annot"><span class="annottext">Text -&gt; Either String SavingsPlanPaymentOption
+(Text -&gt; Either String SavingsPlanPaymentOption)
+-&gt; FromText SavingsPlanPaymentOption
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String SavingsPlanPaymentOption
+$cfromText :: Text -&gt; Either String SavingsPlanPaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679187239"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; Text
+(SavingsPlanPaymentOption -&gt; Text)
+-&gt; ToText SavingsPlanPaymentOption
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: SavingsPlanPaymentOption -&gt; Text
+$ctoText :: SavingsPlanPaymentOption -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679187236"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; ByteString
+(SavingsPlanPaymentOption -&gt; ByteString)
+-&gt; ToByteString SavingsPlanPaymentOption
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: SavingsPlanPaymentOption -&gt; ByteString
+$ctoBS :: SavingsPlanPaymentOption -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679187233"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; ByteStringBuilder
+(SavingsPlanPaymentOption -&gt; ByteStringBuilder)
+-&gt; ToLog SavingsPlanPaymentOption
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: SavingsPlanPaymentOption -&gt; ByteStringBuilder
+$cbuild :: SavingsPlanPaymentOption -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679187230"><span class="annot"><span class="annottext">HeaderName -&gt; SavingsPlanPaymentOption -&gt; [Header]
+(HeaderName -&gt; SavingsPlanPaymentOption -&gt; [Header])
+-&gt; ToHeader SavingsPlanPaymentOption
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; SavingsPlanPaymentOption -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; SavingsPlanPaymentOption -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679187227"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; QueryString
+(SavingsPlanPaymentOption -&gt; QueryString)
+-&gt; ToQuery SavingsPlanPaymentOption
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: SavingsPlanPaymentOption -&gt; QueryString
+$ctoQuery :: SavingsPlanPaymentOption -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679187222"><span id="local-6989586621679187224"><span class="annot"><span class="annottext">Value -&gt; Parser [SavingsPlanPaymentOption]
+Value -&gt; Parser SavingsPlanPaymentOption
+(Value -&gt; Parser SavingsPlanPaymentOption)
+-&gt; (Value -&gt; Parser [SavingsPlanPaymentOption])
+-&gt; FromJSON SavingsPlanPaymentOption
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [SavingsPlanPaymentOption]
+$cparseJSONList :: Value -&gt; Parser [SavingsPlanPaymentOption]
+parseJSON :: Value -&gt; Parser SavingsPlanPaymentOption
+$cparseJSON :: Value -&gt; Parser SavingsPlanPaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679187217"><span id="local-6989586621679187219"><span class="annot"><span class="annottext">FromJSONKeyFunction [SavingsPlanPaymentOption]
+FromJSONKeyFunction SavingsPlanPaymentOption
+FromJSONKeyFunction SavingsPlanPaymentOption
+-&gt; FromJSONKeyFunction [SavingsPlanPaymentOption]
+-&gt; FromJSONKey SavingsPlanPaymentOption
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [SavingsPlanPaymentOption]
+$cfromJSONKeyList :: FromJSONKeyFunction [SavingsPlanPaymentOption]
+fromJSONKey :: FromJSONKeyFunction SavingsPlanPaymentOption
+$cfromJSONKey :: FromJSONKeyFunction SavingsPlanPaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679187208"><span id="local-6989586621679187210"><span id="local-6989586621679187212"><span id="local-6989586621679187214"><span class="annot"><span class="annottext">[SavingsPlanPaymentOption] -&gt; Encoding
+[SavingsPlanPaymentOption] -&gt; Value
+SavingsPlanPaymentOption -&gt; Encoding
+SavingsPlanPaymentOption -&gt; Value
+(SavingsPlanPaymentOption -&gt; Value)
+-&gt; (SavingsPlanPaymentOption -&gt; Encoding)
+-&gt; ([SavingsPlanPaymentOption] -&gt; Value)
+-&gt; ([SavingsPlanPaymentOption] -&gt; Encoding)
+-&gt; ToJSON SavingsPlanPaymentOption
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [SavingsPlanPaymentOption] -&gt; Encoding
+$ctoEncodingList :: [SavingsPlanPaymentOption] -&gt; Encoding
+toJSONList :: [SavingsPlanPaymentOption] -&gt; Value
+$ctoJSONList :: [SavingsPlanPaymentOption] -&gt; Value
+toEncoding :: SavingsPlanPaymentOption -&gt; Encoding
+$ctoEncoding :: SavingsPlanPaymentOption -&gt; Encoding
+toJSON :: SavingsPlanPaymentOption -&gt; Value
+$ctoJSON :: SavingsPlanPaymentOption -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679187203"><span id="local-6989586621679187205"><span class="annot"><span class="annottext">ToJSONKeyFunction [SavingsPlanPaymentOption]
+ToJSONKeyFunction SavingsPlanPaymentOption
+ToJSONKeyFunction SavingsPlanPaymentOption
+-&gt; ToJSONKeyFunction [SavingsPlanPaymentOption]
+-&gt; ToJSONKey SavingsPlanPaymentOption
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [SavingsPlanPaymentOption]
+$ctoJSONKeyList :: ToJSONKeyFunction [SavingsPlanPaymentOption]
+toJSONKey :: ToJSONKeyFunction SavingsPlanPaymentOption
+$ctoJSONKey :: ToJSONKeyFunction SavingsPlanPaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679187200"><span class="annot"><span class="annottext">[Node] -&gt; Either String SavingsPlanPaymentOption
+([Node] -&gt; Either String SavingsPlanPaymentOption)
+-&gt; FromXML SavingsPlanPaymentOption
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String SavingsPlanPaymentOption
+$cparseXML :: [Node] -&gt; Either String SavingsPlanPaymentOption
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-58"></span><span>      </span><span id="local-6989586621679187197"><span class="annot"><span class="annottext">SavingsPlanPaymentOption -&gt; XML
+(SavingsPlanPaymentOption -&gt; XML) -&gt; ToXML SavingsPlanPaymentOption
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: SavingsPlanPaymentOption -&gt; XML
+$ctoXML :: SavingsPlanPaymentOption -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-59"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-60"></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_All_Upfront"><span class="hs-identifier hs-type">SavingsPlanPaymentOption_All_Upfront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption"><span class="hs-identifier hs-type">SavingsPlanPaymentOption</span></a></span><span>
+</span><span id="line-62"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanPaymentOption_All_Upfront"><span id="%24mSavingsPlanPaymentOption_All_Upfront"><span id="SavingsPlanPaymentOption_All_Upfront"><span class="annot"><span class="annottext">$bSavingsPlanPaymentOption_All_Upfront :: SavingsPlanPaymentOption
+$mSavingsPlanPaymentOption_All_Upfront :: forall r.
+SavingsPlanPaymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#%24bSavingsPlanPaymentOption_All_Upfront"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanPaymentOption_All_Upfront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption%27"><span class="hs-identifier hs-type">SavingsPlanPaymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;All Upfront&quot;</span></span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_No_Upfront"><span class="hs-identifier hs-type">SavingsPlanPaymentOption_No_Upfront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption"><span class="hs-identifier hs-type">SavingsPlanPaymentOption</span></a></span><span>
+</span><span id="line-65"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanPaymentOption_No_Upfront"><span id="%24mSavingsPlanPaymentOption_No_Upfront"><span id="SavingsPlanPaymentOption_No_Upfront"><span class="annot"><span class="annottext">$bSavingsPlanPaymentOption_No_Upfront :: SavingsPlanPaymentOption
+$mSavingsPlanPaymentOption_No_Upfront :: forall r.
+SavingsPlanPaymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#%24bSavingsPlanPaymentOption_No_Upfront"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanPaymentOption_No_Upfront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption%27"><span class="hs-identifier hs-type">SavingsPlanPaymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;No Upfront&quot;</span></span><span>
+</span><span id="line-66"></span><span>
+</span><span id="line-67"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_Partial_Upfront"><span class="hs-identifier hs-type">SavingsPlanPaymentOption_Partial_Upfront</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption"><span class="hs-identifier hs-type">SavingsPlanPaymentOption</span></a></span><span>
+</span><span id="line-68"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bSavingsPlanPaymentOption_Partial_Upfront"><span id="%24mSavingsPlanPaymentOption_Partial_Upfront"><span id="SavingsPlanPaymentOption_Partial_Upfront"><span class="annot"><span class="annottext">$bSavingsPlanPaymentOption_Partial_Upfront :: SavingsPlanPaymentOption
+$mSavingsPlanPaymentOption_Partial_Upfront :: forall r.
+SavingsPlanPaymentOption -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#%24bSavingsPlanPaymentOption_Partial_Upfront"><span class="hs-identifier hs-var hs-var hs-var">SavingsPlanPaymentOption_Partial_Upfront</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption%27"><span class="hs-identifier hs-type">SavingsPlanPaymentOption'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Partial Upfront&quot;</span></span><span>
+</span><span id="line-69"></span><span>
+</span><span id="line-70"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-71"></span><span>  </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_All_Upfront"><span class="hs-pragma hs-type">SavingsPlanPaymentOption_All_Upfront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-72"></span><span>  </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_No_Upfront"><span class="hs-pragma hs-type">SavingsPlanPaymentOption_No_Upfront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-73"></span><span>  </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption_Partial_Upfront"><span class="hs-pragma hs-type">SavingsPlanPaymentOption_Partial_Upfront</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-74"></span><span>  </span><span class="annot"><a href="Amazonka.SavingsPlans.Types.SavingsPlanPaymentOption.html#SavingsPlanPaymentOption%27"><span class="hs-pragma hs-type">SavingsPlanPaymentOption'</span></a></span><span>
+</span><span id="line-75"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-76"></span></pre></body></html>

@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DerivingStrategies #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE GeneralizedNewtypeDeriving #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE LambdaCase #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE PatternSynonyms #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.Route53RecoveryCluster.Types.RoutingControlState</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.Route53RecoveryCluster.Types.RoutingControlState</span><span>
+</span><span id="line-21"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState"><span class="hs-identifier">RoutingControlState</span></a></span><span>
+</span><span id="line-22"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">..</span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>        </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState_Off"><span class="hs-identifier">RoutingControlState_Off</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>        </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState_On"><span class="hs-identifier">RoutingControlState_On</span></a></span><span>
+</span><span id="line-25"></span><span>      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-27"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-30"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-31"></span><span>
+</span><span id="line-32"></span><span id="local-6989586621679138446"><span id="local-6989586621679138447"></span></span><span class="hs-keyword">newtype</span><span> </span><span id="RoutingControlState"><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState"><span class="hs-identifier hs-var">RoutingControlState</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="RoutingControlState%27"><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState%27"><span class="hs-identifier hs-var">RoutingControlState'</span></a></span></span><span>
+</span><span id="line-33"></span><span>  </span><span class="hs-special">{</span><span> </span><span id="fromRoutingControlState"><span class="annot"><span class="annottext">RoutingControlState -&gt; Text
+</span><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#fromRoutingControlState"><span class="hs-identifier hs-var hs-var">fromRoutingControlState</span></a></span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-34"></span><span>      </span><span class="annot"><span class="hs-identifier hs-type">Core.Text</span></span><span>
+</span><span id="line-35"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-36"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">stock</span></span><span>
+</span><span id="line-37"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679138438"><span id="local-6989586621679138440"><span id="local-6989586621679138442"><span class="annot"><span class="annottext">Int -&gt; RoutingControlState -&gt; ShowS
+[RoutingControlState] -&gt; ShowS
+RoutingControlState -&gt; String
+(Int -&gt; RoutingControlState -&gt; ShowS)
+-&gt; (RoutingControlState -&gt; String)
+-&gt; ([RoutingControlState] -&gt; ShowS)
+-&gt; Show RoutingControlState
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [RoutingControlState] -&gt; ShowS
+$cshowList :: [RoutingControlState] -&gt; ShowS
+show :: RoutingControlState -&gt; String
+$cshow :: RoutingControlState -&gt; String
+showsPrec :: Int -&gt; RoutingControlState -&gt; ShowS
+$cshowsPrec :: Int -&gt; RoutingControlState -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>      </span><span id="local-6989586621679138429"><span id="local-6989586621679138431"><span id="local-6989586621679138433"><span id="local-6989586621679138435"><span class="annot"><span class="annottext">ReadPrec [RoutingControlState]
+ReadPrec RoutingControlState
+Int -&gt; ReadS RoutingControlState
+ReadS [RoutingControlState]
+(Int -&gt; ReadS RoutingControlState)
+-&gt; ReadS [RoutingControlState]
+-&gt; ReadPrec RoutingControlState
+-&gt; ReadPrec [RoutingControlState]
+-&gt; Read RoutingControlState
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [RoutingControlState]
+$creadListPrec :: ReadPrec [RoutingControlState]
+readPrec :: ReadPrec RoutingControlState
+$creadPrec :: ReadPrec RoutingControlState
+readList :: ReadS [RoutingControlState]
+$creadList :: ReadS [RoutingControlState]
+readsPrec :: Int -&gt; ReadS RoutingControlState
+$creadsPrec :: Int -&gt; ReadS RoutingControlState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>      </span><span id="local-6989586621679138424"><span id="local-6989586621679138426"><span class="annot"><span class="annottext">RoutingControlState -&gt; RoutingControlState -&gt; Bool
+(RoutingControlState -&gt; RoutingControlState -&gt; Bool)
+-&gt; (RoutingControlState -&gt; RoutingControlState -&gt; Bool)
+-&gt; Eq RoutingControlState
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+$c/= :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+== :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+$c== :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-40"></span><span>      </span><span id="local-6989586621679138408"><span id="local-6989586621679138410"><span id="local-6989586621679138412"><span id="local-6989586621679138414"><span id="local-6989586621679138416"><span id="local-6989586621679138418"><span id="local-6989586621679138420"><span class="annot"><span class="annottext">Eq RoutingControlState
+Eq RoutingControlState
+-&gt; (RoutingControlState -&gt; RoutingControlState -&gt; Ordering)
+-&gt; (RoutingControlState -&gt; RoutingControlState -&gt; Bool)
+-&gt; (RoutingControlState -&gt; RoutingControlState -&gt; Bool)
+-&gt; (RoutingControlState -&gt; RoutingControlState -&gt; Bool)
+-&gt; (RoutingControlState -&gt; RoutingControlState -&gt; Bool)
+-&gt; (RoutingControlState
+    -&gt; RoutingControlState -&gt; RoutingControlState)
+-&gt; (RoutingControlState
+    -&gt; RoutingControlState -&gt; RoutingControlState)
+-&gt; Ord RoutingControlState
+RoutingControlState -&gt; RoutingControlState -&gt; Bool
+RoutingControlState -&gt; RoutingControlState -&gt; Ordering
+RoutingControlState -&gt; RoutingControlState -&gt; RoutingControlState
+forall a.
+Eq a
+-&gt; (a -&gt; a -&gt; Ordering)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; Bool)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; (a -&gt; a -&gt; a)
+-&gt; Ord a
+min :: RoutingControlState -&gt; RoutingControlState -&gt; RoutingControlState
+$cmin :: RoutingControlState -&gt; RoutingControlState -&gt; RoutingControlState
+max :: RoutingControlState -&gt; RoutingControlState -&gt; RoutingControlState
+$cmax :: RoutingControlState -&gt; RoutingControlState -&gt; RoutingControlState
+&gt;= :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+$c&gt;= :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+&gt; :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+$c&gt; :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+&lt;= :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+$c&lt;= :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+&lt; :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+$c&lt; :: RoutingControlState -&gt; RoutingControlState -&gt; Bool
+compare :: RoutingControlState -&gt; RoutingControlState -&gt; Ordering
+$ccompare :: RoutingControlState -&gt; RoutingControlState -&gt; Ordering
+$cp1Ord :: Eq RoutingControlState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Ord</span></span></span></span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>      </span><span class="annot"><span class="annottext">(forall x. RoutingControlState -&gt; Rep RoutingControlState x)
+-&gt; (forall x. Rep RoutingControlState x -&gt; RoutingControlState)
+-&gt; Generic RoutingControlState
+forall x. Rep RoutingControlState x -&gt; RoutingControlState
+forall x. RoutingControlState -&gt; Rep RoutingControlState x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep RoutingControlState x -&gt; RoutingControlState
+$cfrom :: forall x. RoutingControlState -&gt; Rep RoutingControlState x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-43"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="annot"><span class="hs-keyword">newtype</span></span><span>
+</span><span id="line-44"></span><span>    </span><span class="hs-special">(</span><span> </span><span id="local-6989586621679138400"><span id="local-6989586621679138402"><span class="annot"><span class="annottext">Int -&gt; RoutingControlState -&gt; Int
+RoutingControlState -&gt; Int
+(Int -&gt; RoutingControlState -&gt; Int)
+-&gt; (RoutingControlState -&gt; Int) -&gt; Hashable RoutingControlState
+forall a. (Int -&gt; a -&gt; Int) -&gt; (a -&gt; Int) -&gt; Hashable a
+hash :: RoutingControlState -&gt; Int
+$chash :: RoutingControlState -&gt; Int
+hashWithSalt :: Int -&gt; RoutingControlState -&gt; Int
+$chashWithSalt :: Int -&gt; RoutingControlState -&gt; Int
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Hashable</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>      </span><span id="local-6989586621679138397"><span class="annot"><span class="annottext">RoutingControlState -&gt; ()
+(RoutingControlState -&gt; ()) -&gt; NFData RoutingControlState
+forall a. (a -&gt; ()) -&gt; NFData a
+rnf :: RoutingControlState -&gt; ()
+$crnf :: RoutingControlState -&gt; ()
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.NFData</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>      </span><span id="local-6989586621679138394"><span class="annot"><span class="annottext">Text -&gt; Either String RoutingControlState
+(Text -&gt; Either String RoutingControlState)
+-&gt; FromText RoutingControlState
+forall a. (Text -&gt; Either String a) -&gt; FromText a
+fromText :: Text -&gt; Either String RoutingControlState
+$cfromText :: Text -&gt; Either String RoutingControlState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>      </span><span id="local-6989586621679138391"><span class="annot"><span class="annottext">RoutingControlState -&gt; Text
+(RoutingControlState -&gt; Text) -&gt; ToText RoutingControlState
+forall a. (a -&gt; Text) -&gt; ToText a
+toText :: RoutingControlState -&gt; Text
+$ctoText :: RoutingControlState -&gt; Text
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToText</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-48"></span><span>      </span><span id="local-6989586621679138388"><span class="annot"><span class="annottext">RoutingControlState -&gt; ByteString
+(RoutingControlState -&gt; ByteString)
+-&gt; ToByteString RoutingControlState
+forall a. (a -&gt; ByteString) -&gt; ToByteString a
+toBS :: RoutingControlState -&gt; ByteString
+$ctoBS :: RoutingControlState -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToByteString</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-49"></span><span>      </span><span id="local-6989586621679138385"><span class="annot"><span class="annottext">RoutingControlState -&gt; ByteStringBuilder
+(RoutingControlState -&gt; ByteStringBuilder)
+-&gt; ToLog RoutingControlState
+forall a. (a -&gt; ByteStringBuilder) -&gt; ToLog a
+build :: RoutingControlState -&gt; ByteStringBuilder
+$cbuild :: RoutingControlState -&gt; ByteStringBuilder
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToLog</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>      </span><span id="local-6989586621679138382"><span class="annot"><span class="annottext">HeaderName -&gt; RoutingControlState -&gt; [Header]
+(HeaderName -&gt; RoutingControlState -&gt; [Header])
+-&gt; ToHeader RoutingControlState
+forall a. (HeaderName -&gt; a -&gt; [Header]) -&gt; ToHeader a
+toHeader :: HeaderName -&gt; RoutingControlState -&gt; [Header]
+$ctoHeader :: HeaderName -&gt; RoutingControlState -&gt; [Header]
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToHeader</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-51"></span><span>      </span><span id="local-6989586621679138379"><span class="annot"><span class="annottext">RoutingControlState -&gt; QueryString
+(RoutingControlState -&gt; QueryString) -&gt; ToQuery RoutingControlState
+forall a. (a -&gt; QueryString) -&gt; ToQuery a
+toQuery :: RoutingControlState -&gt; QueryString
+$ctoQuery :: RoutingControlState -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToQuery</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-52"></span><span>      </span><span id="local-6989586621679138374"><span id="local-6989586621679138376"><span class="annot"><span class="annottext">Value -&gt; Parser [RoutingControlState]
+Value -&gt; Parser RoutingControlState
+(Value -&gt; Parser RoutingControlState)
+-&gt; (Value -&gt; Parser [RoutingControlState])
+-&gt; FromJSON RoutingControlState
+forall a.
+(Value -&gt; Parser a) -&gt; (Value -&gt; Parser [a]) -&gt; FromJSON a
+parseJSONList :: Value -&gt; Parser [RoutingControlState]
+$cparseJSONList :: Value -&gt; Parser [RoutingControlState]
+parseJSON :: Value -&gt; Parser RoutingControlState
+$cparseJSON :: Value -&gt; Parser RoutingControlState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSON</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-53"></span><span>      </span><span id="local-6989586621679138369"><span id="local-6989586621679138371"><span class="annot"><span class="annottext">FromJSONKeyFunction [RoutingControlState]
+FromJSONKeyFunction RoutingControlState
+FromJSONKeyFunction RoutingControlState
+-&gt; FromJSONKeyFunction [RoutingControlState]
+-&gt; FromJSONKey RoutingControlState
+forall a.
+FromJSONKeyFunction a -&gt; FromJSONKeyFunction [a] -&gt; FromJSONKey a
+fromJSONKeyList :: FromJSONKeyFunction [RoutingControlState]
+$cfromJSONKeyList :: FromJSONKeyFunction [RoutingControlState]
+fromJSONKey :: FromJSONKeyFunction RoutingControlState
+$cfromJSONKey :: FromJSONKeyFunction RoutingControlState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.FromJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-54"></span><span>      </span><span id="local-6989586621679138360"><span id="local-6989586621679138362"><span id="local-6989586621679138364"><span id="local-6989586621679138366"><span class="annot"><span class="annottext">[RoutingControlState] -&gt; Encoding
+[RoutingControlState] -&gt; Value
+RoutingControlState -&gt; Encoding
+RoutingControlState -&gt; Value
+(RoutingControlState -&gt; Value)
+-&gt; (RoutingControlState -&gt; Encoding)
+-&gt; ([RoutingControlState] -&gt; Value)
+-&gt; ([RoutingControlState] -&gt; Encoding)
+-&gt; ToJSON RoutingControlState
+forall a.
+(a -&gt; Value)
+-&gt; (a -&gt; Encoding)
+-&gt; ([a] -&gt; Value)
+-&gt; ([a] -&gt; Encoding)
+-&gt; ToJSON a
+toEncodingList :: [RoutingControlState] -&gt; Encoding
+$ctoEncodingList :: [RoutingControlState] -&gt; Encoding
+toJSONList :: [RoutingControlState] -&gt; Value
+$ctoJSONList :: [RoutingControlState] -&gt; Value
+toEncoding :: RoutingControlState -&gt; Encoding
+$ctoEncoding :: RoutingControlState -&gt; Encoding
+toJSON :: RoutingControlState -&gt; Value
+$ctoJSON :: RoutingControlState -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSON</span></span></span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-55"></span><span>      </span><span id="local-6989586621679138355"><span id="local-6989586621679138357"><span class="annot"><span class="annottext">ToJSONKeyFunction [RoutingControlState]
+ToJSONKeyFunction RoutingControlState
+ToJSONKeyFunction RoutingControlState
+-&gt; ToJSONKeyFunction [RoutingControlState]
+-&gt; ToJSONKey RoutingControlState
+forall a.
+ToJSONKeyFunction a -&gt; ToJSONKeyFunction [a] -&gt; ToJSONKey a
+toJSONKeyList :: ToJSONKeyFunction [RoutingControlState]
+$ctoJSONKeyList :: ToJSONKeyFunction [RoutingControlState]
+toJSONKey :: ToJSONKeyFunction RoutingControlState
+$ctoJSONKey :: ToJSONKeyFunction RoutingControlState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Core.ToJSONKey</span></span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-56"></span><span>      </span><span id="local-6989586621679138352"><span class="annot"><span class="annottext">[Node] -&gt; Either String RoutingControlState
+([Node] -&gt; Either String RoutingControlState)
+-&gt; FromXML RoutingControlState
+forall a. ([Node] -&gt; Either String a) -&gt; FromXML a
+parseXML :: [Node] -&gt; Either String RoutingControlState
+$cparseXML :: [Node] -&gt; Either String RoutingControlState
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.FromXML</span></span></span><span class="hs-special">,</span><span>
+</span><span id="line-57"></span><span>      </span><span id="local-6989586621679138349"><span class="annot"><span class="annottext">RoutingControlState -&gt; XML
+(RoutingControlState -&gt; XML) -&gt; ToXML RoutingControlState
+forall a. (a -&gt; XML) -&gt; ToXML a
+toXML :: RoutingControlState -&gt; XML
+$ctoXML :: RoutingControlState -&gt; XML
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Core.ToXML</span></span></span><span>
+</span><span id="line-58"></span><span>    </span><span class="hs-special">)</span><span>
+</span><span id="line-59"></span><span>
+</span><span id="line-60"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState_Off"><span class="hs-identifier hs-type">RoutingControlState_Off</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState"><span class="hs-identifier hs-type">RoutingControlState</span></a></span><span>
+</span><span id="line-61"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoutingControlState_Off"><span id="%24mRoutingControlState_Off"><span id="RoutingControlState_Off"><span class="annot"><span class="annottext">$bRoutingControlState_Off :: RoutingControlState
+$mRoutingControlState_Off :: forall r. RoutingControlState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#%24bRoutingControlState_Off"><span class="hs-identifier hs-var hs-var hs-var">RoutingControlState_Off</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState%27"><span class="hs-identifier hs-type">RoutingControlState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;Off&quot;</span></span><span>
+</span><span id="line-62"></span><span>
+</span><span id="line-63"></span><span class="hs-keyword">pattern</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState_On"><span class="hs-identifier hs-type">RoutingControlState_On</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState"><span class="hs-identifier hs-type">RoutingControlState</span></a></span><span>
+</span><span id="line-64"></span><span class="hs-keyword">pattern</span><span> </span><span id="%24bRoutingControlState_On"><span id="%24mRoutingControlState_On"><span id="RoutingControlState_On"><span class="annot"><span class="annottext">$bRoutingControlState_On :: RoutingControlState
+$mRoutingControlState_On :: forall r. RoutingControlState -&gt; (Void# -&gt; r) -&gt; (Void# -&gt; r) -&gt; r
+</span><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#%24bRoutingControlState_On"><span class="hs-identifier hs-var hs-var hs-var">RoutingControlState_On</span></a></span></span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState%27"><span class="hs-identifier hs-type">RoutingControlState'</span></a></span><span> </span><span class="annot"><span class="hs-string">&quot;On&quot;</span></span><span>
+</span><span id="line-65"></span><span>
+</span><span id="line-66"></span><span class="hs-pragma">{-# COMPLETE</span><span>
+</span><span id="line-67"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState_Off"><span class="hs-pragma hs-type">RoutingControlState_Off</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-68"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState_On"><span class="hs-pragma hs-type">RoutingControlState_On</span></a></span><span class="hs-pragma">,</span><span>
+</span><span id="line-69"></span><span>  </span><span class="annot"><a href="Amazonka.Route53RecoveryCluster.Types.RoutingControlState.html#RoutingControlState%27"><span class="hs-pragma hs-type">RoutingControlState'</span></a></span><span>
+</span><span id="line-70"></span><span>  </span><span class="hs-pragma">#-}</span><span>
+</span><span id="line-71"></span></pre></body></html>

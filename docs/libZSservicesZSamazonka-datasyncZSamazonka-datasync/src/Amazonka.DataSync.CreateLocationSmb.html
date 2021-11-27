@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE TypeFamilies #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-binds #-}</span><span>
+</span><span id="line-10"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-11"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-14"></span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- Module      : Amazonka.DataSync.CreateLocationSmb</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-20"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-21"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-22"></span><span class="hs-comment">--</span><span>
+</span><span id="line-23"></span><span class="hs-comment">-- Defines a file system on a Server Message Block (SMB) server that can be</span><span>
+</span><span id="line-24"></span><span class="hs-comment">-- read from or written to.</span><span>
+</span><span id="line-25"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.DataSync.CreateLocationSmb</span><span>
+</span><span id="line-26"></span><span>  </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="hs-comment">-- * Creating a Request</span></span><span>
+</span><span id="line-27"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier">CreateLocationSmb</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-28"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#newCreateLocationSmb"><span class="hs-identifier">newCreateLocationSmb</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-29"></span><span>
+</span><span id="line-30"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Request Lenses</span></span><span>
+</span><span id="line-31"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_domain"><span class="hs-identifier">createLocationSmb_domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_mountOptions"><span class="hs-identifier">createLocationSmb_mountOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-33"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_tags"><span class="hs-identifier">createLocationSmb_tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_subdirectory"><span class="hs-identifier">createLocationSmb_subdirectory</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-35"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_serverHostname"><span class="hs-identifier">createLocationSmb_serverHostname</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_user"><span class="hs-identifier">createLocationSmb_user</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-37"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_password"><span class="hs-identifier">createLocationSmb_password</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_agentArns"><span class="hs-identifier">createLocationSmb_agentArns</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Destructuring the Response</span></span><span>
+</span><span id="line-41"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier">CreateLocationSmbResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-42"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#newCreateLocationSmbResponse"><span class="hs-identifier">newCreateLocationSmbResponse</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-43"></span><span>
+</span><span id="line-44"></span><span>    </span><span class="annot"><span class="hs-comment">-- * Response Lenses</span></span><span>
+</span><span id="line-45"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmbResponse_locationArn"><span class="hs-identifier">createLocationSmbResponse_locationArn</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-46"></span><span>    </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmbResponse_httpStatus"><span class="hs-identifier">createLocationSmbResponse_httpStatus</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>  </span><span class="hs-special">)</span><span>
+</span><span id="line-48"></span><span class="hs-keyword">where</span><span>
+</span><span id="line-49"></span><span>
+</span><span id="line-50"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-51"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.html"><span class="hs-identifier">Amazonka.DataSync.Types</span></a></span><span>
+</span><span id="line-52"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-53"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-54"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Request</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Request</span></span><span>
+</span><span id="line-55"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Response</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Response</span></span><span>
+</span><span id="line-56"></span><span>
+</span><span id="line-57"></span><span class="hs-comment">-- | CreateLocationSmbRequest</span><span>
+</span><span id="line-58"></span><span class="hs-comment">--</span><span>
+</span><span id="line-59"></span><span class="hs-comment">-- /See:/ 'newCreateLocationSmb' smart constructor.</span><span>
+</span><span id="line-60"></span><span id="local-6989586621679258895"><span id="local-6989586621679258896"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLocationSmb"><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-var">CreateLocationSmb</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLocationSmb%27"><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-var">CreateLocationSmb'</span></a></span></span><span>
+</span><span id="line-61"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The name of the Windows domain that the SMB server belongs to.</span><span>
+</span><span id="line-62"></span><span>    </span><span id="%24sel%3Adomain%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; Maybe Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Adomain%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-63"></span><span>    </span><span class="hs-comment">-- | The mount options used by DataSync to access the SMB server.</span><span>
+</span><span id="line-64"></span><span>    </span><span id="%24sel%3AmountOptions%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; Maybe SmbMountOptions
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AmountOptions%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">mountOptions</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbMountOptions.html#SmbMountOptions"><span class="hs-identifier hs-type">SmbMountOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-65"></span><span>    </span><span class="hs-comment">-- | The key-value pair that represents the tag that you want to add to the</span><span>
+</span><span id="line-66"></span><span>    </span><span class="hs-comment">-- location. The value can be an empty string. We recommend using tags to</span><span>
+</span><span id="line-67"></span><span>    </span><span class="hs-comment">-- name your resources.</span><span>
+</span><span id="line-68"></span><span>    </span><span id="%24sel%3Atags%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; Maybe [TagListEntry]
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Atags%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataSync.Types.TagListEntry.html#TagListEntry"><span class="hs-identifier hs-type">TagListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-69"></span><span>    </span><span class="hs-comment">-- | The subdirectory in the SMB file system that is used to read data from</span><span>
+</span><span id="line-70"></span><span>    </span><span class="hs-comment">-- the SMB source location or write data to the SMB destination. The SMB</span><span>
+</span><span id="line-71"></span><span>    </span><span class="hs-comment">-- path should be a path that\'s exported by the SMB server, or a</span><span>
+</span><span id="line-72"></span><span>    </span><span class="hs-comment">-- subdirectory of that path. The path should be such that it can be</span><span>
+</span><span id="line-73"></span><span>    </span><span class="hs-comment">-- mounted by other SMB clients in your network.</span><span>
+</span><span id="line-74"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-75"></span><span>    </span><span class="hs-comment">-- @Subdirectory@ must be specified with forward slashes. For example,</span><span>
+</span><span id="line-76"></span><span>    </span><span class="hs-comment">-- @\/path\/to\/folder@.</span><span>
+</span><span id="line-77"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-78"></span><span>    </span><span class="hs-comment">-- To transfer all the data in the folder you specified, DataSync needs to</span><span>
+</span><span id="line-79"></span><span>    </span><span class="hs-comment">-- have permissions to mount the SMB share, as well as to access all the</span><span>
+</span><span id="line-80"></span><span>    </span><span class="hs-comment">-- data in that share. To ensure this, either ensure that the</span><span>
+</span><span id="line-81"></span><span>    </span><span class="hs-comment">-- user\/password specified belongs to the user who can mount the share,</span><span>
+</span><span id="line-82"></span><span>    </span><span class="hs-comment">-- and who has the appropriate permissions for all of the files and</span><span>
+</span><span id="line-83"></span><span>    </span><span class="hs-comment">-- directories that you want DataSync to access, or use credentials of a</span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-comment">-- member of the Backup Operators group to mount the share. Doing either</span><span>
+</span><span id="line-85"></span><span>    </span><span class="hs-comment">-- enables the agent to access the data. For the agent to access</span><span>
+</span><span id="line-86"></span><span>    </span><span class="hs-comment">-- directories, you must additionally enable all execute access.</span><span>
+</span><span id="line-87"></span><span>    </span><span id="%24sel%3Asubdirectory%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Asubdirectory%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">subdirectory</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>    </span><span class="hs-comment">-- | The name of the SMB server. This value is the IP address or Domain Name</span><span>
+</span><span id="line-89"></span><span>    </span><span class="hs-comment">-- Service (DNS) name of the SMB server. An agent that is installed</span><span>
+</span><span id="line-90"></span><span>    </span><span class="hs-comment">-- on-premises uses this hostname to mount the SMB server in a network.</span><span>
+</span><span id="line-91"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-92"></span><span>    </span><span class="hs-comment">-- This name must either be DNS-compliant or must be an IP version 4 (IPv4)</span><span>
+</span><span id="line-93"></span><span>    </span><span class="hs-comment">-- address.</span><span>
+</span><span id="line-94"></span><span>    </span><span id="%24sel%3AserverHostname%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AserverHostname%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">serverHostname</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-95"></span><span>    </span><span class="hs-comment">-- | The user who can mount the share, has the permissions to access files</span><span>
+</span><span id="line-96"></span><span>    </span><span class="hs-comment">-- and folders in the SMB share.</span><span>
+</span><span id="line-97"></span><span>    </span><span class="hs-comment">--</span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-comment">-- For information about choosing a user name that ensures sufficient</span><span>
+</span><span id="line-99"></span><span>    </span><span class="hs-comment">-- permissions to files, folders, and metadata, see</span><span>
+</span><span id="line-100"></span><span>    </span><span class="hs-comment">-- &lt;create-smb-location.html#SMBuser user&gt;.</span><span>
+</span><span id="line-101"></span><span>    </span><span id="%24sel%3Auser%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Auser%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-102"></span><span>    </span><span class="hs-comment">-- | The password of the user who can mount the share, has the permissions to</span><span>
+</span><span id="line-103"></span><span>    </span><span class="hs-comment">-- access files and folders in the SMB share.</span><span>
+</span><span id="line-104"></span><span>    </span><span id="%24sel%3Apassword%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; Sensitive Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Apassword%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.Sensitive</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-105"></span><span>    </span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message</span><span>
+</span><span id="line-106"></span><span>    </span><span class="hs-comment">-- Block (SMB) location.</span><span>
+</span><span id="line-107"></span><span>    </span><span id="%24sel%3AagentArns%3ACreateLocationSmb%27"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; NonEmpty Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AagentArns%3ACreateLocationSmb%27"><span class="hs-identifier hs-var hs-var">agentArns</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-108"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-109"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258882"><span id="local-6989586621679258884"><span class="annot"><span class="annottext">CreateLocationSmb -&gt; CreateLocationSmb -&gt; Bool
+(CreateLocationSmb -&gt; CreateLocationSmb -&gt; Bool)
+-&gt; (CreateLocationSmb -&gt; CreateLocationSmb -&gt; Bool)
+-&gt; Eq CreateLocationSmb
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLocationSmb -&gt; CreateLocationSmb -&gt; Bool
+$c/= :: CreateLocationSmb -&gt; CreateLocationSmb -&gt; Bool
+== :: CreateLocationSmb -&gt; CreateLocationSmb -&gt; Bool
+$c== :: CreateLocationSmb -&gt; CreateLocationSmb -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258875"><span id="local-6989586621679258877"><span id="local-6989586621679258879"><span class="annot"><span class="annottext">Int -&gt; CreateLocationSmb -&gt; ShowS
+[CreateLocationSmb] -&gt; ShowS
+CreateLocationSmb -&gt; String
+(Int -&gt; CreateLocationSmb -&gt; ShowS)
+-&gt; (CreateLocationSmb -&gt; String)
+-&gt; ([CreateLocationSmb] -&gt; ShowS)
+-&gt; Show CreateLocationSmb
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLocationSmb] -&gt; ShowS
+$cshowList :: [CreateLocationSmb] -&gt; ShowS
+show :: CreateLocationSmb -&gt; String
+$cshow :: CreateLocationSmb -&gt; String
+showsPrec :: Int -&gt; CreateLocationSmb -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLocationSmb -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CreateLocationSmb -&gt; Rep CreateLocationSmb x)
+-&gt; (forall x. Rep CreateLocationSmb x -&gt; CreateLocationSmb)
+-&gt; Generic CreateLocationSmb
+forall x. Rep CreateLocationSmb x -&gt; CreateLocationSmb
+forall x. CreateLocationSmb -&gt; Rep CreateLocationSmb x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CreateLocationSmb x -&gt; CreateLocationSmb
+$cfrom :: forall x. CreateLocationSmb -&gt; Rep CreateLocationSmb x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-110"></span><span>
+</span><span id="line-111"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-112"></span><span class="hs-comment">-- Create a value of 'CreateLocationSmb' with all optional fields omitted.</span><span>
+</span><span id="line-113"></span><span class="hs-comment">--</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-115"></span><span class="hs-comment">--</span><span>
+</span><span id="line-116"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-117"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-118"></span><span class="hs-comment">--</span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- 'domain', 'createLocationSmb_domain' - The name of the Windows domain that the SMB server belongs to.</span><span>
+</span><span id="line-120"></span><span class="hs-comment">--</span><span>
+</span><span id="line-121"></span><span class="hs-comment">-- 'mountOptions', 'createLocationSmb_mountOptions' - The mount options used by DataSync to access the SMB server.</span><span>
+</span><span id="line-122"></span><span class="hs-comment">--</span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- 'tags', 'createLocationSmb_tags' - The key-value pair that represents the tag that you want to add to the</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- location. The value can be an empty string. We recommend using tags to</span><span>
+</span><span id="line-125"></span><span class="hs-comment">-- name your resources.</span><span>
+</span><span id="line-126"></span><span class="hs-comment">--</span><span>
+</span><span id="line-127"></span><span class="hs-comment">-- 'subdirectory', 'createLocationSmb_subdirectory' - The subdirectory in the SMB file system that is used to read data from</span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- the SMB source location or write data to the SMB destination. The SMB</span><span>
+</span><span id="line-129"></span><span class="hs-comment">-- path should be a path that\'s exported by the SMB server, or a</span><span>
+</span><span id="line-130"></span><span class="hs-comment">-- subdirectory of that path. The path should be such that it can be</span><span>
+</span><span id="line-131"></span><span class="hs-comment">-- mounted by other SMB clients in your network.</span><span>
+</span><span id="line-132"></span><span class="hs-comment">--</span><span>
+</span><span id="line-133"></span><span class="hs-comment">-- @Subdirectory@ must be specified with forward slashes. For example,</span><span>
+</span><span id="line-134"></span><span class="hs-comment">-- @\/path\/to\/folder@.</span><span>
+</span><span id="line-135"></span><span class="hs-comment">--</span><span>
+</span><span id="line-136"></span><span class="hs-comment">-- To transfer all the data in the folder you specified, DataSync needs to</span><span>
+</span><span id="line-137"></span><span class="hs-comment">-- have permissions to mount the SMB share, as well as to access all the</span><span>
+</span><span id="line-138"></span><span class="hs-comment">-- data in that share. To ensure this, either ensure that the</span><span>
+</span><span id="line-139"></span><span class="hs-comment">-- user\/password specified belongs to the user who can mount the share,</span><span>
+</span><span id="line-140"></span><span class="hs-comment">-- and who has the appropriate permissions for all of the files and</span><span>
+</span><span id="line-141"></span><span class="hs-comment">-- directories that you want DataSync to access, or use credentials of a</span><span>
+</span><span id="line-142"></span><span class="hs-comment">-- member of the Backup Operators group to mount the share. Doing either</span><span>
+</span><span id="line-143"></span><span class="hs-comment">-- enables the agent to access the data. For the agent to access</span><span>
+</span><span id="line-144"></span><span class="hs-comment">-- directories, you must additionally enable all execute access.</span><span>
+</span><span id="line-145"></span><span class="hs-comment">--</span><span>
+</span><span id="line-146"></span><span class="hs-comment">-- 'serverHostname', 'createLocationSmb_serverHostname' - The name of the SMB server. This value is the IP address or Domain Name</span><span>
+</span><span id="line-147"></span><span class="hs-comment">-- Service (DNS) name of the SMB server. An agent that is installed</span><span>
+</span><span id="line-148"></span><span class="hs-comment">-- on-premises uses this hostname to mount the SMB server in a network.</span><span>
+</span><span id="line-149"></span><span class="hs-comment">--</span><span>
+</span><span id="line-150"></span><span class="hs-comment">-- This name must either be DNS-compliant or must be an IP version 4 (IPv4)</span><span>
+</span><span id="line-151"></span><span class="hs-comment">-- address.</span><span>
+</span><span id="line-152"></span><span class="hs-comment">--</span><span>
+</span><span id="line-153"></span><span class="hs-comment">-- 'user', 'createLocationSmb_user' - The user who can mount the share, has the permissions to access files</span><span>
+</span><span id="line-154"></span><span class="hs-comment">-- and folders in the SMB share.</span><span>
+</span><span id="line-155"></span><span class="hs-comment">--</span><span>
+</span><span id="line-156"></span><span class="hs-comment">-- For information about choosing a user name that ensures sufficient</span><span>
+</span><span id="line-157"></span><span class="hs-comment">-- permissions to files, folders, and metadata, see</span><span>
+</span><span id="line-158"></span><span class="hs-comment">-- &lt;create-smb-location.html#SMBuser user&gt;.</span><span>
+</span><span id="line-159"></span><span class="hs-comment">--</span><span>
+</span><span id="line-160"></span><span class="hs-comment">-- 'password', 'createLocationSmb_password' - The password of the user who can mount the share, has the permissions to</span><span>
+</span><span id="line-161"></span><span class="hs-comment">-- access files and folders in the SMB share.</span><span>
+</span><span id="line-162"></span><span class="hs-comment">--</span><span>
+</span><span id="line-163"></span><span class="hs-comment">-- 'agentArns', 'createLocationSmb_agentArns' - The Amazon Resource Names (ARNs) of agents to use for a Simple Message</span><span>
+</span><span id="line-164"></span><span class="hs-comment">-- Block (SMB) location.</span><span>
+</span><span id="line-165"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#newCreateLocationSmb"><span class="hs-identifier hs-type">newCreateLocationSmb</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-166"></span><span>  </span><span class="hs-comment">-- | 'subdirectory'</span><span>
+</span><span id="line-167"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-168"></span><span>  </span><span class="hs-comment">-- | 'serverHostname'</span><span>
+</span><span id="line-169"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-170"></span><span>  </span><span class="hs-comment">-- | 'user'</span><span>
+</span><span id="line-171"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-172"></span><span>  </span><span class="hs-comment">-- | 'password'</span><span>
+</span><span id="line-173"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-174"></span><span>  </span><span class="hs-comment">-- | 'agentArns'</span><span>
+</span><span id="line-175"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-176"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span>
+</span><span id="line-177"></span><span id="newCreateLocationSmb"><span class="annot"><span class="annottext">newCreateLocationSmb :: Text -&gt; Text -&gt; Text -&gt; Text -&gt; NonEmpty Text -&gt; CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#newCreateLocationSmb"><span class="hs-identifier hs-var hs-var">newCreateLocationSmb</span></a></span></span><span>
+</span><span id="line-178"></span><span>  </span><span id="local-6989586621679258870"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258870"><span class="hs-identifier hs-var">pSubdirectory_</span></a></span></span><span>
+</span><span id="line-179"></span><span>  </span><span id="local-6989586621679258869"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258869"><span class="hs-identifier hs-var">pServerHostname_</span></a></span></span><span>
+</span><span id="line-180"></span><span>  </span><span id="local-6989586621679258868"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258868"><span class="hs-identifier hs-var">pUser_</span></a></span></span><span>
+</span><span id="line-181"></span><span>  </span><span id="local-6989586621679258867"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258867"><span class="hs-identifier hs-var">pPassword_</span></a></span></span><span>
+</span><span id="line-182"></span><span>  </span><span id="local-6989586621679258866"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679258866"><span class="hs-identifier hs-var">pAgentArns_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-183"></span><span>    </span><span class="annot"><span class="annottext">CreateLocationSmb' :: Maybe Text
+-&gt; Maybe SmbMountOptions
+-&gt; Maybe [TagListEntry]
+-&gt; Text
+-&gt; Text
+-&gt; Text
+-&gt; Sensitive Text
+-&gt; NonEmpty Text
+-&gt; CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span>
+</span><span id="line-184"></span><span>      </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:domain:CreateLocationSmb' :: Maybe Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Adomain%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-185"></span><span>        </span><span class="annot"><span class="annottext">$sel:mountOptions:CreateLocationSmb' :: Maybe SmbMountOptions
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AmountOptions%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">mountOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmbMountOptions
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-186"></span><span>        </span><span class="annot"><span class="annottext">$sel:tags:CreateLocationSmb' :: Maybe [TagListEntry]
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Atags%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-187"></span><span>        </span><span class="annot"><span class="annottext">$sel:subdirectory:CreateLocationSmb' :: Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Asubdirectory%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">subdirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258870"><span class="hs-identifier hs-var">pSubdirectory_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-188"></span><span>        </span><span class="annot"><span class="annottext">$sel:serverHostname:CreateLocationSmb' :: Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AserverHostname%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">serverHostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258869"><span class="hs-identifier hs-var">pServerHostname_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-189"></span><span>        </span><span class="annot"><span class="annottext">$sel:user:CreateLocationSmb' :: Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Auser%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258868"><span class="hs-identifier hs-var">pUser_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-190"></span><span>        </span><span class="annot"><span class="annottext">$sel:password:CreateLocationSmb' :: Sensitive Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Apassword%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged Text (Identity Text)
+-&gt; Tagged (Sensitive Text) (Identity (Sensitive Text))
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span> </span><span class="annot"><span class="annottext">(Tagged Text (Identity Text)
+ -&gt; Tagged (Sensitive Text) (Identity (Sensitive Text)))
+-&gt; Text -&gt; Sensitive Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258867"><span class="hs-identifier hs-var">pPassword_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-191"></span><span>        </span><span class="annot"><span class="annottext">$sel:agentArns:CreateLocationSmb' :: NonEmpty Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AagentArns%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">agentArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+-&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span> </span><span class="annot"><span class="annottext">(Tagged (NonEmpty Text) (Identity (NonEmpty Text))
+ -&gt; Tagged (NonEmpty Text) (Identity (NonEmpty Text)))
+-&gt; NonEmpty Text -&gt; NonEmpty Text
+forall t b. AReview t b -&gt; b -&gt; t
+</span><span class="hs-operator hs-var">Lens.#</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679258866"><span class="hs-identifier hs-var">pAgentArns_</span></a></span><span>
+</span><span id="line-192"></span><span>      </span><span class="hs-special">}</span><span>
+</span><span id="line-193"></span><span>
+</span><span id="line-194"></span><span class="hs-comment">-- | The name of the Windows domain that the SMB server belongs to.</span><span>
+</span><span id="line-195"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_domain"><span class="hs-identifier hs-type">createLocationSmb_domain</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-196"></span><span id="createLocationSmb_domain"><span class="annot"><span class="annottext">createLocationSmb_domain :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_domain"><span class="hs-identifier hs-var hs-var">createLocationSmb_domain</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; Maybe Text)
+-&gt; (CreateLocationSmb -&gt; Maybe Text -&gt; CreateLocationSmb)
+-&gt; Lens
+     CreateLocationSmb CreateLocationSmb (Maybe Text) (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258860"><span class="annot"><span class="annottext">Maybe Text
+domain :: Maybe Text
+$sel:domain:CreateLocationSmb' :: CreateLocationSmb -&gt; Maybe Text
+</span><a href="#local-6989586621679258860"><span class="hs-identifier hs-var hs-var">domain</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258860"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258859"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258859"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258858"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258858"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258859"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:domain:CreateLocationSmb' :: Maybe Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Adomain%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">domain</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258858"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-197"></span><span>
+</span><span id="line-198"></span><span class="hs-comment">-- | The mount options used by DataSync to access the SMB server.</span><span>
+</span><span id="line-199"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_mountOptions"><span class="hs-identifier hs-type">createLocationSmb_mountOptions</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.Types.SmbMountOptions.html#SmbMountOptions"><span class="hs-identifier hs-type">SmbMountOptions</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-200"></span><span id="createLocationSmb_mountOptions"><span class="annot"><span class="annottext">createLocationSmb_mountOptions :: (Maybe SmbMountOptions -&gt; f (Maybe SmbMountOptions))
+-&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_mountOptions"><span class="hs-identifier hs-var hs-var">createLocationSmb_mountOptions</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; Maybe SmbMountOptions)
+-&gt; (CreateLocationSmb
+    -&gt; Maybe SmbMountOptions -&gt; CreateLocationSmb)
+-&gt; Lens
+     CreateLocationSmb
+     CreateLocationSmb
+     (Maybe SmbMountOptions)
+     (Maybe SmbMountOptions)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258857"><span class="annot"><span class="annottext">Maybe SmbMountOptions
+mountOptions :: Maybe SmbMountOptions
+$sel:mountOptions:CreateLocationSmb' :: CreateLocationSmb -&gt; Maybe SmbMountOptions
+</span><a href="#local-6989586621679258857"><span class="hs-identifier hs-var hs-var">mountOptions</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe SmbMountOptions
+</span><a href="#local-6989586621679258857"><span class="hs-identifier hs-var">mountOptions</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258856"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258856"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258855"><span class="annot"><span class="annottext">Maybe SmbMountOptions
+</span><a href="#local-6989586621679258855"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258856"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:mountOptions:CreateLocationSmb' :: Maybe SmbMountOptions
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AmountOptions%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">mountOptions</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe SmbMountOptions
+</span><a href="#local-6989586621679258855"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-201"></span><span>
+</span><span id="line-202"></span><span class="hs-comment">-- | The key-value pair that represents the tag that you want to add to the</span><span>
+</span><span id="line-203"></span><span class="hs-comment">-- location. The value can be an empty string. We recommend using tags to</span><span>
+</span><span id="line-204"></span><span class="hs-comment">-- name your resources.</span><span>
+</span><span id="line-205"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_tags"><span class="hs-identifier hs-type">createLocationSmb_tags</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.DataSync.Types.TagListEntry.html#TagListEntry"><span class="hs-identifier hs-type">TagListEntry</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-206"></span><span id="createLocationSmb_tags"><span class="annot"><span class="annottext">createLocationSmb_tags :: (Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+-&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_tags"><span class="hs-identifier hs-var hs-var">createLocationSmb_tags</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; Maybe [TagListEntry])
+-&gt; (CreateLocationSmb -&gt; Maybe [TagListEntry] -&gt; CreateLocationSmb)
+-&gt; Lens
+     CreateLocationSmb
+     CreateLocationSmb
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258854"><span class="annot"><span class="annottext">Maybe [TagListEntry]
+tags :: Maybe [TagListEntry]
+$sel:tags:CreateLocationSmb' :: CreateLocationSmb -&gt; Maybe [TagListEntry]
+</span><a href="#local-6989586621679258854"><span class="hs-identifier hs-var hs-var">tags</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679258854"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258853"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258853"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258852"><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679258852"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258853"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tags:CreateLocationSmb' :: Maybe [TagListEntry]
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Atags%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">tags</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679258852"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+ -&gt; CreateLocationSmb -&gt; f CreateLocationSmb)
+-&gt; ((Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+    -&gt; Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+-&gt; (Maybe [TagListEntry] -&gt; f (Maybe [TagListEntry]))
+-&gt; CreateLocationSmb
+-&gt; f CreateLocationSmb
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagListEntry] [TagListEntry] [TagListEntry] [TagListEntry]
+-&gt; Iso
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+     (Maybe [TagListEntry])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso [TagListEntry] [TagListEntry] [TagListEntry] [TagListEntry]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-207"></span><span>
+</span><span id="line-208"></span><span class="hs-comment">-- | The subdirectory in the SMB file system that is used to read data from</span><span>
+</span><span id="line-209"></span><span class="hs-comment">-- the SMB source location or write data to the SMB destination. The SMB</span><span>
+</span><span id="line-210"></span><span class="hs-comment">-- path should be a path that\'s exported by the SMB server, or a</span><span>
+</span><span id="line-211"></span><span class="hs-comment">-- subdirectory of that path. The path should be such that it can be</span><span>
+</span><span id="line-212"></span><span class="hs-comment">-- mounted by other SMB clients in your network.</span><span>
+</span><span id="line-213"></span><span class="hs-comment">--</span><span>
+</span><span id="line-214"></span><span class="hs-comment">-- @Subdirectory@ must be specified with forward slashes. For example,</span><span>
+</span><span id="line-215"></span><span class="hs-comment">-- @\/path\/to\/folder@.</span><span>
+</span><span id="line-216"></span><span class="hs-comment">--</span><span>
+</span><span id="line-217"></span><span class="hs-comment">-- To transfer all the data in the folder you specified, DataSync needs to</span><span>
+</span><span id="line-218"></span><span class="hs-comment">-- have permissions to mount the SMB share, as well as to access all the</span><span>
+</span><span id="line-219"></span><span class="hs-comment">-- data in that share. To ensure this, either ensure that the</span><span>
+</span><span id="line-220"></span><span class="hs-comment">-- user\/password specified belongs to the user who can mount the share,</span><span>
+</span><span id="line-221"></span><span class="hs-comment">-- and who has the appropriate permissions for all of the files and</span><span>
+</span><span id="line-222"></span><span class="hs-comment">-- directories that you want DataSync to access, or use credentials of a</span><span>
+</span><span id="line-223"></span><span class="hs-comment">-- member of the Backup Operators group to mount the share. Doing either</span><span>
+</span><span id="line-224"></span><span class="hs-comment">-- enables the agent to access the data. For the agent to access</span><span>
+</span><span id="line-225"></span><span class="hs-comment">-- directories, you must additionally enable all execute access.</span><span>
+</span><span id="line-226"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_subdirectory"><span class="hs-identifier hs-type">createLocationSmb_subdirectory</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-227"></span><span id="createLocationSmb_subdirectory"><span class="annot"><span class="annottext">createLocationSmb_subdirectory :: (Text -&gt; f Text) -&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_subdirectory"><span class="hs-identifier hs-var hs-var">createLocationSmb_subdirectory</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; Text)
+-&gt; (CreateLocationSmb -&gt; Text -&gt; CreateLocationSmb)
+-&gt; Lens CreateLocationSmb CreateLocationSmb Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258849"><span class="annot"><span class="annottext">Text
+subdirectory :: Text
+$sel:subdirectory:CreateLocationSmb' :: CreateLocationSmb -&gt; Text
+</span><a href="#local-6989586621679258849"><span class="hs-identifier hs-var hs-var">subdirectory</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258849"><span class="hs-identifier hs-var">subdirectory</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258848"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258848"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258847"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258847"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258848"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:subdirectory:CreateLocationSmb' :: Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Asubdirectory%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">subdirectory</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258847"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-228"></span><span>
+</span><span id="line-229"></span><span class="hs-comment">-- | The name of the SMB server. This value is the IP address or Domain Name</span><span>
+</span><span id="line-230"></span><span class="hs-comment">-- Service (DNS) name of the SMB server. An agent that is installed</span><span>
+</span><span id="line-231"></span><span class="hs-comment">-- on-premises uses this hostname to mount the SMB server in a network.</span><span>
+</span><span id="line-232"></span><span class="hs-comment">--</span><span>
+</span><span id="line-233"></span><span class="hs-comment">-- This name must either be DNS-compliant or must be an IP version 4 (IPv4)</span><span>
+</span><span id="line-234"></span><span class="hs-comment">-- address.</span><span>
+</span><span id="line-235"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_serverHostname"><span class="hs-identifier hs-type">createLocationSmb_serverHostname</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-236"></span><span id="createLocationSmb_serverHostname"><span class="annot"><span class="annottext">createLocationSmb_serverHostname :: (Text -&gt; f Text) -&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_serverHostname"><span class="hs-identifier hs-var hs-var">createLocationSmb_serverHostname</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; Text)
+-&gt; (CreateLocationSmb -&gt; Text -&gt; CreateLocationSmb)
+-&gt; Lens CreateLocationSmb CreateLocationSmb Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258846"><span class="annot"><span class="annottext">Text
+serverHostname :: Text
+$sel:serverHostname:CreateLocationSmb' :: CreateLocationSmb -&gt; Text
+</span><a href="#local-6989586621679258846"><span class="hs-identifier hs-var hs-var">serverHostname</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258846"><span class="hs-identifier hs-var">serverHostname</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258845"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258845"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258844"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258844"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258845"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:serverHostname:CreateLocationSmb' :: Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AserverHostname%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">serverHostname</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258844"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-237"></span><span>
+</span><span id="line-238"></span><span class="hs-comment">-- | The user who can mount the share, has the permissions to access files</span><span>
+</span><span id="line-239"></span><span class="hs-comment">-- and folders in the SMB share.</span><span>
+</span><span id="line-240"></span><span class="hs-comment">--</span><span>
+</span><span id="line-241"></span><span class="hs-comment">-- For information about choosing a user name that ensures sufficient</span><span>
+</span><span id="line-242"></span><span class="hs-comment">-- permissions to files, folders, and metadata, see</span><span>
+</span><span id="line-243"></span><span class="hs-comment">-- &lt;create-smb-location.html#SMBuser user&gt;.</span><span>
+</span><span id="line-244"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_user"><span class="hs-identifier hs-type">createLocationSmb_user</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-245"></span><span id="createLocationSmb_user"><span class="annot"><span class="annottext">createLocationSmb_user :: (Text -&gt; f Text) -&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_user"><span class="hs-identifier hs-var hs-var">createLocationSmb_user</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; Text)
+-&gt; (CreateLocationSmb -&gt; Text -&gt; CreateLocationSmb)
+-&gt; Lens CreateLocationSmb CreateLocationSmb Text Text
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258843"><span class="annot"><span class="annottext">Text
+user :: Text
+$sel:user:CreateLocationSmb' :: CreateLocationSmb -&gt; Text
+</span><a href="#local-6989586621679258843"><span class="hs-identifier hs-var hs-var">user</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258843"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258842"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258842"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258841"><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258841"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258842"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:user:CreateLocationSmb' :: Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Auser%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">user</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258841"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-246"></span><span>
+</span><span id="line-247"></span><span class="hs-comment">-- | The password of the user who can mount the share, has the permissions to</span><span>
+</span><span id="line-248"></span><span class="hs-comment">-- access files and folders in the SMB share.</span><span>
+</span><span id="line-249"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_password"><span class="hs-identifier hs-type">createLocationSmb_password</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span>
+</span><span id="line-250"></span><span id="createLocationSmb_password"><span class="annot"><span class="annottext">createLocationSmb_password :: (Text -&gt; f Text) -&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_password"><span class="hs-identifier hs-var hs-var">createLocationSmb_password</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; Sensitive Text)
+-&gt; (CreateLocationSmb -&gt; Sensitive Text -&gt; CreateLocationSmb)
+-&gt; Lens
+     CreateLocationSmb
+     CreateLocationSmb
+     (Sensitive Text)
+     (Sensitive Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258840"><span class="annot"><span class="annottext">Sensitive Text
+password :: Sensitive Text
+$sel:password:CreateLocationSmb' :: CreateLocationSmb -&gt; Sensitive Text
+</span><a href="#local-6989586621679258840"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679258840"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258839"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258839"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258838"><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679258838"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258839"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:password:CreateLocationSmb' :: Sensitive Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3Apassword%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">password</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679258838"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Sensitive Text -&gt; f (Sensitive Text))
+ -&gt; CreateLocationSmb -&gt; f CreateLocationSmb)
+-&gt; ((Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text))
+-&gt; (Text -&gt; f Text)
+-&gt; CreateLocationSmb
+-&gt; f CreateLocationSmb
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(Text -&gt; f Text) -&gt; Sensitive Text -&gt; f (Sensitive Text)
+forall a. Iso' (Sensitive a) a
+</span><span class="hs-identifier hs-var">Core._Sensitive</span></span><span>
+</span><span id="line-251"></span><span>
+</span><span id="line-252"></span><span class="hs-comment">-- | The Amazon Resource Names (ARNs) of agents to use for a Simple Message</span><span>
+</span><span id="line-253"></span><span class="hs-comment">-- Block (SMB) location.</span><span>
+</span><span id="line-254"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_agentArns"><span class="hs-identifier hs-type">createLocationSmb_agentArns</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.NonEmpty</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-255"></span><span id="createLocationSmb_agentArns"><span class="annot"><span class="annottext">createLocationSmb_agentArns :: (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateLocationSmb -&gt; f CreateLocationSmb
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmb_agentArns"><span class="hs-identifier hs-var hs-var">createLocationSmb_agentArns</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmb -&gt; NonEmpty Text)
+-&gt; (CreateLocationSmb -&gt; NonEmpty Text -&gt; CreateLocationSmb)
+-&gt; Lens
+     CreateLocationSmb CreateLocationSmb (NonEmpty Text) (NonEmpty Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258837"><span class="annot"><span class="annottext">NonEmpty Text
+agentArns :: NonEmpty Text
+$sel:agentArns:CreateLocationSmb' :: CreateLocationSmb -&gt; NonEmpty Text
+</span><a href="#local-6989586621679258837"><span class="hs-identifier hs-var hs-var">agentArns</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679258837"><span class="hs-identifier hs-var">agentArns</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258836"><span class="annot"><span class="annottext">s :: CreateLocationSmb
+</span><a href="#local-6989586621679258836"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258835"><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679258835"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmb
+</span><a href="#local-6989586621679258836"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:agentArns:CreateLocationSmb' :: NonEmpty Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AagentArns%3ACreateLocationSmb%27"><span class="hs-identifier hs-var">agentArns</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679258835"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((NonEmpty Text -&gt; f (NonEmpty Text))
+ -&gt; CreateLocationSmb -&gt; f CreateLocationSmb)
+-&gt; ((NonEmpty Text -&gt; f (NonEmpty Text))
+    -&gt; NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; (NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; CreateLocationSmb
+-&gt; f CreateLocationSmb
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">(NonEmpty Text -&gt; f (NonEmpty Text))
+-&gt; NonEmpty Text -&gt; f (NonEmpty Text)
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-256"></span><span>
+</span><span id="line-257"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.AWSRequest</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-258"></span><span>  </span><span class="hs-keyword">type</span><span>
+</span><span id="line-259"></span><span>    </span><span id="AWSResponse"><span class="annot"><span class="hs-identifier hs-var">AWSResponse</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-260"></span><span>      </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-type">CreateLocationSmbResponse</span></a></span><span>
+</span><span id="line-261"></span><span>  </span><span id="local-6989586621679258831"><span class="annot"><span class="annottext">request :: CreateLocationSmb -&gt; Request CreateLocationSmb
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">request</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Service -&gt; CreateLocationSmb -&gt; Request CreateLocationSmb
+forall a. (ToRequest a, ToJSON a) =&gt; Service -&gt; a -&gt; Request a
+</span><span class="hs-identifier hs-var">Request.postJSON</span></span><span> </span><span class="annot"><span class="annottext">Service
+</span><a href="Amazonka.DataSync.Types.html#defaultService"><span class="hs-identifier hs-var">defaultService</span></a></span><span>
+</span><span id="line-262"></span><span>  </span><span id="local-6989586621679258827"><span class="annot"><span class="annottext">response :: Logger
+-&gt; Service
+-&gt; Proxy CreateLocationSmb
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLocationSmb)))
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">response</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-263"></span><span>    </span><span class="annot"><span class="annottext">(Int
+ -&gt; ResponseHeaders
+ -&gt; Object
+ -&gt; Either String (AWSResponse CreateLocationSmb))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy CreateLocationSmb
+-&gt; ClientResponse ClientBody
+-&gt; m (Either
+        Error (ClientResponse (AWSResponse CreateLocationSmb)))
+forall (m :: * -&gt; *) a.
+MonadResource m =&gt;
+(Int -&gt; ResponseHeaders -&gt; Object -&gt; Either String (AWSResponse a))
+-&gt; Logger
+-&gt; Service
+-&gt; Proxy a
+-&gt; ClientResponse ClientBody
+-&gt; m (Either Error (ClientResponse (AWSResponse a)))
+</span><span class="hs-identifier hs-var">Response.receiveJSON</span></span><span>
+</span><span id="line-264"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679258824"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258824"><span class="hs-identifier hs-var">s</span></a></span></span><span> </span><span id="local-6989586621679258823"><span class="annot"><span class="annottext">ResponseHeaders
+</span><a href="#local-6989586621679258823"><span class="hs-identifier hs-var">h</span></a></span></span><span> </span><span id="local-6989586621679258822"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258822"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-265"></span><span>          </span><span class="annot"><span class="annottext">Maybe Text -&gt; Int -&gt; CreateLocationSmbResponse
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse%27"><span class="hs-identifier hs-var">CreateLocationSmbResponse'</span></a></span><span>
+</span><span id="line-266"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Text -&gt; Int -&gt; CreateLocationSmbResponse)
+-&gt; Either String (Maybe Text)
+-&gt; Either String (Int -&gt; CreateLocationSmbResponse)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679258822"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Either String (Maybe Text)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Either String (Maybe a)
+</span><span class="hs-operator hs-var">Core..?&gt;</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;LocationArn&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-267"></span><span>            </span><span class="annot"><span class="annottext">Either String (Int -&gt; CreateLocationSmbResponse)
+-&gt; Either String Int -&gt; Either String CreateLocationSmbResponse
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Either String Int
+forall (f :: * -&gt; *) a. Applicative f =&gt; a -&gt; f a
+</span><span class="hs-identifier hs-var">Prelude.pure</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Int -&gt; Int
+forall a. Enum a =&gt; a -&gt; Int
+</span><span class="hs-identifier hs-var">Prelude.fromEnum</span></span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258824"><span class="hs-identifier hs-var">s</span></a></span><span class="hs-special">)</span><span class="hs-special">)</span><span>
+</span><span id="line-268"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-269"></span><span>
+</span><span id="line-270"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258814"><span id="local-6989586621679258816"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span></span></span><span>
+</span><span id="line-271"></span><span>
+</span><span id="line-272"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258811"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span></span><span>
+</span><span id="line-273"></span><span>
+</span><span id="line-274"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToHeaders</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-275"></span><span>  </span><span id="local-6989586621679258807"><span class="annot"><span class="annottext">toHeaders :: CreateLocationSmb -&gt; ResponseHeaders
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toHeaders</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-276"></span><span>    </span><span class="annot"><span class="annottext">ResponseHeaders -&gt; CreateLocationSmb -&gt; ResponseHeaders
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span>
+</span><span id="line-277"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[ResponseHeaders] -&gt; ResponseHeaders
+forall a. Monoid a =&gt; [a] -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mconcat</span></span><span>
+</span><span id="line-278"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;X-Amz-Target&quot;</span></span><span>
+</span><span id="line-279"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;FmrsService.CreateLocationSmb&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-280"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-281"></span><span>                      </span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-282"></span><span>            </span><span class="annot"><span class="annottext">HeaderName
+</span><span class="hs-string">&quot;Content-Type&quot;</span></span><span>
+</span><span id="line-283"></span><span>              </span><span class="annot"><span class="annottext">HeaderName -&gt; ByteString -&gt; ResponseHeaders
+forall a. ToHeader a =&gt; HeaderName -&gt; a -&gt; ResponseHeaders
+</span><span class="hs-operator hs-var">Core.=#</span></span><span> </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;application/x-amz-json-1.1&quot;</span></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-284"></span><span>                          </span><span class="annot"><span class="hs-identifier hs-type">Prelude.ByteString</span></span><span>
+</span><span id="line-285"></span><span>                      </span><span class="hs-special">)</span><span>
+</span><span id="line-286"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-287"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-288"></span><span>
+</span><span id="line-289"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258797"><span id="local-6989586621679258799"><span id="local-6989586621679258801"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-290"></span><span>  </span><span id="local-6989586621679258795"><span class="annot"><span class="annottext">toJSON :: CreateLocationSmb -&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb%27"><span class="hs-identifier hs-type">CreateLocationSmb'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258786"><span id="local-6989586621679258787"><span id="local-6989586621679258788"><span id="local-6989586621679258789"><span id="local-6989586621679258790"><span id="local-6989586621679258791"><span id="local-6989586621679258792"><span id="local-6989586621679258793"><span class="annot"><span class="annottext">Maybe [TagListEntry]
+Maybe Text
+Maybe SmbMountOptions
+NonEmpty Text
+Text
+Sensitive Text
+agentArns :: NonEmpty Text
+password :: Sensitive Text
+user :: Text
+serverHostname :: Text
+subdirectory :: Text
+tags :: Maybe [TagListEntry]
+mountOptions :: Maybe SmbMountOptions
+domain :: Maybe Text
+$sel:agentArns:CreateLocationSmb' :: CreateLocationSmb -&gt; NonEmpty Text
+$sel:password:CreateLocationSmb' :: CreateLocationSmb -&gt; Sensitive Text
+$sel:user:CreateLocationSmb' :: CreateLocationSmb -&gt; Text
+$sel:serverHostname:CreateLocationSmb' :: CreateLocationSmb -&gt; Text
+$sel:subdirectory:CreateLocationSmb' :: CreateLocationSmb -&gt; Text
+$sel:tags:CreateLocationSmb' :: CreateLocationSmb -&gt; Maybe [TagListEntry]
+$sel:mountOptions:CreateLocationSmb' :: CreateLocationSmb -&gt; Maybe SmbMountOptions
+$sel:domain:CreateLocationSmb' :: CreateLocationSmb -&gt; Maybe Text
+</span><a href="#local-6989586621679258786"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-291"></span><span>    </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-292"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-293"></span><span>          </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Domain&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Text -&gt; Pair) -&gt; Maybe Text -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258793"><span class="hs-identifier hs-var">domain</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-294"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MountOptions&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; SmbMountOptions -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(SmbMountOptions -&gt; Pair) -&gt; Maybe SmbMountOptions -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe SmbMountOptions
+</span><a href="#local-6989586621679258792"><span class="hs-identifier hs-var">mountOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-295"></span><span>            </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tags&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; [TagListEntry] -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([TagListEntry] -&gt; Pair) -&gt; Maybe [TagListEntry] -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe [TagListEntry]
+</span><a href="#local-6989586621679258791"><span class="hs-identifier hs-var">tags</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-296"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Subdirectory&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258790"><span class="hs-identifier hs-var">subdirectory</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-297"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span>
+</span><span id="line-298"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;ServerHostname&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258789"><span class="hs-identifier hs-var">serverHostname</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-299"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;User&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><a href="#local-6989586621679258788"><span class="hs-identifier hs-var">user</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-300"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Password&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Sensitive Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">Sensitive Text
+</span><a href="#local-6989586621679258787"><span class="hs-identifier hs-var">password</span></a></span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-301"></span><span>            </span><span class="annot"><span class="annottext">Pair -&gt; Maybe Pair
+forall a. a -&gt; Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Just</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;AgentArns&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; NonEmpty Text -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span> </span><span class="annot"><span class="annottext">NonEmpty Text
+</span><a href="#local-6989586621679258786"><span class="hs-identifier hs-var">agentArns</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-302"></span><span>          </span><span class="hs-special">]</span><span>
+</span><span id="line-303"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-304"></span><span>
+</span><span id="line-305"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToPath</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-306"></span><span>  </span><span id="local-6989586621679258780"><span class="annot"><span class="annottext">toPath :: CreateLocationSmb -&gt; ByteString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toPath</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">ByteString -&gt; CreateLocationSmb -&gt; ByteString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">ByteString
+</span><span class="hs-string">&quot;/&quot;</span></span><span>
+</span><span id="line-307"></span><span>
+</span><span id="line-308"></span><span class="hs-keyword">instance</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Core.ToQuery</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmb"><span class="hs-identifier hs-type">CreateLocationSmb</span></a></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-309"></span><span>  </span><span id="local-6989586621679258776"><span class="annot"><span class="annottext">toQuery :: CreateLocationSmb -&gt; QueryString
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toQuery</span></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">QueryString -&gt; CreateLocationSmb -&gt; QueryString
+forall a b. a -&gt; b -&gt; a
+</span><span class="hs-identifier hs-var">Prelude.const</span></span><span> </span><span class="annot"><span class="annottext">QueryString
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span>
+</span><span id="line-310"></span><span>
+</span><span id="line-311"></span><span class="hs-comment">-- | CreateLocationSmbResponse</span><span>
+</span><span id="line-312"></span><span class="hs-comment">--</span><span>
+</span><span id="line-313"></span><span class="hs-comment">-- /See:/ 'newCreateLocationSmbResponse' smart constructor.</span><span>
+</span><span id="line-314"></span><span id="local-6989586621679258773"><span id="local-6989586621679258774"></span></span><span class="hs-keyword">data</span><span> </span><span id="CreateLocationSmbResponse"><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-var">CreateLocationSmbResponse</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CreateLocationSmbResponse%27"><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse%27"><span class="hs-identifier hs-var">CreateLocationSmbResponse'</span></a></span></span><span>
+</span><span id="line-315"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source SMB file system location</span><span>
+</span><span id="line-316"></span><span>    </span><span class="hs-comment">-- that is created.</span><span>
+</span><span id="line-317"></span><span>    </span><span id="%24sel%3AlocationArn%3ACreateLocationSmbResponse%27"><span class="annot"><span class="annottext">CreateLocationSmbResponse -&gt; Maybe Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AlocationArn%3ACreateLocationSmbResponse%27"><span class="hs-identifier hs-var hs-var">locationArn</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">,</span><span>
+</span><span id="line-318"></span><span>    </span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-319"></span><span>    </span><span id="%24sel%3AhttpStatus%3ACreateLocationSmbResponse%27"><span class="annot"><span class="annottext">CreateLocationSmbResponse -&gt; Int
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AhttpStatus%3ACreateLocationSmbResponse%27"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-320"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-321"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679258767"><span id="local-6989586621679258769"><span class="annot"><span class="annottext">CreateLocationSmbResponse -&gt; CreateLocationSmbResponse -&gt; Bool
+(CreateLocationSmbResponse -&gt; CreateLocationSmbResponse -&gt; Bool)
+-&gt; (CreateLocationSmbResponse -&gt; CreateLocationSmbResponse -&gt; Bool)
+-&gt; Eq CreateLocationSmbResponse
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CreateLocationSmbResponse -&gt; CreateLocationSmbResponse -&gt; Bool
+$c/= :: CreateLocationSmbResponse -&gt; CreateLocationSmbResponse -&gt; Bool
+== :: CreateLocationSmbResponse -&gt; CreateLocationSmbResponse -&gt; Bool
+$c== :: CreateLocationSmbResponse -&gt; CreateLocationSmbResponse -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258759"><span id="local-6989586621679258761"><span id="local-6989586621679258763"><span id="local-6989586621679258765"><span class="annot"><span class="annottext">ReadPrec [CreateLocationSmbResponse]
+ReadPrec CreateLocationSmbResponse
+Int -&gt; ReadS CreateLocationSmbResponse
+ReadS [CreateLocationSmbResponse]
+(Int -&gt; ReadS CreateLocationSmbResponse)
+-&gt; ReadS [CreateLocationSmbResponse]
+-&gt; ReadPrec CreateLocationSmbResponse
+-&gt; ReadPrec [CreateLocationSmbResponse]
+-&gt; Read CreateLocationSmbResponse
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CreateLocationSmbResponse]
+$creadListPrec :: ReadPrec [CreateLocationSmbResponse]
+readPrec :: ReadPrec CreateLocationSmbResponse
+$creadPrec :: ReadPrec CreateLocationSmbResponse
+readList :: ReadS [CreateLocationSmbResponse]
+$creadList :: ReadS [CreateLocationSmbResponse]
+readsPrec :: Int -&gt; ReadS CreateLocationSmbResponse
+$creadsPrec :: Int -&gt; ReadS CreateLocationSmbResponse
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679258752"><span id="local-6989586621679258754"><span id="local-6989586621679258756"><span class="annot"><span class="annottext">Int -&gt; CreateLocationSmbResponse -&gt; ShowS
+[CreateLocationSmbResponse] -&gt; ShowS
+CreateLocationSmbResponse -&gt; String
+(Int -&gt; CreateLocationSmbResponse -&gt; ShowS)
+-&gt; (CreateLocationSmbResponse -&gt; String)
+-&gt; ([CreateLocationSmbResponse] -&gt; ShowS)
+-&gt; Show CreateLocationSmbResponse
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CreateLocationSmbResponse] -&gt; ShowS
+$cshowList :: [CreateLocationSmbResponse] -&gt; ShowS
+show :: CreateLocationSmbResponse -&gt; String
+$cshow :: CreateLocationSmbResponse -&gt; String
+showsPrec :: Int -&gt; CreateLocationSmbResponse -&gt; ShowS
+$cshowsPrec :: Int -&gt; CreateLocationSmbResponse -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ CreateLocationSmbResponse -&gt; Rep CreateLocationSmbResponse x)
+-&gt; (forall x.
+    Rep CreateLocationSmbResponse x -&gt; CreateLocationSmbResponse)
+-&gt; Generic CreateLocationSmbResponse
+forall x.
+Rep CreateLocationSmbResponse x -&gt; CreateLocationSmbResponse
+forall x.
+CreateLocationSmbResponse -&gt; Rep CreateLocationSmbResponse x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep CreateLocationSmbResponse x -&gt; CreateLocationSmbResponse
+$cfrom :: forall x.
+CreateLocationSmbResponse -&gt; Rep CreateLocationSmbResponse x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-322"></span><span>
+</span><span id="line-323"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-324"></span><span class="hs-comment">-- Create a value of 'CreateLocationSmbResponse' with all optional fields omitted.</span><span>
+</span><span id="line-325"></span><span class="hs-comment">--</span><span>
+</span><span id="line-326"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-327"></span><span class="hs-comment">--</span><span>
+</span><span id="line-328"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-329"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-330"></span><span class="hs-comment">--</span><span>
+</span><span id="line-331"></span><span class="hs-comment">-- 'locationArn', 'createLocationSmbResponse_locationArn' - The Amazon Resource Name (ARN) of the source SMB file system location</span><span>
+</span><span id="line-332"></span><span class="hs-comment">-- that is created.</span><span>
+</span><span id="line-333"></span><span class="hs-comment">--</span><span>
+</span><span id="line-334"></span><span class="hs-comment">-- 'httpStatus', 'createLocationSmbResponse_httpStatus' - The response's http status code.</span><span>
+</span><span id="line-335"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#newCreateLocationSmbResponse"><span class="hs-identifier hs-type">newCreateLocationSmbResponse</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-336"></span><span>  </span><span class="hs-comment">-- | 'httpStatus'</span><span>
+</span><span id="line-337"></span><span>  </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-338"></span><span>  </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-type">CreateLocationSmbResponse</span></a></span><span>
+</span><span id="line-339"></span><span id="newCreateLocationSmbResponse"><span class="annot"><span class="annottext">newCreateLocationSmbResponse :: Int -&gt; CreateLocationSmbResponse
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#newCreateLocationSmbResponse"><span class="hs-identifier hs-var hs-var">newCreateLocationSmbResponse</span></a></span></span><span> </span><span id="local-6989586621679258749"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-340"></span><span>  </span><span class="annot"><span class="annottext">CreateLocationSmbResponse' :: Maybe Text -&gt; Int -&gt; CreateLocationSmbResponse
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse%27"><span class="hs-identifier hs-type">CreateLocationSmbResponse'</span></a></span><span>
+</span><span id="line-341"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:locationArn:CreateLocationSmbResponse' :: Maybe Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AlocationArn%3ACreateLocationSmbResponse%27"><span class="hs-identifier hs-var">locationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-342"></span><span>        </span><span class="annot"><span class="annottext">Maybe Text
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-343"></span><span>      </span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLocationSmbResponse' :: Int
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AhttpStatus%3ACreateLocationSmbResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258749"><span class="hs-identifier hs-var">pHttpStatus_</span></a></span><span>
+</span><span id="line-344"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-345"></span><span>
+</span><span id="line-346"></span><span class="hs-comment">-- | The Amazon Resource Name (ARN) of the source SMB file system location</span><span>
+</span><span id="line-347"></span><span class="hs-comment">-- that is created.</span><span>
+</span><span id="line-348"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmbResponse_locationArn"><span class="hs-identifier hs-type">createLocationSmbResponse_locationArn</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-type">CreateLocationSmbResponse</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Text</span></span><span class="hs-special">)</span><span>
+</span><span id="line-349"></span><span id="createLocationSmbResponse_locationArn"><span class="annot"><span class="annottext">createLocationSmbResponse_locationArn :: (Maybe Text -&gt; f (Maybe Text))
+-&gt; CreateLocationSmbResponse -&gt; f CreateLocationSmbResponse
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmbResponse_locationArn"><span class="hs-identifier hs-var hs-var">createLocationSmbResponse_locationArn</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmbResponse -&gt; Maybe Text)
+-&gt; (CreateLocationSmbResponse
+    -&gt; Maybe Text -&gt; CreateLocationSmbResponse)
+-&gt; Lens
+     CreateLocationSmbResponse
+     CreateLocationSmbResponse
+     (Maybe Text)
+     (Maybe Text)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse%27"><span class="hs-identifier hs-type">CreateLocationSmbResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258748"><span class="annot"><span class="annottext">Maybe Text
+locationArn :: Maybe Text
+$sel:locationArn:CreateLocationSmbResponse' :: CreateLocationSmbResponse -&gt; Maybe Text
+</span><a href="#local-6989586621679258748"><span class="hs-identifier hs-var hs-var">locationArn</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258748"><span class="hs-identifier hs-var">locationArn</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258747"><span class="annot"><span class="annottext">s :: CreateLocationSmbResponse
+</span><a href="#local-6989586621679258747"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse%27"><span class="hs-identifier hs-type">CreateLocationSmbResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258746"><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258746"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmbResponse
+</span><a href="#local-6989586621679258747"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:locationArn:CreateLocationSmbResponse' :: Maybe Text
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AlocationArn%3ACreateLocationSmbResponse%27"><span class="hs-identifier hs-var">locationArn</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Text
+</span><a href="#local-6989586621679258746"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-type">CreateLocationSmbResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-350"></span><span>
+</span><span id="line-351"></span><span class="hs-comment">-- | The response's http status code.</span><span>
+</span><span id="line-352"></span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmbResponse_httpStatus"><span class="hs-identifier hs-type">createLocationSmbResponse_httpStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-type">CreateLocationSmbResponse</span></a></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-353"></span><span id="createLocationSmbResponse_httpStatus"><span class="annot"><span class="annottext">createLocationSmbResponse_httpStatus :: (Int -&gt; f Int)
+-&gt; CreateLocationSmbResponse -&gt; f CreateLocationSmbResponse
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#createLocationSmbResponse_httpStatus"><span class="hs-identifier hs-var hs-var">createLocationSmbResponse_httpStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CreateLocationSmbResponse -&gt; Int)
+-&gt; (CreateLocationSmbResponse -&gt; Int -&gt; CreateLocationSmbResponse)
+-&gt; Lens CreateLocationSmbResponse CreateLocationSmbResponse Int Int
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse%27"><span class="hs-identifier hs-type">CreateLocationSmbResponse'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679258745"><span class="annot"><span class="annottext">Int
+httpStatus :: Int
+$sel:httpStatus:CreateLocationSmbResponse' :: CreateLocationSmbResponse -&gt; Int
+</span><a href="#local-6989586621679258745"><span class="hs-identifier hs-var hs-var">httpStatus</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258745"><span class="hs-identifier hs-var">httpStatus</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679258744"><span class="annot"><span class="annottext">s :: CreateLocationSmbResponse
+</span><a href="#local-6989586621679258744"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse%27"><span class="hs-identifier hs-type">CreateLocationSmbResponse'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679258743"><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258743"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CreateLocationSmbResponse
+</span><a href="#local-6989586621679258744"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:httpStatus:CreateLocationSmbResponse' :: Int
+</span><a href="Amazonka.DataSync.CreateLocationSmb.html#%24sel%3AhttpStatus%3ACreateLocationSmbResponse%27"><span class="hs-identifier hs-var">httpStatus</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Int
+</span><a href="#local-6989586621679258743"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-type">CreateLocationSmbResponse</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-354"></span><span>
+</span><span id="line-355"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679258741"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.DataSync.CreateLocationSmb.html#CreateLocationSmbResponse"><span class="hs-identifier hs-type">CreateLocationSmbResponse</span></a></span></span><span>
+</span><span id="line-356"></span></pre></body></html>

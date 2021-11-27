@@ -1,0 +1,970 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails</span></a></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails</span></a></span><span>
+</span><span id="line-27"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.html"><span class="hs-identifier">Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails</span></a></span><span>
+</span><span id="line-28"></span><span>
+</span><span id="line-29"></span><span class="hs-comment">-- | &gt;Linux-specific modifications that are applied to the container, such as</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- Linux kernel capabilities.</span><span>
+</span><span id="line-31"></span><span class="hs-comment">--</span><span>
+</span><span id="line-32"></span><span class="hs-comment">-- /See:/ 'newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' smart constructor.</span><span>
+</span><span id="line-33"></span><span id="local-6989586621679950246"><span id="local-6989586621679950247"></span></span><span class="hs-keyword">data</span><span> </span><span id="AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span></span><span>
+</span><span id="line-34"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | The value for the size (in MiB) of the __\/dev\/shm__ volume.</span><span>
+</span><span id="line-35"></span><span>    </span><span id="%24sel%3AsharedMemorySize%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AsharedMemorySize%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var hs-var">sharedMemorySize</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-36"></span><span>    </span><span class="hs-comment">-- | The container path, mount options, and size (in MiB) of the tmpfs mount.</span><span>
+</span><span id="line-37"></span><span>    </span><span id="%24sel%3Atmpfs%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Atmpfs%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var hs-var">tmpfs</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-38"></span><span>    </span><span class="hs-comment">-- | Whether to run an @init@ process inside the container that forwards</span><span>
+</span><span id="line-39"></span><span>    </span><span class="hs-comment">-- signals and reaps processes.</span><span>
+</span><span id="line-40"></span><span>    </span><span id="%24sel%3AinitProcessEnabled%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Bool
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AinitProcessEnabled%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var hs-var">initProcessEnabled</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">,</span><span>
+</span><span id="line-41"></span><span>    </span><span class="hs-comment">-- | Configures the container\'s memory swappiness behavior. Determines how</span><span>
+</span><span id="line-42"></span><span>    </span><span class="hs-comment">-- aggressively pages are swapped. The higher the value, the more</span><span>
+</span><span id="line-43"></span><span>    </span><span class="hs-comment">-- aggressive the swappiness. The default is 60.</span><span>
+</span><span id="line-44"></span><span>    </span><span id="%24sel%3Aswappiness%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Aswappiness%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var hs-var">swappiness</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">,</span><span>
+</span><span id="line-45"></span><span>    </span><span class="hs-comment">-- | The host devices to expose to the container.</span><span>
+</span><span id="line-46"></span><span>    </span><span id="%24sel%3Adevices%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Adevices%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">,</span><span>
+</span><span id="line-47"></span><span>    </span><span class="hs-comment">-- | The Linux capabilities for the container that are added to or dropped</span><span>
+</span><span id="line-48"></span><span>    </span><span class="hs-comment">-- from the default configuration provided by Docker.</span><span>
+</span><span id="line-49"></span><span>    </span><span id="%24sel%3Acapabilities%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Acapabilities%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var hs-var">capabilities</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-50"></span><span>    </span><span class="hs-comment">-- | The total amount of swap memory (in MiB) that a container can use.</span><span>
+</span><span id="line-51"></span><span>    </span><span id="%24sel%3AmaxSwap%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AmaxSwap%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var hs-var">maxSwap</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span>
+</span><span id="line-52"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679950234"><span id="local-6989586621679950236"><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Bool
+(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Bool)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Bool)
+-&gt; Eq
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Bool
+$c/= :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Bool
+== :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Bool
+$c== :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679950225"><span id="local-6989586621679950227"><span id="local-6989586621679950229"><span id="local-6989586621679950231"><span class="annot"><span class="annottext">ReadPrec
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+ReadPrec
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+Int
+-&gt; ReadS
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ReadS
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+(Int
+ -&gt; ReadS
+      AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; ReadS
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+-&gt; ReadPrec
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; ReadPrec
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+-&gt; Read
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+$creadListPrec :: ReadPrec
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+readPrec :: ReadPrec
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+$creadPrec :: ReadPrec
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+readList :: ReadS
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+$creadList :: ReadS
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+readsPrec :: Int
+-&gt; ReadS
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+$creadsPrec :: Int
+-&gt; ReadS
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679950218"><span id="local-6989586621679950220"><span id="local-6989586621679950222"><span class="annot"><span class="annottext">Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; ShowS
+[AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+-&gt; ShowS
+AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; String
+(Int
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; ShowS)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; String)
+-&gt; ([AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+    -&gt; ShowS)
+-&gt; Show
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+-&gt; ShowS
+$cshowList :: [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails]
+-&gt; ShowS
+show :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; String
+$cshow :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; String
+showsPrec :: Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; ShowS
+$cshowsPrec :: Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x.
+ AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Rep
+      AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails x)
+-&gt; (forall x.
+    Rep
+      AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails x
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Generic
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall x.
+Rep
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails x
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall x.
+AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Rep
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x.
+Rep
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails x
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+$cfrom :: forall x.
+AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Rep
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-54"></span><span>
+</span><span id="line-55"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-56"></span><span class="hs-comment">-- Create a value of 'AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' with all optional fields omitted.</span><span>
+</span><span id="line-57"></span><span class="hs-comment">--</span><span>
+</span><span id="line-58"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-59"></span><span class="hs-comment">--</span><span>
+</span><span id="line-60"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-61"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-62"></span><span class="hs-comment">--</span><span>
+</span><span id="line-63"></span><span class="hs-comment">-- 'sharedMemorySize', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize' - The value for the size (in MiB) of the __\/dev\/shm__ volume.</span><span>
+</span><span id="line-64"></span><span class="hs-comment">--</span><span>
+</span><span id="line-65"></span><span class="hs-comment">-- 'tmpfs', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs' - The container path, mount options, and size (in MiB) of the tmpfs mount.</span><span>
+</span><span id="line-66"></span><span class="hs-comment">--</span><span>
+</span><span id="line-67"></span><span class="hs-comment">-- 'initProcessEnabled', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled' - Whether to run an @init@ process inside the container that forwards</span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- signals and reaps processes.</span><span>
+</span><span id="line-69"></span><span class="hs-comment">--</span><span>
+</span><span id="line-70"></span><span class="hs-comment">-- 'swappiness', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness' - Configures the container\'s memory swappiness behavior. Determines how</span><span>
+</span><span id="line-71"></span><span class="hs-comment">-- aggressively pages are swapped. The higher the value, the more</span><span>
+</span><span id="line-72"></span><span class="hs-comment">-- aggressive the swappiness. The default is 60.</span><span>
+</span><span id="line-73"></span><span class="hs-comment">--</span><span>
+</span><span id="line-74"></span><span class="hs-comment">-- 'devices', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices' - The host devices to expose to the container.</span><span>
+</span><span id="line-75"></span><span class="hs-comment">--</span><span>
+</span><span id="line-76"></span><span class="hs-comment">-- 'capabilities', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities' - The Linux capabilities for the container that are added to or dropped</span><span>
+</span><span id="line-77"></span><span class="hs-comment">-- from the default configuration provided by Docker.</span><span>
+</span><span id="line-78"></span><span class="hs-comment">--</span><span>
+</span><span id="line-79"></span><span class="hs-comment">-- 'maxSwap', 'awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap' - The total amount of swap memory (in MiB) that a container can use.</span><span>
+</span><span id="line-80"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-81"></span><span>  </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span>
+</span><span id="line-82"></span><span id="newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="annot"><span class="annottext">newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-var hs-var">newAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-83"></span><span>  </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Int
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+-&gt; Maybe
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+-&gt; Maybe Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span>
+</span><span id="line-84"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:sharedMemorySize:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AsharedMemorySize%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-85"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-86"></span><span>      </span><span class="annot"><span class="annottext">$sel:tmpfs:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Atmpfs%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">tmpfs</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-87"></span><span>        </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-88"></span><span>      </span><span class="annot"><span class="annottext">$sel:initProcessEnabled:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Bool
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AinitProcessEnabled%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-89"></span><span>        </span><span class="annot"><span class="annottext">Maybe Bool
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-90"></span><span>      </span><span class="annot"><span class="annottext">$sel:swappiness:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Aswappiness%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">swappiness</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-91"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-92"></span><span>      </span><span class="annot"><span class="annottext">$sel:devices:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Adevices%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-93"></span><span>        </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-94"></span><span>      </span><span class="annot"><span class="annottext">$sel:capabilities:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Acapabilities%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">capabilities</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-95"></span><span>        </span><span class="annot"><span class="annottext">Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span class="hs-special">,</span><span>
+</span><span id="line-96"></span><span>      </span><span class="annot"><span class="annottext">$sel:maxSwap:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AmaxSwap%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">maxSwap</span></a></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-97"></span><span>        </span><span class="annot"><span class="annottext">Maybe Int
+forall a. Maybe a
+</span><span class="hs-identifier hs-var">Prelude.Nothing</span></span><span>
+</span><span id="line-98"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-99"></span><span>
+</span><span id="line-100"></span><span class="hs-comment">-- | The value for the size (in MiB) of the __\/dev\/shm__ volume.</span><span>
+</span><span id="line-101"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-102"></span><span id="awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_sharedMemorySize</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Maybe Int)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Maybe Int
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950209"><span class="annot"><span class="annottext">Maybe Int
+sharedMemorySize :: Maybe Int
+$sel:sharedMemorySize:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+</span><a href="#local-6989586621679950209"><span class="hs-identifier hs-var hs-var">sharedMemorySize</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950209"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679950208"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950208"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679950207"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950207"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950208"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:sharedMemorySize:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AsharedMemorySize%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950207"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-103"></span><span>
+</span><span id="line-104"></span><span class="hs-comment">-- | The container path, mount options, and size (in MiB) of the tmpfs mount.</span><span>
+</span><span id="line-105"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-106"></span><span id="awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs :: (Maybe
+   [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+ -&gt; f (Maybe
+         [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_tmpfs</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Maybe
+      [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Maybe
+         [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950205"><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+tmpfs :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+$sel:tmpfs:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="#local-6989586621679950205"><span class="hs-identifier hs-var hs-var">tmpfs</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="#local-6989586621679950205"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679950204"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950204"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679950203"><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="#local-6989586621679950203"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950204"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:tmpfs:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Atmpfs%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">tmpfs</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="#local-6989586621679950203"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe
+    [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+  -&gt; f (Maybe
+          [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]))
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; ((Maybe
+       [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+     -&gt; f (Maybe
+             [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]))
+    -&gt; Maybe
+         [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+    -&gt; f (Maybe
+            [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]))
+-&gt; (Maybe
+      [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+    -&gt; f (Maybe
+            [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+-&gt; Iso
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-107"></span><span>
+</span><span id="line-108"></span><span class="hs-comment">-- | Whether to run an @init@ process inside the container that forwards</span><span>
+</span><span id="line-109"></span><span class="hs-comment">-- signals and reaps processes.</span><span>
+</span><span id="line-110"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Bool</span></span><span class="hs-special">)</span><span>
+</span><span id="line-111"></span><span id="awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled :: (Maybe Bool -&gt; f (Maybe Bool))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_initProcessEnabled</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Maybe Bool)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Maybe Bool
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     (Maybe Bool)
+     (Maybe Bool)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950198"><span class="annot"><span class="annottext">Maybe Bool
+initProcessEnabled :: Maybe Bool
+$sel:initProcessEnabled:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Bool
+</span><a href="#local-6989586621679950198"><span class="hs-identifier hs-var hs-var">initProcessEnabled</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679950198"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679950197"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950197"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679950196"><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679950196"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950197"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:initProcessEnabled:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Bool
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AinitProcessEnabled%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679950196"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-112"></span><span>
+</span><span id="line-113"></span><span class="hs-comment">-- | Configures the container\'s memory swappiness behavior. Determines how</span><span>
+</span><span id="line-114"></span><span class="hs-comment">-- aggressively pages are swapped. The higher the value, the more</span><span>
+</span><span id="line-115"></span><span class="hs-comment">-- aggressive the swappiness. The default is 60.</span><span>
+</span><span id="line-116"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-117"></span><span id="awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_swappiness</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Maybe Int)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Maybe Int
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950194"><span class="annot"><span class="annottext">Maybe Int
+swappiness :: Maybe Int
+$sel:swappiness:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+</span><a href="#local-6989586621679950194"><span class="hs-identifier hs-var hs-var">swappiness</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950194"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679950193"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950193"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679950192"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950192"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950193"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:swappiness:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Aswappiness%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">swappiness</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950192"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-118"></span><span>
+</span><span id="line-119"></span><span class="hs-comment">-- | The host devices to expose to the container.</span><span>
+</span><span id="line-120"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="hs-special">[</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails</span></a></span><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><span id="line-121"></span><span id="awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices :: (Maybe
+   [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+ -&gt; f (Maybe
+         [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_devices</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Maybe
+      [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Maybe
+         [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950190"><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+devices :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+$sel:devices:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="#local-6989586621679950190"><span class="hs-identifier hs-var hs-var">devices</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="#local-6989586621679950190"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679950189"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950189"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679950188"><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="#local-6989586621679950188"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950189"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:devices:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Adevices%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">devices</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="#local-6989586621679950188"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">((Maybe
+    [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+  -&gt; f (Maybe
+          [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]))
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; ((Maybe
+       [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+     -&gt; f (Maybe
+             [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]))
+    -&gt; Maybe
+         [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+    -&gt; f (Maybe
+            [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]))
+-&gt; (Maybe
+      [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+    -&gt; f (Maybe
+            [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall b c a. (b -&gt; c) -&gt; (a -&gt; b) -&gt; a -&gt; c
+</span><span class="hs-operator hs-var">Prelude..</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+-&gt; Iso
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+forall (f :: * -&gt; *) (g :: * -&gt; *) s t a b.
+(Functor f, Functor g) =&gt;
+AnIso s t a b -&gt; Iso (f s) (g t) (f a) (g b)
+</span><span class="hs-identifier hs-var">Lens.mapping</span></span><span> </span><span class="annot"><span class="annottext">AnIso
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+forall s t a b. (Coercible s a, Coercible t b) =&gt; Iso s t a b
+</span><span class="hs-identifier hs-var">Lens.coerced</span></span><span>
+</span><span id="line-122"></span><span>
+</span><span id="line-123"></span><span class="hs-comment">-- | The Linux capabilities for the container that are added to or dropped</span><span>
+</span><span id="line-124"></span><span class="hs-comment">-- from the default configuration provided by Docker.</span><span>
+</span><span id="line-125"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-126"></span><span id="awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities :: (Maybe
+   AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+ -&gt; f (Maybe
+         AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_capabilities</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Maybe
+      AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Maybe
+         AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     (Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails)
+     (Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950186"><span class="annot"><span class="annottext">Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+capabilities :: Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+$sel:capabilities:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="#local-6989586621679950186"><span class="hs-identifier hs-var hs-var">capabilities</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="#local-6989586621679950186"><span class="hs-identifier hs-var">capabilities</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679950185"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950185"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679950184"><span class="annot"><span class="annottext">Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="#local-6989586621679950184"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950185"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:capabilities:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3Acapabilities%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">capabilities</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="#local-6989586621679950184"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-127"></span><span>
+</span><span id="line-128"></span><span class="hs-comment">-- | The total amount of swap memory (in MiB) that a container can use.</span><span>
+</span><span id="line-129"></span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap"><span class="hs-identifier hs-type">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Prelude.Maybe</span></span><span> </span><span class="annot"><span class="hs-identifier hs-type">Prelude.Int</span></span><span class="hs-special">)</span><span>
+</span><span id="line-130"></span><span id="awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap"><span class="annot"><span class="annottext">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap :: (Maybe Int -&gt; f (Maybe Int))
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; f AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap"><span class="hs-identifier hs-var hs-var">awsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails_maxSwap</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+ -&gt; Maybe Int)
+-&gt; (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+    -&gt; Maybe Int
+    -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Lens
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+     (Maybe Int)
+     (Maybe Int)
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950182"><span class="annot"><span class="annottext">Maybe Int
+maxSwap :: Maybe Int
+$sel:maxSwap:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+</span><a href="#local-6989586621679950182"><span class="hs-identifier hs-var hs-var">maxSwap</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950182"><span class="hs-identifier hs-var">maxSwap</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679950181"><span class="annot"><span class="annottext">s :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950181"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679950180"><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950180"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="#local-6989586621679950181"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:maxSwap:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: Maybe Int
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#%24sel%3AmaxSwap%3AAwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">maxSwap</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950180"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-131"></span><span>
+</span><span id="line-132"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-133"></span><span>  </span><span id="local-6989586621679950177"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span>
+</span><span id="line-134"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span></span><span>
+</span><span id="line-135"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-136"></span><span>  </span><span id="local-6989586621679950175"><span class="annot"><span class="annottext">parseJSON :: Value
+-&gt; Parser
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-137"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object
+    -&gt; Parser
+         AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Value
+-&gt; Parser
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-138"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails&quot;</span></span><span>
+</span><span id="line-139"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679950172"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-140"></span><span>          </span><span class="annot"><span class="annottext">Maybe Int
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+-&gt; Maybe Bool
+-&gt; Maybe Int
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+-&gt; Maybe
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+-&gt; Maybe Int
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+</span><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-var">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span>
+</span><span id="line-141"></span><span>            </span><span class="annot"><span class="annottext">(Maybe Int
+ -&gt; Maybe
+      [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+ -&gt; Maybe Bool
+ -&gt; Maybe Int
+ -&gt; Maybe
+      [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+ -&gt; Maybe
+      AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+ -&gt; Maybe Int
+ -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+      -&gt; Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe
+           [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+      -&gt; Maybe
+           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+      -&gt; Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedMemorySize&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-142"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+   -&gt; Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+   -&gt; Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+   -&gt; Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Parser
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+-&gt; Parser
+     (Maybe Bool
+      -&gt; Maybe Int
+      -&gt; Maybe
+           [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+      -&gt; Maybe
+           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+      -&gt; Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe
+        (Maybe
+           [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tmpfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser
+  (Maybe
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]))
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+-&gt; Parser
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-143"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Bool
+   -&gt; Maybe Int
+   -&gt; Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+   -&gt; Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+   -&gt; Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Parser (Maybe Bool)
+-&gt; Parser
+     (Maybe Int
+      -&gt; Maybe
+           [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+      -&gt; Maybe
+           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+      -&gt; Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Bool)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitProcessEnabled&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-144"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+   -&gt; Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+   -&gt; Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+      -&gt; Maybe
+           AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+      -&gt; Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Swappiness&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-145"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+   -&gt; Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+   -&gt; Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Parser
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+-&gt; Parser
+     (Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+      -&gt; Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe
+        (Maybe
+           [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]))
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Parser
+  (Maybe
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]))
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+-&gt; Parser
+     (Maybe
+        [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails])
+forall a. Parser (Maybe a) -&gt; a -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..!=</span></span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+forall a. Monoid a =&gt; a
+</span><span class="hs-identifier hs-var">Prelude.mempty</span></span><span class="hs-special">)</span><span>
+</span><span id="line-146"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+   -&gt; Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Parser
+     (Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails)
+-&gt; Parser
+     (Maybe Int
+      -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object
+-&gt; Text
+-&gt; Parser
+     (Maybe
+        AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Capabilities&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-147"></span><span>              </span><span class="annot"><span class="annottext">Parser
+  (Maybe Int
+   -&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails)
+-&gt; Parser (Maybe Int)
+-&gt; Parser
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679950172"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser (Maybe Int)
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser (Maybe a)
+</span><span class="hs-operator hs-var">Core..:?</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxSwap&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-148"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-149"></span><span>
+</span><span id="line-150"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-151"></span><span>  </span><span id="local-6989586621679950165"><span id="local-6989586621679950167"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span>
+</span><span id="line-152"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span></span></span><span>
+</span><span id="line-153"></span><span>
+</span><span id="line-154"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-155"></span><span>  </span><span id="local-6989586621679950162"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span>
+</span><span id="line-156"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span></span><span>
+</span><span id="line-157"></span><span>
+</span><span id="line-158"></span><span class="hs-keyword">instance</span><span>
+</span><span id="line-159"></span><span>  </span><span id="local-6989586621679950154"><span id="local-6989586621679950156"><span id="local-6989586621679950158"><span class="annot"><span class="hs-identifier hs-type">Core.ToJSON</span></span><span>
+</span><span id="line-160"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails</span></a></span></span></span></span><span>
+</span><span id="line-161"></span><span>  </span><span class="hs-keyword">where</span><span>
+</span><span id="line-162"></span><span>  </span><span id="local-6989586621679950152"><span class="annot"><span class="annottext">toJSON :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Value
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">toJSON</span></span></span><span>
+</span><span id="line-163"></span><span>    </span><span class="annot"><a href="Amazonka.SecurityHub.Types.AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.html#AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails%27"><span class="hs-identifier hs-type">AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679950144"><span id="local-6989586621679950145"><span id="local-6989586621679950146"><span id="local-6989586621679950147"><span id="local-6989586621679950148"><span id="local-6989586621679950149"><span id="local-6989586621679950150"><span class="annot"><span class="annottext">Maybe Bool
+Maybe Int
+Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+maxSwap :: Maybe Int
+capabilities :: Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+devices :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+swappiness :: Maybe Int
+initProcessEnabled :: Maybe Bool
+tmpfs :: Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+sharedMemorySize :: Maybe Int
+$sel:maxSwap:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+$sel:capabilities:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+$sel:devices:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+$sel:swappiness:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+$sel:initProcessEnabled:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Bool
+$sel:tmpfs:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+$sel:sharedMemorySize:AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails' :: AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
+-&gt; Maybe Int
+</span><a href="#local-6989586621679950144"><span class="hs-glyph hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">..</span></a></span></span></span></span></span></span></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-164"></span><span>      </span><span class="annot"><span class="annottext">[Pair] -&gt; Value
+</span><span class="hs-identifier hs-var">Core.object</span></span><span>
+</span><span id="line-165"></span><span>        </span><span class="hs-special">(</span><span> </span><span class="annot"><span class="annottext">[Maybe Pair] -&gt; [Pair]
+forall a. [Maybe a] -&gt; [a]
+</span><span class="hs-identifier hs-var">Prelude.catMaybes</span></span><span>
+</span><span id="line-166"></span><span>            </span><span class="hs-special">[</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;SharedMemorySize&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-167"></span><span>                </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950150"><span class="hs-identifier hs-var">sharedMemorySize</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-168"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Tmpfs&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+-&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+ -&gt; Pair)
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails]
+</span><a href="#local-6989586621679950149"><span class="hs-identifier hs-var">tmpfs</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-169"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;InitProcessEnabled&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Bool -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span>
+</span><span id="line-170"></span><span>                </span><span class="annot"><span class="annottext">(Bool -&gt; Pair) -&gt; Maybe Bool -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Bool
+</span><a href="#local-6989586621679950148"><span class="hs-identifier hs-var">initProcessEnabled</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-171"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Swappiness&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950147"><span class="hs-identifier hs-var">swappiness</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-172"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Devices&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+-&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">([AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+ -&gt; Pair)
+-&gt; Maybe
+     [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe
+  [AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails]
+</span><a href="#local-6989586621679950146"><span class="hs-identifier hs-var">devices</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-173"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Capabilities&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text
+-&gt; AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+-&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+ -&gt; Pair)
+-&gt; Maybe
+     AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+-&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
+</span><a href="#local-6989586621679950145"><span class="hs-identifier hs-var">capabilities</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-174"></span><span>              </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;MaxSwap&quot;</span></span><span> </span><span class="annot"><span class="annottext">Text -&gt; Int -&gt; Pair
+forall kv v. (KeyValue kv, ToJSON v) =&gt; Text -&gt; v -&gt; kv
+</span><span class="hs-operator hs-var">Core..=</span></span><span class="hs-special">)</span><span> </span><span class="annot"><span class="annottext">(Int -&gt; Pair) -&gt; Maybe Int -&gt; Maybe Pair
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="annot"><span class="annottext">Maybe Int
+</span><a href="#local-6989586621679950144"><span class="hs-identifier hs-var">maxSwap</span></a></span><span>
+</span><span id="line-175"></span><span>            </span><span class="hs-special">]</span><span>
+</span><span id="line-176"></span><span>        </span><span class="hs-special">)</span><span>
+</span><span id="line-177"></span></pre></body></html>

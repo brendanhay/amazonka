@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-pragma">{-# LANGUAGE DeriveGeneric #-}</span><span>
+</span><span id="line-2"></span><span class="hs-pragma">{-# LANGUAGE DuplicateRecordFields #-}</span><span>
+</span><span id="line-3"></span><span class="hs-pragma">{-# LANGUAGE NamedFieldPuns #-}</span><span>
+</span><span id="line-4"></span><span class="hs-pragma">{-# LANGUAGE OverloadedStrings #-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE RecordWildCards #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE StrictData #-}</span><span>
+</span><span id="line-7"></span><span class="hs-pragma">{-# LANGUAGE NoImplicitPrelude #-}</span><span>
+</span><span id="line-8"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-imports #-}</span><span>
+</span><span id="line-9"></span><span class="hs-pragma">{-# OPTIONS_GHC -fno-warn-unused-matches #-}</span><span>
+</span><span id="line-10"></span><span>
+</span><span id="line-11"></span><span class="hs-comment">-- Derived from AWS service descriptions, licensed under Apache 2.0.</span><span>
+</span><span id="line-12"></span><span>
+</span><span id="line-13"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- Module      : Amazonka.ElasticSearch.Types.CognitoOptionsStatus</span><span>
+</span><span id="line-15"></span><span class="hs-comment">-- Copyright   : (c) 2013-2021 Brendan Hay</span><span>
+</span><span id="line-16"></span><span class="hs-comment">-- License     : Mozilla Public License, v. 2.0.</span><span>
+</span><span id="line-17"></span><span class="hs-comment">-- Maintainer  : Brendan Hay &lt;brendan.g.hay+amazonka@gmail.com&gt;</span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- Stability   : auto-generated</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- Portability : non-portable (GHC extensions)</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Amazonka.ElasticSearch.Types.CognitoOptionsStatus</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-21"></span><span>
+</span><span id="line-22"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Core</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Core</span></span><span>
+</span><span id="line-23"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptions.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.CognitoOptions</span></a></span><span>
+</span><span id="line-24"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html"><span class="hs-identifier">Amazonka.ElasticSearch.Types.OptionStatus</span></a></span><span>
+</span><span id="line-25"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Lens</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Lens</span></span><span>
+</span><span id="line-26"></span><span class="hs-keyword">import</span><span> </span><span class="hs-keyword">qualified</span><span> </span><span class="annot"><span class="hs-identifier">Amazonka.Prelude</span></span><span> </span><span class="hs-keyword">as</span><span> </span><span class="annot"><span class="hs-identifier">Prelude</span></span><span>
+</span><span id="line-27"></span><span>
+</span><span id="line-28"></span><span class="hs-comment">-- | Status of the Cognito options for the specified Elasticsearch domain.</span><span>
+</span><span id="line-29"></span><span class="hs-comment">--</span><span>
+</span><span id="line-30"></span><span class="hs-comment">-- /See:/ 'newCognitoOptionsStatus' smart constructor.</span><span>
+</span><span id="line-31"></span><span id="local-6989586621679297688"><span id="local-6989586621679297689"></span></span><span class="hs-keyword">data</span><span> </span><span id="CognitoOptionsStatus"><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-var">CognitoOptionsStatus</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="CognitoOptionsStatus%27"><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-var">CognitoOptionsStatus'</span></a></span></span><span>
+</span><span id="line-32"></span><span>  </span><span class="hs-special">{</span><span> </span><span class="hs-comment">-- | Specifies the Cognito options for the specified Elasticsearch domain.</span><span>
+</span><span id="line-33"></span><span>    </span><span id="%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="annot"><span class="annottext">CognitoOptionsStatus -&gt; CognitoOptions
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptions.html#CognitoOptions"><span class="hs-identifier hs-type">CognitoOptions</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-34"></span><span>    </span><span class="hs-comment">-- | Specifies the status of the Cognito options for the specified</span><span>
+</span><span id="line-35"></span><span>    </span><span class="hs-comment">-- Elasticsearch domain.</span><span>
+</span><span id="line-36"></span><span>    </span><span id="%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="annot"><span class="annottext">CognitoOptionsStatus -&gt; OptionStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
+</span><span id="line-37"></span><span>  </span><span class="hs-special">}</span><span>
+</span><span id="line-38"></span><span>  </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679297681"><span id="local-6989586621679297683"><span class="annot"><span class="annottext">CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
+(CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool)
+-&gt; (CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool)
+-&gt; Eq CognitoOptionsStatus
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
+$c/= :: CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
+== :: CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
+$c== :: CognitoOptionsStatus -&gt; CognitoOptionsStatus -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Eq</span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297672"><span id="local-6989586621679297674"><span id="local-6989586621679297676"><span id="local-6989586621679297678"><span class="annot"><span class="annottext">ReadPrec [CognitoOptionsStatus]
+ReadPrec CognitoOptionsStatus
+Int -&gt; ReadS CognitoOptionsStatus
+ReadS [CognitoOptionsStatus]
+(Int -&gt; ReadS CognitoOptionsStatus)
+-&gt; ReadS [CognitoOptionsStatus]
+-&gt; ReadPrec CognitoOptionsStatus
+-&gt; ReadPrec [CognitoOptionsStatus]
+-&gt; Read CognitoOptionsStatus
+forall a.
+(Int -&gt; ReadS a)
+-&gt; ReadS [a] -&gt; ReadPrec a -&gt; ReadPrec [a] -&gt; Read a
+readListPrec :: ReadPrec [CognitoOptionsStatus]
+$creadListPrec :: ReadPrec [CognitoOptionsStatus]
+readPrec :: ReadPrec CognitoOptionsStatus
+$creadPrec :: ReadPrec CognitoOptionsStatus
+readList :: ReadS [CognitoOptionsStatus]
+$creadList :: ReadS [CognitoOptionsStatus]
+readsPrec :: Int -&gt; ReadS CognitoOptionsStatus
+$creadsPrec :: Int -&gt; ReadS CognitoOptionsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Read</span></span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679297665"><span id="local-6989586621679297667"><span id="local-6989586621679297669"><span class="annot"><span class="annottext">Int -&gt; CognitoOptionsStatus -&gt; ShowS
+[CognitoOptionsStatus] -&gt; ShowS
+CognitoOptionsStatus -&gt; String
+(Int -&gt; CognitoOptionsStatus -&gt; ShowS)
+-&gt; (CognitoOptionsStatus -&gt; String)
+-&gt; ([CognitoOptionsStatus] -&gt; ShowS)
+-&gt; Show CognitoOptionsStatus
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [CognitoOptionsStatus] -&gt; ShowS
+$cshowList :: [CognitoOptionsStatus] -&gt; ShowS
+show :: CognitoOptionsStatus -&gt; String
+$cshow :: CognitoOptionsStatus -&gt; String
+showsPrec :: Int -&gt; CognitoOptionsStatus -&gt; ShowS
+$cshowsPrec :: Int -&gt; CognitoOptionsStatus -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Prelude.Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span class="annot"><span class="annottext">(forall x. CognitoOptionsStatus -&gt; Rep CognitoOptionsStatus x)
+-&gt; (forall x. Rep CognitoOptionsStatus x -&gt; CognitoOptionsStatus)
+-&gt; Generic CognitoOptionsStatus
+forall x. Rep CognitoOptionsStatus x -&gt; CognitoOptionsStatus
+forall x. CognitoOptionsStatus -&gt; Rep CognitoOptionsStatus x
+forall a.
+(forall x. a -&gt; Rep a x) -&gt; (forall x. Rep a x -&gt; a) -&gt; Generic a
+$cto :: forall x. Rep CognitoOptionsStatus x -&gt; CognitoOptionsStatus
+$cfrom :: forall x. CognitoOptionsStatus -&gt; Rep CognitoOptionsStatus x
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">Prelude.Generic</span></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-comment">-- |</span><span>
+</span><span id="line-41"></span><span class="hs-comment">-- Create a value of 'CognitoOptionsStatus' with all optional fields omitted.</span><span>
+</span><span id="line-42"></span><span class="hs-comment">--</span><span>
+</span><span id="line-43"></span><span class="hs-comment">-- Use &lt;https://hackage.haskell.org/package/generic-lens generic-lens&gt; or &lt;https://hackage.haskell.org/package/optics optics&gt; to modify other optional fields.</span><span>
+</span><span id="line-44"></span><span class="hs-comment">--</span><span>
+</span><span id="line-45"></span><span class="hs-comment">-- The following record fields are available, with the corresponding lenses provided</span><span>
+</span><span id="line-46"></span><span class="hs-comment">-- for backwards compatibility:</span><span>
+</span><span id="line-47"></span><span class="hs-comment">--</span><span>
+</span><span id="line-48"></span><span class="hs-comment">-- 'options', 'cognitoOptionsStatus_options' - Specifies the Cognito options for the specified Elasticsearch domain.</span><span>
+</span><span id="line-49"></span><span class="hs-comment">--</span><span>
+</span><span id="line-50"></span><span class="hs-comment">-- 'status', 'cognitoOptionsStatus_status' - Specifies the status of the Cognito options for the specified</span><span>
+</span><span id="line-51"></span><span class="hs-comment">-- Elasticsearch domain.</span><span>
+</span><span id="line-52"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#newCognitoOptionsStatus"><span class="hs-identifier hs-type">newCognitoOptionsStatus</span></a></span><span> </span><span class="hs-glyph">::</span><span>
+</span><span id="line-53"></span><span>  </span><span class="hs-comment">-- | 'options'</span><span>
+</span><span id="line-54"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptions.html#CognitoOptions"><span class="hs-identifier hs-type">CognitoOptions</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-55"></span><span>  </span><span class="hs-comment">-- | 'status'</span><span>
+</span><span id="line-56"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-57"></span><span>  </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span>
+</span><span id="line-58"></span><span id="newCognitoOptionsStatus"><span class="annot"><span class="annottext">newCognitoOptionsStatus :: CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#newCognitoOptionsStatus"><span class="hs-identifier hs-var hs-var">newCognitoOptionsStatus</span></a></span></span><span> </span><span id="local-6989586621679297659"><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297659"><span class="hs-identifier hs-var">pOptions_</span></a></span></span><span> </span><span id="local-6989586621679297658"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297658"><span class="hs-identifier hs-var">pStatus_</span></a></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-59"></span><span>  </span><span class="annot"><span class="annottext">CognitoOptionsStatus' :: CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span>
+</span><span id="line-60"></span><span>    </span><span class="hs-special">{</span><span> </span><span class="annot"><span class="annottext">$sel:options:CognitoOptionsStatus' :: CognitoOptions
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297659"><span class="hs-identifier hs-var">pOptions_</span></a></span><span class="hs-special">,</span><span>
+</span><span id="line-61"></span><span>      </span><span class="annot"><span class="annottext">$sel:status:CognitoOptionsStatus' :: OptionStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297658"><span class="hs-identifier hs-var">pStatus_</span></a></span><span>
+</span><span id="line-62"></span><span>    </span><span class="hs-special">}</span><span>
+</span><span id="line-63"></span><span>
+</span><span id="line-64"></span><span class="hs-comment">-- | Specifies the Cognito options for the specified Elasticsearch domain.</span><span>
+</span><span id="line-65"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#cognitoOptionsStatus_options"><span class="hs-identifier hs-type">cognitoOptionsStatus_options</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptions.html#CognitoOptions"><span class="hs-identifier hs-type">CognitoOptions</span></a></span><span>
+</span><span id="line-66"></span><span id="cognitoOptionsStatus_options"><span class="annot"><span class="annottext">cognitoOptionsStatus_options :: (CognitoOptions -&gt; f CognitoOptions)
+-&gt; CognitoOptionsStatus -&gt; f CognitoOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#cognitoOptionsStatus_options"><span class="hs-identifier hs-var hs-var">cognitoOptionsStatus_options</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CognitoOptionsStatus -&gt; CognitoOptions)
+-&gt; (CognitoOptionsStatus -&gt; CognitoOptions -&gt; CognitoOptionsStatus)
+-&gt; Lens
+     CognitoOptionsStatus
+     CognitoOptionsStatus
+     CognitoOptions
+     CognitoOptions
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297654"><span class="annot"><span class="annottext">CognitoOptions
+options :: CognitoOptions
+$sel:options:CognitoOptionsStatus' :: CognitoOptionsStatus -&gt; CognitoOptions
+</span><a href="#local-6989586621679297654"><span class="hs-identifier hs-var hs-var">options</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297654"><span class="hs-identifier hs-var">options</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297653"><span class="annot"><span class="annottext">s :: CognitoOptionsStatus
+</span><a href="#local-6989586621679297653"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297652"><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptionsStatus
+</span><a href="#local-6989586621679297653"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:options:CognitoOptionsStatus' :: CognitoOptions
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Aoptions%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">options</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">CognitoOptions
+</span><a href="#local-6989586621679297652"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-67"></span><span>
+</span><span id="line-68"></span><span class="hs-comment">-- | Specifies the status of the Cognito options for the specified</span><span>
+</span><span id="line-69"></span><span class="hs-comment">-- Elasticsearch domain.</span><span>
+</span><span id="line-70"></span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#cognitoOptionsStatus_status"><span class="hs-identifier hs-type">cognitoOptionsStatus_status</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Lens.Lens'</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.OptionStatus.html#OptionStatus"><span class="hs-identifier hs-type">OptionStatus</span></a></span><span>
+</span><span id="line-71"></span><span id="cognitoOptionsStatus_status"><span class="annot"><span class="annottext">cognitoOptionsStatus_status :: (OptionStatus -&gt; f OptionStatus)
+-&gt; CognitoOptionsStatus -&gt; f CognitoOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#cognitoOptionsStatus_status"><span class="hs-identifier hs-var hs-var">cognitoOptionsStatus_status</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">(CognitoOptionsStatus -&gt; OptionStatus)
+-&gt; (CognitoOptionsStatus -&gt; OptionStatus -&gt; CognitoOptionsStatus)
+-&gt; Lens
+     CognitoOptionsStatus CognitoOptionsStatus OptionStatus OptionStatus
+forall s a b t. (s -&gt; a) -&gt; (s -&gt; b -&gt; t) -&gt; Lens s t a b
+</span><span class="hs-identifier hs-var">Lens.lens</span></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span id="local-6989586621679297650"><span class="annot"><span class="annottext">OptionStatus
+status :: OptionStatus
+$sel:status:CognitoOptionsStatus' :: CognitoOptionsStatus -&gt; OptionStatus
+</span><a href="#local-6989586621679297650"><span class="hs-identifier hs-var hs-var">status</span></a></span></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297650"><span class="hs-identifier hs-var">status</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="hs-glyph">\</span><span id="local-6989586621679297649"><span class="annot"><span class="annottext">s :: CognitoOptionsStatus
+</span><a href="#local-6989586621679297649"><span class="hs-identifier hs-var">s</span></a></span></span><span class="hs-glyph">@</span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-type">CognitoOptionsStatus'</span></a></span><span> </span><span class="hs-special">{</span><span class="hs-special">}</span><span> </span><span id="local-6989586621679297648"><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297648"><span class="hs-identifier hs-var">a</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="annottext">CognitoOptionsStatus
+</span><a href="#local-6989586621679297649"><span class="hs-identifier hs-var">s</span></a></span><span> </span><span class="hs-special">{</span><span class="annot"><span class="annottext">$sel:status:CognitoOptionsStatus' :: OptionStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#%24sel%3Astatus%3ACognitoOptionsStatus%27"><span class="hs-identifier hs-var">status</span></a></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">OptionStatus
+</span><a href="#local-6989586621679297648"><span class="hs-identifier hs-var">a</span></a></span><span class="hs-special">}</span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-72"></span><span>
+</span><span id="line-73"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297645"><span class="annot"><span class="hs-identifier hs-type">Core.FromJSON</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-74"></span><span>  </span><span id="local-6989586621679297643"><span class="annot"><span class="annottext">parseJSON :: Value -&gt; Parser CognitoOptionsStatus
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var">parseJSON</span></span></span><span> </span><span class="hs-glyph">=</span><span>
+</span><span id="line-75"></span><span>    </span><span class="annot"><span class="annottext">String
+-&gt; (Object -&gt; Parser CognitoOptionsStatus)
+-&gt; Value
+-&gt; Parser CognitoOptionsStatus
+forall a. String -&gt; (Object -&gt; Parser a) -&gt; Value -&gt; Parser a
+</span><span class="hs-identifier hs-var">Core.withObject</span></span><span>
+</span><span id="line-76"></span><span>      </span><span class="annot"><span class="annottext">String
+</span><span class="hs-string">&quot;CognitoOptionsStatus&quot;</span></span><span>
+</span><span id="line-77"></span><span>      </span><span class="hs-special">(</span><span> </span><span class="hs-glyph">\</span><span id="local-6989586621679297640"><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297640"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span class="hs-glyph">-&gt;</span><span>
+</span><span id="line-78"></span><span>          </span><span class="annot"><span class="annottext">CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus
+</span><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus%27"><span class="hs-identifier hs-var">CognitoOptionsStatus'</span></a></span><span>
+</span><span id="line-79"></span><span>            </span><span class="annot"><span class="annottext">(CognitoOptions -&gt; OptionStatus -&gt; CognitoOptionsStatus)
+-&gt; Parser CognitoOptions
+-&gt; Parser (OptionStatus -&gt; CognitoOptionsStatus)
+forall (f :: * -&gt; *) a b. Functor f =&gt; (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;$&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser CognitoOptions
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Options&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-80"></span><span>            </span><span class="annot"><span class="annottext">Parser (OptionStatus -&gt; CognitoOptionsStatus)
+-&gt; Parser OptionStatus -&gt; Parser CognitoOptionsStatus
+forall (f :: * -&gt; *) a b. Applicative f =&gt; f (a -&gt; b) -&gt; f a -&gt; f b
+</span><span class="hs-operator hs-var">Prelude.&lt;*&gt;</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">Object
+</span><a href="#local-6989586621679297640"><span class="hs-identifier hs-var">x</span></a></span><span> </span><span class="annot"><span class="annottext">Object -&gt; Text -&gt; Parser OptionStatus
+forall a. FromJSON a =&gt; Object -&gt; Text -&gt; Parser a
+</span><span class="hs-operator hs-var">Core..:</span></span><span> </span><span class="annot"><span class="annottext">Text
+</span><span class="hs-string">&quot;Status&quot;</span></span><span class="hs-special">)</span><span>
+</span><span id="line-81"></span><span>      </span><span class="hs-special">)</span><span>
+</span><span id="line-82"></span><span>
+</span><span id="line-83"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297634"><span id="local-6989586621679297636"><span class="annot"><span class="hs-identifier hs-type">Prelude.Hashable</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span></span><span>
+</span><span id="line-84"></span><span>
+</span><span id="line-85"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679297631"><span class="annot"><span class="hs-identifier hs-type">Prelude.NFData</span></span><span> </span><span class="annot"><a href="Amazonka.ElasticSearch.Types.CognitoOptionsStatus.html#CognitoOptionsStatus"><span class="hs-identifier hs-type">CognitoOptionsStatus</span></a></span></span><span>
+</span><span id="line-86"></span></pre></body></html>
